@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Voorbeelden van de implementatie van Azure enterprise scaffold
 Dit onderwerp vindt u voorbeelden van hoe de aanbevelingen voor in een onderneming implementeren kunt een [Azure enterprise scaffold](resource-manager-subscription-governance.md). Een fictief bedrijf met de naam Contoso wordt gebruikt ter illustratie van best practices voor algemene scenario's.
@@ -68,14 +68,14 @@ Dave gelden de volgende vereisten voor het beheren van resources in het abonneme
 * Hij is betrokken zijn bij de kosten. Daarom hij om te voorkomen dat toepassingseigenaars onnodig dure virtuele machines maken.  
 * Omdat deze toepassing ontwikkelaars in vele business units fungeert, wil hij tag van elke resource met de eigenaar van het bedrijf eenheid en de toepassing. Met behulp van deze tags kunnen ETS factureren de juiste teams.
 
-Hij maakt de volgende [Resource Manager-beleid](resource-manager-policy.md):
+Hij maakt de volgende [Azure beleid](../azure-policy/azure-policy-introduction.md):
 
 | Veld | Effect | Beschrijving |
 | --- | --- | --- |
 | location |Audit |Het maken van de resources in elke regio controleren |
-| type |Weigeren |Maken van virtuele machines van G-reeks weigeren |
-| tags |Weigeren |Toepassing eigenaar tag vereisen |
-| tags |Weigeren |De tag center kosten vereisen |
+| type |weigeren |Maken van virtuele machines van G-reeks weigeren |
+| tags |weigeren |Toepassing eigenaar tag vereisen |
+| tags |weigeren |De tag center kosten vereisen |
 | tags |toevoegen |Toevoeg-labelnaam **Business Unit** en tagwaarde **ETS** tot alle bronnen |
 
 ### <a name="resource-tags"></a>Resourcetags
@@ -105,7 +105,7 @@ Dave herkent dat de connectiviteit van het bedrijfsnetwerk van Contoso met het i
 
 Hij maakt de volgende [resource vergrendeling](resource-group-lock-resources.md):
 
-| Vergrendelingstype | Resource | Beschrijving |
+| Type van de vergrendeling | Resource | Beschrijving |
 | --- | --- | --- |
 | **CanNotDelete** |interne-vnet |Voorkomen dat gebruikers verwijderen van het virtuele netwerk of subnetten, maar voorkomt niet dat voor het toevoegen van nieuwe subnetten |
 
@@ -143,9 +143,9 @@ Voor de **productie abonnement**, ze de volgende beleidsregels maken:
 
 | Veld | Effect | Beschrijving |
 | --- | --- | --- |
-| location |Weigeren |Het maken van alle resources buiten de Verenigde Staten-datacenters weigeren |
-| tags |Weigeren |Toepassing eigenaar tag vereisen |
-| tags |Weigeren |Afdeling tag vereisen |
+| location |weigeren |Het maken van alle resources buiten de Verenigde Staten-datacenters weigeren |
+| tags |weigeren |Toepassing eigenaar tag vereisen |
+| tags |weigeren |Afdeling tag vereisen |
 | tags |toevoegen |Code toevoegen aan elke resourcegroep die productie-omgeving aangeeft |
 
 Ze beperken niet het type van een gebruiker in productie maken kan sku.
@@ -180,7 +180,7 @@ Dave en Els verlenen en besluit toe te voegen van bronvergrendelingen op sommige
 
 Ze maken de volgende vergrendeling:
 
-| Vergrendelingstype | Resource | Beschrijving |
+| Type van de vergrendeling | Resource | Beschrijving |
 | --- | --- | --- |
 | **CanNotDelete** |externe-vnet |Om te voorkomen dat mensen verwijderen van het virtuele netwerk of subnetten. De vergrendeling voorkomt niet dat voor het toevoegen van nieuwe subnetten |
 

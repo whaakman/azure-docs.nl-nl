@@ -13,13 +13,13 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 11/14/2017
 ms.author: billgib;genemi
-ms.openlocfilehash: e10a954ba57782f4f79131ab583b5a73edf4ba02
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Welkom bij de Wingtip Tickets SaaS Azure SQL Database tenancymodus voorbeeldapp
 
@@ -37,9 +37,9 @@ U kunt de app Wingtip Tickets installeren in uw eigen Azure-abonnement in vijf m
 
 Toepassingscode en het management-scripts, zijn allemaal beschikbaar op GitHub:
 
-- **Zelfstandige app** model: *(binnenkort binnen dagen).*
-- **Database per tenant** model: [WingtipSaaS opslagplaats](https://github.com/Microsoft/WingtipSaaS/).
-- **Shard multitenant** model, de *hybride*: *(binnenkort binnen dagen).*
+- **Zelfstandige app** model: [WingtipTicketsSaaS StandaloneApp opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+- **Database per tenant** model: [WingtipTicketsSaaS DbPerTenant opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
+- **Shard multitenant** model: [WingtipTicketsSaaS MultiTenantDB opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
 
 Dezelfde één codebasis voor de app Wingtip Tickets opnieuw wordt gebruikt voor alle voorgaande modellen die worden vermeld. De code van Github kunt u uw eigen SaaS-projecten starten.
 
@@ -79,8 +79,6 @@ Dit model maakt gebruik van een toepassing voor één tenant. Daarom dit model m
 
 U kunt dit model gebruiken wanneer u exemplaren van uw app aan veel verschillende clients voor elke client worden uitgevoerd op een eigen verkopen. De client is de enige tenant. Terwijl de database voor slechts één client-gegevens opslaat, worden gegevens in de database opgeslagen voor veel klanten van de client.
 
-- *(-Zelfstudies voor dit model worden gepubliceerd hier binnen een paar dagen. Een koppeling worden hier.)*
-
 #### <a name="database-per-tenant"></a>Database per tenant
 
 ![Database per tenant model][database-per-tenant-model-35d]
@@ -99,8 +97,7 @@ Dit model heeft meerdere tenants in het exemplaar van de toepassing. Dit model h
 
 Het schema van elke database bevat een tenant-id. De tenant-id is zelfs in die databases waarin slechts één tenant.
 
-- *(-Zelfstudies voor dit model worden gepubliceerd hier binnen een paar dagen. Een koppeling worden hier.)*
-
+- [Inleiding tot een voorbeeld van een SQL-Database multitenant SaaS-app][saas-multitenantdb-get-started-deploy-89i]
 
 
 
@@ -149,4 +146,7 @@ De zelfstudie artikelen voor elk model ingegaan op de volgende scenario's voor b
 [saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
 
 [multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
+
+[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
+
 

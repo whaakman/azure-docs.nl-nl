@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>Ontwerp van uw eerste Azure SQL database
 
-Azure SQL-Database is een relationele database als een service (DBaaS) in de Microsoft-Cloud ('Azure'). In deze zelfstudie leert u hoe de Azure portal gebruiken en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) naar: 
+Azure SQL-Database is een relationele database als een service (DBaaS) in de Microsoft-Cloud (Azure). In deze zelfstudie leert u hoe de Azure portal gebruiken en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) naar: 
 
 > [!div class="checklist"]
 > * Maak een database in de Azure-portal
@@ -177,8 +177,8 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 Het schema van een database maken met vier tabellen die een beheersysteem studenten voor universiteiten met model [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
 - Persoon
-- Loop
-- Studenten
+- Cursus
+- Student
 - Dit model van een beheersysteem studenten voor universiteiten creditcard
 
 Het volgende diagram toont hoe deze tabellen aan elkaar zijn gerelateerd. Sommige van deze tabellen verwijzen naar kolommen in andere tabellen. Bijvoorbeeld, de tabel studenten verwijst naar de **PersonId** kolom van de **persoon** tabel. Het diagram om te begrijpen hoe de tabellen in deze zelfstudie zijn gerelateerd aan elkaar bestuderen. Zie voor een diepgaande blik op het maken van effectief databasetabellen, [effectieve databasetabellen maken](https://msdn.microsoft.com/library/cc505842.aspx). Zie voor meer informatie over het kiezen van gegevenstypen [gegevenstypen](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).

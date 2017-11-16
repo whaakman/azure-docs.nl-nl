@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Netwerkdoorvoer voor Azure virtual machines optimaliseren
 
-Azure virtuele machines (VM) hebben netwerk standaardinstellingen die verder kunnen worden geoptimaliseerd voor netwerkdoorvoer. In dit artikel wordt beschreven hoe netwerkdoorvoer optimaliseren voor Microsoft Azure Windows en Linux-virtuele machines, inclusief belangrijke distributies zoals Ubuntu en CentOS van Red Hat.
+Azure virtuele machines (VM) hebben netwerk standaardinstellingen die verder kunnen worden geoptimaliseerd voor netwerkdoorvoer. In dit artikel wordt beschreven hoe netwerkdoorvoer optimaliseren voor Microsoft Azure Windows en Linux-virtuele machines, inclusief belangrijke distributies zoals Ubuntu en CentOS Red Hat.
 
 ## <a name="windows-vm"></a>Windows VM
 
@@ -33,7 +33,7 @@ Als uw virtuele machine van Windows wordt ondersteund met [versnelde netwerken](
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. Voer de volgende opdracht om in te schakelen van RSS:
 
@@ -44,66 +44,79 @@ Als uw virtuele machine van Windows wordt ondersteund met [versnelde netwerken](
 3. Controleer of RSS is ingeschakeld in de virtuele machine door te voeren de `Get-NetAdapterRss` opdracht opnieuw. Als dit lukt, wordt de volgende voorbeelduitvoer wordt geretourneerd:
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Virtuele Linux-machine
 
-RSS is altijd ingeschakeld in een Azure Linux VM standaard. Linux-kernels die zijn uitgebracht sinds januari 2017 nieuwe netwerk Optimalisatieopties opnemen waarmee u een Linux-VM voor hogere netwerkdoorvoer.
+RSS is altijd ingeschakeld in een Azure Linux VM standaard. Linux-kernels die zijn uitgebracht sinds oktober 2017 nieuwe netwerk optimalisaties opties opnemen waarmee u een Linux-VM voor hogere netwerkdoorvoer.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu voor nieuwe implementaties
 
-Om de optimalisatie, eerst een update naar de laatste ondersteunde versie, vanaf juni 2017 die:
+De kernel Ubuntu Azure biedt de beste netwerkprestaties op Azure en is sinds de kernel standaard 21 September 2017. Wilt u deze kernel, eerst installeren laatste ondersteunde versie van 16.04-TNS, zoals hieronder wordt beschreven:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-Nadat de update voltooid is, voert u de volgende opdrachten om op te halen van de meest recente kernel:
+Nadat het maken voltooid is, voert u de volgende opdrachten om op te halen van de meest recente updates. Deze stappen werken ook voor virtuele machines die de kernel Ubuntu Azure momenteel wordt uitgevoerd.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+De volgende optionele opdrachtenset zijn mogelijk handig voor bestaande Ubuntu-implementaties die al de Azure-kernel, maar die niet meer bijgewerkt met fouten.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Optionele opdracht:
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure kernel-upgrade voor een bestaande virtuele machines
 
-`apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu Azure Preview-kernel
-> [!WARNING]
-> Deze Azure Linux Preview kernel mogelijk niet dezelfde mate van beschikbaarheid en betrouwbaarheid als Marketplace-installatiekopieën en kernels die in het algemeen beschikbaarheid release. De functie wordt niet ondersteund, kan hebben beperkte mogelijkheden en zijn mogelijk niet zo betrouwbaar is als de standaard-kernel. Gebruik deze kernel niet voor productieworkloads.
-
-De prestaties aanzienlijk doorvoer kan worden bereikt door het installeren van de voorgestelde Azure Linux-kernel. Als deze kernel, voegt u deze regel toe aan /etc/apt/sources.list
+De prestaties aanzienlijk doorvoer kan worden bereikt door het upgraden van de kernel Azure Linux. Om te controleren of u deze kernel hebt, Controleer uw kernelversie.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
-Voer deze opdrachten als hoofdmap.
+Als uw virtuele machine niet de Azure-kernel heeft, wordt het versienummer meestal begint met '4.4'. In deze gevallen moet u de volgende opdrachten uitvoeren als hoofdmap.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-Om de optimalisatie, eerst een update naar de laatste ondersteunde versie, vanaf juli-2017 is:
+Om de meest recente optimalisaties, is het raadzaam een virtuele machine maken met de laatste ondersteunde versie door te geven van de volgende parameters:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
-Nadat de update voltooid is, installeert u de meest recente Linux Integration Services (LIS).
-De optimalisatie van doorvoer wordt LIS, vanaf 4.2.2-2. Voer de volgende opdrachten voor het installeren van LIS:
+Nieuwe en bestaande virtuele machines kunnen profiteren van de meest recente Linux Integration Services (LIS) installeren.
+De optimalisatie van doorvoer wordt LIS, vanaf 4.2.2-2, hoewel latere versies verdere verbeteringen bevatten. Voer de volgende opdrachten voor het installeren van de meest recente LIS:
 
 ```bash
 sudo yum update
@@ -113,21 +126,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Om de optimalisatie, eerst een update naar de laatste ondersteunde versie, vanaf juli-2017 is:
+Om de optimalisaties, is het raadzaam een virtuele machine maken met de laatste ondersteunde versie door te geven van de volgende parameters:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
-Nadat de update voltooid is, installeert u de meest recente Linux Integration Services (LIS).
+Nieuwe en bestaande virtuele machines kunnen profiteren van de meest recente Linux Integration Services (LIS) installeren.
 De optimalisatie van doorvoer wordt LIS, vanaf 4.2. Voer de volgende opdrachten om te downloaden en installeren van LIS:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

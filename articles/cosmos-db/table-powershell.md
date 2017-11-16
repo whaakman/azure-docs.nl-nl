@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Tabel-API van Azure Cosmos DB bewerkingen uitvoeren met Azure PowerShell 
 
@@ -47,7 +47,7 @@ Nadat u Azure PowerShell is geïnstalleerd of bijgewerkt, moet u de module insta
 Install-Module AzureRmStorageTable
 ```
 
-Terwijl Azure Cosmos DB tabel API is een Preview-versie, moet u ook de assembly's lokaal om te kunnen gebruiken van deze PowerShell-cmdlets installeren. Zie voor instructies over hoe u dat doet, [Azure RM opslag tabellen PowerShell-module voor Cosmos DB tabellen](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Installeer de Azure DB die Cosmos-assembly's lokaal om deze PowerShell-cmdlets gebruiken. Zie voor instructies over hoe u dat doet, [Azure RM opslag tabellen PowerShell-module voor Cosmos DB tabellen](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
 Als u wilt de volgende oefeningen uitproberen, moet u een databaseaccount Azure Cosmos DB. Als u nog geen hebt, maak een nieuwe Azure Cosmos DB rekening houden met de [Azure-portal](https://portal.azure.com). Zie voor informatie over het maken van een nieuwe databaseaccount, [Azure Cosmos DB: een databaseaccount maken](create-table-dotnet.md#create-a-database-account).
 

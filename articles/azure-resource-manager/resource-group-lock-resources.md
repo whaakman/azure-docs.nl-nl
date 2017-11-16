@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 44c87b00f4fc63dbfd45a07d9a8cddc5eaf1a65c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b091f4a437781547610624007ac1d7f22fed61
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Resources om te voorkomen dat onverwachte wijzigingen vergrendelen 
 Als beheerder, moet u wellicht een abonnement, resourcegroep of resource om te voorkomen dat andere gebruikers in uw organisatie per ongeluk verwijderen of wijzigen van kritieke bronnen vergrendelen. U kunt de vergrendeling op instellen **CanNotDelete** of **ReadOnly**. 
@@ -168,6 +168,6 @@ Opnemen in de aanvraag een JSON-object waarmee de eigenschappen voor de vergrend
 * Zie voor meer informatie over het werken met resource vergrendelingen [vergrendeling omlaag Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * Zie voor meer informatie over het logisch ordenen van uw resources [met labels om uw resources te organiseren](resource-group-using-tags.md)
 * Als u wilt wijzigen welke resourcegroep een resource bevindt zich in, Zie [resources verplaatsen naar een nieuwe resourcegroep](resource-group-move-resources.md)
-* U kunt beperkingen en conventies toepassen voor uw abonnement met aangepast beleid. Zie voor meer informatie [Beleid gebruiken voor het beheren van resources en toegang](resource-manager-policy.md).
+* U kunt beperkingen en conventies toepassen voor uw abonnement met aangepast beleid. Zie voor meer informatie [wat is Azure beleid?](../azure-policy/azure-policy-introduction.md).
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](resource-manager-subscription-governance.md).
 

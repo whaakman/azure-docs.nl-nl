@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Volume-prijzen en -gegevens in Application Insights beheren
 
@@ -110,7 +110,7 @@ Application Insights kosten worden toegevoegd aan uw Azure-factuur. Ziet u detai
 Er zijn drie manieren waarin het volume verzenden van gegevens beperkt is:
 
 * **Steekproeven:** dit mechanisme kan worden gebruikt. Verklein de hoeveelheid telemetrie van uw server en client-apps met minimale vervalsing van de metrische gegevens worden verzonden. Dit is het belangrijkste instrument hebt tot het afstemmen van de hoeveelheid gegevens. Meer informatie over [steekproef nemen functies](app-insights-sampling.md). 
-* **Dagelijkse cap:** wanneer een Application Insights-resource maken vanuit de Azure-portal dit is ingesteld op 500 GB per dag. De standaardinstelling bij het maken van een Application Insights-resource vanuit Visual Studio is klein (alleen 32,3 MB/dag) is uitsluitend bedoeld om zodat testen. In dit geval initiatief is erop dat de gebruiker het dagelijkse kapje verhoogt voordat u de app implementeert in productie. De maximumcapaciteit is 500 GB per dag, tenzij u een hogere maximum voor een toepassing intensief verkeer hebt aangevraagd. Wees voorzichtig bij het instellen van de dagelijkse initiaal als het uw bedoeling moet **nooit om de dagelijkse cap**, omdat u vervolgens gegevens voor de rest van de dag verloren gaan en niet in staat zijn om uw toepassing te bewaken. Gekoppeld aan deze te wijzigen, gebruikt u de dagelijkse cap-blade volume op de blade gegevens volumebeheer (Zie hieronder). Houd er rekening mee dat sommige typen abonnement tegoed dat kan worden gebruikt voor Application Insights. Als het abonnement een bestedingslimiet heeft, hebben de dagelijkse cap-blade instructies verwijderen en het inschakelen van de dagelijkse cap buiten 32,3 MB per dag wordt gegenereerd.  
+* **Dagelijkse cap:** wanneer een Application Insights-resource maken vanuit de Azure-portal dit is ingesteld op 100 GB per dag. De standaardinstelling bij het maken van een Application Insights-resource vanuit Visual Studio is klein (alleen 32,3 MB/dag) is uitsluitend bedoeld om zodat testen. In dit geval initiatief is erop dat de gebruiker het dagelijkse kapje verhoogt voordat u de app implementeert in productie. De maximumcapaciteit is 1000 GB per dag, tenzij u een hogere maximum voor een toepassing intensief verkeer hebt aangevraagd. Wees voorzichtig bij het instellen van de dagelijkse initiaal als het uw bedoeling moet **nooit om de dagelijkse cap**, omdat u vervolgens gegevens voor de rest van de dag verloren gaan en niet in staat zijn om uw toepassing te bewaken. Gekoppeld aan deze te wijzigen, gebruikt u de dagelijkse cap-blade volume op de blade gegevens volumebeheer (Zie hieronder). Houd er rekening mee dat sommige typen abonnement tegoed dat kan worden gebruikt voor Application Insights. Als het abonnement een bestedingslimiet heeft, hebben de dagelijkse cap-blade instructies verwijderen en het inschakelen van de dagelijkse cap buiten 32,3 MB per dag wordt gegenereerd.  
 * **Beperking:** dit beperkt de gegevenssnelheid 32 k gebeurtenissen per seconde, gemiddelde waarde van meer dan 1 minuut. 
 
 

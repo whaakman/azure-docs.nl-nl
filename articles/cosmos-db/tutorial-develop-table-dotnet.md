@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Ontwikkelen met de tabel API in .NET
 
@@ -30,7 +30,7 @@ Deze zelfstudie bevat de volgende taken:
 > [!div class="checklist"] 
 > * Maak een Azure Cosmos DB-account 
 > * Schakel in het bestand app.config-functionaliteit 
-> * Maak een tabel met de [tabel API](table-introduction.md) (preview)
+> * Maak een tabel met de [tabel-API](table-introduction.md)
 > * Een entiteit toevoegen aan een tabel 
 > * Een batch entiteiten invoegen 
 > * Eén entiteit ophalen 
@@ -41,11 +41,29 @@ Deze zelfstudie bevat de volgende taken:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Tabellen in Azure Cosmos DB 
 
-Azure Cosmos DB biedt de [tabel API](table-introduction.md) (preview) voor toepassingen die een sleutel / waarde-moeten opslaan met een schema-less-ontwerp en hoge througput vereisten hebben. [Azure Table storage](../storage/common/storage-introduction.md) SDK's en REST-API's kunnen worden gebruikt om te werken met tabellen in Azure Cosmos DB.   
+Azure Cosmos DB biedt de [tabel API](table-introduction.md) voor toepassingen die een sleutel-waardearchief met een schema-less-ontwerp moeten. Zowel Azure Cosmos DB tabel API en [Azure Table storage](../storage/common/storage-introduction.md) ondersteunen nu de dezelfde REST-API's en SDK's. U kunt Azure Cosmos DB gebruiken om tabellen te maken met hoge vereisten voor doorvoersnelheid.
 
 Deze zelfstudie is bedoeld voor ontwikkelaars die bekend bent met het Azure Table-opslag-SDK en wilt de beschikbare Premiumfuncties gebruiken met Azure Cosmos DB. Deze is gebaseerd op [aan de slag met Azure Table storage met .NET](table-storage-how-to-use-dotnet.md) en laat zien hoe om te profiteren van extra mogelijkheden, zoals secundaire indexen, ingerichte doorvoer en multihoming. Deze zelfstudie wordt beschreven hoe u met de Azure portal een Azure DB die Cosmos-account maken en bouwen en implementeren van een tabel-API-toepassing. We helpt ook bij .NET-voorbeelden voor het maken en verwijderen van een tabel en invoegen, bijwerken, verwijderen en opvragen van tabelgegevens. 
 
-## <a name="prerequisites"></a>Vereisten
+Als u momenteel Azure Table storage, krijgt u de volgende voordelen met API van Azure Cosmos DB tabel:
+
+- Directe [globale distributie](distribute-data-globally.md) met multihoming en [automatische en handmatige failover](regional-failover.md)
+- Ondersteuning voor automatische schema-networkdirect indexeren tegen alle eigenschappen ('secundaire indexen') en snelle query 's 
+- Ondersteuning voor [onafhankelijke schalen van opslag en doorvoer](partition-data.md), via verschillende regio's
+- Ondersteuning voor [toegewezen doorvoer per tabel](request-units.md) die kunnen worden geschaald van honderden miljoenen aanvragen per seconde
+- Ondersteuning voor [vijf instelbare consistentieniveaus](consistency-levels.md) moeten op de handel uitschakelen beschikbaarheid, latentie en consistentie op basis van uw toepassing
+- 99,99% beschikbaarheid binnen één regio, en het toevoegen van meer regio's voor hogere beschikbaarheid en [toonaangevende uitgebreide serviceovereenkomsten](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) op algemene beschikbaarheid
+- Werken met de bestaande Azure-opslag .NET SDK en geen codewijzigingen in uw toepassing
+
+Deze zelfstudie bevat informatie over Azure Cosmos DB tabel API met de .NET SDK. U kunt downloaden via de [Preview-SDK van Azure Storage](https://aka.ms/tableapinuget) vanuit NuGet.
+
+Zie voor meer informatie over complexe Azure Table storage taken:
+
+* [Inleiding tot Azure Cosmos DB tabel API](table-introduction.md)
+* De tabel-naslagdocumentatie voor meer informatie over beschikbare API's [Azure Cosmos DB tabel API .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
+
+### <a name="about-this-tutorial"></a>Over deze zelfstudie
+Voor ontwikkelaars die bekend bent met het Azure Table-opslag-SDK en wilt gebruiken, de premiumfuncties die beschikbaar is in deze zelfstudie met behulp van Azure Cosmos DB. Deze is gebaseerd op [aan de slag met Azure Table storage met .NET](table-storage-how-to-use-dotnet.md) en laat zien hoe om te profiteren van extra mogelijkheden, zoals secundaire indexen, ingerichte doorvoer en multihoming. We uitgelegd hoe de Azure portal gebruiken voor een Azure DB die Cosmos-account maken en bouwen en implementeren van de toepassing van een tabel. We helpt ook bij .NET-voorbeelden voor het maken en verwijderen van een tabel en invoegen, bijwerken, verwijderen en opvragen van tabelgegevens. 
 
 Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
@@ -59,67 +77,67 @@ Begint met het maken van een Azure DB die Cosmos-account in de Azure portal.
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren.
+We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een git-terminalvenster zoals git bash en `cd` naar een werkmap.  
-
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
+1. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started
+    cd "C:\git-samples"
     ```
 
-3. Open vervolgens het oplossingenbestand in Visual Studio.
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer. 
+
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    ```
+
+3. Open vervolgens het oplossingenbestand in Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
+Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan uw app kan communiceren met uw gehoste-database. 
 
-1. Klik in [Azure Portal](http://portal.azure.com/), in uw Azure Cosmos DB-account, in het linker navigatiegedeelte op **Sleutels** en klik vervolgens op **Sleutels voor lezen/schrijven**. U gebruikt de knoppen kopiëren aan de rechterkant van het scherm voor het kopiëren van de verbindingsreeks naar het bestand app.config in de volgende stap.
+1. In de [Azure-portal](http://portal.azure.com/), klikt u op **verbindingsreeks**. 
+
+    Gebruik de knoppen Kopieer aan de rechterkant van het scherm voor het kopiëren van de VERBINDINGSREEKS.
+
+    ![Weergeven en kopieer de VERBINDINGSREEKS in het deelvenster verbindingsreeks](./media/create-table-dotnet/connection-string.png)
 
 2. In Visual Studio opent u het bestand app.config. 
 
-3. Uw URI-waarde kopiëren vanuit de portal (met behulp van de knop kopiëren) en maakt u de waarde van de accountsleutel in app.config. Gebruik de accountnaam voor accountnaam in app.config eerder hebt gemaakt.
-  
-```
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;TableEndpoint=https://account-name.documents.azure.com" />
-```
+3. De waarde van de VERBINDINGSREEKS in het bestand app.config plakken als de waarde van de CosmosDBStorageConnectionString. 
 
-> [!NOTE]
-> Voor het gebruik van deze app met Azure Table storage, moet u de verbindingsreeks in wijzigen `app.config file`. De accountnaam gebruiken als tabel accountnaam en de sleutel als Azure Storage primaire sleutel. <br>
->`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-> 
->
+    `<add key="CosmosDBStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
 
-## <a name="build-and-deploy-the-app"></a>De app bouwen en implementeren
-1. Klik in Visual Studio met de rechtermuisknop op het project in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
+    > [!NOTE]
+    > Voor het gebruik van deze app met Azure Table storage, moet u de verbindingsreeks in wijzigen `app.config file`. De accountnaam gebruiken als tabel accountnaam en de sleutel als Azure Storage primaire sleutel. <br>
+    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
+    > 
+    >
 
-2. Typ in het vak **Bladeren** in NuGet ***WindowsAzure.Storage-PremiumTable***. Controleer **omvatten prerelease-versie**.
+4. Sla het bestand app.config.
 
-3. Installeren van de resultaten de **WindowsAzure.Storage PremiumTable** en kies de preview-build `0.0.1-preview`. Deze actie installeert het Azure Table storage-pakket en alle afhankelijkheden.
-
-4. Klik op CTRL+F5 om de toepassing te starten. 
-
-U kunt nu gaat u terug naar de Data Explorer en Zie query, wijzigen en werken met de gegevens van deze tabel. 
-
-> [!NOTE]
-> Voor het gebruik van deze app met een Azure-Emulator Cosmos DB, hoeft u alleen te wijzigen van de verbindingsreeks in `app.config file`. Gebruik de onderstaande waarde voor de emulator. <br>
->`<add key="StorageConnectionString" value=DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=<insertkey>==;TableEndpoint=https://localhost -->`
-> 
->
+U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 
 ## <a name="azure-cosmos-db-capabilities"></a>Mogelijkheden van Azure DB Cosmos
-Azure Cosmos DB tabel API ondersteunt een aantal mogelijkheden die niet beschikbaar in de Azure Table-opslag. De nieuwe functionaliteit kan worden ingeschakeld via de volgende `appSettings` configuratiewaarden. Er is geen nieuwe handtekeningen of overloads zijn toegevoegd aan de tabel-API die niet in de Azure-opslag-SDK. Hiermee kunt u verbinding maakt met tabellen in Azure Table storage en Azure Cosmos DB en werken met andere Azure Storage-services zoals Blobs en wachtrijen. 
+Azure Cosmos DB ondersteunt een aantal mogelijkheden die niet beschikbaar in de Azure Table storage-API. 
 
+Bepaalde functionaliteit wordt benaderd via nieuwe overloads aan CreateCloudTableClient waarmee een beleid en consistentie verbindingsniveau opgeven.
+
+| Tabel-verbindingsinstellingen | Beschrijving |
+| --- | --- |
+| Verbindingsmodus  | Azure Cosmos DB ondersteunt twee modi voor connectiviteit. In `Gateway` modus aanvragen worden altijd aangebracht in de Azure DB die Cosmos-gateway stuurt deze door naar de bijbehorende gegevenspartities. In `Direct` connectiviteitsmodus, de client haalt de toewijzing van tabellen partities en aanvragen worden gedaan, rechtstreeks op basis van de gegevenspartities. Het is raadzaam `Direct`, de standaardwaarde.  |
+| Verbindingsprotocol | Azure Cosmos DB ondersteunt twee verbindingsprotocollen - `Https` en `Tcp`. `Tcp`de standaardwaarde is en omdat het meer lightweight aanbevolen. |
+| Voorkeur locaties | Door komma's gescheiden lijst met aanbevolen (multihoming) locaties voor leesbewerkingen. Elke Azure DB die Cosmos-account kan worden gekoppeld met 1-30 + regio's. Elk clientexemplaar kunt u een subset van deze gebieden in de gewenste volgorde voor lage latentie leesbewerkingen opgeven. De regio's moeten de namen van hun [weergavenamen](https://msdn.microsoft.com/library/azure/gg441293.aspx), bijvoorbeeld `West US`. Zie ook [multihoming API's](tutorial-global-distribution-table.md). |
+| Consistentieniveau | U kunt uitschakelen handel tussen latentie, consistentie en beschikbaarheid door te kiezen tussen vijf goed gedefinieerde consistentieniveaus: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, en `Eventual`. Standaard is `Session`. De keuze van de consistentieniveau maakt een belangrijke prestatieverbetering verschil in meerdere landen/regio-instellingen. Zie [consistentieniveaus](consistency-levels.md) voor meer informatie. |
+
+Andere functies kan worden ingeschakeld via de volgende `appSettings` configuratiewaarden.
 
 | Sleutel | Beschrijving |
 | --- | --- |
-| TableConnectionMode  | Azure Cosmos DB ondersteunt twee modi voor connectiviteit. In `Gateway` modus aanvragen worden altijd aangebracht in de Azure DB die Cosmos-gateway stuurt deze door naar de bijbehorende gegevenspartities. In `Direct` connectiviteitsmodus, de client haalt de toewijzing van tabellen partities en aanvragen worden gedaan, rechtstreeks op basis van de gegevenspartities. Het is raadzaam `Direct`, de standaardwaarde.  |
-| TableConnectionProtocol | Azure Cosmos DB ondersteunt twee verbindingsprotocollen - `Https` en `Tcp`. `Tcp`de standaardwaarde is en omdat het meer lightweight aanbevolen. |
-| TablePreferredLocations | Door komma's gescheiden lijst met aanbevolen (multihoming) locaties voor leesbewerkingen. Elke Azure DB die Cosmos-account kan worden gekoppeld met 1-30 + regio's. Elk clientexemplaar kunt u een subset van deze gebieden in de gewenste volgorde voor lage latentie leesbewerkingen opgeven. De regio's moeten de namen van hun [weergavenamen](https://msdn.microsoft.com/library/azure/gg441293.aspx), bijvoorbeeld `West US`. Zie ook [multihoming API's](tutorial-global-distribution-table.md).
-| TableConsistencyLevel | U kunt uitschakelen handel tussen latentie, consistentie en beschikbaarheid door te kiezen tussen vijf goed gedefinieerde consistentieniveaus: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, en `Eventual`. Standaard is `Session`. De keuze van de consistentieniveau maakt een belangrijke prestatieverbetering verschil in meerdere landen/regio-instellingen. Zie [consistentieniveaus](consistency-levels.md) voor meer informatie. |
 | TableThroughput | Gereserveerde doorvoer voor de tabel die is uitgedrukt in aanvraageenheden (RU) per seconde. Biedt ondersteuning voor één tabellen 100s-miljoenen RU/s. Zie [Aanvraageenheden](request-units.md). Standaard is`400` |
-| TableIndexingPolicy | Consistente en automatische secundaire indexeren van alle kolommen in tabellen | JSON-tekenreeks is die voldoet aan de beleidsspecificatie voor indexering. Zie [indexeren beleid](indexing-policies.md) om te zien hoe u indexeringsbeleid als u wilt opnemen en uitsluiten van specifieke kolommen kunt wijzigen. | Automatische indexering van alle eigenschappen (hash voor tekenreeksen) en bereik voor getallen |
+| TableIndexingPolicy | JSON-tekenreeks is die voldoet aan de beleidsspecificatie voor indexering. Zie [indexeren beleid](indexing-policies.md) om te zien hoe u indexeringsbeleid als u wilt opnemen en uitsluiten van specifieke kolommen kunt wijzigen. |
 | TableQueryMaxItemCount | Het maximum aantal items geretourneerd per tabelquery in een enkel retour configureren. Standaard is `-1`, waarmee Azure Cosmos DB dynamisch bepalen van de waarde tijdens runtime. |
 | TableQueryEnableScan | Als de query niet kan de index voor elk filter, klikt u vervolgens het toch uitvoeren via een scan. Standaard is `false`.|
 | TableQueryMaxDegreeOfParallelism | De mate van parallelle uitvoering voor uitvoering van een query cross-partitie. `0`seriële met geen vooraf ophalen, is `1` is seriële met waarden vooraf ophalen en hoger de snelheid van parallelle uitvoering verhogen. Standaard is `-1`, waarmee Azure Cosmos DB dynamisch bepalen van de waarde tijdens runtime. |
@@ -128,16 +146,12 @@ De standaardwaarde wilt wijzigen, opent u de `app.config` bestand vanuit Solutio
 
 ```xml
 <configuration>
-    <startup> 
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-    </startup>
+    ...
     <appSettings>
       <!-- Client options -->
+      <add key="CosmosDBStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-      <add key="TableConnectionMode" value="Direct"/>
-      <add key="TableConnectionProtocol" value="Tcp"/>
-      <add key="TablePreferredLocations" value="East US, West US, North Europe"/>
-      <add key="TableConsistencyLevel" value="Eventual"/>
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
@@ -153,7 +167,7 @@ De standaardwaarde wilt wijzigen, opent u de `app.config` bestand vanuit Solutio
 </configuration>
 ```
 
-Laten we eens kijken wat er precies gebeurt in de app. Open de `Program.cs` bestands- en u dat deze regels code maken met de resources van de tabel zoeken. 
+Laten we eens kijken wat er precies gebeurt in de app. Open de `Program.cs` bestands- en u ziet dat deze regels code maken met de resources van de tabel. 
 
 ## <a name="create-the-table-client"></a>De tabel-client maken
 U initialiseren een `CloudTableClient` verbinding maken met het account van de tabel.
@@ -162,7 +176,7 @@ U initialiseren een `CloudTableClient` verbinding maken met het account van de t
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
 Deze client is geïnitialiseerd met behulp van de `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel`, en `TablePreferredLocations` configuratiewaarden als opgegeven in de app-instellingen.
-    
+
 ## <a name="create-a-table"></a>Een tabel maken
 Maakt u een tabel met `CloudTable`. Tabellen in Azure Cosmos DB onafhankelijk kunnen schalen in termen van opslag en de doorvoer en automatisch partitioneren is verwerkt door de service. Azure Cosmos DB ondersteunt zowel vaste grootte als onbeperkt aantal tabellen. Zie [partitioneren in Azure Cosmos DB](partition-data.md) voor meer informatie. 
 
@@ -172,17 +186,11 @@ CloudTable table = tableClient.GetTableReference("people");
 table.CreateIfNotExists();
 ```
 
-Er is een belangrijk verschil in hoe tabellen worden gemaakt. Azure Cosmos DB reserveert doorvoer, in tegenstelling tot Azure storage op basis van verbruik model voor transacties. Het model reservering heeft twee belangrijke voordelen:
-
-* De doorvoer is toegewezen/gereserveerd, zodat u nooit kunnen beperkt ophalen als uw aanvraagsnelheid op of onder uw ingerichte doorvoer is
-* Het model reservering is meer [rendabel voor doorvoer zware workloads](key-value-store-cost.md)
+Er is een belangrijk verschil in hoe tabellen worden gemaakt. Azure Cosmos DB reserveert doorvoer, in tegenstelling tot Azure storage op basis van verbruik model voor transacties. De doorvoer is toegewezen/gereserveerd, zodat u nooit kunnen beperkt ophalen als uw aanvraagsnelheid op of onder uw ingerichte doorvoer is.
 
 U kunt de standaard-doorvoer configureren met het configureren van de instelling voor `TableThroughput` in termen van RU (aanvraageenheden) per seconde. 
 
-Het lezen van een entiteit 1 KB is genormaliseerd als 1 RU en andere bewerkingen zijn genormaliseerd op een vaste RU-waarde op basis van hun verbruik CPU, geheugen en IOPS. Meer informatie over [Aanvraageenheden in Azure Cosmos DB](request-units.md).
-
-> [!NOTE]
-> Terwijl de SDK-tabelopslag biedt momenteel geen ondersteuning voor doorvoer wijzigen, kunt u de doorvoer onmiddellijk op elk gewenst moment met de Azure-portal of Azure CLI.
+Het lezen van een entiteit 1 KB is genormaliseerd als 1 RU en andere bewerkingen zijn genormaliseerd op een vaste RU-waarde op basis van hun verbruik CPU, geheugen en IOPS. Meer informatie over [Aanvraageenheden in Azure Cosmos DB](request-units.md) en specifiek voor [sleutel-waardearchieven](key-value-store-cost.md).
 
 Vervolgens we doorlopen van het eenvoudige lezen en schrijven (CRUD)-bewerkingen met de SDK van Azure Table storage. Deze zelfstudie wordt gedemonstreerd voorspelbare lage één cijfer milliseconde latenties en snelle query's die worden geleverd door Azure Cosmos DB.
 
@@ -210,7 +218,6 @@ Het volgende fragment toont het invoegen van een entiteit met de Azure SDK-opsla
 
 Schrijfbewerkingen voltooien < 15 ms op p99 en ~ 6 ms op p50 voor toepassingen die worden uitgevoerd in dezelfde regio bevinden als de Azure DB die Cosmos-account. En deze duur is verantwoordelijk voor het feit dat schrijfbewerkingen terug naar de client zijn bevestigd nadat ze zijn synchroon gerepliceerd, blijvend doorgevoerd, en alle inhoud wordt geïndexeerd.
 
-De tabel-API voor Azure DB die Cosmos is een Preview-versie. Algemene beschikbaarheid worden de latentie p99 garanties ondersteund door serviceovereenkomsten net als andere Azure Cosmos DB-API's. 
 
 ```csharp
 // Create a new customer entity.
@@ -226,7 +233,7 @@ table.Execute(insertOperation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Een batch entiteiten invoegen
-Azure Table storage ondersteunt een batchbewerking API, waarmee u het combineren van updates, verwijderingen en invoegingen in dezelfde batchbewerking. Azure Cosmos DB heeft geen enkele beperkingen voor de batch-API als Azure Table storage. Bijvoorbeeld, kunt u meerdere leesbewerkingen binnen een batch uitvoeren, kunt u meerdere schrijfbewerkingen naar dezelfde entiteit binnen een batch uitvoeren en er is geen limiet van 100 bewerkingen per batch. 
+Azure Table storage ondersteunt een batchbewerking API, waarmee u het combineren van updates, verwijderingen en invoegingen in dezelfde batchbewerking.
 
 ```csharp
 // Create the batch operation.
@@ -282,7 +289,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-In preview ondersteunt Azure Cosmos DB dezelfde queryfunctionaliteit als Azure Table storage voor de tabel-API. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query hiërarchie en een groot aantal ingebouwde functies. De aanvullende functionaliteit worden vermeld in de tabel-API in een toekomstige service-update. Zie [Azure Cosmos DB-query](documentdb-sql-query.md) voor een overzicht van deze mogelijkheden. 
+Azure Cosmos DB ondersteunt dezelfde queryfunctionaliteit als Azure Table storage voor de tabel-API. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query hiërarchie en een groot aantal ingebouwde functies. De aanvullende functionaliteit worden vermeld in de tabel-API in een toekomstige service-update. Zie [Azure Cosmos DB-query](documentdb-sql-query.md) voor een overzicht van deze mogelijkheden. 
 
 ## <a name="replace-an-entity"></a>Een entiteit vervangen
 Als u een entiteit wilt bijwerken, haalt u deze op uit de Tabelservice, wijzigt u het entiteitsobject en slaat u de wijzigingen weer op in de Tabelservice. De volgende code wijzigt het telefoonnummer van een bestaande klant. 

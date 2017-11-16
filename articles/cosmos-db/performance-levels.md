@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Buiten gebruik stellen van de prestaties S1, S2 en S3
 
@@ -44,7 +44,7 @@ Dit artikel biedt een overzicht van S1, S2 en S3 prestatieniveaus en wordt besch
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Waarom worden de prestaties S1, S2 en S3 niveaus buiten gebruik gesteld?
 
-De prestaties S1, S2 en S3 bieden niet de flexibiliteit die verzamelingen van DocumentDB API biedt. Met de S1, S2, S3 prestatieniveaus, de doorvoer en de opslagcapaciteit vooraf zijn ingesteld en is niet aangeboden elasticiteit. Azure Cosmos DB biedt nu de mogelijkheid voor het aanpassen van de doorvoer en opslag, biedt veel meer flexibiliteit in de mogelijkheid om te worden geschaald, zoals het wijzigen van uw behoeften.
+De prestaties S1, S2 en S3 bieden de flexibiliteit geen die aanbieding DocumentDB API-verzamelingen. Met de S1, S2, S3 prestatieniveaus, de doorvoer en de opslagcapaciteit vooraf zijn ingesteld en is niet aangeboden elasticiteit. Azure Cosmos DB biedt nu de mogelijkheid voor het aanpassen van de doorvoer en opslag, biedt veel meer flexibiliteit in de mogelijkheid om te worden geschaald, zoals het wijzigen van uw behoeften.
 
 <a name="compare"></a>
 
@@ -71,7 +71,7 @@ Er is niets, Cosmos DB omgaat met de migratie voor u. Als u een verzameling S1, 
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Hoe wordt mijn verzameling wijzigen na de migratie?
 
-Als u een verzameling S1 hebt, wordt u worden gemigreerd naar een verzameling van één partitie met 400 RU/s-doorvoer. 400 RU/s is de laagste doorvoer beschikbaar met verzamelingen met één partitie. Echter, de kosten voor 400 RU/s in de een verzameling van één partitie is ongeveer hetzelfde als u met uw verzameling S1 en 250 RU/s – zijn betaalt, zodat u niet voor extra 150 RU/s. voor u beschikbaar betalen.
+Als u een verzameling S1 hebt, wordt u worden gemigreerd naar een verzameling van één partitie met 400 RU/s-doorvoer. 400 RU/s is de laagste doorvoer beschikbaar met verzamelingen met één partitie. Echter, de kosten voor 400 RU/s in een verzameling van één partitie is ongeveer hetzelfde als u met uw verzameling S1 en 250 RU/s – zijn betaalt, zodat u niet voor extra 150 RU/s. voor u beschikbaar betalen.
 
 Als u een verzameling S2 hebt, wordt u worden gemigreerd naar een verzameling van één partitie met 1 K RU/s. Er zijn geen wijzigingen ziet u op het doorvoerniveau.
 
@@ -119,29 +119,29 @@ U kunt migreren vanaf de prestatieniveaus S1, S2 en S3 naar verzamelingen met é
 
 1. In de [ **Azure-portal**](https://portal.azure.com), klikt u op **Azure Cosmos DB**, selecteer vervolgens de Cosmos-DB-account te wijzigen. 
  
-    Als **Azure Cosmos DB** is niet in de Snelbalk, klikt u op >, schuif naar **Databases**, selecteer **Azure Cosmos DB**, en selecteer vervolgens het DocumentDB-account.  
+    Als **Azure Cosmos DB** is niet in de Snelbalk, klikt u op >, schuif naar **Databases**, selecteer **Azure Cosmos DB**, en selecteer vervolgens het account.  
 
-2. Klik in het menu resource onder **Containers**, klikt u op **Scale**, selecteer de verzameling wijzigen van de vervolgkeuzelijst en klik vervolgens op **prijscategorie**. Accounts met behulp van vooraf gedefinieerde doorvoer hebben een prijscategorie S1, S2 of S3.  In de **Kies uw prijscategorie** blade, klikt u op **standaard** te wijzigen naar de gebruiker gedefinieerde doorvoer en klik vervolgens op **Selecteer** uw wijziging op te slaan.
+2. Klik in het menu resource onder **Containers**, klikt u op **Scale**, selecteer de verzameling wijzigen van de vervolgkeuzelijst en klik vervolgens op **prijscategorie**. Accounts met behulp van vooraf gedefinieerde doorvoer hebben een prijscategorie S1, S2 of S3.  In de **Kies uw prijscategorie** pagina, klikt u op **standaard** te wijzigen naar de gebruiker gedefinieerde doorvoer en klik vervolgens op **Selecteer** uw wijziging op te slaan.
 
-    ![Schermopname van de blade instellingen die toont waar u de waarde van de doorvoer te wijzigen](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Schermopname van de pagina met instellingen die toont waar u de waarde van de doorvoer te wijzigen](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. Terug in de **Scale** blade de **prijscategorie** wordt gewijzigd naar **standaard** en de **doorvoer (RU/s)** wordt weergegeven met een standaard de waarde van 400. Stel de doorvoer tussen 400 en 10.000 [Aanvraageenheden](request-units.md)/second (RU/s). De **maandelijkse factuur geschatte** onder aan de pagina-updates automatisch naar een schatting van de maandelijkse kosten. 
+3. Terug in de **Scale** pagina de **prijscategorie** wordt gewijzigd naar **standaard** en de **doorvoer (RU/s)** wordt weergegeven met een standaard de waarde van 400. Stel de doorvoer tussen 400 en 10.000 [Aanvraageenheden](request-units.md)/second (RU/s). De **maandelijkse factuur geschatte** onder aan de pagina-updates automatisch naar een schatting van de maandelijkse kosten. 
 
     >[!IMPORTANT] 
     > Nadat u uw wijzigingen hebt opgeslagen en naar de Standard verplaatsen-prijscategorie, u kan niet worden teruggedraaid naar de prestatieniveaus S1, S2 of S3.
 
 4. Klik op **opslaan** uw wijzigingen op te slaan.
 
-    Als u vaststelt dat u meer doorvoer (groter dan 10.000 RU/s) of meer opslagruimte moet (groter dan 10GB), kunt u een gepartitioneerde verzameling kunt maken. Zie voor het migreren van een verzameling van één partitie in een gepartitioneerde verzameling, [migreren van één partitie naar gepartitioneerde verzamelingen](documentdb-partition-data.md#migrating-from-single-partition).
+    Als u vaststelt dat u meer doorvoer (groter dan 10.000 RU/s) of meer opslagruimte moet (groter dan 10 GB), kunt u een gepartitioneerde verzameling kunt maken. Zie voor het migreren van een verzameling van één partitie in een gepartitioneerde verzameling, [migreren van één partitie naar gepartitioneerde verzamelingen](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Wijzigen van S1, S2 of S3 naar Standard kan maximaal 2 minuten duren.
+    > Wijzigen van S1, S2 of S3 naar Standard kan maximaal twee minuten duren.
     > 
     > 
 
 **Om te migreren naar verzamelingen met één partitie met de .NET SDK**
 
-Er is een andere optie voor het wijzigen van de uw verzamelingen prestatieniveaus via onze SDK's. Deze sectie bevat alleen de prestaties van een verzameling wijzigen met behulp van het serviceniveau onze [DocumentDB .NET API](documentdb-sdk-dotnet.md), maar het proces is vergelijkbaar voor onze andere SDK.
+Er is een andere optie voor het wijzigen van de uw verzamelingen prestatieniveaus via de Azure Cosmos DB SDK's. Deze sectie bevat alleen de prestaties van een verzameling wijzigen niveau met behulp van de [DocumentDB .NET API](documentdb-sdk-dotnet.md), maar het proces is vergelijkbaar voor onze andere SDK.
 
 Hier volgt een codefragment voor het wijzigen van de verzameling doorvoer in 5000 aanvraageenheden per seconde:
     

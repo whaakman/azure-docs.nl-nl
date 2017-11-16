@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Verwijzing naar een model management opdrachtregelinterface
 
@@ -69,6 +69,8 @@ Lokale argumenten:
                      the active MLC env.
 
 **De implementatie-omgeving instellen**
+
+De setup-opdracht moet u bijdrager toegang hebben tot het abonnement. Als u die hebt, moet u ten minste Inzender toegang tot de resourcegroep die u wilt implementeren in. Hiertoe de laatste, moet u de Resourcegroepnaam opgeven als onderdeel van de setup-opdracht via `-g` de vlag. 
 
 Er zijn twee opties voor implementatie: *lokale* en *cluster*. Instellen van de `--cluster` (of `-c`) vlag schakelt Clusterimplementatie, die voorziet in een ACS-cluster. De syntaxis van de basisinstellingen is als volgt:
 

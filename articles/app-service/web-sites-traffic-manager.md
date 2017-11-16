@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Verkeer van web-apps in Azure beheren met Traffic Manager
 > [!NOTE]
@@ -49,7 +49,7 @@ Als u Azure Traffic Manager met Azure, houd er rekening mee houden de volgende p
 * Voor implementaties in dezelfde regio die Web-Apps in combinatie met een andere Azure-cloudservice gebruiken, kunt u beide typen eindpunten hybride scenario's te maken kunt combineren.
 * U kunt slechts één eindpunt van web-app per regio opgeven in een profiel. Wanneer u een web-app als een eindpunt voor één regio selecteert, worden de resterende web-apps in deze regio niet beschikbaar voor selectie voor dit profiel.
 * De web-app-eindpunten die u opgeeft in een Azure Traffic Manager-profiel wordt weergegeven onder de **domeinnamen** sectie op de pagina configureren voor de web-app in het profiel, maar kan niet worden geconfigureerd er.
-* Nadat u een web-app aan een profiel toevoegen, de **Site-URL** op het Dashboard van het web van app-portalpagina aangepaste domein wordt de URL weergegeven van de web-app als u een hebt ingesteld. Anders wordt de Traffic Manager-profiel-URL (bijvoorbeeld `contoso.trafficmgr.com`). Zowel de directe domeinnaam van de web-app en de Traffic Manager-URL worden weergegeven op de pagina van de web-app configureren onder de **domeinnamen** sectie.
+* Nadat u een web-app aan een profiel toevoegen, de **Site-URL** op het Dashboard van het web van app-portalpagina aangepaste domein wordt de URL weergegeven van de web-app als u een hebt ingesteld. Anders wordt de Traffic Manager-profiel-URL (bijvoorbeeld `contoso.trafficmanager.net`). Zowel de directe domeinnaam van de web-app en de Traffic Manager-URL worden weergegeven op de pagina van de web-app configureren onder de **domeinnamen** sectie.
 * Uw aangepaste domeinnamen werkt zoals verwacht, maar naast deze toevoegt aan uw web-apps, moet u ook de DNS-kaart om te verwijzen naar de Traffic Manager-URL configureren. Zie voor informatie over het instellen van een aangepast domein voor een Azure-web-app, [configureren van een aangepaste domeinnaam voor een Azure-website](app-service-web-tutorial-custom-domain.md).
 * U kunt alleen web-apps die in de modus standard of premium aan een Azure Traffic Manager-profiel toevoegen.
 

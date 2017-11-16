@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Aanbevolen procedures voor beveiliging van de virtuele machine in Azure
 
@@ -47,7 +47,7 @@ Het artikel onderzoekt de volgende aanbevolen procedures van de VM-beveiliging:
 
 ## <a name="vm-authentication-and-access-control"></a>VM-verificatie en toegangsbeheer
 
-De eerste stap bij het beveiligen van uw virtuele machine is om ervoor te zorgen dat alleen geautoriseerde gebruikers kunnen nieuwe VM's instellen. U kunt [Azure Resource Manager-beleid](../azure-resource-manager/resource-manager-policy.md) om vast te stellen conventies voor resources in uw organisatie, aangepaste beleidsregels maken en deze beleidsregels van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md).
+De eerste stap bij het beveiligen van uw virtuele machine is om ervoor te zorgen dat alleen geautoriseerde gebruikers kunnen nieuwe VM's instellen. U kunt [Azure beleid](../azure-policy/azure-policy-introduction.md) om vast te stellen conventies voor resources in uw organisatie, aangepaste beleidsregels maken en deze beleidsregels van toepassing op resources, zoals [resourcegroepen](../azure-resource-manager/resource-group-overview.md).
 
 Virtuele machines die deel uitmaken van een resourcegroep natuurlijk neemt de beleidsregels. Hoewel we deze benadering voor het beheren van virtuele machines wordt aangeraden, kunt u ook toegang tot afzonderlijke VM-beleid beheren met behulp van [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md).
 

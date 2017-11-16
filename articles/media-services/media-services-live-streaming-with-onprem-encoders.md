@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises-coderingsprogramma's die multi-bitrate streams maken
 ## <a name="overview"></a>Overzicht
 In Azure Media Services een *kanaal* vertegenwoordigt een pijplijn voor het verwerken van inhoud live-streaming. Een kanaal ontvangt live invoer gegevensstromen in twee manieren:
 
-* Een lokale live codering verzendt een multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) stream naar het kanaal dat niet is ingeschakeld voor het uitvoeren van live codering met Media Services. De opgenomen streams doorgeven kanalen zonder verdere verwerking. Deze methode wordt aangeroepen *pass-through*. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming als uitvoer hebt: Media Excel, Ateme, stel communicatie, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's hebben RTMP als uitvoer: Adobe Flash Live Mediacoderingsprogramma, Telestream Wirecast Haivision, Teradek en TriCaster. Een live coderingsprogramma kan ook een single-bitrate stream naar een kanaal dat niet is ingeschakeld voor live codering verzenden, maar die niet aanbevolen. De stroom levert Media Services aan klanten die deze vragen.
+* Een lokale live codering verzendt een multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) stream naar het kanaal dat niet is ingeschakeld voor het uitvoeren van live codering met Media Services. De opgenomen streams doorgeven kanalen zonder verdere verwerking. Deze methode wordt aangeroepen *pass-through*. Een live coderingsprogramma kan ook een single-bitrate stream naar een kanaal dat niet is ingeschakeld voor live codering verzenden, maar die niet aanbevolen. De stroom levert Media Services aan klanten die deze vragen.
 
   > [!NOTE]
   > Een Pass Through-methode is de meest voordelige manier om live te streamen.
@@ -34,13 +34,13 @@ In Azure Media Services een *kanaal* vertegenwoordigt een pijplijn voor het verw
 
 Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt u opgeven hoe u uw kanaal voor het ontvangen van de invoerstroom wilt. U kunt ook opgeven of u wilt dat het kanaal live codering van de stroom kan uitvoeren. U hebt hiervoor twee opties:
 
-* **Doorgeven**: deze waarde opgeven als u wilt gebruiken van een on-premises live coderingsprogramma waarvoor een multi-bitrate stream (Pass Through-stream) als uitvoer. In dit geval wordt doorstuurt de stroom inkomende naar de uitvoer zonder alle codering. Dit is het gedrag van een kanaal vóór de release 2,10. In dit onderwerp biedt informatie over het werken met kanalen van dit type.
-* **Live Encoding**: Kies deze waarde als u van plan bent uw single-bitrate live stream naar een multi-bitrate stream coderen met Media Services. Houd er rekening mee dat als u een live codering kanaal in een **met** staat, worden kosten. Het is raadzaam om uw actieve kanalen onmiddellijk te beëindigen nadat uw live-streaming-gebeurtenis is voltooid om extra per uur kosten te voorkomen. De stroom levert Media Services aan klanten die deze vragen.
+* **Doorgeven**: deze waarde opgeven als u wilt gebruiken van een on-premises live codering met een multi-bitrate stream (Pass Through-stream) als uitvoer. In dit geval wordt doorstuurt de stroom inkomende naar de uitvoer zonder alle codering. Dit is het gedrag van een kanaal vóór de release 2,10. Dit artikel bevat informatie over het werken met kanalen van dit type.
+* **Live Encoding**: Kies deze waarde als u van plan bent uw single-bitrate live stream naar een multi-bitrate stream coderen met Media Services. Als u een kanaal voor live codering in een **met** status kosten in rekening worden gebracht. Het is raadzaam om uw actieve kanalen onmiddellijk te beëindigen nadat uw live-streaming-gebeurtenis is voltooid om extra per uur kosten te voorkomen. De stroom levert Media Services aan klanten die deze vragen.
 
 > [!NOTE]
-> In dit onderwerp wordt beschreven kenmerken van de kanalen die niet zijn ingeschakeld voor live codering kan uitvoeren. Zie voor meer informatie over het werken met kanalen die zijn ingeschakeld voor het uitvoeren van live codering [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md).
+> Dit artikel worden de kenmerken van de kanalen die niet zijn ingeschakeld voor live codering kan uitvoeren. Zie voor meer informatie over het werken met kanalen die zijn ingeschakeld voor het uitvoeren van live codering [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md).
 >
->
+>Zie voor meer informatie over aanbevolen on-premises coderingsprogramma's [on-premises coderingsprogramma's aanbevolen](media-services-recommended-encoders.md).
 
 Het onderstaande diagram ziet u een live-streaming-werkstroom die gebruikmaakt van een on-premises live coderingsprogramma om multi-bitrate RTMP of gefragmenteerde MP4 (Smooth Streaming) streams als uitvoer.
 
@@ -94,7 +94,7 @@ Gebruik de secundaire URL als u wilt verbeteren de duurzaamheid en Foutentoleran
 
 - Meerdere encoders met elke encoder pushen naar een toegewezen:
 
-    Dit scenario biedt zowel codering en redundantie voor opnemen. In dit scenario encoder1 verstuurd naar de URL van de primaire en encoder2 verstuurd naar de secundaire URL. Wanneer een coderingsprogramma is mislukt, kunt de andere encoder houden verzenden van gegevens. Redundantie van de gegevens kan worden beheerd omdat Media Services niet primaire en secundaire URL's op hetzelfde moment verbroken wordt. Dit scenario veronderstelt dat coderingsprogramma's gesynchroniseerd zijn en dezelfde gegevens bieden.  
+    Dit scenario biedt zowel codering en redundantie opgenomen. In dit scenario encoder1 verstuurd naar de URL van de primaire en encoder2 verstuurd naar de secundaire URL. Wanneer een coderingsprogramma is mislukt, kunt de andere encoder houden verzenden van gegevens. Redundantie van de gegevens kan worden beheerd omdat Media Services niet primaire en secundaire URL's op hetzelfde moment verbroken wordt. Dit scenario veronderstelt dat coderingsprogramma's gesynchroniseerd zijn en dezelfde gegevens bieden.  
 
 - Meerdere encoders double pushen naar primaire en secundaire URL's:
 
@@ -133,7 +133,7 @@ U kunt de IP-adressen die zijn toegestaan voor het publiceren van video naar dit
 * Een IP-adresbereik die gebruikmaakt van een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22)
 * Een IP-adresbereik die gebruikmaakt van een IP-adres en een decimaal subnetmasker met punten (bijvoorbeeld 10.0.0.1(255.255.252.0))
 
-Als geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, wordt geen IP-adres toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
+Als er geen IP-adressen zijn opgegeven en er geen regeldefinitie bestaat, is geen IP-adres toegestaan. Als u IP-adres(sen) wilt toestaan, maakt u een regel en stelt u 0.0.0.0/0 in.
 
 ### <a name="channel-preview"></a>Kanaal preview
 #### <a name="preview-urls"></a>Voorbeeld-URL 's
@@ -144,7 +144,7 @@ Wanneer u het kanaal hebt gemaakt, kunt u de voorbeeld-URL ophalen. Voor u om de
 Op dit moment de preview-stroom kan worden geleverd alleen in gefragmenteerde MP4 (Smooth Streaming)-indeling, ongeacht het type van de opgegeven invoer. U kunt de [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) player om de smooth stream te testen. Ook kunt u een speler die wordt gehost in Azure portal om uw stream weer te geven.
 
 #### <a name="allowed-ip-addresses"></a>Toegestane IP-adressen
-U kunt de IP-adressen die zijn toegestaan om verbinding met het preview-eindpunt te definiëren. Als geen IP-adressen worden opgegeven, wordt elk IP-adres krijgt. Een toegestane IP-adres kan worden opgegeven als een van de volgende:
+U kunt de IP-adressen die zijn toegestaan om verbinding met het preview-eindpunt te definiëren. Als geen IP-adressen worden opgegeven, wordt elk IP-adres is toegestaan. Een toegestane IP-adres kan worden opgegeven als een van de volgende:
 
 * Een enkel IP-adres (bijvoorbeeld: 10.0.0.1)
 * Een IP-adresbereik die gebruikmaakt van een IP-adres en een CIDR-subnetmasker (bijvoorbeeld 10.0.0.1/22)
@@ -154,13 +154,13 @@ U kunt de IP-adressen die zijn toegestaan om verbinding met het preview-eindpunt
 Zie voor informatie over de kanaal-uitvoer, de [Keyframe interval](#keyframe_interval) sectie.
 
 ### <a name="channel-managed-programs"></a>Programma's van Channel beheerd
-Een kanaal is gekoppeld aan programma's die u gebruiken kunt om te bepalen voor het publiceren en opslaan van segmenten in een live stream. Kanalen beheren programma's. De kanaal-/ programmarelatie lijkt erg op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
+Een kanaal is gekoppeld aan programma's die u gebruiken kunt om te bepalen voor het publiceren en opslaan van segmenten in een live stream. Kanalen beheren programma's. De kanaal-/ programmarelatie lijkt op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
 
-U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. De lengte van een archiefvenster bepaalt ook de maximale hoeveelheid tijd die clients terug in de tijd kunnen zoeken vanaf de huidige live positie. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
+U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. Lengte van een archiefvenster bepaalt ook dat het maximum aantal van de tijd die clients terug in tijd kan zoeken vanaf de huidige live positie. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
 
 Elk programma dat is gekoppeld aan een asset die de gestreamde inhoud is opgeslagen. Een asset is toegewezen aan een blok-blob-container in Azure storage-account en de bestanden in de asset worden opgeslagen als blobs in de container. Voor het publiceren van het programma zodat uw klanten de stroom kunnen bekijken, moet u een OnDemand-locator voor de gekoppelde asset maken. U kunt deze locator kunt gebruiken voor het bouwen van een streaming-URL die u aan uw clients kunt leveren.
 
-Een kanaal ondersteunt maximaal drie gelijktijdig actieve programma's, zodat u meerdere archieven van dezelfde binnenkomende stream kunt maken. U kunt publiceren en archiveren van verschillende onderdelen van een gebeurtenis naar behoefte. Stel bijvoorbeeld dat uw bedrijf nodig is voor het archiveren van een programma met de 6 uur, maar voor het uitzenden van alleen de laatste 10 minuten. Hiervoor moet u twee gelijktijdig actieve programma's maken. Een programma is ingesteld op 6 uur van de gebeurtenis te archiveren, maar het programma wordt niet gepubliceerd. Het andere programma wordt ingesteld om 10 minuten te archiveren en dit programma is gepubliceerd.
+Een kanaal ondersteunt maximaal drie gelijktijdig actieve programma's, zodat u meerdere archieven van dezelfde binnenkomende stream kunt maken. U kunt publiceren en archiveren van verschillende onderdelen van een gebeurtenis naar behoefte. Stel bijvoorbeeld dat uw bedrijf nodig is voor het archiveren van een programma met de 6 uur, maar voor het uitzenden van alleen de laatste 10 minuten. Hiervoor moet u twee gelijktijdig actieve programma's maken. Een programma wordt ingesteld bij de archivering van zes uur van de gebeurtenis, maar het programma wordt niet gepubliceerd. Het andere programma wordt ingesteld om 10 minuten te archiveren en dit programma is gepubliceerd.
 
 Gebruik bestaande programma's niet voor nieuwe gebeurtenissen. Maak in plaats daarvan een nieuw programma voor elke gebeurtenis. Start het programma wanneer u klaar bent om te streamen en te archiveren. Stop het programma als u het streamen wilt stoppen en de gebeurtenis wilt archiveren.
 
@@ -210,8 +210,8 @@ Hier volgen andere overwegingen voor het werken met kanalen en verwante onderdel
 
 * Telkens wanneer u de configuratie van het live coderingsprogramma, Roep de **opnieuw** methode voor het kanaal. Voordat u het kanaal opnieuw instelt, moet u stop het programma. Nadat u het kanaal opnieuw instelt, start het programma opnieuw.
 * Een kanaal kan worden gestopt, alleen wanneer deze zich in de **met** status en alle programma's op het kanaal zijn gestopt.
-* Standaard kunt u alleen 5 kanalen toevoegen aan uw Media Services-account. Zie voor meer informatie [quota's en beperkingen](media-services-quotas-and-limitations.md).
-* U wordt gefactureerd wanneer het kanaal in de **met** status. Raadpleeg voor meer informatie de [Channel statussen en facturering](media-services-live-streaming-with-onprem-encoders.md#states) sectie.
+* Standaard kunt u slechts vijf kanalen toevoegen aan uw Media Services-account. Zie voor meer informatie [quota's en beperkingen](media-services-quotas-and-limitations.md).
+* U wordt gefactureerd wanneer het kanaal in de **met** status. Zie voor meer informatie de [Channel statussen en facturering](media-services-live-streaming-with-onprem-encoders.md#states) sectie.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -220,7 +220,9 @@ Hier volgen andere overwegingen voor het werken met kanalen en verwante onderdel
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-[Azure Media Services tot gefragmenteerde MP4 live opnemen specificatie](media-services-fmp4-live-ingest-overview.md)
+[Aanbevolen on-premises coderingsprogramma 's](media-services-recommended-encoders.md)
+
+[Azure Media Services gefragmenteerde MP4 leven opnemen specificatie](media-services-fmp4-live-ingest-overview.md)
 
 [Overzicht van Azure Media Services en algemene scenario 's](media-services-overview.md)
 

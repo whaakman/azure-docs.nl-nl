@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Verbinding maken met Kafka op HDInsight (preview) via een virtueel Azure-netwerk
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Verbinding maken met Kafka in HDInsight via een virtuele Azure-netwerk
 
 Informatie over het rechtstreeks verbinding maken met Kafka in HDInsight via een virtueel netwerk van Azure. Dit document bevat informatie over verbinding maken met Kafka met behulp van de volgende configuraties:
 
@@ -32,7 +32,7 @@ Informatie over het rechtstreeks verbinding maken met Kafka in HDInsight via een
 
 HDInsight kan geen directe verbinding met Kafka via het openbare internet. Kafka-clients (producenten en consumenten) moeten in plaats daarvan een van de volgende verbindingsmethoden gebruiken:
 
-* Voer de client in hetzelfde virtuele netwerk als Kafka op HDInsight. Deze configuratie wordt gebruikt in de [beginnen met Apache Kafka (preview) op HDInsight](apache-kafka-get-started.md) document. De client voert rechtstreeks op de clusterknooppunten HDInsight of op een andere virtuele machine in hetzelfde netwerk.
+* Voer de client in hetzelfde virtuele netwerk als Kafka op HDInsight. Deze configuratie wordt gebruikt in de [beginnen met Apache Kafka op HDInsight](apache-kafka-get-started.md) document. De client voert rechtstreeks op de clusterknooppunten HDInsight of op een andere virtuele machine in hetzelfde netwerk.
 
 * Verbinding maken met een particulier netwerk, zoals uw on-premises netwerk aan het virtuele netwerk. Deze configuratie kan clients in uw on-premises netwerk rechtstreeks werken met Kafka. Om deze configuratie inschakelt, moet u de volgende taken uitvoeren:
 
@@ -74,7 +74,7 @@ Deze stappen maken de volgende configuratie:
 * Azure Virtual Network
 * Site-naar-site VPN-gateway
 * Azure Storage-account (gebruikt door HDInsight)
-* Kafka in HDInsight
+* Kafka op HDInsight
 
 Om te controleren of een Kafka client kan verbinding maken met het cluster van on-premises, gebruikt u de stappen in de [voorbeeld:-client voor Python](#python-client) sectie.
 
@@ -85,7 +85,7 @@ Gebruik de stappen in deze sectie voor het maken van de volgende configuratie:
 * Azure Virtual Network
 * Punt-naar-site VPN-gateway
 * Azure Storage-Account (gebruikt door HDInsight)
-* Kafka in HDInsight
+* Kafka op HDInsight
 
 1. Volg de stappen in de [werken met zelfondertekende certificaten voor punt-naar-site-verbindingen](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document. Dit document wordt gemaakt van de certificaten die nodig zijn voor de gateway.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Overzicht van automatisch schalen in Microsoft Azure Virtual Machines en Cloud Services-Web-Apps
 Dit artikel wordt beschreven welke Microsoft Azure-automatisch schalen is, de voordelen en hoe u aan de slag met behulp van deze.  
@@ -110,7 +110,7 @@ U kunt via voor automatisch schalen instellen
 | Service | Schema & Docs |
 | --- | --- |
 | Web Apps |[Schalen van Web-Apps](insights-how-to-scale.md) |
-| Cloud Services |[Een Cloudservice voor automatisch schalen](../cloud-services/cloud-services-how-to-scale.md) |
+| Cloud Services |[Een Cloudservice voor automatisch schalen](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtuele Machines: klassieke |[Beschikbaarheidssets voor vergroten/verkleinen klassieke virtuele Machine](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtuele Machines: Windows-Schaalsets |[Virtuele-machineschaalset schalen wordt ingesteld in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtuele Machines: Linux Scale ingesteld |[Virtuele-machineschaalset schalen stelt in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

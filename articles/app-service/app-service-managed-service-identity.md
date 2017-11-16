@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit (openbare preview) in App Service en Azure Functions
 
@@ -103,7 +103,7 @@ Er is een eenvoudige REST-protocol voor het verkrijgen van een token in App Serv
 
 ### <a name="asal"></a>Met behulp van de Microsoft.Azure.Services.AppAuthentication-bibliotheek voor .NET
 
-Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met een beheerde service-identiteit via het Microsoft.Azure.Services.AppAuthentication-pakket. Deze bibliotheek, kunt u voor het testen van uw code lokaal op uw ontwikkelcomputer met uw gebruikersaccount van de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) of geïntegreerde verificatie van Active Directory. Deze sectie leest u hoe aan de slag met de bibliotheek.
+Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met een beheerde service-identiteit via het Microsoft.Azure.Services.AppAuthentication-pakket. Deze bibliotheek, kunt u voor het testen van uw code lokaal op uw ontwikkelcomputer met uw gebruikersaccount vanuit Visual Studio de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), of geïntegreerde verificatie van Active Directory. Zie voor meer informatie over opties voor lokale ontwikkeling met deze bibliotheek, de [Microsoft.Azure.Services.AppAuthentication verwijzing]. Deze sectie leest u hoe aan de slag met de bibliotheek in uw code.
 
 1. Voeg verwijzingen naar de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-pakketten voor uw toepassing.
 
@@ -119,7 +119,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Zie voor meer informatie over Microsoft.Azure.Services.AppAuthentication en de bewerkingen getoond, de [App Service- en KeyVault met MSI .NET-voorbeeld](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Zie voor meer informatie over Microsoft.Azure.Services.AppAuthentication en de bewerkingen getoond, de [Microsoft.Azure.Services.AppAuthentication verwijzing] en de [App Service- en KeyVault met MSI .NET voorbeeld](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-rest-protocol"></a>Met behulp van de REST-protocol
 
@@ -132,7 +132,7 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 > [!div class="mx-tdBreakAll"]
 > |Parameternaam|in|Beschrijving|
 > |-----|-----|-----|
-> |Resource|Query’s uitvoeren|De AAD-bron-URI van de bron voor een token moet worden opgehaald.|
+> |Bron|Query’s uitvoeren|De AAD-bron-URI van de bron voor een token moet worden opgehaald.|
 > |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie ondersteund.|
 > |Geheim|Koptekst|De waarde van de omgevingsvariabele MSI_SECRET.|
 
@@ -144,7 +144,7 @@ Een geslaagde 200 OK reactie bevat een JSON-hoofdtekst met de volgende eigenscha
 > |-------------|----------|
 > |access_token|Het aangevraagde toegangstoken. De webservice aanroepen kunt dit token voor verificatie aan de ontvangende webservice gebruiken.|
 > |expires_on|De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache.|
-> |Resource|De App ID URI van de ontvangende webservice.|
+> |Bron|De App ID URI van de ontvangende webservice.|
 > |token_type|Geeft de waarde van het type token. Het enige type dat ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over bearer-tokens [het OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
@@ -208,3 +208,6 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+
+[Microsoft.Azure.Services.AppAuthentication verwijzing]: https://go.microsoft.com/fwlink/p/?linkid=862452

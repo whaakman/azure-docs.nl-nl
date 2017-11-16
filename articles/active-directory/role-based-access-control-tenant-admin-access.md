@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c1f49e2c7836a56f37aafcaad0cb74278213a720
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Toegangsrechten uitbreiden als een tenantbeheerder met toegangsbeheer op basis van rollen
 
@@ -43,6 +43,30 @@ Deze functie is belangrijk omdat hiermee de tenantbeheerder om te zien van de ab
 > De indruk is dat dit is een globale eigenschap voor Azure Active Directory, maar het functioneert op basis van per gebruiker voor de momenteel aangemelde gebruiker. Wanneer u rechten voor globale beheerder in Azure Active Directory hebt, kunt u de functie elevateAccess voor de gebruiker die u momenteel bent aangemeld bij Azure Active Directory-beheercentrum kunt aanroepen.
 
 ![Azure AD-beheercentrum - eigenschappen - Globaladmin kunt beheren Azure-abonnement - schermafbeelding](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Roltoewijzingen bij het "/" bereik met behulp van PowerShell weergeven
+Om weer te geven de **beheerder voor gebruikerstoegang** toewijzing in de  **/**  bereik, gebruikt u de `Get-AzureRmRoleAssignment` PowerShell-cmdlet.
+    
+```
+Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+```
+
+**Voorbeeld van uitvoer**:
+
+RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Bereik: /    
+Weergavenaam: gebruikersnaam    
+SignInName:username@somedomain.com    
+RoleDefinitionName: Beheerder voor gebruikerstoegang    
+RoleDefinitionId: 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+Object-id: d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+ObjectType: gebruiker    
+
+## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>De roltoewijzing bij verwijderen ' / ' bereik met behulp van Powershell:
+U kunt de volgende PowerShell-cmdlet met toewijzing verwijderen:
+```
+Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```
 
 ## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>ElevateAccess gebruiken voor toegang van de tenant met de REST-API
 

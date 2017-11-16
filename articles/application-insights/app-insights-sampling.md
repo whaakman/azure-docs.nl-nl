@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -38,9 +38,9 @@ Steekproeven verlaagt de kosten van verkeer en gegevens en kunt u voorkomen bepe
 ## <a name="types-of-sampling"></a>Typen steekproeven
 Er zijn drie steekproeven van alternatieve methoden:
 
-* **Adaptieve steekproeven** automatisch het volume van telemetrie uit de SDK in uw ASP.NET-app verzonden. De standaardinstelling van SDK v 2.0.0-beta3. Momenteel beschikbaar voor ASP.NET-serverzijde telemetrie alleen. 
+* **Adaptieve steekproeven** automatisch het volume van telemetrie uit de SDK in uw ASP.NET-app verzonden. Beginnen met de SDK v 2.0.0-beta3 is dit de standaardmethode steekproeven. Adaptieve steekproeven is momenteel alleen beschikbaar voor ASP.NET-serverzijde telemetrie. 
 * **Vast aantal steekproeven** vermindert het volume van telemetrie verzonden van zowel uw ASP.NET-server en de browsers van uw gebruikers. Stelt u het tarief. De client en server synchroniseert de steekproeven zodat die, in zoekopdracht u tussen gerelateerde paginaweergaven en aanvragen navigeren kunt.
-* **Opname steekproeven** werkt in de Azure-portal. Het aantal de telemetrie van uw app, met een frequentie die u instelt binnenkomt wordt verwijderd. Niet verminderen het verkeer van telemetrie, maar u kunt houden binnen uw maandelijkse quotum. Het grote voordeel van opname steekproeven is dat u dit instellen kunt zonder dat uw app en het op uniforme wijze voor alle servers en clients werkt. 
+* **Opname steekproeven** werkt in de Azure-portal. Het aantal de telemetrie van uw app, op een samplefrequentie die u instelt binnenkomt wordt verwijderd. Telemetrie verkeer dat wordt verzonden vanuit uw app niet verminderen, maar kunt u binnen uw maandelijkse quotum houden. Het belangrijkste voordeel van opname steekproeven is dat u de samplingfrequentie instellen kunt zonder dat uw app en het op uniforme wijze voor alle servers en clients werkt. 
 
 Als Adaptief of vast aantal steekproeven in bewerking, is opname steekproeven uitgeschakeld.
 
@@ -67,15 +67,19 @@ Opname steekproeven functioneren niet terwijl er op basis van SDK adaptieve of v
 ## <a name="adaptive-sampling-at-your-web-server"></a>Adaptieve steekproeven op uw webserver
 Adaptieve steekproeven is beschikbaar voor de Application Insights-SDK voor ASP.NET v 2.0.0-beta3 of hoger, en is standaard ingeschakeld. 
 
-Adaptieve steekproeven is van invloed op het volume van de telemetrie van uw web-app-server naar de Application Insights-service verzonden. Het volume wordt automatisch aangepast behouden in de opgegeven maximale overdrachtssnelheid van verkeer.
+Adaptieve steekproeven is van invloed op het volume van de telemetrie van uw webserver-app verzonden naar de Application Insights-service-eindpunt. Het volume wordt automatisch aangepast behouden in de opgegeven maximale overdrachtssnelheid van verkeer.
 
 Deze werkt niet op lage volumes telemetrie, dus een app in foutopsporing of een website met geringe gebruiksduur, worden niet beïnvloed.
 
-Zodat het doelvolume enkele van de telemetrie die is gegenereerd wordt genegeerd. Maar net als andere soorten steekproeven, behoudt de algoritme gerelateerde telemetrie-items. Bijvoorbeeld, wanneer u de telemetrie in de zoekopdracht bekijken wilt, zult u kunnen vinden van de aanvraag die betrekking hebben op een bepaalde uitzondering. 
+Zodat het doelvolume enkele van de gegenereerde telemetrie wordt genegeerd. Maar net als andere soorten steekproeven, behoudt de algoritme gerelateerde telemetrie-items. Bijvoorbeeld, wanneer u de telemetrie in de zoekopdracht bekijken wilt, zult u kunnen vinden van de aanvraag die betrekking hebben op een bepaalde uitzondering. 
 
 Metriek telt zoals aanvraagsnelheid en snelheid van de uitzondering worden aangepast om te compenseren voor de samplefrequentie zodat ze ongeveer juiste waarden in de metriek Explorer tonen.
 
-**Bijwerken van uw project NuGet** pakketten naar de meest recente *voorlopige versie* versie van Application Insights: met de rechtermuisknop op het project in Solution Explorer, kiest u NuGet-pakketten beheren controleren **opnemen voorlopige** en zoek naar Microsoft.ApplicationInsights.Web. 
+### <a name="update-nuget-packages"></a>NuGet-pakketten bijwerken ###
+
+Uw project NuGet-pakketten bijwerken naar de meest recente *voorlopige versie* versie van Application Insights. In Visual Studio met de rechtermuisknop op het project in Solution Explorer, kiest u NuGet-pakketten beheren controleren **Include prerelease** en zoek naar Microsoft.ApplicationInsights.Web. 
+
+### <a name="configuring-adaptive-sampling"></a>Adaptieve steekproeven configureren ###
 
 In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), kunt u verschillende parameters in de `AdaptiveSamplingTelemetryProcessor` knooppunt. De cijfers die wordt weergegeven, zijn de standaardwaarden:
 
@@ -116,7 +120,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 **Uitschakelen** adaptieve steekproef nemen, verwijdert u het knooppunt AdaptiveSamplingTelemetryProcessor uit applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternatief: adaptieve steekproeven in code configureren
-In plaats van steekproeven in het .config-bestand aanpassen, kunt u code. Hiermee kunt u opgeven van een callbackfunctie die wordt aangeroepen wanneer de samplefrequentie opnieuw geëvalueerd wordt. U kunt dit bijvoorbeeld gebruiken om erachter te komen welke samplefrequentie wordt gebruikt.
+In plaats van de parameter steekproeven instellen in het .config-bestand, kunt u programmatisch deze waarden instellen. Hiermee kunt u opgeven van een callbackfunctie die wordt aangeroepen wanneer de samplefrequentie opnieuw geëvalueerd wordt. U kunt dit bijvoorbeeld gebruiken om erachter te komen welke samplefrequentie wordt gebruikt.
 
 Verwijder de `AdaptiveSamplingTelemetryProcessor` knooppunt uit het .config-bestand.
 
@@ -168,7 +172,7 @@ Verwijder de `AdaptiveSamplingTelemetryProcessor` knooppunt uit het .config-best
 ## <a name="sampling-for-web-pages-with-javascript"></a>Steekproef voor webpagina's met JavaScript
 U kunt de webpagina's voor vast tarief steekproeven vanaf een willekeurige server configureren. 
 
-Wanneer u [de webpagina's configureren voor Application Insights](app-insights-javascript.md), wijzigt u het codefragment die u via de Application Insights-portal. (In ASP.NET-apps het fragment doorgaans gaat in _Layout.cshtml.)  Voeg een regel zoals `samplingPercentage: 10,` voordat de instrumentatiesleutel:
+Wanneer u [de webpagina's configureren voor Application Insights](app-insights-javascript.md), wijzig de JavaScript-fragment die u via de Application Insights-portal. (In ASP.NET-apps het fragment doorgaans gaat in _Layout.cshtml.)  Voeg een regel zoals `samplingPercentage: 10,` voordat de instrumentatiesleutel:
 
     <script>
     var appInsights= ... 
@@ -191,13 +195,15 @@ Kies een percentage dat bijna 100/N waarbij N staat voor een geheel getal voor h
 Als u tevens vast aantal steekproeven op de server inschakelt, worden de clients en de server worden gesynchroniseerd zodat die, in zoekopdracht u tussen gerelateerde paginaweergaven en aanvragen navigeren kunt.
 
 ## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>Vast aantal steekproeven voor ASP.NET-websites
-Vast tarief steekproeven vermindert het verkeer van uw webserver en webbrowsers worden verzonden. In tegenstelling tot adaptieve steekproeven wordt telemetrie tegen een vast tarief dat u hebt besloten gereduceerd. Het ook synchroniseert de client en server steekproeven zodat verwante items worden bewaard - bijvoorbeeld, zodat als u de weergave van een pagina in de zoekopdracht bekijkt, kunt u de gerelateerde aanvraag vinden.
+Vast tarief steekproeven vermindert het verkeer van uw webserver en webbrowsers worden verzonden. In tegenstelling tot adaptieve steekproeven wordt telemetrie tegen een vast tarief dat u hebt besloten gereduceerd. Het ook synchroniseert de client en server steekproeven zodat verwante items worden bewaard: wanneer u de weergave van een pagina in de zoekopdracht bekijkt, kunt u bijvoorbeeld de verwante aanvraag vinden.
 
-Het algoritme steekproeven behoudt verwante items. Voor elke aanvraag HTTP-worden gebeurtenissen, deze en gerelateerde gebeurtenissen genegeerd of verzonden. 
+Het algoritme steekproeven behoudt verwante items. Voor elke aanvraag HTTP-worden gebeurtenis, de aanvraag en de gerelateerde gebeurtenissen genegeerd of samen worden verzonden. 
 
 In Metrics Explorer tarieven zoals aanvragen en uitzonderingen aantallen vermenigvuldigd met een factor om te compenseren voor de samplefrequentie zodat ze ongeveer juist zijn.
 
-1. **Bijwerken van uw project NuGet-pakketten** naar de meest recente *voorlopige versie* versie van Application Insights. Met de rechtermuisknop op het project in Solution Explorer, kiest u NuGet-pakketten beheren controleren **Include prerelease** en zoek naar Microsoft.ApplicationInsights.Web. 
+### <a name="configuring-fixed-rate-sampling"></a>Vast aantal steekproeven configureren ###
+
+1. **Bijwerken van uw project NuGet-pakketten** naar de meest recente *voorlopige versie* versie van Application Insights. In Visual Studio met de rechtermuisknop op het project in Solution Explorer, kiest u NuGet-pakketten beheren controleren **Include prerelease** en zoek naar Microsoft.ApplicationInsights.Web. 
 2. **Uitschakelen van adaptieve steekproeven**: In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), verwijderen of uitcommentariëren de `AdaptiveSamplingTelemetryProcessor` knooppunt.
    
     ```xml
@@ -233,7 +239,7 @@ In Metrics Explorer tarieven zoals aanvragen en uitzonderingen aantallen vermeni
 > 
 
 ### <a name="alternative-enable-fixed-rate-sampling-in-your-server-code"></a>Alternatief: vast tarief steekproeven in uw servercode inschakelen
-In plaats van de parameter steekproeven instellen in het .config-bestand, kunt u code. 
+In plaats van de parameter steekproeven instellen in het .config-bestand, kunt u programmatisch deze waarden instellen. 
 
 *C#*
 
@@ -256,9 +262,9 @@ In plaats van de parameter steekproeven instellen in het .config-bestand, kunt u
 ([Meer informatie over de telemetrie processors](app-insights-api-filtering-sampling.md#filtering).)
 
 ## <a name="when-to-use-sampling"></a>Het gebruik van steekproeven?
-Adaptieve steekproeven wordt automatisch ingeschakeld als u de ASP.NET-SDK-versie 2.0.0-beta3 of hoger. Ongeacht welke SDK versie die u gebruikt, kunt u opname steekproeven (op onze server).
+Adaptieve steekproeven wordt automatisch ingeschakeld als u de ASP.NET-SDK-versie 2.0.0-beta3 of hoger. Ongeacht welke versie van de SDK die u gebruikt, kunt u de opname steekproeven om toe te staan van Application Insights voor een steekproef van de verzamelde gegevens.
 
-U hoeft niet steekproeven voor de meeste grootte voor kleine en middelgrote toepassingen. De nuttigste diagnostische gegevens en de meest nauwkeurige statistieken worden verkregen door het verzamelen van gegevens op alle activiteiten van gebruikers. 
+In het algemeen voor de meeste grootte voor kleine en middelgrote toepassingen hoeft u geen steekproeven. De nuttigste diagnostische gegevens en de meest nauwkeurige statistieken worden verkregen door het verzamelen van gegevens op alle activiteiten van gebruikers. 
 
 De belangrijkste voordelen van steekproeven zijn:
 
@@ -281,7 +287,7 @@ De belangrijkste voordelen van steekproeven zijn:
 
 **Gebruik adaptieve steekproeven:**
 
-Anders wordt aangeraden adaptieve steekproeven. Dit is standaard ingeschakeld in de ASP.NET-server SDK-versie 2.0.0-beta3 of hoger. Het verminderen niet het verkeer totdat een bepaalde minimale frequentie, zodat dit geen invloed op een site intensief wordt gebruikt.
+Als de voorwaarden op de andere vormen van steekproeven zijn niet van toepassing, raden wij adaptieve steekproeven. Dit is standaard ingeschakeld in de ASP.NET-server SDK-versie 2.0.0-beta3 of hoger. Dit heeft geen invloed op verkeer tot een bepaalde minimale frequentie is bereikt, daarom weinig gebruikt sites worden niet beïnvloed.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Hoe weet ik of steekproeven uitgevoerd wordt?
 Voor het detecteren van de werkelijke samplefrequentie ongeacht waar deze is toegepast, gebruikt u een [Analytics query](app-insights-analytics.md) zoals deze:
@@ -330,7 +336,7 @@ De client (JavaScript) SDK deelneemt aan vast tarief steekproeven in combinatie 
 
 * Een manier worden gestart met adaptieve steekproeven, uitzoeken wat waardering geven vereffent op (Zie de bovenstaande vraag) en ga vervolgens naar vast tarief voert sampling uit met behulp van dit percentage. 
   
-    U hebt anders te achterhalen. Het gebruik van uw huidige telemetrie in AI analyseren, observeren beperking die zich voordoet en schatting maken van het volume van de verzamelde telemetrie. Deze drie invoer, samen met de geselecteerde prijscategorie voorgesteld hoeveel kunt u het volume van de verzamelde telemetrie verminderen. Echter, een toename van het nummer van uw gebruikers- of enige andere verschuiving van het volume van telemetrie mogelijk uw schatting ongeldig.
+    U hebt anders te achterhalen. Het gebruik van uw huidige telemetrie in Application Insights analyseren, zien beperking die zich voordoet en schatting maken van het volume van de verzamelde telemetrie. Deze drie invoer, samen met de geselecteerde prijscategorie voorgesteld hoeveel kunt u het volume van de verzamelde telemetrie verminderen. Echter, een toename van het nummer van uw gebruikers- of enige andere verschuiving van het volume van telemetrie mogelijk uw schatting ongeldig.
 
 *Wat gebeurt er als ik voorbeeldpercentage te laag configureren?*
 

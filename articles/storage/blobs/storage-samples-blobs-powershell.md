@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 11/07/2017
 ms.author: robinsh
-ms.openlocfilehash: 74f6e8eb6dd29633fbf518831b446a149fbbddc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbf818a023219e1673a8864e8bf9a8ecd6110b85
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Voorbeelden van Azure PowerShell voor Azure Blob-opslag
 
@@ -28,7 +28,8 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-script di
 | | |
 |---|---|
 |**Storage-accounts**||
-| [Een opslagaccount maken en de toegangssleutels ophalen/draaien](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fcli%2fazure%2ftoc.json)| Een Azure Storage-account maakt en haalt en draait op een van de toegangssleutels. |
+| [Een opslagaccount maken en de toegangssleutels ophalen/draaien](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Een Azure Storage-account maakt en haalt en draait op een van de toegangssleutels. |
 |**Blob Storage**||
-| [Berekenen van de totale grootte van een Blob storage-container](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fcli%2fazure%2ftoc.json) | Berekent de totale grootte van de blobs in een container. |
-| [Verwijderen van containers met een bepaald voorvoegsel](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee verwijdert u containers die beginnen met een opgegeven tekenreeks. |
+| [Berekenen van de totale grootte van een Blob storage-container](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Berekent de totale grootte van de blobs in een container. |
+| [De grootte van een Blob storage-container voor facturatie berekenen](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | De grootte van een container in Blob storage omwille van de schatting van facturering kosten berekend. |
+| [Verwijderen van containers met een bepaald voorvoegsel](../scripts/storage-blobs-container-delete-by-prefix-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee verwijdert u containers die beginnen met een opgegeven tekenreeks. |

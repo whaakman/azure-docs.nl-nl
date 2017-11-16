@@ -1,5 +1,5 @@
 ---
-title: Kubernertes op Azure zelfstudie - ACR voorbereiden | Microsoft Docs
+title: Kubernetes op Azure zelfstudie - ACR voorbereiden | Microsoft Docs
 description: AKS zelfstudie - ACR voorbereiden
 services: container-service
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fabfbe51f9486c69d795b04bd668b50971157820
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementeren en gebruiken van Azure Container register
 
@@ -32,13 +32,13 @@ Azure Container register (ACR) is een register op basis van Azure, persoonlijke 
 > * Een installatiekopie van een container voor ACR-tagging
 > * De installatiekopie uploaden naar ACR
 
-In volgende zelfstudies, is dit ACR-exemplaar geïntegreerd met een cluster Kubernetes in AKS. 
+In volgende zelfstudies, is dit ACR-exemplaar geïntegreerd met een cluster Kubernetes in AKS.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 In de [vorige zelfstudie](./tutorial-kubernetes-prepare-app.md), een installatiekopie van een container voor een eenvoudige toepassing voor Azure uw stem is gemaakt. Als u de installatiekopie van het Azure stemmen app niet hebt gemaakt, terug naar [zelfstudie 1 – installatiekopieën van de container maken](./tutorial-kubernetes-prepare-app.md).
 
-Deze zelfstudie vereist dat u de Azure CLI versie 2.0.20 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
+Deze zelfstudie vereist dat u de Azure CLI versie 2.0.21 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="deploy-azure-container-registry"></a>Register met Azure Container implementeren
 
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Push-installatiekopieën in register
 
-Push de `azure-vote-front` afbeelding in het register. 
+Push de `azure-vote-front` afbeelding in het register.
 
 In het volgende voorbeeld vervangen door de naam van de loginServer ACR de loginServer uit uw omgeving.
 

@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>Azure-resources via de portal beheren
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Portal](resource-group-portal.md) 
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Dit onderwerp wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) met [Azure Resource Manager](resource-group-overview.md) voor het beheren van uw Azure-resources. Zie voor meer informatie over het implementeren van resources via de portal, [implementeren van resources met Resource Manager-sjablonen en Azure-portal](resource-group-template-deploy-portal.md).
-
-Op dit moment ondersteunt niet elke service de portal of de resourcemanager. Voor deze services die u wilt gebruiken, de [klassieke portal](https://manage.windowsazure.com). Zie voor de status van elke service, [Azure portal beschikbaarheid grafiek](https://azure.microsoft.com/features/azure-portal/availability/).
+Dit artikel laat zien hoe u de [Azure-portal](https://portal.azure.com) met [Azure Resource Manager](resource-group-overview.md) voor het beheren van uw Azure-resources. Zie voor meer informatie over het implementeren van resources via de portal, [implementeren van resources met Resource Manager-sjablonen en Azure-portal](resource-group-template-deploy-portal.md).
 
 ## <a name="manage-resource-groups"></a>Resourcegroepen beheren
 
@@ -58,7 +49,7 @@ De resourcegroep slaat metagegevens op over de resources. Dat is de reden waarom
    
     ![kolommen toevoegen](./media/resource-group-portal/add-columns.png)
 7. Zie voor meer informatie over het implementeren van resources op uw nieuwe resourcegroep, [implementeren van resources met Resource Manager-sjablonen en Azure-portal](resource-group-template-deploy-portal.md).
-8. U kunt de blade vastmaken aan uw dashboard voor snelle toegang tot een resourcegroep.
+8. U kunt de resourcegroep voor snelle toegang tot een resourcegroep vastmaken aan uw dashboard.
    
     ![pincode resourcegroep](./media/resource-group-portal/pin-group.png)
 9. Het dashboard toont de resourcegroep en de bijbehorende bronnen. U kunt ofwel de resourcegroepen of een van de daarbij behorende bronnen om te navigeren naar het item selecteren.
@@ -71,12 +62,12 @@ U kunt tags toepassen resourcegroepen en resources voor uw assets logische manie
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>Resources controleren
-Wanneer u een resource selecteert, geeft de resourceblade standaard grafieken en tabellen voor bewaking van dat resourcetype.
+Wanneer u een resource selecteert, geeft het portal standaard grafieken en tabellen voor bewaking van dat resourcetype.
 
 1. Selecteer een resource die en u ziet de **bewaking** sectie. Dit omvat grafieken die relevant voor het brontype zijn. De volgende afbeelding ziet u de bewakingsgegevens voor een opslagaccount.
    
     ![bewaking weergeven](./media/resource-group-portal/show-monitoring.png)
-2. U kunt een gedeelte van de blade vastmaken aan uw dashboard met het weglatingsteken (...) boven de sectie selecteren. U kunt ook de grootte van de sectie in de blade aanpassen of verwijder deze volledig. De volgende afbeelding laat zien hoe vastmaken, aanpassen of verwijderen van de CPU en geheugen-sectie.
+2. U kunt een sectie vastmaken aan uw dashboard met het weglatingsteken (...) boven de sectie selecteren. U kunt ook de grootte van de sectie aanpassen of verwijder deze volledig. De volgende afbeelding laat zien hoe vastmaken, aanpassen of verwijderen van de CPU en geheugen-sectie.
    
     ![sectie van de pincode](./media/resource-group-portal/pin-cpu-section.png)
 3. Na het vastmaken van de sectie aan het dashboard, ziet u de samenvatting op het dashboard. En onmiddellijk te selecteren, gaat u naar meer informatie over de gegevens.
@@ -92,7 +83,7 @@ Wanneer u een resource selecteert, geeft de resourceblade standaard grafieken en
      Zie voor meer informatie over het werken met dashboards, [maken en delen van dashboards in de Azure portal](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-resources"></a>Resources beheren
-In de blade voor een resource ziet u de opties voor het beheren van de resource. De portal geeft beheeropties voor die bepaald resourcetype. Ziet u de opdrachten voor het beheer aan de bovenkant van de resourceblade en aan de linkerkant.
+Als u een resource in de portal weergeeft, ziet u de opties voor het beheren van die resource.
 
 ![Resources beheren](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ U kunt informatie weergeven over uw abonnement en de samengevoegde kosten voor a
 
 ![abonnement](./media/resource-group-portal/select-subscription.png)
 
-Binnen de abonnementsblade ziet u een frequentie branden.
+U ziet de snelheid branden.
 
 ![frequentie branden](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ Na het instellen van de resourcegroep, is het raadzaam om de Resource Manager-sj
 Zie voor stapsgewijze instructies [Azure Resource Manager-sjabloon exporteren uit bestaande resources](resource-manager-export-template.md).
 
 ## <a name="delete-resource-group-or-resources"></a>Resourcegroep of resources verwijderen
-Verwijderen van een resourcegroep, worden alle resources daarin verwijderd. U kunt ook afzonderlijke resources binnen een resourcegroep verwijderen. Wilt u voorzichtig wanneer u een resourcegroep verwijderen omdat er mogelijk resources in andere resourcegroepen die zijn gekoppeld. Resource Manager wordt niet gekoppelde resources verwijderd, maar ze werken mogelijk niet goed zonder de verwachte bronnen.
+Verwijderen van een resourcegroep, worden alle resources daarin verwijderd. U kunt ook afzonderlijke resources binnen een resourcegroep verwijderen. Wees voorzichtig bij het verwijderen van een resourcegroep. Die resourcegroep kan resources die afhankelijk zijn van resources in andere resourcegroepen bevatten.
 
 ![Groep verwijderen](./media/resource-group-portal/delete-group.png)
 

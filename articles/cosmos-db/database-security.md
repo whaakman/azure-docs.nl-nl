@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Beveiliging van Azure DB Cosmos-database
 
@@ -71,7 +71,7 @@ We gaan verdiepen in elk criterium in detail.
 |Active directory-integratie (RBAC)| U kunt ook toegang tot het account van de database met behulp van toegangsbeheer (IAM) in de Azure portal opgeven, zoals weergegeven in de schermafbeelding na deze tabel. IAM biedt toegangsbeheer op basis van rollen en kan worden geïntegreerd met Active Directory. U kunt ingebouwde rollen of aangepaste rollen voor personen en groepen zoals weergegeven in de volgende afbeelding.|
 |Globale replicatie|Azure Cosmos DB biedt klare globale distributie, waarmee u uw gegevens gerepliceerd naar een van de Azure wereldwijd datacenters met één klik op een knop. Globale replicatie kunt u globaal worden geschaald en lage latentie toegang tot uw gegevens over de hele wereld.<br><br>In de context van beveiliging, globale replicatie weet u zeker gegevensbeveiliging tegen regionale fouten.<br><br>Meer informatie [Distribueer gegevens globaal](distribute-data-globally.md).|
 |Regionale failover|Als u uw gegevens in meer dan één datacenter zijn gerepliceerd, Azure Cosmos DB automatisch wordt getotaliseerd via uw bewerkingen moet een regionaal datacenter offline gaan. U kunt een geprioriteerde lijst met failover-regio's met behulp van de regio's waar uw gegevens worden gerepliceerd. <br><br>Meer informatie [regionale Failovers in Azure Cosmos DB](regional-failover.md).|
-|Lokale replicatie|Zelfs binnen één datacenter, repliceert Azure Cosmos DB automatisch gegevens voor hoge beschikbaarheid zodat u de keuze van [consistentieniveaus](consistency-levels.md). Er wordt gegarandeerd dat een [99,99% beschikbaarheid beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) en wordt geleverd met een financiële garantie - iets er geen andere database-Services kan bieden.|
+|Lokale replicatie|Zelfs binnen één datacenter, repliceert Azure Cosmos DB automatisch gegevens voor hoge beschikbaarheid zodat u de keuze van [consistentieniveaus](consistency-levels.md). Er wordt gegarandeerd dat een 99,99% [beschikbaarheids-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) voor alle accounts voor één regio en alle meerdere landen/regio-accounts met versoepeld consistentie en 99,999% beschikbaarheid voor alle accounts voor meerdere landen/regio-database lezen.|
 |Geautomatiseerde online back-ups|Azure DB Cosmos-databases worden regelmatig een back-up gemaakt en opgeslagen in een archief georedundant. <br><br>Meer informatie [automatische online back-up en herstel met Azure Cosmos DB](online-backup-and-restore.md).|
 |Gegevens herstellen die zijn verwijderd|De geautomatiseerde online back-ups kunnen worden gebruikt om gegevens die u mogelijk per ongeluk hebt verwijderd ongeveer 30 dagen na de gebeurtenis te herstellen. <br><br>Meer informatie [automatische online back-up en herstel met Azure Cosmos-DB](online-backup-and-restore.md)|
 |Beveiligen en isoleren van gevoelige gegevens|Alle gegevens in de regio's die worden vermeld in [wat is er nieuw?](#whats-new) nu in rust versleuteld.<br><br>PII en andere vertrouwelijke gegevens kunnen worden geïsoleerd voor specifieke verzamelingen en alleen-lezen of alleen-lezen toegang kan worden beperkt tot specifieke gebruikers.|

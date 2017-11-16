@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 6a197dc7abbb70ad632cab25291504628bc8e32c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a7063375ac4a2f9f172b5c380c2d5472a12e1bfb
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>MirrorMaker gebruiken om te repliceren van Apache Kafka onderwerpen met Kafka op HDInsight (preview)
+# <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker gebruiken om te repliceren van Apache Kafka onderwerpen met Kafka in HDInsight
 
 Informatie over het gebruik van Apache Kafka mirroring functie te onderwerpen worden gerepliceerd naar een secundaire cluster. Het spiegelen kan worden uitgevoerd als een continu proces of af en toe worden gebruikt als een methode voor het migreren van gegevens van de ene cluster naar een andere.
 

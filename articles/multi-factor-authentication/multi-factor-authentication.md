@@ -6,7 +6,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 89c395d50d87db51cb2c502fe83490d104cd1c79
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a928344dfc41687c92e7845bc304a05122ab8a92
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Wat is Azure Multi-Factor Authentication?
 Verificatie in twee stappen is een authenticatiemethode die meer dan één verificatiemethode is vereist en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. Het werkt door te vereisen van twee of meer van de volgende verificatiemethoden:
@@ -33,9 +33,9 @@ Verificatie in twee stappen is een authenticatiemethode die meer dan één verif
 Azure Multi-Factor Authentication (MFA) is een Microsoft-oplossing voor verificatie in twee stappen. Azure MFA helpt bij het bewaken van de toegang tot uw gegevens en toepassingen en komt tegemoet aan de wensen van gebruikers die een eenvoudige aanmeldprocedure willen. Het biedt krachtige verificatie via een reeks verificatiemethoden waaronder verificatie per telefoon, sms of mobiele app.
 
 ## <a name="why-use-azure-multi-factor-authentication"></a>Waarom Azure multi-factor Authentication gebruiken?
-Vandaag de dag, meer dan ooit, zijn er steeds meer mensen verbonden. Met slim telefoons, tablets, laptops en pc's hebben mensen verschillende opties op hoe ze verbinding maken en blijf op elk gewenst moment gaat. Gebruikers hebben toegang tot hun accounts en toepassingen vanaf elke locatie, wat betekent dat ze kunnen meer werk gedaan te krijgen en hun klanten fungeren beter.
+Vandaag de dag, meer dan ooit, zijn er steeds meer mensen verbonden. Met slim telefoons, tablets, laptops en pc's hebben mensen meerdere opties voor toegang tot hun accounts en toepassingen overal en op elk gewenst moment de verbinding behouden.
 
-Azure multi-factor Authentication is een eenvoudig te gebruiken, schaalbare en betrouwbare oplossing die een tweede methode voor verificatie, biedt zodat uw gebruikers zijn altijd is beveiligd.
+Azure multi-factor Authentication is een eenvoudig te gebruiken, schaalbare en betrouwbare oplossing die een tweede methode voor verificatie biedt bij het beveiligen van uw gebruikers.
 
 | ![Eenvoudig te gebruiken](./media/multi-factor-authentication/simple.png) | ![Schaalbaar](./media/multi-factor-authentication/scalable.png) | ![Altijd is beveiligd](./media/multi-factor-authentication/protected.png) | ![Betrouwbaar](./media/multi-factor-authentication/reliable.png) |
 |:---:|:---:|:---:|:---:|
@@ -44,7 +44,7 @@ Azure multi-factor Authentication is een eenvoudig te gebruiken, schaalbare en b
 * **Eenvoudig te gebruiken** -Azure multi-factor Authentication is eenvoudig te installeren en gebruiken. De extra beveiliging die wordt geleverd met Azure multi-factor Authentication kan gebruikers hun eigen apparaten beheren. Beste van alle in veel gevallen deze kan worden ingesteld met een paar eenvoudige klikken.
 * **Schaalbare** -Azure multi-factor Authentication gebruikt de kracht van de cloud en kan worden geïntegreerd met uw on-premises AD en aangepaste apps. Deze beveiliging wordt zelfs uitgebreid naar uw hoog volume, essentiële scenario's.
 * **Altijd is beveiligd** -Azure multi-factor Authentication biedt sterke verificatie met behulp van de hoogste industrienormen.
-* **Betrouwbare** -wordt gegarandeerd dat de beschikbaarheid van 99,9% van de Azure multi-factor Authentication. De service wordt beschouwd als niet beschikbaar wanneer het is niet ontvangen of verificatie aanvragen verwerkt voor de verificatie in twee stappen.
+* **Betrouwbare** -Microsoft garandeert een beschikbaarheid van 99,9% van de Azure multi-factor Authentication. De service wordt beschouwd als niet beschikbaar wanneer het is niet ontvangen of verificatie aanvragen verwerkt voor de verificatie in twee stappen.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 

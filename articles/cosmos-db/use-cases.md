@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Algemene gebruiksvoorbeelden voor Azure Cosmos-DB
 In dit artikel biedt een overzicht van enkele algemene gebruiksvoorbeelden voor Azure Cosmos DB.  De aanbevelingen in dit artikel fungeren als een beginpunt tijdens het ontwikkelen van uw toepassing met Cosmos-DB.   
@@ -39,7 +39,7 @@ Azure Cosmos-database is een globale gedistribueerde, meerdere model-database di
 
 Hier volgen enkele kenmerken die geschikt zijn voor krachtige toepassingen met globale streven van Azure Cosmos-database.
 
-* Azure Cosmos DB partities systeemeigen van uw gegevens voor hoge beschikbaarheid en schaalbaarheid. Azure Cosmos DB biedt 99,99% garanties met betrekking tot beschikbaarheid, doorvoer, lage latentie en consistentie.
+* Azure Cosmos DB partities systeemeigen van uw gegevens voor hoge beschikbaarheid en schaalbaarheid. Azure Cosmos DB biedt 99,99% garanties met betrekking tot beschikbaarheid, doorvoer, lage latentie en consistentiecontrole op alle één regio en alle meerdere landen/regio-accounts met beperkte consistentie en 99,999% gelezen beschikbaarheid voor alle accounts voor meerdere landen/regio-database.
 * Azure Cosmos DB heeft back SSD-opslag met lage latentie reactietijden van de volgorde van milliseconde.
 * Azure DB van Cosmos-ondersteuning voor consistentieniveaus zoals uiteindelijke, consistente voorvoegsel, sessie en gebonden-verouderd kan volledige flexibiliteit en lage kosten voor prestaties verhouding. Er is geen databaseservice biedt zoveel flexibiliteit als Azure Cosmos DB in niveaus consistentie. 
 * Azure Cosmos-database heeft een flexibele data-vriendelijk-prijsmodel die meters opslag en doorvoer onafhankelijk.

@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Het configureren van Cloud-Services
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-configure-portal.md)
-> * [Klassieke Azure Portal](cloud-services-how-to-configure.md)
->
->
-
 U kunt de meest gebruikte instellingen voor een cloudservice in de Azure portal. Het is ook mogelijk uw configuratiebestand rechtstreeks bij te werken. Download in dat geval een serviceconfiguratiebestand om bij te werken, upload vervolgens het bijgewerkte bestand en werk de cloudservice bij met de configuratiewijzigingen. Welke methode u ook gebruikt, de configuratie-updates worden doorgegeven aan alle rolinstanties.
 
 U kunt ook de exemplaren van uw cloud service-rollen of extern bureaublad in ze beheren.
@@ -77,9 +71,9 @@ In plaats van **instellingen** > **waarschuwingsregels**, kunt u klikken op een 
 Hier kunt u de grafiek gebruikt met de tegel aanpassen of een waarschuwingsregel toevoegen.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Opnieuw opstarten of terugzetten van de installatiekopie extern bureaublad
-Op dit moment kunt u geen configureren extern bureaublad met behulp van de **Azure-portal**. Echter, u kunt instellen het via de [klassieke Azure-portal](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), of via [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+U kunt instellen met extern bureaublad via de [Azure-portal (extern bureaublad instellen)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), of via [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Klik eerst op de cloud service-exemplaar.
+Opnieuw opstarten, klik terugzetten van de installatiekopie of extern in een Cloudservice, op het cloud service-exemplaar.
 
 ![Cloud Service-exemplaar](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

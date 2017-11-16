@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Gegevens kopiëren naar een Azure Search-index met behulp van Azure Data Factory
 
@@ -51,7 +51,7 @@ De volgende eigenschappen worden ondersteund voor Azure Search gekoppelde servic
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
 > [!IMPORTANT]
-> Wanneer gegevens uit een cloud-gegevensarchief kopiëren naar Azure Search-index in Azure Search service gekoppelde, moet u een Azure-integratie Runtime met expliciete regio in connactVia verwijzen. Instellen van de regio als uw Azure Search zich bevindt. Meer informatie uit [Azure integratie Runtime] (concepten-integratie-runtime.md #azure-integratie-runtime).
+> Wanneer gegevens uit een cloud-gegevensarchief kopiëren naar Azure Search-index in Azure Search service gekoppelde, moet u een Azure-integratie Runtime met expliciete regio in connactVia verwijzen. Instellen van de regio als uw Azure Search zich bevindt. Klik hier als u meer wilt weten van [Azure integratie Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Voorbeeld:**
 
@@ -175,7 +175,7 @@ De volgende tabel geeft aan of een Azure Search-gegevenstype of niet wordt onder
 | Int32 | J |
 | Int64 | J |
 | dubbele | J |
-| Booleaanse waarde | J |
+| Boole-waarde | J |
 | DataTimeOffset | J |
 | Tekenreeksmatrix | N |
 | GeographyPoint | N |

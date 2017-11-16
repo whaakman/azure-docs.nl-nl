@@ -1,6 +1,6 @@
 ---
-title: Een Azure Cosmos DB .NET-toepassing ontwikkelen met behulp van de Table-API | Microsoft-documenten
-description: Aan de slag met de Table-API van Azure Cosmos DB met behulp van .NET
+title: 'Snelstartgids: Tabel API met .NET - Azure Cosmos DB | Microsoft Docs'
+description: Deze snelstartgids ziet u hoe u met de Azure-API voor tabel Cosmos DB een toepassing maken met de Azure-portal en .NET
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -8,24 +8,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quickstart connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/22/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 9b1d41fe185f4c3d5fdce13ab8f0136bc961f013
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB: een .NET-toepassing ontwikkelen met de Table-API
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met .NET- en Azure Cosmos DB API-app bouwen 
 
-Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Deze snelstartgids laat zien hoe u Java en de Azure DB die Cosmos [tabel API](table-introduction.md) voor het bouwen van een app door het klonen van een voorbeeld van GitHub. Deze snelstartgids ziet u ook een Cosmos-DB Azure-account maken en hoe Data Explorer gebruiken om te maken van tabellen en entiteiten in de Azure portal op Internet.
 
-Deze Quick Start laat zien hoe u een Azure Cosmos DB-account en een tabel binnen dat account kunt maken met behulp van de Azure Portal. U moet vervolgens code schrijven om entiteiten in te voegen, bij te werken en te verwijderen en enkele query's uit te voeren met behulp van het nieuwe [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget)-pakket (preview) van NuGet. Deze bibliotheek heeft dezelfde klassen en handtekeningen voor methodes als de openbare [Windows Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), maar biedt ook de mogelijkheid verbinding te maken met Azure Cosmos DB-accounts met behulp van de [Table-API](table-introduction.md) (preview). 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -48,7 +48,7 @@ U kunt nu gegevens aan uw nieuwe tabel toevoegen met behulp van Data Explorer.
 1. Vouw in Data Explorer **sample-table** uit, klik op **Entiteiten** en klik vervolgens op **Entiteit toevoegen**.
 
    ![Nieuwe entiteiten maken in Data Explorer in Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Voeg nu gegevens toe aan de vakken met een waarde voor PartitionKey en RowKey en klik op **Entiteit toevoegen**.
+2. Nu gegevens toevoegen aan de waarde PartitionKey en RowKey waarde vakken en klik op **entiteit toevoegen**.
 
    ![De partitiesleutel en de rijsleutel instellen voor een nieuwe entiteit](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -58,92 +58,63 @@ U kunt nu gegevens aan uw nieuwe tabel toevoegen met behulp van Data Explorer.
 
 We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een venster in een git-terminal zoals git bash en `cd` naar een werkmap.  
-
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. 
+1. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    cd "C:\git-samples"
     ```
 
-3. Open vervolgens het oplossingenbestand in Visual Studio. 
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer. 
 
-## <a name="review-the-code"></a>De code bekijken
-
-Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.cs en u zult zien dat deze regels code de Azure Cosmos DB-resources maken. 
-
-* De CloudTableClient is geïnitialiseerd.
-
-    ```csharp
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```bash
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
-* Er wordt een nieuwe tabel gemaakt als er nog geen tabel bestaat.
-
-    ```csharp
-    CloudTable table = tableClient.GetTableReference("people");
-    table.CreateIfNotExists();
-    ```
-
-* Een reeks stappen worden uitgevoerd op de tabel met behulp van de `TableOperation` klasse.
-
-   ```csharp
-   TableOperation insertOperation = TableOperation.Insert(item);
-   table.Execute(insertOperation);
-   ```
-   
-   ```csharp
-   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
-   table.Execute(retrieveOperation);
-   ```
-   
-   ```csharp
-   TableOperation deleteOperation = TableOperation.Delete(items[i]);
-   table.Execute(deleteOperation);
-   ```
-
+3. Open het oplossingsbestand TableStorage in Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-We werken nu de verbindingsreeksinformatie bij, zodat uw app kan communiceren met Azure Cosmos DB. 
+Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan uw app kan communiceren met uw gehoste-database. 
 
-1. In Visual Studio opent u het bestand app.config. 
+1. In de [Azure-portal](http://portal.azure.com/), klikt u op **verbindingsreeks**. 
 
-2. In [Azure Portal](http://portal.azure.com/) klikt u in het Azure Cosmos DB-navigatiemenu links op **Verbindingsreeks**. Klik vervolgens in het nieuwe deelvenster op de knop Kopiëren voor de verbindingsreeks. 
+    Gebruik de knoppen Kopieer aan de rechterkant van het scherm voor het kopiëren van de primaire VERBINDINGSREEKS.
 
-    ![Het eindpunt en de accountsleutel in het deelvenster Verbindingsreeks weergeven en kopiëren](./media/create-table-dotnet/keys.png)
+    ![Weergeven en kopieer de primaire VERBINDINGSREEKS in het deelvenster verbindingsreeks](./media/create-table-dotnet/connection-string.png)
 
-3. Plak de waarde in het bestand app.config als de waarde van de PremiumStorageConnectionString. 
+2. Open het bestand App.config in Visual Studio. 
 
-    `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
+3. Opmerkingen bij de StorageConnectionString op regel 8 en uitcommentarieer de StorageConnectionString op regel 7 als deze zelfstudie maakt geen gebruik van de Opslagemulator. 
 
-    U kunt de StandardStorageConnectionString ongewijzigd laten.
+3. De waarde van de primaire VERBINDINGSREEKS in de waarde van de StorageConnectionString op regel 8 plakken. 
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    Regel 8 nu zijn vergelijkbaar met
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+4. Sla het bestand App.config.
 
 U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 
-## <a name="run-the-console-app"></a>De console-app uitvoeren
+## <a name="build-and-deploy-the-app"></a>De app bouwen en implementeren
 
-1. Klik in Visual Studio met de rechtermuisknop op het project in **PremiumTableGetStarted** in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
+1. In Visual Studio met de rechtermuisknop op de **TableStorage** project in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
 
-2. Typ in het vak **Bladeren** in NuGet *WindowsAzure.Storage-PremiumTable*.
+2. In het NuGet **Bladeren** in het vak *Microsoft.Azure.CosmosDB.Table*.
 
-3. Controleer het vak **Prerelease insluiten**. 
+3. Installeren van de resultaten de **Microsoft.Azure.CosmosDB.Table** bibliotheek. Hiermee installeert u het pakket Azure Cosmos DB tabel API, evenals alle afhankelijkheden.
 
-4. Installeer de bibliotheek **WindowsAzure.Storage-PremiumTable** vanuit de lijst met resultaten. Nu wordt de preview geïnstalleerd van het Azure Cosmos DB Table-API-pakket en alle daarvoor vereiste onderdelen. Houd er rekening mee dat dit een ander NuGet-pakket is dan het Windows Azure Storage-pakket dat wordt gebruikt door Azure Table Storage. 
+4. Klik op CTRL+F5 om de toepassing te starten.
 
-5. Klik op Ctrl+F5 om de toepassing uit te voeren.
+    Het consolevenster weergegeven gegevens in de tabel wordt toegevoegd aan de nieuwe database in de tabel in Azure Cosmos DB.
 
-    In het consolevenster worden de gegevens weergegeven die worden toegevoegd, opgehaald, opgevraagd, vervangen en verwijderd uit de tabel. Zodra het script is voltooid, drukt u op een willekeurige toets om het consolevenster te sluiten. 
-    
-    ![Console-uitvoer van de snelstartgids](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
-
-6. Als u de nieuwe entiteiten in Data Explorer wilt weergeven, plaatst u opmerkingen bij regels 188-208 in program.cs, zodat deze niet worden verwijderd. Vervolgens voert u het voorbeeld opnieuw uit. 
-
-    U kunt nu terug naar Data Explorer. Klik op **Vernieuwen**, vouw de tabel **Mensen** uit en klik op **Entiteiten**. Maar vervolgens gebruik van deze nieuwe gegevens. 
-
-    ![Nieuwe entiteiten in Data Explorer](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
+    U kunt nu teruggaan naar Data Explorer en deze nieuwe gegevens bekijken, wijzigen, een query erop uitvoeren of er iets anders mee doen.
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 
@@ -151,15 +122,12 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door onderstaande stappen te volgen in Azure Portal: 
-
-1. Klik in het menu aan de linkerkant in Azure Portal op **Resourcegroepen** en klik vervolgens op de resource die u hebt gemaakt. 
-2. Klik op de pagina van uw resourcegroep op **Verwijderen**, typ de naam van de resource die u wilt verwijderen in het tekstvak en klik vervolgens op **Verwijderen**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een tabel gemaakt met de Data Explorer en hebt u een app uitgevoerd.  Nu kunt u een query uitvoeren op uw gegevens met de Table-API.  
 
 > [!div class="nextstepaction"]
-> [Query uitvoeren met behulp van de Table-API](tutorial-query-table.md)
+> [Tabelgegevens importeren in de tabel-API](table-import.md)
 

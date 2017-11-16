@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 764bbb95b661bb750d7802ee5996d8a491be928d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 85be41cd6d355e4a38eceacb5589c1df6029ad16
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes dashboard met Azure Container Service (AKS)
 
-De Azure CLI kunnen worden gebruikt voor het starten van het Kubernetes Dashboard. Dit document wordt begeleid bij het dashboard Kubernetes beginnen met de Azure CLI en bepaalde bewerkingen basic dashboard ook wordt uitgelegd. Voor meer informatie over het dashboard Kubernetes Zie [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+De Azure CLI kunnen worden gebruikt voor het starten van het Kubernetes Dashboard. Dit document wordt begeleid bij het dashboard Kubernetes beginnen met de Azure CLI en bepaalde bewerkingen basic dashboard ook wordt uitgelegd. Voor meer informatie over het dashboard Kubernetes Zie [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
 Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en een kubectl-verbinding met het cluster hebt gemaakt. Zie de [Quick Start voor AKS](./kubernetes-walkthrough.md) als u deze items wilt zien.
 
-Ook moet de Azure CLI-versie 2.0.20 of later zijn geïnstalleerd en geconfigureerd. Voer az --version uit om de versie te zoeken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+U ook moet de Azure CLI versie 2.0.21 of later geïnstalleerd en geconfigureerd. Voer az --version uit om de versie te zoeken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="start-kubernetes-dashboard"></a>Start Kubernetes dashboard
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>De installatiekopie van de lucht classificatie
 
@@ -133,6 +133,11 @@ We maken nu het opslagaccount dat hosts projectbestanden die moet worden gebruik
     Leg de waarde van `key1` als de opslagsleutel in de volgende opdracht, voer vervolgens de opdracht voor het opslaan van de waarde.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. Maken van een bestandsshare met de naam `baitshare` in uw opslagaccount met de volgende opdracht:
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. In uw favoriete teksteditor laden de `settings.cfg` bestand van de submap 'Code' van het Azure Machine Learning Workbench project en plaatst u de naam van het opslagaccount en sleutel aangegeven. Sla op en sluit de `settings.cfg` bestand.
 1. Als u dit nog niet hebt gedaan, downloadt en installeert de [AzCopy](http://aka.ms/downloadazcopy) hulpprogramma. Zorg ervoor dat het uitvoerbare bestand van AzCopy op uw systeempad door te voeren 'AzCopy' en druk op Enter om weer te geven van de bijbehorende documentatie.

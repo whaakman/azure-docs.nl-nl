@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Cloudservices beheren
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-manage-portal.md)
-> * [Klassieke Azure Portal](cloud-services-how-to-manage.md)
->
->
-
 In de **Cloudservices (klassiek)** gebied van de Azure portal, kunt u de functie van een service of een implementatie bijwerken, een gefaseerde implementatie naar productie promoten, resources koppelen aan uw cloudservice zodat u de bronafhankelijkheden ziet en de resources samen schalen en verwijdert u een cloudservice of een implementatie.
 
 Meer informatie over het schalen van uw cloudservice is beschikbaar [hier](cloud-services-how-to-scale-portal.md).

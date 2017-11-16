@@ -1,5 +1,5 @@
 ---
-title: Diepgaand in voorspellen vehicle gezondheid en die zorg draagt gewoonten - Azure | Microsoft Docs
+title: Diepgaand in de manier waarop te voorspellen vehicle status en groot gewoonten - Azure | Microsoft Docs
 description: De mogelijkheden van Cortana Intelligence gebruiken om inzicht in real-time en voorspeld op vehicle status en verkeer te krijgen gewoonten.
 services: machine-learning
 documentationcenter: 
@@ -14,55 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: 4050fdc2056df395bbcc37e3783f61eebd90f80a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdde0c8dc2fd1189970c0782769a609ca8142372
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Draaiboek met oplossingen voor voertuigtelemetrieanalyse: duik in de diepte van de oplossing
-Dit **menu** koppelingen naar de secties van dit playbook: 
+# <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle telemetrie Analytics-oplossing playbook: Deep Duik in de oplossing
+Dit menu is gekoppeld aan de secties van dit playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-Deze sectie zoomt in op in elk van de fasen beschreven in de oplossingsarchitectuur met instructies en verwijzingen voor aanpassing. 
+Dit document zoomt in op in elk van de fasen beschreven in de oplossingsarchitectuur. Instructies en verwijzingen voor aanpassing zijn opgenomen. 
 
 ## <a name="data-sources"></a>Gegevensbronnen
 De oplossing maakt gebruik van twee verschillende gegevensbronnen:
 
-* **gesimuleerde vehicle signalen en diagnostische gegevensset** en 
-* **vehicle catalogus**
+* Gesimuleerde vehicle signalen en diagnostische gegevens
+* Vehicle catalogus
 
-Er is een vehicle telematica simulator opgenomen als onderdeel van deze oplossing. Deze diagnostische gegevens verzendt en signalen overeenkomt voor de status van de drager en het aangedreven patroon op een bepaald tijdstip. Klik op [Vehicle telematica Simulator](http://go.microsoft.com/fwlink/?LinkId=717075) voor het downloaden van de **Vehicle telematica Simulator Visual Studio-oplossing** voor aanpassingen op basis van uw vereisten. De catalogus drager bevat een verwijzingsgegevensset met een Chassisnummer toewijzing van het model.
+Een drager telematica simulator is opgenomen als onderdeel van deze oplossing, zoals wordt weergegeven in de volgende schermafbeelding. Deze verzendt diagnostische gegevens en signalen die overeenkomen met de status van de drager en het aangedreven patroon op een bepaald tijdstip. Als u wilt de drager telematica Simulator Visual Studio-oplossing voor aanpassingen op basis van uw vereisten hebt gedownload, gaat u naar de [Vehicle telematica simulator](http://go.microsoft.com/fwlink/?LinkId=717075) webpagina. De catalogus drager bevat een verwijzing van een gegevensset die vehicle-id's (VINs) wordt toegewezen aan modellen.
 
 ![Vehicle telematica simulator](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
-*Afbeelding 1 – Vehicle telematica Simulator*
 
-Dit is een JSON-indeling gegevensset met het volgende schema.
+Deze gegevensset JSON-indeling bevat het volgende schema.
 
 | Kolom | Beschrijving | Waarden |
 | --- | --- | --- |
-| CHASSISNUMMER |Willekeurig gegenereerde Vehicle id-nummer |Hiermee wordt opgehaald uit een master lijst 10.000 willekeurig gegenereerde vehicle-id's. |
-| Externe temperatuur |De externe temperatuur waar het besturen van de drager |Willekeurig gegenereerd nummer tussen 0-100 |
-| Engine temperatuur |De engine temperatuur van de drager |Willekeurig gegenereerd nummer tussen 0-500 |
-| Snelheid |De engine-snelheid waarmee het besturen van de drager |Willekeurig gegenereerd nummer tussen 0-100 |
-| Brandstof |De brandstofpeil van de drager |Willekeurig gegenereerd nummer tussen 0-100 (geeft brandstof niveau percentage) |
-| EngineOil |De engine olie-niveau van de drager |Willekeurig gegenereerd nummer tussen 0-100 (geeft engine olie niveau percentage) |
-| Druk band |Druk op de band van de drager |Willekeurig gegenereerde getal van 0 tot 50 (geeft band zware belasting op het niveau percentage) |
-| Kilometerstand |De kilometerstand van de drager |Willekeurig gegenereerd nummer van 0 200000 |
-| Accelerator_pedal_position |De accelerator vorm positie van de drager |Willekeurig gegenereerd nummer tussen 0-100 (geeft accelerator niveau percentage) |
+| CHASSISNUMMER |Willekeurig gegenereerde VIN |Verkregen van een master lijst 10.000 willekeurig gegenereerde VINs |
+| Externe temperatuur |De externe temperatuur waar het besturen van de drager |Willekeurig gegenereerd nummer tussen 0 en 100 |
+| Engine temperatuur |De engine temperatuur van de drager |Willekeurig gegenereerde getal tussen 0 en 500 |
+| Snelheid |De engine-snelheid waarmee het besturen van de drager |Willekeurig gegenereerd nummer tussen 0 en 100 |
+| Brandstof |De brandstofpeil van de drager |Gegenereerde willekeurig getal tussen 0 en 100 (geeft brandstof niveau percentage) |
+| EngineOil |De engine olie-niveau van de drager |Gegenereerde willekeurig getal tussen 0 en 100 (geeft engine olie niveau percentage) |
+| Druk band |Druk op de band van de drager |Gegenereerde willekeurig getal tussen 0 en 50 (geeft band zware belasting op het niveau percentage) |
+| Kilometerstand |De kilometerstand van de drager |Willekeurig gegenereerde getal tussen 0 en 200.000 |
+| Accelerator_pedal_position |De accelerator vorm positie van de drager |Gegenereerde willekeurig getal tussen 0 en 100 (geeft accelerator niveau percentage) |
 | Parking_brake_status |Hiermee wordt aangegeven of de drager geparkeerd of niet |True of False |
-| Headlamp_status |Geeft aan waar het licht op of niet |True of False |
+| Headlamp_status |Hiermee wordt aangegeven of het licht op of niet |True of False |
 | Brake_pedal_status |Hiermee wordt aangegeven of het rempedaal wordt ingedrukt of niet |True of False |
 | Transmission_gear_position |De positie van de versnelling verzending van de drager |Statussen: eerste, tweede, derde, vierde vijfde, zesde, zevende, achtste |
 | Ignition_status |Hiermee wordt aangegeven of de drager uitgevoerd of gestopt |True of False |
-| Windshield_wiper_status |Hiermee wordt aangegeven of de combinatie voorruit of niet is ingeschakeld |True of False |
+| Windshield_wiper_status |Hiermee wordt aangegeven of de combinatie voorruit is ingeschakeld of niet |True of False |
 | ABS |Hiermee wordt aangegeven of ABS is ingeschakeld of niet |True of False |
-| tijdstempel |Het tijdstip waarop het gegevenspunt wordt gemaakt |Date |
-| Plaats |De locatie van de drager |4 plaatsen zijn in deze oplossing: Bellevue, Redmond, Sammamish, Seattle |
+| Timestamp |De tijdstempel wanneer het gegevenspunt wordt gemaakt |Date |
+| Plaats |De locatie van de drager |Vier steden in deze oplossing: Bellevue, Redmond, Sammamish, Seattle |
 
-De verwijzingsgegevensset vehicle model bevat VIN de modeltoewijzing. 
+De gegevensset vehicle model verwijzing toegewezen VINs aan modellen. 
 
 | CHASSISNUMMER | Model |
 | --- | --- |
@@ -76,12 +75,12 @@ De verwijzingsgegevensset vehicle model bevat VIN de modeltoewijzing.
 | 5KKR2VB4WHQH97PF8 |Hybride |
 | W9NSZ423XZHAONYXB |Familie sedan |
 | 26WJSGHX4MA5ROHNL |Converteerbaar |
-| GHLUB6ONKMOSI7E77 |Station Wagon |
+| GHLUB6ONKMOSI7E77 |Station wagon |
 | 9C2RHVRVLMEJDBXLP |Compacte auto |
 | BRNHVMZOUJ6EOCP32 |Kleine standaard |
 | VCYVW0WUZNBTM594J |Sport auto |
 | HNVCE6YFZSA5M82NY |Gemiddeld standaard |
-| 4R30FOR7NUOBL05GJ |Station Wagon |
+| 4R30FOR7NUOBL05GJ |Station wagon |
 | WYNIIY42VKV6OQS1J |Grote standaard |
 | 8Y5QKG27QET1RBK7I |Grote standaard |
 | DF6OX2WSRA6511BVG |Coupé |
@@ -97,90 +96,70 @@ De verwijzingsgegevensset vehicle model bevat VIN de modeltoewijzing.
 | 8OMCL3LGI7XNCC21U |Converteerbaar |
 | ……. | |
 
-### <a name="references"></a>Verwijzingen
-[Vehicle telematica Simulator Visual Studio-oplossing](http://go.microsoft.com/fwlink/?LinkId=717075) 
-
-[Azure Event Hub](https://azure.microsoft.com/services/event-hubs/)
-
-[Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
-
 ## <a name="ingestion"></a>Opname
-Combinaties van Azure Event Hubs, Stream Analytics en Data Factory worden gebruikt voor het opnemen van de drager signalen, de diagnostische gebeurtenissen en realtime en analytics batch. Al deze onderdelen zijn gemaakt en geconfigureerd als onderdeel van de implementatie van de oplossing. 
+Combinaties van Azure Event Hubs, Azure Stream Analytics en Azure Data Factory worden gebruikt voor de drager signalen, de diagnostische gebeurtenissen opnemen en realtime en analytics batch. Al deze onderdelen zijn gemaakt en geconfigureerd als onderdeel van de implementatie van de oplossing. 
 
 ### <a name="real-time-analysis"></a>Realtime analyses
-De gebeurtenissen die worden gegenereerd door de drager telematica Simulator worden gepubliceerd naar de Event Hub met behulp van de Event Hub SDK. De Stream Analytics-taak opgenomen van deze gebeurtenissen van de Event Hub en de gegevens in realtime analyseren van de status vehicle verwerkt. 
+De gebeurtenissen die worden gegenereerd door de drager telematica simulator worden gepubliceerd naar de event hub met behulp van de event hub SDK.  
 
 ![Event hub-dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-event-hub-dashboard.png) 
 
-*Afbeelding 4: Event Hub-dashboard*
+De Stream Analytics-taak opgenomen van deze gebeurtenissen van de event hub en de gegevens in realtime analyseren van de status vehicle verwerkt.
 
 ![Stream Analytics-taak verwerken van gegevens](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig5-vehicle-telematics-stream-analytics-job-processing-data.png) 
 
-*Afbeelding 5 - Stream Analytics-taak verwerken van gegevens*
 
-De Stream Analytics-taak.
+De Stream Analytics-taak:
 
-* gegevens van de Event Hub opgenomen 
-* voert een koppeling met de referentiegegevens de drager VIN toewijzen aan de desbetreffende model 
-* persistente ze in Azure blob storage voor uitgebreide batch analytics. 
+* Gegevens van de event hub opgenomen.
+* Voert een koppeling met de referentiegegevens de drager VIN toewijzen aan de desbetreffende model. 
+* Persistente ze in Azure Blob-opslag voor uitgebreide batch analyses. 
 
-De volgende Stream Analytics query wordt gebruikt om de gegevens in Azure blob-opslag. 
+De volgende Stream Analytics query wordt gebruikt om de gegevens in de Blob-opslag: 
 
 ![Stream Analytics-taak query voor gegevensopname](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig6-vehicle-telematics-stream-analytics-job-query-for-data-ingestion.png) 
 
-*Afbeelding 6 - Stream Analytics-taak query voor gegevensopname*
 
 ### <a name="batch-analysis"></a>Batchanalyse
-Er zijn ook een extra volume van de gesimuleerde vehicle signalen en diagnostische gegevensset voor uitgebreidere batch analytics genereren. Dit is vereist om ervoor te zorgen voor batchverwerking een goede representatief gegevensvolume. Voor dit doel gebruiken we een pijplijn met de naam 'PrepareSampleDataPipeline' in de Azure Data Factory-werkstroom voor het genereren van een jaar lang gesimuleerde vehicle signalen en diagnostische gegevensset. Klik op [Data Factory aangepaste activiteit](http://go.microsoft.com/fwlink/?LinkId=717077) voor het downloaden van de Data Factory aangepaste DotNet activiteit Visual Studio-oplossing voor aanpassingen op basis van uw vereisten. 
+Een extra volume van de gesimuleerde vehicle signalen en diagnostische gegevens wordt ook gegenereerd voor uitgebreidere batch analytics. Deze extra volume is nodig om een goede representatief gegevensvolume voor batchverwerking. Voor dit doel PrepareSampleDataPipeline gebruikt in de Data Factory-werkstroom voor het genereren van een jaar lang gesimuleerde vehicle signalen en diagnostische gegevens. Voor het downloaden van de Data Factory aangepaste .NET activiteit Visual Studio-oplossing op basis van de vereisten van uw aanpassingen, gaat u naar de [Data Factory aangepaste activiteit](http://go.microsoft.com/fwlink/?LinkId=717077) webpagina. 
 
-![Voorbeeldgegevens voor batchverwerking werkstroom voorbereiden](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
+Deze werkstroom ziet u voorbeeldgegevens voorbereid voor batchverwerking.
 
-*Afbeelding 7: voorbeeldgegevens voorbereiden voor de werkstroom voor batch*
+![Voorbeeldgegevens voorbereid voor de werkstroom voor batch](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
-De pijplijn bestaat uit een aangepaste ADF .net activiteit, hier weergeven:
+
+De pijplijn bestaat uit een aangepaste activiteit van de Data Factory .NET.
 
 ![PrepareSampleDataPipeline activiteit](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-pipeline.png) 
 
-*Afbeelding 8 - PrepareSampleDataPipeline*
-
-Nadat de pijplijn met succes uitgevoerd en 'RawCarEventsTable' dataset is gemarkeerd als 'Gereed' één jaar waard gesimuleerde vehicle signalen en diagnostische worden gegevens geproduceerd. U ziet de volgende map en -bestand gemaakt in uw opslagaccount in de container 'connectedcar':
+Nadat de pijplijn met succes uitgevoerd en de gegevensset RawCarEventsTable is gemarkeerd als 'Gereed', een jaar lang gesimuleerde vehicle signalen en diagnostische gegevens worden geproduceerd. U ziet de volgende map en -bestand gemaakt in uw opslagaccount in de container connectedcar:
 
 ![PrepareSampleDataPipeline uitvoer](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
-*Afbeelding 9 - PrepareSampleDataPipeline uitvoer*
-
-### <a name="references"></a>Verwijzingen
-[Azure Event Hub SDK voor streamopname](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-[Mogelijkheden van Azure Data Factory data movement](../../data-factory/v1/data-factory-data-movement-activities.md)
-[Azure Data Factory DotNet-activiteit](../../data-factory/v1/data-factory-use-custom-activities.md)
-
-[Azure Data Factory DotNet activiteit visual studio-oplossing voor het voorbereiden van voorbeeldgegevens](http://go.microsoft.com/fwlink/?LinkId=717077) 
-
-## <a name="partition-the-dataset"></a>Partitioneren van de gegevensset
-De onbewerkte semi-gestructureerde vehicle signalen en diagnostische gegevensset worden in de stap ter voorbereiding van gegevens naar een indeling maand/gepartitioneerd. Deze partitioneren bevordert efficiënter uitvoeren van query's en schaalbare langetermijnopslag doordat fault-over van een blob-account naar de volgende omdat het eerste account vol is. 
+## <a name="partition-the-data-set"></a>Partitioneren van de gegevensset
+In de stap ter voorbereiding van gegevens worden de onbewerkte semi-gestructureerde vehicle signalen en diagnostische gegevens naar een indeling maand/gepartitioneerd. Deze partitioneren bevordert efficiënter uitvoeren van query's en schaalbare langetermijnopslag doordat fout over. Bijvoorbeeld als het eerste account voor blob vol raakt, bedrijfsstoringen het boven aan het volgende account. 
 
 >[!NOTE] 
->Deze stap in de oplossing is alleen van toepassing op batchverwerking.
+>Deze stap in de oplossing geldt alleen voor batchverwerking.
 
-Invoer en uitvoer gegevensbeheer gegevens:
+Invoer en uitvoer gegevensbeheer:
 
-* De **uitvoergegevens** (met het label *PartitionedCarEventsTable*) moet worden bewaard gedurende lange tijd als de fundamentele / 'rawest' vorm van gegevens in de klant 'Data Lake'. 
-* De **invoergegevens** aan deze pijplijn zou doorgaans worden verwijderd, omdat de uitvoergegevens volledige overeenkomen met de invoer heeft-alleen wordt opgeslagen (gepartitioneerd) beter voor later gebruik.
+* **Uitvoergegevens** (gelabelde PartitionedCarEventsTable) voor een lange periode wordt bewaard als de fundamentele / 'rawest' vorm van gegevens in data lake van de klant. 
+* **Invoergegevens** aan deze pijplijn is doorgaans verwijderd omdat de uitvoergegevens heeft volledige overeenkomen met de invoer. Wordt opgeslagen (gepartitioneerd) beter voor later gebruik.
+
+De werkstroom van de gebeurtenissen in de partitie auto.
 
 ![Partitie auto gebeurtenissen werkstroom](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
-*Afbeelding 10 – partitie auto gebeurtenissen werkstroom*
 
-De onbewerkte gegevens is gepartitioneerd met behulp van een HDInsight Hive-activiteit in 'PartitionCarEventsPipeline'. De voorbeeldgegevens in stap 1 van een jaar gegenereerd is per jaar/maand gepartitioneerd. De partities worden gebruikt voor het genereren van vehicle signalen en diagnostische gegevens voor elke maand (totaal 12 partities) van een jaar. 
+De onbewerkte gegevens is gepartitioneerd met behulp van een Azure HDInsight Hive-activiteit in PartitionCarEventsPipeline, zoals wordt weergegeven in de volgende schermafbeelding. De voorbeeldgegevens gegenereerd voor een jaar in de stap gegevens ter voorbereiding is op jaar/maand gepartitioneerd. De partities worden gebruikt voor het genereren van vehicle signalen en diagnostische gegevens voor elke maand (totaal van 12 partities) van een jaar. 
 
 ![PartitionCarEventsPipeline activiteit](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-pipeline.png)
 
-*Afbeelding 11 - PartitionCarEventsPipeline*
 
-***PartitionConnectedCarEvents Hive-Script***
+**PartitionConnectedCarEvents Hive-script**
 
-De volgende Hive-script met de naam 'partitioncarevents.hql' wordt gebruikt voor het partitioneren en bevindt zich in de map '\demo\src\connectedcar\scripts' van het gedownloade ZIP-bestand. 
+Het Hive-script partitioncarevents.hql wordt gebruikt voor het partitioneren. Bevindt het zich in de map \demo\src\connectedcar\scripts van het gedownloade zip-bestand. 
     
     SET hive.exec.dynamic.partition=true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -317,113 +296,117 @@ De volgende Hive-script met de naam 'partitioncarevents.hql' wordt gebruikt voor
         MonthNo
     FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
 
-Nadat de pijplijn met succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container 'connectedcar' wordt gegenereerd.
+Nadat de pijplijn succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container connectedcar gegenereerd:
 
 ![Gepartitioneerde uitvoer](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
 
-*Afbeelding 12 - gepartitioneerde uitvoer*
-
-De gegevens nu is geoptimaliseerd, beter beheerbaar en gereed voor verdere verwerking voor het verkrijgen van inzicht uitgebreide batch. 
+De gegevens zijn nu geoptimaliseerd beter kan worden beheerd en klaar voor verdere verwerking voor het verkrijgen van inzicht uitgebreide batch. 
 
 ## <a name="data-analysis"></a>Data-analyse
-In deze sectie ziet u het combineren van Azure Stream Analytics, Azure Machine Learning, Azure Data Factory en Azure HDInsight voor rich geavanceerde analyses van vehicle status en die zorg draagt gewoonten. Er zijn drie subsecties hier:
+In deze sectie ziet u het combineren van Stream Analytics, Azure Machine Learning, Data Factory en HDInsight voor rich geavanceerde analyses van vehicle status en die zorg draagt gewoonten.
 
-1. **Machine Learning**: in deze subsectie bevat informatie over het detectie-experiment voor afwijkingsdetectie die we in deze oplossing hebt gebruikt om te voorspellen voertuigen vereisen onderhoud onderhoud en voertuigen teruggehaald vanwege problemen met de veiligheid vereisen.
-2. **Analyse van realtime**: in deze subsectie bevat informatie over de realtime-analyses met behulp van de Stream Analytics Query Language en operationele het machine learning-experiment in realtime met een aangepaste toepassing.
-3. **Batch-analyse**: in deze subsectie bevat informatie met betrekking tot de transformeren en verwerking van de batch-gegevens met Azure HDInsight en Azure Machine Learning geoperationaliseerd door Azure Data Factory.
+### <a name="machine-learning"></a>Machine learning
+Dit dient om te voorspellen van de voertuigen waarvoor onderhoud of intrekken op basis van bepaalde Health statistische gegevens, op basis van de volgende veronderstellingen:
 
-### <a name="machine-learning"></a>Machine Learning
-Hier ons doel is om te voorspellen van de voertuigen waarvoor onderhoud of intrekken op basis van bepaalde Health statistieken. We maken de volgende veronderstellingen
-
-* Als een van de volgende drie voorwaarden voldaan wordt, wordt de voertuigen vereisen **onderhoud onderhoud**:
+* Als een van de volgende drie voorwaarden voldaan wordt, vereisen de voertuigen onderhoud onderhoud:
   
-  * Band druk is laag
-  * Engine olie niveau is laag
-  * Engine temperatuur is hoog
-* Als een van de volgende voorwaarden voldaan wordt, de voertuigen wellicht een **veiligheid probleem** en vereisen **intrekken**:
+  * De druk band is laag.
+  * Het niveau van de engine olie is laag.
+  * De engine temperatuur is hoog.
+
+* Als een van de volgende voorwaarden voldaan wordt, kunnen de voertuigen hebben een probleem met de veiligheid en terughalen vereisen:
   
-  * Engine temperatuur hoog is, maar externe temperatuur is laag
-  * Engine temperatuur laag is, maar externe temperatuur is hoog
+  * De temperatuur engine hoog is, maar de externe temperatuur laag is.
+  * De engine temperatuur laag is, maar de externe temperatuur is hoog.
 
-Wij hebben twee afzonderlijke modellen om te detecteren afwijkingen, één voor de detectie van vehicle onderhoud en één voor vehicle intrekken detectie op basis van de vorige vereisten, gemaakt. In beide modellen, worden de ingebouwde Principal onderdeel Analysis (Pso)-algoritme wordt gebruikt voor afwijkingsdetectie. 
+Op basis van de vorige vereisten, twee afzonderlijke modellen afwijkingen gedetecteerd. Één model is voor de detectie van vehicle onderhoud en één model is voor de detectie van vehicle intrekken. Beide modellen in wordt de ingebouwde principal onderdeel analysis (Pso)-algoritme gebruikt voor afwijkingsdetectie. 
 
-**Model voor onderhoud**
+#### <a name="maintenance-detection-model"></a>**Model voor onderhoud**
 
-Als een van drie indicatoren - band druk, engine olie of engine temperatuur - aan de respectieve voorwaarde voldoet, rapporteert het model van de detectie onderhoud een afwijkingsdetectie. Als gevolg hiervan moet we alleen rekening houden met deze drie variabelen bij het bouwen van het model. In ons experiment in Azure Machine Learning, gebruiken we eerst een **Select Columns in Dataset** module uitpakken van deze drie variabelen. We gebruiken de detectiemodule PCA-gebaseerd anomaliedetectie naast het afwijkingsdetectie detectie model bouwen. 
+Als een van drie indicatoren--band druk, engine olie of engine temperatuur--voldoet aan de respectieve voorwaarde, het model van de detectie onderhoud een afwijkingsdetectie rapporten. Alleen deze drie variabelen moeten als gevolg hiervan worden rekening houden met het maken van het model. In het experiment in machine learning zijn de **Select Columns in Dataset** module wordt gebruikt voor het uitpakken van deze drie variabelen. De detectiemodule PCA-gebaseerd anomaliedetectie wordt vervolgens gebruikt om het model van de detectie afwijkingsdetectie samen te stellen. 
 
-Principal onderdeel analyse (Pso) is een techniek tot stand gebrachte in machine learning die kan worden toegepast op Functieselectie, classificatie en anomaly detection. PCA zet een set krat met mogelijk gecorreleerde variabelen in een set waarden principal onderdelen genoemd. Het belangrijkste idee modellering PCA-gebaseerd is om gegevens naar een lager dimensionale ruimte om functies en afwijkingen kunnen gemakkelijk worden geïdentificeerd.
+PCA is een tot stand gebrachte techniek in machine learning die kan worden toegepast op Functieselectie, classificatie en anomaly detection. PCA zet een set met aanvragen die mogelijk gecorreleerde variabelen in een set waarden principal onderdelen genoemd bevatten. Het belangrijkste idee modellering PCA-gebaseerd is om gegevens naar een lager dimensionale ruimte aan functies en afwijkingen gemakkelijker te identificeren.
 
-Voor elke nieuwe invoer in het model van de detectie van de detectie van de afwijkingsdetectie eerst berekent de projectie op de eigenvectors en berekent vervolgens de genormaliseerde herstel-fout. Deze fout genormaliseerde is de score afwijkingsdetectie. Hoe hoger de fout en de afwijkende wordt het exemplaar is. 
+Voor elke nieuwe invoer in het model van de detectie wordt de detectie van de afwijkingsdetectie eerst de projectie op de eigenvectors berekend. Vervolgens wordt de fout genormaliseerde herstel berekend. Deze fout genormaliseerde is de score afwijkingsdetectie: hoe hoger de fout en de afwijkende het exemplaar. 
 
-In het probleem van de detectie onderhoud kunt elke record worden beschouwd als een punt in een 3-dimensionale ruimte gedefinieerd door band druk, engine olie en temperatuur motor coördinaten. Voor het vastleggen van deze afwijkingen kunnen we de oorspronkelijke gegevens in de ruimte 3-dimensionale project naar een 2-dimensionale ruimte met PCA. We stellen dus de parameter aantal onderdelen te gebruiken in PCA om 2. Deze parameter speelt een belangrijke rol bij het toepassen van PCA-gebaseerd anomaliedetectie. Na projecteren gegevens met behulp van Pso, kunnen we deze afwijkingen gemakkelijker identificeren.
+Elke record wordt beschouwd als een punt in een driedimensionale ruimte conform band druk, engine olie en temperatuur motor coördinaten in het probleem van de detectie van onderhoud. Voor het vastleggen van deze afwijkingen wordt PCA gebruikt om de oorspronkelijke gegevens in de driedimensionale ruimte projecteren op een tweedimensionale ruimte. De parameter aantal onderdelen moet worden gebruikt in PCA is dus ingesteld op twee. Deze parameter speelt een belangrijke rol bij het toepassen van PCA-gebaseerd anomaliedetectie. Als u met PCA projectgegevens, worden deze afwijkingen eenvoudiger geïdentificeerd.
 
-**Model voor afwijkingsdetectie intrekken** In het model intrekken afwijkingsdetectie detectie, gebruiken we de Select Columns in Dataset en PCA-gebaseerd anomaliedetectie detectiemodules op soortgelijke wijze. In het bijzonder we eerst uitpakken drie variabelen - buiten temperatuur- en snelheid engine temperatuur - met behulp van de **Select Columns in Dataset** module. We ook de variabele snelheid omdat de engine temperatuur doorgaans wordt gecorreleerd met de snelheid. We gebruiken PCA-gebaseerd anomaliedetectie detectiemodule naast de gegevens vanuit de ruimte 3-dimensionale projecteren naar een 2-dimensionale ruimte. De intrekken criteria is voldaan en dus intrekken door de drager is vereist wanneer engine temperatuur- en externe temperatuur maximaal negatieve worden gecorreleerd. PCA-gebaseerd anomaliedetectie-algoritme kunnen we de afwijkingen vastleggen na het uitvoeren van Pso. 
+#### <a name="recall-anomaly-detection-model"></a>**Model voor afwijkingsdetectie intrekken**
 
-Bij het model trainen, moeten we normale gegevens waarvoor geen vereist onderhoud of intrekken als de invoergegevens voor het trainen van het model van de detectie PCA-gebaseerd anomaliedetectie gebruiken. In het experiment scoreprofiel gebruiken we het model van de detectie getraind afwijkingsdetectie om te detecteren of de drager vereist onderhoud of intrekken. 
+In het model intrekken afwijkingsdetectie detectie, de **Select Columns in Dataset** en PCA-gebaseerd anomaliedetectie detectiemodules op vergelijkbare wijze worden gebruikt. In het bijzonder drie variabelen--temperatuur, buiten engine temperatuur- en snelheid--zijn uitgepakt eerst met behulp van de **Select Columns in Dataset** module. De variabele snelheid is ook opgenomen, omdat de engine temperatuur doorgaans heeft betrekking op de snelheid. De detectiemodule PCA-gebaseerd anomaliedetectie wordt vervolgens gebruikt om de gegevens van de driedimensionale ruimte projecteren op een tweedimensionale ruimte. De intrekken criteria is voldaan. De drager vereist intrekken wanneer engine temperatuur- en externe temperatuur maximaal negatieve worden gecorreleerd. Nadat de PCA wordt uitgevoerd, wordt de PCA-gebaseerd anomaliedetectie-algoritme gebruikt om vast te leggen van de afwijkingen. 
+
+Bij het trainen van een model wordt normale gegevens als de invoergegevens gebruikt voor het model van de detectie PCA-gebaseerd anomaliedetectie trainen. (Normale gegevens niet vereist onderhoud of intrekken.) Het model van de detectie getraind afwijkingsdetectie wordt in het scoreprofiel experiment gebruikt om te detecteren of de drager onderhoud of intrekken vereist. 
 
 ### <a name="real-time-analysis"></a>Realtime analyses
-De volgende Stream Analytics SQL-Query wordt gebruikt voor het ophalen van het gemiddelde van alle belangrijke vehicle-parameters zoals vehicle snelheid, brandstofpeil engine temperatuur, kilometerstand, band druk, engine olie niveau en anderen. De gemiddelden worden gebruikt voor afwijkingen gedetecteerd, waarschuwingen, uitgeven en de algehele status vaststelling van voertuigen gerund in specifieke regio en deze vervolgens correleert met demografische gegevens. 
+De volgende Stream Analytics SQL-query wordt gebruikt voor het ophalen van het gemiddelde van alle belangrijke vehicle-parameters. Deze parameters omvatten vehicle snelheid, brandstofpeil engine temperatuur, kilometerstand, band druk, engine olie niveau en anderen. De gemiddelden worden gebruikt voor afwijkingen detecteren, het verlenen van waarschuwingen en het bepalen van de algehele status voorwaarden van voertuigen uitgevoerd in een specifieke regio. De gemiddelden worden vervolgens gecorreleerd met demografische gegevens. 
 
 ![Stream Analytics query voor realtime verwerking](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
-*Afbeelding 13-Stream Analytics query voor realtime verwerking*
+Alle gemiddelden worden via een drie seconden tumblingvenster berekend. Een tumblingvenster wordt gebruikt omdat niet-overlappende en aaneengesloten tijdsintervallen vereist zijn. 
 
-Alle gemiddelden worden via een TumblingWindow 3 seconden berekend. We gebruiken TubmlingWindow in dit geval omdat we is vereist voor niet-overlappende en aaneengesloten tijdsintervallen. 
+Zie voor meer informatie over de mogelijkheden windowing in Stream Analytics, [Windowing (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
-Voor meer informatie over alle mogelijkheden van de 'Windowing' in Azure Stream Analytics, klikt u op [Windowing (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+#### <a name="real-time-prediction"></a>**Realtime voorspelling**
 
-**Realtime voorspelling**
+Er is een toepassing opgenomen als onderdeel van de oplossing voor de machine learning-model in realtime operationeel. De toepassing RealTimeDashboardApp is gemaakt en geconfigureerd als onderdeel van de implementatie van de oplossing. De toepassing:
 
-Er is een toepassing opgenomen als onderdeel van de oplossing voor de machine learning-model in realtime operationeel. Deze toepassing met de naam 'RealTimeDashboardApp' is gemaakt en geconfigureerd als onderdeel van de implementatie van de oplossing. De toepassing, voert het volgende:
+* Luistert naar een event hub-instantie waarop Stream Analytics de gebeurtenissen in een patroon continu publiceert.
 
-1. Luistert naar een Event Hub-instantie waar Stream Analytics de gebeurtenissen in een patroon continu publiceert. ![Stream Analytics query voor het publiceren van de gegevens](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) *afbeelding 14 – Stream Analytics query voor het publiceren van de gegevens naar uitvoer Event Hub-instantie* 
-2. Voor elke gebeurtenis die deze toepassing ontvangt: 
+    ![Stream Analytics query voor het publiceren van de gegevens](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) 
+
+* Gebeurtenissen ontvangt. Voor elke gebeurtenis die deze toepassing ontvangt: 
    
-   * De gegevens met behulp van Machine Learning aanvragen en antwoorden score berekenen (RR's) eindpunt verwerkt. Het eindpunt RR's wordt automatisch gepubliceerd als onderdeel van de implementatie.
+   * De gegevens worden verwerkt met behulp van een machine learning-score (RR's) eindpunt aanvragen en antwoorden. Het eindpunt RR's wordt automatisch gepubliceerd als onderdeel van de implementatie.
    * De uitvoer RRS is gepubliceerd op een Power BI-gegevensset met behulp van de push-API's.
 
-Dit patroon is ook van toepassing op scenario's waarin u wilt integreren van een Line of Business (LoB)-toepassing met de stroom realtime analyses voor scenario's zoals waarschuwingen, meldingen en messaging.
+Dit patroon is ook van toepassing op scenario's waarin u wilt integreren van een line-of-business-toepassing met de stroom van realtime-analyses. Deze scenario's omvatten waarschuwingen, meldingen en messaging.
 
-Klik op [RealtimeDashboardApp downloaden](http://go.microsoft.com/fwlink/?LinkId=717078) voor het downloaden van de RealtimeDashboardApp Visual Studio-oplossing voor aanpassingen. 
+Zie voor het downloaden van de RealtimeDashboardApp Visual Studio-oplossing voor aanpassingen de [RealtimeDashboardApp downloaden](http://go.microsoft.com/fwlink/?LinkId=717078) webpagina. 
 
-**De Real-time dashboardtoepassing uitvoeren**
-1. Uitpakken en lokaal opslaan ![RealtimeDashboardApp map](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *afbeelding 16 – RealtimeDashboardApp map*  
-2. De toepassing RealtimeDashboardApp.exe uitvoeren
-3. Geldige Power BI-referenties opgeven, meld u aan en klik op accepteren ![Realtime dashboard-app aanmelden bij Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Realtime dashboard-app aanmelden bij Power BI voltooien](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+#### <a name="execute-the-real-time-dashboard-application"></a>**De dashboardtoepassing realtime uitvoeren**
+1. Pak de RealtimeDashboardApp en lokaal opslaat.
 
-*Afbeelding 17 – RealtimeDashboardApp: Aanmelden bij Power BI*
+    ![RealTimeDashboardApp map](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) 
+
+2. De toepassing RealtimeDashboardApp.exe uitvoeren.
+
+3. Voer uw geldige Power BI-referenties in en selecteer **aanmelden**.  
+
+    ![Realtime dashboard-app aanmelden venster](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+    
+4. Selecteer **accepteren**.
+
+    ![Realtime dashboard app laatste aanmelden venster](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 >[!NOTE] 
->Als u wilt leegmaken van de Power BI-gegevensset, voert u de RealtimeDashboardApp met de parameter 'flushdata' uit: 
+>Als u wilt leegmaken van de gegevensset Power BI, worden de RealtimeDashboardApp met de parameter 'flushdata' uitgevoerd. 
 
     RealtimeDashboardApp.exe -flushdata
 
 
 ### <a name="batch-analysis"></a>Batchanalyse
-Dit dient om weer te geven hoe de Azure compute-mogelijkheden voor het benutten van big data voor het verkrijgen van veel inzichten gerichtheid patroon, gebruik gedrag en vehicle health maakt gebruik van Contoso motoren. Dit maakt het mogelijk om te:
+Dit dient om weer te geven hoe de motoren Contoso maakt gebruik van de Azure compute-mogelijkheden voor het benutten van big data. Deze gegevens onthult veel inzichten op aangedreven patronen, gebruik gedrag en vehicle health. Deze informatie kan worden:
 
-* Verbetering van de gebruikerservaring en goedkoper maken door op te geven inzicht gerichtheid gewoonten en efficiënte aangedreven gedrag brandstof
-* Meer informatie over proactief over klanten en hun aangedreven patters om te bepalen zakelijke beslissingen te nemen en bieden de beste klasse-producten en services
+* Verbetering van de gebruikerservaring en goedkoper maken door op te geven inzicht gerichtheid gewoonten en fuel-efficient aangedreven gedrag.
+* Informatie over proactief over klanten en de aangedreven implementaties om reguleren zakelijke beslissingen te nemen en beste eersteklas producten en services te bieden.
 
-In deze oplossing ontwikkelt we de volgende metrische gegevens:
+In deze oplossing worden de volgende metrische gegevens gericht:
 
-1. **Agressief gedrag besturen**: identificeert de trend van de modellen, locaties, aangedreven voorwaarden en tijd van het jaar om inzicht in agressief aangedreven patronen te krijgen. Contoso motoren kunnen deze inzichten gebruiken voor marketingcampagnes, nieuwe functies voor persoonlijke en verzekering op basis van informatie over het gebruik.
-2. **Efficiënte aangedreven gedrag brandstof**: identificeert de trend van de modellen, locaties, aangedreven voorwaarden en tijd van het jaar om inzicht op brandstof efficiënt aangedreven patronen te krijgen. Contoso motoren kunt deze inzichten voor marketingcampagnes, kunnen nieuwe functies en effectief en omgeving beschrijvende aangedreven gewoonten proactieve rapporteren aan de stuurprogramma's voor kosten. 
-3. **Intrekken van modellen**: identificeert modellen teruggehaald waarvoor de afwijkingsdetectie detectie machine learning-experiment operationele
+* **Agressief gedrag besturen**: identificeert de trend van de modellen, locaties, aangedreven voorwaarden en tijd van het jaar om inzicht in agressief aangedreven patronen te krijgen. Contoso motoren kunt deze inzichten gebruiken voor marketingcampagnes inleidende informatie over nieuwe functies voor persoonlijke en verzekering op basis van informatie over het gebruik.
+* **Fuel-Efficient aangedreven gedrag**: identificeert de trend van de modellen, locaties, aangedreven voorwaarden en tijd van het jaar om inzicht op fuel-efficient aangedreven patronen te krijgen. Contoso motoren kunnen deze inzichten voor marketingcampagnes gebruiken voor het introduceren van nieuwe functies en -stuurprogramma's voor rendabele en omgeving-vriendelijk aangedreven gewoonten proactieve rapportage.
+* **Intrekken van modellen**: identificeert modellen waarvoor teruggehaald operationele de afwijkingsdetectie detectie machine learning-experiment.
 
-We bekijken in de details van elk van deze metrische gegevens,
+We bekijken in de details van elk van deze metrische gegevens.
 
-**Agressieve aangedreven patroon**
+#### <a name="aggressive-driving-behavior-patterns"></a>**Agressieve aangedreven gedrag patronen**
 
-De gepartitioneerde vehicle signalen en diagnostische gegevens worden verwerkt in de pijplijn met de naam 'AggresiveDrivingPatternPipeline' met Hive om te bepalen van de modellen, locatie, vehicle, aangedreven voorwaarden en andere parameters die agressieve besturen vertoont patroon.
+De gepartitioneerde vehicle signalen en diagnostische gegevens worden verwerkt in AggresiveDrivingPatternPipeline, zoals wordt weergegeven in de volgende werkstroom. Hive wordt gebruikt om te bepalen van de modellen, locatie, vehicle, aangedreven voorwaarden en andere parameters die agressieve aangedreven patronen vertonen.
 
-![Agressieve aangedreven patroon werkstroom](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
-*figuur 18 – agressieve aangedreven patroon-werkstroom*
-
+![Agressieve aangedreven patroon-werkstroom](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-aggressive-driving-pattern.png) 
 
 ***Agressieve aangedreven patroon Hive-query***
 
-Het Hive-script met de naam 'aggresivedriving.hql"gebruikt voor het analyseren van agressieve aangedreven voorwaarde patroon bevindt zich in de map '\demo\src\connectedcar\scripts' van het gedownloade ZIP-bestand. 
+De Hive-script aggresivedriving.hql wordt gebruikt voor het analyseren van agressieve aangedreven voorwaarde patronen. Bevindt het zich in de map \demo\src\connectedcar\scripts van het gedownloade zip-bestand. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -483,25 +466,22 @@ Het Hive-script met de naam 'aggresivedriving.hql"gebruikt voor het analyseren v
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
 
 
-Met behulp van de combinatie van verzending tandwielpictogram positie, bedient vorm status en snelheid van vehicle wordt roekeloze/agressieve aangedreven gedrag op basis van het patroon met hoge snelheid remmen detecteren. 
+Het script maakt gebruik van de combinatie van een medium transmission tandwielpictogram positie, bedient vorm status en snelheid voor het detecteren van roekeloze/agressieve aangedreven gedrag op basis van patronen met hoge snelheid remmen. 
 
-Nadat de pijplijn met succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container 'connectedcar' wordt gegenereerd.
+Nadat de pijplijn succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container connectedcar gegenereerd:
 
 ![AggressiveDrivingPatternPipeline uitvoer](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-aggressive-driving-pattern-output.png) 
 
-*Afbeelding 19-AggressiveDrivingPatternPipeline uitvoer*
 
-**Brandstof efficiënt aangedreven patroon**
+#### <a name="fuel-efficient-driving-behavior-patterns"></a>**Fuel-Efficient aangedreven gedrag patronen**
 
-De gepartitioneerde vehicle signalen en diagnostische gegevens worden verwerkt in de pijplijn met de naam 'FuelEfficientDrivingPatternPipeline'. Hive wordt gebruikt om te bepalen van de modellen, locatie, vehicle, aangedreven voorwaarden en andere eigenschappen die brandstof efficiënt aangedreven patroon vertonen.
+De gepartitioneerde vehicle signalen en diagnostische gegevens worden verwerkt in FuelEfficientDrivingPatternPipeline, zoals wordt weergegeven in de volgende werkstroom. Hive wordt gebruikt om te bepalen van de modellen, locatie, vehicle, aangedreven voorwaarden en andere eigenschappen die fuel-efficient aangedreven patronen vertonen.
 
-![Fuel-Efficient aangedreven patroon](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
+![Fuel-Efficient aangedreven patronen](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
-*Afbeelding 20 – Fuel-efficient aangedreven patroon-werkstroom*
+***Fuel-Efficient aangedreven patroon Hive-query***
 
-***Brandstof efficiënt aangedreven patroon Hive-query***
-
-Het Hive-script met de naam 'fuelefficientdriving.hql"gebruikt voor het analyseren van agressieve aangedreven voorwaarde patroon bevindt zich in de map '\demo\src\connectedcar\scripts' van het gedownloade ZIP-bestand. 
+Het Hive-script fuelefficientdriving.hql wordt gebruikt voor het analyseren van fuel-efficient aangedreven voorwaarde patronen. Bevindt het zich in de map \demo\src\connectedcar\scripts van het gedownloade zip-bestand. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -561,37 +541,29 @@ Het Hive-script met de naam 'fuelefficientdriving.hql"gebruikt voor het analyser
     where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
 
 
-De combinatie van de drager transmission tandwielpictogram positie wordt gebruikt, bedient vorm status, de snelheid en de accelerator positie voor het detecteren van brandstof efficiënt aangedreven gedrag op basis van versnelling, remvermogen pedaal en patronen te versnellen. 
+Het script maakt gebruik van de combinatie van een medium transmission tandwielpictogram positie, bedient vorm status, de snelheid en de accelerator positie voor het detecteren van fuel-efficient aangedreven gedrag op basis van versnelling, remvermogen pedaal en patronen te versnellen. 
 
-Nadat de pijplijn met succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container 'connectedcar' wordt gegenereerd.
+Nadat de pijplijn succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container connectedcar gegenereerd:
 
 ![FuelEfficientDrivingPatternPipeline uitvoer](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
-*Afbeelding 21 – FuelEfficientDrivingPatternPipeline uitvoer*
+**Modelvoorspellingen intrekken**
 
-**Voorspellingen intrekken**
+De machine learning-experiment worden ingericht en gepubliceerd als een webservice als onderdeel van de implementatie van de oplossing. De score-eindpunt wordt gebruikt in deze workflow. Het is geregistreerd als een data factory gekoppelde service en geoperationaliseerd met behulp van de data factory score activiteit.
 
-De machine learning-experiment worden ingericht en gepubliceerd als een webservice als onderdeel van de implementatie van de oplossing. De score-eindpunt wordt gebruikt in deze werkstroom geregistreerd als een data factory gekoppelde service en geoperationaliseerd met behulp van data factory batch activiteit voor score berekenen.
+![Machine learning-eindpunt](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
-![Machine Learning-eindpunt](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
+De geregistreerde gekoppelde service wordt gebruikt in DetectAnomalyPipeline voor de beoordeling van de gegevens met behulp van de afwijkingsdetectie detectie-model. 
 
-*Afbeelding 22 – Machine learning-eindpunt is geregistreerd als een gekoppelde service in de gegevensfactory*
+![Machine learning score activiteit in de gegevensfactory](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png)  
 
-De geregistreerde gekoppelde service wordt gebruikt in de DetectAnomalyPipeline voor de beoordeling van de gegevens met behulp van de afwijkingsdetectie detectie-model. 
+Een paar stappen worden uitgevoerd in deze pijplijn voor het voorbereiden van gegevens, zodat deze kan worden geoperationaliseerd met de webservice voor de score. 
 
-![Machine Learning score activiteit in de gegevensfactory](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png) 
-
-*Afbeelding 23: Azure Machine Learning-Batchscoreberekening activiteit in de gegevensfactory* 
-
-Er zijn enkele stappen die worden uitgevoerd in deze pijplijn voor het voorbereiden van gegevens, zodat deze kan worden geoperationaliseerd met de webservice voor de score. 
-
-![DetectAnomalyPipeline voor het voorspellen van voertuigen terughalen vereisen](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png) 
-
-*Afbeelding 24 – DetectAnomalyPipeline voor het voorspellen van voertuigen terughalen vereisen* 
+![DetectAnomalyPipeline voor de voorspelling intrekken](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png)  
 
 ***Afwijkingsdetectie detectie Hive-query***
 
-Zodra de score berekenen is voltooid, wordt een HDInsight-activiteit gebruikt om te verwerken en samenvoegen van de gegevens die gecategoriseerd als afwijkingen door het model met een goede kans score 0,60 of hoger worden.
+Nadat de score berekenen is voltooid, wordt een HDInsight-activiteit verwerkt en de gegevens die het model is ingedeeld als afwijkingen samenvoegt. Een kans score van 0.60 of hoger wordt gebruikt door het model.
 
     DROP TABLE IF EXISTS CarEventsAnomaly; 
     CREATE EXTERNAL TABLE CarEventsAnomaly 
@@ -651,51 +623,54 @@ Zodra de score berekenen is voltooid, wordt een HDInsight-activiteit gebruikt om
     where RecallLabel = '1' AND RecallProbability >= '0.60'
 
 
-Nadat de pijplijn met succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container 'connectedcar' wordt gegenereerd.
+Nadat de pijplijn succes is uitgevoerd, ziet u de volgende partities in uw opslagaccount in de container connectedcar gegenereerd:
 
 ![DetectAnomalyPipeline uitvoer](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
-
-*Afbeelding 25 – DetectAnomalyPipeline uitvoer*
 
 ## <a name="publish"></a>Publiceren
 
 ### <a name="real-time-analysis"></a>Realtime analyses
-Een van de query's in de Stream Analytics-taak de gebeurtenissen publiceert naar uitvoer Event Hub-instantie. 
+Een van de query's in de Stream Analytics-taak publiceert de gebeurtenissen naar een exemplaar van uitvoer event hub. 
 
-![Stream Analytics-taak publiceert naar uitvoer Event Hub-instantie](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
+![Stream Analytics-taak die is gepubliceerd naar een event hub-instantie van uitvoer](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
-*Afbeelding 26 – Stream Analytics-taak naar uitvoer publiceert Event Hub-instantie*
+De volgende Stream Analytics query wordt gebruikt om te publiceren naar de uitvoer event hub-instantie:
 
-![Stream Analytics query om te publiceren naar de uitvoer van de Event Hub-instantie](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
+![Stream Analytics query om te publiceren naar de uitvoer event hub-instantie](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
 
-*Afbeelding 27 – Stream Analytics query om te publiceren naar de uitvoer van de Event Hub-instantie*
-
-Deze stroom van gebeurtenissen wordt gebruikt door de RealTimeDashboardApp opgenomen in de oplossing. Deze toepassing maakt gebruik van de webservice voor de Machine Learning-reactie op aanvragen voor score berekenen voor realtime en de resulterende gegevens publiceert naar een gegevensset met de Power BI voor verbruik. 
+Deze stroom van gebeurtenissen wordt gebruikt door de RealTimeDashboardApp die opgenomen in de oplossing. Deze toepassing maakt gebruik van de machine learning-webservice reactie op aanvragen voor score berekenen voor realtime. De resulterende gegevens wordt gepubliceerd op een Power BI-gegevensset voor verbruik. 
 
 ### <a name="batch-analysis"></a>Batchanalyse
-De resultaten van de batch- en realtime verwerking worden gepubliceerd op de Azure SQL Database-tabellen voor verbruik. De Azure SQL-Server, Database en de tabellen worden automatisch gemaakt als onderdeel van het installatiescript. 
+De resultaten van de batch- en realtime verwerking worden gepubliceerd naar Azure SQL Database-tabellen voor verbruik. De SQL-server, de database en de tabellen worden automatisch gemaakt als onderdeel van het installatiescript. 
 
-![Batchverwerking resultaten kopiëren naar de werkstroom datamart data](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
+De resultaten van de verwerking van batch worden gekopieerd naar de werkstroom van de datamart gegevens.
 
-*Afbeelding 28 – batchverwerking resultaten kopiëren naar de werkstroom datamart data*
+![Batchverwerking resultaten gekopieerd naar de werkstroom datamart data](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
-![Stream Analytics-taak publiceert naar datamart](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+De Stream Analytics-taak is gepubliceerd naar de datamart.
 
-*Afbeelding 29 – Stream Analytics-taak naar datamart publiceert*
+![Stream Analytics-taak die is gepubliceerd naar de datamart](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+
+De instelling van de datamart gegevens is in de Stream Analytics-taak.
 
 ![Datamart-instelling van Data in Stream Analytics-taak](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
-
-*Afbeelding 30 – datamart instellen in Stream Analytics-taak*
 
 ## <a name="consume"></a>Gebruiken
 Power BI biedt deze oplossing een uitgebreide dashboard voor realtime-gegevens en visualisaties predictive analytics. 
 
-Klik hier voor gedetailleerde instructies voor het instellen van de Power BI-rapporten en het dashboard. Het laatste dashboard ziet er als volgt:
+Het laatste dashboard ziet er in dit voorbeeld:
 
 ![Power BI-dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
-*Afbeelding 31 - Power BI-Dashboard*
-
 ## <a name="summary"></a>Samenvatting
-Dit document bevat een gedetailleerde inzoomen van de drager telemetrie Analytics-oplossing. Dit patroon met een lambda-architectuur voor gepresenteerd realtime en batch-analyses met voorspellingen en acties. Dit patroon van toepassing is op een breed scala aan gebruiksvoorbeelden waarvoor hot pad (real-time) en analyses van koude pad (batch). 
+Dit document bevat een gedetailleerde inzoomen van de drager telemetrie Analytics-oplossing. Het patroon van lambda-architectuur wordt gebruikt voor realtime en batch-analyses met voorspellingen en acties. Dit patroon van toepassing is op een breed scala aan gebruiksvoorbeelden waarvoor hot pad (real-time) en analyses van koude pad (batch). 
 
+### <a name="references"></a>Verwijzingen
+
+* [Vehicle telematica Simulator Visual Studio-oplossing](http://go.microsoft.com/fwlink/?LinkId=717075) 
+* [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Event Hubs-SDK voor streamopname](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* [Data movement mogelijkheden van Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
+* [Azure Data Factory .NET-activiteit](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Azure Data Factory .NET-activiteit gebruikt voor het voorbereiden van de voorbeeldgegevens van Visual Studio-oplossing](http://go.microsoft.com/fwlink/?LinkId=717077) 

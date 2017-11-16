@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Zelfstudie: Azure Active Directory-integratie met Salesforce
 
@@ -121,9 +121,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Klik op **opslaan** knop.
-
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Klik op **opslaan** knop ![configureren eenmalige aanmelding](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. Op de **Salesforce configuratie** sectie, klikt u op **configureren Salesforce** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.** 
 
@@ -154,7 +152,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     a. Voor de **naam** veld, typ een beschrijvende naam voor deze configuratie. Om een waarde voor **naam** automatisch invullen de **API-naam** textbox.
 
-    b. Plakken **SMAL entiteit-ID** waarde in de **verlener** veld in Salesforce.
+    b. Plakken **SAML entiteit-ID** waarde in de **verlener** veld in Salesforce.
 
     c. In de **tekstvak voor de entiteit-Id**, typ de naam van uw Salesforce-domein met het volgende patroon volgen:
       

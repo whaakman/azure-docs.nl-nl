@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e9cb4b5b886cec46c0483287460c720855867f38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e75429d66a30bfc4588a3070e32d58eec0df4b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de tabel-API
-
-In dit artikel, laten we zien hoe de Azure portal gebruiken om setup Azure Cosmos DB globale distributie en maak verbinding met de tabel-API (preview).
 
 In dit artikel bevat informatie over de volgende taken: 
 
@@ -36,13 +34,13 @@ In dit artikel bevat informatie over de volgende taken:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Verbinding maken met een voorkeursregio met behulp van de tabel-API
 
-Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van de `TablePreferredLocations` configuratiewaarde in de app-configuratie voor de preview van Azure-opslag-SDK. Op basis van de Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en de voorkeur lijst is opgegeven, wordt het meest optimale eindpunt door de Azure-opslag-SDK schrijven uitvoeren en leesbewerkingen gekozen.
+Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van de `TablePreferredLocations` configuratiewaarde in het app.config voor Azure Cosmos DB tabel API SDK. De SDK van Azure Cosmos DB tabel API Kies het beste endpoint om te communiceren met op basis van de accountconfiguratie, huidige regionale beschikbaarheid en de opgegeven lijst.
 
 De `TablePreferredLocations` moet een door komma's gescheiden lijst met aanbevolen (multihoming) locaties bevatten voor leesbewerkingen. Elk clientexemplaar kunt u een subset van deze gebieden in de gewenste volgorde voor lage latentie leesbewerkingen opgeven. De regio's moeten de namen van hun [weergavenamen](https://msdn.microsoft.com/library/azure/gg441293.aspx), bijvoorbeeld `West US`.
 
-Alle leesbewerkingen wordt verzonden naar de eerste beschikbare regio in de `TablePreferredLocations` lijst. Als de aanvraag is mislukt, zal de client mislukken omlaag in de lijst voor de volgende regio, enzovoort.
+Alle leesbewerkingen worden verzonden naar de eerste beschikbare regio in de `TablePreferredLocations` lijst. Als de aanvraag is mislukt, zal de client mislukken omlaag in de lijst voor de volgende regio, enzovoort.
 
-De SDK wordt alleen poging tot lezen van de gebieden die zijn opgegeven `TablePreferredLocations`. Ja, bijvoorbeeld of de Account van de Database is beschikbaar in drie gebieden, maar de client geeft alleen twee van de niet-schrijven regio's voor `TablePreferredLocations`, en vervolgens geen leesbewerkingen buiten de regio schrijven, zelfs wanneer een failover kunnen worden geleverd.
+De SDK probeert te lezen van de gebieden die zijn opgegeven in `TablePreferredLocations`. Ja, bijvoorbeeld of de Account van de Database is beschikbaar in drie gebieden, maar de client geeft alleen twee van de niet-schrijven regio's voor `TablePreferredLocations`, en vervolgens geen leesbewerkingen buiten de regio schrijven, zelfs wanneer een failover kunnen worden geleverd.
 
 Alle schrijfbewerkingen naar de huidige schrijven regio worden automatisch verzonden door de SDK.
 
@@ -62,9 +60,5 @@ In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
 > * Globale distributie op basis van de Azure-portal configureren
-> * Globale distributie op basis van de DocumentDB APIs configureren
+> * Globale distributie op basis van de API's van Azure Cosmos DB tabel configureren
 
-U kunt nu doorgaan met de volgende zelfstudie voor meer informatie over het ontwikkelen van lokaal via de lokale Azure DB die Cosmos-emulator.
-
-> [!div class="nextstepaction"]
-> [Lokaal ontwikkelen met de emulator](local-emulator.md)

@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met virtuele machines na een failover naar Azure met Azure Site Recovery | Microsoft Docs
-description: Richtlijnen voor de verbinding met virtuele Azure-machines na een failover van on-premises met Azure Site Recovery netwerken
+title: Instellen van IP-adressering verbinding maken na een failover naar Azure met Azure Site Recovery | Microsoft Docs
+description: Beschrijft het instellen van IP-adressen voor verbinding met virtuele Azure-machines na een failover van on-premises met Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-azure"></a>Verbinding maken met virtuele machines na een failover naar Azure
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>IP-adressen als u wilt verbinden na een failover naar Azure instellen
 
 Dit artikel wordt uitgelegd dat de netwerkvereisten voor de verbinding met virtuele Azure-machines, nadat u de [Azure Site Recovery](site-recovery-overview.md) service voor replicatie en failover naar Azure.
 

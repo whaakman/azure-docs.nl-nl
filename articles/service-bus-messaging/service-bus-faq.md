@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: 1403184d96388cb03b2c767c4da342ec1c6fe236
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-bus-faq"></a>Veelgestelde vragen over Service Bus
 Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. U kunt ook de [Azure ondersteunen Veelgestelde vragen over](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure-prijzen en -ondersteuning voor informatie.
@@ -28,10 +28,10 @@ Dit artikel worden enkele veelgestelde vragen over Microsoft Azure Service Bus. 
 [Azure Service Bus](service-bus-messaging-overview.md) is een asynchrone messaging cloudplatform waarmee u kunt het verzenden van gegevens tussen ontkoppelde systemen. Microsoft biedt deze functie als een service, wat betekent dat u niet wilt hosten van uw eigen hardware om het te gebruiken.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Wat is een Service Bus-naamruimte?
-Een [naamruimte](service-bus-create-namespace-portal.md) biedt een scoping container voor het adresseren van Service Bus-resources in uw toepassing. Maken van een is nodig om het gebruik van Service Bus en een van de eerste stappen aan de slag.
+Een [naamruimte](service-bus-create-namespace-portal.md) biedt een scoping container voor het adresseren van Service Bus-resources in uw toepassing. Maken van een naamruimte is nodig om het gebruik van Service Bus en is een van de eerste stappen aan de slag.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>Wat is een Azure Service Bus-wachtrij?
-Een [Service Bus-wachtrij](service-bus-queues-topics-subscriptions.md) is een entiteit waarin berichten worden opgeslagen. Wachtrijen zijn bijzonder nuttig wanneer er meerdere toepassingen of meerdere onderdelen van een gedistribueerde toepassing die met elkaar moeten communiceren. De wachtrij is vergelijkbaar met een distributie-center in dat meerdere producten (berichten) worden ontvangen en vervolgens vanuit die locatie worden verzonden.
+Een [Service Bus-wachtrij](service-bus-queues-topics-subscriptions.md) is een entiteit waarin berichten worden opgeslagen. Wachtrijen zijn handig als er meerdere toepassingen of meerdere onderdelen van een gedistribueerde toepassing die met elkaar moeten communiceren. De wachtrij is vergelijkbaar met een distributie-center in dat meerdere producten (berichten) worden ontvangen en vervolgens vanuit die locatie worden verzonden.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Wat zijn Azure Service Bus-onderwerpen en abonnementen?
 Een onderwerp kan worden weergegeven als een wachtrij en wanneer u meerdere abonnementen, wordt een uitgebreidere messaging model; in wezen een een-op-veel-communicatie-hulpprogramma. Dit model publiceren/abonneren (of *pub subitems*) Hiermee wordt een toepassing die u een bericht naar een onderwerp met meerdere abonnementen verzendt hebben dat bericht ontvangen door meerdere toepassingen.
@@ -39,14 +39,14 @@ Een onderwerp kan worden weergegeven als een wachtrij en wanneer u meerdere abon
 ### <a name="what-is-a-partitioned-entity"></a>Wat is een gepartitioneerde entiteit?
 Een conventionele wachtrij of onderwerp is verwerkt door een enkel bericht broker en opgeslagen in één berichten-store. Een [gepartitioneerde wachtrij of onderwerp](service-bus-partitioning.md) wordt verwerkt door meerdere bericht beleggingsmakelaars en opgeslagen in meerdere berichten-stores. Dit betekent dat de totale doorvoer van een gepartitioneerde wachtrij of onderwerp niet langer wordt beperkt door de prestaties van een enkel bericht broker of berichten-store. Bovendien weer een tijdelijke onderbreking van berichten-store niet een gepartitioneerde wachtrij of onderwerp niet beschikbaar.
 
-Houd er rekening mee dat ordening wordt niet gegarandeerd bij gebruik van partitionering entiteiten. In het geval dat een partitie niet beschikbaar is, kunt u nog steeds verzenden en ontvangen van berichten uit de andere partities.
+Let op: ordening wordt niet gegarandeerd bij gebruik van gepartitioneerde entiteiten. In het geval dat een partitie niet beschikbaar is, kunt u nog steeds verzenden en ontvangen van berichten uit de andere partities.
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Wat zijn enkele aanbevolen procedures van Azure Service Bus?
-* [Aanbevolen procedures voor verbeterde prestaties met Service Bus] [ Best practices for performance improvements using Service Bus] – dit artikel wordt beschreven hoe u de prestaties te optimaliseren wanneer uitwisseling van berichten.
+Zie [Best practices voor verbeterde prestaties met Service Bus] [ Best practices for performance improvements using Service Bus] – dit artikel wordt beschreven hoe u de prestaties te optimaliseren wanneer uitwisseling van berichten.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Wat moet ik weten voordat u entiteiten
-De volgende eigenschappen van een wachtrij en onderwerp zijn niet-wijzigbaar. Neem dit rekening houden wanneer u uw entiteiten inrichten als dit niet worden gewijzigd zonder dat er een nieuwe entiteit in de vervanging.
+De volgende eigenschappen van een wachtrij en onderwerp zijn niet-wijzigbaar. Houd rekening met deze beperking als u uw entiteiten inricht als deze eigenschappen kunnen niet worden gewijzigd zonder dat er een nieuwe entiteit in de vervanging.
 
 * Grootte
 * Partitionering
@@ -57,15 +57,15 @@ De volgende eigenschappen van een wachtrij en onderwerp zijn niet-wijzigbaar. Ne
 ## <a name="pricing"></a>Prijzen
 Deze sectie worden enkele veelgestelde vragen over de Service Bus structuur prijzen.
 
-De [Service Bus-prijzen en facturering](service-bus-pricing-billing.md) artikel wordt uitgelegd dat de facturering meters in Service Bus en voor informatie over Service Bus prijzen opties, Zie [Service Bus prijsinformatie](https://azure.microsoft.com/pricing/details/service-bus/).
+De [Service Bus-prijzen en facturering](service-bus-pricing-billing.md) artikel wordt uitgelegd dat de facturering meters in Service Bus. Zie voor meer informatie over Service Bus prijzen opties [Service Bus prijsinformatie](https://azure.microsoft.com/pricing/details/service-bus/).
 
 U kunt ook de [Veelgestelde vragen over Azure-ondersteuning](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure prijsinformatie. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Hoe u kosten in rekening gebracht voor Service Bus?
-Zie voor volledige informatie over prijzen voor Service Bus [Service Bus prijsinformatie][Pricing overview]. Naast de prijzen genoteerd, u in rekening worden gebracht voor de bijbehorende gegevensoverdracht voor uitgaande buiten het datacenter waarin de toepassing is ingericht.
+Zie voor meer informatie over prijzen voor Service Bus [Service Bus prijsinformatie][Pricing overview]. Naast de prijzen genoteerd, u in rekening worden gebracht voor de bijbehorende gegevensoverdracht voor uitgaande buiten het datacenter waarin de toepassing is ingericht.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Welke informatie over het gebruik van Service Bus is onderworpen aan de overdracht van gegevens? Wat is er geen?
-Een overdracht van gegevens binnen een bepaald Azure-regio is opgegeven zonder kosten, evenals binnenkomende gegevensoverdracht. Overdracht van gegevens buiten een regio is onderworpen aan de kosten voor uitgaande die kunnen worden gevonden [hier](https://azure.microsoft.com/pricing/details/bandwidth/).
+Een overdracht van gegevens binnen een bepaald Azure-regio is opgegeven zonder kosten, evenals binnenkomende gegevensoverdracht. Gegevensoverdracht buiten een regio is onderworpen aan de kosten voor uitgaande die u kunnen vinden [hier](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>Service Bus kosten in rekening gebracht voor de opslag?
 Nee, Service Bus biedt geen kosten in rekening gebracht voor opslag. Er is echter geen quota voor de maximale hoeveelheid gegevens die kan worden gehandhaafd per wachtrij/onderwerp beperken. Zie de volgende veelgestelde vragen.
@@ -75,9 +75,9 @@ Nee, Service Bus biedt geen kosten in rekening gebracht voor opslag. Er is echte
 Zie voor een lijst met Service Bus-limieten en quota's, de [overzicht van Service Bus-quota][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Beschikt over Service Bus quota voor gebruik?
-Standaard voor een cloud service Microsoft Hiermee stelt u een cumulatieve maandelijkse gebruiksgegevens van die is berekend voor alle abonnementen van de klant. Omdat we begrijpen dat u deze limieten moet mogelijk, neem contact op met klantenservice op elk gewenst moment zodat we kunnen uw behoeften te begrijpen en pas deze limieten op de juiste wijze. Voor Service Bus is de cumulatieve gebruiksquotum 5 miljard berichten per maand.
+Standaard voor een cloud service Microsoft Hiermee stelt u een cumulatieve maandelijkse gebruiksgegevens van die is berekend voor alle abonnementen van de klant. Omdat we begrijpen dat u deze limieten moet mogelijk, u kunt contact opnemen met customer support op elk gewenst moment zodat we kunnen uw behoeften te begrijpen en pas deze limieten op de juiste wijze. Voor Service Bus is de cumulatieve gebruiksquotum 5 miljard berichten per maand.
 
-Terwijl we zich het recht om uit te schakelen van een klantaccount die de quota voor gebruik in een bepaalde maand heeft overschreden behoudt, wordt e-mailmelding bieden en meerdere pogingen om contact met een klant voordat u een actie maken. Klanten die deze quota overschrijdt nog steeds die verantwoordelijk is voor de kosten die groter is dan de quota.
+Terwijl we zich het recht om uit te schakelen van een klantaccount die de quota voor gebruik in een bepaalde maand heeft overschreden behoudt, wij bieden e-mailmelding en meerdere pogingen om contact met een klant voordat u een actie maken. Klanten die meer dan deze quota zijn nog steeds zelf verantwoordelijk voor de kosten die groter is dan de quota.
 
 Net als bij andere services op Azure Service Bus zorgt ervoor dat een set specifieke quota om ervoor te zorgen dat er evenredige gebruik van bronnen. U vindt meer informatie over deze quota in de [overzicht van Service Bus-quota][Quotas overview].
 
@@ -113,7 +113,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende onderwerpen voor meer informatie over Service Bus.
+Zie de volgende artikelen voor meer informatie over Service Bus:
 
 * [Introducing Azure Service Bus Premium (blogbericht)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

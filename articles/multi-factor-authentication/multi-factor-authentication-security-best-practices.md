@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2be36bce1b4cffdab2d25d150bd5a0e8451e422d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Aanbevolen beveiligingsprocedures voor het gebruik van Azure multi-factor Authentication met Azure AD-accounts
 
@@ -83,7 +83,7 @@ De gebruikersportal kunt selfservice mogelijkheden en biedt een volledige set me
 * Installeren en registreren van ASP.NET v2.0.507207
 * Zorg ervoor dat deze server kan worden geïmplementeerd in een perimeternetwerk
 
-### <a name="app-passwords"></a>App-wachtwoorden
+### <a name="app-passwords"></a>Appwachtwoorden
 Als uw organisatie is gefedereerd voor eenmalige aanmelding met Azure AD en u wilt gebruikmaken van Azure MFA, vervolgens mee worden van de volgende details:
 
 * Het app-wachtwoord wordt gecontroleerd door Azure AD en wordt daarom overgeslagen federation. Federatie wordt alleen gebruikt bij het instellen van app-wachtwoorden.

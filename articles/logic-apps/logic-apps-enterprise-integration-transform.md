@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise-integratie met XML-transformaties
 ## <a name="overview"></a>Overzicht
@@ -50,6 +50,11 @@ Nu dat u hebt gezorgd voor de vereisten, is het tijd om uw logische app maken:
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Selecteer de **XML-transformatie** actie   
 6. Voeg het XML-bestand **inhoud** die u transformeren. U in de HTTP-aanvraag als ontvangt XML-gegevens kunt u de **inhoud**. Selecteer de hoofdtekst van de HTTP-aanvraag die de logische app heeft geactiveerd in dit voorbeeld.
+
+   > [!NOTE]
+   > Zorg ervoor dat de inhoud voor de **XML-transformatie** XML. Als de inhoud zich niet in XML of base64-gecodeerd, moet u een expressie waarmee de inhoud wordt verwerkt. U kunt bijvoorbeeld [functies](logic-apps-workflow-definition-language.md#functions), bijvoorbeeld ```@base64ToBinary``` voor het decoderen van inhoud of ```@xml``` voor het verwerken van de inhoud als XML.
+ 
+
 7. Selecteer de naam van de **kaart** dat u gebruiken wilt voor het uitvoeren van de transformatie. De kaart moet al in uw account integratie. In een eerdere stap hebt u al gegeven uw logische apptoegang tot je account integratie met uw kaart.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Sla uw werk  

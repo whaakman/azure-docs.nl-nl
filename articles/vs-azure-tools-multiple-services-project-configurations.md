@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Uw Azure-Project met behulp van serviceconfiguraties met meerdere configureren
 Een Azure-cloud service-project bevat twee configuratiebestanden: ServiceDefinition.csdef en ServiceConfiguration.cscfg. Deze bestanden zijn verpakt met uw Azure-cloud service-toepassing en geïmplementeerd in Azure.
@@ -30,7 +30,7 @@ De Azure-hulpprogramma's voor Microsoft Visual Studio bevatten eigenschappenpagi
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Zie voor informatie over de onderliggende schema's voor de servicedefinitie en de configuratiebestanden van de service, de [schemaverwijzing](https://msdn.microsoft.com/library/azure/dd179398.aspx). Zie voor meer informatie over de serviceconfiguratie van de [Cloud-Services configureren hoe](cloud-services/cloud-services-how-to-configure.md).
+Zie voor informatie over de onderliggende schema's voor de servicedefinitie en de configuratiebestanden van de service, de [csdef XML-Schema](cloud-services/schema-csdef-file.md) en [.cscfg XML-Schema](cloud-services/schema-cscfg-file.md) artikelen. Zie voor meer informatie over de serviceconfiguratie van de [Cloud-Services configureren hoe](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Eigenschappen van de rol configureren
 De eigenschappenpagina's voor een Webrol en een werkrol zijn vergelijkbaar, maar er een paar verschillen zijn, uiteengezet in de volgende secties.
@@ -88,7 +88,7 @@ U kunt de **lokale opslag** eigenschappenpagina te reserveren van een of meer lo
 ## <a name="certificates-page"></a>De pagina Certificaten
 Op de **certificaten** pagina u certificaten kunt koppelen aan uw rol. De certificaten die u toevoegt, kunnen worden gebruikt voor het HTTPS-eindpunten configureren op de **eindpunten** eigenschappenpagina.
 
-De **certificaten** eigenschappenpagina gegevens over uw certificaten worden toegevoegd aan de configuratie van uw service. Houd er rekening mee dat uw certificaten niet zijn verpakt met uw service; u moet uw certificaten afzonderlijk uploaden naar Azure via de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+De **certificaten** eigenschappenpagina gegevens over uw certificaten worden toegevoegd aan de configuratie van uw service. Houd er rekening mee dat uw certificaten niet zijn verpakt met uw service; u moet uw certificaten afzonderlijk uploaden naar Azure via de [Azure-portal](http://portal.azure.com).
 
 Als u wilt verbinden met een certificaat met de rol, Geef een naam voor het certificaat. Gebruikt u deze naam om te verwijzen naar het certificaat, wanneer u een HTTPS-eindpunt configureren op de **eindpunten** eigenschappenpagina. Vervolgens opgeven of het certificaatarchief **lokale Machine** of **huidige gebruiker** en de naam van het archief. Voer ten slotte de vingerafdruk van het certificaat. Als het certificaat zich in de huidige User\Personal () winkel, kunt u de vingerafdruk van het certificaat door het certificaat van een ingevulde lijst te selecteren. Als deze zich op een andere locatie, voert u de vingerafdrukwaarde handmatig in.
 

@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure beleid?
 
@@ -51,7 +51,7 @@ In Azure-beleid bieden we een aantal ingebouwde beleidsregels die standaard besc
 
 U kunt een van deze beleidsregels via de Azure-portal, PowerShell of Azure CLI.
 
-Bekijk voor meer informatie over de structuur van de beleidsdefinities, in dit artikel - [definitie beleidsstructuur](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Bekijk voor meer informatie over de structuur van de beleidsdefinities, in dit artikel - [definitie beleidsstructuur](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Toewijzing van beleid
 
@@ -68,7 +68,7 @@ Parameters zijn gedefinieerd/gemaakt bij het maken van een beleidsdefinitie. Als
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Zie voor meer informatie over beleidsparameters [overzicht Resource - Parameters](../azure-resource-manager/resource-manager-policy.md#parameters).
+Zie voor meer informatie over beleidsparameters [overzicht Resource - Parameters](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Initiatief definitie
 De definitie van een initiatief is een verzameling beleidsdefinities die zijn aangepast aan de verwezenlijking van een enkelvoudige algehele doel. Initiatief definities eenvoudiger beheren en het toewijzen van beleidsdefinities. Ze vereenvoudigen door een reeks beleidsregels als één object groeperen. U kunt bijvoorbeeld een initiatief met de titel maken **bewaking inschakelen in Azure Security Center**, met een doel voor het bewaken van de beschikbare beveiligingsaanbevelingen in uw Azure Security Center.

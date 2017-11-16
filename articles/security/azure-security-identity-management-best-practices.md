@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure voor identiteits- en toegang beheren best practices voor beveiliging
 Veel Overweeg identiteit van de nieuwe grens laag voor beveiliging die rol van de traditionele netwerk gericht perspectief overneemt. Deze evolutie van het primaire pivot voor aandacht voor beveiliging en investeringen afkomstig zijn uit het feit dat netwerkverbindingen steeds poreuze zijn geworden, en dat perimeternetwerk kan niet zo effectief als ze eenmaal worden zijn voordat de explosie van [BYOD ](http://aka.ms/byodcg) apparaten en cloud-toepassingen.
@@ -115,7 +115,7 @@ Hefboomwerking [Azure Resource Manager](../azure-resource-manager/resource-group
 
 Organisaties die niet zijn beheren hoe resources worden gemaakt zijn vatbaarder voor gebruikers die de service mogelijk misbruik door het maken van meer bronnen dan ze nodig hebben. Beperking van een proces voor het maken van de resource is een belangrijke stap voor het beveiligen van een scenario met meerdere tenants.
 
-U kunt meer informatie over het maken van beleid met Azure Resource Manager door te lezen van het artikel [beleid gebruiken voor het beheren van resources en toegangsbeheer](../azure-resource-manager/resource-manager-policy.md).
+U kunt meer informatie over het maken van beleid met Azure Resource Manager door te lezen van het artikel [wat is Azure beleid?](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Handleiding voor ontwikkelaars van bureaubladtoepassingen identiteitsmogelijkheden voor SaaS-apps
 Gebruikersidentiteit zal worden gebruikt in veel scenario's als gebruikers toegang hebben tot [SaaS-apps](https://azure.microsoft.com/marketplace/active-directory/all/) die kunnen worden geïntegreerd met on-premises of clouddirectory. Allereerst omdat het is raadzaam dat ontwikkelaars een beveiligde methodologie gebruiken deze om apps te ontwikkelen, zoals [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD authentication vereenvoudigt voor ontwikkelaars dankzij de identiteit als een service met ondersteuning voor industriestandaard-protocollen, zoals [OAuth 2.0](http://oauth.net/2/) en [OpenID Connect](http://openid.net/connect/), evenals de open-source bibliotheken voor verschillende platforms.

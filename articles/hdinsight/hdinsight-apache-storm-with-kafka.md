@@ -13,15 +13,15 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/12/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 97b89b9c6ef88c1611ccad7963a0aa8e7eb82318
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 50a22877241c77ccb1a7df24ab7df006094a439f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Apache Kafka (preview) met Storm op HDInsight gebruiken
+# <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Apache Kafka met Storm op HDInsight gebruiken
 
 Informatie over het gebruik van Apache Storm om te lezen van en schrijven naar Apache Kafka. Dit voorbeeld wordt ook het opslaan van gegevens van een Storm-topologie naar het bestandssysteem van HDFS-compatibele die door HDInsight worden gebruikt.
 
@@ -68,7 +68,7 @@ U kunt een Azure-netwerk Kafka, maken en handmatig Storm-clusters, is het ook ee
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    De Azure Resource Manager-sjabloon bevindt zich op **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**. Hiermee maakt u de volgende bronnen:
+    De Azure Resource Manager-sjabloon bevindt zich op **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**. Hiermee maakt u de volgende bronnen:
     
     * Azure-resourcegroep
     * Azure Virtual Network

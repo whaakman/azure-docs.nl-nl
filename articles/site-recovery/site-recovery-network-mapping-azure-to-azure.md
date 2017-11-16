@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>De netwerkkoppeling tussen twee Azure-regio 's
 
@@ -48,7 +48,7 @@ Doe hetzelfde voor een netwerktoewijzing maken tussen Zuidoost-Azië Oost-Azië.
 
 ## <a name="mapping-network-when-enabling-replication"></a>Netwerkverbinding maken bij het inschakelen van replicatie
 
-Als de netwerktoewijzing is niet uitgevoerd wanneer u een virtuele machine voor de eerste keer formulier een Azure-regio worden gerepliceerd naar een andere, kunt u doelnetwerk als onderdeel van hetzelfde proces. Uit de regio van bron naar doelregio en doelregio bron regio op basis van deze selectie, maakt site Recovery-netwerkkoppelingen.   
+Als de netwerktoewijzing is niet uitgevoerd wanneer u een virtuele machine voor het eerst van een Azure-regio naar een andere zijn repliceren, kunt u doelnetwerk als onderdeel van hetzelfde proces. Uit de regio van bron naar doelregio en doelregio bron regio op basis van deze selectie, maakt site Recovery-netwerkkoppelingen.   
 
 ![Netwerktoewijzing](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -80,18 +80,18 @@ Subnet van de virtuele doelmachine is geselecteerd op basis van de naam van het 
 IP-adres voor elk van de netwerkinterface van de virtuele doelmachine gekozen als volgt:
 
 ### <a name="dhcp"></a>DHCP
-Als de netwerkinterface van de virtuele bronmachine DHCP gebruikt, wordt de netwerkinterface van de virtuele doelmachine ook als DHCP ingesteld.
+Als de netwerkinterface van de virtuele bronmachine DHCP gebruikt, wordt de netwerkinterface van de virtuele doelmachine ook ingesteld als DHCP.
 
 ### <a name="static-ip"></a>Vaste IP-adres
 Als de netwerkinterface van de virtuele bronmachine van vaste IP-adres gebruikmaakt, wordt de netwerkinterface van de virtuele doelmachine ook ingesteld op statische IP gebruikt. Vaste IP-adres is als volgt kiezen:
 
 #### <a name="same-address-space"></a>Dezelfde adresruimte
 
-Als het subnet van de bron en het doelsubnet hebt dezelfde adresruimte, wordt IP-adres van doel hetzelfde als het IP-adres van de netwerkinterface van de virtuele bronmachine instellen. Als dezelfde IP niet beschikbaar is, is enkele beschikbare IP ingesteld als het doel-IP.
+Als het subnet van de bron en het doelsubnet hebt dezelfde adresruimte, is het IP-adres van doel hetzelfde als het IP-adres van de netwerkinterface van de virtuele bronmachine ingesteld. Als dezelfde IP niet beschikbaar is, is enkele beschikbare IP ingesteld als het doel-IP.
 
 #### <a name="different-address-space"></a>Andere adresruimte
 
-Als het subnet van de bron en het doelsubnet hebt verschillende adresruimte, wordt IP-adres doel ingesteld als een beschikbare IP in het doelsubnet.
+Als het subnet van de bron en het doelsubnet hebt verschillende adresruimte, is het doel-IP ingesteld als een beschikbare IP in het doelsubnet.
 
 U kunt het doel-IP op elke netwerkinterface wijzigen door te gaan naar berekenings- en instellingen van de virtuele machine.
 

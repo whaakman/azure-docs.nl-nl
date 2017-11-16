@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57f17c201cd50933517ee02b2bbbe7d6aceff9b2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie - afwijkingen
 
@@ -67,7 +67,7 @@ E-mailberichten over afwijkingen Smart detecties zijn beperkt tot één e per da
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-* *Ja, bekijkt u die mijn gegevens?*
+* *Medewerkers van Microsoft is dus kijken van mijn gegevens?*
   * Nee. De service is geheel automatisch. Alleen het ophalen van de meldingen. Uw gegevens [persoonlijke](app-insights-data-retention-privacy.md).
 * *U de gegevens die zijn verzameld door Application Insights analyseren?*
   * Niet op dit moment. Op dit moment kunnen analyseren we aanvraag die de laadtijd van reactietijd, afhankelijkheid reactietijd en pagina. Analyse van aanvullende gegevens is op onze benieuwd achterstand.
@@ -103,7 +103,7 @@ De instructie impact (betrokken gebruikers of % van het verkeer) gebruiken als e
 U kunt de parameters van het probleem. Als het Geografie-afhankelijk is, kunt u instellen [beschikbaarheidstests](app-insights-monitor-web-app-availability.md) met inbegrip van die regio: er simpelweg mogelijk problemen met netwerken in het desbetreffende gebied.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnose van trage pagina wordt geladen
-Waar bevindt het probleem zich? Is de server traag reageren, is de pagina erg lang of de browser heeft te veel werk weer te geven doen?
+Waar bevindt het probleem? Is de server traag reageren, is de pagina erg lang of de browser heeft te veel werk weer te geven doen?
 
 Open de metrische blade Browsers. De gesegmenteerde weergave van de browser load tijd wordt aangegeven waar de tijd gaat. 
 

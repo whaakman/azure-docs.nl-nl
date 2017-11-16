@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57d9ebc5a9689a6f1d48464aa20ffdc7fa61b00f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="usage-analysis-with-application-insights"></a>Gebruiksanalyse met Application Insights
 
@@ -34,7 +34,7 @@ De beste ervaring wordt verkregen door het installeren van Application Insights 
 
     ![Kopieer het script in de kop van de master webpagina.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Mobiele app-code:** de Mobile Center-SDK gebruiken voor het verzamelen van gebeurtenissen van uw app en vervolgens kopieën van deze gebeurtenissen verzenden naar Application Insights voor analyse door [stappen in dit artikel](app-insights-mobile-center-quickstart.md).
+3. **Mobiele app-code:** de App Center-SDK gebruiken voor het verzamelen van gebeurtenissen van uw app en vervolgens kopieën van deze gebeurtenissen verzenden naar Application Insights voor analyse door [stappen in dit artikel](app-insights-mobile-center-quickstart.md).
 
 4. **Telemetrie ophalen:** uw project in de foutopsporingsmodus uitvoeren voor een paar minuten en zoek naar resultaten in de blade overzicht in Application Insights.
 

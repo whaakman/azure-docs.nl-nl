@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise scaffold - prescriptieve abonnement governance
 Ondernemingen zijn steeds meer gebruik nemen van de openbare cloud voor de wendbaarheid en flexibiliteit. Ze met behulp van de sterkte van de cloud inkomsten te genereren of resources voor het bedrijf optimaliseren. Microsoft Azure biedt een groot aantal services dat ondernemingen zoals bouwstenen voor het oplossen van een breed scala aan werkbelastingen en toepassingen kunnen samenstellen. 
@@ -89,7 +89,7 @@ De eerste pillar van de scaffold is naamgevingsvereisten. Goed ontworpen naamgev
 > De voorgaande tips helpen u bij het invoeren van een consistente naamgeving.
 
 ## <a name="policies-and-auditing"></a>Beleid en controle
-De tweede pillar van de scaffold omvat het maken van [Azure Resource Manager-beleid](resource-manager-policy.md) en [controle van het activiteitenlogboek](resource-group-audit.md). Resource Manager-beleid biedt u de mogelijkheid voor het beheren van risico's in Azure. U kunt beleidsregels die onafhankelijkheid van de gegevens te garanderen door te beperken, afdwingen of controle van bepaalde acties definiëren. 
+De tweede pillar van de scaffold omvat het maken van [Azure beleid](../azure-policy/azure-policy-introduction.md) en [controle van het activiteitenlogboek](resource-group-audit.md). Resource Manager-beleid biedt u de mogelijkheid voor het beheren van risico's in Azure. U kunt beleidsregels die onafhankelijkheid van de gegevens te garanderen door te beperken, afdwingen of controle van bepaalde acties definiëren. 
 
 * Beleid is een standaard **toestaan** system. U kunt acties beheren door te definiëren en beleidsregels toe te wijzen aan resources die weigeren of acties op de bronnen wilt controleren.
 * Beleidsregels worden beschreven door de beleidsdefinities in een beleid definition language (als dan voorwaarden).

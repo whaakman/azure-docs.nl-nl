@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Ontwikkelen met de Graph API in .NET
 Azure Cosmos-database is de service van Microsoft wereldwijd gedistribueerde database voor meerdere model. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
@@ -53,7 +53,6 @@ Begint met het maken van een Azure DB die Cosmos-account in de Azure portal.
 
 > [!TIP]
 > * Hebt u al een Azure DB die Cosmos-account? Als dit het geval is, gaat u verder met [uw Visual Studio-oplossing instellen](#SetupVS)
-> * Hebt u een Azure-DocumentDB-account? Als u dus uw account is nu een Cosmos-DB Azure-account en kunt u verder gaan naar [instellen van uw Visual Studio-oplossing](#SetupVS).  
 > * Als u de Emulator Azure Cosmos DB, volgt u de stappen in [Azure Cosmos DB Emulator](local-emulator.md) instellen van de emulator en gaat u verder met [instellen van uw Visual Studio-oplossing](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ Navigeer in de Azure-portal naar uw Azure DB die Cosmos-account, klikt u op **sl
 
 De URI van de portal kopiëren en plakken via `Endpoint` in de bovenstaande endpoint-eigenschap. Vervolgens kopieert u de primaire sleutel van de portal en plak deze in de `AuthKey` eigenschap hierboven. 
 
-! [Schermopname van de Azure portal gebruikt in de zelfstudie voor het maken van een C#-toepassing. Toont een Cosmos Azure DB account de knop sleutels gemarkeerd op de navigatiebalk Azure Cosmos DB en de waarden URI en primaire sleutel gemarkeerd op de blade sleutels] [keys] 
+![Schermopname van de Azure portal gebruikt in de zelfstudie voor het maken van een C#-toepassing. Toont een Cosmos Azure DB account de knop sleutels gemarkeerd op de navigatiebalk Azure Cosmos DB en de waarden URI en primaire sleutel gemarkeerd op de blade sleutels](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>De DocumentClient instantiëren 
 Maak vervolgens een nieuw exemplaar van de **DocumentClient**.  

@@ -1,29 +1,26 @@
 ---
-title: Verificatie en autorisatie voor een aangepaste toepassing die de Azure Time Series Insights-API aanroept configureren | Microsoft Docs
-description: Deze zelfstudie wordt uitgelegd hoe u verificatie en autorisatie voor een aangepaste toepassing die de Azure Time Series Insights-API aanroept configureren
-keywords: 
+title: Het configureren van verificatie en autorisatie voor een aangepaste toepassing aan te roepen de inzicht API van Azure tijd reeks | Microsoft Docs
+description: In dit artikel wordt beschreven hoe configureren voor verificatie en autorisatie voor een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Verificatie en autorisatie voor Azure Time Series Insights-API
 
-Dit artikel wordt uitgelegd hoe u configureert een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
+Dit artikel wordt uitgelegd hoe u configureert de authenticatie en autorisatie gebruikt in een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
 
 ## <a name="service-principal"></a>Service-principal
 
@@ -102,11 +99,9 @@ Hier volgen gedetailleerde stappen:
     string accessToken = token.AccessToken;
     ```
 
+De toepassings-ID en de sleutel in uw toepassing voor verificatie met Azure Time Series inzicht gebruiken. 
+
 ## <a name="next-steps"></a>Volgende stappen
-
-Gebruik de toepassings-ID en sleutel in uw toepassing. Zie voor een voorbeeld van code die de Time Series Insights-API aanroept, [opvragen van gegevens met C#](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>Zie ook
-
-* [Query uitvoeren op API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) voor de volledige Query API-verwijzing
-* [Een service-principal maken in de Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Zie voor een voorbeeld van code die de Time Series Insights-API aanroept, [opvragen van gegevens met C#](time-series-insights-query-data-csharp.md).
+- Zie voor API-naslaginformatie [Query API-referentiemateriaal](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Een service-principal maken in de Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)

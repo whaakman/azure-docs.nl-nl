@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: 21b474e37ef0a6037e05ee1fe8e5088cb3e3601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc959f763e9a84199130bae845cb62c493676977
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics-preview"></a>Oplossingen voor HDInsight-cluster toevoegen met logboekanalyse (Preview)
+# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Oplossingen voor HDInsight-cluster toevoegen aan Log Analytics
 
 HDInsight biedt clusterspecifieke oplossingen die u voor Azure-logboekanalyse toevoegen kunt. [Beheeroplossingen](../log-analytics/log-analytics-add-solutions.md) voegen functionaliteit toe aan OMS, waardoor er aanvullende gegevens- en analysefuncties beschikbaar komen voor Log Analytics. Deze oplossingen belangrijk prestatiegegevens verzamelen van uw HDInsight-clusters en bieden de hulpprogramma's om te zoeken naar de metrische gegevens. Deze oplossingen bieden ook visualisaties en -dashboards voor de meeste clustertypen worden ondersteund in HDInsight. Met behulp van de metrische gegevens die u verzamelt van de oplossing, kunt u aangepaste regels voor bewaking en waarschuwingen. 
 
@@ -33,25 +33,29 @@ In dit artikel leert u hoe clusterspecifieke beheeroplossingen toevoegen aan een
 
 ## <a name="add-cluster-specific-management-solutions"></a>Oplossingen voor het beheer van de cluster-specifieke toevoegen
 
-In deze sectie kunt u een oplossing voor beheer van HBase-cluster toevoegen aan een bestaande OMS-werkruimte. Vergelijkbare oplossingen voor andere typen HDInsight-cluster is binnenkort beschikbaar.
+In deze sectie kunt u een oplossing voor beheer van HBase-cluster toevoegen aan een bestaande OMS-werkruimte.
 
-1. Open de OMS-dashboard. Open de HDInsight-cluster-blade die u aan Azure-logboekanalyse gekoppeld in de Azure-portal, klikt u op het tabblad controle en klik op **OMS-Dashboard Open**.
+1. Open een HDInsigt-cluster in de Azure-portal klikt u op **bewaking**, en klik vervolgens op **Open OMS-Dashboard**.
 
     ![Open OMS-dashboard](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS-dashboard")
 
-1. Klik in het dashboard OMS **galerie met oplossingen** of het pictogram Designer bekijken in het linkerdeelvenster.
+1. Klik in het dashboard OMS **galerie met oplossingen** of de **ontwerper** pictogram in het linkerdeelvenster.
 
     ![Oplossing voor het beheer toevoegen in OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "beheeroplossing in OMS toevoegen")
 
-2. Zoek in de galerie met oplossingen **HDInsight HBase bewaking**, en klik vervolgens op de tegel.
+2. In de galerie met oplossingen, klikt u op een van de volgende tegels:
 
-    ![Oplossing voor het beheer van HBase vinden](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/find-hbase-management-solution.png "HBase-beheeroplossing vinden")
+    - HDInsight Hadoop-bewaking
+    - HDInsight HBase Monitoring (Preview)
+    - HDInsight Kafka bewaking
+    - HDInsight Storm bewaking
+    - HDInsight Spark bewaking
 
-3. Klik in het volgende scherm op **toevoegen**.
+3. Klik in het volgende scherm op **toevoegen**.  De volgende schermafbeelding ziet de knop toevoegen voor de bewaking van HBase.
 
      ![Toevoegen van de oplossing voor het beheer van HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "oplossing voor het beheer van HBase toevoegen")
 
-4. U ziet nu een tegel op OMS-dashboard voor het beheersysteem voor HBase. Als het cluster dat OMS gekoppeld (als onderdeel van de vereiste voor dit artikel) een HBase-cluster is, wordt de naam van het cluster en het aantal knooppunten in de tegel weergegeven in het cluster.
+4. U ziet een tegel op OMS-dashboard voor het beheersysteem voor HBase. Als het cluster dat OMS gekoppeld (als onderdeel van de vereiste voor dit artikel) een HBase-cluster is, wordt de naam van het cluster en het aantal knooppunten in de tegel weergegeven in het cluster.
 
     ![HBase-beheersysteem toegevoegd](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "HBase-beheersysteem toegevoegd")
 
