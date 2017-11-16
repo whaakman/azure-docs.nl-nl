@@ -9,14 +9,6 @@
 ## [Visual Studio-code-extensie voor sjablonen](resource-manager-vscode-extension.md)
 ## [Visual Studio met Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Voorbeelden
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Sjabloon implementeren](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Sjabloon implementeren](resource-manager-samples-cli-deploy.md)
-
 # Procedures
 ## Sjablonen maken
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
