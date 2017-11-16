@@ -27,18 +27,18 @@ ms.lasthandoff: 10/24/2017
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In deze zelfstudie, deel 1 van 7, is een toepassing met meerdere containers klaar voor gebruik in Kubernetes. De voltooide stappen omvatten:  
+In deze zelfstudie, deel 1 van 7, wordt een toepassing met meerdere containers voorbereid op gebruik in Kubernetes:  
 
 > [!div class="checklist"]
 > * Toepassingsbron klonen vanuit GitHub  
 > * Maken van een installatiekopie van een container van de toepassingsbron
 > * De toepassing testen in een lokale Docker-omgeving
 
-Zodra de stappen zijn voltooid, is de toepassing toegankelijk in uw lokale ontwikkelingsomgeving.
+Zodra de stappen zijn voltooid, is de volgende toepassing toegankelijk in uw lokale ontwikkelomgeving.
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-In volgende zelfstudies leert u hoe u de installatiekopie van de container upload naar een Azure Container Registry en hoe u deze vervolgens uitvoert in een in Azure gehost Kubernetes cluster.
+In de zelfstudies daarna leert u hoe u de installatiekopie van de container uploadt naar een Azure Container Registry en ontdekt u hoe u deze vervolgens uitvoert in een in Azure gehost Kubernetes-cluster.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
