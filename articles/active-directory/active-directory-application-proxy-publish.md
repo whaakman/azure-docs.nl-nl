@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19f52181a2847ab52029adac4d58e402a76d5f30
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Toepassingen publiceren met Azure AD-toepassingsproxy
 
@@ -97,7 +97,7 @@ Wilt u een toepassing verwijderen, dan selecteert u de toepassing in de lijst en
 ## <a name="next-steps"></a>Volgende stappen
 * [Toepassingen publiceren met uw eigen domeinnaam](active-directory-application-proxy-custom-domains.md)
 * [Eenmalige aanmelding inschakelen](active-directory-application-proxy-sso-using-kcd.md)
-* [Voorwaardelijke toegang inschakelen](active-directory-application-proxy-conditional-access.md)
+* [Voorwaardelijke toegang inschakelen](application-proxy-enable-remote-access-sharepoint.md)
 * [Werken met claim-compatibele toepassingen](active-directory-application-proxy-claims-aware-apps.md)
 
 Ga naar het [blog over toepassingsproxy](http://blogs.technet.com/b/applicationproxyblog/) voor nieuws en updates.

@@ -1,32 +1,31 @@
 ---
 title: Schalen van uw omgeving Azure Time Series Insights | Microsoft Docs
-description: In deze zelfstudie wordt beschreven hoe u uw omgeving Azure Time Series Insights schalen
-keywords: 
+description: In dit artikel wordt beschreven hoe uw omgeving Azure Time Series Insights te schalen. Gebruik de Azure-portal toevoegen aan of aftrekken capaciteit binnen een prijscategorie SKU.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Schalen van uw omgeving Time Series Insights
 
-Deze zelfstudie wordt beschreven hoe uw omgeving Time Series Insights te schalen.
+In dit artikel wordt beschreven hoe de capaciteit van uw omgeving uw Time Series Insights-omgeving met de Azure portal te wijzigen. De capaciteit is de vermenigvuldiger toegepast op de snelheid van inkomende, opslagcapaciteit en kosten die zijn gekoppeld aan de geselecteerde Sku. 
 
-> [!NOTE]
-> Opschaling van de verschillende typen sku is niet toegestaan. Een omgeving met een Sku S1 kan niet worden geconverteerd naar een S2-omgeving.
+U kunt de Azure-portal vergroten of verkleinen van capaciteit binnen een bepaalde prijscategorie Sku. 
+
+Echter, als u de prijscategorie wijzigt SKU is niet toegestaan. Bijvoorbeeld, kan niet een omgeving met een S1 SKU prijzen worden geconverteerd naar een S2 of vice versa. 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU inkomend tarieven en capaciteit
 
@@ -42,14 +41,23 @@ Deze zelfstudie wordt beschreven hoe uw omgeving Time Series Insights te schalen
 | 1 | 10 GB (10 miljoen gebeurtenissen) | 300 GB (300 miljoen gebeurtenissen) per maand |
 | 10 | 100 GB (100 miljoen gebeurtenissen) | 3 TB (3 miljard gebeurtenissen) per maand |
 
-Capaciteitswaarden evenredig, zodat een sku S1 capaciteit 2 2 GB (2 miljoen) gebeurtenissen per dag inkomend en 60 GB (60 miljoen gebeurtenissen) per maand ondersteunt.
+Capaciteitswaarden evenredig, zodat een SKU S1 capaciteit 2 2 GB (2 miljoen) gebeurtenissen per dag inkomend en 60 GB (60 miljoen gebeurtenissen) per maand ondersteunt.
 
-## <a name="changing-the-capacity-of-your-environment"></a>Het wijzigen van de capaciteit van uw omgeving
+## <a name="change-the-capacity-of-your-environment"></a>De capaciteit van uw omgeving wijzigen
+1. In de Azure portal, zoek en selecteer uw Time Series Insights-omgeving. 
 
-1. Selecteer de omgeving waarvan capaciteit die u wilt wijzigen in de Azure-portal.
-1. Klik onder instellingen configureren.
-1. Gebruik de schuifregelaar capaciteit om de capaciteit die voldoet aan de vereisten voor de tarieven van toegangsroutes en de opslagcapaciteit te selecteren.
+2. Onder de **instellingen** kop, selecteer **configureren**.
+
+   ![Configure.PNG](media/scale-your-environment/configure.png)
+
+3. Pas de **capaciteit** schuifregelaar om de capaciteit die voldoet aan de vereisten voor de tarieven van toegangsroutes en de opslagcapaciteit te selecteren. U ziet de **inkomend snelheid**, **opslagcapaciteit**, en **geschatte kosten** update dynamisch aan het weergeven van de gevolgen van de wijziging. 
+
+   ![Schuifregelaar](media/scale-your-environment/slider.png)
+
+   U kunt ook het nummer van de capaciteit vermenigvuldiger typen in het tekstvak aan de rechterkant van de schuifregelaar. 
+
+4. Selecteer **opslaan** schalen van de omgeving. De voortgangsindicator wordt weergegeven nadat de wijziging doorgevoerd, tijdelijk worden is. 
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* Controleer of de nieuwe capaciteit om te voorkomen dat beperking voldoende is. Zie voor meer informatie de *uw omgeving kan worden opgehaald beperkt* sectie [hier](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Controleer of de nieuwe capaciteit is voldoende om te voorkomen dat beperking](time-series-insights-diagnose-and-solve-problems.md).

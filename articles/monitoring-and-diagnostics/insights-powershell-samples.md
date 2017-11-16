@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: robb
-ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21123299fbab59b388aacc4a802f3a9ec1d80632
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure PowerShell Monitor snel starten-voorbeelden
 In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies. Monitor voor Azure kunt u automatisch schalen Cloudservices, virtuele Machines en Web-Apps. Ook kunt u meldingen van waarschuwingen verzenden of web-URL's op basis van waarden van de geconfigureerde telemetriegegevens aanroepen.
@@ -155,7 +155,7 @@ De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor h
 | Operator |GreaterThan |
 | Drempelwaarde (aantal per seconde in voor deze metrische gegevens) |1 |
 | Venstergrootte (indeling: mm: SS) |00:05:00 |
-| aggregator (statistiek van de metrische gegevens die in dit geval gemiddeld aantal gebruikt) |Gemiddelde |
+| aggregator (statistiek van de metrische gegevens die in dit geval gemiddeld aantal gebruikt) |Gemiddeld |
 | aangepaste e-mailberichten (string array) |'foo@example.com','bar@example.com' |
 | e-mail verzenden aan eigenaren, bijdragers en lezers |-SendToServiceOwners |
 
@@ -202,7 +202,7 @@ Een volledige lijst met beschikbare opties voor `Get-AzureRmMetricDefinition` is
 
 ## <a name="create-and-manage-autoscale-settings"></a>Maken en beheren van instellingen voor automatisch schalen
 Een resource (een Web-app, VM, Cloud Service- of virtuele-Machineschaalset) kan slechts één instelling voor automatisch schalen geconfigureerd hebben.
-Elke instelling voor automatisch schalen kunt echter meerdere profielen hebben. Bijvoorbeeld, een voor een profiel schalen op basis van prestaties en een tweede voor een profiel op basis van een planning. Elk profiel kan meerdere regels die zijn geconfigureerd op deze hebben. Zie voor meer informatie over automatisch schalen, [hoe een toepassing voor automatisch schalen](../cloud-services/cloud-services-how-to-scale.md).
+Elke instelling voor automatisch schalen kunt echter meerdere profielen hebben. Bijvoorbeeld, een voor een profiel schalen op basis van prestaties en een tweede voor een profiel op basis van een planning. Elk profiel kan meerdere regels die zijn geconfigureerd op deze hebben. Zie voor meer informatie over automatisch schalen, [hoe een toepassing voor automatisch schalen](../cloud-services/cloud-services-how-to-scale-portal.md).
 
 Hier volgen de stappen om te gebruiken:
 

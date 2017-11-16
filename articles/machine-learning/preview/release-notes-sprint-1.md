@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sprint-1---november-2017"></a>1 - November 2017 Sprint 
+# <a name="sprint-1---november-2017"></a>Sprint 1 - november 2017 
 
 **Versienummer: 0.1.1710.31013**
 
@@ -122,7 +122,7 @@ Hieronder ziet u een lijst met gedetailleerde updates voor elk onderdeel gebied 
 
 ### <a name="operationalization"></a>Uitoefening
 - Webservice met 'score' in de naam ervan niet meer is mislukt.
-- Gebruiker kan nu met het maken van een implementatieomgeving met alleen de eigenaar van toegang tot een Azure-resourcegroep. Eigenaar toegang tot het hele abonnement is niet meer nodig.
+- Gebruiker kan nu met het maken van een implementatieomgeving met alleen Inzender toegang tot een Azure-resourcegroep of het abonnement. Eigenaar toegang tot het hele abonnement is niet meer nodig.
 - Uitoefening CLI nu leuk vindt tabblad automatisch aanvullen op Linux.
 - Bouw afbeeldingsservice ondersteunt nu installatiekopieën van het gebouw voor Azure IoT services/apparaten.
 

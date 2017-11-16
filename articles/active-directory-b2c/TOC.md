@@ -90,6 +90,7 @@
 ## Naslaginformatie
 ### [Releaseopmerkingen](active-directory-b2c-developer-notes-custom.md)
 ### [Sessie-providers voor eenmalige aanmelding](active-directory-b2c-reference-sso-custom.md)
+### [Taal aanpassen](active-directory-b2c-language-customization-custom.md)
 ### [Vertrouwensframework: definitie](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Naslaginformatie
