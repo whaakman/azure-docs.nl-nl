@@ -24,9 +24,6 @@
   items:
     - name: Clusters beheren
       href: apache-domain-joined-manage.md
-    - name: Gebruikersmachtigingen beheren
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: Naslaginformatie
   items:
     - name: Codevoorbeelden

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integratie van Security Center-beveiligingsbeleid met Azure Policy
 In dit artikel leest u hoe u Azure Security Center-beveiligingsbeleid configureert met Azure Policy. 
@@ -60,7 +60,7 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerk
     ![Beschikbare beleidsdefinities](./media/security-center-policies/security-center-policies-fig11.png)
 
     * Selecteer een beleid voor een gedetailleerde beschrijving ervan.  
-    Het venster **Preview** van de definitie wordt geopend. Hier wordt een beschrijving van de definitie weergegeven en een koppeling naar de JSON-code waarmee de structuur van de [beleidsdefinitie](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) wordt opgegeven.
+    Het venster **Preview** van de definitie wordt geopend. Hier wordt een beschrijving van de definitie weergegeven en een koppeling naar de JSON-code waarmee de structuur van de [beleidsdefinitie](../azure-policy/policy-definition.md) wordt opgegeven.
 
     ![Het preview-venster van de definitie](./media/security-center-policies/security-center-policies-fig14.png)
 

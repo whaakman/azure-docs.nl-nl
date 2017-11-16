@@ -227,9 +227,6 @@
         - name: Gebruikers machtigen voor Ambari-weergaven
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Gebruikersmachtigingen beheren op het niveau van bestanden en mappen
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Beheren
       items:
         - name: Linux-clusters maken

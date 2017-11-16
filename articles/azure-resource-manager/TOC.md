@@ -69,10 +69,6 @@
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
 
-## Resourcebeleid instellen
-### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Naamconventies](resource-manager-policy-naming-convention.md)
-
 ## Controleren
 ### [Activiteitenlogboeken bekijken](resource-group-audit.md)
 ### [Implementatiebewerkingen bekijken](resource-manager-deployment-operations.md)

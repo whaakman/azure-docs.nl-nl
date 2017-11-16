@@ -107,7 +107,7 @@
 ## [Facturering](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resources
-## [Limieten en quota in Azure](../../azure-subscription-service-limits.md)
+## [Limieten en quota in Azure](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Azure-regio's](https://azure.microsoft.com/regions/)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

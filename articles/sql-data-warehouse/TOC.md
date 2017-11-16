@@ -16,6 +16,7 @@
 ### [MPP-architectuur](massively-parallel-processing-mpp-architecture.md)
 ### [Prestatielagen](performance-tiers.md)
 ### [Datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Capaciteitslimieten](sql-data-warehouse-service-capacity-limits.md)
 ### [Veelgestelde vragen](sql-data-warehouse-overview-faq.md)
 
 ## Back-ups en herstellen
@@ -147,7 +148,7 @@
 
 # Naslaginformatie
 
-## [Capaciteitslimieten](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Volledige naslaginformatie](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW-taalelementen](sql-data-warehouse-reference-tsql-language-elements.md)
