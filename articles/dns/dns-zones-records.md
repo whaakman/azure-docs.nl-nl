@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Overzicht van DNS-zones en -records
 
@@ -54,6 +54,16 @@ De TTL-waarde is opgegeven voor de recordset en niet voor elke record in Azure D
 Azure DNS ondersteunt [recordsets met jokertekens](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Recordsets met jokertekens worden geretourneerd in antwoord op een query met een overeenkomende naam (tenzij er een geschikter is van een recordset van niet-jokertekens). Azure DNS ondersteunt recordsets met jokertekens voor alle recordtypen behalve NS en SOA.
 
 Voor het maken van een recordset met jokertekens gebruikt u de recordnaam '\*'. U kunt ook ook gebruiken een naam met '\*'als de meest linkse label, bijvoorbeeld'\*.foo'.
+
+### <a name="caa-records"></a>CAA records
+
+CAA records zodat eigenaars van het domein om op te geven welke certificeringsinstanties (CA's) zijn gemachtigd voor het verlenen van certificaten voor hun domein. Hierdoor kunnen er CA om te voorkomen dat niet het uitgeven van certificaten in sommige gevallen. CAA records hebben drie eigenschappen:
+* **Vlaggen**: dit is een geheel getal tussen 0 en 255, de kritieke vlag die hebben een speciale betekenis per vertegenwoordigt de [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Tag**: een ASCII-tekenreeks die een van de volgende opties:
+    * **probleem**: Gebruik deze optie als u opgeven van CA's die zijn toegestaan wilt voor het uitgeven van certificaten klant (alle typen)
+    * **issuewild**: Gebruik deze optie als u opgeven van CA's die zijn toegestaan wilt voor het uitgeven van certificaten klant (alleen jokertekens-certificaten klant)
+    * **iodef**: Geef een e-mailadres of de hostnaam is waarnaar CA's voor niet-geautoriseerde cert probleem aanvragen kan melden
+* **Waarde**: de waarde voor de specifieke Tag gekozen
 
 ### <a name="cname-records"></a>CNAME-records
 
