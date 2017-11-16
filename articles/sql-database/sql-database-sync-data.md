@@ -13,14 +13,14 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synchronisatie van gegevens over meerdere cloud en on-premises databases met SQL synchroniseren van gegevens (Preview)
 
@@ -78,38 +78,11 @@ Synchroniseren van gegevens is niet geschikt is voor de volgende scenario's:
     -   Als u selecteert *Hub wins*, de wijzigingen in de hub altijd overschreven, wijzigingen in het lid.
     -   Als u selecteert *lid wins*, de wijzigingen in de wijzigingen voor het overschrijven van lid in de hub. Als er meer dan één lid, afhankelijk van de uiteindelijke waarde waarvoor de eerste wordt gesynchroniseerd.
 
-## <a name="common-questions"></a>Veelgestelde vragen
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Hoe vaak kunt synchroniseren van gegevens mijn gegevens Synchroniseer? 
-De minimale frequentie is om de vijf minuten.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan ik synchroniseren van gegevens te synchroniseren tussen alleen lokale-databases in SQL Server gebruiken? 
-Niet rechtstreeks. U kunt synchroniseren tussen de SQL Server-databases voor lokale indirect echter door het maken van een Hub-database in Azure en vervolgens de lokale databases toe te voegen aan de groep voor synchronisatie.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Kan ik synchroniseren van gegevens voor seedgegevens van mijn productiedatabase in een lege database gebruiken, en vervolgens deze gesynchroniseerd houden? 
-Ja. Het schema handmatig maken in de nieuwe database door het uitvoeren van scripts in het oorspronkelijke. Nadat u het schema maakt, moet u de tabellen toevoegen aan een groep voor synchronisatie met de gegevens kopiëren en het gesynchroniseerd houden.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Waarom zie ik tabellen die ik niet hebt gemaakt?  
-Synchroniseren van gegevens maakt aan tabellen in de database voor het bijhouden. Deze niet verwijderen of werkt niet meer synchroniseren van gegevens.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>Ik heb een foutbericht weergegeven dat gezegd ' kan de waarde NULL niet invoegen in de kolom \<kolom\>. Kolom mag geen null-waarden." Wat betekent dit en hoe kan ik de fout oplossen? 
-Dit foutbericht geeft aan dat een van de twee volgende problemen:
-1.  Mogelijk zijn er geen tabel zonder een primaire sleutel. U kunt dit probleem oplossen door moet u een primaire sleutel toevoegen aan alle tabellen die u wilt synchroniseren.
-2.  Mogelijk zijn er een WHERE-component in de instructie CREATE INDEX. Deze voorwaarde verwerkt synchronisatie niet. U kunt dit probleem oplossen door de component WHERE verwijderen of wijzigingen handmatig aanbrengen voor alle databases. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Hoe wordt gegevenssynchronisatie kringverwijzingen verwerkt? Dat wil zeggen, wanneer dezelfde gegevens in meerdere synchronisatiegroepen is gesynchroniseerd en als gevolg hiervan blijft wijzigen?
-Synchroniseren van gegevens kunnen kringverwijzingen niet worden verwerkt. Zorg ervoor dat ze kunnen worden vermeden. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hoe kan ik exporteren en importeren van een database met het synchroniseren van gegevens?
-Na het exporteren van een database als een `.bacpac` bestand en importeer het bestand om een nieuwe database te maken, moet u de volgende twee taken uitvoeren om te synchroniseren van gegevens in de nieuwe database te gebruiken:
-1.  Opschonen van de objecten synchroniseren van gegevens en de tabellen op de **nieuwe database** met behulp van [dit script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Dit script worden alle vereiste objecten synchroniseren van gegevens uit de database verwijderd.
-2.  Maak de groep voor synchronisatie met de nieuwe database opnieuw. Als u niet langer de oude groep voor synchronisatie, verwijderen.
-
 ## <a name="sync-req-lim"></a>Vereisten en beperkingen
 
 ### <a name="general-requirements"></a>Algemene vereisten
 
--   Elke tabel moet een primaire sleutel hebben. De waarde van de primaire sleutel in elke rij niet te wijzigen. Als u hebt om dit te doen, verwijdert u de rij en maak deze opnieuw met de nieuwe waarde voor de primaire sleutel. 
+-   Elke tabel moet een primaire sleutel hebben. De waarde van de primaire sleutel in elke rij niet te wijzigen. Als u de waarde van een primaire sleutel wijzigen moet, verwijdert u de rij en maak deze opnieuw met de nieuwe waarde voor de primaire sleutel. 
 
 -   Een tabel kan niet een identiteitskolom die niet de primaire sleutel hebben.
 
@@ -150,6 +123,44 @@ Gegevens synchroniseren gebruikt invoegen, bijwerken en verwijderen van triggers
 | Grootte van de rij gegevens in een tabel                                        | 24 mb                  |                             |
 | Minimale synchronisatie-interval                                           | 5 minuten              |                             |
 |||
+
+## <a name="faq-about-sql-data-sync"></a>Veelgestelde vragen over het synchroniseren van de SQL-gegevens
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Wat kost het synchroniseren van de SQL-gegevens (Preview)-service?
+
+Er zijn geen kosten voor het synchroniseren van de SQL-gegevens (Preview)-service zelf tijdens de Preview.  Echter samenvoegen u nog steeds gegevensoverdracht kosten voor de verplaatsing van gegevens in uw exemplaar van SQL-Database. Zie voor meer informatie [prijzen SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>Welke regio's ondersteuning voor synchroniseren van gegevens?
+
+Synchroniseren van de SQL-gegevens (Preview) is beschikbaar in alle openbare cloud-regio's.
+
+### <a name="is-a-sql-database-account-required"></a>Is een SQL-Database-account vereist? 
+
+Ja. U moet een SQL-Database-account voor het hosten van de Hub Database hebben.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan ik synchroniseren van gegevens te synchroniseren tussen alleen lokale-databases in SQL Server gebruiken? 
+Niet rechtstreeks. U kunt synchroniseren tussen de SQL Server-databases voor lokale indirect echter door het maken van een Hub-database in Azure en vervolgens de lokale databases toe te voegen aan de groep voor synchronisatie.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Kan ik synchroniseren van gegevens voor seedgegevens van mijn productiedatabase in een lege database gebruiken, en vervolgens deze gesynchroniseerd houden? 
+Ja. Het schema handmatig maken in de nieuwe database door het uitvoeren van scripts in het oorspronkelijke. Nadat u het schema maakt, moet u de tabellen toevoegen aan een groep voor synchronisatie met de gegevens kopiëren en het gesynchroniseerd houden.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Moet ik back-up en herstellen van mijn databases synchroniseren van de SQL-gegevens gebruiken?
+
+Het is niet raadzaam om te synchroniseren van de SQL-gegevens (Preview) gebruiken voor het maken van een back-up van uw gegevens. U kunt geen back-up of herstellen naar een bepaald punt in tijd omdat synchronisaties synchroniseren van de SQL-gegevens (Preview) niet samengesteld zijn. Synchroniseren van de SQL-gegevens (Preview) is bovendien andere SQL-objecten, zoals opgeslagen procedures geen back-up en het equivalent van een herstelbewerking niet snel kan.
+
+Zie voor een back-techniek aanbevolen, [kopiëren van een Azure SQL database](sql-database-copy.md).
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>Wordt de sortering in SQL-gegevenssynchronisatie ondersteund?
+
+Ja. Synchroniseren van de SQL-gegevens ondersteunt sortering in de volgende scenario's:
+
+-   Als de geselecteerde synchronisatie-schema-tabellen niet al zijn in uw databases hub of een lid en vervolgens bij het implementeren van de groep voor synchronisatie, maakt de service automatisch de bijbehorende tabellen en kolommen met de collatie-instellingen in de databases leeg doel hebt geselecteerd.
+
+-   Als de tabellen worden gesynchroniseerd al in uw hub en de lid-databases bestaat, synchroniseren van de SQL-gegevens, moet de primaire-sleutelkolommen hebben dezelfde sortering tussen hub en lid databases voor een succesvolle implementatie van de groep voor synchronisatie. Er zijn geen lengtebeperkingen sortering op kolommen dan de primaire-sleutelkolommen.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>Wordt federation ondersteund in SQL-gegevenssynchronisatie?
+
+Hoofddatabase voor Federatie kan worden gebruikt in de Service SQL synchroniseren van gegevens (Preview) zonder een beperking. U kunt het eindpunt gefedereerde Database toevoegen aan de huidige versie van het synchroniseren van de SQL-gegevens (Preview).
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Beheren en aanpassen van Active Directory Federation Services met behulp van Azure AD Connect
 Dit artikel wordt beschreven hoe u kunt beheren en aanpassen van Active Directory Federation Services (AD FS) met behulp van Azure Active Directory (Azure AD) verbinding maken. Dit omvat ook andere algemene AD FS-taken die u moet doen voor een volledige configuratie van een AD FS-farm.
@@ -104,7 +104,7 @@ Alternatieve aanmeldings-ID configureren voor AD FS bestaat uit twee belangrijke
 
    ![Certificaatwachtwoord](media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
 
-    ![SSL-certificaat opgeven](media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
+    ![Geef een SSL-certificaat op](media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
 
 5. Op de **AD FS-Servers** pagina, voert u de servernaam of IP-adres moet worden toegevoegd aan de AD FS-farm.
 
@@ -132,7 +132,7 @@ Alternatieve aanmeldings-ID configureren voor AD FS bestaat uit twee belangrijke
 3. Op de **Geef SSL-certificaat** pagina, geeft u het wachtwoord voor het PFX-bestand dat u hebt opgegeven toen u de AD FS-farm met Azure AD Connect geconfigureerd.
    ![Certificaatwachtwoord](media/active-directory-aadconnect-federation-management/WapServer3.PNG)
 
-    ![SSL-certificaat opgeven](media/active-directory-aadconnect-federation-management/WapServer4.PNG)
+    ![Geef een SSL-certificaat op](media/active-directory-aadconnect-federation-management/WapServer4.PNG)
 
 4. De server moet worden toegevoegd als een WAP-server toevoegen. Omdat de WAP-server kan niet worden toegevoegd aan het domein, vraagt de wizard om beheerdersreferenties op de server die wordt toegevoegd.
 
@@ -140,7 +140,7 @@ Alternatieve aanmeldings-ID configureren voor AD FS bestaat uit twee belangrijke
 
 5. Op de **vertrouwensrelatie proxyreferenties** beheerdersreferenties voor het configureren van de proxy vertrouwen en toegang tot de primaire server in de AD FS-farm.
 
-   ![Vertrouwensrelatie proxyreferenties](media/active-directory-aadconnect-federation-management/WapServer6.PNG)
+   ![Vertrouwde proxyreferenties](media/active-directory-aadconnect-federation-management/WapServer6.PNG)
 
 6. Op de **klaar om te configureren** pagina de wizard geeft de lijst met acties die worden uitgevoerd.
 
@@ -170,7 +170,7 @@ Het is gemakkelijk om toe te voegen van een domein dat gefedereerd met Azure AD 
 
    ![Azure AD-domein](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    Nadat u ervoor het domein kiest, de wizard kunt u met de juiste informatie over verdere acties die de wizard wordt uitgevoerd en de impact van de configuratie. In sommige gevallen, als u een domein dat nog niet is geverifieerd in Azure AD, selecteert biedt de wizard u informatie over het controleren van het domein. Zie [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory-add-domain.md) voor meer informatie.
+    Nadat u ervoor het domein kiest, de wizard kunt u met de juiste informatie over verdere acties die de wizard wordt uitgevoerd en de impact van de configuratie. In sommige gevallen, als u een domein dat nog niet is geverifieerd in Azure AD, selecteert biedt de wizard u informatie over het controleren van het domein. Zie [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../active-directory-domains-add-azure-portal.md) voor meer informatie.
 
 5. Klik op **Volgende**. De **klaar om te configureren** pagina bevat de lijst met acties die door Azure AD Connect worden uitgevoerd. Klik op **installeren** om de configuratie te voltooien.
 

@@ -4,7 +4,7 @@ description: Meer informatie over de verschillen en overwegingen bij het werken 
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
-ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Overwegingen voor virtuele Machines in Azure Stack
 
@@ -46,12 +46,14 @@ De Azure-Stack Development Kit ondersteunt de volgende grootten:
 
 | Type | Grootte | Aantal ondersteunde formaten |
 | --- | --- | --- |
-|Algemeen doel |Basic A|A0 A4|
-|Algemeen doel |Standard A|A0 A7|
-|Algemeen doel |Standaard D|D1 D4|
-|Algemeen doel |Standaard Dv2|D1v2 D5v2|
-|Geoptimaliseerd geheugen|D-serie|D11 D14|
-|Geoptimaliseerd geheugen |Dv2-serie|D11v2 D14v2|
+|Algemeen doel |Basic A|A0 - A4|
+|Algemeen doel |Standard A|A0 - A7|
+|Algemeen doel |D-serie|D1 - D4|
+|Algemeen doel |Dv2-serie|D1_v2 - D5_v2|
+|Algemeen doel |DS-serie|DS1 - DS4|
+|Algemeen doel |DSv2-serie|DS1_v2 - DS5_v2|
+|Geoptimaliseerd geheugen|DS-serie|DS11 - DS14|
+|Geoptimaliseerd geheugen |DSv2-serie|DS11_v2 - DS14_v2|
 
 Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Dit omvat bijvoorbeeld de hoeveelheid geheugen, het aantal kernen en nummer of grootte van gegevensschijven dat kan worden gemaakt. Prestaties van de hetzelfde VM-grootte in Azure-Stack is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
 

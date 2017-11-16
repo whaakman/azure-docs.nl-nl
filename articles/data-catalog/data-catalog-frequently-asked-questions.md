@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Veelgestelde vragen over Azure Data Catalog
 In dit artikel vindt u antwoorden op veelgestelde vragen met betrekking tot de service Azure Data Catalog.
@@ -53,11 +53,13 @@ De gratis editie van Data Catalog is beperkt tot 5.000 geregistreerde gegevensas
 
 De Standard-editie van Data Catalog biedt ondersteuning voor maximaal 100.000 geregistreerde gegevensassets.
 
+Een object geregistreerd in Data Catalog, zoals tabellen, weergaven, bestanden en rapporten, telt als een gegevensasset.
+
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Wat zijn de ondersteunde bron- en asset gegevenstypen?
 Zie voor een lijst met ondersteunde gegevensbronnen, [Data Catalog DSR](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Hoe ik ondersteuning voor een andere gegevensbron aanvragen?
-Als u functie-aanvragen en andere feedback, gaat u naar de [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Als u functie-aanvragen en andere feedback, gaat u naar de [Data Catalog op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Hoe ga ik aan de slag met Data Catalog?
 De beste manier aan de slag is door te gaan naar [aan de slag met Data Catalog](data-catalog-get-started.md). Dit artikel is een end-to-end-overzicht van de functies in de service.
@@ -65,7 +67,7 @@ De beste manier aan de slag is door te gaan naar [aan de slag met Data Catalog](
 ## <a name="how-do-i-register-my-data"></a>Hoe registreer ik mijn gegevens?
 Registreren van uw gegevens in Data Catalog:
 1. In de Azure Data Catalog-portal in de **publiceren** gebied, start u het hulpprogramma Azure Data Catalog registratie. 
-2. In de toepassing publiceren op Data Catalog, meld u aan met dezelfde referenties dat u toegang tot de Data Catalog-portal.
+2. In de catalogus met Gegevenshulpprogramma voor registratie, meld u aan met dezelfde referenties dat u toegang tot de Data Catalog-portal.
 3. Selecteer de gegevensbron en de specifieke assets die u wilt registreren.
 
 ## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Welke eigenschappen wordt deze uitgepakt voor bedrijfsmiddelen die met gegevens die zijn geregistreerd
@@ -84,7 +86,7 @@ De specifieke eigenschappen afwijken van de gegevensbron met gegevensbron, maar 
 >
 
 > [!NOTE]
-> Voor gegevensbronnen zoals SQL Server Analysis Services die u een eersteklas hebt **beschrijving** eigenschap, de gegevenscatalogus toepassing publiceren die eigenschapwaarde haalt. Voor relationele databases van SQL Server, die een uitstekende gebrek **beschrijving** eigenschap, de catalogus met gegevens publiceren toepassing haalt de waarde van de **ms_description** uitgebreide eigenschap voor objecten en kolommen. Zie voor meer informatie [met behulp van uitgebreide eigenschappen voor databaseobjecten](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Voor gegevensbronnen zoals SQL Server Analysis Services die u een eersteklas hebt **beschrijving** het hulpprogramma voor registratie van Data Catalog data source-eigenschap extraheert die eigenschapwaarde. Voor relationele databases van SQL Server, die een uitstekende gebrek **beschrijving** eigenschap, het hulpprogramma registratie Data Catalog voor gegevensbronnen haalt de waarde van de **ms_description** uitgebreide eigenschap voor objecten en kolommen. Zie voor meer informatie [met behulp van uitgebreide eigenschappen voor databaseobjecten](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
@@ -94,7 +96,7 @@ Nadat u activa met Data Catalog registreert, kan er een periode van 5 tot 10 sec
 ## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Hoe ik aantekeningen toevoegen aan en de metagegevens voor mijn geregistreerde gegevensassets verrijken?
 De eenvoudigste manier metagegevens op te geven voor de geregistreerde assets is de asset selecteren in de Data Catalog-portal en voer vervolgens de waarden in het eigenschappendeelvenster of schema voor het geselecteerde object.
 
-U kunt ook bepaalde metagegevens, zoals tags en experts opgeven tijdens het registratieproces. De waarden die u in de catalogus met gegevens publishing-service opgeeft van toepassing op alle activa op dat moment wordt geregistreerd. Als u wilt de onlangs geregistreerde objecten weergeven in de portal voor aanvullende opmerkingen, selecteer de **Portal weergeven** knop op het laatste scherm van de catalogus met gegevens publiceren van toepassing.
+U kunt ook bepaalde metagegevens, zoals tags en experts opgeven tijdens het registratieproces. De waarden die u in de catalogus met gegevens publishing-service opgeeft van toepassing op alle activa op dat moment wordt geregistreerd. Als u wilt de onlangs geregistreerde objecten weergeven in de portal voor aanvullende opmerkingen, selecteer de **Portal weergeven** knop op het laatste scherm van het hulpprogramma registratie Data Catalog voor gegevensbronnen.
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>Hoe verwijder ik mijn objecten geregistreerde gegevens?
 U kunt een object verwijderen uit Data Catalog door het object selecteren in de portal en vervolgens te klikken op de **verwijderen** knop. Verwijderen van het object, verwijdert u de metagegevens van Data Catalog, maar heeft geen invloed op de onderliggende gegevensbron.
@@ -106,7 +108,7 @@ Een expert is een persoon die een perspectief op de hoogte over een gegevensobje
 Problemen melden, gegevens, delen en vragen hebt, gaat u naar de [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Werkt de catalogus met een andere gegevensbron die ik ben?
-We proberen actief over het toevoegen van meer gegevensbronnen naar de gegevenscatalogus. Als u wilt zien van een specifieke gegevensbron ondersteund, raden deze (of stem de ondersteuning als deze al is voorgesteld) door te gaan naar de [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+We proberen actief over het toevoegen van meer gegevensbronnen naar de gegevenscatalogus. Als u wilt zien van een specifieke gegevensbron ondersteund, raden deze (of stem de ondersteuning als deze al is voorgesteld) door te gaan naar de [Data Catalog op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog).
 
 ## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Hoe Azure Data Catalog verbonden is met de catalogus met gegevens in Power BI voor Office 365?
 U kunt Azure Data Catalog beschouwen als een evolutie van de catalogus met gegevens in Power BI. Vanaf versie die voorjaar 2017, wordt Azure Data Catalog gebruikt voor het inschakelen van het delen en de detectie van query's in Excel 2016 en Power Query voor Excel. Mogelijkheden van Data Catalog in Excel zijn beschikbaar voor gebruikers met Power BI Pro licenties.
@@ -114,14 +116,18 @@ U kunt Azure Data Catalog beschouwen als een evolutie van de catalogus met gegev
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Welke machtigingen heb ik nodig om te registreren van activa met Data Catalog?
 Voor het uitvoeren van het hulpprogramma voor registratie van Data Catalog, moet u machtigingen voor de gegevensbron waarmee u de metagegevens van de bron lezen. Als u wilt ook een voorbeeld opnemen, moet u machtigingen voor lezen in de gegevens van de objecten die wordt geregistreerd hebben.
 
+Data Catalog kan ook beheerders van de catalogus te beperken welke gebruikers en groepen metagegevens aan de catalogus toevoegen. Zie voor meer informatie, [het beveiligen van toegang tot de catalogus met gegevens en gegevensassets](data-catalog-how-to-secure-catalog.md).
+
 ## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Data Catalog beschikbaar gesteld voor on-premises implementatie ook?
 Data Catalog is een cloudservice waarmee zowel cloud als on-premises gegevensbronnen voor het leveren van een oplossing voor hybride gegevensbron detectie kunt werken. Er zijn momenteel geen plannen voor een versie van de Data Catalog-service die lokaal wordt uitgevoerd.
 
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Kan ik meer of uitgebreidere metagegevens extraheren uit de gegevensbronnen die ik registreren?
-We proberen actief als u de mogelijkheden van Data Catalog uitbreiden. Als u aanvullende metagegevens die zijn geëxtraheerd uit de gegevensbron tijdens de registratie hebt wilt, raden deze (of stem voor, als deze al is voorgesteld) in de [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). In de toekomst kunnen we externe partijen nieuwe gegevensbrontypen via een API voor uitbreidbaarheid toevoegen.
+We proberen actief als u de mogelijkheden van Data Catalog uitbreiden. Als u aanvullende metagegevens die zijn geëxtraheerd uit de gegevensbron tijdens de registratie hebt wilt, raden deze (of stem voor, als deze al is voorgesteld) in de [Data Catalog op de Azure-Forums voor Feedback](https://feedback.azure.com/forums/906052-data-catalog). 
+
+Als u wilt opnemen kolom/schema metagegevens, previews of gegevens profielen, voor gegevensbronnen waar deze metagegevens niet worden opgehaald door het hulpprogramma gegevensbronnen registratie kunt u de API van Data Catalog om toe te voegen deze metagegevens. Zie voor meer informatie, [REST-API van Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Hoe beperk ik de zichtbaarheid van geregistreerde gegevensassets, zodat alleen bepaalde personen kan ze detecteren?
-Selecteer de gegevensassets die in de catalogus met gegevens en klik vervolgens op de **eigenaar** knop. Eigenaars van gegevensassets in Data Catalog kunnen de instellingen voor zichtbaarheid ofwel dat alle gebruikers kunnen het eigendom activa te detecteren of zichtbaarheid beperken tot specifieke gebruikers wijzigen.
+Selecteer de gegevensassets die in de catalogus met gegevens en klik vervolgens op de **eigenaar** knop. Eigenaars van gegevensassets in Data Catalog kunnen de instellingen voor zichtbaarheid ofwel dat alle gebruikers kunnen het eigendom activa te detecteren of zichtbaarheid beperken tot specifieke gebruikers wijzigen. Zie voor meer informatie, [gegevensassets in Azure Data Catalog beheren](data-catalog-how-to-manage.md).
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Hoe kan ik de registratie voor een gegevensasset bijwerken zodat de wijzigingen in de gegevensbron worden weergegeven in de catalogus?
 Voor het bijwerken van de metagegevens voor de gegevensassets die al zijn geregistreerd in de catalogus gewoon Registreer opnieuw de gegevensbron met de activa. Eventuele wijzigingen in de gegevensbron, zoals kolommen worden toegevoegd of verwijderd uit de tabellen of weergaven, worden bijgewerkt in de catalogus, maar alle aantekeningen die door gebruikers worden bewaard.

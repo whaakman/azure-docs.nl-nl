@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5c39eac34221992803f3b27db241263f828b36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Apparaat terugschrijven inschakelen
 > [!NOTE]
@@ -30,7 +30,7 @@ De volgende documentatie bevat informatie over het inschakelen van de functie va
 
 * Inschakelen van voorwaardelijke toegang op basis van apparaten naar ADFS (2012 R2 of hoger) beveiligde toepassingen (relying partyvertrouwensrelaties).
 
-Dit biedt extra beveiliging en zekerheid dat toegang tot toepassingen alleen voor vertrouwde apparaten wordt verleend. Zie voor meer informatie over voorwaardelijke toegang [risico beheren met voorwaardelijke toegang](../active-directory-conditional-access.md) en [instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Dit biedt extra beveiliging en zekerheid dat toegang tot toepassingen alleen voor vertrouwde apparaten wordt verleend. Zie voor meer informatie over voorwaardelijke toegang [risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) en [instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Apparaten moeten zich in hetzelfde forest als de gebruikers. Omdat apparaten moeten worden teruggeschreven naar één forest, ondersteunt deze functie momenteel geen een implementatie met meerdere forests van de gebruiker.</li>
@@ -140,8 +140,8 @@ Controleer of de configuratie in Active Directory:
 
 ![Problemen oplossen, Controleer de machtigingen voor de configuratie van apparaatregistratie](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Aanvullende informatie
-* [Risico beheren met voorwaardelijke toegang](../active-directory-conditional-access.md)
+## <a name="additional-information"></a>Aanvullende gegevens
+* [Risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
 * [Instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Volgende stappen

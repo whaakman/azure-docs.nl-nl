@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
 In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten.
@@ -81,7 +81,7 @@ De volgende tabel bevat de operators voor de regel ondersteund expression en hun
 | Operator | Syntaxis |
 | --- | --- |
 | Niet gelijk aan |-ne |
-| is gelijk aan |-eq |
+| Is gelijk aan |-eq |
 | Niet begint met |-notStartsWith |
 | Begint met |-startsWith |
 | Bevat niet |-notContains |
@@ -296,7 +296,7 @@ U kunt ook een regel die u apparaatobjecten voor lidmaatschap in een groep selec
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Dynamisch lidmaatschap wijzigen in een statisch, en omgekeerd
 Het is mogelijk om te wijzigen hoe lidmaatschap wordt beheerd in een groep. Dit is handig als u de naam en de ID in het systeem behouden wilt, zodat alle bestaande verwijzingen naar de groep nog steeds geldig zijn zijn. maken van een nieuwe groep zou moeten worden bijgewerkt die verwijzingen.
 
-We zijn bezig het bijwerken van de Azure-portal om deze functionaliteit. In de tussentijd kunt u de [klassieke Azure-portal](https://manage.windowsazure.com) (Volg de instructies [hier](active-directory-accessmanagement-groups-with-advanced-rules.md)) of PowerShell-cmdlets te gebruiken, zoals hieronder wordt weergegeven.
+We zijn bezig het bijwerken van de Azure-portal om deze functionaliteit. In de tussentijd kunt u de [klassieke Azure-portal](https://manage.windowsazure.com) (Volg de instructies [hier](active-directory-groups-dynamic-membership-azure-portal.md)) of PowerShell-cmdlets te gebruiken, zoals hieronder wordt weergegeven.
 
 > [!WARNING]
 > Wanneer u een bestaande statische groep naar een dynamische groep, worden alle bestaande leden wordt verwijderd uit de groep en vervolgens de lidmaatschapsregel om toe te voegen nieuwe leden wordt verwerkt. Als de groep wordt gebruikt voor het beheren van toegang tot apps of resources, kunnen de oorspronkelijke leden toegang verliezen totdat de lidmaatschapsregel volledig is verwerkt.

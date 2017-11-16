@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: b2305782fa4d8ca1bc90f239bc1f6ade0ff8fdc3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Een App Service-abonnement in Azure beheren
 
@@ -56,7 +56,16 @@ In de **Menu**, zoekt u naar de **App Service-Plan** sectie.
 
 Selecteer **wijziging App Service-abonnement** om het proces te starten.
 
-**App Service-abonnement wijzigen** Hiermee opent u de **App Service-abonnement** selector. Selecteer een bestaand abonnement verplaatsen van deze app in. Alleen plannen in dezelfde resourcegroep en regio worden weergegeven. Als u een App Service-plan voor het zojuist hebt gemaakt in dezelfde resourcegroep en regio, maar deze niet wordt weergegeven in de lijst, probeer uw browserpagina te vernieuwen.
+**App Service-abonnement wijzigen** Hiermee opent u de **App Service-abonnement** selector. Selecteer een bestaand abonnement verplaatsen van deze app in. 
+
+> [!IMPORTANT] 
+> De **Selecteer App Service-abonnement** pagina wordt gefilterd op de volgende criteria: 
+> - Er bestaat in dezelfde resourcegroep 
+> - Er bestaat in dezelfde geografische regio 
+> - Er bestaat in de dezelfde webruimte  
+> 
+> Een _webruimte_ is een logische constructie in App Service die een groepering van serverbronnen definieert. Een geografische regio (zoals VS-West) bevat veel webspaces om klanten die gebruikmaken van App Service toewijzen. Op dit moment App Service-bronnen kunnen worden verplaatst tussen webspaces niet. 
+> 
 
 ![Selector van App Service-plan.][change]
 

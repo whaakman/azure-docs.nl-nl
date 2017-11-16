@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# v2.0-protocollen - OAuth 2.0 & OpenID Connect
+# <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0-protocollen - OAuth 2.0 & OpenID Connect
 Het v2.0-eindpunt kunt Azure AD voor identity-as-a-service met de protocollen volgens de industrienorm, OpenID Connect en OAuth 2.0 gebruiken.  De service is compatibel met de standaarden, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen.  Hier de informatie is nuttig als u uw code te schrijven wilt door rechtstreeks verzenden & afhandeling van HTTP-aanvragen of gebruik een 3rd partij open source bibliotheek in plaats van met een van onze open-source bibliotheken.
 <!-- TODO: Need link to libraries above -->
 
@@ -30,7 +30,7 @@ Het v2.0-eindpunt kunt Azure AD voor identity-as-a-service met de protocollen vo
 >
 >
 
-## De basisbeginselen
+## <a name="the-basics"></a>De basisbeginselen
 In bijna alle OAuth & OpenID Connect stromen zijn er vier partijen die zijn betrokken bij de exchange:
 
 ![OAuth 2.0-functies](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -40,7 +40,7 @@ In bijna alle OAuth & OpenID Connect stromen zijn er vier partijen die zijn betr
 * De **OAuth Client** wordt uw app, geïdentificeerd door de toepassings-id.  Meestal is dit de partij die de eindgebruiker met communiceert en het tokens aanvraagt van de autorisatie-server.  De client moet worden gemachtigd voor toegang tot de bron van de resource-eigenaar.
 * De **bronserver** is waar de resource of de gegevens zich bevindt.  Deze vertrouwt de autorisatie-Server veilig verifiëren en autoriseren van de OAuth-Client en Bearer-access_tokens gebruikt om ervoor te zorgen dat toegang tot een bron kan worden toegekend.
 
-## App-registratie
+## <a name="app-registration"></a>App-registratie
 Elke app die gebruikmaakt van het v2.0-eindpunt moet worden geregistreerd bij [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) voordat deze kan communiceren met OAuth of OpenID Connect.  Het registratieproces van de app wordt verzamelen & enkele waarden toewijzen aan uw app:
 
 * Een **toepassings-Id** die wordt aangeduid uw app
@@ -49,7 +49,7 @@ Elke app die gebruikmaakt van het v2.0-eindpunt moet worden geregistreerd bij [a
 
 Zie [Een app registreren](active-directory-v2-app-registration.md) voor meer informatie.
 
-## Eindpunten
+## <a name="endpoints"></a>Eindpunten
 Na de registratie wordt de status van de app communiceert met Azure AD door verzoeken te sturen naar het v2.0-eindpunt:
 
 ```
@@ -68,12 +68,12 @@ Waar de `{tenant}` kan duren voordat een van de vier verschillende waarden:
 
 Kies een bepaalde app-type hieronder voor meer informatie over hoe u met deze eindpunten te werken.
 
-## Tokens
+## <a name="tokens"></a>Tokens
 De implementatie v2.0 van OAuth 2.0 en OpenID Connect maken intensief gebruik van bearer-tokens, weergegeven als JWTs bearer-tokens. Een bearer-token is een lichtgewicht beveiligingstoken die de 'bearer' toegang tot een beveiligde bron verleent. In dit opzicht is het 'bearer' een partij die het token kan opleveren. Hoewel een partij moet eerst worden geverifieerd met Azure AD voor het ontvangen van de bearer-token als de vereiste stappen niet genomen worden voor het beveiligen van het token in overdracht en opslag, kunt u het probleem is onderschept en gebruikt door een onbedoelde partij. Sommige beveiligingstokens beschikken over een ingebouwde mechanisme om te voorkomen dat onbevoegden kunnen gebruiken, worden de bearer-tokens hebben geen dit mechanisme en moeten worden overgebracht in een beveiligd kanaal zoals transport layer security (HTTPS). Als een bearer-token in het wissen wordt verzonden, kan een man-in de middelste aanval worden gebruikt door een kwaadwillende partij het token verkrijgen en deze gebruiken voor een niet-geautoriseerde toegang tot een beveiligde bron. De dezelfde beveiligings-principals van toepassing wanneer caching bearer-tokens voor later gebruik of op te slaan. Altijd voor zorgen dat uw app verzendt en bearer-tokens worden opgeslagen op een veilige manier. Zie voor meer beveiligingsoverwegingen op bearer-tokens [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
 
 Meer informatie over de verschillende typen tokens die worden gebruikt in het v2.0-eindpunt is beschikbaar in [het v2.0-eindpunt-tokenverwijzing](active-directory-v2-tokens.md).
 
-## Protocollen
+## <a name="protocols"></a>Protocollen
 Als u klaar bent om te zien van bepaalde voorbeeld-aanvragen, aan de slag met een van de onderstaande zelfstudies.  Elke komt overeen met een bepaalde verificatiescenario.  Als u hulp bij het bepalen dat de juiste stroom voor u nodig hebt, kijk dan eens [de typen apps kunt u met het v2.0](active-directory-v2-flows.md).
 
 * [Mobiele en systeemeigen toepassing met OAuth 2.0 bouwen](active-directory-v2-protocols-oauth-code.md)

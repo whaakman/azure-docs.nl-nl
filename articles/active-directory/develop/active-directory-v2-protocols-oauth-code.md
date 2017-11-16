@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/12/2017
 ---
-# Protocollen v2.0 - OAuth 2.0-Autorisatiecodestroom
+# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocollen v2.0 - OAuth 2.0-Autorisatiecodestroom
 Het verlenen van OAuth 2.0 autorisatie code kan worden gebruikt in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's.  Met de app model v2.0-implementatie van OAuth 2.0, kunt u aanmelden en API toegang tot uw mobiele en bureaublad-apps toevoegen.  Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ Het verlenen van OAuth 2.0 autorisatie code kan worden gebruikt in apps die zijn
 
 De OAuth 2.0-autorisatiecodestroom wordt beschreven in in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749).  Dit wordt gebruikt voor verificatie en autorisatie uitvoeren in het merendeel van de app-typen, inclusief [web-apps](active-directory-v2-flows.md#web-apps) en [systeemeigen geïnstalleerde apps](active-directory-v2-flows.md#mobile-and-native-apps).  Hiermee kunt apps veilig verkrijgen access_tokens die kan worden gebruikt voor toegang tot resources die zijn beveiligd met het v2.0-eindpunt.  
 
-## Protocol-diagram
+## <a name="protocol-diagram"></a>Protocol-diagram
 Op een hoog niveau ziet de hele authenticatiestroom voor een native/mobile-applicatie er nogal zo:
 
 ![OAuth autorisatiecode stroom](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## Aanvraag een autorisatiecode
+## <a name="request-an-authorization-code"></a>Aanvraag een autorisatiecode
 De autorisatiecodestroom begint met de client voor het routeren van de gebruiker de `/authorize` eindpunt.  De client wijst de machtigingen die te verkrijgen van de gebruiker moet op deze aanvraag:
 
 ```
@@ -74,7 +74,7 @@ Op dit moment wordt de gebruiker wordt gevraagd hun referenties invoeren en de a
 
 Als de gebruiker wordt geverifieerd en toestemming verleent, het v2.0-eindpunt resulteert in een antwoord aan uw app op de aangegeven `redirect_uri`, via de methode die is opgegeven in de `response_mode` parameter.
 
-#### Geslaagde reactie
+#### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie met `response_mode=query` lijkt:
 
 ```
@@ -88,7 +88,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | code |De authorization_code die de app wordt aangevraagd. De app kunt u de autorisatiecode gebruiken om aan te vragen van een toegangstoken voor de doelresource.  Authorization_codes zijn zeer korte levensduur, doorgaans ze verlopen na ongeveer 10 minuten. |
 | state |Als een parameter state is opgenomen in de aanvraag, moet dezelfde waarde weergegeven in het antwoord. De app dient te verifiëren dat de statuswaarden in de aanvraag en antwoord identiek zijn. |
 
-#### Foutbericht
+#### <a name="error-response"></a>Foutbericht
 Foutberichten kunnen ook worden verzonden naar de `redirect_uri` zodat de app ze op de juiste wijze kan verwerken:
 
 ```
@@ -102,7 +102,7 @@ error=access_denied
 | error |Een tekenreeks van de fout code die kan worden gebruikt voor het classificeren van typen fouten die optreden en kan worden gebruikt om te reageren op fouten. |
 | error_description |Een specifieke foutbericht dat een ontwikkelaar kan helpen de hoofdoorzaak van een verificatiefout identificeren. |
 
-#### Foutcodes voor autorisatie eindpunt fouten
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Foutcodes voor autorisatie eindpunt fouten
 De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
 
 | Foutcode | Beschrijving | Clientactie |
@@ -115,7 +115,7 @@ De volgende tabel beschrijft de verschillende foutcodes die kunnen worden gereto
 | temporarily_unavailable |De server is tijdelijk te druk bezet om de aanvraag te verwerken. |De aanvraag opnieuw proberen. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd vanwege een tijdelijk probleem. |
 | invalid_resource |De doelresource is ongeldig omdat deze niet bestaat, Azure AD kan niet worden gevonden of is niet correct geconfigureerd. |Dit betekent dat de resource als deze bestaat, is niet geconfigureerd in de tenant. De toepassing kan het bericht met instructies voor het installeren van de toepassing en deze naar Azure AD toe te voegen. |
 
-## Aanvragen van een toegangstoken
+## <a name="request-an-access-token"></a>Aanvragen van een toegangstoken
 Nu dat u een authorization_code aangeschaft hebt en gemachtigd door de gebruiker, u kunt gebruikmaken van de `code` voor een `access_token` tot de gewenste resource, door te sturen een `POST` aanvraag voor de `/token` eindpunt:
 
 ```
@@ -148,7 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Vereist |Dezelfde redirect_uri-waarde die is gebruikt voor het verkrijgen van de authorization_code. |
 | client_secret |vereist voor web-apps |De toepassingsgeheim die u in de portal van de registratie van de app voor uw app hebt gemaakt.  Deze mag niet worden gebruikt in een eigen app omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's die u de mogelijkheid hebt voor het opslaan van de client_secret veilig op de server. |
 
-#### Geslaagde reactie
+#### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie token, ziet er als:
 
 ```
@@ -169,7 +169,7 @@ Een geslaagde reactie token, ziet er als:
 | Bereik |De bereiken die de access_token is geldig voor. |
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt gebruiken dit token aanvullende toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen.  Refresh_tokens zijn lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden.  Raadpleeg voor meer details over de [v2.0 tokenverwijzing](active-directory-v2-tokens.md). <br> **Opmerking:** alleen opgegeven als `offline_access` bereik is aangevraagd. |
 | id_token |Een niet-ondertekende JSON Web Token (JWT). De app kan base64Url decoderen de segmenten van dit token informatie opvragen over de gebruiker die zich aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze niet verstandig deze beveiligingsgrenzen of autorisatie.  Zie voor meer informatie over id_tokens de [v2.0-eindpunt tokenverwijzing](active-directory-v2-tokens.md). <br> **Opmerking:** alleen opgegeven als `openid` bereik is aangevraagd. |
-#### Foutbericht
+#### <a name="error-response"></a>Foutbericht
 Foutberichten ziet er als volgt:
 
 ```
@@ -194,7 +194,7 @@ Foutberichten ziet er als volgt:
 | trace_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens helpen. |
 | correlation_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens over de onderdelen helpen. |
 
-#### Foutcodes voor token-eindpunt fouten
+#### <a name="error-codes-for-token-endpoint-errors"></a>Foutcodes voor token-eindpunt fouten
 | Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- |
 | invalid_request |Protocolfout, zoals een ontbrekende vereiste parameter. |Herstel en verzend de aanvraag opnieuw |
@@ -206,7 +206,7 @@ Foutberichten ziet er als volgt:
 | interaction_required |De aanvraag vereist gebruikersinteractie. Bijvoorbeeld, is een stap extra authenticatie vereist. |Probeer de aanvraag met dezelfde resource. |
 | temporarily_unavailable |De server is tijdelijk te druk bezet om de aanvraag te verwerken. |De aanvraag opnieuw proberen. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd vanwege een tijdelijk probleem. |
 
-## Gebruik het toegangstoken
+## <a name="use-the-access-token"></a>Gebruik het toegangstoken
 Nu dat u hebt gekregen een `access_token`, kunt u het token in hun aanvragen aan de Web-API's door te nemen in de `Authorization` header:
 
 > [!TIP]
@@ -220,7 +220,7 @@ Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Het toegangstoken vernieuwen
+## <a name="refresh-the-access-token"></a>Het toegangstoken vernieuwen
 Access_tokens korte worden gehouden en moet u deze vernieuwen nadat ze zijn verlopen om door te gaan met het openen van bronnen.  U kunt dit doen door het indienen van een andere `POST` aanvraag voor de `/token` eindpunt, deze keer mits de `refresh_token` in plaats van de `code`:
 
 ```
@@ -253,7 +253,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Vereist |Dezelfde redirect_uri-waarde die is gebruikt voor het verkrijgen van de authorization_code. |
 | client_secret |vereist voor web-apps |De toepassingsgeheim die u in de portal van de registratie van de app voor uw app hebt gemaakt.  Deze mag niet worden gebruikt in een eigen app omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's die u de mogelijkheid hebt voor het opslaan van de client_secret veilig op de server. |
 
-#### Geslaagde reactie
+#### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie token, ziet er als:
 
 ```
@@ -275,7 +275,7 @@ Een geslaagde reactie token, ziet er als:
 | refresh_token |Een nieuwe OAuth 2.0-vernieuwingstoken. U moet de oude vernieuwingstoken vervangen door deze recent overgenomen vernieuwingstoken om te controleren of dat het vernieuwen van tokens geldig voor zo lang mogelijk blijven. <br> **Opmerking:** alleen opgegeven als `offline_access` bereik is aangevraagd. |
 | id_token |Een niet-ondertekende JSON Web Token (JWT). De app kan base64Url decoderen de segmenten van dit token informatie opvragen over de gebruiker die zich aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze niet verstandig deze beveiligingsgrenzen of autorisatie.  Zie voor meer informatie over id_tokens de [v2.0-eindpunt tokenverwijzing](active-directory-v2-tokens.md). <br> **Opmerking:** alleen opgegeven als `openid` bereik is aangevraagd. |
 
-#### Foutbericht
+#### <a name="error-response"></a>Foutbericht
 ```
 {
   "error": "invalid_scope",

@@ -250,8 +250,6 @@
 ### [Fouten opsporen in een Java-service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Lokaal bewaken en diagnoses uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [API Management en Service Fabric implementeren in Azure](service-fabric-api-management-quick-start.md)
-
 ## Migreren uit Cloud Services
 ### [Cloud Services vergelijken met Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migreren naar Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric-CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient-API's](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Toepassingen upgraden
@@ -281,11 +278,8 @@
 ##### [Tijdens workloads](service-fabric-testability-workload-tests.md)
 ##### [Testscenario's gebruiken](service-fabric-testability-scenarios.md)
 ##### [De API's voor knooppuntovergang gebruiken](service-fabric-node-transition-apis.md)
-#### [Uw testtoepassing laden](service-fabric-vso-load-test.md)
 
-### Continue integratie instellen
-#### [Continue integratie met VSTS instellen](service-fabric-set-up-continuous-integration.md)
-#### [Uw Java-toepassing voor Linux implementeren met behulp van Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Uw Java-toepassing voor Linux implementeren met behulp van Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Clusters maken en beheren
 ### Clusters op Azure
@@ -319,21 +313,6 @@
 ### [Een cluster visualiseren](service-fabric-visualizing-your-cluster.md)
 ### [Verbinding maken met een beveiligde cluster](service-fabric-connect-to-secure-cluster.md)
 ### [Patch uitvoeren voor clusterknooppunten](service-fabric-patch-orchestration-application.md)
-
-### Clusterbronnen beheren en organiseren
-#### [Overzicht van Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-#### [Cluster Resource Manager-architectuur](service-fabric-cluster-resource-manager-architecture.md)
-#### [Een cluster beschrijven](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Overzicht toepassingsgroepen](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Instellingen van Cluster Resource Manager configureren](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Bron metrische verbruiksgegevens](service-fabric-cluster-resource-manager-metrics.md)
-#### [Serviceaffiniteit gebruiken](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Beleid voor serviceplaatsing](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Een cluster beheren](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Clusterdefragmentatie](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Een cluster in balans brengen](service-fabric-cluster-resource-manager-balancing.md)
-#### [Beperking](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Bewaken en diagnoses uitvoeren
 ### OMS

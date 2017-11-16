@@ -21,19 +21,19 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
 Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
 
 De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749#section-4.1). Het wordt gebruikt voor verificatie en autorisatie in de meeste toepassingstypen, met inbegrip van web-apps en systeemeigen apps hebben geïnstalleerd.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## Stroom van OAuth 2.0-autorisatie
+## <a name="oauth-20-authorization-flow"></a>Stroom van OAuth 2.0-autorisatie
 Op een hoog niveau ziet de volledige autorisatie-stroom voor een toepassing er nogal zo:
 
 ![OAuth autorisatiecode stroom](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
-## Aanvraag een autorisatiecode
+## <a name="request-an-authorization-code"></a>Aanvraag een autorisatiecode
 De autorisatiecodestroom begint met de client voor het routeren van de gebruiker de `/authorize` eindpunt. De client wijst de machtigingen die te verkrijgen van de gebruiker moet op deze aanvraag. U kunt de OAuth 2.0-eindpunten ophalen via uw toepassing pagina in de klassieke Azure-Portal in de **eindpunten weergeven** knop in de onderste lade.
 
 ```
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 Op dit punt wordt de gebruiker wordt gevraagd om hun referenties invoeren en instemming met de machtigingen die zijn aangegeven in de `scope` queryparameter. Als de gebruiker wordt geverifieerd en toestemming verleent, Azure AD stuurt een antwoord naar uw app op de `redirect_uri` adres in uw aanvraag.
 
-### Geslaagde reactie
+### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie kan er als volgt uitzien:
 
 ```
@@ -83,7 +83,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | session_state |Een unieke waarde die de huidige gebruikerssessie identificeert. Deze waarde is een GUID, maar moet worden behandeld als een ondoorzichtige waarde die wordt doorgegeven zonder onderzoek. |
 | state |Als een parameter state is opgenomen in de aanvraag, moet dezelfde waarde weergegeven in het antwoord. Het is raadzaam voor de toepassing om te controleren dat de statuswaarden in de aanvraag en antwoord identiek zijn voordat u het antwoord. Hiermee kunt u detecteren [Cross-Site aanvragen kunnen worden vervalst (CSRF) aanvallen](https://tools.ietf.org/html/rfc6749#section-10.12) op basis van de client. |
 
-### Foutbericht
+### <a name="error-response"></a>Foutbericht
 Foutberichten kunnen ook worden verzonden naar de `redirect_uri` zodat de toepassing ze op de juiste wijze kan verwerken.
 
 ```
@@ -98,7 +98,7 @@ error=access_denied
 | error_description |Een gedetailleerdere beschrijving van de fout. Dit bericht is niet bedoeld als gebruiksvriendelijke door eindgebruikers. |
 | state |De waarde van de status is een willekeurig gegenereerde niet opnieuw gebruikt waarde dat wordt verzonden in de aanvraag en geretourneerd in het antwoord om aanvraagvervalsing op meerdere sites (CSRF) aanvallen te voorkomen. |
 
-#### Foutcodes voor autorisatie eindpunt fouten
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Foutcodes voor autorisatie eindpunt fouten
 De volgende tabel beschrijft de verschillende foutcodes die kunnen worden geretourneerd in de `error` parameter van het foutbericht.
 
 | Foutcode | Beschrijving | Clientactie |
@@ -111,7 +111,7 @@ De volgende tabel beschrijft de verschillende foutcodes die kunnen worden gereto
 | temporarily_unavailable |De server is tijdelijk te druk bezet om de aanvraag te verwerken. |De aanvraag opnieuw proberen. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd doordat een tijdelijke situatie. |
 | invalid_resource |De doelresource is ongeldig omdat deze niet bestaat, Azure AD kan niet worden gevonden of is niet correct geconfigureerd. |Dit betekent dat de resource als deze bestaat, is niet geconfigureerd in de tenant. De toepassing kan het bericht met instructies voor het installeren van de toepassing en deze naar Azure AD toe te voegen. |
 
-## De autorisatiecode gebruiken om aan te vragen van een toegangstoken
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>De autorisatiecode gebruiken om aan te vragen van een toegangstoken
 Nu dat u hebt aangeschaft een autorisatiecode en gemachtigd door de gebruiker, kunt u de code voor een toegangstoken op de gewenste resource inwisselen door te sturen een POST-aanvraag naar de `/token` eindpunt:
 
 ```
@@ -142,7 +142,7 @@ grant_type=authorization_code
 
 Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**.
 
-### Geslaagde reactie
+### <a name="successful-response"></a>Geslaagde reactie
 Azure AD retourneert een toegangstoken na een geslaagde reactie. Om te beperken netwerk aanroepen vanuit de clienttoepassing en hun bijbehorende latentie, moet de clienttoepassing voor de levensduur van het token dat is opgegeven in het antwoord OAuth 2.0-toegangstokens cache. Om te bepalen van de levensduur van tokens, gebruiken de `expires_in` of `expires_on` parameterwaarden.
 
 Als een web API-resource geeft een `invalid_token` foutcode: dit kan betekenen dat de resource heeft vastgesteld dat het token is verlopen. Als de klok client- en tijden zijn verschillende (bekend als een 'scheeftrekken keer'), is de resource overwegen het token is verlopen voordat het token van de clientcache is uitgeschakeld. Als dit het geval is, schakelt u het token uit de cache, zelfs als deze nog steeds binnen de berekende levensduur.
@@ -174,7 +174,7 @@ Een geslaagde reactie kan er als volgt uitzien:
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken voor aanvullende toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen.  Vernieuwen van tokens worden lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden. |
 | id_token |Een niet-ondertekende JSON Web Token (JWT). De app kan base64Url decoderen de segmenten van dit token informatie opvragen over de gebruiker die zich aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze niet verstandig deze beveiligingsgrenzen of autorisatie. |
 
-### JWT-Token Claims
+### <a name="jwt-token-claims"></a>JWT-Token Claims
 De JWT-token in de waarde van de `id_token` parameter in de volgende claims kan worden gedecodeerd:
 
 ```
@@ -219,7 +219,7 @@ De `id_token` parameter bevat de volgende claimtypen:
 | UPN |De UPN van de gebruiker. |
 | ver |Versie. De versie van de JWT-token, doorgaans 1.0. |
 
-### Foutbericht
+### <a name="error-response"></a>Foutbericht
 De uitgifte van tokens eindpunt fouten zijn foutcodes voor HTTP, omdat de client het eindpunt van de uitgifte van tokens rechtstreeks aanroept. Naast de HTTP-statuscode retourneert het eindpunt van de uitgifte van tokens Azure AD ook een JSON-document met objecten die de fout wordt beschreven.
 
 Een voorbeeld-foutmelding kan uitzien:
@@ -246,7 +246,7 @@ Een voorbeeld-foutmelding kan uitzien:
 | trace_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens helpen. |
 | correlation_id |Een unieke id voor de aanvraag die bij het diagnostische gegevens over de onderdelen helpen. |
 
-#### HTTP-statuscodes
+#### <a name="http-status-codes"></a>HTTP-statuscodes
 De volgende tabel bevat de HTTP-statuscodes die het eindpunt van de uitgifte van tokens retourneert. In sommige gevallen kan de foutcode is voldoende om te beschrijven van het antwoord, maar als er fouten zijn, moet u de bijbehorende JSON-document te parseren en bekijk de foutcode.
 
 | HTTP-Code | Beschrijving |
@@ -256,7 +256,7 @@ De volgende tabel bevat de HTTP-statuscodes die het eindpunt van de uitgifte van
 | 403 |Autorisatie is mislukt. Bijvoorbeeld: de gebruiker heeft geen machtiging voor toegang tot de resource. |
 | 500 |Een interne fout opgetreden bij de service. De aanvraag opnieuw proberen. |
 
-#### Foutcodes voor token-eindpunt fouten
+#### <a name="error-codes-for-token-endpoint-errors"></a>Foutcodes voor token-eindpunt fouten
 | Foutcode | Beschrijving | Clientactie |
 | --- | --- | --- |
 | invalid_request |Protocolfout, zoals een ontbrekende vereiste parameter. |Herstel en verzend de aanvraag opnieuw |
@@ -268,17 +268,17 @@ De volgende tabel bevat de HTTP-statuscodes die het eindpunt van de uitgifte van
 | interaction_required |De aanvraag vereist gebruikersinteractie. Bijvoorbeeld, is een stap extra authenticatie vereist. | In plaats van een niet-interactieve aanvraag, probeer het opnieuw met een interactieve autorisatieaanvraag voor dezelfde resource. |
 | temporarily_unavailable |De server is tijdelijk te druk bezet om de aanvraag te verwerken. |De aanvraag opnieuw proberen. Aan de gebruiker kan de clienttoepassing verklaren dat het antwoord is vertraagd doordat een tijdelijke situatie. |
 
-## Gebruik het toegangstoken voor toegang tot de bron
+## <a name="use-the-access-token-to-access-the-resource"></a>Gebruik het toegangstoken voor toegang tot de bron
 Nu dat u hebt gekregen een `access_token`, kunt u het token in hun aanvragen aan de Web-API's, door te nemen in de `Authorization` header. De [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specificatie legt uit hoe u toegang tot beveiligde bronnen met bearer-tokens in HTTP-aanvragen.
 
-### Voorbeeld van een aanvraag
+### <a name="sample-request"></a>Voorbeeld van een aanvraag
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### Foutbericht
+### <a name="error-response"></a>Foutbericht
 Beveiligde bronnen en RFC 6750 probleem HTTP-statuscodes implementeren. Als de aanvraag geen verificatiereferenties bevat of het token ontbreekt, wordt het antwoord bevat een `WWW-Authenticate` header. Wanneer een aanvraag is mislukt, wordt de resource-server reageert met de HTTP-statuscode en een foutcode.
 
 Hier volgt een voorbeeld van een mislukte reactie wanneer de aanvraag van de client geen bearer-token:
@@ -288,7 +288,7 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
-#### Foutparameters
+#### <a name="error-parameters"></a>Foutparameters
 | Parameter | Beschrijving |
 | --- | --- |
 | authorization_uri |De URI (fysieke eindpunt) van de autorisatie-server. Deze waarde wordt ook gebruikt als een zoeksleutel voor meer informatie over de server van een detectie-eindpunt. <p><p> De client moet valideren dat de autorisatie-server vertrouwd wordt. Wanneer de bron wordt beveiligd door Azure AD, is voldoende om te controleren dat de URL begint met https://login.microsoftonline.com of een andere hostnaam die ondersteuning biedt voor Azure AD. Een resource tenantspecifieke moet altijd een verificatie-URI van de tenant-specifieke retourneren. |
@@ -296,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | error_description |Een gedetailleerdere beschrijving van de fout. Dit bericht is niet bedoeld als gebruiksvriendelijke door eindgebruikers. |
 | bron-id |Retourneert de unieke id van de resource. De clienttoepassing deze id kunt gebruiken als de waarde van de `resource` parameter na het aanvragen van een token voor de resource. <p><p> Het is belangrijk voor de clienttoepassing om te controleren of deze waarde, anders een schadelijke service mogelijk om te veroorzaken een **verhoging van bevoegdheden** aanval <p><p> Ter voorkoming van een aanval wordt u aangeraden om te controleren of de `resource_id` overeenkomt met het grondtal van de web-API-URL die wordt geopend. Bijvoorbeeld, als https://service.contoso.com/data wordt geopend, de `resource_id` htttps://service.contoso.com/ kan zijn. De clienttoepassing moet afwijzen een `resource_id` die begint niet met de basis-URL tenzij er een betrouwbare alternatieve manier om te controleren of de id. |
 
-#### Foutcodes voor Bearer-schema
+#### <a name="bearer-scheme-error-codes"></a>Foutcodes voor Bearer-schema
 De specificatie RFC 6750 definieert de volgende fouten voor resources die gebruikmaken van de WWW-Authenticate-header en Bearer-schema in het antwoord.
 
 | HTTP-statuscode | Foutcode | Beschrijving | Clientactie |
@@ -306,7 +306,7 @@ De specificatie RFC 6750 definieert de volgende fouten voor resources die gebrui
 | 403 |insufficient_scope |Het toegangstoken bevat niet de imitatie-machtigingen vereist voor toegang tot de resource. |Een nieuwe autorisatieaanvraag verzenden naar het eindpunt voor autorisatie. Als het antwoord de bereikparameter bevat, gebruikt u de bereikwaarde in de aanvraag voor de resource. |
 | 403 |insufficient_access |Het onderwerp van het token beschikt niet over de machtigingen die nodig zijn voor toegang tot de bron. |De gebruiker gevraagd naar een ander account of om aan te vragen van machtigingen voor de opgegeven bron. |
 
-## De toegangstokens te vernieuwen
+## <a name="refreshing-the-access-tokens"></a>De toegangstokens te vernieuwen
 Toegangstokens tijdelijke zijn en moeten worden vernieuwd nadat ze zijn verlopen om door te gaan met het openen van bronnen. Vernieuwt u de `access_token` door het indienen van een andere `POST` aanvraag voor de `/token` eindpunt, maar deze tijd bieden de `refresh_token` in plaats van de `code`.
 
 Vernieuwen van tokens hebben geen opgegeven levensduur. De levensduur van het vernieuwen van tokens zijn meestal relatief lange. Echter, in sommige gevallen vernieuwen van tokens verlopen, worden ingetrokken of niet over voldoende bevoegdheden voor de gewenste actie. Uw toepassing moet verwacht en fouten geretourneerd door het eindpunt van de uitgifte van tokens correct verwerkt.
@@ -329,7 +329,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-### Geslaagde reactie
+### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie token, ziet er als:
 
 ```
@@ -352,7 +352,7 @@ Een geslaagde reactie token, ziet er als:
 | access_token |Het nieuwe toegangstoken die is aangevraagd. |
 | refresh_token |Een nieuwe OAuth 2.0-refresh_token die kunnen worden gebruikt om aan te vragen van nieuwe toegangstokens wanneer de structuur in voor deze reactie is verlopen. |
 
-### Foutbericht
+### <a name="error-response"></a>Foutbericht
 Een voorbeeld-foutmelding kan uitzien:
 
 ```

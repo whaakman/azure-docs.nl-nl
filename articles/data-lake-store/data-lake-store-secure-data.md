@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7cadb45202c7221876d377546e7c17199ec15809
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>De beveiliging van gegevens die zijn opgeslagen in Azure Data Lake Store
 Gegevens beveiligen in Azure Data Lake Store is een benadering drie stappen.
@@ -37,7 +37,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 * **Een Azure Data Lake Store-account**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Beveiligingsgroepen maken in Azure Active Directory
-Zie voor instructies over het maken van AAD-beveiligingsgroepen en gebruikers toevoegen aan de groep, [beheren in Azure Active Directory-beveiligingsgroepen](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Zie voor instructies over het maken van AAD-beveiligingsgroepen en gebruikers toevoegen aan de groep, [beheren in Azure Active Directory-beveiligingsgroepen](../active-directory/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
 > U kunt zowel gebruikers als andere groepen toevoegen aan een groep in Azure AD met behulp van de Azure-portal. Echter gebruiken om een service-principal toevoegt aan een groep, [Azure AD PowerShell-module](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ Integratie met Azure AD wordt geleverd met voordelen, hoeft u aanvullende code s
 
 **Afwijkende aanmelden detectie.**  Azure AD processen meer dan een miljard aanmeldingen per dag, tijdens het gebruik van machine learning-algoritmen voor het detecteren van verdachte activiteit en IT-beheerders van mogelijke problemen melden.  Uw toepassing opgehaald door de ondersteuning van Azure AD aanmelden, het voordeel van deze beveiligingsgroep. Meer informatie over [Azure Active Directory-rapport weer te geven](../active-directory-view-access-usage-reports.md).
 
-**Voorwaardelijke toegang.**  Naast de multi-factor authentication-beheerders kunnen vereisen bepaalde voorwaarden worden voldaan voordat gebruikers kunnen aanmelden bij uw toepassing.  Voorwaarden die kunnen worden ingesteld omvatten het IP-adresbereik van clientapparaten, lidmaatschap van de opgegeven groepen en de status van het apparaat wordt gebruikt om toegang te krijgen.  Meer informatie over [voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access.md).
+**Voorwaardelijke toegang.**  Naast de multi-factor authentication-beheerders kunnen vereisen bepaalde voorwaarden worden voldaan voordat gebruikers kunnen aanmelden bij uw toepassing.  Voorwaarden die kunnen worden ingesteld omvatten het IP-adresbereik van clientapparaten, lidmaatschap van de opgegeven groepen en de status van het apparaat wordt gebruikt om toegang te krijgen.  Meer informatie over [voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Eenvoudige manier kunt ontwikkelen
 **Protocollen volgens de industrienorm.**  Microsoft hecht naar ondersteunende industrienormen.  Azure AD biedt ondersteuning voor de verificatieprotocollen SAML 2.0, OpenID Connect 1.0, OAuth 2.0 en WS-Federation 1.2.  De Graph API is OData 4.0-compatibel.  Als de toepassing al het SAML 2.0 of OpenID Connect 1.0-protocol voor federatieve aanmelding ondersteunt, zijn het toevoegen van ondersteuning voor Azure AD eenvoudige.  Meer informatie over [Azure AD-verificatieprotocollen ondersteund](active-directory-authentication-protocols.md).

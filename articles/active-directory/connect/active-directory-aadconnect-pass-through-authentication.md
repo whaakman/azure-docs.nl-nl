@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Gebruiker aanmelden met Azure Active Directory Pass-through-verificatie
 
@@ -55,7 +55,7 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
 
 - Ondersteunt gebruikersaanmelding naar alle web browser gebaseerde toepassingen en naar Microsoft Office-clienttoepassingen die gebruikmaken van [moderne verificatie](https://aka.ms/modernauthga).
 - Aanmelden gebruikersnamen mag ofwel de lokale standaardgebruikersnaam (`userPrincipalName`) of een ander kenmerk in Azure AD Connect geconfigureerd (ook wel `Alternate ID`).
-- De functie werkt in combinatie met [voorwaardelijke toegang](../active-directory-conditional-access.md) functies zoals multi-factor Authentication (MFA) om te helpen beveiligen van uw gebruikers.
+- De functie werkt in combinatie met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) functies zoals multi-factor Authentication (MFA) om te helpen beveiligen van uw gebruikers.
 - Geïntegreerd met cloud-gebaseerde [selfservice voor wachtwoordherstel management](../active-directory-passwords-overview.md), met inbegrip van wachtwoord terugschrijven naar on-premises Active Directory en wachtwoordbeveiliging door verboden gebruikte wachtwoorden.
 - Omgevingen met meerdere forests worden ondersteund als er forestvertrouwensrelaties tussen uw AD-forests en als naamachtervoegsels correct is geconfigureerd.
 - Er is een gratis functie en u hoeft niet elke betaald edities van Azure AD om deze te gebruiken.

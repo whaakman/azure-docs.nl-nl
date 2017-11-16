@@ -19,7 +19,7 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-## Uw toepassing registreren bij uw AD-tenant
+## <a name="register-your-application-with-your-ad-tenant"></a>Uw toepassing registreren bij uw AD-tenant
 U moet eerst uw toepassing registreren bij uw AD-tenant (Azure Active Directory-tenant). Na registratie beschikt u over een toepassings-id voor uw toepassing en kan uw toepassing tokens ontvangen.
 
 * Meld u aan bij [Azure Portal](https://portal.azure.com).

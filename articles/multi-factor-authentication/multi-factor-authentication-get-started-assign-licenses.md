@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86e8e5ce183d11a76fb679da0e6c707383ce86d0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 48f6ca268630524dab6d239621a7824faaa67849
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Een licentie voor Azure MFA, Azure AD Premium of Enterprise Mobility aan gebruikers toewijzen
 Als u Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties hebt aangeschaft, hoeft u geen Multi-Factor Authentication-provider te maken. Zodra u de licenties aan uw gebruikers hebt toegewezen, kunt u beginnen MFA voor ze in te schakelen.
@@ -42,4 +42,4 @@ Als u Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties hebt aa
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-what-is.md) (Wat is licentieverlening voor Microsoft Azure Active Directory?) voor meer informatie.
+- Zie [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-whatis-azure-portal.md) (Wat is licentieverlening voor Microsoft Azure Active Directory?) voor meer informatie.

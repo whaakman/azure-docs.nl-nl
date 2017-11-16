@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -79,7 +79,7 @@ De configuratie van het cluster drie knooppunt wordt ondersteund voor ontwikkele
 
 In het algemeen niet. Service Fabric opgeslagen status op lokale tijdelijke schijven, wat betekent dat als de virtuele machine wordt verplaatst naar een andere host, de gegevens verplaatst geen aan. In de normale werking die is niet een probleem als het nieuwe knooppunt wordt bijgewerkt door andere knooppunten. Als u alle knooppunten stoppen en deze later opnieuw opstarten, is er echter aanzienlijke kans dat de meeste van de knooppunten starten op de nieuwe hosts en controleer het systeem niet kan herstellen.
 
-Als u maken van clusters wilt voor uw toepassing testen voordat deze is geïmplementeerd, raden wij aan dat u deze clusters dynamisch als onderdeel van maken uw [continue integratie/continue implementatie pijplijn](service-fabric-set-up-continuous-integration.md).
+Als u maken van clusters wilt voor uw toepassing testen voordat deze is geïmplementeerd, raden wij aan dat u deze clusters dynamisch als onderdeel van maken uw [continue integratie/continue implementatie pijplijn](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Hoe voer ik een upgrade het besturingssysteem (bijvoorbeeld van Windows Server 2012 naar Windows Server 2016)?

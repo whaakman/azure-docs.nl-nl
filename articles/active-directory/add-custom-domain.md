@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Snelstartgids: Een aangepaste domeinnaam toevoegen aan Azure Active Directory
 
@@ -78,7 +78,7 @@ Als u een aangepaste domeinnaam niet kan controleren, voert u de volgende proble
 Als uw organisatie gebruikmaakt van meerdere aangepaste domeinnamen, zoals 'contoso.com' en 'contosobank.com', kunt u ze, maximaal 900 domeinnamen toevoegen. De stappen in dit artikel kunt u elk van uw domeinnamen toevoegen.
 
 ### <a name="learn-more"></a>Meer informatie
-[Conceptueel overzicht van aangepaste domeinnamen in Azure AD](active-directory-add-domain-concepts.md)
+[Conceptueel overzicht van aangepaste domeinnamen in Azure AD](active-directory-domains-manage-azure-portal.md)
 
 [Aangepaste domeinnamen beheren](active-directory-domains-manage-azure-portal.md)
 

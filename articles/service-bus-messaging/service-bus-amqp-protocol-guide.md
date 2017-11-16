@@ -20,13 +20,13 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/09/2017
 ---
-# AMQP 1.0 in Azure Service Bus en Event Hubs-protocol-handleiding
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 in Azure Service Bus en Event Hubs-protocol-handleiding
 
 Geavanceerde Message Queueing Protocol 1.0 is een gestandaardiseerde framing en transfer protocol voor het asynchroon, veilig en betrouwbaar berichten over te brengen tussen twee partijen. Dit is het primaire protocol van Azure Service Bus-berichtenservice en Azure Event Hubs. Beide services bieden ook ondersteuning voor HTTPS. De eigen SBMP protocol waarmee wordt ook ondersteund wordt door de AMQP geleidelijk stopgezet.
 
 AMQP 1.0 is het resultaat van de samenwerking met brede bedrijfstak die bij elkaar gebracht middleware leveranciers, zoals Microsoft en Red Hat met veel messaging middleware gebruikers zoals JP Morgan Chase voor de branche financiële diensten. Het technische normalisatie-forum voor de AMQP-protocol en de extensie specificaties OASIS is en deze formele goedkeuring als een internationale standaard als ISO/IEC 19494 heeft bereikt.
 
-## Doelstellingen
+## <a name="goals"></a>Doelstellingen
 
 Dit artikel bevat een overzicht van de belangrijkste concepten van de AMQP 1.0-specificatie samen met een kleine set ontwerpspecificaties voor uitbreiding die momenteel nog in het technisch comité OASIS AMQP gewerkt wordt messaging kort en wordt uitgelegd hoe Azure Service Bus wordt geïmplementeerd en is gebaseerd op deze specificaties.
 
@@ -38,7 +38,7 @@ In de volgende bespreking nemen we aan dat het beheer van AMQP-verbindingen, ses
 
 Wanneer u geavanceerde mogelijkheden van Azure Service Bus, zoals bericht bladeren of beheer van sessies, worden deze functies worden beschreven in AMQP voorwaarden, maar ook als de implementatie van een gelaagd pseudo boven deze aangenomen API abstractie op.
 
-## Wat is AMQP?
+## <a name="what-is-amqp"></a>Wat is AMQP?
 
 AMQP is een protocol framing en de overdracht. Framing betekent dat deze structuur biedt voor binaire gegevensstromen die in beide richtingen van een netwerkverbinding stromen. De structuur biedt begrenzing voor afzonderlijke blokken met gegevens, aangeroepen *frames*, om te worden uitgewisseld tussen de verbonden partijen. De capaciteit voor gegevensoverdracht Zorg ervoor dat beide communicerende partijen tot stand brengen een gedeelde kennis over wanneer frames worden overgedragen, en wanneer overdrachten worden beschouwd voltooid.
 
@@ -48,13 +48,13 @@ Het protocol kan worden gebruikt voor symmetrische peer-to-peer-communicatie voo
 
 Het AMQP 1.0-protocol is ontworpen om te worden uitgebreid, waardoor verdere specificaties voor het verbeteren van de mogelijkheden ervan. De drie extensie-specificaties die in dit document besproken illustratie. Een binding-specificatie definieert voor communicatie via bestaande HTTPS/WebSockets infrastructuur waar de systeemeigen AMQP TCP-poorten configureren kan lastig zijn, hoe AMQP via WebSockets laag. De AMQP management-specificatie definieert voor interactie met de messaging-infrastructuur op aanvraag/antwoord wijze voor beheerdoeleinden of om geavanceerde functionaliteit te bieden, de vereiste basic interactie primitieven. Voor federatieve autorisatie model-integratie definieert de AMQP claims-beveiliging op basis van-specificatie hoe om te koppelen en autorisatie-tokens die zijn gekoppeld aan de koppelingen te vernieuwen.
 
-## Basic AMQP-scenario 's
+## <a name="basic-amqp-scenarios"></a>Basic AMQP-scenario 's
 
 Deze sectie wordt uitgelegd dat het basisgebruik van AMQP 1.0 met Azure Service Bus, waaronder verbindingen, sessies en koppelingen maken en berichten naar en van Service Bus-entiteiten zoals wachtrijen, onderwerpen en abonnementen over te brengen.
 
 De gezaghebbende bron voor meer informatie over de werking van AMQP is de AMQP 1.0-specificatie, maar de specificatie als richtlijn voor implementatie nauwkeurig en niet om te leren van het protocol is geschreven. Deze sectie richt zich op de introductie van zoveel terminologie zo nodig voor het beschrijven hoe Service Bus maakt gebruik van AMQP 1.0. Raadpleeg voor een uitgebreidere Inleiding tot AMQP, evenals een uitgebreidere bespreking van AMQP 1.0, [deze video maatregel][this video course].
 
-### Verbindingen en sessies
+### <a name="connections-and-sessions"></a>Verbindingen en sessies
 
 AMQP roept de communicerende programma's *containers*; deze bevatten *knooppunten*, die de communicerende entiteiten binnen deze containers zijn. Een wachtrij kan deze een knooppunt zijn. AMQP kunt voor multiplex, zodat één verbinding kan worden gebruikt voor veel communicatiepaden tussen knooppunten. de toepassingsclient van een kan bijvoorbeeld gelijktijdig ontvangen uit een wachtrij en naar een andere wachtrij verzenden via dezelfde netwerkverbinding.
 
@@ -81,7 +81,7 @@ Azure Service Bus gebruikt momenteel precies één sessie voor elke verbinding. 
 
 Verbindingen, kanalen en sessies zijn kortstondige. Als de onderliggende verbinding worden samengevouwen, verbindingen, TLS-tunnel, SASL verificatiecontext en sessies moeten opnieuw worden gemaakt.
 
-### Koppelingen
+### <a name="links"></a>Koppelingen
 
 AMQP draagt berichten via koppelingen. Een koppeling is een communicatiepad gemaakt via een sessie waarmee overgebracht berichten in één richting; de status van-onderhandeling overdracht is via de koppeling en twee richtingen tussen de verbonden partijen.
 
@@ -97,7 +97,7 @@ In de Service Bus is een knooppunt rechtstreeks gelijk is aan een wachtrij, een 
 
 De client ook vereist voor het gebruik van een lokale knooppuntnaam voor het maken van koppelingen; Service Bus is geen richtlijnen over de knooppuntnamen en komt niet interpreteren. AMQP 1.0-client stacks in het algemeen gebruikt u een schema om te verzekeren dat dat deze tijdelijke knooppuntnamen uniek binnen het bereik van de client zijn.
 
-### Overdrachten
+### <a name="transfers"></a>Overdrachten
 
 Zodra een koppeling tot stand is gebracht, kunnen berichten worden verzonden via deze koppeling. In AMQP, een overdracht wordt uitgevoerd met een gebaar van de expliciete protocol (de *overdracht* performative) die een bericht verplaatst van afzender naar ontvanger via een koppeling. Een overdracht is voltooid als het 'betaald', wat betekent dat beide partijen een gedeelde kennis van het resultaat van deze overdracht hebt gemaakt.
 
@@ -117,7 +117,7 @@ Als zodanig Service Bus en Event Hubs ondersteunen 'ten minste eenmaal' overdrac
 
 Om te compenseren voor eventuele dubbele verzendt, Service Bus biedt ondersteuning voor detectie van duplicaten als een optionele functie van wachtrijen en onderwerpen. Detectie van duplicaten registreert de bericht-id's van alle inkomende berichten tijdens een periode die door de gebruiker gedefinieerde en vervolgens de achtergrond verwijdert alle berichten die met dezelfde bericht-id's die dezelfde databaseprestaties.
 
-### Datatransportbesturing
+### <a name="flow-control"></a>Datatransportbesturing
 
 Naast het model van de sessie-niveau stroom besturingselement dat eerder is besproken, heeft elke koppeling een eigen stroom-model voor toegangsbeheer. Sessie-level datatransportbesturing voorkomt dat de container met te veel frames aan verwerken zodra link-level datatransportbesturing plaatst de toepassing die verantwoordelijk is voor het aantal berichten wil van een koppeling verwerken en wanneer.
 
@@ -141,49 +141,49 @@ Kortom bieden de volgende secties een schematische overzicht van de performative
 
 De pijlen in de volgende tabel stroomrichting de performative.
 
-#### Bericht ontvanger maken
+#### <a name="create-message-receiver"></a>Bericht ontvanger maken
 
 | Client | Service Bus |
 | --- | --- |
 | --> () koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang}<br/>rol =**ontvanger**,<br/>bron = {entiteitnaam}<br/>doel = {client koppeling id}<br/>) |Client die is gekoppeld aan een entiteit als ontvanger |
 | Service Bus-antwoorden die het einde van de koppeling koppelen |<--(koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang}<br/>rol =**afzender**,<br/>bron = {entiteitnaam}<br/>doel = {client koppeling id}<br/>) |
 
-#### Maken van de afzender
+#### <a name="create-message-sender"></a>Maken van de afzender
 
 | Client | Service Bus |
 | --- | --- |
 | --> () koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang}<br/>rol =**afzender**,<br/>bron = {client koppeling id}<br/>doel = {naam van de entiteit}<br/>) |Er is geen actie |
 | Er is geen actie |<--(koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang}<br/>rol =**ontvanger**,<br/>bron = {client koppeling id}<br/>doel = {naam van de entiteit}<br/>) |
 
-#### Maken van de afzender van bericht (fout)
+#### <a name="create-message-sender-error"></a>Maken van de afzender van bericht (fout)
 
 | Client | Service Bus |
 | --- | --- |
 | --> () koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang}<br/>rol =**afzender**,<br/>bron = {client koppeling id}<br/>doel = {naam van de entiteit}<br/>) |Er is geen actie |
 | Er is geen actie |<--(koppelen<br/>naam = {naam van de koppeling}<br/>verwerken = {numerieke ingang}<br/>rol =**ontvanger**,<br/>bron = null,<br/>doel = null<br/>)<br/><br/><--loskoppelen ()<br/>verwerken = {numerieke ingang}<br/>gesloten =**true**,<br/>Fout = {foutgegevens}<br/>) |
 
-#### Afsluitbericht ontvanger/afzender
+#### <a name="close-message-receiversender"></a>Afsluitbericht ontvanger/afzender
 
 | Client | Service Bus |
 | --- | --- |
 | --> loskoppelen ()<br/>verwerken = {numerieke ingang}<br/>gesloten =**true**<br/>) |Er is geen actie |
 | Er is geen actie |<--loskoppelen ()<br/>verwerken = {numerieke ingang}<br/>gesloten =**true**<br/>) |
 
-#### Verzenden (geslaagd)
+#### <a name="send-success"></a>Verzenden (geslaagd)
 
 | Client | Service Bus |
 | --- | --- |
 | overdracht (--><br/>levering-id = {numerieke ingang}<br/>levering-tag = {binaire ingang}<br/>afgewikkeld =**false**,, meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |Er is geen actie |
 | Er is geen actie |<--toestand (<br/>rol ontvanger =<br/>eerst = {levering van id}<br/>laatste = {levering van id}<br/>afgewikkeld =**true**,<br/>status =**geaccepteerd**<br/>) |
 
-#### Verzonden (fout)
+#### <a name="send-error"></a>Verzonden (fout)
 
 | Client | Service Bus |
 | --- | --- |
 | overdracht (--><br/>levering-id = {numerieke ingang}<br/>levering-tag = {binaire ingang}<br/>afgewikkeld =**false**,, meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |Er is geen actie |
 | Er is geen actie |<--toestand (<br/>rol ontvanger =<br/>eerst = {levering van id}<br/>laatste = {levering van id}<br/>afgewikkeld =**true**,<br/>status =**afgewezen**()<br/>Fout = {foutgegevens}<br/>)<br/>) |
 
-#### Ontvangen
+#### <a name="receive"></a>Ontvangen
 
 | Client | Service Bus |
 | --- | --- |
@@ -191,7 +191,7 @@ De pijlen in de volgende tabel stroomrichting de performative.
 | Er is geen actie |< transfer ()<br/>levering-id = {numerieke ingang}<br/>levering-tag = {binaire ingang}<br/>afgewikkeld =**false**,<br/>meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |
 | toestand (--><br/>rol =**ontvanger**,<br/>eerst = {levering van id}<br/>laatste = {levering van id}<br/>afgewikkeld =**true**,<br/>status =**geaccepteerd**<br/>) |Er is geen actie |
 
-#### Met meerdere berichten ontvangen
+#### <a name="multi-message-receive"></a>Met meerdere berichten ontvangen
 
 | Client | Service Bus |
 | --- | --- |
@@ -201,11 +201,11 @@ De pijlen in de volgende tabel stroomrichting de performative.
 | Er is geen actie |< transfer ()<br/>levering-id = {numerieke ingang + 2},<br/>levering-tag = {binaire ingang}<br/>afgewikkeld =**false**,<br/>meer =**false**,<br/>status =**null**,<br/>hervatten =**false**<br/>) |
 | toestand (--><br/>rol ontvanger =<br/>eerst = {levering van id}<br/>laatste = {-id voor levering + 2}<br/>afgewikkeld =**true**,<br/>status =**geaccepteerd**<br/>) |Er is geen actie |
 
-### Berichten
+### <a name="messages"></a>Berichten
 
 De volgende secties wordt uitgelegd welke eigenschappen van de standaard AMQP bericht secties worden gebruikt door de Service Bus en hoe deze worden toegewezen aan de Service Bus-API-set.
 
-#### koptekst
+#### <a name="header"></a>koptekst
 
 | Veldnaam | Gebruik | API-naam |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ De volgende secties wordt uitgelegd welke eigenschappen van de standaard AMQP be
 | eerste verwerver |- |- |
 | levering tellen |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
-#### properties
+#### <a name="properties"></a>properties
 
 | Veldnaam | Gebruik | API-naam |
 | --- | --- | --- |
@@ -233,7 +233,7 @@ De volgende secties wordt uitgelegd welke eigenschappen van de standaard AMQP be
 | volgorde van de groep |De teller het relatieve volgnummer van het bericht in een sessie te identificeren. Door de Servicebus genegeerd. |Niet toegankelijk is via Service Bus-API. |
 | antwoord-naar-groep-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
-## Geavanceerde mogelijkheden voor Service Bus
+## <a name="advanced-service-bus-capabilities"></a>Geavanceerde mogelijkheden voor Service Bus
 
 Deze sectie bevat informatie over geavanceerde mogelijkheden van Azure Service Bus die zijn gebaseerd op concept extensies AMQP, ontwikkeling in het technisch comité OASIS voor AMQP. Service Bus implementeert de nieuwste versies van deze concepten en wijzigingen die zijn geïntroduceerd als deze concepten worden standaard status bereikt aanneemt.
 
@@ -242,7 +242,7 @@ Deze sectie bevat informatie over geavanceerde mogelijkheden van Azure Service B
 > 
 > 
 
-### AMQP-management
+### <a name="amqp-management"></a>AMQP-management
 
 De specificatie AMQP-management is de eerste dag van het concept-uitbreidingen die worden beschreven in dit artikel. Deze specificatie definieert een reeks protocollagen boven op het AMQP-protocol die management interactie met de messaging-infrastructuur via AMQP toestaan. De specificatie definieert algemene bewerkingen zoals *maken*, *lezen*, *bijwerken*, en *verwijderen* voor het beheren van entiteiten in een berichteninfrastructuur en een reeks querybewerkingen.
 
@@ -263,7 +263,7 @@ De berichten worden uitgewisseld gebruikt voor het management-protocol en voor a
 
 Service Bus momenteel implementeert niet de belangrijkste functies van de management-specificatie, maar de aanvraag/antwoord-patroon gedefinieerd door de management-specificatie is fundamenteel voor de claims-beveiliging op basis van-functie en voor bijna alle van de geavanceerde mogelijkheden die in de volgende secties worden besproken.
 
-### Claims gebaseerde verificatie
+### <a name="claims-based-authorization"></a>Claims gebaseerde verificatie
 
 Het concept van de specificatie AMQP Claims-gebaseerde verificatie (CBS) bouwt voort op het patroon management specificatie aanvraag/antwoord en een beschrijving van een algemene model voor het gebruik van federatieve beveiligingstokens met AMQP.
 
@@ -316,7 +316,7 @@ Wanneer de verbinding en de sessie is ingesteld, koppelen van de koppelingen naa
 
 De client vervolgens verantwoordelijk is voor het bijhouden van verlopen van het token. Wanneer een token is verlopen, verwijdert Service Bus zo spoedig mogelijk alle koppelingen voor de verbinding met de betreffende entiteit. Om dit te voorkomen, kunt de client de token voor het knooppunt vervangen door een nieuwe op elk gewenst moment via de virtuele *$cbs* knooppunt met dezelfde *put-token* gebaar en het ophalen van zonder heeft op het gebied de nettolading-verkeer dat op andere koppelingen loopt.
 
-## Volgende stappen
+## <a name="next-steps"></a>Volgende stappen
 
 Voor meer informatie over AMQP, gaat u naar de volgende koppelingen:
 

@@ -4,7 +4,7 @@ description: Eerste zelfstudie voor het implementeren van virtuele StorSimple-ma
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple virtuele matrix implementeren: voorbereiden van de Azure-portal
 
@@ -42,7 +42,7 @@ Raadpleeg de volgende artikelen in de voorgeschreven volgorde voor het implement
 | **#** | **In deze stap** | **U dit wilt doen...** | **En gebruik van deze documenten.** |
 | --- | --- | --- | --- |
 | 1. |**De Azure portal instellen** |Maak en configureer uw StorSimple-apparaat Manager-service vóór het inrichten van een virtueel StorSimple-matrix. |[Voorbereiden van de portal](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**De virtuele matrix inrichten** |Voor Hyper-V, inrichten en verbinding maken met een virtueel StorSimple-matrix op een hostsysteem met Hyper-V op Windows Server 2012 R2, Windows Server 2012 of Windows Server 2008 R2. <br></br> <br></br> Voor VMware, inrichten en verbinding maken met een virtueel StorSimple-matrix op een hostsysteem met VMware ESXi 5.5 en hoger.<br></br> |[Inrichten van een virtuele-matrix in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Een virtuele-matrix in VMware inrichten](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**De virtuele matrix inrichten** |Voor Hyper-V, inrichten en verbinding maken met een virtueel StorSimple-matrix op een hostsysteem met Hyper-V op Windows Server 2012 R2, Windows Server 2012 of Windows Server 2008 R2. <br></br> <br></br> Voor VMware, inrichten en verbinding maken met een virtueel StorSimple-matrix op een hostsysteem met VMware ESXi 5.0, 5.5 of 6.0.<br></br> |[Inrichten van een virtuele-matrix in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Een virtuele-matrix in VMware inrichten](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Instellen van de virtuele matrix** |Eerste installatie uitvoeren, registreren van uw StorSimple-bestandsserver en de Apparaatinstelling voor uw bestandsserver. Vervolgens kunt u SMB-shares inrichten. <br></br> <br></br> Eerste installatie uitvoeren voor uw server met iSCSI-, uw StorSimple iSCSI-server registreren en voltooit de installatie van het apparaat. Vervolgens kunt u iSCSI-volumes inrichten. |[Virtuele matrix instellen als bestandsserver](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Virtuele matrix ingesteld als iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 U kunt nu beginnen met het instellen van de Azure-portal.
@@ -70,7 +70,7 @@ Zorg voordat u begint voor het volgende:
 
 Voordat u een virtuele-matrix implementeert, zorg ervoor dat:
 
-* U hebt toegang tot een hostsysteem met Hyper-V in Windows Server 2008 R2 of later of VMware (ESXi 5.5 of hoger) die kan worden gebruikt voor een voorziening van een apparaat.
+* U hebt toegang tot een hostsysteem met Hyper-V in Windows Server 2008 R2 of later of VMware (ESXi 5.0, 5.5 of 6.0) die kan worden gebruikt voor een voorziening van een apparaat.
 * Het hostsysteem kan toe te wijzen aan de volgende bronnen voor het inrichten van uw virtuele matrix:
   
   * Een minimum van 4 kernen.
@@ -136,7 +136,7 @@ Voer de volgende stappen uit in de [Azure-portal](https://portal.azure.com/).
    
    * VHDX voor Hyper-V op Windows Server 2012 en hoger
    * VHD voor Hyper-V in Windows Server 2008 R2 en hoger
-   * VMDK voor VMWare ESXi 5.5 en hoger
+   * VMDK voor VMWare ESXi 5.0, 5.5 of 6.0
 5. Download en pak het bestand naar een lokaal station, waardoor een notitie van waarin de uitgepakte bestand zich bevindt.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Optionele stap: een nieuw opslagaccount voor de service configureren

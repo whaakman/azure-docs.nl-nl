@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Bevoegde toegang beveiligen in Azure AD
 Bevoegde toegang beveiligen is een belangrijke eerste stap ter bescherming van zakelijke activa in een moderne organisatie. Bevoegde accounts zijn accounts dat beheren en het beheer van IT-systemen. Cyberbeveiliging aanvallers gericht zijn op deze accounts toegang krijgen tot gegevens en systemen van een organisatie. Als u wilt beveiligen bevoorrechte toegang, moet u de accounts en systemen van het risico worden blootgesteld aan een kwaadwillende gebruiker isoleren.
@@ -66,7 +66,7 @@ Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de speci
 * Schakel [Azure multi-factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Schakel [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Schakel [Azure AD Identity Protection](../active-directory-identityprotection.md)
-* Schakel [voorwaardelijk toegangsbeheer](../active-directory-conditional-access.md)
+* Schakel [voorwaardelijk toegangsbeheer](../active-directory-conditional-access-azure-portal.md)
 
 Voor meer informatie over het bouwen van een volledige beveiliging roadmap, Zie de sectie 'verantwoordelijkheden van de klant en roadmap' van de [Microsoft Cloud Security voor Enterprise-architecten](http://aka.ms/securecustomer) document. Voor meer informatie over Microsoft-services om te helpen bij deze onderwerpen bezighouden, neem contact op met uw Microsoft-vertegenwoordiger of gaat u naar onze [Cybersecurity oplossingen pagina](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 

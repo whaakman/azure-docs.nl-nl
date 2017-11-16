@@ -9,14 +9,6 @@
 ## [Visual Studio-code-extensie voor sjablonen](resource-manager-vscode-extension.md)
 ## [Visual Studio met Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Voorbeelden
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Sjabloon implementeren](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Sjabloon implementeren](resource-manager-samples-cli-deploy.md)
-
 # Procedures
 ## Sjablonen maken
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
@@ -68,10 +60,6 @@
 #### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Verificatie-API om toegang te krijgen tot abonnementen](resource-manager-api-authentication.md)
 ### [Resources vergrendelen](resource-group-lock-resources.md)
-
-## Resourcebeleid instellen
-### [Wat is een resourcebeleid?](resource-manager-policy.md)
-### [Naamconventies](resource-manager-policy-naming-convention.md)
 
 ## Controleren
 ### [Activiteitenlogboeken bekijken](resource-group-audit.md)

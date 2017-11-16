@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7574fdf8787e799e4d73fe32df9c1ad5be93abf1
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 290f2e837cae9bdb95cf8acb486938632927ca8c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory
 In dit artikel wordt uitgelegd hoe een beheerderrol toewijzen aan een gebruiker in Azure Active Directory (Azure AD). Zie voor meer informatie over het toevoegen van nieuwe gebruikers in uw organisatie [nieuwe gebruikers toevoegen aan Azure Active Directory](active-directory-users-create-azure-portal.md). Toegevoegde gebruikers hebben standaard geen gebruikersrechten, maar u kunt op elk gewenst moment rollen aan ze toewijzen.
@@ -33,7 +33,7 @@ In dit artikel wordt uitgelegd hoe een beheerderrol toewijzen aan een gebruiker 
 
    ![Openen van de groep alle gebruikers](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 1. Selecteer een gebruiker uit de lijst.
-2. Selecteer voor de geselecteerde gebruiker **functie Directory** en vervolgens de gebruiker toewijzen aan een functie uit de **functie Directory** lijst. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen.
+2. Selecteer voor de geselecteerde gebruiker **functie Directory** en vervolgens de gebruiker toewijzen aan een functie uit de **functie Directory** lijst. Zie [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles-azure-portal.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen.
 
       ![Een gebruiker toewijzen aan een rol](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Selecteer **Opslaan**.

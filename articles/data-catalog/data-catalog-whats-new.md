@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Wat is er nieuw in Azure Data Catalog
 Updates voor de **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke versie bevat nieuwe gebruikersgerichte functies, zoals sommige versies zijn gericht op de mogelijkheden van de back-end-service. Deze pagina licht nieuwe gebruikersgerichte mogelijkheden toegevoegd aan de service Azure Data Catalog.
+
+## <a name="whats-new-for-november-2017"></a>Wat is er nieuw voor November 2017 
+De volgende mogelijkheden hebt vanaf November 2017 toegevoegd aan Azure Data Catalog:
+
+* Ondersteuning voor het koppelen van rechtstreeks naar specifieke termen in de in de portal voor Data Catalog. Gebruikers kunnen koppelingen van de zakelijke woordenlijst kopiëren en deze opnemen in documenten, e-mailberichten, rapporten of andere locaties directe koppeling naar de definitie van de termijn.
+* Ondersteuning voor Azure Active Directory-service-principals. Data Catalog beheerders kunnen machtigen clienttoepassingen met service-principals toegang krijgen tot de catalogus en kunnen deze toepassingen specifieke machtigingen verlenen zoals ze machtigingen aan gebruikers en beveiligingsgroepen verlenen kunnen. Zie voor meer informatie [toepassing en service-principal objecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Ondersteuning voor Azure Active Directory-verificatie bij het verbinden met gegevensbronnen in de Azure SQL Database en Azure SQL Data Warehouse met behulp van het hulpprogramma registratie Data Catalog voor gegevensbronnen. Zie voor meer informatie [Azure Active Directory-verificatie gebruiken voor verificatie bij SQL-Database of SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
+
 
 ## <a name="whats-new-for-september-2017"></a>Wat is er nieuw voor September 2017 
 Vanaf September 2017, hebben de volgende mogelijkheden toegevoegd aan Azure Data Catalog:

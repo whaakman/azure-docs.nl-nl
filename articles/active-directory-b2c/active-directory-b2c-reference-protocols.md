@@ -20,14 +20,14 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Azure AD B2C: Verificatieprotocollen
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Verificatieprotocollen
 Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee standaardprotocollen: OpenID Connect en OAuth 2.0. De service is compatibel met standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
 
 De informatie in deze handleiding is handig als u uw code schrijven door rechtstreeks verzenden en HTTP-aanvragen voor de verwerking, in plaats van via een open-source-bibliotheek. Het is raadzaam dat u deze pagina te lezen voordat u Duik in de details van elk protocol dat specifieke. Maar als u al bekend met Azure AD B2C bent, gaat u meteen naar [de verwijzing naar protocol handleidingen](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
-## De basisbeginselen
+## <a name="the-basics"></a>De basisbeginselen
 Elke app die gebruikmaakt van Azure AD B2C moet worden geregistreerd in uw B2C-directory in de [Azure-portal](https://portal.azure.com). Tijdens het registratieproces van de app worden enkele waarden verzameld en toegewezen aan uw app:
 
 * Een **toepassings-id** die de app op unieke wijze identificeert.
@@ -53,14 +53,14 @@ Bijna alle OAuth en OpenID Connect stromen zijn vier partijen betrokken in de ex
 
 * De **bronserver** is waar de resource of de gegevens zich bevindt. Deze vertrouwt de autorisatie-server veilig verifiëren en autoriseren van de OAuth-client. Access-bearer-tokens worden ook gebruikt om ervoor te zorgen dat toegang tot een bron kan worden toegekend.
 
-## Beleidsregels
+## <a name="policies"></a>Beleidsregels
 Azure AD B2C-beleidsregels zijn weliswaar, de belangrijkste functies van de service. Azure AD B2C breidt de standaard OAuth 2.0 en OpenID Connect-protocollen door de introductie van beleid. Hiermee kunnen Azure AD B2C om uit te voeren veel meer dan een eenvoudige verificatie en autorisatie. 
 
 Beleid beschrijven consumer identiteitservaringen, met inbegrip van registreren, aanmelden, volledig en profiel bewerken. Beleidsregels kunnen worden gedefinieerd in een administratieve gebruikersinterface. Ze kunnen worden uitgevoerd met behulp van een speciale queryparameter in HTTP-aanvragen voor verificatie. 
 
 Beleidsregels zijn niet standaard functies van OAuth 2.0 en OpenID Connect, dus u moet de tijd om te begrijpen. Zie voor meer informatie de [Naslaggids voor Azure AD B2C beleid](active-directory-b2c-reference-policies.md).
 
-## Tokens
+## <a name="tokens"></a>Tokens
 De Azure AD B2C-implementatie van OAuth 2.0 en OpenID Connect wordt uitgebreid gebruikgemaakt van bearer-tokens, bearer-tokens die worden weergegeven als JSON webtokens (JWTs). Een bearer-token is een lichtgewicht beveiligingstoken die de 'bearer' toegang tot een beveiligde bron verleent.
 
 De houder is een partij die het token kan opleveren. Azure AD een partij moet eerst worden geverifieerd voordat er een bearer-token kan ontvangen. Maar als de vereiste stappen niet genomen worden voor het beveiligen van het token in overdracht en opslag, kan deze kan worden onderschept en gebruikt door een onbedoelde partij.
@@ -73,7 +73,7 @@ Zie voor aanvullende bearer-token beveiligingsoverwegingen [RFC 6750 sectie 5](h
 
 Meer informatie over de verschillende typen tokens die worden gebruikt in Azure AD B2C zijn beschikbaar in [de Azure AD-tokenverwijzing](active-directory-b2c-reference-tokens.md).
 
-## Protocollen
+## <a name="protocols"></a>Protocollen
 Wanneer u klaar bent om te controleren van bepaalde aanvragen voorbeeld, kunt u beginnen met een van de volgende zelfstudies. Elke komt overeen met een bepaalde verificatiescenario. Als u hulp bij het bepalen welke stroom geschikt is voor u nodig hebt, kijk dan eens [de typen apps die u maken kunt met behulp van Azure AD B2C](active-directory-b2c-apps.md).
 
 * [Mobiele en systeemeigen toepassingen bouwen met behulp van OAuth 2.0](active-directory-b2c-reference-oauth-code.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric-patronen en scenario 's
 Als u op zoek bent bij het bouwen van grootschalige microservices met behulp van Azure Service Fabric informatie uit de deskundigen die ontwikkeld en gebouwd dit platform als een service (PaaS). Aan de slag met de juiste architectuur en vervolgens informatie over het optimaliseren van resources voor uw toepassing. De [Service Fabric Patterns and practice](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) loop antwoorden op de vragen die vaak door de werkelijke klanten gevraagd over Service Fabric-scenario's en modules.
@@ -98,4 +98,4 @@ Ophalen van het antwoord op de vraag "Waarom containers? ' Meer informatie over 
 </table>
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt geleerd over Service Fabric-patronen en scenario's, lees meer informatie over hoe [maken en beheren van clusters](service-fabric-deploy-anywhere.md), [Cloud Services-apps migreren naar Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [continue levering instellen](service-fabric-set-up-continuous-integration.md), en [containers implementeren](service-fabric-containers-overview.md).
+Nu dat u hebt geleerd over Service Fabric-patronen en scenario's, lees meer informatie over hoe [maken en beheren van clusters](service-fabric-deploy-anywhere.md), [Cloud Services-apps migreren naar Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [continue levering instellen](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), en [containers implementeren](service-fabric-containers-overview.md).

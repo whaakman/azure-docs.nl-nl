@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: e56c9e74c3413f8780295678273ea2ba06caad77
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 97d344fd31d711454f3e4aa251361b86351cc283
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="heading"></a>Voorbeeldgegevens in Azure blob-containers, SQL Server en Hive-tabellen
-Dit bevat documentkoppelingen naar onderwerpen die wordt beschreven hoe u voorbeeldgegevens die zijn opgeslagen in een van drie verschillende Azure locaties:
+Dit bevat documentkoppelingen naar artikelen over hoe u voorbeeldgegevens die zijn opgeslagen in een van drie verschillende Azure locaties:
 
 * **Azure blob-containergegevens** is door actieve programmatisch downloaden en deze vervolgens een steekproef met Python voorbeeldcode.
 * **SQL Server-gegevens** is door actieve met zowel SQL als de taal voor het programmeren van Python. 

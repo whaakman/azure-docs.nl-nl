@@ -15,11 +15,11 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 239f3830a5e50f80ace15ff3f080653a5f402136
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor toegang tot apps op afstand met Azure AD-toepassingsproxy
 
@@ -45,7 +45,7 @@ Als u Passthrough als uw methode voor verificatie vooraf kiest, kunt u voordeel 
 
 Besturingselementen voor uitgebreidere beleid van toepassing voordat verbindingen met uw netwerk tot stand worden gebracht.
 
-Met [voorwaardelijke toegang](active-directory-conditional-access-azuread-connected-apps.md), kunt u beperkingen op welk verkeer is toegestaan voor toegang tot uw back-end-toepassingen. Kunt u beleidsregels die aanmeldingen op basis van locatie, sterkte van verificatie en gebruikersprofiel risico beperken.
+Met [voorwaardelijke toegang](active-directory-conditional-access-azure-portal-get-started.md), kunt u beperkingen op welk verkeer is toegestaan voor toegang tot uw back-end-toepassingen. Kunt u beleidsregels die aanmeldingen op basis van locatie, sterkte van verificatie en gebruikersprofiel risico beperken.
 
 U kunt ook voorwaardelijke toegang gebruiken voor het configureren van multi-factor Authentication-beleid, nog een beveiligingslaag toe te voegen aan uw gebruikersverificaties. 
 

@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 23a2996a5eaa41af5dc66558d2a70dd3e4a4fe3f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: De Azure AD B2C-gebruikersinterface (UI) aanpassen
 
 Gebruikerservaring is uitermate belangrijk in een klantgerichte toepassing.  Uw klant base vergroten door gebruikerservaringen met het uiterlijk van uw merk. Azure Active Directory B2C (Azure AD B2C) kunt u aanpassen registreren, aanmelden, profiel bewerken en wachtwoord opnieuw instellen van pagina's met pixel perfect besturingselement.
 
 > [!NOTE]
-> De pagina UI aanpassing-functie beschreven in dit artikel geldt niet voor het enige beleid aanmelden, het bijbehorende wachtwoord opnieuw instellen van pagina- en verificatiestappen e-mailberichten.  Deze functies gebruiken de [functie huisstijl](../active-directory/active-directory-add-company-branding.md) in plaats daarvan.
+> De pagina UI aanpassing-functie beschreven in dit artikel geldt niet voor het enige beleid aanmelden, het bijbehorende wachtwoord opnieuw instellen van pagina- en verificatiestappen e-mailberichten.  Deze functies gebruiken de [functie huisstijl](../active-directory/customize-branding.md) in plaats daarvan.
 >
-> Op dezelfde manier als een gebruiker intiates een beleid van het profiel bewerken *voordat* aangemeld, de gebruiker wordt omgeleid naar een pagina die kan worden aangepast met behulp van de [functie huisstijl](../active-directory/active-directory-add-company-branding.md).
+> Op dezelfde manier als een gebruiker intiates een beleid van het profiel bewerken *voordat* aangemeld, de gebruiker wordt omgeleid naar een pagina die kan worden aangepast met behulp van de [functie huisstijl](../active-directory/customize-branding.md).
 
 In dit artikel bevat informatie over de volgende onderwerpen:
 

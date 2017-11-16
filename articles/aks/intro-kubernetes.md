@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a8ac18464d0efcc0db96e1667f18f2f853208573
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9fba9fdda3503ec80fede845466858825e3677a5
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Inleiding tot Azure Containerservice (AKS)
 
@@ -29,8 +29,20 @@ Azure Container Service (AKS) maakt het eenvoudig te maken, configureren en behe
 
 Met behulp van AKS, kunt u profiteren van de functies bedrijfsniveau van Azure, zonder dat zij de toepassing draagbaarheid via Kubernetes en de Docker-bestandsindeling.
 
+## <a name="managed-kubernetes-in-azure"></a>Beheerde Kubernetes in Azure
+
+AKS beperkt de complexiteit en operationele overhead voor het beheer van een cluster Kubernetes door het offloaden van veel van deze functie aan Azure. Als een gehoste service voor Kubernetes, Azure ingangen kritieke taken zoals statuscontrole en onderhoud voor u. Bovendien betaalt u alleen voor de agent-knooppunten binnen clusters, niet voor de masters. Als een beheerde service voor het Kubernetes AKS biedt:
+
+> [!div class="checklist"]
+> * Geautomatiseerde Kubernetes versie-upgrades en patchen
+> * Eenvoudig cluster schalen
+> * Zelfherstellende gehoste besturingselement vlak (modellen)
+> * Kostenbesparingen: betaal alleen voor het uitvoeren van agent knooppunten van de groep-
+
+Met Azure afhandeling van het beheer van de knooppunten in het cluster AKS, moet u niet meer handmatig veel taken uitvoeren zoals cluster-upgrades. Omdat Azure deze kritieke onderhoudstaken voor u verwerkt, AKS biedt geen directe toegang (zoals met SSH) voor het cluster.
+
 ## <a name="using-azure-container-service-aks"></a>Met behulp van Azure Containerservice (AKS)
-Ons doel met AKS wordt een container hostomgeving met behulp van open-source hulpprogramma's en -technologieën die tegenwoordig populair onder onze klanten. Om dit te bereiken, maken we de standaard API-eindpunten van Kubernetes beschikbaar. Met behulp van deze standaard eindpunten kunt u gebruikmaken van alle software die geschikt is voor communicatie met een Kubernetes-cluster. U kunt bijvoorbeeld [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) of [draft](https://github.com/Azure/draft) gebruiken.
+Het doel van AKS is naar een hostomgeving met behulp van open-source hulpprogramma's en -technologieën die tegenwoordig populaire klanten container bieden. Om dit te bereiken, maken we de standaard API-eindpunten van Kubernetes beschikbaar. Met behulp van deze standaard eindpunten kunt u gebruikmaken van alle software die geschikt is voor communicatie met een Kubernetes-cluster. U kunt bijvoorbeeld [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) of [draft](https://github.com/Azure/draft) gebruiken.
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Maken van een Kubernetes-cluster met behulp van Azure Container Service (AKS)
 Om te beginnen met behulp van AKS, implementeert u een cluster AKS met de [Azure CLI](./kubernetes-walkthrough.md) of via de portal (zoek de Marketplace voor **Azure Container Service**). Als u een ervaren gebruiker bent die meer controle wil over de Azure Resource Manager-sjablonen, kunt u het open source [acs-engine](https://github.com/Azure/acs-engine)-project gebruiken om uw eigen aangepaste Kubernetes-cluster te bouwen en het te implementeren via de `az` CLI.

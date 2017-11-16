@@ -1,5 +1,5 @@
 ---
-title: In- of uitschakelen van HTTPS op een aangepast domein Azure Content Delivery Network | Microsoft Docs
+title: HTTPS configureren op een aangepast domein Azure Content Delivery Network | Microsoft Docs
 description: Informatie over het in- of HTTPS uitschakelen op uw Azure CDN-eindpunt met een aangepast domein.
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>In- of HTTPS op een aangepast domein Azure Content Delivery Network uitschakelen
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>HTTPS configureren op een aangepast domein Azure Content Delivery Network
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-HTTPS-ondersteuning voor aangepaste domeinen van Microsoft Azure inhoud Delivery Network (CDN) kunt u beveiligde inhoud met SSL-beveiliging met behulp van uw eigen domeinnaam voor het verbeteren van de beveiliging van gegevens die onderweg leveren. De end-to-end werkstroom HTTPS inschakelen voor uw aangepaste domein wordt vereenvoudigd, via één klik inschakelen, Certificaatbeheer voltooid en alle met zonder extra kosten.
+Microsoft ondersteunt het HTTPS-protocol voor aangepaste domeinen op Azure Content Delivery Network (CDN). Met HTTPS-ondersteuning voor het aangepaste domein, kunt u beveiligde inhoud met SSL-beveiliging met behulp van uw eigen domeinnaam voor het verbeteren van de beveiliging van gegevens die onderweg leveren. De werkstroom HTTPS inschakelen voor uw aangepaste domein wordt vereenvoudigd, via één klik inschakelen en volledige Certificaatbeheer, allemaal zonder extra kosten.
 
-Het is essentieel om te controleren of de privacy en integriteit van gegevens van al uw web-toepassingen gevoelige gegevens die onderweg. Met behulp van het HTTPS-protocol, zorgt u ervoor dat uw vertrouwelijke gegevens worden versleuteld wanneer ze via internet worden verzonden. Het biedt vertrouwt, verificatie, en uw webtoepassingen worden beschermd tegen aanvallen. Azure CDN ondersteunt HTTPS op een CDN-eindpunt standaard. Bijvoorbeeld, als u een CDN-eindpunt maken vanuit Azure CDN (zoals `https://contoso.azureedge.net`), HTTPS is automatisch ingeschakeld. Bovendien met HTTPS-ondersteuning voor het aangepaste domein, kunt u beveiligde levering voor een aangepast domein (bijvoorbeeld `https://www.contoso.com`) ook. 
+Het is essentieel om te controleren of de privacy en integriteit van gegevens van uw webtoepassing gevoelige gegevens terwijl het onderweg is. Met het HTTPS-protocol, zorgt u ervoor dat uw vertrouwelijke gegevens worden versleuteld wanneer ze via internet worden verzonden. Het biedt vertrouwt, verificatie, en uw webtoepassingen worden beschermd tegen aanvallen. Standaard ondersteunt Azure CDN HTTPS op een CDN-eindpunt. Bijvoorbeeld, als u een CDN-eindpunt maken vanuit Azure CDN (zoals `https://contoso.azureedge.net`), HTTPS is automatisch ingeschakeld. Bovendien met HTTPS-ondersteuning voor het aangepaste domein, kunt u ook inschakelen beveiligde levering voor een aangepast domein (bijvoorbeeld `https://www.contoso.com`). 
 
 Enkele van de belangrijkste kenmerken van de functie voor HTTPS zijn:
 
@@ -41,7 +41,7 @@ Enkele van de belangrijkste kenmerken van de functie voor HTTPS zijn:
 
 ## <a name="enabling-https"></a>HTTPS inschakelen
 
-Volg deze stappen zodat HTTPS:
+Volg deze stappen zodat HTTPS op een aangepast domein:
 
 ### <a name="step-1-enable-the-feature"></a>Stap 1: De functie inschakelen 
 
@@ -66,7 +66,7 @@ Volg deze stappen zodat HTTPS:
 Nadat u HTTPS op uw aangepaste domein inschakelt, de DigiCert-certificeringsinstantie (CA) eigendom van uw domein contact opnemen met de bijbehorende registrant valideert volgens het domein [WHOIS](http://whois.domaintools.com/) registrant informatie. Neem contact op met worden uitgevoerd via het e-mailadres (standaard) of het telefoonnummer dat wordt vermeld in de WHOIS-registratie. 
 
 >[!NOTE]
->Als u een certificaat autoriteit autorisatie (CAA)-record met uw DNS-provider hebt, moet het DigiCert bevatten als een geldige CA. Een record CAA kan eigenaren van een domein met hun DNS-providers die CA's zijn gemachtigd voor het verlenen van certificaten voor hun domein opgeven. Als een CA ontvangt een volgorde voor een certificaat voor een domein met een record CAA en die CA niet wordt vermeld als een gemachtigde uitgever, is het verboden van het certificaat heeft uitgegeven aan het domein of subdomein.
+>Als u een certificaat autoriteit autorisatie (CAA)-record met uw DNS-provider hebt, moet het DigiCert bevatten als een geldige CA. Een record CAA kan eigenaren van een domein met hun DNS-providers die CA's zijn gemachtigd voor het verlenen van certificaten voor hun domein opgeven. Als een CA ontvangt een volgorde voor een certificaat voor een domein met een record CAA en die CA niet wordt vermeld als een gemachtigde uitgever, is het verboden van het certificaat heeft uitgegeven aan het domein of subdomein. Zie voor meer informatie over het beheren van CAA records [beheren CAA records](https://support.dnsimple.com/articles/manage-caa-record/). Zie voor een hulpprogramma van de record CAA [CAA Record Helper](https://sslmate.com/caa/).
 
 ![WHOIS record](./media/cdn-custom-ssl/whois-record.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>Het uitschakelen van HTTPS
 
-Wanneer u HTTPS hebt ingeschakeld, kunt u deze later uitschakelen. Als u wilt uitschakelen HTTPS, de volgende stappen uit:
+Wanneer u HTTPS op een aangepast domein hebt ingeschakeld, kunt u deze later uitschakelen. Als u wilt uitschakelen HTTPS, de volgende stappen uit:
 
 ### <a name="step-1-disable-the-feature"></a>Stap 1: De functie uitschakelen 
 

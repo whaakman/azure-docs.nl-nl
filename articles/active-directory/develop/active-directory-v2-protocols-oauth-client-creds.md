@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory-v2.0 en de clientreferentiestroom van OAuth 2.0
+# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory-v2.0 en de clientreferentiestroom van OAuth 2.0
 U kunt de [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6749#section-4.4), soms ook wel *tweearmige OAuth*, toegang krijgen tot bronnen web gehost met behulp van de identiteit van een toepassing. Dit type grant vaak wordt gebruikt voor de server naar server interacties dat moeten worden uitgevoerd op de achtergrond, zonder directe interactie met een gebruiker. Deze typen toepassingen vaak worden aangeduid als *daemons* of *-serviceaccounts*.
 
 > [!NOTE]
@@ -31,22 +31,22 @@ U kunt de [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6
 
 In de typische *OAuth driearmige*, een clienttoepassing, is gemachtigd voor toegang tot een bron namens een specifieke gebruiker. De machtiging is overgedragen van de gebruiker aan de toepassing, meestal tijdens de [toestemming](active-directory-v2-scopes.md) proces. In de clientreferentiestroom de machtigingen worden verleend rechtstreeks naar de toepassing zelf. Wanneer de app geeft die een token voor een resource, de bron wordt afgedwongen dat de app zelf autorisatie heeft voor het uitvoeren van een actie en niet dat heeft de gebruiker toestemming.
 
-## Protocol-diagram
+## <a name="protocol-diagram"></a>Protocol-diagram
 De volledige clientreferentiestroom lijkt op het volgende diagram. Elk van de stappen verderop in dit artikel worden beschreven.
 
 ![Clientreferentiestroom](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## Directe autorisatie ophalen
+## <a name="get-direct-authorization"></a>Directe autorisatie ophalen
 Een app ontvangt doorgaans direct autorisatie voor toegang tot een bron op twee manieren: via een toegangsbeheerlijst (ACL) op de bron of toepassing machtigingen worden toegewezen in Azure Active Directory (Azure AD). Deze twee methoden zijn de meest voorkomende in Azure AD en het is raadzaam deze voor clients en resources waarmee de client referentiestroom. Een bron kunt voor het autoriseren van de clients op andere manieren echter kiezen. Elke resource-server kan de methode die het meest zinvol voor de toepassing kiezen.
 
-### Toegangsbeheerlijsten
+### <a name="access-control-lists"></a>Toegangsbeheerlijsten
 Een resourceprovider mogelijk een autorisatie-controle op basis van een lijst met toepassings-id's die deze kent en een specifiek niveau van toegang tot verleent afdwingen. Wanneer de bron een token van het v2.0-eindpunt ontvangt, kan decoderen van het token en uitpakken van de client toepassings-ID van de `appid` en `iss` claims. Vergelijkt vervolgens de toepassing op basis van een ACL die wordt bijgehouden. De granulatie de ACL's en de methode kunnen aanzienlijk variëren tussen resources.
 
 Een algemene gebruiksvoorbeeld is het gebruik van een ACL testen voor een webtoepassing of voor een Web-API. De Web-API kan alleen een subset van de volledige machtigingen verlenen aan een specifieke client. End-to-end-tests uitgevoerd op de API, een testclient die tokens van het v2.0-eindpunt verkrijgt en zendt deze naar de API te maken. De API controleert vervolgens de ACL voor de toepassings-ID van de testclient voor volledige toegang tot de volledige functionaliteit van de API. Als u dit soort ACL gebruikt, moet u niet alleen de aanroeper valideren `appid` waarde. Ook valideren dat de `iss` waarde van het token wordt vertrouwd.
 
 Dit type verificatie is gebruikelijk daemons en serviceaccounts voor groepen die toegang moeten krijgen tot gegevens die eigendom zijn van de consumer-gebruikers die persoonlijke Microsoft-accounts hebben. Voor gegevens die eigendom zijn van organisaties, is het raadzaam dat u de benodigde machtiging via machtigingen voor een toepassing krijgt.
 
-### Toepassingsmachtigingen
+### <a name="application-permissions"></a>Toepassingsmachtigingen
 U kunt in plaats van ACL's, API's gebruiken om een reeks Toepassingsmachtigingen weer te geven. Een toepassing toestemming te krijgen tot een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt voor toegang tot gegevens die eigendom zijn van die organisatie en werknemers. Bijvoorbeeld: Microsoft Graph beschrijft de verschillende Toepassingsmachtigingen het volgende doen:
 
 * E-mail in alle postvakken lezen
@@ -58,17 +58,17 @@ Voor meer informatie over de machtigingen van een toepassing, gaat u naar [Micro
 
 Voor het gebruik van machtigingen voor een toepassing in uw app, moet u in de volgende secties we bespreken stappen uitvoeren.
 
-#### De machtigingen in de app-portal voor registratie van aanvragen
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>De machtigingen in de app-portal voor registratie van aanvragen
 1. Ga naar uw toepassing in de [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of [maken van een app](active-directory-v2-app-registration.md), als u dat nog niet gedaan hebt. U moet ten minste één Toepassingsgeheim gebruiken bij het maken van uw app.
 2. Zoek de **Direct Toepassingsmachtigingen** sectie en voeg vervolgens de machtigingen die vereist dat uw app.
 3. **Sla** de registratie van de app.
 
-#### Aanbevolen: De gebruiker zich aanmeldt bij uw app
+#### <a name="recommended-sign-the-user-in-to-your-app"></a>Aanbevolen: De gebruiker zich aanmeldt bij uw app
 Wanneer u een toepassing die gebruikmaakt van machtigingen voor een toepassing maakt, is de app doorgaans, een pagina of weergave waarin de beheerder van de app-machtigingen goedkeurt. Deze pagina kan deel uitmaken van de app aanmelden stroom, onderdeel van de instellingen van de app, of een specifieke stroom van 'verbinding'. In veel gevallen is het zinvol voor de app weer te geven 'verbinding' weergave pas nadat een gebruiker is aangemeld met een werk- of school Microsoft-account.
 
 Als u de gebruiker zich aanmeldt bij uw app, kunt u de organisatie die de gebruiker behoort, voordat u vraagt de gebruiker om goed te keuren van de toepassing worden machtigingen kunt identificeren. Hoewel niet strikt noodzakelijk is, kunt u u bij het maken van een intuïtieve ervaring voor uw gebruikers. De gebruiker in ondertekenen, volgt u onze [v2.0 protocol zelfstudies](active-directory-v2-protocols.md).
 
-#### De machtigingen aanvragen bij een directory-beheerder
+#### <a name="request-the-permissions-from-a-directory-admin"></a>De machtigingen aanvragen bij een directory-beheerder
 Wanneer u klaar bent om machtigingen van de beheerder van de organisatie, kunt u de gebruiker omgeleid naar het v2.0 *toestemming beheereindpunt*.
 
 ```
@@ -97,7 +97,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 Azure AD wordt op dit punt wordt afgedwongen dat alleen een tenantbeheerder aanmelden kan bij de aanvraag niet voltooien. De beheerder wordt gevraagd om goed te keuren alle machtigingen van rechtstreekse toepassing die u hebt aangevraagd voor uw app in de app-portal voor wachtwoordregistratie.
 
-##### Geslaagde reactie
+##### <a name="successful-response"></a>Geslaagde reactie
 Als de beheerder heeft de machtigingen voor uw toepassing goedgekeurd, is geslaagd antwoord ziet er als volgt:
 
 ```
@@ -110,7 +110,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | state |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
 | admin_consent |Ingesteld op **true**. |
 
-##### Foutbericht
+##### <a name="error-response"></a>Foutbericht
 Als de beheerder worden niet goedgekeurd voor de machtigingen voor uw toepassing, uitziet de mislukte reactie:
 
 ```
@@ -124,10 +124,10 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 Nadat u een geslaagde reactie van het eindpunt van app-inrichting ontvangen hebt, hebben de rechtstreekse toepassing worden machtigingen aangevraagde opgedaan met uw app. U kunt nu een token voor de resource die u wilt aanvragen.
 
-## Een token ophalen
+## <a name="get-a-token"></a>Een token ophalen
 Nadat u de benodigde machtiging hebt voor uw toepassing hebt verkregen, doorgaan met het ophalen van de toegangstokens voor API's. Voor een token met behulp van de client referenties ken stuurt u een POST-aanvraag naar de `/token` v2.0-eindpunt:
 
-### Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -148,7 +148,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | client_secret |Vereist |De Toepassingsgeheim die u voor uw app in de portal van de registratie van de app hebt gegenereerd. |
 | grant_type |Vereist |Moet `client_credentials`. |
 
-### Tweede geval: aanvraag voor toegang tot token met een certificaat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor toegang tot token met een certificaat
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -168,7 +168,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 
 De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
-### Geslaagde reactie
+### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie ziet er als volgt:
 
 ```
@@ -185,7 +185,7 @@ Een geslaagde reactie ziet er als volgt:
 | token_type |Geeft de waarde van het type token. Het enige type dat ondersteunt Azure AD is `bearer`. |
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 
-### Foutbericht
+### <a name="error-response"></a>Foutbericht
 Een foutmelding ziet er als volgt:
 
 ```
@@ -210,7 +210,7 @@ Een foutmelding ziet er als volgt:
 | trace_id |Een unieke id voor de aanvraag die met diagnostische gegevens helpen kan. |
 | correlation_id |Een unieke id voor de aanvraag die met diagnostische gegevens over de onderdelen helpen kan. |
 
-## Gebruik een token
+## <a name="use-a-token"></a>Gebruik een token
 Nu u een token hebt aangeschaft, gebruiken het token waarmee aanvragen op de resource. Wanneer het token is verlopen, herhaalt u de aanvraag voor de `/token` eindpunt te verkrijgen van een nieuw toegangstoken.
 
 ```
@@ -227,5 +227,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## Codevoorbeeld
+## <a name="code-sample"></a>Codevoorbeeld
 Zie voor een voorbeeld van een toepassing of implementeert de referenties van de client met behulp van de beheerder verleent toestemming eindpunt geven onze [v2.0-daemon-codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

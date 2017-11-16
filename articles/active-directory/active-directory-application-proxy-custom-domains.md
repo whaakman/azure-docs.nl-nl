@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f254f4959c66aeb3eec522f31e0d8a6780358188
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Werken met aangepaste domeinen in Azure AD-toepassingsproxy
 
@@ -82,7 +82,7 @@ Alle Certificaatbeheer is momenteel door afzonderlijke toepassing pagina's er da
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Eenmalige aanmelding inschakelen](active-directory-application-proxy-sso-using-kcd.md) naar uw gepubliceerde apps met Azure AD-verificatie.
-* [Inschakelen van voorwaardelijke toegang](active-directory-application-proxy-conditional-access.md) naar uw gepubliceerde apps.
+* [Inschakelen van voorwaardelijke toegang](application-proxy-enable-remote-access-sharepoint.md) naar uw gepubliceerde apps.
 * [Uw aangepaste domeinnaam toevoegen aan Azure AD](active-directory-domains-add-azure-portal.md)
 
 

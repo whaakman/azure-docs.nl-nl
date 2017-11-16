@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d8ed395abb31a1cb41e35456ab5892a2e7c3a750
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -32,7 +32,7 @@ De onderstaande artikelen zijn goede beginpunt voor gebruikers die alleen een ko
 |:---:| --- |
 | Een inleiding tot het beheer van toepassingsproblemen Azure AD is opgelost |[Toepassingen beheren met Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
 | Een overzicht van de verschillende functies in Azure AD betrekking hebben op het inschakelen van eenmalige aanmelding definiëren wie toegang heeft tot apps en hoe gebruikers apps openen |[Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| Bekijk de verschillende stappen die betrokken zijn bij het integreren van apps in uw Azure AD |[Integratie van Azure Active Directory met toepassingen](active-directory-integrating-applications-getting-started.md)<br /><br />[Inschakelen van eenmalige aanmelding voor SaaS-Apps](active-directory-sso-integrate-saas-apps.md)<br /><br />[Toegang tot Apps beheren](active-directory-managing-access-to-apps.md) |
+| Bekijk de verschillende stappen die betrokken zijn bij het integreren van apps in uw Azure AD |[Integratie van Azure Active Directory met toepassingen](active-directory-integrating-applications-getting-started.md)<br /><br />[Inschakelen van eenmalige aanmelding voor SaaS-Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Toegang tot Apps beheren](active-directory-managing-access-to-apps.md) |
 | Een technische uitleg van hoe apps worden weergegeven in Azure AD |[Hoe en waarom toepassingen worden toegevoegd aan Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Het oplossen van artikelen
@@ -80,8 +80,8 @@ Als u toepassingen in uw particuliere netwerk die moeten worden geopend door geb
 |:---:| --- |
 | Overzicht van Azure AD-toepassingsproxy en hoe het werkt |[Een beveiligde externe toegang tot on-premises toepassingen](active-directory-application-proxy-get-started.md) |
 | Zelfstudies over het configureren van Application Proxy en hoe u uw eerste app publiceert |[Het instellen van Azure AD-toepassingsproxy](active-directory-application-proxy-enable.md)<br /><br />[Het installeren van de Connector voor toepassingsproxy van achtergrond](active-directory-application-proxy-silent-installation.md)<br /><br />[Het publiceren van toepassingen via App-Proxy](active-directory-application-proxy-publish.md)<br /><br />[Het gebruik van uw eigen domeinnaam](active-directory-application-proxy-custom-domains.md) |
-| Het inschakelen van eenmalige aanmelding en voorwaardelijke toegang voor apps die zijn gepubliceerd met toepassingsproxy |[Single-sign-on met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Voorwaardelijke toegang en toepassingsproxy](active-directory-application-proxy-conditional-access.md) |
-| Hulp bij het gebruik van Application Proxy voor de volgende scenario 's |[Hoe ter ondersteuning van Native Client-toepassingen](active-directory-application-proxy-native-client.md)<br /><br />[Het ondersteunen van Claims-compatibele toepassingen](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Hoe om toepassingen te ondersteunen die is gepubliceerd op afzonderlijke netwerken en locaties](active-directory-application-proxy-connectors.md) |
+| Het inschakelen van eenmalige aanmelding en voorwaardelijke toegang voor apps die zijn gepubliceerd met toepassingsproxy |[Single-sign-on met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Voorwaardelijke toegang en toepassingsproxy](application-proxy-enable-remote-access-sharepoint.md) |
+| Hulp bij het gebruik van Application Proxy voor de volgende scenario 's |[Hoe ter ondersteuning van Native Client-toepassingen](active-directory-application-proxy-native-client.md)<br /><br />[Het ondersteunen van Claims-compatibele toepassingen](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Hoe om toepassingen te ondersteunen die is gepubliceerd op afzonderlijke netwerken en locaties](active-directory-application-proxy-connectors-azure-portal.md) |
 | Gids voor probleemoplossing voor toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](active-directory-application-proxy-troubleshoot.md) |
 
 Toepassingsproxy is beschikbaar voor alle edities van Azure AD voor maximaal tien apps per gebruiker. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) onbeperkte toepassingen worden ondersteund. Als uw organisatie heeft [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) of [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u [groepen gebruiken voor toegang tot toepassingen toewijzen](#managing-access-to-applications).
@@ -107,10 +107,9 @@ Als u een eenmalige aanmelding tot uw apps en resources hebt ingesteld, kunt u v
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een inleiding tot de mogelijkheden voor voorwaardelijke toegang wordt geboden door Azure AD, Office365 en Intune |[Risico beheren met voorwaardelijke toegang](active-directory-conditional-access.md) |
-| Het inschakelen van voorwaardelijke toegang voor de volgende typen resources |[Voorwaardelijke toegang voor SaaS-Apps](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Voorwaardelijke toegang voor Office 365-services](active-directory-conditional-access-device-policies.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen](active-directory-conditional-access.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD](active-directory-application-proxy-conditional-access.md) |
-
-| Apparaten registreren met Azure Active Directory om het beleid voor voorwaardelijke toegang op basis van apparaten inschakelen | [Overzicht van Azure Active Directory-apparaatregistratie](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Automatische apparaatregistratie voor domein inschakelen die lid zijn van de Windows-apparaten](active-directory-conditional-access-automatic-device-registration.md)<br />— [Stappen voor Windows 8.1-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Stappen voor Windows 7-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md) |
+| Een inleiding tot de mogelijkheden voor voorwaardelijke toegang wordt geboden door Azure AD, Office365 en Intune |[Risico beheren met voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md) |
+| Het inschakelen van voorwaardelijke toegang voor de volgende typen resources |[Voorwaardelijke toegang voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Voorwaardelijke toegang voor Office 365-services](active-directory-conditional-access-device-policies.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen](active-directory-conditional-access-azure-portal.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD](application-proxy-enable-remote-access-sharepoint.md) |
+| Apparaten registreren met Azure Active Directory om het beleid voor voorwaardelijke toegang op basis van apparaten inschakelen |[Overzicht van Azure Active Directory-apparaatregistratie](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Automatische apparaatregistratie voor domein inschakelen die lid zijn van de Windows-apparaten](active-directory-conditional-access-automatic-device-registration.md)<br />— [Stappen voor Windows 8.1-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Stappen voor Windows 7-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Het gebruik van de Microsoft Authenticator-app voor verificatie in twee stappen | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
@@ -162,8 +161,8 @@ Om te beheren die toegang moeten hebben tot welke bronnen, kunt Azure Active Dir
 |:---:| --- |
 | Een overzicht van Azure AD access management-functies |[Inleiding tot het beheren van toegang tot Apps](active-directory-managing-access-to-apps.md)<br /><br />[De werking van toegangsbeheer in Azure AD](active-directory-manage-groups.md)<br /><br />[Groepen gebruiken voor het beheren van toegang tot SaaS-toepassingen](active-directory-accessmanagement-group-saasapps.md) |
 | Beheer van apps en groepen selfservice inschakelen |[Selfservice Toepassingsbeheer](active-directory-self-service-application-access.md)<br /><br />[Self-Service groepsbeheer](active-directory-accessmanagement-self-service-group-management.md) |
-| Instructies voor het instellen van de groepen in Azure AD |[Het maken van beveiligingsgroepen](active-directory-accessmanagement-manage-groups.md)<br /><br />[Het opgeven van de eigenaars van een groep](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Het gebruik van de groep 'Alle gebruikers'](active-directory-accessmanagement-dedicated-groups.md) |
-| Dynamische groepen gebruiken voor het automatisch vullen van groepslidmaatschappen met lidmaatschapsregels op basis van kenmerken |[Lidmaatschap van dynamische groep: Geavanceerde regels](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |
+| Instructies voor het instellen van de groepen in Azure AD |[Het maken van beveiligingsgroepen](active-directory-groups-create-azure-portal.md)<br /><br />[Het opgeven van de eigenaars van een groep](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Het gebruik van de groep 'Alle gebruikers'](active-directory-accessmanagement-dedicated-groups.md) |
+| Dynamische groepen gebruiken voor het automatisch vullen van groepslidmaatschappen met lidmaatschapsregels op basis van kenmerken |[Lidmaatschap van dynamische groep: Geavanceerde regels](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |
 
 Beheer van toegang van toepassing op basis van een groep is beschikbaar voor [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) en [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service groepsbeheer, selfservice Toepassingsbeheer en dynamische groepen zijn [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) functies.
 

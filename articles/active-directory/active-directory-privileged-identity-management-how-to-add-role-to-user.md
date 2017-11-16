@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1ed4fab00d5304a25d28149e2ce9adcc3168fd
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: Hoe kan ik een gebruiker toevoegen of verwijderen?
-Met Azure Active Directory (AD), een algemeen beheerder (of bedrijfsbeheerder) kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD. Dit wordt gedaan met PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`. Of ze kunnen de klassieke Azure portal gebruiken, zoals beschreven in [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles.md).
+Met Azure Active Directory (AD), een algemeen beheerder (of bedrijfsbeheerder) kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD. Dit wordt gedaan met PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`. Of ze kunnen de klassieke Azure portal gebruiken, zoals beschreven in [beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 De Azure AD Privileged Identity Management-toepassing kan bevoorrechte rol beheerders ook permanente roltoewijzingen maken. Bovendien bevoorrechte rol administrators gebruikers kunnen aanbrengen **in aanmerking komende** voor beheerdersrollen. Een in aanmerking komende beheerder kan de rol activeren wanneer nodig en vervolgens hun machtigingen verlopen zodra ze klaar bent.
 

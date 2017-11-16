@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3b20583d04a820d925260b4da574a4cb304efbe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52cd6de5b6caa215ff1726d3099cb7c49576774f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Daarom wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote oppervlak echter en is er veel voor meer informatie.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeren van de levenscyclus van de toepassing, testen, clusters en statuscontrole-modellen. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kunnen worden gebruikt voor het maken van microservices. In dit artikel bevat een uitgebreide lijst van de inhoud niet, maar koppelen aan het overzicht en ophalen van gestarte artikelen voor elk gebied van Service Fabric. 
@@ -103,7 +103,7 @@ Een [Gast uitvoerbaar bestand](service-fabric-deploy-existing-app.md) is een bes
 ## <a name="application-lifecycle"></a>Toepassingslevenscyclus
 Zoals met andere platforms wordt een toepassing op Service Fabric meestal de volgende fasen doorloopt: ontwerpen, ontwikkelen, testen, implementatie, upgrade, onderhoud en verwijderen. Service Fabric biedt uitstekende ondersteuning voor de levenscyclus van de volledige toepassing van cloud-toepassingen, van ontwikkeling tot implementatie, dagelijkse beheer en onderhoud voor uiteindelijke buiten gebruik stellen. Het service-model kan verschillende verschillende rollen onafhankelijk deelnemen aan de levenscyclus van de toepassing. [De levenscyclus van de service Fabric-toepassing](service-fabric-application-lifecycle.md) biedt een overzicht van de API's en hoe ze worden gebruikt door de verschillende rollen in de fasen van de levenscyclus van de Service Fabric-toepassing. 
 
-De volledige levenscyclus kan worden beheerd via [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [C#-API's](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java-API's](/java/api/system.fabric._application_management_client), en [REST-API's](/rest/api/servicefabric/). U kunt ook continue integratie/continue implementatie pijplijnen met hulpprogramma's zoals instellen [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) of [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
+De volledige levenscyclus kan worden beheerd via [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [C#-API's](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java-API's](/java/api/system.fabric._application_management_client), en [REST-API's](/rest/api/servicefabric/). U kunt ook continue integratie/continue implementatie pijplijnen met hulpprogramma's zoals instellen [Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) of [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
 
 De volgende video voor Microsoft Virtual Academy wordt beschreven hoe voor het beheren van de levenscyclus van uw toepassing:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

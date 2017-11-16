@@ -4,7 +4,7 @@ description: Deze tweede zelfstudie in de reeks voor virtuele StorSimple-matrix 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple virtuele matrix - inrichten in VMware implementeren
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie wordt beschreven hoe in te richten en verbinding maken met een virtueel StorSimple-matrix op een hostsysteem met VMware ESXi 5.5 en hoger. In dit artikel is van toepassing op de implementatie van het virtuele StorSimple-matrices in Azure portal en de Microsoft Azure Government Cloud.
+Deze zelfstudie wordt beschreven hoe in te richten en verbinding maken met een virtueel StorSimple-matrix op een hostsysteem met VMware ESXi 5.0, 5.5 of 6.0. In dit artikel is van toepassing op de implementatie van het virtuele StorSimple-matrices in Azure portal en de Microsoft Azure Government Cloud.
 
 U moet administrator-bevoegdheden om in te richten en verbinding maken met een virtueel apparaat. De inrichting en de initiële installatie kan ongeveer 10 minuten duren om te voltooien.
 
 ## <a name="provisioning-prerequisites"></a>Vereiste onderdelen inrichten
-De vereisten voor het inrichten van een virtueel apparaat op een hostsysteem met VMware ESXi 5.5 en hoger, zijn als volgt.
+De vereisten voor het inrichten van een virtueel apparaat op een hostsysteem met VMware ESXi 5.0, 5.5 of 6.0, zijn als volgt.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Voor de StorSimple-apparaatbeheerfunctie
 Zorg voordat u begint voor het volgende:
@@ -64,7 +64,7 @@ Als u verbinding maken met een virtueel apparaat wilt inrichten, moet u de volge
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Stap 1: Voldoe hostsysteem voldoet aan de vereisten voor minimale virtuele apparaten
 Voor het maken van een virtueel apparaat, moet u het:
 
-* Toegang tot een hostsysteem met VMware ESXi Server 5.5 en hoger.
+* Toegang tot een hostsysteem met VMware ESXi Server 5.0, 5.5 of 6.0.
 * VMware vSphere client op uw systeem voor het beheren van de ESXi-host.
 
   * Een minimum van 4 kernen.
@@ -183,6 +183,9 @@ Voer de volgende stappen uit voor het inrichten van een virtueel apparaat in de 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 De virtuele machine is nu ingericht. De volgende stap is als u wilt inschakelen op deze computer en het IP-adres.
+
+> [!NOTE]
+> U wordt aangeraden Installeer VMware tools niet op uw virtuele matrix (zoals ingericht hierboven). Installatie van VMware-hulpprogramma's leidt tot een niet-ondersteunde configuratie.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Stap 3: Het virtuele apparaat starten en het IP-adres ophalen
 Voer de volgende stappen uit om te beginnen uw virtuele apparaat en er verbinding mee maken.

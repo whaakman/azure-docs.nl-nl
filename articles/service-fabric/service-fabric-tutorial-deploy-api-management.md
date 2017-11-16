@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1238863265a227c18ebef8ac2aaeabd802f877d4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management met Service Fabric implementeren
 Deze zelfstudie maakt deel uit drie van een serie.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario is nuttig wanneer u nodig hebt voor het publiceren van API's met een groot aantal regels voor het doorsturen naar uw back-end Service Fabric-services. Deze zelfstudie ziet u het instellen van [Azure API Management](../api-management/api-management-key-concepts.md) met Service Fabric om verkeer te leiden naar een back-end-service in Service Fabric.  Wanneer u klaar bent, hebt u API Management geïmplementeerd op een VNET, een API-bewerking voor het verzenden van verkeer naar de back-end-stateless services geconfigureerd. Zie voor meer informatie over Azure API Management-scenario's met Service Fabric, de [overzicht](service-fabric-api-management-overview.md) artikel.
@@ -235,7 +235,7 @@ Start Visual Studio als beheerder en maak een ASP.NET Core-service:
 
     Dit is het eindpunt dat u via API Management in Azure gebruiken.
 
- 7. Ten slotte de toepassing aan het cluster in Azure implementeren. [Met Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), met de rechtermuisknop op het toepassingsproject en selecteert u **publiceren**. Geef uw clustereindpunt (bijvoorbeeld `mycluster.southcentralus.cloudapp.azure.com:19000`) om de toepassing aan uw Service Fabric-cluster in Azure te implementeren.
+ 7. Ten slotte de toepassing aan het cluster in Azure implementeren. In Visual Studio met de rechtermuisknop op het toepassingsproject en selecteer **publiceren**. Geef uw clustereindpunt (bijvoorbeeld `mycluster.southcentralus.cloudapp.azure.com:19000`) om de toepassing aan uw Service Fabric-cluster in Azure te implementeren.
 
 Een stateless service met de naam van ASP.NET Core `fabric:/ApiApplication/WebApiService` moet nu worden uitgevoerd in het Service Fabric-cluster in Azure.
 

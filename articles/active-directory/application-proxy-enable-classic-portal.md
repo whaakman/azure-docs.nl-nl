@@ -15,11 +15,11 @@ ms.date: 07/02/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d81e495b9cacbe81f375b09bfcad23aadb22e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="enable-application-proxy-in-the-classic-portal-and-download-connectors"></a>Toepassingsproxy inschakelen in de klassieke portal en download connectors
 Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
@@ -94,4 +94,4 @@ Als u de connector wilt verwijderen, verwijdert u de connectorservice en de upda
 ## <a name="next-steps"></a>Volgende stappen
 U bent nu klaar om [toepassingen te publiceren met toepassingsproxy](active-directory-application-proxy-publish.md).
 
-Als u toepassingen op afzonderlijke netwerken of verschillende locaties hebt, kunt u connectorgroepen gebruiken om de andere connectoren in te delen in logische eenheden. Meer informatie over [Working with Application Proxy connectors](active-directory-application-proxy-connectors.md) (Werken met connectoren voor toepassingsproxy).
+Als u toepassingen op afzonderlijke netwerken of verschillende locaties hebt, kunt u connectorgroepen gebruiken om de andere connectoren in te delen in logische eenheden. Meer informatie over [Working with Application Proxy connectors](active-directory-application-proxy-connectors-azure-portal.md) (Werken met connectoren voor toepassingsproxy).

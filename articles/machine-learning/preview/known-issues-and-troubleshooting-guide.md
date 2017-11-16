@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -84,8 +84,21 @@ Als u in Azure ML-Workbench werkt, kunt u ook verzenden ons een frons (of een gl
 
 - Bibliotheek RevoScalePy wordt alleen ondersteund op Windows- en Linux (in Docker-containers). Dit wordt niet ondersteund op Mac OS.
 
-## <a name="delete-experimentation-account"></a>Experimenteren Account verwijderen
-U kunt de CLI gebruiken om een Account experimenteren te verwijderen, maar u moet de onderliggende werkruimten en de onderliggende projecten in deze werkruimten onderliggende eerst verwijderen.
+## <a name="cant-update-workbench"></a>Kan de Workbench niet bijwerken.
+Wanneer een nieuwe update beschikbaar is, wordt de startpagina van de app Workbench een bericht weergegeven waarin u geïnformeerd over de nieuwe update. Hier ziet u een update-badge die zijn opgenomen in de linkerbenedenhoek van de app op het belpictogram. Klik op de badge en volg de installatiewizard om de update te installeren. Als u de melding niet ziet, probeer het opnieuw opstarten van de app. Als u de melding van updates na opnieuw opstarten niet ziet, is het mogelijk dat er enkele oorzaken.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>U bent Workbench starten vanuit een vastgemaakt snelkoppeling op de taakbalk
+U kunt de update al hebt geïnstalleerd. Maar uw vastgemaakte snelkoppeling naar de oude bits op de schijf nog steeds wijst. U kunt dit controleren door te bladeren naar de `%localappdata%/AmlWorkbench` map en om te zien als u de meest recente versie geïnstalleerd er hebt en onderzoeken van de eigenschap van de vastgemaakte snelkoppeling om te zien waar het is aan te wijzen. Als geverifieerd, de oude snelkoppeling hoeft te verwijderen, Workbench starten vanuit het menu Start en eventueel een nieuwe vastgemaakt snelkoppeling maken op de taakbalk.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>U hebt geïnstalleerd via de koppeling 'Azure ML-Workbench installeren' aan een Windows-DSVM Workbench
+Er is helaas geen eenvoudig correctie dit project. U hebt de volgende stappen uitvoeren om te verwijderen van de geïnstalleerde bits en het meest recente installatieprogramma om nieuwe-Installeer de Workbench te downloaden: 
+   - de map verwijderen`C:\Users\<Username>\AppData\Local\amlworkbench`
+   - script verwijderen`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - verwijderen van snelkoppeling op het bureaublad waarmee het bovenstaande script wordt gestart
+   - het installatieprogramma https://aka.ms/azureml-wb-msi downloaden en te installeren.
+
+## <a name="cant-delete-experimentation-account"></a>Experimenteren Account verwijderen niet
+U kunt de CLI gebruiken om een Account experimenteren te verwijderen, maar u moet de onderliggende werkruimten en de onderliggende projecten in deze werkruimten onderliggende eerst verwijderen. Anders wordt er een fout opgetreden.
 
 ```azure-cli
 # delete a project
@@ -100,9 +113,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 U kunt ook de projecten en werkruimten van in de Workbench-app verwijderen.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Kan bestand niet openen als project in OneDrive
+Als u Windows 10 vallen auteurs Update hebt en uw project is gemaakt in een lokale map die is toegewezen aan OneDrive, vindt u mogelijk dat u een bestand niet in de Workbench openen. Dit is vanwege een fout die door de vallen auteurs Update zorgt ervoor dat de node.js-code in een map OneDrive mislukken. De oplossingen snel worden opgelost door Windows update, maar tot die tijd, maak geen projecten in een map OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>De bestandsnaam te lang in Windows
-Als u gebruikmaakt van Workbench op Windows, kunt u de standaard maximaal 260 tekens bestand naam lengtelimiet, die surface kan als iets misleiden 'systeem kan het opgegeven pad niet vinden' fout kunt tegenkomen. U kunt een registersleutelinstelling waarmee veel langer pad bestandsnaam wijzigen. Bekijk [in dit artikel](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) voor meer informatie over het instellen van de _MAX_PATH_ registersleutel.
+Als u de Workbench van Windows gebruikt, is het mogelijk uitgevoerd in de standaard maximaal 260 tekens bestand naam lengtelimiet, die surface kan als een fout 'systeem kan het opgegeven pad niet vinden'. U kunt een registersleutelinstelling waarmee veel langer pad bestandsnaam wijzigen. Bekijk [in dit artikel](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) voor meer informatie over het instellen van de _MAX_PATH_ registersleutel.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker-fout ' lezen: verbinding geweigerd '
 Wanneer u deze uitvoert op basis van een lokale Docker-container, soms mogelijk ziet u de volgende fout: 

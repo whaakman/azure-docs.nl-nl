@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -57,7 +57,7 @@ Nee, kunt u uw toepassing overal (in de cloud of on-premises) hosten. Alle moet 
 Voordat u opent 'Azure AD B2C' in het menu links van de Azure portal, moet u overschakelen naar de map die u wilt beheren.  Overschakelen van mappen door te klikken op uw identiteit in de rechterbovenhoek van de Azure-portal en kies vervolgens een map in de vervolgkeuzelijst wordt weergegeven.  Zie voor stapsgewijze met afbeeldingen, [navigeren naar Azure AD B2C-instellingen](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hoe aanpassen bevestigingsmails (de inhoud en de ' uit: ' veld) die door Azure AD B2C verzonden?
-U kunt de [functie huisstijl](../active-directory/active-directory-add-company-branding.md) voor het aanpassen van de inhoud van de verificatie-e-mailberichten. In het bijzonder kunnen deze twee elementen van de e-mail worden aangepast:
+U kunt de [functie huisstijl](../active-directory/customize-branding.md) voor het aanpassen van de inhoud van de verificatie-e-mailberichten. In het bijzonder kunnen deze twee elementen van de e-mail worden aangepast:
 
 * **Logo banner**: weergegeven in de rechterbenedenhoek.
 * **De achtergrondkleur**: weergegeven aan de bovenkant.
@@ -98,9 +98,9 @@ Lees dit artikel over [externe identiteiten](../active-directory/active-director
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Welke rapportage- en controle van functies Azure AD B2C biedt? Zijn ze hetzelfde als in Azure AD Premium?
 Nee, Azure AD B2C ondersteunt geen dezelfde set rapporten als Azure AD Premium. Er zijn echter veel commonalities:
 
-* De aanmeldingspagina rapporten bieden een record van elke aanmelden met verminderde details.
-* Controlerapporten zijn beschikbaar in de Azure-portal onder Azure Active Directory > activiteit controlelogboeken > Kies B2C en filters naar wens toepassen. Zowel admin-activiteit als activiteit van de toepassing worden behandeld. 
-* Een gebruiksrapport die betrekking hebben op het aantal gebruikers, aantal aanmeldingen en volume van MFA is beschikbaar op [gebruik rapportage-API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Aanmelden rapporten** zijn alleen beschikbaar in de Azure-portal (Azure Active Directory > activiteit > aanmeldingen) en zijn niet beschikbaar is via de Graph API. Ze bieden een record van elke aanmelden met verminderde details.
+* **Rapporten van de audit** zijn alleen beschikbaar in de Azure-portal (Azure Active Directory > activiteit > controlelogboeken) en zijn niet beschikbaar is via de Graph API. Deze omvatten zowel admin-activiteit als activiteit van de toepassing. 
+* **Gebruiksrapporten** zijn alleen beschikbaar via de [gebruik rapportage-API](active-directory-b2c-reference-usage-reporting-api.md) en zijn niet beschikbaar is via de Azure-portal. Ze zijn het aantal gebruikers, aantal aanmeldingen en volume van MFA. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Kan ik lokalisatie van de gebruikersinterface van pagina's die worden bediend door Azure AD B2C? Welke talen worden ondersteund?
 Ja.  Meer informatie over [taal aanpassing](active-directory-b2c-reference-language-customization.md), deze bevindt zich in de openbare preview.  Wij vertalingen voor 36 talen en u kunt een willekeurige tekenreeks aan uw behoeften te overschrijven.

@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Sjablonen voor Azure-beleid
 
@@ -67,6 +67,7 @@ De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze 
 | [DB niveau threat detectie instelling controleren](scripts/audit-db-threat-det-setting.md) | Audits waarschuwing beleidsregels voor de beveiliging van SQL database als deze beleidsregels zijn niet ingesteld op de opgegeven status. U een waarde die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.  |
 | [Niveau van de SQL Server audit instelling controleren](scripts/audit-sql-ser-leve-audit-setting.md) | Hiermee kunt u SQL server audit-instellingen als deze instellingen komen niet overeen met een opgegeven waarde. U een waarde die aangeeft of controle-instellingen moeten worden ingeschakeld of uitgeschakeld. |
 | [Detectie-serverinstelling niveau threat controleren](scripts/audit-sql-ser-threat-det-setting.md) | Audits waarschuwing beleidsregels voor de beveiliging van SQL database als deze beleidsregels zijn niet ingesteld op de opgegeven status. U een waarde die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.  |
+| [Er is geen beheerder van Azure Active Directory controleren](scripts/audit-no-aad-admin.md) | Audit wanneer er geen Azure Active Directory-beheerder die is toegewezen aan de SQL-server. |
 | [SQL DB-SKU's toegestaan](scripts/allowed-sql-db-skus.md) | Vereist SQL-databases gebruiken een goedgekeurde SKU. U opgeven een matrix van toegestane SKU-id's of een matrix van toegestane SKU-namen. |
 |**Storage**||
 | [Toegestane SKU's voor virtuele Machines en Opslagaccounts](scripts/allowed-skus-storage.md) | Vereist dat virtuele machines en opslagaccounts goedgekeurde SKU's gebruiken. Maakt gebruik van ingebouwde beleid om ervoor te zorgen goedgekeurd SKU's. U geeft een matrix van goedgekeurde virtuele machines SKU's en een matrix van goedgekeurde opslagaccount SKU's. |
