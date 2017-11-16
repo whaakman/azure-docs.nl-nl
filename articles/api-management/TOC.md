@@ -53,7 +53,7 @@
 ### [Een beheerde service-identiteit gebruiken](api-management-howto-use-managed-service-identity.md)
 ### Integreren met Service Fabric
 #### [Overzicht](../service-fabric/service-fabric-api-management-overview.md)
-#### [Snel starten](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [Zelfstudie](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)

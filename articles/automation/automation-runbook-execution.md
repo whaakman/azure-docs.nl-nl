@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/17/2017
-ms.author: bwren
-ms.openlocfilehash: 6f627140e6c5583636f7979889f74e489fe66496
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/15/2017
+ms.author: magoedte;bwren
+ms.openlocfilehash: 22852fed184022b4eae298d6cc531fd383eff552
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
-Wanneer u een runbook in Azure Automation start, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers worden gedeeld door meerdere Azure-accounts, zijn taken van andere Automation-accounts geïsoleerd van elkaar. U doet geen hebben controle over welke worker-services de aanvraag voor de taak.  Één runbook kan meerdere taken tegelijk actief hebben. Wanneer u de lijst met runbooks in de Azure portal weergeeft, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook weergeven om de status van elk bijhouden. Zie voor een beschrijving van de status van een andere taak [status van een taak](#job-statuses).
+Wanneer u een runbook in Azure Automation start, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers worden gedeeld door meerdere Azure-accounts, zijn taken van andere Automation-accounts geïsoleerd van elkaar. U doet geen hebben controle over welke worker-services de aanvraag voor de taak. Één runbook kan meerdere taken tegelijk actief hebben.  De omgeving worden uitgevoerd voor de taken van hetzelfde Automation-Account kan opnieuw worden gebruikt. Wanneer u de lijst met runbooks in de Azure portal weergeeft, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook weergeven om de status van elk bijhouden. Voor een beschrijving van de status van een andere taak [status van een taak](#job-statuses).
 
 Het volgende diagram toont de levenscyclus van een runbooktaak voor [grafische runbooks](automation-runbook-types.md#graphical-runbooks) en [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -39,16 +39,16 @@ De volgende tabel beschrijft de verschillende statussen die mogelijk voor een ta
 | Status | Beschrijving |
 |:--- |:--- |
 | Voltooid |De taak is voltooid. |
-| Is mislukt |Voor [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md), het runbook kan niet worden gecompileerd.  Voor [PowerShell-Script runbooks](automation-runbook-types.md), het runbook kan niet worden gestart of de taak is een uitzondering opgetreden. |
+| Mislukt |Voor [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md), het runbook kan niet worden gecompileerd.  Voor [PowerShell-Script runbooks](automation-runbook-types.md), het runbook kan niet worden gestart of de taak is een uitzondering opgetreden. |
 | Is mislukt, wacht voor bronnen |De taak is mislukt omdat het werkproces de [evenredige verdeling](#fairshare) driemaal beperken en gestart vanaf het dezelfde controlepunt of vanaf het begin van het runbook elke keer. |
-| In de wachtrij |De taak is in afwachting voor bronnen op een Automation worker beschikbaar zijn, zodat het kan worden gestart. |
+| In wachtrij |De taak is in afwachting voor bronnen op een Automation worker beschikbaar zijn, zodat het kan worden gestart. |
 | Starting |De taak is toegewezen aan een werknemer en het systeem is bezig te starten. |
 | Hervatten |Het systeem is bezig de taak wordt hervat nadat deze is onderbroken. |
-| Running |De taak wordt uitgevoerd. |
+| Actief |De taak wordt uitgevoerd. |
 | Wordt uitgevoerd, wachten op resources |De taak is verwijderd omdat het werkproces de [evenredige verdeling](#fairshare) limiet. Het hervatten snel uit de laatste controlepunt. |
 | Stopped |De taak is gestopt door de gebruiker voordat deze is voltooid. |
 | Stopping |Het systeem is bezig te stoppen van de taak. |
-| Onderbroken |De taak is onderbroken door de gebruiker, door het systeem of door een opdracht in het runbook. Een onderbroken taak kan opnieuw worden gestart en hervat vanaf het laatste controlepunt of vanaf het begin van het runbook als er geen controlepunten. Het runbook wordt alleen door het systeem worden onderbroken wanneer er een uitzondering optreedt. ErrorActionPreference is standaard ingesteld op **doorgaan**, wil zeggen dat de taak wordt uitgevoerd op een fout. Als deze voorkeursvariabele is ingesteld op **stoppen**, en vervolgens de taak wordt onderbroken op een fout opgetreden.  Van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
+| Uitgesteld |De taak is onderbroken door de gebruiker, door het systeem of door een opdracht in het runbook. Een onderbroken taak kan opnieuw worden gestart en hervat vanaf het laatste controlepunt of vanaf het begin van het runbook als er geen controlepunten. Het runbook wordt alleen door het systeem worden onderbroken wanneer er een uitzondering optreedt. ErrorActionPreference is standaard ingesteld op **doorgaan**, wil zeggen dat de taak wordt uitgevoerd op een fout. Als deze voorkeursvariabele is ingesteld op **stoppen**, en vervolgens de taak wordt onderbroken op een fout opgetreden.  Van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
 | Onderbreken |Het systeem probeert te onderbreken van de taak op verzoek van de gebruiker. Het runbook moet het volgende controlepunt bereiken voordat deze kan worden onderbroken. Als het laatste controlepunt al doorgegeven, is voordat deze kan worden onderbroken voltooid.  Van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Status van de Azure-portal weergeven

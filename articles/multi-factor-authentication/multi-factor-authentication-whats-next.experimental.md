@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: joflore
-ms.openlocfilehash: 527bdd492561ab11784a0b23384d17e055cb3f5c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 31b32079de19c6c9822c388f60269b07a8c70198
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 Dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat u actief zijn.  Deze heeft verschillende onderwerpen die u helpen bij het Maak optimaal gebruik van Azure multi-factor Authentication.  Niet al deze functies zijn beschikbaar in elke versie van Azure multi-factor Authentication.
@@ -206,7 +206,7 @@ Verificatie in twee stappen is vereist voor de browser stromen of goedgekeurde I
 
 ![Goedgekeurde IP-adressen](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
-## <a name="app-passwords"></a>App-wachtwoorden
+## <a name="app-passwords"></a>Appwachtwoorden
 Bepaalde apps, zoals Office 2010 of ouder en Apple Mail ondersteunen geen verificatie in twee stappen. Ze zijn niet geconfigureerd voor het accepteren van een tweede verificatie. Voor het gebruik van deze apps, moet u 'app-wachtwoorden' gebruiken in plaats van uw traditionele wachtwoord. Het app-wachtwoord kunt de toepassing voor verificatie in twee stappen overslaan en doorgaan met werken.
 
 > [!NOTE]
@@ -308,7 +308,7 @@ Wanneer uw gebruikers hun account voor MFA registreren, kiest u de methode voork
 |:--- |:--- |
 | Bellen naar telefoon |Een geautomatiseerd telefoongesprek plaatst. De gebruiker beantwoordt het gesprek en drukt # in op de toetsenblok van de telefoon om te verifiëren. Dit telefoonnummer is niet gesynchroniseerd met lokale Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd te beantwoorden aan de tekst, het bericht met de verificatiecode of de verificatiecode invoeren in de interface voor aanmelden. |
-| Melding via de mobiele app |Een pushmelding verzendt naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. <br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Melding via mobiele app |Een pushmelding verzendt naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. <br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verificatiecode via mobiele app |De Microsoft Authenticator-app genereert elke 30 seconden een nieuwe OATH-verificatiecode uit. De gebruiker voert deze bevestigingscode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Hoe verificatiemethoden in-of uitschakelen

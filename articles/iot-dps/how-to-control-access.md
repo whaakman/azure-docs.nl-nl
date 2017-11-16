@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 7e98df582baeb4a15b772351802c63fd90303c77
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Toegang tot Azure IoT Hub apparaat inrichtingsservice beheren
 
@@ -36,7 +36,7 @@ U moet de juiste machtigingen voor toegang tot een van de inrichting service-ein
 
 U kunt verlenen [machtigingen](#device-provisioning-service-permissions) in de volgende manieren:
 
-* **Gedeeld toegangsbeleid autorisatie**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#device-provisioning-service-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [apparaat inrichten Service REST API's] [lnk-resource-serviceprovider-API's]. Een nieuwe inrichting service heeft het standaardbeleid voor het volgende:
+* **Gedeeld toegangsbeleid autorisatie**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#device-provisioning-service-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [apparaat inrichten Service REST-API's][lnk-resource-provider-apis]. Een nieuwe inrichting service heeft het standaardbeleid voor het volgende:
 
   * **provisioningserviceowner**: beleid met alle machtigingen.
 
@@ -192,3 +192,4 @@ De volgende tabel bevat de machtigingen die u kunt toegang tot uw IoT-Service vo
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

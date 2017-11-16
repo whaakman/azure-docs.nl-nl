@@ -1,6 +1,6 @@
 ---
-title: Architectuur voor hoge beschikbaarheid van virtuele Machines in Azure en scenario's voor SAP NetWeaver | Microsoft Docs
-description: Architectuur van hoge beschikbaarheid (HA) en scenario's voor SAP NetWeaver op virtuele Machines in Azure
+title: Architectuur van de hoge beschikbaarheid Azure virtuele Machines en scenario's voor SAP NetWeaver | Microsoft Docs
+description: Architectuur van hoge beschikbaarheid en scenario's voor SAP NetWeaver op Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 867fe2835418a48e4e616d8137ba9fa4182c8fb7
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 31f3765d807882e65a247819a5999c191f9e7ac5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Architectuur van hoge beschikbaarheid en scenario's voor SAP NetWeaver
 
@@ -228,201 +228,185 @@ ms.lasthandoff: 10/16/2017
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
-## <a name="definition-of-terminologies"></a>Definitie van de terminologie
+## <a name="terminology-definitions"></a>Termen die
 
-De term **hoge beschikbaarheid (HA)** is gerelateerd aan een reeks technologieën waarmee IT onderbrekingen minimaliseert door zakelijke continuïteit van de IT-services door middel van redundante, fouttolerant, of failover beveiligde onderdelen in de **dezelfde** Datacenter. In ons geval binnen een Azure-regio.
+**Hoge beschikbaarheid**: verwijst naar een reeks technologieën waarmee IT-onderbrekingen minimaliseren door zakelijke continuïteit van de IT-services door middel van redundante, fouttolerant of failover beveiligd onderdelen in de *dezelfde*Datacenter. In ons geval wordt het datacenter deel uitmaakt van een Azure-regio.
 
-**Herstel na noodgeval (DR)** is ook gericht Minimalisatie van het aantal onderbreking van de IT-services en hun herstel maar meerdere **verschillende** datacenters bevinden kilometers verwijderd honderden. In ons geval meestal tussen verschillende Azure-regio's binnen dezelfde geopolitieke regio of als tot stand gebracht door u als klant.
+**Herstel na noodgevallen**: verwijst ook naar het minimaliseren van onderbreking van de IT-services en hun is hersteld, maar meerdere *verschillende* datacenters die mogelijk honderden mijl weg van elkaar. In ons geval kunnen de-datacenters zich bevinden in verschillende Azure-regio's binnen dezelfde geopolitieke regio of in de locaties, zoals ingesteld door u als klant.
 
 
 ## <a name="overview-of-high-availability"></a>Overzicht van hoge beschikbaarheid
-We kunnen de discussie over SAP hoge beschikbaarheid in Azure in drie delen gescheiden:
+SAP hoge beschikbaarheid in Azure kan worden onderverdeeld in drie typen:
 
-* **Hoge beschikbaarheid van Azure-infrastructuur**, bijvoorbeeld HA van compute (VM's), netwerk, opslag, enz. en de voordelen voor de beschikbaarheid van de SAP verhogen.
+* **Hoge beschikbaarheid van Azure-infrastructuur**: 
 
-* **Met behulp van Azure-infrastructuur VM opnieuw op om u te bereiken 'Hogere beschikbaarheid' van SAP-toepassingen**
+    Hoge beschikbaarheid kan bijvoorbeeld compute (VM's), netwerk of opslag en de voordelen voor het verhogen van de beschikbaarheid van SAP-toepassingen.
 
-  Als u besluit geen gebruik van functies zoals Windows Server Failover Clustering (WSFC)- of pacemaker heeft op Linux te, wordt Azure virtuele machine opnieuw opstarten gebruikt om te beschermen tegen de geplande en ongeplande uitval van de fysieke server Azure-infrastructuur en de algehele een SAP-systeem onderliggende Azure-platform.
+* **Met behulp van Azure-infrastructuur VM start opnieuw op om te bereiken *hogere beschikbaarheid* van SAP-toepassingen**: 
 
+    Als u besluit geen gebruik van functies zoals Windows Server Failover Clustering (WSFC)- of pacemaker heeft op Linux te, wordt opnieuw opstarten van virtuele machine in Azure gebruikt. Het beveiligt SAP-systemen tegen de geplande en ongeplande uitval van de fysieke server Azure-infrastructuur en algemene onderliggende Azure-platform.
 
-* **Hoge beschikbaarheid voor SAP-toepassing**
+* **Hoge beschikbaarheid van SAP**: 
 
-  Als u wilt bereiken volledige SAP hoge beschikbaarheid van het systeem, moeten we alle kritieke SAP systeemonderdelen, bijvoorbeeld beveiligen:
-  * Redundante **SAP-toepassingsservers**, en
-  * Unieke onderdelen (bijvoorbeeld **fouttolerantie (SPOF)**) zoals
-    * **SAP-(A) exemplaar SCS** en
-    *  **DBMS**.
+    Als u wilt bereiken volledige SAP hoge beschikbaarheid van het systeem, moet u alle kritieke SAP-systeemonderdelen beveiligen. Bijvoorbeeld:
+    * Redundante SAP-toepassingsservers.
+    * Unieke onderdelen. Een voorbeeld is mogelijk een potentieel probleem (SPOF) onderdeel, zoals een SAP ASC's / SCS-exemplaar of een databasebeheersysteem (DBMS).
 
+SAP hoge beschikbaarheid in Azure verschilt van SAP hoge beschikbaarheid in een on-premises fysieke of virtuele omgeving. Het volgende artikel [SAP NetWeaver hoge beschikbaarheid en zakelijke continuïteit in virtuele omgevingen met VMware en Hyper-V op Microsoft Windows] [ sap-ha-bc-virtual-env-hyperv-vmware-white-paper] beschrijft standaard SAP hoge beschikbaarheid configuraties in gevirtualiseerde omgevingen in Windows.
 
-SAP hoge beschikbaarheid in Azure heeft enkele verschillen in vergelijking met SAP hoge beschikbaarheid in een on-premises fysieke of virtuele omgeving. Het volgende artikel [SAP NetWeaver hoge beschikbaarheid en zakelijke continuïteit in virtuele omgevingen met VMware en Hyper-V op Microsoft Windows] [ sap-ha-bc-virtual-env-hyperv-vmware-white-paper] beschrijft standaard SAP hoge beschikbaarheid configuraties in gevirtualiseerde omgevingen in Windows.
-
-Er is geen sapinst geïntegreerd SAP-HA configuratie voor Linux zoals deze voor Windows bestaat. Met betrekking tot SAP HA on-premises voor Linux meer informatie vinden in [hoge beschikbaarheid partnergegevens][sap-ha-partner-information].
+Er is geen configuratie SAP hoge beschikbaarheid sapinst geïntegreerd voor Linux omdat er voor Windows. Zie voor meer informatie over SAP hoge beschikbaarheid lokale voor Linux [hoge beschikbaarheid partnergegevens][sap-ha-partner-information].
 
 ## <a name="azure-infrastructure-high-availability"></a>Hoge beschikbaarheid van Azure-infrastructuur
 
-### <a name="single-instance-virtual-machine-sla"></a>Virtuele Machine SLA voor één exemplaar
+### <a name="sla-for-single-instance-virtual-machines"></a>SLA voor single instance virtuele machines
 
-Er is een enkel VM SLA van 99,9% met premium-opslag. Als u een idee hoe de beschikbaarheid van één VM als volgt uitzien, kunt u het product van de verschillende beschikbare [Azure Service Level Agreements][azure-sla].
+Er is een enkel VM SLA van 99,9% met premium-opslag. Als u een idee van wat de beschikbaarheid van een enkele virtuele machine zijn, kunt u het product van de verschillende beschikbare [Azure Service Level Agreements][azure-sla].
 
-De basis voor de berekening is 30 dagen per maand of 43.200 minuten. Daarom 0,05% uitvaltijd overeenkomt met 21,6 minuten. De beschikbaarheid van de verschillende services Vermenigvuldig zoals gebruikelijk in de volgende manier:
+De basis voor de berekening is 30 dagen per maand of 43.200 minuten. Een uitvaltijd 0,05% komt bijvoorbeeld overeen 21,6 minuten. Zoals gewoonlijk wordt de beschikbaarheid van de verschillende services berekend op de volgende manier:
 
 (Beschikbaarheidservice #1/100) * (beschikbaarheidservice #2/100) * (beschikbaarheidservice #3/100) \*...
 
-Zoals:
+Bijvoorbeeld:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0.9975 of een algemene beschikbaarheid van 99.75%.
 
-### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Meerdere exemplaren van virtuele Machines in dezelfde Beschikbaarheidsset
-Voor alle virtuele Machines die twee of meer exemplaren die zijn geïmplementeerd in dezelfde **Beschikbaarheidsset**, wordt gegarandeerd dat u moet verbinding met virtuele Machine ten minste één exemplaar ten minste 99,95% van de tijd.
+### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Meerdere exemplaren van virtuele machines in dezelfde beschikbaarheidsset
+Voor alle virtuele machines die twee of meer exemplaren die zijn geïmplementeerd in dezelfde *beschikbaarheidsset*, wordt gegarandeerd dat u de verbinding van de virtuele machine met ten minste één exemplaar ten minste 99,95% van de tijd hebt.
 
-Als twee of meer virtuele machines deel van dezelfde Beschikbaarheidsset uitmaken, elke virtuele machine in de beschikbaarheidsset is toegewezen een **updatedomein** en een **foutdomein** door het onderliggende Azure-platform.
+Als twee of meer virtuele machines deel van dezelfde beschikbaarheidsset uitmaken, elke virtuele machine in de beschikbaarheidsset is toegewezen een *updatedomein* en een *foutdomein* door het onderliggende Azure-platform.
 
-**Fault-domeinen** garandeert dat virtuele machines zijn geïmplementeerd op verschillende hardware die geen algemene power-bron- en switch delen. Wanneer niet-geplande uitvaltijd van servers, netwerkswitch of stroombron, slechts één virtuele machine wordt beïnvloed.
+* **Bijwerken van domeinen** garanderen dat meerdere virtuele machines niet op hetzelfde moment tijdens het geplande onderhoud van een Azure-infrastructuur worden opgestart. Slechts één virtuele machine opnieuw is gestart op een tijdstip.
 
-**Bijwerken van domeinen** wordt gegarandeerd dat verschillende virtuele machines niet op hetzelfde moment tijdens het geplande onderhoud van de Azure-infrastructuur worden opgestart, maar slechts één virtuele machine opnieuw is gestart op een tijdstip.
+* **Fault-domeinen** garanderen dat de virtuele machines zijn geïmplementeerd op hardware-onderdelen die geen een gemeenschappelijke power-bron- en switch delen. Bij servers, een netwerkswitch of een stroombron een niet-geplande uitvaltijd, wordt slechts één virtuele machine wordt beïnvloed.
 
 Zie voor meer informatie [de beschikbaarheid van Windows virtuele machines in Azure beheren][azure-virtual-machines-manage-availability].
 
-Beschikbaarheidsset wordt gebruikt voor het bereiken van maximale beschikbaarheid van:
+Een beschikbaarheidsset wordt gebruikt voor het bereiken van maximale beschikbaarheid van:
 
-* Redundante SAP-toepassingsservers  
+* Redundante SAP-toepassingsservers.  
+* Clusters met twee of meer knooppunten (bijvoorbeeld VM's) die SPOFs zoals een SAP ASC's / SCS-exemplaar of een DBMS beveiligen.
 
-* Clusters met twee of meer knooppunten (bijvoorbeeld VM's) die SPOFs beveiligen, zoals SAP (A) SCS-exemplaar en DBMS
+### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Geplande en ongeplande onderhoud van virtuele machines
 
-### <a name="virtual-machine-vm-planned-and-unplanned-maintenance"></a>Virtuele Machine (VM) geplande en niet-gepland onderhoud
+Twee soorten gebeurtenissen van de Azure-platform kunnen invloed hebben op de beschikbaarheid van uw virtuele machines:
 
-Er zijn twee soorten gebeurtenissen van Azure-platform die kunnen invloed hebben op de beschikbaarheid van uw virtuele machines: gepland onderhoud en niet-gepland onderhoud.
+* **Gepland onderhoud** gebeurtenissen zijn periodieke updates door Microsoft is gemaakt voor het onderliggende Azure-platform. De updates verbeteren de algehele betrouwbaarheid, prestaties en beveiliging van de platforminfrastructuur die op uw virtuele machines worden uitgevoerd.
 
-* **Gepland onderhoud** gebeurtenissen zijn periodieke updates die zijn aangebracht door Microsoft in de onderliggende Azure-platform voor het verbeteren van de algehele betrouwbaarheid, prestaties en beveiliging van de platforminfrastructuur die op uw virtuele machines worden uitgevoerd.
-
-* **Niet-gepland onderhoud** gebeurtenissen optreden wanneer de hardware of fysieke infrastructuur onderliggende uw virtuele machine een fout in een bepaalde manier opgetreden is. Voorbeelden hiervan zijn lokale netwerkproblemen, lokale schijfdefecten of andere defecten op rack-niveau. Wanneer een dergelijke fout wordt gedetecteerd, is de Azure-platform automatisch migratie van uw virtuele machine van de slechte fysieke server die als host fungeert voor uw virtuele machine naar een gezonde fysieke server. Dergelijke gebeurtenissen zijn zeldzaam, maar kunnen er ook toe leiden dat uw virtuele machine opnieuw moet opstarten.
+* **Niet-gepland onderhoud** gebeurtenissen optreden wanneer de hardware of fysieke infrastructuur onderliggende uw virtuele machine op een bepaalde manier is mislukt. Het kan lokale netwerkfouten, lokale schijf die uitvalt of andere fouten voor het niveau van rack bevatten. Wanneer een dergelijke fout wordt gedetecteerd, worden uw virtuele machine automatisch gemigreerd met de Azure-platform van de slechte fysieke server die als host fungeert voor uw virtuele machine naar een gezonde fysieke server. Dergelijke gebeurtenissen zijn zeldzame, maar ze mogelijk ook de virtuele machine opnieuw op te starten.
 
 Zie voor meer informatie [de beschikbaarheid van Windows virtuele machines in Azure beheren][azure-virtual-machines-manage-availability].
 
 ### <a name="azure-storage-redundancy"></a>Azure Storage redundantie
-De gegevens in uw Microsoft Azure Storage-Account worden altijd gerepliceerd voor duurzaamheid en hoge beschikbaarheid, voldoen aan de SERVICEOVEREENKOMST van Azure Storage zelfs met betrekking tot tijdelijke hardwarefouten.
+De gegevens in uw storage-account worden altijd gerepliceerd voor duurzaamheid en hoge beschikbaarheid, voldoen aan de SERVICEOVEREENKOMST van Azure Storage zelfs met betrekking tot tijdelijke hardwarefouten.
 
-Omdat Azure Storage is het houden van drie afbeeldingen van de gegevens standaard, zijn RAID 5- of RAID1 over meerdere Azure-schijven niet nodig.
+Omdat Azure Storage drie afbeeldingen van de gegevens standaard het gebruik van RAID-5 of RAID 1 over meerdere Azure-schijven is niet nodig houdt.
 
 Zie voor meer informatie [Azure Storage-replicatie][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
-Beheerde schijven zijn een nieuwe brontype in Azure Resource Manager die kunnen worden gebruikt in plaats van VHD's die zijn opgeslagen in Azure Storage-Accounts. Beheerde schijven automatisch zijn afgestemd op de Beschikbaarheidsset van deze zijn gekoppeld aan virtuele machine en daarom verhoogt de beschikbaarheid van uw virtuele machine en de services die worden uitgevoerd op de virtuele machine.
+Beheerde schijven is een nieuwe brontype in Azure Resource Manager die kunnen worden gebruikt in plaats van de virtuele harde schijven (VHD's) die zijn opgeslagen in Azure storage-accounts. Beheerde schijven wordt automatisch uitgelijnd met de beschikbaarheidsset van deze zijn gekoppeld aan virtuele machine. Ze verbeteren de beschikbaarheid van uw virtuele machine en de services die worden uitgevoerd bij.
+
 Zie voor meer informatie [overzicht van Azure beheerd schijven][azure-storage-managed-disks-overview].
 
-We raden je aan u beheerde schijf gebruiken, omdat ze de implementatie en beheer van uw virtuele machines vereenvoudigt.
-**SAP ondersteunt momenteel alleen Premium-schijven beheerd**. Lees voor meer informatie, SAP-notitie [1928533].
+Het is raadzaam om beheerde schijven te gebruiken, omdat ze de implementatie en beheer van uw virtuele machines vereenvoudigt.
 
-## <a name="utilizing-azure-infrastructure-ha-to-achieve-sap-application-higher-availability"></a>Met behulp van Azure-infrastructuur HA "hoger-knooppunt beschikbaarheid SAP bereiken
+SAP ondersteunt momenteel alleen beheerd premium-schijven. Zie voor meer informatie, SAP Opmerking [1928533].
 
-Als u besluit geen gebruik van functies zoals Windows Server Failover Clustering (WSFC)- of pacemaker heeft op Linux te (momenteel alleen ondersteund voor SLES 12 en hoger), Azure virtuele machine opnieuw opstarten wordt gebruikt voor het beveiligen van een SAP-systeem tegen de geplande en ongeplande uitval van de Azure fysieke serverinfrastructuur en algemene onderliggende Azure-platform.
+## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Met behulp van hoge beschikbaarheid van de Azure-infrastructuur om te bereiken *hogere beschikbaarheid* van SAP-toepassingen
 
-Deze aanpak meer wordt beschreven in het volgende document [met behulp van Azure-infrastructuur VM opnieuw is opgestart Achieve 'Hogere beschikbaarheid' van SAP-systeem][sap-higher-availability].
+Als u besluit geen gebruik van functies zoals WSFC of pacemaker heeft op Linux (momenteel alleen ondersteund SUSE Linux Enterprise Server [SLES] 12 en later) te, wordt opnieuw opstarten van virtuele machine in Azure gebruikt. Het beveiligt SAP-systemen tegen de geplande en ongeplande uitval van de fysieke server Azure-infrastructuur en algemene onderliggende Azure-platform.
 
-## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>SAP-toepassing voor hoge beschikbaarheid op Azure IaaS
+Zie voor meer informatie over deze benadering [gebruikmaken van Azure-infrastructuur VM start opnieuw op om te zorgen voor hogere beschikbaarheid van het systeem SAP][sap-higher-availability].
 
-Als u wilt bereiken volledige SAP hoge beschikbaarheid van het systeem, moeten we alle kritieke SAP systeemonderdelen, bijvoorbeeld beveiligen:
+## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Hoge beschikbaarheid van SAP-toepassingen op Azure IaaS
 
-* Redundante **SAP-toepassingsservers**, en
+Als u wilt bereiken volledige SAP hoge beschikbaarheid van het systeem, moet u alle kritieke SAP-systeemonderdelen beveiligen. Bijvoorbeeld:
+  * Redundante SAP-toepassingsservers.
+  * Unieke onderdelen. Een voorbeeld is mogelijk een potentieel probleem (SPOF) onderdeel, zoals een SAP ASC's / SCS-exemplaar of een databasebeheersysteem (DBMS).
 
-* Unieke onderdelen (bijvoorbeeld **fouttolerantie (SPOF)**) zoals
-  * **SAP-(A) exemplaar SCS** en
-  *  **DBMS**.
+De volgende secties informatie over het bereiken van maximale beschikbaarheid voor alle drie essentiële SAP onderdelen van het systeem.
 
-Wordt besproken in detail onder het bereiken van maximale beschikbaarheid voor alle drie essentiële SAP onderdelen van het systeem.
+### <a name="high-availability-architecture-for-sap-application-servers"></a>Architectuur van hoge beschikbaarheid voor SAP-toepassingsservers
 
-### <a name="high-availability-for-sap-application-servers"></a>Hoge beschikbaarheid voor SAP-toepassingsservers
-
-> In dit hoofdstuk is van toepassing op beide:
+> Deze sectie is van toepassing op:
 >
 > ![Windows][Logo_Windows] Windows en ![Linux][Logo_Linux] Linux
 >
 
-Normaal gesproken hoeft u niet een bepaalde oplossing voor hoge beschikbaarheid voor de SAP-toepassingsserver en dialoogvenster exemplaren. Een maximale beschikbaarheid realiseren door redundantie en u meerdere exemplaren van het dialoogvenster configureren in verschillende exemplaren van Azure Virtual Machines. U hebt ten minste twee SAP exemplaren van een toepassing in twee exemplaren van Azure Virtual Machines geïnstalleerd.
+Normaal gesproken hoeft u niet een bepaalde oplossing voor hoge beschikbaarheid voor de SAP-server en het dialoogvenster exemplaren van een toepassing. Een maximale beschikbaarheid realiseren door redundantie en u meerdere exemplaren van het dialoogvenster configureren in verschillende exemplaren van virtuele machines in Azure. U moet ten minste twee SAP exemplaren van een toepassing in twee exemplaren van virtuele machines in Azure geïnstalleerd hebben.
 
 ![Afbeelding 1: Hoge beschikbaarheid SAP-toepassingsserver][sap-ha-guide-figure-2000]
 
 _**Afbeelding 1:** hoge beschikbaarheid SAP-toepassingsserver_
 
-Alle virtuele machines die host SAP-toepassingsserver exemplaren in de dezelfde Azure beschikbaarheid instellen, moet u plaatsen. Een Azure beschikbaarheidsset zorgt ervoor dat:
+Alle virtuele machines die host SAP application server-exemplaren in de dezelfde Azure beschikbaarheid instellen, moet u plaatsen. Een Azure beschikbaarheidsset zorgt ervoor dat:
 
-* Alle virtuele machines deel uitmaken van dezelfde **upgradedomein**. Een upgradedomein bijvoorbeeld ervoor zorgt dat de virtuele machines op hetzelfde moment tijdens gepland onderhoud uitval zijn niet bijgewerkt.
-De basisfunctionaliteit is gebaseerd op andere Upgrade en domeinen met fouten binnen een Azure-schaaleenheid al is geïntroduceerd in hoofdstuk [domeinen upgraden][planning-guide-3.2.2].
+* Alle virtuele machines uitmaken deel van hetzelfde updatedomein.  
+    Een updatedomein zorgt ervoor dat de virtuele machines op hetzelfde moment tijdens gepland onderhoud uitval zijn niet bijgewerkt.
 
-* Alle virtuele machines deel uitmaken van dezelfde **foutdomein**. Een foutdomein bijvoorbeeld ervoor zorgt dat virtuele machines zodat er geen storingspunt is van invloed op de beschikbaarheid van alle virtuele machines zijn geïmplementeerd.
+    De basisfunctionaliteit is gebaseerd op andere update en domeinen met fouten binnen een Azure schaaleenheid, al is geïntroduceerd in de [domeinen bijwerken] [ planning-guide-3.2.2] sectie.
 
-Er is geen oneindig aantal probleem- en Upgrade-domeinen die kunnen worden gebruikt door een Azure-Beschikbaarheidsset binnen een Azure-schaaleenheid. Dit betekent dat als een aantal virtuele machines in een Beschikbaarheidsset, sneller of later meer dan één die VM belandt in dezelfde fout of het upgraden van domein.
+* Alle virtuele machines uitmaken deel van hetzelfde foutdomein.  
+    Een foutdomein zorgt ervoor dat virtuele machines zodat er geen storingspunt is van invloed op de beschikbaarheid van alle virtuele machines zijn geïmplementeerd.
 
-Enkele SAP application server-exemplaren in hun toegewezen virtuele machines implementeert en ervan uitgaande dat wij vijf upgraden domeinen, worden de volgende afbeelding ontstaat aan het einde. De werkelijke maximum aantal fouten en update domeinen binnen een beschikbaarheidsset in de toekomst mogelijk wijzigen:
+Het nummer van de update en fouttolerantie domeinen die kunnen worden gebruikt door Azure beschikbaarheidsset binnen een Azure schaaleenheid is echter beperkt. Als u virtuele machines aan een enkele beschikbaarheidsset toevoegen behouden, wordt twee of meer virtuele machines uiteindelijk eindigen in hetzelfde domein veroorzaakt of update.
 
-![Afbeelding 2: HA van SAP-toepassingsservers in Azure Beschikbaarheidsset][planning-guide-figure-3000]
-_**afbeelding 2:** HA van SAP toepassingsservers in Azure Beschikbaarheidsset_ meer details zijn te vinden in deze documentatie: [de beschikbaarheid van virtuele machines beheren][virtual-machines-manage-availability].
+Als u een paar SAP application server-exemplaren in hun toegewezen virtuele machines implementeert, ervan uitgaande dat we vijf update domeinen, hebben de volgende afbeelding dan ontstaat. Het werkelijke maximum aantal update en fouttolerantie domeinen binnen een beschikbaarheidsset in de toekomst mogelijk wijzigen:
 
+![Afbeelding 2: Hoge beschikbaarheid van SAP-toepassingsservers in een Azure beschikbaarheidsset][planning-guide-figure-3000]
+_**afbeelding 2:** hoge beschikbaarheid van SAP-toepassingsservers in een Azure beschikbaarheidsset_
 
-Azure Beschikbaarheidssets in hoofdstuk gepresenteerd [Beschikbaarheidssets van Azure] [ planning-guide-3.2.3] van Azure Virtual Machines planning en implementatie voor SAP NetWeaver document.
+Zie voor meer informatie [de beschikbaarheid van Windows virtuele machines in Azure beheren][azure-virtual-machines-manage-availability].
 
+Zie voor meer informatie de [Azure beschikbaarheidssets] [ planning-guide-3.2.3] sectie van de virtuele machines in Azure planning en implementatie voor SAP NetWeaver document.
 
-**Alleen niet-beheerde schijf:** omdat de Azure storage-account een potentieel storingspunt is, het is belangrijk dat u hebt ten minste twee Azure storage-accounts, waarbij ten minste twee virtuele machines worden gedistribueerd. In een ideaal instelling, zou de schijven van elke virtuele machine die wordt uitgevoerd een SAP-dialoogvenster-exemplaar worden geïmplementeerd in een ander opslagaccount.
+**Alleen schijven zonder begeleiding:** omdat de Azure storage-account een potentieel storingspunt is, het is belangrijk dat u hebt ten minste twee Azure storage-accounts, waarbij ten minste twee virtuele machines worden gedistribueerd. In een ideaal instelling, zou de schijven van elke virtuele machine die wordt uitgevoerd een SAP-dialoogvenster-exemplaar worden geïmplementeerd in een ander opslagaccount.
 
 > [!IMPORTANT]
+> Wordt aangeraden dat u Azure schijven voor uw SAP-installaties met maximale beschikbaarheid die worden beheerd. Ze verbeteren de beschikbaarheid van uw virtuele machine en de services die worden uitgevoerd bij omdat beheerde schijven wordt automatisch uitgelijnd met de beschikbaarheidsset van deze zijn gekoppeld aan virtuele machine.  
 >
-> Wordt aangeraden dat u de Azure-schijven beheerd gebruiken voor uw SAP HA-installaties, omdat ze automatisch worden uitgelijnd met de Beschikbaarheidsset van de virtuele machine ze zijn gekoppeld aan, en daarom verhoogt de beschikbaarheid van uw virtuele machine en de Services die worden uitgevoerd op de virtuele machine.  
->
 
-
-### <a name="high-availability-architecture-for-the-sap-ascs-instance"></a>Architectuur van hoge beschikbaarheid voor het exemplaar van de SCS SAP (A)
-
-### <a name="high-availability-architecture-for-the-sap-ascs-instance-on-windows"></a>Architectuur van hoge beschikbaarheid voor het exemplaar van de SCS SAP (A) in Windows
-
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Hoge beschikbaarheid-architectuur voor een SAP ASC's / SCS-exemplaar in Windows
 
 > ![Windows][Logo_Windows] Windows
 >
 
-U kunt **Windows Server Failover Clustering** (**WSFC**) oplossing voor het beveiligen van SAP (A) SCS-exemplaar. Er zijn twee varianten van oplossing:
+Een WSFC-oplossing kunt u het exemplaar SAP ASC's / SCS beveiligen. De oplossing heeft twee varianten:
 
-* Clustering van het gebruik van SAP (A) SCS exemplaar **geclusterde gedeelde schijven**
+* **Het exemplaar SAP ASC's / SCS cluster met behulp van geclusterde gedeelde schijven**: Zie voor meer informatie over deze architectuur [Cluster een SAP ASC's / SCS-exemplaar op een Windows-failovercluster met behulp van een gedeelde clusterschijf] [ sap-high-availability-guide-wsfc-shared-disk].   
 
-   U vindt meer informatie over de HA-architectuur met geclusterde gedeelde schijven in dit document: [Clustering SAP (A) SCS exemplaar op Windows Failover Cluster met behulp van gedeelde clusterschijf][sap-high-availability-guide-wsfc-shared-disk].   
+* **Het exemplaar SAP ASC's / SCS cluster met behulp van de bestandsshare**: Zie voor meer informatie over deze architectuur [Cluster een SAP ASC's / SCS-exemplaar op een Windows-failovercluster met behulp van de bestandsshare] [ sap-high-availability-guide-wsfc-file-share].
 
-* Clustering van het gebruik van SAP (A) SCS exemplaar **bestandsshare**
-
-  U vindt meer informatie over de HA-architectuur met bestandsshare in dit document: [Clustering SAP (A) SCS exemplaar op Windows Failover Cluster met behulp van bestandsshare][sap-high-availability-guide-wsfc-file-share].
-
-### <a name="high-availability-for-the-sap-ascs-instance-on-linux"></a>Hoge beschikbaarheid voor het exemplaar van de SCS SAP (A) op Linux
-
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Hoge beschikbaarheid-architectuur voor een SAP ASC's / SCS-exemplaar op Linux
 
 > ![Linux][Logo_Linux] Linux
 >
+Zie voor meer informatie over het SAP ASC's / SCS-exemplaar met behulp van het cluster SLES framework clustering [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's op SUSE Linux Enterprise Server voor SAP-toepassingen] [ sap-suse-ascs-ha].
 
-U vindt meer informatie over clustering SCS SAP (A)-exemplaar met behulp van Framework voor SUSE Linux Enterprise Server-Cluster in dit document: [hoge beschikbaarheid voor SAP NetWeaver op Azure VM's op SUSE Linux Enterprise Server voor SAP-toepassingen][sap-suse-ascs-ha].
-
-### <a name="sap-netweaver-multi-sid-configuration-for-clustered-sap-ascs-instance"></a>SAP NetWeaver Multi-SID-configuratie voor geclusterde SAP (A) SCS-exemplaar
+### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>SAP NetWeaver multi-SID-configuratie voor een geclusterd exemplaar van de SAP ASC's / SCS
 
 > ![Windows][Logo_Windows] Windows
 >
->Multi-SID is momenteel alleen ondersteund bij **Windows Server Failover Cluster (WSFC)**. Multi-SID wordt ondersteund met **bestandsshare** en **gedeelde schijf**.
+> Op dit moment wordt multi-SID alleen ondersteund met WSFC. Multi-SID wordt ondersteund met behulp van de bestandsshare en de gedeelde schijf.
 >
+Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van multi-SID:
 
-U vindt meer informatie over meerdere SID HA-architectuur in deze architectuur documenten:
+* [SAP ASC's / SCS exemplaar multi-SID hoge beschikbaarheid voor Windows Server Failover Clustering en bestandsshare][sap-ascs-ha-multi-sid-wsfc-file-share]
 
-* [SAP (A) SCS Multi-SID hoge beschikbaarheid voor met Windows Serverfailover Clustering-instantie en bestandsshare][sap-ascs-ha-multi-sid-wsfc-file-share]
+* [SAP ASC's / SCS exemplaar multi-SID hoge beschikbaarheid voor de gedeelde schijf en Windows Server Failover Clustering][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-* [SAP (A) SCS Multi-SID hoge beschikbaarheid voor met Windows Serverfailover Clustering en de gedeelde schijf][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+### <a name="high-availability-dbms-instance"></a>Hoge beschikbaarheid DBMS exemplaar
 
-### <a name="high-availability-dbms-instance"></a>Hoge beschikbaarheid DBMS-exemplaar
+De DBMS is ook een aanspreekpunt in een SAP-systeem. U moet deze beschermen met behulp van een oplossing voor hoge beschikbaarheid. De volgende afbeelding ziet een oplossing voor hoge beschikbaarheid van SQL Server AlwaysOn in Azure, met Windows Server Failover Clustering en de Azure interne load balancer. SQL Server AlwaysOn repliceert DBMS gegevens en logboekbestanden bestanden met behulp van een eigen DBMS-replicatie. In dit geval hoeft u niet gedeelde clusterschijf die de volledige configuratie vereenvoudigt.
 
-De DBMS is ook een aanspreekpunt in een SAP-systeem. U moet deze beschermen met behulp van een oplossing voor hoge beschikbaarheid. Volgende afbeelding ziet u een hoge beschikbaarheid SQL Server Always On oplossing in Azure, met Windows Server Failover Clustering en de Azure interne load balancer. SQL Server Always On repliceert DBMS gegevens en logboekbestanden bestanden met behulp van een eigen DBMS-replicatie. In dit geval hoeft u niet gedeelde clusterschijf die de volledige configuratie vereenvoudigt.
+![Afbeelding 3: Voorbeeld van een hoge beschikbaarheid SAP DBMS, met SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
-![Afbeelding 3: Voorbeeld van een hoge beschikbaarheid SAP DBMS, met SQL Server Always On][sap-ha-guide-figure-2003]
+_**Afbeelding 3:** voorbeeld van een hoge beschikbaarheid SAP DBMS, met SQL Server AlwaysOn_
 
-_**Afbeelding 3:** voorbeeld van een hoge beschikbaarheid SAP DBMS, met SQL Server Always On_
+Zie voor meer informatie over de clustering van SQL Server-DBMS in Azure met behulp van het Azure Resource Manager-implementatiemodel, deze artikelen:
 
-Voor meer informatie over clustering **SQL Server-DBMS** in Azure met behulp van het Azure Resource Manager-implementatiemodel, Zie de volgende artikelen:
-
-* [AlwaysOn-beschikbaarheidsgroep in Azure Virtual Machines handmatig configureren met behulp van Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [AlwaysOn-beschikbaarheidsgroep in Azure virtuele machines handmatig configureren met behulp van Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 
 * [Een Azure interne load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-Voor meer informatie over clustering **SAP HANA DBMS** in Azure met behulp van het Azure Resource Manager-implementatiemodel, raadpleegt u dit artikel:
-
-* [Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's)][sap-hana-ha]
+Zie voor meer informatie over clustering SAP HANA DBMS in Azure met behulp van het Azure Resource Manager-implementatiemodel [hoge beschikbaarheid van SAP HANA op Azure virtuele machines (VM's)][sap-hana-ha].

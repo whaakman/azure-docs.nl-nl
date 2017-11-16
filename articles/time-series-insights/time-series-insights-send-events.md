@@ -1,55 +1,63 @@
 ---
-title: Gebeurtenissen verzenden naar een Azure Time Series Insights-omgeving | Microsoft Docs
-description: In deze zelfstudie worden de stappen besproken voor het verzenden van gebeurtenissen naar uw Time Series Insights-omgeving
-keywords: 
-services: tsi
-documentationcenter: 
+title: Het verzenden van gebeurtenissen naar een Azure Time Series Insights-omgeving | Microsoft Docs
+description: Deze zelfstudie wordt uitgelegd hoe maken en event hub configureren en uitvoeren van een voorbeeldtoepassing push gebeurtenissen moet worden weergegeven in Azure Time Series Insights.
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met Event Hub
-
-In deze zelfstudie wordt uitgelegd hoe u een Event Hub maakt en configureert, en een voorbeeldtoepassing uitvoert om gebeurtenissen te verzenden. Als u een bestaande Event Hub hebt die al gebeurtenissen in JSON-indeling bevat, kunt u deze zelfstudie overslaan en uw omgeving bekijken in [Time Series Insights](https://insights.timeseries.azure.com).
+Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en uitvoeren van een voorbeeldtoepassing push-gebeurtenissen. Als u een bestaande event hub met gebeurtenissen in JSON-indeling hebt, deze zelfstudie overslaan en weergeven van uw omgeving in [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Een Event Hub configureren
-1. Voor het maken van uw Event Hub volgt u de instructies in de Event Hub-[documentatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+1. Voor het maken van uw Event Hub volgt u de instructies in de Event Hub-[documentatie](../event-hubs/event-hubs-create.md).
 
-2. Zorg ervoor dat u een consumergroep maakt die uitsluitend door uw Time Series Insights-gebeurtenisbron wordt gebruikt.
+2. Zoeken naar **event hub** in de zoekbalk. Klik op **Event Hubs** in de geretourneerde lijst.
 
-  > [!IMPORTANT]
-  > Deze consumergroep mag niet worden gebruikt door een andere service (zoals een Stream Analytics-taak of een andere Time Series Insights-omgeving). Als de consumergroep wordt gebruikt door andere services, wordt de leesbewerking negatief beïnvloed voor deze omgeving en de andere services. Als u $Default als consumergroep selecteert, kan dit leiden tot mogelijk hergebruik door andere lezers.
+3. Selecteer uw event hub door te klikken op de naam ervan.
+
+4. Onder **entiteiten** Klik in het Configuratievenster middelste **Event Hubs** opnieuw.
+
+5. Selecteer de naam van de event hub te configureren.
 
   ![Event Hub-consumergroep selecteren](media/send-events/consumer-group.png)
 
-3. Maak in de Event Hub 'MySendPolicy'. Dit wordt gebruikt voor het verzenden van gebeurtenissen in het csharp-voorbeeld.
+6. Onder **entiteiten**, selecteer **consumergroepen**.
+ 
+7. Zorg ervoor dat u een consumergroep maakt die uitsluitend door uw Time Series Insights-gebeurtenisbron wordt gebruikt.
+
+   > [!IMPORTANT]
+   > Deze consumergroep mag niet worden gebruikt door een andere service (zoals een Stream Analytics-taak of een andere Time Series Insights-omgeving). Als de consumergroep wordt gebruikt door andere wordt services, leesbewerking negatief beïnvloed voor deze omgeving en de andere services. Als u $Default als consumergroep selecteert, kan dit leiden tot mogelijk hergebruik door andere lezers.
+
+8. Onder de **instellingen** kop, selecteer **Share toegangsbeleid**.
+
+9. Maak op de event hub, **MySendPolicy** die wordt gebruikt voor het verzenden van gebeurtenissen in het voorbeeld csharp.
 
   ![Een beleid voor gedeelde toegang selecteren en klikken op de knop Toevoegen](media/send-events/shared-access-policy.png)  
 
   ![Een nieuw beleid voor gedeelde toegang toevoegen](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Een Time Series Insights-gebeurtenisbron maken
-1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u [deze instructies](time-series-insights-add-event-source.md) om een gebeurtenisbron te maken.
+1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u [deze instructies](time-series-insights-how-to-add-an-event-source-eventhub.md) om een gebeurtenisbron te maken.
 
-2. Geef 'deviceTimestamp' op als de naam van de tijdstempeleigenschap. Deze eigenschap wordt gebruikt als de werkelijke tijdstempel in het csharp-voorbeeld. De naam van de tijdstempeleigenschap is hoofdlettergevoelig en waarden moeten de indeling __jjjj-MM-ddTUU. FFFFFFFK__ volgen wanneer ze als JSON worden verzonden naar een Event Hub. Als de eigenschap niet aanwezig is in de gebeurtenis, wordt de tijd gebruikt waarop de gebeurtenis in de wachtrij van de Event Hub is geplaatst.
+2. Geef **deviceTimestamp** als de naam van de timestamp-eigenschap – deze eigenschap wordt gebruikt als de werkelijke tijdstempel in het C#-voorbeeld. De naam van de tijdstempeleigenschap is hoofdlettergevoelig en waarden moeten de indeling __jjjj-MM-ddTUU. FFFFFFFK__ volgen wanneer ze als JSON worden verzonden naar een Event Hub. Als de eigenschap niet aanwezig is in de gebeurtenis, wordt de tijd gebruikt waarop de gebeurtenis in de wachtrij van de Event Hub is geplaatst.
 
   ![Gebeurtenisbron maken](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Voorbeeldcode uitvoeren om gebeurtenissen te pushen
-1. Ga naar het Event Hub-beleid 'MySendPolicy' en kopieer de verbindingsreeks met de beleidssleutel.
+1. Ga naar de event hub-beleid met de naam **MySendPolicy**. Kopieer de **verbindingsreeks** met de beleidssleutel.
 
   ![MySendPolicy-verbindingsreeks kopiëren](media/send-events/sample-code-connection-string.png)
 
@@ -163,6 +171,7 @@ Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een geb
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+
 ### <a name="sample-3"></a>Voorbeeld 3
 
 #### <a name="input"></a>Invoer
@@ -235,5 +244,5 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze inv
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)
+> [!div class="nextstepaction"]
+> [Uw omgeving weergeven in tijd reeks Insights explorer](https://insights.timeseries.azure.com).

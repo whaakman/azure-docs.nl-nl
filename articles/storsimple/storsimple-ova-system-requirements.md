@@ -4,7 +4,7 @@ description: Meer informatie over de software- en netwerkvereisten voor uw virtu
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systeemvereisten voor StorSimple virtuele array
 ## <a name="overview"></a>Overzicht
@@ -41,7 +41,10 @@ De softwarevereisten omvatten de informatie over de ondersteunde webbrowsers, SM
 | **Hypervisor** | **Versie** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 en hoger |
-| VMware ESXi |5.5 en 6.0 |
+| VMware ESXi |5.0, 5.5 en 6.0 <br> (6.5 wordt niet ondersteund.) |
+
+> [!IMPORTANT]
+> Installeer VMware tools niet op uw virtuele StorSimple-matrix; Dit leidt tot een niet-ondersteunde configuratie.
 
 ### <a name="virtual-device-requirements"></a>Vereisten voor virtuele apparaten
 | **Onderdeel** | **Vereiste** |
@@ -79,8 +82,8 @@ De volgende softwarevereisten zijn voor de SMB-clients die toegang hebben tot uw
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Niet kopiëren of opslaan van bestanden die zijn beveiligd door Windows Encrypting File System (EFS) op de bestandsserver virtuele StorSimple-matrix; Dit leidt tot een niet-ondersteunde configuratie. 
-> 
+> Niet kopiëren of opslaan van bestanden die zijn beveiligd door Windows Encrypting File System (EFS) op de bestandsserver virtuele StorSimple-matrix; Dit leidt tot een niet-ondersteunde configuratie.
+
 
 ### <a name="supported-storage-format"></a>Opslagindeling ondersteund
 Alleen de Azure blok-blob-opslag wordt ondersteund. Pagina-blobs worden niet ondersteund. Meer informatie [over blok-blobs en pagina-blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).

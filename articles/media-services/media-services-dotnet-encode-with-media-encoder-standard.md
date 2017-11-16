@@ -1,6 +1,6 @@
 ---
 title: Een asset coderen met Media Encoder Standard met .NET | Microsoft Docs
-description: Dit onderwerp leest hoe u een met Media Encoder Strandard asset coderen met .NET.
+description: Dit artikel laat zien hoe u een met Media Encoder Strandard asset coderen met .NET.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Een asset coderen met Media Encoder Standard met .NET
 Coderingstaken behoren tot de vaakst uitgevoerde bewerkingen in Media Services. U creëert coderingstaken om mediabestanden te converteren van de ene naar de andere indeling. Wanneer u codeert, kunt u de Media Services ingebouwde Media Encoder. U kunt ook een encoder geleverd door een partner Media Services; coderingsprogramma's van derden zijn beschikbaar via Azure Marketplace. 
 
-Dit onderwerp leest hoe u .NET gebruikt voor het coderen van uw assets met Media Encoder Standard (MES). Media Encoder Standard is geconfigureerd met een van de encoder standaardinstellingen beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Dit artikel laat zien hoe u .NET gebruikt voor het coderen van uw assets met Media Encoder Standard (MES). Media Encoder Standard is geconfigureerd met een van de standaardinstellingen van het coderingsprogramma's beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Het beste altijd de bronbestanden te coderen in een adaptive bitrate MP4-set en zet de set met de gewenste indeling via de [dynamische pakketten](media-services-dynamic-packaging-overview.md). 
 
@@ -38,7 +38,7 @@ Als uw uitvoerasset opslag versleuteld is, moet u het leveringsbeleid voor Asset
 [Indelingen en codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES-standaardinstellingen
-Media Encoder Standard is geconfigureerd met een van de encoder standaardinstellingen beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is geconfigureerd met een van de standaardinstellingen van het coderingsprogramma's beschreven [hier](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Invoer en uitvoer van metagegevens
 Als u een invoer asset (of activa) met behulp van MES codeert, krijgt u een uitvoerasset op de geslaagde voltooiing van deze taak coderen. De uitvoerasset bevat video, audio, miniaturen, het manifest, enz. op basis van de codering voorinstelling die u gebruikt.
@@ -181,6 +181,14 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
                 }
             }
         }
+
+
+## <a name="advanced-encoding-features-to-explore"></a>Geavanceerde codering functies om te verkennen
+* [Het genereren van miniaturen](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Genereren van miniaturen tijdens codering](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Bijsnijden video's tijdens de codering](media-services-crop-video.md)
+* [Codering standaardinstellingen aanpassen](media-services-custom-mes-presets-with-dotnet.md)
+* [Overlay of een video met een installatiekopie van het watermerk](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

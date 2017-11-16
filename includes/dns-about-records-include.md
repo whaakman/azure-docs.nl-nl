@@ -8,7 +8,7 @@ Een *apexrecord* is een DNS-record in de hoofdmap (of *apex*) van een DNS-zone. 
 
 Elke DNS-record heeft een naam en een type. Records zijn ingedeeld in verschillende typen overeenkomstig de gegevens die ze bevatten. Het meest voorkomende type is een A-record, waarmee een naam aan een IPv4-adres wordt toegewezen. Een ander algemeen type is een MX-record, waarmee een naam aan een e-mailserver wordt toegewezen.
 
-Azure DNS ondersteunt alle algemene DNS-recordtypen: A, AAAA, CNAME MX, NS, PTR, SOA, SRV en TXT. Houd er rekening mee dat [SPF-records worden gerepresenteerd door TXT-records](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS ondersteunt alle algemene DNS-recordtypen: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV en TXT. Houd er rekening mee dat [SPF-records worden gerepresenteerd door TXT-records](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Recordsets
 

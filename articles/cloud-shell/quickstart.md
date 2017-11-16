@@ -1,5 +1,5 @@
 ---
-title: Bash in Quick Start Azure-Cloud-Shell (Preview) | Microsoft Docs
+title: In de Azure-Cloud Shell snel Bash | Microsoft Docs
 description: Snelstartgids voor Bash in de Cloud-Shell
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snelstartgids voor Bash in de Azure-Cloud-Shell
 
@@ -30,7 +30,7 @@ In dit document worden Bash gebruiken in Azure Cloud-Shell op de [Azure-portal](
 ## <a name="start-cloud-shell"></a>Cloud-Shell starten
 1. Start **Cloud Shell** van de bovenste navigatiebalk van de Azure portal <br>
 ![](media/quickstart/shell-icon.png)
-2. Selecteer een abonnement voor het maken van een opslagaccount en de Azure-bestandsshare
+2. Selecteer een abonnement om een opslagaccount te maken en Microsoft Azure-bestanden delen
 3. Selecteer 'Opslag maken'
 
 > [!TIP]
@@ -59,7 +59,7 @@ Maak een VM Ubuntu in uw nieuwe resourcegroep. De Azure CLI 2.0 maakt SSH-sleute
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> De openbare en persoonlijke sleutels gebruikt voor het verifiëren van uw virtuele machine worden geplaatst `/User/.ssh/id_rsa` en `/User/.ssh/id_rsa.pub` door Azure CLI 2.0 standaard. De SSH-map wordt bewaard in de gekoppelde Azure-bestandsshare van 5 GB installatiekopie.
+> De openbare en persoonlijke sleutels gebruikt voor het verifiëren van uw virtuele machine worden geplaatst `/User/.ssh/id_rsa` en `/User/.ssh/id_rsa.pub` door Azure CLI 2.0 standaard. De SSH-map wordt bewaard in de gekoppelde Azure-bestanden delen van 5 GB installatiekopie.
 
 Uw gebruikersnaam op deze virtuele machine worden uw gebruikersnaam die wordt gebruikt in de Cloud-Shell ($User@Azure:).
 

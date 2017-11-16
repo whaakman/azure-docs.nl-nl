@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Upgrade van Windows Azure Active Directory-synchronisatie en Azure Active Directory-synchronisatie
-Azure AD Connect is de beste manier om verbinding te maken met uw on-premises directory met Azure AD en Office 365. Dit is een fantastische tijd om te upgraden naar Azure AD Connect van Windows Azure Active-directorysynchronisatie (DirSync) of Azure AD Sync omdat deze hulpprogramma's zijn gedeprecieerd en vanaf 13 april 2017 niet langer worden ondersteund.
+Azure AD Connect is de beste manier om verbinding te maken met uw on-premises directory met Azure AD en Office 365. Dit is een fantastische tijd om te upgraden naar Azure AD Connect van Windows Azure Active Directory-synchronisatie (DirSync) of Azure AD Sync omdat deze hulpprogramma's zijn gedeprecieerd en vanaf 13 April 2017 niet langer worden ondersteund.
 
-De identiteit van de twee synchronisatie-hulpprogramma's die zijn afgeschaft zijn beschikbaar voor klanten met één forest (DirSync) en voor meerdere forests en andere geavanceerde klanten (Azure AD Sync). Deze oudere hulpprogramma's zijn vervangen door een enkele oplossing die beschikbaar is voor alle scenario's: Azure AD Connect. Dit biedt nieuwe functionaliteit, verbeteringen en ondersteuning voor nieuwe scenario's. Om te kunnen doorgaan met het synchroniseren van uw on-premises identity-gegevens naar Azure AD en Office 365, wordt aangeraden dat u een upgrade naar Azure AD Connect uitvoert.
+De identiteit van de twee synchronisatie-hulpprogramma's die zijn afgeschaft zijn beschikbaar voor klanten met één forest (DirSync) en voor meerdere forests en andere geavanceerde klanten (Azure AD Sync). Deze oudere hulpprogramma's zijn vervangen door een enkele oplossing die beschikbaar is voor alle scenario's: Azure AD Connect. Dit biedt nieuwe functionaliteit, verbeteringen en ondersteuning voor nieuwe scenario's. Om te kunnen doorgaan met het synchroniseren van uw on-premises identity-gegevens naar Azure AD en Office 365, wordt aangeraden dat u een upgrade naar Azure AD Connect uitvoert. Microsoft kan deze oudere versies werken na 31 December 2017 niet garanderen.
 
 De laatste versie van DirSync in juli 2014 is uitgebracht en de laatste versie van Azure AD Sync werd uitgebracht in mei 2015.
 

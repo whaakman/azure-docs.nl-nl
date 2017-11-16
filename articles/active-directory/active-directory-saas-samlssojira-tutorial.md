@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ff07648b210fe207b514381e98dd372375e092
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Zelfstudie: Azure Active Directory-integratie met SAML SSO voor Jira door resolutie GmbH
 
@@ -159,27 +159,53 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
-14. Op **SAML-configuratie voor invoegtoepassing van SingleSignOn** pagina, klikt u op **toevoegen van extra identiteitsprovider** knop voor het configureren van de instellingen van de id-Provider.
+14. Op **SAML-configuratie voor invoegtoepassing van SingleSignOn** pagina, klikt u op **toevoegen van nieuwe IdP** knop voor het configureren van de instellingen van de id-Provider.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-15. Voer de volgende stappen uit op deze pagina:
+15. Op **Kies uw SAML-identiteitsprovider** pagina, voert u de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
-    a. Voeg **naam** van de id-Provider (bijvoorbeeld Azure AD).
+    a. Stel **Azure AD** als de IdP-type.
     
-    b. Voeg **beschrijving** van de id-Provider (bijvoorbeeld Azure AD).
+    b. Voeg **naam** van de id-Provider (bijvoorbeeld Azure AD).
+    
+    c. Voeg **beschrijving** van de id-Provider (bijvoorbeeld Azure AD).
+    
+    d. Klik op **Volgende**.
+    
+16. Op **identiteit providerconfiguratie** pagina, klikt u op **volgende** knop.
 
-    c. Klik op **XML** en selecteer de **metagegevens** bestand, dat u hebt gedownload vanuit Azure-portal.
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
-    d. Klik op **Load** knop.
+17. Op **SAML IdP-metagegevens importeren** pagina, voert u de volgende stappen uit:
 
-    e. Deze leest de IdP-metagegevens en de velden zoals gemarkeerd in de schermafbeelding gevuld. 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
-16. Klik op **instellingen opslaan** knop de instellingen op te slaan.
+    a. Klik op **bestand laden** knop en kies Metadata XML-bestand die u in stap 5 hebt gedownload.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
+    b. Klik op **importeren** knop.
+    
+    c. Wacht even tot importeren is gelukt.
+    
+    d. Klik op **volgende** knop.
+    
+18. Op **gebruikers-ID-kenmerk en transformatie** pagina, klikt u op **volgende** knop.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+    
+19. Op **gebruiker gemaakt en update** pagina, klikt u op **opslaan & volgende** instellingen op te slaan.   
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+    
+20. Op **testen van uw instellingen** pagina, klikt u op **test overslaan & handmatig configureren** test van de gebruiker nu overslaan. Dit wordt uitgevoerd in de volgende sectie en sommige instellingen in Azure-portal vereist. 
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+    
+21. In het dialoogvenster apprearing lezen **overslaan van de test betekent...** , klikt u op **OK**.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

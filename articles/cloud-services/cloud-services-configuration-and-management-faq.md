@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 11/09/2017
 ms.author: genli
-ms.openlocfilehash: 2ce497146abf664b0084cd96963523812f166e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configureren en beheren van problemen voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -181,6 +181,19 @@ Met behulp van een van de methoden hierboven, moeten de respectieve certificaten
 ## <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Hoe kan ik labels toevoegen aan mijn Azure Cloud Service? 
 
 Cloudservice is een klassieke resource. Alleen bronnen via Azure Resource Manager support-tags is gemaakt. U kunt tags toepassen op klassieke resources zoals Service in de Cloud. 
+
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Wat zijn de toekomstige Cloudservice die in de Azure-Portal waarmee kunt beheren en bewaken van toepassingen?
+
+* Een nieuw certificaat genereren voor Remote Desktop Protocol (RDP) is binnenkort beschikbaar. U kunt ook dit script uitvoeren:
+
+```powershell
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+* Mogelijkheid om te kiezen blob of lokale voor csdef- en cscfg locatie uploaden is binnenkort beschikbaar. Met behulp van [nieuw AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), kunt u elke locatie een waarde instellen.
+* De mogelijkheid voor het bewaken van metrische gegevens op het niveau van het exemplaar. Extra bewakingsmogelijkheden zijn beschikbaar in [hoe Monitor Cloudservices](cloud-services-how-to-monitor.md).
+
 
 ## <a name="how-to-enable-http2-on-cloud-services-vm"></a>Het HTTP/2 in de Cloud Services VM inschakelen?
 

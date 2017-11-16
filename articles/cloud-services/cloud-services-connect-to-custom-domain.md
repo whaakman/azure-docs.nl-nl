@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Verbinding maken met Azure Cloud Services-functies van een aangepaste gehost in Azure AD Domain-Controller
 Er wordt eerst een virtueel netwerk (VNet) instellen in Azure. Er wordt een Active Directory-domeincontroller (gehost op een virtuele Machine van Azure) toegevoegd aan het VNet. Er wordt vervolgens bestaande cloud service rollen toevoegen aan de vooraf gemaakte VNet en verbind ze met de domeincontroller.
@@ -128,7 +128,7 @@ Vervolgens moet u uw cloud service-implementatie toevoegen aan de nieuwe VNet. U
 </ServiceConfiguration>
 ```
 
-Naast uw cloud services-project te bouwen en deze implementeren in Azure. Als u hulp bij het implementeren van uw cloud services-pakket naar Azure, Zie [maken en implementeren van een Cloud-Service](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+Naast uw cloud services-project te bouwen en deze implementeren in Azure. Als u hulp bij het implementeren van uw cloud services-pakket naar Azure, Zie [maken en implementeren van een Cloud-Service](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>Uw web-/ werkrollen verbindt met het domein
 Zodra uw cloudserviceproject is geïmplementeerd in Azure, moet u uw rolinstanties verbinding met het aangepaste AD-domein met de extensie van de AD-domein. Voor de uitbreiding van AD-domein toevoegen aan uw bestaande implementatie van de cloud-services en deelnemen aan het aangepaste domein, voert u de volgende opdrachten uit in PowerShell:

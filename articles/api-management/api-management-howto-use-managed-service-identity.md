@@ -1,5 +1,5 @@
 ---
-title: Het gebruik van Azure Managed Service-identiteit in Azure API Management | Microsoft Docs
+title: Gebruik Azure beheerde Service-identiteit in Azure API Management | Microsoft Docs
 description: Informatie over het gebruik van Azure Managed Service-identiteit in API Management
 services: api-management
 documentationcenter: 
@@ -11,22 +11,22 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 70bf207cc173caf7d8cae3c4c9111ee2f427405b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-azure-api-management"></a>Het gebruik van Azure Managed Service-identiteit in Azure API Management
+# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure beheerde Service-identiteit gebruiken in Azure API Management
 
 > [!Note]
 > Beheerde Service-identiteit voor Azure API Management is momenteel in preview.
 
-In dit onderwerp leest u de identiteit van een beheerde service voor een service-exemplaar van API Management maken en toegang krijgen tot andere bronnen. Een beheerde service-identiteit die is gegenereerd door Azure Active Directory (AAD) kunt uw exemplaar van API Management te gemakkelijk en veilig toegang krijgen tot andere AAD beveiligde bronnen zoals Azure Sleutelkluis. Deze beheerde service-identiteit wordt beheerd door Azure en vereist niet dat u in te richten of geen geheimen draaien. Zie voor meer informatie over Azure Managed Service-identiteit [overzicht identiteit beheerde](../active-directory/msi-overview.md).
+In dit artikel leest u de identiteit van een beheerde service voor een service-exemplaar van API Management maken en toegang tot andere bronnen. Een beheerde service-identiteit die is gegenereerd door Azure Active Directory (Azure AD) kunt uw exemplaar van API Management eenvoudig en veilig toegang krijgen tot andere Azure AD-beveiligde bronnen, zoals Azure Sleutelkluis. Deze beheerde service-identiteit wordt beheerd door Azure en vereist niet dat u in te richten of geen geheimen draaien. Zie voor meer informatie over Azure Managed Service-identiteit [Service-identiteit voor Azure-resources beheerd](../active-directory/msi-overview.md).
 
-## <a name="creating-an-api-management-instance-with-an-identity-using-an-azure-resource-manager-template"></a>Exemplaar van API Management maken met een identiteit met een Azure Resource Manager-sjabloon
+## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>Exemplaar van API Management maken met een identiteit met een Resource Manager-sjabloon
 
-Exemplaar van API Management kan worden gemaakt met een identiteit door de volgende eigenschap in de resourcedefinitie. 
+U kunt een exemplaar van API Management met een identiteit maken door de volgende eigenschap in de resourcedefinitie, waaronder: 
 
 ```json
 "identity" : {
@@ -34,9 +34,9 @@ Exemplaar van API Management kan worden gemaakt met een identiteit door de volge
 }
 ```
 
-Dit vertelt Azure maken en beheren van de identiteit voor uw exemplaar van API Management. 
+Deze eigenschap zien Azure maken en beheren van de identiteit voor uw exemplaar van API Management. 
 
-Een volledige sjabloon kan er bijvoorbeeld als volgt uitzien:
+Een volledige Azure Resource Manager-sjabloon kan er bijvoorbeeld als volgt uitzien:
 
 ```json
 {
@@ -109,13 +109,13 @@ Een volledige sjabloon kan er bijvoorbeeld als volgt uitzien:
 }
 ```
 
-## <a name="obtaining-a-certificate-from-azure-key-vault"></a>Een certificaat aanvraagt bij Azure Sleutelkluis
+## <a name="obtain-a-certificate-from-azure-key-vault"></a>Een certificaat verkrijgen van Azure Sleutelkluis
 
-Het onderstaande voorbeeld ziet u hoe u een certificaat verkrijgen van Azure Sleutelkluis. Bevat de volgende stappen uit:
+Het volgende voorbeeld ziet hoe u een certificaat verkrijgen van Azure Sleutelkluis. Bevat de volgende stappen uit:
 
-* Exemplaar van API Management maken met een identiteit
-* Het toegangsbeleid van een exemplaar van Azure Sleutelkluis bijwerken en het exemplaar van API Management geheimen verkrijgen toestaan
-* Bijwerken van het exemplaar van API Management door een aangepaste domeinnaam met een certificaat van de Sleutelkluis-instantie instellen
+1. Exemplaar van API Management maken met een identiteit.
+2. Werk het toegangsbeleid van een exemplaar van Azure Sleutelkluis en toestaan dat het exemplaar van API Management geheimen verkrijgen.
+3. Werk het exemplaar van API Management door in te stellen van een aangepaste domeinnaam via een certificaat van de Sleutelkluis-exemplaar.
 
 > [!Important]
 > Als de Objectversie van het certificaat niet is opgegeven, wordt API Management automatisch de nieuwere versie van het certificaat verkrijgen nadat deze is geüpload naar Sleutelkluis. 
@@ -245,7 +245,8 @@ Het onderstaande voorbeeld ziet u hoe u een certificaat verkrijgen van Azure Sle
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over Azure Managed Service-identiteit
-  * [Overzicht van beheerde identiteit](../active-directory/msi-overview.md)
-  * [Zie meer Azure Resource Manager-sjablonen](https://github.com/Azure/azure-quickstart-templates)
+Meer informatie over Azure Managed Service-identiteit:
+
+* [Beheerde Service-identiteit voor Azure-resources](../active-directory/msi-overview.md)
+* [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-quickstart-templates)
 

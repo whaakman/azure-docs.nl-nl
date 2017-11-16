@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: richagi
+ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in Azure multi-factor Authentication
 
@@ -28,11 +28,11 @@ Azure multi-factor Authentication bevat verschillende rapporten die kunnen worde
 | Rapport | Beschrijving |
 |:--- |:--- |
 | Gebruik |Het gebruik rapporten informatie weergeven over algemene gebruik Gebruikersoverzicht en details van gebruiker. |
-| Status van de server |Dit rapport geeft de status van de multi-factor Authentication-Servers die zijn gekoppeld aan uw account. |
-| Geschiedenis van geblokkeerde gebruikers |Deze rapporten tonen de geschiedenis van aanvragen voor het blokkeren of deblokkeren van gebruikers. |
-| Geschiedenis van overgeslagen gebruikers |Geeft de geschiedenis van aanvragen voor het overslaan van multi-factor Authentication voor het telefoonnummer van een gebruiker. |
+| Serverstatus |Dit rapport geeft de status van de multi-factor Authentication-Servers die zijn gekoppeld aan uw account. |
+| Geschiedenis geblokkeerde gebruikers |Deze rapporten tonen de geschiedenis van aanvragen voor het blokkeren of deblokkeren van gebruikers. |
+| Geschiedenis overgeslagen gebruikers |Geeft de geschiedenis van aanvragen voor het overslaan van multi-factor Authentication voor het telefoonnummer van een gebruiker. |
 | Fraudewaarschuwing |Geeft een historie weer van Fraudewaarschuwingen die zijn ingediend in het datumbereik dat u hebt opgegeven. |
-| In de wachtrij |Een lijst met rapporten in de wachtrij voor verwerking en hun status. Een koppeling om te downloaden of het rapport weergeven is opgegeven als het rapport voltooid is. |
+| In wachtrij |Een lijst met rapporten in de wachtrij voor verwerking en hun status. Een koppeling om te downloaden of het rapport weergeven is opgegeven als het rapport voltooid is. |
 
 ## <a name="view-reports"></a>Rapporten weergeven
 

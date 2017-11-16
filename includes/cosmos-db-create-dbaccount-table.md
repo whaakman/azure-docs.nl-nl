@@ -1,31 +1,26 @@
-1. Meld u in een nieuw venster aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu links op **Nieuw**, klik op **Databases** en klik vervolgens onder **Azure Cosmos DB** op **Maken**.
+1. In een nieuw browservenster, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com/).
+2. Klik in het menu links op **Nieuw**, klik op **Databases** en klik vervolgens onder **Azure Cosmos DB** op **Maken**. 
    
    ![Schermopname van Azure Portal waarbij Meer services en Azure Cosmos DB zijn gemarkeerd](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
-3. Geef op de blade **Nieuw account** de gewenste configuratie op voor het Azure Cosmos DB-account. 
-
-    Met Azure Cosmos DB kunt u een van de vier programmeermodellen kiezen: Gremlin (Graph), MongoDB, SQL (DocumentDB) en Tabel (sleutelwaarde). 
-    
-    In deze Quick Start programmeren we met de tabel-API, daarom kiest u bij het invullen van het formulier voor **Tabel (sleutelwaarde)**. Maar als u grafiekgegevens voor een sociale media-app hebt, documentgegevens uit een catalogus-app, of gegevens die zijn gemigreerd uit een MongoDB-app, moet u er rekening mee houden dat Azure Cosmos DB een zeer beschikbare, globaal gedistribueerd databaseserviceplatform kan bieden voor alle bedrijfskritische toepassingen.
-
-    Vul de blade Nieuw account in en gebruik de gegevens in de schermopname hierbij als richtlijn. Wanneer u het account instelt, kiest u unieke waarden, zodat deze niet precies overeenkomen met de waarden in de schermopname. 
+3. In de **nieuwe account** pagina, voert u de instellingen voor de nieuwe Azure DB die Cosmos-account. 
  
-    ![Schermopname van de blade Nieuwe Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
-
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    Id|*Unieke waarde*|Een unieke naam die u kiest om het Azure Cosmos DB-account aan te duiden. *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken. Gebruik daarom een unieke maar identificeerbare id. De id mag alleen kleine letters, cijfers en het minteken ('-') bevatten, en moet tussen de 3 en 50 tekens lang zijn.
-    API|Tabel (sleutelwaarde)|Verderop in dit artikel gaan we programmeren met de [Tabel-API](../articles/cosmos-db/table-introduction.md).|
-    Abonnement|*Uw abonnement*|Het Azure-abonnement dat u wilt gebruiken voor het Azure Cosmos DB-account. 
-    Resourcegroep|*Dezelfde waarde als id*|De nieuwe resourcegroepnaam voor het account. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken. 
-    Locatie|*De regio het dichtst bij uw gebruikers*|De geografische locatie waar u het Azure Cosmos DB-account gaat hosten. Kies de locatie die zich het dichtst bij uw gebruikers bevindt, zodat ze de snelst mogelijke toegang tot de gegevens hebben.   
+    Id|*Voer een unieke naam*|Voer een unieke naam voor dit account Azure Cosmos DB. Omdat *documents.azure.com* is toegevoegd aan de id die u hebt opgegeven om uw URI te maken, gebruikt u een unieke maar identificeerbare id.<br><br>De id mag alleen kleine letters, cijfers en het koppelteken (-) bevatten en moet 3 tot 50 tekens lang zijn.
+    API|Azure-tabel|De API bepaalt het type account te maken. Azure Cosmos-DB bevat vijf API's voor tegemoetkomt aan de behoeften van uw toepassing: SQL (documentdatabase), Gremlin (grafiek database), MongoDB (documentdatabase), Azure Table en Cassandra, elke die momenteel een afzonderlijk account vereisen.<br><br>Selecteer **Azure Table** omdat in deze snelstartgids maakt u een tabel die geschikt is voor de tabel-API.<br><br>[Meer informatie over de API van de tabel](../articles/cosmos-db/table-introduction.md) |
+    Abonnement|*Voer de dezelfde unieke naam zoals hierboven omschreven in-ID*|Selecteer de Azure-abonnement dat u wilt gebruiken voor dit account Azure Cosmos DB. 
+    Resourcegroep|*Dezelfde waarde als id*|Voer een nieuwe naam resourcegroep voor uw account. Gebruik dezelfde naam als uw id om het uzelf gemakkelijk te maken. 
+    Locatie|*Selecteer de regio die het dichtst bij uw gebruikers*|Selecteer de geografische locatie op waar voor het hosten van uw Azure DB die Cosmos-account. De locatie die zich het dichtst bij hen de snelste toegang geven tot de gegevens van uw gebruikers gebruiken.
+    Geografische redundantie inschakelen| Leeg laten | Hiermee maakt u een gerepliceerde versie van uw database in een tweede (gekoppelde) regio. Laat dit leeg.  
+    Vastmaken aan dashboard | Selecteer | Selecteer dit selectievakje in zodat uw nieuwe databaseaccount wordt toegevoegd aan uw portaldashboard voor eenvoudige toegang.
 
-4. Klik op **Maken** om het account te maken.
-5. Klik op de werkbalk op **Meldingen** om het implementatieproces te bewaken.
+    Klik vervolgens op **Maken**.  
 
-    ![De melding Implementatie is gestart](./media/cosmos-db-create-dbaccount-table/notification.png)
+    ![Schermopname van de blade Nieuwe Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
 
-6.  Als de implementatie is voltooid, opent u het nieuwe account via de tegel Alle resources. 
+4. Het maken van een account duurt enkele minuten duren. Account tijdens het maken van de portal geeft de **implementeren Azure Cosmos DB** tegel.
 
-    ![Azure DB Cosmos-account op de tegel alle Resources](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Het deelvenster Meldingen in Azure Portal](./media/cosmos-db-create-dbaccount-table/deploying-cosmos-db.png)
+
+    Zodra het account is gemaakt, de **Gefeliciteerd! Uw Azure DB die Cosmos-account is gemaakt** pagina wordt weergegeven.

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -44,6 +44,7 @@ Als een wereldwijd gedistribueerde databaseservice biedt Azure Cosmos DB de volg
         * [MongoDB API](mongodb-introduction.md): A MongoDB-databaseservice die is gebouwd op Cosmos-DB. Compatibel met bestaande MongoDB-bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen.
         * [Tabel API](table-introduction.md): een sleutel / waarde-database-service die is ontwikkeld voor premium-mogelijkheden bieden voor Azure Table storage toepassingen.
         * [Graph API (Gremlin)](graph-introduction.md): een volgende grafiek database gebouwd-service de [Apache TinkerPop specificatie](http://tinkerpop.apache.org/).
+        * [Cassandra API](cassandra-introduction.md): een sleutel/waarde-archief dat is gebaseerd op de [Apache Cassandra](https://cassandra.apache.org/) implementatie. 
         * Aanvullende gegevensmodellen binnenkort beschikbaar.
 
 * **Doorvoer en opslag op aanvraag elastisch schalen, waar ook ter wereld**
@@ -55,7 +56,7 @@ Als een wereldwijd gedistribueerde databaseservice biedt Azure Cosmos DB de volg
     * Voor een gemiddeld item van 1 kB betekent dit dat in 99% van de gevallen een end-to-end latentie van minder dan 10 ms wordt gegarandeerd voor leesbewerkingen en van minder dan 15 ms voor geïndexeerde schrijfbewerkingen, binnen dezelfde Azure-regio. De gemiddelde latenties zijn aanzienlijk lager (minder dan 5 ms).
 
 * **Zorgen voor vrijwel volledige beschikbaarheid**
-    * Beschikbaarheid van 99,99% binnen één regio.
+    * 99,99% beschikbaarheids-SLA voor alle accounts voor één regio en alle meerdere landen/regio-accounts met beperkte consistentie en 99,999% lezen beschikbaarheid voor alle accounts voor meerdere landen/regio-database.
     * U kunt voor een hogere beschikbaarheid implementeren naar een willekeurig aantal [Azure-regio's](https://azure.microsoft.com/regions).
     * U kunt zonder gegevensverlies [een storing simuleren](regional-failover.md) in een of meer regio's. 
 

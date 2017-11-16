@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Gestructureerde Streaming van Spark met Kafka (preview) op HDInsight gebruiken
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Spark gestructureerd streamen met Kafka in HDInsight gebruiken
 
 Informatie over het gebruik van gestructureerde Spark-Streaming gegevens lezen uit Apache Kafka in Azure HDInsight.
 
@@ -52,7 +52,7 @@ U kunt een Azure-netwerk Kafka, maken en handmatig Spark-clusters, is het ook ee
 
     Deze sjabloon maakt u de volgende bronnen:
 
-    * Een Kafka op 3.5 HDInsight-cluster.
+    * Een Kafka op 3.6 HDInsight-cluster.
     * Een Spark in HDInsight 3.6 cluster.
     * Een virtueel netwerk in Azure die de HDInsight-clusters bevat.
 

@@ -29,7 +29,7 @@ Bestaande bestandsshares ontvangt Bash, een installatiekopie van 5 GB gemaakt vo
 ![De instelling voor groep](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Bron maken met een Azure-resource beleid beperken
-Storage-accounts die u in de Cloud-Shell maakt zijn gelabeld met `ms-resource-usage:azure-cloud-shell`. Als u wilt weigeren gebruikers van de storage-accounts maken in de Cloud-Shell, maakt u een [Azure bronbeleid voor tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) die worden geactiveerd door deze specifieke tag.
+Storage-accounts die u in de Cloud-Shell maakt zijn gelabeld met `ms-resource-usage:azure-cloud-shell`. Als u wilt weigeren gebruikers van de storage-accounts maken in de Cloud-Shell, maakt u een [Azure bronbeleid voor tags](../articles/azure-policy/json-samples.md) die worden geactiveerd door deze specifieke tag.
 
 ## <a name="supported-storage-regions"></a>Ondersteunde opslagregio
 Gekoppelde accounts moeten zich bevinden in dezelfde regio bevinden als de Cloud Shell-machine die u ze kunt koppelen aan Azure storage.

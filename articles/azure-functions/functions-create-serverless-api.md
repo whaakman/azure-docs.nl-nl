@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Een zonder Server API met behulp van Azure Functions maken
 
@@ -46,7 +46,7 @@ Uw HTTP-geactiveerde-functie is standaard geconfigureerd voor het accepteren van
     | Toegestane HTTP-methoden | Geselecteerde methoden | Hiermee wordt bepaald welke HTTP-methoden kunnen worden gebruikt voor deze functie aanroepen |
     | Geselecteerde HTTP-methoden | TOEVOEGEN | Hiermee kunt u alleen geselecteerde HTTP-methoden moeten worden gebruikt voor deze functie aanroepen |
     | Routesjabloon | uit | Bepaalt welke route wordt gebruikt voor deze functie aanroepen |
-    | Machtigingsniveau | Anonieme | Optioneel: De functie toegankelijk maakt zonder een API-sleutel |
+    | Machtigingsniveau | Anoniem | Optioneel: De functie toegankelijk maakt zonder een API-sleutel |
 
     > [!NOTE] 
     > Opmerking die u niet de `/api` pad-voorvoegsel op in de Routesjabloon baseren als dit wordt verwerkt door een algemene instelling.
@@ -67,7 +67,7 @@ De functie voor het werken met de nieuwe API-gebied vervolgens testen.
 
 ## <a name="proxies-overview"></a>Overzicht van proxy 's
 
-U kunt uw API via een proxy wordt surface in de volgende sectie. Azure Functions-proxy's is een preview-functie waarmee u aanvragen doorsturen naar andere bronnen. U definieert een HTTP-eindpunt net zoals met HTTP-trigger, maar in plaats van het schrijven van code voor het uitvoeren als dat eindpunt wordt aangeroepen, u een URL naar een externe implementatie opgeven. Hiermee kunt u meerdere API bronnen in één API-gebied op die clients gebruiken voor eenvoudige opstellen. Dit is vooral handig als u wilt maken van uw API als microservices.
+U kunt uw API via een proxy wordt surface in de volgende sectie. Azure Functions-proxy's kunt u voor het doorsturen van aanvragen naar andere bronnen. U definieert een HTTP-eindpunt net zoals met HTTP-trigger, maar in plaats van het schrijven van code voor het uitvoeren als dat eindpunt wordt aangeroepen, u een URL naar een externe implementatie opgeven. Hiermee kunt u meerdere API bronnen in één API-gebied op die clients gebruiken voor eenvoudige opstellen. Dit is vooral handig als u wilt maken van uw API als microservices.
 
 Een proxy kan verwijzen naar een HTTP-resource, zoals:
 - Azure Functions 
@@ -75,7 +75,7 @@ Een proxy kan verwijzen naar een HTTP-resource, zoals:
 - Docker-containers in [op Linux-App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Andere gehoste API
 
-Zie voor meer informatie over proxy's, [werken met Azure Functions-proxy's (preview)].
+Zie voor meer informatie over proxy's, [werken met Azure Functions-proxy's].
 
 ## <a name="create-your-first-proxy"></a>Uw eerste proxy maken
 
@@ -97,7 +97,7 @@ Herhaal de stappen voor het [maken van een functie-app](https://docs.microsoft.c
 ### <a name="creating-a-proxy-on-the-frontend"></a>Maken van een proxy op de frontend
 
 1. Ga terug naar uw frontend-functie-app in de portal.
-1. Klik op het plusteken in de linkernavigatiebalk '+' naast 'Proxy's (preview)'.
+1. Klik op het plusteken in de linkernavigatiebalk '+' naast 'Proxy'.
     ![Maken van een proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Proxy-instellingen gebruiken die zijn opgegeven in de tabel. 
 
@@ -187,9 +187,9 @@ In deze zelfstudie hebt u geleerd hoe ontwikkelen en aanpassen van een API van A
 De volgende verwijzingen te helpen bij het ontwikkelen van uw API verder:
 
 - [Azure Functions HTTP- en webhook bindingen](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [werken met Azure Functions-proxy's (preview)]
+- [werken met Azure Functions-proxy's]
 - [Een Azure-functies-API (preview) documenteren](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[werken met Azure Functions-proxy's (preview)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[werken met Azure Functions-proxy's]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

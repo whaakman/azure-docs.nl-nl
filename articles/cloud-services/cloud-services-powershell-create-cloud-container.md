@@ -14,11 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2023fa7b318f9f76ce1e1ea0a46110297be9a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd703feb7bf5af765fc3a5448464499aa7b48d6a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Een Azure PowerShell-opdracht gebruiken om te maken van een leeg cloud service-container
 In dit artikel wordt uitgelegd hoe u snel een Cloud-Services en container te maken met Azure PowerShell-cmdlets. Volg de volgende stappen uit:
@@ -50,5 +50,5 @@ Get-help New-AzureService
 ```
 
 ### <a name="next-steps"></a>Volgende stappen
-* Voor het beheren van de cloud service-implementatie, verwijzen naar de [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), en [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) opdrachten. U kunt ook verwijzen naar [het configureren van cloudservices](cloud-services-how-to-configure.md) voor meer informatie.
+* Voor het beheren van de cloud service-implementatie, verwijzen naar de [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), en [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) opdrachten. U kunt ook verwijzen naar [het configureren van cloudservices](cloud-services-how-to-configure-portal.md) voor meer informatie.
 * Als u wilt uw cloudserviceproject publiceren naar Azure, verwijzen naar de **PublishCloudService.ps1** codevoorbeeld van [continue leveringsmethode voor de cloudservice in Azure](cloud-services-dotnet-continuous-delivery.md).

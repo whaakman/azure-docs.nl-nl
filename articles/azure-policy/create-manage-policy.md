@@ -9,11 +9,11 @@ ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van compatibiliteit maken en beheren
 
@@ -120,7 +120,7 @@ Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om
 
 <!-- Update the following link to the top level samples page
 -->
-   Voor voorbeelden van json-code weergeven, kijkt u naar dit artikel - [overzicht van de Resource-beleid](../azure-resource-manager/resource-manager-policy.md)
+   Voor voorbeelden van json-code weergeven, kijkt u naar dit artikel - [sjablonen voor Azure-beleid](json-samples.md)
 
 4. Selecteer **Opslaan**.
 

@@ -14,20 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 323d574cbdeea1a2141d3c10d402e44e8af8ee19
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f47e5dfb174a0c7b99111485cee74eb01df665c7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>Hoe Azure Table storage gebruiken met Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Overzicht
 Deze handleiding wordt beschreven hoe u veelvoorkomende scenario's met behulp van de service Azure Table storage uitvoeren. De voorbeelden zijn geschreven in Java en gebruik de [Azure-opslag-SDK voor Java][Azure Storage SDK for Java]. De scenario's worden behandeld: **maken**, **aanbieding**, en **verwijderen** tabellen, evenals **invoegen**, **opvragen**, **wijzigen**, en **verwijderen** entiteiten in een tabel. Zie voor meer informatie over tabellen de [Vervolgstappen](#Next-Steps) sectie.
 
-Opmerking: Een SDK is beschikbaar voor ontwikkelaars die werken met Azure Storage op Android-apparaten. Zie voor meer informatie de [Azure-opslag-SDK voor Android][Azure Storage SDK for Android].
+> [!NOTE]
+> Een SDK is beschikbaar voor ontwikkelaars die werken met Azure Storage op Android-apparaten. Zie voor meer informatie de [Azure-opslag-SDK voor Android][Azure Storage SDK for Android].
+>
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -70,7 +72,11 @@ String storageConnectionString =
 De volgende voorbeelden wordt ervan uitgegaan dat u een van deze twee methoden hebt gebruikt om op te halen van de verbindingsreeks voor opslag.
 
 ## <a name="how-to-create-a-table"></a>Procedure: een tabel maken
-Een **CloudTableClient** object kunt u profiteren van reference-objecten voor tabellen en entiteiten. De volgende code maakt een **CloudTableClient** object en gebruikt deze om een nieuwe **CloudTable** -object met een tabel met de naam 'mensen'. (Opmerking: Er zijn aanvullende manieren maken **CloudStorageAccount** objecten; voor meer informatie Zie **CloudStorageAccount** in de [naslaginformatie over Azure Storage Client SDK].)
+Een **CloudTableClient** object kunt u profiteren van reference-objecten voor tabellen en entiteiten. De volgende code maakt een **CloudTableClient** object en gebruikt deze om een nieuwe **CloudTable** -object met een tabel met de naam 'mensen'. 
+
+> [!NOTE]
+> Er zijn aanvullende manieren maken **CloudStorageAccount** objecten; voor meer informatie Zie **CloudStorageAccount** in de [naslaginformatie over Azure Storage Client SDK].)
+>
 
 ```java
 try

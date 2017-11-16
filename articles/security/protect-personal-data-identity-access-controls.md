@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory en de multi-factor Authentication: persoonlijke gegevens beschermen met besturingselementen voor identiteits- en toegangsbeheer
 
@@ -121,23 +121,23 @@ Voor het implementeren van MFA in de Azure-cloud, moet u deze eerst inschakelen 
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Hoe schakel ik Azure MFA gebruiken?
 
-Als uw gebruikers licenties met Azure multi-factor Authentication hebt, is er niets die u moet doen om de Azure MFA inschakelen. Als dat niet het geval is, moet u een multi-factor Authentication-provider maken in uw directory. Voer de volgende stappen uit om dit te doen:
+Als uw gebruikers licenties met Azure multi-factor Authentication hebt, moet u gewoon Azure MFA configureren op een per gebruiker of groep. 
 
-1. Selecteer **Active Directory** in de klassieke Azure portal (aangemeld als beheerder).
+![Gebruikers MFA ingeschakeld](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Selecteer **multi-factor Authentication-Providers.**
+Als u momenteel geen licenties die u wilt gaan door het proces voor het bepalen van het meest geschikte implementatietype voor uw scenario. U kunt starten door te kijken naar het artikel [kiezen van de Azure multi-factor Autehntication-oplossing voor u](../multi-factor-authentication/multi-factor-authentication-get-started.md). Als u besluit dat u moet een multi-Factor Authentication-server maken. U kunt starten met de volgende stappen:
 
-3. Selecteer **nieuw** en klik vervolgens onder **App-Services,** Selecteer **multi-factor Authentication-Provider.**
+1. Selecteer **Active Directory** in de Azure portal (aangemeld als beheerder).
 
-4. Selecteer **snelle invoer.**
+2. Selecteer **MFA-Server**
 
-5. Vul het naamveld in en selecteer een gebruiksmodel (per authenticatie of per ingeschakelde gebruiker).
+3. Geef een time-outwaarde. 
 
-6. Wijst een map waar de MFA-Provider gekoppeld wordt.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Klik op de knop **Maken**.
+4. Klik op **opslaan**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+In dit venster hebt u ook de optie voor het downloaden van de MFA-Server. U kunt extra informatie over hoe u de grootte en het plannen van uw implementatie aan de hand van het artikel krijgen [aan de slag met de Azure multi-factor Authentication-server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
 Zie voor meer instructies voor het beheren van uw multi-factor Authentication-Provider [aan de slag met een Azure multi-factor Authentication-Provider.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
@@ -158,7 +158,7 @@ Schakel MFA door het wijzigen van de status van gebruiker door het volgende doen
 5. Schakel het selectievakje naast de naam van de gebruiker.
 6. Kies aan de rechterkant, onder snelle stappen **inschakelen**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Bevestig uw selectie in het pop-upvenster dat wordt geopend.  Gebruikers voor wie MFA is ingeschakeld wordt gevraagd om te registreren van de volgende keer dat ze zich aanmelden.
 

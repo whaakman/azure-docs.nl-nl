@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>Uw werk of school-wachtwoord opnieuw instellen
 
@@ -95,6 +95,27 @@ Gebruik deze methode als u uw toepassingen gewoonlijk opent vanuit de Azure-toeg
 3. Klik op **Wachtwoord wijzigen**
 4. Voer eerst uw oude wachtwoord in en daarna uw nieuwe wachtwoord. Bevestig dit en klik op **Verzenden**
 
+## <a name="reset-password-at-login"></a>Wachtwoord opnieuw instellen bij aanmelding
+
+Als de beheerder heeft ingesteld dat de functionaliteit wordt nu er een koppeling naar **wachtwoord opnieuw instellen** op het aanmeldingsscherm van uw Windows 10 vallen auteurs Update.
+
+![LoginScreen][LoginScreen]
+
+Te klikken op de **wachtwoord opnieuw instellen** link om de SSPR-ervaring op het aanmeldingsscherm wordt geopend zodat u uw wachtwoord opnieuw instellen kunt zonder te hoeven aanmelden bij de toegang tot de normale ervaring op het web.
+
+1. Bevestig uw gebruikers-ID en klik op **volgende**
+2. Kies en bevestig een contactmethode voor verificatie. Uw IT-personeel mogelijk meer controle nodig en u wellicht Herhaal deze stap opnieuw met een andere keuze.
+
+   ![ContactMethod][ContactMethod]
+
+3. Op de **een nieuw wachtwoord maken** pagina, een nieuw wachtwoord invoeren, bevestig het wachtwoord en klik vervolgens op **volgende**. Het is raadzaam om een wachtwoord te kiezen van 8-16 tekens met hoofdletters en kleine letters, cijfers en speciale tekens.
+
+   ![ResetPassword][ResetPassword]
+
+4. Wanneer er **uw wachtwoordherstel**, klikt u op **voltooien**
+
+Als het goed is, hebt u nu weer toegang tot uw account. Als dit niet het geval is, neemt u contact op met de IT-afdeling van uw organisatie voor verdere hulp.
+
 ## <a name="common-problems-and-their-solutions"></a>Veelvoorkomende problemen en oplossingen
 
  Hier volgen enkele veelvoorkomende foutgevallen en hun oplossingen:
@@ -116,3 +137,6 @@ Gebruik deze methode als u uw toepassingen gewoonlijk opent vanuit de Azure-toeg
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Uw authenticatiegegevens controleren"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Uw wachtwoord wijzigen"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Het wachtwoord is opnieuw ingesteld"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 vallen auteurs Update scherm opnieuw instellen van wachtwoord aanmeldingskoppeling"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Uw authenticatiegegevens controleren"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Uw wachtwoord wijzigen"

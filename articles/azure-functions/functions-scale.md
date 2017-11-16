@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions die als host fungeert voor de vergelijking plannen
 
-## <a name="introduction"></a>Inleiding
-
 U kunt Azure Functions uitvoeren in twee verschillende modi: verbruik plannings- en Azure App Service-abonnement. Het plan verbruik wijst automatisch rekencapaciteit wanneer uw code wordt uitgevoerd, indien nodig om belasting te verwerken uitgeschaald en vervolgens omlaag geschaald wanneer de code wordt niet uitgevoerd. Dus u hoeft niet te betalen voor niet-actieve virtuele machines en hoeft niet te worden van tevoren capaciteit reserveren. In dit artikel is gericht op het plan verbruik een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) app-model. Zie voor meer informatie over de werking van de App Service-abonnement de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> Linux-host is momenteel alleen beschikbaar op een App Service-abonnement.
 
 Als u niet bekend bent met Azure Functions, raadpleegt u de [overzicht van Azure Functions](functions-overview.md).
 
@@ -55,7 +56,7 @@ Het plan verbruik is de standaardinstelling hosting-plan en biedt de volgende vo
 
 ## <a name="app-service-plan"></a>App Service-plan
 
-In het App Service-plan uw functie-apps worden uitgevoerd via exclusieve virtuele machines op basis, standaard, Premium en geïsoleerde SKU's, vergelijkbaar met Web-Apps, API-Apps en mobiele Apps. Toegewezen virtuele machines worden toegewezen aan uw App Service-apps, wat betekent dat de host functies altijd wordt uitgevoerd.
+In het App Service-plan uw functie-apps worden uitgevoerd via exclusieve virtuele machines op basis, standaard, Premium en geïsoleerde SKU's, vergelijkbaar met Web-Apps, API-Apps en mobiele Apps. Toegewezen virtuele machines worden toegewezen aan uw App Service-apps, wat betekent dat de host functies altijd wordt uitgevoerd. App Service-abonnementen ondersteuning voor Linux.
 
 Houd rekening met een App Service-plan in de volgende gevallen:
 - U hebt bestaande, onderbenutte virtuele machines waarop andere App Service-exemplaren.
@@ -63,6 +64,7 @@ Houd rekening met een App Service-plan in de volgende gevallen:
 - U moet meer opties voor de CPU of geheugen dan is opgegeven op het plan verbruik.
 - U moet langer zijn dan de maximale uitvoeringstijd toegestaan op het plan verbruik (van 10 minuten) uitvoeren.
 - Hebt u de functies die alleen beschikbaar op een App Service-abonnement, zoals ondersteuning voor App Service-omgeving, VNET/VPN-verbinding en grotere virtuele machine nodig. 
+- U wilt uitvoeren van de functie-app op Linux of wilt u een aangepaste installatiekopie op voor het uitvoeren van uw functies opgeven.
 
 Een virtuele machine worden losgekoppeld van de kosten van het aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Als gevolg hiervan Betaal je geen meer dan de kosten van de VM-instantie die u toewijst. Zie voor meer informatie over de werking van de App Service-abonnement de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

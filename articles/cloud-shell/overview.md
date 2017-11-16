@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Cloud-Shell (Preview) | Microsoft Docs
+title: Overzicht van Azure Cloud Shell | Microsoft Docs
 description: Overzicht van de Azure-Cloud-Shell.
 services: 
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: juluk
-ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="overview-of-azure-cloud-shell-preview"></a>Overzicht van Azure-Cloud-Shell (Preview)
+# <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure-Cloud-Shell
 Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
 Dit biedt u de flexibiliteit van het kiezen van de shell-ervaring die het beste past bij de manier waarop die u werkt.
 Linux-gebruikers kunnen voor een Bash-ervaring kiezen en voor Windows-gebruikers is PowerShell beschikbaar.
@@ -33,7 +33,7 @@ Gebruikmaken van Bash of PowerShell uit de vervolgkeuzelijst van de selector she
 
 ![In de Cloud-Shell Bash](media/overview/overview-bash-pic.png)
 
-![PowerShell in de Cloud-Shell](media/overview/overview-ps-pic.png)
+![PowerShell in de Cloud-Shell (Preview)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Functies
 ### <a name="browser-based-shell-experience"></a>Browser gebaseerde shell-ervaring
@@ -42,19 +42,22 @@ Hefboomwerking Cloud Shell voelt van een lokale computer werkt op een manier all
 
 ### <a name="choice-of-preferred-shell-experience"></a>Keuze van voorkeur shell-ervaring
 Azure Cloud Shell biedt u de flexibiliteit om de shell-ervaring te kiezen die het beste bij uw werkwijze past.
-Linux-gebruikers kunnen voor een Bash-ervaring kiezen en voor Windows-gebruikers is PowerShell beschikbaar.
+Linux-gebruikers kunnen kiezen voor Bash in de Cloud-Shell, terwijl de Windows-gebruikers kunnen kiezen voor PowerShell in de Cloud-Shell (Preview).
 
-### <a name="pre-configured-azure-workstation"></a>Vooraf geconfigureerde Azure werkstation
-Cloud-Shell is voorgeïnstalleerd met populaire opdrachtregelprogramma's en talen zodat u sneller kunt werken.
+### <a name="authenticated-and-configured-azure-workstation"></a>Geverifieerde en geconfigureerde Azure werkstation
+Cloud-Shell wordt geleverd door Microsoft beheerde zodat deze vooraf is geïnstalleerd met populaire opdrachtregelprogramma's en talen zodat u sneller kunt werken. Bovendien verifieert Cloud Shell veilig automatisch voor directe toegang tot uw resources via de Azure CLI 2.0 of Azure PowerShell-cmdlets.
 
-Overzicht van de volledige tooling voor [Bash ervaring](features.md#tools) en [PowerShell-ervaring.](features-powershell.md#tools)
+Overzicht van de volledige tooling voor de [Bash ervaring](features.md#tools) en [PowerShell (Preview)-ervaring.](features-powershell.md#tools)
 
-### <a name="automatic-authentication"></a>Automatische verificatie
-Cloud-Shell verifieert veilig automatisch op elke sessie voor directe toegang tot uw resources via de Azure CLI 2.0 of Azure PowerShell-cmdlets.
+### <a name="multiple-access-points"></a>Meerdere toegangspunten
+Naast het Cloud-Shell wordt beschikbaar vanuit de Azure-portal, kunt u deze ook geopend op:
+* [Azure CLI 2.0 'Try It'-documentatie](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Visual Studio Code-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-file-storage"></a>Verbinding maken met uw Azure File storage
+### <a name="connect-your-azure-files-storage"></a>Koppel de opslag van uw Azure-bestanden
 Cloud-Shell-machines zijn tijdelijk en als gevolg hiervan vereisen een Azure-bestanden-share moet worden gekoppeld als `clouddrive` voor het persistent maken van uw directory $Home.
-Op de eerste keer opstarten die cloud Shell wordt gevraagd om een resource te maken delen groep, storage-account en -bestand namens jou. Dit is een eenmalige stap en wordt automatisch voor alle sessies worden gekoppeld. Één bestandsshare kan worden toegewezen en wordt gebruikt door zowel Bash als PowerShell in de Cloud-Shell.
+Op de eerste keer opstarten die cloud Shell wordt gevraagd om een resource te maken delen groep, storage-account en -bestand namens jou. Dit is een eenmalige stap en wordt automatisch voor alle sessies worden gekoppeld. Één bestandsshare kan worden toegewezen en wordt gebruikt door zowel Bash als PowerShell in de Cloud-Shell (Preview).
 
 #### <a name="create-new-storage"></a>Maken van nieuwe opslag
 ![](media/overview/basic-storage.png)
@@ -86,18 +89,18 @@ Opgegeven waarin DropDowns worden gefilterd voor uw toegewezen Cloud Shell regio
 * Cloud-Shell wordt één machine per gebruikersaccount toegewezen
 * Machtigingen zijn ingesteld als een gewone gebruiker voor Linux (Bash)
 
-Meer informatie over functies in [Bash in de Cloud-Shell](features.md) en [PowerShell in de Cloud-Shell](features-powershell.md).
+Meer informatie over functies in [Bash in de Cloud-Shell](features.md) en [PowerShell in de Cloud-Shell (Preview)](features-powershell.md).
 
 ## <a name="examples"></a>Voorbeelden
 * Scripts gebruiken om Azure beheertaken te automatiseren
 * Azure-resources via Azure portal en Azure-opdrachtregelprogramma's tegelijk beheren
 * Test-Drive Azure CLI 2.0 of Azure PowerShell-cmdlets
 
-Deze voorbeelden in snelstartgidsen voor uitproberen [Bash in de Cloud-Shell](quickstart.md) en [PowerShell in de Cloud-Shell](quickstart-powershell.md).
+Deze voorbeelden in snelstartgidsen voor uitproberen [Bash in de Cloud-Shell](quickstart.md) en [PowerShell in de Cloud-Shell (Preview)](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Prijzen
 De computer die als host fungeert voor Cloud-Shell is gratis, met een vereiste van een gekoppelde Azure Files-share. Reguliere opslagkosten van toepassing.
 
-## <a name="supported-browsers"></a>Ondersteunde browsers
-Cloud-Shell wordt aanbevolen voor Chrome, rand en Safari.
-Cloud-Shell wordt ondersteund voor Chrome, Firefox Safari, Internet Explorer en Edge, is Cloud Shell onderworpen aan specifieke browserinstellingen.
+## <a name="next-steps"></a>Volgende stappen
+[In de Cloud Shell snel Bash](quickstart.md)
+[PowerShell in Quick Start voor Cloud-Shell (Preview)](quickstart-powershell.md)

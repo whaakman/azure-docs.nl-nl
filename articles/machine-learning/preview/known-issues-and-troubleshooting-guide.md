@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -85,7 +85,11 @@ Als u in Azure ML-Workbench werkt, kunt u ook verzenden ons een frons (of een gl
 - Bibliotheek RevoScalePy wordt alleen ondersteund op Windows- en Linux (in Docker-containers). Dit wordt niet ondersteund op Mac OS.
 
 ## <a name="cant-update-workbench"></a>Kan de Workbench niet bijwerken.
-Wanneer een nieuwe update beschikbaar is, wordt de startpagina van de app Workbench een bericht weergegeven waarin u geïnformeerd over de nieuwe update. Hier ziet u een update-badge die zijn opgenomen in de linkerbenedenhoek van de app op het belpictogram. Klik op de badge en volg de installatiewizard om de update te installeren. Als u de melding niet ziet, probeer het opnieuw opstarten van de app. Als u de melding van updates na opnieuw opstarten niet ziet, is het mogelijk dat er enkele oorzaken.
+Wanneer een nieuwe update beschikbaar is, wordt de startpagina van de app Workbench een bericht weergegeven waarin u geïnformeerd over de nieuwe update. Hier ziet u een update-badge die zijn opgenomen in de linkerbenedenhoek van de app op het belpictogram. Klik op de badge en volg de installatiewizard om de update te installeren. 
+
+![installatiekopie bijwerken](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Als u de melding niet ziet, probeer het opnieuw opstarten van de app. Als u de melding van updates na opnieuw opstarten niet ziet, is het mogelijk dat er enkele oorzaken.
 
 ### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>U bent Workbench starten vanuit een vastgemaakt snelkoppeling op de taakbalk
 U kunt de update al hebt geïnstalleerd. Maar uw vastgemaakte snelkoppeling naar de oude bits op de schijf nog steeds wijst. U kunt dit controleren door te bladeren naar de `%localappdata%/AmlWorkbench` map en om te zien als u de meest recente versie geïnstalleerd er hebt en onderzoeken van de eigenschap van de vastgemaakte snelkoppeling om te zien waar het is aan te wijzen. Als geverifieerd, de oude snelkoppeling hoeft te verwijderen, Workbench starten vanuit het menu Start en eventueel een nieuwe vastgemaakt snelkoppeling maken op de taakbalk.

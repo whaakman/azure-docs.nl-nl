@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met virtuele machines na een failover naar een secundaire site met Azure Site Recovery | Microsoft Docs
-description: Netwerken richtlijnen voor de verbinding met virtuele machines na een failover naar een secundaire site met Azure Site Recovery.
+title: Instellen van IP-adressen als u wilt verbinden na een failover naar een secundaire site met Azure Site Recovery | Microsoft Docs
+description: Beschrijft het instellen van IP-adressering voor de verbinding met virtuele machines na een failover naar een secundaire site met Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: ce33a90a303a10de8ff198754e8e39c334035537
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 6baeda08b1c41cc024a02f51ca27be2829c46962
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-a-secondary-site"></a>Verbinding maken met virtuele machines na een failover naar een secundaire site
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-a-secondary-site"></a>Instellen van IP-adressen om na een failover naar een secundaire site verbinding te maken
 
 Bekijk de vereisten voor implementatie en Lees dit artikel om te plannen wanneer repliceren van Hyper-V virtuele machines (VM's) wordt beheerd in System Center Virtual Machine Manager (VMM)-clouds, naar een secundaire site met netwerken [Azure Site Recovery](site-recovery-overview.md) in de Azure portal. 
 

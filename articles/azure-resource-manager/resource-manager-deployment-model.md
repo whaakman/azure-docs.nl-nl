@@ -6,29 +6,28 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 7ae0ffa3-c8da-4151-bdcc-8f4f69290fb4
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager versus klassieke implementatie: implementatiemodellen en de status van uw resources begrijpen
-In dit onderwerp leert u Azure Resource Manager en het klassieke implementatiemodel, de status van uw resources en waarom uw resources zijn geïmplementeerd met een of andere. De resourcemanager en het klassieke implementatiemodel vertegenwoordigen twee verschillende manieren voor het implementeren en beheren van uw Azure-oplossingen. U werkt met ze via twee verschillende sets in de API en geïmplementeerde resources belangrijke verschillen kunnen bevatten. De twee modellen zijn niet volledig compatibel met elkaar. Dit onderwerp beschrijft die verschillen.
+In dit artikel leert u Azure Resource Manager en de klassieke implementatiemodellen. De resourcemanager en het klassieke implementatiemodel vertegenwoordigen twee verschillende manieren voor het implementeren en beheren van uw Azure-oplossingen. U werkt met ze via twee verschillende sets in de API en geïmplementeerde resources belangrijke verschillen kunnen bevatten. De twee modellen zijn niet compatibel met elkaar. Dit artikel wordt beschreven die verschillen.
 
 Om te vereenvoudigen de implementatie en beheer van resources, wordt aangeraden dat u de Resource Manager voor alle nieuwe resources gebruiken. Indien mogelijk, wordt aangeraden dat u bestaande resources via Resource Manager opnieuw implementeren.
 
 Als u nieuwe naar Resource Manager, wilt u mogelijk eerst doornemen van de terminologie die wordt gedefinieerd in de [overzicht van Azure Resource Manager](resource-group-overview.md).
 
 ## <a name="history-of-the-deployment-models"></a>Geschiedenis van het implementatiemodel
-Door Azure geleverde oorspronkelijk alleen het klassieke implementatiemodel. In dit model bestonden elke resource afzonderlijk; Er is geen enkele manier verwante resources groeperen. In plaats daarvan moest u handmatig bijhouden welke resources bestaat uit uw oplossing of de toepassing en vergeet niet om deze te beheren in een gecoördineerde benadering. Voor het implementeren van een oplossing, moest u elke resource afzonderlijk via de klassieke portal maken of een script maken dat alle bronnen in de juiste volgorde geïmplementeerd. Als u wilt verwijderen van een oplossing, moest u elke resource afzonderlijk verwijderen. U kan niet eenvoudig toepassen en bijwerken van beleid voor toegangsbeheer voor verwante resources. Ten slotte kunt u niet toepassen tags aan resources label met voorwaarden die u helpen uw resources bewaken en beheren van facturering.
+Door Azure geleverde oorspronkelijk alleen het klassieke implementatiemodel. In dit model bestonden elke resource afzonderlijk; Er is geen enkele manier verwante resources groeperen. In plaats daarvan moest u handmatig bijhouden welke resources bestaat uit uw oplossing of de toepassing en vergeet niet om deze te beheren in een gecoördineerde benadering. Voor het implementeren van een oplossing, moest u elke resource afzonderlijk via de portal maken of een script maken dat alle bronnen in de juiste volgorde geïmplementeerd. Als u wilt verwijderen van een oplossing, moest u elke resource afzonderlijk verwijderen. U kan niet eenvoudig toepassen en bijwerken van beleid voor toegangsbeheer voor verwante resources. Ten slotte kunt u niet toepassen tags aan resources label met voorwaarden die u helpen uw resources bewaken en beheren van facturering.
 
 In 2014 geïntroduceerd Azure Resource Manager, dat het concept van een resourcegroep wordt toegevoegd. Een resourcegroep is een container voor resources die een gemeenschappelijk levenscyclus delen. Het implementatiemodel van Resource Manager biedt diverse voordelen:
 
@@ -39,20 +38,14 @@ In 2014 geïntroduceerd Azure Resource Manager, dat het concept van een resource
 * U kunt notatie JSON (JavaScript Object) gebruiken voor het definiëren van de infrastructuur voor uw oplossing. Het JSON-bestand staat bekend als Resource Manager-sjabloon.
 * U kunt de afhankelijkheden tussen resources zo definiëren dat deze in de juiste volgorde worden geïmplementeerd.
 
-Wanneer het Resource Manager werd toegevoegd, zijn met terugwerkende kracht alle resources toegevoegd aan resourcegroepen standaard. Als u een resource via nu klassieke implementatie maakt, wordt automatisch de resource gemaakt binnen een standaardresourcegroep voor de service, ondanks dat u niet die resourcegroep op implementatie aangegeven hebt. Echter betekent alleen bestaande binnen een resourcegroep niet dat de resource is geconverteerd naar het Resource Manager-model. Zullen we hoe de twee implementatiemodellen in de volgende sectie worden verwerkt door elke service. 
+Wanneer het Resource Manager werd toegevoegd, zijn met terugwerkende kracht alle resources toegevoegd aan resourcegroepen standaard. Als u een resource via nu klassieke implementatie maakt, wordt automatisch de resource gemaakt binnen een standaardresourcegroep voor de service, ondanks dat u niet die resourcegroep op implementatie aangegeven hebt. Echter betekent alleen bestaande binnen een resourcegroep niet dat de resource is geconverteerd naar het Resource Manager-model.
 
 ## <a name="understand-support-for-the-models"></a>Ondersteuning voor de modellen begrijpen
-Wanneer u beslist welke implementatiemodel moet worden gebruikt voor uw resources, zijn er drie scenario's moet weten:
+Er zijn drie scenario's moet weten:
 
-1. De service ondersteunt van Resource Manager en biedt slechts één type.
-2. De service biedt ondersteuning voor Resource Manager, maar biedt twee typen: één voor Resource Manager en één voor klassieke. Dit scenario geldt alleen voor virtuele machines, opslagaccounts en virtuele netwerken.
-3. De service biedt geen ondersteuning voor Resource Manager.
-
-Om te detecteren of een service Resource Manager ondersteunt, Zie [resourceproviders en typen](resource-manager-supported-services.md).
-
-Als het Resource Manager biedt geen ondersteuning voor de service die u wilt gebruiken, moet u verder met behulp van klassieke implementatie.
-
-Als de service Resource Manager ondersteunt en **is niet** een virtuele machine, de storage-account of het virtuele netwerk, kunt u Resource Manager gebruiken zonder eventuele problemen.
+1. Cloud-Services biedt geen ondersteuning voor Resource Manager-implementatiemodel.
+2. Virtuele machines, opslagaccounts en virtuele netwerken ondersteuning voor Resource Manager en de klassieke implementatiemodellen.
+3. Alle andere Azure-services ondersteuning voor Resource Manager.
 
 Voor virtuele machines, opslagaccounts en virtuele netwerken, als de resource is gemaakt via de klassieke implementatie, moet u verder via de klassieke bewerkingen worden uitgevoerd. Als de virtuele machine, de storage-account of het virtuele netwerk is gemaakt via de implementatie van Resource Manager, moet u verder met Resource Manager-bewerkingen. Dit verschil krijgt verwarrend wanneer uw abonnement een combinatie van resources via de Resource Manager en klassieke implementatie gemaakt bevat. Deze combinatie van resources kan onverwachte resultaten niet maken omdat de resources bieden geen ondersteuning voor dezelfde bewerkingen.
 
@@ -81,66 +74,6 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 ```
 
 Alleen bronnen via Resource Manager support-tags is gemaakt. U kunt tags toepassen op klassieke resources.
-
-## <a name="resource-manager-characteristics"></a>Resource Manager-kenmerken
-Om u te helpen begrijpen van de twee modellen, bekijken we de kenmerken van Resource Manager-typen:
-
-* Gemaakt via de [Azure-portal](https://portal.azure.com/).
-  
-     ![Azure Portal](./media/resource-manager-deployment-model/portal.png)
-  
-     U hebt de optie van het gebruik van Resource Manager of klassiek implementatie voor berekening, opslag en netwerkresources. Selecteer **Resource Manager**.
-  
-     ![Implementatie van Resource Manager](./media/resource-manager-deployment-model/select-resource-manager.png)
-* Gemaakt met de Resource Manager-versie van de Azure PowerShell-cmdlets. Deze opdrachten hebben de indeling *term AzureRmNoun*.
-
-  ```powershell
-  New-AzureRmResourceGroupDeployment
-  ```
-
-* Gemaakt via de [REST-API van Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) voor REST-bewerkingen.
-* Gemaakt via Azure CLI-opdrachten uitvoeren in de **arm** modus.
-  
-  ```azurecli
-  azure config mode arm
-  azure group deployment create
-  ```
-
-* Het brontype bevat geen **(klassiek)** in de naam. De volgende afbeelding ziet u het type als **opslagaccount**.
-  
-    ![web-app](./media/resource-manager-deployment-model/resource-manager-type.png)
-
-## <a name="classic-deployment-characteristics"></a>Klassieke implementatie kenmerken
-U mag het klassieke implementatiemodel ook weten als de Service Management-model.
-
-Resources die zijn gemaakt in het klassieke implementatiemodel delen de volgende kenmerken:
-
-* Gemaakt via de [klassieke portal](https://manage.windowsazure.com)
-  
-     ![Klassieke portal](./media/resource-manager-deployment-model/classic-portal.png)
-  
-     Of de Azure-portal en u geeft **klassieke** implementatie (voor berekening, opslag en netwerken).
-  
-     ![Klassieke implementatie](./media/resource-manager-deployment-model/select-classic.png)
-* Gemaakt door de Service Management-versie van de Azure PowerShell-cmdlets. Deze opdrachtnamen hebben de indeling *term AzureNoun*.
-
-  ```powershell
-  New-AzureVM
-  ```
-
-* Gemaakt via de [REST API van Opslagservicebeheer](https://msdn.microsoft.com/library/azure/ee460799.aspx) voor REST-bewerkingen.
-* Gemaakt via Azure CLI-opdrachten uitvoeren in **asm** modus.
-
-  ```azurecli
-  azure config mode asm
-  azure vm create
-  ```
-   
-* Het brontype omvat **(klassiek)** in de naam. De volgende afbeelding ziet u het type als **Storage-account (klassiek)**.
-  
-    ![klassieke type](./media/resource-manager-deployment-model/classic-type.png)
-
-U kunt de Azure portal gebruiken om resources die zijn gemaakt via de klassieke implementatie te beheren.
 
 ## <a name="changes-for-compute-network-and-storage"></a>Wijzigingen voor compute, netwerk en opslag
 Het volgende diagram toont compute, netwerk en opslag resources die zijn geïmplementeerd via Resource Manager.
@@ -176,9 +109,9 @@ De volgende tabel beschrijft de wijzigingen in de wisselwerking tussen resourcep
 | Beschikbaarheidssets |De beschikbaarheid van het platform werd aangegeven door de configuratie van dezelfde "AvailabilitySetName" op de virtuele machines. Het maximumaantal foutdomeinen was 2. |Beschikbaarheidsset is een resource die beschikbaar wordt gesteld door Microsoft.Compute-provider. Virtuele machines die uiterst beschikbaar moeten zijn, worden opgenomen in de beschikbaarheidsset. Het maximumaantal foutdomeinen is nu 3. |
 | Affiniteitsgroepen |Voor het maken van virtuele netwerken waren affiniteitsgroepen vereist. Door de introductie van regionale virtuele netwerken is dit echter niet meer nodig. |Het concept van affiniteitsgroepen bestaat niet meer in de API's die via Azure Resource Manager beschikbaar worden gesteld. |
 | Taakverdeling |Bij het maken van een cloudservice wordt een impliciete load balancer voor de geïmplementeerde virtuele machines aangemaakt. |De load balancer is een resource die beschikbaar wordt gesteld door de Microsoft.Compute-provider. De primaire netwerkinterface van de virtuele machines waarvoor de taken moeten worden verdeeld moet verwijzen naar de load balancer. Load balancers kunnen intern of extern zijn. Een load balancer-exemplaar verwijst naar de back-endpool van IP-adressen die verwijst naar een load balancer openbare of particuliere IP-adres (optioneel) en de NIC van een virtuele machine (optioneel) bevatten. [Meer informatie.](../virtual-network/resource-groups-networking.md) |
-| Virtueel IP-adres |Cloudservices krijgen een standaard VIP (virtuele IP-adres) wanneer een virtuele machine is toegevoegd aan een cloudservice. Het virtuele IP-adres is het adres dat is gekoppeld aan de impliciete load balancer. |Het openbare IP-adres is een resource die beschikbaar wordt gesteld door de Microsoft.Compute-provider. Een openbaar IP-adres kan statisch (gereserveerd) of dynamisch zijn. Dynamische openbare IP-adressen kunnen worden toegewezen aan een load balancer. Openbare IP-adressen kunnen worden beveiligd met beveiligingsgroepen. |
-| Gereserveerd IP-adres |U kunt een IP-adres in Azure reserveren en dit koppelen aan een cloudservice om ervoor te zorgen dat het IP-adres is vergrendeld. |Een openbaar IP-adres kan in de statische modus worden gemaakt en biedt dezelfde mogelijkheden als een gereserveerd IP-adres. Statische openbare IP-adressen kunnen momenteel alleen worden toegewezen aan een load balancer. |
-| Openbaar IP-adres (PIP) per VM |Openbare IP-adressen kan ook worden gekoppeld aan een virtuele machine rechtstreeks. |Het openbare IP-adres is een resource die beschikbaar wordt gesteld door de Microsoft.Compute-provider. Een openbaar IP-adres kan statisch (gereserveerd) of dynamisch zijn. Echter, momenteel worden alleen dynamische openbare IP-adressen toegewezen aan een netwerkinterface om een openbaar IP-adres per VM op te halen. |
+| Virtueel IP-adres |Cloud-Services haalt een standaard VIP (virtuele IP-adres) wanneer een virtuele machine wordt toegevoegd aan een cloudservice. Het virtuele IP-adres is het adres dat is gekoppeld aan de impliciete load balancer. |Het openbare IP-adres is een resource die beschikbaar wordt gesteld door de Microsoft.Compute-provider. Openbaar IP-adres kan statisch (gereserveerd) of dynamisch zijn. Dynamische openbare IP-adressen kan worden toegewezen aan een Load Balancer. Openbare IP-adressen kunnen worden beveiligd met beveiligingsgroepen. |
+| Gereserveerd IP-adres |U kunt een IP-adres in Azure reserveren en dit koppelen aan een cloudservice om ervoor te zorgen dat het IP-adres is vergrendeld. |Openbaar IP-adres kunnen worden gemaakt in de statische modus en biedt dezelfde mogelijkheden als een gereserveerd IP-adres. |
+| Openbaar IP-adres (PIP) per VM |Openbare IP-adressen kan ook worden gekoppeld aan een virtuele machine rechtstreeks. |Het openbare IP-adres is een resource die beschikbaar wordt gesteld door de Microsoft.Compute-provider. Openbaar IP-adres kan statisch (gereserveerd) of dynamisch zijn. |
 | Eindpunten |Invoereindpunten moesten eerder op een virtuele machine worden geconfigureerd voor open connectiviteit voor bepaalde poorten. Een van de algemene modi voor het maken van verbinding met virtuele machines wordt gerealiseerd door het instellen van invoereindpunten. |Inkomende NAT-regels kunnen op load balancers worden geconfigureerd om eindpunten in te schakelen op bepaalde poorten voor verbinding met de VM's. |
 | DNS-naam |Een cloudservice krijgt een impliciete, globaal unieke DNS-naam. Bijvoorbeeld: `mycoffeeshop.cloudapp.net`. |DNS-namen zijn optionele parameters die voor de resource van een openbaar IP-adres kunnen worden opgegeven. De FQDN-naam is in de volgende indeling - `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Netwerkinterfaces |Primaire en secundaire netwerkinterface en de bijbehorende eigenschappen werden gedefinieerd als de netwerkconfiguratie van een virtuele machine. |De netwerkinterface is een resource die beschikbaar wordt gesteld door de Microsoft.Compute-provider. De levenscyclus van de netwerkinterface is niet gekoppeld aan een virtuele machine. Hierin wordt verwezen naar de virtuele machine toegewezen IP-adres (vereist), het subnet van het virtuele netwerk voor de virtuele machine (vereist) en een Netwerkbeveiligingsgroep (optioneel). |
@@ -194,13 +127,13 @@ Als u klaar bent om uw resources van klassieke implementatie naar Resource Manag
 4. [Migreren IaaS-middelen van klassiek naar Azure Resource Manager met behulp van Azure CLI](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**Kan ik een virtuele machine met Azure Resource Manager om te implementeren in een virtueel netwerk gemaakt met behulp van klassieke implementatie maken?**
+**Kan ik een virtuele machine implementeren in een virtueel netwerk gemaakt met behulp van klassieke implementatie met Resource Manager maken?**
 
-Dit wordt niet ondersteund. U kunt Azure Resource Manager niet gebruiken voor het implementeren van een virtuele machine in een virtueel netwerk dat is gemaakt met de klassieke implementatie.
+Deze configuratie wordt niet ondersteund. U kunt Resource Manager niet gebruiken voor het implementeren van een virtuele machine in een virtueel netwerk dat is gemaakt met de klassieke implementatie.
 
-**Kan ik een virtuele machine met de Azure Resource Manager van een gebruikersinstallatiekopie die is gemaakt met de Azure Service Management API's maken?**
+**Kan ik een virtuele machine met Resource Manager van een gebruikersinstallatiekopie die is gemaakt met het klassieke implementatiemodel maken?**
 
-Dit wordt niet ondersteund. U kunt echter de VHD-bestanden kopiëren van een opslagaccount die is gemaakt met de Service Management API's en toe te voegen aan een nieuw account gemaakt via Azure Resource Manager.
+Deze configuratie wordt niet ondersteund. U kunt echter de VHD-bestanden kopiëren van een opslagaccount die is gemaakt met het klassieke implementatiemodel en toe te voegen aan een nieuw account gemaakt via Resource Manager.
 
 **Wat zijn de gevolgen voor het quotum voor mijn abonnement?**
 

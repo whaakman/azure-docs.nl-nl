@@ -1,5 +1,5 @@
 ---
-title: Bestanden behouden voor Bash in Azure Cloud-Shell (Preview) | Microsoft Docs
+title: Bestanden voor Bash in de Azure-Cloud-Shell behouden | Microsoft Docs
 description: Overzicht van hoe Bash in de Azure-Cloud-Shell zich blijft bestanden voordoen.
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8b8a82e1c1328d952a85ea5afd975a95f5a6e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>De werking van de Shell Cloud-opslag 
-Cloud-Shell aanhoudt bestanden via beide van de volgende methoden: 
+## <a name="how-bash-in-cloud-shell-storage-works"></a>De werking van Bash in de Cloud Shell-opslag 
+Bash in de Cloud-Shell aanhoudt bestanden via beide van de volgende methoden: 
 * Maken van de installatiekopie van een schijf van uw `$Home` directory voor het persistent maken van alle inhoud in de map. Installatiekopie van de schijf wordt opgeslagen in de opgegeven bestandsshare als `acc_<User>.img` op `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, en worden wijzigingen automatisch gesynchroniseerd. 
 * Koppelen van de opgegeven bestandsshare als `clouddrive` in uw `$Home` map voor directe bestandsshare interactie. `/Home/<User>/clouddrive`is toegewezen aan `fileshare.storage.windows.net/fileshare`.
  
@@ -91,6 +91,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-[Cloud-Shell Quick Start](quickstart.md) <br>
-[Meer informatie over Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[In de Cloud Shell snel Bash](quickstart.md) <br>
+[Meer informatie over Microsoft Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Meer informatie over opslag labels](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

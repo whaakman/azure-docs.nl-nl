@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Herstel na noodgevallen naar Azure instellen voor de lokale virtuele VMware-machines
 
@@ -85,20 +85,14 @@ De configuratieserver VM moet een maximaal beschikbare VMware VM die voldoet aan
 Zorg ervoor dat de systeemklok is gesynchroniseerd met een Time-Server op de configuratieserver VM.
 Tijd moet worden gesynchroniseerd binnen 15 minuten. Als het tijdsverschil groter dan 15 minuten is, mislukt de installatie.
 
-Zorg ervoor dat de configuratieserver VM toegang tot deze URL's:
+Zorg ervoor dat de configuratieserver toegang hebt tot deze URL's:
 
-- *. accesscontrol.windows.net. Wordt gebruikt voor toegangs- en identiteitsbeheer.
-- *. backup.windowsazure.com. Wordt gebruikt voor overdracht en coördinatie van replicatiegegevens.
-- *. blob.core.windows.net. Wordt gebruikt voor toegang tot het opslagaccount waarin de gerepliceerde gegevens worden opgeslagen.
-- *. hypervrecoverymanager.windowsazure.com. Wordt gebruikt voor bewerkingen en coördinatie in het kader van replicatiebeheer.
-- Time.NIST.gov en time.windows.com. Wordt gebruikt om de tijdsynchronisatie tussen de systeemtijd en de algemene tijd te controleren.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Alle IP-adressen gebaseerde firewallregels moeten communicatie met Azure toestaan.
 
-URL's voor de Azure Government-cloud:
-
-- *. ugv.hypervrecoverymanager.windowsazure.us
-- *. ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Sta de [IP-adresbereiken voor Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) en de HTTPS-poort (443) toe.
+    - IP-adresbereiken voor de Azure-regio van uw abonnement en voor VS-West (gebruikt voor beheer en de identiteit van toegangsbeheer) toestaan.
 
 Alle IP-adressen gebaseerde firewallregels moeten kunnen communiceren met toestaan [Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653), en de poorten 443 (HTTPS) en 9443 (gegevensreplicatie). Zorg ervoor dat IP-adresbereiken voor de Azure-regio van uw abonnement en voor VS-West (gebruikt voor toegangsbeheer en identiteitsbeheer) toestaan.
 
@@ -187,7 +181,7 @@ Selecteer en controleer doelbronnen.
 2. Opgeven of de doel-implementatiemodel is Resource Manager gebaseerde of klassieke.
 3. Site Recovery controleert of u een of meer compatibele Azure-opslagaccounts en -netwerken hebt.
 
-   ![doel](./media/tutorial-vmware-to-azure/storage-network.png)
+   ![Doel](./media/tutorial-vmware-to-azure/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 

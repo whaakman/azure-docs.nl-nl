@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Functies en hulpprogramma's voor PowerShell in Azure Cloud-Shell
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Functies en hulpprogramma's voor PowerShell in Azure Cloud-Shell (Preview)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Functies en hulpprogramma's voor [Bash](features.md) is ook beschikbaar.
 
-PowerShell in de Cloud-Shell wordt uitgevoerd op `Windows Server 2016`.
+PowerShell in de Cloud-Shell (Preview) wordt uitgevoerd op `Windows Server 2016`.
 
 ## <a name="features"></a>Functies
 
 ### <a name="secure-automatic-authentication"></a>Automatische verificatie beveiligen
 
-PowerShell in de Cloud-Shell verifieert veilig en automatisch accounttoegang voor Azure PowerShell.
+PowerShell in de Cloud-Shell (Preview) verifieert veilig en automatisch accounttoegang voor Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>Persistentie bestanden over de sessies
 
@@ -45,7 +45,7 @@ Omdat elke aanvraag voor Cloud-Shell is een tijdelijke machine toewijzen buiten 
 
 ### <a name="azure-drive-azure"></a>Azure-station (Azure:)
 
-PowerShell in de Cloud-Shell start u in Azure station (`Azure:`).
+PowerShell in de Cloud-Shell (Preview) begint u in Azure station (`Azure:`).
 Azure-station kunt u eenvoudig detectie en navigatie van Azure-resources zoals Compute, netwerk, opslag enzovoort vergelijkbaar met het bestandssysteem navigatie.
 U kunt blijven gebruiken van de vertrouwde [Azure PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azure) om deze resources te beheren.
 Wijzigingen in de Azure-resources, hetzij rechtstreeks in Azure-portal of via Azure PowerShell-cmdlets zijn onmiddellijk worden deze weergegeven in het Azure-station.
@@ -109,6 +109,6 @@ Deze opdrachten zijn gebouwd op PowerShell voor externe toegang en PowerShell ve
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Snel aan de slag met PowerShell in de Cloud-Shell](quickstart-powershell.md)
+[Snel aan de slag met PowerShell in de Cloud-Shell (Preview)](quickstart-powershell.md)
 
 [Meer informatie over Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

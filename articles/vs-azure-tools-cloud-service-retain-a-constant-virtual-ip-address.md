@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.openlocfilehash: a76bcba5ab4ca8e1a4899e4aa28f734c09af2aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96c4ed88db5e24f439825aee5afe457a1e8c81d7
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Een constante virtuele IP-adres voor een Azure cloudservice behouden
-Wanneer u een cloudservice die wordt gehost in Azure bijwerkt, moet u mogelijk om ervoor te zorgen dat het virtuele IP-adres (VIP) van de service niet wijzigen. Domain Name System (DNS) veel management domeinservices gebruiken voor het registreren van domeinnamen. DNS werkt alleen als het VIP hetzelfde is gebleven. U kunt de **Wizard publiceren** in hulpprogramma's van Azure om ervoor te zorgen dat het VIP van uw cloudservice niet wanneer wijzigen u deze bijwerken. Zie voor meer informatie over het gebruik van DNS-domein management voor cloudservices [configureren van een aangepaste domeinnaam voor een Azure cloudservice](cloud-services/cloud-services-custom-domain-name.md).
+Wanneer u een cloudservice die wordt gehost in Azure bijwerkt, moet u mogelijk om ervoor te zorgen dat het virtuele IP-adres (VIP) van de service niet wijzigen. Domain Name System (DNS) veel management domeinservices gebruiken voor het registreren van domeinnamen. DNS werkt alleen als het VIP hetzelfde is gebleven. U kunt de **Wizard publiceren** in hulpprogramma's van Azure om ervoor te zorgen dat het VIP van uw cloudservice niet wanneer wijzigen u deze bijwerken. Zie voor meer informatie over het gebruik van DNS-domein management voor cloudservices [configureren van een aangepaste domeinnaam voor een Azure cloudservice](cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="publish-a-cloud-service-without-changing-its-vip"></a>Een cloudservice zonder te wijzigen van de VIP publiceren
 Het VIP van een cloudservice wordt toegewezen wanneer u eerst deze naar Azure in een bepaalde omgeving, zoals de productie-omgeving implementeren. Het VIP verandert alleen als u de implementatie expliciet verwijderen of de implementatie wordt impliciet verwijderd door het implementatieproces van de update. Als u wilt behouden het VIP, moet u uw implementatie niet verwijderen, en moet u ervoor zorgen dat Visual Studio automatisch de implementatie niet verwijderen. 

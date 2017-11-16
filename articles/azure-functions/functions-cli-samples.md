@@ -1,26 +1,6 @@
----
-title: Voorbeelden van Azure CLI - Azure Functions | Microsoft Docs
-description: Voorbeelden van Azure CLI - Azure Functions
-services: functions
-documentationcenter: functions
-author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
-ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
-ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
-ms.date: 04/11/2017
-ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: f3c9fc67c082a759432f1db0b44b42513f2fb733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+--titel: Azure CLI-voorbeelden - Azure Functions | Microsoft Docs beschrijving: Azure CLI-voorbeelden - services van Azure Functions: documentationcenter fungeert: functies auteur: syntaxc4 manager: cfowler-editor: ggailey777 tags: azure-servicebeheer
+
+MS.AssetID: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0 ms.service: ms.devlang fungeert: n.v.t. ms.topic: voorbeeld ms.tgt_pltfrm: na ms.workload: functies ms.date: 11-04/2017 ms.author: glenga ms.custom: mvc
 ---
 # <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
 
@@ -29,7 +9,7 @@ De volgende tabel bevat koppelingen naar bash scripts voor Azure-functies die ge
 | | |
 |-|-|
 |**App maken**||
-| [Maken van een functie-app voor uitvoering zonder server](scripts/functions-cli-create-serverless.md) | Maakt een functie-app in een plan verbruik.  |
+| [Maken van een functie-app voor uitvoering zonder server](scripts/functions-cli-create-serverless.md) | Hiermee maakt een functie-app in een plan verbruik.  |
 | [Een functie-app maken in App Service-abonnement](scripts/functions-cli-create-app-service-plan.md) | Een functie-app maken in een specifieke App Service-abonnement. |
 | | |
 |**Integreren**||

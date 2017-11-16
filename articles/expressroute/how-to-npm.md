@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute (Preview)
 
@@ -74,6 +74,11 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
   * Resourcegroep - een resourcegroep maken of gebruik een bestaande.
   * Locatie - moet u een [regio ondersteund](#regions).
   * Prijscategorie - Selecteer vrije
+  
+  >[!NOTE]
+  >Het ExpressRoute-circuit kan worden, overal ter wereld en hoeft niet te worden in dezelfde regio bevinden als de werkruimte.
+  >
+
 
   ![Werkruimte](.\media\how-to-npm\4.png)<br><br>
 4. Klik op **OK** opslaan en de sjabloon instellingen implementeren. Nadat de sjabloon wordt gevalideerd, klikt u op **maken** voor het implementeren van de werkruimte.
@@ -174,7 +179,7 @@ Zie voor meer informatie over het NSG [Netwerkbeveiligingsgroepen](../virtual-ne
 >
 >
 
-Voordat u kunt met behulp van de ExpressRoute-monitorfunctie van NPM, moet u vragen om uw werkruimte wilt plaatsen. [Klik hier om te gaan naar de pagina en vul het aanvraagformulier](https://go.microsoft.com/fwlink/?linkid=862263). (Hint: U kunt deze koppeling opent in een nieuw venster of tabblad). Het proces whitelisting kan een werkdag of langer duren. Zodra de whitelisting voltooid is, ontvangt u een e-mailbericht.
+Voordat u kunt met behulp van de ExpressRoute-monitorfunctie van NPM, moet u vragen om uw werkruimte wilt plaatsen. [Klik hier om te gaan naar de pagina en vul het aanvraagformulier](https://aka.ms/npmcohort). (Hint: U kunt deze koppeling opent in een nieuw venster of tabblad). Het proces whitelisting kan een werkdag of langer duren. Zodra de whitelisting voltooid is, ontvangt u een e-mailbericht.
 
 ## <a name="setupmonitor"></a>Stap 5: NPM configureren voor het bewaken van ExpressRoute
 

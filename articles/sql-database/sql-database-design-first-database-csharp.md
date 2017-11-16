@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: genemi
-ms.openlocfilehash: 7d6c1ca0f48974f8a7d839b23f71d43bfeb400ba
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1e13a9a89873b189e1ea05c0208e7c8646881655
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Ontwerp van een Azure SQL database en verbinding maken met C & #x23; en ADO.NET
 
-Azure SQL-Database is een relationele database als een service (DBaaS) in de Microsoft-Cloud ('Azure'). In deze zelfstudie leert u hoe de Azure-portal en ADO.NET met Visual Studio te gebruiken: 
+Azure SQL-Database is een relationele database als een service (DBaaS) in de Microsoft-Cloud (Azure). In deze zelfstudie leert u hoe de Azure-portal en ADO.NET met Visual Studio te gebruiken: 
 
 > [!div class="checklist"]
 > * Maak een database in de Azure-portal

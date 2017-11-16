@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: genemi
-ms.openlocfilehash: fbfaea938676991cf6280e5dd8c1e1190aa268a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4c90d70bb3b043ef81a224f0f69107eaa6eb0547
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="guidance-and-tips-for-azure-sql-database-multi-tenant-saas-app-example"></a>Richtlijnen en tips voor het voorbeeld van Azure SQL Database multitenant SaaS-app
 
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Downloaden en de scripts Wingtip SaaS deblokkeren
+## <a name="download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts"></a>Download en blokkering opheffen van de Database Wingtip Tickets SaaS per Tenant-scripts
 
 Uitvoerbare inhoud (scripts, dll-bestanden) mogelijk geblokkeerd door Windows als zip-bestanden van een externe bron wordt gedownload en uitgepakt. Bij het uitpakken van de scripts van een zip-bestand ***Volg onderstaande stappen voor het deblokkeren van het ZIP-bestand voor het uitpakken van***. Dit zorgt ervoor dat de scripts mogen worden uitgevoerd.
 
-1. Blader naar [de github-repo Wingtip SaaS](https://github.com/Microsoft/WingtipSaaS).
+1. Blader naar [de Wingtip Tickets SaaS-Database per Tenant GitHub-repo-](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
 2. Klik op **klonen of downloaden**.
 3. Klik op **ZIP downloaden** en sla het bestand.
-4. Met de rechtermuisknop op de **WingtipSaaS master.zip** bestand en selecteer **eigenschappen**.
+4. Met de rechtermuisknop op de **WingtipTicketsSaaS-DbPerTenant-master.zip** bestand en selecteer **eigenschappen**.
 5. Op de **algemene** tabblad **blokkering**.
 6. Klik op **OK**.
 7. Pak de bestanden.
 
-Scripts bevinden zich in de *... \\WingtipSaaS master\\Learning-Modules* map.
+Scripts bevinden zich in de *... \\Learning-Modules* map.
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Werken met de Wingtip SaaS PowerShell-Scripts
+## <a name="working-with-the-wingtip-tickets-saas-database-per-tenant-powershell-scripts"></a>Werken met de Database Wingtip Tickets SaaS per Tenant PowerShell-Scripts
 
 Als u optimaal buiten het voorbeeld moet u Duik in de opgegeven scripts. Gebruik onderbrekingspunten en doorloop de scripts, in de details van hoe de andere SaaS-patronen worden geïmplementeerd. Om het eenvoudig stap via de opgegeven scripts en modules voor het beste begrijpen, wordt u aangeraden de [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
@@ -73,10 +73,10 @@ Tips voor het verkennen en PowerShell-scripts doorlopen:
 
 Gebruik [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) verbinding maken en blader door de toepassingsservers en databases.
 
-De implementatie in eerste instantie heeft twee SQL Database-servers verbinding maken met de - de *tenants1 -&lt;gebruiker&gt;*  -server en de *catalogus -&lt;gebruiker&gt;*  server. Een geslaagde demo-verbinding, zodat beide servers hebben een [firewallregel](sql-database-firewall-configure.md) toestaan via alle IP-adressen.
+De implementatie in eerste instantie heeft twee SQL Database-servers verbinding maken met de - de *tenants1-dpt -&lt;gebruiker&gt;*  -server en de *catalogus-dpt -&lt;gebruiker&gt;* server. Een geslaagde demo-verbinding, zodat beide servers hebben een [firewallregel](sql-database-firewall-configure.md) toestaan via alle IP-adressen.
 
 
-1. open *SSMS* en maak verbinding met de *tenants1-&lt;User&gt;.database.windows.net*-server.
+1. Open *SSMS* en maak verbinding met de *tenants1-dpt -&lt;gebruiker&gt;. database.windows.net* server.
 2. Klik op **Verbinding maken**  > **Database-engine...**:
 
    ![catalogusserver](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -85,7 +85,7 @@ De implementatie in eerste instantie heeft twee SQL Database-servers verbinding 
 
    ![verbinding](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. Herhaal de stappen 2-3 en maak verbinding met de *catalog-&lt;User&gt;.database.windows.net*-server.
+4. Herhaal stappen 2-3 en maak verbinding met de *catalogus-dpt -&lt;gebruiker&gt;. database.windows.net* server.
 
 
 Als de verbinding is geslaagd, ziet u beide servers. Uw lijst met databases mogelijk verschillen, afhankelijk van de tenants die u hebt ingericht.
@@ -96,5 +96,5 @@ Als de verbinding is geslaagd, ziet u beide servers. Uw lijst met databases moge
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[De Wingtip SaaS-toepassing implementeren](saas-dbpertenant-get-started-deploy.md)
+[De Database Wingtip Tickets SaaS per Tenant-toepassing implementeren](saas-dbpertenant-get-started-deploy.md)
 

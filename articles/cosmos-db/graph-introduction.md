@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Inleiding tot Azure Cosmos DB: Graph API
 
@@ -44,7 +44,7 @@ Azure Cosmos DB Graph API biedt:
 - Elastisch schalen van opslag en doorvoer met minder dan 10 ms lezen latenties en minder dan 15 ms op het 99th percentiel.
 - Automatisch met de beschikbaarheid van de directe query te indexeren.
 - Instelbare consistentieniveaus.
-- Uitgebreide Sla's, met inbegrip van 99,99% beschikbaarheid.
+- Uitgebreide Sla's, met inbegrip van 99,99% beschikbaarheid SLA voor alle één regio en alle meerdere landen/regio-accounts met beperkte consistentie en 99,999% beschikbaarheid voor alle accounts voor meerdere landen/regio-database te lezen.
 
 Om te vragen Azure Cosmos DB, kunt u de [Apache TinkerPop](http://tinkerpop.apache.org) graph traversal taal, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), of andere TinkerPop-compatibele grafiek systemen, zoals [Apache Spark GraphX](spark-connector-graph.md).
 

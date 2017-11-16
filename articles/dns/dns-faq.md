@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: jonatul
-ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: subsarma
+ms.openlocfilehash: 1a2a23fb5de5b5b491f061512a15f7acb6721446
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-dns-faq"></a>Veelgestelde vragen over Azure DNS
 
@@ -139,6 +139,10 @@ Zie voor meer informatie [Protecting DNS-Zones en Records](dns-protect-zones-rec
 ### <a name="how-do-i-set-up-spf-records-in-azure-dns"></a>Hoe stel ik SPF-records in Azure DNS
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
+
+### <a name="do-azure-dns-nameservers-resolve-over-ipv6-"></a>Kan Azure DNS-Nameservers via IPv6 oplossen? 
+
+Ja. Azure DNS-Nameservers zijn dual stack (zowel IPv4 als IPv6-adressen zijn). Als u wilt zoeken naar het IPv6-adres voor de Azure DNS nameservers toegewezen aan de DNS-zone, kunt u een hulpprogramma zoals nslookup (bijvoorbeeld `nslookup -q=aaaa <Azure DNS Nameserver>`).
 
 ### <a name="how-do-i-set-up-an-international-domain-name-idn-in-azure-dns"></a>Hoe stel ik van een internationale domeinnaam (IDN) in Azure DNS
 

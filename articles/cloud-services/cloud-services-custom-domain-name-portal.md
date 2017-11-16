@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloud-service configureren
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-custom-domain-name-portal.md)
-> * [Klassieke Azure Portal](cloud-services-custom-domain-name.md)
-> 
-> 
-
 Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice met de naam 'contoso', zich uw gebruikers toegang tot uw toepassing op een URL als http://contoso.cloudapp.net. Azure wordt ook een virtueel IP-adres toegewezen.
 
 Echter, kan ook worden blootgesteld uw toepassing op uw eigen domeinnaam, zoals **contoso.com**. In dit artikel wordt uitgelegd hoe reserve of een aangepaste domeinnaam configureren voor Cloud Service-web-rollen.
@@ -62,7 +56,7 @@ Een *A* record wordt een domein, zoals toegewezen **contoso.com** of **www.conto
 > [!NOTE]
 > Omdat een A-record is toegewezen aan een statisch IP-adres, kan deze wijzigingen automatisch niet omzetten naar de IP-adres van uw Cloud-Service. Het IP-adres wordt gebruikt door uw Cloud-Service is toegewezen de eerste keer dat u implementeert op een lege sleuf (productie of staging.) Als u de implementatie voor de site verwijdert, wordt het IP-adres wordt vrijgegeven door Azure en alle toekomstige implementaties in de sleuf kunnen een nieuw IP-adres worden gegeven.
 > 
-> Het IP-adres van een opgegeven implementatiesleuf (productie of staging) is gemakkelijk persistent bij het wisselen tussen fasering en productie-implementaties of het uitvoeren van een in-place upgrade van een bestaande implementatie. Zie voor meer informatie over het uitvoeren van deze acties [cloudservices beheren](cloud-services-how-to-manage.md).
+> Het IP-adres van een opgegeven implementatiesleuf (productie of staging) is gemakkelijk persistent bij het wisselen tussen fasering en productie-implementaties of het uitvoeren van een in-place upgrade van een bestaande implementatie. Zie voor meer informatie over het uitvoeren van deze acties [cloudservices beheren](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ Dit voorbeeld wordt het maken van een A-record voor het hoofddomein. Als u maken
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Cloud Services beheren](cloud-services-how-to-manage.md)
+* [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
 * [CDN-inhoud toewijzen aan een aangepast domein](../cdn/cdn-map-content-to-custom-domain.md)
 * [Algemene configuratie van uw cloudservice](cloud-services-how-to-configure-portal.md).
 * Meer informatie over hoe [implementeren van een cloudservice](cloud-services-how-to-create-deploy-portal.md).

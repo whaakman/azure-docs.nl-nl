@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure DB Cosmos Node.js SDK: Releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -60,6 +60,14 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="1.14.0"/>1.14.0</a>
+* Voegt ondersteuning toe voor Sessieconsistentie.
+* Deze SDK-versie moet de meest recente versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator.
+
+### <a name="1.13.0"/>1.13.0</a>
+* Splitproofed kruislingse partitie query's.
+* Voegt ondersteuning voor resourcekoppeling met voorloop- en volgspaties slashes (en de bijbehorende tests).
 
 ### <a name="1.12.2"/>1.12.2</a>
 *   npm documentatie is opgelost.
@@ -177,6 +185,8 @@ Een aanvraag voor het gebruik van de Cosmos-DB dat een buiten gebruik gestelde S
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |9 november 2017 |--- |
+| [1.13.0](#1.13.0) |11 oktober 2017 |--- |
 | [1.12.2](#1.12.2) |10 augustus 2017 |--- |
 | [1.12.1](#1.12.1) |10 augustus 2017 |--- |
 | [1.12.0](#1.12.0) |10 mei 2017 |--- |

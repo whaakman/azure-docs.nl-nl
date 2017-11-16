@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Het maken en implementeren van een cloudservice
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-> * [Klassieke Azure Portal](cloud-services-how-to-create-deploy.md)
->
->
-
 De Azure portal biedt twee manieren maken en implementeren van een cloudservice: *snelle invoer* en *aangepast maken*.
 
 In dit artikel wordt uitgelegd hoe u een nieuwe cloudservice maken en vervolgens gebruiken met de methode Snelle invoer **uploaden** om te uploaden en implementeren van een cloud service-pakket in Azure. Wanneer u deze methode gebruikt, kunt u de Azure-portal beschikbaar handige koppelingen voor het voltooien van alle vereisten die u gaat. Als u klaar bent om uw cloudservice implementeren wanneer u dit hebt gemaakt, kunt u beide op hetzelfde moment met behulp van aangepast maken kunt doen.

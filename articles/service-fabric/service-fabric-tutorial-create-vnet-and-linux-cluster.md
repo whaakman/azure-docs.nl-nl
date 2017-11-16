@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Een Service Fabric Linux-cluster in een Azure-netwerk implementeren
 Deze zelfstudie maakt deel uit een reeks. U leert het implementeren van een Linux-Service Fabric-cluster naar een bestaande Azure-netwerk (VNET) en subplan net met Azure CLI. Wanneer u klaar bent, hebt u een cluster uitvoert in de cloud die u kunt toepassingen implementeren op. Zie het maken van een Windows-cluster met behulp van PowerShell [een beveiligde Windows-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -35,6 +35,7 @@ In deze zelfstudie leert u het volgende:
 In deze zelfstudie reeks leert u hoe:
 > [!div class="checklist"]
 > * Een beveiligde cluster in Azure maken
+> * [Een in- of -cluster schalen](/service-fabric-tutorial-scale-cluster.md)
 > * [API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Vereisten

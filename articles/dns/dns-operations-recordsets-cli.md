@@ -3,7 +3,7 @@ title: DNS-records in Azure DNS met de Azure CLI 2.0 beheren | Microsoft Docs
 description: Het beheren van DNS-recordsets en records op Azure DNS bij het hosten van uw Azure DNS-domein. Alle 2.0 CLI-opdrachten voor bewerkingen voor recordsets en records.
 services: dns
 documentationcenter: na
-author: jtuliani
+author: subsarma
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
-ms.author: jonatul
-ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/08/2017
+ms.author: subsarma
+ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS-records en recordsets in Azure DNS met de Azure CLI 2.0 beheren
 
@@ -105,6 +105,12 @@ We geven geen bevoegdheden als een voorbeeld voor het maken van een recordset SO
 
 ```azurecli
 az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+```
+
+### <a name="create-an-caa-record"></a>Maak een record CAA
+
+```azurecli
+az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --flags 0 --tag "issue" --value "ca1.contoso.com"
 ```
 
 ### <a name="create-a-cname-record"></a>Een CNAME-record maken
@@ -208,9 +214,9 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 
 Elke recordset bevat een [time to live (TTL)](dns-zones-records.md#time-to-live), [metagegevens](dns-zones-records.md#tags-and-metadata), en DNS-records. De volgende secties wordt uitgelegd hoe elk van deze eigenschappen aanpassen.
 
-### <a name="to-modify-an-a-aaaa-mx-ns-ptr-srv-or-txt-record"></a>Een A, AAAA, MX, NS, PTR, SRV- of TXT-record wijzigen
+### <a name="to-modify-an-a-aaaa-caa-mx-ns-ptr-srv-or-txt-record"></a>Een A, AAAA, CAA, MX, NS, PTR, SRV- of TXT-record wijzigen
 
-Voor het wijzigen van een bestaande record van type A, AAAA, MX, NS, PTR, SRV- of TXT, moet u eerst een nieuwe record toevoegen en verwijder vervolgens de bestaande record. Zie de vorige secties van dit artikel voor gedetailleerde instructies voor het verwijderen en records toevoegen.
+Voor het wijzigen van een bestaande record van type A, AAAA, CAA, MX, NS, PTR, SRV- of TXT, moet u eerst een nieuwe record toevoegen en verwijder vervolgens de bestaande record. Zie de vorige secties van dit artikel voor gedetailleerde instructies voor het verwijderen en records toevoegen.
 
 Het volgende voorbeeld ziet u hoe een "A" record van IP-adres 1.2.3.4 naar IP-adres 5.6.7.8 wijzigen:
 

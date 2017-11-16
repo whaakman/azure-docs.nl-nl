@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: Hoe een query over tabelgegevens met behulp van de tabel-API (preview)?
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Hoe een query over tabelgegevens met behulp van de tabel-API
 
-De Azure DB die Cosmos [tabel API](table-introduction.md) (preview) biedt ondersteuning voor OData en [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) een query uitgevoerd op gegevens van de sleutelwaarde (tabel).  
+De Azure DB die Cosmos [tabel API](table-introduction.md) OData ondersteunt en [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) een query uitgevoerd op gegevens van de sleutelwaarde (tabel).  
 
 In dit artikel bevat informatie over de volgende taken: 
 
@@ -38,13 +38,13 @@ De query's in dit artikel gebruik het volgende voorbeeld `People` tabel:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Omdat Azure Cosmos DB compatibel met de Azure Table storage-API's is, Zie [opvragen van tabellen en entiteiten] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) voor meer informatie over de query met behulp van de tabel API. 
+Zie [opvragen van tabellen en entiteiten] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) voor meer informatie over de query met behulp van de tabel-API. 
 
-Zie voor meer informatie over de premium-mogelijkheden die Azure Cosmos DB biedt [Azure Cosmos DB: tabel API](table-introduction.md) en [ontwikkelen met de API van de tabel in .NET](tutorial-develop-table-dotnet.md). 
+Zie voor meer informatie over de premium-mogelijkheden die Azure Cosmos DB biedt [Azure Cosmos DB tabel API](table-introduction.md) en [ontwikkelen met de API van de tabel in .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze query's werken, moet u een Azure DB die Cosmos-account hebt en entiteitsgegevens in de container hebt. Geen van deze? Voltooi de [vijf minuten Quick Start](https://aka.ms/acdbtnetqs) of de [developer-zelfstudie](https://aka.ms/acdbtabletut) voor het maken van een account en vul uw database.
+Voor deze query's werken, moet u een Azure DB die Cosmos-account hebt en entiteitsgegevens in de container hebt. Geen van deze? Voltooi de [vijf minuten Quick Start](create-table-dotnet.md) of de [developer-zelfstudie](tutorial-develop-table-dotnet.md) voor het maken van een account en vul uw database.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Query op PartitionKey en RowKey
 Omdat de eigenschappen PartitionKey en RowKey primaire sleutel van een entiteit vormen, kunt u de volgende specifieke syntaxis voor het identificeren van de entiteit: 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Hebt geleerd hoe u een query met behulp van de tabel-API (preview) 
+> * Hebt geleerd hoe u een query met behulp van de tabel-API
 
 U kunt nu doorgaan met de volgende zelfstudie voor informatie over het distribueren van uw gegevens globaal.
 
 > [!div class="nextstepaction"]
-> [Uw gegevens globaal distribueren](tutorial-global-distribution-documentdb.md)
+> [Uw gegevens globaal distribueren](tutorial-global-distribution-table.md)

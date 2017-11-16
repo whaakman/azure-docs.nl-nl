@@ -1,75 +1,108 @@
 ---
 title: Een Event Hub gebeurtenisbron toevoegen aan uw omgeving Azure Time Series Insights | Microsoft Docs
-description: Deze zelfstudie wordt beschreven hoe u een gebeurtenisbron die is verbonden met een Event Hub aan uw omgeving Time Series Insights toevoegen
-keywords: 
+description: Dit artikel wordt beschreven hoe u een gebeurtenisbron die is verbonden met een Event Hub aan uw omgeving Time Series Insights toevoegt.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: f6a993b3858cfb94dd9795f5e55f15fa6ec7dcb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: f3a9a1c7e57383925877f674a2e02f931e5c1e3c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-add-an-event-hub-event-source"></a>Het toevoegen van een gebeurtenisbron Event Hub
+# <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Het toevoegen van een Event Hub gebeurtenisbron aan Time Series Insights-omgeving
 
-Deze zelfstudie wordt aangegeven hoe de Azure portal gebruiken om toe te voegen een gebeurtenisbron die aan uw omgeving Time Series Insights uit een Event Hub kan lezen.
+Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die gegevens uit een Event Hub in uw omgeving Time Series Insights leest toevoegen.
 
 ## <a name="prerequisites"></a>Vereisten
+- Maakt een tijd reeks Insights-omgeving. Zie voor meer informatie [een Azure Time Series Insights-omgeving maken](time-series-insights-get-started.md) 
+- Maak een Event Hub. Zie voor meer informatie over Event Hubs [een Event Hubs-naamruimte en een event hub met de Azure portal maken](../event-hubs/event-hubs-create.md)
+- De Event Hub moet actieve bericht gebeurtenissen worden verzonden in hebben. Zie voor meer informatie [gebeurtenissen verzenden naar Azure Event Hubs met behulp van .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Een speciale klantengroep maken in de Event Hub voor de omgeving Time Series inzicht gebruiken uit. Elke keer reeks Insights gebeurtenisbron moet beschikken over een eigen speciale klantengroep die niet wordt gedeeld met andere consumenten. Als meerdere lezers gebeurtenissen van de dezelfde consumergroep gebruiken, zijn alle lezers waarschijnlijk fouten. Houd er rekening mee dat er ook een limiet van 20 consumergroepen per Event Hub is. Zie voor meer informatie de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md).
 
-U hebt gemaakt van een Event Hub en worden gebeurtenissen schrijven naar het. Zie voor meer informatie over Event Hubs <https://azure.microsoft.com/services/event-hubs/>
+## <a name="add-a-new-event-source"></a>Een nieuwe gebeurtenisbron toevoegen
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-> [Consumergroepen] Elke keer reeks Insights gebeurtenisbron moet beschikken over een eigen speciale klantengroep die niet wordt gedeeld met andere consumenten. Als meerdere lezers gebeurtenissen van de dezelfde consumergroep gebruiken, zijn alle lezers waarschijnlijk fouten. Houd er rekening mee dat er ook een limiet van 20 consumergroepen per Event Hub is. Zie voor meer informatie de [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md).
+2. Zoek uw bestaande Time Series Insights-omgeving. Klik op **alle resources** in het menu aan de linkerkant van de Azure-portal. Selecteer uw Time Series Insights-omgeving.
 
-## <a name="choose-an-import-option"></a>Kies een optie importeren
+3. Onder de **omgeving topologie** kop, klikt u op **gebeurtenisbronnen**.
 
-De instellingen voor de gebeurtenisbron kunnen handmatig worden ingevoerd of een event hub kan worden geselecteerd uit de event-hubs die voor u beschikbaar zijn.
-In de **optie importeren** selector, kies een van de volgende opties:
+   ![Gebeurtenis gegevensbronnen + toevoegen](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
-* Geef de Event Hub-instellingen handmatig
-* Gebruik Event Hub uit de beschikbare abonnementen
+4. Klik op **+ toevoegen**.
 
-### <a name="select-an-available-event-hub"></a>Selecteer een beschikbare Event Hub
+5. Geef een **gebeurtenisnaam bron** uniek is voor deze Time Series Insights-omgeving, zoals **stroom gebeurtenissen**.
 
-De volgende tabel beschrijft elke optie in het tabblad nieuwe gebeurtenisbron met de beschrijving bij het selecteren van een beschikbare Event Hub als een gebeurtenisbron:
+   ![Vul in de eerste drie parameters in de vorm.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
 
-| DE NAAM VAN EIGENSCHAP | BESCHRIJVING |
-| --- | --- |
-| De naam van de gebeurtenis-bron | De naam van de gebeurtenisbron. Deze naam moet uniek zijn binnen uw omgeving Time Series Insights.
-| Bron | Kies **Event Hub** voor het maken van een gebeurtenisbron Event Hub.
-| Abonnements-Id | Selecteer het abonnement waarin deze event hub is gemaakt.
-| Service bus-naamruimte | Selecteer de Service Bus-naamruimte die de Event Hub bevat.
-| Naam Event hub | Selecteer de naam van de Event Hub.
-| Naam Event hub-beleid | Selecteer het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad Event Hub configureren. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **lezen** machtigingen.
-| Event hub klantengroep | De Consumergroep gebeurtenissen moeten worden gelezen van de Event Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
+6. Selecteer de **bron** als **Event Hub**.
 
-### <a name="provide-event-hub-settings-manually"></a>Geef de Event Hub-instellingen handmatig
+7. Selecteer de relevante **optie importeren**. 
+   - Kies **gebruik Event Hub uit de beschikbare abonnementen** wanneer u al een bestaande Event Hub hebt op een van uw abonnementen. Dit is de beste aanpak.
+   - Kies **bieden Event Hub-instellingen handmatig** wanneer de Event Hub buiten uw abonnementen, of u wilt kiezen geavanceerde opties. 
 
-De volgende tabel beschrijft elke eigenschap in het tabblad nieuwe gebeurtenisbron met de beschrijving bij het invoeren van de instellingen handmatig:
+8. Als u hebt geselecteerd de **gebruik Event Hub uit de beschikbare abonnementen** optie, de volgende tabel wordt uitgelegd dat alle vereiste eigenschappen:
 
-| DE NAAM VAN EIGENSCHAP | BESCHRIJVING |
-| --- | --- |
-| De naam van de gebeurtenis-bron | De naam van de gebeurtenisbron. Deze naam moet uniek zijn binnen uw omgeving Time Series Insights.
-| Bron | Kies **Event Hub** voor het maken van een gebeurtenisbron Event Hub.
-| Abonnements-Id | Het abonnement waarin deze event hub is gemaakt.
-| Resourcegroep | Het abonnement waarin deze event hub is gemaakt.
-| Service bus-naamruimte | Een Service Bus-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, hebt u ook een Service Bus-naamruimte gemaakt.
-| Naam Event hub | De naam van uw Event Hub. Wanneer u uw event hub hebt gemaakt, u deze ook een specifieke naam gegeven
-| Naam Event hub-beleid | Het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad Event Hub configureren. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **lezen** machtigingen.
-| Event hub beleidssleutel | De toegang tot de gedeelde sleutel gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
-| Event hub klantengroep | De Consumergroep gebeurtenissen moeten worden gelezen van de Event Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
+   ![Details van abonnement en Event hub](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+
+   | Eigenschap | Beschrijving |
+   | --- | --- |
+   | Abonnements-id | Selecteer het abonnement waarin deze event hub is gemaakt.
+   | Service bus-naamruimte | Selecteer de Service Bus-naamruimte die de Event Hub bevat.
+   | Naam Event hub | Selecteer de naam van de Event Hub.
+   | Naam Event hub-beleid | Selecteer het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad Event Hub configureren. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **lezen** machtigingen.
+   | Event hub beleidssleutel | Waarde van de sleutel mogelijk vooraf worden ingevuld.
+   | Event hub klantengroep | De consumergroep gebeurtenissen moeten worden gelezen van de Event Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron. |
+   | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
+   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de berichtindeling van de berichtgegevens in Event Hub worden verzonden. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+
+
+9. Als u hebt geselecteerd de **bieden Event Hub-instellingen handmatig** optie, de volgende tabel wordt uitgelegd dat alle vereiste eigenschappen:
+
+   | Eigenschap | Beschrijving |
+   | --- | --- |
+   | Abonnements-id | Het abonnement waarin deze event hub is gemaakt.
+   | Resourcegroep | De resourcegroep waarin deze event hub is gemaakt.
+   | Service bus-naamruimte | Een Service Bus-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, hebt u ook een Service Bus-naamruimte gemaakt.
+   | Naam Event hub | De naam van uw Event Hub. Wanneer u uw event hub hebt gemaakt, u deze ook een specifieke naam gegeven.
+   | Naam Event hub-beleid | Het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad Event Hub configureren. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **lezen** machtigingen.
+   | Event hub beleidssleutel | De toegang tot de gedeelde sleutel gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
+   | Event hub klantengroep | De Consumergroep gebeurtenissen moeten worden gelezen van de Event Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
+   | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
+   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de berichtindeling van de berichtgegevens in Event Hub worden verzonden. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+
+
+10. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
+   
+   ![Klik op Maken](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+
+   Wanneer de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch met het streamen van gegevens naar uw omgeving.
+
+
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Een consumergroep toevoegen aan uw Event Hub
+Consumer-groepen worden gebruikt door toepassingen voor het ophalen van gegevens uit Azure Event Hubs. Geef een speciale klantengroep voor gebruik door deze Time Series Insights omgeving alleen betrouwbare manier om gegevens te lezen van uw Event Hub.
+
+Als u wilt een nieuwe consumergroep toevoegen aan uw Event Hub, de volgende stappen uit:
+1. Zoek in de Azure-portal en open uw Event Hub.
+
+2. Onder de **entiteiten** kop, selecteer **consumergroepen**.
+
+   ![Event Hub - een consumergroep toevoegen](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Selecteer **+ Consumergroep** toevoegen van een nieuwe consumergroep. 
+
+4. Op de **consumergroepen** pagina, geeft u een nieuwe unieke **naam**.  Deze dezelfde naam gebruiken bij het maken van een nieuwe gebeurtenisbron in de Time Series Insights-omgeving.
+
+5. Selecteer **maken** voor het maken van de nieuwe consumergroep.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-1. Een toegangsbeleid gegevens toevoegen aan uw omgeving [definiëren data access-beleid](time-series-insights-data-access.md)
-1. Toegang tot uw omgeving in de [Time Series Insights-Portal](https://insights.timeseries.azure.com)
+- [Definieer gegevenstoegangsbeleid](time-series-insights-data-access.md) om de gegevens te beveiligen.
+- [Verzenden van gebeurtenissen](time-series-insights-send-events.md) aan de gebeurtenisbron-.
+- Toegang tot uw omgeving in de [Time Series Insights explorer](https://insights.timeseries.azure.com).

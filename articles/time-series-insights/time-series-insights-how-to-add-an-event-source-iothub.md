@@ -1,73 +1,101 @@
 ---
 title: Een IoT Hub gebeurtenisbron toevoegen aan uw omgeving Azure Time Series Insights | Microsoft Docs
-description: Deze zelfstudie wordt beschreven hoe u een gebeurtenisbron die is verbonden met een IoT-Hub aan uw omgeving Time Series Insights toevoegen
-keywords: 
+description: Dit artikel wordt beschreven hoe u een gebeurtenisbron die is verbonden met een IoT-Hub aan uw omgeving Time Series Insights toevoegt
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: 3b98728ced81256d05b1bed2c92fc66c5ca61b98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-add-an-iot-hub-event-source"></a>Het toevoegen van een gebeurtenisbron IoT-Hub
-
-Deze zelfstudie wordt aangegeven hoe de Azure portal gebruiken voor het toevoegen van een gebeurtenisbron die aan uw omgeving Time Series Insights uit een IoT-Hub kan lezen.
+# <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Het toevoegen van een gebeurtenisbron IoT-Hub aan Time Series Insights-omgeving
+Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die gegevens uit een IoT-Hub in uw omgeving Time Series Insights leest toevoegen.
 
 ## <a name="prerequisites"></a>Vereisten
+- Maakt een tijd reeks Insights-omgeving. Zie voor meer informatie [een Azure Time Series Insights-omgeving maken](time-series-insights-get-started.md) 
+- Een IoT Hub maken. Zie voor meer informatie over IoT Hubs [een iothub met de Azure portal maken](../iot-hub/iot-hub-create-through-portal.md)
+- De IoT-Hub moet actieve bericht gebeurtenissen worden verzonden in hebben.
+- Maak een speciale klantengroep in IoT Hub voor de omgeving Time Series inzicht gebruiken uit. Elke keer reeks Insights gebeurtenisbron moet beschikken over een eigen speciale klantengroep die niet wordt gedeeld met andere consumenten. Als meerdere lezers gebeurtenissen van de dezelfde consumergroep gebruiken, zijn alle lezers waarschijnlijk fouten. Zie voor meer informatie de [Ontwikkelaarshandleiding voor IoT Hub](../iot-hub/iot-hub-devguide.md).
 
-U hebt een IoT-Hub gemaakt en worden gebeurtenissen schrijven naar het. Zie voor meer informatie over IoT Hubs <https://azure.microsoft.com/services/iot-hub/>
+## <a name="add-a-new-event-source"></a>Een nieuwe gebeurtenisbron toevoegen
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-> [Consumergroepen] Elke keer reeks Insights gebeurtenisbron moet beschikken over een eigen speciale klantengroep die niet wordt gedeeld met andere consumenten. Als meerdere lezers gebeurtenissen van de dezelfde consumergroep gebruiken, zijn alle lezers waarschijnlijk fouten. Zie voor meer informatie de [Ontwikkelaarshandleiding voor IoT Hub](../iot-hub/iot-hub-devguide.md).
+2. Zoek uw bestaande Time Series Insights-omgeving. Klik op **alle resources** in het menu aan de linkerkant van de Azure-portal. Selecteer uw Time Series Insights-omgeving.
 
-## <a name="choose-an-import-option"></a>Kies een optie importeren
+3. Onder de **omgeving topologie** kop, klikt u op **gebeurtenisbronnen**.
+   ![Gebeurtenis gegevensbronnen + toevoegen](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
 
-De instellingen voor de gebeurtenisbron kunnen handmatig worden ingevoerd of een IoT-hub kan worden geselecteerd uit de IoT-hubs die voor u beschikbaar zijn.
-In de **optie importeren** selector, kies een van de volgende opties:
+4. Klik op **+ toevoegen**.
 
-* Geef de IoT Hub-instellingen handmatig
-* Gebruik IoT Hub uit de beschikbare abonnementen
+5. Geef een **gebeurtenisnaam bron** uniek is voor deze Time Series Insights-omgeving, zoals **stroom gebeurtenissen**.
 
-### <a name="select-an-available-iot-hub"></a>Selecteer een beschikbare IoT-Hub
+   ![Vul in de eerste drie parameters in de vorm.](media/time-series-insights-how-to-add-an-event-source-iothub/2-import-option.png)
 
-De volgende tabel beschrijft elke optie in het tabblad nieuwe gebeurtenisbron met de beschrijving bij het selecteren van een IoT-Hub beschikbaar als een gebeurtenisbron:
+6. Selecteer de **bron** als **IoT-Hub**.
 
-| DE NAAM VAN EIGENSCHAP | BESCHRIJVING |
-| --- | --- |
-| De naam van de gebeurtenis-bron | De naam van de gebeurtenisbron. Deze naam moet uniek zijn binnen uw omgeving Time Series Insights.
-| Bron | Kies **IoT Hub** voor het maken van een gebeurtenisbron IoT Hub.
-| Abonnements-Id | Selecteer het abonnement waarin deze iothub is gemaakt.
-| De naam van de IoT-hub | Selecteer de naam van de IoT-Hub.
-| Naam voor het IoT-hub | Selecteer het beleid voor gedeelde toegang, die kan worden gevonden op het tabblad IoT Hub-instellingen. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **service verbinding** machtigingen.
-| IoT hub klantengroep | De Consumergroep gebeurtenissen moeten worden gelezen uit de IoT-Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
+7. Selecteer de relevante **optie importeren**. 
+   - Kies **gebruik IoT Hub uit de beschikbare abonnementen** wanneer u al een IoT Hub hebt op een van uw abonnementen. Dit is de beste aanpak.
+   - Kies **bieden IoT Hub-instellingen handmatig** wanneer de IoT-Hub is extern voor uw abonnementen, of u wilt geavanceerde opties te kiezen. 
 
-### <a name="provide-iot-hub-settings-manually"></a>Geef de IoT Hub-instellingen handmatig
+8. Als u hebt geselecteerd de **gebruik IoT Hub uit de beschikbare abonnementen** optie, de volgende tabel wordt uitgelegd dat alle vereiste eigenschappen:
 
-De volgende tabel beschrijft elke eigenschap in het tabblad nieuwe gebeurtenisbron met de beschrijving bij het invoeren van de instellingen handmatig:
+   ![Details van abonnement en Event hub](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-| DE NAAM VAN EIGENSCHAP | BESCHRIJVING |
-| --- | --- |
-| De naam van de gebeurtenis-bron | De naam van de gebeurtenisbron. Deze naam moet uniek zijn binnen uw omgeving Time Series Insights.
-| Bron | Kies **IoT Hub** voor het maken van een gebeurtenisbron IoT Hub.
-| Abonnements-Id | Het abonnement waarin deze iothub is gemaakt.
-| Resourcegroep | Het abonnement waarin deze iothub is gemaakt.
-| De naam van de IoT-hub | De naam van uw IoT-Hub. Wanneer u uw IoT-hub gemaakt, u dit ook een specifieke naam gegeven
-| Naam voor het IoT-hub | Het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad IoT Hub-instellingen. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **service verbinding** machtigingen.
-| IoT hub beleidssleutel | De toegang tot de gedeelde sleutel gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
-| IoT hub klantengroep | De Consumergroep gebeurtenissen moeten worden gelezen uit de IoT-Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
+   | Eigenschap | Beschrijving |
+   | --- | --- |
+   | Abonnements-id | Selecteer het abonnement waarin deze iothub is gemaakt.
+   | De naam van de IoT-hub | Selecteer de naam van de IoT-Hub.
+   | Naam voor het IoT-hub | Selecteer het beleid voor gedeelde toegang, die kan worden gevonden op het tabblad IoT Hub-instellingen. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **service verbinding** machtigingen.
+   | IoT hub beleidssleutel | De sleutel is vooraf ingevuld.
+   | IoT hub klantengroep | De consumergroep gebeurtenissen moeten worden gelezen uit de IoT-Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
+   | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
+   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens verzonden naar IoT Hub. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+
+9. Als u hebt geselecteerd de **bieden IoT Hub-instellingen handmatig** optie, de volgende tabel wordt uitgelegd dat alle vereiste eigenschappen:
+
+   | Eigenschap | Beschrijving |
+   | --- | --- |
+   | Abonnements-id | Het abonnement waarin deze iothub is gemaakt.
+   | Resourcegroep | Naam van de resourcegroep waarin deze iothub is gemaakt.
+   | De naam van de IoT-hub | De naam van uw IoT-Hub. Wanneer u uw IoT-hub gemaakt, u dit ook een specifieke naam gegeven.
+   | Naam voor het IoT-hub | Het beleid voor gedeelde toegang, die kan worden gemaakt op het tabblad IoT Hub-instellingen. Elk gedeeld toegangsbeleid heeft een naam, machtigingen die u instelt en toegangssleutels. Het beleid voor gedeelde toegang voor de gebeurtenisbron *moet* hebben **service verbinding** machtigingen.
+   | IoT hub beleidssleutel | De gedeelde toegangssleutel die wordt gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
+   | IoT hub klantengroep | De consumergroep gebeurtenissen moeten worden gelezen uit de IoT-Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
+   | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
+   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens verzonden naar IoT Hub. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+
+10. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
+
+   ![Klik op Maken](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+
+   Wanneer de gebeurtenisbron is gemaakt, begint Time Series Insights automatisch met het streamen van gegevens naar uw omgeving.
+
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Een consumergroep toevoegen aan uw IoT-hub
+Consumer-groepen worden gebruikt door toepassingen voor het ophalen van gegevens uit Azure IoT Hubs. Geef een speciale klantengroep voor gebruik door deze Time Series Insights omgeving alleen betrouwbaar gegevens lezen uit uw IoT-Hub.
+
+Als u wilt een nieuwe consumergroep toevoegen aan uw IoT-hub, de volgende stappen uit:
+1. Zoek in de Azure-portal en open uw IoT-hub.
+
+2. Onder de **Messaging** kop, selecteer **eindpunten**. 
+
+   ![Een consumergroep toevoegen](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
+
+3. Selecteer de **gebeurtenissen** eindpunt, en de **eigenschappen** pagina wordt geopend.
+
+4. Onder de **consumergroepen** kop Geef een nieuwe unieke naam voor de consumergroep. Deze dezelfde naam in tijd reeks Insights omgeving gebruiken bij het maken van een nieuwe gebeurtenisbron.
+
+5. Selecteer **opslaan** om op te slaan van de nieuwe consumergroep.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-1. Een toegangsbeleid gegevens toevoegen aan uw omgeving [definiëren data access-beleid](time-series-insights-data-access.md)
-1. Toegang tot uw omgeving in de [Time Series Insights-Portal](https://insights.timeseries.azure.com)
+- [Definieer gegevenstoegangsbeleid](time-series-insights-data-access.md) om de gegevens te beveiligen.
+- [Verzenden van gebeurtenissen](time-series-insights-send-events.md) aan de gebeurtenisbron-.
+- Toegang tot uw omgeving in de [Time Series Insights explorer](https://insights.timeseries.azure.com).

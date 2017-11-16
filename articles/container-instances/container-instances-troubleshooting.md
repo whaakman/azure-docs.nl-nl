@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/18/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: ff6da0ce95d0405714602c3872da34a2bff344d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78bd45f7f71fd25e351d4e9b922a6a3f171437fd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Problemen met implementatie oplossen met Azure Containerexemplaren
 
-In dit artikel laat zien hoe het oplossen van problemen bij het implementeren van containers naar Containerexemplaren van Azure. Hierin worden ook enkele van de algemene problemen die u kunt uitvoeren in.
+In dit artikel laat zien hoe het oplossen van problemen bij het implementeren van containers naar Containerexemplaren van Azure. Hierin worden ook enkele van de algemene problemen die u kunt tegenkomen.
 
-## <a name="getting-diagnostic-events"></a>Ophalen van diagnostische gebeurtenissen
+## <a name="get-diagnostic-events"></a>Ophalen van diagnostische gebeurtenissen
 
 Om Logboeken te raadplegen van uw toepassingscode binnen een container, kunt u de [az container logboeken](/cli/azure/container#logs) opdracht. Maar als de container niet met succes is geïmplementeerd, moet u de diagnostische informatie verstrekt door de bronprovider van exemplaren van Azure-Container. Als u wilt weergeven van de gebeurtenissen voor de container, voer de volgende opdracht:
 
@@ -91,7 +91,7 @@ De uitvoer bevat de basiseigenschappen van de container, samen met de implementa
 
 Er zijn een aantal veelvoorkomende problemen die account voor de meeste fouten in de implementatie.
 
-### <a name="unable-to-pull-image"></a>Kan geen pull-afbeelding
+## <a name="unable-to-pull-image"></a>Kan geen pull-afbeelding
 
 Als Azure-Containerexemplaren kan niet voor het ophalen van de afbeelding in eerste instantie is, wordt het opnieuw probeert gedurende een bepaalde voordat uiteindelijk mislukken. Als de installatiekopie kan niet worden opgehaald, worden gebeurtenissen, zoals het volgende weergegeven:
 
@@ -123,75 +123,54 @@ Als Azure-Containerexemplaren kan niet voor het ophalen van de afbeelding in eer
 
 Verwijderen van container om op te lossen, en probeer van uw implementatie, betalende letten dat u de installatiekopie met de naam correct hebt getypt.
 
-### <a name="container-continually-exits-and-restarts"></a>Container voortdurend wordt afgesloten en opnieuw wordt opgestart
+## <a name="container-continually-exits-and-restarts"></a>Container voortdurend wordt afgesloten en opnieuw wordt opgestart
 
-Op dit moment ondersteunt Azure Containerexemplaren alleen langlopende services. Als uw container wordt uitgevoerd om te voltooien en zichzelf afsluit, het automatisch opnieuw wordt opgestart en wordt opnieuw uitgevoerd. Als dit gebeurt, worden gebeurtenissen, zoals die na weergegeven. Houd er rekening mee dat de container kan worden gestart en snel opnieuw wordt opgestart. De Container exemplaren API bevat een `retryCount` eigenschap die laat zien hoe vaak een bepaalde container opnieuw is opgestart.
+Als uw container wordt uitgevoerd voor voltooien en wordt automatisch opnieuw opgestart, moet u mogelijk om in te stellen een [beleid opnieuw opstarten](container-instances-restart-policy.md) van **OnFailure** of **nooit**. Als u opgeeft **OnFailure** en nog steeds Zie continu opnieuw wordt opgestart, wordt er mogelijk een probleem met de toepassing of het script dat wordt uitgevoerd in de container.
 
-```bash
-"events": [
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:55+00:00",
-    "lastTimestamp": "2017-08-03T22:23:22+00:00",
-    "message": "Pulling: pulling image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:23:23+00:00",
-    "message": "Pulled: Successfully pulled image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Created: Created container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Started: Started container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Created: Created container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Started: Started container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 13,
-    "firstTimestamp": "2017-08-03T22:21:59+00:00",
-    "lastTimestamp": "2017-08-03T22:24:36+00:00",
-    "message": "BackOff: Back-off restarting failed container",
-    "type": "Warning"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:22:13+00:00",
-    "lastTimestamp": "2017-08-03T22:22:13+00:00",
-    "message": "Created: Created container with id 72e347e891290e238135e4a6b3078748ca25a1275dbbff30d8d214f026d89220",
-    "type": "Normal"
-  },
-  ...
+De Container exemplaren API bevat een `restartCount` eigenschap. Om te zien van het aantal voor een container, kunt u de [az container weergeven](/cli/azure/container#az_container_show) opdracht in de Azure CLI 2.0. In de volgende voorbeelduitvoer (die is afgebroken als beknopt alternatief bevat), ziet u de `restartCount` eigenschap aan het einde van de uitvoer.
+
+```json
+...
+ "events": [
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:06+00:00",
+     "lastTimestamp": "2017-11-13T21:20:06+00:00",
+     "message": "Pulling: pulling image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Pulled: Successfully pulled image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Created: Created container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Started: Started container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   }
+ ],
+ "previousState": null,
+ "restartCount": 0
+...
+}
 ```
 
 > [!NOTE]
-> Een shell, zoals bash, de meeste container afbeeldingen voor Linux-distributies ingesteld als de opdracht. Aangezien een shell zelf geen langlopende service is, wordt deze containers onmiddellijk afsluiten en kunnen worden onderverdeeld in een lus opnieuw opstarten.
+> Een shell, zoals bash, de meeste container afbeeldingen voor Linux-distributies ingesteld als de opdracht. Omdat een shell zelf geen service van langlopende is, deze containers onmiddellijk afsluiten en worden onderverdeeld in een lus opnieuw opstarten wanneer geconfigureerd met het standaard **altijd** beleid opnieuw opstarten.
 
-### <a name="container-takes-a-long-time-to-start"></a>Container duurt lang om te starten
+## <a name="container-takes-a-long-time-to-start"></a>Container duurt lang om te starten
 
 Als uw container lang duurt om te starten, maar uiteindelijk slaagt, starten door te kijken naar de grootte van de installatiekopie van de container. Omdat Azure Containerexemplaren de installatiekopie van de container op aanvraag haalt, wordt de opstarttijd er rechtstreeks verband houden met de grootte.
 
@@ -212,7 +191,7 @@ Grootte klein te houden is ervoor te zorgen dat uw uiteindelijke installatiekopi
 
 De andere manier om reduceert de gevolgen voor de pull-installatiekopie op de container starten van de tijd is voor het hosten van de installatiekopie van het container met het register van de Container Azure in dezelfde regio waar u wilt gebruiken van Azure Containerexemplaren. Dit verkort het netwerkpad die de installatiekopie van de container reizen moet, aanzienlijk verkorten de downloadtijd.
 
-### <a name="resource-not-available-error"></a>Resource niet beschikbaar-fout
+## <a name="resource-not-available-error"></a>Resource niet beschikbaar-fout
 
 Als gevolg van regionale resource wisselende laden in Azure, ziet u mogelijk de volgende fout bij een poging tot het implementeren van een exemplaar van de container:
 

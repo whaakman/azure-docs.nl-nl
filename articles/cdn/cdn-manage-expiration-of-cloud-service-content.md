@@ -14,20 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d58a245923242b3963b188ca869e8290d999c0a2
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 87d65479960cd6b5977fd7ac31cbb71afc0959e2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Vervaldatum van webinhoud in Azure inhoud Delivery Network beheren
- in Azure CDN
 > [!div class="op_single_selector"]
-> * [Azure-Web-Apps/Cloud Services, ASP.NET of IIS](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Azure-web-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Bestanden van de webserver van elke openbaar toegankelijke oorsprong kunnen opslaan in de cache in Azure Content Delivery Network (CDN) totdat de time-to-live (TTL) is verstreken. De TTL-waarde wordt bepaald door de [ `Cache-Control` header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in het HTTP-antwoord op de bronserver. In dit artikel wordt beschreven hoe instelt `Cache-Control` headers voor de functie Web Apps van Microsoft Azure App Service, Azure Cloud Services, ASP.NET-toepassingen en Internet Information Services-sites, die allemaal op dezelfde manier zijn geconfigureerd.
+De bestanden van de webserver van elke openbaar toegankelijke oorsprong kunnen opslaan in de cache in Azure Content Delivery Network (CDN) totdat de time-to-live (TTL) is verstreken. De TTL-waarde wordt bepaald door de `Cache-Control` -header in het HTTP-antwoord op de bronserver. In dit artikel wordt beschreven hoe instelt `Cache-Control` headers voor de functie Web Apps van Microsoft Azure App Service, Azure Cloud Services, ASP.NET-toepassingen en Internet Information Services (IIS)-sites, die allemaal op dezelfde manier zijn geconfigureerd. U kunt instellen de `Cache-Control` header met behulp van de configuratiebestanden of programmatisch.
 
 > [!TIP]
 > U kunt geen TTL ingesteld op een bestand. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen.
@@ -35,10 +34,16 @@ Bestanden van de webserver van elke openbaar toegankelijke oorsprong kunnen opsl
 > Zie voor meer informatie over de werking van Azure CDN om sneller toegang tot bestanden en andere bronnen [overzicht van het Azure Content Delivery Network](cdn-overview.md).
 > 
 
-## <a name="setting-cache-control-headers-in-configuration-files"></a>Cache-Control headers instellen in configuratiebestanden
-Voor statische inhoud, zoals afbeeldingen en opmaakmodellen, kunt u de updatefrequentie bepalen door het wijzigen van de **applicationHost.config** of **web.config** bestanden voor uw webtoepassing. De **system.webServer\staticContent\clientCache** -element in het bestand configuratiesets de `Cache-Control` -header voor uw inhoud. Voor **web.config** bestanden, de configuratie-instellingen van invloed op alles in de map en alle submappen, tenzij ze worden overschreven op het niveau van de submap. U kunt bijvoorbeeld een standaardinstelling voor de TTL-waarde ingesteld op de hoofdmap in de cache van statische inhoud alle drie dagen, en stelt een submap met meer variabele inhoud naar de inhoud ervan alleen zes uur in de cache. Hoewel **applicationHost.config** bestandsinstellingen gelden voor alle toepassingen op de site, ze worden overschreven door de instellingen van elke bestaande **web.config** bestanden in de toepassingen.
+## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Cache-Control headers instellen met behulp van configuratiebestanden
+Voor statische inhoud, zoals afbeeldingen en opmaakmodellen, kunt u de updatefrequentie bepalen door het wijzigen van de **applicationHost.config** of **Web.config** configuratiebestanden voor uw webtoepassing. De `<system.webServer>/<staticContent>/<clientCache>` -element in beide bestandssets de `Cache-Control` -header voor uw inhoud.
 
-De volgende XML-voorbeeld toont hoe instelt **clientCache** om op te geven van een maximale leeftijd van drie dagen:  
+### <a name="using-applicationhostconfig-files"></a>Met behulp van ApplicationHost.config bestanden
+De **ApplicationHost.config** bestand is het bestand van de hoofdmap van het IIS-configuratie-systeem. De configuratie-instellingen in een **ApplicationHost.config** bestand invloed op alle toepassingen op de site, maar worden overschreven door de instellingen van **Web.config** bestanden die aanwezig zijn voor een webtoepassing.
+
+### <a name="using-webconfig-files"></a>Met behulp van Web.config-bestanden
+Met een **Web.config** -bestand, kunt u bepalen hoe uw hele webtoepassing of een specifieke map op uw webtoepassing gedraagt zich. Gewoonlijk hebt u ten minste één **Web.config** bestand in de hoofdmap van uw webtoepassing. Voor elk **Web.config** bestand in een specifieke map, de configuratie-instellingen van invloed op alles in die map en alle submappen, tenzij ze op het niveau van de submap worden overschreven door een andere **Web.config**bestand. U kunt bijvoorbeeld instellen een `<clientCache>` -element in een **Web.config** bestand in de hoofdmap van uw webtoepassing in de cache van alle statische inhoud op uw webtoepassing drie dagen. U kunt ook toevoegen een **Web.config** bestand in een submap met meer variabele inhoud (bijvoorbeeld `\frequent`) en stel de `<clientCache>` element in de cache van de submap inhoud gedurende zes uur. Het resultaat is dat inhoud op de gehele website zal worden opgeslagen voor drie dagen, met uitzondering van inhoud in de `\frequent` directory, dat wordt alleen de zes uur in cache opgeslagen.  
+
+De volgende XML-voorbeeld laat zien hoe in te stellen de `<clientCache>` element in een configuratiebestand om op te geven van een maximale leeftijd van drie dagen:  
 
 ```xml
 <configuration>
@@ -50,17 +55,17 @@ De volgende XML-voorbeeld toont hoe instelt **clientCache** om op te geven van e
 </configuration>
 ```
 
-Geven **UseMaxAge** zorgt ervoor dat een `Cache-Control: max-age=<nnn>` header moet worden toegevoegd aan de reactie op basis van de opgegeven waarde in de **CacheControlMaxAge** kenmerk. De indeling van het interval voor de **cacheControlMaxAge** kenmerk `<days>.<hours>:<min>:<sec>`. Voor meer informatie over de **clientCache** knooppunt, Zie [clientcache <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Gebruik de **cacheControlMaxAge** kenmerk, u moet de waarde van de **cacheControlMode** kenmerk `UseMaxAge`. Deze instelling veroorzaakt de HTTP-header en Richtlijn `Cache-Control: max-age=<nnn>`, worden toegevoegd aan het antwoord. De indeling van de timespan-waarde voor de **cacheControlMaxAge** kenmerk `<days>.<hours>:<min>:<sec>`. De waarde wordt geconverteerd naar seconden en wordt gebruikt als de waarde van de `Cache-Control` `max-age` richtlijn. Voor meer informatie over de `<clientCache>` element, Zie [clientcache <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
-## <a name="setting-cache-control-headers-in-code"></a>Cache-Control headers instellen in code
-Voor ASP.NET-toepassingen, kunt u bepalen de CDN cachegedrag programmatisch door in te stellen de **HttpResponse.Cache** eigenschap. Voor meer informatie over de **HttpResponse.Cache** eigenschap, Zie [HttpResponse.Cache eigenschap](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) en [HttpCachePolicy klasse](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+## <a name="setting-cache-control-headers-programmatically"></a>Cache-Control headers instellen programmatisch
+Voor ASP.NET-toepassingen die u beheert de CDN cachegedrag programmatisch door in te stellen de **HttpResponse.Cache** eigenschap van de .NET API. Voor informatie over de **HttpResponse.Cache** eigenschap, Zie [HttpResponse.Cache eigenschap](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) en [HttpCachePolicy klasse](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 
 Programmatisch cache toepassing inhoud in ASP.NET, de volgende stappen uit:
-   1. Controleer of dat de inhoud is gemarkeerd als caching geschikte door in te stellen `HttpCacheability` naar *openbare*. 
-   2. Validatie van de cache ingesteld door een van de volgende methoden:
-      - Roep `SetLastModified` een tijdstempel LastModified instellen.
-      - Roep `SetETag` om in te stellen een `ETag` waarde.
-   3. Geef eventueel een verlooptijd cache door het aanroepen van `SetExpires`. Anders wordt toepassing de standaard cache methodiek eerder in dit document beschreven.
+   1. Controleer of dat de inhoud is gemarkeerd als caching geschikte door in te stellen `HttpCacheability` naar `Public`. 
+   2. Validatie van de cache ingesteld door het aanroepen van een van de volgende `HttpCachePolicy` methoden:
+      - Roep `SetLastModified` een tijdstempelwaarde instellen voor de `Last-Modified` header.
+      - Roep `SetETag` naar een waarde instellen voor de `ETag` header.
+   3. Geef eventueel een verlooptijd cache door aan te roepen `SetExpires` naar een waarde instellen voor de `Expires` header. Anders wordt toepassing de standaard cache methodiek eerder in dit document beschreven.
 
 Bijvoorbeeld tot de cache inhoud gedurende één uur, voeg de volgende C#-code:  
 
@@ -70,6 +75,9 @@ Response.Cache.SetExpires(DateTime.Now.AddHours(1));
 Response.Cache.SetCacheability(HttpCacheability.Public);
 Response.Cache.SetLastModified(DateTime.Now);
 ```
+
+## <a name="testing-the-cache-control-header"></a>Testen van de Cache-Control-header
+U kunt eenvoudig de TTL-instellingen van de inhoud van uw website controleren. Met uw browser [hulpprogramma's voor ontwikkelaars](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test die inhoud van uw website bevat de `Cache-Control` antwoordheader. U kunt ook een hulpprogramma zoals gebruiken **wget**, [Postman](https://www.getpostman.com/), of [Fiddler](http://www.telerik.com/fiddler) om te onderzoeken de antwoordheaders.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Lees meer informatie over de **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)

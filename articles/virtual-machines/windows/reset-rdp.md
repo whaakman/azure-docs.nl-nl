@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 105dc8a17d0bf8862b772ad241f4522e4c658095
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e962016a96cbbdafabc512b055248900b2c68a69
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Het opnieuw instellen van de extern bureaublad-service of het aanmeldingswachtwoord in een Windows-VM
-Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service. U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken. Als u met behulp van PowerShell, controleert u of u hebt de [nieuwste PowerShell-module geïnstalleerd en geconfigureerd](/powershell/azure/overview) en u bent aangemeld bij uw Azure-abonnement. U kunt ook [deze stappen uitvoert voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel](reset-rdp.md).
+Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service. U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken. Als u met behulp van PowerShell, controleert u of u hebt de [nieuwste PowerShell-module geïnstalleerd en geconfigureerd](/powershell/azure/overview) en u bent aangemeld bij uw Azure-abonnement. U kunt ook [deze stappen uitvoert voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/reset-rdp).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Op de beginwaarden configuratie of referenties
 U kunt Extern bureaublad-services en referenties herstellen op verschillende manieren, afhankelijk van uw behoeften:

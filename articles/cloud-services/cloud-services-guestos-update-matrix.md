@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: b94001e16068f1163beaac81053a03600af5f768
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 90ce26733c7018e2cf9464470a65bd0539772c3b
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
 Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -88,16 +88,16 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |8 november 2017 |Post 5.14 |Nader te bepalen |
-| WA-GUEST-OS-5.11_201709-01 |6 oktober 2017 |Post 5.13 |Nader te bepalen |
-| WA-GUEST-OS-5.10_201708-01 |24 augustus 2017 |Post 5.12 |Nader te bepalen |
-|~~WA-GUEST-OS-5.9_201707-01~~ |3 augustus 2017 |8 november 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-5.8_201706-01~~ |7 juli 2017 |6 oktober 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-5.7_201705-01~~ |5 juni 2017 |24 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-5.6_201704-01~~ |9 mei 2017 |3 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-5.5_201703-01~~ |10 april 2017 |7 juli 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-5.4_201612-01~~ |10 januari 2017 |5 juni 2017|Nader te bepalen |
-|~~WA-GUEST-OS-5.3_201611-01~~ |14 december 2016 |9 mei 2017 |Nader te bepalen |
+| WA-GUEST-OS-5.12_201710-01 |8 november 2017 |Post 5.14 |NOG TE BEPALEN |
+| WA-GUEST-OS-5.11_201709-01 |6 oktober 2017 |Post 5.13 |NOG TE BEPALEN |
+| WA-GUEST-OS-5.10_201708-01 |24 augustus 2017 |Post 5.12 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.9_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.8_201706-01~~ |7 juli 2017 |6 oktober 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.7_201705-01~~ |5 juni 2017 |24 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.6_201704-01~~ |9 mei 2017 |3 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.5_201703-01~~ |10 april 2017 |7 juli 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.4_201612-01~~ |10 januari 2017 |5 juni 2017|NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.3_201611-01~~ |14 december 2016 |9 mei 2017 |NOG TE BEPALEN |
 
 ## <a name="family-4-releases"></a>Familie 4-versies
 **Windows Server 2012 R2**
@@ -111,16 +111,16 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-01 |8 november 2017 |Post 4.49 |Nader te bepalen |
-| WA-GUEST-OS-4.46_201709-01 |6 oktober 2017 |Post 4.48 |Nader te bepalen |
-| WA-GUEST-OS-4.45_201708-01 |24 augustus 2017 |Post 4.47 |Nader te bepalen |
-|~~WA-GUEST-OS-4.44_201707-01~~ |3 augustus 2017 |8 november 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-4.43_201706-01~~ |7 juli 2017 |6 oktober 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-4.42_201705-01~~ |5 juni 2017 |24 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-4.41_201704-01~~ |9 mei 2017 |3 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-4.40_201703-01~~ |10 april 2017 |7 juli 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-4.39_201612-01~~ |10 januari 2017 |5 juni 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-4.38_201611-01~~ |14 december 2016 |9 mei 2017 |Nader te bepalen |
+| WA-GUEST-OS-4.47_201710-01 |8 november 2017 |Post 4.49 |NOG TE BEPALEN |
+| WA-GUEST-OS-4.46_201709-01 |6 oktober 2017 |Post 4.48 |NOG TE BEPALEN |
+| WA-GUEST-OS-4.45_201708-01 |24 augustus 2017 |Post 4.47 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.44_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.43_201706-01~~ |7 juli 2017 |6 oktober 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.42_201705-01~~ |5 juni 2017 |24 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.41_201704-01~~ |9 mei 2017 |3 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.40_201703-01~~ |10 april 2017 |7 juli 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.39_201612-01~~ |10 januari 2017 |5 juni 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.38_201611-01~~ |14 december 2016 |9 mei 2017 |NOG TE BEPALEN |
 
 ## <a name="family-3-releases"></a>Familie 3-versies
 **WindowsServer 2012**
@@ -134,16 +134,16 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |8 november 2017 |Post 3,56. |Nader te bepalen |
-| WA-GUEST-OS-3.53_201709-01 |6 oktober 2017 |Post 3.55 |Nader te bepalen |
-| WA-GUEST-OS-3.52_201708-01 |24 augustus 2017 |Post 3.54 |Nader te bepalen |
-|~~WA-GUEST-OS-3.51_201707-01~~ |3 augustus 2017 |8 november 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-3.50_201706-01~~ |7 juli 2017 |6 oktober 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-3.49_201705-01~~ |5 juni 2017 |24 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-3.48_201704-01~~ |9 mei 2017 |3 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-3.47_201703-01~~ |10 april 2017 |7 juli 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-3.46_201612-01~~ |10 januari 2017 |5 juni 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-3.45_201611-01~~ |14 december 2016 |9 mei 2017 |Nader te bepalen |
+| WA-GUEST-OS-3.54_201710-01 |8 november 2017 |Post 3,56. |NOG TE BEPALEN |
+| WA-GUEST-OS-3.53_201709-01 |6 oktober 2017 |Post 3.55 |NOG TE BEPALEN |
+| WA-GUEST-OS-3.52_201708-01 |24 augustus 2017 |Post 3.54 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.51_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.50_201706-01~~ |7 juli 2017 |6 oktober 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.49_201705-01~~ |5 juni 2017 |24 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.48_201704-01~~ |9 mei 2017 |3 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.47_201703-01~~ |10 april 2017 |7 juli 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.46_201612-01~~ |10 januari 2017 |5 juni 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.45_201611-01~~ |14 december 2016 |9 mei 2017 |NOG TE BEPALEN |
 
 ## <a name="family-2-releases"></a>2-familie releases
 **Windows Server 2008 R2 SP1**
@@ -157,17 +157,17 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |8 november 2017 |Post 2.69 |Nader te bepalen |
-| WA-GUEST-OS-2.66_201709-01 |6 oktober 2017 |Post 2.68 |Nader te bepalen |
-| WA-GUEST-OS-2.65_201708-01 |24 augustus 2017 |Post 2,67 |Nader te bepalen |
-|~~WA-GUEST-OS-2.64_201707-01~~ |3 augustus 2017 |8 november 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-2.63_201706-01~~ |7 juli 2017 |6 oktober 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-2.62_201705-01~~ |5 juni 2017 |24 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-2.61_201704-01~~ |9 mei 2017 |3 augustus 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-2.60_201703-01~~ |10 april 2017 |7 juli 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-2.59_201701-01~~ |10 januari 2017 |5 juni 2017 |Nader te bepalen |
-|~~WA-GUEST-OS-2.58_201612-01~~ |10 januari 2017 |9 mei 2017|Nader te bepalen |
-|~~WA-GUEST-OS-2.57_201611-01~~ |14 december 2016 |10 april 2017 |Nader te bepalen |
+| WA-GUEST-OS-2.67_201710-01 |8 november 2017 |Post 2.69 |NOG TE BEPALEN |
+| WA-GUEST-OS-2.66_201709-01 |6 oktober 2017 |Post 2.68 |NOG TE BEPALEN |
+| WA-GUEST-OS-2.65_201708-01 |24 augustus 2017 |Post 2,67 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.64_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.63_201706-01~~ |7 juli 2017 |6 oktober 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.62_201705-01~~ |5 juni 2017 |24 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.61_201704-01~~ |9 mei 2017 |3 augustus 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.60_201703-01~~ |10 april 2017 |7 juli 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.59_201701-01~~ |10 januari 2017 |5 juni 2017 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.58_201612-01~~ |10 januari 2017 |9 mei 2017|NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.57_201611-01~~ |14 december 2016 |10 april 2017 |NOG TE BEPALEN |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC patchupdates
@@ -227,7 +227,7 @@ Het Gastbesturingssysteem ondersteuningsmogelijkheden en buiten gebruik stellen 
 
 [Gast OS Update RSS-Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266

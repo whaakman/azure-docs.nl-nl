@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
-ms.reviewer: jsnow
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 01c5284a609a2246e32052985ad3a8c0475eafa5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fb78d39b04868c9d8790bfd64147f47bdd4125c7
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met de extensie van Network Policy Server (NPS) en Azure AD integreren
 
@@ -76,7 +76,7 @@ Volg de stappen voor het implementeren van een desgewenst handmatig maken van ee
 **Meer informatie**: [RDS implementeren met Azure snel starten](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) en [Basic RDS infrastructuur implementeren](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licentie
-Vereist, is een licentie voor Azure MFA, die beschikbaar via een Azure AD Premium, Enterprise Mobility plus Security (EMS) of een MFA-abonnement is. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement.
+Vereist, is een licentie voor Azure MFA, die beschikbaar via een Azure AD Premium, Enterprise Mobility plus Security (EMS) of een MFA-abonnement is. Licenties voor Azure MFA, zoals volgens de gebruiker of per licenties voor verificatie op basis van verbruik zijn niet compatibel met de NPS-extensie. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement. 
 
 ### <a name="windows-server-software"></a>Windows Server-software
 De NPS-uitbreiding vereist Windows Server 2008 R2 SP1 of hoger als de NPS-functieservice die is geïnstalleerd. De stappen in deze sectie zijn uitgevoerd met behulp van Windows Server 2016.
@@ -274,7 +274,7 @@ Intrekken van het bericht dat de NPS-server met de Azure MFA-extensie het aangew
 1. Vouw in de console NPS (lokaal) **beleid**, en klik op **netwerkbeleid**.
 2. Met de rechtermuisknop op **verbindingen met andere toegangsservers**, en klik op **beleid dubbele**. 
 
- ![Dubbele beleid](./media/nps-extension-remote-desktop-gateway/image19.png)
+ ![Dupliceerbeleid](./media/nps-extension-remote-desktop-gateway/image19.png)
 
 3. Met de rechtermuisknop op **kopie van verbindingen met andere toegangsservers**, en klik op **eigenschappen**.
 

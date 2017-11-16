@@ -4,7 +4,7 @@ description: Gids voor probleemoplossing voor Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - probleemoplossingsgids
 Dit artikel bevat tips voor probleemoplossing voor problemen die optreden kunnen bij het instellen of het beheer van Azure Active Directory (AD) Domain Services.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>U kunt Azure AD Domain Services voor uw Azure AD-directory niet inschakelen
-Deze sectie helpt u fouten oplossen wanneer u Azure AD Domain Services inschakelt voor uw directory en deze mislukt of terug naar 'Disabled' opgehaald ingeschakeld.
+Deze sectie helpt u fouten oplossen wanneer u Azure AD Domain Services inschakelt voor uw directory.
 
 Kies de stappen voor probleemoplossing die overeenkomen met het foutbericht dat u ondervindt.
 
@@ -81,7 +81,7 @@ Gebruik de volgende PowerShell-script voor de toepassing zoeken en te verwijdere
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -151,7 +151,7 @@ Als een of meer gebruikers in uw Azure AD-tenant kan niet aanmelden bij de zojui
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Gebruikers van uw Azure AD-tenant is verwijderd, worden niet verwijderd van uw beheerde domein
 Azure AD voorkomt dat u onbedoeld gebruikersobjecten verwijdert. Wanneer u een gebruikersaccount uit uw Azure AD-tenant verwijdert, wordt het overeenkomstige gebruikersobject verplaatst naar de Prullenbak. Wanneer deze bewerking is gesynchroniseerd met uw beheerde domein, worden de bijbehorende gebruikersaccount zijn gemarkeerd als uitgeschakeld. Deze functie kunt u herstellen of het gebruikersaccount later ongedaan maken.
 
-Het gebruikersaccount blijft uitgeschakeld in uw beheerde domein, zelfs als u een gebruikersaccount met dezelfde UPN opnieuw in uw Azure AD-directory maken. Als het gebruikersaccount uit uw beheerde domein verwijderen, moet u deze verwijderen uit uw Azure AD-tenant.
+Het gebruikersaccount blijft uitgeschakeld in uw beheerde domein, zelfs als u een gebruikersaccount met dezelfde UPN opnieuw in uw Azure AD-directory maken. Als het gebruikersaccount uit uw beheerde domein verwijderen, moet u deze geforceerd verwijderen uit uw Azure AD-tenant.
 
 Als het gebruikersaccount volledig uit uw beheerde domein verwijderen, de gebruiker verwijderen permanent van uw Azure AD-tenant. Gebruik de Remove-MsolUser PowerShell-cmdlet met de optie '-RemoveFromRecycleBin', zoals beschreven in dit [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

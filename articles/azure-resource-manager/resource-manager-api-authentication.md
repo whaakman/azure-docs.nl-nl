@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/27/2016
+ms.date: 11/15/2017
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager authenticatie-API aan abonnementen, toegang
 ## <a name="introduction"></a>Inleiding
-Als u een softwareontwikkelaar die moet maken van een app die van de klant Azure-resources wordt beheerd, dit onderwerp leest u hoe u verificatie met de Azure Resource Manager-API's en toegang krijgen tot bronnen in andere abonnementen.
+Als u een softwareontwikkelaar die moet maken van een app die Azure-resources van een klant beheert, dit artikel ziet u hoe u verificatie met de Azure Resource Manager-API's en toegang krijgen tot bronnen in andere abonnementen.
 
 Uw app hebben toegang tot de Resource Manager-API's in verschillende manieren:
 
 1. **Gebruikers- + toegang tot Apps**: voor apps die toegang krijgen bronnen namens een gebruiker aangemeld tot. Deze methode werkt voor apps, zoals web-apps en opdrachtregelprogramma's, die betrekking op alleen 'interactieve management' Azure-resources hebben.
 2. **App-lezentoegang**: voor apps die daemon-services en geplande taken worden uitgevoerd. Identiteit van de app wordt rechtstreeks toegang tot de bronnen worden verleend. Deze methode werkt voor apps die langlopende headless (zonder toezicht) toegang tot Azure nodig.
 
-Dit onderwerp bevat stapsgewijze instructies voor het maken van een app die gebruikmaakt van deze twee autorisatiemethoden. Er wordt weergegeven hoe om uit te voeren van elke stap met REST-API of C#. De volledige ASP.NET MVC-toepassing is beschikbaar op [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Dit artikel bevat stapsgewijze instructies voor het maken van een app die gebruikmaakt van deze twee autorisatiemethoden. Er wordt weergegeven hoe om uit te voeren van elke stap met REST-API of C#. De volledige ASP.NET MVC-toepassing is beschikbaar op [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Betekenis van de web-app
 De web-app:
@@ -37,17 +37,17 @@ De web-app:
 1. Zich aanmeldt een Azure-gebruiker.
 2. Vraag de gebruiker de web-app om toegang te verlenen aan de Resource Manager.
 3. Gebruikers- + toegangstoken app opgehaald voor toegang tot de Resource Manager.
-4. Token (uit stap 3) gebruikt voor het aanroepen van Resource Manager en de app service-principal toewijzen aan een rol in het abonnement, die de app op lange termijn toegang tot het abonnement geeft.
+4. Maakt gebruik van token (uit stap 3) van de app service-principal toewijzen aan een rol in het abonnement. Deze stap geeft de lange termijn app-toegang tot het abonnement.
 5. App-lezentoegang token opgehaald.
 6. Token (uit stap 5) wordt gebruikt voor het beheren van resources in het abonnement via Resource Manager.
 
-Hier volgt de end-to-end-stroom van de webtoepassing.
+Hier volgt de stroom van de webtoepassing.
 
 ![Resource Manager-authenticatiestroom](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
-Als een gebruiker, kunt u de abonnements-id opgeven voor het abonnement dat u wilt gebruiken:
+Als een gebruiker, kunt u de abonnements-ID opgeven voor het abonnement dat u wilt gebruiken:
 
-![abonnement-id opgeven](./media/resource-manager-api-authentication/sample-ux-1.png)
+![abonnement-ID opgeven](./media/resource-manager-api-authentication/sample-ux-1.png)
 
 Selecteer het account moet worden gebruikt voor logboekregistratie in.
 
@@ -68,13 +68,13 @@ Uw verbonden abonnementen beheren:
 ## <a name="register-application"></a>Toepassing registreren
 Voordat u begint met het coderen, registreert u uw web-app met Azure Active Directory (AD). De registratie van de app wordt gemaakt van de identiteit van een centrale voor uw app in Azure AD. Deze bevat algemene informatie over uw toepassing zoals OAuth-Clientidentiteit, antwoord-URL's en de referenties in die uw toepassing gebruikt om te verifiëren en toegang tot Azure Resource Manager-API's. De registratie van de app registreert ook de verschillende gedelegeerde machtigingen die uw toepassing moet bij het openen van Microsoft APIs namens de gebruiker.
 
-Omdat uw app toegang krijgt andere abonnement tot, moet u deze configureren als een multitenant-toepassing. Om te worden gevalideerd, bieden een die zijn gekoppeld aan uw Azure Active Directory-domein. Overzicht van de domeinen die zijn gekoppeld aan uw Azure Active Directory, meld u aan bij de [klassieke portal](https://manage.windowsazure.com). Selecteer uw Azure Active Directory en selecteer vervolgens **domeinen**.
+Omdat uw app toegang krijgt andere abonnement tot, moet u deze configureren als een multitenant-toepassing. Om te worden gevalideerd, bieden een die zijn gekoppeld aan uw Azure Active Directory-domein. Overzicht van de domeinen die zijn gekoppeld aan uw Azure Active Directory, moet u zich aanmelden bij de portal.
 
 Het volgende voorbeeld laat zien hoe de app registreren met behulp van Azure PowerShell. U moet de meest recente versie (augustus 2016) van Azure PowerShell voor deze opdracht werkt hebben.
 
     $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 
-Als u wilt zich aanmelden als de AD-toepassing, moet u de toepassings-id en het wachtwoord. Overzicht van de toepassings-id die wordt geretourneerd uit de vorige opdracht gebruiken:
+Als u wilt zich aanmelden als de AD-toepassing, moet u de toepassings-ID en het wachtwoord. Overzicht van de toepassings-ID die wordt geretourneerd uit de vorige opdracht gebruiken:
 
     $app.ApplicationId
 
@@ -89,24 +89,24 @@ Daarnaast ondersteunt Azure AD referenties van het computercertificaat voor toep
 
 Zie voor meer informatie over het maken van een AD-app met een certificaat [gebruik Azure PowerShell voor het maken van een service-principal voor toegang tot bronnen](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) of [gebruik Azure CLI voor het maken van een service-principal voor toegang tot bronnen](resource-group-authenticate-service-principal-cli.md).
 
-## <a name="get-tenant-id-from-subscription-id"></a>Tenant-id ophalen van abonnement-id
-Uw toepassing moet de tenant-ID van de Azure AD-tenant die als host fungeert voor het Azure-abonnement hebt voor het aanvragen van een token dat kan worden gebruikt voor het aanroepen van Resource Manager. Waarschijnlijk weet dat uw gebruikers hun abonnement-id's, maar ze mogelijk niet op de hoogte van de tenant id's voor Azure Active Directory. Als u de tenant-id van de gebruiker, vraagt de gebruiker voor de abonnements-id. Die id abonnement bieden bij het verzenden van een aanvraag over het abonnement:
+## <a name="get-tenant-id-from-subscription-id"></a>Tenant-ID ophalen van abonnement-ID
+Uw toepassing moet de tenant-ID van de Azure AD-tenant die als host fungeert voor het Azure-abonnement hebt voor het aanvragen van een token dat kan worden gebruikt voor het aanroepen van Resource Manager. Zeer waarschijnlijk dat uw gebruikers weten hun abonnement-id's, maar ze mogelijk niet op de hoogte van de tenant id's voor Azure Active Directory. Als u de tenant-ID van de gebruiker, vraagt u de gebruiker voor de abonnements-ID. Dat abonnement bieden bij het verzenden van een aanvraag over het abonnement-ID:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
-De aanvraag is mislukt omdat de gebruiker heeft geen nog aangemeld, maar u de tenant-id uit het antwoord ophalen kunt. In deze uitzondering ophalen van de tenant-id van de waarde van de antwoord-header voor **WWW-verificatie**. U ziet deze implementatie in de [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) methode.
+De aanvraag is mislukt omdat de gebruiker heeft geen nog aangemeld, maar u de tenant-ID uit het antwoord ophalen kunt. In deze uitzondering ophalen van de tenant-ID van de waarde van de antwoord-header voor **WWW-verificatie**. U ziet deze implementatie in de [GetDirectoryForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L20) methode.
 
 ## <a name="get-user--app-access-token"></a>Gebruikers- + app toegangstoken ophalen
 Uw toepassing wordt de gebruiker omgeleid naar Azure AD met een OAuth 2.0 autoriseren aanvraag - referenties van de gebruiker verifiëren en een autorisatiecode terughalen. Uw toepassing gebruikt de autorisatiecode om een toegangstoken ophalen voor Resource Manager. De [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) methode maakt u de autorisatieaanvraag.
 
-Dit onderwerp bevat de REST-API-aanvragen voor het verifiëren van de gebruiker. U kunt ook helper bibliotheken validatie uit te voeren in uw code. Zie voor meer informatie over deze bibliotheken [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Zie voor instructies over het integreren van identiteitsbeheer in een toepassing [ontwikkelaarshandleiding Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+Dit artikel ziet de REST-API-aanvragen voor het verifiëren van de gebruiker. U kunt ook helper bibliotheken validatie uit te voeren in uw code. Zie voor meer informatie over deze bibliotheken [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Zie voor instructies over het integreren van identiteitsbeheer in een toepassing [ontwikkelaarshandleiding Azure Active Directory](../active-directory/active-directory-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Aanvraag voor verificatie (OAuth 2.0)
 Een Open ID Connect/OAuth2.0 autoriseren aanvraag verstrekken naar het Azure AD geautoriseerde eindpunt:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [aanvragen van een autorisatiecode](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) onderwerp.
+De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [aanvragen van een autorisatiecode](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) artikel.
 
 Het volgende voorbeeld ziet u hoe OAuth2.0 autorisatie aanvragen:
 
@@ -119,7 +119,7 @@ Azure AD verifieert de gebruiker en, indien nodig, vraagt de gebruiker wilt mach
 ### <a name="auth-request-open-id-connect"></a>Verificatieaanvragen (Open ID Connect)
 Als u niet alleen Azure Resource Manager namens de gebruiker toegang wilt, maar kan de gebruiker zich aanmeldt bij uw toepassing met behulp van hun Azure AD-account, geven u een Open ID Connect autoriseren Request. Met Open ID Connect ontvangt de toepassing ook een id_token van Azure AD die uw app gebruiken kunt voor het aanmelden van de gebruiker.
 
-De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [verzending van de aanvraag aanmelden](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) onderwerp.
+De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [verzending van de aanvraag aanmelden](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) artikel.
 
 Er is een voorbeeld van een Open ID Connect aanvraag:
 
@@ -136,7 +136,7 @@ Nu uw toepassing heeft ontvangen van de autorisatiecode uit Azure AD, is het tij
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [gebruiken de autorisatiecode](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) onderwerp.
+De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [gebruiken de autorisatiecode](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) artikel.
 
 Het volgende voorbeeld ziet u een aanvraag voor code grant token met referenties van het wachtwoord:
 
@@ -191,7 +191,7 @@ Voor elk abonnement om verbinding te bellen naar de [lijstmachtigingen Resource 
 
 De [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L44) methode van de ASP.NET MVC-voorbeeld-app implementeert deze aanroep.
 
-Het volgende voorbeeld laat zien hoe aanvragen van een gebruiker machtigingen voor een abonnement. 83cfe939-2402-4581-b761-4f59b0a041e4 is de id van het abonnement.
+Het volgende voorbeeld laat zien hoe aanvragen van een gebruiker machtigingen voor een abonnement. 83cfe939-2402-4581-b761-4f59b0a041e4 is de ID van het abonnement.
 
     GET https://management.azure.com/subscriptions/83cfe939-2402-4581-b761-4f59b0a041e4/providers/microsoft.authorization/permissions?api-version=2015-07-01 HTTP/1.1
 
@@ -203,21 +203,21 @@ Er is een voorbeeld van het antwoord van de gebruiker machtigingen voor abonneme
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-De machtigingen API retourneert meerdere machtigingen. Elke machtiging bestaat uit de toegestane acties (acties) en niet-toegestane acties (notactions). Als een actie in de lijst met toegestane acties van een andere machtiging en niet aanwezig in de lijst notactions met deze machtiging is, wordt de gebruiker mag deze actie uit te voeren. **Microsoft.Authorization/RoleAssignments/Write** is de actie dat die toegang rights management verleent. Uw toepassing, moet het resultaat van de machtigingen om te zoeken naar een overeenkomst regex op deze tekenreeks actie in de acties en notactions van elke machtiging parseren.
+De machtigingen API retourneert meerdere machtigingen. Elke machtiging omvat toegestane acties (**acties**) en niet-toegestane acties (**notactions**). Als een actie in de toegestane acties van een andere machtiging aanwezig en niet aanwezig in de niet-toegestane acties van deze machtiging is, wordt de gebruiker mag deze actie uit te voeren. **Microsoft.Authorization/RoleAssignments/Write** is de actie dat die toegang rights management verleent. Uw toepassing moet parseren van het resultaat van de machtigingen om te zoeken naar een overeenkomst regex op deze tekenreeks actie in de **acties** en **notactions** van elke machtiging.
 
 ## <a name="get-app-only-access-token"></a>App-lezentoegang-token ophalen
 Nu weet u als de gebruiker toegang aan het Azure-abonnement toewijzen kunt. De volgende stappen zijn:
 
 1. De juiste RBAC-rol toewijzen aan de identiteit van uw toepassing op het abonnement.
 2. De toewijzing toegang controleren door een query uitvoert voor toegang tot het abonnement van de toepassing of door het openen van Resource Manager met alleen-app-token.
-3. De verbinding registreren in de structuur van uw toepassingen 'verbonden abonnementen"data - behouden blijven van de id van het abonnement.
+3. De verbinding registreren in de structuur van uw toepassingen 'verbonden abonnementen"data - behouden blijven van de ID van het abonnement.
 
 We bekijken dichter bij de eerste stap. Als u wilt de juiste RBAC-rol toewijzen aan de identiteit van de toepassing, moet u het volgende bepalen:
 
-* De object-id van de identiteit van uw toepassing in van de gebruiker Azure Active Directory
+* De object-ID van de identiteit van uw toepassing in van de gebruiker Azure Active Directory
 * De id van de RBAC-rol die uw toepassing voor het abonnement vereist
 
-Wanneer uw aanvraag wordt geverifieerd door een gebruiker uit een Azure AD, maakt deze een service-principal-object voor uw toepassing in die Azure AD. Azure kunt RBAC-rollen worden toegewezen aan de service-principals direct toegang verlenen tot bijbehorende toepassingen op Azure-resources. Deze actie is precies wat we willen doen. Query de Azure AD Graph API om te bepalen van de id van de service-principal van uw toepassing in de aangemelde gebruiker's Azure AD.
+Wanneer uw aanvraag wordt geverifieerd door een gebruiker uit een Azure AD, maakt deze een service-principal-object voor uw toepassing in die Azure AD. Azure kunt RBAC-rollen worden toegewezen aan de service-principals direct toegang verlenen tot bijbehorende toepassingen op Azure-resources. Deze actie is precies wat u wilt doen. Query de Azure AD Graph API om te bepalen van de id van de service-principal van uw toepassing in de aangemelde gebruiker's Azure AD.
 
 U hoeft alleen een toegangstoken voor Azure Resource Manager - moet u een nieuw toegangstoken de Azure AD Graph API aan te roepen. Elke toepassing in Azure AD is gemachtigd om op te vragen een eigen service principal-object, zodat een app alleen-lezen toegangstoken voldoende is.
 
@@ -228,7 +228,7 @@ Om uw app verifiëren en krijgt u een token voor Azure AD Graph API, door een to
 
 De [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) methode van de ASP.net MVC-voorbeeldtoepassing krijgt een app alleen-lezen toegang token voor Graph API met behulp van de Active Directory Authentication Library voor .NET.
 
-De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [een Token toegang aanvragen](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) onderwerp.
+De queryreeksparameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [een Token toegang aanvragen](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) artikel.
 
 Een voorbeeld van de aanvraag voor de clientreferenties verlenen token:
 
@@ -244,11 +244,11 @@ Een voorbeeld van een antwoord voor de clientreferenties verlenen token:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Object-id van de service-principal toepassing in Azure AD-gebruiker ophalen
-Nu de app alleen-lezen toegangstoken uit aan de query te gebruiken de [Azure AD Graph Service-Principals](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API om te bepalen van de Object-Id van de service-principal in de map van de toepassing.
+Nu de app alleen-lezen toegangstoken uit aan de query te gebruiken de [Azure AD Graph Service-Principals](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API om te bepalen van de Object-ID van de service-principal in de map van de toepassing.
 
 De [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) methode van de ASP.net MVC-voorbeeldtoepassing implementeert deze aanroep.
 
-Het volgende voorbeeld laat zien hoe de service-principal van een toepassing aanvragen. a0448380-c346-4f9f-b897-c18733de9394 is de client-id van de toepassing.
+Het volgende voorbeeld laat zien hoe de service-principal van een toepassing aanvragen. a0448380-c346-4f9f-b897-c18733de9394 is de client-ID van de toepassing.
 
     GET https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/servicePrincipals?api-version=1.5&$filter=appId%20eq%20'a0448380-c346-4f9f-b897-c18733de9394' HTTP/1.1
 
@@ -276,7 +276,7 @@ Roep de [Resource Manager roldefinitie API](https://docs.microsoft.com/rest/api/
 
 De [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) methode van de ASP.net MVC-voorbeeld-app implementeert deze aanroep.
 
-De volgende aanvraag voorbeeld laat zien hoe Azure RBAC-rol-id ophalen. 09cbd307-aa71-4aca-b346-5f253e6e3ebb is de id van het abonnement.
+De volgende aanvraag voorbeeld laat zien hoe Azure RBAC-rol-id ophalen. 09cbd307-aa71-4aca-b346-5f253e6e3ebb is de ID van het abonnement.
 
     GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01 HTTP/1.1
 
@@ -288,23 +288,23 @@ De reactie is in de volgende indeling:
 
     {"value":[{"properties":{"roleName":"API Management Service Contributor","type":"BuiltInRole","description":"Lets you manage API Management services, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.ApiManagement/Services/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/312a565d-c81f-4fd8-895a-4e21e48d571c","type":"Microsoft.Authorization/roleDefinitions","name":"312a565d-c81f-4fd8-895a-4e21e48d571c"},{"properties":{"roleName":"Application Insights Component Contributor","type":"BuiltInRole","description":"Lets you manage Application Insights components, but not access to them.","scope":"/","permissions":[{"actions":["Microsoft.Insights/components/*","Microsoft.Insights/webtests/*","Microsoft.Authorization/*/read","Microsoft.Resources/subscriptions/resources/read","Microsoft.Resources/subscriptions/resourceGroups/read","Microsoft.Resources/subscriptions/resourceGroups/resources/read","Microsoft.Resources/subscriptions/resourceGroups/deployments/*","Microsoft.Insights/alertRules/*","Microsoft.Support/*"],"notActions":[]}]},"id":"/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions/ae349356-3a1b-4a5e-921d-050484c6347e","type":"Microsoft.Authorization/roleDefinitions","name":"ae349356-3a1b-4a5e-921d-050484c6347e"}]}
 
-U hoeft niet voortdurend deze API niet aanroepen. Nadat u de bekende GUID van de roldefinitie hebt vastgesteld, kunt u de roldefinitie-id als kunt maken:
+U hoeft niet voortdurend deze API niet aanroepen. Nadat u de bekende GUID van de roldefinitie hebt vastgesteld, kunt u de roldefinitie-ID als kunt maken:
 
     /subscriptions/{subscription_id}/providers/Microsoft.Authorization/roleDefinitions/{well-known-role-guid}
 
-Hier volgen de bekende GUID's van veelgebruikte ingebouwde rollen:
+Hier volgen de id's van veelgebruikte ingebouwde rollen:
 
 | Rol | GUID |
 | --- | --- |
 | Lezer |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Inzender |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| Virtual Machine Contributor |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| Inzender voor virtuele machines |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Virtueel netwerk Inzender |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
-| Storage-Account Inzender |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
-| Website Inzender |de139f84-1756-47ae-9be6-808fbbe84772 |
-| Web Plan Inzender |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
-| SQL Server Inzender |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-| SQL DB Contributor |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+| Inzender voor opslagaccounts |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
+| Inzender voor websites |de139f84-1756-47ae-9be6-808fbbe84772 |
+| Inzender voor webabonnementen |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| Inzender voor SQL Server |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+| Inzender voor SQL-databases |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>RBAC-rol toewijzen aan de toepassing
 Hebt u alles wat u moet de juiste RBAC-rol toewijzen aan uw service-principal met behulp van de [Resource Manager roltoewijzing maken](https://docs.microsoft.com/rest/api/authorization/roleassignments) API.
@@ -325,9 +325,9 @@ In de aanvraag, worden de volgende waarden gebruikt:
 
 | GUID | Beschrijving |
 | --- | --- |
-| 09cbd307-aa71-4aca-b346-5f253e6e3ebb |de id van het abonnement |
-| c3097b31-7309-4c59-b4e3-770f8406bad2 |de object-id van de service-principal van de toepassing |
-| acdd72a7-3385-48ef-bd42-f606fba81ae7 |de id van de lezersrol |
+| 09cbd307-aa71-4aca-b346-5f253e6e3ebb |de ID van het abonnement |
+| c3097b31-7309-4c59-b4e3-770f8406bad2 |de object-ID van de service-principal van de toepassing |
+| acdd72a7-3385-48ef-bd42-f606fba81ae7 |de ID van de lezersrol |
 | 4f87261d-2816-465d-8311-70a27558df4c |een nieuwe guid gemaakt voor de nieuwe roltoewijzing |
 
 De reactie is in de volgende indeling:
@@ -353,7 +353,7 @@ De [ServicePrincipalHasReadAccessToSubscription](https://github.com/dushyantgill
 ## <a name="manage-connected-subscriptions"></a>Verbonden abonnementen beheren
 Wanneer de juiste RBAC-rol is toegewezen aan uw toepassing service-principal voor het abonnement, kunt uw toepassing houden bewaking/beheren met behulp van alleen-app toegangstokens voor Azure Resource Manager.
 
-Als eigenaar van een abonnement van uw toepassing roltoewijzing via de klassieke portal of de opdrachtregelprogramma's verwijdert, is uw toepassing niet langer toegang kunnen krijgen tot dat abonnement. In dat geval moet u de gebruiker die de verbinding met het abonnement van buiten de toepassing werd verbroken waarschuwen en geeft u een optie voor het "repareren" de verbinding. 'Herstellen' zou gewoon opnieuw maken voor de roltoewijzing die offline is verwijderd.
+Als eigenaar van een abonnement van uw toepassing roltoewijzing via de portal of de opdrachtregelprogramma's verwijdert, is uw toepassing niet langer toegang kunnen krijgen tot dat abonnement. In dat geval moet u de gebruiker die de verbinding met het abonnement van buiten de toepassing werd verbroken waarschuwen en geeft u een optie voor het "repareren" de verbinding. 'Herstellen' zou opnieuw maken voor de roltoewijzing die offline is verwijderd.
 
 Net als u de gebruiker verbinding abonnementen maken voor uw toepassing hebt ingeschakeld, moet u de gebruiker verbinding te verbreken abonnementen toestaan. Verbinding verbreken betekent dat het verwijderen van de toewijzing van rol met de service-principal van de toepassing op het abonnement van een access-beheer. Desgewenst kan geen status in de toepassing voor het abonnement te worden verwijderd.
 Alleen gebruikers met beheer van toegangsmachtigingen voor het abonnement kunnen Verbreek de verbinding met het abonnement.

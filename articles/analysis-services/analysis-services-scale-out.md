@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services scale-out
 
@@ -32,7 +32,7 @@ Met scale-out, kunt u een query-pool met maximaal zeven extra query replica's (a
 
 Ongeacht het aantal query-replica's die u in de groep van een query hebt zijn niet verwerkingsbelastingen verdeeld over query replica's. Eén server fungeert als de server voor verwerking. Query-replica's dienen alleen query's op de modellen gesynchroniseerd tussen elke replica in de query-groep. 
 
-Wanneer bewerkingen zijn voltooid, moet u een synchronisatie uitgevoerd tussen de server verwerking en de query-replicaservers. Wanneer u bewerkingen voor de verwerking, is het is belangrijk voor het configureren van een synchronisatiebewerking na voltooiing van de verwerking van bewerkingen.
+Wanneer bewerkingen zijn voltooid, moet u een synchronisatie uitgevoerd tussen de server verwerking en de query-replicaservers. Wanneer u bewerkingen voor de verwerking, is het is belangrijk voor het configureren van een synchronisatiebewerking na voltooiing van de verwerking van bewerkingen. Synchronisatie kan handmatig worden uitgevoerd in de portal of met behulp van PowerShell of REST-API.
 
 > [!NOTE]
 > Scale-out is beschikbaar voor servers in de Standard-prijscategorie. Elke replica query wordt gefactureerd op dezelfde snelheid als uw server.
@@ -58,12 +58,10 @@ Wanneer bewerkingen zijn voltooid, moet u een synchronisatie uitgevoerd tussen d
 
 Modellen in tabelvorm op uw primaire server worden gesynchroniseerd met de replicaservers. Wanneer synchronisatie voltooid is, begint de query-groep voor het distribueren van binnenkomende query's tussen de replicaservers. 
 
-### <a name="powershell"></a>PowerShell
-Gebruik [Set AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet. Geef de `-Capacity` parameter waarde > 1.
 
 ## <a name="synchronization"></a>Synchronisatie 
 
-Wanneer u een nieuwe query-replica's inricht, repliceert Azure Analysis Services uw modellen automatisch op alle replica's. U kunt ook een handmatige synchronisatie uitvoeren. Wanneer u uw modellen verwerkt, moet u een synchronisatie uitvoeren, zodat de updates zijn gesynchroniseerd tussen de replica van query's.
+Wanneer u een nieuwe query-replica's inricht, repliceert Azure Analysis Services uw modellen automatisch op alle replica's. U kunt ook een handmatige synchronisatie uitvoeren met behulp van de portal of REST-API. Wanneer u uw modellen verwerkt, moet u een synchronisatie uitvoeren, zodat de updates zijn gesynchroniseerd tussen de replica van uw query's.
 
 ### <a name="in-azure-portal"></a>In Azure-portal
 
@@ -72,18 +70,22 @@ In **overzicht** > model > **synchroniseren model**.
 ![Scale-out schuifregelaar](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+Gebruik de **sync** bewerking.
 
-Een model synchroniseren   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Een model synchroniseren   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-De status van een modelsynchronisatie ophalen  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Synchronisatiestatus ophalen  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Synchronisatie uitvoeren van PowerShell, [bijwerken naar de meest recente](https://github.com/Azure/azure-powershell/releases) 5.01 of hoger AzureRM-module. Gebruik [Sync AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Verbindingen
 
 Op de pagina overzicht van uw server zijn er twee servernamen. Als u scale-out voor een server nog niet hebt geconfigureerd, werken beide servernamen hetzelfde. Wanneer u scale-out voor een server configureert, moet u de naam van de juiste server afhankelijk van het verbindingstype opgeven. 
 
-Gebruik voor de eindgebruiker clientverbindingen zoals Power BI Desktop-, Excel en aangepaste apps, **servernaam**. 
+Voor eindgebruikers clientverbindingen zoals Power BI Desktop-, Excel- en aangepaste apps gebruik **servernaam**. 
 
 SSMS SSDT en verbindingsreeksen in PowerShell, Azure-functie apps en AMO, gebruik voor **beheerservernaam**. Naam van de beheerserver omvat een speciale `:rw` kwalificatie (lezen / schrijven). Alle bewerkingen voor de verwerking optreden op de beheerserver.
 

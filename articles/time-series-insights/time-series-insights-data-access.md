@@ -1,25 +1,21 @@
 ---
-title: Beleid voor gegevenstoegang in Azure Time Series Insights | Microsoft Docs
-description: In deze zelfstudie leert u hoe u beleid voor gegevenstoegang kunt beheren in Time Series Insights
-keywords: 
+title: Beveiliging configureren om te raadplegen en beheren van Azure Time Series Insights | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u beveiliging en machtigingen als access management-beleid en de data access-beleid voor het beveiligen van Azure Time Series Insights.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
 
@@ -28,7 +24,7 @@ Time Series Insights-omgevingen hebben twee onafhankelijke typen toegangsbeleid:
 * Beleid voor beheertoegang
 * Beleid voor gegevenstoegang
 
-Beide soorten beleid verlenen Azure Active Directory-principals (gebruikers en apps) verschillende machtigingen voor een specifieke omgeving. De principals (gebruikers en apps) moeten behoren tot de Active Directory (of Azure-tenant) die is gekoppeld aan het abonnement dat de omgeving bevat.
+Beide soorten beleid verlenen Azure Active Directory-principals (gebruikers en apps) verschillende machtigingen voor een specifieke omgeving. De principals (gebruikers en apps) moeten behoren tot de active directory (ook wel de Azure-tenant) die zijn gekoppeld aan het abonnement met de omgeving.
 
 Beleid voor beheertoegang verleent machtigingen die betrekking hebben op de configuratie van de omgeving, zoals
 *   maken en verwijderen van de omgeving, gebeurtenisbronnen, referentiegegevenssets, en
@@ -36,41 +32,41 @@ Beleid voor beheertoegang verleent machtigingen die betrekking hebben op de conf
 
 Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegevensquery's, het bewerken van referentiegegevens in de omgeving en het delen van opgeslagen query's en perspectieven die aan de omgeving zijn gekoppeld.
 
-De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk om een omgeving zo in te stellen dat de eigenaar/maker van de omgeving geen toegang tot de gegevens heeft. Ook kan aan gebruikers en services die vanuit de omgeving gegevens kunnen lezen, geen toegang worden verleend tot de configuratie van de omgeving.
+De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk voor het instellen van een omgeving zodanig dat de eigenaar/maker van de omgeving wordt verwijderd uit de data access. Bovendien kunnen gebruikers en services die kunnen gegevens lezen uit de omgeving worden verleend geen toegang tot de configuratie van de omgeving.
 
 ## <a name="grant-data-access"></a>Gegevenstoegang verlenen
-De volgende stappen laten zien hoe gegevenstoegang wordt verleend aan een gebruiker-principal:
+Volg deze stappen voor het verlenen van toegang tot gegevens voor een user principal:
 
-1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
-2.  Typ 'Time Series' in het zoekvenster.
-3.  Klik op Time Series-omgeving
-4.  Selecteer uw Time Series Insights-omgeving in de lijst.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
+2. Zoek uw Time Series Insights-omgeving. Type **Time Series** in de **search** vak. Selecteer **omgeving reeks** in de zoekresultaten. 
+
+3. Selecteer uw Time Series Insights-omgeving in de lijst.
+   
+4. Selecteer **Gegevenstoegangsbeleid**, selecteer daarna **+ toevoegen**.
   ![Beheren van de Time Series Insights-bron - omgeving](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Selecteer 'Beleid voor gegevenstoegang' en klik op 'Toevoegen'
+5. Selecteer **gebruiker selecteren**.  Zoeken naar de gebruikersnaam of e-mailadres vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen. 
 
-  ![Beheren van de Time Series Insights-bron - toevoegen](media/data-access/getstarted-grant-data-access2.png)
+   ![Beheren van de Time Series Insights-bron - toevoegen](media/data-access/getstarted-grant-data-access2.png)
 
-5.  Klik op Gebruiker selecteren.
-6.  Zoek en selecteer de gebruiker aan de hand van zijn e-mailadres.
-7.  Klik op de blade Gebruiker selecteren op Selecteren.
+6. Selecteer **Functieservices selecteren**. Kies de juiste rol voor de gebruiker:
+   - Selecteer **Inzender** als u wilt toestaan dat gebruiker wijzigen referentiegegevens en share opgeslagen query's en perspectieven met andere gebruikers van de omgeving. 
+   - Selecteer anders **lezer** query gebruikersgegevens in de omgeving toestaan en persoonlijke (niet-gedeelde) query's opslaan in de omgeving.
 
-  ![Beheren van de Time Series Insights-bron - gebruiker selecteren](media/data-access/getstarted-grant-data-access3.png)
+   Selecteer **Ok** de keuze van de rol te bevestigen.
 
-8.  Klik op Rol selecteren.
-9.  Selecteer Bijdrager als u wilt toestaan dat de gebruiker referentiegegevens mag wijzigen en opgeslagen query's en perspectieven mag delen met andere gebruikers van de omgeving. Selecteer anders Lezer. Hiermee staat u de gebruiker toe om gegevens in de omgeving op te vragen en persoonlijke (niet-gedeelde) query's op te slaan in de omgeving.
-10. Klik op de blade Rol selecteren op OK.
+   ![Beheren van de Time Series Insights-bron - gebruiker selecteren](media/data-access/getstarted-grant-data-access3.png)
 
-  ![Beheren van de Time Series Insights-bron - rol selecteren](media/data-access/getstarted-grant-data-access4.png)
+8. Selecteer **Ok** in de **gebruikersrol selecteren** pagina.
 
-11. Klik op de blade Gebruikersrol selecteren op OK.
-12. U ziet het volgende:
+   ![Beheren van de Time Series Insights-bron - rol selecteren](media/data-access/getstarted-grant-data-access4.png)
 
-  ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
+9. De **Gegevenstoegangsbeleid** pagina vindt u de gebruikers en de rollen voor elke gebruiker.
+
+   ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* [Een gebeurtenisbron maken](time-series-insights-add-event-source.md)
-* [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron
-* Uw omgeving bekijken in de [Time Series Insights-portal](https://insights.timeseries.azure.com)
+* Meer informatie over [een Event Hub gebeurtenisbron toevoegen aan uw omgeving Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* [Verzenden van gebeurtenissen](time-series-insights-send-events.md) aan de gebeurtenisbron-.
+* Weergeven van uw omgeving in [Time Series Insights explorer](https://insights.timeseries.azure.com).

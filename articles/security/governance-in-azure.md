@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Beheeracties in Azure
 
@@ -225,14 +225,14 @@ Resources hoeven niet tot dezelfde resourcegroep te behoren om een tag te kunnen
 Bronbeleid kunnen u voor het maken van standaardregels voor uw organisatie. U kunt beleidsregels die zorg ervoor dat resources worden gemarkeerd met de juiste waarden maken.
 
 > [!Note]
-> Zie voor meer informatie [bronbeleid voor tags toepassen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Zie voor meer informatie [facturering tags beleid initiatief](../azure-policy/scripts/billing-tags-policy-init.md).
 
 U kunt ook getagde resources via Azure Portal weergeven.
 
 Het [gebruiksrapport](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) voor uw abonnement bevat tagnamen en -waarden, zodat u de kosten op basis van tags kunt opdelen.
 
 > [!Note]
-> Zie [Tags gebruiken om uw Azure-resources te organiseren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) voor meer informatie over tags.
+> Zie voor meer informatie over tags [facturering tags beleid initiatief](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Voor tags gelden de volgende beperkingen:
 

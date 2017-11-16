@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
-ms.author: sethm;hillaryc
-ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: sethm
+ms.openlocfilehash: beebfb496604b422e091cd3b4425933f3cea1283
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 Azure Service Bus maakt gebruik van meerdere bericht beleggingsmakelaars om berichten te verwerken en meerdere berichten-stores voor het opslaan van berichten. Een conventionele wachtrij of onderwerp is verwerkt door een enkel bericht broker en opgeslagen in één berichten-store. Service Bus *partities* wachtrijen en onderwerpen, inschakelen of *berichtentiteiten*, moet worden gepartitioneerd op meerdere bericht beleggingsmakelaars en berichten-stores. Dit betekent dat de totale doorvoer van een gepartitioneerde entiteit wordt niet langer beperkt door de prestaties van een enkel bericht broker of berichten-store. Bovendien weer een tijdelijke onderbreking van berichten-store niet een gepartitioneerde wachtrij of onderwerp niet beschikbaar. Gepartitioneerde wachtrijen en onderwerpen kunnen bevatten alle uitgebreide Service Bus-functies, zoals ondersteuning voor transacties en sessies.
@@ -39,7 +39,7 @@ Er is geen extra kosten bij het verzenden van een bericht of het bericht in een 
 
 ## <a name="enable-partitioning"></a>Partitioneren inschakelen
 
-De Azure SDK versie 2.2 of hoger gebruiken voor het gebruik van gepartitioneerde wachtrijen en onderwerpen met Azure Service Bus, of geef `api-version=2013-10` in uw HTTP-aanvragen.
+De Azure SDK versie 2.2 of hoger gebruiken voor het gebruik van gepartitioneerde wachtrijen en onderwerpen met Azure Service Bus, of geef `api-version=2013-10` of hoger in de HTTP-aanvragen.
 
 ### <a name="standard"></a>Standard
 
@@ -63,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-U kunt ook maken een gepartitioneerde wachtrij of onderwerp in de [Azure-portal] [ Azure portal] of in Visual Studio. Wanneer u een wachtrij of onderwerp in de portal maakt de **inschakelen partitioneren** optie in de wachtrij of onderwerp **maken** blade is standaard ingeschakeld. U kunt deze optie in een entiteit standaardcategorie; alleen uitschakelen in de laag Premium is partitioneren altijd ingeschakeld. Klik in Visual Studio de **inschakelen partitioneren** selectievakje in de **nieuwe wachtrij** of **nieuw onderwerp** in het dialoogvenster.
+U kunt ook maken een gepartitioneerde wachtrij of onderwerp in de [Azure-portal] [ Azure portal] of in Visual Studio. Wanneer u een wachtrij of onderwerp in de portal maakt de **inschakelen partitioneren** optie in de wachtrij of onderwerp **maken** in het dialoogvenster is standaard ingeschakeld. U kunt deze optie in een entiteit standaardcategorie; alleen uitschakelen in de laag Premium is partitioneren altijd ingeschakeld. Klik in Visual Studio de **inschakelen partitioneren** selectievakje in de **nieuwe wachtrij** of **nieuw onderwerp** in het dialoogvenster.
 
 ## <a name="use-of-partition-keys"></a>Gebruik van partitiesleutels
 Wanneer een bericht in de wachtrij in een gepartitioneerde wachtrij of onderwerp is, controleert de aanwezigheid van een partitiesleutel op Service Bus. Als er een is gevonden, selecteert u het fragment op basis van die sleutel. Als een partitiesleutel niet wordt gevonden, wordt het fragment op basis van een interne algoritme geselecteerd.
@@ -82,7 +82,7 @@ Afhankelijk van het scenario worden verschillende berichteigenschappen als een p
 ### <a name="not-using-a-partition-key"></a>Niet met behulp van een partitiesleutel
 In het ontbreken van een partitiesleutel distribueert Service Bus berichten round-robin toewijst op alle fragmenten van gepartitioneerde wachtrij of onderwerp. Als het gekozen fragment niet beschikbaar is, wijst Service Bus het bericht toe aan een andere fragment. Op deze manier de verzendbewerking slaagt ondanks berichten-store, tijdelijk niet beschikbaar. U wordt echter niet bereiken de gegarandeerde ordening waarmee een partitiesleutel.
 
-Zie voor een diepgaandere bespreking van de verhouding tussen de beschikbaarheid (geen partitiesleutel) en consistentie (met behulp van een partitiesleutel) [in dit artikel](../event-hubs/event-hubs-availability-and-consistency.md). Deze informatie is evenveel van toepassing op gepartitioneerde Service Bus-entiteiten en Event Hubs-partities.
+Zie voor een diepgaandere bespreking van de verhouding tussen de beschikbaarheid (geen partitiesleutel) en consistentie (met behulp van een partitiesleutel) [in dit artikel](../event-hubs/event-hubs-availability-and-consistency.md). Deze informatie is evenveel van toepassing op gepartitioneerde Service Bus-entiteiten.
 
 Service Bus geven genoeg tijd heeft in de wachtrij plaatsen het bericht in een andere fragment de [MessagingFactorySettings.OperationTimeout] [ MessagingFactorySettings.OperationTimeout] waarde die is opgegeven door de client die u verzendt het bericht moet groter zijn dan 15 seconden. Het verdient aanbeveling in te stellen de [OperationTimeout] [ OperationTimeout] eigenschap op de standaardwaarde van 60 seconden.
 
@@ -127,14 +127,14 @@ Service Bus ondersteunt automatische bericht doorsturen van aan of tussen gepart
 
 ## <a name="considerations-and-guidelines"></a>Overwegingen en richtlijnen
 * **Hoge consistentie functies**: als een entiteit functies zoals sessies, detectie van duplicaten of expliciete controle van de partitiesleutel gebruikt, wordt de messaging bewerkingen altijd worden omgeleid naar specifieke fragmenten. Als een van de fragmenten intensief verkeer ervaren of het onderliggende archief niet in orde is, wordt deze bewerkingen mislukken en beschikbaarheid wordt beperkt. Over het algemeen is de consistentiecontrole nog steeds veel hoger zijn dan niet-gepartitioneerde entiteiten; alleen een subset van verkeer ondervindt problemen, in plaats van alle verkeer. Zie voor meer informatie dit [bespreking van de beschikbaarheid en consistentie](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Beheer**: bewerkingen zoals het maken, bijwerken en verwijderen moeten worden uitgevoerd op de fragmenten van de entiteit. Als een fragment slecht is kan dit leiden tot fouten voor deze bewerkingen. Voor de Get-bewerking moet informatie zoals bericht telt worden samengevoegd uit alle fragmenten. Als een fragment niet in orde is, wordt de beschikbaarheidsstatus van de entiteit gerapporteerd als beperkt.
+* **Beheer**: bewerkingen zoals het maken, bijwerken en verwijderen moeten worden uitgevoerd op de fragmenten van de entiteit. Als een fragment niet in orde is, kan dit leiden tot fouten voor deze bewerkingen. Voor de Get-bewerking moet informatie zoals bericht telt worden samengevoegd uit alle fragmenten. Als een fragment niet in orde is, wordt de beschikbaarheidsstatus van de entiteit gerapporteerd als beperkt.
 * **Laag volume bericht scenario's**: voor dergelijke scenario's, vooral wanneer het HTTP-protocol, moet u mogelijk meerdere uitvoeren ontvangstbewerkingen ter verkrijging van alle berichten. Voor ontvangstaanvragen, het front-end voert een receive op alle fragmenten en plaatst alle antwoorden die worden ontvangen. Een aanvraag van de volgende ontvangen op de verbinding wilt profiteren van deze opslaan in cache en ontvangen latenties wordt niet lager zijn. Als u meerdere verbindingen of HTTP gebruiken, stelt die een nieuwe verbinding voor elke aanvraag. Hierdoor is er geen garantie dat deze zou land op hetzelfde knooppunt. Als alle bestaande berichten die worden vergrendeld en in de cache opgeslagen in een andere front-end, de ontvangstbewerking retourneert **null**. Berichten uiteindelijk verlopen en u ze opnieuw kunt ontvangen. HTTP-keepalive wordt aanbevolen.
-* **Bladeren/Peek berichten**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) altijd retourneert geen het aantal berichten dat is opgegeven in de [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MessageCount) eigenschap. Er zijn twee veelvoorkomende redenen voor dit. Een reden hiervoor is dat de geaggregeerde grootte van de verzameling van berichten is groter dan de maximale grootte van 256KB. Een andere reden is dat als de wachtrij of onderwerp heeft de [EnablePartitioning eigenschap](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning) ingesteld op **true**, een partitie geen voldoende berichten naar het aangevraagde aantal berichten te voltooien. In het algemeen als een toepassing wil ontvangen van een bepaald aantal berichten, deze moet aanroepen [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) herhaaldelijk totdat het aantal berichten ophalen of er zijn geen berichten meer om te kijken. Zie voor meer informatie, waaronder codevoorbeelden [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) of [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PeekBatch_System_Int32_).
+* **Bladeren/Peek berichten**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) altijd retourneert geen het aantal berichten dat is opgegeven in de [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) eigenschap. Er zijn twee veelvoorkomende redenen voor dit. Een reden hiervoor is dat de geaggregeerde grootte van de verzameling van berichten is groter dan de maximale grootte van 256 KB. Een andere reden is dat als de wachtrij of onderwerp heeft de [EnablePartitioning eigenschap](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) ingesteld op **true**, een partitie geen voldoende berichten naar het aangevraagde aantal berichten te voltooien. In het algemeen als een toepassing wil ontvangen van een bepaald aantal berichten, deze moet aanroepen [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) herhaaldelijk totdat het aantal berichten ophalen of er zijn geen berichten meer om te kijken. Zie voor meer informatie, codevoorbeelden, waaronder de [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) of [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API-documentatie.
 
 ## <a name="latest-added-features"></a>Meest recente extra functies
 * Toevoegen of verwijderen regel wordt nu ondersteund met gepartitioneerde entiteiten. Verschillend zijn van niet-gepartitioneerde entiteiten, deze bewerkingen worden niet ondersteund onder transacties. 
 * AMQP wordt nu ondersteund voor het verzenden en ontvangen van berichten naar en van een gepartitioneerde entiteit.
-* AMQP wordt nu ondersteund voor de volgende bewerkingen: [Batch verzenden](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_BrokeredMessage__), [Batch ontvangen](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ReceiveBatch_System_Int32_), [ontvangen door volgnummer](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Receive_System_Int64_), [inspecteren](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Peek), [ Vernieuwen van de vergrendeling](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_RenewMessageLock_System_Guid_), [bericht plannen](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ScheduleMessageAsync_Microsoft_ServiceBus_Messaging_BrokeredMessage_System_DateTimeOffset_), [geplande bericht annuleren](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_CancelScheduledMessageAsync_System_Int64_), [regel toevoegen](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [regel verwijderen](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Sessie vernieuwen vergrendeling](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_RenewLock), [Set sessiestatus](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_), [Get-sessiestatus](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_GetState), en [opsommen sessies](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessionsAsync).
+* AMQP wordt nu ondersteund voor de volgende bewerkingen: [Batch verzenden](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendbatch), [Batch ontvangen](/dotnet/api/microsoft.servicebus.messaging.queueclient.receivebatch), [ontvangen door volgnummer](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive), [inspecteren](/dotnet/api/microsoft.servicebus.messaging.queueclient.peek), [ Vernieuwen van de vergrendeling](/dotnet/api/microsoft.servicebus.messaging.queueclient.renewmessagelock), [bericht plannen](/dotnet/api/microsoft.servicebus.messaging.queueclient.schedulemessageasync), [geplande bericht annuleren](/dotnet/api/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync), [regel toevoegen](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [regel verwijderen](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [Sessie vernieuwen vergrendeling](/dotnet/api/microsoft.servicebus.messaging.messagesession.renewlock), [Set sessiestatus](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate), [Get-sessiestatus](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate), en [opsommen sessies](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions).
 
 ## <a name="partitioned-entities-limitations"></a>Gepartitioneerde entiteiten beperkingen
 Service Bus legt momenteel de volgende beperkingen met betrekking tot gepartitioneerde wachtrijen en onderwerpen:
@@ -143,20 +143,20 @@ Service Bus legt momenteel de volgende beperkingen met betrekking tot gepartitio
 * Service Bus kunnen momenteel maximaal 100 gepartitioneerde wachtrijen en onderwerpen per naamruimte. Elke gepartitioneerde wachtrij of onderwerp telt naar het quotum van 10.000 entiteiten per naamruimte (geldt niet voor Premium-laag).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het onderwerp over [AMQP 1.0-ondersteuning voor Service Bus-wachtrijen en onderwerpen gepartitioneerd] [ AMQP 1.0 support for Service Bus partitioned queues and topics] voor meer informatie over het partitioneren van berichtentiteiten. 
+Meer informatie over de belangrijkste concepten van de AMQP 1.0-messaging-specificatie in de [AMQP 1.0-protocol handleiding](service-bus-amqp-protocol-guide.md).
 
 [Service Bus architecture]: service-bus-architecture.md
 [Azure portal]: https://portal.azure.com
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnablePartitioning
-[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
+[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
+[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
