@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decoderen X12 berichten voor Azure Logic Apps met de Enterprise-integratiepakket
 
@@ -65,6 +65,16 @@ Hier volgt de items die u nodig:
     Bijvoorbeeld:
 
     ![Selecteer X12 platte bericht voor het decoderen van bestand](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+
+   > [!NOTE]
+   > De inhoud van het werkelijke bericht of nettolading voor de bericht-matrix, goede of minder, is met base64 gecodeerd. U moet dus een expressie die deze inhoud verwerkt opgeven.
+   > Hier volgt een voorbeeld waarin de inhoud als XML-bestand dat u invoeren kunt in de codeweergave of verwerkt met behulp van de opbouwfunctie voor in de ontwerpfunctie.
+   > ``` json
+   > "content": "@xml(base64ToBinary(item()?['Payload']))"
+   > ```
+   > ![Voorbeeld van de inhoud](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   >
+
 
 ## <a name="x12-decode-details"></a>X12 decoderen details
 
