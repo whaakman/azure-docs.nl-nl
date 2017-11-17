@@ -1,5 +1,5 @@
 
-GPU geoptimaliseerd VM grootten zijn voor gespecialiseerde virtuele machines die zijn gericht voor zware grafische weergave en het bewerken van video's. Beschikbaar met één of meerdere GPU's. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven, en NIC's, evenals doorvoer en prestaties van de opslag voor elke grootte in deze groepering. 
+GPU geoptimaliseerd VM grootten zijn voor gespecialiseerde virtuele machines die zijn gericht voor zware grafische weergave en het bewerken van video's. Beschikbaar met één of meerdere GPU's. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven, en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
 
 De NC- en NV-grootten worden ook wel GPU-exemplaren genoemd. Ze zijn speciale virtuele machine grootten die NVIDIA GPU-kaarten, geoptimaliseerd voor verschillende scenario's en gebruiksvoorbeelden bevatten. De NV-grootten zijn geoptimaliseerd en ontworpen voor externe visualisatie, streaming, games, codering en VDI-scenario’s waarin frameworks als OpenGL en DirectX worden gebruikt. De NC-grootten zijn meer geoptimaliseerd voor reken- en netwerkintensieve toepassingen en algoritmen, waaronder CUDA - en OpenCL-toepassingen en -simulaties. 

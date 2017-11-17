@@ -1,6 +1,6 @@
 ---
 title: Azure grootten voor virtuele machine van Windows - geoptimaliseerde Compute | Microsoft Docs
-description: Hier worden de verschillende rekenscenario geoptimaliseerd grootten beschikbaar voor Windows virtuele machines in Azure.
+description: Hier worden de verschillende rekenscenario geoptimaliseerd grootten beschikbaar voor Windows virtuele machines in Azure. Bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor de grootte van deze reeks.
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 1497535e1c40b77a588ae292ae3d3e4f6ab7daa3
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 0f393f0c5ed297e12f60e378c54778bdb384d200
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Grootte van de virtuele machines COMPUTE geoptimaliseerd
 

@@ -1,10 +1,10 @@
 ---
-title: Een virtuele machine maken met statische openbare IP-adres - Azure CLI 2.0 | Microsoft Docs
-description: Informatie over het maken van een virtuele machine met een statische openbare IP-adres met de Azure-opdrachtregelinterface (CLI) 2.0.
+title: Een virtuele machine maken met statische openbare IP-adres - Azure CLI | Microsoft Docs
+description: Informatie over het maken van een virtuele machine met een statische openbare IP-adres met de Azure-opdrachtregelinterface (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Een virtuele machine maken met een statische openbare IP-adres met de Azure CLI 2.0
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Een virtuele machine maken met een statisch openbaar IP-adres met de Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Sjabloon](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (klassiek)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Azure heeft twee verschillende implementatiemodellen voor het maken en werken me
 
 ## <a name = "create"></a>De virtuele machine maken
 
-U kunt deze taak uitvoeren met de Azure CLI 2.0 (in dit artikel) of de [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). De waarden in ' ' voor de variabelen in de stappen volgen resources met de instellingen van het scenario maken. Wijzig de waarden, waar nodig, voor uw omgeving.
+De waarden in ' ' voor de variabelen in de stappen volgen resources met de instellingen van het scenario maken. Wijzig de waarden, waar nodig, voor uw omgeving.
 
 1. Installeer de [Azure CLI 2.0](/cli/azure/install-az-cli2) als u dit nog niet geïnstalleerd.
 2. De openbare en persoonlijke sleutelpaar voor een SSH maken voor Linux virtuele machines via de stappen in de [maken van een SSH openbare en persoonlijke sleutelpaar voor virtuele Linux-machines](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

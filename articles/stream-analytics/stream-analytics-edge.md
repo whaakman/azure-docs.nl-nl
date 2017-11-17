@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT rand (preview)
 
 > [!IMPORTANT]
 > Deze functionaliteit is in preview. We raden niet gebruiken in productie.
  
-Azure Stream Analytics (ASA) op de rand IoT machtigt ontwikkelaars near-realtime analytische intelligence dichter op IoT-apparaten implementeren, zodat de volledige meerwaarde van apparaat gegenereerde gegevens kan worden ontgrendeld. Ontworpen voor klanten die de lage latentie, tolerantie, bandbreedte en naleving efficiënt worden gebruikt, kunnen ondernemingen nu implementeren besturingselement logica dicht bij de industriële bewerkingen en een aanvulling vormen op Big Data-analyses uitgevoerd in de cloud.  
-Azure Stream Analytics op IoT-rand wordt uitgevoerd in de [Azure IoT rand](https://azure.microsoft.com/campaigns/iot-edge/) framework, en implementatie en beheer van de ASA-jobs kunnen worden gedaan met behulp van IoT Hub zodra de taak is gemaakt in ASA.
+Azure Stream Analytics (ASA) op de rand IoT machtigt ontwikkelaars near-realtime analytische intelligence dichter op IoT-apparaten implementeren, zodat de volledige meerwaarde van apparaat gegenereerde gegevens kan worden ontgrendeld. Ontworpen voor lage latentie, tolerantie, bandbreedte en naleving efficiënt worden gebruikt, kunnen ondernemingen nu implementeren besturingselement logica dicht bij de industriële bewerkingen en een aanvulling vormen op Big Data-analyses uitgevoerd in de cloud.  
+Azure Stream Analytics op IoT-rand wordt uitgevoerd in de [Azure IoT rand](https://azure.microsoft.com/campaigns/iot-edge/) framework. Nadat de taak is gemaakt in ASA, deploym en beheren van de ASA-jobs met IoT Hub.
 Deze functie is een Preview-versie, als u vragen of feedback hebt kunt u [deze enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) contact opnemen met het productteam. 
 
 ## <a name="scenarios"></a>Scenario's
-![Op hoog niveau diagram](media/stream-analytics-edge/ASAedge_highlevel.png) wordt hier enkele typische scenario's waarvoor actieve ASA op de rand interessants is:
-* **Lage latentie opdracht en controle**: bijvoorbeeld productie veiligheid systemen zijn vereist om te reageren op de operationele gegevens met een zeer lage latentie. Met ASA over IoT-zijde, kunt u sensorgegevens in bijna realtime en hierop opdrachten analyseren wanneer u afwijkingen stoppen van een machine of trigger waarschuwingen detecteren.
+![Diagram op hoog niveau](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **Lage latentie opdracht en controle**: bijvoorbeeld veiligheid productiesystemen moet reageren op de operationele gegevens met een zeer lage latentie. Met ASA over IoT-zijde, kunt u sensor, gegevens in near-realtime en opdrachten uitgeven wanneer u detecteren afwijkingen is vereist om een machine stoppen of trigger waarschuwingen te analyseren.
 *   **De verbinding met de cloud beperkt**: missie kritieke systemen zoals externe analysemodel apparatuur, verbonden vaartuigen of drijvende analyseren hoeft te analyseren en reageren op gegevens, zelfs wanneer de connectiviteit van de cloud wordt onderbroken. Uw streaming logica wordt uitgevoerd onafhankelijk van de netwerkverbinding met ASA, en u kunt kiezen wat u verzenden naar de cloud voor verdere verwerking of opslag.
 * **Beperkte bandbreedte**: de hoeveelheid gegevens die wordt geproduceerd door jet-engines of verbonden auto's kunnen zo groot dat gegevens moeten worden gefilterd of vooraf verwerken voordat deze naar de cloud verzonden. ASA gebruikt, kunt u filteren en samenvoegen van de gegevens die moeten worden verzonden naar de cloud.
 * **Naleving**: naleving van regelgeving kan vereisen sommige gegevens lokaal worden geanonimiseerde of geaggregeerd voordat ze worden verzonden naar de cloud. Met ASA, u 

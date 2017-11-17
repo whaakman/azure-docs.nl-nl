@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 177f8a61487130e718e3e6cfb779b17a3ed8ed69
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Server voor MATLAB gedistribueerde Computing clusters maken op Azure Virtual machines
 Gebruik Microsoft Azure virtuele machines te maken van een of meer MATLAB gedistribueerde Computing serverclusters als u wilt uw rekenintensieve parallelle MATLAB workloads uitvoeren. Uw Server voor MATLAB gedistribueerde Computing-software installeren op een virtuele machine wilt gebruiken als een basisinstallatiekopie en een snelstartsjabloon met de Azure- of Azure PowerShell-script (beschikbaar op [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) te implementeren en beheren van het cluster. Verbinding met het cluster aan uw werkbelastingen uitvoeren na de implementatie.
@@ -32,7 +32,7 @@ Met behulp van virtuele machines in Azure, kunt u MATLAB gedistribueerde Computi
 * **Clientcomputer** -moet u een Windows-clientcomputer om te communiceren met Azure en het cluster MATLAB gedistribueerde Computing Server na de implementatie.
 * **Azure PowerShell** -Zie [installeren en configureren van Azure PowerShell](/powershell/azure/overview) om deze te installeren op de clientcomputer.
 * **Azure-abonnement** -als u geen een abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) binnen een paar minuten. Voor grotere clusters kunt u een abonnement op gebruiksbasis of andere Aankoopopties.
-* **Quotum voor kernen** -mogelijk moet u het quotum voor kernen voor het implementeren van een grote cluster of meer dan één Server voor MATLAB gedistribueerde Computing cluster verhogen. Een quotum te verhogen [opent u een ondersteuningsaanvraag online klant](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) zonder kosten.
+* **vcpu's quotum** -u wellicht de vCPU quotum voor het implementeren van een grote cluster of meer dan één Server voor MATLAB gedistribueerde Computing cluster te verhogen. Een quotum te verhogen [opent u een ondersteuningsaanvraag online klant](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) zonder kosten.
 * **MATLAB, parallelle berekeningen werkset en MATLAB gedistribueerde Computing Server licenties** -de scripts wordt ervan uitgegaan dat de [MathWorks gehost Licentiebeheer](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) wordt gebruikt voor alle licenties.  
 * **Server voor MATLAB gedistribueerde Computing software** -wordt geïnstalleerd op een virtuele machine die wordt gebruikt als de basisinstallatiekopie VM voor het cluster virtuele machines.
 
@@ -62,7 +62,7 @@ De MATLAB client-knooppunt, MATLAB Taakplanner-knooppunt en Server voor MATLAB g
 * Verbinding met extern bureaublad met het clientknooppunt voor het gebruik van het cluster. Het knooppunt voor uitvoert de client MATLAB.
 * De clientknooppunt heeft een bestandsshare die toegankelijk zijn voor alle werknemers.
 * MathWorks gehost Licentiebeheer wordt gebruikt voor de licentie-controles voor alle MATLAB software.
-* Standaard één Server voor MATLAB gedistribueerde Computing werknemer per core op de virtuele machines van de werknemer is gemaakt, maar u kunt een willekeurig getal opgeven.
+* Standaard één Server voor MATLAB gedistribueerde Computing werknemer per vCPU wordt gemaakt op de virtuele machines van de werknemer, maar u kunt een willekeurig getal opgeven.
 
 ## <a name="use-an-azure-based-cluster"></a>Gebruik een Cluster op basis van Azure
 Als bij andere soorten MATLAB gedistribueerde Computing serverclusters, moet u Profielbeheer Cluster in de client MATLAB (op de client VM) gebruiken om een cluster MATLAB Taakplanner profiel te maken.

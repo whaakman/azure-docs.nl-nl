@@ -1,6 +1,6 @@
-In de Cloud-Shell, maakt u een web-app in de `myAppServicePlan` App Service-abonnement met de [az webapp maken](/cli/azure/webapp#create) opdracht. Vergeet niet om te vervangen `<app_name>` met een unieke app-naam.
+In de Cloud-Shell, maakt u een web-app in de `myAppServicePlan` App Service-abonnement met de [az webapp maken](/cli/azure/webapp#create) opdracht. 
 
-De runtime in de volgende opdracht is ingesteld op `NODE|6.9`. Als u wilt zien alle ondersteunde runtimes, [az webapp lijst-runtimes](/cli/azure/webapp#list-runtimes). 
+Vervang in het volgende voorbeeld wordt `<app_name>` met een globaal unieke app-naam (geldige tekens zijn `a-z`, `0-9`, en `-`). De runtime is ingesteld op `NODE|6.9`. Als u wilt zien alle ondersteunde runtimes, [az webapp lijst-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git

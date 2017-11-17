@@ -1,10 +1,10 @@
 ---
-title: Maak een virtueel netwerk - Azure CLI 2.0 | Microsoft Docs
-description: Informatie over het maken van een virtueel netwerk met de Azure CLI 2.0.
+title: Maak een virtueel netwerk - Azure CLI | Microsoft Docs
+description: Informatie over het maken van een virtueel netwerk met de Azure CLI.
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Een virtueel netwerk maken met de Azure CLI 2.0
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Een virtueel netwerk maken met de Azure CLI
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure heeft twee implementatiemodellen: Azure Resource Manager en klassiek. Microsoft raadt aan resources te maken via het Resource Manager-implementatiemodel. Lees het artikel [Azure-implementatiemodellen begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie over de verschillen tussen de twee modellen.
 
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
-U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel
-- [Azure CLI 2.0](#create-a-virtual-network) -onze volgende generatie CLI voor de resource management-implementatiemodel (in dit artikel)'
- 
-    U kunt via Resource Manager ook een VNet maken met andere hulpprogramma's. Bovendien kunt u een VNet maken via het klassieke implementatiemodel door in de volgende lijst een andere optie te selecteren:
+U kunt ook een virtueel netwerk via Resource Manager, met andere hulpprogramma's maken of een virtueel netwerk via het klassieke implementatiemodel maken door een andere optie te selecteren in de volgende lijst:
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Voor het maken van een virtueel netwerk met de Azure CLI 2.0, moet u de volgende stappen uitvoeren:
+Voor het maken van een virtueel netwerk met de Azure CLI, moet u de volgende stappen uitvoeren:
 
 1. Installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login).
 
