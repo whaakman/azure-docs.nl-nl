@@ -4,13 +4,15 @@
   items:
     - name: Wat is Azure Databricks?
       href: what-is-azure-databricks.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Een Databricks-werkruimte maken
       href: quickstart-create-databricks-workspace-portal.md
 - name: Resources
   items:
+    - name: Veelgestelde vragen
+      href: frequently-asked-questions-databricks.md
     - name: Documentatie voor Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Azure-roadmap
