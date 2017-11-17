@@ -73,7 +73,6 @@
 ## [Groepen en leden beheren](active-directory-manage-groups.md)
 ### Groepen beheren
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Klassieke portal](active-directory-accessmanagement-manage-groups.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
@@ -94,7 +93,6 @@
 #### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Geavanceerde regels maken
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Klassieke portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
 ### [Problemen oplossen](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
 ### [Hoe SSPR werkt](active-directory-passwords-how-it-works.md)
 ### [SSPR-implementatiegids](active-directory-passwords-best-practices.md)
+### [SSPR en Windows 10](active-directory-passwords-login.md)
 ### [Beleidsregels voor SSPR](active-directory-passwords-policy.md)
 ### [SSPR aanpassen](active-directory-passwords-customize.md)
 ### [Gegevensvereisten voor SSPR](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### De klassieke portal gebruiken
 ##### [Connectors downloaden](application-proxy-enable-classic-portal.md)
 ##### [Apps publiceren](active-directory-application-proxy-publish.md)
-##### [Connectors gebruiken](active-directory-application-proxy-connectors.md)
-##### [Voorwaardelijke toegang](active-directory-application-proxy-conditional-access.md)
+##### [Connectors gebruiken](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Voorwaardelijke toegang](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Enterprise-apps beheren
 #### [Gebruikers toewijzen](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [Eenmalige aanmelding voor zakelijke apps beheren](active-directory-enterprise-apps-manage-sso.md)
 #### [Geavanceerde certificaatondertekening voor SAML-apps](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Een app van een externe partij verbergen voor een gebruiker](active-directory-coreapps-hide-third-party-app.md)
+### [Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Selfservice toegang](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## Uw directory beheren
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
-#### [Overzicht](active-directory-add-domain-concepts.md)
+#### [Overzicht](active-directory-domains-manage-azure-portal.md)
 #### [Domeinnamen beheren](active-directory-domains-manage-azure-portal.md)
-##### [Klassieke portal](active-directory-add-manage-domain-names.md)
 ### [Uw directory beheren](active-directory-administer.md)
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
 ### [Selfservice registreren](active-directory-self-service-signup.md)

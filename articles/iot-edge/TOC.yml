@@ -1,61 +1,61 @@
-- name: Documentatie over de Azure IoT Hub Device Provisioning Service
+- name: Documentatie voor Azure IoT Edge
   href: index.yml
 - name: Overzicht
   items:
-    - name: Over het inrichten van een IoT-apparaat
-      href: about-iot-dps.md
+    - name: Over Azure IoT Edge
+      href: how-iot-edge-works.md
 - name: QuickStarts
-  expanded: true
   items:
-    - name: Automatische inrichting instellen
-      href: quick-setup-auto-provision.md
-    - name: Een gesimuleerd apparaat maken
-      items:
-        - name: TPM
-          href: quick-create-simulated-device.md
-        - name: X.509
-          href: quick-create-simulated-device-x509.md
+    - name: Implementeren naar de rand - Windows
+      href: quickstart.md
+    - name: Implementeren naar de rand - Linux
+      href: quickstart-linux.md
 - name: Zelfstudies
   items:
-    - name: 1 - Cloudresources instellen
-      href: tutorial-set-up-cloud.md
-    - name: 2 - Apparaat instellen
-      href: tutorial-set-up-device.md
-    - name: 3 - Een apparaat inrichten naar een IoT-hub
-      href: tutorial-provision-device-to-hub.md
-    - name: 4 - Apparaten inrichten naar meerdere hubs
-      href: tutorial-provision-multiple-hubs.md
-- name: Concepten
-  items:
-    - name: Apparaatconcepten
-      href: concepts-device.md
-    - name: Serviceconcepten
-      href: concepts-service.md
-    - name: Beveiligingsconcepten
-      href: concepts-security.md
+    - name: Een Edge-apparaat simuleren - Windows
+      href: tutorial-simulate-device-windows.md
+    - name: Een Edge-apparaat simuleren - Linux
+      href: tutorial-simulate-device-linux.md
+    - name: 'Een C#-module ontwikkelen'
+      href: tutorial-csharp-module.md
+    - name: Azure Stream Analytics implementeren
+      href: tutorial-deploy-stream-analytics.md
+    - name: Azure Machine Learning implementeren
+      href: tutorial-deploy-machine-learning.md
+    - name: Azure Functions implementeren
+      href: tutorial-deploy-function.md
 - name: Handleidingen
   items:
-    - name: Apparaatregistraties beheren
-      href: how-to-manage-enrollments.md
-    - name: Gebruik HSM met SDK
-      href: use-hsm-with-sdk.md
-    - name: Toegang tot de inrichtingsservice beheren
-      href: how-to-control-access.md
-- name: Naslaginformatie
+    - name: Een gateway-apparaat maken
+      href: how-to-create-gateway-device.md
+    - name: Op schaal implementeren en bewaken
+      href: how-to-deploy-monitor.md
+    - name: Een IoT Core-apparaat inrichten
+      href: how-to-install-iot-core.md
+- name: Concepten
   items:
-    - name: REST
-      href: /rest/api/iot-dps
+    - name: IoT Edge-modules
+      href: iot-edge-modules.md
+      items:
+        - name: Ontwikkeling
+          href: module-development.md
+        - name: Samenstelling
+          href: module-composition.md
+    - name: IoT Edge-runtime
+      href: iot-edge-runtime.md
+    - name: Implementaties
+      href: module-deployment-monitoring.md
+    - name: Beveiliging
+      href: security.md
 - name: Resources
   items:
-    - name: Azure IoT Hub
-      href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: Azure Certified voor IoT-apparaatcatalogus
       href: 'https://catalog.azureiotsuite.com/'
     - name: Azure IoT-ontwikkelaarscentrum
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
-    - name: Hulpprogramma Device Explorer
+    - name: Hulpprogramma DeviceExplorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: Hulpprogramma iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'

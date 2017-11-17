@@ -4,7 +4,7 @@
   items:
     - name: Informatie over virtuele machines
       href: overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Virtuele machine maken - Portal
@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Verbinding maken met een VM
           href: connect-logon.md
-        - name: AHUB-licentieverlening gebruiken
+        - name: Licentie voor Azure Hybrid Benefit gebruiken
           href: hybrid-use-benefit-licensing.md
         - name: Multitenant Hosting-rechten voor Windows 10 gebruiken
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
           href: policy.md
         - name: Een sleutelkluis maken
           href: key-vault-setup.md
+    - name: Virtuele machines beschermen
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Een back-up maken van één virtuele machine
+          items:
+            - name: Azure Portal
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure PowerShell
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Een back-up maken van meerdere virtuele machines
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Virtuele machines beheren
       items:
         - name: Algemene PowerShell-taken
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Metagegevens bewaken
           href: instance-metadata-service.md
+        - name: Geneste virtualisatie inschakelen
+          href: nested-virtualization.md
     - name: Installatiekopieën gebruiken
       items:
         - name: Installatiekopieën zoeken en gebruiken

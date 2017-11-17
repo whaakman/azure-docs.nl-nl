@@ -3,7 +3,6 @@
 
 # Aan de slag
 
-## [Een SKU kiezen](search-sku-tier.md)
 ## [Een service maken](search-create-service-portal.md)
 ## [Een index maken](search-what-is-an-index.md)
 ### [Azure Portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Zelfstudies
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [Voorbeeld .NET-synoniemen](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
+## [Ontwikkelen in .NET](search-howto-dotnet-sdk.md)
+## [Voorbeeldsynoniemen in .NET](search-synonyms-tutorial-sdk.md)
+## [Indexeerfunctie voor SQL-gegevens in .NET](search-indexer-tutorial.md)
+## [Kennismaken met de portal](search-get-started-portal.md)
 ## [Semi-gestructureerde gegevens doorzoeken](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [De REST-API verkennen](search-fiddler.md)
 
 # Procedures
 
 ## Plannen en ontwerpen
+### [Een SKU kiezen](search-sku-tier.md)
 ### [Servicelimieten](search-limits-quotas-capacity.md)
 ### [Schaalbaarheid van service](search-capacity-planning.md)
 ### [Patronen voor multitenancy-ontwerpen](search-modeling-multitenant-saas-applications.md)
 ## Ontwikkelen
 ### [API-versies](search-api-versions.md)
+### [Ontwikkelen in Node.js](search-get-started-nodejs.md)
+### [Ontwikkelen in Java](search-get-started-java.md)
 ### [Upgrade uitvoeren voor de SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade uitvoeren voor de REST-API](search-api-migration.md)
 ### [Complexe gegevenstypen modelleren](search-howto-complex-data-types.md)

@@ -71,7 +71,7 @@
 ## Oplossingen
 ### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
 #### [Updates voor meerdere virtuele machines beheren](manage-update-multi.md)
-#### [SCCMr integreren met OMS Updatebeheer](oms-solution-updatemgmt-sccmintegration.md)
+#### [SCCM integreren met OMS-updatebeheer](oms-solution-updatemgmt-sccmintegration.md)
 ### [Wijzigingen bijhouden](../log-analytics/log-analytics-change-tracking.md)
 ### [Bijhouden van wijzigingen in uw virtuele machines](automation-vm-change-tracking.md)
 ### [Een virtuele machine met inventarisverzameling beheren](automation-vm-inventory.md)

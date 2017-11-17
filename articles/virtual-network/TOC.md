@@ -63,6 +63,7 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtuele machines
+#### [Netwerkdoorvoer van virtuele machines](virtual-machine-network-throughput.md)
 #### Een virtuele machine met een statisch openbaar IP-adres maken
 ##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
