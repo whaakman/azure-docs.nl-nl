@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 31142fa2ab06b7479aa93f9ece14f4dd51fa28ef
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
 Terwijl de [Azure-portal] biedt een volledige set hulpprogramma's voor het ontwikkelen en testen Azure Functions, veel ontwikkelaars de voorkeur aan een lokale ontwikkeling biedt. Azure Functions kunt eenvoudig uw favoriete code-editor en lokale ontwikkelingsprogramma's gebruiken om te ontwikkelen en testen van uw functies op uw lokale computer. Uw functies kunnen activeren van gebeurtenissen in Azure en u kunt fouten opsporen in uw C#- en JavaScript-functies op uw lokale computer. 
 
 Als u een Azure-functies van Visual Studio C# ontwikkelaar, ook bent [kan worden geïntegreerd met Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Niet door elkaar op lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u maken en publiceren van de functies van een lokaal project, moet u niet proberen te onderhouden of te wijzigen projectcode in de portal.
 
 ## <a name="install-the-azure-functions-core-tools"></a>De Azure Functions Core hulpprogramma's installeren
 

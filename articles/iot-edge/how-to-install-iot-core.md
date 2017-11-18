@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: be2a80645d23e709d6c5cfb3978498bbe85eca34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a78efef6bc82a837782c462bc3558a9582a8da7c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installeren van de rand van de IoT-runtime op Windows IoT Core - voorbeeld
 
@@ -25,8 +25,22 @@ De Azure IoT rand Runtime kunt zelfs op kleine één mededelingenbord Computer S
 1. Installeer [Windows 10 IoT Core Dashboard] [ lnk-core] op een hostsysteem.
 1. Volg de stappen in [instellen van uw apparaat] [ lnk-board] het mededelingenbord configureren met de installatiekopie van het MinnowBoard tarbot/MAX bouwen 16299. 
 1. Schakel op het apparaat vervolgens [Meld u aan met PowerShell op afstand][lnk-powershell].
-1. In de PowerShell-console [Docker binaire bestanden installeren][lnk-docker-install].
-1. Voer de volgende opdracht in de PowerShell-console installeren van de rand van de IoT-runtime en controleer de configuratie:
+1. Installeer de runtime container in de PowerShell-console: 
+
+   ```powershell
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Expand-Archive .\temp.zip $env:ProgramFiles -f
+   Remove-Item .\temp.zip
+   $env:Path += ";$env:programfiles\docker"
+   SETX /M PATH "$env:Path"
+   dockerd --register-service
+   start-service docker
+   ```
+
+   >[!NOTE]
+   >Deze PowerShell-script is van de server Moby project bouwen en is bedoeld voor evaluatiedoeleinden. Het is niet getest, goedgekeurd door of ondersteund door Docker.
+
+1. Installeren van de rand van de IoT-runtime en controleer de configuratie:
 
    ```powershell
    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)

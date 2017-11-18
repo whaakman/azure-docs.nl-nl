@@ -12,13 +12,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5bf995cba884ff9910ce000195c8fa0e3da2d332
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met Python en Azure Cosmos DB API-app bouwen
 
@@ -84,7 +84,13 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     ![Weergeven en kopieer de VERBINDINGSREEKS in het deelvenster verbindingsreeks](./media/create-table-python/connection-string.png)
 
-2. Open het bestand config.py en kopieer de vereiste eigenschappen van een verbindingsreeks in het configuratiebestand.
+2. Kopieer de accountnaam met behulp van de knop aan de rechterkant.
+
+3. Open het bestand config.py en plakt u de naam van het ACCOUNT van de portal in de waarde STORAGE_ACCOUNT_NAME op regel 19.
+
+4. Ga terug naar de portal en kopieer de primaire sleutel.
+
+5. De primaire sleutel van de portal in de waarde STORAGE_ACCOUNT_KEY op regel 20 plakken.
 
 3. Sla het bestand config.py.
 

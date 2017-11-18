@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: e4ee80826a710bde9483d130a4d1c986a72645ca
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: da7b83846418bfe5f95b126d4f5f7b34d3a7b35d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Query uitvoeren op Azure-logboekanalyse voor het bewaken van HDInsight-clusters
 
@@ -33,7 +33,7 @@ Meer informatie over enkele algemene scenario's over het gebruik van Azure-logbo
 
 * U moet een HDInsight-cluster voor het gebruik van Azure-logboekanalyse hebt geconfigureerd. Zie voor instructies [gebruik Azure Log Analytics met HDInsight-clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* U moet toevoegen de HDInsight-cluster-specifieke beheeroplossingen naar de OMS-werkruimte zoals beschreven in [toevoegen HDInsight-cluster beheeroplossingen met logboekanalyse](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* U moet toevoegen de HDInsight-cluster-specifieke oplossingen voor de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) werkruimte, zoals beschreven in [toevoegen HDInsight-cluster beheeroplossingen met logboekanalyse](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight-cluster metrische gegevens analyseren
 
@@ -152,5 +152,5 @@ U kunt een query die u wilt dat een waarschuwing wilt maken.
 
 ## <a name="see-also"></a>Zie ook
 
-* [Werken met OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Werken met Operations Management Suite Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Maken van regels voor waarschuwingen in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 11/17/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: dc8a94e998b36331a6a42253a68b43d76be6657c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a6d5690edd9020e777f3d71c41a53856d0a400db
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
 Azure Containerexemplaren gemakkelijk maken en beheren van Docker-containers in Azure, zonder te hoeven inrichten van virtuele machines of aannemen van een service op een hoger niveau. In deze snelstartgids een container maken in Azure en tijdens het blootgesteld aan internet met een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen een paar seconden ziet u dit in uw browser:
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 U kunt een container maken door op te geven van een naam, een Docker-installatiekopie en een Azure-resourcegroep voor de [az container maken] [ az-container-create] opdracht. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. In deze snelstartgids die u implementeert een container die als host fungeert voor een kleine web-app die is geschreven in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
+az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
 ```
 
 Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie is de container is in de **maken** staat, maar moet worden gestart binnen een paar seconden. U kunt ook het gebruik van de status controleren de [az container weergeven] [ az-container-show] opdracht:

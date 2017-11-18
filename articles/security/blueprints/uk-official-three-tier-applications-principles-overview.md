@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.author: jomolesk
-ms.openlocfilehash: bbf58215a4d236c70bf988cbfa1c8491055b5183
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0be18e2c2354ea8f766eb48db793c906e565a201
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Nationale Cyberbeveiliging centrum Cloud Security beveiligingsprincipes-overzicht
 
 
 > [!NOTE]
-> Deze beveiligings-principals zijn gedefinieerd door het National Cyberbeveiliging Security Center (NCSC). Raadpleeg NCSC-documentatie voor informatie over testprocedures en richtlijnen voor elke beveiligingsprincipal.
+> Deze beveiligings-principals zijn gedefinieerd door de VK nationale Cyberbeveiliging Security Center (NCSC). Raadpleeg [NCSC documentatie](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) voor informatie over het testen van de procedures en richtlijnen voor elke beveiligingsprincipal.
 
 
 
@@ -435,3 +435,12 @@ Met IaaS en PaaS-aanbiedingen bent u verantwoordelijk voor belangrijke aspecten 
 |---|---|
 | **De klant** | De Azure Resource Manager-sjablonen en de bijbehorende bronnen waaruit deze blauwdruk Azure Volg een defensie-in-depth-benadering voor de beveiliging. Om te voldoen aan deze principe verdere configuratie vereist door de klant voor gebruik in productie (bijv, database-software voor beheer, web toepassingsimplementatie). |
 | **Provider&nbsp;(Microsoft&nbsp;Azure)** | Niet van toepassing |
+
+## <a name="disclaimer"></a>Vrijwaring
+
+ - Dit document is alleen ter informatie. MICROSOFT GEEFT GEEN GARANTIES, SNELLE, IMPLICIETE OF WETTELIJKE GARANTIE VOOR DE INFORMATIE IN DIT DOCUMENT. Dit document wordt geleverd ' as-is. " Informatie en inzichten die in dit document, inclusief URL's en andere websiteverwijzingen, kunnen zonder kennisgeving worden gewijzigd. Dit document lezen klanten draagt het risico voor het gebruik ervan.
+ - Dit document biedt geen enkel wettelijk recht op enig intellectueel eigendom van alle Microsoft-product of oplossingen klanten.
+ - Klanten kunnen kopiëren en gebruiken van dit document voor interne referentiedoeleinden.
+ - Bepaalde aanbevelingen in dit document kunnen leiden tot hogere-, netwerk- of compute-Resourcegebruik in Azure en een klant Azure licentie of abonnement kosten kunnen verhogen.
+ - Deze architectuur is bedoeld om te fungeren als basis voor klanten om aan te passen aan hun specifieke vereisten en mag niet worden gebruikt als-is in een productieomgeving.
+ - Dit document is ontwikkeld als een verwijzing en mag niet worden gebruikt voor het definiëren van alle middelen waarmee een klant kan voldoen aan specifieke nalevingsvereisten en -voorschriften. Klanten moeten juridische ondersteuning van hun organisatie met goedgekeurde klant implementaties zoeken.

@@ -3,7 +3,7 @@ title: Windows-computers verbinding met Azure Log Analytics | Microsoft Docs
 description: In dit artikel bevat de stappen om de Windows-computers in uw on-premises infrastructuur met behulp van een aangepaste versie van de Microsoft Monitoring Agent (MMA) met de Log Analytics-service.
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf3e596f8c287c60531a6911c5797b3de26e570
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinding met de Log Analytics-service in Azure
 
@@ -28,7 +28,7 @@ In dit artikel bevat de stappen om Windows-computers in uw on-premises infrastru
 U kunt met behulp van de installatie vanaf de opdrachtregel, agents installeren of met Desired State Configuration (DSC) in Azure Automation.  
 
 >[!NOTE]
-Voor virtuele machines in Azure wordt uitgevoerd, kunt u de installatie vereenvoudigen met behulp van de [extensie van virtuele machine](log-analytics-azure-vm-extension.md).
+Voor virtuele machines in Azure wordt uitgevoerd, kunt u de installatie vereenvoudigen met behulp van de [extensie van virtuele machine](../virtual-machines/windows/extensions-oms.md).
 
 Op computers met een internetverbinding, de agent de verbinding met het Internet gebruikt om gegevens te verzenden aan OMS. Voor computers die u geen verbinding met Internet hebt, kunt u een proxy of de [OMS Gateway](log-analytics-oms-gateway.md).
 

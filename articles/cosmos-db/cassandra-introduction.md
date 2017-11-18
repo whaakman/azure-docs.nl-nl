@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 23909c65499697be66fc2d2f43c6d0bd8a02b614
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Inleiding tot Apache Cassandra API voor Azure Cosmos DB
 
@@ -34,9 +34,12 @@ Azure Cosmos DB biedt de Cassandra-API (preview) voor toepassingen die zijn gesc
 
 Azure Cosmos-database kan worden gebruikt als gegevensopslag voor apps die zijn geschreven voor [Apache Cassandra](https://cassandra.apache.org/), met behulp van de Apache Cassandra-API. Dit betekent dat met behulp van de bestaande [Apache in licentie gegeven stuurprogramma's die compatibel zijn met CQLv4](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver), uw toepassing voor Cassandra voortaan met de Azure-API voor Cassandra Cosmos-database communiceren kunnen geschreven. In veel gevallen kunt u overschakelen van het gebruik van Apache Cassandra voor het gebruik van Azure Cosmos DB Apache Cassandra API, door eenvoudigweg een verbindingsreeks. Met deze functionaliteit kunt u gemakkelijk maken en Cassandra API databasetoepassingen uitvoeren in de Azure-cloud met Azure Cosmos DB globale verdeling en [uitgebreide toonaangevende Sla's](https://azure.microsoft.com/support/legal/sla/cosmos-db), maar blijft bekend gebruiken vaardigheden en hulpprogramma's voor Cassandra API.
 
-![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cosmosdb-cassandra.png)
+![Azure Cosmos DB Cassandra-API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-De API Cassandra kunt u communiceren met gegevens die zijn opgeslagen in Azure Cosmos-database met de querytaal Cassandra op basis van hulpprogramma's (zoals CQLSH) en Cassandra clientstuurprogramma's u al bekend bent met.
+De API Cassandra kunt u communiceren met gegevens die zijn opgeslagen in Azure Cosmos-database met de querytaal Cassandra op basis van hulpprogramma's (zoals CQLSH) en Cassandra clientstuurprogramma's u al bekend bent met. Meer informatie over het in deze video Microsoft Mechanics met Principal Engineering Manager Kirill Gavrylyuk.
+
+> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
+>
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Wat is het voordeel van het gebruik van Apache Cassandra API voor Azure Cosmos DB?
 
@@ -56,17 +59,34 @@ De API Cassandra kunt u communiceren met gegevens die zijn opgeslagen in Azure C
 
 **Enterprise hoogwaardige**: beveiligd en compatibel zijn standaard: Azure cosmos DB biedt [naleving certificeringen](https://www.microsoft.com/trustcenter) zodat gebruikers kunnen het platform gebruiken zonder dat u problemen met naleving. Azure Cosmos DB biedt ook versleuteling in rust en bij beweging, firewall voor IP- en auditlogboeken voor vlak controleactiviteiten.  
 
+<a id="sign-up-now"></a>
+## <a name="sign-up-now"></a>Nu aanmelden 
+
+Als u al een Azure-abonnement hebt, kunt u zich aanmeldt bij het programma Cassandra API (preview) in de [Azure-portal](https://aka.ms/cosmosdb-cassandra-signup).  Als u geen ervaring met Azure, zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/free) waar u 12 maanden gratis toegang tot Azure Cosmos DB krijgen. De volgende stappen om aan te vragen toegang tot het programma Cassandra API (preview).
+
+1. In de [Azure-portal](https://portal.azure.com), klikt u op **nieuw** > **Databases** > **Azure Cosmos DB**. 
+
+2. Selecteer op de pagina nieuwe Account **Cassandra** in het vak API. 
+
+3. In de **abonnement** Selecteer de Azure-abonnement dat u wilt gebruiken voor dit account.
+
+4. Klik op **zich registreren voor de preview vandaag**.
+
+    ![Azure Cosmos DB Cassandra-API](./media/cassandra-introduction/cassandra-sign-up.png)
+
+3. Klik in de aanmelding voor vandaag voorbeeldvenster op **OK**. 
+
+    Als u de aanvraag indient, de status gewijzigd in **in afwachting van goedkeuring** in het deelvenster met de nieuwe account. 
+
+Nadat u uw aanvraag indient, wacht u totdat de e-mailmelding dat uw aanvraag is goedgekeurd. U hoeft niet te maken van een ondersteuningsticket voor het voltooien van de aanvraag. Aanvragen wordt gecontroleerd in de volgorde waarin ze werden ontvangen. 
+
 ## <a name="how-to-get-started"></a>Hoe gaat u aan de slag
-Ga als volgt de snelstartgidsen Cassandra API voor het maken van een Azure Cosmos DB Cassandra API-account en een app Cassandra maken:
+Eenmaal u het preview-programma hebt toegevoegd, voert u de snelstartgidsen Cassandra API voor het maken van een app met behulp van de API Cassandra:
 
 * [Snelstartgids: Een Cassandra bouwen met Node.js en Azure DB die Cosmos-web-app](create-cassandra-nodejs.md)
 * [Snelstartgids: Een Cassandra bouwen met Java en Azure DB die Cosmos-web-app](create-cassandra-java.md)
 * [Snelstartgids: Een Cassandra bouwen web-app met .NET- en Azure Cosmos-DB](create-cassandra-dotnet.md)
 * [Snelstartgids: Een Cassandra bouwen web-app met Python en Azure Cosmos-DB](create-cassandra-python.md)
-
-## <a name="sign-up-now"></a>Nu aanmelden 
-
-Als u al een Azure-abonnement hebt, u kunt aanmelden voor de API Cassandra (preview) in de [Azure-portal](https://aka.ms/cosmosdb-cassandra-signup). Als u geen ervaring met Azure, zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/free) waar u 12 maanden gratis toegang tot Azure Cosmos DB krijgen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

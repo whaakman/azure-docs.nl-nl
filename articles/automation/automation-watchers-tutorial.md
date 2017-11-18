@@ -1,5 +1,5 @@
 ---
-title: Een watcher-taak in de Azure Automation-account maken | Microsoft Docs
+title: Een watcher-taak in het Azure Automation-account maken | Microsoft Docs
 description: Informatie over het maken van een watcher in Azure Automation-account moeten worden gecontroleerd of er nieuwe bestanden die in een map wordt gemaakt.
 services: automation
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 55971908caca4526f7a3b102e90c554a533a7fee
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Azure Automation-watcher-taken kunnen u reageer op gebeurtenissen die plaatsvinden in uw lokale datacentrum
 

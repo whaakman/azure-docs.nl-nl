@@ -2,19 +2,19 @@
 title: Met behulp van de Git-opslagplaats met een Azure Machine Learning-Workbench Project | Microsoft Docs
 description: In dit artikel wordt uitgelegd hoe u een Git-opslagplaats in combinatie met een Azure Machine Learning-Workbench Project.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: hning86
+author: hning86
+ms.author: haining
+manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 59b07c9834904e01256b75344ba2e6892e56438c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: c91eadd69eaf16b2496f4d7247e5b0121904e172
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Met behulp van de Git-opslagplaats met een Azure Machine Learning Workbench-project
 Dit document bevat informatie over hoe Azure Machine Learning Workbench Git gebruikt om ervoor te zorgen reproduceerbaarheid in uw gegevens wetenschappelijke experiment. Instructies voor het koppelen van uw project met een cloud Git-opslagplaats, zijn ook beschikbaar.
@@ -66,27 +66,29 @@ Rechtstreeks naar het teamproject zojuist hebt gemaakt wilt gaan, de URL is `htt
 > Azure Machine Learning ondersteunt momenteel alleen lege Git repo's met geen hoofdvertakking. Vanuit de opdrachtregelinterface, kunt u met het--force-argument voor de hoofdvertakking eerst verwijderen. 
 
 ## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>Stap 3. Een nieuwe Azure ML-project maken met een externe Git-opslagplaats
-Azure ML-Workbench Start en een nieuw project maken. Vul in het tekstvak voor Git-opslagplaats met de VSTS Git-opslagplaats-URL die u via stap 2. Meestal als volgt uitziet: http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+Azure ML-Workbench Start en een nieuw project maken. Vul in het tekstvak voor Git-opslagplaats met de VSTS Git-opslagplaats-URL die u via stap 2. Meestal als volgt uitziet:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
 
 ![Azure ML-Project maken met Git-opslagplaats](media/using-git-ml-project/create_project_with_git_rep.png)
 
 Een nieuw Azure ML-project wordt nu gemaakt met externe Git-opslagplaats integratie ingeschakeld en gereed is om te gaan. De projectmap is altijd Git geïnitialiseerd als een lokale Git-opslagplaats. En de Git _externe_ is ingesteld op de externe VSTS Git-opslagplaats zodat doorvoeracties naar de externe Git-opslagplaats kunnen worden geactiveerd.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Stap 3. koppelen aan een bestaand Azure ML-project met een VSTS Git-opslagplaats
+## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Stap 3a. Een bestaand Azure ML-project koppelen aan een VSTS Git-opslagplaats
 U kunt eventueel ook een Azure ML-project zonder een VSTS Git-opslagplaats maken en alleen afhankelijk zijn van de lokale Git-opslagplaats voor uitvoeringsgeschiedenis momentopnamen. En u kunt een VSTS Git-opslagplaats later koppelen aan dit bestaande Azure ML-project met de volgende opdracht:
 
 ```azurecli
 # make sure you are in the project path so CLI has context of your current project
-az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name
+$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
 ```
 
 ## <a name="step-4-capture-project-snapshot-in-git-repo"></a>Stap 4. Project momentopname in de Git-opslagplaats vastleggen
-Nu u een paar wordt uitgevoerd in het project uitvoeren kunt, moet u sommige wijzigingen middenweg kiest de wordt uitgevoerd. U kunt dit doen vanuit de bureaublad-app of via CLI `az ml experiment submit` opdracht. Voor meer informatie kunt u de [Iris classificeren zelfstudie](tutorial-classifying-iris-part-1.md). Voor elke run als er een wijziging in alle bestanden in de projectmap is een momentopname van de hele projectmap toegewezen en gepusht naar de externe Git-opslagplaats. U kunt de filialen en doorvoeracties weergeven door te bladeren naar de URL van de VSTS Git-opslagplaats.
+Nu u een paar wordt uitgevoerd in het project uitvoeren kunt, moet u sommige wijzigingen middenweg kiest de wordt uitgevoerd. U kunt dit doen vanuit de bureaublad-app of via CLI `az ml experiment submit` opdracht. Voor meer informatie kunt u de [Iris classificeren zelfstudie](tutorial-classifying-iris-part-1.md). Voor elke run als er een wijziging in alle bestanden in de projectmap een momentopname van de hele projectmap is toegewezen en gepusht naar de externe Git-opslagplaats onder een vertakking met de naam `AzureMLHistory/<Project_GUID>`. U kunt de vertakkingen en doorvoeracties weergeven door te bladeren naar de URL van de VSTS Git-opslagplaats en de vertakking vinden. 
 
 ![vertakking van de geschiedenis uitvoeren](media/using-git-ml-project/run_history_branch.png)
 
+Opmerking is het beter werkt niet in de geschiedenis vertakking zelf. In dat geval mogelijk fouten maken met de uitvoeringsgeschiedenis. Gebruik hoofdvertakking of andere filialen in plaats daarvan maken voor uw eigen Git-bewerkingen.
+
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>Stap 5. Herstellen van een eerdere momentopname van project 
-Herstellen van de hele projectmap naar de status van een eerdere uitvoeringsgeschiedenis project staat momentopname, vanuit AML Workbench.
+De volledige projectmap terugzetten naar de status van een eerdere uitvoeringsgeschiedenis project staat momentopname, vanuit Azure ML Workbench:
 1. Klik op **wordt uitgevoerd** in de activiteit balk (pictogram glas uur).
 2. Van de **lijst uitvoeren** weergeven, klikt u op de uitvoeren die u wilt herstellen.
 3. Van de **uitvoeren Detail** weergeven, klikt u op **herstellen**.
@@ -97,29 +99,29 @@ U kunt ook de volgende opdracht gebruiken in het venster Azure ML-Workbench CLI.
 
 ```azurecli
 # discover the run I want to restore snapshot from:
-az ml history list -o table
+$ az ml history list -o table
 
 # restore the snapshot from a particular run
-az ml project restore --run-id <run_id>
+$ az ml project restore --run-id <run_id>
 ```
 
-Door deze opdracht wordt uitgevoerd, overschrijft we de hele project-map met de momentopname die wordt uitgevoerd wanneer dat bepaalde uitvoering is gestart. Dit betekent dat u gaat **gaan alle wijzigingen verloren** in de huidige projectmap. Dus zorg extra dat wanneer u deze opdracht uitvoert.
+Door deze opdracht wordt uitgevoerd, overschrijft we de hele project-map met de momentopname die wordt uitgevoerd wanneer dat bepaalde uitvoering is gestart. Maar uw project blijft op de huidige vertakking. Dit betekent dat u gaat **gaan alle wijzigingen verloren** in de huidige projectmap. Dus zorg extra dat wanneer u deze opdracht uitvoert.
 
 ## <a name="step-6-use-the-master-branch"></a>Stap 6. Gebruik de hoofdvertakking
-Een manier om de huidige projectstatus, per ongeluk gegevensverlies te voorkomen is om door te voeren van het project naar de hoofdvertakking van de Git-opslagplaats. U kunt rechtstreeks Git uit vanaf de opdrachtregel (of uw andere favoriete Git clienthulpprogramma naar keuze) bewerkingen uitvoeren op de hoofdvertakking. Bijvoorbeeld:
+Een manier om te voorkomen dat per ongeluk is verliezen van de huidige projectstatus, het project doorvoeren naar de hoofdvertakking (of een vertakking die u zelf hebt gemaakt) van de Git-opslagplaats. U kunt rechtstreeks Git uit vanaf de opdrachtregel (of uw andere favoriete Git clienthulpprogramma naar keuze) bewerkingen uitvoeren op de hoofdvertakking. Bijvoorbeeld:
 
 ```
-# make sure you are on the master branch
-git checkout master
+# make sure you are on the master branch (or branch of your choice)
+$ git checkout master
 
 # stage all changes
-git add -A
+$ git add -A
 
 # commit all changes locally on the master branch
-git commit -m 'this is my updates so far'
+$ git commit -m 'this is my updates so far'
 
 # push changes into the remote VSTS Git repo master branch.
-git push origin master
+$ git push origin master
 ```
 
 Nu u veilig project naar een eerdere momentopname terugzetten kunt volgende stap 5 weten dat u altijd naar het doorvoeren u zojuist hebt terugkeren kunt aangebracht op de masterserver vertakking.

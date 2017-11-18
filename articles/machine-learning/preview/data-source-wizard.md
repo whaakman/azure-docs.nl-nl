@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="data-source-wizard"></a>Wizard gegevensbron #
 
@@ -29,7 +29,7 @@ Eerst opgeven hoe uw gegevens in. Het kan worden opgeslagen in een plat bestand 
 ![Stap 1](media/data-source-wizard/step1.png)
 
 ## <a name="step-3-select-data-file"></a>Stap 3: Selecteer een gegevensbestand ##
-Geef het bestandspad voor een bestand of de map. Kies uit de vervolgkeuzelijst de locatie van de gegevens – wordt een lokaal pad, Azure Blob Storage of Azure Data Lake. 
+Geef het bestandspad voor een bestand of de map. Kies uit de vervolgkeuzelijst de locatie van de gegevens – wordt een lokaal pad of een Azure Blob Storage. 
 
 Geef het pad door deze te typen of te klikken op de **bladeren...** om te bladeren. U kunt bladeren naar een map of een of meer bestanden.
 

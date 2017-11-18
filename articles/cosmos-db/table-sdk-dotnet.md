@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.author: mimig
-ms.openlocfilehash: ae896bc5d795a733357ac08d370433d7475d2eb2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 943e0849b03debaa47022b5cb6d0df43d82ac230
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabel .NET API: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -48,13 +48,30 @@ Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik ste
 
 Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan de huidige SDK, als zodanig wordt aanbevolen dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo snel mogelijk. 
 
-Elk verzoek aan de Azure Cosmos-database met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
+De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 <br/>
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 november 2017|--- |
 | [0.9.0-Preview](#0.1.0-preview) |11 november 2017 |--- |
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+Als het foutbericht 
+
+```
+Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
+'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
+```
+bij een poging tot het Microsoft.Azure.CosmosDB.Table NuGet-pakket gebruiken, hebt u twee opties om het probleem te verhelpen:
+
+* Pakket beheren Console gebruiken voor het installeren van het pakket Microsoft.Azure.CosmosDB.Table en de bijbehorende afhankelijkheden. Hiertoe typt u het volgende in de Package Manager-Console voor uw oplossing. 
+    ```
+    Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
+    ```
+    
+* Met behulp van uw voorkeur Nuget package management-hulpprogramma het Microsoft.Azure.Storage.Common Nuget-pakket installeren voordat u Microsoft.Azure.CosmosDB.Table installeert.
 
 ## <a name="faq"></a>Veelgestelde vragen
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

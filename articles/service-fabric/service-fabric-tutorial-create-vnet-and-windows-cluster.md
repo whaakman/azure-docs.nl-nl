@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b06d0196f1f911f2f6cf87242d70455ba22b1f88
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb32ef2881bdc1e88bb3f54446163c0feac5da9b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Een Service Fabric Windows-cluster in een Azure-netwerk implementeren
-Deze zelfstudie maakt deel uit een reeks. U leert het implementeren van een Windows-Service Fabric-cluster naar een bestaande Azure-netwerk (VNET) en subplan net met behulp van PowerShell. Wanneer u klaar bent, hebt u een cluster uitvoert in de cloud die u kunt toepassingen implementeren op.  Zie het maken van een Linux-cluster met behulp van Azure CLI [beveiligde Linux-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Deze zelfstudie maakt deel uit een reeks. U leert het implementeren van een Service Fabric-cluster waarop Windows wordt uitgevoerd in een bestaande Azure-netwerk (VNET) en subplan net met behulp van PowerShell. Wanneer u klaar bent, hebt u een cluster uitvoert in de cloud die u kunt toepassingen implementeren op.  Zie het maken van een Linux-cluster met behulp van Azure CLI [beveiligde Linux-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 In deze zelfstudie leert u het volgende:
 
@@ -47,6 +47,22 @@ Voordat u deze zelfstudie begint:
 
 De volgende procedures maken een vijf knooppunten Service Fabric-cluster. Voor het berekenen van de kosten die zijn gemaakt door het uitvoeren van een Service Fabric-cluster in Azure gebruik de [Azure Prijscalculator](https://azure.microsoft.com/pricing/calculator/).
 
+## <a name="introduction"></a>Inleiding
+Deze zelfstudie implementeert u een cluster met vijf knooppunten in een type met één knooppunt in een virtueel netwerk in Azure.
+
+Een [Service Fabric-cluster](service-fabric-deploy-anywhere.md) is een met het netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Clusters kunnen worden geschaald naar duizenden computers. Een machine of virtuele machine die deel uitmaakt van een cluster wordt een knooppunt genoemd. Elk knooppunt wordt de knooppuntnaam van een (een tekenreeks) toegewezen. Knooppunten hebben kenmerken zoals plaatsingseigenschappen.
+
+Het type van een knooppunt bepaalt de grootte, het aantal en de eigenschappen voor een set van virtuele machines in het cluster. Elke gedefinieerde knooppunttype is ingesteld als een [virtuele-machineschaalset](/azure/virtual-machine-scale-sets/), een Azure compute resource die u kunt implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype kan vervolgens worden uitgebreid of omlaag onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Knooppunttypen worden gebruikt voor het definiëren van rollen voor een set van clusterknooppunten, zoals 'front-end' of 'back-end'.  Het cluster kan meer dan één knooppunttype hebben moet, maar het primaire knooppunttype ten minste vijf VM's voor productie-clusters (of ten minste drie virtuele machines voor testclusters).  [Service Fabric-systeemservices](service-fabric-technical-overview.md#system-services) worden geplaatst op de knooppunten van het type van het primaire knooppunt.
+
+## <a name="cluster-capacity-planning"></a>Planning clustercapaciteit
+Deze zelfstudie implementeert u een cluster met vijf knooppunten in een type met één knooppunt.  Voor elk cluster productie-implementatie is capaciteitsplanning een belangrijke stap. Hier volgen enkele overwegingen als onderdeel van dit proces.
+
+- Het aantal knooppunten van het type nodig voor het cluster 
+- De eigenschappen van elk knooppunttype (bijvoorbeeld grootte, primaire, verbonden met internet en het aantal VM's)
+- De betrouwbaarheid en duurzaamheid kenmerken van het cluster
+
+Zie voor meer informatie [overwegingen bij capaciteitsplanning Cluster](service-fabric-cluster-capacity.md).
+
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Aanmelden bij Azure en uw abonnement te selecteren
 Deze handleiding gebruikt Azure PowerShell. Wanneer u een nieuwe PowerShell-sessie start, zich aanmelden bij uw Azure-account en uw abonnement te selecteren voordat u Azure-opdrachten uitvoeren.
  
@@ -68,7 +84,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## <a name="deploy-the-network-topology"></a>De netwerktopologie implementeren
-Stel de netwerktopologie die API Management en de Service Fabric-cluster wordt geïmplementeerd. De [network.json] [ network-arm] Resource Manager-sjabloon is geconfigureerd voor het maken van een virtueel netwerk (VNET) en ook een beveiligingsgroep subnet en het netwerk (NSG) voor Service Fabric en een subnet en het NSG voor API Management . Meer informatie over VNETs, subnetten en nsg's [hier](../virtual-network/virtual-networks-overview.md).
+Stel de netwerktopologie die API Management en de Service Fabric-cluster wordt geïmplementeerd. De [network.json] [ network-arm] Resource Manager-sjabloon is geconfigureerd voor het maken van een virtueel netwerk (VNET) en ook een beveiligingsgroep subnet en het netwerk (NSG) voor Service Fabric en een subnet en het NSG voor API Management . API Management wordt verderop in deze zelfstudie geïmplementeerd. Meer informatie over VNETs, subnetten en nsg's [hier](../virtual-network/virtual-networks-overview.md).
 
 De [network.parameters.json] [ network-parameters-arm] parameterbestand bevat de namen van de subnetten en nsg's die Service Fabric en API Management op implementeert.  API Management wordt geïmplementeerd in de [volgende zelfstudie](service-fabric-tutorial-deploy-api-management.md). Voor deze handleiding hoeft de parameterwaarden die niet worden gewijzigd. De Service Fabric-Resource Manager-sjablonen gebruiken deze waarden.  Als de waarden hier zijn gewijzigd, moet u ze wijzigen in de andere Resource Manager-sjablonen in deze zelfstudie gebruikt en de [implementeren API Management-zelfstudie](service-fabric-tutorial-deploy-api-management.md). 
 

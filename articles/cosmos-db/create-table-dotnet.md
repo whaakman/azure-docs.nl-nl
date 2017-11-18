@@ -3,7 +3,7 @@ title: 'Snelstartgids: Tabel API met .NET - Azure Cosmos DB | Microsoft Docs'
 description: Deze snelstartgids ziet u hoe u met de Azure-API voor tabel Cosmos DB een toepassing maken met de Azure-portal en .NET
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/16/2017
+ms.author: mimig
+ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met .NET- en Azure Cosmos DB API-app bouwen 
 
@@ -84,15 +84,16 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 2. Open het bestand App.config in Visual Studio. 
 
-3. Opmerkingen bij de StorageConnectionString op regel 8 en uitcommentarieer de StorageConnectionString op regel 7 als deze zelfstudie maakt geen gebruik van de Opslagemulator. 
-
-3. De waarde van de primaire VERBINDINGSREEKS in de waarde van de StorageConnectionString op regel 8 plakken. 
+3. Opmerkingen bij de StorageConnectionString op regel 8 en uitcommentarieer de StorageConnectionString op regel 7 als deze zelfstudie maakt geen gebruik van de Opslagemulator. Regel 7 en 8 ziet er nu als volgt:
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    Regel 8 nu zijn vergelijkbaar met
+4. De primaire VERBINDINGSREEKS vanuit de portal in de waarde StorageConnectionString op regel 8 plakken. Plak de tekenreeks tussen aanhalingstekens. Als uw eindpunt documents.azure.com gebruikt, wijzigt u dit gedeelte in table.cosmosdb.azure.com. 
+
+    Regel 8 moet nu uitzien:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -110,11 +111,25 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 3. Installeren van de resultaten de **Microsoft.Azure.CosmosDB.Table** bibliotheek. Hiermee installeert u het pakket Azure Cosmos DB tabel API, evenals alle afhankelijkheden.
 
-4. Klik op CTRL+F5 om de toepassing te starten.
+4. Open BasicSamples.cs en een onderbrekingspunt regel 30 en 52 regel toevoegen.
 
-    Het consolevenster weergegeven gegevens in de tabel wordt toegevoegd aan de nieuwe database in de tabel in Azure Cosmos DB.
+5. Klik op CTRL+F5 om de toepassing te starten.
 
-    U kunt nu teruggaan naar Data Explorer en deze nieuwe gegevens bekijken, wijzigen, een query erop uitvoeren of er iets anders mee doen.
+    Het consolevenster weergegeven gegevens in de tabel wordt toegevoegd aan de nieuwe database in de tabel in Azure Cosmos DB. 
+    
+    Als u een fout over afhankelijkheden krijgt, Zie [probleemoplossing](table-sdk-dotnet.md#troubleshooting).
+
+    Als u het eerste onderbrekingspunt raakt, Ga terug naar de Data Explorer in de Azure portal en de tabel demo * uitvouwen en op **entiteiten**. De **entiteiten** tabblad aan de rechterkant ziet u de nieuwe entiteit die is toegevoegd, houd er rekening mee dat telefoonnummer voor de gebruiker is 425-555-0101.
+    
+6. Het tabblad entiteiten in Data Explorer sluiten.
+    
+7. Voer de app naar de volgende onderbrekingspunt blijven.
+
+    Wanneer u het onderbrekingspunt gaat u terug naar de portal, klikt u op entiteiten opnieuw te openen van het tabblad entiteiten en houd er rekening mee dat het telefoonnummer is bijgewerkt naar 425-555-0105.
+
+8. Druk op CTRL + c drukken om te beëindigen van de uitvoering van de app weer in het consolevenster. 
+
+    U kunt nu gaat u terug naar de Data Explorer toevoegen of wijzigen van de entiteiten en gegevens opvragen.
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 

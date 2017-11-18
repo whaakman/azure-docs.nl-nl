@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 5eade2b85737f9c381f6292a78fc5407398e2b9c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met Java en Azure Cosmos DB API-app bouwen
 
@@ -87,9 +87,20 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
    ![Bekijken en kopiëren van de vereiste verbindingsinformatie van de in het deelvenster verbindingsreeks](./media/create-table-java/connection-string.png)
 
-2. Open het bestand config.properties en kopieer de vereiste eigenschappen van een verbindingsreeks in het configuratiebestand.
+2. Kopieer de primaire VERBINDINGSREEKS met behulp van de knop kopiëren aan de rechterkant.
 
-3. Sla het bestand config.properties.
+3. Config.properties openen vanuit de map C:\git-samples\storage-table-java-getting-started\src\main\resources. 
+
+5. Regel 1 uitcommentariëren en het commentaar verwijderen van regel 2. De eerste twee regels moeten er nu als volgt uitzien.
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. Plak uw primaire VERBINDINGSREEKS uit de portal in de waarde StorageConnectionString in regel 2. Als de Endpoint-gedeelte van de verbindingsreeks documents.azure.com wordt, corrigeert u gedeelte voor het gebruik van table.cosmosdb.azure.com in plaats daarvan.
+
+7. Sla het bestand config.properties.
 
 U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 

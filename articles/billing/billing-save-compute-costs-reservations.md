@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: ab97feac7dd92cdc64343e215f6c623a6de9ef60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren 
 Gereserveerde virtuele Machine-exemplaren kunt u vooraf betalen voor één jaar of drie jaar rekencapaciteit korting te krijgen op de virtuele machines die u gebruikt. De kosten van de virtuele machine op de aanzienlijk wordt gereduceerd — tot 72 procent op betalen naar gebruik prijzen – met vooraf inzet van één jaar of drie jaar. Gereserveerde virtuele Machine-exemplaren is een korting van facturering en heeft geen invloed op de runtimestatus van virtuele machines.
@@ -46,7 +46,7 @@ Nadat u een gereserveerde VM-instantie hebt gekocht, kunt u het bereik wijzigen.
 
 De reservering korting geldt alleen voor virtuele machines in abonnementen met enterprise- of typen van de aanbieding betalen naar gebruik. Virtuele machines die worden uitgevoerd in een abonnement met andere aanbiedingstypen ontvangen niet de reservering korting. Enterprise ontwikkelen en testen abonnementen zijn niet voor enterprise-inschrijvingen in aanmerking komen voor de gereserveerde exemplaar voordelen.
 
-Hoe reservering is van invloed op de virtuele machine facturering wordt uitgelegd in [inzicht in de toepassing van de reservering facturering voordeel](https://go.microsoft.com/fwlink/?linkid=861721).
+Hoe reservering is van invloed op de virtuele machine facturering wordt uitgelegd in [inzicht in de toepassing van de reservering facturering voordeel](https://go.microsoft.com/fwlink/?linkid=863405).
 
 ## <a name="what-happens-when-the-reservation-term-expires"></a>Wat gebeurt er wanneer de term reservering is verlopen?
 Aan het einde van de termijn reservering, de facturering korting verlopen en de infrastructuur van de virtuele machine wordt in rekening gebracht tegen de pay-as-you Ga prijs. Reserveringen verlengd niet automatisch. Als u wilt doorgaan met het ophalen van de facturering korting, moet u een nieuw exemplaar van gereserveerde virtuele Machine aanschaffen. 

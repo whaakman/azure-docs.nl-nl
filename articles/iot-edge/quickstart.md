@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e232b4cdb62b7bf212808bd380119482ee88b077
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module van de Azure-portal naar een Windows-apparaat implementeren - voorbeeld
 
@@ -42,7 +42,7 @@ Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met
 >    * WindowsServer 1709 (Build 16299), of
 >    * Windows IoT Core (16299 bouwen) op een apparaat x64 64
 >
-> Voor Windows IoT-Core, volg de instructies in [Install de rand van de IoT-runtime op Windows IoT Core] [lnk-install-iotcore]. Anders gewoon [Docker voor het gebruik van Windows-containers configureren][lnk-docker-containers], en desgewenst valideren uw vereisten met de volgende powershell-opdracht:
+> Volg de instructies in voor Windows IoT Core [IoT rand runtime installeren op Windows IoT Core][lnk-install-iotcore]. Anders gewoon [Docker voor het gebruik van Windows-containers configureren][lnk-docker-containers], en desgewenst valideren uw vereisten met de volgende powershell-opdracht:
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -134,7 +134,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 U hebt geleerd hoe een module IoT rand implementeert op een rand van de IoT-apparaat. Nu gaat implementeren van verschillende soorten Azure-services als modules, zodat u gegevens aan de rand kunt analyseren. 
 
 * [Azure-functie implementeren als een module](tutorial-deploy-function.md)
-* [Azure Stream Analytics implementeren als een module](tutorial-deploy-stream-analytics.md)
+* [Azure Stream Analytics implementeren als module](tutorial-deploy-stream-analytics.md)
 * [Uw eigen code implementeren als een module](tutorial-csharp-module.md)
 
 
@@ -150,6 +150,7 @@ U hebt geleerd hoe een module IoT rand implementeert op een rand van de IoT-appa
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

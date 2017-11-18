@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2503e7e6025e6f064574f14855468ae9b1b97fa0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: ebfe845fa4f695064773a03f6d765da37ab44189
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Snelstartgids: Een app Cassandra met .NET- en Azure Cosmos DB bouwen
 
@@ -28,13 +28,13 @@ Azure Cosmos-database is de service van Microsoft wereldwijd gedistribueerde dat
 
 ## <a name="prerequisites"></a>Vereisten
 
-Toegang tot de API van Azure Cosmos DB Cassandra preview-programma. Als u nog niet voor toegang tot toegepast [nu aanmelden](https://aka.ms/cosmosdb-cassandra-signup).
-
-Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]U kunt ook [gratis Azure Cosmos DB probeer](https://azure.microsoft.com/try/cosmosdb/) gratis verbintenissen en zonder een Azure-abonnement.
 
-Installeer [Git](https://www.git-scm.com/) klonen in het voorbeeld.
+Toegang tot de API van Azure Cosmos DB Cassandra preview-programma. Als u nog niet voor toegang tot toegepast [nu aanmelden](cassandra-introduction.md#sign-up-now).
+
+Daarnaast doet u het volgende: 
+* Als u Visual Studio 2017 geïnstalleerd nog geen hebt, kunt u downloaden en gebruiken de **gratis** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+* Installeer [Git](https://www.git-scm.com/) klonen in het voorbeeld.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
@@ -112,7 +112,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 1. In de [Azure-portal](http://portal.azure.com/), klikt u op **verbindingsreeks**. 
 
-    Gebruik de ![Knop kopiëren](./media/create-cassandra-dotnet/copy.png) knop aan de rechterkant van het scherm om de waarde van de gebruikersnaam te kopiëren.
+    Gebruik de ![Knop Kopiëren](./media/create-cassandra-dotnet/copy.png) knop aan de rechterkant van het scherm om de waarde van de gebruikersnaam te kopiëren.
 
     ![Weergeven en een toegangssleutel in de Azure portal, verbindingsreeks pagina kopiëren](./media/create-cassandra-dotnet/keys.png)
 

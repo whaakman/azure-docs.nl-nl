@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 45016e6383761ffe78f13ccef1112ab3d9753498
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT Hub get zelfstudies gestart
 
@@ -46,13 +46,6 @@ Verbinding maken met een IoT-apparaat of de gateway naar Azure IoT Hub. U kunt e
 | Adafruit Doezelaar M0              | [Arduino][M0_Ard]              |
 | Gesimuleerde apparaat op PC           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Online apparaatsimulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
-
-Bovendien kunt u een gateway aan de rand van de IoT waarmee apparaten verbinding maken met uw IoT-hub:
-
-| Gateway-apparaat               | Programmeertaal | Platform         |
-|------------------------------|----------------------|------------------|
-| Intel NUC (model DE3815TYKE) | C                    | [De o Linux][NUC_Lnx] |
-| Gesimuleerde gateway            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

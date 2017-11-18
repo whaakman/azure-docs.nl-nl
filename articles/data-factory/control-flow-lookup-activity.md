@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
 De Lookup Activity kan worden gebruikt om een record/tabelnaam/waarde van een externe bron te lezen of op te zoeken. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
@@ -53,6 +53,9 @@ Deze pipeline bevat twee activiteiten: **opzoeken** en **kopie**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
                     "dataset": { 
                         "referenceName": "LookupDataset", 
                         "type": "DatasetReference" 
@@ -233,7 +236,7 @@ Deze Azure SQL-database bevat de gegevens moeten worden gekopieerd naar de blob-
 Naam | Beschrijving | Type | Vereist
 ---- | ----------- | ---- | --------
 Gegevensset | Het kenmerk dataset is voor de dataset-verwijzing voor de zoekopdracht. Op dit moment wordt zijn de gegevensset ondersteunde typen:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Sleutel-waardepaar | Ja
-Bron | Eigenschappen van gegevensset-specifieke gegevensbron, dezelfde zijn als kopieerbron voor de activiteit | Sleutel-waardepaar | Nee
+bron | Eigenschappen van gegevensset-specifieke gegevensbron, dezelfde zijn als kopieerbron voor de activiteit | Sleutel-waardepaar | Nee
 firstRowOnly | Retourneert de eerste rij of alle rijen. | Booleaanse waarde | Nee
 
 ## <a name="next-steps"></a>Volgende stappen

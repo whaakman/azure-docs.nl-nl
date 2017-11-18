@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb7674d8c292e7d571a94ac4625b0858a90704b3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c778c412bf6d65c5b6ee92d603aac7acfa6139eb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een Edge van C#-IoT-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -35,7 +35,6 @@ De rand van de IoT-module die u in deze zelfstudie maakt de temperatuur-gegevens
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (U kunt de uitbreiding installeren vanuit het deelvenster uitbreidingen in Visual Studio Code.)
 * [C# voor Visual Studio Code (via OmniSharp)-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (U kunt de uitbreiding installeren vanuit het deelvenster uitbreidingen in Visual Studio Code.)
-* Azure IoT Edge-extensie voor Visual Studio Code
 * [Docker](https://docs.docker.com/engine/installation/). De Community Edition (CE) voor uw platform is voldoende voor deze zelfstudie. Zorg ervoor dat u deze installeren op de computer waarop u tegenover Code uitvoeren op.
 * [.NET core SDK 2.0](https://www.microsoft.com/net/core#windowscmd). 
 

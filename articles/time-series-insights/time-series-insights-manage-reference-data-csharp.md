@@ -12,20 +12,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 77bdeda57a23d77e7f00cfea1f9b8d362cfa4979
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 140789122dcc66e01b05ad81791bc3ca54e4f42c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Referentiegegevens voor een Azure Time Series Insights-omgeving beheren met C#
 
-Dit artikel wordt beschreven in de C# voorbeeldcode voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving kan worden gecompileerd.
+Dit onderwerp beschrijft de C# voorbeeldcode voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving kan worden gecompileerd.
 
-Zorg ervoor dat de volgende stappen zijn voltooid voordat het compileren en wordt de voorbeeldcode uitgevoerd:
-1. Een verwijzing gegevensset is gemaakt met behulp van [in dit artikel](time-series-insights-add-reference-data-set.md).
+De volgende stappen uitvoeren voordat u compileren en de voorbeeldcode uitvoeren:
+1. [Maken van een gegevensset verwijzing](time-series-insights-add-reference-data-set.md).
 
-2. Configureer het toegangstoken moet worden gebruikt voor door de toepassing voor autorisatie bij. Zorg ervoor dat het token is verkregen via de Azure Active Directory-API. Dit token moet worden doorgegeven de `Authorization` koptekst van elke Query API-aanvraag. Zie voor het instellen van niet-interactieve toepassingen, de [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md) artikel.
+2. Configureer het toegangstoken autorisatie voor de toepassing. Zorg ervoor dat het token is verkregen via de Azure Active Directory-API. U moet doorgeven in dit token in de `Authorization` koptekst van elke API-queryaanvraag. 
+ 
+   Zie voor meer informatie over het instellen van niet-interactieve toepassingen [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md).
 
 3. Bewerk de voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op **DUMMY #**, in de buurt van het begin van de code. 
 
@@ -232,5 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-> [!div class="nextstepaction"]
-> Zie voor de volledige REST-API-verwijzing [API van Data-verwijzing](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[Referentiegegevens API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
