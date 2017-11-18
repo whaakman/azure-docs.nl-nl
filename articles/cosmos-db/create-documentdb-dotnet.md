@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: een webapp ontwikkelen met .NET en de DocumentDB API | Microsoft Docs'
-description: "Biedt een voorbeeld van .NET-code dat u kunt gebruiken om verbinding te maken met de DocumentDB API van Azure Cosmos DB en er query’s op uit te voeren"
+title: 'Azure Cosmos DB: Een webapp ontwikkelen met .NET en de DocumentDB API | Microsoft Docs'
+description: "Een voorbeeld van .NET-code om met behulp van de DocumentDB API verbinding te maken met Azure Cosmos DB en er query’s op uit te voeren"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -21,17 +21,17 @@ ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: een DocumentDB API-webapp ontwikkelen met .NET en Azure Portal
+# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Een DocumentDB API-webapp ontwikkelen met .NET en de Azure Portal
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases bieden het voordeel van globale distributie en horizontale schaalmogelijkheden, die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. U moet vervolgens een Takenlijst-web-app maken en implementeren op de [DocumentDB .NET API](documentdb-sdk-dotnet.md), zoals wordt weergegeven in de volgende schermopname. 
+Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een documentdatabase en een verzameling kunt maken met behulp van Azure Portal. U moet vervolgens een Takenlijst webapp maken en implementeren op de [DocumentDB .NET API](documentdb-sdk-dotnet.md), zoals weergegeven in de volgende schermopname. 
 
 ![Taken-app met voorbeeldgegevens](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
+Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) downloaden en gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
