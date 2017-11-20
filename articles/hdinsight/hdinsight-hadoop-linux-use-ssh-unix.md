@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Verbinding maken met HDInsight (Hadoop) via SSH
 
@@ -48,26 +48,24 @@ HDInsight kan Linux (Ubuntu) als het besturingssysteem gebruiken voor knooppunte
 > [!TIP]
 > Wanneer u voor het eerst verbinding maakt met HDInsight, wordt in de SSH-client mogelijk de waarschuwing weergegeven dat de authenticiteit van de host kan niet worden vastgesteld. Wanneer dit wordt gevraagd, selecteert u Ja om de host toe te voegen aan de lijst met vertrouwde servers van uw SSH-client.
 >
-> Als u eerder verbinding hebt gehad met een server met dezelfde naam, krijgt u mogelijk de waarschuwing dat de opgeslagen hostsleutel niet overeenkomt met de hostsleutel van de server. Als deze fout optreedt, is het mogelijk dat de SSH-client geen verbinding maakt met het cluster. Raadpleeg de documentatie van de SSH-client als u wilt weten hoe u de bestaande vermelding voor de server verwijdert.
+> Als u eerder verbinding hebt gehad met een server met dezelfde naam, krijgt u mogelijk de waarschuwing dat de opgeslagen hostsleutel niet overeenkomt met de hostsleutel van de server. Raadpleeg de documentatie van de SSH-client als u wilt weten hoe u de bestaande vermelding voor de server verwijdert.
 
 ## <a name="ssh-clients"></a>SSH-clients
 
 Linux-, Unix-en macOS-systemen bieden de opdrachten `ssh` en `scp`. De `ssh`-client wordt meestal gebruikt om vanaf de opdrachtregel een externe sessie op te zetten met een Linux- of Unix-systeem. De `scp`-client wordt gebruikt om veilig bestanden te kopiëren tussen de client en het externe systeem.
 
-Microsoft Windows beschikt standaard niet over een SSH-client. De `ssh`- en `scp`-clients zijn beschikbaar voor Windows via de volgende pakketten:
+In Microsoft Windows worden SSH-clients niet standaard geïnstalleerd. De `ssh`- en `scp`-clients zijn beschikbaar voor Windows via de volgende pakketten:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): de Cloud Shell biedt een Bash-omgeving in uw browser en stelt de opdrachten `ssh`, `scp`, en andere algemene Linux-opdrachten beschikbaar.
+* OpenSSH-client (bètaversie): ga in de Fall Creators Update naar __Instellingen__ > __Apps en onderdelen__ > __Optionele onderdelen beheren__ > __Een onderdeel toevoegen__ en selecteer de __OpenSSH-client__. 
+
+    > [!NOTE]
+    > Als de opdrachten `ssh` en `scp` niet beschikbaar zijn in PowerShell nadat u deze functie hebt ingeschakeld, meldt u zich af en weer aan.
 
 * [Bash in Ubuntu in Windows 10](https://msdn.microsoft.com/commandline/wsl/about): de opdrachten `ssh` en `scp` zijn beschikbaar via de Bash-opdrachtregel in Windows.
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): de Cloud Shell biedt een Bash-omgeving in uw browser en stelt de opdrachten `ssh`, `scp`, en andere algemene Linux-opdrachten beschikbaar.
+
 * [Git (https://git-scm.com/)](https://git-scm.com/): de opdrachten `ssh` en `scp` zijn beschikbaar via de GitBash-opdrachtregel.
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/): de opdrachten `ssh` en `scp` zijn beschikbaar via de GitHub Shell-opdrachtregel. GitHub Desktop kan worden geconfigureerd voor het gebruik van Bash, de Windows-opdrachtprompt of PowerShell als de opdrachtregel voor de Git Shell.
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): het PowerShell-team draagt OpenSSH over naar Windows en biedt testversies.
-
-    > [!WARNING]
-    > Het OpenSSH-pakket bevat het SSH-serveronderdeel `sshd`. Met dit onderdeel wordt een SSH-server gestart op uw systeem, zodat anderen er verbinding mee kunnen maken. Configureer dit onderdeel alleen en open poort 22 alleen als u een SSH-server wilt hosten op uw systeem. Dit is niet vereist om te communiceren met HDInsight.
 
 Er zijn ook verschillende grafische SSH-clients, zoals [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) en [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Met deze clients kunt u verbinding maken met HDInsight, maar het proces om verbinding, verschilt ten opzichte van het proces in het hulpprogramma `ssh`. Zie voor meer informatie de documentatie van de grafische client die u gebruikt.
 
@@ -176,7 +174,7 @@ De werkrol-knooppunten en Zookeeper-knooppunten zijn niet rechtstreeks toegankel
 
         ssh sshuser@wn0-myhdi
 
-    Raadpleeg het document [HDInsight beheren met behulp van de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) voor informatie over het ophalen van een lijst van de domeinnamen van de knooppunten in het cluster.
+    Raadpleeg het document [HDInsight beheren met behulp van de Ambari REST-API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) voor informatie over het ophalen van een lijst met de namen van de knooppunten.
 
 Als het SSH-account is beveiligd met een __wachtwoord__, voert u het wachtwoord in om verbinding te maken.
 
