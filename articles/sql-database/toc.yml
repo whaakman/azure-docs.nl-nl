@@ -4,7 +4,7 @@
   items:
     - name: Informatie over SQL DB
       href: sql-database-technical-overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Database maken - Portal
@@ -370,6 +370,8 @@
           items:
             - name: Een voorbeeld-app implementeren
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Tenants inrichten
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Databaseprestaties bewaken
               href: saas-multitenantdb-performance-monitoring.md
             - name: Ad-hocquery's uitvoeren

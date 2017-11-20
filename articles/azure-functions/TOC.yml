@@ -6,7 +6,7 @@
       href: functions-overview.md
     - name: Serverloze vergelijking
       href: functions-compare-logic-apps-ms-flow-webjobs.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Functie maken - portal
@@ -65,6 +65,8 @@
       href: functions-triggers-bindings.md
     - name: Talen
       items:
+        - name: Ondersteunde talen
+          href: supported-languages.md
         - name: 'C#-script'
           href: functions-reference-csharp.md
         - name: .NET-klassenbibliotheek
