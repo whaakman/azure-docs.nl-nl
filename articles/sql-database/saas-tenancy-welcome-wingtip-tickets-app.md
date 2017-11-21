@@ -13,140 +13,84 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: billgib;genemi
-ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.author: billgib
+ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Welkom bij de Wingtip Tickets SaaS Azure SQL Database tenancymodus voorbeeldapp
+# <a name="the-wingtip-tickets-saas-application"></a>De Wingtip Tickets SaaS-toepassing
 
-Welkom bij de Wingtip Tickets SaaS Azure SQL Database tenancymodus voorbeeldtoepassing en de zelfstudies. Database-tenancymodus verwijst naar de modus voor isolatie waarmee uw app aan uw clients die worden gehost in uw toepassing betalen. Om te vereenvoudigen via momenteel, heeft elke client een hele database aan zichzelf, of deze een database deelt met andere client.
+Dezelfde *Wingtip Tickets* toepassing is geïmplementeerd in elk van de drie steekproeven. De app is een eenvoudige gebeurtenis aanbieden en tickets SaaS-app die gericht is op kleine plaatsen - theaters, clubs, enzovoort. Elke locatie vast is een tenant van de app en de eigen gegevens: u wilt gegevens, een lijst met gebeurtenissen, klanten, ticket orders, enzovoort.  De app, samen met de scripts en beheer zelfstudies gepresenteerd een end-to-end SaaS-scenario. Dit omvat inrichting tenants, controleren en beheren van prestaties, het Schemabeheer van het en cross-tenant rapportage en analyse.
 
-## <a name="wingtip-tickets-app"></a>Wingtip Tickets app
+## <a name="three-saas-application-patterns"></a>Drie patronen voor SaaS-toepassing
 
-De voorbeeldtoepassing Wingtip Tickets worden de effecten van verschillende databasemodellen tenancymodus op het ontwerp en het beheer van multitenant SaaS-toepassingen. De bijbehorende zelfstudies beschrijven rechtstreeks die dezelfde effecten. Wingtip Tickets is gebouwd op Azure SQL Database.
+Er zijn drie vesions van de app beschikbaar. elk behandelt een andere database tenancymodus patroon in Azure SQL-Database.  De eerste maakt gebruik van een toepassing voor één tenant met een geïsoleerd één tenant-database. De tweede maakt gebruik van een multitenant-app met een database per tenant. Het derde voorbeeld gebruikt een multitenant-app met shard multitenant-databases.
 
-Wingtip Tickets is ontworpen voor verschillende ontwerp- en scenario's die worden gebruikt door de werkelijke SaaS-clients verwerken. Het patroon van gebruik die ontstaan worden in Wingtip Tickets verwerkt.
+![Drie tenancymodus patronen][image-three-tenancy-patterns]
 
-U kunt de app Wingtip Tickets installeren in uw eigen Azure-abonnement in vijf minuten. De installatie omvat het invoegen van voorbeeldgegevens voor meerdere tenants. U kunt de toepassing en het van beheerscripts voor alle modellen veilig installeren omdat de installaties communiceren of niet met elkaar beïnvloeden.
+ Elk voorbeeld bevat scripts en zelfstudies waarin een bereik van ontwerp verkennen en beheer management patronen die u in uw eigen toepassing kunt gebruiken.  Elke steekproef wordt geïmplementeerd in minder die vijf minuten.  Alle drie mag geïmplementeerde side-by-side zodat u kunt de verschillen in ontwerp en beheer vergelijken.
 
-#### <a name="code-in-github"></a>De code in Github
+## <a name="standalone-application-pattern"></a>Patroon van de zelfstandige toepassing
 
-Toepassingscode en het management-scripts, zijn allemaal beschikbaar op GitHub:
+Het patroon van zelfstandige app maakt gebruik van een toepassing voor één tenant met een database voor één tenant voor elke tenant. Elke tenant-app wordt geïmplementeerd in een afzonderlijke Azure-resourcegroep. Dit wordt mogelijk de serviceprovider abonnement of de tenant-abonnement en beheerd door de provider namens de tenant. Dit patroon biedt de grootste isolatie van tenants, maar het is doorgaans het meest dure omdat er geen mogelijkheid om resources te delen tussen meerdere tenants.
 
-- **Zelfstandige app** model: [WingtipTicketsSaaS StandaloneApp opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-- **Database per tenant** model: [WingtipTicketsSaaS DbPerTenant opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
-- **Shard multitenant** model: [WingtipTicketsSaaS MultiTenantDB opslagplaats](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
+Bekijk de [zelfstudies] [ docs-tutorials-for-wingtip-sa] en code op GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-Dezelfde één codebasis voor de app Wingtip Tickets opnieuw wordt gebruikt voor alle voorgaande modellen die worden vermeld. De code van Github kunt u uw eigen SaaS-projecten starten.
+## <a name="database-per-tenant-pattern"></a>Database per tenant patroon
 
+De database per tenant patroon is geschikt voor serviceproviders die betrokken zijn bij isolatie van tenants en wilt uitvoeren van een gecentraliseerde service waarmee u rendabele gebruik van gedeelde resources. Een database wordt gemaakt voor elke wetten of tenant en alle databases worden centraal beheerd. Databases kunnen worden gehost in elastische pools te bieden een betaalbare en eenvoudig prestatiebeheer die gebruikmaakt van de patronen onvoorspelbare werkbelasting van de tenants. Een catalogusdatabase bevat de toewijzing tussen tenants en hun databases. Deze toewijzing wordt beheerd met behulp van de beheerfuncties van de shard-kaart van de [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md), waarmee u op efficiënte Verbindingsbeheer naar de toepassing.
 
+Bekijk de [zelfstudies] [ docs-tutorials-for-wingtip-dpt] en code op GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="major-database-tenancy-models"></a>Primaire database tenancymodus modellen
+## <a name="sharded-multi-tenant-database-pattern"></a>Patroon shard multitenant-database
 
-Wingtip Tickets is een gebeurtenis aanbieden en tickets SaaS-toepassing. Wingtip biedt services die worden door plaatsen vereist. De volgende items zijn van toepassing op elke locatie vast:
+Multitenant databases zijn geschikt voor lagere kosten per tenant en OK met verminderde tenantisolatie zoekt serviceproviders. Dit patroon kan grote aantallen tenants verpakken in een individuele database, waardoor de kosten per tenant. Near oneindige schalen door sharding mogelijk is de tenants via meerdere database.  Tenants een catalogusdatabase opnieuw toegewezen aan de databases.  
 
-- Betaalt u worden gehost in uw toepassing.
-- Is een *tenant* in Wingtip.
-- Gebeurtenissen van de hosts. De volgende gebeurtenissen zijn betrokken:
-    - Ticket prijzen.
-    - Ticket verkopen.
-    - Klanten die kaartjes kopen.
+Dit patroon kunt ook een hybride modellen waarin u kunt optimaliseren voor kosten met meerdere tenants in een database of optimaliseren voor isolatie met een enkele tenant in hun eigen database. De keuze kan worden gemaakt op basis van de tenant door tenant ofwel wanneer de tenant ingericht of hoger, zonder impact op de toepassing is.
 
-De app, samen met de scripts en beheer zelfstudies, een volledige SaaS-scenario gepresenteerd. Het scenario omvat de volgende activiteiten:
-
-- Het inrichten van tenants.
-- Bewaken en beheren van prestaties.
-- Schemabeheer van het.
-- Cross-tenant, rapportage en analyse.
-
-Alle deze activiteiten zijn beschikbaar op elke schaal nodig is.
-
-
-
-## <a name="code-samples-for-each-tenancy-model"></a>Codevoorbeelden voor elk model tenancymodus
-
-Een set van toepassingsmodellen worden benadrukt. Andere implementaties kunnen echter combinatie van elementen van twee of meer modellen.
-
-#### <a name="standalone-app-model"></a>Zelfstandige app-model
-
-![Zelfstandige app-model][standalone-app-model-62s]
-
-Dit model maakt gebruik van een toepassing voor één tenant. Daarom dit model moet slechts één database en gegevens worden opgeslagen voor alleen de één tenant. De tenant leuk vindt volledig geïsoleerd van andere tenants in de database.
-
-U kunt dit model gebruiken wanneer u exemplaren van uw app aan veel verschillende clients voor elke client worden uitgevoerd op een eigen verkopen. De client is de enige tenant. Terwijl de database voor slechts één client-gegevens opslaat, worden gegevens in de database opgeslagen voor veel klanten van de client.
-
-#### <a name="database-per-tenant"></a>Database per tenant
-
-![Database per tenant model][database-per-tenant-model-35d]
-
-Dit model heeft meerdere tenants in het exemplaar van de toepassing. Nog voor elke nieuwe tenant is een andere database toegewezen voor gebruik door de nieuwe tenant.
-
-Dit model biedt volledige databaseback-isolatie voor elke tenant. De Azure SQL Database-service heeft de verfijning waarmee dit model aannemelijke.
-
-- [Inleiding tot een voorbeeld van een SQL-Database multitenant SaaS-app] [ saas-dbpertenant-wingtip-app-overview-15d] -bevat meer informatie over dit model.
-
-#### <a name="sharded-multi-tenant-databases-the-hybrid"></a>Shard multitenant-databases en het hybride
-
-![Shard multitenant databasemodel, de hybride][sharded-multitenantdb-model-hybrid-79m]
-
-Dit model heeft meerdere tenants in het exemplaar van de toepassing. Dit model heeft ook meerdere tenants in enkele of alle van de databases. Dit model is geschikt is voor het aanbieden van verschillende Servicelagen zodat clients meer betalen kunnen als de waarde volledige isolatie van de database.
-
-Het schema van elke database bevat een tenant-id. De tenant-id is zelfs in die databases waarin slechts één tenant.
-
-- [Inleiding tot een voorbeeld van een SQL-Database multitenant SaaS-app][saas-multitenantdb-get-started-deploy-89i]
-
-
-
-## <a name="tutorials-for-each-tenancy-model"></a>Zelfstudies voor elk model tenancymodus
-
-Elk model tenancymodus is gedocumenteerd door het volgende:
-
-- Een set van zelfstudie artikelen.
-- Broncode is opgeslagen in een Github-opslagplaats die is aan het model toegewezen:
-    - De code voor de toepassing Wingtip Tickets.
-    - De scriptcode voor scenario's voor beheer.
-
-#### <a name="tutorials-for-management-scenarios"></a>Zelfstudies voor scenario's voor beheer
-
-De zelfstudie artikelen voor elk model ingegaan op de volgende scenario's voor beheer:
-
-- Tenant-inrichting.
-- Bewaking van toepassingsprestaties en beheer.
-- Schemabeheer van het.
-- Cross-tenant, rapportage en analyse.
-- Herstel van een tenant naar een eerder tijdstip.
-- Herstel na noodgevallen.
-
-
+Bekijk de [zelfstudies] [ docs-tutorials-for-wingtip-mt] en code op GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Inleiding tot een voorbeeld van een SQL-Database multitenant SaaS-app] [ saas-dbpertenant-wingtip-app-overview-15d] -bevat meer informatie over dit model.
+#### <a name="conceptual-descriptions"></a>Conceptuele beschrijvingen
 
-- [Multitenant SaaS-database tenancymodus patronen][multi-tenant-saas-database-tenancy-patterns-60p]
+- Een meer gedetailleerde uitleg van de toepassing tenancymodus patronen is beschikbaar op [multitenant SaaS-database tenancymodus patronen][saas-tenancy-app-design-patterns-md]
+
+#### <a name="tutorials-and-code"></a>Zelfstudies en code
+
+- Zelfstandige app:
+    - [Zelfstudies voor zelfstandige app][docs-tutorials-for-wingtip-sa].
+    - [Code voor zelfstandige op Github][github-code-for-wingtip-sa].
+
+- Database per tenant:
+    - [Zelfstudies voor database per tenant][docs-tutorials-for-wingtip-dpt].
+    - [Code voor de database per tenant op Github][github-code-for-wingtip-dpt].
+
+- Shard multitenant:
+    - [Zelfstudies voor shard multitenant][docs-tutorials-for-wingtip-mt].
+    - [Code voor de shard multitenant op Github][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[standalone-app-model-62s]: media/saas-tenancy-welcome-wingtip-tickets-app/model-standalone-app.png "Zelfstandige app-model"
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Drie tenancymodus patronen."
 
-[database-per-tenant-model-35d]: media/saas-tenancy-welcome-wingtip-tickets-app/model-database-per-tenant.png "Database per tenant model"
+<!-- Docs.ms.com references. -->
 
-[sharded-multitenantdb-model-hybrid-79m]: media/saas-tenancy-welcome-wingtip-tickets-app/model-sharded-multitenantdb-hybrid.png "Shard multitenant databasemodel, de hybride"
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
 
+<!-- WWWeb http references. -->
 
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-<!-- Article references. -->
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
-
-[multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
-
-[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
-
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

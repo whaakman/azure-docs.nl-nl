@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 1dcc2178b3c7017338e0097773fbf0d04c8b6a20
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met Node.js en Azure Cosmos DB API-app bouwen
 
@@ -38,6 +38,10 @@ Daarnaast doet u het volgende:
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
+
+> [!IMPORTANT] 
+> U moet een nieuwe tabel API-account om te werken met de SDK algemeen beschikbaar tabel-API's maken. Tabel gemaakt tijdens de preview-API-accounts worden niet ondersteund door de algemeen beschikbaar SDK's.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,7 +88,11 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 2. Kopieer de primaire VERBINDINGSREEKS met behulp van de knop kopiëren aan de rechterkant.
 
-3. Open het bestand app.config en de waarde in de connectionString op regel drie plakken. Als de Endpoint-gedeelte van de verbindingsreeks documents.azure.com wordt, corrigeert u gedeelte voor het gebruik van table.cosmosdb.azure.com in plaats daarvan.
+3. Open het bestand app.config en de waarde in de connectionString op regel drie plakken. 
+
+    > [!IMPORTANT]
+    > Als uw eindpunt documents.azure.com treedt op wanneer u een preview-account hebt gebruikt, en u wilt maken een [nieuwe tabel API account](#create-a-database-account) werken met de algemeen beschikbaar tabel API SDK.
+    >
 
 3. Sla het bestand app.config.
 

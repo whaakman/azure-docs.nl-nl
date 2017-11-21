@@ -1,6 +1,6 @@
 ---
-title: Over de schijfopslag voor Microsoft Azure Linux VM's | Microsoft Docs
-description: Meer informatie over de basisprincipes van opslag van schijven en virtuele harde schijven voor virtuele Linux-machines in Azure.
+title: Over zonder begeleiding (pagina-BLOB's) en beheerde schijven opslag voor Microsoft Azure Linux VM's | Microsoft Docs
+description: Meer informatie over de basisprincipes van zonder begeleiding (pagina-BLOB's) en opslag van de schijven voor virtuele Linux-machines in Azure worden beheerd.
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: ad55898806024a9f0562b32e7bdd990fd7dfd8d2
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fee78c87c1d73f2a0816d6e52ad48a93eef8dfc3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disk-storage-for-azure-linux-vms"></a>Over de schijfopslag voor Azure Linux VM 's
+# <a name="about-disks-storage-for-azure-linux-vms"></a>Over schijven opslag voor Azure Linux VM 's
 Net als elke andere computer gebruiken virtuele machines in Azure schijven als een plaats voor het opslaan van een besturingssysteem, toepassingen en gegevens. Alle virtuele machines in Azure hebt ten minste twee schijven: een Linux-besturingssysteem en een tijdelijke schijf. De besturingssysteemschijf is gemaakt van een installatiekopie en zowel de besturingssysteemschijf en de installatiekopie zijn daadwerkelijk opgeslagen virtuele harde schijven (VHD's) in Azure storage-account. Virtuele machines hebben ook een of meer gegevensschijven die ook als virtuele harde schijven zijn opgeslagen. 
 
 In dit artikel wordt hebben over de verschillende manieren worden gebruikt voor de schijven, en vervolgens bespreken de verschillende typen schijven kunt u maken en gebruiken. In dit artikel is ook beschikbaar voor [Windows virtuele machines](../windows/about-disks-and-vhds.md).

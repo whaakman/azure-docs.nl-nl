@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Een .NET-toepassing in een Windows-container implementeren op Azure Service Fabric
 
@@ -39,11 +39,14 @@ In deze zelfstudie leert u het volgende:
 4. Installeer [Azure PowerShell][link-azure-powershell-install]
 5. Installeer de [uitbreiding continue levering van hulpprogramma's voor Visual Studio 2017][link-visualstudio-cd-extension]
 6. Maak een [Azure-abonnement] [ link-azure-subscription] en een [Visual Studio Team Services-account][link-vsts-account]. 
-7. [Een cluster maken in Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [Een cluster maken in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## <a name="create-a-cluster-on-azure"></a>Een cluster maken op Azure
+Service Fabric-toepassingen worden uitgevoerd op een cluster, een set netwerk verbonden virtuele of fysieke machines. [Setup uitgevoerd in Azure Service Fabric-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) voordat u maken en implementeren van uw toepassing. Wanneer u het cluster maakt, kiest u een SKU die ondersteuning biedt voor actieve containers (zoals Windows Server 2016 Datacenter met Containers).
 
 ## <a name="containerize-the-application"></a>De toepassing containerize
 
-Nu dat u hebt een [Service Fabric-cluster wordt uitgevoerd in Azure](service-fabric-tutorial-create-cluster-azure-ps.md) bent u klaar voor een beperkte toepassing maken en implementeren. Voor het starten van onze toepassing wordt uitgevoerd in een container, moeten we voegen **Docker ondersteuning** aan het project in Visual Studio. Bij het toevoegen van **Docker ondersteuning** aan de toepassing, twee dingen gebeuren. Eerst een _Dockerfile_ wordt toegevoegd aan het project. Dit nieuwe bestand wordt beschreven hoe de installatiekopie van de container kan worden opgebouwd. Vervolgens tweede, een nieuwe _docker compose_ project wordt toegevoegd aan de oplossing. Het nieuwe project bevat enkele docker compose bestanden. Docker compose bestanden kunnen worden gebruikt om te beschrijven hoe de container wordt uitgevoerd.
+Nu dat u een Service Fabric-cluster worden uitgevoerd in Azure hebt bent u klaar voor een beperkte toepassing maken en implementeren. Voor het starten van onze toepassing wordt uitgevoerd in een container, moeten we voegen **Docker ondersteuning** aan het project in Visual Studio. Bij het toevoegen van **Docker ondersteuning** aan de toepassing, twee dingen gebeuren. Eerst een _Dockerfile_ wordt toegevoegd aan het project. Dit nieuwe bestand wordt beschreven hoe de installatiekopie van de container kan worden opgebouwd. Vervolgens tweede, een nieuwe _docker compose_ project wordt toegevoegd aan de oplossing. Het nieuwe project bevat enkele docker compose bestanden. Docker compose bestanden kunnen worden gebruikt om te beschrijven hoe de container wordt uitgevoerd.
 
 Meer informatie over het werken met [Container met Visual Studio Tools][link-visualstudio-container-tools].
 

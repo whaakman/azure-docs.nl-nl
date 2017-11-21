@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/15/2017
 ms.author: erikje
-ms.openlocfilehash: 24cde66a132ae2e1ba0eb9b1564915746e5ca448
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Azure Stack registreren bij uw Azure-abonnement
 
@@ -38,7 +38,6 @@ Voordat u registreert Stack van Azure met Azure, moet u het volgende hebben:
 - De abonnement-ID voor een Azure-abonnement. Als u de ID, zich aanmelden bij Azure, klikt u op **meer services** > **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de **Abonnements-ID**. China, Duitsland en US government-cloudabonnementen zijn momenteel niet ondersteund.
 - De gebruikersnaam en het wachtwoord voor een account dat is eigenaar van het abonnement (MSA/2FA accounts worden ondersteund).
 - De Azure Active Directory voor het Azure-abonnement. U kunt deze map vinden in Azure door de muiswijzer op uw avatar in de rechterbovenhoek van de Azure portal. 
-- [De Azure-Stack-resourceprovider geregistreerd](#register-azure-stack-resource-provider-in-azure).
 
 Als u geen een Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/en-us/free/?b=17.06). Azure-Stack registreren maakt geen kosten op uw Azure-abonnement.
 
@@ -46,39 +45,65 @@ Als u geen een Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken va
 
 ## <a name="register-azure-stack-resource-provider-in-azure"></a>Azure-Stack resourceprovider in Azure registreren
 > [!NOTE] 
-> Deze stap hoeft slechts eenmaal worden uitgevoerd in een Azure-Stack-omgeving.
+> Deze stap moet slechts één keer worden voltooid in een Azure-Stack-omgeving.
 >
 
-1. Start Powershell ISE als beheerder.
-2. Aanmelden bij de Azure-account is eigenaar van het Azure-abonnement met EnvironmentName - parameter is ingesteld op 'AzureCloud'.
+1. Een Powershell-sessie start als beheerder.
+2. Aanmelden bij de Azure-account is eigenaar van het Azure-abonnement (u kunt de cmdlet Login-AzureRmAccount aanmelden en wanneer u zich aanmeldt, zorg ervoor dat de parameter - EnvironmentName 'AzureCloud' instellen).
 3. Registreer de Azure-resourceprovider 'Microsoft.AzureStack'.
 
-Voorbeeld: 
+**Voorbeeld:** 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
-
 ## <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
 > [!NOTE]
->Alle deze stappen moeten worden uitgevoerd op de hostcomputer.
+> Alle deze stappen moeten worden uitgevoerd vanaf een machine die toegang tot de bevoegde eindpunt heeft. Voor Azure Stack Development Kit zou worden de hostcomputer. Als u een geïntegreerd systeem, moet u contact op met uw Azure-Stack-operator.
 >
 
-1. [Installeer PowerShell voor Azure Stack](azure-stack-powershell-install.md). 
-2. Kopieer de [RegisterWithAzure.psm1 script](https://go.microsoft.com/fwlink/?linkid=842959) naar een map (zoals C:\Temp).
-3. Start PowerShell ISE als beheerder en importeer de module RegisterWithAzure.    
-4. Voer de module toevoegen AzsRegistration uit het script RegisterWithAzure.psm1. De volgende tijdelijke aanduidingen vervangt: 
-    - *YourCloudAdminCredential* is een PowerShell-object dat de referenties van het lokale domein voor de domain\cloudadmin bevat (dit is voor de development kit azurestack\cloudadmin).
-    - *YourAzureSubscriptionID* is de ID van de Azure-abonnement dat u gebruiken wilt voor het registreren van de Azure-Stack.
-    - *YourAzureDirectoryTenantName* is de naam van de Azure-tenant-map die is gekoppeld aan uw Azure-abonnement. De registratie-resource wordt in deze directory-tenant gemaakt. 
-    - *YourPrivilegedEndpoint* is de naam van de [bevoegde eindpunt](azure-stack-privileged-endpoint.md).
+1. Open een PowerShell-console als beheerder en [Installeer PowerShell voor Azure-Stack](azure-stack-powershell-install.md).  
 
-    ```powershell
-    Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
-    ```
-5. Geef de referenties van uw Azure-abonnement in het aanmeldingsvenster pop.
+2. De Azure-account die u gebruiken wilt voor het registreren van de Azure-Stack toevoegen. U kunt dit doen de `Add-AzureRmAccount` cmdlet zonder parameters. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.  
+
+3. Als u meerdere abonnementen hebt, voert u de volgende opdracht om te selecteren die dat u wilt gebruiken:  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+4. Verwijder alle bestaande versies van de Powershell-modules die met de registratie overeenkomen en [download de nieuwste versie van deze vanuit GitHub](azure-stack-powershell-download.md).  
+
+5. In de map 'AzureStack-hulpprogramma's-master' dat is gemaakt in de vorige stap, navigeer naar de map "Registratie" en importeer de module '.\RegisterWithAzure.psm1':  
+
+   ```powershell 
+   Import-Module .\RegisterWithAzure.psm1 
+   ```
+
+6. Voer het volgende script in dezelfde PowerShell-sessie. Wanneer u wordt gevraagd om referenties, opgeven `azurestack\cloudadmin` als de gebruiker en het wachtwoord hetzelfde is als wat u hebt gebruikt voor de lokale beheerder tijdens de implementatie.  
+
+   ```powershell
+   $AzureContext = Get-AzureRmContext
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   Add-AzsRegistration `
+       -CloudAdminCredential $CloudAdminCred `
+       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
+       -PrivilegedEndpoint AzS-ERCS01 `
+       -BillingModel Development 
+   ```
+
+   | Parameter | Beschrijving |
+   | -------- | ------------- |
+   | CloudAdminCredential | De cloud-domein-referenties die worden gebruikt om [toegang tot de bevoegde eindpunt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam is in de notatie '\<Azure Stack domein\>\cloudadmin '. Voor development kit, is de gebruikersnaam ingesteld op 'azurestack\cloudadmin'. Als u een geïntegreerd systeem, moet u contact op met uw Azure-Stack-operator als deze waarde wilt ophalen.|
+   | AzureSubscriptionId | De Azure-abonnement dat u met Azure-Stack registreren.|
+   | AzureDirectoryTenantName | De naam van de Azure-tenant-map die is gekoppeld aan uw Azure-abonnement. De registratie-resource wordt in deze directory-tenant gemaakt. |
+   | PrivilegedEndpoint | Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekgegevens verzameld en andere post implementatietaken. Voor development kit wordt het bevoegde eindpunt gehost op de 'AzS ERCS01' virtuele machine. Als u een geïntegreerd systeem, moet u contact op met uw Azure-Stack-operator als deze waarde wilt ophalen. Raadpleeg voor meer informatie de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md) onderwerp.|
+   | BillingModel | Het facturering model die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn 'Capaciteit', 'PayAsYouUse' en 'Ontwikkeling'. Voor development kit, wordt deze waarde ingesteld op 'Ontwikkeling'. Als u een geïntegreerd systeem, moet u contact op met uw Azure-Stack-operator als deze waarde wilt ophalen. |
+
+7. Als het script is voltooid, ziet u een bericht ' activeren Azure Stack (deze stap kan maximaal 10 minuten duren). ' 
 
 ## <a name="verify-the-registration"></a>Controleer of de registratie
 

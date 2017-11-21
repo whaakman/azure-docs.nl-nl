@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Het beheer van apparaten met de Azure portal
 
@@ -32,7 +32,30 @@ Dit onderwerp:
 
 - Biedt u informatie over het beheren van uw apparaten met de Azure portal
 
+## <a name="manage-devices"></a>Apparaten beheren 
 
+De Azure-portal biedt een centrale locatie voor het beheren van uw apparaten. U toegang krijgen tot deze locatie met behulp van een [directe koppeling](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) of met de volgende handmatige stappen:
+
+1. Kana bij de [Azure-portal](https://portal.azure.com) als administrator.
+
+2. Klik op de navigatiebalk links, **Active Directory**.
+
+    ![Apparaatinstellingen configureren](./media/device-management-azure-portal/01.png)
+
+3. In de **beheren** sectie, klikt u op **apparaten**.
+
+    ![Apparaatinstellingen configureren](./media/device-management-azure-portal/11.png)
+ 
+De **apparaten** pagina kunt u:
+
+- Uw instellingen voor het beheer van apparaten configureren
+
+- Apparaten zoeken
+
+- Apparaat-beheertaken uitvoeren
+
+- Bekijk de gerelateerde Apparaatbeheer controlelogboeken  
+  
 
 ## <a name="configure-device-settings"></a>Apparaatinstellingen configureren
 

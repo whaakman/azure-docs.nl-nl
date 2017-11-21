@@ -9,18 +9,18 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/16/2017
-ms.openlocfilehash: c91eadd69eaf16b2496f4d7247e5b0121904e172
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.date: 11/18/2017
+ms.openlocfilehash: fe2a302a32f1b9ec474416704c6cb613cd384a0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Met behulp van de Git-opslagplaats met een Azure Machine Learning Workbench-project
-Dit document bevat informatie over hoe Azure Machine Learning Workbench Git gebruikt om ervoor te zorgen reproduceerbaarheid in uw gegevens wetenschappelijke experiment. Instructies voor het koppelen van uw project met een cloud Git-opslagplaats, zijn ook beschikbaar.
+Dit document bevat informatie over hoe Azure Machine Learning Workbench Git versiebeheer opgeven en ervoor zorgen dat reproduceerbaarheid in uw experiment van de wetenschappelijke gegevens gebruikt. Instructies voor het koppelen van uw project met een cloud Git-opslagplaats, zijn ook beschikbaar.
 
 ## <a name="introduction"></a>Inleiding
-Azure Machine Learning-Workbench is ontworpen met Git-integratie compleet. Wanneer u een nieuw project maakt, de projectmap is automatisch 'Git geïnitialiseerd' als een lokale Git-opslagplaats (opslagplaats) terwijl een tweede verborgen lokale Git-opslagplaats tevens met een vertakking met de naam gemaakt _AzureMLHistory / < project_GUID >_ naar bijhouden van project map wijzigingen voor elke uitvoering. 
+Azure Machine Learning-Workbench is ontworpen met Git-integratie compleet. Wanneer u een nieuw project maakt, is de projectmap automatisch 'Git geïnitialiseerd' als een lokale Git-opslagplaats (opslagplaats). Ondertussen ook een tweede verborgen lokale Git-opslagplaats is gemaakt met een vertakking met de naam _AzureMLHistory / < project_GUID >_ voor het bijhouden van wijzigingen van project-map voor elke uitvoering. 
 
 Het Azure ML-project koppelen aan een Git-opslagplaats, gehost in een project Visual Studio Team Service (VSTS), kunt u automatische versiebeheer lokaal en op afstand. Deze koppeling kan iedereen met toegang tot de externe opslagplaats de meest recente broncode downloaden naar een andere computer (roaming).  
 
@@ -54,21 +54,25 @@ Van [Azure-portal](https://portal.azure.com/), maak een nieuwe **teamproject**.
 
 ![Een teamproject maken vanuit Azure Portal](media/using-git-ml-project/create_vsts_team.png)
 
-
-> [!TIP]
-> Zorg ervoor dat u zich aanmeldt met het Azure Active Directory (AAD)-account gebruikt voor toegang tot de Azure Machine Learning-Workbench. Anders wordt het nieuwe teamproject mogelijk end tot onder de verkeerde Tenant-ID en Azure Machine Learning mogelijk niet vinden. In dit geval moet u via de opdrachtregelinterface en geef het token VSTS.
+Zorg ervoor dat u zich aanmeldt met hetzelfde Azure Active Directory (AAD)-account dat u gebruikt voor toegang tot de Azure Machine Learning-Workbench. Anders wordt het systeem geen toegang tot uw AAD-referenties met tenzij u vanaf de opdrachtregel gebruiken voor het Azure ML-project maken en geef een persoonlijk toegangstoken voor toegang tot de Git-opslagplaats. Meer informatie.
 
 Zodra het teamproject is gemaakt, bent u klaar om te verplaatsen naar de volgende stap.
 
 Rechtstreeks naar het teamproject zojuist hebt gemaakt wilt gaan, de URL is `https://<team_project_name>.visualstudio.com`.
 
-> [!NOTE]
-> Azure Machine Learning ondersteunt momenteel alleen lege Git repo's met geen hoofdvertakking. Vanuit de opdrachtregelinterface, kunt u met het--force-argument voor de hoofdvertakking eerst verwijderen. 
-
 ## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>Stap 3. Een nieuwe Azure ML-project maken met een externe Git-opslagplaats
 Azure ML-Workbench Start en een nieuw project maken. Vul in het tekstvak voor Git-opslagplaats met de VSTS Git-opslagplaats-URL die u via stap 2. Meestal als volgt uitziet:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
 
 ![Azure ML-Project maken met Git-opslagplaats](media/using-git-ml-project/create_project_with_git_rep.png)
+
+U kunt ook het opdrachtregelprogramma gebruiken project maken. U hebt de optie om op te geven van een persoonlijk toegangstoken. Azure ML kunt dit token gebruiken voor toegang tot de Git-opslagplaats namens u, in plaats van te vertrouwen op uw AAD-referenties:
+
+```
+# create a new project with a Git repo and personal access token.
+$ az ml project create -a <experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <VSTS personal access token>
+```
+> [!IMPORTANT]
+> Als u de sjabloon leeg project kiest, is het OK als u al de Git-opslagplaats is een _master_ vertakking. Azure ML kloont gewoon de _master_ vertakking lokaal en voegt de `aml_config` map en andere projectbestanden metagegevens op de lokale projectmap. Maar als u een andere projectsjabloon, Git-opslagplaats mag niet al hebben een _master_ vertakking, of u een fout ziet. Het alternatief is `az ml project create` opdrachtregelprogramma voor het maken van het project en geef een `--force` overschakelen. Dit wordt verwijderd van de bestanden op de oorspronkelijke hoofdvertakking en vervang ze door de bestanden in de sjabloon die u kiest.
 
 Een nieuw Azure ML-project wordt nu gemaakt met externe Git-opslagplaats integratie ingeschakeld en gereed is om te gaan. De projectmap is altijd Git geïnitialiseerd als een lokale Git-opslagplaats. En de Git _externe_ is ingesteld op de externe VSTS Git-opslagplaats zodat doorvoeracties naar de externe Git-opslagplaats kunnen worden geactiveerd.
 
@@ -80,12 +84,19 @@ U kunt eventueel ook een Azure ML-project zonder een VSTS Git-opslagplaats maken
 $ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
 ```
 
+> [!NOTE] 
+> U kunt alleen de bewerking update opslagplaats op een Azure ML-project dat u beschikt niet over een Git-opslagplaats gekoppeld uitvoeren. En wanneer de Git-opslagplaats gekoppeld is, kan niet worden verwijderd.
+
 ## <a name="step-4-capture-project-snapshot-in-git-repo"></a>Stap 4. Project momentopname in de Git-opslagplaats vastleggen
-Nu u een paar wordt uitgevoerd in het project uitvoeren kunt, moet u sommige wijzigingen middenweg kiest de wordt uitgevoerd. U kunt dit doen vanuit de bureaublad-app of via CLI `az ml experiment submit` opdracht. Voor meer informatie kunt u de [Iris classificeren zelfstudie](tutorial-classifying-iris-part-1.md). Voor elke run als er een wijziging in alle bestanden in de projectmap een momentopname van de hele projectmap is toegewezen en gepusht naar de externe Git-opslagplaats onder een vertakking met de naam `AzureMLHistory/<Project_GUID>`. U kunt de vertakkingen en doorvoeracties weergeven door te bladeren naar de URL van de VSTS Git-opslagplaats en de vertakking vinden. 
+Nu u een paar script uitgevoerd in het project uitvoeren kunt, moet u enkele wijzigingen middenweg kiest de wordt uitgevoerd. U kunt dit doen vanuit de bureaublad-app of via CLI `az ml experiment submit` opdracht. Voor meer informatie kunt u de [Iris classificeren zelfstudie](tutorial-classifying-iris-part-1.md). Voor elke run als er een wijziging in alle bestanden in de projectmap een momentopname van de hele projectmap is toegewezen en gepusht naar de externe Git-opslagplaats onder een vertakking met de naam `AzureMLHistory/<Project_GUID>`. U kunt de vertakkingen en doorvoeracties weergeven door te bladeren naar de URL van de VSTS Git-opslagplaats en de vertakking vinden. 
+
+> [!NOTE] 
+> De momentopname is alleen doorgevoerde voordat een script wordt uitgevoerd. Op dit moment een prep gegevens kan worden uitgevoerd of de uitvoering van een laptop cel de momentopname niet activeren.
 
 ![vertakking van de geschiedenis uitvoeren](media/using-git-ml-project/run_history_branch.png)
 
-Opmerking is het beter werkt niet in de geschiedenis vertakking zelf. In dat geval mogelijk fouten maken met de uitvoeringsgeschiedenis. Gebruik hoofdvertakking of andere filialen in plaats daarvan maken voor uw eigen Git-bewerkingen.
+> [!IMPORTANT] 
+> Het is raadzaam als u werken niet in de geschiedenis vertakking zelf met behulp van de Git-opdrachten. In dat geval mogelijk fouten maken uitvoeringsgeschiedenis. Gebruik hoofdvertakking of andere filialen in plaats daarvan maken voor uw eigen Git-bewerkingen.
 
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>Stap 5. Herstellen van een eerdere momentopname van project 
 De volledige projectmap terugzetten naar de status van een eerdere uitvoeringsgeschiedenis project staat momentopname, vanuit Azure ML Workbench:
@@ -105,20 +116,20 @@ $ az ml history list -o table
 $ az ml project restore --run-id <run_id>
 ```
 
-Door deze opdracht wordt uitgevoerd, overschrijft we de hele project-map met de momentopname die wordt uitgevoerd wanneer dat bepaalde uitvoering is gestart. Maar uw project blijft op de huidige vertakking. Dit betekent dat u gaat **gaan alle wijzigingen verloren** in de huidige projectmap. Dus zorg extra dat wanneer u deze opdracht uitvoert.
+Door deze opdracht wordt uitgevoerd, overschrijft we de hele project-map met de momentopname die wordt uitgevoerd wanneer dat bepaalde uitvoering is gestart. Maar uw project blijft op de huidige vertakking. Dit betekent dat u gaat **gaan alle wijzigingen verloren** in de huidige projectmap. Dus zorg extra dat wanneer u deze opdracht uitvoert. Kan u Git uw wijzigingen doorvoeren aan de huidige vertakking voordat u de bovenstaande bewerking uitvoert. Raadpleeg voordat voor meer informatie.
 
 ## <a name="step-6-use-the-master-branch"></a>Stap 6. Gebruik de hoofdvertakking
 Een manier om te voorkomen dat per ongeluk is verliezen van de huidige projectstatus, het project doorvoeren naar de hoofdvertakking (of een vertakking die u zelf hebt gemaakt) van de Git-opslagplaats. U kunt rechtstreeks Git uit vanaf de opdrachtregel (of uw andere favoriete Git clienthulpprogramma naar keuze) bewerkingen uitvoeren op de hoofdvertakking. Bijvoorbeeld:
 
 ```
-# make sure you are on the master branch (or branch of your choice)
-$ git checkout master
+# check status to make sure you are on the master branch (or branch of your choice)
+$ git status
 
 # stage all changes
 $ git add -A
 
 # commit all changes locally on the master branch
-$ git commit -m 'this is my updates so far'
+$ git commit -m 'these are my updates so far'
 
 # push changes into the remote VSTS Git repo master branch.
 $ git push origin master
@@ -129,49 +140,7 @@ Nu u veilig project naar een eerdere momentopname terugzetten kunt volgende stap
 ## <a name="authentication"></a>Authentication
 Als u alleen de uitvoeringsgeschiedenis functies in Azure ML vertrouwen voor het maken van momentopnamen van het project en deze terug te zetten, u hoeft niet te hoeven maken over de verificatie van Git-opslagplaats. Het is afgehandeld door de laag experimenteren Service.
 
-Echter, als u uw eigen Git-hulpprogramma's gebruiken voor het beheren van versiebeheer, u moet verificatie op basis van de externe Git-opslagplaats op VSTS correct wordt afgehandeld. Dat wil zeggen, moet u verificatie met de Git-opslagplaats op de lokale computer instellen voordat u kunt de opdracht Git-opdrachten op die externe Git-opslagplaats. 
-
-De eenvoudigste manier om dit doet, is een SSH-sleutelpaar maken en uploaden van een deel van de openbare sleutel in de beveiligingsinstellingen van de Git-opslagplaats.
-
-### <a name="generate-ssh-key"></a>SSH-sleutel genereren 
-Eerst gaan we een paar SSH-sleutels op uw computer te genereren.
-
-#### <a name="on-windows"></a>In Windows:
-Start Git GUI bureaublad-app voor Windows en onder _Help_ menu, klik op _weergeven SSH-sleutel_.
-
-![SSH sleutel](media/using-git-ml-project/git_gui.png)
-
-SSH naar Klembord kopiëren.
-
-#### <a name="on-macos"></a>Op Mac OS:
-Snelle stappen van de opdrachtshell:
-```
-# generate the SSH key
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-
-# start the SSH agent in the background
-$ eval "$(ssh-agent -s)"
-
-# add newly generated SSH key to the SSH agent
-$ ssh-add -K ~/.ssh/id_rsa
-
-# display the public key so you can copy it.
-$ more ~/.ssh/id_rsa.pub
-```
-Stappen voor meer informatie vindt u op [in dit artikel GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-
-### <a name="upload-public-key-to-git-repo"></a>Openbare sleutel uploaden naar Git-opslagplaats
-Ga naar de startpagina van de Visual Studio-account: https://<vsts_account_name>.visualstudio.com en zich aanmelden, klikt u op beveiliging onder uw avatar.
-
-Voegt u een openbare SSH-sleutel en plak de openbare SSH-sleutel van de vorige stap dat u een naam geven. U kunt meerdere sleutels hier toevoegen.
-
-Nu kunt u de Git-opdrachten lokaal op basis van de opslagplaats verwijderen uitgeven met er is geen verdere expliciete verificatie vereist.
-
-### <a name="read-more"></a>Meer informatie
-Volg deze twee artikelen (ofwel benadering kunt werken) voor meer informatie over het inschakelen van lokale verificatie van de externe Git-opslagplaats in VSTS.
-- [SSH-sleutelverificatie gebruiken](https://www.visualstudio.com/en-us/docs/git/use-ssh-keys-to-authenticate)
-- [Gebruik Git referentie Managers](https://www.visualstudio.com/en-us/docs/git/set-up-credential-managers)
-
+Echter, als u uw eigen Git-hulpprogramma's gebruiken voor het beheren van versiebeheer, u moet verificatie op basis van de externe Git-opslagplaats op VSTS correct wordt afgehandeld. In de Azure ML externe Git-opslagplaats toegevoegd aan de lokale opslagplaats als Git remote via HTTPS-protocol. Dit betekent dat wanneer u de opdracht Git-opdrachten naar de externe (zoals push of pull), moet u de gebruikersnaam en wachtwoord of persoonlijke toegangstoken te bieden. Ga als volgt [deze instructies](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) persoonlijke toegangstoken maken in een VSTS Git-opslagplaats.
 
 ## <a name="next-steps"></a>Volgende stappen
 Informatie over het gebruik van het Team gegevens wetenschap proces om te ordenen van de projectstructuur van uw, Zie [structuur van een project met TDSP](how-to-use-tdsp-in-azure-ml.md)

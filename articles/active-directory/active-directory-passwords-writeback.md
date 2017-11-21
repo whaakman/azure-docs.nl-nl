@@ -1,6 +1,6 @@
 ---
 title: Azure AD SSPR met wachtwoord terugschrijven | Microsoft Docs
-description: Met behulp van Azure AD en Azure AD Connect wachtwoorden terugschrijven naar on-premises directory
+description: Gebruik Azure AD en Azure AD Connect voor write-back van wachtwoorden met een on-premises adreslijst
 services: active-directory
 keywords: Wachtwoordbeheer Active directory, wachtwoordbeheer, Azure AD self service voor wachtwoordherstel
 documentationcenter: 
@@ -16,208 +16,215 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="password-writeback-overview"></a>Overzicht van de Write-back van wachtwoord
 
-Wachtwoord terugschrijven kunt u Azure AD om terugschrijven van wachtwoorden naar uw lokale Active Directory configureren. Verwijdert deze de noodzaak instellen en beheren van een complexe on-premises-oplossing zelf uw wachtwoord opnieuw instellen en biedt een handige manier cloud-gebaseerde voor uw gebruikers opnieuw in te stellen hun on-premises wachtwoorden waar ze ook zijn. Wachtwoord terugschrijven is een onderdeel van [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) die kunnen worden ingeschakeld en gebruikt door bestaande Premium-abonnees [Azure Active Directory-edities](active-directory-editions.md).
+U kunt Azure Active Directory (Azure AD) voor wachtwoorden terugschrijven naar uw lokale Active Directory configureren met terugschrijven van wachtwoorden. Wachtwoord terugschrijven verwijdert de behoefte instellen en beheren van een complexe on-premises-oplossing voor selfservice voor wachtwoordherstel (SSPR) opnieuw en biedt een handige manier cloud-gebaseerde voor uw gebruikers opnieuw in te stellen hun on-premises wachtwoorden waar ze ook zijn. Wachtwoord terugschrijven is een onderdeel van [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) die kunnen worden ingeschakeld en gebruikt door bestaande Premium-abonnees [Azure Active Directory-edities](active-directory-whatis.md).
 
 Wachtwoord terugschrijven biedt de volgende functies:
 
-* **Vertraging feedback nul** -wachtwoord terugschrijven is een synchrone bewerking. Uw gebruikers zijn onmiddellijk een melding als hun wachtwoord niet voldeed aan beleid of kon niet worden ingesteld of gewijzigd voor een of andere reden.
-* **Ondersteunt het opnieuw instellen van wachtwoorden voor gebruikers met AD FS of andere technologieën federation** -met terugschrijven van wachtwoorden, zolang de federatieve gebruikersaccounts worden gesynchroniseerd naar Azure AD-tenant ze kunnen voor het beheren van hun on-premises AD-wachtwoorden vanuit de cloud.
-* **Ondersteunt het opnieuw instellen van wachtwoorden voor gebruikers met behulp van [wachtwoordhashsynchronisatie](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)**  : wanneer u het wachtwoord opnieuw instellen van service detecteert dat een gesynchroniseerde gebruikersaccount is ingeschakeld voor wachtwoordhashsynchronisatie, we tegelijkertijd zowel dit account on-premises en cloud-wachtwoord instellen.
-* **Ondersteunt het wijzigen van wachtwoorden van het toegangsvenster en Office 365** : wanneer federatieve of wachtwoord is gesynchroniseerd gebruikers hun wachtwoorden verlopen of niet-verlopen wijzigen we deze wachtwoorden terugschrijven naar uw lokale AD-omgeving worden geleverd.
-* **Ondersteunt het terugschrijven van wachtwoorden wanneer een beheerder deze opnieuw vanuit de Azure-portal** : wanneer een beheerder stelt het wachtwoord van een gebruiker in de [Azure-portal](https://portal.azure.com), als die gebruiker is gefedereerd of wachtwoord is gesynchroniseerd, moet we het wachtwoord dat de beheerder wordt geselecteerd op uw lokale AD ook is ingesteld. Dit wordt momenteel niet ondersteund in de Office-beheerportal.
-* **Dwingt uw on-premises AD-wachtwoordbeleid** : wanneer een gebruiker het wachtwoord opnieuw instelt zorgen wij ervoor dat het voldoet aan uw on-premises Active Directory-beleid alvorens toe te wijzen aan die directory. Dit omvat de geschiedenis, complexiteit, leeftijd, wachtwoordfilters en alle andere wachtwoordbeperkingen die u hebt gedefinieerd in uw lokale AD.
-* **Alle firewallregels voor binnenkomend verkeer geen vereist** -wachtwoord terugschrijven een Azure Service Bus relay gebruikt als een onderliggende communicatiekanaal, wat betekent dat u niet hoeft te openen van poorten voor inkomend verkeer op uw firewall voor deze functie te gebruiken.
-* **Wordt niet ondersteund voor gebruikersaccounts die zijn opgeslagen in de beveiligde groepen in uw lokale Active Directory** - Zie voor meer informatie over de beveiligde groepen [beveiligde Accounts en groepen in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+* **Biedt nul vertraging feedback**: wachtwoord terugschrijven is een synchrone bewerking. Uw gebruikers zijn onmiddellijk een melding als hun wachtwoord voldoet niet aan het beleid kan niet worden opnieuw ingesteld of gewijzigd voor een of andere reden.
+* **Ondersteunt het instellen van wachtwoorden voor gebruikers die gebruikmaken van Active Directory Federation Services (AD FS) of andere technologieën federation**: met terugschrijven van wachtwoorden, zolang de federatieve gebruikersaccounts worden gesynchroniseerd naar uw Azure AD-tenant, ze kunnen geen hun on-premises Active Directory-wachtwoorden beheren vanuit de cloud.
+* **Ondersteunt het instellen van wachtwoorden voor gebruikers die gebruikmaken van** [wachtwoordhashsynchronisatie](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): als het wachtwoord opnieuw instellen van service detecteert dat een gesynchroniseerde gebruikersaccount is ingeschakeld voor wachtwoordhashsynchronisatie, we beide dit account lokale opnieuw instellen en wachtwoord tegelijkertijd cloud.
+* **Ondersteunt het wachtwoord wordt gewijzigd van het toegangsvenster en Office 365**: wanneer gefedereerd of wachtwoord is gesynchroniseerd gebruikers hun wachtwoorden verlopen of niet-verlopen wijzigen we deze wachtwoorden terugschrijven naar uw lokale Active Directory-omgeving worden geleverd.
+* **Biedt ondersteuning voor write-back van wachtwoorden wanneer een beheerder deze opnieuw via de Azure portal instelt**: wanneer een beheerder stelt het wachtwoord van een gebruiker in de [Azure-portal](https://portal.azure.com), als die gebruiker is gefedereerd of het wachtwoord is gesynchroniseerd, moet we het wachtwoord instellen de beheerder in de lokale Active Directory en geselecteerd. Deze functionaliteit is momenteel niet ondersteund in de Office-beheerportal.
+* **Dwingt uw lokale Active Directory-wachtwoordbeleid**: wanneer een gebruiker het wachtwoord opnieuw instelt, zorgen wij ervoor dat het voldoet aan met uw beleid on-premises Active Directory voordat we het doorvoeren in die map. Deze evaluatie omvat controle van de geschiedenis, complexiteit, leeftijd, wachtwoordfilters en alle andere wachtwoordbeperkingen die u hebt gedefinieerd in de lokale Active Directory.
+* **Alle firewallregels voor binnenkomend verkeer geen vereist**: wachtwoord terugschrijven een Azure Service Bus relay gebruikt als een onderliggende communicatiekanaal. U hoeft niet te openen van poorten voor inkomend verkeer op uw firewall voor deze functie te gebruiken.
+* **Wordt niet ondersteund voor gebruikersaccounts die zijn opgeslagen in de beveiligde groepen in Active Directory lokale**: Zie voor meer informatie over de beveiligde groepen [beschermde accounts en groepen in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
 ## <a name="how-password-writeback-works"></a>De werking van wachtwoord terugschrijven
 
 Wanneer een federatieve of het wachtwoord-hash gesynchroniseerde gebruiker wordt geleverd opnieuw instellen of hun wachtwoord wijzigen in de cloud, gebeurt het volgende:
 
-1. We controleren om te zien welke type wachtwoord op de gebruiker heeft.
-    * Als we wordt het wachtwoord beheerd on-premises
-        * We controleren of als de Write-back-service is en wordt uitgevoerd, als het, we aan de gebruiker laten gaan
-        * Als de Write-back-service niet is, wordt de gebruiker melden dat hun wachtwoord kan niet worden nu opnieuw instellen
-2. Vervolgens de gebruiker geeft de juiste verificatie-poorten en het wachtwoord opnieuw instellen van scherm bereikt.
+1. We controleren om te zien welke type wachtwoord op de gebruiker heeft. Als we zien dat het wachtwoord on-premises worden beheerd is:
+   * We controleren of de Write-back-service actief is. Als het actief en werkend is, laten we de gebruiker worden voortgezet.
+   * Als de Write-back-service niet van is, zien we de gebruiker dat hun wachtwoord nu kan niet worden teruggezet.
+2. Vervolgens de gebruiker de juiste verificatie-poorten is geslaagd en bereikt de **wachtwoord opnieuw instellen** pagina.
 3. De gebruiker selecteert een nieuw wachtwoord en bevestigt het.
-4. Wanneer u op verzenden klikt, wordt het leesbare wachtwoord versleutelen met een symmetrische sleutel die is gemaakt tijdens de installatie Write-back van.
+4. Wanneer de gebruiker selecteert **indienen**, we het leesbare wachtwoord versleutelen met een symmetrische sleutel die is gemaakt tijdens de installatie terugschrijven.
 5. Nadat het wachtwoord versleutelt, opnemen we in een nettolading die via een HTTPS-kanaal wordt verzonden naar uw tenantspecifieke service bus relay (die we ook voor u ingesteld tijdens de installatie writeback). Deze relay is beveiligd met een willekeurig gegenereerd wachtwoord dat alleen de lokale installatie kent.
-6. Zodra het bericht servicebus bereikt, wordt het wachtwoord opnieuw instellen van eindpunt automatisch ontwaakt en ziet dat er een aanvraag in behandeling.
-7. De service zoekt vervolgens naar de gebruiker in kwestie met behulp van de cloud ankerkenmerk. Voor deze zoekactie mislukt:
+6. Nadat het bericht heeft de servicebus bereikt, wordt het wachtwoord opnieuw instellen-eindpunt automatisch ontwaakt en blijkt dat er een aanvraag in behandeling.
+7. De service wordt vervolgens gezocht naar de gebruiker met behulp van de cloud ankerkenmerk. Voor deze zoekactie mislukt:
 
-    * Het gebruikersobject moet bestaan in de ruimte van AD-connector
-    * Het gebruikersobject moet worden gekoppeld aan het bijbehorende MV-object
-    * Het gebruikersobject moet worden gekoppeld aan het bijbehorende object van de AAD-connector.
-    * De koppeling van AD-connector-object naar MV moet hebben tot de synchronisatieregel `Microsoft.InfromADUserAccountEnabled.xxx` op de koppeling. <br> <br>
-    Wanneer de aanroep wordt geleverd vanuit de cloud, wordt de synchronisatie-engine gebruikt het kenmerk cloudAnchor om het object in de ruimte van AAD-connector, volgt de koppeling terug naar de MV-object te zoeken en vervolgens voert de koppeling naar het AD-object. Omdat het is mogelijk meerdere AD-objecten (met meerdere forests) voor dezelfde gebruiker, de synchronisatie-engine is afhankelijk van de `Microsoft.InfromADUserAccountEnabled.xxx` koppeling naar de juiste account kiezen.
+    * Het gebruikersobject moet bestaan in de ruimte van Active Directory-connector.
+    * Het gebruikersobject moet worden gekoppeld aan het bijbehorende (MV) metaverse-object.
+    * Het gebruikersobject moet worden gekoppeld aan het bijbehorende object van de Azure Active Directory-connector.
+    * De koppeling van het Active Directory-connectorobject naar de MV moet hebben tot de synchronisatieregel `Microsoft.InfromADUserAccountEnabled.xxx` op de koppeling. <br> <br>
+    Wanneer u de oproep wordt geleverd vanuit de cloud, de synchronisatie-engine gebruikt de **cloudAnchor** kenmerk opzoeken van het object met Azure Active Directory-connector ruimte. Het volgt de koppeling op naar het MV-object, en volgt de koppeling op naar het Active Directory-object. Omdat er meerdere Active Directory-objecten (met meerdere forests) voor dezelfde gebruiker, de synchronisatie-engine is afhankelijk van de `Microsoft.InfromADUserAccountEnabled.xxx` koppeling naar de juiste account kiezen.
 
     > [!Note]
-    > Als gevolg van deze logica moet Azure AD Connect kunnen communiceren met de PDC-Emulator voor write-back van wachtwoord om te werken. Als u deze handmatig inschakelt moet, kunt u Azure AD Connect aansluiten op de PDC-Emulator door met de rechtermuisknop op de **eigenschappen** van de Active Directory-synchronisatie-connector te selecteren **mappartities configureren**. Ga van daaruit naar de sectie **Verbindingsinstellingen voor domeincontrollers** en schakel het vakje **Alleen voorkeursdomeincontrollers gebruiken** in. Zelfs als de voorkeur DC niet een PDC-emulator, probeert Azure AD Connect verbinding maken met de PDC voor write-back van wachtwoord.
+    > Als gevolg van deze logica voor wachtwoord moet terugschrijven naar Azure AD Connect werken communiceren met de emulatie primaire domeincontroller (PDC). Als u deze handmatig inschakelt moet, kunt u Azure AD Connect verbinding met de PDC-emulator. Met de rechtermuisknop op de **eigenschappen** van de connector Active Directory-synchronisatie Selecteer **mappartities configureren**. Van daaruit, zoekt u naar de **verbinding domeincontrollerinstellingen** sectie en schakelt u het met de titel **alleen gebruiken voorkeur domeincontrollers**. Zelfs als de gewenste domeincontroller niet een PDC-emulator is, wordt Azure AD Connect probeert te maken met de PDC voor write-back van wachtwoord.
 
-8. Als het gebruikersaccount wordt gevonden, wordt er geprobeerd voor wachtwoordherstel rechtstreeks in de juiste AD-forest.
+8. Nadat de gebruiker wordt account gevonden, wordt er geprobeerd om het wachtwoord direct in Active Directory-forest te stellen.
 9. Als het wachtwoord set-bewerking geslaagd is, zien we de gebruiker dat het wachtwoord is gewijzigd.
     > [!NOTE]
-    > In het geval wanneer het wachtwoord van de gebruiker is gesynchroniseerd naar Azure AD met Wachtwoordsynchronisatie is een kans dat het lokale wachtwoordbeleid zwakkere dan de cloud-wachtwoordbeleid is. In dit geval afdwingen we nog steeds van wat het beleid van de on-premises is en in plaats daarvan synchronisatie van wachtwoordhash om te synchroniseren van de hash van dat wachtwoord toestaan. Dit zorgt ervoor dat het beleid van uw on-premises wordt afgedwongen in de cloud, ongeacht of u Wachtwoordsynchronisatie of Federatie gebruiken voor eenmalige aanmelding.
+    > Als het wachtwoord van de gebruiker is gesynchroniseerd naar Azure AD met behulp van synchronisatie van wachtwoorden, is er een kans dat het lokale wachtwoordbeleid zwakkere dan de cloud-wachtwoordbeleid is. In dit geval afdwingen we nog steeds van wat het beleid van de on-premises is en in plaats daarvan synchronisatie van wachtwoordhash gebruiken om te synchroniseren van de hash van het wachtwoord. Dit beleid zorgt ervoor dat het beleid van uw on-premises wordt afgedwongen in de cloud, ongeacht of u Wachtwoordsynchronisatie of Federatie gebruiken voor eenmalige aanmelding.
 
-10. Als het wachtwoord ingesteld mislukt, wordt geretourneerd met de fout aan de gebruiker en laat ze probeer het opnieuw.
-    * De bewerking kan mislukken vanwege de volgende
-        * De service is niet actief
-        * Het wachtwoord dat ze geselecteerd voldeed niet aan beleid van organisatie
-        * Er kan de gebruiker niet vinden in de lokale AD
+10. Als het wachtwoord ingesteld mislukt, we retourneren een foutmelding voor de gebruiker en laat ze probeer het opnieuw. De bewerking kan mislukken omdat:
+    * De service is niet beschikbaar.
+    * Het wachtwoord dat ze geselecteerd voldeed niet aan de beleidsregels van de organisatie.
+    * We kunnen de gebruiker niet vinden in de lokale Active Directory.
 
     We hebben een specifieke bericht voor veel van deze gevallen en de gebruiker vertellen wat ze kunnen doen om het probleem te verhelpen.
 
-## <a name="configuring-password-writeback"></a>Wachtwoord terugschrijven configureren
+## <a name="configure-password-writeback"></a>Wachtwoord terugschrijven configureren
 
 Het is raadzaam dat u de functie voor automatisch bijwerken van [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) als u wilt gebruiken terugschrijven van wachtwoorden.
 
-DirSync en Azure AD Sync zijn niet langer ondersteund middel aan voor het inschakelen van wachtwoord terugschrijven het artikel [upgraden van DirSync en Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) bevat meer informatie om te helpen bij de overgang.
+DirSync en Azure AD Sync worden niet meer ondersteund als een manier wachtwoord terugschrijven inschakelen. Zie voor meer informatie om te helpen bij de overgang [upgraden van DirSync en Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md).
 
-De volgende stappen wordt ervan uitgegaan dat u Azure AD Connect al hebt geconfigureerd in uw omgeving met de [Express](./connect/active-directory-aadconnect-get-started-express.md) of [aangepaste](./connect/active-directory-aadconnect-get-started-custom.md) instellingen.
+De volgende stappen wordt ervan uitgegaan dat u Azure AD Connect al in uw omgeving hebt geconfigureerd met behulp van de [Express](./connect/active-directory-aadconnect-get-started-express.md) of [aangepaste](./connect/active-directory-aadconnect-get-started-custom.md) instellingen.
 
-1. Om te configureren en inschakelen van wachtwoord terugschrijven melden bij uw Azure AD Connect-server en start de **Azure AD Connect** configuratiewizard.
-2. Klik op het welkomstscherm op **configureren**.
-3. Klik op het scherm Extra taken **aanpassen Synchronisatieopties** en kies vervolgens **volgende**.
-4. Voer de referenties van een globale beheerder op het scherm verbinding maken met Azure AD, en kies **volgende**.
-5. Op de verbinding maken uw mappen en domein en OE filteren schermen kunt u **volgende**.
-6. Op het scherm optionele functies, schakel het selectievakje in naast **wachtwoord terugschrijven** en klik op **volgende**.
+1. Aanmelden bij uw Azure AD Connect-server om te configureren en wachtwoord terugschrijven inschakelen, en start de **Azure AD Connect** configuratiewizard.
+2. Op de **Welkom** pagina **configureren**.
+3. Op de **extra taken** pagina **aanpassen Synchronisatieopties**, en selecteer vervolgens **volgende**.
+4. Op de **verbinding maken met Azure AD** pagina, voer de referenties van een globale beheerder en selecteer vervolgens **volgende**.
+5. Op de **mappen verbinding** en **domein/organisatie-eenheid** pagina's filteren, selecteert u **volgende**.
+6. Op de **optionele functies** pagina, schakel het selectievakje naast **wachtwoord terugschrijven** en selecteer **volgende**.
    ![Wachtwoord terugschrijven in Azure AD Connect inschakelen][Writeback]
-7. Klik op de gereed voor configuratie scherm, **configureren** en wacht totdat dit proces te voltooien.
-8. Als u ziet dat de configuratie is voltooid, klikt u op **afsluiten**
+7. Op de **klaar om te configureren** pagina **configureren** en wacht totdat het proces te voltooien.
+8. Wanneer u de configuratie voltooien ziet, selecteert u **afsluiten**.
 
 Voor algemene probleemoplossing taken in verband met terugschrijven van wachtwoorden, Zie de sectie [wachtwoord terugschrijven oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in onze probleemoplossingsartikel.
 
 ## <a name="active-directory-permissions"></a>Machtigingen voor Active Directory
 
-Het account opgegeven in het Azure AD Connect-hulpprogramma moet wachtwoord opnieuw instellen, wachtwoord wijzigen, schrijfmachtigingen hebben op lockoutTime en schrijfmachtigingen op pwdLastSet, uitgebreide rechten van een object in de root van **elk domein** in dat forest **of** op de organisatie-eenheden u wilt gebruiken als binnen het bereik van de SSPR-gebruiker.
+Het account opgegeven in het Azure AD Connect-hulpprogramma moeten de volgende items ingesteld als u wilt worden binnen het bereik van SSPR:
 
-Als u niet zeker weet welk account de bovenstaande naar verwijst de Azure Active Directory Connect configuratiegebruikersinterface openen en klik op de huidige configuratie-optie voor weergave. Het account dat u wilt toevoegen, mag wordt vermeld onder 'Mappen gesynchroniseerd'
+* **Wachtwoord opnieuw instellen** 
+* **Wachtwoord wijzigen** 
+* **Schrijfmachtigingen** op`lockoutTime`  
+* **Schrijfmachtigingen** op`pwdLastSet`
+* **Uitgebreide rechten** van een:
+   * Het hoofdobject van *elk domein* in dat forest
+   * De gebruiker organisatie-eenheden (OE's) die u wilt worden binnen het bereik van SSPR
 
-Deze machtigingen kan het MA-serviceaccount voor elk forest de wachtwoorden beheren namens de gebruikersaccounts in dat forest. **Als u niet de volgende machtigingen toe te wijzen, klikt u vervolgens terugschrijven weergegeven correct worden geconfigureerd, maar gebruikers er fouten optreden bij een poging tot het beheren van hun on-premises wachtwoorden vanuit de cloud.**
+Als u niet zeker weet welk account het account beschreven verwijst, opent u de Azure Active Directory Connect configuratiegebruikersinterface en selecteer de **huidige weergaveconfiguratie** optie. Het account dat u toevoegen, mag wordt vermeld wilt onder **mappen gesynchroniseerd**.
+
+Als u deze machtigingen instelt, kan het MA-serviceaccount voor elk forest wachtwoorden beheren namens de gebruikersaccounts in dat forest. 
+
+>[!IMPORTANT]
+>Als u niet de volgende machtigingen toe te wijzen, klikt u vervolgens treden terugschrijven weergegeven correct worden geconfigureerd, maar gebruikers fouten op bij de poging voor het beheren van hun on-premises wachtwoorden vanuit de cloud.
+>
 
 > [!NOTE]
 > Het kan duren tot een uur of meer voor de machtigingen zijn gerepliceerd naar alle objecten in uw directory.
 >
 
-Voor het instellen van de juiste machtigingen voor write-back van wachtwoord om te worden uitgevoerd
+Als u de juiste machtigingen voor terugschrijving wachtwoord instelt, moet u de volgende stappen uitvoeren:
 
-1. Open Active Directory: gebruikers en Computers met een account met de juiste machtigingen voor domeinbeheer
-2. Controleer of dat geavanceerde functies is ingeschakeld op in het menu Beeld
-3. In het linkerdeelvenster met de rechtermuisknop op het object waarmee de hoofdmap van het domein en kies Eigenschappen
-    * Klik op het tabblad Beveiliging
-    * Klik vervolgens op Geavanceerd.
-4. Klik op toevoegen op het tabblad machtigingen
-5. Het account kiezen dat machtigingen worden toegepast op (van Azure AD Connect-installatie)
-6. Selecteer in de van toepassing op de vervolgkeuzelijst onderliggende gebruikersobjecten
-7. Schakel de selectievakjes voor de volgende onder machtigingen
-    * Unexpire wachtwoord
-    * Wachtwoord opnieuw instellen
-    * Wachtwoord wijzigen
-    * LockoutTime schrijven
-    * PwdLastSet schrijven
-8. Klik op toepassen/OK via wilt toepassen en sluit alle geopende dialoogvensters.
+1. Open Active Directory: gebruikers en Computers met een account met de juiste machtigingen voor domeinbeheer.
+2. Van de **weergave** menu, zorg ervoor dat **geavanceerde functies** is ingeschakeld.
+3. In het linkerdeelvenster met de rechtermuisknop op het object waarmee de hoofdmap van het domein en selecteer **eigenschappen** > **beveiliging** > **Geavanceerd**.
+4. Van de **machtigingen** tabblad **toevoegen**.
+5. Kies het account dat machtigingen worden toegepast op (van de Azure AD Connect-installatie).
+6. In de **is van toepassing op** vervolgkeuzelijst, selecteer **onderliggende gebruiker** objecten.
+7. Onder **machtigingen**, schakelt u de selectievakjes voor het volgende:
+    * **Unexpire wachtwoord**
+    * **Wachtwoord opnieuw instellen**
+    * **Wachtwoord wijzigen**
+    * **LockoutTime schrijven**
+    * **PwdLastSet schrijven**
+8. Selecteer **toepassen/OK** worden de wijzigingen toegepast en sluit alle geopende dialoogvensters.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licentievereisten voor write-back van wachtwoord
 
-Voor informatie over licentieverlening, Zie [licenties nodig zijn voor write-back van wachtwoord](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) of de volgende sites
+Zie voor meer informatie over licentieverlening [licenties nodig zijn voor write-back van wachtwoord](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) of de volgende sites:
 
-* [Azure Active Directory-prijzen site](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory website prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Beveiligde productief Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
 
-### <a name="on-premises-authentication-modes-supported-for-password-writeback"></a>Lokale verificatiemodi ondersteund voor write-back van wachtwoord
+### <a name="on-premises-authentication-modes-that-are-supported-for-password-writeback"></a>Lokale verificatiemodi die worden ondersteund voor write-back van wachtwoord
 
-Wachtwoord terugschrijven werkt voor de volgende typen van de gebruiker-wachtwoord:
+Wachtwoord terugschrijven ondersteuning voor de volgende typen van de gebruiker-wachtwoord:
 
-* **Alleen in de cloud gebruikers**: wachtwoord terugschrijven is niet van toepassing in dit geval, omdat er geen on-premises-wachtwoord
-* **Het wachtwoord is gesynchroniseerd gebruikers**: wachtwoord terugschrijven ondersteund
-* **Federatieve gebruikers**: wachtwoord terugschrijven ondersteund
-* **Pass through-verificatie gebruikers**: wachtwoord terugschrijven ondersteund
+* **Alleen in de cloud gebruikers**: wachtwoord terugschrijven is niet van toepassing in dit geval, omdat er geen on-premises wachtwoord.
+* **Het wachtwoord is gesynchroniseerd gebruikers**: wachtwoord terugschrijven wordt ondersteund.
+* **Federatieve gebruikers**: wachtwoord terugschrijven wordt ondersteund.
+* **Pass through-verificatie gebruikers**: wachtwoord terugschrijven wordt ondersteund.
 
-### <a name="user-and-admin-operations-supported-for-password-writeback"></a>Gebruikers- en Admin bewerkingen die worden ondersteund voor write-back van wachtwoord
+### <a name="user-and-admin-operations-that-are-supported-for-password-writeback"></a>Gebruikers- en admin bewerkingen die worden ondersteund voor write-back van wachtwoord
 
 Wachtwoorden worden teruggeschreven in de volgende situaties:
 
-* **Ondersteunde bewerkingen van eindgebruikers**
+* **Ondersteunde eindgebruikers**
   * Alle eindgebruikers selfservice vrijwillige bewerking wachtwoord wijzigen
-  * Eindgebruikers selfservice force wijzigen wachtwoord bewerkingen (bijvoorbeeld verlopen van wachtwoorden)
-  * Alle eindgebruikers selfservice voor wachtwoordherstel die afkomstig zijn van de [Portal voor wachtwoord opnieuw instellen](https://passwordreset.microsoftonline.com)
-* **Ondersteunde bewerkingen van de beheerder**
+  * Alle eindgebruikers selfservice force wachtwoord bewerking, bijvoorbeeld verlopen van wachtwoorden wijzigen
+  * Alle eindgebruikers selfservice voor wachtwoordherstel dat afkomstig van is de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com)
+* **Ondersteunde bewerkingen**
   * Een beheerder selfservice vrijwillige bewerking wachtwoord wijzigen
-  * Een beheerder selfservice force wijzigen wachtwoord bewerking (bijvoorbeeld verlopen van wachtwoorden)
-  * Een beheerder selfservice voor wachtwoordherstel die afkomstig zijn van de [Portal voor wachtwoord opnieuw instellen](https://passwordreset.microsoftonline.com)
+  * Een beheerder selfservice force wachtwoord bewerking, bijvoorbeeld verlopen van wachtwoorden wijzigen
+  * Een beheerder selfservice voor wachtwoordherstel dat afkomstig van is de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com)
   * Een beheerder worden geïnitieerd door eindgebruikers wachtwoord opnieuw instellen van de [klassieke Azure-portal](https://manage.windowsazure.com)
   * Een beheerder worden geïnitieerd door eindgebruikers wachtwoord opnieuw instellen van de [Azure-portal](https://portal.azure.com)
 
-### <a name="user-and-admin-operations-not-supported-for-password-writeback"></a>Gebruikers- en Admin bewerkingen worden niet ondersteund voor write-back van wachtwoord
+### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Gebruikers- en admin bewerkingen die worden niet ondersteund voor write-back van wachtwoord
 
-De wachtwoorden **niet** teruggeschreven in een van de volgende situaties:
+De wachtwoorden *niet* teruggeschreven in een van de volgende situaties:
 
-* **Niet-ondersteunde bewerkingen van eindgebruikers**
-  * Iedere gebruiker opnieuw instellen van hun eigen wachtwoord met behulp van PowerShell v1, v2, of de Azure AD Graph API
-* **Niet-ondersteunde bewerkingen van de beheerder**
+* **Niet-ondersteunde eindgebruikers**
+  * Een eindgebruiker hun eigen wachtwoord opnieuw instellen met behulp van PowerShell-versie 1, versie 2 of de Azure AD Graph API
+* **De beheerder van de niet-ondersteunde bewerkingen**
   * Een beheerder worden geïnitieerd door eindgebruikers wachtwoord opnieuw instellen van de [Office-beheerportal](https://portal.office.com)
-  * Een beheerder worden geïnitieerd door eindgebruikers voor wachtwoordherstel van PowerShell v1, v2 of de Azure AD Graph API
+  * Een beheerder worden geïnitieerd door eindgebruikers voor wachtwoordherstel van PowerShell-versie 1, versie 2 of de Azure AD Graph API
 
-Terwijl we proberen te verwijderen van deze beperkingen, hoeft u niet een specifieke tijdlijn die we nog kunt delen.
+We proberen te verwijderen van deze beperkingen, maar er zijn momenteel geen een specifieke tijdlijn die we nog kunt delen.
 
 ## <a name="password-writeback-security-model"></a>Wachtwoord terugschrijven beveiligingsmodel
 
-Wachtwoord terugschrijven is een maximaal beveiligde service.  Uw gegevens worden beschermd, zodat inschakelen we een beveiligingsmodel 4 lagen die wordt hieronder beschreven.
+Wachtwoord terugschrijven is een maximaal beveiligde service. Uw gegevens worden beschermd, zodat inschakelen we een beveiligingsmodel vier lagen die wordt beschreven als volgt:
 
 * **Tenant-specifieke service bus relay**
   * Bij het instellen van de service, u stelt een tenantspecifieke service bus relay die wordt beveiligd door een willekeurig gegenereerd sterk wachtwoord dat Microsoft nooit toegang tot heeft.
 * **De versleutelingssleutel vergrendelde, cryptografisch sterk wachtwoord**
-  * Nadat de service bus relay is gemaakt, maken we een sterke symmetrische sleutel die we gebruiken voor het versleutelen van het wachtwoord als ze afkomstig zijn via de kabel. Deze sleutel woont alleen in geheime store in de cloud, die sterk is vergrendeld en gecontroleerd, net als elk wachtwoord in de map van uw bedrijf.
-* **De standaard TLS bedrijfstak**
+  * Nadat de service bus relay is gemaakt, maken we een sterke symmetrische sleutel die wordt gebruikt voor het versleutelen van het wachtwoord als ze afkomstig zijn via de kabel. Deze sleutel bevinden zich alleen in geheime store in de cloud, die sterk is vergrendeld en gecontroleerd, net als elk ander wachtwoord in de map van uw bedrijf.
+* **Bedrijfstak standaard Transport Layer Security (TLS)**
   1. Wanneer u een wachtwoord opnieuw instellen of wijzigen bewerking doet zich voor in de cloud, we nemen het leesbare wachtwoord coderen met uw openbare sleutel.
-  2. We vervolgens plaatsen die in een HTTPS-mailbericht wordt verzonden via een versleuteld kanaal met behulp van Microsoft SSL-certificaten voor uw service bus relay.
-  3. Nadat het bericht naar Service Bus binnenkomt, uw lokale ontwaakt en de agent zich verifieert bij Service Bus het sterk wachtwoord dat eerder is gegenereerd.
-  4. Lokale agent het gecodeerde bericht opneemt, ontsleutelt met behulp van de persoonlijke sleutel die wordt gegenereerd.
-  5. Lokale agent probeert vervolgens via de API van AD DS SetPassword-wachtwoord instellen.
-     * Deze stap is wat kunnen worden uitgevoerd op het afdwingen van uw beleid AD on-premises wachtwoord (complexiteit, leeftijd, geschiedenis, filters, enzovoort) in de cloud.
+  2. We plaats die in een HTTPS-bericht dat wordt verzonden via een versleuteld kanaal met behulp van Microsoft SSL-certificaten voor uw service bus relay.
+  3. Nadat het bericht in de servicebus ontvangt, wordt de agent van uw lokale ontwaakt en geverifieerd aan de servicebus met behulp van de sterke wachtwoorden die eerder is gegenereerd.
+  4. De lokale agent het gecodeerde bericht opneemt en ontsleutelt deze met behulp van de persoonlijke sleutel die wordt gegenereerd.
+  5. De lokale agent probeert het wachtwoord via de API van AD DS SetPassword in te stellen. Deze stap is wat ons af te dwingen van het beleid van uw Active Directory on-premises wachtwoord (zoals de complexiteit, leeftijd, geschiedenis en filters) is toegestaan in de cloud.
 * **Het verloopbeleid bericht** 
-  * Als het bericht bevindt zich in de Service Bus omdat uw on-premises service niet actief is, wordt beëindigd en worden verwijderd na enkele minuten beveiliging nog verder verbeteren.
+  * Als het bericht bevindt zich in de servicebus omdat uw on-premises service niet actief is, een time-out optreedt en wordt verwijderd na enkele minuten. De time-out en het verwijderen van het bericht verhoogt de beveiliging nog verder.
 
 ### <a name="password-writeback-encryption-details"></a>Wachtwoord terugschrijven versleuteling details
 
-De stappen voor het versleutelen een aanvraag voor wachtwoordherstel doorloopt nadat een gebruiker verzendt, voordat het wordt geleverd in uw on-premises-omgeving, om ervoor te zorgen maximale service betrouwbaarheid en beveiliging worden hieronder beschreven.
+Nadat een gebruiker een wachtwoord opnieuw instellen verzendt, gaat de aanvraag opnieuw instellen via verschillende stappen voor het versleutelen voordat deze in uw on-premises omgeving binnenkomt. Deze stappen voor het versleutelen Zorg ervoor dat de maximale service betrouwbaarheid en beveiliging. Ze worden als volgt beschreven:
 
-* **Stap 1 - wachtwoordversleuteling met 2048-bits RSA-sleutel** - zodra een gebruiker een wachtwoord worden teruggeschreven naar verzendt on-premises, eerst het opgegeven wachtwoord zelf is versleuteld met een 2048-bits RSA-sleutel.
-* **Stap 2: versleuteling van het pakket op met AES-GCM** -en vervolgens het volledige pakket (wachtwoord + vereiste metagegevens) is versleuteld met AES-GCM. Deze versleuteling voorkomt dat iedereen met directe toegang naar de onderliggende service bus-kanaal weergeven/knoeien met de inhoud.
-* **Stap 3: alle communicatie vindt plaats via TLS / SSL** -alle communicatie met Service Bus gebeurt in een SSL/TLS-kanaal. Deze versleuteling beveiligt de inhoud van een niet-geautoriseerde derde partij.
-* **Automatische sleutelrollover om de zes maanden** : elke 6 maanden of elke keer dat wachtwoord terugschrijven is uitgeschakeld of opnieuw worden ingeschakeld op Azure AD Connect we automatisch alle rollover-codes om ervoor te zorgen maximale service en veiligheid.
+* **Stap 1: Wachtwoordversleuteling met 2048-bits RSA-sleutel**: nadat een gebruiker een wachtwoord worden teruggeschreven naar on-premises verzendt, het opgegeven wachtwoord zelf is versleuteld met een 2048-bits RSA-sleutel.
+* **Stap 2: Niveau Package versleuteling met AES-GCM**: het volledige pakket, het wachtwoord, plus de vereiste metagegevens is versleuteld met AES-GCM. Deze versleuteling voorkomt dat iedereen met directe toegang naar de onderliggende service bus-kanaal weergeven of knoeien met de inhoud.
+* **Stap 3: Alle communicatie vindt plaats via TLS/SSL**: alle communicatie met Service Bus gebeurt in een SSL/TLS-kanaal. Deze versleuteling beveiligt de inhoud van een niet-geautoriseerde derde partij.
+* **Automatische sleutelrollover om de zes maanden**: om de zes maanden of elke keer wachtwoord terugschrijven is uitgeschakeld en vervolgens weer wordt ingeschakeld op Azure AD Connect. We rollover automatisch plaats alle sleutels om te controleren of de maximale service en veiligheid.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Wachtwoord terugschrijven bandbreedtegebruik
 
-Wachtwoord terugschrijven is een lage bandbreedte-service die aanvragen teruggestuurd naar de lokale agent alleen in de volgende omstandigheden wordt:
+Wachtwoord terugschrijven is een lage bandbreedte-service die alleen aanvragen naar de lokale agent in de volgende omstandigheden verzendt:
 
-1. Twee berichten worden verzonden wanneer het in- of uitschakelen van de functie met Azure AD Connect.
-2. Een bericht wordt elke vijf minuten als een heartbeat-service voor verzonden als de service wordt uitgevoerd.
-3. Twee berichten worden verzonden op elk moment een nieuw wachtwoord wordt ingediend
-    * Eerste bericht, als een aanvraag voor de bewerking uit te voeren
-    * Tweede bericht die het resultaat van de bewerking bevat en worden verzonden in de volgende omstandigheden:
+* Twee berichten worden verzonden wanneer de functie is ingeschakeld of uitgeschakeld met Azure AD Connect.
+* Een bericht wordt elke vijf minuten als een heartbeat-service voor verzonden als de service wordt uitgevoerd.
+* Twee berichten worden verzonden op elk moment een nieuw wachtwoord wordt ingediend:
+    * Het eerste bericht is een verzoek om de bewerking niet uitvoeren.
+    * Het tweede bericht bevat het resultaat van de bewerking en wordt verzonden in de volgende omstandigheden:
         * Telkens wanneer een nieuw wachtwoord wordt ingediend tijdens een gebruiker zelf uw wachtwoord opnieuw instellen.
         * Telkens wanneer een nieuw wachtwoord wordt ingediend tijdens een wachtwoordwijziging van gebruiker.
-        * Telkens wanneer een nieuw wachtwoord wordt ingediend tijdens een beheerder geïnitieerde gebruikerswachtwoord opnieuw instellen (van de Azure-beheerder portals alleen).
+        * Telkens wanneer een nieuw wachtwoord wordt ingediend tijdens een beheerder geïnitieerde gebruikerswachtwoord opnieuw instellen (alleen van de portals Azure admin).
 
 #### <a name="message-size-and-bandwidth-considerations"></a>Overwegingen voor het grootte en bandbreedte van het bericht
 
-De grootte van elk van de hierboven beschreven bericht is doorgaans onder 1 kb, zelfs onder extreme laadt, de service voor het terugschrijven van wachtwoord zelf verbruikt enkele kilobits per seconde van de bandbreedte. Omdat elk bericht wordt verzonden in realtime, is alleen indien vereist door een updatebewerking wachtwoord, en de berichtgrootte zo klein is het bandbreedtegebruik van de mogelijkheid Write-back effectief te klein voor een echte merkbare impact hebben.
+De grootte van elk van de eerder beschreven bericht is doorgaans dan 1 KB. De service voor het terugschrijven van wachtwoord zelf verbruikt enkele kilobits per seconde van de bandbreedte zelfs onder extreme is geladen. Omdat elk bericht wordt verzonden in realtime, is alleen indien vereist door een updatebewerking wachtwoord, en omdat de berichtgrootte zo klein is het bandbreedtegebruik van de mogelijkheid Write-back te klein voor een merkbare invloed.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
 * [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
 * [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
+* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)

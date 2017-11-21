@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ebf07218a6b356d71af51383ac85933ec63b543b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 78c4f5c2f48393dfd76621847063918c10b9ff52
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Zelfstudie: Azure Active Directory-integratie met Zendesk
 
@@ -25,9 +26,9 @@ In deze zelfstudie leert u hoe Zendesk integreren met Azure Active Directory (Az
 
 Zendesk integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Zendesk heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Zendesk (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot Zendesk heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Zendesk (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -38,16 +39,13 @@ Voor het configureren van Azure AD-integratie met Zendesk, moet u de volgende it
 - Een Azure AD-abonnement
 - Een Zendesk eenmalige aanmelding ingeschakeld abonnement
 
-
 > [!NOTE]
 > Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
-
 
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
-
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -55,48 +53,44 @@ In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het
 1. Zendesk uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-
 ## <a name="adding-zendesk-from-the-gallery"></a>Zendesk uit de galerie toevoegen
 Voor het configureren van de integratie van Zendesk in Azure AD, moet u Zendesk uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Zendesk uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure Portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-    ![Active Directory][1]
+    ![De Azure Active Directory-knop][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![De blade Enterprise-toepassingen][2]
     
-3. Klik op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak **Zendesk**.
+4. Typ in het zoekvak **Zendesk**, selecteer **Zendesk** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_search.png)
+    ![Zendesk in de lijst met resultaten](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
 
-5. Selecteer in het deelvenster resultaten **Zendesk**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Zendesk op basis van een testgebruiker 'Britta Simon' genoemd.
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in de Zendesk is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in de Zendesk tot stand worden gebracht.
 
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in Zendesk.
+In de Zendesk, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Zendesk, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Zendesk](#creating-a-zendesk-test-user)**  - Zendesk die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Zendesk](#create-a-zendesk-test-user)**  - Zendesk die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
 In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw Zendesk-toepassing.
 
@@ -104,59 +98,61 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
 1. In de Azure-portal op de **Zendesk** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_samlbase.png)
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_samlbase.png)
 
 3. Op de **Zendesk-domein en de URL's** sectie, voert u de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_url.png)
+    ![Zendesk-domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen:`https://<subdomain>.zendesk.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.zendesk.com`
 
     b. In de **id** textbox, typ de waarde met het volgende patroon volgen:`<subdomain>.zendesk.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL en identificatie-URL. Neem contact op met [Zendesk-ondersteuningsteam](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Zendesk Client ondersteuningsteam](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) ophalen van deze waarden. 
+ 
+4. Op de **SAML-certificaat voor ondertekening van** sectie, Kopieer de **VINGERAFDRUK** waarde van het certificaat.
 
-4. De SAML-asserties verwacht Zendesk in een specifieke indeling. Er zijn geen verplichte SAML-kenmerken, maar u kunt desgewenst een kenmerk uit toevoegen **gebruikerskenmerken** sectie volgens de onderstaande stappen te volgen: 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png)
+
+5. De SAML-asserties verwacht Zendesk in een specifieke indeling. Er zijn geen verplichte SAML-kenmerken, maar u kunt desgewenst een kenmerk uit toevoegen **gebruikerskenmerken** sectie volgens de onderstaande stappen te volgen: 
 
      ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_attributes1.png)
 
-    a. Klik op de **weergeven en bewerken van de kenmerken** selectievakje.
-     
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_attributes2.png)
-   
-    b. Klik op de **kenmerk toevoegen** openen **toevoegen kenmerk** dialoogvenster.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_05.png)
+    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
-    c. In de **naam** textbox, typ de naam van het kenmerk (bijvoorbeeld **emailaddress**).
+    ![Eenmalige aanmelding configureren toevoegen](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_04.png)
+
+    ![Single Sign-On addattb configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_05.png)
+
+    b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+
+    c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
     
-    d. Van de **waarde** , selecteert u de waarde van het kenmerk (als **user.mail**).
-    
-    e. Klik op **Ok**
+    d. Klik op **OK**.
  
     > [!NOTE] 
-    > Uitbreidingskenmerken kunt u kenmerken die zich niet in Azure AD standaard toevoegen. Klik op [gebruikerskenmerken die kunnen worden ingesteld in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) ophalen van de volledige lijst met kenmerken die met SAML **Zendesk** accepteert. 
+    > Uitbreidingskenmerken kunt u kenmerken die zich niet in Azure AD standaard toevoegen. Klik op [gebruikerskenmerken die kunnen worden ingesteld in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) ophalen van de volledige lijst met kenmerken die met SAML **Zendesk** accepteert.  
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, Kopieer de **VINGERAFDRUK** waarde van het certificaat.
+6. Klik op **opslaan** knop.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png) 
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_general_400.png)
 
-6. Op de **Zendesk configuratie** sectie, klikt u op **configureren Zendesk** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's en SAML Single Sign-On Service** van de **Naslaggids punt.**
+7. Op de **Zendesk configuratie** sectie, klikt u op **configureren Zendesk** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's en SAML Single Sign-On Service** van de **Naslaggids punt.**
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_configure.png) 
+    ![Zendesk-configuratie](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_configure.png) 
 
-7. In een ander browservenster, meld u bij uw bedrijf Zendesk site als beheerder.
+8. In een ander browservenster, meld u bij uw bedrijf Zendesk site als beheerder.
 
-8. Klik op **Admin**.
+9. Klik op **Admin**.
 
-9. Klik in het navigatiedeelvenster links op **instellingen**, en klik vervolgens op **beveiliging**.
+10. Klik in het navigatiedeelvenster links op **instellingen**, en klik vervolgens op **beveiliging**.
 
-10. Op de **beveiliging** pagina, voert u de volgende stappen uit: 
+11. Op de **beveiliging** pagina, voert u de volgende stappen uit: 
    
      ![Beveiliging](./media/active-directory-saas-zendesk-tutorial/ic773089.png "beveiliging")
 
@@ -174,38 +170,43 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
      
      f. Klik op **Opslaan**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+> [!TIP]
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
-![Azure AD-gebruiker maken][100]
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zendesk-tutorial/create_aaduser_01.png) 
+    ![De Azure Active Directory-knop](./media/active-directory-saas-zendesk-tutorial/create_aaduser_01.png)
 
-2. Om weer te geven naar de lijst met gebruikers gaan **gebruikers en groepen** en klik op **alle gebruikers**.
-    
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zendesk-tutorial/create_aaduser_02.png) 
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-3. Aan de bovenkant van het dialoogvenster, klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-zendesk-tutorial/create_aaduser_02.png)
+
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+
+    ![De knop toevoegen](./media/active-directory-saas-zendesk-tutorial/create_aaduser_03.png)
+
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-zendesk-tutorial/create_aaduser_04.png)
+
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+
+    d. Klik op **Create**.
  
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zendesk-tutorial/create_aaduser_03.png) 
-
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-zendesk-tutorial/create_aaduser_04.png) 
-
-    a. In de **naam** textbox type **BrittaSimon**.
-
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
-
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
-
-    d. Klik op **Create**. 
-
-### <a name="creating-a-zendesk-test-user"></a>Een testgebruiker Zendesk maken
+### <a name="create-a-zendesk-test-user"></a>Een testgebruiker Zendesk maken
 
 Meld u aan bij Azure AD-gebruikers inschakelen **Zendesk**, deze moeten worden ingericht in **Zendesk**.  
 Afhankelijk van de rol in de apps is het verwachte gedrag:
@@ -222,19 +223,18 @@ Afhankelijk van de rol in de apps is het verwachte gedrag:
 3. Selecteer de **gebruiker** tabblad en klik op **toevoegen**.
    
     ![Gebruiker toevoegen](./media/active-directory-saas-zendesk-tutorial/ic773632.png "gebruiker toevoegen")
-4. Typ de e-mailadres van een bestaande Azure AD-account dat u wilt inrichten, en klik vervolgens op **opslaan**.
+4. Typ de **naam** en **e** van een bestaande Azure AD-account dat u wilt inrichten, en klik vervolgens op **opslaan**.
    
     ![Nieuwe gebruiker](./media/active-directory-saas-zendesk-tutorial/ic773633.png "nieuwe gebruiker")
 
 > [!NOTE]
 > U kunt andere Zendesk gebruiker account hulpmiddelen voor het maken of API's die is geleverd door Zendesk aan inrichten AAD-gebruikersaccounts.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Zendesk.
 
-![Gebruiker toewijzen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
 **Britta Simon om aan te wijzen Zendesk, moet u de volgende stappen uitvoeren:**
 
@@ -244,15 +244,15 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 2. Selecteer in de lijst met toepassingen **Zendesk**.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png) 
+    ![De Zendesk-koppeling in de lijst met toepassingen](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)  
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![De koppeling 'Gebruikers en groepen'][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Gebruiker toewijzen][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
 5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
@@ -260,12 +260,12 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de Zendesk-tegel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Zendesk-toepassing.
-Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
@@ -287,3 +287,4 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_203.png
+

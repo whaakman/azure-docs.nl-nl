@@ -10,11 +10,11 @@ ms.reviewer: veyalla
 ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a78efef6bc82a837782c462bc3558a9582a8da7c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: b6c8e77b16d784373e392d0ac97094050677cb84
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installeren van de rand van de IoT-runtime op Windows IoT Core - voorbeeld
 
@@ -38,7 +38,7 @@ De Azure IoT rand Runtime kunt zelfs op kleine één mededelingenbord Computer S
    ```
 
    >[!NOTE]
-   >Deze PowerShell-script is van de server Moby project bouwen en is bedoeld voor evaluatiedoeleinden. Het is niet getest, goedgekeurd door of ondersteund door Docker.
+   >Deze container runtime is van de server Moby project bouwen en is bedoeld voor evaluatiedoeleinden. Het is niet getest, goedgekeurd door of ondersteund door Docker.
 
 1. Installeren van de rand van de IoT-runtime en controleer de configuratie:
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 856348c07a198a8c53c6661441d5c49196ef3af5
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming en samenwerking in Azure Machine Learning Workbench
 Dit document leert u hoe u Azure Machine Learning Workbench kan helpen uw projecten roamen tussen machines, evenals inschakelen samenwerking met de teamleden. 
@@ -28,10 +28,14 @@ Ten tweede toegang tot [Visual Studio Team System](https://www.visualstudio.com)
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>Een nieuw Azure Machine Learning-project maken
 Azure Machine Learning Workbench Start en een nieuw project maken (bijvoorbeeld _iris_). Vul de **Visualstudio.com GIT-opslagplaats URL** tekstvak met een geldige URL voor VSTS Git-opslagplaats. 
->[!IMPORTANT]
->Maken van het project mislukt als u hebt geen lees-/ schrijftoegang op de Git-opslagplaats en de Git-opslagplaats is niet leeg, dat wil zeggen er al een hoofdvertakking.
+
+> [!IMPORTANT]
+> Als u de sjabloon leeg project kiest, is het OK als u al de Git-opslagplaats is een _master_ vertakking. Azure ML kloont gewoon de _master_ vertakking lokaal en voegt de `aml_config` map en andere projectbestanden metagegevens op de lokale projectmap. Maar als u een andere projectsjabloon, Git-opslagplaats mag niet al hebben een _master_ vertakking, of u een fout ziet. Het alternatief is `az ml project create` opdrachtregelprogramma voor het maken van het project en geef een `--force` overschakelen. Dit wordt verwijderd van de bestanden op de oorspronkelijke hoofdvertakking en vervang ze door de bestanden in de sjabloon die u kiest.
 
 Zodra het project is gemaakt, indienen enkele wordt uitgevoerd op alle scripts in het project. Deze actie voert project staat in van de externe Git-opslagplaats uitvoeringsgeschiedenis vertakking. 
+
+> [!NOTE] 
+> Alleen script uitgevoerd trigger doorvoeracties naar de vertakking uitvoeringsgeschiedenis. Gegevens voorbereiden uitvoering of laptop wordt uitgevoerd geen project momentopnamen op de vertakking uitvoeringsgeschiedenis trigger.
 
 Als u setup Git-verificatie hebt, kunt u ook expliciet in de hoofdvertakking werken, of maak een nieuwe vertakking. 
 
@@ -71,7 +75,8 @@ Op Mac OS is het hier:`/home/<username>/Documents/AzureML`
 
 We zullen de functies waarmee u Selecteer een doelmap in een toekomstige release. 
 
->Houd er rekening mee als u per ongeluk een map in de Azure ML-map die exact dezelfde naam als het project, de download mislukt is. Voor het gebruikt wordt, moet u de naam van de bestaande map om dit probleem omzeilen.
+> [!NOTE]
+> Als u een map in de Azure ML-adreslijst met exact dezelfde naam als het project hebben, mislukt het downloaden. Voor het gebruikt wordt, moet u de naam van de bestaande map om dit probleem omzeilen.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Werken aan het gedownloade project 

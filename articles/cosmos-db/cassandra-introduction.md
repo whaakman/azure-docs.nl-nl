@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Inleiding tot Apache Cassandra API voor Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Als u al een Azure-abonnement hebt, kunt u zich aanmeldt bij het programma Cassa
 
     Als u de aanvraag indient, de status gewijzigd in **in afwachting van goedkeuring** in het deelvenster met de nieuwe account. 
 
-Nadat u uw aanvraag indient, wacht u totdat de e-mailmelding dat uw aanvraag is goedgekeurd. U hoeft niet te maken van een ondersteuningsticket voor het voltooien van de aanvraag. Aanvragen wordt gecontroleerd in de volgorde waarin ze werden ontvangen. 
+Nadat u uw aanvraag indient, wacht u totdat de e-mailmelding dat uw aanvraag is goedgekeurd. Vanwege het grote aantal aanvragen ontvangt u meldingen binnen een week. U hoeft niet te maken van een ondersteuningsticket voor het voltooien van de aanvraag. Aanvragen wordt gecontroleerd in de volgorde waarin ze werden ontvangen. 
 
 ## <a name="how-to-get-started"></a>Hoe gaat u aan de slag
 Eenmaal u het preview-programma hebt toegevoegd, voert u de snelstartgidsen Cassandra API voor het maken van een app met behulp van de API Cassandra:

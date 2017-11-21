@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met Java en Azure Cosmos DB API-app bouwen
 
@@ -43,6 +43,10 @@ Daarnaast doet u het volgende:
     * Op Ubuntu kunt u `sudo apt-get install git` uitvoeren om Git te installeren.
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
+
+> [!IMPORTANT] 
+> U moet een nieuwe tabel API-account om te werken met de SDK algemeen beschikbaar tabel-API's maken. Tabel gemaakt tijdens de preview-API-accounts worden niet ondersteund door de algemeen beschikbaar SDK's.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -98,7 +102,11 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. Plak uw primaire VERBINDINGSREEKS uit de portal in de waarde StorageConnectionString in regel 2. Als de Endpoint-gedeelte van de verbindingsreeks documents.azure.com wordt, corrigeert u gedeelte voor het gebruik van table.cosmosdb.azure.com in plaats daarvan.
+6. Plak uw primaire VERBINDINGSREEKS uit de portal in de waarde StorageConnectionString in regel 2. 
+
+    > [!IMPORTANT]
+    > Als uw eindpunt documents.azure.com treedt op wanneer u een preview-account hebt gebruikt, en u wilt maken een [nieuwe tabel API account](#create-a-database-account) werken met de algemeen beschikbaar tabel API SDK.
+    >
 
 7. Sla het bestand config.properties.
 
