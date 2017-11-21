@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/2/2017
-ms.openlocfilehash: b6cdd135d2d264c8b4ede1592c686cdeea3d0a59
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.date: 11/14/2017
+ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -119,8 +119,7 @@ Als u de webservice wilt implementeren, hebt niet alleen het modelbestand nodig,
 
 U kunt de omgeving nu gaan voorbereiden voor het operationeel maken van het model.
 
->[!NOTE]
->Voor het implementeren van modellen, moet u als eigenaar toegang hebben tot een Azure-abonnement.
+
 
 ## <a name="prepare-to-operationalize-locally"></a>Voorbereiden op operationeel maken in lokale omgeving
 Gebruik de implementatie _lokale modus_ voor uitvoering in Docker-containers op uw lokale computer.
@@ -162,7 +161,9 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
 
    De derde regel van de uitvoer bestaat uit **'registrationState': 'Registering'**. Wacht even en herhaal de opdracht **show** totdat u de uitvoer **registrationState: Registered** ziet.
 
-3. Maak de omgeving. U moet deze stap eenmaal per omgeving uitvoeren. Voer de stap bijvoorbeeld eenmaal uit voor de ontwikkelomgeving en eenmaal voor de productie. Gebruik de _lokale modus_ voor deze eerste omgeving. U kunt de schakeloptie `-c` of `--cluster` gebruiken in de volgende opdracht om later een omgeving in de _clustermodus_ in te stellen:
+3. Maak de omgeving. U moet deze stap eenmaal per omgeving uitvoeren. Voer de stap bijvoorbeeld eenmaal uit voor de ontwikkelomgeving en eenmaal voor de productie. Gebruik de _lokale modus_ voor deze eerste omgeving. U kunt de schakeloptie `-c` of `--cluster` gebruiken in de volgende opdracht om later een omgeving in de _clustermodus_ in te stellen.
+
+Houd er rekening mee dat u voor de volgende installatieopdracht toegangsrechten van een bijdrager voor het abonnement moet hebben. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Als u dat laatste wilt doen, moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>

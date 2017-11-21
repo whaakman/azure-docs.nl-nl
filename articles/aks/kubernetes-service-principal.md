@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a532c8f69bfb19d26538aafe7c74f062dee06d9f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Service-principals met AKS (Azure Container Service)
 
@@ -34,13 +34,13 @@ Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat
 
 Als u een service-principal voor Azure AD wilt maken, moet u beschikken over machtigingen voor het registreren van een toepassing bij de Azure AD-tenant. U moet ook machtigingen hebben om de toepassing aan een rol toe te wijzen in uw abonnement. Als u niet beschikt over de benodigde machtigingen, moet u mogelijk de Azure AD- of abonnementsbeheerder vragen om de benodigde machtigingen toe te wijzen, of vooraf een service-principal maken voor het Kubernetes-cluster.
 
-Ook moet de Azure CLI-versie 2.0.20 of later zijn geïnstalleerd en geconfigureerd. Voer az --version uit om de versie te zoeken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Ook moet de Azure CLI-versie 2.0.21 of later zijn geïnstalleerd en geconfigureerd. Voer az --version uit om de versie te zoeken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 ## <a name="create-sp-with-aks-cluster"></a>Service-principal met AKS-cluster maken
 
 Wanneer u een AKS-cluster maakt met behulp van de opdracht `az aks create`, kunt u ervoor kiezen om automatisch een service-principal te genereren.
 
-In het volgende voorbeeld wordt een AKS-cluster gemaakt en vervolgens ook een service-principal gemaakt, omdat er geen bestaande service-principal is opgegeven. Uw account moet beschikken over de juiste rechten voor het maken van een service-principal om deze bewerking te kunnen voltooien. 
+In het volgende voorbeeld wordt een AKS-cluster gemaakt en vervolgens ook een service-principal gemaakt, omdat er geen bestaande service-principal is opgegeven. Uw account moet beschikken over de juiste rechten voor het maken van een service-principal om deze bewerking te kunnen voltooien.
 
 ```azurecli
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys

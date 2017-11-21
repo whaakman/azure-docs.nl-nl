@@ -1,6 +1,6 @@
 ---
 title: IoT-opties voor Microsoft Azure | Microsoft Docs
-description: Kies hoe u uw Azure-IoT-oplossing wilt implementeren met IoT Suite, IoT Central of IoT Hub.
+description: Kies hoe u uw IoT-oplossing wilt implementeren met behulp van Azure Iot Suite, Microsoft IoT Central of Azure IoT Hub.
 services: 
 suite: iot-suite
 author: dominicbetts
@@ -8,14 +8,14 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd98d42ab391d471d2302066dc2baf2c64f56f55
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT-opties vergelijken
 
@@ -33,18 +33,18 @@ Azure IoT biedt verschillende opties voor het implementeren van deze architectuu
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub is het kern-platform-as-a-service van Azure waarvan zowel IoT Central als IoT Suite gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
+Azure IoT Hub is het kern-platform-as-a-service van Azure waarvan zowel Microsoft IoT Central als Azure IoT Suite gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
 
 * Connectiviteit en beheer van grote volumes aan apparaten.
 * Telemetrieopname van groot volume.
 * Opdracht en besturing van apparaten.
 * Afdwinging van apparaatbeveiliging.
 
-## <a name="compare-iot-suite-and-iot-central"></a>IoT Suite en IoT Central vergelijken
+## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>Azure IoT Suite en Microsoft IoT Central vergelijken
 
-Het kiezen van uw Azure IoT-product is een belangrijk onderdeel van het plannen van uw IoT-oplossing. IoT Hub is een afzonderlijke Azure-service die zelfstandig geen volledige IoT-oplossing biedt. IoT Hub kan worden gebruikt als uitgangspunt voor elke IoT-oplossing. U hoeft hiervoor niet Azure IoT Suite of Microsoft IoT Central te gebruiken. Zowel IoT Suite al IoT Central maken gebruik van IoT Hub, samen met andere Azure-services. De volgende tabel geeft een overzicht van de belangrijkste verschillen tussen IoT Suite en IoT Central, om u te helpen de juiste oplossing voor uw vereisten te kiezen:
+Het kiezen van uw Azure IoT-product is een belangrijk onderdeel van het plannen van uw IoT-oplossing. IoT Hub is een afzonderlijke Azure-service die zelfstandig geen volledige IoT-oplossing biedt. IoT Hub kan worden gebruikt als uitgangspunt voor elke IoT-oplossing. U hoeft hiervoor niet Azure IoT Suite of Microsoft IoT Central te gebruiken. Zowel Azure IoT Suite als Microsoft IoT Central maken gebruik van IoT Hub, samen met andere Azure-services. De volgende tabel geeft een overzicht van de belangrijkste verschillen tussen Azure IoT Suite en Microsoft IoT Central, om u te helpen de juiste oplossing voor uw vereisten te kiezen:
 
-|                        | IoT Suite | IoT Central |
+|                        | Azure IoT Suite | Microsoft IoT Central |
 | ---------------------- | --------- | ----------- |
 | Primair gebruik | Snellere ontwikkeling van een aangepaste IoT-oplossing die maximale flexibiliteit nodig heeft. | Kortere time-to-market voor eenvoudige IoT-oplossingen waarvoor geen uitgebreide serviceaanpassing is vereist. |
 | Toegang tot onderliggende PaaS-services          | U hebt toegang tot de onderliggende Azure-services om deze te beheren of indien nodig te vervangen. | SaaS. Volledig beheerde oplossing; de onderliggende services worden niet weergegeven. |
@@ -63,6 +63,6 @@ Uw keuze voor welk product u wilt gebruiken om uw IoT-oplossing te maken, wordt 
 
 Op basis van uw gekozen product en benadering, zijn dit de voorgestelde volgende stappen:
 
-* **IoT Suite**: [wat zijn de vooraf geconfigureerde Azure IoT-oplossingen?](iot-suite-what-are-preconfigured-solutions.md)
-* **IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
+* **Azure IoT Suite**: [wat zijn de vooraf geconfigureerde Azure IoT-oplossingen?](iot-suite-what-are-preconfigured-solutions.md)
+* **Microsoft IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [overzicht van de service Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md).
