@@ -32,6 +32,7 @@
 ### [Invoerparameters voor runbook configureren](automation-runbook-input-parameters.md)
 ### [Foutafhandeling in grafische runbooks](automation-runbook-graphical-error-handling.md)
 ### [Een runbook-taak volgen](automation-runbook-execution.md)
+### [Een watcher-taak maken](automation-watchers-tutorial.md)
 ### [Runbook-instellingen wijzigen](automation-runbook-settings.md)
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)

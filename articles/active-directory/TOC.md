@@ -248,12 +248,12 @@
 ## Uw directory beheren
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
-#### [Overzicht](active-directory-domains-manage-azure-portal.md)
-#### [Domeinnamen beheren](active-directory-domains-manage-azure-portal.md)
+#### [Snelstartgids](add-custom-domain.md)
+#### [Aangepaste domeinnamen toevoegen](active-directory-domains-manage-azure-portal.md)
 ### [Uw directory beheren](active-directory-administer.md)
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
 ### [Selfservice registreren](active-directory-self-service-signup.md)
-#### [Een niet-beheerde directory overnemen](domains-admin-takeover.md)
+### [Een niet-beheerde directory overnemen](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Inschakelen](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Instellingen voor groepsbeleid](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
