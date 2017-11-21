@@ -6,7 +6,7 @@
 ### <a name="step-2-delete-connections"></a>Stap 2: Delete-verbindingen
 
 1. Klik op de blade voor uw virtuele netwerkgateway **verbindingen** om weer te geven van alle verbindingen met de gateway.
-2. Klik op de **'...'** Selecteer op de rij van de naam van de verbinding **verwijderen** uit de vervolgkeuzelijst.
+2. Klik op de **'...'** op de rij van de naam van de verbinding, schakelt u **verwijderen** uit de vervolgkeuzelijst.
 3. Klik op **Ja** om te bevestigen dat u wilt verwijderen van de verbinding. Als er meerdere verbindingen, verwijdert u elke verbinding.
 
 ### <a name="step-3-delete-the-virtual-network-gateway"></a>Stap 3: De virtuele netwerkgateway verwijderen

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Maak en registreer de SOAP-connectors in Azure Logic Apps
 
@@ -149,6 +149,12 @@ Geregistreerd maar niet-gecertificeerde aangepaste connectors werken zoals Micro
 De connector met externe gebruikers buiten deze grenzen bijvoorbeeld delen met alle gebruikers van Logic Apps, [uw connector voor Microsoft-certificeringsinstantie indienen](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>Veelgestelde vragen
+
+**V:** Is de SOAP-connector algemeen beschikbaar (GA)? </br>
+**A:** het SOAP-connector bevindt zich in **Preview**, en nog niet een GA-service.
+
+**V:** zijn er beperkingen en bekende problemen voor SOAP-connector? </br>
+**A:** Ja, Zie de [SOAP-connector beperkingen en bekende problemen](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **V:** zijn er beperkingen voor aangepaste connectors? </br>
 **A:** Ja, Zie de [aangepaste connector beperkt hier](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

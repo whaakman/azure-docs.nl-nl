@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: de0222d897ed2cf94be98501c39385ac88f866fc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c589dd8c9d597145fd87a00d9a2ba040988cd8ec
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Hoe u een gegevensschijf loskoppelen van een virtuele Linux-machine
 
@@ -35,28 +35,25 @@ Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schij
 ## <a name="detach-a-data-disk-using-cli-20"></a>Een gegevensschijf met CLI 2.0 loskoppelen
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm disk detach \
+    -g myResourceGroup \
+    --vm-name myVm \
+    -n myDataDisk
 ```
 
 De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Een gegevensschijf ontkoppelen via de portal
-1. Selecteer in de portal hub **virtuele Machines**.
+1. Selecteer in het menu links **virtuele Machines**.
 2. Selecteer de virtuele machine met de gegevensschijf die u wilt loskoppelen en klik op **stoppen** toewijzing van de virtuele machine.
-3. Selecteer in de virtuele machineblade **schijven**.
-4. Aan de bovenkant van de **schijven** blade Selecteer **bewerken**.
-5. In de **schijven** blade, aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
-5. Nadat de schijf is verwijderd, klikt u op opslaan boven aan de blade.
-6. Klik op de blade virtuele machine **overzicht** en klik vervolgens op de **Start** knop aan de bovenkant van de blade opnieuw opstarten van de virtuele machine.
+3. Selecteer in het deelvenster met de virtuele machine **schijven**.
+4. Aan de bovenkant van de **schijven** deelvenster **bewerken**.
+5. In de **schijven** deelvenster aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
+5. Nadat de schijf is verwijderd, klikt u op opslaan boven aan het deelvenster.
+6. Klik in het deelvenster virtuele machine op **overzicht** en klik vervolgens op de **Start** knop aan de bovenkant van het deelvenster met de virtuele machine opnieuw opstarten.
 
 De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van shard multitenant Azure SQL database in een multitenant SaaS-app
 
@@ -35,7 +35,7 @@ In deze zelfstudie leert u het volgende:
 > * Informatie over het gebruik van een shard multitenant-database door het uitvoeren van een opgegeven load generator simuleren
 > * De database bewaken tijdens het reageert op de toename van load
 > * De database in reactie op de belasting van de hogere database opschalen
-> * Een nieuwe tenant in de eigen database inrichten
+> * Een tenant in te richten in een één-tenant-database
 
 U kunt deze zelfstudie alleen voltooien als aan de volgende vereisten wordt voldaan:
 
@@ -51,11 +51,11 @@ Het beheren van de databaseprestaties bestaat uit het verzamelen en analyseren v
 * Om te voorkomen dat handmatig prestaties bewaken, is het meest effectief te **waarschuwingen die wordt geactiveerd wanneer databases buiten het normale adresbereiken afwijken instellen**.
 * Om te reageren op korte termijn schommelingen in het prestatieniveau van een database, de **DTU niveau kan worden geschaald omhoog of omlaag**. Als deze fluctuatie op een basis reguliere of voorspelbare optreedt **schalen van de database kan worden gepland om te worden automatisch uitgevoerd**. U kunt bijvoorbeeld omlaag schalen wanneer de workload licht is, zoals 's nachts of tijdens het weekend.
 * Om te reageren op langere schommelingen of wijzigingen in de tenants **individuele tenants kunnen worden verplaatst naar een andere database**.
-* Om te reageren op korte termijn toename van de *afzonderlijke* belasting van de tenant, **individuele tenants kunnen worden genomen uit een database en een afzonderlijke prestatieniveau toegewezen**. Als de belasting wordt beperkt, kan de tenant met de multitenant-database worden geretourneerd. Wanneer dit van tevoren bekend, kunnen tenants worden verplaatst pre-emptively om te controleren of dat de database heeft altijd de resources die nodig is, om te voorkomen dat gevolgen voor andere tenants in de multitenant-database. Als het om een voorspelbare vereiste gaat, zoals bij een locatie die met een toename in kaartverkoop te maken krijgt voor een populair evenement, kan dit beheergedrag in de toepassing worden geïntegreerd.
+* Om te reageren op korte termijn toename in *afzonderlijke* belasting van de tenant, **individuele tenants kunnen worden genomen uit een database en een afzonderlijke prestatieniveau toegewezen**. Als de belasting wordt beperkt, kan de tenant met de multitenant-database worden geretourneerd. Wanneer dit van tevoren bekend, kunnen tenants worden verplaatst pre-emptively om te controleren of dat de database heeft altijd de resources die nodig is, om te voorkomen dat gevolgen voor andere tenants in de multitenant-database. Als het om een voorspelbare vereiste gaat, zoals bij een locatie die met een toename in kaartverkoop te maken krijgt voor een populair evenement, kan dit beheergedrag in de toepassing worden geïntegreerd.
 
-[Azure Portal](https://portal.azure.com) biedt ingebouwde functionaliteit voor bewaking en waarschuwingen voor de meeste resources. Bewaking en waarschuwingen is beschikbaar voor databases voor SQL-Database. Deze ingebouwde bewaking en waarschuwingen is resource-specifieke, zodat dit is handig voor kleine hoeveelheden van resources, maar is niet erg handig als u werkt met veel resources.
+[Azure Portal](https://portal.azure.com) biedt ingebouwde functionaliteit voor bewaking en waarschuwingen voor de meeste resources. Bewaking en waarschuwingen is beschikbaar voor databases voor SQL-Database. Deze ingebouwde bewaking en waarschuwingen is resource-specifieke, zodat het is gemakkelijk te gebruiken voor een klein aantal resources, maar is niet handig bij het werken met veel resources.
 
-Voor grootschalige scenario's waarin u met veel resources werkt [logboekanalyse (OMS)](https://azure.microsoft.com/services/log-analytics/) kan worden gebruikt. Dit is een afzonderlijke Azure-service die in analyse via verzonden diagnostische logboeken en telemetrie verzameld in een log analytics-werkruimte voorziet. Log Analytics telemetriegegevens kan verzamelen van veel services en worden gebruikt om te vragen en waarschuwingen instellen.
+Voor grote hoeveelheden scenario's waarin u met veel resources werkt, [logboekanalyse (OMS)](https://azure.microsoft.com/services/log-analytics/) kan worden gebruikt. Dit is een afzonderlijke Azure-service die in analyse via verzonden diagnostische logboeken en telemetrie verzameld in een log analytics-werkruimte voorziet. Log Analytics telemetriegegevens kan verzamelen van veel services en worden gebruikt om te vragen en waarschuwingen instellen.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ophalen van de broncode van de Database Wingtip Tickets SaaS-multitenant-toepassing en scripts
 
@@ -95,7 +95,7 @@ De load-generator past een *synthetische* load alleen voor CPU toe op elke tenan
 Wingtip Tickets SaaS multitenant Database is een SaaS-app en de werkelijke belasting van een SaaS-app is doorgaans sporadisch en onvoorspelbaar. Om dit te simuleren, produceert de load-generator een willekeurige workload die over alle tenants wordt verdeeld. Enkele minuten nodig zijn voor de load-patroon te komen, dus het uitvoeren van de load-generator voor 3-5 minuten voordat u probeert om te controleren van de belasting in de volgende secties.
 
 > [!IMPORTANT]
-> De load-generator wordt uitgevoerd als een reeks taken in je een nieuw PowerShell-venster. Als u de sessie sluit, wordt de load-generator stopt. De load-generator blijft in een *aanroepen van de taak* status waar belasting van een nieuwe tenants die zijn ingericht genereert nadat de generator is gestart. Gebruik *Ctrl-C* aanroepen van nieuwe taken stoppen en afsluiten van het script. De load-generator wordt nog uitgevoerd, maar alleen op bestaande tenants.
+> De load-generator wordt uitgevoerd als een reeks taken in een nieuw PowerShell-venster. Als u de sessie sluit, wordt de load-generator stopt. De load-generator blijft in een *aanroepen van de taak* status waar belasting van een nieuwe tenants die zijn ingericht genereert nadat de generator is gestart. Gebruik *Ctrl-C* aanroepen van nieuwe taken stoppen en afsluiten van het script. De load-generator wordt nog uitgevoerd, maar alleen op bestaande tenants.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Resourcegebruik monitor met de Azure portal
 
@@ -120,9 +120,9 @@ Een waarschuwing instellen voor de database die wordt geactiveerd op \>75% gebru
 1. Geef een naam op, bijvoorbeeld **hoog DTU**.
 1. Stel de volgende waarden in:
    * **Metriek = DTU-percentage**
-   * **Voorwaarde = groter dan**.
+   * **Conditie = groter zijn dan**
    * **Drempel = 75**.
-   * **Periode = In de afgelopen 30 minuten**.
+   * **Period = in de afgelopen 30 minuten**
 1. Een e-mailadres toevoegen de *aanvullende beheerder email(s)* vak en klikt u op **OK**.
 
    ![waarschuwing instellen](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -153,7 +153,7 @@ Databases blijven gedurende het proces online en volledig beschikbaar. Toepassin
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Een nieuwe tenant in de eigen database inrichten 
 
-De shard multi-tenant model, kunt u kiezen of u voor het inrichten van een nieuwe tenant in een multitenant-database, samen met andere tenants of voor het inrichten van de tenant in een database met een eigen. Door het inrichten van een tenant in de eigen database kunt profiteren van de isolatie inherent aan de afzonderlijke database, zodat u kunt de prestaties van deze tenant onafhankelijk van andere gebruikers te beheren, herstellen die tenant onafhankelijk van andere, enzovoort. U kunt bijvoorbeeld gratis proefversie of reguliere klanten in een multitenant-database en premium-klanten in afzonderlijke databases plaatst.  Als geïsoleerde één tenant databases worden gemaakt. kunnen ze nog steeds worden beheerd gezamenlijk in een elastische pool resourcekosten optimaliseren.
+De shard multi-tenant model, kunt u kiezen of u voor het inrichten van een nieuwe tenant in een multitenant-database, samen met andere tenants of voor het inrichten van de tenant in een database met een eigen. Door het inrichten van een tenant in de eigen database kunt profiteren van de isolatie inherent aan de afzonderlijke database, zodat u kunt de prestaties van deze tenant onafhankelijk van andere gebruikers te beheren, herstellen die tenant onafhankelijk van andere, enzovoort. U kunt bijvoorbeeld gratis proefversie of reguliere klanten in een multitenant-database en premium-klanten in afzonderlijke databases plaatst.  Als geïsoleerde één tenant databases worden gemaakt, kunnen ze nog steeds worden beheerd samen in een elastische pool resourcekosten optimaliseren.
 
 Als u een nieuwe tenant in de eigen database al ingericht, slaat u de volgende stappen.
 
@@ -195,7 +195,7 @@ In deze zelfstudie leert u het volgende:
 > * Informatie over het gebruik van een shard multitenant-database door het uitvoeren van een opgegeven load generator simuleren
 > * De database bewaken tijdens het reageert op de toename van load
 > * De database in reactie op de belasting van de hogere database opschalen
-> * Een nieuwe tenant in de eigen database inrichten
+> * Een tenant in te richten in een één-tenant-database
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

@@ -1,7 +1,7 @@
 ## <a name="wordpress-and-azure-app-service"></a>WordPress en Azure App Service
 * [Wat is WordPress?](https://wordpress.org/)
-* [Het aanschaffen van ClearDB gedeeld MySQL die als host fungeert voor de WordPress-app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
-* [Hoe naar aankoop ClearDB toegewezen MySQL-cluster voor de WordPress-app](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
+* [Een WordPress-site maken in Azure portal](https://portal.azure.com/#create/WordPress.WordPress)s
+* [Handmatig een MySQL-database maken in Azure](../articles/mysql/quickstart-create-mysql-server-database-using-azure-portal.md)
 * [Een WordPress-web-app met MySQL replicatie cluster back implementeren](/documentation/templates/wordpress-mysql-replication/)
 * [Bouwen van uw eigen Master Master MySQL clusteren met Percona](/documentation/templates/mysql-ha-pxc/) en [meer informatie over het beheren van het cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Back-up MySQL replicatie cluster met master slave configuratie WordPress implementeren](/documentation/templates/mysql-replication/)
@@ -11,8 +11,8 @@
 * [De WordPress-app oplossen](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Gebruik telemetrie met behulp van Azure Application Insights-service verzamelen](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
 * [Zend Zray profiler uitvoeren op uw web-app voor het vaststellen van problemen en prestaties](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
-* [Ondersteuning van de Kudu-portal gebruiken om te onderzoeken en verhelpen van problemen in realtime](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
-* [Gebruik die verschillende auto-retoucheren regels voor het automatiseren van het omzetten van realtime-incidenten](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [Ondersteuning van de Kudu-portal gebruiken om te onderzoeken en verhelpen van problemen](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
+* [Gebruik verschillende auto-retoucheren regels worden incidenten automatisch oplossen](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [Het back-up van uw web-app](../articles/app-service/web-sites-backup.md) en [het herstellen van uw web-app](../articles/app-service/web-sites-restore.md)
 
 ## <a name="performance"></a>Prestaties

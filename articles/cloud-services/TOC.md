@@ -34,32 +34,21 @@
 #### [Een taak gebruiken om .NET op een cloudservicerol te installeren](cloud-services-dotnet-install-dotnet.md)
 
 ### Extern bureaublad configureren
-#### [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Klassieke portal](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Implementeren
-### Een cloudservice maken en implementeren in Portal
-#### [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-#### [Klassieke portal](cloud-services-how-to-create-deploy.md)
+### [Een cloudservice maken en implementeren in de portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Een lege cloudservicecontainer maken in PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Een aangepaste domeinnaam configureren
-#### [Portal](cloud-services-custom-domain-name-portal.md)
-#### [Klassieke portal](cloud-services-custom-domain-name.md)
+### [Een aangepaste domeinnaam configureren](cloud-services-custom-domain-name-portal.md)
 ### [Een cloudservice-implementatie klaarzetten (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Verbinding maken met een aangepaste domeincontroller](cloud-services-connect-to-custom-domain.md)
 
 ## Services beheren
-### Veelvoorkomende beheertaken
-#### [Azure Portal](cloud-services-how-to-manage-portal.md)
-#### [Klassieke portal](cloud-services-how-to-manage.md)
-### Cloudservice configureren
-#### [Azure Portal](cloud-services-how-to-configure-portal.md)
-#### [Klassieke portal](cloud-services-how-to-configure.md)
+### [Veelvoorkomende beheertaken](cloud-services-how-to-manage-portal.md)
+### [Een cloudservice configureren](cloud-services-how-to-configure-portal.md)
 ### [Een cloudservice beheren met Azure Automation](automation-manage-cloud-services.md)
-### Automatisch schalen configureren
-#### [Azure Portal](cloud-services-how-to-scale-portal.md)
-#### [Klassieke portal](cloud-services-how-to-scale.md)
+### [Automatisch schalen configureren](cloud-services-how-to-scale-portal.md)
 ### [Python gebruiken om Azure-resources te beheren](cloud-services-python-how-to-use-service-management.md)
 
 ### [Patches voor gastbesturingssysteem](cloud-services-guestos-msrc-releases.md)
@@ -71,11 +60,9 @@
 
 ## Certificaten beheren
 ### [Cloud Services en beheercertificaten](cloud-services-certs-create.md)
-### SSL configureren 
-#### [Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Klassieke portal](cloud-services-configure-ssl-certificate.md)
+### [SSL configureren](cloud-services-configure-ssl-certificate-portal.md)
 
-## Controleren
+## Bewaken
 ### [Cloud Services controleren](cloud-services-how-to-monitor.md)
 ### [Prestaties testen](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testen met Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)

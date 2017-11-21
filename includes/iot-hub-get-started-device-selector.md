@@ -3,8 +3,6 @@
 > * [Gesimuleerd apparaat met .NET](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 > * [Gesimuleerd apparaat met Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Gesimuleerd apparaat met Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
-> * [Gesimuleerde IoT Edge-gateway op Linux](../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md)
-> * [Gesimuleerde IoT Edge-gateway op Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
 > * [IoT DevKit AZ3166 met VS-code](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi met Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi met Python](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -14,4 +12,3 @@
 > * [Adafruit Feather HUZZAH ESP8266 met Arduino IDE](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Sparkfun ESP8266 Thing Dev met Arduino IDE](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Adafruit Feather M0 met Arduino IDE](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
-> * [Intel NUC instellen als IoT Edge-gateway](../articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)

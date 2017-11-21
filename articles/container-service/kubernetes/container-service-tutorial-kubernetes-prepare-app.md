@@ -1,4 +1,4 @@
----
+﻿---
 title: Zelfstudie voor Azure Container Service - App voorbereiden | Microsoft Docs
 description: Zelfstudie voor Azure Container Service - App voorbereiden
 services: container-service
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/24/2017
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In deze zelfstudie, deel 1 van 7, wordt een toepassing met meerdere containers voorbereid op gebruik in Kubernetes:  
+In deze zelfstudie, deel 1 van 7, wordt een toepassing met meerdere containers voorbereid op gebruik in Kubernetes. Stappen voltooid omvatten:  
 
 > [!div class="checklist"]
 > * Toepassingsbron klonen vanuit GitHub  

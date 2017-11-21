@@ -18,7 +18,7 @@
 | Aangepast domein [SSL-ondersteuning](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Onbeperkte SNI-SSL-verbindingen |Onbeperkte SNI SSL en 1 opgenomen IP SSL-verbindingen |Onbeperkte SNI SSL en 1 opgenomen IP SSL-verbindingen |
 | Geïntegreerde belastingverdeler | |X |X |X |X |
 | [AlwaysOn](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Geplande back-ups](../articles/app-service/web-sites-backup.md) | | | |Eenmaal per dag |Om de 5 minuten<sup>8</sup> |
+| [Geplande back-ups](../articles/app-service/web-sites-backup.md) | | | |12 per dag |Om de 5 minuten<sup>8</sup> |
 | [Automatisch schalen](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) ondersteunen | |X |X |X |X |

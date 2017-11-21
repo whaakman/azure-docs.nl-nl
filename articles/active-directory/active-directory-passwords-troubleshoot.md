@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5c4942dbeccbd97c6bfc0f2c086e8d6091f6ed64
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Het oplossen van de selfservice voor wachtwoordherstel
 
@@ -59,7 +59,7 @@ Als u problemen met de selfservice voor wachtwoordherstel ondervindt, de items d
 
 | **Fout** | Oplossing |
 | --- | --- |
-| Map is niet ingeschakeld voor wachtwoordherstel **uw beheerder heeft u met deze functie niet ingeschakeld** | Switch de **Self service voor wachtwoordherstel ingeschakeld** markering **een groep** of **iedereen** en klik op **opslaan** |
+| Map is niet ingeschakeld voor wachtwoordherstel **uw beheerder heeft u met deze functie niet ingeschakeld** | Switch de **Self service voor wachtwoordherstel ingeschakeld** markering **geselecteerde** of **alle** en klik op **opslaan** |
 | Gebruiker beschikt niet over een Azure AD Premium of Basic toegewezen licentie **uw beheerder heeft u met deze functie niet ingeschakeld** | Dit kan gebeuren als u niet beschikt over een Azure AD Premium of Basic licentie is toegewezen aan de beheerder de bewerking wordt uitgevoerd. <br> Dit kan worden opgelost door een licentie toewijzen aan het beheerdersaccount in kwestie met behulp van het artikel [toewijzen, controleren en oplossen van problemen met licenties](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Fout bij verwerking van aanvraag | Dit kan worden veroorzaakt door veel problemen, maar doorgaans deze fout wordt veroorzaakt door ofwel een stroomstoring of configuratie serviceprobleem. Als u deze fout te zien en het is van invloed op uw bedrijf, moet u contact op met Microsoft ondersteuning voor assistentie. |
 
@@ -67,7 +67,7 @@ Als u problemen met de selfservice voor wachtwoordherstel ondervindt, de items d
 
 | **Fout** | Oplossing |
 | --- | --- |
-| Directory is niet ingeschakeld voor wachtwoordherstel. | Switch de **Self service voor wachtwoordherstel ingeschakeld** markering **een groep** of **iedereen** en klik op **opslaan** |
+| Directory is niet ingeschakeld voor wachtwoordherstel. | Switch de **Self service voor wachtwoordherstel ingeschakeld** markering **geselecteerde** of **alle** en klik op **opslaan** |
 | Gebruiker beschikt niet over een Azure AD Premium of Basic licentie is toegewezen | Dit kan gebeuren als u niet beschikt over een Azure AD Premium of Basic licentie is toegewezen aan de beheerder de bewerking wordt uitgevoerd. <br> Dit kan worden opgelost door een licentie toewijzen aan het beheerdersaccount in kwestie met behulp van het artikel [toewijzen, controleren en oplossen van problemen met licenties](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Directory voor het wachtwoord opnieuw instellen is ingeschakeld, maar de gebruiker heeft een ontbrekende of ongeldige verificatiegegevens | Zorg ervoor dat deze gebruiker heeft correct gevormd contact op met gegevens in het bestand in de map voordat u doorgaat. Zie het artikel voor meer informatie over dit onderwerp [gegevens die worden gebruikt door Azure AD selfservice voor wachtwoordherstel](active-directory-passwords-data.md). |
 | Directory voor het wachtwoord opnieuw instellen is ingeschakeld, maar een gebruiker heeft alleen een stukje informatie, contactpersonen in het bestand als beleid is ingesteld dat twee verificatiestappen | Zorg ervoor dat die de gebruiker heeft ten minste twee correct geconfigureerde contactmethoden (voorbeeld: mobiele telefoon **en** telefoon (werk)) voordat u doorgaat. |
@@ -270,14 +270,14 @@ Om het correct, vragen we zo gedetailleerd mogelijk te bieden bij het openen van
 
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
-* [Opnieuw instellen of wijzigen van uw wachtwoord](active-directory-passwords-update-your-own-password.md).
-* [Registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
-* [Welke gegevens wordt gebruikt door de SSPR en welke gegevens moet u voor uw gebruikers vullen?](active-directory-passwords-data.md)
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
+* [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Wat zijn de beleidsopties met SSPR?](active-directory-passwords-policy.md)
-* [Wat is Write-back van wachtwoord en waarom ik van belang?](active-directory-passwords-writeback.md)
-* [Hoe meld ik op activiteit in SSPR?](active-directory-passwords-reporting.md)
-* [Wat zijn alle opties in de SSPR en wat ze aan de hand?](active-directory-passwords-how-it-works.md)
-* [Ik heb een vraag waarvoor is geen ergens anders](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](active-directory-passwords-writeback.md)
+* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](active-directory-passwords-reporting.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](active-directory-passwords-how-it-works.md)
+* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)

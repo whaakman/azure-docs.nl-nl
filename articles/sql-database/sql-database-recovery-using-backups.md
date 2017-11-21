@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -54,7 +54,14 @@ De hersteltijd herstellen van een database met behulp van automatische databaseb
 * Het aantal gelijktijdige restore-aanvragen worden verwerkt in de doelregio. 
   
   Voor een zeer groot en/of actieve database, kan het terugzetten van enkele uren duren. Als er langdurige storing in een regio, is het mogelijk dat er grote aantallen geo-restore-aanvragen worden verwerkt door een andere regio's zijn. Wanneer er veel aanvragen, kan de hersteltijd verhogen voor databases in deze regio. De meeste database herstelt voltooid binnen de 12 uur.
-  
+
+Voor een enkele abonnement, er zijn enkele beperkingen op het aantal gelijktijdige restore-aanvragen (inclusief punt in tijd terugzetten, geo-restore en lange termijn bewaren van back-up) wordt ingediend en soepel:
+|  | **Maximum aantal gelijktijdige aanvragen worden verwerkt** | **Maximum aantal gelijktijdige aanvragen worden verzonden** |
+| :--- | --: | --: |
+|Individuele database (per abonnement)|10|60|
+|Elastische pool (per groep)|4|200|
+||||
+
 Er is geen ingebouwde functionaliteit bulksgewijs terugzetten. De [Azure SQL Database: volledige Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is een voorbeeld van een manier van deze taak uitvoeren.
 
 > [!IMPORTANT]

@@ -3,7 +3,7 @@ title: Gegevens met behulp van de Azure Time Series Insights explorer verkennen 
 description: In dit artikel wordt beschreven hoe het gebruik van Azure Time Series Insights explorer in uw webbrowser om snel een globale weergave van uw big data te bekijken en valideren van uw IoT-omgeving.
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 Dit artikel bevat informatie over de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U kunt explorer Time Series inzicht in uw webbrowser maken visualisaties van uw gegevens.
@@ -50,10 +50,10 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron op uw om
       - **Gesplitste door**: deze vervolgkeuzelijst bevat categorische kolommen (tekenreeksen)
       - U kunt stap interpolatie inschakelen, minimale en maximale weergeven en aanpassen van de y-as van het Configuratiescherm volgende om door te meten.  Bovendien kunt u aanpassen of de weergegeven gegevens is een aantal, de gemiddelde of de som van de gegevens.
       - U kunt maximaal vijf voorwaarden om weer te geven op de dezelfde x-as toevoegen.  Gebruik de **up-down** knop toevoegen aan een extra term of klik op de **toevoegen** knop een nieuwe term toevoegen.
+     
+        ![Deelvenster van de Editor voorwaarden](media/time-series-insights-explorer/explorer2.png)
 
-      ![Deelvenster van de Editor voorwaarden](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predikaat**: het predicaat kunt u snel uw om gebeurtenissen te filteren met behulp van de reeks operanden hieronder vermeld. Als u een zoekopdracht door selecteren/te klikken uitvoeren, het predikaat wordt automatisch bijwerken op basis van die zoekopdracht.  Ondersteunde operand-typen zijn onder andere:
+      - **Predikaat**: het predicaat kunt u snel uw om gebeurtenissen te filteren met behulp van de reeks operanden hieronder vermeld. Als u een zoekopdracht door selecteren/te klikken uitvoeren, het predikaat wordt automatisch bijwerken op basis van die zoekopdracht.      Ondersteunde operand-typen zijn onder andere:
 
          |Bewerking  |Ondersteunde typen  |Opmerkingen  |
          |---------|---------|---------|
@@ -107,4 +107,5 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron op uw om
 U hebt nu gezien de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Diagnosticeren en oplossen van problemen in uw omgeving Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnosticeren en oplossen van problemen in uw omgeving Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

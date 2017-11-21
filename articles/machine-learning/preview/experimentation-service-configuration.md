@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning-experimenten Service configureren
 
@@ -220,6 +220,8 @@ _**Overzicht van externe vm-uitvoering voor een pythonscript:**_
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Een script uitgevoerd op een HDInsight-cluster
 HDInsight is een populair platform voor big data-analyses Apache Spark ondersteunen. Workbench kunt experimenteren big Data met behulp van HDInsight Spark-clusters. 
+
+>! [OPMERKING] Het HDInsight-cluster moet Azure Blob gebruiken als de primaire opslag. Met behulp van Azure Data Lake storage wordt nog niet ondersteund.
 
 U kunt een compute-doel maken en configuratie voor een HDInsight Spark-cluster met de volgende opdracht uitvoeren:
 

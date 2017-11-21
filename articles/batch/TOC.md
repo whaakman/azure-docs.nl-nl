@@ -17,6 +17,7 @@
 #### [Azure AD met Batch-service](batch-aad-auth.md)
 #### [Azure AD met Batch Management](batch-aad-auth-management.md)
 ### [Rekenintensieve VM’s](batch-pool-compute-intensive-sizes.md)
+### [Containerwerkbelastingen](batch-docker-container-workloads.md)
 ### [Gelijktijdige knooppunttaken](batch-parallel-node-tasks.md)
 ### [Taken tellen aan de hand van de status](batch-get-task-counts.md)
 ### [Een pool maken met een aangepaste installatiekopie](batch-custom-images.md)

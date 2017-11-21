@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Het pakket en containers implementeren als een Service Fabric-toepassing
 
@@ -218,7 +218,7 @@ Gebruik uw eigen cluster of een cluster van derden om de toepassing te implement
 
 Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Deze wordt beheerd door het Service Fabric-team waar iedereen toepassingen implementeren en meer informatie over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 
-Zie voor meer informatie over het maken van uw eigen cluster [Uw eerste Service Fabric-cluster maken op Azure](service-fabric-get-started-azure-cluster.md).
+Zie voor meer informatie over het maken van uw eigen cluster [Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Bouw en implementeer de toepassing aan het cluster
 De Azure-cluster met behulp van de Service Fabric-CLI kunt u de toepassing implementeren. Als Service Fabric CLI op uw computer niet is geïnstalleerd, voert u de instructies [hier](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) om deze te installeren. 

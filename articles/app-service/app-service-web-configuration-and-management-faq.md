@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie- en veelgestelde vragen voor Web-Apps in Azure
 
@@ -319,4 +319,4 @@ U kunt ook de specifieke dynamische en statische MIME-typen die u wilt comprimer
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Hoe Migreer ik van een on-premises-omgeving in App Service?
 
-Voor het migreren van sites van Windows en Linux-webservers in App Service, kunt u assistent Azure App Service-migratie. Het hulpprogramma voor migratie van web-apps en databases maakt in Azure indien nodig en vervolgens de inhoud wordt gepubliceerd. Zie voor meer informatie [assistent Azure App Service-migratie](https://www.movemetothecloud.net/).
+Voor het migreren van sites van Windows en Linux-webservers in App Service, kunt u assistent Azure App Service-migratie. Het hulpprogramma voor migratie van web-apps en databases maakt in Azure indien nodig en vervolgens de inhoud wordt gepubliceerd. Zie voor meer informatie [assistent Azure App Service-migratie](https://www.migratetoazure.net/).

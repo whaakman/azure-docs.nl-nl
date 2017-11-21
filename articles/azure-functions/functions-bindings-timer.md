@@ -1,5 +1,5 @@
 ---
-title: Azure Functions timertrigger | Microsoft Docs
+title: Azure Functions timertrigger
 description: Begrijpen hoe timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure Functions timertrigger
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-Dit artikel wordt uitgelegd hoe u configureert en code timer triggers in Azure Functions. Azure Functions heeft een timer trigger binding waarmee u de functiecode op basis van een ingesteld schema uitvoeren. 
-
-De timertrigger ondersteunt meerdere exemplaren scale-out. Slechts één exemplaar van een bepaalde timerfunctie wordt uitgevoerd in alle exemplaren.
+Dit artikel wordt uitgelegd hoe u werkt met timer triggers in Azure Functions. Een timertrigger kunt u een functie uitvoeren volgens een schema. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>Voorbeeld
 
-## <a name="timer-trigger"></a>Timertrigger
-De timertrigger aan een functie maakt gebruik van de volgende JSON-object in de `bindings` matrix van function.json:
+Zie het voorbeeld taalspecifieke:
+
+* [Vooraf gecompileerde C#](#trigger---c-example)
+* [C#-script](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>C#-voorbeeld
+
+Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die elke vijf minuten wordt uitgevoerd:
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>Voorbeeld van C#-script
+
+Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie een logboek die aangeeft of het aanroepen van deze functie vanwege een schema voor gemiste-exemplaar is wordt geschreven.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-De waarde van `schedule` is een [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) die deze zes velden bevat: 
+Dit is de C#-scriptcode:
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>F #-voorbeeld
+
+Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [F # scriptfunctie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie een logboek die aangeeft of het aanroepen van deze functie vanwege een schema voor gemiste-exemplaar is wordt geschreven.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Dit is de code F # script:
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>JavaScript-voorbeeld
+
+Het volgende voorbeeld ziet u een timertrigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie een logboek die aangeeft of het aanroepen van deze functie vanwege een schema voor gemiste-exemplaar is wordt geschreven.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Dit is de code F # script:
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>Kenmerken voor vooraf gecompileerde C#
+
+Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+De constructor van het kenmerk heeft een CRON-expressie, zoals weergegeven in het volgende voorbeeld:
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+Kunt u een `TimeSpan` in plaats van een expressie CRON als uw app in de functie wordt uitgevoerd op een App Service-abonnement (niet in een plan verbruik).
+
+## <a name="configuration"></a>Configuratie
+
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `TimerTrigger` kenmerk.
+
+|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|---------|---------|----------------------|
+|**type** | N.v.t. | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
+|**richting** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
+|**naam** | N.v.t. | De naam van de variabele die staat voor de timer-object in de functiecode. | 
+|**planning**|**ScheduleExpression**|U kunt schema's met een CRON-expressie definiëren op het plan verbruik. Als u een App Service-abonnement, kunt u ook gebruiken een `TimeSpan` tekenreeks. De volgende secties worden de CRON-expressies. U kunt de expressie van de planning opnemen in een app-instelling en stel deze eigenschap in op een waarde die zijn ingepakt  **%**  hekjes, zoals in dit voorbeeld: '% NameOfAppSettingWithCRONExpression %'. Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+
+### <a name="cron-format"></a>CRON-indeling 
+
+Een [CRON expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) voor de Azure Functions-timer trigger deze zes velden bevat: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->Veel van de cron-expressies die u online vinden weglaten de `{second}` veld. Als u van één van beide kopieert, moet u voor de extra aanpassen `{second}` veld. Zie voor specifieke voorbeelden [voorbeelden plannen](#examples) hieronder.
+>Veel van de CRON-expressies die u online vinden weglaten de `{second}` veld. Als u een van deze kopieert, voeg de ontbrekende `{second}` veld.
+
+### <a name="cron-time-zones"></a>CRON-tijdzones
 
 De standaardtijdzone gebruikt met de CRON-expressies is Coordinated Universal Time (UTC). Als u wilt dat de CRON-expressie op basis van een andere tijdzone, maakt u een nieuwe appinstelling voor de functie-app met de naam `WEBSITE_TIME_ZONE`. De waarde ingesteld op de naam van de gewenste tijdzone, zoals wordt weergegeven in de [Microsoft tijdzone Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
@@ -67,12 +184,9 @@ U kunt ook kunt u een nieuwe appinstelling toevoegen voor de functie-app met de 
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>CRON-voorbeelden
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>Voorbeelden van de planning
-Hier volgen enkele voorbeelden van CRON-expressies die u kunt gebruiken voor de `schedule` eigenschap. 
+Hier volgen enkele voorbeelden van CRON-expressies die u voor de timertrigger in Azure Functions gebruiken kunt. 
 
 Om de vijf minuten activeren:
 
@@ -110,9 +224,8 @@ Om te activeren om 9:30 AM elke weekdag:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>Gebruik
 
-## <a name="trigger-usage"></a>Gebruik van de trigger
 Wanneer een functie van de trigger timer wordt opgeroepen, de [timerobject](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) wordt doorgegeven aan de functie. De volgende JSON is een voorbeeld-weergave van het timerobject. 
 
 ```json
@@ -127,68 +240,14 @@ Wanneer een functie van de trigger timer wordt opgeroepen, de [timerobject](http
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>Uitschalen
 
-## <a name="trigger-sample"></a>Voorbeeld van de trigger
-Stel dat u hebt de volgende timertrigger in de `bindings` matrix van function.json:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Zie het voorbeeld taalspecifieke die de timerobject om te zien leest of deze later wordt uitgevoerd.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Voorbeeld van de trigger in C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>Voorbeeld van de trigger in F # #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Voorbeeld van de trigger in Node.js
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+De timertrigger ondersteunt meerdere exemplaren scale-out. Slechts één exemplaar van een bepaalde timerfunctie wordt uitgevoerd in alle exemplaren.
 
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Ga naar een Quick Start die een timertrigger gebruikt](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 82019392edc99f0adccb26b483e77b7c576822fb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implementeren van Azure-functie als een module van de rand van de IoT - voorbeeld
 U kunt Azure Functions gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks aan de rand van de IoT-apparaten implementeert. In deze zelfstudie wordt u begeleid bij het maken en implementeren van een Azure-functie waarmee sensorgegevens op het gesimuleerde rand van de IoT-apparaat dat u hebt gemaakt in de implementatie van Azure IoT-Edge van een gesimuleerd apparaat op gefilterd [Windows] [ lnk-tutorial1-win]of [Linux] [ lnk-tutorial1-lin] zelfstudies. In deze zelfstudie leert u het volgende:     
@@ -141,7 +141,7 @@ De volgende stappen laten zien hoe een IoT-Edge-functie met behulp van Visual St
 1. De Docker-installatiekopie bouwen.
     1. Klik in Verkenner VS-Code op de **Docker** map om dit te openen. Selecteer de map voor uw platform container ofwel **linux x64** of **windows nano**. 
     2. Met de rechtermuisknop op de **Dockerfile** -bestand en klik op **bouwen IoT rand module Docker installatiekopie**. 
-    3. In de **map selecteren** vak, gaat u naar de **linux-Docker-x64** map en klik op **map selecteren als EXE_DIR**. 
+    3. In de **map selecteren** vak, gaat u naar de projectmap **FilterFunction**, en klik op **map selecteren als EXE_DIR**. 
     4. Typ in het pop-tekst boven aan het venster tegenover Code, naam van de installatiekopie. Bijvoorbeeld: `<docker registry address>/filterfunction:latest`, waarbij *docker register adres* uw Docker-ID als u met behulp van Docker-Hub of is vergelijkbaar met `<your registry name>.azurecr.io`, als u van Azure Container register gebruikmaakt.
  
 4. Aanmelden bij Docker. Voer de volgende opdracht in de geïntegreerde terminal: 

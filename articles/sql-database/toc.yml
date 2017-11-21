@@ -200,9 +200,9 @@
     - name: SaaS met meerdere tenants
       items:
         - name: SaaS-ontwerppatronen
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+          href: saas-tenancy-app-design-patterns.md
         - name: Beveiliging van SaaS-app
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Databases ontwikkelen
       items:
         - name: JSON-gegevens
@@ -337,24 +337,47 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: SaaS met meerdere tenants
       items:
-        - name: Inleiding van zelfstudie
-          href: sql-database-wtp-overview.md
-        - name: Een voorbeeld-app implementeren
-          href: sql-database-saas-tutorial.md
-        - name: Tenants inrichten
-          href: sql-database-saas-tutorial-provision-and-catalog.md
-        - name: Databaseprestaties bewaken
-          href: sql-database-saas-tutorial-performance-monitoring.md
-        - name: Bewaken met Log Analytics
-          href: sql-database-saas-tutorial-log-analytics.md
-        - name: Een individuele tenant terugzetten
-          href: sql-database-saas-tutorial-restore-single-tenant.md
-        - name: Het tenantschema beheren
-          href: sql-database-saas-tutorial-schema-management.md
-        - name: Ad-hocquery's uitvoeren
-          href: sql-database-saas-tutorial-adhoc-analytics.md
-        - name: ETL voor analyse
-          href: sql-database-saas-tutorial-tenant-analytics.md
+        - name: Welkom bij Wingtips
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Zelfstandige toepassing
+          items:
+            - name: Een voorbeeld-app implementeren
+              href: saas-standaloneapp-get-started-deploy.md
+        - name: Database per tenant
+          href: saas-dbpertenant-wingtip-app-overview.md
+          items:
+            - name: Inleiding van zelfstudie
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: App-begeleiding
+              href: saas-dbpertenant-wingtip-app-guidance-tips.md
+            - name: Een voorbeeld-app implementeren
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: Tenants inrichten
+              href: saas-dbpertenant-provision-and-catalog.md
+            - name: Databaseprestaties bewaken
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: Bewaken met Log Analytics
+              href: saas-dbpertenant-log-analytics.md
+            - name: Een tenant herstellen
+              href: saas-dbpertenant-restore-single-tenant.md
+            - name: Het tenantschema beheren
+              href: saas-tenancy-schema-management.md
+            - name: Ad-hocquery's uitvoeren
+              href: saas-tenancy-adhoc-analytics.md
+            - name: ETL voor analyse
+              href: saas-tenancy-tenant-analytics.md
+        - name: Multitenant-database
+          items:
+            - name: Een voorbeeld-app implementeren
+              href: saas-multitenantdb-get-started-deploy.md
+            - name: Tenants inrichten
+              href: saas-multitenantdb-provision-and-catalog.md
+            - name: Databaseprestaties bewaken
+              href: saas-multitenantdb-performance-monitoring.md
+            - name: Ad-hocquery's uitvoeren
+              href: saas-multitenantdb-adhoc-reporting.md
+            - name: Het tenantschema beheren
+              href: saas-multitenantdb-schema-management.md
     - name: Apps ontwikkelen
       items:
         - name: C en C ++

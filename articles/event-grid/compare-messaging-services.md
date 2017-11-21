@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Kiezen tussen Azure-services die berichten te leveren
 
@@ -32,20 +32,16 @@ Er is een belangrijk verschil tussen services kunnen een gebeurtenis bieden en s
 
 Een gebeurtenis is een lichtgewicht melding van een actie of een statuswijziging. De gebeurtenisgegevens bevat informatie over wat er gebeurd is, maar heeft geen gegevens waarvoor de gebeurtenis. Bijvoorbeeld, een gebeurtenis ontvangt een melding abonnees of een bestand is gemaakt. Deze algemene informatie over het bestand mogelijk, maar het bevat niet het bestand zelf. Gebeurtenissen activeren in het algemeen gebeurtenis-handlers om te fungeren als realtime.
 
-Gebeurtenis raster is een gebeurtenisservice.
-
 ### <a name="message"></a>Bericht
 
-Een bericht is onbewerkte gegevens geproduceerd door de service moet worden gebruikt of elders opgeslagen. Het bericht bevat de gegevens waarmee de pijplijn bericht is geactiveerd. Dit bericht kan van alles uit een e-commerce order naar telemetrie van de gebruiker zijn. In tegenstelling tot een gebeurtenismelding kan de uitgever van een bericht een antwoord verwachten. Bijvoorbeeld, een bericht bevat de onbewerkte gegevens maar het volgende gedeelte van het systeem een bestand te maken van die gegevens verwacht. 
-
-Event Hubs en Service Bus zijn messaging-services.
+Een bericht is onbewerkte gegevens geproduceerd door de service moet worden gebruikt of elders opgeslagen. Het bericht bevat de gegevens waarmee de pijplijn bericht is geactiveerd. Dit bericht kan van alles uit een e-commerce order naar telemetrie van de gebruiker zijn. In tegenstelling tot een gebeurtenismelding kan de uitgever van een bericht een antwoord verwachten. Bijvoorbeeld, een bericht bevat de onbewerkte gegevens maar het volgende gedeelte van het systeem een bestand te maken van die gegevens verwacht.
 
 ## <a name="comparison-of-services"></a>Vergelijking van services
 
 | Service | Doel | Type | Wanneer gebruikt u dit? |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reactieve programmering | Gebeurtenis | Reageren op statuswijzigingen |
-| Event Hubs | BIG data-pipeline | Bericht | Telemetrie- en gedistribueerde gegevensstromen |
+| Event Grid | Reactieve programmering | Gebeurtenisdistributie | Reageren op statuswijzigingen |
+| Event Hubs | BIG data-pipeline | Streaming-gebeurtenis | Telemetrie- en gedistribueerde gegevensstromen |
 | Service Bus | Berichtenverzending voor bedrijven in hoogwaardige | Bericht | Verwerking en financiële transacties |
 
 ### <a name="event-grid"></a>Event Grid
@@ -62,7 +58,7 @@ Deze heeft de volgende kenmerken:
 
 ### <a name="event-hubs"></a>Event Hubs
 
-Azure Event Hubs is een big data-pijplijn. Dit vereenvoudigt de vastleggen, bewaren en replay van Telemetrie en gebeurtenis stroomgegevens. De gegevens kunnen afkomstig zijn van veel gelijktijdige bronnen. Event Hubs kunnen Telemetrie en gebeurtenis gegevens worden voor tal van stroom verwerking infrastructuren en analyses services beschikbaar worden gesteld. Het is beschikbaar als gegevensstromen of gebundelde gebeurtenis batches. Deze service biedt één oplossing waarmee u snel gegevens ophalen voor realtime verwerking, evenals herhaalde replay van opgeslagen onbewerkte gegevens.
+Azure Event Hubs is een big data-pijplijn. Dit vereenvoudigt de vastleggen, bewaren en replay van Telemetrie en gebeurtenis stroomgegevens. De gegevens kunnen afkomstig zijn van veel gelijktijdige bronnen. Event Hubs kunnen Telemetrie en gebeurtenis gegevens worden voor tal van stroom verwerking infrastructuren en analyses services beschikbaar worden gesteld. Het is beschikbaar als gegevensstromen of gebundelde gebeurtenis batches. Deze service biedt één oplossing waarmee u snel gegevens ophalen voor realtime verwerking, evenals herhaalde replay van opgeslagen onbewerkte gegevens. Dit kan de streaming gegevens vastgelegd in een bestand voor verwerking en analyse.
 
 Deze heeft de volgende kenmerken:
 
@@ -72,6 +68,8 @@ Deze heeft de volgende kenmerken:
 ### <a name="service-bus"></a>Service Bus
 
 Service Bus is bedoeld voor traditionele bedrijfstoepassingen. Deze bedrijfstoepassingen vereisen transacties, rangschikken, detectie van duplicaten en onmiddellijk consistentie. Service Bus kunnen cloud-systeemeigen toepassingen bieden betrouwbare statusbeheer overgang voor bedrijfsprocessen. Gebruik Azure Service Bus bij de verwerking van hoge waarde berichten die kunnen worden verbroken en kan worden gedupliceerd. Service Bus ook kunt u maximaal beveiligde communicatie in hybride cloud-oplossingen en verbinding maken met bestaande on-premises systemen naar cloudoplossingen.
+
+Service Bus is een brokered messaging-systeem. Opgeslagen berichten in een 'broker' (bijvoorbeeld een wachtrij) totdat de verbruikende partij gereed is om de berichten te ontvangen.
 
 Deze heeft de volgende kenmerken:
 

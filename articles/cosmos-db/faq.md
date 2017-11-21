@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -431,7 +431,7 @@ Azure Cosmos DB standaard doorvoer ingesteld voor de container op basis van waar
 Het concept doorvoer wordt uitgelegd in de [Aanvraageenheden in Azure Cosmos DB](request-units.md) artikel. De doorvoer voor een tabel is evenredig verdeeld over de onderliggende fysieke partities.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Wat is de standaardinstelling RU/s van tabel wanneer via CQL gemaakt? Wat gebeurt er als ik nodig om deze te wijzigen?
-Azure Cosmos-database maakt gebruik van aanvraageenheden per seconde (RU/s) als valuta voor het ontwikkelen van doorvoer. Tabellen die zijn gemaakt via CQL hebben 400 RU. U kunt de RU wijzigen via de portal en 10.000 RU. Als u meer dan 10.000 RU afgeschermd voorbeeld - kunt u deze eerst van de portal. Of als u wilt dat deze mogelijkheid voor CQL - Maak verbinding met ons op [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos-database maakt gebruik van aanvraageenheden per seconde (RU/s) als valuta voor het ontwikkelen van doorvoer. Tabellen die zijn gemaakt via CQL hebben 400 RU. U kunt de RU wijzigen via de portal. 
 
 CQL
 ```

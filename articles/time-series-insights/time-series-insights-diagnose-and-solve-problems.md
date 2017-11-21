@@ -9,11 +9,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47fb6f01eff8827179fbfa9e67ad3b901c8cdf94
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticeren en oplossen van problemen in uw omgeving Time Series Insights
 
@@ -24,9 +24,9 @@ Er zijn enkele veelvoorkomende redenen waarom u ziet mogelijk ook geen uw gegeve
 Inzicht van Azure Time Series ondersteunt alleen JSON-gegevens. Zie voor voorbeelden van de JSON, [JSON ondersteund vormen](time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Mogelijke oorzaak B: gebeurtenis bronsleutel ontbreekt een vereiste machtiging
-* Voor een IoT-hub, moet u de sleutel die is opgeven **service verbinding** machtiging.
+* Voor een IoT-Hub, moet u de sleutel die is opgeven **service verbinding** machtiging.
 
-   ![IoT hub service connect machtiging](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   ![Service IoT Hub connect machtiging](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    Zoals wordt weergegeven in de voorgaande afbeelding, een van de beleidsregels **iothubowner** en **service** zou werken, omdat beide **service verbinding** machtiging.
    
@@ -37,13 +37,13 @@ Inzicht van Azure Time Series ondersteunt alleen JSON-gegevens. Zie voor voorbee
    Zoals wordt weergegeven in de voorgaande afbeelding, een van de beleidsregels **lezen** en **beheren** zou werken, omdat beide **luisteren** machtiging.
 
 ### <a name="possible-cause-c-the-consumer-group-provided-is-not-exclusive-to-time-series-insights"></a>De consumergroep opgegeven zich niet uitsluitend van toepassing op tijd reeks Insights C: oorzaak
-Tijdens de registratie van am IoT-hub of een event hub, kunt u de consumergroep die moet worden gebruikt voor het lezen van de gegevens opgeven. Deze consumergroep moet **niet** worden gedeeld. Als de consumergroep wordt gedeeld, de onderliggende event hub automatisch verbreekt verbinding met een van de lezers willekeurig. Geef een unieke consumergroep voor tijd reeks inzichten te lezen.
+Tijdens de registratie van am IoT-Hub of een event hub, kunt u de consumergroep die moet worden gebruikt voor het lezen van de gegevens opgeven. Deze consumergroep moet **niet** worden gedeeld. Als de consumergroep wordt gedeeld, de onderliggende event hub automatisch verbreekt verbinding met een van de lezers willekeurig. Geef een unieke consumergroep voor tijd reeks inzichten te lezen.
 
 ## <a name="problem-2-some-data-is-shown-but-some-is-missing"></a>Probleem 2: Sommige gegevens wordt weergegeven, maar sommige ontbreekt
 Wanneer u gegevens gedeeltelijk kunt zien, maar de gegevens is achtergebleven achter, zijn er verschillende mogelijkheden te overwegen:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Mogelijke oorzaak A: uw omgeving worden beperkt door ophalen
-De limiet voor bandbreedteregeling wordt afgedwongen op basis van de omgeving SKU type en capaciteit. Alle bronnen van gebeurtenissen in de omgeving delen deze capaciteit. Als de gegevensbron voor uw IoT-hub of event hub gegevens buiten de grenzen afgedwongen pusht, ziet u bandbreedtebeperking en een vertraging.
+De limiet voor bandbreedteregeling wordt afgedwongen op basis van de omgeving SKU type en capaciteit. Alle bronnen van gebeurtenissen in de omgeving delen deze capaciteit. Als de gegevensbron voor uw IoT-Hub of event hub gegevens buiten de grenzen afgedwongen pusht, ziet u bandbreedtebeperking en een vertraging.
 
 Het volgende diagram toont een tijd reeks Insights-omgeving die een SKU S1 en een capaciteit van 3 heeft. Kan het 3 miljoen ingangsgebeurtenissen per dag.
 
@@ -61,7 +61,7 @@ Zie voor een grondige kennis van de logica plat werking [JSON ondersteund vormen
 Om op te lossen de vertraging, verhoogt u de SKU-capaciteit van uw omgeving. Zie voor meer informatie [schalen van uw omgeving Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Mogelijke oorzaak B: initiële opname van historische gegevens wordt veroorzaakt door trage inkomend
-Als u een bestaande gebeurtenisbron verbindt, is het waarschijnlijk dat uw IoT-hub of event hub al gegevens daarin. De omgeving start binnenhalen van gegevens vanaf het begin van de gebeurtenisbron bericht bewaarperiode.
+Als u een bestaande gebeurtenisbron zijn verbonden, is het waarschijnlijk dat uw IoT-Hub of event hub al gegevens daarin. De omgeving start binnenhalen van gegevens vanaf het begin van de gebeurtenisbron bericht bewaarperiode.
 
 Dit gedrag is de standaardinstelling en kan niet worden overschreven. U kunt benaderen bandbreedtebeperking en duurt het even te lopen op het opnemen van historische gegevens.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure grootten van virtuele machine van Windows - HPC | Microsoft Docs
-description: Hier worden de verschillende grootten beschikbaar voor Windows high performance computing-virtuele machines in Azure.
+description: Hier worden de verschillende grootten beschikbaar voor Windows high performance computing-virtuele machines in Azure. Bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor de grootte van deze reeks.
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: a0596d134e9c26877848f93d72f35bfd2c957570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Hoge prestaties compute-VM-grootten
 

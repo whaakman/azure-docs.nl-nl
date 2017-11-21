@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Kiezen tussen Stroom, Logische apps, Functies en WebJobs
 Dit artikel wordt vergeleken en de volgende services in de Microsoft cloud, die u kunnen alle integratie problemen oplossen en bedrijfsprocessen te automatiseren in tegenstelling tot:
@@ -81,12 +81,12 @@ De volgende tabel geeft een overzicht van de verschillen tussen de functies en W
 | Schalen |Configurationless schalen |schalen met App Service-abonnement |
 | Prijzen |Betalen per gebruik of een deel van de App Service-abonnement |Onderdeel van App Service-abonnement |
 | Uitvoeren van het type |geactiveerd, geplande (met timertrigger) |geactiveerde, continue, geplande |
-| Trigger-gebeurtenissen |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Servicebus](functions-bindings-service-bus.md), [Azure-opslag](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Servicebus](functions-bindings-service-bus.md) |
+| Trigger-gebeurtenissen |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage-wachtrijen en blobs](functions-bindings-storage-blob.md), [Azure Service Bus-wachtrijen en onderwerpen](functions-bindings-service-bus.md) |[Azure Storage-wachtrijen en blobs](functions-bindings-storage-blob.md), [Azure Service Bus-wachtrijen en onderwerpen](functions-bindings-service-bus.md) |
 | In de browser-ontwikkeling |Ondersteund |Niet ondersteund |
 | C# |Ondersteund |Ondersteund |
 | F# |Ondersteund |Niet ondersteund |
 | Javascript |Ondersteund |Ondersteund |
-| Java |Ondersteund | Niet ondersteund |
+| Java |Preview | Niet ondersteund |
 | Bash |experimentele |Ondersteund |
 | Windows-scripts (.cmd en .bat) |experimentele |Ondersteund |
 | PowerShell |experimentele |Ondersteund |

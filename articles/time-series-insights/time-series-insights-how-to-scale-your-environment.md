@@ -12,17 +12,17 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Schalen van uw omgeving Time Series Insights
 
-In dit artikel wordt beschreven hoe de capaciteit van uw omgeving uw Time Series Insights-omgeving met de Azure portal te wijzigen. De capaciteit is de vermenigvuldiger toegepast op de snelheid van inkomende, opslagcapaciteit en kosten die zijn gekoppeld aan de geselecteerde Sku. 
+In dit artikel wordt beschreven hoe de capaciteit van uw omgeving uw Time Series Insights-omgeving met de Azure portal te wijzigen. De capaciteit is de vermenigvuldiger toegepast op de snelheid van inkomende, opslagcapaciteit en kosten die zijn gekoppeld aan de geselecteerde SKU. 
 
-U kunt de Azure-portal vergroten of verkleinen van capaciteit binnen een bepaalde prijscategorie Sku. 
+U kunt de Azure-portal vergroten of verkleinen van capaciteit binnen een bepaalde prijscategorie SKU. 
 
 Echter, als u de prijscategorie wijzigt SKU is niet toegestaan. Bijvoorbeeld, kan niet een omgeving met een S1 SKU prijzen worden geconverteerd naar een S2 of vice versa. 
 
@@ -46,7 +46,7 @@ Capaciteitswaarden evenredig, zodat een SKU S1 capaciteit 2 2 GB (2 miljoen) geb
 ## <a name="change-the-capacity-of-your-environment"></a>De capaciteit van uw omgeving wijzigen
 1. In de Azure portal, zoek en selecteer uw Time Series Insights-omgeving. 
 
-2. Onder de **instellingen** kop, selecteer **configureren**.
+2. Selecteer in het menu voor uw omgeving Time Series Insighs **configureren**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 

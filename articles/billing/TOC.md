@@ -6,6 +6,7 @@
 ## [Aanmelden met Office 365-account](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Registreren voor Office 365 met een Azure-account](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Resources organiseren met beheergroepen](billing-enterprise-mgmt-group-overview.md)
+## [Bespaar geld met gereserveerde VM-instanties](billing-save-compute-costs-reservations.md)
 ## [Limieten en quota](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Procedures
@@ -17,9 +18,13 @@
 ### [Meer informatie over de gebruiksvoorwaarden](billing-understand-your-usage.md)
 ### [Meer informatie over externe servicekosten](billing-understand-your-azure-marketplace-charges.md)
 ### [Gratis servicemetertoewijzing begrijpen](billing-understand-free-service-meter-mapping.md)
+### [Windows-kosten VM-exemplaren reserveren](billing-reserved-instance-windows-software-costs.md)
+### [Meer informatie over de toepassing van korting op gereserveerde VM-instanties](billing-understand-vm-reservation-charges.md)
 ### [Meer informatie over de bestedingslimiet](billing-spending-limit.md)
 ### [Meldingen voor facturering instellen](billing-set-up-alerts.md)
 ### [Verschuldigd bedrag betalen](billing-azure-subscription-past-due-balance.md)
+### [Meer informatie over het gebruik van gereserveerde instanties voor betalen per gebruik](billing-understand-reserved-instance-usage.md)
+### [Meer informatie over het gebruik van gereserveerde instanties voor Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Abonnementen beheren
 ### [Beheerdersrollen beheren](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Betalingsgegevens bijwerken](billing-how-to-change-credit-card.md)
 ### [Office 365-tenant koppelen](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Voor abonnementen betalen per factuur](billing-how-to-pay-by-invoice.md)
+## [Gereserveerde VM-instanties beheren](billing-manage-reserved-vm-instance.md)
 ## Problemen oplossen
 ### [Registratieproblemen](https://support.microsoft.com/en-us/help/4042959)
 ### [Geweigerde kaart](https://support.microsoft.com/en-us/help/4042960)

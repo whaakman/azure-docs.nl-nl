@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure Database migratie-Service voor het migreren van SQL-Server migreren naar Azure SQL Database | Microsoft Docs
-description: Informatie over het migreren van on-premises SQL Server naar Azure SQL Azure Database migratieservice met.
+title: Gebruik van de migratie van Azure databaseservice SQL-Server migreren naar Azure SQL Database | Microsoft Docs
+description: Informatie over het migreren van SQL Server on-premises naar Azure SQL met behulp van Azure-databaseservice voor migratie.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/09/2017
-ms.openlocfilehash: 70127b09e64ea4f19de437297498bdf78d415b99
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>SQL-Server migreren naar Azure SQL Database
 De Service Azure Database migratie kunt u de databases van een lokale SQL Server-instantie migreren naar Azure SQL Database. In deze zelfstudie maakt u de migratie de **Adventureworks2012** database teruggezet naar een lokaal exemplaar van SQL Server 2016 (of hoger) naar een Azure SQL Database met behulp van de Service Azure Database migratie.
@@ -25,28 +25,29 @@ In deze zelfstudie leert u het volgende:
 > * Evalueer uw lokale database met behulp van de gegevens migratie-assistent.
 > * De voorbeeldschema met behulp van de gegevens migratie-assistent migreren.
 > * Geen exemplaar maken van de Service Azure Database migratie.
-> * Een Azure-databaseservice migratie migratie-project maken.
+> * Maak een migratieproject met behulp van de Service Azure Database migratie.
 > * Voer de migratie uit.
 > * De migratie bewaken.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor deze zelfstudie hebt u het volgende nodig:
+Voor deze zelfstudie hebt voltooid, moet u:
 
-- [SQL Server 2016 of hoger](https://www.microsoft.com/sql-server/sql-server-downloads) (alle versies)
-- TCP/IP-protocol is standaard SQL Server Express-installatie uitgeschakeld. Deze inschakelen door de [instructies in dit artikel](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Voor het configureren van uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Een Azure SQL Database-exemplaar. U kunt een Azure SQL Database-exemplaar maken door de details in het artikel [maken van een Azure SQL database in de Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
-- [Migratie-assistent gegevens](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 of hoger.
-- De Service Azure Database migratie vereist een VNET gemaakt met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- De referenties waarmee verbinding met bron SQL Server-exemplaar moeten hebben [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) machtigingen.
-- De referenties waarmee verbinding met Azure SQL DB doelexemplaar moeten de machtiging beheer DATABASE hebben op de doel-Azure SQL DB-databases.
-- Windows firewall moet worden geopend zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server.
+- De download- en instanll [SQL Server 2016 of hoger](https://www.microsoft.com/sql-server/sql-server-downloads) (alle versies).
+- Inschakelen van het TCP/IP-protocol is standaard uitgeschakeld tijdens de installatie van SQL Server Express door de instructies in het artikel [in- of uitschakelen van een Server netwerkprotocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Geen exemplaar maken van Azure SQL Database-instantie die u doen door de details in het artikel [maken van een Azure SQL database in de Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+- Download en installeer de [gegevens migratie-assistent](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 of hoger.
+- Een VNET maken voor de Azure-Service voor het migreren van Database met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Zorg ervoor dat de referenties waarmee verbinding met SQL Server-bronexemplaar [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) machtigingen.
+- Zorg ervoor dat de referenties waarmee verbinding met Azure SQL Database doelexemplaar machtiging beheer DATABASE op de doel-Azure SQL-databases.
+- Open Windows firewall zodat de Service Azure Database migratie voor toegang tot de bron van SQL Server.
 
 ## <a name="assess-your-on-premises-database"></a>Evalueren van uw lokale-database.
-Voordat u gegevens vanuit een lokale SQL Server-exemplaar met Azure SQL Database migreren kunt, moet u de SQL Server-database voor tegen blokkerende problemen die mogelijk niet op de migratie. Nadat u downloaden en installeren van de migratie-assistent gegevens v3.3, gebruikt u de stappen in het artikel [uitvoeren van een SQL Server-migratie beoordeling](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) voltooid de on-premises database assessment. Hier volgt een samenvatting van de vereiste stappen:
+Voordat u gegevens vanuit een lokale SQL Server-exemplaar met Azure SQL Database migreren kunt, moet u de SQL Server-database voor tegen blokkerende problemen die mogelijk niet op de migratie. In het migratie-assistent gegevens v3.3 of hoger, volg de stappen in het artikel [uitvoeren van een SQL Server-migratie beoordeling](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) voltooid de on-premises database assessment. Hier volgt een samenvatting van de vereiste stappen:
 1.  In de gegevens migratie-assistent, selecteer het pictogram Nieuw (+) en selecteer vervolgens de **Assessment** projecttype.
 2.  Geef een projectnaam in de **server gegevensbrontype** in het tekstvak, selecteer **SQL Server**, en klik vervolgens in de **server doeltype** in het tekstvak, selecteer **Azure SQL Database**.
 3.  Selecteer **maken** om het project te maken.
+
     Wanneer u van de SQL Server database migreren naar Azure SQL Database beoordelen, kunt u een of beide van de volgende evaluatie rapporttypen kiezen:
     - Databasecompatibiliteit controleren
     - Functie pariteit controleren
@@ -54,7 +55,7 @@ Voordat u gegevens vanuit een lokale SQL Server-exemplaar met Azure SQL Database
     Beide rapporttypen worden standaard geselecteerd.
 4.  In de gegevens migratie-assistent op de **opties** Schakel in het scherm **volgende**.
 5.  Op de **bronnen selecteren** scherm in de **verbinding maken met een server** in het dialoogvenster details van de verbinding met uw SQL-Server bieden, en selecteer vervolgens **Connect**.
-6.  Selecteer **AdventureWorks2012**, selecteer **toevoegen**, en selecteer vervolgens **Start Assessment**.
+6.  In de **bronnen toevoegen** dialoogvenster, **AdventureWorks2012**, selecteer **toevoegen**, en selecteer vervolgens **Start Assessment**.
 
     Wanneer de beoordeling voltooid is, worden de resultaten weergegeven zoals in de volgende afbeelding:
 
@@ -63,20 +64,19 @@ Voordat u gegevens vanuit een lokale SQL Server-exemplaar met Azure SQL Database
     Voor Azure SQL Database identificeert de beoordelingen blokkerende problemen van migratie en problemen met de pariteit van functies.
 
 7.  Bekijk de resultaten van de assessment voor migratie blokkerende problemen en functie pariteit problemen door de specifieke opties te selecteren.
-    - De categorie pariteit van SQL Server-functie biedt een uitgebreide reeks aanbevelingen, alternatieve methoden die beschikbaar zijn in Azure en beperkende stappen voor het plannen van de inzet in uw migratie-projecten.
-    - De compatibiliteit problemen categorie gedeeltelijk bevat of niet-ondersteunde functies die overeenkomen met compatibiliteitsproblemen die blokkeren migreren van mogelijk on-premises SQL Server-databases naar Azure SQL database (s). Aanbevelingen worden ook gegeven om u te helpen bij het aanpakken van die problemen.
+    - De **pariteit voor SQL Server-functie** categorie biedt een uitgebreide set met aanbevelingen, alternatieve methoden die beschikbaar zijn in Azure, en de beperkende stappen voor het plannen van de inzet in uw migratie-projecten.
+    - De **compatibiliteitsproblemen** categorie identificeert gedeeltelijk ondersteunde of niet-ondersteunde functies die overeenkomen met compatibiliteit van software die mogelijk blokkeren migreren lokale SQL Server-databases naar Azure SQL Database. Aanbevelingen worden ook gegeven om u te helpen bij het aanpakken van die problemen.
 
 
 ## <a name="migrate-the-sample-schema"></a>Het voorbeeldschema migreren
-Nadat u vertrouwd met het beoordelen bent en voldoet aan de geselecteerde database is een goede kandidaat voor migratie naar Azure SQL Database, gebruikt u gegevens migreren Assistant om het schema migreren naar Azure SQL Database.
+Nadat u vertrouwd met het beoordelen bent en de gegevens migratie-assistent voldaan aan de geselecteerde database is een goede kandidaat voor migratie naar Azure SQL Database gebruiken voor het migreren van het schema met Azure SQL Database.
 
 > [!NOTE]
-> Voordat u een migratieproject in Data migratie-assistent maken, zorg er dan voor dat u hebt al een Azure SQL database ingericht zoals vermeld in de vereisten. Voor deze zelfstudie de naam van de Azure SQL Database wordt ervan uitgegaan dat **AdventureWorks2012**, maar u kunt deze anders naam desgewenst.
+> Voordat u een migratieproject in Data migratie-assistent maken, zorg er dan voor dat u hebt al een Azure SQL database ingericht zoals vermeld in de vereisten. Voor deze zelfstudie de naam van de Azure SQL Database wordt ervan uitgegaan dat **AdventureWorksAzure**, maar u kunt deze anders naam desgewenst.
 
 Voor het migreren van de **AdventureWorks2012** schema met Azure SQL Database, de volgende stappen uitvoeren:
 
-1.  Start de assistent van de migratie van gegevens.
-2.  Selecteer het pictogram Nieuw (+) en klik vervolgens onder **projecttype**, selecteer **migratie**.
+1.  Selecteer het pictogram Nieuw (+) in de gegevens migratie-assistent, en klik vervolgens onder **projecttype**, selecteer **migratie**.
 3.  Geef een projectnaam in de **server gegevensbrontype** in het tekstvak, selecteer **SQL Server**, en klik vervolgens in de **server doeltype** in het tekstvak, selecteer **Azure SQL Database**.
 4.  Onder **migratie bereik**, selecteer **Schema only**.
 
@@ -88,7 +88,7 @@ Voor het migreren van de **AdventureWorks2012** schema met Azure SQL Database, d
 6.  Geef in de gegevens migratie-assistent, de details van de bron-verbinding voor uw SQL-Server, selecteer **Connect**, en selecteer vervolgens de **AdventureWorks2012** database.
 
     ![Details van gegevensbron assistent verbinding migratie](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
-7.  Selecteer **volgende**onder **verbinding maken met de doelserver**, geef de details van de doel-verbinding voor de Azure SQL database, selecteert u **Connect**, en selecteer vervolgens de **AdventureWorks2012** database die u vooraf is ingericht in Azure SQL-database.
+7.  Selecteer **volgende**onder **verbinding maken met de doelserver**, geef de details van de doel-verbinding voor de Azure SQL database, selecteert u **Connect**, en selecteer vervolgens de **AdventureWorksAzure** database die u vooraf is ingericht in Azure SQL-database.
 
     ![Migratie-assistent doel verbinding Gegevensdetails](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
 8.  Selecteer **volgende** om door te gaan naar de **objecten selecteren** scherm waarop kunt u de schemaobjecten in de **AdventureWorks2012** database die moeten worden geïmplementeerd naar Azure SQL-Database.
@@ -103,8 +103,21 @@ Voor het migreren van de **AdventureWorks2012** schema met Azure SQL Database, d
 
     ![Schema implementeren](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
 
+## <a name="register-the-microsoftdatamigration-resource-provider"></a>De registerbronprovider is Microsoft.DataMigration
+1. Aanmelden bij de Azure portal, selecteer **alle services**, en selecteer vervolgens **abonnementen**.
+ 
+   ![Portal abonnementen weergeven](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
+       
+2. Selecteer het abonnement waarin u wilt maken van het exemplaar van de Azure-Service voor het migreren van Database en selecteer vervolgens **resourceproviders**.
+ 
+    ![resourceproviders weergeven](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
+3.  Zoekcriteria voor de migratie en rechts van **Microsoft.DataMigration**, selecteer **registreren**.
+ 
+    ![Resourceprovider registreren](media\tutorial-sql-server-to-azure-sql\portal-register-resource-provider.png)    
+
+
 ## <a name="create-an-instance"></a>Geen exemplaar maken
-1.  Aanmelden bij de Azure portal, selecteer **+ maken van een resource**, zoeken naar Azure Database migratie-Service en selecteer vervolgens **Azure migratie databaseservice** uit de vervolgkeuzelijst.
+1.  Selecteer in de Azure-portal **+ maken van een resource**, zoeken naar Azure Database migratie-Service en selecteer vervolgens **Azure migratie databaseservice** uit de vervolgkeuzelijst.
 
     ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql\portal-marketplace.png)
 2.  Op de **Migratieservice voor Azure-Database (preview)** Schakel in het scherm **maken**.
@@ -113,7 +126,7 @@ Voor het migreren van de **AdventureWorks2012** schema met Azure SQL Database, d
   
 3.  Op de **migratie databaseservice** scherm, Geef een naam voor de service, het abonnement, een virtueel netwerk en de prijscategorie.
 
-    Zie voor meer informatie over de kosten en Prijscategorieën, de pagina met prijzen.
+    Zie voor meer informatie over de kosten en Prijscategorieën de [pagina met prijzen](https://aka.ms/dms-pricing).
 
      ![Migratie van Azure databaseservice exemplaar instellingen configureren](media\tutorial-sql-server-to-azure-sql\dms-settings.png)
 

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure-Cloud-Shell
 Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -82,12 +82,12 @@ Opgegeven waarin DropDowns worden gefilterd voor uw toegewezen Cloud Shell regio
 [Meer informatie over opslag voor Cloud-Shell, gedeelde bestanden bijwerken en het uploaden/downloaden van bestanden.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Concepten
-* Cloud-Shell wordt uitgevoerd op een tijdelijke machine die is opgegeven op een per-sessie per gebruiker
+* Cloud-Shell wordt uitgevoerd op een tijdelijke host die is opgegeven op een per-sessie per gebruiker
 * Time-out opgetreden voor de cloud Shell na 20 minuten zonder interactieve activiteit
-* Cloud-Shell zijn alleen toegankelijk met een bestandsshare die is gekoppeld
-* Cloud Shell gebruikt een dezelfde bestandsshare voor zowel Bash en PowerShell
+* Cloud-Shell vereist een bestandsshare te koppelen
+* Cloud-Shell maakt gebruik van dezelfde bestandsshare voor zowel Bash en PowerShell
 * Cloud-Shell wordt één machine per gebruikersaccount toegewezen
-* Machtigingen zijn ingesteld als een gewone gebruiker voor Linux (Bash)
+* Machtigingen zijn ingesteld als een gewone gebruiker Linux in Bash
 
 Meer informatie over functies in [Bash in de Cloud-Shell](features.md) en [PowerShell in de Cloud-Shell (Preview)](features-powershell.md).
 
@@ -102,5 +102,5 @@ Deze voorbeelden in snelstartgidsen voor uitproberen [Bash in de Cloud-Shell](qu
 De computer die als host fungeert voor Cloud-Shell is gratis, met een vereiste van een gekoppelde Azure Files-share. Reguliere opslagkosten van toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-[In de Cloud Shell snel Bash](quickstart.md)
+[In de Cloud Shell snel Bash](quickstart.md) <br>
 [PowerShell in Quick Start voor Cloud-Shell (Preview)](quickstart-powershell.md)

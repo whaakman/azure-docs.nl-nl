@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bbbd31313db44d32a829e9e4c6c9b5fd9c0e533e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7013e7ff3cb14dcad8e3e9a926bcee771180259d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Hoe u een gegevensschijf loskoppelen van een virtuele Windows-computer
 Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer nodig hebt, kunt u deze eenvoudig loskoppelen. Hiermee verwijdert u de schijf van de virtuele machine, maar niet verwijderd uit de opslag.
@@ -32,29 +32,30 @@ Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine niet meer
 Als u de bestaande gegevens op de schijf opnieuw wilt gebruiken, kunt u de schijf opnieuw koppelen aan dezelfde of een andere virtuele machine.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Een gegevensschijf ontkoppelen via de portal
-1. Selecteer in de portal hub **virtuele Machines**.
+
+1. Selecteer in het menu links **virtuele Machines**.
 2. Selecteer de virtuele machine met de gegevensschijf die u wilt loskoppelen en klik op **stoppen** toewijzing van de virtuele machine.
-3. Selecteer in de virtuele machineblade **schijven**.
-4. Aan de bovenkant van de **schijven** blade Selecteer **bewerken**.
-5. In de **schijven** blade, aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
-5. Nadat de schijf is verwijderd, klikt u op opslaan boven aan de blade.
-6. Klik op de blade virtuele machine **overzicht** en klik vervolgens op de **Start** knop aan de bovenkant van de blade opnieuw opstarten van de virtuele machine.
+3. Selecteer in het deelvenster met de virtuele machine **schijven**.
+4. Aan de bovenkant van de **schijven** deelvenster **bewerken**.
+5. In de **schijven** deelvenster aan de rechterkant van de gegevensschijf die u wilt loskoppelen, klikt u op de ![Detach knopafbeelding](./media/detach-disk/detach.png) knop loskoppelen.
+5. Nadat de schijf is verwijderd, klikt u op **opslaan** boven aan het deelvenster.
+6. Klik in het deelvenster virtuele machine op **overzicht** en klik vervolgens op de **Start** knop aan de bovenkant van het deelvenster met de virtuele machine opnieuw opstarten.
 
 
 
 De schijf blijft in de opslag, maar is niet meer gekoppeld aan een virtuele machine.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Een gegevensschijf met behulp van PowerShell loskoppelen
-In dit voorbeeld wordt de eerste opdracht wordt de virtuele machine met de naam opgehaald **MyVM07** in de **RG11** resourcegroep met de cmdlet Get-AzureRmVM. De opdracht slaat de virtuele machine in de **$VirtualMachine** variabele.
+In dit voorbeeld wordt de eerste opdracht wordt de virtuele machine met de naam opgehaald **MyVM07** in de **RG11** resource groep met de [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet en slaat ze op in de **$VirtualMachine** variabele.
 
-De tweede opdracht verwijdert u de gegevensschijf DataDisk3 met de naam van de virtuele machine.
+De tweede regel verwijdert de gegevensschijf DataDisk3 met de naam van de virtuele machine met de [verwijderen AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet.
 
-De laatste opdracht werkt de status van de virtuele machine om het proces van het verwijderen van de gegevensschijf te voltooien.
+De derde regel de status van de virtuele machine is bijgewerkt met behulp van de [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet om het proces van het verwijderen van de gegevensschijf te voltooien.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
 ```
 
 Zie voor meer informatie [verwijderen AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).

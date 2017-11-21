@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Voldoen aan de vereisten voor het maken van AlwaysOn-beschikbaarheidsgroepen op virtuele machines in Azure
 
@@ -368,7 +368,7 @@ Maak vervolgens drie virtuele machines--twee SQL Server-VM's en een VM voor een 
 | --- | --- | --- | --- |
 | Selecteer het juiste galerij-item |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise op WindowsServer 2016** |**SQL Server 2016 SP1 Enterprise op WindowsServer 2016** |
 | Virtuele-machineconfiguratie **basisbeginselen** |**Naam** cluster fsw =<br/>**Gebruikersnaam** DomainAdmin =<br/>**Wachtwoord** = Contoso! 0000<br/>**Abonnement** = van uw abonnement<br/>**Resourcegroep** SQL-HA-RG =<br/>**Locatie** = van uw azure-locatie |**Naam** sqlserver-0 =<br/>**Gebruikersnaam** DomainAdmin =<br/>**Wachtwoord** = Contoso! 0000<br/>**Abonnement** = van uw abonnement<br/>**Resourcegroep** SQL-HA-RG =<br/>**Locatie** = van uw azure-locatie |**Naam** sqlserver-1 =<br/>**Gebruikersnaam** DomainAdmin =<br/>**Wachtwoord** = Contoso! 0000<br/>**Abonnement** = van uw abonnement<br/>**Resourcegroep** SQL-HA-RG =<br/>**Locatie** = van uw azure-locatie |
-| Virtuele-machineconfiguratie **grootte** |**De grootte van** = DS1\_V2 (1 kerngeheugen, 3.5 GB) |**De grootte van** DS2 =\_V2 (2 kernen, 7 GB)</br>De grootte moet ondersteuning bieden voor SSD-opslag (ondersteuning van Premium-schijven. )) |**De grootte van** DS2 =\_V2 (2 kernen, 7 GB) |
+| Virtuele-machineconfiguratie **grootte** |**De grootte van** = DS1\_V2 (1 vCPU, 3.5 GB) |**De grootte van** DS2 =\_V2 (2 Vcpu, 7 GB)</br>De grootte moet ondersteuning bieden voor SSD-opslag (ondersteuning van Premium-schijven. )) |**De grootte van** DS2 =\_V2 (2 Vcpu, 7 GB) |
 | Virtuele-machineconfiguratie **instellingen** |**Opslag**: gebruik schijven die worden beheerd.<br/>**Virtueel netwerk** autoHAVNET =<br/>**Subnet** sqlsubnet(10.1.1.0/24) =<br/>**Openbaar IP-adres** automatisch is gegenereerd.<br/>**Netwerkbeveiligingsgroep** = geen<br/>**Bewaking van diagnostische gegevens** = ingeschakeld<br/>**Opslagaccount voor diagnostische gegevens** = gebruik een automatisch gegenereerde storage-account<br/>**Beschikbaarheidsset** sqlAvailabilitySet =<br/> |**Opslag**: gebruik schijven die worden beheerd.<br/>**Virtueel netwerk** autoHAVNET =<br/>**Subnet** sqlsubnet(10.1.1.0/24) =<br/>**Openbaar IP-adres** automatisch is gegenereerd.<br/>**Netwerkbeveiligingsgroep** = geen<br/>**Bewaking van diagnostische gegevens** = ingeschakeld<br/>**Opslagaccount voor diagnostische gegevens** = gebruik een automatisch gegenereerde storage-account<br/>**Beschikbaarheidsset** sqlAvailabilitySet =<br/> |**Opslag**: gebruik schijven die worden beheerd.<br/>**Virtueel netwerk** autoHAVNET =<br/>**Subnet** sqlsubnet(10.1.1.0/24) =<br/>**Openbaar IP-adres** automatisch is gegenereerd.<br/>**Netwerkbeveiligingsgroep** = geen<br/>**Bewaking van diagnostische gegevens** = ingeschakeld<br/>**Opslagaccount voor diagnostische gegevens** = gebruik een automatisch gegenereerde storage-account<br/>**Beschikbaarheidsset** sqlAvailabilitySet =<br/> |
 | Virtuele-machineconfiguratie **SQL Server-instellingen** |Niet van toepassing |**SQL-connectiviteit** = privé (binnen virtueel netwerk)<br/>**Poort** 1433 =<br/>**SQL-verificatie** = uitschakelen<br/>**Opslagconfiguratie** algemene =<br/>**Automatisch patchen** = zondag om 2:00 uur<br/>**Automatische back-up** = uitgeschakeld</br>**Integratie van Azure Sleutelkluis** = uitgeschakeld |**SQL-connectiviteit** = privé (binnen virtueel netwerk)<br/>**Poort** 1433 =<br/>**SQL-verificatie** = uitschakelen<br/>**Opslagconfiguratie** algemene =<br/>**Automatisch patchen** = zondag om 2:00 uur<br/>**Automatische back-up** = uitgeschakeld</br>**Integratie van Azure Sleutelkluis** = uitgeschakeld |
 

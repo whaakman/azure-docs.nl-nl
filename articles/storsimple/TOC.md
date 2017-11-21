@@ -2,6 +2,7 @@
 
 ## Overzicht
 ### [Wat is de oplossing?](storsimple-ova-overview.md)
+### [Beschikbaarheid in regio’s](storsimple-regions.md)
 
 ## Aan de slag
 ### Plannen
@@ -59,6 +60,7 @@
 ### [Wat is de oplossing?](storsimple-overview.md)
 ### [Leertraject voor StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Beveiligingsoverwegingen](storsimple-8000-security.md)
+### [Beschikbaarheid in regio’s](storsimple-regions.md)
 ### [Veelgestelde vragen: overgaan op Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Aan de slag

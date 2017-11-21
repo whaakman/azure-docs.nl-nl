@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
@@ -340,8 +340,8 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 ### <a name="section-name-faultanalysisservice"></a>Sectienaam: FaultAnalysisService
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, de standaardwaarde is 0 |Niet toegestaan|De TargetReplicaSetSize voor FaultAnalysisService NOT_PLATFORM_UNIX_START. |
-| MinReplicaSetSize |Int, de standaardwaarde is 0 |Niet toegestaan|De MinReplicaSetSize voor FaultAnalysisService. |
+| TargetReplicaSetSize |Int, de standaardwaarde is 0 |Statisch|De TargetReplicaSetSize voor FaultAnalysisService NOT_PLATFORM_UNIX_START. |
+| MinReplicaSetSize |Int, de standaardwaarde is 0 |Statisch|De MinReplicaSetSize voor FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Tijd in seconden, de standaardwaarde is 60 minuten|Statisch|Geef de interval in seconden. De ReplicaRestartWaitDuration voor FaultAnalysisService. |
 | QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch|Geef de interval in seconden. De QuorumLossWaitDuration voor FaultAnalysisService. |
 | StandByReplicaKeepDuration| Tijd in seconden, de standaardwaarde is (60*24*7) minuten |Statisch|Geef de interval in seconden. De StandByReplicaKeepDuration voor FaultAnalysisService. |
@@ -390,8 +390,8 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 | Ingeschakeld |BOOL, de standaardwaarde is ONWAAR |Statisch|De vlag ingeschakeld voor ImageStoreService. Standaard: false |
-| TargetReplicaSetSize | Int, de standaardwaarde is 7 |Niet toegestaan|De TargetReplicaSetSize voor ImageStoreService. |
-| MinReplicaSetSize | Int, de standaardwaarde is 3 |Niet toegestaan|De MinReplicaSetSize voor ImageStoreService. |
+| TargetReplicaSetSize | Int, de standaardwaarde is 7 |Statisch|De TargetReplicaSetSize voor ImageStoreService. |
+| MinReplicaSetSize | Int, de standaardwaarde is 3 |Statisch|De MinReplicaSetSize voor ImageStoreService. |
 | ReplicaRestartWaitDuration | Tijd in seconden, de standaardwaarde is 60,0 * 30 |Statisch|Geef de interval in seconden. De ReplicaRestartWaitDuration voor ImageStoreService. |
 | QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch| Geef de interval in seconden. De QuorumLossWaitDuration voor ImageStoreService. |
 | StandByReplicaKeepDuration | Tijd in seconden, de standaardwaarde is 3600.0 * 2 |Statisch| Geef de interval in seconden. De StandByReplicaKeepDuration voor ImageStoreService. |
@@ -414,8 +414,8 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 ### <a name="section-name-upgradeorchestrationservice"></a>Sectienaam: UpgradeOrchestrationService
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, de standaardwaarde is 0 |Niet toegestaan|De TargetReplicaSetSize voor UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, de standaardwaarde is 0 |Niet toegestaan|De MinReplicaSetSize voor UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, de standaardwaarde is 0 |Statisch |De TargetReplicaSetSize voor UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, de standaardwaarde is 0 |Statisch |De MinReplicaSetSize voor UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Tijd in seconden, de standaardwaarde is 60 minuten|Statisch| Geef de interval in seconden. De ReplicaRestartWaitDuration voor UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch| Geef de interval in seconden. De QuorumLossWaitDuration voor UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Tijd in seconden, de standaardwaarde is 60*24*7 minuten |Statisch| Geef de interval in seconden. De StandByReplicaKeepDuration voor UpgradeOrchestrationService. |

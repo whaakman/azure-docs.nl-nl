@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb7674d8c292e7d571a94ac4625b0858a90704b3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: f93cfcdffd79b4cccdbd5f7c67ec42499bf7628c
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een Edge van C#-IoT-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -35,7 +35,6 @@ De rand van de IoT-module die u in deze zelfstudie maakt de temperatuur-gegevens
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (U kunt de uitbreiding installeren vanuit het deelvenster uitbreidingen in Visual Studio Code.)
 * [C# voor Visual Studio Code (via OmniSharp)-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (U kunt de uitbreiding installeren vanuit het deelvenster uitbreidingen in Visual Studio Code.)
-* Azure IoT Edge-extensie voor Visual Studio Code
 * [Docker](https://docs.docker.com/engine/installation/). De Community Edition (CE) voor uw platform is voldoende voor deze zelfstudie. Zorg ervoor dat u deze installeren op de computer waarop u tegenover Code uitvoeren op.
 * [.NET core SDK 2.0](https://www.microsoft.com/net/core#windowscmd). 
 
@@ -124,7 +123,7 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
             Console.WriteLine("Desired property change:");
             Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-            if (desiredProperties["TemperatureThreshold"].exists())
+            if (desiredProperties["TemperatureThreshold"]!=null)
                 temperatureThreshold = desiredProperties["TemperatureThreshold"];
 
         }
@@ -227,7 +226,7 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
         
         Als u de gebruikersnaam, wachtwoord en meld u aan server moet worden gebruikt in deze opdracht zoekt, gaat u naar de [Azure portal] (https://portal.azure.com). Van **alle resources**, klikt u op de tegel voor uw Azure-container register open de eigenschappen en klik vervolgens op **toegangssleutels**. Kopieer de waarden in de **gebruikersnaam**, **wachtwoord**, en **Login-server** velden. De aanmelding server sould worden van het formulier: `<your registry name>.azurecr.io`.
 
-3. De installatiekopie naar uw opslagplaats Docker forceren. Gebruik de **weergave | Opdracht palet... | Rand: Push IoT rand module Docker installatiekopie** menu opdracht in en voer de naam van de installatiekopie in het pop-tekst boven aan het venster VS-Code. Gebruik dezelfde naam van de installatiekopie u in stap gebruikt 1.c.
+3. De installatiekopie naar uw opslagplaats Docker forceren. Gebruik de **weergave | Opdracht palet... | Rand: Push IoT rand module Docker installatiekopie** menu opdracht in en voer de naam van de installatiekopie in het pop-tekst boven aan het venster VS-Code. Gebruik dezelfde naam van de installatiekopie u in stap gebruikt 1.d.
 
 ## <a name="add-registry-credentials-to-edge-runtime-on-your-edge-device"></a>Voeg register referenties toe aan de rand runtime op het apparaat van rand
 De referenties voor uw register toevoegen aan de rand runtime op de computer waarop u het apparaat aan de rand worden uitgevoerd. Dit geeft de runtime toegang voor het ophalen van de container. 

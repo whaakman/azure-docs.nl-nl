@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -30,10 +30,7 @@ Een regel virtueel netwerk maken eerst moet er een [virtueel netwerk service-ein
 
 
 > [!NOTE]
-> Deze functie is beschikbaar in Preview voor de volgende Azure-regio's voor Azure SQL Database:
->
-> - WestCentralUS, WestUS2 en EastUS.
-
+> Deze functie is beschikbaar in het voorbeeld in alle regio's van openbare Azure-cloud voor Azure SQL Database.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>De regel van een virtueel netwerk maken
 
@@ -270,7 +267,7 @@ De functie van Microsoft Azure Virtual Network service-eindpunten en de regel va
 
 <!-- Link references, to text, Within this same Github repo. -->
 
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics
+[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 

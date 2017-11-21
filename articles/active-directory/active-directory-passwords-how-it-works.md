@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Selfservice voor wachtwoordherstel in Azure AD-diepgaand
 
@@ -209,6 +209,17 @@ Voorbeeld: Zijn er vier beheerders in een omgeving. Beheerder A hun wachtwoord o
 
 Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volgende aanvullende opties voor lokale integraties. Als u deze opties zijn niet beschikbaar, is vervolgens Write-back niet juist geconfigureerd. Zie voor meer informatie [wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configuring-password-writeback).
 
+![Write-back][Writeback]
+
+Deze pagina bevat een snel de status van de lokale Write-back-client een van de volgende berichten worden weergegeven op basis van de huidige configuratie:
+
+* Uw On-premises Write-back-client is actief.
+* Azure AD is online en verbonden is met uw lokale Write-back-client. Het lijkt echter dat de geïnstalleerde versie van Azure AD Connect verouderd is. Houd rekening met [upgraden van Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) om ervoor te zorgen dat u de meest recente verbindingsfuncties en belangrijke oplossingen voor problemen hebt.
+* We kan helaas niet de status van uw lokale Write-back van client controleren omdat de geïnstalleerde versie van Azure AD Connect verouderd is. [Azure AD Connect upgraden](./connect/active-directory-aadconnect-upgrade-previous-version.md) kunnen de verbindingsstatus van uw controleren.
+* Helaas lijkt we nu kan geen verbinding met uw lokale Write-back-client. [Problemen met Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
+* Helaas kan geen we verbinding met uw lokale Write-back-client doordat Write-back van wachtwoord niet correct is geconfigureerd. [Wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configuring-password-writeback) om de verbinding te herstellen.
+* Helaas lijkt we nu kan geen verbinding met uw lokale Write-back-client. Dit kan zijn vanwege tijdelijke problemen bij ons. Als het probleem zich blijft voordoen, [problemen met Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
+
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Wachtwoorden terugschrijven naar uw on-premises directory
 
 Dit besturingselement bepaalt of het wachtwoord terugschrijven is ingeschakeld voor deze map. Als u Write-back is ingeschakeld, betekent dit de status van de on-premises Write-back-service. Dit is handig als u een tijdelijk wachtwoord terugschrijven uitschakelen zonder opnieuw configureren van Azure AD Connect wilt maken.
@@ -233,7 +244,7 @@ Wachtwoord opnieuw instellen en wijzigen worden volledig ondersteund voor alle c
 Als u wilt testen van dit scenario, gaat u naar http://passwordreset.microsoftonline.com met een van deze partner-gebruikers. Als ze hebben een alternatieve e-mailadres of verificatie e-mailadres is gedefinieerd, heeft wachtwoord opnieuw instellen werkt zoals verwacht.
 
 > [!NOTE]
-> Microsoft-accounts die toegang voor gasten zijn verleend aan uw Azure AD-tenant, zoals die van Hotmail.com, Outlook.com of andere persoonlijke e-mailadressen kunnen geen Azure AD SSPR gebruiken. Moeten ze hun wachtwoord opnieuw instellen met behulp van de gegevens gevonden in de [wanneer u kan niet aanmelden bij je Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
+> Microsoft-accounts die toegang voor gasten zijn verleend aan uw Azure AD-tenant, zoals die van Hotmail.com, Outlook.com of andere persoonlijke e-mailadressen kunnen geen Azure AD SSPR gebruiken. Ze moeten hun wachtwoord opnieuw instellen met behulp van de gegevens gevonden in de [wanneer u kan niet aanmelden bij je Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -253,3 +264,4 @@ De volgende artikelen bevatten aanvullende informatie met betrekking tot het wac
 * [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure Active Directory-verificatiemethoden die beschikbaar zijn en hoeveel er vereist zijn"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "On-premises Integratieconfiguratie voor write-back van wachtwoord en informatie over probleemoplossing"

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 11/17/2017
 ms.author: sethm
-ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="event-hubs-features-overview"></a>Overzicht van Event Hubs-functies
 
 Azure Event Hubs is een schaalbare verwerkingsservice die opgenomen en grote hoeveelheden gebeurtenissen en de gegevens, verwerkt met een lage latentie en hoge betrouwbaarheid. Zie [wat is er Event Hubs?](event-hubs-what-is-event-hubs.md) voor een overzicht van de service.
 
-In dit artikel is gebaseerd op de informatie in de [overzicht](event-hubs-what-is-event-hubs.md), en biedt technische en implementatie-informatie over Event Hubs-onderdelen en functies.
+In dit artikel is gebaseerd op de informatie in de [overzichtsartikel](event-hubs-what-is-event-hubs.md), en biedt technische en implementatie-informatie over Event Hubs-onderdelen en functies.
 
 ## <a name="event-publishers"></a>Gebeurtenisuitgevers
 

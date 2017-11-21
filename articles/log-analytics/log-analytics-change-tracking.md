@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in de software in uw omgeving met de oplossing voor wijzigingen bijhouden
 
@@ -44,7 +44,7 @@ Gebruik de volgende stappen voor het configureren van de bestanden bijhouden op 
 4. Klik op **Opslaan**.  
 
 > [!NOTE]
-> Linux-bestand bijhouden heeft aanvullende mogelijkheden, waaronder directory bijhouden, recrusion via mappen en de jokertekens bijhouden.
+> Linux-bestand bijhouden heeft aanvullende mogelijkheden, waaronder directory bijhouden, recursie via mappen en de jokertekens bijhouden.
 
 ### <a name="configure-windows-files-to-track"></a>Windows-bestanden bijhouden configureren
 Gebruik de volgende stappen voor het configureren van de bestanden in de Windows-computers bij te houden.
@@ -69,7 +69,7 @@ Gebruik de volgende stappen voor het configureren van registersleutels om bij te
    * **Bestand** (rapport bestandsmetagegevens - grootte, wijzigingsdatum, hash, enz.)
    * **Directory** (rapport directory metagegevens - grootte, wijzigingsdatum, enz.)
 2. **Koppelingen** (afhandeling van Linux symlink verwijzingen naar andere bestanden of mappen)
-   * **Negeren** (symlinks negeren tijdens recurions niet op te nemen de bestanden/mappen waarnaar wordt verwezen)
+   * **Negeren** (symlinks negeren tijdens recursie niet op te nemen de bestanden/mappen waarnaar wordt verwezen)
    * **Ga als volgt** (Ga als volgt de symlinks tijdens recursie naar alle bestanden/mappen waarnaar wordt verwezen)
    * **Beheren** (Ga als volgt de symlinks en de behandeling van geretourneerde inhoud alter)
 
@@ -96,14 +96,18 @@ Andere beperkingen:
 * Wanneer het netwerkverkeer hoog, kunnen wijzigingsrecords duren tot maximaal zes uur om weer te geven.
 * Als u de configuratie wijzigen terwijl een computer is uitgeschakeld, kan de computer bestandswijzigingen die deel uitmaakten van de vorige configuratie boeken.
 
+### <a name="known-issues"></a>Bekende problemen
+De oplossing voor wijzigingen bijhouden is momenteel met de volgende problemen:
+* Hotfix-updates worden niet verzameld voor Windows 10 auteurs en Update voor Windows Server 2016 Core RS3 machines.
+
 ## <a name="change-tracking-data-collection-details"></a>Details van verzameling gegevens bijhouden wijzigen
 Bijhouden van wijzigingen worden verzameld voor software-inventaris en metagegevens van de Windows-Service met behulp van de agents die u hebt ingeschakeld.
 
 De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld voor het bijhouden.
 
-| Platform | Directe Agent | Operations Manager-agent | Linux-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Frequentie van de verzameling |
+| Platform | Directe Agent | Operations Manager-agent | Linux-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows- en Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | vijf minuten 50 minuten, afhankelijk van het wijzigingstype. Zie de volgende tabel voor meer informatie. |
+| Windows- en Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | vijf minuten 50 minuten, afhankelijk van het wijzigingstype. Weergeven in de volgende tabel voor meer informatie. |
 
 
 De volgende tabel toont de frequentie van de verzameling gegevens voor de soorten wijzigingen.

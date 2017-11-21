@@ -16,56 +16,57 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: db849cd1e9da634064f79fbc041098542580ad02
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: b65a4e49097828e7cd54a29e814befd2d2ac5d88
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licentievereisten voor selfservicegebruikers Azure AD-wachtwoord opnieuw instellen
 
-Azure AD-wachtwoord opnieuw instellen naar de functie, zodat u **moet ten minste één licentie is toegewezen in uw organisatie hebben**. We afdwingen niet dat per gebruiker licentieverlening op de ervaring van wachtwoord opnieuw instellen. Om te blijven voldoen aan uw Microsoft-gebruiksrechtovereenkomst, moet u licenties toewijzen voor alle gebruikers die gebruikmaken van premium-functies.
+Azure Active Directory (Azure AD) voor wachtwoordherstel functie, zodat u *moet ten minste één licentie is toegewezen in uw organisatie hebben*. We afdwingen niet dat per gebruiker licentieverlening op de ervaring van wachtwoord opnieuw instellen. Om te blijven voldoen aan uw Microsoft-gebruiksrechtovereenkomst, moet u licenties toewijzen voor alle gebruikers die gebruikmaken van premium-functies.
 
-* **Alleen in de cloud gebruikers** -Office 365 (O365) een betaald SKU of Azure AD Basic
-* **Cloud** en/of **on-premises gebruikers** -Azure AD Premium-P1 of P2, Enterprise Mobility + Security (EMS) of Secure productief Enterprise (Gebeurtenisspe)
+* **Alleen in de cloud gebruikers**: Office 365 een betaald SKU of Azure AD Basic
+* **Cloud** of **on-premises gebruikers**: Azure AD Premium-P1 of P2, Enterprise Mobility + Security (EMS) of Secure productief Enterprise (Gebeurtenisspe)
 
 ## <a name="licenses-required-for-password-writeback"></a>Licenties die vereist zijn voor write-back van wachtwoord
 
-Voor het gebruik van wachtwoord terugschrijven, moet u een van de volgende licenties toegewezen in uw tenant hebben.
+Voor het gebruik van wachtwoord terugschrijven, moet u een van de volgende licenties die zijn toegewezen op uw tenant hebben:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Microsoft 365 (Plan E3)
+* Microsoft 365 (Plan E5)
 
 > [!WARNING]
-> Zelfstandige Office 365-abonnementen licentieverlening **bieden geen ondersteuning voor write-back van wachtwoord** en vereisen een van de voorgaande plannen voor deze functie werkt.
+> Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor write-back van wachtwoord* en vereisen dat u een van de voorgaande plannen voor deze functie werkt.
 
-Aanvullende licenties informatie, inclusief kosten vindt u op de volgende pagina 's
+Aanvullende licentie-informatie, inclusief kosten, vindt u op de volgende pagina's:
 
-* [Azure Active Directory-prijzen site](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory website prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Azure Active Directory-functies en mogelijkheden](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Groep of gebruiker gebaseerde licentieverlening inschakelen
 
-Azure AD nu ondersteunt op basis van een groep licentieverlening zodat beheerders bulksgewijs licenties toewijzen aan een groep gebruikers in plaats van één voor één toewijzen. [Toewijzen, controleren en oplossen van problemen met licenties](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)
+Azure AD nu ondersteunt op basis van een groep licentieverlening. Beheerders kunnen bulksgewijs licenties toewijzen aan een groep gebruikers in plaats van één voor één toewijzen. Zie voor meer informatie [toewijzen, controleren en oplossen van problemen met licenties](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
 
-Sommige Microsoft-services zijn niet beschikbaar op alle locaties. Voordat u een licentie kan worden toegewezen aan een gebruiker, moet de beheerder de eigenschap 'Gebruikslocatie' op de gebruiker opgeven. Toewijzing van licenties kan worden uitgevoerd onder User > profiel > sectie instellingen in de Azure portal. **Wanneer u de licentietoewijzing van de groep, neemt alle gebruikers zonder een gebruikslocatie opgegeven de locatie van de map.**
+Sommige Microsoft-services zijn niet beschikbaar op alle locaties. Voordat u een licentie kan worden toegewezen aan een gebruiker, de beheerder moet opgeven de **gebruikslocatie** eigenschap van de gebruiker. Toewijzing van licenties kan worden uitgevoerd onder de **gebruiker** > **profiel** > **instellingen** sectie in de Azure-portal. *Wanneer u de licentietoewijzing van de groep, nemen alle gebruikers zonder een gebruikslocatie opgegeven de locatie van de map.*
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Hoe ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
-* [Opnieuw instellen of wijzigen van uw wachtwoord](active-directory-passwords-update-your-own-password.md).
-* [Registreren voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Welke gegevens wordt gebruikt door de SSPR en welke gegevens moet u voor uw gebruikers vullen?](active-directory-passwords-data.md)
+* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
+* [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
+* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Wat zijn de beleidsopties met SSPR?](active-directory-passwords-policy.md)
-* [Wat is Write-back van wachtwoord en waarom ik van belang?](active-directory-passwords-writeback.md)
-* [Hoe meld ik op activiteit in SSPR?](active-directory-passwords-reporting.md)
-* [Wat zijn alle opties in de SSPR en wat ze aan de hand?](active-directory-passwords-how-it-works.md)
-* [Ik denk dat er iets is verbroken. Hoe kan ik SSPR oplossen?](active-directory-passwords-troubleshoot.md)
-* [Ik heb een vraag waarvoor is geen ergens anders](active-directory-passwords-faq.md)
+* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](active-directory-passwords-writeback.md)
+* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](active-directory-passwords-reporting.md)
+* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](active-directory-passwords-how-it-works.md)
+* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
+* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
+

@@ -29,8 +29,14 @@
       href: project-ic-tasks.md
 - name: Projectstructuur
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Projectuitvoering
-  href: project-execution.md
+- name: Projectplanning en -uitvoering
+  items:
+    - name: Projectplanning
+      href: team-data-science-process-project-templates.md
+    - name: Projectuitvoering
+      items:
+        - name: Wetenschappelijke gegevensprojecten
+          href: project-execution.md
 - name: Voorbeelden
   href: walkthroughs.md
   items:

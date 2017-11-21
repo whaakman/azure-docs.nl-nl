@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5dae5ef260d975e00d3bdaa9aff73fd5807bb839
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -81,7 +81,7 @@ Voordat u de extensie NPS installeert, die u wilt u de omgeving voor het afhande
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>De NPS-rol op een domein-server inschakelen
 
-De NPS-server maakt verbinding met Azure Active Directory en verifieert de MFA-aanvragen. Kies een server voor deze rol. Het is raadzaam om het kiezen van een server die aanvragen van andere services kunnen niet worden verwerkt omdat de extensie NPS genereert fouten voor alle aanvragen die niet RADIUS zijn.
+De NPS-server maakt verbinding met Azure Active Directory en verifieert de MFA-aanvragen. Kies een server voor deze rol. Het is raadzaam om het kiezen van een server die aanvragen van andere services kunnen niet worden verwerkt omdat de extensie NPS genereert fouten voor alle aanvragen die niet RADIUS zijn. De NPS-server moet worden ingesteld als de primaire en secundaire authentication-server voor uw omgeving. proxy RADIUS-aanvragen naar een andere server niet.
 
 1. Open op uw server, de **Wizard Functies toevoegen en onderdelen** in het menu Serverbeheer Quickstart.
 2. Kies **op basis van functie of onderdeel gebaseerde installatie** voor uw installatietype.
@@ -193,7 +193,7 @@ Als u gebruikers die niet zijn geregistreerd voor MFA hebt, kunt u bepalen wat e
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | WAAR/ONWAAR | Niet ingesteld (equivalent op TRUE) |
 
-Het doel van deze instelling is om te bepalen wat te doen wanneer een gebruiker niet is ingeschreven voor MFA. Wanneer de sleutel bestaat niet, is niet ingesteld of is ingesteld op TRUE, en de gebruiker niet is ingeschreven, wordt de uitbreiding voor de MFA-controle is mislukt. Wanneer de sleutel is ingesteld op FALSE en de gebruiker niet is ingeschreven, wordt de authenticatie voortgezet zonder dat u MFA uitvoert.
+Het doel van deze instelling is om te bepalen wat te doen wanneer een gebruiker niet is ingeschreven voor MFA. Wanneer de sleutel bestaat niet, is niet ingesteld of is ingesteld op TRUE, en de gebruiker niet is ingeschreven, wordt de uitbreiding voor de MFA-controle is mislukt. Wanneer de sleutel is ingesteld op FALSE en de gebruiker niet is ingeschreven, wordt de authenticatie voortgezet zonder dat u MFA uitvoert. Als een gebruiker is ingeschreven in MFA, moeten ze verifiëren met MFA zelfs als REQUIRE_USER_MATCH is ingesteld op FALSE.
 
 U kunt deze sleutel maken en ingesteld op FALSE terwijl uw gebruikers voorbereiding zijn en kunnen niet allemaal worden ingeschreven voor Azure MFA nog. Omdat de sleutel, gebruikers die niet zijn geregistreerd voor MFA kunnen aanmelden, moet u deze sleutel verwijderen voordat u doorgaat naar productie.
 

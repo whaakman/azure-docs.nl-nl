@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst van IoT-Hub
 In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Hub.
@@ -37,7 +37,7 @@ De [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is een 
 Er zijn _apparaat-SKD's_ beschikbaar zijn voor meerdere talen die het mogelijk maken [apparaat-apps](#device-app) die communiceren met een IoT-hub. De zelfstudies IoT Hub laten zien hoe deze apparaat-SDK's gebruiken. U vindt de broncode en meer informatie over het apparaat-SDK's in deze GitHub [opslagplaats](https://github.com/Azure/azure-iot-sdks).
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-IoT-rand kunt u toepassingen waarmee gateway verbonden apparaten om te communiceren met schrijven [IoT Hub](#iot-hub). De rand van de IoT-zelfstudies laten zien hoe u deze service. U vindt de broncode en meer informatie over Azure IoT Edge in deze GitHub [opslagplaats](https://github.com/Azure/iot-edge).
+Azure IoT-rand wordt verplaatst cloud analytics en aangepaste bedrijfsregels naar apparaten zodat uw organisatie zich op zakelijke inzichten in plaats van het beheer van gegevens concentreren kan. Schakel uw oplossing volledig schalen door het configureren van uw IoT-software, geïmplementeerd op apparaten via de standaard containers en toezicht vanuit de cloud. Aan de slag met een zelfstudie u hoe installeren en gebruiken van Azure IoT Edge ziet op een [Linux](../iot-edge/tutorial-simulate-device-linux.md) of [Windows](../iot-edge/tutorial-simulate-device-windows.md) apparaat.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT service SDK 's
 Er zijn _service-SDK's_ beschikbaar zijn voor meerdere talen die het mogelijk maken [back-end apps](#back-end-app) die communiceren met een IoT-hub. De zelfstudies IoT Hub laten zien hoe deze service-SDK's gebruiken. U vindt de broncode en meer informatie over de service-SDK's in deze GitHub [opslagplaats](https://github.com/Azure/azure-iot-sdks).
@@ -189,7 +189,7 @@ De back-end van uw oplossing kunt [taken](iot-hub-devguide-jobs.md) plannen en b
 De [taken REST-API](https://docs.microsoft.com/rest/api/iothub/jobapi) kunt u beheren [taken](#job) uitgevoerd in uw IoT-hub.
 
 ## <a name="module"></a>Module
-In [Azure IoT rand](iot-hub-linux-iot-edge-get-started.md), een [module](iot-hub-linux-iot-edge-get-started.md) is een onderdeel dat een specifieke taak uitvoert. Taken kunnen omvatten het opnemen van een bericht van een apparaat, een bericht transformeren of een bericht verzenden naar een IoT-hub. Een broker is verantwoordelijk voor het doorsturen van berichten tussen modules. Azure IoT-rand bevat een set van voorbeeld-modules. U kunt ook uw eigen aangepaste modules maken.
+In [Azure IoT rand](../iot-edge/tutorial-simulate-device-linux.md), een [module](../iot-edge/iot-edge-modules.md) is een onderdeel dat een specifieke taak uitvoert. Taken kunnen omvatten het opnemen van een bericht van een apparaat, een bericht transformeren of een bericht verzenden naar een IoT-hub. Een broker is verantwoordelijk voor het doorsturen van berichten tussen modules. Azure IoT-rand bevat een set van voorbeeld-modules. U kunt ook uw eigen aangepaste modules maken.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) is een van de messaging-protocollen die [IoT Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub ondersteunt [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).

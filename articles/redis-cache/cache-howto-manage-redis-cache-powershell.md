@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
-ms.openlocfilehash: 0a5c95eab3fd01f611fc049e80c5c506857e0b81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure Redis-Cache met Azure PowerShell beheren
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Dit onderwerp leest u hoe algemene taken is om uit te voeren, zoals maken, bijwe
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Zie voor meer informatie over het klassieke implementatiemodel [Azure Resource Manager versus klassieke implementatie: begrijpen implementatiemodellen en de status van uw resources](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
+Zie voor meer informatie over het klassieke implementatiemodel [Azure Resource Manager versus klassieke implementatie: begrijpen implementatiemodellen en de status van uw resources](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Als u Azure PowerShell al hebt geïnstalleerd, moet u Azure PowerShell versie 1.0.0 hebben of hoger. U kunt controleren de versie van Azure PowerShell die u hebt geïnstalleerd met deze opdracht bij de Azure PowerShell-opdrachtprompt.

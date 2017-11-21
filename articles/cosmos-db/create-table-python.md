@@ -12,13 +12,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met Python en Azure Cosmos DB API-app bouwen
 
@@ -38,6 +38,10 @@ Daarnaast doet u het volgende:
 * Python 2.7 van [python.org](https://www.python.org/downloads/release/python-2712/)
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
+
+> [!IMPORTANT] 
+> U moet een nieuwe tabel API-account om te werken met de SDK algemeen beschikbaar tabel-API's maken. Tabel gemaakt tijdens de preview-API-accounts worden niet ondersteund door de algemeen beschikbaar SDK's.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,7 +88,13 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     ![Weergeven en kopieer de VERBINDINGSREEKS in het deelvenster verbindingsreeks](./media/create-table-python/connection-string.png)
 
-2. Open het bestand config.py en kopieer de vereiste eigenschappen van een verbindingsreeks in het configuratiebestand.
+2. Kopieer de accountnaam met behulp van de knop aan de rechterkant.
+
+3. Open het bestand config.py en plakt u de naam van het ACCOUNT van de portal in de waarde STORAGE_ACCOUNT_NAME op regel 19.
+
+4. Ga terug naar de portal en kopieer de primaire sleutel.
+
+5. De primaire sleutel van de portal in de waarde STORAGE_ACCOUNT_KEY op regel 20 plakken.
 
 3. Sla het bestand config.py.
 

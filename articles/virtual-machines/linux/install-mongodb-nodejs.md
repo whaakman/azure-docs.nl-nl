@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Het installeren en configureren van MongoDB op een Linux-VM met behulp van de Azure CLI 1.0
 [MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel leest u hoe installeren en configureren van MongoDB op een Linux VM in Azure met het implementatiemodel van Resource Manager. Voorbeelden worden weergegeven dat detail hoe naar:
@@ -163,7 +163,7 @@ U kunt een complexe MongoDB shard cluster met behulp van de volgende Azure quick
 * [MongoDB Sharding-Cluster op CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Dit complexe MongoDB shard-cluster moet de implementatie meer dan 20 kernen, dit is doorgaans de standaardinstelling core-telling per regio voor een abonnement. Open een aanvraag voor ondersteuning van Azure te verhogen van het aantal kernen.
+> Dit complexe MongoDB shard-cluster moet de implementatie meer dan 20 Vcpu, dit is doorgaans het standaardaantal vCPU's per regio voor een abonnement. Open een ondersteuning van Azure-aanvraag naar het aantal vCPU verhogen.
 
 Het volgende voorbeeld maakt u een resourcegroep met de naam *myResourceGroup* in de *eastus* regio. Voer uw eigen waarden als volgt:
 

@@ -4,7 +4,7 @@
   items:
     - name: Wat is Log Analytics?
       href: log-analytics-overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Verzamelen - Azure-VM's
@@ -65,6 +65,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure-resources
               href: log-analytics-azure-storage.md
+            - name: Azure PaaS-resources
+              href: log-analytics-collect-azurepass-posh.md
             - name: Diagnose- of logboekgegevens van Azure Storage
               href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager

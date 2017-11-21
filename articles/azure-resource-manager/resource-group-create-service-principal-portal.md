@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot
 
@@ -27,11 +27,11 @@ Wanneer u een toepassing die behoeften openen of wijzigen van resources hebt, mo
 * U hoeft niet te wijzigen van de app referenties als uw verantwoordelijkheden wijzigt. 
 * U kunt een certificaat gebruiken voor het automatiseren van verificatie bij het uitvoeren van een onbewaakt script.
 
-Dit onderwerp leest u hoe u deze stappen uitvoert via de portal. Het is gericht op een één-tenant-toepassing waarin de toepassing is bedoeld om uit te voeren binnen één organisatie. Doorgaans gebruikt toepassingen voor één tenant voor line-of-business-toepassingen die worden uitgevoerd binnen uw organisatie.
+Dit artikel laat zien hoe u deze stappen uitvoert via de portal. Het is gericht op een één-tenant-toepassing waarin de toepassing is bedoeld om uit te voeren binnen één organisatie. Doorgaans gebruikt toepassingen voor één tenant voor line-of-business-toepassingen die worden uitgevoerd binnen uw organisatie.
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
-Als u dit onderwerp, moet u voldoende rechten hebt voor een toepassing registreren met uw Azure AD-tenant en de toepassing toewijzen aan een rol in uw Azure-abonnement. Zorg ervoor dat de juiste machtigingen deze stappen uit te voeren.
+Als u dit artikel, moet u voldoende rechten hebt voor een toepassing registreren met uw Azure AD-tenant en de toepassing toewijzen aan een rol in uw Azure-abonnement. Zorg ervoor dat de juiste machtigingen deze stappen uit te voeren.
 
 ### <a name="check-azure-active-directory-permissions"></a>Controleer de machtigingen voor Azure Active Directory
 
@@ -104,7 +104,7 @@ Uw abonnement om machtigingen te controleren:
 
    ![app toevoegen](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Geef een naam en de URL voor de toepassing. Selecteer een **Web-app / API** of **systeemeigen** voor het type van de toepassing die u wilt maken. Na het instellen van de waarden, selecteer **maken**.
+1. Geef een naam en de URL voor de toepassing. Selecteer **Web-app / API** voor het type van de toepassing die u wilt maken. U kunt geen referenties voor maken een **systeemeigen** toepassing in, dat type werkt daarom niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
 
    ![de naam van toepassing](./media/resource-group-create-service-principal-portal/create-app.png)
 

@@ -4,7 +4,7 @@
   items:
     - name: Over Azure Container Instances
       href: container-instances-overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Container maken - CLI
@@ -37,6 +37,8 @@
       href: container-instances-mounting-azure-files-volume.md
     - name: Implementeren vanuit Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Taken in containers uitvoeren
+      href: container-instances-restart-policy.md
     - name: Problemen met implementaties oplossen
       href: container-instances-troubleshooting.md
 - name: Naslaginformatie

@@ -7,7 +7,7 @@
       href: overview-what-is-azure-ml.md
     - name: Overzicht van modelbeheer
       href: model-management-overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   items:
     - name: Installeren en maken
       href: quickstart-installation.md
@@ -41,6 +41,8 @@
           href: roaming-and-collaboration.md
     - name: Visual Studio Code-hulpprogramma's voor AI gebruiken
       href: quickstart-visual-studio-tools.md
+    - name: Azure IoT Edge AI Toolkit gebruiken
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: Compute-omgeving configureren
       items:
         - name: Experimenten configureren
@@ -88,6 +90,8 @@
           href: how-to-scale-clusters.md
         - name: Een webservice implementeren
           href: model-management-service-deploy.md
+        - name: Implementeren naar een IoT Edge-apparaat
+          href: deploy-to-iot-edge-device.md
         - name: Een webservice gebruiken
           href: model-management-consumption.md
         - name: Modelgegevens verzamelen

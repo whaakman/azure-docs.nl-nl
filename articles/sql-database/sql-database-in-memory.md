@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren door technologieën voor In-Memory in SQL-Database
 
@@ -118,8 +118,6 @@ Maar de prijscategorie downgraden kunt negatieve invloed hebben op uw database. 
 
 *Downgraden naar Basic/standaard*: In het geheugen OLTP-databases in de categorie Standard of Basic wordt niet ondersteund. Bovendien is het niet mogelijk om een database die met In-geheugen OLTP-objecten naar de prijscategorie Standard of Basic te verplaatsen.
 
-Voordat u de database naar de standaard en eenvoudige downgraden, verwijdert u alle tabellen geoptimaliseerd voor geheugen en tabeltypen, evenals alle modules met systeemeigen compilatie T-SQL.
-
 Er is een programmatische manier om te begrijpen of een bepaalde database In het geheugen OLTP ondersteunt. U kunt de volgende Transact-SQL-query uitvoeren:
 
 ```
@@ -128,6 +126,13 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Als de query retourneert **1**, In het geheugen OLTP wordt ondersteund in deze database.
 
+Voordat u de database naar de standaard en eenvoudige downgraden, verwijdert u alle tabellen geoptimaliseerd voor geheugen en tabeltypen, evenals alle modules met systeemeigen compilatie T-SQL. De volgende query's identificeren alle objecten die worden verwijderd moeten voordat u een database kan worden verlaagd naar standaard en eenvoudige:
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *Met een lagere Premium tier downgraden*: gegevens in tabellen geoptimaliseerd voor geheugen moeten passen binnen de In-Memory OLTP-opslag die is gekoppeld aan de prijscategorie van de database of in de elastische groep beschikbaar is. Als u probeert te verlagen de prijscategorie of de database verplaatsen naar een groep die beschikt niet over voldoende beschikbare In het geheugen OLTP-opslag, de bewerking is mislukt.
 

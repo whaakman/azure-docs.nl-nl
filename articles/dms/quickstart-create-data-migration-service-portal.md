@@ -10,20 +10,31 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/08/2017
-ms.openlocfilehash: 4213a0ae73c38dcad403140e3d45e28f2d338020
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-database-migration-service-instance-using-the-azure-portal"></a>Maak een Database migratie-Service-exemplaar met de Azure portal
-In deze snel starten gebruikt u de Azure portal een exemplaar van de migratie van Azure databaseservice te maken.  Nadat u de service hebt gemaakt, kunt u zich kunt gebruiken om te migreren van gegevens uit SQL Server on-premises naar een Azure SQL database.
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Geen exemplaar maken van de Service Azure Database migratie met behulp van de Azure-portal
+In deze snel starten gebruikt u de Azure portal een exemplaar van de migratie van Azure databaseservice te maken.  Nadat u de service hebt gemaakt, kunt u zich kunt gebruiken om te migreren van gegevens van SQL Server on-premises naar een Azure SQL database.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Open uw webbrowser en ga naar de [Microsoft Azure Portal](https://portal.azure.com/). Voer uw referenties in om u aan te melden bij de portal. De standaardweergave is uw service-dashboard.
+
+## <a name="register-the-resource-provider"></a>De registerbronprovider is
+U moet de Microsoft.DataMigration resourceprovider registreren voordat u uw eerste Database migratieservice maakt.
+
+1. Selecteer in de Azure-portal **alle services**, en selecteer vervolgens **abonnementen**.
+
+1. Selecteer het abonnement waarin u wilt maken van het exemplaar van de Azure-Service voor het migreren van Database en selecteer vervolgens **resourceproviders**.
+
+1. Zoek voor migratie en selecteer vervolgens aan de rechterkant van Microsoft.DataMigration **registreren**.
+
+![Resourceprovider registreren](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-azure-database-migration-service"></a>Migratie-Service van Azure-Database maken
 1. Klik op  **+**  een nieuwe service maken.  Migratie-database-Service is nog in preview.  

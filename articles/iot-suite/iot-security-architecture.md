@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 925bada91216b98175fb725e7aba6a31f305839d
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Internet der dingen-beveiligingsarchitectuur
 Bij het ontwerpen van een systeem, is het belangrijk om te begrijpen van de mogelijke bedreigingen tot dat systeem en dienovereenkomstig juiste beveiliging niet toevoegen als het systeem is ontworpen en ontworpen. Het is vooral belangrijk voor het ontwerpen van het product vanaf het begin rekening met beveiliging omdat informatie over hoe een aanvaller mogelijk een systeem kunt u ervoor dat de juiste oplossingen in plaats vanaf het begin. 
@@ -88,7 +88,7 @@ Om te optimaliseren best practices voor beveiliging, is het raadzaam dat een typ
 * Cloud gateways, en
 * Services.
 
-Zones zijn brede manier om te segmenteren van een oplossing. elke zone heeft vaak een eigen gegevens en verificatie en autorisatie-vereisten. Zones kunnen ook worden gebruikt voor het isoleren van beschadiging en de impact van lage vertrouwensrelatie zones op hoger vertrouwen zones te beperken.
+Zones zijn brede manier om te segmenteren van een oplossing. elke zone heeft vaak een eigen gegevens en verificatie en autorisatie-vereisten. Zones kunnen ook worden gebruikt voor isolatie schade en de impact van lage vertrouwensrelatie zones op hoger vertrouwen zones beperken.
 
 Elke zone wordt gescheiden door een grens vertrouwen die wordt geregistreerd als de rode stippellijn in het onderstaande diagram. Dit vertegenwoordigt een migratie van gegevens van/vanuit één bron naar een andere. Tijdens deze overgang kan de gegevens worden onderworpen aan Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service en verhoging van bevoegdheden (STRIDE).
 

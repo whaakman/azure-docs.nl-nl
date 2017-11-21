@@ -1,8 +1,8 @@
 # [Overzicht](overview.md)
 
-# Snelstartgids
-## [Snelstartgids voor Bash](quickstart.md)
-## [Snelstartgids voor PowerShell](quickstart-powershell.md)
+# QuickStart
+## [QuickStart voor Bash](quickstart.md)
+## [QuickStart voor PowerShell](quickstart-powershell.md)
 
 # Concepten
 ## [Functies en hulpprogramma's in Bash](features.md)
@@ -13,6 +13,9 @@
 ## [Permanente opslag in Bash](persisting-shell-storage.md)
 ## [Permanente opslag in PowerShell](persisting-shell-storage-powershell.md)
 ## [Het venster gebruiken](using-the-shell-window.md)
+
+# Voorbeelden
+## [Azure-resources met Terraform in Bash implementeren](example-terraform-bash.md)
 
 # [Prijzen](pricing.md)
 

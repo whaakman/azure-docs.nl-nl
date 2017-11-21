@@ -15,22 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Schaalbare clouddatabases bouwen
 Databases uitbreiden kan gemakkelijk worden gedaan met behulp van schaalbare hulpprogramma's en functies voor Azure SQL Database. U kunt in het bijzonder de **clientbibliotheek voor elastische Database** maken en beheren van uitgebreide databases. Deze functie kunt u eenvoudig shard toepassingen ontwikkelen met honderden, of zelfs duizenden — van Azure SQL-databases. [Elastische taken](sql-database-elastic-jobs-powershell.md) kan vervolgens worden gebruikt voor het beheer te vereenvoudigen voor deze databases.
 
-Als u wilt installeren in de bibliotheek, gaat u naar NuGet op [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Downloaden:
+* Zie de .NET-versie van de bibliotheek [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* Zie de Java-versie van de bibliotheek [Maven centrale opslagplaats](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Documentatie
 1. [Aan de slag met tools voor Elastic Database](sql-database-elastic-scale-get-started.md)
 2. [Functies voor elastische Database](sql-database-elastic-scale-introduction.md)
 3. [Shard-toewijzingsbeheer](sql-database-elastic-scale-shard-map-management.md)
-4. [Bestaande databases migreren voor uitschaling](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Migreren van bestaande databases uit te schalen](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Gegevensafhankelijke routering](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Meerdere shard-query 's](sql-database-elastic-scale-multishard-querying.md)
 7. [Toevoegen van een shard met hulpprogramma's van elastische Database](sql-database-elastic-scale-add-a-shard.md)
@@ -58,15 +60,11 @@ In het algemeen kunnen klanten die gebruikmaken van hulpprogramma's voor elastis
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Clientbibliotheek voor elastische Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - tot **installeren** de bibliotheek via NuGet.
+- Clientbibliotheek voor elastische Database ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - tot **downloaden** de bibliotheek.
 
 - [Aan de slag met hulpprogramma's voor elastische database](sql-database-elastic-scale-get-started.md) - om te proberen de **voorbeeldapp** die clientfuncties laat zien.
 
-- [Github, Azure/elastische-db-tools](https://github.com/Azure/elastic-db-tools) -de bibliotheek is een open-sourcesoftware.
-    - Clientbibliotheek voor elastische database-hulpprogramma's kan ontwikkelaars een ADO.NET toepassingen te maken die implementeren en gebruiken van het patroon bekend als sharding van de database in Azure SQL Database.
-
-- [Clientbibliotheek voor elastische database is nu open brongegevens!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) -een **blogbericht** over clientbibliotheek voor elastische Database, met de datum 09/2015/09.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)): als u wilt bijdragen aan de code te maken.
 - [Overzicht van Azure SQL Database elastische query](sql-database-elastic-query-overview.md) : gebruik elastische query's.
 
 - [Verplaatsen van gegevens tussen cloud uitgebreide databases](sql-database-elastic-scale-overview-split-and-merge.md) - voor instructies over het gebruik van de **gesplitste merge tool**.

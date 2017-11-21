@@ -105,8 +105,9 @@
 #### [Statische pakketten en versleuteling](media-services-static-packaging.md)
 
 ## [Live streamen](media-services-manage-channels-overview.md)
-### [on-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [On-premises coderingsprogramma's](media-services-live-streaming-with-onprem-encoders.md)
+#### [Aanbevolen on-premises coderingsprogramma's](media-services-recommended-encoders.md)
+#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Live streamen met cloudcoderingsprogramma's](media-services-manage-live-encoder-enabled-channels.md)
 #### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Wirecast-coderingsprogramma](media-services-configure-wirecast-live-encoder.md)
 ### [Langdurige bewerkingen afhandelen](media-services-dotnet-long-operations.md)
 ### [Specificatie gefragmenteerde MP4-liveopname](media-services-fmp4-live-ingest-overview.md)
+
+## [Inhoud knippen](media-services-azure-media-clipper-overview.md)
+### [Aan de slag met Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Assets laden in Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Aangepaste toetscombinaties configureren](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Kniptaken verzenden](media-services-azure-media-clipper-submit-job.md)
+### [Azure Portal](media-services-azure-media-clipper-portal.md)
 
 ## [Beschermen](media-services-content-protection-overview.md)
 ### [Beveiliging van inhoud configureren in Azure Portal](media-services-portal-protect-content.md)

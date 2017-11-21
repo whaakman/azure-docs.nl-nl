@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/17/2017
 ms.author: glenga
-ms.openlocfilehash: b89e9af55342d5d7473d848956996f846250b4b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Pushmeldingen toevoegen aan uw Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -56,12 +56,12 @@ In deze sectie kunt u uw client-Android-app voor het afhandelen van pushmeldinge
 ### <a name="verify-android-sdk-version"></a>Controleer of de Android SDK-versie
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-De volgende stap is het installeren van Google Play-services. Google Cloud Messaging heeft bepaalde minimale API-niveau vereisten voor ontwikkeling en tests die de **minSdkVersion** eigenschap in het manifest moet voldoen aan.
+De volgende stap is het installeren van Google Play-services. Firebase Cloud Messaging heeft bepaalde minimale API-niveau vereisten voor ontwikkeling en tests die de **minSdkVersion** eigenschap in het manifest moet voldoen aan.
 
-Als u met een oudere apparaat testen wilt, raadpleegt u [ingesteld van Google Play Services SDK] om te bepalen hoe laag u kunt deze waarde instellen en juist instellen.
+Als u met een oudere apparaat testen wilt, raadpleegt u [Firebase toevoegen aan uw Android-Project] om te bepalen hoe laag u kunt deze waarde instellen en juist instellen.
 
-### <a name="add-google-play-services-to-the-project"></a>Google Play-services aan het project toevoegen
-[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-firebase-cloud-messaging-to-the-project"></a>Firebase Cloud Messaging aan het project toevoegen
+[!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>Voeg code toe
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
@@ -79,5 +79,4 @@ Nu dat u deze zelfstudie hebt voltooid, overweeg dan u verder gaat u aan bij een
 
 <!-- URLs -->
 [Android snel starten]: app-service-mobile-android-get-started.md
-
-[ingesteld van Google Play Services SDK]:https://developers.google.com/android/guides/setup
+[Firebase toevoegen aan uw Android-Project]:https://firebase.google.com/docs/android/setup
