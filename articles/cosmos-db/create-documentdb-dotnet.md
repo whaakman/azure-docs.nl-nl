@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: een webapp ontwikkelen met .NET en de DocumentDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Een webapp ontwikkelen met .NET en de DocumentDB API | Microsoft Docs'
 description: "Biedt een voorbeeld van .NET-code dat u kunt gebruiken om verbinding te maken met de DocumentDB API van Azure Cosmos DB en er query’s op uit te voeren"
 services: cosmos-db
 documentationcenter: 
