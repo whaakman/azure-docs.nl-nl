@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: Eindpunten publiceren
           href: azure-stack-integrate-endpoints.md
+        - name: Externe controle
+          href: azure-stack-integrate-monitor.md
         - name: Beveiliging
           href: azure-stack-integrate-security.md
     - name: Beheren
