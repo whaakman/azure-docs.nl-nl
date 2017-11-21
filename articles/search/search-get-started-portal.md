@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: uw eerste Azure Search-index maken via de portal | Microsoft Docs'
+title: "Index, query & filter op pagina‘s van de Azure Search-portal | Microsoft Docs"
 description: Gebruik in Azure Portal de vooraf gedefinieerde voorbeeldgegevens om een index te genereren. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
 services: search
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Zelfstudie: uw eerste Azure Search-index maken via de portal
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Een Azure Search-index in de portal maken, filteren en er een query op uitvoeren
 
 Begin in Azure Portal met een vooraf gedefinieerde set voorbeeldgegevens om snel een index te genereren met behulp van de wizard **Gegevens importeren**. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**.  
 
@@ -128,7 +128,7 @@ U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is ee
 
 **`search=seattle`**
 
-+ De parameter `search` wordt gebruikt om een zoekopdracht voor zoeken in volledige tekst in te voeren waarmee, in dit geval, vermeldingen in King County, Washington state worden geretourneerd die *Seattle* bevatten in elk doorzoekbaar veld van het document. 
++ De parameter **search** wordt gebruikt om een zoekopdracht voor zoeken in volledige tekst in te voeren waarmee, in dit geval, vermeldingen in King County, Washington state worden geretourneerd die *Seattle* bevatten in elk doorzoekbaar veld van het document. 
 
 + Met **Search Explorer** worden resultaten geretourneerd in JSON. Deze indeling is uitgebreid en moeilijk te lezen als documenten een compacte structuur hebben. Afhankelijk van uw documenten moet u mogelijk code schrijven die zoekresultaten verwerkt, om belangrijke elementen uit te pakken. 
 
@@ -136,35 +136,48 @@ U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is ee
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Het symbool `&` wordt gebruikt om zoekparameters toe te voegen. Deze kunnen in willekeurige volgorde worden opgegeven. 
++ Het symbool **&** wordt gebruikt om zoekparameters toe te voegen. Deze kunnen in willekeurige volgorde worden opgegeven. 
 
-+  De parameter `$count=true` retourneert het totale aantal geretourneerde documenten. U kunt filterquery's controleren door de wijzigingen te controleren die door `$count=true` worden gerapporteerd. 
++  De parameter **$count=true** retourneert het totale aantal geretourneerde documenten. U kunt filterquery's controleren door de wijzigingen te controleren die door **$count=true** worden gerapporteerd. 
 
-+ De `$top=100` retourneert de 100 hoogst scorende documenten in dit totaal. Standaard retourneert Azure Search de 50 beste resultaten. U kunt dit aantal vergroten of verkleinen via `$top`.
++ De **$top=100** retourneert de 100 hoogst scorende documenten in dit totaal. Standaard retourneert Azure Search de 50 beste resultaten. U kunt dit aantal vergroten of verkleinen via **$top**.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` is een lege zoekopdracht. Met een lege zoekopdracht wordt naar alles gezocht. Eén reden om een lege query in te dienen, is om de hele set documenten te filteren of als facet te gebruiken. U wilt bijvoorbeeld een facetnavigatiestructuur die bestaat uit alle plaatsen in de index.
+## <a name="filter-query"></a>De query filteren
 
-+  `facet` retourneert een navigatiestructuur die u kunt doorgeven aan een UI-besturingselement. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op het aantal plaatsen. Er is geen aggregatie in Azure Search, maar u kunt een geschatte aggregatie bepalen via `facet`, dat het aantal documenten in elke categorie retourneert.
-
-+ `$top=2` retourneert twee documenten, om te illustreren dat u `top` kunt gebruiken om het aantal resultaten te verlagen of te verhogen.
-
-**`search=seattle&facet=beds`**
-
-+ Deze query gebruikt het facet bedden in een tekstuele zoekopdracht naar *Seattle*. `"beds"` kan worden opgegeven als een facet, omdat het veld in de index is gemarkeerd als ophaalbaar, filterbaar en bruikbaar als facet. En de waarden die het bevat (numeriek, 1 tot en met 5), zijn geschikt voor het categoriseren van vermeldingen in groepen (vermeldingen met 3 slaapkamers, 4 slaapkamers). 
-
-+ Alleen filterbare velden kunnen als facet worden gebruikt. Alleen ophaalbare velden kunnen in de resultaten worden geretourneerd.
+Filters zijn opgenomen in de zoekopdrachten wanneer u de parameter **$filter** toevoegt. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ De parameter `filter` retourneert resultaten die voldoen aan de criteria die u hebt opgegeven. In dit geval: meer dan 3 slaapkamers. 
++ De parameter **$filter** retourneert resultaten die voldoen aan de criteria die u hebt opgegeven. In dit geval: meer dan 3 slaapkamers. 
 
 + Filtersyntaxis is een OData-constructie. Zie [OData-syntaxis filteren](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) voor meer informatie.
 
+## <a name="facet-query"></a>De query facetteren
+
+Facetfilters zijn opgenomen in zoekopdrachten. U kunt de facetparameter gebruiken om een samengevoegd aantal documenten te retourneren die overeenkomen met een door u opgegeven facetwaarde. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** is een lege zoekopdracht. Met een lege zoekopdracht wordt naar alles gezocht. Eén reden om een lege query in te dienen, is om de hele set documenten te filteren of als facet te gebruiken. U wilt bijvoorbeeld een facetnavigatiestructuur die bestaat uit alle plaatsen in de index.
+
++  **facet** retourneert een navigatiestructuur die u kunt doorgeven aan een UI-besturingselement. Deze retourneert categorieën en een aantal. In dit geval zijn categorieën gebaseerd op het aantal plaatsen. Er is geen aggregatie in Azure Search, maar u kunt een geschatte aggregatie bepalen via `facet`, dat het aantal documenten in elke categorie retourneert.
+
++ **$top=2** retourneert twee documenten, om te illustreren dat u `top` kunt gebruiken om het aantal resultaten te verlagen of te verhogen.
+
+**`search=seattle&facet=beds`**
+
++ Deze query gebruikt het facet bedden in een tekstuele zoekopdracht naar *Seattle*. De term *beds* kan worden opgegeven als een facet, omdat het veld in de index is gemarkeerd als ophaalbaar, filterbaar en bruikbaar als facet. En de waarden die het bevat (numeriek, 1 tot en met 5), zijn geschikt voor het categoriseren van vermeldingen in groepen (vermeldingen met 3 slaapkamers, 4 slaapkamers). 
+
++ Alleen filterbare velden kunnen als facet worden gebruikt. Alleen ophaalbare velden kunnen in de resultaten worden geretourneerd.
+
+## <a name="highlight-query"></a> Markering toevoegen
+
+Markeren betekent het toevoegen van opmaak aan tekst die overeenkomt met het trefwoord, overeenkomsten die in een bepaald veld zijn aangetroffen. Als de zoekterm verborgen is in een beschrijving, kunt u de treffers markeren om deze makkelijker te vinden. 
+
 **`search=granite countertops&highlight=description`**
 
-+ Markeren betekent het toevoegen van opmaak aan tekst die overeenkomt met het trefwoord, overeenkomsten die in een bepaald veld zijn aangetroffen. Als de zoekterm verborgen is in een beschrijving, kunt u de treffers markeren om deze makkelijker te vinden. In dit geval is de opgemaakte woordgroep `"granite countertops"` gemakkelijker te zien in het omschrijvingsveld.
++ In dit voorbeeld is de opgemaakte woordgroep *granieten bladen* gemakkelijker te zien in het omschrijvingsveld.
 
 **`search=mice&highlight=description`**
 
@@ -172,25 +185,31 @@ U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is ee
 
 + Azure Search ondersteunt 56 analyzers van Lucene en Microsoft. Standaard wordt Lucene Analyzer gebruikt voor Azure Search. 
 
+## <a name="fuzzy-search"></a>Fuzzy zoekopdrachten gebruiken
+
+Voor verkeerd gespelde woorden, zoals *samamish* voor het Samammish-plateau in de regio Seattle worden bij standaardzoekopdrachten geen overeenkomsten geretourneerd. U kunt fuzzy zoekopdrachten gebruiken om spelfouten te omzeilen. In het volgende voorbeeld ziet u hoe dit in zijn werk gaat.
+
 **`search=samamish`**
 
-+ Voor verkeerd gespelde woorden (bijvoorbeeld 'samamish' voor het Samammish plateau in de regio Seattle) worden bij standaardzoekopdrachten geen overeenkomsten geretourneerd. U kunt fuzzy zoekopdrachten gebruiken om spelfouten te omzeilen. In het volgende voorbeeld ziet u hoe dit in zijn werk gaat.
++ In dit voorbeeld is een buurt in de regio van Seattle onjuist gespeld.
 
 **`search=samamish~&queryType=full`**
 
-+ Fuzzy zoeken wordt ingeschakeld als u het symbool `~` opgeeft en de volledige queryparser gebruikt. Hiermee wordt de `~`-syntaxis geïnterpreteerd en juist geparseerd. 
++ Fuzzy zoeken wordt ingeschakeld als u het symbool **~** opgeeft en de volledige queryparser gebruikt. Hiermee wordt de **~**-syntaxis geïnterpreteerd en juist geparseerd. 
 
-+ Fuzzy zoeken is beschikbaar wanneer u voor de volledige queryparser kiest. Deze wordt weergegeven wanneer u `queryType=full` instelt. Zie [Lucene-querysyntaxis in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) voor meer informatie over queryscenario's op basis van de volledige queryparser.
++ Fuzzy zoeken is beschikbaar wanneer u voor de volledige queryparser kiest. Deze wordt weergegeven wanneer u **queryType=full** instelt. Zie [Lucene-querysyntaxis in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) voor meer informatie over queryscenario's op basis van de volledige queryparser.
 
-+ Als `queryType` niet is opgegeven, wordt standaard de eenvoudige queryparser gebruikt. De eenvoudige queryparser is sneller, maar als u gebruik wilt maken van fuzzy zoeken, reguliere expressies, zoeken op nabijheid of andere geavanceerde typen query's, dan hebt u de volledige syntaxis nodig. 
++ Als **queryType** niet is opgegeven, wordt standaard de eenvoudige queryparser gebruikt. De eenvoudige queryparser is sneller, maar als u gebruik wilt maken van fuzzy zoeken, reguliere expressies, zoeken op nabijheid of andere geavanceerde typen query's, dan hebt u de volledige syntaxis nodig. 
+
+## <a name="geo-search"></a> Georuimtelijk zoeken uitproberen
+
+Georuimtelijk zoeken wordt ondersteund door het [gegevenstype edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een veld met coördinaten. Geosearch is een type filter dat wordt opgegeven bij [Filter OData-syntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Georuimtelijk zoeken wordt ondersteund door het [gegevenstype edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) voor een veld met coördinaten. Geosearch is een type filter dat wordt opgegeven bij [Filter OData-syntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
++ Met dit voorbeeld worden alle resultaten voor positionele gegevens gefilterd die minder dan 5 kilometer zijn verwijderd van een opgegeven punt (opgegeven als coördinaten voor lengte- en breedtegraad). Door **$count** toe te voegen, kunt u zien hoeveel resultaten er worden geretourneerd als u de afstand of de coördinaten wijzigt. 
 
-+ Met dit voorbeeld worden alle resultaten voor positionele gegevens gefilterd die minder dan 5 kilometer zijn verwijderd van een opgegeven punt (opgegeven als coördinaten voor lengte- en breedtegraad). Door `$count` toe te voegen, kunt u zien hoeveel resultaten er worden geretourneerd als u de afstand of de coördinaten wijzigt. 
-
-+ Georuimtelijk zoeken is handig als uw zoektoepassing een functie ´in mijn buurt zoeken´ heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als uw gebruikers op naam naar steden of landen willen zoeken, voegt u, naast coördinaten, ook velden met namen van steden of landen toe.
++ Georuimtelijk zoeken is handig als uw zoektoepassing een functie 'in mijn buurt zoeken' heeft of gebruikmaakt van kaartnavigatie. Dit is echter niet een zoekopdracht in volledige tekst. Als uw gebruikers op naam naar steden of landen willen zoeken, voegt u, naast coördinaten, ook velden met namen van steden of landen toe.
 
 ## <a name="next-steps"></a>Volgende stappen
 

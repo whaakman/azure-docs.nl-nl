@@ -1,6 +1,6 @@
 ---
-title: Snelstartgids voor het installeren van Azure Machine Learning-services | Microsoft Docs
-description: Deze snelstartgids laat zien hoe u Azure Machine Learning-resources kunt maken en hoe het installeren van Azure Machine Learning Workbench in zijn werk gaat.
+title: QuickStart voor het installeren van Azure Machine Learning-services | Microsoft Docs
+description: Deze QuickStart laat zien hoe u Azure Machine Learning-resources kunt maken en hoe het installeren van Azure Machine Learning Workbench in zijn werk gaat.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Preview-accounts maken voor Azure Machine Learning en Azure Machine Learning Workbench installeren
 Azure Machine Learning is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse. Het helpt professionele gegevenswetenschappers om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
 
-In deze snelstartgids wordt beschreven hoe u accounts voor experimenten en modelbeheer kunt maken in de preview-versie van Azure Machine Learning. Ook ziet u hoe u de Azure Machine Learning Workbench-bureaubladtoepassing en CLI-hulpprogramma's kunt installeren. Daarna volgt u een korte rondleiding door de preview-functies van Azure Machine Learning met behulp van de [Iris-dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) om een model op te bouwen voor het bepalen van de soort iris, op basis van een aantal fysieke kenmerken.  
+In deze QuickStart wordt beschreven hoe u accounts voor experimenten en modelbeheer kunt maken in de preview-versie van Azure Machine Learning. Ook ziet u hoe u de Azure Machine Learning Workbench-bureaubladtoepassing en CLI-hulpprogramma's kunt installeren. Daarna volgt u een korte rondleiding door de preview-functies van Azure Machine Learning met behulp van de [Iris-dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) om een model op te bouwen voor het bepalen van de soort iris, op basis van een aantal fysieke kenmerken.  
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -55,7 +55,7 @@ Gebruik Azure Portal om accounts in te richten voor Azure Machine Learning:
    Abonnement | _Uw abonnement_ |Kies het Azure-abonnement dat u wilt gebruiken voor het experiment. Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource wordt gefactureerd.
    Resourcegroep | _Uw resourcegroep_ | U kunt een nieuwe resourcegroepnaam maken of een bestaande naam uit uw abonnement gebruiken.
    Locatie | _De regio het dichtst bij uw gebruikers_ | Kies de locatie die zich het dichtst bij uw gebruikers en de gegevensresources bevindt.
-   Aantal seats | 2 | Voer het aantal seats in. Deze selectie beïnvloedt de [prijzen](https://azure.microsoft.com/pricing/details/machine-learning/). De eerste twee seats zijn gratis. Gebruik twee seats voor deze snelstartgids. U kunt het aantal seats later naar behoefte bijwerken in Azure Portal.
+   Aantal seats | 2 | Voer het aantal seats in. Deze selectie beïnvloedt de [prijzen](https://azure.microsoft.com/pricing/details/machine-learning/). De eerste twee seats zijn gratis. Gebruik twee seats voor deze QuickStart. U kunt het aantal seats later naar behoefte bijwerken in de Azure-portal.
    Storage-account | _Unieke naam_ | Selecteer **Nieuwe maken** en geef een naam op om een Azure-opslagaccount te maken. Of selecteer **Bestaande gebruiken** en kies een bestaand opslagaccount in de vervolgkeuzelijst. Het opslagaccount is vereist en wordt gebruikt voor het bewaren van projectartefacten en uitvoeringsgeschiedenisgegevens. 
    Werkruimte voor Experimenten-account | _Unieke naam_ | Geef een naam op voor de nieuwe werkruimte. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten.
    Eigenaar van de werkruimte toewijzen | _Uw account_ | Selecteer uw eigen account als de eigenaar van de werkruimte.
@@ -70,7 +70,7 @@ Gebruik Azure Portal om accounts in te richten voor Azure Machine Learning:
 
    U ziet nu de melding **Implementatie wordt uitgevoerd**. De status wordt gewijzigd in **Implementatie is voltooid** wanneer de implementatie is uitgevoerd. De pagina Machine Learning Experimenten-account wordt geopend als de implementatie is geslaagd.
    
-   ![Meldingen in Azure Portal](media/quickstart-installation/portal-notification.png)
+   ![Meldingen in Azure-portal](media/quickstart-installation/portal-notification.png)
 
 Afhankelijk van het besturingssysteem dat u op de lokale computer gebruikt, volgt u de aanwijzingen in een van de volgende twee secties om Azure Machine Learning Workbench te installeren. 
 
@@ -93,33 +93,20 @@ Installeer Azure Machine Learning Workbench op een computer met Windows 10, Wind
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>Azure Machine Learning Workbench installeren op macOS
-Installeer Azure Machine Learning Workbench op een computer met macOS Sierra.
+Installeer Azure Machine Learning Workbench op een computer met macOS Sierra of hoger.
 
-1. Installeer de openssl-bibliotheek met behulp van [Homebrew](http://brew.sh). Zie [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites) (Vereisten voor .NET Core op de Mac) voor meer informatie.
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. Download het nieuwste installatieprogramma van Azure Machine Learning Workbench: [AmlWorkbenchSetup.dmg](https://aka.ms/azureml-wb-dmg).
+1. Download het nieuwste installatieprogramma van Azure Machine Learning Workbench: [AmlWorkbenchSetup.dmg](https://aka.ms/azureml-wb-dmg).
 
    >[!IMPORTANT]
    >Download het installatieprogramma volledig op schijf en voer het daarvandaan uit. Voer het niet rechtstreeks vanuit de downloadwidget van de browser uit.
 
-3. Dubbelklik op het gedownloade installatieprogramma **AmlWorkbench.dmg** vanuit de Finder.
+2. Dubbelklik op het gedownloade installatieprogramma **AmlWorkbench.dmg** vanuit de Finder.
 
-4. Voltooi de installatie door de instructies op het scherm te volgen.
+3. Voltooi de installatie door de instructies op het scherm te volgen.
 
    Met het installatieprogramma worden alle vereiste afhankelijke onderdelen gedownload, zoals Python, Miniconda en andere gerelateerde bibliotheken. Het kan ongeveer een halfuur duren voordat het installeren van alle onderdelen is voltooid. 
 
-5. Azure Machine Learning Workbench is nu geïnstalleerd in de volgende map: 
+4. Azure Machine Learning Workbench is nu geïnstalleerd in de volgende map: 
 
    `/Applications/AmlWorkbench.app`
 

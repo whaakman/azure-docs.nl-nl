@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pijplijnen en activiteiten in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Pijplijnen in versie 1 van Data Factory](v1/data-factory-create-pipelines.md).
 > 
-> In dit artikel wordt ervan uitgegaan dat u [Inleiding tot Azure Data Factory](introduction.md) en de [snelstartgids](quickstart-create-data-factory-powershell.md) hebt doorlopen.
+> In dit artikel wordt ervan uitgegaan dat u [Inleiding tot Azure Data Factory](introduction.md) en de [QuickStart](quickstart-create-data-factory-powershell.md) hebt doorlopen.
 
 ## <a name="overview"></a>Overzicht
 Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn is een logische groep activiteiten die samen een taak uitvoeren. Een pijplijn kan bijvoorbeeld een set van activiteiten bevatten die logboekgegevens opnemen en opschonen, en vervolgens een Spark-taak starten op een HDInsight-cluster voor het analyseren van de logboekgegevens. Het voordeel van een pijplijn is dat u de activiteiten kunt beheren als een set in plaats van afzonderlijk. U kunt de pijplijn bijvoorbeeld in zijn geheel implementeren en plannen, in plaats van de afzonderlijke activiteiten.  
@@ -75,11 +75,12 @@ Controleactiviteit | Beschrijving
 [WebActivity](control-flow-web-activity.md) | De WebActivity kan worden gebruikt om een aangepast REST-eindpunt aan te roepen vanaf een Data Factory-pijplijn. U kunt gegevenssets en gekoppelde services doorgeven die moten worden verbruikt door en die toegankelijk zijn voor de activiteit. 
 [Lookup Activity](control-flow-lookup-activity.md) | De Lookup Activity kan worden gebruikt om een record/tabelnaam/waarde van een externe bron te lezen of op te zoeken. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
 [Get Metadata Activity](control-flow-get-metadata-activity.md) | De Get Metadata Activity kan worden gebruikt voor het ophalen van metagegevens van gegevens in Azure Data Factory. 
-Do Until Activity | Hiermee implementeert u een Doen totdat-lus die vergelijkbaar is met een Doen totdat-lusstructuur in computertalen.
-If Condition Activity | De If Condition Activity kan worden gebruikt als vertakking op een voorwaarde die wordt geëvalueerd op waar of onwaar. 
+[Until Activity](control-flow-until-activity.md) | Hiermee implementeert u een Doen totdat-lus die vergelijkbaar is met een Doen totdat-lusstructuur in computertalen. Er wordt een reeks activiteiten uitgevoerd totdat de voorwaarde die aan de activiteit is gekoppeld, resulteert in waar. U kunt in Data Factory een time-outwaarde voor de Until-activiteit opgeven.
+[If Condition Activity](control-flow-if-condition-activity.md) | De If Condition kan worden gebruikt als vertakking onder de voorwaarde dat deze resulteert in waar of onwaar. De If Condition Activity biedt dezelfde functionaliteit als een If-instructie in een programmeertaal. Er wordt een reeks activiteiten mee geëvalueerd als de voorwaarde resulteert in `true` en een andere reeks activiteiten als de voorwaarde resulteert in `false`.
+[Wait Activity](control-flow-wait-activity.md) | Als u een Wait Activity in een pijplijn gebruikt, wacht de pijplijn tot de opgegeven periode voorbij is voordat de volgende activiteiten worden uitgevoerd. 
 
 ## <a name="pipeline-json"></a>Pijplijn in JSON-indeling
-We gaan dieper in op hoe een pijplijn wordt gedefinieerd in JSON-indeling. De algemene structuur voor een pijplijn ziet er als volgt uit:
+Een pijplijn wordt als volgt in de JSON-indeling gedefinieerd: 
 
 ```json
 {
@@ -175,7 +176,7 @@ retry | Maximaal aantal nieuwe pogingen | Geheel getal | Nee. De standaardwaarde
 retryIntervalInSeconds | De vertraging tussen nieuwe pogingen in seconden | Geheel getal | Nee. De standaardwaarde is 20 seconden
 
 ### <a name="control-activity"></a>Controleactiviteit
-Controleactiviteiten hebben de volgende structuur op het hoogste niveau.
+Controleactiviteiten hebben de volgende structuur op het hoogste niveau:
 
 ```json
 {
@@ -299,7 +300,7 @@ Houd rekening met de volgende punten:
 - De invoer voor de activiteit is ingesteld op **InputDataset** en de uitvoer voor de activiteit is ingesteld op **OutputDataset**. Zie het artikel [Gegevenssets](concepts-datasets-linked-services.md) voor informatie over het definiëren van gegevenssets in JSON.
 - In het gedeelte **typeProperties** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type. Klik in de sectie [Activiteiten voor gegevensverplaatsing](#data-movement-activities) op het gegevensarchief dat u wilt gebruiken als een bron of een sink voor meer informatie over het verplaatsen van gegevens naar/van het betreffende gegevensarchief.
 
-Zie [Snelstartgids: Een data factory maken](quickstart-create-data-factory-powershell.md)voor een volledige procedure voor het maken van deze pijplijn.
+Zie [QuickStart: Een data factory maken](quickstart-create-data-factory-powershell.md)voor een volledige procedure voor het maken van deze pijplijn.
 
 ## <a name="sample-transformation-pipeline"></a>Voorbeeld van pijplijn voor transformatie
 De volgende voorbeeldpijplijn bevat een activiteit van het type **HDInsightHive** in de sectie **activities**. In dit voorbeeld transformeert de [HDInsight Hive-activiteit](transform-data-using-hadoop-hive.md) gegevens uit een Azure-blobopslag door een Hive-scriptbestand uit te voeren op een Azure HDInsight Hadoop-cluster.

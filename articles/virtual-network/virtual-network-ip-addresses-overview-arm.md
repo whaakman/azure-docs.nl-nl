@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -145,29 +145,22 @@ Privé-IP-adressen worden gemaakt met een IPv4- of IPv6-adres. Privé-IPv6-adres
 
 ### <a name="allocation-method"></a>Toewijzingsmethode
 
-Een privé-IP-adres wordt toegewezen vanuit het adresbereik van het subnet waaraan de resource is gekoppeld. Het adresbereik van het subnet zelf is een onderdeel van het adresbereik van het virtuele netwerk.
+Een privé-IP-adres wordt in toegewezen in het adresbereik van het subnet van het virtuele netwerk waarin een resource wordt geïmplementeerd. Er zijn twee methoden voor het toewijzen van een privé-IP-adres:
 
-Er zijn twee methoden voor het toewijzen van een privé-IP-adres: *dynamisch* en *statisch*. De standaardtoewijzingsmethode is *dynamisch*, waarbij het IP-adres automatisch wordt toegewezen vanuit het subnet van de resource (via DHCP). Dit IP-adres kan veranderen wanneer u de resource stopt en start.
-
-Stel de toewijzingsmethode in op *statisch* als u wilt dat het IP-adres altijd hetzelfde blijft. Als u *statisch* opgeeft, moet u een geldig IP-adres opgeven dat deel uitmaakt van het subnet van de resource.
-
-Statische privé-IP-adressen worden vaak gebruikt voor:
-
-* Virtuele machines die fungeren als domeincontrollers of DNS-servers.
-* Resources die firewallregels gebruiken die zijn gebaseerd op IP-adressen.
-* Resources die worden gebruikt door andere apps/resources via een IP-adres.
+- **Dynamisch**: Azure reserveert de eerste vier adressen in het adresbereik van elk subnet en wijst die adressen niet toe. Azure wijst het eerstvolgende beschikbare adres in het adresbereik van het subnet toe aan een resource. Als het adresbereik van het subnet bijvoorbeeld 10.0.0.0/16 is en de adressen 10.0.0.0.4-10.0.0.14 al zijn toegewezen (.0-.3 zijn gereserveerd), wijst Azure 10.0.0.15 toe aan de resource. Dynamisch is de standaardmethode voor toewijzing. Nadat dynamische IP-adressen zijn toegewezen, worden ze alleen vrijgegeven als een netwerkinterface wordt verwijderd of wordt toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk of als de toewijzingsmethode wordt gewijzigd in statisch en een ander IP-adres wordt opgegeven. Standaard wijst Azure het vorige dynamisch toegewezen adres toe als het statische adres wanneer u de toewijzingsmethode verandert van dynamisch in statisch.
+- **Statisch**: U selecteert een adres in het adresbereik van het subnet en wijst dit toe. Het adres dat u toewijst, kan elk adres binnen het adresbereik van het subnet zijn dat niet een van de eerste vier adressen in het adresbereik van het subnet is en momenteel niet is toegewezen aan een andere resource in het subnet. Statische adressen worden alleen vrijgegeven als een netwerkinterface wordt verwijderd. Als u de toewijzingsmethode wijzigt in statisch, wijst Azure het eerder toegewezen statische IP-adres toe als dynamisch adres, zelfs als dat adres niet het eerstvolgende beschikbare adres in het adresbereik van het subnet is. Het adres verandert ook als de netwerkinterface wordt toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk, maar als u de netwerkinterface wilt toewijzen aan een ander subnet, moet u eerst de toewijzingsmethode wijzigen van statisch in dynamisch. Nadat u de netwerkinterface hebt toegewezen aan een ander subnet, kunt u de toewijzingsmethode weer wijzigen in statisch en een IP-adres uit het adresbereik van het nieuwe subnet toewijzen.
 
 ### <a name="virtual-machines"></a>Virtuele machines
 
-Een privé-IP-adres wordt toegewezen aan de **netwerkinterface** van een virtuele [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)- of [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-machine. Als de virtuele machine meerdere netwerkinterfaces heeft, wordt een privé-IP-adres toegewezen aan elke netwerkinterface. Voor een netwerkinterface kunt u de toewijzingsmethode opgeven als dynamisch of statisch.
+Een of meer privé-IP-adressen worden toegewezen aan een of meer **netwerkinterfaces** van een virtuele [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)- of [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-machine. Voor elk privé-IP-adres kunt u de toewijzingsmethode opgeven als dynamisch of statisch.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Interne DNS-hostnaamomzetting (voor virtuele machines)
 
 Alle virtuele machines van Azure zijn standaard geconfigureerd met door [Azure beheerde DNS-servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution), tenzij u expliciet aangepaste DNS-servers configureert. Deze DNS-servers bieden een interne naamomzetting voor virtuele machines die zich in hetzelfde virtuele netwerk bevinden.
 
-Wanneer u een virtuele machine maakt, wordt er een toewijzing van de hostnaam aan het bijbehorende privé-IP-adres toegevoegd aan de via Azure beheerde DNS-servers. Als een virtuele machine meerdere netwerkinterfaces heeft, wordt de hostnaam toegewezen aan het privé-IP-adres van de primaire netwerkinterface.
+Wanneer u een virtuele machine maakt, wordt er een toewijzing van de hostnaam aan het bijbehorende privé-IP-adres toegevoegd aan de via Azure beheerde DNS-servers. Als een virtuele machine meerdere netwerkinterfaces of meerdere IP-configuraties voor een netwerkinterface heeft, wordt de hostnaam toegewezen aan het privé-IP-adres van de primaire IP-configuratie van de primaire netwerkinterface.
 
-Virtuele machines die zijn geconfigureerd met via Azure beheerde DNS-servers, kunnen de hostnamen van alle virtuele machines binnen hetzelfde virtuele netwerk omzetten in hun privé-IP-adressen.
+Virtuele machines die zijn geconfigureerd met via Azure beheerde DNS-servers, kunnen de hostnamen van alle virtuele machines binnen hetzelfde virtuele netwerk omzetten in hun privé-IP-adressen. Voor het omzetten van hostnamen van virtuele machines in de verbonden virtuele netwerken moet u een aangepaste DNS-server gebruiken.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Interne load balancers (ILB) en toepassingsgateways
 

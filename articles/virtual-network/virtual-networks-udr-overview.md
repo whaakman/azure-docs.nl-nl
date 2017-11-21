@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -84,7 +84,7 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
 - **Virtueel apparaat**: een virtueel apparaat is een virtuele machine waarop meestal een netwerktoepassing wordt uitgevoerd, zoals een firewall. Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) voor meer informatie over een aantal vooraf geconfigureerde virtuele netwerkapparaten die u in een virtueel netwerk kunt implementeren. Wanneer u een route maakt met het hoptype **Virtueel apparaat**, moet u ook het IP-adres van de volgende hop opgeven. Het IP-adres kan bestaan uit:
 
-    - Het [privé-IP-adres](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) van een netwerkinterface die is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine die netwerkverkeer doorstuurt naar een ander adres dan het eigen adres, moet in Azure de optie *Doorsturen via IP inschakelen* zijn ingeschakeld voor de interface. Deze instelling zorgt ervoor dat Azure de bron en bestemming voor een netwerkinterface niet controleert. Lees hier meer over het [inschakelen van doorsturen via IP voor een netwerkinterface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Hoewel *Doorsturen via IP inschakelen* een instelling van Azure is, moet u doorsturen via IP mogelijk ook inschakelen in het besturingssysteem van de virtuele machine, omdat de virtuele machine anders geen verkeer kan doorsturen tussen netwerkinterfaces. Raadpleeg de documentatie voor uw besturingssysteem of netwerktoepassing om de vereiste instellingen voor de virtuele machine te bepalen.
+    - Het [privé-IP-adres](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) van een netwerkinterface die is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine die netwerkverkeer doorstuurt naar een ander adres dan het eigen adres, moet in Azure de optie *Doorsturen via IP inschakelen* zijn ingeschakeld voor de interface. Deze instelling zorgt ervoor dat Azure de bron en bestemming voor een netwerkinterface niet controleert. Lees hier meer over het [inschakelen van doorsturen via IP voor een netwerkinterface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Hoewel *Doorsturen via IP inschakelen* een instelling van Azure is, moet u doorsturen via IP mogelijk ook inschakelen in het besturingssysteem van de virtuele machine voor het apparaat om verkeer door te sturen tussen privé-IP-adressen die zijn toegewezen aan Azure-netwerkinterfaces. Als het apparaat verkeer moet routeren naar een openbaar IP-adres, moet het een proxy uitvoeren op het verkeer of het netwerkadres omzetten in het privé IP-adres van het privé IP-adres van de bron in een eigen privé-IP-adres, waarvan Azure het netwerkadres vervolgens omzet in een openbaar IP-adres, voordat het verkeer naar internet wordt verzonden. Raadpleeg de documentatie voor uw besturingssysteem of netwerktoepassing om de vereiste instellingen voor de virtuele machine te bepalen. Zie [Uitleg over uitgaande verbindingen](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over uitgaande verbindingen in Azure.
 
     > [!NOTE]
     > Het is belangrijk dat u een virtueel apparaat in een ander subnet implementeert dan het subnet waarin de resources zijn geïmplementeerd die gegevens via het virtuele apparaat routeren. Als u het virtuele apparaat in hetzelfde subnet implementeert en vervolgens een routetabel toepast op het subnet dat verkeer via het virtuele apparaat leidt, kan dit routeringslussen veroorzaken, waardoor verkeer het subnet nooit verlaat.

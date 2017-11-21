@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/07/2017
-ms.author: darosa;sethm
-ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/10/2017
+ms.author: sethm
+ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Prijscategorieën voor Service Bus Premium en Standard Messaging
 
@@ -60,12 +60,11 @@ Als u code uitvoert onder Standard Messaging en deze wilt overzetten naar de Pre
 
 ## <a name="get-started-with-premium-messaging"></a>Aan de slag met Premium Messaging
 
-U kunt snel aan de slag met Premium Messaging. Het proces is vergelijkbaar met dat van Standard Messaging. U begint met [een naamruimte te maken](service-bus-create-namespace-portal.md). Zorg ervoor dat bij **Prijscategorie** de optie **Premium** is geselecteerd.
+U kunt snel aan de slag met Premium Messaging. Het proces is vergelijkbaar met dat van Standard Messaging. [Maak eerst een naamruimte](service-bus-create-namespace-portal.md) in [Azure Portal](https://portal.azure.com). Zorg ervoor dat bij **Uw prijscategorie kiezen** de optie **Premium** is geselecteerd.
 
 ![maken-premium-naamruimte][create-premium-namespace]
 
 U kunt ook [Premium-naamruimtes maken met behulp van Azure Resource Manager-sjablonen](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
-
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -74,7 +73,7 @@ Zie de volgende onderwerpen voor meer informatie over de Service Bus Messaging-s
 * [Introducing Azure Service Bus Premium messaging (blogbericht)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Overzicht van Service Bus Messaging](service-bus-messaging-overview.md)
-* [Service Bus-wachtrijen gebruiken](service-bus-dotnet-get-started-with-queues.md)
+* [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 
