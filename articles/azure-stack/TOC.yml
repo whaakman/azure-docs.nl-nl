@@ -157,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: SQL-resourceprovider implementeren
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: SQL-databases maken
-              href: azure-stack-sql-resource-provider-databases.md
             - name: Hosting-servers toevoegen
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: SQL-databases maken
+              href: azure-stack-sql-resource-provider-databases.md
         - name: App Service als PaaS aanbieden
           items:
             - name: Overzicht App Service op Azure Stack
@@ -183,11 +183,11 @@
               href: azure-stack-marketplace.md
             - name: Marketplace-items downloaden
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Azure Marketplace-items voor Azure Stack
+            - name: Azure Marketplace-items voor Azure-Stack
               href: azure-stack-marketplace-azure-items.md
             - name: Een Marketplace-item maken en publiceren
               href: azure-stack-create-and-publish-marketplace-item.md
-            - name: Het hulpprogramma voor Marketplace-publicatie gebruiken
+            - name: Het hulpprogramma voor het publiceren van marketplace gebruiken
               href: azure-stack-marketplace-publisher.md
             - name: Een aangepaste VM-installatiekopie toevoegen
               href: azure-stack-add-vm-image.md
