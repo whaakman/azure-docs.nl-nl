@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: een grafiek maken met behulp van Java en Azure Portal
 
@@ -72,13 +72,19 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafi
 
 Nu gaan we werken met code. We gaan een Graph API-app vanuit GitHub, de verbindingsreeks instellen en voer dit klonen. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.  
 
-1. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app.  
+1. Open een opdrachtprompt, maak een nieuwe map met de naam git-samples en sluit de opdrachtprompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer. 
+3. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Nu gaan we werken met code. We gaan een Graph API-app vanuit GitHub, de verbindi
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de databaseresources worden gemaakt in de code bent, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn afkomstig uit de `Program.java` bestand in de map C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Anders kunt u verder gaan naar [bijwerken van de verbindingsreeks](#update-your-connection-string). 
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources worden gemaakt in de code bent, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn afkomstig uit de `Program.java` bestand in de map C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Anders kunt u verder gaan naar [bijwerken van de verbindingsreeks](#update-your-connection-information). 
 
 * De Gremlin-`Client` wordt geïnitialiseerd vanuit de configuratie in `src/remote.yaml`.
 
@@ -148,11 +154,23 @@ Ga terug naar de Azure portal voor het verkrijgen van uw verbindingsgegevens en 
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. Type `mvn package` in het git-terminalvenster om de vereiste Java-pakketten te installeren.
+2. Gebruik de volgende opdracht om de vereiste Java-pakketten te installeren in het venster van de git-terminal.
 
-3. Voer in het terminalvenster git `mvn exec:java -D exec.mainClass=GetStarted.Program` om uw Java-toepassing te starten.
+   ```
+   mvn package
+   ```
 
-    In het terminalvenster ziet u de hoekpunten die worden toegevoegd aan de grafiek. Zodra het programma stopt, gaat u terug naar de Azure-portal in uw internetbrowser. 
+3. Gebruik de volgende opdracht om de Java-toepassing te starten in het venster van de git-terminal.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    In het terminalvenster ziet u de hoekpunten die worden toegevoegd aan de grafiek. 
+    
+    Als u de time-outfouten ondervindt, controleert u dat u de verbindingsgegevens correct in bijgewerkt [werk uw verbindingsgegevens](#update-your-connection-information), en probeer het ook de laatste opdracht opnieuw uit te voeren. 
+    
+    Zodra het programma wordt gestopt, druk op Enter, gaat u terug naar de Azure-portal in uw internetbrowser. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Voorbeeldgegevens bekijken en toevoegen
@@ -200,11 +218,11 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 10. Klik op **OK**. 
 
-11. Klik op **Filter toepassen** met het standaard `g.V()` filter wilt weergeven van alle waarden in de grafiek. Alle gebruikers worden nu weergegeven in de lijst met **resultaten**. 
+11. Klik op de **Filter toepassen** knop met het standaard `g.V()` filter wilt weergeven van alle waarden in de grafiek. Alle gebruikers worden nu weergegeven in de lijst met **resultaten**. 
 
     Als u meer gegevens toevoegt, kunt u filters gebruiken om de resultaten te beperken. Data Explorer gebruikt standaard `g.V()` voor het ophalen van alle hoekpunten van een grafiek. U kunt dit wijzigen in een andere [grafiek query](tutorial-query-graph.md), zoals `g.V().count()`om te retourneren van een aantal van de hoekpunten in de grafiek in JSON-indeling. Als u het filter, wijzig het filter terug naar gewijzigd `g.V()` en klik op **Filter toepassen** om opnieuw alle resultaten weer te geven.
 
-12. Nu kunnen we rakesh en ashley met elkaar verbinden. Selecteer **ashley** in de lijst met **resultaten** en klik vervolgens rechts onderaan naast **Doelen** op de knop Bewerken. Mogelijk moet u het scherm verbreden om het gedeelte **Eigenschappen** te kunnen zien.
+12. Nu kunnen we rakesh en ashley met elkaar verbinden. Zorg ervoor dat **Pascaline** is geselecteerd in de **resultaten** lijst en klik op de knop Bewerken naast **doelen** lagere rechts op. Mogelijk moet u het scherm verbreden om het gedeelte **Eigenschappen** te kunnen zien.
 
    ![Het doel van een hoekpunt in een grafiek wijzigen](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

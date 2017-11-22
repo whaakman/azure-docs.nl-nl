@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: cd321531c99f14e93d8cab2acb7844ae79be2158
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Uitleg over uitgaande verbindingen in Azure
 
@@ -72,18 +72,21 @@ U moet ervoor zorgen dat de virtuele machine van Azure Load Balancer health test
 
 ## <a name="snatexhaust"></a>Het beheren van uitputting van de snat omzetten
 
-Kortstondige poorten gebruikt voor snat omzetten zijn een onuitputtelijk resource, zoals beschreven in [Standalone VM zonder Instance Level Public IP-adres](#standalone-vm-with-no-instance-level-public-ip-address) en [taakverdeling met virtuele machine geen Instance Level Public IP-adres](#standalone-vm-with-no-instance-level-public-ip-address).  
+Kortstondige poorten gebruikt voor snat omzetten zijn een onuitputtelijk resource, zoals beschreven in [Standalone VM zonder Instance Level Public IP-adres](#standalone-vm-with-no-instance-level-public-ip-address) en [taakverdeling met virtuele machine geen Instance Level Public IP-adres](#standalone-vm-with-no-instance-level-public-ip-address).
 
-Als u weet dat u initiëren wordt veel uitgaande verbindingen naar dezelfde bestemming, zien uitgaande verbindingen mislukken, of wordt aangeraden door ondersteuning put snat omzetten poorten, hebt u verschillende mogelijkheden voor algemene risicobeperking.  Bekijk deze opties en bepaal wat wordt aanbevolen voor uw scenario.  Het is mogelijk een of meer kunnen helpen bij dit scenario.
+Als u weet dat u initiëren wordt veel uitgaande verbindingen met dezelfde IP-adres en poort, zien uitgaande verbindingen mislukken, of wordt aangeraden door ondersteuning put snat omzetten poorten, hebt u verschillende mogelijkheden voor algemene risicobeperking.  Bekijk deze opties en bepaal wat wordt aanbevolen voor uw scenario.  Het is mogelijk een of meer kunnen helpen bij dit scenario.
 
-### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Een openbaar IP op exemplaarniveau toewijzen aan elke virtuele machine
-Hiermee kunt u uw scenario naar [instantieniveau openbare IP-adres aan een VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Alle kortstondige poorten van het openbare IP-adres gebruikt voor elke virtuele machine zijn beschikbaar voor de virtuele machine (in plaats van scenario's waarbij kortstondige poorten van een openbare IP-adres worden gedeeld met alle van de VM gekoppeld aan de betreffende back-endpool).
+### <a name="modify-application-to-reuse-connections"></a>Toepassing hergebruiken verbindingen wijzigen 
+U kunt de vraag naar kortstondige poorten gebruikt voor snat omzetten door verbindingen in uw toepassing opnieuw te verminderen.  Dit geldt met name voor protocollen zoals HTTP/1.1 waar dit expliciet wordt ondersteund.  En andere protocollen die via HTTP als transportmechanisme gebruiken (dat wil zeggen REST) op zijn beurt kunnen profiteren.  Hergebruik is altijd beter dan afzonderlijke, atomic TCP-verbindingen voor elke aanvraag.
 
 ### <a name="modify-application-to-use-connection-pooling"></a>Toepassing gebruiken verbindingsgroepering wijzigen
-U kunt de vraag naar kortstondige poorten gebruikt voor snat omzetten met behulp van verbindingsgroepering in uw toepassing verminderen.  Aanvullende stromen met hetzelfde doel verbruiken extra poorten.  Als u dezelfde stroom voor meerdere aanvragen hergebruikt, wordt uw meerdere aanvragen één poort gebruiken.
+U kunt gebruikmaken van een groepsgewijze schema in uw toepassing, waarin aanvragen intern zijn verdeeld over een vaste set van (elke hergebruiken indien mogelijk)-verbindingen.  Als u dezelfde stroom voor meerdere aanvragen hergebruikt, wordt uw meerdere aanvragen één poort in plaats van aanvullende stromen met hetzelfde doel extra poorten verbruikt en leidt tot voorwaarden in beslag nemen.
 
 ### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Wijzigen van de toepassing minder agressieve Pogingslogica gebruiken
 Aanvraag voor tijdelijke poorten kunt u met behulp van een minder agressieve Pogingslogica verminderen.  Als kortstondige poorten gebruikt voor snat omzetten zijn uitgeput, pogingen agressieve of brute force zonder decay en backoff oorzaak uitputting van de logica die u voor het persistent maken.  Kortstondige poorten hebben een 4 minuten inactiviteit (niet-aanpasbare) en als de pogingen te agressief, de uitputting heeft geen mogelijkheid om op te ruimen op zichzelf.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Een openbaar IP op exemplaarniveau toewijzen aan elke virtuele machine
+Hiermee kunt u uw scenario naar [instantieniveau openbare IP-adres aan een VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Alle kortstondige poorten van het openbare IP-adres gebruikt voor elke virtuele machine zijn beschikbaar voor de virtuele machine (in plaats van scenario's waarbij kortstondige poorten van een openbare IP-adres worden gedeeld met alle van de VM gekoppeld aan de betreffende back-endpool).  Er zijn verschillen rekening moet houden, zoals extra kosten van IP-adressen en de mogelijke invloed op door een groot aantal afzonderlijke IP-adressen.
 
 ## <a name="limitations"></a>Beperkingen
 
@@ -93,4 +96,4 @@ Azure maakt gebruik van een algoritme om te bepalen het aantal beschikbare poort
 
 Uitgaande verbindingen hebben een niet-actieve time-out van 4 minuten.  Dit is geen aanpasbare.
 
-Het is belangrijk om te rememember die het aantal beschikbare poorten voor snat omzetten niet rechtstreeks aan het aantal verbindingen wordt omgezet. Raadpleeg hierboven voor specifieke informatie over wanneer en hoe snat omzetten poorten zijn toegewezen en hoe kunt u deze onuitputtelijk resource beheren.
+Het is belangrijk te weten dat het aantal beschikbare poorten voor snat omzetten niet rechtstreeks aan het aantal verbindingen wordt omgezet. Raadpleeg hierboven voor specifieke informatie over wanneer en hoe snat omzetten poorten zijn toegewezen en hoe kunt u deze onuitputtelijk resource beheren.

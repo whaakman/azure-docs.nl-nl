@@ -9,12 +9,15 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 4df0dcc7d0f2bde24c1a7e12eea6fa142612a0e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
+# <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-stuurprogramma's en compatibel zijn met Azure-Database voor de MySQL-beheerhulpprogramma 's
+Dit artikel worden de stuurprogramma's en beheerhulpprogramma's die compatibel met Azure voor MySQL-Database zijn.
+
 ## <a name="mysql-drivers"></a>MySQL-stuurprogramma 's
 Azure MySQL-Database maakt gebruik van de wereld populairste community edition van MySQL-database. Daarom is het compatibel is met een groot aantal programmeertalen en stuurprogramma's. Het doel is de ondersteuning van de drie meest recente versies MySQL-stuurprogramma's en inspanningen met auteurs van de open-source-community continu verbeteren de functionaliteit en bruikbaarheid van MySQL-stuurprogramma's gaan. Een lijst van stuurprogramma's die zijn getest en blijkt dat het niet compatibel met Azure-Database voor MySQL 5.6 en 5.7 vindt u in de volgende tabel:
 

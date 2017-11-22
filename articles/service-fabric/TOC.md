@@ -2,7 +2,7 @@
 # Overzicht
 ## [Wat is Service Fabric?](service-fabric-overview.md)
 
-# Snelstartgidsen
+# QuickStarts
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
 ## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
 ## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
@@ -16,9 +16,8 @@
 ### [4- Bewaken en diagnoses uitvoeren](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Een bestaande .NET-app in een container plaatsen
-### [1 - Een beveiligd cluster maken in Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2 - Een .NET-toepassing implementeren met behulp van Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3 - De container bewaken](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Een .NET-app implementeren met behulp van Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2- De container bewaken](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Een Linux-container-app maken
 ### [1 - Containerinstallatiekopieën maken](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## Clusters maken en beheren
 ### Clusters op Azure
 #### Maken
-##### [Uw eerste cluster maken in Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Schalen

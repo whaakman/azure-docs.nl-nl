@@ -10,17 +10,22 @@ ms.reviewer: elioda
 ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11353ef93455a47f9f1c252fc5e192c111d87dd7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Azure IoT rand implementeren op een gesimuleerd apparaat in Linux - voorbeeld
 
 Azure IoT-rand kunt u voor het uitvoeren van analyses en het verwerken van gegevens op uw apparaten, in plaats van alle gegevens push naar de cloud. De rand van de IoT-zelfstudies laten zien hoe u verschillende soorten modules die zijn gebouwd op basis van de Azure-services of aangepaste code implementeren, maar u moet eerst een apparaat om te testen. 
 
-Deze zelfstudie wordt u stapsgewijs hoe u een gesimuleerde IoT randapparaat, zal het implementeren van een module die sensorgegevens genereert. Procedures voor:
+In deze zelfstudie leert u het volgende:
+
+1. Een IoT Hub maken
+2. Een IoT-Edge-apparaat registreren
+3. Starten van de rand van de IoT-runtime
+4. Een module implementeren
 
 ![Zelfstudie-architectuur][2]
 
