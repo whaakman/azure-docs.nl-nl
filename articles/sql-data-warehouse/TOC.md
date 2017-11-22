@@ -5,7 +5,7 @@
 
 # Aan de slag
 
-## [Zelfstudie voor beginners](sql-data-warehouse-get-started-tutorial.md)
+## [Zelfstudie over het laden van gegevens](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Elastische query-zelfstudie](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Aanbevolen procedures](sql-data-warehouse-best-practices.md)
 ## [Beheren](sql-data-warehouse-overview-manage.md)

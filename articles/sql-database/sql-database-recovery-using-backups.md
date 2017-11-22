@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -80,7 +80,7 @@ De database kan worden hersteld naar een service tier of de prestaties, en als e
 
 U meestal herstellen een database naar een eerder voor hersteldoeleinden. Wanneer doet, kunt u de herstelde database behandelen als vervanging voor de oorspronkelijke database of gebruikt om gegevens van ophalen en werk vervolgens de oorspronkelijke database. 
 
-* ***Vervanging van de database:*** als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u controleren of het prestatieniveau en/of servicelaag geschikt zijn en schalen van de database indien nodig. U kunt de naam van de oorspronkelijke database wijzigen en vervolgens de oorspronkelijke naam met de opdracht ALTER DATABASE in T-SQL geven de teruggezette database. 
+* ***Vervanging van de database:*** als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u controleren of het prestatieniveau en/of servicelaag geschikt zijn en schalen van de database indien nodig. U kunt de oorspronkelijke database wijzigen en vervolgens geeft de teruggezette database van de oorspronkelijke naam met behulp de [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) opdracht in T-SQL. 
 * ***Herstel van gegevens:*** als u van plan bent om gegevens te halen uit de herstelde database van een gebruiker of toepassing fout wilt herstellen, moet u schrijven en uitvoeren van de scripts voor het herstel van gegevens die nodig zijn om gegevens te extraheren uit de herstelde database naar de oorspronkelijke database. Hoewel de herstelbewerking lang duren kan om te voltooien, zijn terug te zetten database is zichtbaar in de lijst van de database in het herstelproces. Als u de database verwijderd tijdens het herstellen, de restore-bewerking is geannuleerd en u niet weet in rekening gebracht voor de database die de herstelbewerking kan niet worden voltooid. 
 
 ### <a name="azure-portal"></a>Azure Portal

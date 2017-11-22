@@ -1,5 +1,5 @@
 ---
-title: "On-premises gegevens kopiëren naar de cloud met behulp van Azure Data Factory | Microsoft Docs"
+title: "Gegevens van SQL Server naar Blob Storage kopiëren met behulp van Azure Data Factory | Microsoft Docs"
 description: "Meer informatie over het kopiëren van gegevens uit een on-premises gegevensopslag naar Azure-cloud met behulp van de zelf-hostende Integration Runtime in Azure Data Factory."
 services: data-factory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 24a4255a23f0b9b9da5d8c3cefeefb8fe250f2f1
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: afd7735712d03110a67509a7e94d336219a65b34
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="tutorial-copy-data-between-on-premises-and-cloud"></a>Zelfstudie: On-premises gegevens kopiëren naar de cloud
+# <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Zelfstudie: gegevens van een on-premises SQL-server naar Azure Blob Storage kopiëren
 In deze zelfstudie gebruikt u Azure PowerShell om een Data Factory-pijplijn te maken waarmee gegevens worden gekopieerd van een on-premises SQL Server-database naar een Azure Blob-opslag. U maakt en gebruikt een zelf-hostende IR (Integration Runtime) van Azure Data Factory. Deze zorgt voor een integratie van on-premises gegevensopslagexemplaren en cloudgegevensopslag.  Zie [Quickstarts](quickstart-create-data-factory-dot-net.md) voor meer informatie over het gebruik van andere hulpprogramma's/SDK's voor het maken van een gegevensfactory.
 
 Dit artikel is geen gedetailleerde introductie tot de Data Factory-service. Zie [Inleiding tot Azure Data Factory](introduction.md) voor een inleiding tot Azure Data Factory-service. 
@@ -565,16 +565,16 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
 De uitvoermap `fromonprem` wordt automatisch door de pijplijn gemaakt in de blobcontainer `adftutorial`. Controleer of u het bestand **dbo.emp.txt** in de uitvoermap ziet. Gebruik [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om te controleren of de uitvoer is gemaakt. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. U hebt het volgende geleerd:
+Met de pijplijn in dit voorbeeld worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een data factory maken.
 > * Een zelf-hostende Integration Runtime maken.
 > * Gekoppelde services maken voor SQL Server en Azure Storage. 
 > * Gegevenssets maken voor SQL Server en Azure Blob.
-> * Een pijplijn maken met een kopieeractiviteit om de gegevens te verplaatsen.
+> * Een pijplijn maakt met een kopieeractiviteit om de gegevens te verplaatsen.
 > * Een pijplijnuitvoering starten.
-> * De pijplijnuitvoering controleren.
+> * De pijplijnuitvoering controleert.
 
 Zie [Ondersteunde gegevensopslagexemplaren](copy-activity-overview.md#supported-data-stores-and-formats) voor een lijst met gegevensopslagexemplaren die worden ondersteund door Azure Data Factory.
 

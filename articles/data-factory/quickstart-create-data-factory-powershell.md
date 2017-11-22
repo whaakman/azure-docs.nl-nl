@@ -1,6 +1,6 @@
 ---
-title: Een Azure data factory maken met behulp van PowerShell| Microsoft Docs
-description: "Maak een Azure data factory om gegevens te kopiëren van een locatie in een Azure Blob Storage naar een andere locatie in dezelfde Blob Storage."
+title: "Gegevens in Blob Storage kopiëren met behulp van Azure Data Factory | Microsoft Docs"
+description: "Maak een data factory in Azure om gegevens van één map naar een andere map te kopiëren in dezelfde instantie van Azure Blob Storage."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Een Azure data factory en pijplijn maken met behulp van PowerShell
+# <a name="create-an-azure-data-factory-using-powershell"></a>Een data factory in Azure maken met behulp van PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versie 2 - Preview](quickstart-create-data-factory-powershell.md)
 
-In deze QuickStart wordt beschreven hoe u PowerShell kunt gebruiken om een Azure data factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens gekopieerd van de ene locatie naar een andere locatie in een Azure Blob-opslag. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory. 
+In deze QuickStart wordt beschreven hoe u PowerShell kunt gebruiken om in Azure een data factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens gekopieerd van één map naar een andere map in een instantie van Azure Blob Storage. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het transformeren van gegevens met Azure Data Factory. 
 
 Dit artikel is geen gedetailleerde introductie tot de Data Factory-service. Zie [Inleiding tot Azure Data Factory](introduction.md) voor een inleiding tot Azure Data Factory-service.
 

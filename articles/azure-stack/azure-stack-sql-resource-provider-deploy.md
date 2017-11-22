@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases op Microsoft Azure-Stack gebruiken
 
@@ -30,7 +30,7 @@ Gebruik van de adapter van SQL Server resource provider voor SQL-databases weerg
 
 De resourceprovider biedt geen ondersteuning voor alle database beheermogelijkheden van [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Bijvoorbeeld, pools voor elastische databases en de mogelijkheid om de prestaties van de database omhoog en omlaag automatisch bellen zijn niet beschikbaar. Echter, de resource provider biedt ondersteuning voor vergelijkbare maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen. De API is niet compatibel met SQL-database.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>Architectuur van SQL Server Resource Provider netwerkadapter
+## <a name="sql-resource-provider-adapter-architecture"></a>SQL Resource Provider Adapter-architectuur
 De resourceprovider bestaat uit drie onderdelen:
 
 - **De SQL resource provider adapter VM**, dit is een virtuele Windows-computer waarop de provider-services wordt uitgevoerd.
@@ -50,6 +50,9 @@ U moet een (of meer) SQL-servers maken en/of toegang tot de externe SQL-exemplar
     b. Op systemen met meerdere knooppunten moet de host een systeem dat toegang heeft tot de bevoegde eindpunt.
 
 3. [Download het bestand SQL resource provider binaire bestanden](https://aka.ms/azurestacksqlrp) en het zelfstandig uitpakken om op te halen van de inhoud naar een tijdelijke map uitvoeren.
+
+    > [!NOTE]
+    > Als u een Azure-Stack waarop 20170928.3 bouwt of eerder, [downloadt deze versie](https://aka.ms/azurestacksqlrp1709).
 
 4. Het Azure-Stack-basiscertificaat wordt opgehaald uit het bevoegde eindpunt. Voor ASDK, een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor meerdere knooppunten, moet u een geschikt certificaat opgeven.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
@@ -128,7 +140,7 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of para
 | **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fout | Nee |
 
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Controleer of de implementatie met de Stack Azure Portal
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Controleer of de implementatie met de Stack van Azure-portal
 
 > [!NOTE]
 >  Nadat het script voor installatie is voltooid, moet u de portal om te zien van de blade admin vernieuwen.
@@ -141,27 +153,25 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of para
       ![Controleer of de implementatie van de SQL-RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>De Resourceprovider voor SQL-Adapter verwijderen
+## <a name="remove-the-sql-resource-provider-adapter"></a>Verwijder de Adapter SQL Resource Provider
 
 Als u wilt verwijderen van de resourceprovider, is het essentieel voor Verwijder eerst alle afhankelijkheden.
 
-1. Zorg ervoor dat u hebt het oorspronkelijke implementatiepakket dat u hebt gedownload voor deze versie van de Resourceprovider.
+1. Zorg ervoor dat u hebt het oorspronkelijke implementatiepakket dat u voor deze versie van de Adapter SQL Resource Provider hebt gedownload.
 
 2. Alle gebruikersdatabases moeten worden verwijderd van de resourceprovider (dit wordt niet de gegevens verwijderd). Dit moet worden uitgevoerd door de gebruikers zelf.
 
-3. De beheerder moet de hosting-servers verwijderen van de SQL-Adapter
+3. Beheerder moet de hosting-servers verwijderen van de SQL Resource Provider-Adapter
 
-4. De beheerder moet de schema's die verwijzen naar de SQL-Adapter verwijderen.
+4. Beheerder moet de schema's die verwijzen naar de SQL Resource Provider-Adapter verwijderen.
 
-5. Beheerder moet elk SKU's en quota die zijn gekoppeld aan de SQL-Adapter verwijderen.
+5. Beheerder moet een SKU's en quota die zijn gekoppeld aan de SQL Resource Provider-Adapter verwijderen.
 
 6. Opnieuw uitvoeren van het script voor implementatie met de - parameter, Azure Resource Manager-eindpunten DirectoryTenantID en referenties voor de service administrator-account verwijderen.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
+[Toevoegen van Servers die als host fungeert](azure-stack-sql-resource-provider-hosting-servers.md) en [maken van databases](azure-stack-sql-resource-provider-databases.md).
 
 Probeer andere [PaaS services](azure-stack-tools-paas-services.md) zoals de [MySQL-Server resourceprovider](azure-stack-mysql-resource-provider-deploy.md) en de [resourceprovider App Services](azure-stack-app-service-overview.md).

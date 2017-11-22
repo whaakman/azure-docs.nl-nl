@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -40,13 +40,14 @@ Deze release maakt niet meer u een MySQL-exemplaar. U moet ze maken en/of toegan
 - een MySQL-server maken voor u
 - downloaden en implementeren van een MySQL-Server in de Marketplace.
 
-! [OPMERKING] Hosting-servers die zijn geïnstalleerd op een Azure-Stack met meerdere knooppunten moet worden gemaakt van een tenantabonnement. Ze kunnen niet worden gemaakt van het standaard Provider-abonnement. Met andere woorden, moeten ze worden gemaakt vanuit de tenantportal of vanuit een PowerShell-sessie met een juiste aanmelding. Alle hosting-servers toerekenbare VM's zijn en moeten de juiste licenties hebt. De servicebeheerder kan de eigenaar van het abonnement zijn.
+> [!NOTE]
+> Hosting-servers die zijn geïnstalleerd op een Azure-Stack met meerdere knooppunten moet worden gemaakt van een tenantabonnement. Ze kunnen niet worden gemaakt van het standaard Provider-abonnement. Met andere woorden, moeten ze worden gemaakt vanuit de tenantportal of vanuit een PowerShell-sessie met een juiste aanmelding. Alle hosting-servers toerekenbare VM's zijn en moeten de juiste licenties hebt. De servicebeheerder kan de eigenaar van het abonnement zijn.
 
 ### <a name="required-privileges"></a>Vereiste bevoegdheden
 Het systeem-account moet hebben de volgende bevoegdheden:
 
 1.  Database: Maken, verwijderen
-2.  Aanmelding: Maken, instellen of verwijderen, toekennen, intrekken
+2.  Aanmelding: Maken, instellen, verwijderen, toekennen, intrekken
 
 ## <a name="deploy-the-resource-provider"></a>De resourceprovider implementeren
 
@@ -60,6 +61,9 @@ Het systeem-account moet hebben de volgende bevoegdheden:
     b. Op systemen met meerdere knooppunten moet de host een systeem dat toegang heeft tot de bevoegde eindpunt.
 
 3. [Download het bestand MySQL resource provider binaire bestanden](https://aka.ms/azurestackmysqlrp) en het zelfstandig uitpakken om op te halen van de inhoud naar een tijdelijke map uitvoeren.
+
+    > [!NOTE]
+    > Als u een Azure-Stack waarop 20170928.3 bouwt of eerder, [downloadt deze versie](https://aka.ms/azurestackmysqlrp1709).
 
 4.  Het Azure-Stack-basiscertificaat wordt opgehaald uit het bevoegde eindpunt. Voor ASDK, een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor meerdere knooppunten, moet u een geschikt certificaat opgeven.
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
 U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of parametervalidatie mislukt, wordt u gevraagd om de vereiste waarden.
 
 | Parameternaam | Beschrijving | Opmerking of een standaardwaarde |
@@ -153,11 +162,11 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of para
 Afhankelijk van de snelheid van de prestaties en downloaden voor system, kan installatie slechts 20 minuten of als long als enkele uren duren. Als de blade MySQLAdapter niet beschikbaar is, vernieuwt u de beheerportal.
 
 > [!NOTE]
-> Als de installatie van meer dan 90 minuten duurt, mislukken mogelijk en ziet u een foutbericht op het scherm en in het logboekbestand. De implementatie wordt van de mislukte stap geprobeerd. Systemen die niet voldoen aan de aanbevolen specificaties voor geheugen en vCPU kan mogelijk niet de MySQL RP implementeren.
+> Als de installatie van meer dan 90 minuten duurt, mislukken mogelijk en ziet u een foutbericht op het scherm en in het logboekbestand. De implementatie wordt van de mislukte stap geprobeerd. Systemen die niet voldoen aan de aanbevolen specificaties voor geheugen en core kan mogelijk niet de MySQL RP implementeren.
 
 
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Controleer of de implementatie met de Stack Azure Portal
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Controleer of de implementatie met de Stack van Azure-portal
 
 > [!NOTE]
 >  Nadat het script voor installatie is voltooid, moet u de portal om te zien van de blade admin vernieuwen.
@@ -187,16 +196,17 @@ Afhankelijk van de snelheid van de prestaties en downloaden voor system, kan ins
 4. Als u servers toevoegt, moet u ze toewijzen aan een nieuwe of bestaande SKU om toe te staan van differentiatie van serviceaanbiedingen.
   U kunt bijvoorbeeld hebben een enterprise-exemplaar leveren:
     - capaciteit voor de database
-    - Automatische back-up
+    - Automatisch back-up
     - servers met hoge prestaties voor afzonderlijke afdelingen reserveren
-    - enzovoort.
-    De SKU-naam moet overeenkomen met de eigenschappen zodat tenants hun databases op de juiste wijze kunnen plaatsen. Alle hosting-servers in een SKU moeten dezelfde mogelijkheden hebben.
+ 
 
-    ![Maken van een MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+De SKU-naam moet overeenkomen met de eigenschappen zodat tenants hun databases op de juiste wijze kunnen plaatsen. Alle hosting-servers in een SKU moeten dezelfde mogelijkheden hebben.
+
+![Maken van een MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet maken, tot de SKU is gemaakt.
+> SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet maken, tot de SKU is gemaakt.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Als u wilt testen van uw implementatie, uw eerste MySQL-database maken
@@ -231,17 +241,17 @@ SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet 
 Capaciteit toevoegen door het toevoegen van aanvullende MySQL-servers in de Stack van Azure-portal. Extra servers kunnen worden toegevoegd aan een nieuwe of bestaande SKU. Zorg ervoor dat de kenmerken van de server hetzelfde zijn.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>MySQL-databases maken beschikbaar voor tenants
+## <a name="make-mysql-databases-available-to-tenants"></a>MySQL-databases beschikbaar te maken voor tenants
 Plannen en aanbiedingen MySQL-databases om beschikbaar te maken voor tenants maken. De service Microsoft.MySqlAdapter toevoegen, Voeg een quotum, enzovoort.
 
 ![Plannen en aanbiedingen voor zijn onder meer databases maken](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Het beheerderswachtwoord bijwerken
+## <a name="update-the-administrative-password"></a>Het beheerderswachtwoord bijwerken
 U kunt het wachtwoord wijzigen door eerst op de server-exemplaar van MySQL wijzigen. Blader naar **SERVERVIRTUALISATIE** &gt; **MySQL-Servers die als host fungeert** &gt; en klik op de hostserver. Klik op wachtwoord in het deelvenster instellingen.
 
 ![Het beheerderswachtwoord bijwerken](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>De Resourceprovider voor MySQL-Adapter verwijderen
+## <a name="remove-the-mysql-resource-provider-adapter"></a>Verwijder de MySQL-Resource Provider-Adapter
 
 Als u wilt verwijderen van de resourceprovider, is het essentieel voor Verwijder eerst alle afhankelijkheden.
 
@@ -263,6 +273,5 @@ Als u wilt verwijderen van de resourceprovider, is het essentieel voor Verwijder
 
 
 ## <a name="next-steps"></a>Volgende stappen
-
 
 Probeer andere [PaaS services](azure-stack-tools-paas-services.md) zoals de [SQL Server-resourceprovider](azure-stack-sql-resource-provider-deploy.md) en de [resourceprovider App Services](azure-stack-app-service-overview.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevensoverdracht met AzCopy op Linux
 AzCopy op Linux is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens naar en van Microsoft Azure Blob- en bestandsopslag met eenvoudige opdrachten met optimale prestaties. U kunt gegevens van het ene object naar de andere kopiëren binnen uw opslagaccount of tussen opslagaccounts.
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-Let op: AzCopy momenteel alleen ondersteunt de [Account-SAS](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+Let op: AzCopy momenteel alleen ondersteunt de [Account-SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Map voor logboek-bestand
 Telkens wanneer die u een opdracht met AzCopy geven, controleert deze of een journal-bestand in de standaardmap bestaat en of deze bestaat in een map die u hebt opgegeven via deze optie. De wijzigingslogboek-bestand bestaat niet op beide plaatsen, AzCopy wordt de bewerking wordt beschouwd als nieuwe als genereert een nieuw journaalbestand.
@@ -673,7 +673,7 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 ### <a name="azure-storage-documentation"></a>Documentatie bij Azure Storage:
 * [Inleiding tot Azure Storage](../storage-introduction.md)
 * [Een opslagaccount maken](../storage-create-storage-account.md)
-* [BLOB Storage Explorer beheren](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [BLOB Storage Explorer beheren](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [De Azure CLI 2.0 gebruiken met Azure Storage](../storage-azure-cli.md)
 * [Het Blob storage gebruiken met C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Blob Storage gebruiken met Java](../blobs/storage-java-how-to-use-blob-storage.md)
