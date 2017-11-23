@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 62c7b6706268e3c6e329f90651125fe299f61d67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Beveiligen van PaaS-webtoepassingen en mobiele toepassingen met behulp van Azure Storage
 In dit artikel bespreken we een verzameling van Azure Storage aanbevolen beveiligingsprocedures voor het beveiligen van uw PaaS-webtoepassingen en mobiele toepassingen. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure en de ervaringen van klanten zoals zelf.
@@ -87,7 +87,7 @@ Zie voor meer informatie over RBAC:
 - [Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md)
 - [Azure Storage-beveiligingshandleiding](../storage/common/storage-security-guide.md) voor details over het beveiligen van uw opslagaccount met RBAC
 
-## <a name="storage-encryption"></a>Versleuteling van opslag
+## <a name="storage-encryption"></a>Storage-versleuteling
 ### <a name="use-client-side-encryption-for-high-value-data"></a>Client-side '-versleuteling gebruiken voor waardevolle gegevens
 
 Versleuteling aan clientzijde kunt u programmatisch gegevens onderweg voordat u uploadt naar Azure Storage te versleutelen en ontsleutelen van gegevens via een programma bij het ophalen van het uit de opslag.  Dit biedt versleuteling van gegevens die worden verzonden, maar het biedt ook versleuteling van gegevens in rust.  Versleuteling aan clientzijde is de veiligste methode van het versleutelen van uw gegevens, maar hoeft u programmatische wijzigingen aanbrengen in uw toepassing en processen voor sleutelbeheer plaatsen in plaats.

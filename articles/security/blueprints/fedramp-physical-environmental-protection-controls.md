@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 845e2b165fe01a0a3a2193165eb7ab73a06b9ff5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="physical-and-environmental-protection-pe"></a>Fysieke en omgevingsbeveiliging beveiliging (PE)
+
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
-    
-    
-
-# <a name="physical-and-environmental-protection-pe"></a>Fysieke en omgevingsbeveiliging beveiliging (PE)
 
 ## <a name="nist-800-53-control-pe-1"></a>NIST 800 53 besturingselement PE-1
 

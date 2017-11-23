@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8982cc0153bb4554c84e2cac504c23fb7e65ec15
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Upgrade van Windows Azure Active Directory-synchronisatie en Azure Active Directory-synchronisatie
 Azure AD Connect is de beste manier om verbinding te maken met uw on-premises directory met Azure AD en Office 365. Dit is een fantastische tijd om te upgraden naar Azure AD Connect van Windows Azure Active Directory-synchronisatie (DirSync) of Azure AD Sync omdat deze hulpprogramma's zijn gedeprecieerd en vanaf 13 April 2017 niet langer worden ondersteund.
@@ -36,7 +36,7 @@ Azure AD Connect is de opvolger van DirSync en Azure AD Sync. Het combineert all
 | --- | --- |
 | 13 april 2016 |Windows Azure Active Directory-synchronisatie (DirSync') en Microsoft Azure Active Directory-synchronisatie ('Azure AD Sync) worden vermeld als afgeschaft. |
 | 13 april 2017 |Ondersteuning eindigt. Klanten wordt niet langer een ondersteuningsaanvraag openen zonder eerst upgraden naar Azure AD Connect. |
-|31 december 2017|Azure AD wordt communicatie van Windows Azure Active Directory-synchronisatie (DirSync') en Microsoft Azure Active Directory-synchronisatie ('Azure AD Sync') niet meer accepteren.
+|31 december 2017|Azure AD kan communicatie van Windows Azure Active Directory-synchronisatie (DirSync') en Microsoft Azure Active Directory-synchronisatie ('Azure AD Sync') niet meer accepteren.
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Het overstappen naar Azure AD Connect
 Als u DirSync worden uitgevoerd, er zijn twee manieren waarop u een upgrade kunt uitvoeren: In-place upgrade en parallelle implementatie. Een in-place upgrade wordt aanbevolen voor de meeste klanten en als er een recent besturingssysteem en minder dan 50.000 objecten. In andere gevallen is het aanbevolen voor een parallelle implementatie waar uw DirSync-configuratie wordt verplaatst naar een nieuwe server met Azure AD Connect.
@@ -59,10 +59,10 @@ Als u zien hoe u een in-place upgrade van DirSync naar Azure AD Connect wilt, ra
 De melding is ook verzonden naar klanten die gebruikmaken van Azure AD Connect met een build-nummer 1.0. \*.0 (met een pre-1.1-release). Microsoft raadt aan klanten kunnen de nieuwste versies van Azure AD Connect. De [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) 1.1 nieuwe functie kunt u gemakkelijk altijd een recente versie van Azure AD Connect geïnstalleerd hebt.
 
 **V: wordt DirSync/Azure AD Sync niet meer werken op 13 April 2017?**  
-DirSync/Azure AD Sync blijven werken op 13 April-2017.  Azure AD wordt echter niet meer communicatie van DirSync/Azure AD Sync accepteren op December 31 2017.
+DirSync/Azure AD Sync blijven werken op 13 April-2017.  Azure AD mogelijk niet meer communicatie van DirSync/Azure AD Sync accepteren na December 31 2017.
 
 **V: welke versies DirSync kan ik upgraden van**  
-Dit wordt ondersteund voor een upgrade uitvoert van een DirSync-release momenteel wordt gebruikt.
+Dit wordt ondersteund voor een upgrade uitvoert van een DirSync-release momenteel wordt gebruikt. Houd er rekening mee dat in-place upgrade van DirSync naar Azure AD Connect wordt niet ondersteund na December 31 2017. Klanten die gebruikmaken van DirSync na die datum en wilt overstappen op Azure AD Connect wellicht Voer in plaats daarvan een nieuwe installatie van Azure AD Connect.
 
 **V: hoe zit het Azure AD-Connector voor FIM/MIM?**  
 De Azure AD-Connector voor FIM/MIM heeft **niet** is aangekondigd als afgeschaft. Het is ingesteld op **functie bevriezing**; er is geen nieuwe functionaliteit is toegevoegd en het ontvangt geen oplossingen voor problemen. Microsoft raadt aan klanten die gebruikmaken van het plannen voor het verplaatsen van deze naar Azure AD Connect. Het is raadzaam nieuwe implementaties met behulp van het niet starten. Deze Connector worden aangekondigd in de toekomst wordt afgeschaft.

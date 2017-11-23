@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c56a59a648b90c59e6e1a5e0fb6a26cd1dba4dfc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Serviceoverzicht configureren in Operations Management Suite
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
@@ -228,14 +228,14 @@ Een beheerder kan de afhankelijkheid Agent voor Windows via het Configuratiesche
 Een beheerder kan ook uitvoeren %Programfiles%\Microsoft afhankelijkheid Agent\Uninstall.exe de afhankelijkheid-Agent verwijderen.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Verwijder de Agent afhankelijkheid op Linux
-De afhankelijkheid-Agent volledig verwijderen van Linux, moet u de agent zelf en de connector die wordt automatisch geïnstalleerd met de agent verwijderen. U kunt beide met behulp van de volgende één opdracht verwijderen.
+U kunt de Agent voor afhankelijkheden van Linux verwijderen met de volgende opdracht.
 <br>RHEL, CentOs of Oracle:
 ```
-sudo rpm -e dependency-agent dependency-agent-connector
+sudo rpm -e dependency-agent
 ```
 Ubuntu:
 ```
-sudo dpkg --purge dependency-agent dependency-agent-connector
+sudo dpkg --purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>Problemen oplossen
 Als er problemen installeren of uitvoeren Serviceoverzicht, kunt in deze sectie u. Als u uw probleem niet kunt oplossen, neem contact op met Microsoft Support.

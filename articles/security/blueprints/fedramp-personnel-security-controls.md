@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: fb4b2bc0ad24c5c697f1fd5d4cc77585d52baa33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="personnel-security-ps"></a>Personeelsbeveiliging (PS)
+
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
-    
-    
-
-# <a name="personnel-security-ps"></a>Personeelsbeveiliging (PS)
 
 ## <a name="nist-800-53-control-ps-1"></a>NIST 800 53 besturingselement PS-1
 

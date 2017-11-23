@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ec9e0fc7d67537a47d5c0d3bb376b60dc6ccffcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security"></a>Azure-operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -263,7 +263,7 @@ De volgende acties uitgevoerd door Storage Analytics zijn factureerbare:
 
 De volgende soorten geverifieerde en anonieme aanvragen worden geregistreerd.
 
-| Geverifieerd  | Anonieme|
+| Geauthenticeerd  | Anoniem|
 | :------------- | :-------------|
 | Geslaagde aanvragen | Geslaagde aanvragen |
 |Mislukte aanvragen, met inbegrip van de time-outperiode, beperking, netwerk, autorisatie en andere fouten | -Aanvragen via een Shared Access Signature (SAS), met inbegrip van mislukte en geslaagde aanvragen |

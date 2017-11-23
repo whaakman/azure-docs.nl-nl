@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Gebeurtenissen van Blob Storage naar een aangepast eindpunt op het web routeren (preview)
 
@@ -32,6 +32,8 @@ Als u de stappen in dit artikel hebt voltooid, ziet u dat de gegevens van gebeur
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel de nieuwste versie van Azure CLI (2.0.14 of hoger) uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+
+Als u Cloud Shell niet gebruikt, moet u eerst zich aanmelden met `az login`.
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -86,7 +88,7 @@ az eventgrid resource event-subscription create \
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Een gebeurtenis van Blob Storage activeren
 
-Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Eerst configureren we de naam en sleutel voor het opslagaccount, daarna maken we een container en vervolgens gaan we een bestand maken en uploaden. Gebruik voor `<storage_account_name>` en `<resource_group_name>` weer de waarden die u eerder hebt gemaakt.
+Nu gaan we een gebeurtenis activeren om te zien hoe het bericht via Event Grid naar het eindpunt wordt gedistribueerd. Eerst laten we configureert u de naam en sleutel voor het opslagaccount en we een container maken en vervolgens maken en uploaden van een bestand. Gebruik voor `<storage_account_name>` en `<resource_group_name>` weer de waarden die u eerder hebt gemaakt.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>

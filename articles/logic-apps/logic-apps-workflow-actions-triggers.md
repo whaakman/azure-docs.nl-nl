@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Triggers en acties voor logic app-werkstromen
 
@@ -115,7 +115,7 @@ Hier volgt de definitie voor deze trigger:
 | ------------ | -------- | ---- | ----------- | 
 | frequency | Ja | Tekenreeks | Tijdseenheid voor hoe vaak de trigger wordt geactiveerd. Gebruik slechts één van deze waarden: 'tweede', 'minuut', 'uur', 'day', 'week' of 'maand' | 
 | interval | Ja | Geheel getal | Een positief geheel getal dat wordt beschreven hoe vaak de werkstroom wordt uitgevoerd op basis van de frequentie. <p>Hier volgen de minimale en maximale intervallen: <p>-Maand: 1-16 maanden </br>-Dag: 1-500 dagen </br>-Uurs: 1-12.000 uur </br>-Minuut: 1-72.000 minuten </br>-Tweede: 1-9,999,999 seconden<p>Bijvoorbeeld, als het interval is ingesteld op 6 en de frequentie is "maand", is klikt u vervolgens het terugkeerpatroon elke 6 maanden. | 
-| Tijdzone | Nee | Tekenreeks | Geldt alleen wanneer u een begintijd opgeeft omdat deze trigger niet accepteren [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Geef de tijdzone die u wilt toepassen. | 
+| timeZone | Nee | Tekenreeks | Geldt alleen wanneer u een begintijd opgeeft omdat deze trigger niet accepteren [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Geef de tijdzone die u wilt toepassen. | 
 | startTime | Nee | Tekenreeks | Geef de datum en tijd in deze indeling: <p>JJJJ-MM-ddTUU als u een tijdzone opgeven <p>-of- <p>JJJJ-MM-ssZ als u een tijdzone geen opgeeft <p>Dus bijvoorbeeld, als u wilt dat 18 September 2017 op 14:00 uur, geeft u "2017-09-18T14:00:00 ' en geeft u een tijdzone zoals"Pacific (standaardtijd)". Of geef ' 2017-09-18T14:00:00Z ' zonder een tijdzone. <p>**Opmerking:** de begintijd moet volgen de [ISO 8601 datum, tijdsspecificatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC-datum-tijdnotatie](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), maar zonder een [UTC-offset](https://en.wikipedia.org/wiki/UTC_offset). Als u een tijdzone niet opgeeft, moet u de letter 'Z' toevoegen aan het einde zonder spaties. Deze 'Z"verwijst naar het equivalent [nautische tijd](https://en.wikipedia.org/wiki/Nautical_time). <p>Voor eenvoudige schema's van de begintijd is de eerste keer voorkomt, terwijl voor complexe schema's van de trigger vroeger dan de begintijd wordt niet gestart. Zie voor meer informatie over start datums en tijden [maken en plannen die regelmatig actieve taken](../connectors/connectors-native-recurrence.md). | 
 | weekDays | Nee | String of string array | Als u 'Week' opgeeft voor `frequency`, kunt u een of meer dagen, gescheiden door komma's, als u wilt uitvoeren van de werkstroom: "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag" en "Zondag" | 
 | hours | Nee | Geheel getal of een matrix van geheel getal | Als u 'Day' of 'Week' opgeeft voor `frequency`, kunt u een of meer gehele getallen tussen 0 en 23, gescheiden door komma's als de uren van de dag waarop u wilt uitvoeren van de werkstroom. <p>Bijvoorbeeld, als u '10', '12' en '14' opgeeft, krijgt u 10 uur, 12 uur en 14 uur als de markeringen uur. | 
@@ -194,21 +194,11 @@ HTTP-triggers peilen op een opgegeven eindpunt en controleert u het antwoord om 
 | Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | URI | Ja| Tekenreeks | De HTTP of HTTPs-eindpunt dat de trigger wordt gecontroleerd. Maximale grootte van tekenreeks: 2 KB | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
-| Headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
-| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. | 
+| headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
+| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. Zie voor meer informatie [beleid probeer](../logic-apps/logic-apps-exception-handling.md). | 
 | Verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). <p>Afgezien van Scheduler, er is een meer ondersteunde eigenschap: `authority`. Deze waarde is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere waarde, zoals`https://login.windows\-ppe.net`. | 
 ||||| 
-
-Een *beleid voor opnieuw proberen* is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 Om te werken goed met uw logische app, vereist de HTTP-trigger dat de HTTP-API om te voldoen aan een specifiek patroon. De trigger herkent deze eigenschappen:  
   
@@ -234,8 +224,8 @@ Hier volgen de HTTP-trigger uitvoer:
   
 | Elementnaam | Type | Beschrijving |
 | ------------ | ---- | ----------- |
-| Headers | Object | De headers van de HTTP-antwoord | 
-| Hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
+| headers | Object | De headers van de HTTP-antwoord | 
+| hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
 |||| 
 
 ## <a name="api-connection-trigger"></a>API-verbinding activeren  
@@ -267,9 +257,9 @@ De API verbinding trigger is vergelijkbaar met de HTTP-trigger in de basisfuncti
 | host | Ja | Object | De gehoste-gateway en de ID voor de API-App | 
 | Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
-| Headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
-| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. | 
+| headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
+| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. Zie voor meer informatie [beleid probeer](../logic-apps/logic-apps-exception-handling.md). | 
 | Verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -281,22 +271,12 @@ Voor de `host` object hier worden de eigenschappen:
 | Verbindingsnaam |  | De naam van de beheerde API-verbinding die gebruikmaakt van de werkstroom. Moet verwijzen naar een parameter genaamd `$connection`. |
 |||| 
 
-Een *beleid voor opnieuw proberen* is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
-
 Hier volgen de uitvoer voor een API-verbinding activeren:
   
 | Elementnaam | Type | Beschrijving |
 | ------------ | ---- | ----------- |
-| Headers | Object | De headers van de HTTP-antwoord | 
-| Hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
+| headers | Object | De headers van de HTTP-antwoord | 
+| hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
 |||| 
   
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook trigger  
@@ -360,8 +340,8 @@ Hier worden de uitvoer van de HTTPWebhook activeren en de inhoud van de binnenko
   
 | Elementnaam | Type | Beschrijving |
 | ------------ | ---- | ----------- |
-| Headers | Object | De headers van de HTTP-antwoord | 
-| Hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
+| headers | Object | De headers van de HTTP-antwoord | 
+| hoofdtekst | Object | De hoofdtekst van het HTTP-antwoord | 
 |||| 
 
 ## <a name="conditions"></a>Voorwaarden  
@@ -527,22 +507,13 @@ Hier de `inputs` object nodig deze parameters die zijn vereist voor het maken va
 | Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | URI | Ja| Tekenreeks | De HTTP of HTTPs-eindpunt dat de trigger wordt gecontroleerd. Maximale grootte van tekenreeks: 2 KB | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
-| Headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
-| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. | 
+| headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
+| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. Zie voor meer informatie [beleid probeer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nee | Tekenreeks | Definieert de set met speciaal gedrag negeren. | 
 | Verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). <p>Afgezien van Scheduler, er is een meer ondersteunde eigenschap: `authority`. Deze waarde is standaard `https://login.windows.net` wanneer niet wordt opgegeven, maar u kunt een andere waarde, zoals`https://login.windows\-ppe.net`. | 
 ||||| 
 
-HTTP-acties en APIConnection acties ondersteunen *beleid probeer*. Een beleid voor opnieuw proberen is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 In dit voorbeeld HTTP-actie pogingen ophalen van het laatste nieuws twee keer als er onregelmatige problemen voor een totaal van drie uitvoeringen en een vertraging van 30 seconden tussen elke poging:
   
 ```json
@@ -629,22 +600,12 @@ Hier volgt een voorbeeld APIConnection actie:
 | Methode | Ja | Tekenreeks | Maakt gebruik van een van deze methoden HTTP: 'Ophalen', 'Posten', 'Plaatsen', 'Verwijderen', 'PATCH' of 'HEAD' | 
 | Pad | Ja | Tekenreeks | Het pad voor de API-bewerking | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
-| Headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
-| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. | 
+| headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
+| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. Zie voor meer informatie [beleid probeer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nee | Tekenreeks | Definieert de set met speciaal gedrag negeren. | 
 | Verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-Een beleid voor opnieuw proberen is van toepassing op onregelmatige problemen, gekenmerkt als HTTP-statuscodes 408 429 en 5xx, naast eventuele uitzonderingen connectiviteit. Kunt u dit beleid met de `retryPolicy` object als volgt te werk:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>APIConnection webhook actie
 
@@ -682,9 +643,9 @@ De actie APIConnectionWebhook verwijst naar een connector door Microsoft beheerd
 | host | Ja | Object | Hiermee geeft u de connector-informatie, zoals de `runtimeUrl` en verwijzing naar het object connection. | 
 | Pad | Ja | Tekenreeks | Het pad voor de API-bewerking | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
-| Headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
-| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. | 
+| headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
+| retryPolicy | Nee | Object | Dit object gebruiken voor het aanpassen van het gedrag voor opnieuw proberen voor 4xx of 5xx-fouten. Zie voor meer informatie [beleid probeer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nee | Tekenreeks | Definieert de set met speciaal gedrag negeren. | 
 | Verificatie | Nee | Object | Hiermee geeft u de methode die voor de aanvraag wordt gebruikt voor verificatie. Zie voor meer informatie [Scheduler uitgaande verificatie](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
@@ -750,8 +711,8 @@ Deze actie kunt u vertegenwoordigen en aanroep een [Azure functie](../azure-func
 | functie-id | Ja | Tekenreeks | De resource-ID voor de Azure-functie die u wilt aanroepen. | 
 | Methode | Nee | Tekenreeks | De HTTP-methode die wordt gebruikt voor het aanroepen van de functie. Als niet wordt opgegeven, is "POST" de standaardmethode. | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
-| Headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
+| headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
 |||||
 
 Wanneer u uw logische app opslaat, controleert Azure Logic Apps op de functie waarnaar wordt verwezen:
@@ -839,8 +800,8 @@ De uitvoer van deze actie zijn gebaseerd op wat u definieert in de `response` ac
 | host-id | Ja | Tekenreeks| De resource-ID voor de werkstroom die u wilt aanroepen | 
 | host triggernaam | Ja | Tekenreeks | De naam van de trigger die u wilt aanroepen | 
 | Query 's | Nee | Object | Hiermee geeft u de queryparameters die u wilt opnemen in de URL. <p>Bijvoorbeeld: `"queries": { "api-version": "2015-02-01" }` voegt `?api-version=2015-02-01` naar de URL. | 
-| Headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
+| headers | Nee | Object | Hiermee geeft u elke koptekst die in de aanvraag verzonden. <p>Als u bijvoorbeeld de taal instellen en typt u op een aanvraag: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| hoofdtekst | Nee | Object | Hiermee geeft u de nettolading dat wordt verzonden naar het eindpunt. | 
 |||||   
 
 ## <a name="compose-action"></a>Actie opstellen
@@ -880,8 +841,8 @@ Bijvoorbeeld, als u wilt converteren van een matrix van getallen in een matrix m
 
 | Naam | Vereist | Type | Beschrijving | 
 | ---- | -------- | ---- | ----------- | 
-| Van | Ja | Matrix | De bronmatrix |
-| Selecteer | Ja | Alle | De projectie toegepast op elk element in de bronmatrix |
+| uit | Ja | Matrix | De bronmatrix |
+| selecteren | Ja | Alle | De projectie toegepast op elk element in de bronmatrix |
 ||||| 
 
 De uitvoer van de `select` actie is een matrix met de dezelfde kardinaliteit als de invoermatrix. Elk element wordt omgezet, zoals gedefinieerd door de `select` eigenschap. Als de invoer een lege matrix is, wordt de uitvoer is ook een lege matrix.
@@ -907,7 +868,7 @@ De uitvoer van de `query` actie is een matrix met elementen van de invoermatrix 
 
 | Naam | Vereist | Type | Beschrijving | 
 | ---- | -------- | ---- | ----------- | 
-| Van | Ja | Matrix | De bronmatrix |
+| uit | Ja | Matrix | De bronmatrix |
 | waar | Ja | Tekenreeks | De voorwaarde die wordt toegepast op elk element van de bronmatrix |
 ||||| 
 
@@ -972,7 +933,7 @@ Het resultaat van dit voorbeeld lijkt op deze HTML-tabel:
 
 | Naam | Vereist | Type | Beschrijving | 
 | ---- | -------- | ---- | ----------- | 
-| Van | Ja | Matrix | De bronmatrix. Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een lege tabel. | 
+| uit | Ja | Matrix | De bronmatrix. Als de `from` waarde van de eigenschap is een lege matrix, de uitvoer is een lege tabel. | 
 | Indeling | Ja | Tekenreeks | De tabelindeling die u, ofwel wilt **CSV** of **HTML** | 
 | Kolommen | Nee | Matrix | De tabelkolommen die u wilt. Met de vorm van de tabel standaard wordt genegeerd. | 
 | kolomkop | Nee | Tekenreeks | De kolomkop | 
@@ -1160,7 +1121,7 @@ Deze actie samenvoegartikel binnenste acties uitgevoerd tot aan een voorwaarde r
 | acties | Ja | Object | De interne acties uit te voeren binnen de lus | 
 | expressie | Ja | Tekenreeks | De expressie na elke iteratie evalueren | 
 | Limiet | Ja | Object | De limieten voor de lus. Moet ten minste één limiet definiëren. | 
-| Aantal | Nee | Geheel getal | De limiet voor het aantal iteraties om uit te voeren | 
+| aantal | Nee | Geheel getal | De limiet voor het aantal iteraties om uit te voeren | 
 | timeout | Nee | Tekenreeks | De time-outlimiet in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601) die specificeert hoe lang de lus moet worden uitgevoerd |
 ||||| 
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Prestaties van de activiteit en prestatieafstemming handleiding kopiëren
 > [!NOTE]
@@ -49,6 +49,8 @@ Bevat onderstaande tabel als referentie, het nummer van de doorvoer kopiëren in
 
 ![Matrix van prestaties](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>In Azure Data Factory versie 1 is de minimale cloud data movement eenheden voor exemplaar van cloud-naar-cloud twee. Als niet wordt opgegeven, raadpleegt u data movement standaardeenheden wordt gebruikt in [cloud data movement eenheden](#cloud-data-movement-units).
 
 **Verwijst naar Let op:**
 * Doorvoer wordt berekend met behulp van de volgende formule: [grootte van de gegevens lezen uit bron] / [Kopieeractiviteit uitvoeren duur].
@@ -90,9 +92,16 @@ Enzovoort.
 In dit voorbeeld wanneer de **gelijktijdigheid** waarde is ingesteld op 2, **activiteit uitgevoerd 1** en **activiteit uitgevoerd 2** gegevens gekopieerd van de twee activiteitsvensters **gelijktijdig** data movement prestaties te verbeteren. Echter als meerdere bestanden gekoppeld aan activiteit 1 uitvoert zijn, kopieert data movement service bestanden van de bron op de bestemming één bestand tegelijk.
 
 ### <a name="cloud-data-movement-units"></a>Cloud data movement-eenheden
-Een **cloud gegevensverplaatsing gegevenseenheid (DMU)** is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. Een DMU kan worden gebruikt in een cloud-naar-cloud kopieerbewerking, maar niet in een hybride-exemplaar.
+Een **cloud gegevensverplaatsing gegevenseenheid (DMU)** is een meting met de kracht (een combinatie van CPU, geheugen en netwerkresourcetoewijzing) van één eenheid in de Data Factory. DMU is van toepassing voor cloud-naar-cloud te kopiëren, maar niet in een hybride-exemplaar.
 
-Data Factory gebruikt standaard een één cloud DMU om uit te voeren van een enkele Kopieeractiviteit uitvoeren. Om deze standaardinstelling negeren, Geef een waarde op voor de **cloudDataMovementUnits** eigenschap als volgt. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk wanneer u meer eenheden voor een specifieke kopieerbron en sink configureert, de [prestaties verwijzing](#performance-reference).
+**De minimale cloud gegevens gegevensverplaatsing eenheden zorgen Kopieeractiviteit uitvoeren is twee.** Als niet wordt opgegeven, bevat de volgende tabel de standaard DMUs gebruikt in scenario's voor verschillende kopiëren:
+
+| Scenario voor kopiëren | Standaard DMUs bepaald door de service |
+|:--- |:--- |
+| Gegevens kopiëren tussen winkels op basis van bestanden | Tussen 2 en 16 afhankelijk van het aantal en de grootte van de bestanden. |
+| Alle andere kopie-scenario 's | 2 |
+
+Om deze standaardinstelling negeren, Geef een waarde op voor de **cloudDataMovementUnits** eigenschap als volgt. De **toegestane waarden** voor de **cloudDataMovementUnits** eigenschap 2, 4, 8, 16 of 32 zijn. De **werkelijke aantal cloud DMUs** dat de kopieerbewerking wordt gebruikt tijdens de uitvoering is gelijk aan of kleiner zijn dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens. Zie voor informatie over het niveau van prestatieverbetering krijgt u mogelijk wanneer u meer eenheden voor een specifieke kopieerbron en sink configureert, de [prestaties verwijzing](#performance-reference).
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Data Factory gebruikt standaard een één cloud DMU om uit te voeren van een enk
     }
 ]
 ```
-De **toegestane waarden** voor de **cloudDataMovementUnits** eigenschap 1 (standaard), 2, 4, 8, 16, 32 zijn. De **werkelijke aantal cloud DMUs** dat de kopieerbewerking wordt gebruikt tijdens de uitvoering is gelijk aan of kleiner zijn dan de geconfigureerde waarde, afhankelijk van het patroon van uw gegevens.
 
 > [!NOTE]
 > Als u meer cloud DMUs voor een hogere doorvoer moet, neem dan contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/). Instellen van 8 en hoger momenteel werkt alleen als u **meerdere bestanden kopiëren van Blob-opslag/Data Lake Store/Amazon S3/cloud FTP-/ cloud SFTP naar Blob storage/Data Lake Store/Azure SQL Database**.

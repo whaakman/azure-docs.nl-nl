@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 9fa06a1b7e80a2d50553512a10f4425dc06ef692
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
-> [!NOTE]
-> Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
-    
-    
-
 # <a name="identification-and-authentication-ia"></a>Identificatie en verificatie (IA)
 
 ## <a name="nist-800-53-control-ia-1"></a>NIST 800 53 besturingselement IA-1
+
+> [!NOTE]
+> Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
 #### <a name="identification-and-authentication-policy-and-procedures"></a>Identificatie en verificatiebeleid en Procedures
 

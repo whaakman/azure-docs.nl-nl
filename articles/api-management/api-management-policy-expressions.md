@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressies voor API Management-beleid
 De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot de opgegeven impliciet [context](api-management-policy-expressions.md#ContextVariables) variabele en een toegestane [subset](api-management-policy-expressions.md#CLRTypes) van .NET Framework-typen.  
@@ -174,7 +174,7 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |----------------------|-------------------------------------------------------|  
 |Context|API: IApi<br /><br /> Implementatie<br /><br /> LastError<br /><br /> Bewerking<br /><br /> Product<br /><br /> Aanvraag<br /><br /> Aanvraag-id: Guid<br /><br /> Antwoord<br /><br /> Abonnement<br /><br /> Tracering: bool<br /><br /> Gebruiker<br /><br /> Variabelen: IReadOnlyDictionary < tekenreeks, object ><br /><br /> VOID Trace(message: string)|  
 |context. API|ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> ServiceUrl: IUrl|  
-|context. Implementatie|Regio: tekenreeks<br /><br /> Servicenaam: tekenreeks|  
+|context. Implementatie|Regio: tekenreeks<br /><br /> Servicenaam: tekenreeks<br /><br /> Certificaten: IReadOnlyDictionary < tekenreeks, X509Certificate2 >|  
 |context. LastError|Bron: tekenreeks<br /><br /> Reden: tekenreeks<br /><br /> Bericht: tekenreeks<br /><br /> Bereik: tekenreeks<br /><br /> Sectie: tekenreeks<br /><br /> Pad: tekenreeks<br /><br /> PolicyId: tekenreeks<br /><br /> Voor meer informatie over de context. LastError, Zie [foutafhandeling](api-management-error-handling-policies.md).|  
 |context. Bewerking|ID: tekenreeks<br /><br /> Methode: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> UrlTemplate: tekenreeks|  
 |context. Product|API's: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groepen: IEnumerable < IGroup\><br /><br /> ID: tekenreeks<br /><br /> Naam: tekenreeks<br /><br /> Status: enum ProductState {NotPublished, gepubliceerde}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
@@ -199,6 +199,12 @@ De syntaxis van de beleid-expressies is C# 6.0. Elke expressie toegang heeft tot
 |BOOL TryParseJwt (invoer: deze tekenreeks, resultaat: uit Jwt)|invoer: tekenreeks<br /><br /> resultaat: uit Jwt<br /><br /> De methode retourneert als de invoerparameter een geldige waarde van de JWT-token bevat, `true` en de resultatenparameter bevat een waarde van het type `Jwt`; anders is de methode retourneert `false`.|  
 |Jwt|Algoritme: tekenreeks<br /><br /> Doelgroep: IEnumerable < tekenreeks\><br /><br /> Claims: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: tekenreeks<br /><br /> Uitgever: tekenreeks<br /><br /> NotBefore: DateTime?<br /><br /> Onderwerpnaam: tekenreeks<br /><br /> Type: tekenreeks|  
 |tekenreeks Jwt.Claims.GetValueOrDefault (claimName: string, defaultValue: tekenreeks)|claimName: tekenreeks<br /><br /> Standaardwaarde: tekenreeks<br /><br /> Retourneert de door komma's gescheiden claimwaarden of `defaultValue` als de header is niet gevonden.|
+|byte [] coderen (invoer: deze byte [], alg: string, sleutel: byte [], iv:byte[])|invoer - tekst zonder opmaak worden versleuteld<br /><br />Alg - naam van een symmetrische versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak versleuteld.|
+|byte [] coderen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|invoer - tekst zonder opmaak worden versleuteld<br /><br />Alg - versleutelingsalgoritme<br /><br />Retourneert tekst zonder opmaak versleuteld.|
+|byte [] coderen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - tekst zonder opmaak worden versleuteld<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak versleuteld.|
+|byte [] ontsleutelen (invoer: deze byte [], alg: string, sleutel: byte [], iv:byte[])|invoer - cyphertext te ontsleutelen<br /><br />Alg - naam van een symmetrische versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak.|
+|byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|invoer - cyphertext te ontsleutelen<br /><br />Alg - versleutelingsalgoritme<br /><br />Retourneert tekst zonder opmaak.|
+|byte [] ontsleutelen (invoer: deze byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, sleutel: byte [], iv:byte[])|invoer - invoer - cyphertext te ontsleutelen<br /><br />Alg - versleutelingsalgoritme<br /><br />sleutel - versleuteling<br /><br />IV - initialisatievector<br /><br />Retourneert tekst zonder opmaak.|
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  

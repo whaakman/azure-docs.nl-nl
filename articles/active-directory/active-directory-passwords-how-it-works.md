@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Selfservice voor wachtwoordherstel in Azure AD-diepgaand
 
@@ -207,7 +207,7 @@ Voorbeeld: Zijn er vier beheerders in een omgeving. Beheerder A hun wachtwoord o
 
 ## <a name="on-premises-integration"></a>On-premises integratie
 
-Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volgende aanvullende opties voor lokale integraties. Als u deze opties zijn niet beschikbaar, is vervolgens Write-back niet juist geconfigureerd. Zie voor meer informatie [wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configuring-password-writeback).
+Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volgende aanvullende opties voor lokale integraties. Als u deze opties zijn niet beschikbaar, is vervolgens Write-back niet juist geconfigureerd. Zie voor meer informatie [wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configure-password-writeback).
 
 ![Write-back][Writeback]
 
@@ -217,7 +217,7 @@ Deze pagina bevat een snel de status van de lokale Write-back-client een van de 
 * Azure AD is online en verbonden is met uw lokale Write-back-client. Het lijkt echter dat de geïnstalleerde versie van Azure AD Connect verouderd is. Houd rekening met [upgraden van Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) om ervoor te zorgen dat u de meest recente verbindingsfuncties en belangrijke oplossingen voor problemen hebt.
 * We kan helaas niet de status van uw lokale Write-back van client controleren omdat de geïnstalleerde versie van Azure AD Connect verouderd is. [Azure AD Connect upgraden](./connect/active-directory-aadconnect-upgrade-previous-version.md) kunnen de verbindingsstatus van uw controleren.
 * Helaas lijkt we nu kan geen verbinding met uw lokale Write-back-client. [Problemen met Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
-* Helaas kan geen we verbinding met uw lokale Write-back-client doordat Write-back van wachtwoord niet correct is geconfigureerd. [Wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configuring-password-writeback) om de verbinding te herstellen.
+* Helaas kan geen we verbinding met uw lokale Write-back-client doordat Write-back van wachtwoord niet correct is geconfigureerd. [Wachtwoord terugschrijven configureren](active-directory-passwords-writeback.md#configure-password-writeback) om de verbinding te herstellen.
 * Helaas lijkt we nu kan geen verbinding met uw lokale Write-back-client. Dit kan zijn vanwege tijdelijke problemen bij ons. Als het probleem zich blijft voordoen, [problemen met Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Wachtwoorden terugschrijven naar uw on-premises directory
@@ -248,12 +248,12 @@ Als u wilt testen van dit scenario, gaat u naar http://passwordreset.microsofton
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende artikelen bevatten aanvullende informatie met betrekking tot het wachtwoord opnieuw instellen via Azure AD:
+De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD:
 
 * [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
 * [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
 * [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)

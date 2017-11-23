@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -258,7 +258,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
 |time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt.|Nee|Geen time-out|  
-|Volg omleidingen = "true &#124; False"|Hiermee geeft u op of omleidingen vanaf de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|ONWAAR|  
+|Volg omleidingen = "true &#124; False"|Hiermee geeft u op of omleidingen vanaf de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|onwaar|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -268,26 +268,26 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="LimitConcurrency"></a>Limiet gelijktijdigheid van taken  
- De `limit-concurrency` ingesloten beleid uit door meer dan het opgegeven aantal aanvragen wordt uitgevoerd op een bepaald moment wordt verhinderd door beleid. Nieuwe aanvragen worden toegevoegd aan een wachtrij op die de drempelwaarde overschrijden, totdat de maximum wachtrijlengte wordt bereikt. Bij uitputting van de wachtrij mislukken nieuwe aanvragen onmiddellijk.
+ De `limit-concurrency` ingesloten beleid uit door meer dan het opgegeven aantal aanvragen wordt uitgevoerd op een bepaald moment wordt verhinderd door beleid. Bij meer dan dit aantal, mislukt nieuwe aanvragen onmiddellijk met statuscode voor 429 te veel aanvragen.
   
 ###  <a name="LimitConcurrencyStatement"></a>Beleidsverklaring  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Voorbeelden  
   
-####  <a name="ChooseExample"></a>Voorbeeld  
+#### <a name="example"></a>Voorbeeld  
  Het volgende voorbeeld laat zien hoe u wilt beperken het aantal aanvragen worden doorgestuurd naar een back-end op basis van de waarde van een variabele context.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |---------------|-----------------|--------------|--------------|  
 |sleutel|Een tekenreeks. Een expressie toegestaan. Hiermee geeft u het bereik gelijktijdigheid van taken. Kan worden gedeeld door meerdere beleidsregels.|Ja|N.v.t.|  
 |maximum aantal|Een geheel getal. Hiermee geeft u het maximale aantal aanvragen die zijn toegestaan in te voeren van het beleid.|Ja|N.v.t.|  
-|timeout|Een geheel getal. Een expressie toegestaan. Hiermee geeft u het aantal seconden dat een aanvraag wachten moet om in te voeren van een scope voordat deze is mislukt met ' 429 te veel aanvragen '|Nee|Infinity|  
-|maximale wachtrijlengte|Een geheel getal. Een expressie toegestaan. Hiermee geeft u de maximum wachtrijlengte. Inkomende aanvragen probeert in te voeren van dit beleid wordt gestopt met ' 429 te veel aanvragen ' onmiddellijk wanneer de wachtrij is verbruikt.|Nee|Infinity|  
   
-###  <a name="ChooseUsage"></a>Gebruik  
+### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
@@ -457,7 +455,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
 |Voorwaarde|Een boolean letterlijke waarde of [expressie](api-management-policy-expressions.md) opgeven als nieuwe pogingen moeten worden gestopt (`false`) of vervolg (`true`).|Ja|N.v.t.|  
-|Aantal|Een positief getal dat aangeeft het maximale aantal nieuwe pogingen om te proberen.|Ja|N.v.t.|  
+|aantal|Een positief getal dat aangeeft het maximale aantal nieuwe pogingen om te proberen.|Ja|N.v.t.|  
 |interval|Een positief getal in seconden, geven de wachtinterval tussen het opnieuw probeert.|Ja|N.v.t.|  
 |Max-interval|Een positief getal in seconden voor het opgeven van de maximale wachttijd interval tussen de pogingen. Wordt gebruikt voor het implementeren van een algoritme exponentiële probeer het opnieuw.|Nee|N.v.t.|  
 |delta|Een positief getal in seconden, de wachttijd interval verhoging opgeven. Wordt gebruikt voor het implementeren van de algoritmen lineaire en exponentieel probeer het opnieuw.|Nee|N.v.t.|  
@@ -575,7 +573,7 @@ status code and media type. If no example or schema found, the content is empty.
 |URL|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
-|Hoofdtekst|De aanvraagtekst.|Nee|  
+|hoofdtekst|De aanvraagtekst.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
@@ -654,7 +652,7 @@ status code and media type. If no example or schema found, the content is empty.
 |URL|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
-|Hoofdtekst|De aanvraagtekst.|Nee|  
+|hoofdtekst|De aanvraagtekst.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
@@ -663,7 +661,7 @@ status code and media type. If no example or schema found, the content is empty.
 |modus = 'tekenreeks'|Hiermee wordt bepaald of dit een nieuwe aanvraag of een kopie van de huidige aanvraag is. In de uitgaande modus, modus = kopiëren de aanvraagtekst niet geïnitialiseerd.|Nee|Nieuw|  
 |antwoord-variabele-name = 'tekenreeks'|Als deze niet aanwezig is, `context.Response` wordt gebruikt.|Nee|N.v.t.|  
 |time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de URL is mislukt.|Nee|60|  
-|fout negeren|Indien true en de aanvraag resulteert in een fout opgetreden:<br /><br /> -Als de naam van een antwoord variabele bevat een null-waarde is opgegeven.<br />-Als de naam van een antwoord variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|ONWAAR|  
+|fout negeren|Indien true en de aanvraag resulteert in een fout opgetreden:<br /><br /> -Als de naam van een antwoord variabele bevat een null-waarde is opgegeven.<br />-Als de naam van een antwoord variabele is niet opgegeven, context. Aanvraag wordt niet bijgewerkt.|Nee|onwaar|  
 |naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N.v.t.|  
 |Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de header is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande koptekst.<br />de waarde van de bestaande header vervangen - skip - niet.<br />-toevoeg - de waarde toegevoegd aan de bestaande headerwaarde.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de koptekst wordt ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|  
   
@@ -936,7 +934,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|Bron|Letterlijke tekenreeks relevant zijn voor de traceringsviewer en de bron van het bericht op te geven.|Ja|N.v.t.|  
+|bron|Letterlijke tekenreeks relevant zijn voor de traceringsviewer en de bron van het bericht op te geven.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
@@ -1003,7 +1001,7 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|voor|Hiermee wordt bepaald of de `wait` beleid wacht tot alle directe onderliggende beleidsregels is voltooid of alleen bestaan. Toegestane waarden zijn:<br /><br /> -   `all`-Wacht totdat alle directe onderliggende beleidsregels om te voltooien<br />-een - wachten op een directe onderliggende beleid om te voltooien. Zodra het eerste directe onderliggende beleid is voltooid, de `wait` beleid is voltooid en de uitvoering van een ander beleid direct onderliggende is beëindigd.|Nee|Alle|  
+|voor|Hiermee wordt bepaald of de `wait` beleid wacht tot alle directe onderliggende beleidsregels is voltooid of alleen bestaan. Toegestane waarden zijn:<br /><br /> -   `all`-Wacht totdat alle directe onderliggende beleidsregels om te voltooien<br />-een - wachten op een directe onderliggende beleid om te voltooien. Zodra het eerste directe onderliggende beleid is voltooid, de `wait` beleid is voltooid en de uitvoering van een ander beleid direct onderliggende is beëindigd.|Nee|alle|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure-beveiligingsservices en -technologieën
 In onze overleg met de huidige en toekomstige Azure-klanten, we vaak gevraagd ' hebt u een lijst van de beveiliging van alle gerelateerde services en -technologieën die Azure te bieden heeft? '
 
-We begrijpen dat bij het evalueren van uw cloud serviceprovider-opties voor technische, is het handig zijn om deze een lijst beschikbaar waarmee u kunt zich omlaag diepere wanneer de tijd geschikt is voor u.
+Bij het evalueren van de opties voor cloud serviceprovider is het handig om deze informatie.
 
 Hier volgt onze inspanning initiële op een lijst te leveren. Deze lijst wordt gedurende een periode, wijzigen en toenemen, net zoals Azure biedt. De lijst is gecategoriseerd, en de lijst met categorieën ook na verloop van tijd zal toenemen. Controleer of deze pagina regelmatig op de hoogte blijven van onze services betrekking hebben op beveiliging en -technologieën.
 

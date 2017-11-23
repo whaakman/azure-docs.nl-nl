@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: 6e52896f0d03661eab033c5b58b86360ce346b55
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4621ca88c0d1443cd8bdeea2d34e8f333727acc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Gebruik van een Linux VM beheerde Service-identiteit voor toegang tot Azure Storage via een SAS-referentie
 
@@ -33,8 +33,11 @@ Een Service-SAS biedt de mogelijkheid beperkt om toegang te verlenen aan objecte
 > * Uw VM toegang verlenen tot een opslagaccount SAS in Resource Manager 
 > * Ophalen van een toegangstoken die met de identiteit van de VM, en deze gebruiken voor het ophalen van de SAS van Resource Manager 
 
+## <a name="prerequisites"></a>Vereisten
 
-Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com).

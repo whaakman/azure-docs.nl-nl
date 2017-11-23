@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ed3c4bf2dcdda3e04a18682da568ae73f41bb37d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Aanbevolen procedures voor Azure operationele beveiliging
 Azure bedrijfsbeveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure. Azure operationele beveiliging is gebaseerd op een framework dat de kennis die is opgedaan met verschillende mogelijkheden die uniek voor Microsoft zijn, waaronder Microsoft Security Development Lifecycle (SDL), de Microsoft Security Response Center-programma en grondige kennis van de threat cybersecurity liggend opgenomen.
