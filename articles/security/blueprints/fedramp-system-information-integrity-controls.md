@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 748024f480f9600fd4a78dbd6fffed2fadb8839a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="system-and-information-integrity-si"></a>Systeem- en integriteit van de gegevens (SI)
+
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
-
-# <a name="system-and-information-integrity-si"></a>Systeem- en integriteit van de gegevens (SI)
 
 ## <a name="nist-800-53-control-si-1"></a>NIST 800 53 besturingselement SI-1
 

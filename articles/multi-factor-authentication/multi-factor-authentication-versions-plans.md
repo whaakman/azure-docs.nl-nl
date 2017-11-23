@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 23fa083ef8dc67767db68fd6e783203419b2becd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication
 
@@ -65,7 +65,7 @@ De volgende tabel bevat een lijst van de functies die beschikbaar in de verschil
 | Aangepaste Nummerweergave voor telefoongesprekken | | |● |
 | Goedgekeurde IP-adressen | | |● |
 | MFA herinneren voor vertrouwde apparaten |● |● |● |
-| MFA SDK | | |● (vereist multi-factor Authentication-provider en volledige Azure-abonnement) |
+| MFA SDK | | |● (afgeschaft) | 
 | MFA voor on-premises toepassingen | | |● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication

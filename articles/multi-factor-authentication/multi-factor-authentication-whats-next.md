@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configureren van instellingen voor Azure multi-factor Authentication - Public preview
 
@@ -40,7 +40,7 @@ Dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat
 | [Selecteerbare verificatiemethoden](#selectable-verification-methods) |Kunt u de verificatiemethoden die beschikbaar zijn voor gebruikers om te gebruiken. |
 
 ## <a name="block-and-unblock"></a>Blokkeren en blokkering
-Gebruikers blokkeren/blokkering kunnen worden gebruikt om te voorkomen dat gebruikers ontvangen van verificatieaanvragen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Geblokkeerde gebruikers blijven geblokkeerde voor 90 dagen vanaf het moment dat ze worden geblokkeerd.
+Gebruikers blokkeren/blokkering kunnen worden gebruikt om te voorkomen dat gebruikers ontvangen van verificatieaanvragen. Alle verificatiepogingen voor geblokkeerde gebruikers worden automatisch geweigerd. Geblokkeerde gebruikers blijven geblokkeerd voor 90 dagen vanaf het moment dat ze worden geblokkeerd.
 
 ### <a name="block-a-user"></a>Een gebruiker blokkeren
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
@@ -49,7 +49,7 @@ Gebruikers blokkeren/blokkering kunnen worden gebruikt om te voorkomen dat gebru
 4. Selecteer de **replicatiegroep**, de geblokkeerde gebruikersnaam als invoer  **username@domain.com** , en voer een opmerking in het **reden** veld.
 5. Klik op **toevoegen** voltooid blokkeren van de gebruiker.
 
-### <a name="unblock-a-user"></a>Een gebruiker de blokkering opheffen
+### <a name="unblock-a-user"></a>Een gebruiker deblokkeren
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **gebruikers blokkeren/blokkering**.
 3. Klik op **blokkering** in de **actie** kolom naast de gebruiker die u wilt deblokkeren.
@@ -85,9 +85,9 @@ Fraudewaarschuwing worden geconfigureerd en zo instellen dat uw gebruikers fraud
 6. Selecteer onderaan op de pagina Service-instellingen, **gaat u naar de portal**.
 7. In de Azure multi-factor Authentication-beheerportal, onder A-rapport weergeven, klikt u op **fraudewaarschuwing**.
 8. Geef het datumbereik dat u wilt weergeven in het rapport. U kunt ook gebruikersnamen, telefoonnummers en de status van de gebruiker opgeven.
-9. Klik op **Run**. Hiermee wordt een rapport van Fraudewaarschuwingen. Klik op **exporteren naar CSV** als u wilt exporteren van het rapport.
+9. Klik op **uitvoeren** online zetten van een rapport van Fraudewaarschuwingen. Klik op **exporteren naar CSV** als u wilt exporteren van het rapport.
 
-## <a name="one-time-bypass"></a>Eenmalig overslaan
+## <a name="one-time-bypass"></a>Eenmalige bypass
 Eenmalig overslaan kan een gebruiker één keer verifiëren zonder verificatie in twee stappen uitvoeren. De bypass is tijdelijk en verloopt na een opgegeven aantal seconden. In situaties waar de mobiele app of de telefoon geen een melding of telefoongesprek ontvangt, kunt u een eenmalig overslaan inschakelen zodat de gebruiker toegang heeft tot de gewenste resource.
 
 ### <a name="create-a-one-time-bypass"></a>Maken van een eenmalig overslaan
@@ -95,10 +95,10 @@ Eenmalig overslaan kan een gebruiker één keer verifiëren zonder verificatie i
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **eenmalig overslaan**.
 
-   ![Eenmalig overslaan](./media/multi-factor-authentication-whats-next/onetimebypass.png)
+   ![Eenmalige bypass](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. Selecteer **Toevoegen**.
 4. Selecteer indien nodig, de replicatiegroep voor deze overslaan.
-5. Geef de gebruikersnaam (in de vorm van username@domain.com), wordt het aantal seconden dat de bypass zal bestaan en de reden voor het overslaan. 
+5. Geef de gebruikersnaam (in de vorm van username@domain.com), wordt het aantal seconden dat het overslaan voor moet duren en de reden voor het overslaan. 
 6. Selecteer **Toevoegen**. De tijdslimiet wordt ingevoerd onmiddellijk, zodat de gebruiker moet zich aanmelden voordat het eenmalig overslaan verloopt. 
 
 ### <a name="view-the-one-time-bypass-report"></a>Het rapport eenmalig overslaan weergeven
@@ -110,16 +110,16 @@ Eenmalig overslaan kan een gebruiker één keer verifiëren zonder verificatie i
 6. Selecteer onderaan op de pagina Service-instellingen, **gaat u naar de portal**.
 7. In de Azure multi-factor Authentication-beheerportal, onder A-rapport weergeven, klikt u op **eenmalige**.
 8. Geef het datumbereik dat u wilt weergeven in het rapport. U kunt ook gebruikersnamen, telefoonnummers en de status van de gebruiker opgeven.
-9. Klik op **Run**. Hiermee wordt een rapport van omleidingen. Klik op **exporteren naar CSV** als u wilt exporteren van het rapport.
+9. Klik op **uitvoeren** online zetten van een rapport van omleidingen. Klik op **exporteren naar CSV** als u wilt exporteren van het rapport.
 
 ## <a name="custom-voice-messages"></a>Aangepaste spraakberichten
 Aangepaste spraakberichten kunnen u uw eigen opnamen of begroetingen gebruiken voor verificatie in twee stappen. Deze kunnen worden gebruikt als aanvulling op of ter vervanging van de Microsoft registreert.
 
-Voordat u begint rekening met het volgende zijn:
+Voordat u begint rekening mee worden met de volgende beperkingen:
 
 * Ondersteunde bestandsindelingen zijn .wav en .mp3.
 * De maximale bestandsgrootte is 5 MB.
-* Verificatieberichten moet korter zijn dan 20 seconden. Iets langer dan dit ertoe leiden dat de verificatie is kan mislukt, omdat de gebruiker niet reageert voordat het bericht is voltooid, waardoor de verificatie time-out.
+* Verificatieberichten moet korter zijn dan 20 seconden. Meer dan 20 seconden kan ervoor zorgen dat de verificatie is mislukt, omdat de gebruiker niet reageert voordat het bericht is voltooid, waardoor de verificatie time-out.
 
 ### <a name="set-up-a-custom-message"></a>Een aangepast bericht instellen
 
@@ -134,7 +134,7 @@ Voordat u begint rekening met het volgende zijn:
 6. Selecteer **Toevoegen**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Opslaan in cache in Azure multi-factor Authentication
-In cache opslaan, kunt u een specifiek tijdstip periode zo instellen dat latere authenticatiepogingen binnen deze periode automatisch laten slagen. Dit is vooral wanneer on-premises systemen zoals VPN meerdere aanvragen voor verificatie verzenden bij de eerste aanvraag nog in voortgang is gebruikt. Hiermee kunt de volgende aanvragen automatisch mislukt nadat de eerste verificatie uitgevoerd door de gebruiker is geslaagd. 
+In cache opslaan, kunt u een specifiek tijdstip periode zo instellen dat latere authenticatiepogingen binnen deze periode automatisch laten slagen. Dit is vooral wanneer on-premises systemen zoals VPN meerdere aanvragen voor verificatie verzenden bij de eerste aanvraag nog in voortgang is gebruikt. Caching, kunnen de volgende aanvragen automatisch mislukt nadat de eerste verificatie uitgevoerd door de gebruiker is geslaagd. 
 
 Opslaan in cache is niet bedoeld om te worden gebruikt voor aanmeldingen bij Azure AD.
 
@@ -142,7 +142,7 @@ Opslaan in cache is niet bedoeld om te worden gebruikt voor aanmeldingen bij Azu
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **regels opslaan in cache**.
 
-   ![Regels opslaan in cache](./media/multi-factor-authentication-whats-next/cachingrules.png)
+   ![Regels voor opslaan in cache](./media/multi-factor-authentication-whats-next/cachingrules.png)
 
 4. Selecteer **Toevoegen**.
 5. Selecteer het cachetype in de vervolgkeuzelijst en geef het aantal max. aantal cache-seconden. 
@@ -178,7 +178,7 @@ Verificatie in twee stappen is vereist voor de browser stromen of goedgekeurde I
 5. Selecteer onder multi-factor Authentication **service-instellingen beheren**.
 6. Op de pagina Service-instellingen onder goedgekeurde IP-adressen, hebt u twee opties:
    
-   * **Voor aanvragen van federatieve gebruikers die afkomstig zijn van mijn intranet** : Schakel het selectievakje in. Alle federatieve gebruikers die vanaf het bedrijfsnetwerk aanmelden zich wordt verificatie in twee stappen met behulp van een claim uitgegeven door AD FS overslaan. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. U moet de volgende regel maken in AD FS als deze niet al bestaat: ' c: [Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c); "
+   * **Voor aanvragen van federatieve gebruikers die afkomstig zijn van mijn intranet** : Schakel het selectievakje in. Alle federatieve gebruikers die vanaf het bedrijfsnetwerk aanmelden zich wordt verificatie in twee stappen met behulp van een claim uitgegeven door AD FS overslaan. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS: ' c: [Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c); "
 
 
 
@@ -199,11 +199,11 @@ Bepaalde apps, zoals Office 2010 of ouder en Apple Mail ondersteunen geen verifi
 ### <a name="important-things-to-know-about-app-passwords"></a>Belangrijk om te weten over app-wachtwoorden
 Hier volgt een lijst met belangrijke dingen die u over app-wachtwoorden weten moet.
 
-* App-wachtwoorden moet moeten slechts één keer per app worden opgegeven. Gebruikers hoeven te volgen en deze elke keer invoeren.
+* App-wachtwoorden moeten slechts één keer per app worden opgegeven. Gebruikers hoeven te volgen en deze elke keer invoeren.
 * Het wachtwoord wordt automatisch gegenereerd en is niet geleverd door de gebruiker. Dit is omdat de automatisch gegenereerde wachtwoorden moeilijker voor aanvallers om aan te raden en veiliger.
 * Er is een limiet van 40 wachtwoorden per gebruiker. 
 * Apps die wachtwoorden van de cache en worden gebruikt in scenario's voor lokale kunnen mislukken omdat het app-wachtwoord is niet bekend is buiten de organisatie-id. Een voorbeeld e-mailberichten voor het Exchange die zich on-premises maar gearchiveerde e-mail is in de cloud. Hetzelfde wachtwoord werkt niet.
-* Zodra multi-factor authentication-server is ingeschakeld voor een gebruikersaccount, app-wachtwoorden kunnen worden gebruikt met de meeste niet-browserclients zoals Outlook en Lync, maar kunnen niet worden beheertaken uitgevoerd met behulp van app-wachtwoorden via niet-browsertoepassingen zoals Windows PowerShell, zelfs als die gebruiker over een Administrator-account.  Zorg ervoor dat u een serviceaccount maken met een sterk wachtwoord om uit te voeren PowerShell-scripts en dat account voor verificatie in twee stappen niet inschakelt.
+* Zodra multi-factor authentication-server is ingeschakeld voor een gebruikersaccount, kunnen de app-wachtwoorden worden gebruikt met de meeste niet-browserclients zoals Outlook en Lync. Beheeracties kunnen niet worden uitgevoerd met behulp van app-wachtwoorden via niet-browsertoepassingen zoals Windows PowerShell, zelfs als die gebruiker over een Administrator-account.  Een serviceaccount maken met een sterk wachtwoord om uit te voeren PowerShell-scripts en dat account voor verificatie in twee stappen niet inschakelt.
 
 > [!WARNING]
 > App-wachtwoorden werken niet in hybride omgevingen waarin clients communiceren met zowel on-premises en in de cloud autodiscover-eindpunten. Dit is omdat domeinwachtwoorden vereist zijn voor de verificatie van lokale en app-wachtwoorden nodig zijn om te verifiëren met de cloud.
@@ -217,7 +217,7 @@ Microsoft raadt u aan één appwachtwoord per apparaat, niet één appwachtwoord
 Azure AD biedt ondersteuning voor federatie (eenmalige aanmelding) met het lokale Windows Server Active Directory Domain Services (AD DS). Als uw organisatie is gefedereerd met Azure AD en u wilt gebruikmaken van Azure multi-factor Authentication, zijn de volgende informatie over app-wachtwoorden is belangrijk voor u. Deze sectie is alleen van toepassing op klanten van federatieve (SSO).
 
 * App-wachtwoorden worden geverifieerd door Azure AD en daarom federation overslaan. Federatie wordt alleen actief gebruikt bij het instellen van app-wachtwoorden.
-* Voor federatieve gebruikers (SSO) gaat wordt nooit u naar de id-Provider (IdP) in tegenstelling tot de passieve stroom. De wachtwoorden worden opgeslagen in de organisatie-id. Als de gebruiker het bedrijf verlaat, heeft dat gegevens naar de organisatie-id met behulp van DirSync in realtime stromen. Account uitschakelen/verwijderen kan duren tot drie uur te synchroniseren, vertragen uitschakelen/verwijderen van App-wachtwoord in Azure AD.
+* Voor federatieve gebruikers (SSO), de id-Provider (IdP) is geen contact opgenomen met, in tegenstelling tot de passieve stroom. De wachtwoorden worden opgeslagen in de organisatie-id. Als de gebruiker het bedrijf verlaat, heeft dat gegevens naar de organisatie-id met behulp van DirSync in realtime stromen. Account uitschakelen/verwijderen kan duren tot drie uur te synchroniseren, vertragen uitschakelen/verwijderen van App-wachtwoord in Azure AD.
 * On-premises instellingen voor toegangsbeheer van client worden niet herkend door het app-wachtwoord.
 * Er is geen lokale verificatie mogelijkheid logboekregistratie/controle is beschikbaar voor App-wachtwoord.
 * Bepaalde geavanceerde architectuur ontwerpen moet mogelijk een combinatie van organisatie-gebruikersnaam en wachtwoorden app bij het gebruik van verificatie in twee stappen met clients, afhankelijk van waar ze verifiëren. Voor clients die worden geverifieerd bij een on-premises infrastructuur, gebruikt u een organisatie-gebruikersnaam en wachtwoord. Voor clients die worden geverifieerd bij Azure AD, gebruikt u het app-wachtwoord.
@@ -254,13 +254,13 @@ Gebruikers kunnen app-wachtwoorden maken tijdens de initiële inschrijving. Een 
 Gebruikers kunnen ook app-wachtwoorden maken na de registratie door hun instellingen in de Azure portal of de Office 365-portal te wijzigen. Zie voor meer informatie en gedetailleerde stappen voor uw gebruikers [wat zijn app-wachtwoorden in Azure multi-factor Authentication](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Houd er rekening mee multi-factor Authentication voor apparaten die gebruikers vertrouwen
-Onthoud multi-factor Authentication voor apparaten en browsers dat gebruikers vertrouwensrelatie een gratis functie voor alle gebruikers van MFA is. Hiermee kunt u gebruikers de optie voor het omzeilen MFA voor een bepaald aantal dagen na het uitvoeren van een geslaagde geven aanmelden met MFA. Dit kan bruikbaarheid verbeteren door het aantal keren dat een gebruiker verificatie in twee stappen op hetzelfde apparaat uitvoeren kan minimaliseren.
+Onthoud multi-factor Authentication voor apparaten en browsers dat gebruikers vertrouwensrelatie een gratis functie voor alle gebruikers van MFA is. Deze instelling geeft u gebruikers de mogelijkheid voor het overslaan van MFA voor een bepaald aantal dagen na het uitvoeren van een geslaagde aanmelden met MFA. Dit kan bruikbaarheid verbeteren door het aantal keren dat een gebruiker verificatie in twee stappen op hetzelfde apparaat uitvoeren kan minimaliseren.
 
 Echter, als een account of apparaat is geknoeid, onthoud MFA voor vertrouwde apparaten kan invloed hebben op beveiliging. Als een zakelijke account wordt aangetast of een vertrouwd apparaat is zoekgeraakt of gestolen, moet u [multi-factor Authentication herstellen op alle apparaten](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Deze actie worden de vertrouwde status van alle apparaten ingetrokken en de gebruiker is vereist om opnieuw verificatie in twee stappen uitvoeren. U kunt ook instrueert u uw gebruikers MFA om op te herstellen met de instructies in hun eigen apparaten [beheren van uw instellingen voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 
 ### <a name="how-it-works"></a>Hoe werkt het?
 
-Onthouden van multi-factor Authentication werkt door het instellen van een permanente cookie op de browser wanneer een gebruiker controleert de ' niet opnieuw vragen voor **X** dagen ' vak bij het aanmelden. De gebruiker niet gevraagd voor MFA opnieuw in die browser totdat de cookie verloopt. Als de gebruiker een andere browser op hetzelfde apparaat opent of hun cookies wist, wordt deze gevraagd om te controleren of opnieuw. 
+Onthouden van multi-factor Authentication werkt door het instellen van een permanente cookie op de browser wanneer een gebruiker controleert de ' niet opnieuw vragen voor **X** dagen ' vak bij het aanmelden. De gebruiker niet gevraagd voor MFA opnieuw van die browser totdat de cookie verloopt. Als de gebruiker een andere browser op hetzelfde apparaat opent of hun cookies wist, wordt deze gevraagd om te controleren of opnieuw. 
 
 De ' niet opnieuw vragen voor **X** dagen ' checkbox wordt niet weergegeven op niet-browsertoepassingen, al dan niet ondersteuning van moderne verificatie. Deze apps gebruik vernieuwen van tokens die nieuwe toegangstokens om het uur leveren. Wanneer een vernieuwingstoken is gevalideerd, Azure AD-controles uitgevoerd van de laatste tijd in twee stappen verificatie valt binnen het geconfigureerde aantal dagen. 
 
@@ -295,7 +295,7 @@ Wanneer uw gebruikers hun account voor MFA registreren, kiest u de methode voork
 | Methode | Beschrijving |
 |:--- |:--- |
 | Bellen naar telefoon |Een geautomatiseerd telefoongesprek plaatst. De gebruiker beantwoordt het gesprek en drukt # in op de toetsenblok van de telefoon om te verifiëren. Dit telefoonnummer is niet gesynchroniseerd met lokale Active Directory. |
-| Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd te beantwoorden aan de SMS-bericht met de verificatiecode of Voer de verificatiecode in de interface voor aanmelden. |
+| Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd om de verificatiecode invoeren in de interface voor aanmelden. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is gedeprecieerd en wordt niet meer wordt ondersteund vanaf 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen wordt automatisch kan worden overgeschakeld naar 'oproep naar telefoon' verificatie op dat moment.|
 | Melding via mobiele app |Een pushmelding verzendt naar uw telefoon of geregistreerd apparaat. De gebruiker de melding weergaven en **controleren** om verificatie te voltooien. <br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verificatiecode via mobiele app |De Microsoft Authenticator-app genereert elke 30 seconden een nieuwe OATH-verificatiecode uit. De gebruiker voert deze bevestigingscode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 

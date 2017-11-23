@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synchronisatie: operationele taken en afweging
 Het doel van dit onderwerp is om operationele taken voor Azure AD Connect-synchronisatie te beschrijven.
@@ -33,6 +33,11 @@ De faseringsmodus kan worden gebruikt voor verschillende scenario's, waaronder:
 U kunt wijzigingen aanbrengen in de configuratie en de wijzigingen bekijken voordat u de server actief maken met een server in de faseringsmodus. Ook kunt u volledige import en een volledige synchronisatie om te verifiëren dat alle wijzigingen worden verwacht, voordat u deze wijzigingen in uw productieomgeving aanbrengt uitvoeren.
 
 Tijdens de installatie, kunt u de server zich in **faseringsmodus**. Hiermee wordt de server actief is voor de import en synchronisatie, maar eventuele uitvoer kan niet worden uitgevoerd. Een server in de faseringsmodus is Wachtwoordsynchronisatie of wachtwoord terugschrijven niet actief, zelfs als u deze functies ingeschakeld tijdens de installatie. Wanneer u de faseringsmodus uitschakelt, de server is, wordt het exporteren wordt gestart, schakelt Wachtwoordsynchronisatie en wachtwoord terugschrijven maakt.
+
+> [!NOTE]
+> Stel dat u hebt een Azure AD Connect met synchronisatie van wachtwoordhash-functie ingeschakeld. Wanneer het inschakelen van faseringsmodus, stopt van de server synchroniseren wachtwoord wordt gewijzigd van on-premises AD dat. Wanneer u de faseringsmodus uitschakelt, hervat de server synchroniseren wachtwoordwijzigingen vanaf waar het laatst gebleven was. Als de server in de faseringsmodus gedurende langere tijd wordt opgelost blijft, het kan even duren voor de server te synchroniseren van alle wachtwoordwijzigingen die zich heeft voorgedaan tijdens de periode.
+>
+>
 
 U kunt nog steeds exporteren van een afdwingen met behulp van synchronization servicemanager.
 

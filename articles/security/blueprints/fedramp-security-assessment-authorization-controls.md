@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: cac5e65485fcc9790ef2110fe3b48f99f1b4c14d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="security-assessment-and-authorization-ca"></a>Beoordeling van de veiligheid en autorisatie (CA)
+
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
-
-
-# <a name="security-assessment-and-authorization-ca"></a>Beoordeling van de veiligheid en autorisatie (CA)
 
 ## <a name="nist-800-53-control-ca-1"></a>NIST 800 53 besturingselement CA-1
 

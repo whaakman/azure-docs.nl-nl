@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0ddd31f7ce2217c1136eccd391bb30bd4461c3e5
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Azure Automation-watcher-taken kunnen u reageer op gebeurtenissen die plaatsvinden in uw lokale datacentrum
 
@@ -64,7 +64,7 @@ Het volgende is vereist voor het voltooien van deze zelfstudie.
 ## <a name="create-a-watcher-task-that-selects-the-watcher-runbook-and-action-runbook"></a>Een watcher-taak die u het watcher-runbook en de actie runbook selecteert maken
 1.  Open de pagina van de Watcher-taken en klikt u op de knop 'Toevoegen van een watcher-taak'.
 ![Lijst van de Watcher van de gebruikersinterface](media/automation-watchers-tutorial/WatchersList.png)
-2.  Voer 'Nieuwe bestanden bekijken' als naam.
+2.  Voer 'WatchMyFolder' als naam.
 3.  Selecteer 'Watcher configureren' en selecteer het runbook 'Controle NewFile'.
 ![Configureren van de watcher van de gebruikersinterface](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.  Voer de volgende waarden voor parameters:
@@ -86,7 +86,7 @@ Het volgende is vereist voor het voltooien van deze zelfstudie.
 2.  Een nieuw tekstbestand toevoegen aan de map die door de taak watcher wordt bewaakt.
 
 ## <a name="inspect-the-output-from-the-action-runbook-that-shows-information-on-the-new-file"></a>Inspecteer de uitvoer van het runbook actie die wordt informatie weergegeven over het nieuwe bestand
-1.  Klik op de taak watcher voor 'Nieuwe bestanden bekijken'
+1.  Klik op de taak watcher voor 'WatchMyFolder'
 2.  Klik op de 'weergave watcher stromen' om te zien dat u de watcher het nieuwe bestand vinden en het actie-runbook gestart.
 3.  Klik op de 'watcher actietaken weergeven' om te zien van de runbooktaak in te grijpen.
 ![De actietaken Watcher van de gebruikersinterface](media/automation-watchers-tutorial/WatcherActionJobs.png)

@@ -1,5 +1,5 @@
 ---
-title: Een IoT Hub gebeurtenisbron toevoegen aan uw omgeving Azure Time Series Insights | Microsoft Docs
+title: Het toevoegen van een gebeurtenisbron IoT-Hub aan Azure Time Series Insights | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u een gebeurtenisbron die is verbonden met een IoT-Hub aan uw omgeving Time Series Insights toevoegt
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 29b617422810480f5f8cbcd5b78ebe8605734bbf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Het toevoegen van een gebeurtenisbron IoT-Hub aan Time Series Insights-omgeving
 Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die gegevens uit een IoT-Hub in uw omgeving Time Series Insights leest toevoegen.
@@ -58,7 +58,7 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
    | IoT Hub beleidssleutel | De sleutel is vooraf ingevuld.
    | IoT Hub klantengroep | De consumergroep gebeurtenissen moeten worden gelezen uit de IoT-Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
    | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens verzonden naar IoT Hub. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+   | Naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens verzonden naar IoT Hub. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
 9. Als u hebt geselecteerd de **bieden IoT Hub-instellingen handmatig** optie, de volgende tabel wordt uitgelegd dat alle vereiste eigenschappen:
 
@@ -71,7 +71,7 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
    | IoT Hub beleidssleutel | De gedeelde toegangssleutel die wordt gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
    | IoT Hub klantengroep | De consumergroep gebeurtenissen moeten worden gelezen uit de IoT-Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
    | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens verzonden naar IoT Hub. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+   | Naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de indeling van het bericht van de berichtgegevens verzonden naar IoT Hub. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
 10. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
 

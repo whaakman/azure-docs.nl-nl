@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-netwerk
-Microsoft Azure kunt u virtuele machines en apparaten verbinding maken met andere apparaten in het netwerk door ze te plaatsen op Azure Virtual Networks. Een Azure-netwerk is een virtueel netwerk constructie waarmee u virtuele netwerkinterfacekaarten verbinden met een virtueel netwerk om een TCP/IP-basis communicatie tussen netwerkapparaten. Azure virtuele Machines die zijn verbonden met een virtueel netwerk van Azure kunnen geen verbinding maken met apparaten op de dezelfde Azure Virtual Network, verschillende virtuele netwerken van Azure, op het Internet of zelfs op uw eigen on-premises netwerken.
+Microsoft Azure kunt u virtuele machines en apparaten verbinding maken met andere apparaten in het netwerk door ze te plaatsen op Azure Virtual Networks. Een Azure-netwerk is een constructie waarmee u virtuele netwerkinterfacekaarten verbinden met een virtueel netwerk om een TCP/IP-basis communicatie tussen netwerkapparaten. Azure virtuele Machines die zijn verbonden met een virtueel netwerk van Azure kunnen geen verbinding maken met apparaten op de dezelfde Azure Virtual Network, verschillende virtuele netwerken van Azure, op het Internet of zelfs op uw eigen on-premises netwerken.
 
 In dit artikel bespreken we een verzameling aanbevolen beveiligingsprocedures voor Azure-netwerk. Deze aanbevolen procedures zijn afgeleid van onze ervaring met het Azure-netwerk en de ervaringen van klanten, zoals zelf.
 
@@ -50,7 +50,7 @@ Azure netwerk aanbevolen beveiligingsprocedures besproken in dit artikel zijn on
 * Uw datacenter uitbreiden naar Azure
 
 ## <a name="logically-segment-subnets"></a>Logisch segment subnetten
-[Virtuele netwerken van Azure](https://azure.microsoft.com/documentation/services/virtual-network/) zijn vergelijkbaar met een LAN op uw on-premises netwerk. Het idee achter een Azure-netwerk is dat u maakt een enkel IP-adres op basis van ruimte privénetwerk waarop u alle plaatsen kunt uw [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). De persoonlijke IP-adresruimten beschikbaar zijn in de klasse A (10.0.0.0/8), de klasse B (172.16.0.0/12) en de klasse C (192.168.0.0/16) bereiken.
+[Virtuele netwerken van Azure](https://azure.microsoft.com/documentation/services/virtual-network/) zijn vergelijkbaar met een LAN op uw on-premises netwerk. Het idee achter een Azure-netwerk is dat u maakt een enkel IP-adres op basis van ruimte privénetwerk waarop u alle plaatsen kunt uw [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). De persoonlijke IP-adresruimten beschikbaar zijn in de klasse A (10.0.0.0/8) klasse B (172.16.0.0/12) en klasse C (192.168.0.0/16) bereiken.
 
 Vergelijkbaar met wat u lokaal uitvoeren, moet u een grotere adresruimte segmenteren in subnetten. U kunt [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) op basis van de principes van de subnetten voor het maken van de subnetten.
 
@@ -74,7 +74,7 @@ Het systeem standaardroutes zijn handig voor vele implementatiescenario's, maar 
 We raden aan dat de gebruiker gedefinieerde Routes configureren wanneer u een virtueel netwerk security-toestel, dat we in latere best practice bespreken implementeert.
 
 > [!NOTE]
-> gebruiker gedefinieerde Routes zijn niet vereist en de systeemroutes standaard in de meeste gevallen zal werken.
+> gebruiker gedefinieerde Routes zijn niet vereist en de standaard systeemroutes werkt in de meeste gevallen.
 >
 >
 
@@ -82,7 +82,7 @@ U kunt meer informatie over de gebruiker gedefinieerde Routes en hoe ze configur
 
 ## <a name="enable-forced-tunneling"></a>Geforceerde Tunneling inschakelen
 Voor meer informatie over geforceerde tunneling, is het handig om te begrijpen welke 'gesplitste tunneling'.
-De meest voorkomende voorbeeld van gesplitste tunneling is gezien met VPN-verbindingen. Stel een VPN-verbinding te maken van uw ruimte hotel met uw bedrijfsnetwerk. Deze verbinding kunt u verbinding maken met resources in uw bedrijfsnetwerk en alle communicatie naar resources in uw bedrijfsnetwerk via de VPN-tunnel.
+De meest voorkomende voorbeeld van gesplitste tunneling is gezien met VPN-verbindingen. Stel een VPN-verbinding te maken van uw ruimte hotel met uw bedrijfsnetwerk. Deze verbinding krijgt u toegang tot bedrijfsbronnen en alle communicatie met uw bedrijfsnetwerk Ga via de VPN-tunnel.
 
 Wat gebeurt er wanneer u verbinding wilt maken met resources op Internet? Wanneer gesplitste tunneling is ingeschakeld, gaat u deze verbindingen rechtstreeks met het Internet en niet via de VPN-tunnel. Sommige beveiligingsexperts Houd rekening met deze optie om te worden van een potentieel risico en daarom raden aan dat gesplitste tunneling uitgeschakeld en alle verbindingen, die bestemd zijn voor het Internet en die bestemd zijn voor bedrijfsbronnen, Ga via de VPN-tunnel. Het voordeel van dit te doen is dat verbindingen met het Internet vervolgens worden geforceerd door middel van de zakelijke beveiliging netwerkapparaten die zou niet het geval als de VPN-client is verbonden met Internet buiten de VPN-tunnel.
 
@@ -144,10 +144,9 @@ Vertrouwelijkheid, integriteit en beschikbaarheid (CIA) bestaat uit de drie van 
 Beschikbaarheid kan worden beschouwd als over de beschikbaarheid en prestaties. Als een service niet actief is, kan informatie kan niet worden geopend. Als prestaties zo slecht garantie voor de gegevens onbruikbaar, kunnen we de gegevens niet meer toegankelijk beschouwen. Daarom vanuit het beveiligingsoogpunt van moeten we doen wat wij kunnen om ervoor te zorgen dat onze services een optimale beschikbaarheid en prestaties.
 Er is een populaire en effectieve methode voor het verbeteren van de beschikbaarheid en prestaties met taakverdeling. Taakverdeling is een methode voor het distribueren van netwerkverkeer op servers die deel van een service uitmaken. Bijvoorbeeld, als u front-endwebservers als onderdeel van uw service hebt, kunt u taakverdeling voor de distributie van het verkeer over uw meerdere front-endwebservers.
 
-Beschikbaarheid van verhoogd deze distributie van verkeer omdat het als een van de webservers niet beschikbaar is, de load balancer wordt stoppen met het verzenden van verkeer op die server en dat verkeer wordt omgeleid naar de servers die nog steeds online zijn. Taakverdeling helpt ook bij prestaties, omdat de processor, netwerk en geheugen overhead voor het voldoen aan aanvragen is verdeeld over alle load balanced servers.
+Beschikbaarheid van verhoogd deze distributie van verkeer omdat het als een van de webservers niet beschikbaar is, de load balancer stopt verkeer kunnen verzenden naar die server en deze wordt omgeleid naar de servers die nog steeds online zijn. Taakverdeling helpt ook bij prestaties, omdat de processor, netwerk en geheugen overhead voor het voldoen aan aanvragen is verdeeld over alle load balanced servers.
 
-Het is raadzaam dat u gebruikmaken van taakverdeling zoveel mogelijk en geschikt is voor uw services. We je adres geschiktheid in de volgende secties.
-Op het niveau van Azure Virtual Network biedt Azure dat u met drie primaire opties voor load balancing:
+Het is raadzaam dat u gebruikmaken van taakverdeling zoveel mogelijk en geschikt is voor uw services. We je adres geschiktheid in de volgende secties: op het niveau van Azure Virtual Network Azure biedt u met drie primaire opties voor load balancing:
 
 * HTTP-gebaseerde taakverdeling
 * Externe load balancing
@@ -173,10 +172,10 @@ Het is raadzaam dat u externe Load Balancing wanneer u [staatloze toepassingen](
 
 Voor meer informatie over hoe de externe Load Balancer van Azure werkt en hoe u kunt implementeren, lees het artikel [aan de slag maken van een internetgerichte Load Balancer in Resource Manager, met behulp van PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-## <a name="internal-load-balancing"></a>Interne Load Balancing
+## <a name="internal-load-balancing"></a>Interne taakverdeling
 Interne load balancing is vergelijkbaar met de externe load balancing en maakt gebruik van hetzelfde mechanisme saldo verbindingen met de servers achter te laden. Het enige verschil is dat de load balancer in dit geval verbindingen accepteert van virtuele machines die zich niet op het Internet. In de meeste gevallen worden de verbindingen die worden geaccepteerd voor taakverdeling geïnitieerd door apparaten op een Azure Virtual Network.
 
-Het is raadzaam dat u voor de interne load balancer voor scenario's die van deze mogelijkheid gebruikmaken, zoals wanneer u wilt laden saldo verbindingen met SQL-Servers of interne webservers.
+Het is raadzaam dat u voor de interne load balancer voor scenario's die van deze functionaliteit profiteren, zoals wanneer u wilt laden saldo verbindingen met SQL-Servers of interne webservers.
 
 Lees het artikel voor meer informatie over hoe Azure interne taakverdeling werkt en hoe u deze kunt implementeren, [maken van een interne Load Balancer met behulp van PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 

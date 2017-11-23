@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: tarcher
-ms.openlocfilehash: 4b4c91805a7d5cbf37c8ba3fa3248e7cb0eb02b0
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Een virtueel netwerk configureren in Azure DevTest Labs
-Zoals wordt beschreven in het artikel [een VM met artefacten toevoegen aan een lab](devtest-lab-add-vm-with-artifacts.md), wanneer u een virtuele machine in een testomgeving maakt u een geconfigureerde virtueel netwerk kunt opgeven. U wilt bijvoorbeeld toegang tot uw corpnet-bronnen van uw virtuele machines met behulp van het virtuele netwerk dat is geconfigureerd met ExpressRoute of site-naar-site VPN.
+Zoals wordt beschreven in het artikel [een virtuele machine toevoegen aan een lab](devtest-lab-add-vm.md), wanneer u een virtuele machine in een testomgeving maken kunt u een geconfigureerde virtueel netwerk. U wilt bijvoorbeeld toegang tot uw corpnet-bronnen van uw virtuele machines met behulp van het virtuele netwerk dat is geconfigureerd met ExpressRoute of site-naar-site VPN.
 
 In dit artikel wordt uitgelegd hoe u uw bestaande virtuele netwerk in de instellingen van het virtuele netwerk een lab toevoegen zodat deze beschikbaar is om te kiezen bij het maken van virtuele machines.
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1848e15a2be8d89315657a6eabdb94617bd1b5bf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementeren en gebruiken van Azure Container register
 
@@ -56,7 +56,7 @@ Maken van een Azure-Container register met de [az acr maken](/cli/azure/acr#crea
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-In de rest van deze zelfstudie gebruiken we `<acrname>` als een tijdelijke aanduiding voor de naam van de container-register.
+In de rest van deze zelfstudie gebruiken we `<acrName>` als een tijdelijke aanduiding voor de naam van de container-register.
 
 ## <a name="container-registry-login"></a>Container register aanmelding
 

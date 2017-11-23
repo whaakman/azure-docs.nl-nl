@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -43,8 +43,14 @@ Alle netwerksoftware, fysieke apparaten of iets anders dat de maximale tijd verb
 **V: zijn niveaudomeinen (één Label domeinen) ondersteund?**  
 Nee, Azure AD Connect biedt geen ondersteuning voor lokale forests/domeinen met behulp van niveaudomeinen.
 
+**V: zijn Forests met niet-aaneengesloten AD-domeinen ondersteund?**  
+Nee, Azure AD Connect biedt geen ondersteuning voor lokale-forests met niet-aaneengesloten naamruimten.
+
 **V: zijn 'scheidingspunten' NetBios-naam ondersteund?**  
 Nee, Azure AD Connect biedt geen ondersteuning voor lokale forests/domeinen waar de NetBios-naam een punt bevat '. ' in de naam.
+
+**V: is pure IPv6-omgeving ondersteund?**  
+Nee, Azure AD Connect biedt geen ondersteuning voor pure IPv6-omgeving.
 
 ## <a name="federation"></a>Federation
 **V: wat moet ik doen als ik een e-mailbericht ontvangen die vragen om mijn Office 365-certificaat te vernieuwen**  

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 Deze Veelgestelde vragen over de antwoorden op veelgestelde vragen over Azure multi-factor Authentication en het gebruik van de multi-factor Authentication-service. Het onderverdeeld in vragen over de service in het algemeen modellen, gebruikerservaringen, facturering en het oplossen van problemen.
@@ -95,7 +95,7 @@ Als uw directory een *per authenticatie* Azure multi-factor Authentication-provi
 
 **V: Mijn organisatie heeft om te gebruiken en synchroniseren van identiteiten voor het gebruik van Azure multi-factor Authentication?**
 
-Als uw organisatie gebruikmaakt van een factureringsmodel op basis van verbruik, wordt Azure Active Directory is optioneel, maar niet vereist. Als de MFA-provider is niet gekoppeld aan een Azure AD-tenant, kunt u alleen de Azure multi-factor Authentication-Server of de SDK van Azure multi-factor Authentication on-premises implementeren.
+Als uw organisatie gebruikmaakt van een factureringsmodel op basis van verbruik, wordt Azure Active Directory is optioneel, maar niet vereist. Als de MFA-provider is niet gekoppeld aan een Azure AD-tenant, kunt u alleen de Azure multi-factor Authentication-Server on-premises implementeren.
 
 Azure Active Directory is vereist voor het licentiemodel licenties zijn toegevoegd aan de Azure AD-tenant wanneer u koopt en deze aan gebruikers in de directory toewijzen.
 

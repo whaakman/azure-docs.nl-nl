@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Gebouw multi-factor Authentication in aangepaste Apps (SDK)
+
+> [!IMPORTANT]
+> De afschaffing van de Azure multi-factor Authentication Software Development Kit (SDK) is aangekondigd. Deze functie wordt niet langer ondersteund voor nieuwe klanten. Huidige klanten kunnen blijven met de SDK tot en met 14 November 2018. Na dit tijdstip mislukken aanroepen naar de SDK. 
 
 De Azure multi-factor Authentication Software Development Kit (SDK) kunt u de verificatie in twee stappen rechtstreeks in het aanmelden of transactie processen van toepassingen in uw Azure AD-tenant maken.
 
@@ -35,30 +38,7 @@ Omdat de API's geen toegang tot gebruikers die zijn geregistreerd bij Azure Acti
 
 
 ## <a name="download-the-sdk"></a>De SDK downloaden
-De Azure multi-factor Authentication SDK downloaden vereist een [Azure multi-factor Authentication-Provider](multi-factor-authentication-get-started-auth-provider.md).  Hiervoor moet een volledige Azure-abonnement, zelfs als het eigendom van Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties zijn.  De SDK downloaden, gaat u naar de multi-factor Authentication-beheerportal. U de portal kunt bereiken door het beheer van de multi-factor Authentication-Provider rechtstreeks of door te klikken op de **'Ga naar de portal'** koppeling op de instellingenpagina van MFA-service.
-
-### <a name="download-from-the-azure-classic-portal"></a>Downloaden van de klassieke Azure portal
-1. Meld u als beheerder aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Klik op de pagina Active Directory op de bovenste selecteren **multi-factor Auth-Providers**
-4. Schakel onder **beheren**. Er wordt een nieuwe pagina geopend.
-5. Klik links, aan de onderkant op **SDK**.
-   <center>![Downloaden](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Selecteer de taal die u wilt en klikt u op een de bijbehorende downloadkoppelingen.
-7. Sla de download op.
-
-### <a name="download-from-the-service-settings"></a>Downloaden van de service-instellingen
-1. Meld u als beheerder aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Dubbelklik op uw exemplaar van Azure AD.
-4. Klik bovenaan op **Configureren**
-5. Selecteer onder multi-factor authentication **service-instellingen beheren**
-   ![downloaden](./media/multi-factor-authentication-sdk/download2.png)
-6. Klik onderaan op de pagina met service-instellingen op **Naar de portal**. Er wordt een nieuwe pagina geopend.
-   ![Downloaden](./media/multi-factor-authentication-sdk/download3a.png)
-7. Klik links, aan de onderkant op **SDK**.
-8. Selecteer de taal die u wilt en klikt u op een de bijbehorende downloadkoppelingen.
-9. Sla de download op.
+De Azure multi-factor Authentication SDK downloaden vereist een [Azure multi-factor Authentication-Provider](multi-factor-authentication-get-started-auth-provider.md).  Hiervoor moet een volledige Azure-abonnement, zelfs als het eigendom van Azure MFA, Azure AD Premium of Enterprise Mobility Suite licenties zijn. De openbare methoden voor het downloaden van de SDK is decomissioned omdat de SDK is afgeschaft. Als u wilt downloaden van de SDK, moet u een ondersteuningsaanvraag openen met Microsoft.
 
 ## <a name="whats-in-the-sdk"></a>Wat is er in de SDK
 De SDK bevat de volgende items:

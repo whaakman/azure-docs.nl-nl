@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: fe2a302a32f1b9ec474416704c6cb613cd384a0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Met behulp van de Git-opslagplaats met een Azure Machine Learning Workbench-project
 Dit document bevat informatie over hoe Azure Machine Learning Workbench Git versiebeheer opgeven en ervoor zorgen dat reproduceerbaarheid in uw experiment van de wetenschappelijke gegevens gebruikt. Instructies voor het koppelen van uw project met een cloud Git-opslagplaats, zijn ook beschikbaar.
@@ -121,7 +121,7 @@ Door deze opdracht wordt uitgevoerd, overschrijft we de hele project-map met de 
 ## <a name="step-6-use-the-master-branch"></a>Stap 6. Gebruik de hoofdvertakking
 Een manier om te voorkomen dat per ongeluk is verliezen van de huidige projectstatus, het project doorvoeren naar de hoofdvertakking (of een vertakking die u zelf hebt gemaakt) van de Git-opslagplaats. U kunt rechtstreeks Git uit vanaf de opdrachtregel (of uw andere favoriete Git clienthulpprogramma naar keuze) bewerkingen uitvoeren op de hoofdvertakking. Bijvoorbeeld:
 
-```
+```sh
 # check status to make sure you are on the master branch (or branch of your choice)
 $ git status
 

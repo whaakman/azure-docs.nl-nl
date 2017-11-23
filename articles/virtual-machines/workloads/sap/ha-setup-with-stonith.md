@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9122cbb66c6089009dccccea9b985e3521d45179
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Hoge beschikbaarheid in SUSE met behulp van de STONITH instellen
 Dit document bevat de gedetailleerde stapsgewijze instructies voor het instellen van de hoge beschikbaarheid op SUSE-besturingssysteem met behulp van het apparaat STONITH.
@@ -538,3 +538,5 @@ U vindt meer informatie over SUSE HA ingesteld in de volgende artikelen:
 
 - [Scenario voor optimale SAP HANA SR prestaties](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
 - [Hekwerk op basis van opslag](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [Blog - pacemaker heeft Cluster gebruikt voor SAP HANA - deel 1](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
+- [Blog - pacemaker heeft Cluster gebruikt voor SAP HANA - deel 2](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

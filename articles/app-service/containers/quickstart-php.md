@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Een PHP-web-app maken in App-Service op Linux
 
@@ -33,8 +33,8 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
-* [Git installeren](https://git-scm.com/)
-* [PHP installeren](https://php.net)
+* <a href="https://git-scm.com/" target="_blank">Git installeren</a>
+* <a href="https://php.net" target="_blank">PHP installeren</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

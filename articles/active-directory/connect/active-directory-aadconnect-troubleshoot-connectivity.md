@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Oplossen van problemen met de netwerkverbinding met Azure AD Connect
 Dit artikel wordt uitgelegd hoe de verbinding tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn waarschijnlijk kunnen worden bekeken in een omgeving met een proxyserver.
@@ -92,8 +92,11 @@ Als de proxy is niet correct geconfigureerd, krijgt u een fout opgetreden: ![pro
 
 | Fout | Foutbericht | Opmerking |
 | --- | --- | --- |
-| 403 |Is niet toegestaan |De proxy is niet geopend voor de aangevraagde URL. Terugkeren naar de proxyconfiguratie en zorg ervoor dat de [URL's](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) zijn geopend. |
+| 403 |Verboden |De proxy is niet geopend voor de aangevraagde URL. Terugkeren naar de proxyconfiguratie en zorg ervoor dat de [URL's](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) zijn geopend. |
 | 407 |Proxyverificatie is vereist |De proxyserver vereist een aanmelden en geen taaksequencer opgegeven. Als de proxyserver verificatie vereist, zorg ervoor dat u hebt deze instelling is geconfigureerd in machine.config. Controleer ook of dat u domeinaccounts gebruikt voor de gebruiker die de wizard uitvoert, en voor het serviceaccount. |
+
+### <a name="proxy-idle-timeout-setting"></a>Proxy-instelling voor time-out voor inactiviteit
+Wanneer Azure AD Connect een aanvraag exporteren naar Azure AD verzendt, kan Azure AD verwerking van aanvragen vóór het genereren van een antwoord tot vijf minuten duren. Dit kan gebeuren vooral als er een aantal groepsobjecten met grote groepslidmaatschappen opgenomen in dezelfde aanvraag exporteren. Zorg dat de time-out voor inactiviteit Proxy is geconfigureerd niet groter zijn dan 5 minuten. Anders kan onregelmatige verbindingsprobleem met Azure AD worden waargenomen op de Azure AD Connect-server.
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Het communicatiepatroon tussen Azure AD Connect en Azure AD
 Als u deze voorgaande stappen hebt uitgevoerd en nog steeds geen verbinding kunt maken, u mogelijk op dit moment gaan zo kijken netwerk Logboeken. Deze sectie wordt een patroon normaal en geslaagde verbinding documenteren. Het is ook algemene rood herrings die kan worden genegeerd wanneer u de logboeken netwerk lezen aanbieding.
@@ -145,7 +148,7 @@ Hier volgt een dump uit een werkelijke proxy-logboek en op de pagina van de wiza
 Deze sectie bevat informatie over fouten die kunnen worden geretourneerd van ADAL (de verificatiebibliotheek voor Azure AD Connect gebruikt) en PowerShell. De fout uitgelegd kunt u in de volgende stappen te begrijpen.
 
 ### <a name="invalid-grant"></a>Ongeldige verlenen
-Ongeldige gebruikersnaam of wachtwoord. Zie voor meer informatie [het wachtwoord kan niet worden geverifieerd](#the-password-cannot-be-verified).
+De gebruikersnaam of het wachtwoord is ongeldig. Zie voor meer informatie [het wachtwoord kan niet worden geverifieerd](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Onbekende gebruikerstype
 Uw Azure AD-directory kan niet worden gevonden of opgelost. U probeert mogelijk aanmelden met een gebruikersnaam in een niet-geverifieerd domein?

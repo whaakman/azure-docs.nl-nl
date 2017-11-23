@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute (Preview)
 
@@ -96,7 +96,7 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
 1. Op de **Performance Monitor netwerkconfiguratie - TCP-installatiepagina** voor uw resource in de **OMS-Agents installeren** sectie, klikt u op de agent die overeenkomt met de processor en het downloaden van de server de Setup-bestand.
 
   >[!NOTE]
-  >De Linux-agent wordt momenteel niet ondersteund voor ExpressRoute bewaking.
+  >De agent moet worden geïnstalleerd op een Windows Server (2008 SP1 of hoger). Bewaking van ExpressRoute-circuits met behulp van Windows Desktop-besturingssysteem- en Linux-besturingssysteem wordt niet ondersteund. 
   >
   >
 2. Kopieer de **werkruimte-ID** en **primaire sleutel** naar Kladblok.
@@ -105,6 +105,8 @@ Als u al met een netwerk Prestatiemeter voor het bewaken van andere objecten of 
   ![PowerShell-script](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: een monitoring agent installeren op elke server controleren
+
+Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute-verbinding (dat wil zeggen, on-premises Azure VNETs) voor redundantie installeren. Gebruik de volgende stappen uit om agents te installeren:
 
 1. Voer **Setup** de agent te installeren op elke server die u gebruiken wilt voor het bewaken van ExpressRoute. De server die u voor het bewaken van gebruikt een virtuele machine of on-premises kan zijn en toegang tot Internet moet hebben. U moet ten minste één agent on-premises, en een agent installeren op elk netwerksegment dat u wilt bewaken in Azure.
 2. Op de **Welkom** pagina, klikt u op **volgende**.

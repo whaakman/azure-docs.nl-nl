@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8937437652a78e05b94574cb9fe5df7962edb1ad
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>Internet der dingen Best Practices voor beveiliging
 Beveiligen van de infrastructuur van het Internet der dingen (IoT) is een kritieke onderneming voor iedereen die betrokken zijn bij IoT-oplossingen. Vanwege het aantal apparaten bij betrokken zijn en de gedistribueerde aard van deze apparaten, het effect dat een beveiligingsgebeurtenis gerelateerde tot miljoenen IoT-apparaten is niet-triviale en wijdverbreid invloed kan hebben.

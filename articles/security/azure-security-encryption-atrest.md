@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption in rust
-Er zijn meerdere hulpprogramma's in Microsoft Azure ter bescherming van gegevens op basis van de beveiliging en naleving behoeften van uw bedrijf. Dit artikel is gericht op hoe gegevens in rust in Microsoft Azure wordt beveiligd, worden de verschillende onderdelen die deel uitmaken van de implementatie van data protection en beoordeelt de voor- en nadelen van de verschillende Sleutelbeheer beveiliging methoden. 
+Er zijn meerdere hulpprogramma's in Microsoft Azure ter bescherming van gegevens op basis van de beveiliging en naleving behoeften van uw bedrijf. Dit artikel is gericht op:
+- Hoe gegevens in rust zijn beveiligd via Microsoft Azure
+- Worden de verschillende onderdelen die deel uitmaken van de data protection-implementatie
+- Voordelen en nadelen van de verschillende Sleutelbeheer beveiliging benaderingen beoordeelt. 
 
 Codering in rust is een algemene beveiligingsvereiste. Een voordeel van Microsoft Azure is dat organisaties versleuteling in rust zonder de kosten voor implementatie en beheer en het risico van een aangepaste sleutel beheersysteem kunnen bereiken. Organisaties hebben de mogelijkheid laten Azure versleuteling in rust volledig te beheren. Bovendien hebben organisaties verschillende opties voor het beheren van nauw versleuteling of versleutelingssleutels.
 
@@ -40,7 +43,7 @@ Codering in rust is bedoeld om gegevens te beveiligen voor gegevens in rust (zoa
 
 Codering in rust is ontworpen om te voorkomen dat de aanvaller toegang hebben tot de niet-versleutelde gegevens doordat de gegevens worden versleuteld op de schijf. Als een aanvaller versleuteld verkrijgen van een harde schijf met een dergelijke gegevens en geen toegang tot de versleutelingssleutels, zou de aanvaller de gegevens zonder goede moeite niet beschadigen. Een aanvaller zou hebben geprobeerd aanvallen tegen de versleutelde gegevens die zijn te veel complexere en resource verbruikt dan de toegang tot gegevens op een harde schijf niet-versleuteld in een dergelijk scenario. Om deze reden versleuteling in rust wordt nadrukkelijk aanbevolen en een hoge prioriteit vereiste voor veel organisaties. 
 
-In sommige gevallen is versleuteling in rust ook vereist voor een organisatie behoefte aan gegevens bestuur en naleving inspanningen. Industrie- en government voorschriften, zoals HIPAA, PCI en FedRAMP en internationale voorschriften indelen van specifieke veiligheidsmaatregelen via processen en het beleid met betrekking tot vereisten voor beveiliging en versleuteling van gegevens. Voor veel van deze voorschriften is versleuteling in rust een verplichte meting compatibele gegevensbeheer en-beveiliging vereist. 
+In sommige gevallen is versleuteling in rust ook vereist voor een organisatie behoefte aan gegevens bestuur en naleving inspanningen. Industrie- en government voorschriften, zoals HIPAA, PCI en FedRAMP, indelen, specifieke garanties met betrekking tot vereisten voor beveiliging en versleuteling van gegevens. Voor veel van deze voorschriften is versleuteling in rust een verplichte meting compatibele gegevensbeheer en-beveiliging vereist. 
 
 Naast de naleving en regelgeving moet versleuteling in rust worden beschouwd als een defense-in-depth-platforms. Microsoft biedt een compatibel platform voor services, toepassingen en gegevens, uitgebreide faciliteit en fysieke beveiliging, data access-beheer en controle, is het belangrijk te bevatten extra beveiligingsmaatregelen 'overlappende' in geval een van de andere veiligheidsmaatregelen mislukt. Codering in rust is dergelijke een extra defense-mechanisme.
 
@@ -62,7 +65,7 @@ Machtigingen voor het gebruik van de sleutels die zijn opgeslagen in Azure Sleut
 
 ### <a name="key-hierarchy"></a>Sleutel hiërarchie
 
-Gewoonlijk meer dan één versleutelingssleutel wordt gebruikt in een versleuteling op rest-implementatie. Asymmetrische codering is nuttig voor het tot stand brengen van de vertrouwensrelatie en verificatie nodig voor toegang tot de sleutel en beheer. Symmetrische codering is efficiënter voor bulksgewijze versleuteling en ontsleuteling, waardoor het sterkere versleuteling wilt gebruiken en betere prestaties. Bovendien verlaagt beperking van het gebruik van een enkele versleutelingssleutel het risico dat de sleutel wordt in gevaar komt en de kosten van nogmaals te worden versleuteld wanneer een sleutel moet worden vervangen. Als u wilt gebruikmaken van de voordelen van asymmetrische en symmetrische codering en beperken van het gebruik en de blootstelling van één sleutel, Azure versleuteling bij rust modellen sleutel hiërarchie met bestaat uit de volgende typen sleutels gebruiken:
+Meer dan één versleutelingssleutel wordt gebruikt in een versleuteling op rest-implementatie. Asymmetrische codering is nuttig voor het tot stand brengen van de vertrouwensrelatie en verificatie nodig voor toegang tot de sleutel en beheer. Symmetrische codering is efficiënter voor bulksgewijze versleuteling en ontsleuteling, waardoor het sterkere versleuteling wilt gebruiken en betere prestaties. Bovendien verlaagt beperking van het gebruik van een enkele versleutelingssleutel het risico dat de sleutel wordt in gevaar komt en de kosten van nogmaals te worden versleuteld wanneer een sleutel moet worden vervangen. Als u wilt gebruikmaken van de voordelen van asymmetrische en symmetrische codering en beperken van het gebruik en de blootstelling van één sleutel, Azure versleutelingen op rest modellen sleutel hiërarchie met bestaat uit de volgende typen sleutels gebruiken:
 
 - **Gegevensversleutelingsleutel (DEK)** – een symmetrische AES256-sleutel gebruikt voor het versleutelen van een partitie of een blok gegevens.  Een enkele bron kan zijn veel partities en veel gegevensversleutelingssleutels. Elk blok van gegevens te versleutelen met een andere sleutel maakt crypto geanalyseerd moeilijker. Toegang tot DEKs is nodig voor de resource provider of de toepassing-exemplaar dat is versleutelen en ontsleutelen van een specifiek blok. Wanneer een DEK is vervangen door een nieuwe sleutel moet alleen de gegevens in de bijbehorende blok opnieuw versleuteld met de nieuwe sleutel zijn.
 - **Versleuteling KEK Key Key ()** – een asymmetrische versleutelingssleutel gebruikt voor het versleutelen van de versleutelingssleutels gegevens. Een coderingssleutel Key kunnen de gegevensversleutelingssleutels zelf worden versleuteld en beheerd. De entiteit die toegang tot de KEK heeft mogelijk anders dan de entiteit die de DEK vereist. Hierdoor kan een entiteit voor toegang tot de DEK om beperkte toegang van elk DEK aan specifieke partitie een broker. Aangezien de KEK is vereist voor het ontsleutelen van de DEKs, is de KEK in feite een potentieel waarmee DEKs kunnen worden effectief verwijderd door het verwijderen van de KEK.
@@ -85,9 +88,9 @@ Er zijn drie scenario's voor serverzijde versleuteling:
     - Controleert de klant sleutels via Azure Sleutelkluis
     - Volledige cloud-functionaliteit
 
-- Server-side '-versleuteling met behulp van de klant beheerd sleutels van de klant beheerd hardware
+- Met behulp van de sleutels door de klant beheerd op door de klant bewaakte hardware serverzijde-versleuteling
     - De versleuteling en ontsleuteling bewerkingen uitvoeren die Azure Resourceproviders
-    - Sleutels van de klant besturingselementen van de klant beheerd hardware
+    - Controleert de klant sleutels op door de klant bewaakte hardware
     - Volledige cloud-functionaliteit
 
 Voor client-side '-versleuteling, het volgende overwegen:
@@ -100,7 +103,7 @@ De ondersteunde versleuteling modellen in Azure splitsen in twee groepen: 'Clien
 
 ### <a name="client-encryption-model"></a>Model voor client-versleuteling
 
-Client versleuteling model verwijst naar de codering die buiten de Resource Provider of Azure door de service of de aanroepende toepassing wordt uitgevoerd. De versleuteling kan worden uitgevoerd door de servicetoepassing in Azure of door een toepassing die wordt uitgevoerd in het datacenter van de klant. In beide gevallen wanneer de mogelijkheden van dit model versleuteling, ontvangt de Azure Resource Provider een versleutelde gegevens zonder de mogelijkheid te ontsleutelen van de gegevens in elke manier toegang hebben tot de versleutelingssleutels-blob. In dit model, de key management wordt uitgevoerd door de aanroepende servicetoepassing en mat met de Azure-service.
+Client versleuteling model verwijst naar de codering die buiten de Resource Provider of Azure door de service of de aanroepende toepassing wordt uitgevoerd. De versleuteling kan worden uitgevoerd door de servicetoepassing in Azure of door een toepassing die wordt uitgevoerd in het datacenter van de klant. In beide gevallen wanneer de mogelijkheden van dit model versleuteling, ontvangt de Azure Resource Provider een versleutelde gegevens zonder de mogelijkheid te ontsleutelen van de gegevens in elke manier toegang hebben tot de versleutelingssleutels-blob. In dit model, de key management wordt uitgevoerd door de aanroepende servicetoepassing en ondoorzichtig met de Azure-service is.
 
 ![Client](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
@@ -114,15 +117,15 @@ Serverzijde versleuteling modellen verwijzen naar de codering die door de Azure-
 
 Elk van de versleuteling serverzijde op rest modellen impliceert opvallende kenmerken van Sleutelbeheer. Dit omvat waar en hoe versleutelingssleutels zijn gemaakt en evenals de toegangsmodellen en de procedures van de sleutel worden gedraaid opgeslagen. 
 
-#### <a name="server-side-encryption-using-service-managed-keys"></a>Serverzijde codering met sleutels van de service die wordt beheerd
+#### <a name="server-side-encryption-using-service-managed-keys"></a>Serverzijde codering met sleutels service beheerd
 
 Voor veel klanten is de essentiële eis om ervoor te zorgen dat de gegevens worden versleuteld wanneer deze zich in rust. Dit model kan serverzijde codering met sleutels voor Service beheerd waardoor klanten de specifieke resource (Storage-Account, SQL-database, etc.) markeren voor versleuteling en alle Sleutelbeheer aspecten zoals sleuteluitgave, draaiing en back-up wordt naar Microsoft. De meeste Azure-Services die ondersteuning bieden voor versleuteling in rust doorgaans ondersteuning voor dit model offloading van het beheer van de versleutelingssleutels in Azure. De Azure-resourceprovider maakt de sleutels, worden deze in de veilige opslag en haalt wanneer dit nodig is. Dit betekent dat de service volledige toegang tot de sleutels heeft en de service volledig beheer over de levenscyclus van Referentiebeheer heeft.
 
 ![Beheerd](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-Serverzijde versleuteling met behulp van service beheerd sleutels dus snel adressen nodig om versleuteling in rust met weinig overhead aan de klant. Zodra deze beschikbaar wordt een klant doorgaans Hiermee opent u de Azure-portal voor het doelabonnement en de resourceprovider en controleert een vak die aangeeft dat ze zouden graag de gegevens worden versleuteld. In sommige bronbeheer serverzijde versleuteling met service beheerde sleutels is standaard ingeschakeld. 
+Serverzijde versleuteling met behulp van service beheerd sleutels dus snel adressen nodig om versleuteling in rust met weinig overhead aan de klant. Zodra deze beschikbaar wordt een klant doorgaans Hiermee opent u de Azure-portal voor het doelabonnement en de resourceprovider en controleert een vak die aangeeft dat ze zouden graag de gegevens worden versleuteld. In sommige bronbeheer is serverzijde codering met sleutels service beheerd standaard ingeschakeld. 
 
-Versleuteling met Microsoft beheerd sleutels serverzijde betekent dat de service heeft volledige toegang tot het opslaan en de sleutels beheert. Terwijl sommige klanten de sleutels beheren omdat ze van mening bent dat ze een betere beveiliging kunnen controleren of wilt kunnen, kunnen de kosten en het risico dat samenhangt met een aangepaste sleutel opslagoplossing moeten worden beschouwd bij het evalueren van dit model. In veel gevallen kan een organisatie bepalen dat resourcebeperkingen of risico's van een on-premises-oplossing, kan dit groter is dan het risico van het cloudbeheer van de versleuteling bij rust sleutels.  Echter kan dit model niet voldoende zijn voor organisaties die moeten voldoen om te bepalen voor het maken en de levenscyclus van de versleutelingssleutels of hebben andere personeel beheren van een service versleutelingssleutels dan die van de service (dat wil zeggen, scheiding van beheren sleutelbeheer van het algemene model voor het beheer voor de service).
+Codering met sleutels die door Microsoft beheerde serverzijde betekent dat de service heeft volledige toegang tot het opslaan en de sleutels beheert. Terwijl sommige klanten de sleutels beheren omdat ze van mening bent dat ze een betere beveiliging kunnen controleren of wilt kunnen, kunnen de kosten en het risico dat samenhangt met een aangepaste sleutel opslagoplossing moeten worden beschouwd bij het evalueren van dit model. In veel gevallen kan een organisatie bepalen dat resourcebeperkingen of risico's van een on-premises-oplossing, kan dit groter is dan het risico van het cloudbeheer van de versleuteling bij rust sleutels.  Echter kan dit model niet voldoende zijn voor organisaties die moeten voldoen om te bepalen voor het maken en de levenscyclus van de versleutelingssleutels of hebben andere personeel beheren van een service versleutelingssleutels dan die van de service (dat wil zeggen, scheiding van beheren sleutelbeheer van het algemene model voor het beheer voor de service).
 
 ##### <a name="key-access"></a>Toegang tot de sleutel
 
@@ -145,7 +148,7 @@ Voor scenario's waarin de vereiste voor het versleutelen van het data-at-rest en
 
 ##### <a name="key-access"></a>Toegang tot de sleutel
 
-Het model serverzijde versleuteling met beheer van de klant sleutels in Azure Key Vault omvat de service die toegang tot de sleutels te coderen en decoderen naar behoefte. Versleuteling bij rust sleutels worden gedaan toegankelijk is voor een service via een beleid voor toegangsbeheer die service-identiteit-toegang voor het ontvangen van de sleutel te verlenen. Een Azure-service uitgevoerd namens een bijbehorende-abonnement kan worden geconfigureerd met een identiteit voor de service binnen dat abonnement. De service kunt Azure Active Directory-verificatie uitvoeren en een verificatietoken voor zichzelf te identificeren als deze service namens het abonnement ontvangen. Dat token kan vervolgens worden gepresenteerd voor Sleutelkluis ophalen van een sleutel die deze toegang is verleend.
+Het model serverzijde versleuteling met beheer van de klant sleutels in Azure Key Vault omvat de service die toegang tot de sleutels te coderen en decoderen naar behoefte. Versleuteling bij rust sleutels worden gedaan toegankelijk is voor een service via een beleid voor toegangsbeheer. Dit beleid verleent de service-identiteit-toegang voor het ontvangen van de sleutel. Een Azure-service uitgevoerd namens een bijbehorende-abonnement kan worden geconfigureerd met een identiteit in het desbetreffende abonnement. De service kunt Azure Active Directory-verificatie uitvoeren en een verificatietoken voor zichzelf te identificeren als deze service namens het abonnement ontvangen. Dat token kan vervolgens worden gepresenteerd voor Sleutelkluis ophalen van een sleutel die deze toegang is verleend.
 
 Voor bewerkingen met behulp van coderingssleutels, een service-identiteit toegang kan krijgen tot een van de volgende bewerkingen: ontsleutelen, versleutelen, unwrapKey, wrapKey, controleren, meld u aan, ophalen, weergeven, bijwerken, maken, importeren, verwijderen, back-up en herstellen.
 
@@ -201,7 +204,7 @@ Microsoft Cloud-services worden gebruikt in alle drie modellen: IaaS, PaaS, SaaS
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Codering in rust voor SaaS-klanten
 
-Software als een Service (SaaS)-klanten hebben doorgaans versleuteling in rust ingeschakeld of beschikbaar is in elke service. Office 365-services bevat verschillende opties voor klanten om te controleren of versleuteling in rust inschakelen. Zie voor informatie over Office 365-services gegevens Versleutelingstechnologieën voor Office 365.
+Software als een Service (SaaS)-klanten hebben doorgaans versleuteling in rust ingeschakeld of beschikbaar is in elke service. Office 365 beschikt over verschillende opties voor klanten om te controleren of versleuteling in rust inschakelen. Zie voor informatie over Office 365-services gegevens Versleutelingstechnologieën voor Office 365.
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Codering in rust voor PaaS-klanten
 
