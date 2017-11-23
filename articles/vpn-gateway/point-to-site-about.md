@@ -61,7 +61,7 @@ Een RADIUS-server kan ook worden geïntegreerd met andere systemen externe ident
 >RADIUS-verificatie voor P2S is momenteel in Preview.
 >
 
-! [punt-naar-site]] (./media/point-to-site-about/p2s.png "Punt-naar-Site")
+![punt-naar-site]](./media/point-to-site-about/p2s.png "Punt-naar-Site")
 
 ### <a name="configuration-requirements-for-client-devices"></a>Configuratievereisten voor clientapparaten
 

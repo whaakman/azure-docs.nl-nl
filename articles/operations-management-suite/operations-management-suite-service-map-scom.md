@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Serviceoverzicht integratie met System Center Operations Manager
   > [!NOTE]
@@ -30,7 +30,7 @@ Operations Management Suite Serviceoverzicht automatisch detecteert de onderdele
 Met deze integratie tussen Serviceoverzicht en System Center Operations Manager, kunt u automatisch diagrammen voor gedistribueerde toepassing maken in Operations Manager die zijn gebaseerd op de dynamische afhankelijkheid toewijzingen in Serviceoverzicht.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een Operations Manager-beheergroep die wordt beheerd door een reeks servers.
+* Een Operations Manager-beheergroep (2012 R2 of hoger) die wordt beheerd door een reeks servers.
 * Een Operations Management Suite-werkruimte met de oplossing Serviceoverzicht is ingeschakeld.
 * Een set servers (ten minste één) die worden beheerd door Operations Manager en verzenden van gegevens naar Serviceoverzicht. Windows en Linux-servers worden ondersteund.
 * Een service-principal met toegang tot de Azure-abonnement dat is gekoppeld aan de Operations Management Suite-werkruimte. Ga voor meer informatie naar [maken van een service-principal](#creating-a-service-principal).

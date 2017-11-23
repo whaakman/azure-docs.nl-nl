@@ -3,20 +3,20 @@ title: Aangepaste weergaven van Share Azure Time Series Insights delen via gepar
 description: In dit artikel wordt beschreven hoe u geparameteriseerde URL's samenstelt in Azure Time Series Insights, zodat een aangepaste weergave eenvoudig kan worden gedeeld.
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
-ms.author: kfile
+author: MarkMcGeeAtAquent
+ms.author: MarkMcGeeAtAquent
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
-ms.date: 11/15/2017
-ms.openlocfilehash: d7a4401ff87a94265c588aa5ef070bdc8544fe12
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Een aangepaste weergave delen via een geparameteriseerde URL
 
@@ -28,7 +28,7 @@ De verkenner van Time Series Insights ondersteunt URL-queryparameters om weergav
 
 De parameter `environmentId=<guid>` geeft de id van de doelomgeving op.  Dit is een onderdeel van de FQDN voor gegevenstoegang en u kunt deze vinden in de rechterbovenhoek van het omgevingsoverzicht in de Azure-portal.  Dit is alles wat voorafgaat aan `env.timeseries.azure.com`. Een voorbeeld van de parameter voor omgevings-id is `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Tijd
+## <a name="time"></a>Time
 
 U kunt absolute of relatieve tijdwaarden opgeven met een geparameteriseerde URL.
 
@@ -77,7 +77,7 @@ Met de parameter `timeSeriesDefinitions=<collection of term objects>` geeft u de
 
 Als u bijvoorbeeld definities van een tijdreeks als een URL-parameter wilt toevoegen, kunt u het volgende gebruiken:
 
-```
+```https
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -90,7 +90,9 @@ Met deze voorbeelddefinities voor een tijdreeks voor
  
 kunt u de volgende geparameteriseerde URL voor een weergave maken:
 
-`https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]`
+```https
+https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
+```
 
 Als u de verkenner van Time Series Insights had gebruikt om de weergave samen te stellen die wordt beschreven door de voorgaande URL, zou deze er als volgt uitzien:
 
