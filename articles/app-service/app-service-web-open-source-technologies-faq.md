@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: c0872619a4897b0ac40629df00053f3e49768f64
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Open source-technologieën Veelgestelde vragen voor Web-Apps in Azure
 
@@ -32,14 +32,6 @@ In dit artikel bevat de antwoorden op veelgestelde vragen (FAQ's) over problemen
 Problemen met database contact op met [ClearDB ondersteuning](https://www.cleardb.com/developers/help/support). 
 
 Zie voor antwoorden op veelgestelde vragen over ClearDB [ClearDB Veelgestelde vragen over](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## <a name="why-isnt-my-cleardb-database-listed-in-the-portal"></a>Waarom wordt mijn ClearDB-database niet vermeld in de portal
-
-Als u maakt een ClearDB-database in de [Azure-portal](http://portal.azure.com/), de database wordt niet weergegeven in de [klassieke Azure-portal](http://manage.windowsazure.com/). Om dit te voorkomen, kunt u de database handmatig koppelen aan de web-app.
-
-Op dezelfde manier als u maakt een ClearDB-database in de [klassieke Azure-portal](http://manage.windowsazure.com/), ziet u niet de database in de [Azure-portal](http://portal.azure.com/). In dit geval is geen oplossing beschikbaar. 
-
-Zie voor meer informatie [Veelgestelde vragen over ClearDB MySQL-databases met Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>Waarom worden mijn ClearDB-database, is niet gemigreerd tijdens de abonnementmigratie van mijn?
 

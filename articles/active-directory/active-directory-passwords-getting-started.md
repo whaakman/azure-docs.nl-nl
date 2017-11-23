@@ -1,5 +1,5 @@
 ---
-title: 'QuickStart: Azure AD-SSPR | Microsoft Docs'
+title: 'Snelstartgids: Azure AD-SSPR | Microsoft Docs'
 description: Wachtwoorden snel opnieuw instellen voor Azure AD via self-service
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snelle implementatie van Azure AD-selfservice voor wachtwoordherstel
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 De self-service voor wachtwoordherstel (SSPR) biedt een eenvoudige manier voor IT-beheerders om gebruikers in staat te stellen hun eigen wachtwoord of account opnieuw in te stellen of te ontgrendelen. Het systeem biedt gedetailleerde rapporten zodat u kunt volgen wanneer gebruikers het systeem openen. U ontvangt ook meldingen om u te waarschuwen over misbruik.
 
-In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt van de Azure Active Directory-tenant (Azure AD) of dat u er een licentie voor hebt. Als u hulp nodig hebt bij het instellen van Azure AD ziet u [Aan de slag met Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
+In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt van de Azure Active Directory-tenant (Azure AD) of dat u er een licentie voor hebt. Als u hulp nodig hebt bij het instellen van Azure AD ziet u [Aan de slag met Azure AD](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>SSPR inschakelen voor uw Azure Active Directory-tenant
 
@@ -73,7 +73,7 @@ Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet 
 
 * [Upgraden van DirSync of Azure AD Sync naar Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Aan de slag met Azure AD Connect met Express-instellingen](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configureer write-back van wachtwoord](active-directory-passwords-writeback.md#configuring-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory
+* [Configureer write-back van wachtwoord](active-directory-passwords-writeback.md#configure-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory
 
 ### <a name="on-premises-policy-change"></a>On-premises beleid wijzigen
 
@@ -109,7 +109,7 @@ De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze QuickStart hebt u geleerd hoe u selfservice voor wachtwoordherstel kunt configureren voor uw gebruikers. Ga verder naar Azure Portal om deze stappen uit te voeren:
+In deze snelstartgids hebt u geleerd hoe u selfservice voor wachtwoordherstel kunt configureren voor uw gebruikers. Ga verder naar Azure Portal om deze stappen uit te voeren:
 
 > [!div class="nextstepaction"]
 > [Selfservice voor wachtwoordherstel inschakelen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)

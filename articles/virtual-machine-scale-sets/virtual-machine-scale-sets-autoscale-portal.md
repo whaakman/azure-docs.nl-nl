@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 266e9674a422dffb7f78a4aa3dd0adfa3c8bab3b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatisch schalen van een virtuele-machineschaalset ingesteld in de Azure portal
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren die u wilt uitvoeren. Als uw toepassing vraag verandert, kunt u automatisch vergroten of verkleinen van het aantal VM-exemplaren. De mogelijkheid om te schalen kunt u met de vraag van klanten houden of reageren op wijzigingen in de toepassingsprestaties gedurende de levenscyclus van uw app.
@@ -34,7 +34,7 @@ Voor het maken van regels voor automatisch schalen, moet u een bestaande virtuel
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Maak een regel automatisch uit te schalen
 Als uw toepassing vraag toeneemt stelt de belasting van de VM-exemplaren in uw scale toeneemt. Als deze toegenomen belasting consistent is, in plaats van slechts een korte vraag, kunt u regels voor automatisch schalen voor een verhoging van het aantal VM-exemplaren in de schaalset configureren. Wanneer deze VM-exemplaren zijn gemaakt en uw toepassingen worden geïmplementeerd, wordt de schaalaanpassingsset begint met het distribueren van verkeer via de load balancer. U bepaalt welke metrische gegevens moeten worden bewaakt, zoals CPU of schijf, hoe lang het laden van toepassingen moet voldoen aan een bepaalde drempelwaarde en instellen hoeveel exemplaren van virtuele machine toevoegen aan de schaal.
 
-1. Open de Azure portal en selecteert u een **resourcegroepen** in het menu aan de linkerkant grootte van het dashboard.
+1. Open de Azure portal en selecteert u een **resourcegroepen** in het menu aan de linkerkant van het dashboard.
 2. Selecteer de resourcegroep die uw schaalset bevat, wordt uw schaal instelt kiezen uit de lijst met resources.
 3. Kies **schaal** ingesteld in het menu aan de linkerkant van de schaal venster. Klik op de knop om **inschakelen voor automatisch schalen**:
 
@@ -48,13 +48,13 @@ Als uw toepassing vraag toeneemt stelt de belasting van de VM-exemplaren in uw s
     
     | Parameter              | Uitleg                                                                                                         | Waarde          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Tijdaggregatie*     | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddelde        |
-    | *Metrische naam*          | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | CPU-percentage |
-    | *Tijd gebruikerssegmentatie statistiek* | Hiermee definieert u hoe de verzamelde metrische gegevens in elke tijdgranulariteit moeten worden samengevoegd voor analyse.                             | Gemiddelde        |
+    | *Tijdaggregatie*     | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddeld        |
+    | *Metrische naam*          | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | Percentage CPU |
+    | *Tijd gebruikerssegmentatie statistiek* | Hiermee definieert u hoe de verzamelde metrische gegevens in elke tijdgranulariteit moeten worden samengevoegd voor analyse.                             | Gemiddeld        |
     | *Operator*             | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                     | Groter dan   |
     | *Drempelwaarde*            | Het percentage dat ervoor zorgt de regel voor automatisch schalen dat voor het activeren van een actie.                                                 | 70             |
     | *Duur*             | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten     |
-    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                        | Percentage door |
+    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                        | Percentage verhogen met |
     | *Aantal exemplaren*       | Het percentage van de VM-exemplaren moet worden gewijzigd wanneer de regel wordt geactiveerd.                                            | 20             |
     | *Cool omlaag (minuten)*  | De hoeveelheid tijd moet worden gewacht voordat de regel wordt opnieuw toegepast zodat de acties voor automatisch schalen die tijd hebt om te laten treden. | 5 minuten      |
 
@@ -77,7 +77,7 @@ Op een 's avonds of het weekend en kan uw aanvraag toepassing afnemen. Als deze 
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                      | Kleiner dan   |
     | *Drempelwaarde*            | Het percentage dat ervoor zorgt de regel voor automatisch schalen dat voor het activeren van een actie.                                                 | 30             |
-    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                         | Percentage door verkleinen |
+    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                         | Percentage verlagen met |
     | *Aantal exemplaren*       | Het percentage van de VM-exemplaren moet worden gewijzigd wanneer de regel wordt geactiveerd.                                             | 20             |
 
 3. Voor het maken van de regel, selecteer **toevoegen**
