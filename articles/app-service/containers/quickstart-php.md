@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Een PHP-web-app maken in App-Service op Linux
 
@@ -33,8 +33,8 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
-* [Git installeren](https://git-scm.com/)
-* [PHP installeren](https://php.net)
+* <a href="https://git-scm.com/" target="_blank">Git installeren</a>
+* <a href="https://php.net" target="_blank">PHP installeren</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,14 +71,14 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Een web-app maken met installatiekopie van het ingebouwde
+## <a name="create-a-web-app"></a>Een webtoepassing maken
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Blader naar de site om te zien van uw nieuwe web-app met ingebouwde installatiekopie. Vervang  _&lt;app-naam >_ met een unieke app-naam.
+Blader naar de site om te zien van uw nieuwe web-app met ingebouwde installatiekopie. Vervang  _&lt;app-naam >_ met de naam van uw web-app.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 ![Lege pagina van web-app](media/quickstart-php/app-service-web-service-created.png)
@@ -126,7 +126,7 @@ De voorbeeldcode PHP wordt uitgevoerd in een web-app met ingebouwde installatiek
 
 ## <a name="update-locally-and-redeploy-the-code"></a>De code lokaal bijwerken en opnieuw implementeren
 
-Open met behulp van een lokale teksteditor het bestand `index.php` binnen de PHP-app en breng een kleine wijziging aan in de tekst in de tekenreeks naast `echo`:
+Open in de lokale adreslijstservice de `index.php` bestand in de PHP-app en een kleine wijziging in de tekst binnen de tekenreeks naast `echo`:
 
 ```php
 echo "Hello Azure!";

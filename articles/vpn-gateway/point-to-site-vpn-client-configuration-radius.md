@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 11/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: d7d2dbff4bcd0d76b56c6f142afae4ce8359bb37
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Maken en configuratiebestanden van de VPN-clients voor P2S RADIUS-verificatie (Preview) installeren
 
@@ -27,16 +27,17 @@ Configuratiebestanden voor VPN-clients bevinden zich in een zip-bestand. Configu
 
 ### <a name="workflow"></a>Werkstroom
 
-  1. De Azure VPN-gateway voor P2S-connectiviteit instellen.
-  2. Stel uw RADIUS-server voor verificatie. 
-  3. De configuratie van de VPN-client voor de verificatieoptie van uw keuze ophalen en deze gebruiken voor het instellen van de VPN-client op uw Windows-apparaat. Hiermee kunt u verbinding maken met Azure VNets via een P2S-verbinding.
+  1. [Instellen van de Azure VPN-gateway voor P2S-connectiviteit](point-to-site-how-to-radius-ps.md).
+  2. [Stel uw RADIUS-server voor verificatie](point-to-site-how-to-radius-ps.md#radius). 
+  3. (Dit artikel) - verkrijgen van de configuratie van de VPN-client voor de verificatieoptie van uw keuze en deze gebruiken voor het instellen van de VPN-client op uw Windows-apparaat. Hiermee kunt u verbinding maken met Azure VNets via een P2S-verbinding.
+  4. [Voltooi de configuratie van uw P2S en verbinding maken met](point-to-site-how-to-radius-ps.md).
 
 >[!IMPORTANT]
 >Als er wijzigingen in de punt-naar-Site VPN-configuratie na het genereren van het VPN-client configuratieprofiel, zoals het VPN-protocoltype of verificatie, moet u genereren en de configuratie van een nieuwe VPN-client installeren op uw apparaten van gebruikers.
 >
 >
 
-## <a name="adeap"></a>Verificatie van de gebruikersnaam en wachtwoord
+## <a name="adeap"></a>Over verificatie met gebruikersnaam en wachtwoord
 
 * **AD-verificatie:** een populaire scenario is verificatie van AD-domeinen. In dit scenario gebruikers hun domeinreferenties gebruiken verbinding maken met Azure VNets. U kunt de configuratiebestanden voor VPN-clients voor AD RADIUS-verificatie maken.
 
@@ -44,29 +45,31 @@ Configuratiebestanden voor VPN-clients bevinden zich in een zip-bestand. Configu
 
 Zorg ervoor dat alle gebruikers van de verbindende gebruikersnaam en wachtwoord referenties die kunnen worden geverifieerd via RADIUS. U kunt alleen een configuratie voor het protocol voor verificatie van EAP-MSCHAPv2-gebruikersnaam en wachtwoord maken. '-AuthenticationMethod' is opgegeven als 'EapMSChapv2'.
 
-### <a name="usernamefiles"></a>Configuratiebestanden voor VPN-clients genereren
+## <a name="usernamefiles"></a> 1. Configuratiebestanden voor VPN-clients genereren
 
-Maken van de configuratie van de VPN-client met de volgende opdracht:
+Configuratiebestanden voor VPN-clients voor gebruik met verificatie van de gebruikersnaam en wachtwoord genereren. U kunt de configuratiebestanden van de VPN-client met de volgende opdracht genereren:
 
 ```powershell 
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-Na het uitvoeren van de opdracht wordt een koppeling geretourneerd. Kopieer en plak de koppeling naar een webbrowser om te downloaden van een ZIP-bestand 'VpnClientConfiguration.zip' genoemd. Pak het bestand om te zien van de volgende mappen: 
+Met de opdracht retourneert een koppeling. Kopieer en plak de koppeling naar een webbrowser om te downloaden van 'VpnClientConfiguration.zip'. Pak het bestand om weer te geven van de volgende mappen: 
  
-* De mappen met de naam 'WindowsAmd64' en 'WindowsX86'. Deze mappen bevatten het installatieprogramma voor Windows 64-bits en 32-bits pakketten, respectievelijk. 
-* Een map met de naam 'GenericDevice'. Deze map bevat algemene informatie gebruikt om de configuratie van uw eigen VPN-client te maken. Deze map negeren.
-* Als IKEv2 is geconfigureerd tijdens het maken van de virtuele netwerkgateway, ziet u een map met de naam 'Mac' met een bestand met de naam 'mobileconfig'. Dit bestand wordt gebruikt voor het configureren van Mac-clients.
+* **WindowsAmd64** en **WindowsX86** -deze mappen bevatten het installatieprogramma voor Windows 64-bits en 32-bits pakketten, respectievelijk. 
+* **GenericDevice** -deze map bevat algemene informatie gebruikt om de configuratie van uw eigen VPN-client te maken. Deze map is niet nodig voor de gebruikersnaam en wachtwoord verificatie configuraties.
+* **Mac** -als IKEv2 tijdens het maken van de virtuele netwerkgateway is geconfigureerd, ziet u een map met de naam 'Mac' met een **mobileconfig** bestand. Dit bestand wordt gebruikt voor het configureren van Mac-clients.
 
-Client-configuratiebestanden die u al hebt gemaakt, kunt u ophalen. De cmdlet 'Get-AzureRmVpnClientConfiguration' retourneert een URL (koppeling) van waar u het bestand VpnClientConfiguration.zip kunt downloaden. Als u wijzigingen aanbrengt aan uw P2S-VPN-configuratie, zoals het Protocol van de VPN-type of verificatie, wordt de configuratie wordt niet automatisch bijgewerkt. U moet de cmdlet, New-AzureRmVpnClientConfiguration' als u de configuratie opnieuw wilt uitvoeren.
+Als u al client configuratiebestanden gemaakt, kunt u ze kunt ophalen met de cmdlet 'Get-AzureRmVpnClientConfiguration'. Echter, als u wijzigingen aanbrengt aan uw P2S-VPN-configuratie, zoals het Protocol van de VPN-type of verificatie, de configuratie niet automatisch bijgewerkt. U moet de cmdlet, New-AzureRmVpnClientConfiguration' voor het maken van het downloaden van een nieuwe configuratie uitvoeren.
 
 Voor het ophalen van eerder gegenereerde client configuratiebestanden, gebruik de volgende opdracht:
 
 ```powershell
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
+
+## <a name="setupusername"></a> 2. Windows en Mac-VPN-clients configureren
  
-### <a name="adwincli"></a>Instellen van een Windows-VPN-client
+### <a name="adwincli"></a>Windows VPN-client installeren
 
 Als de versie overeenkomt met de architectuur voor de client, kunt u de dezelfde configuratiepakket voor VPN-client op elke Windows-clientcomputer. Voor de lijst met client-besturingssystemen die worden ondersteund, Zie de sectie punt-naar-Site van de [Veelgestelde vragen over](vpn-gateway-vpn-faq.md#P2S).
 
@@ -76,7 +79,7 @@ Gebruik de volgende stappen uit om de systeemeigen Windows VPN-client voor verif
 2. Dubbelklik op het pakket om het te installeren. Als u een SmartScreen-melding ziet, klikt u op **Meer info** en vervolgens op **Toch uitvoeren**.
 3. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De VPN-verbinding bevat de naam van het virtuele netwerk waarmee verbinding wordt gemaakt. 
 
-### <a name="admaccli"></a>Instellen van een Mac (OSX) VPN-client
+### <a name="admaccli"></a>Mac (OSX) VPN-client installeren
 
 1. Selecteer de **VpnClientSetup mobileconfig** bestands- en dit te verzenden naar elk van de gebruikers. U kunt e-mailadres of een andere methode gebruiken om dit te doen.
 
@@ -88,7 +91,7 @@ Gebruik de volgende stappen uit om de systeemeigen Windows VPN-client voor verif
   ![Installeren](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
 4. Klik op **doorgaan** vertrouwen van de afzender van het profiel en doorgaan met de installatie.
 
-  ![Doorgaan](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
+  ![doorgaan](./media/point-to-site-vpn-client-configuration-radius/adcontinue.png)
 5. Tijdens de profielinstallatie van krijgt u de mogelijkheid te geven van de gebruikersnaam en het wachtwoord dat wordt gebruikt voor VPN-verificatie. Het is niet verplicht deze informatie op te geven. Als u opgeeft, wordt de informatie opgeslagen en automatisch gebruikt wanneer u een verbinding tot stand brengen. Klik op **installeren** om door te gaan.
 
   ![instellingen](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
@@ -97,7 +100,7 @@ Gebruik de volgende stappen uit om de systeemeigen Windows VPN-client voor verif
   ![gebruikersnaam en wachtwoord](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 7. Na de installatie, het profiel is zichtbaar in de **profielen** in het dialoogvenster. Dit dialoogvenster kan ook later geopend vanuit **Systeemvoorkeuren**.
 
-  ! [Systeemvoorkeuren]] (. / media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
+  ![Systeemvoorkeuren](./media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
 8. Voor toegang tot de VPN-verbinding moet open de **netwerk** dialoogvenster van **Systeemvoorkeuren**.
 
   ![Netwerk](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
@@ -109,7 +112,7 @@ Gebruik de volgende stappen uit om de systeemeigen Windows VPN-client voor verif
   ![Verifiëren](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 11. Klik op **toepassen** de wijzigingen wilt opslaan. Voor het initiëren van de verbinding, klikt u op **Connect**.
 
-## <a name="certeap"></a>Verificatie via certificaat
+## <a name="certeap"></a>Over verificatie via certificaat
  
 Configuratiebestanden voor RADIUS-verificatie via certificaat die het EAP-TLS-protocol gebruikt, kunt u VPN-client maken. Een onderneming uitgegeven certificaat wordt normaal gesproken een gebruiker te verifiëren voor VPN-verbinding gebruikt. Zorg ervoor dat alle gebruikers van de verbinding een certificaat geïnstalleerd op apparaten van de gebruikers, en dat het certificaat kan worden gevalideerd door de RADIUS-server.
  
@@ -117,20 +120,20 @@ Configuratiebestanden voor RADIUS-verificatie via certificaat die het EAP-TLS-pr
 * Tijdens de certificaatverificatie controleert de client de RADIUS-server door het certificaat te valideren. -RadiusRootCert is het cer-bestand met het root-certificaat dat wordt gebruikt voor het valideren van de RADIUS-server.  
 * Soms heeft een Windows-apparaat meerdere clientcertificaten. Tijdens verificatie wordt kan dit resulteren in een pop-dialoogvenster met alle certificaten. De gebruiker moet vervolgens kiezen voor het certificaat te gebruiken. Het juiste certificaat kan worden gefilterd uit door op te geven van het basiscertificaat waarnaar het certificaat van de client moet zijn gekoppeld. '-ClientRootCert' is het .cer-bestand dat het root-certificaat bevat. Het is een optionele parameter. Als het apparaat van waaruit u verbinding wilt slechts één clientcertificaat deze parameter niet hoeft heeft te worden opgegeven.
 
-### <a name="certfiles"></a>Configuratiebestanden voor VPN-clients genereren
+## <a name="certfiles"></a>1. Configuratiebestanden voor VPN-clients genereren
 
-Maken van de configuratie van de VPN-client met de volgende opdracht:
+Configuratiebestanden voor VPN-clients voor gebruik met verificatie via certificaat genereren. U kunt de configuratiebestanden van de VPN-client met de volgende opdracht genereren:
  
 ```powershell
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
-Het resultaat van de cmdlet retourneert een koppeling. Kopieer en plak de koppeling naar een webbrowser om te downloaden van een ZIP-bestand 'VpnClientConfiguration.zip' genoemd. Pak het bestand om te zien van de volgende mappen:
+Met de opdracht retourneert een koppeling. Kopieer en plak de koppeling naar een webbrowser om te downloaden van 'VpnClientConfiguration.zip'. Pak het bestand om weer te geven van de volgende mappen:
 
-* De mappen met de naam 'WindowsAmd64' en 'WindowsX86'. Deze mappen bevatten het installatieprogramma voor Windows 64-bits en 32-bits pakketten, respectievelijk. 
-* Een map met de naam 'GenericDevice'. Deze map bevat algemene informatie gebruikt om de configuratie van uw eigen VPN-client te maken.
+* **WindowsAmd64** en **WindowsX86** -deze mappen bevatten het installatieprogramma voor Windows 64-bits en 32-bits pakketten, respectievelijk. 
+* **GenericDevice** -deze map bevat algemene informatie gebruikt om de configuratie van uw eigen VPN-client te maken.
 
-Client-configuratiebestanden die u al hebt gemaakt, kunt u ophalen. De cmdlet 'Get-AzureRmVpnClientConfiguration' retourneert een URL (koppeling) van waar u het bestand VpnClientConfiguration.zip kunt downloaden. Als u wijzigingen aanbrengt aan uw P2S-VPN-configuratie, zoals het Protocol van de VPN-type of verificatie, wordt de configuratie wordt niet automatisch bijgewerkt. U moet de cmdlet, New-AzureRmVpnClientConfiguration' als u de configuratie opnieuw wilt uitvoeren.
+Als u al client configuratiebestanden gemaakt, kunt u ze kunt ophalen met de cmdlet 'Get-AzureRmVpnClientConfiguration'. Echter, als u wijzigingen aanbrengt aan uw P2S-VPN-configuratie, zoals het Protocol van de VPN-type of verificatie, de configuratie niet automatisch bijgewerkt. U moet de cmdlet, New-AzureRmVpnClientConfiguration' voor het maken van het downloaden van een nieuwe configuratie uitvoeren.
 
 Voor het ophalen van eerder gegenereerde client configuratiebestanden, gebruik de volgende opdracht:
 
@@ -138,12 +141,14 @@ Voor het ophalen van eerder gegenereerde client configuratiebestanden, gebruik d
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
-### <a name="certwincli"></a>Een VPN-Client voor Windows instellen
+## <a name="setupusername"></a> 2. Windows en Mac-VPN-clients configureren
+
+### <a name="certwincli"></a>Windows VPN-client installeren
 
 1. Selecteer een configuratiepakket en installeer deze op het clientapparaat. Kies het 'VpnClientSetupAmd64' installer-pakket voor een 64-bits processorarchitectuur. Kies het 'VpnClientSetupX86' installer-pakket voor een 32-bits processorarchitectuur. Als u een SmartScreen-melding ziet, klikt u op **Meer info** en vervolgens op **Toch uitvoeren**. U kunt het pakket ook opslaan en op andere clientcomputers installeren.
 2. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De VPN-verbinding bevat de naam van het virtuele netwerk waarmee verbinding wordt gemaakt.
 
-### <a name="certmaccli"></a>Instellen van een VPN-MAC-client
+### <a name="certmaccli"></a>Mac (OSX) VPN-client installeren
 
 Een afzonderlijk profiel moet worden gemaakt voor alle Mac-apparaten die verbinding met Azure VNet maakt. Dit is omdat deze apparaten het certificaat voor verificatie vereisen moet worden opgegeven in het profiel. De **algemene** map bevat alle gegevens die vereist zijn om een profiel te maken.
 
@@ -185,7 +190,7 @@ Klik op **toevoegen** om te importeren.
   ![toepassen](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 8. Op de **netwerk** dialoogvenster, klikt u op **toepassen** alle wijzigingen op te slaan. Klik vervolgens op **Connect** starten van de P2S-verbinding met het Azure VNet.
 
-## <a name="otherauth"></a>Andere verificatietypen of protocollen
+## <a name="otherauth"></a>Werken met andere verificatietypen of protocollen
 
 Verschillende verificatietype (bijvoorbeeld OTP), en geen gebruikersnaam en wachtwoord of certificaten wilt gebruiken of een andere verificatieprotocol (zoals PEAP-MSCHAPv2, in plaats van EAP-MSCHAPv2) te gebruiken, moet u uw eigen VPN-client configuratieprofiel maken. Als u wilt het profiel maakt, moet u informatie zoals het IP-adres van virtueel netwerk gateway, tunneltype en routes voor split-tunnel. U kunt deze informatie kunt krijgen met behulp van de volgende stappen uit:
 

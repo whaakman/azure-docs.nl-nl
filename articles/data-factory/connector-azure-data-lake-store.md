@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Store met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -55,10 +55,10 @@ De volgende eigenschappen worden ondersteund voor Azure Data Lake Store service 
 | resourceGroupName | Naam Azure resourcegroep waartoe het Data Lake Store-account behoort. | Vereist voor sink |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
 
-Zie de secties hieronder over meer eigenschappen en voorbeelden van JSON voor andere verificatietypen respectievelijk:
+Raadpleeg de volgende secties over meer eigenschappen en voorbeelden van JSON voor andere verificatietypen respectievelijk:
 
 - [Met behulp van verificatie van de service-principal](#using-service-principal-authentication)
-- [Beheerde service verificatie identitiy](#using-managed-service-identitiy-authentication)
+- [Met behulp van verificatie van de beheerde service-identiteit](#using-managed-service-identitiy-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Met behulp van verificatie van de service-principal
 
@@ -71,7 +71,7 @@ Als u verificatie van de service-principal, registreren van een Toepassingsentit
 >[!TIP]
 > Zorg ervoor dat u service principal juiste toestemming geven in Azure Data Lake Store:
 >- Als de bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor account toegangsniveau control (IAM).
->- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.
+>- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store:
 
 De volgende eigenschappen worden ondersteund:
 
@@ -106,19 +106,19 @@ De volgende eigenschappen worden ondersteund:
 }
 ```
 
-### <a name="using-managed-service-identitiy-authentication"></a>Beheerde service verificatie identitiy
+### <a name="using-managed-service-identity-authentication"></a>Met behulp van verificatie van de beheerde service-identiteit
 
-Een gegevensfactory kan worden gekoppeld aan een [beheerde service-identiteit](data-factory-service-identity.md), die staat voor deze specifieke gegevensfactory. U kunt deze service-identiteit rechtstreeks gebruiken voor verificatie van Data Lake Store vergelijkbaar met het gebruik van uw eigen princial service. Hierdoor kan de aangewezen fabriek voor toegang en gegevens kopiëren van/naar uw Data Lake Store.
+Een gegevensfactory kan worden gekoppeld aan een [beheerde service-identiteit](data-factory-service-identity.md), die staat voor deze specifieke gegevensfactory. U kunt deze service-identiteit rechtstreeks gebruiken voor verificatie van Data Lake Store vergelijkbaar met het gebruik van uw eigen service-principal. Hierdoor kan de aangewezen fabriek voor toegang en gegevens kopiëren van/naar uw Data Lake Store.
 
-Beheerde service identitiy (MSI) om verificatie te gebruiken:
+Beheerde service identiteitsverificatie (MSI) gebruiken:
 
 1. [Ophalen van de data factory-service-identiteit](data-factory-service-identity.md#retrieve-service-identity) door de waarde van 'SERVICE identiteit TOEPASSINGS-ID gegenereerd samen met uw gegevensfactory.
 2. De service-identiteit toegang verlenen aan Data Lake Store dezelfde manier als u zou voor service-principal doen. Zie voor gedetailleerde stappen [authentication Service-naar-service - toewijzen de Azure AD-toepassing met het Azure Data Lake Store-accountbestand of map](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
 
 >[!TIP]
-> Zorg ervoor dat u data factory-service identitiy juiste toestemming geven in Azure Data Lake Store:
+> Zorg ervoor dat u data factory-service de identiteit juiste toestemming geven in Azure Data Lake Store:
 >- Als de bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor account toegangsniveau control (IAM).
->- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store.
+>- Als sink verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen van deze rol IAM expliciet [maken van een Azure-IR](create-azure-integration-runtime.md#create-azure-ir) gekoppelde service als het volgende voorbeeld met de locatie van uw Data Lake Store en koppelen in de Data Lake Store:
 
 In Azure Data Factory hoeft u niet naast de algemene gegevens voor de Data Lake Store-eigenschappen opgeven in de gekoppelde service.
 
@@ -277,12 +277,12 @@ Deze sectie beschrijft het resulterende gedrag van de kopieerbewerking voor vers
 
 | Recursieve | copyBehavior | Structuur van de gegevensbron | Resulterende doel |
 |:--- |:--- |:--- |:--- |
-| De waarde True |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met dezelfde structuur als de bron:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| De waarde True |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File5 |
-| De waarde True |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 bestand2 + bestand3 + File4 + bestand 5 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam |
-| ONWAAR |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
-| ONWAAR |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
-| ONWAAR |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
+| waar |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 is gemaakt met dezelfde structuur als de bron:<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| waar |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File5 |
+| waar |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | het doel Map1 wordt gemaakt met de volgende structuur: <br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 bestand2 + bestand3 + File4 + bestand 5 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam |
+| onwaar |preserveHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
+| onwaar |flattenHierarchy | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatisch gegenereerde naam voor bestand2<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
+| onwaar |mergeFiles | Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Bestand2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bestand3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | de doelmap Map1 wordt gemaakt met de volgende structuur<br/><br/>Map1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + bestand2 inhoud worden samengevoegd in één bestand met automatisch gegenereerde naam. automatisch gegenereerde naam voor File1<br/><br/>Subfolder1 bestand3 File4 en File5 zijn niet opgenomen. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

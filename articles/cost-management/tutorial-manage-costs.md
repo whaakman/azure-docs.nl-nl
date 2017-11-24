@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Kosten beheren met behulp van Azure kosten Management
 
@@ -80,6 +80,23 @@ De volgende afbeelding toont een voorbeeld van regels die zijn gemaakt voor een 
 
 ![Voorbeeld van de categorie](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Tag bronnen en rapporten
+
+Taggegevens die u in rapporten Cloudyn ziet afkomstig op drie locaties:
+
+- Provider cloudresources API 's
+- Cloudprovider facturering API 's
+- Handmatig gemaakte labels van de volgende bronnen:
+    - Cloudyn entity-tags - gebruiker gedefinieerde metagegevens toegepast op Cloudyn entiteiten
+    - Categorie Manager - een hulpprogramma waarmee u nieuwe labels op basis van regels die worden toegepast op bestaande labels opschoon gegevens
+
+U moet een aangepaste kosten toewijzing model met kosten toewijzing 360 maken om cloud provider labels in Cloudyn Kostenrapporten weer te geven. Om dit te doen, gaat u naar **kosten** > **kostenbeheer** > **kosten toewijzing 360**, selecteert u de gewenste tags en definieer vervolgens regels voor het afhandelen van niet-gecodeerde kosten. Vervolgens maakt u een nieuw kostprijsmodel. Daarna kunt u rapporten bekijken in kosten toewijzing Analysis weergave filteren en sorteren op uw Azure-resource-tags.
+
+Azure-resourcelabels worden alleen weergegeven in **kosten toewijzing Analysis** rapporten.
+
+Cloud provider facturering labels worden weergegeven in alle kostenrapporten.
+
+Cloudyn entity-tags en labels die u handmatig maken weergegeven in Kostenrapporten voor alle.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Showback en doorberekeningsrapporten maken

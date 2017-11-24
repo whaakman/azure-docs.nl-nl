@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synchronisatie: filtering configureren
 U gebruikt voor het filteren, kunt u bepalen welke objecten worden weergegeven in Azure Active Directory (Azure AD) van uw on-premises directory. De standaardconfiguratie wordt van alle objecten in alle domeinen in de geconfigureerde forests. Dit is in het algemeen zijn de aanbevolen configuratie. Gebruikers met behulp van Office 365-werkbelastingen, zoals Exchange Online en Skype voor bedrijven profiteren van een volledige lijst met globale adressen zodat ze kunnen e-mail verzenden en iedereen. Met de standaardconfiguratie hebben ze dezelfde ervaring die ze met een lokale implementatie van Exchange- of Lync hebben zou.
@@ -296,7 +296,14 @@ Nu is het tijd om de planner opnieuw inschakelen.
 ## <a name="group-based-filtering"></a>Filteren op basis van een groep
 U kunt filteren op basis van een groep van de eerste keer dat u Azure AD Connect met behulp van installeert [aangepaste installatie](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Het bedoeld voor een proef-implementatie waar u een kleine set objecten worden gesynchroniseerd. Wanneer u filteren op basis van een groep uitschakelt, kunnen deze kan niet worden ingeschakeld. Deze heeft *niet ondersteund* te filteren op basis van een groep in een aangepaste configuratie gebruiken. Deze functie configureren met behulp van de installatiewizard wordt alleen ondersteund. Wanneer u uw proefproject hebt voltooid, voert u een van de filteropties in dit onderwerp. Wanneer u filteren op basis van organisatie-eenheid in combinatie met filteren op basis van een groep, is de OU('s) waar de groep en de bijbehorende leden zich bevinden moeten worden opgenomen.
 
-Bij het synchroniseren van meerdere AD-forests, kunt u filteren op basis van een groep door op te geven van een andere groep voor elk AD-connector kunt configureren. Als u om te synchroniseren van een gebruiker in één AD-forest en dezelfde gebruiker heeft een of meer bijbehorende FSP (afwijkende beveiligings-Principal) objecten in andere AD-forests, moet u ervoor zorgen dat het gebruikersobject en de bijbehorende FSP objecten zich binnen de filteren op basis van een groep de scope. Als een of meer van de FSP-objecten zijn uitgesloten door te filteren op basis van een groep, wordt het gebruikersobject niet worden gesynchroniseerd naar Azure AD.
+Bij het synchroniseren van meerdere AD-forests, kunt u filteren op basis van een groep door op te geven van een andere groep voor elk AD-connector kunt configureren. Als u om te synchroniseren van een gebruiker in één AD-forest en dezelfde gebruiker heeft een of meer overeenkomende objecten in andere AD-forests, moet u ervoor zorgen dat de gebruikersobject en alle bijbehorende objecten binnen de groep op basis van een gefilterd bereik. Voor voorbeelden:
+
+* Er is een gebruiker in een forest met een bijbehorende FSP (afwijkende beveiligings-Principal)-object in een ander forest. Beide objecten moeten worden binnen groepen gebaseerd filteren bereik. Anders wordt de gebruiker niet worden gesynchroniseerd naar Azure AD.
+
+* Er is een gebruiker in een forest met een bijbehorende resourceaccount (bijvoorbeeld gekoppeld postvak) in een ander forest. Bovendien hebt u Azure AD Connect om te koppelen van de gebruiker met de resource-account geconfigureerd. Beide objecten moeten worden binnen groepen gebaseerd filteren bereik. Anders wordt de gebruiker niet worden gesynchroniseerd naar Azure AD.
+
+* Er is een gebruiker in een forest met een overeenkomende e-mailbericht contactpersoon in een ander forest. U kunt Azure AD Connect als u wilt koppelen aan de gebruiker de e-mail contact op met verder hebt geconfigureerd. Beide objecten moeten worden binnen groepen gebaseerd filteren bereik. Anders wordt de gebruiker niet worden gesynchroniseerd naar Azure AD.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Azure AD Connect-synchronisatie](active-directory-aadconnectsync-whatis.md) configuratie.

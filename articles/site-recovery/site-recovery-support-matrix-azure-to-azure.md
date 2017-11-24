@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van Azure naar Azure
 
@@ -164,9 +164,10 @@ GRS | Ondersteund |
 RA-GRS | Ondersteund |
 ZRS | Niet ondersteund |  
 Cool en Hot Storage | Niet ondersteund | Schijven voor virtuele machine worden niet ondersteund op cool en hot storage
+Virtueel netwerk Service-eindpunten (Azure Storage firewalls en virtuele netwerken)  | Nee | Waardoor de toegang tot specifieke Azure virtuele netwerken van cache storage-accounts gebruikt voor het opslaan van de gerepliceerde gegevens wordt niet ondersteund. 
 
 >[!IMPORTANT]
-> Zorg ervoor dat u volgt de [richtlijnen voor opslag](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) voor uw bron Azure virtuele machines om eventuele prestatieproblemen te voorkomen. Als u de standaardinstellingen volgt, maakt Site Recovery de vereiste storage-accounts op basis van de configuratie van de bron. Als u aanpassen en uw eigen instellingen selecteert, controleert u volgt de (../ storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) als de bron-VM's.
+> Zorg ervoor dat u merkt dat de VM schijf schaalbaarheids- en prestatiedoelen voor [Linux](../virtual-machines/linux/disk-scalability-targets.md) of [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuele machines om eventuele prestatieproblemen te voorkomen. Als u de standaardinstellingen volgt, maakt Site Recovery de vereiste schijven en storage-accounts op basis van de configuratie van de bron. Als u aanpassen en uw eigen instellingen selecteert, zorg ervoor dat u de schijf schaalbaarheids- en prestatiedoelen voor uw virtuele bronmachines volgt.
 
 ## <a name="support-for-network-configuration"></a>Ondersteuning voor netwerkconfiguratie
 **Configuratie** | **Ondersteund/niet ondersteund** | **Opmerkingen**

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Alle beleidsregels voor een testomgeving in Azure DevTest Labs beheren
 
@@ -79,7 +79,9 @@ Het beleid voor automatisch afsluiten kunt minimaliseren lab verspilling doordat
 
 1. Als u dit beleid inschakelt, geef de tijd (en tijdzone) de alle VM's in het huidige lab af te sluiten.
 
-1. Geef **Ja** of **Nee** voor de optie een melding te verzenden 15 minuten voordat de tijd opgegeven automatisch afsluiten. Als u opgeeft **Ja**, voer de URL-eindpunt van een webhook of een e-mailadres voor waar de melding worden geplaatst of verzonden. Zie voor meer informatie over webhooks [maken van een webhook of API-functie voor Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Geef **Ja** of **Nee** voor de optie een melding te verzenden 15 minuten voordat de tijd opgegeven automatisch afsluiten. Als u ervoor kiest **Ja**, voer de URL-eindpunt van een webhook of een e-mailadres opgeven van waar u de melding moet worden geplaatst of worden verzonden. De gebruiker ontvangt een melding en krijgt de mogelijkheid om uit te stellen voor het afsluiten.
+
+   Zie voor meer informatie over webhooks [maken van een webhook of API-functie voor Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Selecteer **Opslaan**.
 

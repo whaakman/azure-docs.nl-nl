@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1d5a4c02209fb811f5dd33c26f9936a43372bc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Azure-schijven met PowerShell beheren
 
@@ -58,7 +58,7 @@ Wanneer een virtuele machine van Azure is gemaakt, worden twee schijven automati
 
 ## <a name="azure-data-disks"></a>Azure gegevensschijven
 
-Extra gegevensschijven kunnen worden toegevoegd voor het installeren van toepassingen en gegevens op te slaan. Gegevensschijven moeten worden gebruikt in een situatie waarin de opslag van gegevens duurzaam en responsief gewenst is. Elke gegevensschijf heeft een maximale capaciteit van 1 terabyte. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven kunnen worden gekoppeld aan een virtuele machine. Voor elke VM-core, kunnen twee schijven worden gekoppeld. 
+Extra gegevensschijven kunnen worden toegevoegd voor het installeren van toepassingen en gegevens op te slaan. Gegevensschijven moeten worden gebruikt in een situatie waarin de opslag van gegevens duurzaam en responsief gewenst is. Elke gegevensschijf heeft een maximale capaciteit van 1 terabyte. De grootte van de virtuele machine bepaalt hoeveel gegevensschijven kunnen worden gekoppeld aan een virtuele machine. Voor elke vCPU VM kunnen twee schijven worden gekoppeld. 
 
 ### <a name="max-data-disks-per-vm"></a>Maximum aantal gegevensschijven per VM
 

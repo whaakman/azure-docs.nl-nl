@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Vereisten voor toegang tot de Azure AD rapportage-API
 
@@ -37,7 +37,7 @@ Als u toegang tot de rapportagegegevens via de API, moet u een van de volgende r
 Als u met het voorbereiden van uw toegang tot de rapportage-API, moet u het volgende doen:
 
 1. Een toepassing registreren 
-2. Machtigingen toekennen 
+2. Machtigingen verlenen 
 3. Verzamelen van configuratie-instellingen 
 
 Voor vragen, problemen of feedback, neemt u [een ondersteuningsticket bestand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
@@ -55,7 +55,7 @@ Voor het configureren van uw directory voor toegang tot de Azure AD rapportage-A
 
 **Een Azure Active Directory-toepassing registreren:**
 
-1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Active Directory**.
+1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Azure Active Directory**.
    
     ![Toepassing registreren](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -80,7 +80,7 @@ Voor het configureren van uw directory voor toegang tot de Azure AD rapportage-A
     d. Klik op **Create**. 
 
 
-## <a name="grant-permissions"></a>Machtigingen toekennen 
+## <a name="grant-permissions"></a>Machtigingen verlenen 
 
 Het doel van deze stap is het verlenen van uw toepassing **mapgegevens lezen** machtigingen voor de **Windows Azure Active Directory** API.
 
@@ -120,7 +120,7 @@ Het doel van deze stap is het verlenen van uw toepassing **mapgegevens lezen** m
 Deze sectie wordt beschreven hoe u de volgende instellingen van uw directory ophalen:
 
 * Domeinnaam
-* Client-ID
+* Client-id
 * Clientgeheim
 
 U moet deze waarden bij het configureren van de rapportage-API aanroepen. 
@@ -129,11 +129,11 @@ U moet deze waarden bij het configureren van de rapportage-API aanroepen.
 
 **Uw domeinnaam ophalen:**
 
-1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Active Directory**.
+1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Azure Active Directory**.
    
     ![Toepassing registreren](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Op de **Azure Active Directory** blade, klikt u op **domeinnamen**.
+2. Op de **Azure Active Directory** blade, klikt u op **aangepaste domeinnamen**.
 
     ![Toepassing registreren](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ U moet deze waarden bij het configureren van de rapportage-API aanroepen.
 
 **Ophalen van uw toepassing de client-ID:**
 
-1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Active Directory**.
+1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Azure Active Directory**.
    
     ![Toepassing registreren](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Als u uw toepassing clientgeheim, moet u een nieuwe sleutel maken en opslaan van
 
 **Ophalen van uw toepassing clientgeheim:**
 
-1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Active Directory**.
+1. In de [Azure-portal](https://portal.azure.com), klik op het navigatiedeelvenster links **Azure Active Directory**.
    
     ![Toepassing registreren](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

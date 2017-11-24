@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Verificatie toevoegen aan uw Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ In deze zelfstudie maakt toevoegen u verificatie aan de todolist-Quick Start-pro
 
 Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren. Hierdoor kan de verificatiesysteem terug te keren naar uw app zodra het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
 
-1. Selecteer in de [Azure-portal] uw App Service.
+1. In de [Azure-portal], selecteer uw App Service.
 
 2. Klik op de **verificatie / autorisatie** menuoptie.
 
@@ -50,7 +50,7 @@ Veilige verificatie vereist dat u een nieuwe URL-schema voor uw app definiëren.
 
      Deze uitzondering treedt op omdat de app probeert te krijgen tot de back-end als niet-geverifieerde gebruiker, maar de *TodoItem* tabel nu is verificatie vereist.
 
-Werk vervolgens de app om gebruikers te verifiëren voordat u resources van de back-end van Mobile Apps. 
+Werk vervolgens de app om gebruikers te verifiëren voordat u resources van de back-end van Mobile Apps.
 
 ## <a name="add-authentication-to-the-app"></a>Verificatie toevoegen aan de app.
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Nu dat u deze basisverificatie-zelfstudie hebt voltooid, overweeg dan u verder g
 
 <!-- URLs. -->
 [aan de slag met Mobile Apps]: app-service-mobile-android-get-started.md
+[Azure-portal]: https://portal.azure.com/

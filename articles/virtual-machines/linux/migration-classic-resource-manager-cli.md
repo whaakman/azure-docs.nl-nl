@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: fe0446b986ff73cce66a961c1c8aa1b01ef493a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migreren IaaS-middelen van klassiek naar Azure Resource Manager met behulp van Azure CLI
 Deze stappen ziet u het gebruik van Azure-opdrachtregelinterface (CLI)-opdrachten voor het migreren van infrastructuur als een dienst (IaaS) resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel. In het artikel moet de [Azure CLI 1.0](../../cli-install-nodejs.md). Omdat Azure CLI 2.0 alleen van toepassing op Azure Resource Manager-resources is, kan deze niet worden gebruikt voor de migratie.
@@ -77,14 +77,14 @@ Schakel nu over CLI aan de `asm` modus.
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Stap 3: Controleer of er voldoende kernen virtuele Machine van Azure Resource Manager in Azure-regio van uw huidige implementatie of VNET
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Stap 3: Controleer of er voldoende virtuele Machine van Azure Resource Manager vcpu's in de Azure-regio van uw huidige implementatie of VNET
 Voor deze stap moet u overschakelen naar `arm` modus. Dit doen met de volgende opdracht.
 
 ```
 azure config mode arm
 ```
 
-U kunt de volgende opdracht in de CLI gebruiken om te controleren van de huidige hoeveelheid kernen hebt u in Azure Resource Manager. Zie voor meer informatie over quota core, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+U kunt de volgende opdracht in de CLI gebruiken om te controleren van het huidige aantal vcpu's die u in Azure Resource Manager hebt. Zie voor meer informatie over quota vCPU, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

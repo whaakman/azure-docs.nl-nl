@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentatie voor Microsoft Azure
 description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Azure Cloud Services. Maak gebruik van documentatie, voorbeeldcode, zelfstudies en meer.
 featureFlags: clicktale
-ms.openlocfilehash: 72583761a5e19c5585f760b919a664597fb51f7e
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 33fa9122eff29b15943c47b0c690cd3fe8244550
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -647,7 +647,7 @@ ms.lasthandoff: 11/09/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/luis/home">
+                                            <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
                                                 <p>Language Understanding Intelligent Services (LUIS)</p>
                                             </a>
@@ -689,7 +689,7 @@ ms.lasthandoff: 11/09/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/">
                                                 <img src="media/index/API_Bing_Video_Search.svg" alt="" />
                                                 <p>Zoeken in Bing Video</p>
                                             </a>
@@ -846,6 +846,12 @@ ms.lasthandoff: 11/09/2017
                                             <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-databricks/">
+                                                <img src="media/index/logo_databricks.svg" alt="" />
+                                                <p>Azure Databricks</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1091,7 +1097,7 @@ ms.lasthandoff: 11/09/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                            <a href="/azure/active-directory/develop">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory voor ontwikkelaars</p>
                                             </a>
@@ -1695,7 +1701,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2304,6 +2310,25 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Een Azure Databricks-werkruimte met Spark-clusters maken</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>   
+                            <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2628,7 +2653,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing-spellingcontrole</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS (Language Understanding Intelligent Services)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS (Language Understanding Intelligent Services)&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Taalkundige analyse&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
@@ -2690,7 +2715,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing Nieuws</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Zoeken in Bing Video</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Zoeken in Bing Video</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Zoeken op het web met Bing</a>
@@ -3160,7 +3185,7 @@ Layer 7 Load Balancer met ingebouwde HTTP-taakverdeling en leveringscontrole </p
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory voor ontwikkelaars</h3>
-                                                    <p>Schaalbare, platformoverschrijdende verificatie voor uw mobiele apps en websites</p>
+                                                    <p>Veilige, platformoverschrijdende verificatie voor web-, mobiele en back-end-API's</p>
                                                 </div>
                                             </div>
                                         </div>

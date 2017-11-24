@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0aafdade2cbf293cf70f09721102ae8ceaef6303
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2097aa1c158f88a06ab93123f4e374b4245430d6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Snelstartgids: Een app Cassandra met Java en Azure Cosmos DB bouwen
 
@@ -28,9 +28,9 @@ Azure Cosmos-database is de service van Microsoft wereldwijd gedistribueerde dat
 
 ## <a name="prerequisites"></a>Vereisten
 
-Toegang tot de API van Azure Cosmos DB Cassandra preview-programma. Als u nog niet voor toegang tot toegepast [nu aanmelden](https://aka.ms/cosmosdb-cassandra-signup).
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]U kunt ook [gratis Azure Cosmos DB probeer](https://azure.microsoft.com/try/cosmosdb/) gratis verbintenissen en zonder een Azure-abonnement.
+
+Toegang tot de API van Azure Cosmos DB Cassandra preview-programma. Als u nog niet voor toegang tot toegepast [nu aanmelden](cassandra-introduction.md#sign-up-now).
 
 Daarnaast doet u het volgende: 
 
@@ -41,6 +41,8 @@ Daarnaast doet u het volgende:
     * Op Ubuntu kunt u `apt-get install maven` uitvoeren om Maven te installeren.
 * [Git](https://www.git-scm.com/)
     * Op Ubuntu kunt u `sudo apt-get install git` uitvoeren om Git te installeren.
+
+
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
@@ -148,7 +150,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     ![Bekijken en een gebruikersnaam van de Azure portal, verbindingsreeks pagina kopiëren](./media/create-cassandra-java/keys.png)
 
-2. Gebruik de ![Knop kopiëren](./media/create-cassandra-java/copy.png) knop aan de rechterkant van het scherm om de waarde van de punt van CONTACT te kopiëren.
+2. Gebruik de ![Knop Kopiëren](./media/create-cassandra-java/copy.png) knop aan de rechterkant van het scherm om de waarde van de punt van CONTACT te kopiëren.
 
 3. Open de `config.properties` bestand vanuit de map C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources. 
 

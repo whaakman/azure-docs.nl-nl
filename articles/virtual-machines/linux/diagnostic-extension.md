@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux-extensie voor diagnostische gebruiken om te controleren van Logboeken en metrische gegevens
 
@@ -319,7 +319,7 @@ Weergavenaam | Het label (in de taal die is opgegeven door de bijbehorende landi
 
 De counterSpecifier is een identifier. Consumenten van metrische gegevens, zoals de Azure portal voor grafieken en counterSpecifier waarschuwingen van de functie, gebruiken als de 'sleutel' die een waarde of een exemplaar van een metriek identificeert. Voor `builtin` metrische gegevens, wordt aangeraden gebruik van counterSpecifier-waarden die met beginnen `/builtin/`. Als u een specifiek exemplaar van een metriek verzamelt, raden wij dat u de id van het exemplaar koppelen aan de counterSpecifier-waarde. Een aantal voorbeelden:
 
-* `/builtin/Processor/PercentIdleTime`-Niet-actieve tijd met een gemiddelde van alle kernen
+* `/builtin/Processor/PercentIdleTime`-Niet-actieve tijd met een gemiddelde van alle vcpu 's
 * `/builtin/Disk/FreeSpace(/mnt)`-Vrije ruimte voor het bestandssysteem mnt
 * `/builtin/Disk/FreeSpace`-Vrije ruimte met een gemiddelde van alle gekoppelde bestandssystemen
 
@@ -424,7 +424,7 @@ De ingebouwde metrische provider is een bron van de meest interessante bij een u
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>ingebouwde metrische gegevens voor de Processor-klasse
 
-De Processor-klasse van metrische gegevens biedt informatie over het processorgebruik in de virtuele machine. Bij het samenvoegen van percentages, is het resultaat het gemiddelde over alle CPU's. In een twee belangrijkste VM als één kern 100% bezig is en de andere 100% niet actief is, is zou de gerapporteerde PercentIdleTime dit 50. Als elke core 50% voor dezelfde periode bezet is, zou het gerapporteerde resultaat ook 50 zijn. In een vier core VM, met één kern 100% bezet en de andere niet-actief, zou de gerapporteerde PercentIdleTime 75 zijn.
+De Processor-klasse van metrische gegevens biedt informatie over het processorgebruik in de virtuele machine. Bij het samenvoegen van percentages, is het resultaat het gemiddelde over alle CPU's. In een VM twee vCPU als één vCPU 100% bezig is en de andere 100% niet actief is, is zou de gerapporteerde PercentIdleTime dit 50. Als elke vCPU 50% voor dezelfde periode bezet is, zou het gerapporteerde resultaat ook 50 zijn. In een VM vier vCPU, met één vCPU 100% bezet en de andere niet-actief, zijn de gerapporteerde PercentIdleTime 75.
 
 Prestatiemeteritems | Betekenis
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | Niet-actieve tijd voor het percentage die is doorgebrach
 
 De som van de eerste vier items moeten op 100%. De laatste drie prestatiemeteritems ook som en 100%. ze Verdeel de som van PercentProcessorTime PercentIOWaitTime en PercentInterruptTime.
 
-Voor een enkele metrische gegevens geaggregeerd tot alle processors ingesteld `"condition": "IsAggregate=TRUE"`. Als u een waarde voor een specifieke processor, zoals de tweede logische processor van een vier VM core, stel `"condition": "Name=\\"1\\""`. De logische processor-nummers zijn in het bereik `[0..n-1]`.
+Voor een enkele metrische gegevens geaggregeerd tot alle processors ingesteld `"condition": "IsAggregate=TRUE"`. U kunt een waarde voor een specifieke processor, zoals de tweede logische processor van een VM vier vCPU ingesteld `"condition": "Name=\\"1\\""`. De logische processor-nummers zijn in het bereik `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>ingebouwde metrische gegevens voor de klasse geheugen
 

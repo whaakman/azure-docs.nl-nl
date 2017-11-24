@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
 Terwijl de [Azure-portal] biedt een volledige set hulpprogramma's voor het ontwikkelen en testen Azure Functions, veel ontwikkelaars de voorkeur aan een lokale ontwikkeling biedt. Azure Functions kunt eenvoudig uw favoriete code-editor en lokale ontwikkelingsprogramma's gebruiken om te ontwikkelen en testen van uw functies op uw lokale computer. Uw functies kunnen activeren van gebeurtenissen in Azure en u kunt fouten opsporen in uw C#- en JavaScript-functies op uw lokale computer. 
 
 Als u een Azure-functies van Visual Studio C# ontwikkelaar, ook bent [kan worden geïntegreerd met Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Niet door elkaar op lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u maken en publiceren van de functies van een lokaal project, moet u niet proberen te onderhouden of te wijzigen projectcode in de portal.
 
 ## <a name="install-the-azure-functions-core-tools"></a>De Azure Functions Core hulpprogramma's installeren
 
@@ -83,7 +86,7 @@ func init MyFunctionProj
 
 ## <a name="create-a-local-functions-project"></a>Een lokale functies-project maken
 
-Wanneer lokaal wordt uitgevoerd, een project functies is een map die de bestanden heeft [host.json](functions-host-json.md) en [local.settings.json](#local-settings). Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de Azure Functions, de [handleiding voor ontwikkelaars voor Azure Functions voor](functions-reference.md#folder-structure).
+Wanneer lokaal wordt uitgevoerd, een project functies is een map die de bestanden heeft [host.json](functions-host-json.md) en [local.settings.json](#local-settings-file). Deze map is het equivalent van een functie-app in Azure. Zie voor meer informatie over de structuur van de Azure Functions, de [handleiding voor ontwikkelaars voor Azure Functions voor](functions-reference.md#folder-structure).
 
 Voer de volgende opdracht om het project en lokale Git-opslagplaats te maken in het terminalvenster of vanaf een opdrachtprompt:
 
@@ -102,8 +105,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Gebruik voor het maken van het project zonder een lokale Git-opslagplaats de `--no-source-control [-n]` optie.
-
-<a name="local-settings"></a>
 
 ## <a name="local-settings-file"></a>Lokale instellingenbestand
 

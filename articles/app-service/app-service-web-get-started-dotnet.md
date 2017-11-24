@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 76e20ea1bebbf35910210e1651fadc0daf426aa4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a6a785b739697a94fcbd7cc8e3163f142887e1b9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Een ASP.NET-web-app maken in Azure
 
@@ -33,7 +33,7 @@ Bekijk de video om de inhoud van deze snelstartgids in actie te zien en doorloop
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de volgende workloads:
+* Installeer <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> met de volgende workloads:
     - **ASP.NET- en web-ontwikkeling**
     - **Azure-ontwikkeling**
 

@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure kosten Management
-
 
 In dit artikel komen enkele veelgestelde vragen over Azure kosten Management (ook wel bekend als Cloudyn). Als u vragen over het beheer van kosten hebt, kunt u ze op vragen [Veelgestelde vragen over Azure kosten Management Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
@@ -125,3 +124,15 @@ Als er een vertraging optreden bij het verzenden van gegevens van Azure naar Clo
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Hoe kan een directe CSP Cloudyn toegang configureert voor indirecte CSP klanten of partners
 
 Zie voor instructies [indirecte CSP toegang configureren in Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>Wat de oorzaak van het optimalisatie van menu-item moet worden weergegeven?
+
+Nadat u hebt toegevoegd Azure Resource Manager-toegang en gegevens worden verzameld, ziet u de **optimaliseren** optie. Zie voor het activeren van Azure Resource Manager toegang [hoe activeren niet-geactiveerde accounts met Azure-referenties?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>Is agent kosten Management/Cloudyn gebaseerd?
+
+Nee. Agents worden niet gebruikt. Metrische gegevens van de virtuele machine van Azure voor virtuele machines zijn verzameld vanaf de inzicht API van Microsoft. Als u verzamelen van metrische gegevens van Azure Virtual machines wilt, moeten ze diagnostische instellingen is ingeschakeld.
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Kunnen Cloudyn rapporten meer dan één AD-tenant per rapport weergeven?
+
+Ja. U kunt [een overeenkomstige entiteit voor de cloud-account maken](tutorial-user-access.md#create-entities) voor elk AD-tenant die u hebt. U kunt vervolgens alle van de gegevens van uw Azure AD-tenant en andere platform cloudproviders zoals Amazon Web Services en Google Cloud Platform weergeven.

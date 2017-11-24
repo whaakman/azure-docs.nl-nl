@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Verbinding maken en te communiceren met Service Fabric-services
 In Service Fabric, een service wordt uitgevoerd ergens in een Service Fabric-cluster, doorgaans verdeeld over meerdere virtuele machines. Deze kan worden verplaatst vanaf één locatie naar een andere, door de eigenaar van de service of automatisch door de Service Fabric. Services zijn niet statisch gekoppeld aan een bepaalde machine of een adres.
@@ -63,7 +63,7 @@ Zoals u in het volgende diagram, wordt de DNS-service, in het Service Fabric-clu
 Voor meer informatie over het gebruik van de DNS-service Zie [DNS-service in Azure Service Fabric](service-fabric-dnsservice.md) artikel.
 
 ### <a name="reverse-proxy-service"></a>Reverse proxy-service
-De omgekeerde proxy adressen services in het cluster dat toegang biedt tot HTTP-eindpunten, met inbegrip van HTTPS. De omgekeerde proxy aanzienlijk vereenvoudigt het aanroepen van andere services en de methoden wanneer er een specifieke URI-indeling en verwerkt de resolve verbinding, probeer stappen die nodig zijn voor één service om te communiceren met een andere met behulp van de service namen. Het verborgen met andere woorden, de Naming Service van u bij het aanroepen van andere services door het maken van dit net zo eenvoudig als het aanroepen van een URL.
+De omgekeerde proxy adressen services in het cluster dat toegang biedt tot HTTP-eindpunten, met inbegrip van HTTPS. De omgekeerde proxy aanzienlijk vereenvoudigt het aanroepen van andere services en de methoden wanneer er een specifieke URI-indeling en verwerkt de resolve verbinding, stappen die nodig zijn voor een service te communiceren met andere met het Naming Service opnieuw. Het verborgen met andere woorden, de Naming Service van u bij het aanroepen van andere services door het maken van dit net zo eenvoudig als het aanroepen van een URL.
 
 ![Service-eindpunten][10]
 

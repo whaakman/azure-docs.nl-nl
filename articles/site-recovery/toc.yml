@@ -4,7 +4,7 @@
   items:
     - name: Wat is Site Recovery?
       href: site-recovery-overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Een virtuele Azure-machine repliceren naar een secundaire regio
@@ -67,6 +67,18 @@
       href: site-recovery-faq.md
 - name: Handleidingen
   items:
+    - name: Netwerken
+      items:
+        - name: Netwerken instellen voor herstel na noodgevallen voor Azure-VM (preview)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Netwerktoewijzing instellen voor herstel na noodgevallen voor Azure-VM (preview)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
+          href: site-recovery-network-mapping.md
+        - name: IP-adressering instellen voor toegang tot Azure na een failover
+          href: concepts-on-premises-to-azure-networking.md
+        - name: IP-adressering instellen voor toegang tot een secundaire locatie na een failover
+          href: concepts-on-premises-to-on-premises-networking.md
     - name: Herstel na noodgeval
       items:
         - name: Virtuele Hyper-V-machines naar Azure
@@ -81,14 +93,43 @@
           href: tutorial-dr-drill-azure.md
         - name: Noodherstelanalyse uitvoeren op een secundaire site
           href: tutorial-dr-drill-secondary.md
+        - name: Virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+    - name: Failover en failback
+      items:
+        - name: Herstelplannen instellen
+          href: site-recovery-create-recovery-plans.md
+          items:
+            - name: Azure-runbooks aan herstelplannen toevoegen
+              href: site-recovery-runbook-automation.md
+        - name: Een testfailover uitvoeren
+          items:
+            - name: Een testfailover naar Azure uitvoeren
+              href: site-recovery-test-failover-to-azure.md
+            - name: Een testfailover tussen twee VMM-clouds uitvoeren
+              href: site-recovery-test-failover-vmm-to-vmm.md
+        - name: Met failover beveiligde machines
+          href: site-recovery-failover.md
         - name: Een failover en failback uitvoeren voor fysieke servers
           href: tutorial-vmware-to-azure-failover-failback.md
         - name: Een failover en failback uitvoeren voor virtuele Hyper-V-machines
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Een failover en failback uitvoeren tussen on-premises sites
           href: tutorial-vmm-to-vmm-failover-failback.md
-        - name: Virtuele VMware-machines met ondersteuning voor meerdere tenants naar Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: Machines opnieuw beveiligen na een failover
+          items:
+            - name: Opnieuw beveiligen van een secundaire Azure-regio naar een primaire regio
+              href: site-recovery-how-to-reprotect-azure-to-azure.md
+            - name: Opnieuw beveiligen van Azure naar on-premises
+              href: site-recovery-how-to-reprotect.md
+        - name: Failback van Azure
+          items:
+            - name: Failback van Azure naar VMware
+              href: site-recovery-how-to-failback-azure-to-vmware.md
+            - name: Failback van Azure naar Hyper-V
+              href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Een Linux-hoofddoelserver voor failback instellen
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Capaciteit en schalen
       items:
         - name: Capaciteitsplanning voor VMware-replicatie naar Azure
@@ -105,16 +146,6 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Configureren
       items:
-        - name: Netwerken instellen voor herstel na noodgevallen voor Azure-VM (preview)
-          href: site-recovery-azure-to-azure-networking-guidance.md
-        - name: IP-adressering instellen voor toegang na een failover naar Azure
-          href: concepts-on-premises-to-azure-networking.md
-        - name: IP-adressering instellen voor toegang na een failover naar een secundaire locatie
-          href: concepts-on-premises-to-on-premises-networking.md
-        - name: Netwerktoewijzing instellen voor herstel na noodgevallen voor Azure-VM (preview)
-          href: site-recovery-network-mapping-azure-to-azure.md
-        - name: Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
-          href: site-recovery-network-mapping.md
         - name: De bronomgeving instellen
           items:
             - name: Bronomgeving voor VMware naar Azure
@@ -127,7 +158,7 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Doelomgeving voor fysiek naar Azure
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Replicatie-instellingen configureren
+        - name: Replicatie-instellingen voor VMware naar Azure configureren
           href: site-recovery-setup-replication-settings-vmware.md
         - name: Schijven uitsluiten van replicatie
           href: site-recovery-exclude-disk.md
@@ -144,35 +175,6 @@
               href: site-recovery-replicate-azure-to-azure.md
             - name: VMware naar Azure-replicatie inschakelen
               href: site-recovery-replicate-vmware-to-azure.md
-    - name: Failover en failback
-      items:
-        - name: Herstelplannen instellen
-          href: site-recovery-create-recovery-plans.md
-          items:
-            - name: Azure-runbooks aan herstelplannen toevoegen
-              href: site-recovery-runbook-automation.md
-        - name: Een testfailover uitvoeren
-          items:
-            - name: Een testfailover naar Azure uitvoeren
-              href: site-recovery-test-failover-to-azure.md
-            - name: Een testfailover tussen twee VMM-clouds uitvoeren
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Met failover beveiligde machines
-          href: site-recovery-failover.md
-        - name: Machines opnieuw beveiligen na een failover
-          items:
-            - name: Opnieuw beveiligen van een secundaire Azure-regio naar een primaire regio
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
-            - name: Opnieuw beveiligen van Azure naar on-premises
-              href: site-recovery-how-to-reprotect.md
-        - name: Failback van Azure
-          items:
-            - name: Failback van Azure naar VMware
-              href: site-recovery-how-to-failback-azure-to-vmware.md
-            - name: Failback van Azure naar Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
-        - name: Een Linux-hoofddoelserver voor failback instellen
-          href: site-recovery-how-to-install-linux-master-target.md
     - name: Automatiseren
       items:
         - name: Hyper-V-replicatie naar Azure instellen (zonder VMM) met behulp van PowerShell
@@ -213,7 +215,7 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Beheren
       items:
-        - name: Uw Site Recovery-kluis upgraden naar een Recovery Services-kluis
+        - name: Upgraden naar een Recovery Services-kluis
           href: upgrade-site-recovery-vaults.md
         - name: Processervers in Azure beheren
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
@@ -223,7 +225,7 @@
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Servers verwijderen en beveiliging uitschakelen
           href: site-recovery-manage-registration-and-protection.md
-        - name: Recovery Services-kluis verwijderen
+        - name: Een kluis verwijderen
           href: delete-vault.md
     - name: Problemen oplossen
       items:
@@ -231,7 +233,7 @@
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
         - name: Problemen met on-premises naar Azure-replicatie
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: Installatieproblemen met de Mobility-service
+        - name: Problemen met de Mobility-service
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemen met failover naar Azure
           href: site-recovery-failover-to-azure-troubleshoot.md

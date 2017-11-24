@@ -32,6 +32,7 @@
 ### [Invoerparameters voor runbook configureren](automation-runbook-input-parameters.md)
 ### [Foutafhandeling in grafische runbooks](automation-runbook-graphical-error-handling.md)
 ### [Een runbook-taak volgen](automation-runbook-execution.md)
+### [Een watcher-taak maken](automation-watchers-tutorial.md)
 ### [Runbook-instellingen wijzigen](automation-runbook-settings.md)
 ### [Azure Automation-gegevens beheren](automation-managing-data.md)
 ### [Azure Automation Runbook aanroepen vanuit een Log Analytics-waarschuwing](automation-invoke-runbook-from-omsla-alert.md)
@@ -71,7 +72,7 @@
 ## Oplossingen
 ### [Updatebeheer](../operations-management-suite/oms-solution-update-management.md)
 #### [Updates voor meerdere virtuele machines beheren](manage-update-multi.md)
-#### [SCCMr integreren met OMS Updatebeheer](oms-solution-updatemgmt-sccmintegration.md)
+#### [SCCM integreren met OMS-updatebeheer](oms-solution-updatemgmt-sccmintegration.md)
 ### [Wijzigingen bijhouden](../log-analytics/log-analytics-change-tracking.md)
 ### [Bijhouden van wijzigingen in uw virtuele machines](automation-vm-change-tracking.md)
 ### [Een virtuele machine met inventarisverzameling beheren](automation-vm-inventory.md)

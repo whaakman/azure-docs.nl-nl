@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit voor Windows Server
 Voor klanten met Software Assurance kunt Azure hybride voordeel voor Windows Server u uw lokale Windows Server-licenties en voer Windows virtuele machines in Azure tegen lagere kosten. U kunt Azure hybride voordeel voor Windows Server gebruiken voor het implementeren van nieuwe virtuele machines vanaf elke Azure ondersteund platforminstallatiekopie voor Windows Server of Windows aangepaste installatiekopieën. In dit artikel gaat over de stappen voor het implementeren van nieuwe virtuele machines met Azure hybride voordeel voor Windows Server en hoe u kunt bijwerken bestaande VM's worden uitgevoerd. Zie voor meer informatie over Azure hybride voordeel voor Windows Server licentieverlening en kosten besparingen, de [Azure hybride voordeel voor Windows Server-licentieverlening pagina](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ Voor klanten met Software Assurance kunt Azure hybride voordeel voor Windows Ser
 >
 
 > [!NOTE]
-> Met behulp van Azure hybride voordeel voor Windows Server met virtuele machines die worden in rekening gebracht voor aanvullende software zoals SQL Server of een van de derde partij marketplace-installatiekopieën is uit teruggedraaid. Als u, zoals een 409 fout krijgt: het wijzigen van de eigenschap 'LicenseType' is niet toegestaan; u probeert vervolgens te converteren of implementeren van een nieuwe versie van Windows Server VM met aanvullende software kosten, die mogelijk niet ondersteund in deze regio.
+> Met behulp van Azure hybride voordeel voor Windows Server met virtuele machines die worden in rekening gebracht voor aanvullende software zoals SQL Server of een van de derde partij marketplace-installatiekopieën is uit teruggedraaid. Als u, zoals een 409 fout krijgt: het wijzigen van de eigenschap 'LicenseType' is niet toegestaan; u probeert vervolgens te converteren of implementeren van een nieuwe versie van Windows Server VM met aanvullende software kosten, die mogelijk niet ondersteund in deze regio. Hetzelfde als u probeert te zoeken voor de configuratie van de portal optie om de conversie en u niet zien voor die VM.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>Portal
 Vanuit de portal VM-blade kunt u bijwerken van de virtuele machine voor het gebruik van Azure hybride profiteren door "Configuratie" optie te selecteren en de optie 'hybride Azure profiteren' in-of uitschakelen
+
+> [!NOTE]
+> Als u de optie voor het uitschakelen van 'Azure hybride voordeel' onder 'Configuratie' niet ziet, is het omdat de conversie wordt nog niet ondersteund voor het geselecteerde VM-type (bijvoorbeeld een virtuele machine van de aangepaste installatiekopie of van een afbeelding met extra betaald software, zoals SQL Server ingebouwd of Azure Marketplace software van derden).
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Een WindowsServer-VHD uploaden
 Voor het implementeren van een Windows Server-VM in Azure, moet u eerst een VHD met uw Windows-build base maken. Deze VHD moet op de juiste wijze worden voorbereid met Sysprep voordat u de gegevens naar Azure uploaden. U kunt [voor meer informatie over de vereisten van de VHD en de Sysprep-proces](upload-generalized-managed.md) en [Sysprep-ondersteuning voor serverrollen](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back-up van de virtuele machine voordat Sysprep wordt uitgevoerd. 
@@ -180,12 +184,14 @@ Binnen uw virtuele machine schaalset Resource Manager-sjablonen, een extra param
 U kunt ook [maken en implementeren van een virtuele-machineschaalset](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) en stel de eigenschap LicenseType
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees meer over [hoe u geld besparen en de schaalvoordelen van Azure hybride](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Lees meer over [hoe u geld besparen en de schaalvoordelen van Azure hybride](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Meer informatie over [Azure hybride voordeel voor Windows Server-licentieverlening gedetailleerde richtlijnen](http://go.microsoft.com/fwlink/?LinkId=859786)
+Meer informatie over [Azure hybride voordeel voor Windows Server-licentieverlening gedetailleerde richtlijnen](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
 
-Meer informatie over [met Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md).
+Meer informatie over [met behulp van Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md)
 
-Meer informatie over [Azure hybride voordeel voor Windows Server en Azure Site Recovery toepassingen maken voor migratie naar Azure nog meer rendabele](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Meer informatie over [Azure hybride voordeel voor Windows Server en Azure Site Recovery toepassingen maken voor migratie naar Azure nog meer rendabele](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+
+Meer informatie over [Windows 10 in Azure met Multitenant Hosting-rechts](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Lees meer over [Veelgestelde vragen](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

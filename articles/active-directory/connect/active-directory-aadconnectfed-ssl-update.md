@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Bijwerken van het SSL-certificaat voor een farm met Active Directory Federation Services (AD FS)
 
@@ -36,7 +36,7 @@ U kunt de hele bewerking van het SSL-certificaat voor de AD FS-farm bijwerken vo
 ## <a name="prerequisites"></a>Vereisten
 
 * **AD FS-Farm**: Zorg ervoor dat uw AD FS-farm op basis van Windows Server 2012 R2 of hoger.
-* **Azure AD Connect**: Zorg ervoor dat de versie van Azure AD Connect 1.1.443.0 of hoger. Gebruikt u de taak **Update AD FS SSL-certificaat**.
+* **Azure AD Connect**: Zorg ervoor dat de versie van Azure AD Connect 1.1.553.0 of hoger. Gebruikt u de taak **Update AD FS SSL-certificaat**.
 
 ![SSL-taak bijwerken](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 
@@ -78,7 +78,7 @@ Selecteer de servers waarvoor Beveiligingsaanmelding moet het SSL-certificaat da
 
 Na het voltooien van de configuratie wordt het bericht geeft de status van de update en bevat een optie om te controleren of de AD FS-aanmeldingspagina weergegeven in Azure AD Connect.
 
-![Configuratie voltooien](./media/active-directory-aadconnectfed-ssl-update/configurecomplete.png)   
+![Configuratie voltooid](./media/active-directory-aadconnectfed-ssl-update/configurecomplete.png)   
 
 ## <a name="faqs"></a>Veelgestelde vragen
 

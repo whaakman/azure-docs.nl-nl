@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK-releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -51,6 +51,13 @@ ms.lasthandoff: 10/24/2017
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+* Verbeterde prestaties van de Json-serialisatie.
+* Deze SDK-versie moet de meest recente versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator.
+
+### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
+* Wijzigingen in de interne voor Microsoft vrienden bibliotheken.
 
 ### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
 * Een probleem bij het lezen van één partitie sleutelbereiken opgelost.
@@ -174,6 +181,8 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |14 november 2017 |--- |
+| [1.14.0](#1.14.0) |28 OCT 2017 |--- |
 | [1.13.0](#1.13.0) |25 augustus 2017 |--- |
 | [1.12.0](#1.12.0) |11 juli 2017 |--- |
 | [1.11.0](#1.11.0) |10 mei 2017 |--- |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 845e459a0c829ed8e737d687108e3bda48dab9ad
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade van de service Fabric-toepassing met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -98,8 +98,7 @@ Het toepassingspakket is opgeslagen in het volgende relatieve pad waar u de Serv
 Nu gaan we de bijgewerkte toepassing-pakket kopiëren naar de Service Fabric-Installatiekopieopslag (waar de toepassingspakketten zijn opgeslagen door de Fabric-Service). De parameter *ApplicationPackagePathInImageStore* informeert Service Fabric waar deze het toepassingspakket kan vinden. We hebben de bijgewerkte toepassing plaatsen ' VisualObjects\_V2 "met de volgende opdracht (mogelijk moet u opnieuw op de juiste wijze paden wijzigen).
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
--ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 De volgende stap is deze toepassing registreren met Service Fabric, die kan worden uitgevoerd met behulp van de [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) opdracht:

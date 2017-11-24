@@ -6,7 +6,7 @@
       href: app-insights-overview.md
     - name: Overzicht van prestatiebewaking
       href: app-insights-detect-triage-diagnose.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: .NET
@@ -91,6 +91,8 @@
       items:
         - name: Azure
           items:
+            - name: Doorlopende bewaking toevoegen
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Profiler
               href: app-insights-profiler.md
             - name: Profiler inschakelen

@@ -25,11 +25,8 @@
 ###### [Gesimuleerde gegevens](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Echte sensoren gebruiken](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Firmware-update implementeren](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Verbinding maken met uw Intel NUC-gateway
-##### [Gesimuleerde gegevens](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Een echte sensor gebruiken](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Procedures
+### Handleidingen
 #### Een gesimuleerd apparaat verbinden
 ##### [C op Windows](iot-suite-v1-connecting-devices.md)
 ##### [C op Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
 ### [Kennismaken met de oplossing voor verbonden bedrijven](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Procedures
+# Handleidingen
 ## Externe bewaking
 ### [Geavanceerde bewaking uitvoeren](iot-suite-remote-monitoring-monitor.md)
 ### [Regels gebruik voor het detecteren van problemen](iot-suite-remote-monitoring-automate.md)

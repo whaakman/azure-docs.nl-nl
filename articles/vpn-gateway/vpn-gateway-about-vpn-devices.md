@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/07/2017
 ms.author: yushwang;cherylmc
-ms.openlocfilehash: d4712f9a7987dc612a80aa01c0c8863b3376cb83
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 9cd626e324dab3428a7b69556e3307dd0b92958b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>VPN-apparaten en IPSec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen
 
@@ -68,7 +68,7 @@ Voor hulp bij de configuratie van uw VPN-apparaat, raadpleegt u de koppelingen d
 | Microsoft |Routering en Remote Access-Service |Windows Server 2012 |Niet compatibel |[Voorbeelden van configuraties](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG |Mission Control Security Gateway |N.v.t. |[Configuratiehandleiding](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Niet compatibel |
 | Palo Alto Networks |Alle apparaten waarop PAN-OS wordt uitgevoerd |PAN-OS<br>PolicyBased: 6.1.5 of hoger<br>RouteBased: 7.1.4 |[Configuratiehandleiding](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuratiehandleiding](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| ShareTech | Next Generation UTM (NU-serie) | 9.0.1.3 | Niet compatibel | [Configuratiehandleiding](https://microsoft.sharepoint.com/teams/cloudweb/MSG/Eng/MSG-SE/MCIO-LAB/SitePages/ITGProxy.aspx ) |
+| ShareTech | Next Generation UTM (NU-serie) | 9.0.1.3 | Niet compatibel | [Configuratiehandleiding](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ-serie, NSA-serie<br>SuperMassive-serie<br>E-Class NSA-serie |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Niet ondersteund|[Configuratiehandleiding](https://www.sonicwall.com/en-us/support/knowledge-base/170505320011694) |
 | WatchGuard |Alle |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuratiehandleiding](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuratiehandleiding](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 

@@ -1,12 +1,12 @@
 ---
 title: Aan de slag met Azure Active Directory | Microsoft Docs
-description: 
+description: Ophalen van licenties, domeinnaam toevoegen, aangepaste aanmeldingspagina maken en selfservice wachtwoordherstel in Azure Active Directory toevoegen
 keywords: 
-author: jeffgilb
-manager: femila
-ms.author: jeffgilb
+author: curtand
+manager: michael.tillman
+ms.author: curtand
 ms.reviewer: jsnow
-ms.date: 10/04/2017
+ms.date: 11/14/2017
 ms.topic: article
 ms.prod: 
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.technology: 
 ms.assetid: 
 services: active-directory
-custom: it-pro
-ms.openlocfilehash: 714f90155dbf53c5728e27995cee95f132fa452b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.custom: it-pro
+ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Aan de slag met Azure AD
 Moderne identiteitsbeheer vereist een schaalbare, consistente reliablity om te controleren of de beschikbaarheid van toepassingen en services aan alleen geverifieerde gebruikers. Om voldoende ondersteunen de identity management-behoeften van gebruikers, IT-afdeling moet een manier om toegang te bieden tot erkende, openbare software als een service (SaaS)-apps, kunt u interne line-host of-business-apps, en zelfs manieren voor het verbeteren van on-premises ontwikkeling van Apps en het gebruik. Al deze vereisten voldoen verwijzen aan de behoeften van een oplossing voor identiteitsbeheer cloud-gebaseerde.      
@@ -41,8 +41,8 @@ U kunt zich op verschillende manieren registreren voor Active Directory Premium:
 - Met een Enterprise Mobility + Security-licentieabonnement
 - Met een Microsoft Volume-licentieabonnement
 
-> ### <a name="verification-step"></a>Verificatiestap
-> Zorg ervoor dat u met de service aanmelden kunt na het activeren van het abonnement.
+### <a name="verification-step"></a>Verificatiestap
+Zorg ervoor dat u met de service aanmelden kunt na het activeren van het abonnement.
 
 ## <a name="add-a-custom-domain-name"></a>Een aangepaste domeinnaam toevoegen
 Elke Azure AD-directory wordt geleverd met een initiële domeinnaam in de vorm van *domainname*. onmicrosoft.com. De initiële domeinnaam kan niet worden gewijzigd of verwijderd, maar u kunt ook [uw zakelijke domeinnaam toevoegen aan Azure AD](add-custom-domain.md). Uw organisatie heeft bijvoorbeeld waarschijnlijk andere domeinnamen gebruikt voor bedrijven en gebruikers die zich aanmeldt met uw zakelijke domeinnaam. Het toevoegen van aangepaste domeinnamen naar Azure AD, kunt u gebruikersnamen toewijzen in de directory die bekend aan uw gebruikers, zoals zijn 'alice@contoso.com.' in plaats van 'alice@.onmicrosoft.com'. Het proces is eenvoudig:
@@ -51,22 +51,22 @@ Elke Azure AD-directory wordt geleverd met een initiële domeinnaam in de vorm v
 2. Voeg een DNS-vermelding voor de domeinnaam toe aan de domeinnaamregistrar.
 3. Verifieer de aangepaste domeinnaam in Azure AD.
 
-> ### <a name="verification-step"></a>Verificatiestap
-> Zorg ervoor dat er na het toevoegen van een aangepast domein, de **gecontroleerd** status wordt weergegeven op de **domeinnamen** blade van de Azure AD-portal.
+### <a name="verification-step"></a>Verificatiestap
+Zorg ervoor dat er na het toevoegen van een aangepast domein, de **gecontroleerd** status wordt weergegeven op de **aangepaste domeinnamen** blade van de Azure AD-portal.
 
 ## <a name="add-company-branding-to-your-sign-in-page"></a>Huisstijl aan uw aanmeldingspagina toevoegen 
 Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory (Azure AD) biedt deze mogelijkheid doordat u [pas het uiterlijk van de aanmeldingspagina met uw bedrijfslogo en kleurenschema toepassen](customize-branding.md). De aanmeldingspagina is de pagina die wordt weergegeven wanneer u zich aanmeldt bij Office 365 of andere toepassingen op Internet die van Azure AD als hun id-provider gebruikmaken. U communiceert met deze pagina uw referenties in te voeren.
 
-> ### <a name="verification-step"></a>Verificatiestap
-> Aanmelden bij de Azure-portal en zorg ervoor dat uw aangepaste aanmeldingspagina en eventuele aanpassingen extra taal juist hebt geconfigureerd. 
+### <a name="verification-step"></a>Verificatiestap
+Aanmelden bij de Azure-portal en zorg ervoor dat uw aangepaste aanmeldingspagina en eventuele aanpassingen extra taal juist hebt geconfigureerd. 
 
 ## <a name="add-new-users"></a>Nieuwe gebruikers toevoegen
 U kunt [nieuwe gebruikers toevoegen aan uw organisatie Azure AD](add-users-azure-active-directory.md) één op een tijdstip met de Azure portal of door het synchroniseren van uw on-premises Windows Server AD-bron-gegevens. U kunt gebruikers cloud-gebaseerde toevoegen rechtstreeks vanuit de Azure AD-portal of lokale gebruikersinformatie te synchroniseren.
 
 Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet u [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) installeren en configureren op een server in uw organisatie. Deze toepassing draagt zorg voor het synchroniseren van gebruikers en groepen uit uw bestaande identiteitsbron met uw Azure AD-tenant.
 
-> ### <a name="verification-step"></a>Verificatiestap
-> Na het maken of de synchronisatie van nieuwe gebruikers, zorg zijn ze zichtbaar in Azure AD.
+### <a name="verification-step"></a>Verificatiestap
+Na het maken of de synchronisatie van nieuwe gebruikers, zorg zijn ze zichtbaar in Azure AD.
 
 ## <a name="assign-licenses"></a>Licenties toewijzen
 Hoewel het verkrijgen van een abonnement hoeft u alleen betaald mogelijkheden configureren, moet u nog steeds [gebruikerslicenties toewijzen](license-users-groups.md) voor Azure AD Premium betaalde functies. Elke gebruiker die toegang moeten hebben tot of die wordt beheerd via een Azure AD betaald functie moet een licentie worden toegewezen. De licentietoewijzing is geen toewijzing tussen een gebruiker en een gekochte service, zoals Azure AD Premium, Basic of Enterprise Mobility + Security.
@@ -77,17 +77,17 @@ U kunt de licentietoewijzing op basis van een groep gebruiken voor het instellen
 - Iedereen met de juiste functie een licentie opgehaald
 - U kunt het besluit om andere beheerders in de organisatie te delegeren (via Self-service groepen)
 
-> ### <a name="verification-step"></a>Verificatiestap
-> Controleer toegewezen en beschikbare licenties onder **Azure Active Directory** > **licenties** > **alle producten**.
+### <a name="verification-step"></a>Verificatiestap
+Controleer toegewezen en beschikbare licenties onder **Azure Active Directory** > **licenties** > **alle producten**.
 
 ## <a name="configure-self-service-password-reset"></a>Selfservice voor wachtwoordherstel configureren
 [Selfservice voor wachtwoordherstel (SSPR)](active-directory-passwords-getting-started.md) biedt een eenvoudige methode voor IT-beheerders kunnen gebruikers opnieuw instellen of hun wachtwoorden of accounts ontgrendelen. Het systeem biedt gedetailleerde rapporten zodat u kunt volgen wanneer gebruikers het systeem gebruiken. U ontvangt ook meldingen om u te waarschuwen over misbruik.
 
-> ### <a name="verification-step"></a>Verificatiestap
-> Controleren ingeschakeld SSPR eigenschappen onder **Azure Active Directory** > **wachtwoordherstel** om te controleren of de juiste gebruiker en groepstoewijzingen zijn aangebracht. 
+### <a name="verification-step"></a>Verificatiestap
+Controleren ingeschakeld SSPR eigenschappen onder **Azure Active Directory** > **wachtwoordherstel** om te controleren of de juiste gebruiker en groepstoewijzingen zijn aangebracht. 
 
 
-### <a name="learn-more"></a>Meer informatie
+## <a name="next-steps"></a>Volgende stappen
 [Azure Active Directory-productpagina](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory informatiepagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory/)

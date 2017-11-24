@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, virtuele Machines, Service Fabric en Cloud-Services
 ## <a name="overview"></a>Overzicht
@@ -48,7 +48,7 @@ De volgende tabel vergelijkt de mogelijkheden van App Service, Cloud Services, v
 | Toegang tot services zoals Service Bus-, opslag-, SQL-Database |X |X |X |X | |
 | Host-web- of web services-laag van een architectuur met meerdere lagen |X |X |X |X | |
 | Middelste laag van de host van een architectuur met meerdere lagen |X |X |X |X |App Service-web-apps kunnen eenvoudig een REST-API als middelste laag, hosten en de [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) functie achtergrondtaken verwerking kan hosten. U kunt WebJobs uitvoeren op een speciale website te bereiken onafhankelijke schaalbaarheid voor de laag. |
-| Geïntegreerde MySQL as a service-ondersteuning |X |X |X | |MySQL-as-a-service kunnen worden geïntegreerd in cloud-Services via de offerings van ClearDB, maar niet als onderdeel van de Azure Portal-werkstroom. |
+| Geïntegreerde MySQL as a service-ondersteuning |X |X | | | |
 | Ondersteuning voor ASP.NET, klassiek ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric ondersteunt het maken van een web-front-met [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) of kunt u elk type toepassing (Node.js, Java, enzovoort) implementeren als een [Gast uitvoerbaar bestand](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Uitschalen naar meerdere exemplaren zonder opnieuw distribueren |X |X |X |X |Virtuele Machines kunt uitbreiden naar meerdere exemplaren, maar de services die daarop worden uitgevoerd voor het afhandelen van deze scale-out moeten worden geschreven. U moet een load balancer te routeren aanvragen via de machines en maken van een Affiniteitsgroep om te voorkomen dat gelijktijdige opnieuw opstarten van alle exemplaren vanwege onderhoud of hardwarestoringen configureren. |
 | Ondersteuning voor SSL |X |X |X |X |Voor App Service WebApps, wordt SSL voor aangepaste domeinnamen alleen ondersteund voor Basic en Standard-modus. Zie voor meer informatie over het gebruik van SSL met web-apps [configureren van een SSL-certificaat voor een Azure-Website](app-service-web-tutorial-custom-ssl.md). |
@@ -97,7 +97,7 @@ Azure App Service is een uitstekende oplossing voor het hosten van zakelijke web
 * Integratie met Active Directory
 
 ### <a id="iis6"></a>Ik heb een IIS6-toepassing op Windows Server 2003 wordt uitgevoerd.
-Azure App Service kunt gemakkelijk te voorkomen dat de kosten van de infrastructuur die is gekoppeld aan het migreren van oudere IIS6-toepassingen. Microsoft heeft gemaakt [hulpprogramma's voor migratie eenvoudig te gebruiken en gedetailleerde migratie-richtlijnen](https://www.movemetowebsites.net/) waarmee u compatibiliteit controleren en eventuele wijzigingen beschreven die moeten worden aangebracht. Integratie met Visual Studio, TFS en algemene CMS-hulpprogramma's kunt gemakkelijk IIS6 toepassingen rechtstreeks naar de cloud implementeren. Zodra geïmplementeerd, de Azure Portal de biedt krachtige beheerprogramma's waarmee u kunt het omlaag schalen voor het beheren van kosten en maximaal voldoen aan vraag zo nodig. U kunt met het hulpprogramma voor migratie:
+Azure App Service kunt gemakkelijk te voorkomen dat de kosten van de infrastructuur die is gekoppeld aan het migreren van oudere IIS6-toepassingen. Microsoft heeft gemaakt [hulpprogramma's voor migratie eenvoudig te gebruiken en gedetailleerde migratie-richtlijnen](https://www.migratetoazure.net/) waarmee u compatibiliteit controleren en eventuele wijzigingen beschreven die moeten worden aangebracht. Integratie met Visual Studio, TFS en algemene CMS-hulpprogramma's kunt gemakkelijk IIS6 toepassingen rechtstreeks naar de cloud implementeren. Zodra geïmplementeerd, de Azure Portal de biedt krachtige beheerprogramma's waarmee u kunt het omlaag schalen voor het beheren van kosten en maximaal voldoen aan vraag zo nodig. U kunt met het hulpprogramma voor migratie:
 
 * Snel en eenvoudig migreren uw oude Windows Server 2003-webtoepassing met de cloud.
 * Als u wilt uw gekoppelde SQL database on-premises voor het maken van een toepassing hybride laten kiezen.
@@ -174,7 +174,6 @@ Zie de volgende bronnen om te beginnen met de gekozen opties voor uw toepassing:
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

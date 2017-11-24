@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Het inschakelen van geneste netwerkvirtualisatie in een Azure VM
 
@@ -49,7 +49,7 @@ Maak via een extern bureaublad verbinding met de virtuele machine.
 U kunt deze instellingen handmatig of we een PowerShell-script voor het automatiseren van de configuratie hebt opgegeven.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Optie 1: Een PowerShell-script gebruiken voor het virtualisatie geneste configureren
-Er is een PowerShell-script om in te schakelen geneste virtualisatie op een host met Windows Server 2016 beschikbaar op [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Het script vereisten controleert en configureert vervolgens geneste virtualisatie op de virtuele machine in Azure. Opnieuw opstarten van de Azure VM is nodig om de configuratie te voltooien. Dit script werkt in andere omgevingen, maar kan niet worden gegarandeerd. Ga naar de Azure blogbericht met een live videodemonstratie op geneste virtualisatie uitgevoerd op Azure. https://aka.MS/AzureNVblog.
+Er is een PowerShell-script om in te schakelen geneste virtualisatie op een host met Windows Server 2016 beschikbaar op [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Het script vereisten controleert en configureert vervolgens geneste virtualisatie op de virtuele machine in Azure. Opnieuw opstarten van de Azure VM is nodig om de configuratie te voltooien. Dit script werkt in andere omgevingen, maar kan niet worden gegarandeerd. Ga naar de Azure blogbericht met een live videodemonstratie op geneste virtualisatie uitgevoerd op Azure. https://aka.MS/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Optie 2: Geneste virtualisatie handmatig configureren
 

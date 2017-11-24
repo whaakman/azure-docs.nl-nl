@@ -1,5 +1,5 @@
 ---
-title: Een query uitvoeren in uw Azure Search-index | Microsoft Docs
+title: Query's in Azure Search | Microsoft Docs
 description: Een zoekquery samenstellen in Azure Search en gebruikmaken van zoekparameters om zoekresultaten te filteren en te sorteren.
 services: search
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 04/26/2017
+ms.date: 11/13/2017
 ms.author: ashmaka
-ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b1a96c2299e415db89f881fa72b150d50bb3c69c
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="query-your-azure-search-index"></a>Een query uitvoeren in uw Azure Search-index
+# <a name="queries-in-azure-search"></a>Query's in Azure Search
 > [!div class="op_single_selector"]
 > * [Overzicht](search-query-overview.md)
 > * [Portal](search-explorer.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: fbc0fd12999c9085c3c364f0d7115eb1ab1ddd74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71544726b4ec8701ef558bf50d15bddfabd830cc
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Visual Studio Code-extensie gebruiken om Azure Resource Manager-sjablonen te maken
 In dit artikel ziet u de voordelen van het installeren en gebruiken van de Azure Resource Manager-extensie voor hulpprogramma's in Visual Studio Code. U kunt Resource Manager-sjablonen maken in VS Code zonder de extensie, maar de extensie biedt opties voor automatisch aanvullen die het ontwikkelen van sjablonen eenvoudiger maken. Er worden sjabloonfuncties, parameters en variabelen aangeraden die beschikbaar in de sjabloon zijn.
@@ -179,8 +179,8 @@ Dit artikel is gebaseerd op de sjabloon die u hebt gemaakt in [Uw eerste Azure R
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
-         "type": "string",
-         "value": "[reference(variables('storageName'))]"
+         "type": "object",
+         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
        }
    }
    ```
@@ -247,8 +247,8 @@ De definitieve sjabloon is:
       "value": "[resourceGroup().location]"
     },
     "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageName'))]"
+      "type": "object",
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
     }
   }
 }

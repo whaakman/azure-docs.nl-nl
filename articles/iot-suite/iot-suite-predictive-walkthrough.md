@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 4a430fb250b9145166a3a212d416a4f1c754473f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Leidraad voor vooraf geconfigureerde oplossing voor voorspeld onderhoud
 
@@ -33,7 +33,7 @@ Het volgende diagram geeft een overzicht van de logische onderdelen van de voora
 
 De blauwe items zijn Azure-services die zijn ingericht in de regio waar u de vooraf geconfigureerde oplossing hebt geïmplementeerd. De lijst met regio's waar u de vooraf geconfigureerde oplossing kunt implementeren, wordt weergegeven op de pagina [Inrichting][lnk-azureiotsuite].
 
-Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. Meer informatie over deze gesimuleerde apparaten vindt u in het volgende gedeelte.
+Het groene item is een gesimuleerd apparaat dat een vliegtuigmotor vertegenwoordigt. Meer informatie over deze gesimuleerde apparaten vindt u in het gedeelte [Gesimuleerde apparaten](#simulated-devices).
 
 De grijze items vertegenwoordigen onderdelen waarmee mogelijkheden voor *apparaatbeheer* worden geïmplementeerd. In de huidige release van de vooraf geconfigureerde oplossing voor voorspeld onderhoud worden deze resources niet ingericht. Raadpleeg de [vooraf geconfigureerde oplossing voor externe controle][lnk-remote-monitoring] voor meer informatie over apparaatbeheer.
 
@@ -65,7 +65,7 @@ IoT Hub biedt een bevestiging van apparaatopdrachten.
 De **gebeurtenisprocessorhost** wordt uitgevoerd in een Azure-webtaak. De **gebeurtenisverwerking** neemt de gemiddelde sensorwaarden voor een voltooide cyclus. Vervolgens worden deze waarden doorgegeven aan een API die het getrainde model de RUL voor een motor laat berekenen. De API wordt weergegeven met een Machine Learning-werkruimte die is ingericht als onderdeel van de oplossing.
 
 ## <a name="machine-learning"></a>Machine Learning
-Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel op de [azureiotsuite.com][lnk-azureiotsuite]-pagina voor de vooraf ingerichte oplossing. De tegel is beschikbaar wanneer de oplossing de status **Gereed** heeft.
+Het Machine Learning-onderdeel maakt gebruikt van een model dat is afgeleid van gegevens die zijn verzameld bij echte vliegtuigmotoren. U kunt naar de Machine Learning-werkruimte navigeren vanaf de tegel van de oplossing op de pagina [azureiotsuite.com][lnk-azureiotsuite]. De tegel is beschikbaar wanneer de oplossing de status **Gereed** heeft.
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -78,10 +78,10 @@ U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfig
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

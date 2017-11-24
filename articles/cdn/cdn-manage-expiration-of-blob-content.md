@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: c2b49058ec7dd52b5063e815447697fa17ddb53a
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren
 > [!div class="op_single_selector"]
@@ -30,14 +30,14 @@ ms.lasthandoff: 11/16/2017
 De [Blob storage-service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is een van de verschillende Azure gebaseerde oorsprongen geïntegreerd met Azure Content Delivery Network (CDN). Kan een openbaar toegankelijke blob-inhoud in cache worden opgeslagen in Azure CDN totdat de time-to-live (TTL) is verstreken. De TTL-waarde wordt bepaald door de `Cache-Control` -header in het HTTP-antwoord op de bronserver. Dit artikel wordt beschreven op verschillende manieren die u kunt instellen de `Cache-Control` header op een blob in Azure Storage.
 
 > [!TIP]
-> U kunt geen TTL instellen voor een blob. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen.
+> U kunt geen TTL instellen voor een blob. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen. Deze standaard TTL geldt alleen voor levering optimalisaties van algemene webtoepassingen. De standaard TTL-waarde is één dag voor optimalisatie van grote bestanden, en voor mediastreaming optimalisaties de standaard TTL-waarde is één jaar.
 > 
 > Zie voor meer informatie over de werking van Azure CDN om sneller toegang tot blobs en andere bestanden [overzicht van het Azure Content Delivery Network](cdn-overview.md).
 > 
 > Zie voor meer informatie over Azure-blobopslag [Inleiding tot Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
  
 
-## <a name="azure-powershell"></a>Azure PowerShell
+## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Cache-Control headers instellen met behulp van Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) is een van de snelste en effectieve manieren om uw Azure-services te beheren. Gebruik de `Get-AzureStorageBlob` cmdlet verwijst naar de blob, stel de `.ICloudBlob.Properties.CacheControl` eigenschap. 
 
 Bijvoorbeeld:
@@ -61,8 +61,8 @@ $blob.ICloudBlob.SetProperties()
 > 
 >
 
-## <a name="azure-storage-client-library-for-net"></a>Azure Storage-clientbibliotheek voor .NET
-Instellen van een blob `Cache-Control` header met .NET, gebruik de [Azure Storage-clientbibliotheek voor .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) om in te stellen de [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) eigenschap.
+## <a name="setting-cache-control-headers-by-using-net"></a>Cache-Control headers instellen met behulp van .NET
+Instellen van een blob `Cache-Control` header met behulp van .NET-code, gebruik de [Azure Storage-clientbibliotheek voor .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) om in te stellen de [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) eigenschap.
 
 Bijvoorbeeld:
 
@@ -96,26 +96,28 @@ class Program
 > [!TIP]
 > Er zijn meer .NET-codevoorbeelden beschikbaar in [voorbeelden van Azure Blob Storage voor .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
-> 
 
-## <a name="other-methods"></a>Andere methoden
-* [Azure-opdrachtregelinterface](../cli-install-nodejs.md)
-  
-    Wanneer u een blob uploadt, kunt u instellen de *cacheControl* eigenschap met behulp van de `-p` switch in de Azure-opdrachtregelinterface. Het volgende voorbeeld wordt de TTL aan één uur (3600 seconden):
+## <a name="setting-cache-control-headers-by-using-other-methods"></a>Cache-Control headers instellen via andere methoden
+
+### <a name="azure-storage-explorer"></a>Azure Opslagverkenner
+Met [Azure Opslagverkenner](https://azure.microsoft.com/en-us/features/storage-explorer/), u kunt bekijken en bewerken van uw blob storage-resources, inclusief eigenschappen, zoals de *CacheControl* eigenschap. 
+
+### <a name="azure-command-line-interface"></a>Azure-opdrachtregelinterface
+Wanneer u een blob uploadt, kunt u instellen de *cacheControl* eigenschap met de `-p` switch in de [Azure-opdrachtregelinterface](../cli-install-nodejs.md). Het volgende voorbeeld laat zien hoe de TTL-waarde ingesteld op één uur (3600 seconden):
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
     ```
-* [REST-API voor Azure Storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-  
-    Expliciet ingesteld de *x-ms-blob-cache-control* -eigenschap op een [Blob plaatsen](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx), [blokkeringslijst plaatsen](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx), of [Blob-eigenschappen instellen](https://msdn.microsoft.com/library/azure/ee691966.aspx) aanvraag.
 
-* Beheerhulpprogramma's voor opslag van derden
+### <a name="azure-storage-services-rest-api"></a>REST-API van Azure storage-services
+U kunt de [REST-API van Azure storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx) expliciet instellen de *x-ms-blob-cache-control* eigenschap door de volgende bewerkingen voor een aanvraag:
   
-    Sommige beheerhulpprogramma's van derden Azure-opslag kunnen u instellen de **CacheControl** -eigenschap op blobs. 
+   - [Blob plaatsen](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
+   - [Lijst met geblokkeerde websites plaatsen](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Blob-eigenschappen instellen](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Testen van de Cache-Control-header
-U kunt eenvoudig de TTL-instellingen van uw blobs controleren. Met uw browser [hulpprogramma's voor ontwikkelaars](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test die uw blob bevat de `Cache-Control` antwoordheader. U kunt ook een hulpprogramma zoals gebruiken **wget**, [Postman](https://www.getpostman.com/), of [Fiddler](http://www.telerik.com/fiddler) om te onderzoeken de antwoordheaders.
+U kunt eenvoudig de TTL-instellingen van uw blobs controleren. Met uw browser [hulpprogramma's voor ontwikkelaars](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test die uw blob bevat de `Cache-Control` antwoordheader. U kunt ook een hulpprogramma zoals gebruiken [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), of [Fiddler](http://www.telerik.com/fiddler) om te onderzoeken de antwoordheaders.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Informatie over het beheren van de verlooptijd van Cloudservice-inhoud in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)

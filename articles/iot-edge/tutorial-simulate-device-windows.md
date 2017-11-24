@@ -7,18 +7,25 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 08c501b9132bb21f47f099725d1fad5556befb4c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Azure IoT rand implementeren op een gesimuleerd apparaat in de Windows - voorbeeld
 
-Azure IoT-rand wordt verplaatst van de kracht van de cloud op uw Internet der dingen (IoT)-apparaten. Deze zelfstudie wordt u stapsgewijs hoe u een gesimuleerde IoT randapparaat waarmee sensorgegevens wordt gegenereerd. Procedures voor:
+Azure IoT-rand kunt u voor het uitvoeren van analyses en het verwerken van gegevens op uw apparaten, in plaats van alle gegevens push naar de cloud. De rand van de IoT-zelfstudies laten zien hoe u verschillende soorten modules die zijn gebouwd op basis van de Azure-services of aangepaste code implementeren, maar u moet eerst een apparaat om te testen. 
+
+In deze zelfstudie leert u het volgende:
+
+1. Een IoT Hub maken
+2. Een IoT-Edge-apparaat registreren
+3. Starten van de rand van de IoT-runtime
+4. Een module implementeren
 
 ![Zelfstudie-architectuur][2]
 
@@ -38,18 +45,18 @@ Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met
 3. Installeer [Python 2.7 op Windows] [ lnk-python] en zorg ervoor dat u de opdracht pip kunt gebruiken.
 4. Voer de volgende opdracht voor het downloaden van het script IoT Edge-besturingselement.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IoT-rand kunt uitvoeren containers Windows of Linux-containers. U moet uitvoeren voor het gebruik van Windows-containers:
->    * Windows 10 vallen auteurs bijwerken, of
->    * WindowsServer 1709 (Build 16299), of
+> Azure IoT-rand kunt uitvoeren containers Windows of Linux-containers. Als u werkt met een van de volgende versies van Windows, kunt u Windows-containers:
+>    * Windows 10 vallen auteurs bijwerken
+>    * WindowsServer 1709 (Build 16299)
 >    * Windows IoT Core (16299 bouwen) op een apparaat x64 64
 >
-> Volg de instructies in voor Windows IoT Core [IoT rand runtime installeren op Windows IoT Core][lnk-install-iotcore]. Anders gewoon [Docker voor het gebruik van Windows-containers configureren][lnk-docker-containers], en desgewenst valideren uw vereisten met de volgende powershell-opdracht:
->    ```
+> Volg de instructies in voor Windows IoT Core [IoT rand runtime installeren op Windows IoT Core][lnk-install-iotcore]. Anders gewoon [Docker voor het gebruik van Windows-containers configureren][lnk-docker-containers]. Gebruik de volgende opdracht voor het valideren van uw vereisten:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -73,28 +80,28 @@ Een IoT-Edge-apparaat registreren bij uw nieuwe IoT-Hub.
 Installeren en starten van de rand van Azure IoT-runtime op uw apparaat. 
 ![Een apparaat registreren][5]
 
-De runtime IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. Het omvat twee modules. Eerst vergemakkelijkt de agent IoT rand implementatie en controle van modules die zich in de IoT-randapparaat. Ten tweede beheert de rand van de IoT-hub communicatie tussen het apparaat aan de rand van de IoT-modules en tussen het apparaat en IoT Hub. 
+De runtime IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. Het omvat twee modules. De **IoT rand agent** vereenvoudigt de implementatie en controle van modules die zich in de rand van de IoT-apparaat. De **rand van de IoT hub** beheert de communicatie tussen het apparaat aan de rand van de IoT-modules en tussen het apparaat en IoT Hub. Wanneer u de runtime op het nieuwe apparaat configureert, worden alleen de rand van de IoT-agent wordt gestart op het eerste. Wanneer u een module implementeert, wordt de rand van de IoT-hub later geleverd. 
 
 
-Gebruik de volgende stappen uit om te installeren en starten van de rand van de IoT-runtime:
+Configureer de runtime door uw verbindingsreeks rand van de IoT-apparaat uit de vorige sectie.
 
-1. Configureer de runtime door uw verbindingsreeks rand van de IoT-apparaat uit de vorige sectie.
+```cmd
+iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
+Start de runtime.
 
-1. Start de runtime.
+```cmd
+iotedgectl start
+```
 
-   ```
-   iotedgectl start
-   ```
+Controleer de Docker om te zien of de rand van de IoT-agent wordt uitgevoerd als een module.
 
-1. Controleer de Docker om te zien of de rand van de IoT-agent wordt uitgevoerd als een module.
+```cmd
+docker ps
+```
 
-   ```
-   docker ps
-   ```
+![Zie edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Een module implementeren
 
@@ -106,13 +113,23 @@ Uw Azure-IoT-randapparaat beheren vanuit de cloud voor het implementeren van een
 
 ## <a name="view-generated-data"></a>Gegevens weergeven die zijn gegenereerd
 
-In deze snelstartgids gemaakt van een nieuwe IoT Edge-apparaat en de rand van de IoT-runtime is geïnstalleerd. Vervolgens gebruikt u de Azure-portal voor de push-een IoT-Edge-module worden uitgevoerd op het apparaat zonder dat wijzigingen aanbrengen in het apparaat zelf. In dit geval wordt maakt de module die u gepusht milieu gegevens die u voor de zelfstudies gebruiken kunt. 
+In deze zelfstudie hebt gemaakt van een nieuwe IoT Edge-apparaat en de rand van de IoT-runtime is geïnstalleerd. Vervolgens gebruikt u de Azure-portal voor de push-een IoT-Edge-module worden uitgevoerd op het apparaat zonder dat wijzigingen aanbrengen in het apparaat zelf. In dit geval wordt maakt de module die u gepusht milieu gegevens die u voor de zelfstudies gebruiken kunt. 
 
-De berichten worden verzonden vanaf de module tempSensor weergeven:
+Open de opdrachtprompt op de computer die uw gesimuleerde apparaat nogmaals uit te voeren. Bevestig dat de module op basis van de cloud geïmplementeerd op uw IoT-randapparaat wordt uitgevoerd. 
 
-```cmd/sh
-sudo docker logs -f tempSensor
+```cmd
+docker ps
 ```
+
+![Drie modules op uw apparaat weergeven](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Bekijk de berichten worden verzonden vanaf de module tempSensor naar de cloud. 
+
+```cmd
+docker logs -f tempSensor
+```
+
+![De gegevens van uw module weergeven](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 U kunt ook weergeven met de telemetrie verzenden van het apparaat met behulp van de [IoT Hub explorer hulpprogramma][lnk-iothub-explorer]. 
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: cef9abddf980c695040e99995eb325eeb182fad4
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
 Microsoft Azure is een groeiende verzameling geïntegreerde openbare cloud services analytics, virtuele Machines, databases, mobiel, netwerken, opslag, waaronder en web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.
@@ -53,7 +53,7 @@ Wanneer u een virtuele machine in Azure implementeert, gaat u een VM-grootte bin
 Hier volgen enkele algemene richtlijnen voor het selecteren van een VM-grootte van een van onze reeks (A, D, DS, G en GS).
 * A-serie VM's zijn onze waarde prijs instapmodellen VMs voor lichte werkbelastingen en scenario's voor ontwikkelen en testen. Ze kunnen algemeen beschikbaar zijn in alle regio's en verbinding maken met en gebruik van alle standaard bronnen beschikbaar voor virtuele machines.
 * A-serie grootten (A8 - A11) zijn speciale berekenings-intensieve configuraties geschikt is voor high-performance computing clustertoepassingen.
-* Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-core-snelheid en een SSD (solid-state drive) voor de tijdelijke schijf.
+* Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-vCPU-snelheid en een SSD (solid-state drive) voor de tijdelijke schijf.
 * Dv2-serie, is de meest recente versie van onze D-reeks, biedt een krachtige CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haskell), en met de 2.0-technologie van Intel Turbo versterking 3,2 GHz kunt gaan. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
 * Virtuele machines uit de G-serie bieden het meeste geheugen en worden uitgevoerd op hosts met een processor uit de Intel Xeon E5 V3-familie.
 

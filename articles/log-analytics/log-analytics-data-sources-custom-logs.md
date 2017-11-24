@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 De gegevensbron voor de aangepaste logboeken in Log Analytics kunt u het verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra verzameld, kunt u elke record in het logboek in afzonderlijke velden met parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
@@ -56,10 +56,6 @@ Begint u met het uploaden van een steekproef van het aangepaste logboek.  De wiz
 
 Als een tijdstempel scheidingsteken wordt gebruikt, wordt de eigenschap TimeGenerated van elke record in OMS worden ingevuld met de datum/tijd opgegeven voor deze vermelding in het logboekbestand.  Als een nieuwe regel scheidingsteken wordt gebruikt, wordt TimeGenerated gevuld met de datum en tijd of Log Analytics de vermelding verzameld.
 
-> [!NOTE]
-> Log Analytics behandelt momenteel de datum/tijd verzameld van een logboek met behulp van een timestamp-scheidingsteken als UTC.  Dit zal binnenkort worden gewijzigd voor het gebruik van de tijdzone op de agent.
->
->
 
 1. Klik op **Bladeren** en blader naar een voorbeeldbestand.  Let op deze knop kan mogelijk worden gelabeld **bestand kiezen** in sommige browsers.
 2. Klik op **Volgende**.

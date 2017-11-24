@@ -1,23 +1,23 @@
 ---
 title: HPC Pack cluster met Azure Active Directory | Microsoft Docs
-description: Meer informatie over het integreren van een HPC Pack 2016-cluster in Azure met Azure Active Directory
+description: Meer informatie over het integreren van een Microsoft HPC Pack 2016-cluster in Azure met Azure Active Directory
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 11/16/2017
 ms.author: danlep
-ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb0e878c4e987d111a535603cede25c639087ca7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Een HPC Pack cluster in Azure met Azure Active Directory beheren
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) ondersteunt de integratie met [Azure Active Directory](../../active-directory/index.md) (Azure AD) voor beheerders die een HPC Pack cluster in Azure implementeren.
@@ -59,69 +59,66 @@ Integratie van een cluster HPC Pack met Azure AD kunt u de volgende drie doelen 
 
 
 ## <a name="step-1-register-the-hpc-cluster-server-with-your-azure-ad-tenant"></a>Stap 1: De HPC-cluster-server geregistreerd met uw Azure AD-tenant
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Klik op **Active Directory** in het menu links en klik vervolgens op de gewenste map in uw abonnement. U moet gemachtigd zijn voor toegang tot bronnen in de directory.
-3. Klik op **gebruikers**, en controleer of er gebruikersaccounts al gemaakt of geconfigureerd.
-4. Klik op **toepassingen** > **toevoegen**, en klik vervolgens op **mijn organisatie ontwikkelt toepassing toevoegen**. Voer de volgende gegevens in de wizard:
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Als uw account u toegang tot meer dan één Azure AD-tenant hebt, klikt u op uw account in de rechterbovenhoek. Stel uw portal-sessie op de gewenste tenant. U moet gemachtigd zijn voor toegang tot bronnen in de directory. 
+3. Klik op **Azure Active Directory** Klik in het navigatiedeelvenster links Services op **gebruikers en groepen**, en controleer of er gebruikersaccounts al gemaakt of geconfigureerd.
+4. In **Azure Active Directory**, klikt u op **App registraties** > **registratie van de nieuwe toepassing**. Voer de volgende informatie in:
     * **Naam** -HPCPackClusterServer
-    * **Type** : Selecteer **Web-toepassing en/of Web-API**
+    * **Toepassingstype** : Selecteer **Web-app / API**
     * **Eenmalige aanmelding URL**-de basis-URL voor de steekproef die standaard is`https://hpcserver`
-    * **App ID URI** - `https://<Directory_name>/<application_name>`. Vervang `<Directory_name`> met de volledige naam van uw Azure AD-tenant, bijvoorbeeld `hpclocal.onmicrosoft.com`, en vervang `<application_name>` met de naam die u eerder hebt gekozen.
+    * Klik op **Create**.
+5. Nadat de app wordt toegevoegd, selecteert u deze in de **App registraties** lijst. Klik vervolgens op **instellingen** > **eigenschappen**. Voer de volgende informatie in:
+    * Selecteer **Ja** voor **Multi-verpachte**.
+    * Wijziging **App ID URI** naar `https://<Directory_name>/<application_name>`. Vervang `<Directory_name`> met de volledige naam van uw Azure AD-tenant, bijvoorbeeld `hpclocal.onmicrosoft.com`, en vervang `<application_name>` met de naam die u eerder hebt gekozen.
+6. Klik op **Opslaan**. Wanneer opslaan is voltooid, wordt op de pagina, klikt u op **Manifest**. Het manifest bewerken door het zoeken naar de `appRoles` instellen en klik vervolgens op toevoegen van de volgende toepassingsrol **opslaan**:
 
-5. Nadat de app wordt toegevoegd, klikt u op **configureren**. Configureer de volgende eigenschappen:
-    * Selecteer **Ja** voor **toepassing multitenant is**
-    * Selecteer **Ja** voor **Gebruikerstoewijzing vereist voor toegang tot app**.
-
-6. Klik op **Opslaan**. Wanneer opslaan is voltooid, klikt u op **beheren Manifest**. Deze actie downloadt van uw toepassing JavaScript object notation (JSON) manifestbestand. Het gedownloade manifest bewerken door het zoeken naar de `appRoles` instellen en de volgende toepassingsrol toevoegen:
-    ```json
-    "appRoles": [
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "displayName": "HpcAdminMirror",
-        "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "description": "HpcAdminMirror",
-        "value": "HpcAdminMirror"
-        },
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "description": "HpcUsers",
-        "displayName": "HpcUsers",
-        "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "value": "HpcUsers"
-        }
-    ],
-    ```
-7. Sla het bestand op. Klik in de portal **beheren Manifest** > **uploaden Manifest**. Vervolgens kunt u het bewerkte manifest uploaden.
-8. Klik op **gebruikers**, selecteert u een gebruiker en klik vervolgens op **toewijzen**. Een van de beschikbare rollen (HpcUsers of HpcAdminMirror) toewijzen aan de gebruiker. Herhaal deze stap met extra gebruikers in de map. Zie voor achtergrondinformatie over cluster gebruikers, [Cluster gebruikers beheren](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
-
-   > [!NOTE] 
-   > Voor het beheren van gebruikers, wordt u aangeraden de Azure Active Directory-preview-blade in de [Azure-portal](https://portal.azure.com).
-   >
+  ```json
+  "appRoles": [
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "displayName": "HpcAdminMirror",
+     "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "description": "HpcAdminMirror",
+     "value": "HpcAdminMirror"
+     },
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "description": "HpcUsers",
+     "displayName": "HpcUsers",
+     "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "value": "HpcUsers"
+     }
+  ],
+  ```
+7. In **Azure Active Directory**, klikt u op **bedrijfstoepassingen** > **alle toepassingen**. Selecteer **HPCPackClusterServer** uit de lijst.
+8. Klik op **eigenschappen**, en wijzig **Gebruikerstoewijzing vereist** naar **Ja**. Klik op **Opslaan**.
+9. Klik op **gebruikers en groepen** > **gebruiker toevoegen**. Selecteer een gebruiker en selecteer een rol en klik vervolgens op **toewijzen**. Een van de beschikbare rollen (HpcUsers of HpcAdminMirror) toewijzen aan de gebruiker. Herhaal deze stap met extra gebruikers in de map. Zie voor achtergrondinformatie over cluster gebruikers, [Cluster gebruikers beheren](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
 
 ## <a name="step-2-register-the-hpc-cluster-client-with-your-azure-ad-tenant"></a>Stap 2: De client HPC-cluster registreren bij uw Azure AD-tenant
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Klik op **Active Directory** in het menu links en klik vervolgens op de gewenste map in uw abonnement. U moet gemachtigd zijn voor toegang tot bronnen in de directory.
-3. Klik op **toepassingen** > **toevoegen**, en klik vervolgens op **mijn organisatie ontwikkelt toepassing toevoegen**. Voer de volgende gegevens in de wizard:
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Als uw account u toegang tot meer dan één Azure AD-tenant hebt, klikt u op uw account in de rechterbovenhoek. Stel uw portal-sessie op de gewenste tenant. U moet gemachtigd zijn voor toegang tot bronnen in de directory. 
+3. In **Azure Active Directory**, klikt u op **App registraties** > **registratie van de nieuwe toepassing**. Voer de volgende informatie in:
 
-    * **Naam** -HPCPackClusterClient
-    * **Type** : Selecteer **Native Client-toepassing**
+    * **Naam** -HPCPackClusterClient    
+    * **Toepassingstype** : Selecteer **systeemeigen**
     * **Omleidings-URI** - `http://hpcclient`
+    * Klik op **Maken**.
 
-4. Nadat de app wordt toegevoegd, klikt u op **configureren**. Kopieer de **Client-ID** waarde en op te slaan. U nodig dit later bij het configureren van uw toepassing.
+4. Nadat de app wordt toegevoegd, selecteert u deze in de **App registraties** lijst. Kopieer de **toepassings-ID** waarde en op te slaan. U nodig dit later bij het configureren van uw toepassing.
 
-5. In **machtigingen voor andere toepassingen**, klikt u op **toepassing toevoegen**. Zoeken en toevoegen aan de HpcPackClusterServer-toepassing (gemaakt in stap 1).
+5. Klik op **instellingen** > **vereist machtigingen** > **toevoegen** > **selecteert u een API**. Zoek en selecteer de HpcPackClusterServer-toepassing (gemaakt in stap 1).
 
-6. In de **gedelegeerde machtigingen** vervolgkeuzelijst **toegang HpcClusterServer**. Klik vervolgens op **Opslaan**.
+6. In de **toegang inschakelen** pagina **toegang HpcClusterServer**. Klik vervolgens op **Gereed**.
 
 
 ## <a name="step-3-configure-the-hpc-cluster"></a>Stap 3: De HPC-cluster configureren
@@ -134,21 +131,23 @@ Integratie van een cluster HPC Pack met Azure AD kunt u de volgende drie doelen 
 
     ```powershell
 
-    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
+    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcPackClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
     waar
 
     * `AADTenant`Hiermee geeft u de naam van de Azure AD-tenant, zoals`hpclocal.onmicrosoft.com`
-    * `AADClientAppId`Hiermee geeft u de client-ID voor de app gemaakt in stap 2.
+    * `AADClientAppId`Hiermee geeft u de toepassings-ID voor de app gemaakt in stap 2.
 
-4. Start de service HpcSchedulerStateful.
+4. Voer een van de volgende, afhankelijk van de configuratie van het hoofdknooppunt:
 
-    In een cluster met meerdere hoofdknooppunten, kunt u de volgende PowerShell-opdrachten uitvoeren op het hoofdknooppunt overschakelen van de primaire replica voor de service HpcSchedulerStateful:
+    * In een enkel hoofdknooppunt HPC Pack cluster, de HpcScheduler-service opnieuw te starten.
+
+    * Voer de volgende PowerShell-opdrachten op het hoofdknooppunt de HpcSchedulerStateful-service te starten in een HPC Pack-cluster met meerdere hoofdknooppunten:
 
     ```powershell
     Connect-ServiceFabricCluster
 
-    Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService”
+    Move-ServiceFabricPrimaryReplica –ServiceName "fabric:/HpcApplication/SchedulerStatefulService"
 
     ```
 
@@ -174,7 +173,7 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ### <a name="manage-the-local-token-cache"></a>De lokale tokencache beheren
 
-HPC Pack 2016 biedt twee nieuwe HPC PowerShell-cmdlets voor het beheren van de lokale cache van de token. Deze cmdlets zijn handig voor het verzenden van taken niet-interactief. Zie het volgende voorbeeld:
+HPC Pack 2016 biedt de volgende HPC PowerShell-cmdlets voor het beheren van de lokale cache van de token. Deze cmdlets zijn handig voor het verzenden van taken niet-interactief. Zie het volgende voorbeeld:
 
 ```powershell
 Remove-HpcTokenCache
@@ -191,9 +190,9 @@ Soms wilt u de taak onder de gebruiker HPC-cluster (voor een domein HPC-cluster,
 1. Gebruik de volgende opdrachten de referenties in te stellen:
 
     ```powershell
-    $localUser = “<username>”
+    $localUser = "<username>"
 
-    $localUserPassword=”<password>”
+    $localUserPassword="<password>"
 
     $secpasswd = ConvertTo-SecureString $localUserPassword -AsPlainText -Force
 

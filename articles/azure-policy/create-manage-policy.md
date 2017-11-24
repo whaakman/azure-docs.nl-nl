@@ -3,17 +3,17 @@ title: Azure-beleid gebruiken om te maken en beheren van beleidsregels voor het 
 description: Azure-beleid gebruiken om te standaarden afdwingen, voldoen aan wettelijke vereisten voor naleving en audit beheerkosten, beveiliging en prestaties consistentie en enterprise wide principes opleggen.
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van compatibiliteit maken en beheren
 
@@ -386,7 +386,7 @@ U kunt verschillende beleidsdefinities om een overkoepelende doel te bereiken gr
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Een niet-compatibele of geweigerde resource oplossen
 
-Na het bovenstaande voorbeeld, na het toewijzen van de beleidsdefinitie vereisen SQL server-versie 12.0, zou een SQL-server die is gemaakt met een andere versie ophalen geweigerd. In deze sectie lopen we bij het oplossen van een geweigerde poging een SQL-server met een andere versie gemaakt.
+Na het bovenstaande voorbeeld, na het toewijzen van de beleidsdefinitie vereisen SQL server-versie 12.0, zou een SQL-server die is gemaakt met een andere versie ophalen geweigerd. In deze sectie lopen we bij het oplossen van een geweigerde poging te maken van een andere versie van een SQL-server door het aanvragen van een uitsluiting.
 
 1. Selecteer **toewijzingen** in het linkerdeelvenster.
 2. Blader door alle beleidstoewijzingen en start de *vereisen SQL Server versie 12.0* toewijzing.

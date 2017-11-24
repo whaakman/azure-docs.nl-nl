@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synchronisatie: inzicht krijgen in gebruikers, groepen en contactpersonen
 Er zijn verschillende redenen waarom hebt u meerdere Active Directory-forests en er zijn diverse verschillende implementatietopologieën. Algemene modellen bevat de implementatie van een account-resource en GAL sync'ed forests na een fusie & overname. Maar zelfs als er pure modellen, hybride modellen, ook worden gebruikt. De standaardconfiguratie in Azure AD Connect-synchronisatie wordt niet wordt ervan uitgegaan dat een bepaald model maar, afhankelijk van hoe zoeken van overeenkomende gebruikers is geselecteerd in de installatiehandleiding, verschillende problemen kunnen worden waargenomen.
@@ -42,15 +42,15 @@ Belangrijke punten moet denken bij het synchroniseren van groepen van Active Dir
 
 * Om te synchroniseren naar Azure AD als een e-mailgroep Active Directory-groep:
 
-    * Als de groep *proxyAddress* kenmerk leeg is, is de *mail* kenmerk moet een waarde hebben of 
+    * Als de groep *proxyAddress* kenmerk leeg is, is de *mail* kenmerk moet een waarde hebben
 
-    * Als de groep *proxyAddress* kenmerk niet-leeg is, moet deze ook een waarde van primaire SMTP-proxy-adres bevatten (zoals aangeduid met hoofdletters **SMTP** voorvoegsel). Hier volgen enkele voorbeelden:
+    * Als de groep *proxyAddress* kenmerk is niet leeg zijn, moet ten minste één SMTP-proxy-adreswaarde bevatten. Hier volgen enkele voorbeelden:
     
-      * Een Active Directory-groep waarvan proxyAddress-kenmerk heeft de waarde *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* niet meer worden e-mailfunctionaliteit in Azure AD. Dit heeft geen primaire SMTP-adres.
-      
-      * Een Active Directory-groep waarvan proxyAddress-kenmerk waarden heeft *{'X500:/0=contoso.com/ou=users/cn=testgroup', 'smtp:johndoe@contoso.com"}* niet meer worden e-mailfunctionaliteit in Azure AD. Er is een SMTP-adres, maar is niet primair.
+      * Een Active Directory-groep waarvan proxyAddress-kenmerk heeft de waarde *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* niet meer worden e-mailfunctionaliteit in Azure AD. Dit beschikt niet over een SMTP-adres.
       
       * Een Active Directory-groep waarvan proxyAddress-kenmerk waarden heeft *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* worden e-mailfunctionaliteit in Azure AD.
+      
+      * Een Active Directory-groep waarvan proxyAddress-kenmerk waarden heeft *{'X500:/0=contoso.com/ou=users/cn=testgroup', 'smtp:johndoe@contoso.com"}* worden ook het e-mailfunctionaliteit in Azure AD.
 
 ## <a name="contacts"></a>Contactpersonen
 Contactpersonen die een gebruiker in een ander forest dat is gebruikelijk dat na een fusie & overname waarbij een oplossing GALSync twee of meer Exchange-forests is bridging. Het contact-object lid altijd wordt van het connectorgebied overgebracht naar de metaverse met behulp van het e-mailkenmerk. Als er al een contactpersoon of gebruikersobject met hetzelfde e-mailadres, worden de objecten samengevoegd. Dit is geconfigureerd in de regel **In uit Active Directory: Neem contact op met Join**. Er is ook een regel met naam **In uit Active Directory: Neem contact op met algemene** met een kenmerkstroom met het metaverse-kenmerk **sourceObjectType** met de constante **Contact**. Deze regel zeer lage voorrang heeft dus als een gebruikersobject wordt gekoppeld aan hetzelfde metaverse-object, wordt de regel **In uit Active Directory-gebruiker algemene** 's dragen bij de waarde van gebruiker aan dit kenmerk. Met deze regel heeft dit kenmerk de waarde Contact als er geen gebruiker is toegevoegd en de gebruiker waarde als er ten minste één gebruiker zijn gevonden.

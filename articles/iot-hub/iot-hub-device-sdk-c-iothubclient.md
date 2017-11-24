@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: obloch
-ms.openlocfilehash: 6e015d391067271cf71eb865af1b469135c8fcaa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-apparaat SDK voor C: meer informatie over IoTHubClient
 De [eerst artikel](iot-hub-device-sdk-c-intro.md) in deze reeks geïntroduceerd de **Azure IoT-device SDK voor C**. Dit artikel worden beschreven dat er twee architectuur lagen SDK zijn. Aan de basis is de **IoTHubClient** bibliotheek die rechtstreeks communicatie met IoT Hub beheert. Er is ook de **serialisatiefunctie** bibliotheek die op deze voortbouwt om serialisatie-services te bieden. In dit artikel bieden we aanvullende details over de **IoTHubClient** bibliotheek.
@@ -271,8 +271,8 @@ Zie voor meer informatie over het ontwikkelen voor IoT Hub, de [Azure IoT SDK's]
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [Een apparaat simuleren met Azure IoT rand][lnk-iotedge]
+* [AI implementeren op de edge-apparaten met Azure IoT rand][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

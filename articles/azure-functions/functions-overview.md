@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 41f26a4b03a6431aaad21bda6336b8840d2d923f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: d60c898225b944801504f38d536262134a31e021
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="an-introduction-to-azure-functions"></a>Een inleiding tot Azure Functions  
 Azure Functions is een oplossing voor het eenvoudig uitvoeren van kleine stukjes code, ofwel ‘functies’, in de cloud. U hoeft alleen de code te schrijven die u op dat moment nodig hebt, zonder dat u een complete toepassing of de bijbehorende infrastructuur nodig hebt. Functies kunnen aanbrengen ontwikkelen nog efficiënter en kunt u de gewenste programmeertaal, zoals C#, F #, Node.js, Java of PHP. U betaalt alleen voor de tijd dat uw code wordt uitgevoerd en Azure zorgt het eventuele schalen. Azure Functions, kunt u ontwikkelen [zonder server](https://azure.microsoft.com/overview/serverless-computing/) toepassingen in Microsoft Azure.
@@ -31,7 +31,7 @@ Dit onderwerp bevat een globaal overzicht van Azure Functions. Als u meteen en a
 ## <a name="features"></a>Functies
 Hier volgen enkele belangrijke functies van functies:
 
-* **Keuze van taal** : schrijf functies met C#, F #, Node.js, Java, PHP, batch, bash of elk uitvoerbaar bestand.
+* **Keuze van taal** : schrijf functies met behulp van uw keuze van C#, F # of Javascript. Zie [ondersteunde talen](supported-languages.md) voor andere opties.
 * **Betalen per gebruik**: betaal alleen voor de tijd die nodig is voor het uitvoeren van uw code. Raadpleeg de optie voor het hostingabonnement Consumption in de sectie over [prijzen](#pricing).  
 * **Breng uw eigen afhankelijkheden mee**: Functions ondersteunt NuGet en NPM, zodat u uw favoriete bibliotheken kunt gebruiken.  
 * **Geïntegreerde beveiliging**: beveilig HTTP-geactiveerde functies met OAuth-providers zoals Azure Active Directory, Facebook, Google, Twitter en Microsoft-account.  

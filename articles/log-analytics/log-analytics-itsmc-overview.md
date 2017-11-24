@@ -1,6 +1,6 @@
 ---
 title: IT Service Management-Connector in Azure Log Analytics | Microsoft Docs
-description: Gebruik van de IT-Service Management-Connector centraal kunt bewaken en beheren van de werkitems ITSM in Azure Log Analytics en eventuele problemen snel worden opgelost.
+description: In dit artikel biedt een overzicht van IT Service Management Connector (ITSMC) en informatie over het gebruik van deze oplossing centraal kunt bewaken en beheren van de ITSM werkitems in OMS Log Analytics en eventuele problemen snel worden opgelost.
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centraal beheren van werkitems ITSM met IT Service Management-Connector (Preview)
 
 ![Symbool van IT-Service Management-Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-De IT Service Management-Connector (ITSMC) biedt een bidirectionele integratie tussen een ondersteund IT Service Management (ITSM) productservice en Log Analytics.  U kunt via deze verbinding, incidenten, waarschuwingen of gebeurtenissen maken in ITSM product op basis van de waarschuwingen of logboekrecords Log Analytics'. De connector importeert ook gegevens, zoals incidenten en wijzigingsaanvragen van ITSM product in de OMS-logboekanalyse.
+De IT Service Management-Connector (ITSMC) biedt een bidirectionele integratie tussen een ondersteund IT Service Management (ITSM) productservice en Log Analytics.  U kunt via deze verbinding, incidenten, waarschuwingen of gebeurtenissen maken in ITSM product op basis van waarschuwingen, logboekrecords of waarschuwingen van Azure Log Analytics'. De connector importeert ook gegevens, zoals incidenten en wijzigingsaanvragen van ITSM product in de OMS-logboekanalyse.
 
 Met ITSMC, kunt u het volgende doen:
 
@@ -56,11 +56,11 @@ Na een geslaagde toevoeging, ziet u de IT-Service Management-Connector onder **O
  ![ITSMC vernieuwen](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>De verbinding configureren met uw software ITSM
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>De ITSMC-verbinding configureren met uw ITSM producten/services
 
 ITSMC ondersteunt verbindingen met **System Center Service Manager**, **ServiceNow**, **Provance**, en **Cherwell**.
 
-Gebruik de volgende procedures geschikt is voor u:
+Gebruik de volgende procedures als die van toepassing zijn voor u:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -258,6 +258,7 @@ U kunt ook werkitems maken in de verbonden ITSM bronnen rechtstreeks vanuit een 
 4. Geef de juiste waarden in de **Type Contact**, **Impact**, **urgentie**, **categorie**, en **subcategorie** tekstvakken en klik vervolgens op **maken**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Werkitems ITSM van waarschuwingen van Azure maken
+
 ITSMC is geïntegreerd met groepen in te grijpen.
 
 [Actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md) bieden een manier computertoepassingen van acties voor uw Azure-waarschuwingen activeren. Met de actie ITSM in Actiegroepen, kunt u werkitems in uw ITSM product met een bestaande verbinding met ITSM connector oplossing.
@@ -286,7 +287,7 @@ Bij het maken/bewerken van een Azure waarschuwingsregel, moet u een actiegroep, 
 
 >[!NOTE]
 
-> Op dit moment ondersteuning alleen activiteit logboek waarschuwingen voor de actie ITSM. ITSM actie wordt niet ondersteund voor andere waarschuwingen van Azure.
+> Op dit moment alleen activiteit logboek waarschuwingen de actie ITSM ondersteunen, ondersteunen andere Azure-waarschuwingen dit niet.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>ITSM verbindingen in OMS oplossen

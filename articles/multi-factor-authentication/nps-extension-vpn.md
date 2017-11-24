@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -108,7 +108,7 @@ Voor informatie over het installeren van de functie Network Policy and Access Se
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licentie
 
-Een licentie is vereist voor Azure multi-factor Authentication en is beschikbaar in een Azure AD Premium, Enterprise Mobility + Security of een multi-Factor Authentication-abonnement. Op basis van verbruik licenties voor Azure MFA zoals per gebruiker of per authenticatie licenties zijn niet compatibel met de NPS-extensie. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement.
+Een licentie is vereist voor Azure multi-factor Authentication en is beschikbaar in een Azure AD Premium, Enterprise Mobility + Security of een zelfstandige licentie multi-factor Authentication. Op basis van verbruik licenties voor Azure MFA zoals per gebruiker of per authenticatie licenties zijn niet compatibel met de NPS-extensie. Zie voor meer informatie [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md). Voor testdoeleinden kunt u een proefabonnement.
 
 ### <a name="windows-server-software"></a>Windows Server-software
 

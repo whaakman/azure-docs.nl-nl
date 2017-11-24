@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Voor het afhandelen van fouten en uitzonderingen in Azure Logic Apps
 
@@ -26,38 +26,74 @@ Logische Apps van Azure biedt uitgebreide hulpprogramma's en om te controleren o
 
 ## <a name="retry-policies"></a>Beleid voor opnieuw proberen
 
-Een beleid voor opnieuw proberen is het meest eenvoudige type uitzondering en de foutafhandeling. Als een eerste aanvraag is een time-out of mislukt (elke aanvraag die in een 429 resulteert of 5xx-antwoord), dit beleid bepaalt of de actie moet opnieuw proberen. Standaard hebben alle handelingen. opnieuw proberen 4 extra keer via intervallen 20 seconden. Als de eerste aanvraag ontvangt een `500 Internal Server Error` antwoord wordt de werkstroom-engine voor 20 seconden wordt onderbroken en probeert u de aanvraag opnieuw. Als na alle pogingen het antwoord nog steeds een uitzondering of mislukt is, de werkstroom blijft en markeert de status van de actie als `Failed`.
+Een beleid voor opnieuw proberen is het meest eenvoudige type uitzondering en de foutafhandeling. Als een eerste aanvraag is een time-out of mislukt (elke aanvraag die in een 429 resulteert of 5xx-antwoord), dit beleid wordt aangegeven of en hoe moet de bewerking opnieuw proberen. Er zijn drie soorten beleid voor opnieuw proberen, `exponential`, `fixed`, en `none`. Als een beleid voor opnieuw proberen niet in de werkstroomdefinitie van de opgegeven is, wordt het standaardbeleid gebruikt. U kunt beleid voor opnieuw proberen in de **invoer** voor een bepaalde actie of trigger als het herstelbare. Op deze manier in de Logic App-ontwerper voor nieuwe poging beleid kan worden geconfigureerd (indien van toepassing) onder de **instellingen** voor een bepaald blok.
 
-U kunt beleid voor opnieuw proberen in de **invoer** voor een bepaalde actie. U kunt bijvoorbeeld een beleid voor opnieuw proberen om te proberen wel 4 keer via 1 uur. Zie voor volledige informatie over eigenschappen voor de invoer [werkstroomacties en Triggers][retryPolicyMSDN].
+Zie voor informatie over de beperkingen van beleid voor opnieuw proberen, [Logic Apps en configuratie](../logic-apps/logic-apps-limits-and-config.md) en Zie voor meer informatie over ondersteunde syntaxis de [beleid voor opnieuw proberen sectie in werkstroomacties en Triggers][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Exponentiële interval
+De `exponential` beleidstype probeert een mislukte aanvraag na een willekeurig tijdsinterval van een exponentieel groeiende bereik. Elke nieuwe poging kan worden gegarandeerd worden verzonden aan een random interval dat groter is dan **minimumInterval** en minder dan **maximumInterval**. Een uniform willekeurige variabele in de onderstaande bereik wordt gegenereerd voor elke nieuwe poging tot en met **aantal**:
+<table>
+<tr><th> Willekeurige variabele bereik </th></tr>
+<tr><td>
+
+| Probeer getal | Minimaal interval | Maximaal interval |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max (0, **minimumInterval**) | Min (interval **maximumInterval**) |
+| 2 | Max (interval **minimumInterval**) | Min (2 * interval **maximumInterval**) |
+| 3 | Maximum aantal (2 * interval **minimumInterval**) | Min (4 * interval **maximumInterval**) |
+| 4 | Max (4 * interval **minimumInterval**) | Min (8 * interval **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+Voor `exponential` beleidsregels, typ **aantal** en **interval** vereist, terwijl **minimumInterval** en **maximumInterval** kan u kunt de standaardwaarden van PT5S en PT1D respectievelijk overschrijven optioneel worden geleverd.
+
+| Elementnaam | Vereist | Type | Beschrijving |
+| ------------ | -------- | ---- | ----------- |
+| type | Ja | Tekenreeks | `exponential` |
+| aantal | Ja | Geheel getal | aantal nieuwe pogingen, moet tussen 1 en 90 liggen  |
+| interval | Ja | Tekenreeks | interval in poging [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en PT1D |
+| minimumInterval | Nee| Tekenreeks | minimale herhalingsinterval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en **interval** |
+| maximumInterval | Nee| Tekenreeks | minimale herhalingsinterval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen **interval** en PT1D |
+
+### <a name="fixed-interval"></a>Vast interval
+
+De `fixed` beleidstype probeert een mislukte aanvraag door te wachten op het opgegeven tijdsinterval voordat u de volgende aanvraag verzendt.
+
+| Elementnaam | Vereist | Type | Beschrijving |
+| ------------ | -------- | ---- | ----------- |
+| type | Ja | Tekenreeks | `fixed`|
+| aantal | Ja | Geheel getal | aantal nieuwe pogingen, moet tussen 1 en 90 liggen |
+| interval | Ja | Tekenreeks | interval in poging [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en PT1D |
+
+### <a name="none"></a>Geen
+De `none` beleidstype wordt geen nieuwe poging gedaan een mislukte aanvraag.
+
+| Elementnaam | Vereist | Type | Beschrijving |
+| ------------ | -------- | ---- | ----------- |
+| type | Ja | Tekenreeks | `none`|
+
+### <a name="default"></a>Standaard
+Als er geen beleid voor opnieuw proberen is opgegeven, wordt het standaardbeleid gebruikt. Het standaardbeleid is een exponentiële interval-beleid dat maximaal 4 nieuwe pogingen, op exponentieel steeds groter wordende intervallen geschaald met 7.5 seconden en beperkt op tussen 5 en 45 seconden wordt verzonden. Dit standaardbeleid (gebruikt wanneer **retryPolicy** is niet gedefinieerd) is gelijk aan het beleid in dit voorbeeld werkstroomdefinitie HTTP:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-Als u uw HTTP-actie 4 keer opnieuw proberen en wacht tien minuten tussen elke poging wilt, gebruikt u de volgende definitie:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Zie voor meer informatie over ondersteunde syntaxis de [beleid voor opnieuw proberen sectie in werkstroomacties en Triggers][retryPolicyMSDN].
 
 ## <a name="catch-failures-with-the-runafter-property"></a>Catch-fouten met de eigenschap RunAfter
 

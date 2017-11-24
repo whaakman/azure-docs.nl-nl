@@ -20,7 +20,7 @@
 ## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
-## [Uitschallen query-replica configureren](analysis-services-scale-out.md)
+## [Uitschalen configureren](analysis-services-scale-out.md)
 ## [Verbinden met Excel](analysis-services-connect-excel.md)
 ## [Verbinden met Power BI](analysis-services-connect-pbi.md)
 ## [Een ODC-bestand maken](analysis-services-odc.md)

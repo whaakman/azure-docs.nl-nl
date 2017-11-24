@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Multitenant-ondersteuning in Azure Site Recovery voor virtuele VMware-machines repliceren naar Azure via CSP
 
@@ -50,7 +50,7 @@ Zoals in het voorgaande diagram kunt zien, heeft elke klant een afzonderlijke be
 De vereiste isolatie van gegevens vereist dat alle infrastructuur gevoelige gegevens (zoals toegangsreferenties) blijven niet openbaar te maken voor tenants. Daarom is het raadzaam dat alle onderdelen van de beheerserver onder de exclusieve controle van de partner blijven. De management server-onderdelen zijn:
 * Configuratieserver (CS)
 * De processerver (PS)
-* Hoofddoelserver (MT) 
+* Hoofddoelserver (MT)
 
 Een scale-out PS is ook onder het beheer van de partner.
 
@@ -82,7 +82,7 @@ De vCenter-accounttoegang procedure is als volgt:
 
     * **Taken**: taak, Update-taak maken
 
-    * **Virtuele machine**: 
+    * **Virtuele machine**:
         * Configuratie > alle
         * Interactie > beantwoorden van vraag, apparaatverbinding, configureer CD's, diskettes configureren, uitschakelen, inschakelen, VMware-hulpprogramma's installeren
         * Inventaris > maken op basis van bestaande, het maken van nieuwe, het registreren, registratie
@@ -138,8 +138,8 @@ De VM-vereisten zijn hetzelfde zoals beschreven in de [documentatie van Azure Si
 
 ### <a name="step-1-create-a-tenant-account"></a>Stap 1: Een tenantaccount maken
 
-1. Via [Microsoft Partner Center](https://partnercenter.microsoft.com/), zich aanmelden bij uw account CSP. 
- 
+1. Via [Microsoft Partner Center](https://partnercenter.microsoft.com/), zich aanmelden bij uw account CSP.
+
 2. Op de **Dashboard** selecteert u **klanten**.
 
     ![De klanten van Microsoft-Partner Center-koppeling](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ De VM-vereisten zijn hetzelfde zoals beschreven in de [documentatie van Azure Si
 
     ![De pagina controleren](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Nadat u het tenantaccount hebt gemaakt, verschijnt er een bevestigingspagina waarin de details van het standaard-account en het wachtwoord voor dat abonnement. 
+    Nadat u het tenantaccount hebt gemaakt, verschijnt er een bevestigingspagina waarin de details van het standaard-account en het wachtwoord voor dat abonnement.
 
 7. Sla de gegevens en het wachtwoord later als nodig is via de Azure portal-aanmeldingspagina te wijzigen.  
- 
+
     U kunt deze informatie delen met de tenant is of u kunt maken en delen van een afzonderlijk account indien nodig.
 
 ### <a name="step-2-access-the-tenant-account"></a>Stap 2: Toegang tot de tenantaccount
 
-U kunt toegang tot de tenant abonnement via het Microsoft Partner Center-Dashboard zoals beschreven in ' stap 1: een tenantaccount maken. " 
+U kunt toegang tot de tenant abonnement via het Microsoft Partner Center-Dashboard zoals beschreven in ' stap 1: een tenantaccount maken. "
 
 1. Ga naar de **klanten** pagina en klik vervolgens op de naam van de tenantaccount.
 
 2. Op de **abonnementen** pagina van de tenantaccount kunt u de bestaande abonnementen te controleren en meer abonnementen toevoegen zoals vereist. Selecteer voor het beheren van de tenant herstel na noodgevallen operations **alle resources (Azure-portal)**.
 
     ![De koppeling met alle Resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Te klikken op **alle resources** biedt u toegang tot Azure-abonnementen van de tenant. U kunt toegang controleren door te klikken op de Azure Active Directory-koppeling aan de bovenkant van de Azure-portal.
 
     ![Azure Active Directory-koppeling](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ U kunt toegang tot de tenant abonnement via het Microsoft Partner Center-Dashboa
 U kunt nu alle site-en herstelbewerkingen op voor de tenant via de Azure portal uitvoeren en beheren van de bewerkingen voor herstel na noodgevallen. Voor toegang tot het tenantabonnement via de CSP voor beheerde noodherstel, volgt u de eerder beschreven procedure.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Stap 3: Resources aan het tenantabonnement implementeren
-1. Een resourcegroep maken in de Azure portal en vervolgens implementeert u een Recovery Services-kluis per normale proces. 
- 
+1. Een resourcegroep maken in de Azure portal en vervolgens implementeert u een Recovery Services-kluis per normale proces.
+
 2. Download de kluisregistratiesleutel.
 
 3. Registreer de CS voor de tenant met behulp van de sleutel van de registratie van de kluis.

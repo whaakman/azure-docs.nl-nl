@@ -11,27 +11,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/16/2017
 ms.author: bradsev;
-ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1015a9f24ca2c175ff367b1748f05bb3e464457f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="execution-of-data-science-projects"></a>De uitvoering van de gegevens wetenschappelijke projecten
 
-Dit document wordt beschreven hoe een wetenschappelijk gegevens een wetenschappelijke gegevensproject in een systematische, versie beheerd en gezamenlijke manier binnen een projectteam uitvoeren kunt met behulp van de [Team gegevens wetenschap proces](overview.md) (TDSP). De TDSP ligt een framework dat is ontwikkeld door Microsoft, met een gestructureerd opeenvolging van activiteiten uit te voeren van cloud-gebaseerde, predictive analytics-oplossingen efficiënt biedt. Zie voor een overzicht van de rollen personeel en de bijbehorende taken die worden verwerkt door een gegevens wetenschappelijke team standaardiseren op dit proces [Team gegevens wetenschap proces rollen en taken](roles-tasks.md). 
+Dit document wordt beschreven hoe ontwikkelaars een wetenschappelijke gegevensproject in een systematische, versie beheerd en gezamenlijke manier binnen een projectteam uitvoeren kunnen met behulp van de [Team gegevens wetenschap proces](overview.md) (TDSP). De TDSP ligt een framework dat is ontwikkeld door Microsoft, met een gestructureerd opeenvolging van activiteiten uit te voeren van cloud-gebaseerde, predictive analytics-oplossingen efficiënt biedt. Zie voor een overzicht van de rollen personeel en de bijbehorende taken die worden verwerkt door een gegevens wetenschappelijke team standaardiseren op dit proces [Team gegevens wetenschap proces rollen en taken](roles-tasks.md). 
 
-Dit onderwerp bevat instructies voor het: 
+In dit artikel bevat instructies voor het: 
 
-1. Voer **sprint planning** voor werkitems die zijn betrokken bij een project.<br> Als u niet bekend met sprint planning bent, vindt u hieronder voor meer informatie en algemene informatie [hier](https://en.wikipedia.org/wiki/Sprint_(software_development) "hier"). 
+1. Voer **sprint planning** voor werkitems die zijn betrokken bij een project.<br> Als u niet bekend met sprint planning bent, vindt u meer informatie en algemene informatie [hier](https://en.wikipedia.org/wiki/Sprint_(software_development) "hier"). 
 2. **toevoegen van werkitems** naar sprints.
 3. **koppelen van de werkitems met behulp van activiteiten coderingen** met git wordt bijgehouden.
 4. Voer **code revisie**. 
 
-
->[AZURE.NOTE] Overzicht van de stappen die nodig zijn voor het instellen van een omgeving met TDSP team met behulp van Visual Studio Team Services (VSTS) in de volgende set van instructies. We opgeven hoe u deze taken met VSTS omdat hoe we TDSP bij Microsoft implementeren. Items (3) en (4) zijn in de vorige lijst voordelen van natuurlijk als u wilt gebruiken VSTS. Als een andere code platform die als host fungeert voor de groep wordt gebruikt, worden de taken die moeten worden voltooid door de lead team in het algemeen niet wijzigen. Maar de manier om deze taken voltooien is het verstandig om verschillende. Bijvoorbeeld: het item in de sectie 6 **koppelen van een werkitem met een vertakking git**, mogelijk niet zo eenvoudig als het zich op VSTS.
+> [!NOTE]
+> De stappen die nodig zijn voor het instellen van een omgeving met TDSP team met behulp van Visual Studio Team Services (VSTS) worden beschreven in de volgende set van instructies. Ze bepalen hoe deze taken met VSTS omdat dat het implementeren van TDSP bij Microsoft.  Als u wilt gebruiken VSTS, artikelen (3) en (4) in de vorige lijst zijn de voordelen van natuurlijk. Als een andere code platform die als host fungeert voor de groep wordt gebruikt, worden de taken die moeten worden voltooid door de lead team in het algemeen niet wijzigen. Maar de manier om deze taken voltooien is het verstandig om verschillende. Bijvoorbeeld: het item in de sectie 6 **koppelen van een werkitem met een vertakking git**, mogelijk niet zo eenvoudig als het zich op VSTS.
+>
+>
 
 De volgende afbeelding ziet u een typische sprint plannen, coderen en bronbeheer werkstroom betrokken bij de uitvoering van een wetenschappelijke gegevensproject:
 
@@ -53,9 +55,15 @@ In de TDSP sprint planning framework, zijn er vier veelgebruikte typen **werkite
 - **Taak**: taken zijn toegewezen code of het document werkitems of andere activiteiten die worden uitgevoerd moeten voor het voltooien van een specifieke artikel. Bijvoorbeeld: taken in het artikel *gegevens ophalen van* kan zijn:
     -  Ophalen van referenties van SQL Server 
     -  Het uploaden van gegevens naar SQL datawarehouse. 
-- **Fout**: Bugs meestal verwijzen naar oplossingen die nodig zijn voor een bestaande code of het document die worden uitgevoerd als een taak is voltooid. Het kan escaleren naar een artikel of een taak wordt als de fout wordt veroorzaakt door ontbrekende stadia of taken respectievelijk. 
+- **Fout**: Bugs meestal verwijzen naar oplossingen die nodig zijn voor een bestaande code of het document die worden uitgevoerd als een taak is voltooid. Als de fout wordt veroorzaakt door ontbrekende stadia of taken respectievelijk, kan het escaleren naar een artikel of een taak. 
 
->[AZURE.NOTE] We zijn concepten van functies, artikelen, taken en fouten van beheer van software-code (SCM) moet worden gebruikt in gegevenswetenschap lenen. Ze kunnen enigszins verschillen van de conventionele SCM-definities.
+> [!NOTE]
+> Concepten worden van functies, artikelen, taken en fouten van beheer van software-code (SCM) moet worden gebruikt in gegevenswetenschap geleend. Ze kunnen enigszins verschillen van de conventionele SCM-definities.
+>
+>
+
+Gegevenswetenschappers denken wellicht meer vertrouwd met een flexibele-sjabloon die specifiek wordt uitgelijnd met de fasen van het levenscyclusbeheer TDSP. Met daarom is een Agile afgeleid sprint planning van de sjabloon gemaakt, waarbij Epics, enz., artikelen zijn vervangen door de fasen van het levenscyclusbeheer TDSP of substages. Documentatie over het maken van een flexibele sjabloon vindt [hier](https://msdata.visualstudio.com/AlgorithmsAndDataScience/TDSP/_git/TDSP?path=%2FDocs%2Fteam-data-science-process-agile-template.md&version=GBxibingao&_a=preview).
+
 
 ##  2. <a name='SprintPlanning-2'></a>Sprint plannen 
 
@@ -74,7 +82,7 @@ Als u wilt opnemen een functie in de achterstand, klikt u op **achterstanden** -
 
 ![3](./media/project-execution/project-execution-3-sprint-team-add-work.png)
 
-Dubbelklik op de functie die u zojuist hebt gemaakt. Vul in de beschrijvingen, teamleden voor deze functie toewijzen en parameters voor deze functie planning instellen. 
+Dubbelklik op de functie die u hebt gemaakt. Vul in de beschrijvingen, teamleden voor deze functie toewijzen en parameters voor deze functie planning instellen. 
 
 U kunt deze functie ook koppelen aan de project-opslagplaats. Klik op **koppeling toevoegen** onder de **ontwikkeling** sectie. Nadat u klaar bent met de functie bewerken, klikt u op **opslaan en sluiten** om af te sluiten.
 
@@ -196,7 +204,7 @@ U kunt ook de volgende Git-opdrachten gebruiken de werkvertakking verwijderen na
 
 ##  10. <a name='DataQualityReportUtility-10'></a>Interactieve Gegevensverkenning, analyse en rapportage (IDEAR)-hulpprogramma
 
-Dit hulpprogramma R op basis van markdown biedt een flexibele en interactieve hulpprogramma om te evalueren en gegevenssets te verkennen. Gebruikers kunnen snel rapporten genereren van de gegevensset met minimale coderen. Gebruikers kunnen klikken op knoppen waarmee u kunt de resultaten van de exploratie hij in de interactieve hulpprogramma naar een definitieve rapport die kan worden geleverd aan clients of gebruikt ziet voor het nemen van beslissingen over welke variabelen moeten worden opgenomen in de volgende modellering stap exporteren.
+Dit hulpprogramma R op basis van markdown biedt een flexibele en interactieve hulpprogramma om te evalueren en gegevenssets te verkennen. Gebruikers kunnen snel rapporten genereren van de gegevensset met minimale coderen. Gebruikers kunnen klikken op knoppen waarmee u kunt de exploratie resultaten in het hulpprogramma voor interactieve exporteren naar een definitieve rapport die kan worden geleverd aan clients of gebruikt voor het nemen van beslissingen over welke variabelen moeten worden opgenomen in de volgende modellering stap.
 
 Op dit moment werkt het hulpprogramma alleen op gegevensframes in het geheugen. Een .yaml-bestand is nodig om op te geven van de parameters van de gegevensset worden onderzocht. Zie voor meer informatie [IDEAR in hulpprogramma's TDSP gegevens wetenschappelijke](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
@@ -229,7 +237,7 @@ Groepsbeheerders voor wetenschappelijke gegevens, team leads en project leads no
 
 Zie voor informatie over het maken van Power BI-dashboards en rapporten voor het bijhouden van uw activiteiten Git-opslagplaats en uw werkitems nadat de gegevens van VSTS is verbonden met Power BI, [maken Power BI-dashboards en rapporten](https://www.visualstudio.com/en-us/docs/report/powerbi/report-on-vso-with-power-bi-vs). 
 
-Hier vindt u twee eenvoudige voorbeeld dashboards die we bouwen om te volgen Git-activiteiten en werkitems. De git streven activiteiten worden weergegeven door andere gebruikers in het eerste voorbeeld-dashboard op verschillende datums en op andere opslagplaatsen. U kunt eenvoudig segmenteren en geanalyseerd om te filteren op de waarden die u geïnteresseerd bent in.
+Hier vindt u twee eenvoudige voorbeeld dashboards die zijn ontworpen voor het bijhouden van Git-activiteiten en werkitems. De git streven activiteiten worden weergegeven door andere gebruikers in het eerste voorbeeld-dashboard op verschillende datums en op andere opslagplaatsen. U kunt eenvoudig segmenteren en geanalyseerd om te filteren op de waarden die u geïnteresseerd bent in.
 
 ![23](./media/project-execution/project-execution-23-powerbi-git.png)
 
@@ -240,6 +248,6 @@ In het tweede voorbeeld-dashboard worden de werkitems in verschillende iteraties
  
 ## <a name="next-steps"></a>Volgende stappen
 
-Volledige end-to-end-scenario's die de stappen in het proces voor het demonstreren **specifieke scenario's** worden ook gegeven. Ze worden weergegeven en gekoppeld aan de miniatuur beschrijvingen in de [voorbeeld-scenario's](walkthroughs.md) onderwerp. Ze te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of pijplijn een intelligente toepassing maken. 
+Volledige end-to-end-scenario's die de stappen in het proces voor het demonstreren **specifieke scenario's** worden ook gegeven. Ze worden weergegeven en gekoppeld aan de miniatuur beschrijvingen in de [voorbeeld-scenario's](walkthroughs.md) artikel. Ze te laten zien hoe cloud, 's voor on-premises en -services combineren in een werkstroom of pijplijn een intelligente toepassing maken. 
 
 Zie voor voorbeelden van stappen uitvoeren in het Team gegevens wetenschappelijke processen die gebruikmaken van Azure Machine Learning Studio de [met Azure ML](http://aka.ms/datascienceprocess) leertraject.

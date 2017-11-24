@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: 10c0dd2156e850b421d80901b6f0b40c7d384cef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
 De ForEach-activiteit definieert een herhalende controlestroom in de pipeline. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
@@ -34,7 +34,10 @@ De eigenschappen worden verderop in dit artikel beschreven. De eigenschap items 
    "type":"ForEach",
    "typeProperties":{  
       "isSequential":"true",
-      "items":"@pipeline().parameters.mySinkDatasetFolderPathCollection",
+        "items": {
+            "value": "@pipeline().parameters.mySinkDatasetFolderPathCollection",
+            "type": "Expression"
+        },
       "activities":[  
          {  
             "name":"MyCopyActivity",
@@ -73,7 +76,7 @@ Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
 naam | De naam van de voor elke activiteit. | Tekenreeks | Ja
 type | Moet worden ingesteld op **ForEach** | Tekenreeks | Ja
-isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximum van 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende bron- en sink gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. De standaardwaarde is ONWAAR. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Anders moet u deze eigenschap gebruikt behoedzaam te vermijden schrijven conflicten. Zie voor meer informatie [parallelle uitvoering](#parallel-execution) sectie. | Booleaanse waarde | Nee. De standaardwaarde is ONWAAR.
+isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximum van 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende bron- en sink gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. De standaardwaarde is ONWAAR. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Anders moet u deze eigenschap gebruikt behoedzaam te vermijden schrijven conflicten. Zie voor meer informatie [parallelle uitvoering](#parallel-execution) sectie. | Boole-waarde | Nee. De standaardwaarde is ONWAAR.
 Items | Een expressie die een JSON-matrix worden iteratie retourneert. | Expressie (die resulteert in een JSON-matrix) | Ja
 Activiteiten | De activiteiten worden uitgevoerd. | Lijst van activiteiten | Ja
 
@@ -98,7 +101,10 @@ Geef in de ForEach-activiteit, een matrix aan iteratie voor de eigenschap **item
                 "type": "ForEach",
                 "typeProperties": {
                     "isSequential": "true",
-                    "items": "@pipeline().parameters.mySinkDatasetFolderPath",
+                    "items": {
+                        "value": "@pipeline().parameters.mySinkDatasetFolderPath",
+                        "type": "Expression"
+                    },
                     "activities": [
                         {
                             "name": "MyCopyActivity",

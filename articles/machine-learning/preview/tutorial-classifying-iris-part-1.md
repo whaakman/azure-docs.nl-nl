@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Classifying Iris deel 1: gegevens voorbereiden
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -69,7 +69,9 @@ Volg de instructies in [dit artikel](quickstart-installation.md) om de toepassin
    ![Iris selecteren](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Zorg ervoor dat u voor deze oefening het bestand **iris.csv** vanuit de huidige projectmap selecteert, anders kunnen latere stappen mislukken. 
+   >Zorg ervoor dat u voor deze oefening het bestand **iris.csv** vanuit de huidige projectmap selecteert, anders kunnen latere stappen mislukken.
+   
+4. Nadat u het bestand hebt geselecteerd, selecteert u de knop **Voltooien**.
 
 4. Er wordt een nieuw bestand gemaakt met de naam **iris-1.dsource**. Het bestand krijgt een unieke naam door het toevoegen van '-1', omdat het voorbeeldproject al een bestand met de naam **iris.dsource** zonder nummer bevat.  
 

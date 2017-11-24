@@ -1,10 +1,10 @@
 ---
-title: Beheren van netwerkbeveiligingsgroepen - Azure CLI 2.0 | Microsoft Docs
-description: Informatie over het beheren van netwerkbeveiligingsgroepen met behulp van de Azure-opdrachtregelinterface (CLI) 2.0.
+title: Beheren van netwerkbeveiligingsgroepen - Azure CLI | Microsoft Docs
+description: Informatie over het beheren van netwerkbeveiligingsgroepen met behulp van de Azure-opdrachtregelinterface.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Netwerkbeveiligingsgroepen met behulp van de Azure CLI 2.0 beheren
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Met de Azure CLI beveiligingsgroepen beheren
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren 
-
-U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies: 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel 
-- [Azure CLI 2.0](#View-existing-NSGs) -onze volgende generatie CLI voor de resource management-implementatiemodel (in dit artikel)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
 
 ## <a name="prerequisite"></a>Vereiste
 Als u dit nog niet hebt nog installeren en configureren van de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Bestaande nsg's weergeven
 Voor de lijst met nsg's in een specifieke resourcegroep, voer de [az netwerk nsg lijst](/cli/azure/network/nsg#list) opdracht met een `-o table` uitvoerindeling:
@@ -89,13 +80,13 @@ Verwachte uitvoer:
 
 ## <a name="view-nsg-associations"></a>Weergave NSG koppelingen
 
-Om weer te geven welke bronnen de **NSG-FrontEnd** NSG koppelen aan de run is de `az network nsg show` opdracht zoals hieronder wordt weergegeven. 
+Om weer te geven welke bronnen de **NSG-FrontEnd** NSG koppelen aan de run is de `az network nsg show` opdracht: 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Zoek naar de **networkInterfaces** en **subnetten** eigenschappen zoals hieronder wordt weergegeven:
+Zoek naar de **networkInterfaces** en **subnetten** eigenschappen, zoals wordt weergegeven in de volgende voorbeelduitvoer:
 
 ```json
 [
@@ -117,7 +108,7 @@ Zoek naar de **networkInterfaces** en **subnetten** eigenschappen zoals hieronde
 ]
 ```
 
-In het bovenstaande voorbeeld het NSG is niet gekoppeld aan alle netwerkinterfaces (NIC's) en is gekoppeld aan een subnet met de naam **FrontEnd**.
+In het vorige voorbeeld het NSG is niet gekoppeld aan alle netwerkinterfaces (NIC's) en is gekoppeld aan een subnet met de naam **FrontEnd**.
 
 ## <a name="add-a-rule"></a>Een regel toevoegen
 Een regel voor toestaan toevoegen **inkomende** verkeer op poort **443** vanaf een willekeurige computer naar de **NSG-FrontEnd** NSG, voer de volgende opdracht:
@@ -160,7 +151,7 @@ Verwachte uitvoer:
 ```
 
 ## <a name="change-a-rule"></a>Een regel wijzigen
-Wijzigen van de regel die eerder is gemaakt waarmee binnenkomend verkeer van de **Internet** alleen, voer de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#update) opdracht:
+Wijzigen van de regel die eerder hebt gemaakt, waarmee binnenkomend verkeer van de **Internet** alleen, voer de [az netwerk nsg regel update](/cli/azure/network/nsg/rule#update) opdracht:
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ In de uitvoer is de `networkSecurityGroup` sleutel heeft iets soortgelijks voor 
   ```
 
 ## <a name="delete-an-nsg"></a>Een NSG verwijderen
-U kunt een NSG alleen verwijderen als deze niet aan een resource zijn gekoppeld. Volg de onderstaande stappen voor het verwijderen van een NSG.
+U kunt een NSG alleen verwijderen als deze niet aan een resource zijn gekoppeld. Voor het verwijderen van een NSG voert u de volgende stappen uit:
 
 1. Om te controleren van de resources die zijn gekoppeld aan een NSG, voer de `azure network nsg show` zoals weergegeven in [weergave nsg's koppelingen](#View-NSGs-associations).
 2. Als de NSG gekoppeld aan een NIC's is, voert u de `azure network nic set` zoals in [ontkoppelen van een NSG van een NIC](#Dissociate-an-NSG-from-a-NIC) voor elke NIC. 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Zelfstudie: Azure Active Directory-integratie met voorzijde
 
@@ -104,66 +104,60 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Op de **Front-domein en de URL's** sectie als u wilt configureren van de toepassing in **IDP** modus gestart:
+3. Op de **Front-domein en de URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com`
 
     b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Controleer **weergeven geavanceerde instellingen voor URL**, als u wilt configureren van de toepassing in **SP** modus gestart:
-
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, het antwoord-URL en de aanmeldings-URL die worden beschreven verderop in de zelfstudie of neem contact op met [Front Client ondersteuningsteam](mailto:support@frontapp.com) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL die worden beschreven verderop in de zelfstudie of neem contact op met [Front Client ondersteuningsteam](mailto:support@frontapp.com) ophalen van deze waarden. 
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Klik op **opslaan** knop.
+5. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Op de **Front configuratie** sectie, klikt u op **Front configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op de **Front configuratie** sectie, klikt u op **Front configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Eenmalige aanmelding voor uw tenant voorzijde als beheerder.
+7. Eenmalige aanmelding voor uw tenant voorzijde als beheerder.
 
-9. Ga naar **instellingen (tandwiel pictogram onder aan de linkerkant zijbalk) > Voorkeuren**.
+8. Ga naar **instellingen (tandwiel pictogram onder aan de linkerkant zijbalk) > Voorkeuren**.
    
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Klik op **eenmalige aanmelding** koppeling.
+9. Klik op **eenmalige aanmelding** koppeling.
    
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Selecteer **SAML** in de vervolgkeuzelijst van **eenmalige aanmelding**.
+10. Selecteer **SAML** in de vervolgkeuzelijst van **eenmalige aanmelding**.
    
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. In de **toegangspunt** textbox plaatsen de waarde van **één Service-URL aanmelding** van de configuratiewizard voor Azure AD-toepassing.
+11. In de **toegangspunt** textbox plaatsen de waarde van **één Service-URL aanmelding** van de configuratiewizard voor Azure AD-toepassing.
     
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **handtekeningcertificaat** textbox.
+12. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **handtekeningcertificaat** textbox.
     
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Op de **Service-Providerinstellingen** sectie, voert u de volgende stappen uit:
+13. Op de **Service-Providerinstellingen** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Kopieer de waarde van **entiteit-ID** en plak deze in de **id** textbox in **Front-domein en de URL's** sectie in Azure-portal.
 
-    b. Kopieer de waarde van **ACS URL** en plak deze in de **aanmeldings-URL** textbox in **Front-domein en de URL's** sectie in Azure-portal.
+    b. Kopieer de waarde van **ACS URL** en plak deze in de **antwoord-URL** textbox in **Front-domein en de URL's** sectie in Azure-portal.
     
-15. Klik op **opslaan** knop.
+14. Klik op **opslaan** knop.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

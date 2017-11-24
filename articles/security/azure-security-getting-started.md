@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1ee07f2284df925b8bbd9050de7ae40fa66bf65
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Aan de slag met de beveiliging in Microsoft Azure
 Wanneer u bouwen of IT-middelen naar een cloudprovider migreren, worden de mogelijkheden van die organisatie aan uw toepassingen en gegevens beschermen met de services en de besturingselementen die ze bieden voor het beheren van de beveiliging van uw assets cloud-gebaseerde afhankelijk.

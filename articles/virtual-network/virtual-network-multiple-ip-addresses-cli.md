@@ -1,10 +1,10 @@
 ---
-title: Virtuele machine met meerdere IP-adressen in de Azure CLI 2.0 | Microsoft Docs
-description: Meer informatie over meerdere IP-adressen toewijzen aan een virtuele machine via de Azure CLI 2.0 | Resource Manager.
+title: Virtuele machine met meerdere IP-adressen met de Azure CLI | Microsoft Docs
+description: Informatie over meerdere IP-adressen toewijzen aan een virtuele machine via de Azure-opdrachtregelinterface (CLI).
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
-ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jimdial
+ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Meerdere IP-adressen toewijzen aan virtuele machines met behulp van de Azure CLI 2.0
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Meerdere IP-adressen toewijzen aan virtuele machines met de Azure CLI
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Dit artikel wordt uitgelegd hoe u een virtuele machine (VM) maken via het Azure Resource Manager-implementatiemodel met behulp van de Azure CLI 2.0. Meerdere IP-adressen kunnen niet worden toegewezen aan resources die zijn gemaakt met behulp van het klassieke implementatiemodel. Lees voor meer informatie over Azure-implementatiemodellen de [begrijpen implementatiemodellen](../resource-manager-deployment-model.md) artikel.
+Dit artikel wordt uitgelegd hoe u een virtuele machine (VM) maken via het Azure Resource Manager-implementatiemodel met de Azure CLI. Meerdere IP-adressen kunnen niet worden toegewezen aan resources die zijn gemaakt met behulp van het klassieke implementatiemodel. Lees voor meer informatie over Azure-implementatiemodellen de [begrijpen implementatiemodellen](../resource-manager-deployment-model.md) artikel.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Een virtuele machine maken met meerdere IP-adressen
 
-U kunt deze taak uitvoeren met de Azure CLI 2.0 (in dit artikel) of de [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Wijzig de waarden, waar nodig, voor uw omgeving. Welke stappen volgen wordt uitgelegd hoe een voorbeeld van de virtuele machine maken met meerdere IP-adressen, zoals beschreven in het scenario. Variabelewaarden wijzigen in ' ' en IP-adrestypen zoals vereist voor uw implementatie. 
+Welke stappen volgen wordt uitgelegd hoe een voorbeeld van de virtuele machine maken met meerdere IP-adressen, zoals beschreven in het scenario. Variabelewaarden wijzigen in ' ' en IP-adrestypen, zoals vereist voor uw implementatie. 
 
 1. Installeer de [Azure CLI 2.0](/cli/azure/install-az-cli2) als u dit nog niet geïnstalleerd.
 2. De openbare en persoonlijke sleutelpaar voor een SSH maken voor Linux virtuele machines via de stappen in de [maken van een SSH openbare en persoonlijke sleutelpaar voor virtuele Linux-machines](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

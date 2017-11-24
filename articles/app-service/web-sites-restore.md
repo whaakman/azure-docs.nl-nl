@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Een app in Azure herstellen
 Dit artikel laat zien hoe u een app in [Azure App Service](../app-service/app-service-web-overview.md) die u hebt eerder back-up gemaakt (Zie [Back-up van uw app in Azure](web-sites-backup.md)). U kunt uw app met de gekoppelde databases op aanvraag naar een eerdere status herstellen of een nieuwe app op basis van een back-ups van uw oorspronkelijke app maken. Azure App Service ondersteunt de volgende databases voor back-up en herstel:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure-Database voor MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure-Database voor PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
-- [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Herstellen vanuit back-ups is beschikbaar voor apps die worden uitgevoerd **standaard** en **Premium** laag. Zie voor meer informatie over het schalen van uw app [een app in Azure opschalen](web-sites-scale.md). **Premium** laag kan een groter aantal dagelijkse back-ups worden uitgevoerd dan **standaard** laag.

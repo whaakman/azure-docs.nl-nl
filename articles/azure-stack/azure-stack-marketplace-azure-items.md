@@ -1,6 +1,6 @@
 ---
-title: Azure marketplace-items beschikbaar voor Azure-Stack | Microsoft Docs
-description: Deze items Azure marektplace kunnen worden gebruikt in Azure-Stack.
+title: Azure Marketplace-items beschikbaar voor Azure-Stack | Microsoft Docs
+description: Deze Azure Marketplace-items kunnen worden gebruikt in Azure-Stack.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: erikje
-ms.openlocfilehash: 09177c3d036c38c366253f9291d0096994cc123b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d04a96e061c4f25e10b1582736012a3ada6f6a6b
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/21/2017
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure marketplace-items beschikbaar voor Azure-Stack
+# <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Microsoft Azure-Stack ondersteunt de volgende Azure marketplace-items:
+Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace-items:
 
 |  | De itemnaam van het | Beschrijving | Uitgever |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Docker-extensie voor virtuele Linux-Machines. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [R Server alleen SQL Server 2016 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.RServerOnlySQLServer2016Enterprise?tab=Overview) | R Server alleen SQL Server 2016 Enterprise. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft-Machine Learning-Server 9.2.1 op WindowsServer 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op Ubuntu 16.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft-Machine Learning-Server 9.2.1 op Ubuntu 16.04. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op CentOS Linux 7.2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft-Machine Learning-Server 9.2.1 op CentOS Linux 7.2. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Implementatie van extern bureaublad-Services (RDS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/rds.remote-desktop-services-basic-deployment?tab=Overview) | Maak een eenvoudige implementatie van extern bureaublad-Services (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Evaluatieversie van SharePoint Server 2013](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2013Trial?tab=Overview) | Microsoft SharePoint Server 2013-evaluatieversie op Windows Server 2012 Datacenter- en 2017 van Visual Studio community edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Evaluatieversie van SharePoint Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2016Trial?tab=Overview) | SharePoint Server 2016 proefversie van Microsoft Windows Server 2016 datacentrum. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 servicepack 2. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databaseplatform voor intelligente, bedrijfskritieke toepassingen. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Developer op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | Developer-versie van SQL Server 2016 SP1 voor transactionele, data warehousing, business intelligence en analytics werkbelastingen. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Express-versie van SQL Server 2016 SP1 | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databaseplatform voor intelligente, bedrijfskritieke toepassingen. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 in Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 servicepack 2.  **Vereiste download:** SQL IaaS-extensie. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databaseplatform voor intelligente, bedrijfskritieke toepassingen. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Developer op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | Developer-versie van SQL Server 2016 SP1 voor transactionele, data warehousing, business intelligence en analytics werkbelastingen.  **Vereiste download:** SQL IaaS-extensie. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Express-versie van SQL Server 2016 SP1. **Vereiste download:** SQL IaaS-extensie. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databaseplatform voor intelligente, bedrijfskritieke toepassingen.  **Vereiste download:** SQL IaaS-extensie. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [WindowsServer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) | Bedrijfsniveau oplossingen die eenvoudig te implementeren, rendabele toepassing gericht en de gebruiker gericht. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.abantecart?tab=Overview) | Open Source e-commerce winkelwagen. | bitnami |
 | ![](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.activemq?tab=Overview) | Open Source bericht broker in Java. | bitnami |
@@ -154,18 +156,22 @@ Microsoft Azure-Stack ondersteunt de volgende Azure marketplace-items:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine verkoop CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compacte marketing-, verkoop- en -servicetoepassing. | bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS- en Web-Portal programma dat wordt gemaakt dynamische websites.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Open Source CRM-systeem: mobiele, sociale en Gamified. | bitnami |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC beveiligingsbeheer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC biedt geavanceerde, meerlaagse threat preventie om klant activa in Azure te beveiligen tegen malware en geavanceerde dreigingen. | Check Point |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef automatiseren](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Maken, implementeren en beheren met Chef automatiseren, het doorlopende Automation-Platform. | Chef-Software, Inc. |
-| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 'Jessie' met backports kernel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux door virtuele CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Container Linux is een moderne en minimale Linux-distributie bieden een eenvoudige manier om containers worden uitgevoerd, clusters beheren en uw servers naadloos bijwerken - alle onderdelen waarmee datawarehouse scale compute. | CoreOS |
+| ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server is de meest populaire Linux's werelds voor cloudomgevingen. | Canonical |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 'Jessie'](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 'Stretch'](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian9?tab=Overview) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster Load Balancer ADC inhoud Switch](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Laag 4-7 toepassing levering Controller (ADC) Load Balancer, inhoud Switch en het Traffic Manager. | KEMP technologieën Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 6,9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | Deze verdeling van Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave-Software. | Rogue Wave-Software (voorheen OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.3 op basis van centOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73?tab=Overview) | Deze verdeling van Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave-Software. | Rogue Wave-Software (voorheen OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 op basis van centOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased74?tab=Overview) | Deze verdeling van Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave-Software. | Rogue Wave-Software (voorheen OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription?tab=Overview) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Beste eersteklas bron infrastructuur management te openen. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro grondige Security-extensie voor Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro grondige Security-extensie voor Windows. | Trend Micro |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hulpprogramma voor ZeroDown Software](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown Software hulpprogramma v7.1 - migreren + HA. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hulpprogramma voor ZeroDown Software](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown Software hulpprogramma v7.1 - migreren + HA. | ZeroDown Software |
 
 
 ### <a name="next-steps"></a>Volgende stappen
-[Download een marketplace-item](azure-stack-download-azure-marketplace-item.md)
-
+[Download een Marketplace-item](azure-stack-download-azure-marketplace-item.md)

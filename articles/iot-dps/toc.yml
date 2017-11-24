@@ -4,13 +4,17 @@
   items:
     - name: Over het inrichten van een IoT-apparaat
       href: about-iot-dps.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Automatische inrichting instellen
       href: quick-setup-auto-provision.md
     - name: Een gesimuleerd apparaat maken
-      href: quick-create-simulated-device.md
+      items:
+        - name: TPM
+          href: quick-create-simulated-device.md
+        - name: X.509
+          href: quick-create-simulated-device-x509.md
 - name: Zelfstudies
   items:
     - name: 1 - Cloudresources instellen
@@ -29,7 +33,6 @@
       href: concepts-service.md
     - name: Beveiligingsconcepten
       href: concepts-security.md
-    - name: Beveiliging
 - name: Handleidingen
   items:
     - name: Apparaatregistraties beheren

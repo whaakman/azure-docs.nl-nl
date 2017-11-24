@@ -1,6 +1,6 @@
 ---
 title: Verbindingen met de IT-Service Management-Connector ondersteund in Azure Log Analytics | Microsoft Docs
-description: Verbinding maken met uw ITSM producten/services met IT Service Management-Connector in Azure-logboekanalyse centraal kunt bewaken en beheren van de werkitems ITSM.
+description: In dit artikel bevat informatie over het aansluiten van uw ITSM producten/services met de IT Service Management Connector (ITSMC) in de OMS-logboekanalyse centraal kunt bewaken en beheren van de werkitems ITSM.
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Verbinding maken met ITSM producten/services met IT Service Management-Connector (Preview)
-In dit artikel bevat informatie over verbinding maken met uw ITSM product of dienst aan IT Service Management Connector (ITSMC) in OMS en centraal beheren van uw werkitems. Zie voor meer informatie over ITSMC [ITSMC overzicht](log-analytics-itsmc-overview.md).
+In dit artikel bevat informatie over verbinding maken met uw ITSM product of dienst aan IT Service Management Connector (ITSMC) in OMS en centraal beheren van uw werkitems. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
 
-De volgende producten/services worden ondersteund:
+De volgende ITSM producten/services worden ondersteund. Selecteer het product om gedetailleerde informatie over het verbinding maken met het product ITSMC weer te geven.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ Uw hybride verbinding is verbonden.
 
 > Nadat de hybride verbinding is gemaakt, controleren en de verbinding testen door naar de geïmplementeerde Service Manager-Web-app te gaan. Zorg ervoor dat de verbinding is geslaagd voordat u probeert verbinding maken met ITSMC in OMS.
 
-De volgende afbeelding ziet u de details van de verbinding is geslaagd:
+De installatiekopie van het volgende voorbeeld ziet u de details van de verbinding is geslaagd:
 
 ![Hybride verbinding testen](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

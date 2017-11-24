@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ebd6109fdae00da9e6dc1fc456573327d521e7e9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -52,7 +52,7 @@ De NPS-extensie is bedoeld voor gebruik met uw bestaande infrastructuur. Zorg er
 
 ### <a name="licenses"></a>Licenties
 
-De NPS-extensie voor Azure MFA is beschikbaar voor klanten met [licenties voor Azure multi-factor Authentication](multi-factor-authentication.md) (meegeleverd bij Azure AD Premium, EMS of een MFA-abonnement). Op basis van verbruik licenties voor Azure MFA zoals per gebruiker of per authenticatie licenties zijn niet compatibel met de NPS-extensie. 
+De NPS-extensie voor Azure MFA is beschikbaar voor klanten met [licenties voor Azure multi-factor Authentication](multi-factor-authentication.md) (meegeleverd bij Azure AD Premium, EMS of een zelfstandige licentie MFA). Op basis van verbruik licenties voor Azure MFA zoals per gebruiker of per authenticatie licenties zijn niet compatibel met de NPS-extensie. 
 
 ### <a name="software"></a>Software
 
@@ -81,7 +81,7 @@ Voordat u de extensie NPS installeert, die u wilt u de omgeving voor het afhande
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>De NPS-rol op een domein-server inschakelen
 
-De NPS-server maakt verbinding met Azure Active Directory en verifieert de MFA-aanvragen. Kies een server voor deze rol. Het is raadzaam om het kiezen van een server die aanvragen van andere services kunnen niet worden verwerkt omdat de extensie NPS genereert fouten voor alle aanvragen die niet RADIUS zijn.
+De NPS-server maakt verbinding met Azure Active Directory en verifieert de MFA-aanvragen. Kies een server voor deze rol. Het is raadzaam om het kiezen van een server die aanvragen van andere services kunnen niet worden verwerkt omdat de extensie NPS genereert fouten voor alle aanvragen die niet RADIUS zijn. De NPS-server moet worden ingesteld als de primaire en secundaire authentication-server voor uw omgeving. proxy RADIUS-aanvragen naar een andere server niet.
 
 1. Open op uw server, de **Wizard Functies toevoegen en onderdelen** in het menu Serverbeheer Quickstart.
 2. Kies **op basis van functie of onderdeel gebaseerde installatie** voor uw installatietype.
@@ -193,7 +193,7 @@ Als u gebruikers die niet zijn geregistreerd voor MFA hebt, kunt u bepalen wat e
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | WAAR/ONWAAR | Niet ingesteld (equivalent op TRUE) |
 
-Het doel van deze instelling is om te bepalen wat te doen wanneer een gebruiker niet is ingeschreven voor MFA. Wanneer de sleutel bestaat niet, is niet ingesteld of is ingesteld op TRUE, en de gebruiker niet is ingeschreven, wordt de uitbreiding voor de MFA-controle is mislukt. Wanneer de sleutel is ingesteld op FALSE en de gebruiker niet is ingeschreven, wordt de authenticatie voortgezet zonder dat u MFA uitvoert.
+Het doel van deze instelling is om te bepalen wat te doen wanneer een gebruiker niet is ingeschreven voor MFA. Wanneer de sleutel bestaat niet, is niet ingesteld of is ingesteld op TRUE, en de gebruiker niet is ingeschreven, wordt de uitbreiding voor de MFA-controle is mislukt. Wanneer de sleutel is ingesteld op FALSE en de gebruiker niet is ingeschreven, wordt de authenticatie voortgezet zonder dat u MFA uitvoert. Als een gebruiker is ingeschreven in MFA, moeten ze verifiëren met MFA zelfs als REQUIRE_USER_MATCH is ingesteld op FALSE.
 
 U kunt deze sleutel maken en ingesteld op FALSE terwijl uw gebruikers voorbereiding zijn en kunnen niet allemaal worden ingeschreven voor Azure MFA nog. Omdat de sleutel, gebruikers die niet zijn geregistreerd voor MFA kunnen aanmelden, moet u deze sleutel verwijderen voordat u doorgaat naar productie.
 

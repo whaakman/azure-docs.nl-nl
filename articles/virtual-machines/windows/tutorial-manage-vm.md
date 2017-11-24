@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Maken en beheren van Windows virtuele machines met de Azure PowerShell-module
 
@@ -293,7 +293,7 @@ De volgende tabel categoriseert grootten in gebruiksvoorbeelden.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Algemeen doel         |DSv2, Dv2, DS, D, Av2, A0 7| Taakverdeling CPU-naar-geheugen. Ideaal voor dev / testen en in kleine tot middelgrote oplossingen voor toepassingen en gegevens.  |
 | Geoptimaliseerde rekenkracht      | FS, F             | Hoog CPU-naar-geheugen. Goede voor gemiddeld verkeer toepassingen, netwerkapparatuur en batchprocessen.        |
-| Geoptimaliseerd geheugen       | GS, G, DSv2, DS, Dv2, D   | Hoge geheugen-naar-core. Ideaal voor relationele databases, middelgrote tot grote caches en in het geheugen analytics.                 |
+| Geoptimaliseerd geheugen       | GS, G, DSv2, DS, Dv2, D   | Hoge geheugen-naar-CPU. Ideaal voor relationele databases, middelgrote tot grote caches en in het geheugen analytics.                 |
 | Geoptimaliseerde opslag       | Ls                | Snelle doorvoer van schijfgegevens en IO. Ideaal voor big data-, SQL- en NoSQL-databases.                                                         |
 | GPU           | NV, NC            | Gespecialiseerde VMs gericht voor zware grafische weergave en het bewerken van video's.       |
 | Hoge prestaties | H, A8 11          | De krachtigste CPU VMs met optionele hoge gegevensdoorvoer netwerkinterfaces (RDMA). 
@@ -344,11 +344,11 @@ Een Azure VM kan een van de vele energiestatussen hebben. Deze status vertegenwo
 | Energieniveau | Beschrijving
 |----|----|
 | Starting | Geeft aan dat de virtuele machine wordt gestart. |
-| Running | Hiermee wordt aangegeven dat de virtuele machine wordt uitgevoerd. |
+| Actief | Hiermee wordt aangegeven dat de virtuele machine wordt uitgevoerd. |
 | Stopping | Hiermee wordt aangegeven dat de virtuele machine wordt gestopt. | 
 | Stopped | Hiermee wordt aangegeven dat de virtuele machine is gestopt. Houd er rekening mee dat virtuele machines in de gestopte status nog steeds compute worden kosten in rekening.  |
-| Toewijzing | Hiermee wordt aangegeven dat de virtuele machine wordt opgeheven. |
-| De toewijzing ongedaan gemaakt | Hiermee wordt aangegeven dat de virtuele machine volledig verwijderd van de hypervisor, maar nog steeds beschikbaar in het vlak van het besturingselement wordt. Virtuele machines in de status van de Deallocated kan niet worden compute-kosten in rekening. |
+| De toewijzing wordt ongedaan gemaakt | Hiermee wordt aangegeven dat de virtuele machine wordt opgeheven. |
+| Toewijzing ongedaan gemaakt | Hiermee wordt aangegeven dat de virtuele machine volledig verwijderd van de hypervisor, maar nog steeds beschikbaar in het vlak van het besturingselement wordt. Virtuele machines in de status van de Deallocated kan niet worden compute-kosten in rekening. |
 | - | Hiermee wordt aangegeven dat de voedingsstatus van de virtuele machine onbekend is. |
 
 ### <a name="find-power-state"></a>Energieniveau vinden

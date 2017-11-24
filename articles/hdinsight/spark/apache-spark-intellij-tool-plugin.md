@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
-ms.author: nitinme
-ms.openlocfilehash: 82683349f3e562be5ac89ade4143588283abd71c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/25/2017
+ms.author: maxluk,jejiang
+ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor IntelliJ Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -168,8 +168,8 @@ Zie voor installatie-instructies [Azure Toolkit installeren voor IntelliJ](https
       
       Zie voor meer informatie over het openen van de taakuitvoer van de, het ' toegang en HDInsight Spark-clusters beheren met behulp van Azure Toolkit voor IntelliJ ' verderop in dit artikel.
 
-## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Uitvoeren of fouten opsporen in een Spark Scala-toepassing op een HDInsight Spark-cluster
-Aangeraden wordt ook een andere manier om de Spark-toepassing aan het cluster in te dienen. U kunt dit doen door het instellen van de parameters in de **uitvoeren/Debug configuraties** IDE. Zie voor meer informatie [op afstand fouten opsporen in Spark scala-toepassingen op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Fouten opsporen in Spark scala-toepassingen lokaal of extern op een HDInsight-cluster 
+Aangeraden wordt ook een andere manier om de Spark-toepassing aan het cluster in te dienen. U kunt ook doen door het instellen van de parameters in de **uitvoeren/Debug configuraties** IDE. Zie voor meer informatie [fouten opsporen in Spark scala-toepassingen lokaal of extern op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Toegang tot en HDInsight Spark-clusters beheren met behulp van Azure Toolkit voor IntelliJ
 U kunt verschillende bewerkingen kunt uitvoeren met behulp van Azure Toolkit voor IntelliJ.
@@ -211,50 +211,6 @@ Azure-Toolkit voor IntelliJ bevat standaard het Spark-clusters van alle uw Azure
 1. In Azure Explorer met de rechtermuisknop op de **Azure** de hoofd-knooppunt en selecteer vervolgens **abonnementen beheren**. 
 
 2. Schakel de selectievakjes naast de abonnementen die u niet wilt openen, en selecteer vervolgens in het dialoogvenster **sluiten**. U kunt ook selecteren **Afmelden** als u wilt afmelden bij uw Azure-abonnement.
-
-## <a name="run-a-spark-scala-application-locally"></a>Een Spark Scala-toepassing lokaal uitvoeren
-U kunt Azure Toolkit voor IntelliJ gebruiken Spark Scala-toepassingen lokaal uitvoeren op uw werkstation. De toepassingen die normaal gesproken geen toegang nodig tot clusterresources, zoals de storage-containers en u kunt uitvoeren en lokaal te testen.
-
-### <a name="prerequisite"></a>Vereiste
-Terwijl u de lokale Spark Scala-toepassingen op een Windows-computer uitvoert, krijgt u mogelijk een uitzondering, zoals wordt beschreven in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). De uitzondering is omdat WinUtils.exe in Windows ontbreekt. 
-
-Deze fout op te lossen [downloaden van het uitvoerbare bestand](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) naar een locatie zoals **C:\WinUtils\bin**. Voeg de omgevingsvariabele **HADOOP_HOME**, en stel de waarde van de variabele **C\WinUtils**.
-
-### <a name="run-a-local-spark-scala-application"></a>Een lokale Spark Scala-toepassing uitvoeren
-1. IntelliJ IDEA Start en een project maken. 
-
-2. In de **nieuw Project** dialoogvenster de volgende handelingen uit:
-   
-    a. Selecteer **HDInsight** > **Spark in HDInsight lokaal uitvoeren voorbeeld (Scala)**.
-
-    b. In de **Build hulpprogramma** , selecteert u een van de volgende, afhankelijk van uw behoeften:
-
-      * **Maven**, voor ondersteuning van de wizard Scala project maken
-      * **SBT**, voor het beheren van de afhankelijkheden en bouwen voor het project Scala
-
-    ![Het dialoogvenster Nieuw Project](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-
-3. Selecteer **volgende**.
- 
-4. In het volgende venster de volgende doen:
-   
-    a. Voer een naam en locatie.
-
-    b. In de **Project SDK** vervolgkeuzelijst, selecteert u een Java-versie die is hoger dan versie 1.7.
-
-    c. In de **Spark versie** vervolgkeuzelijst, selecteert u de versie van Scala die u wilt gebruiken: Scala 2.11.x voor Spark 2.0 of Scala 2.10.x voor Spark 1.6.
-
-    ![Het dialoogvenster Nieuw Project](./media/apache-spark-intellij-tool-plugin/Create-local-project.PNG)
-
-5. Selecteer **Voltooien**.
-
-6. De sjabloon wordt toegevoegd een voorbeeldcode (**LogQuery**) onder de **src** map die u lokaal op uw computer uitvoeren kunt.
-   
-    ![Locatie van LogQuery](./media/apache-spark-intellij-tool-plugin/local-app.png)
-
-7. Met de rechtermuisknop op de **LogQuery** toepassing en selecteer vervolgens **uitvoeren 'LogQuery'**. Op de **uitvoeren** tabblad onderaan, ziet u de volgende uitvoer:
-   
-   ![Spark toepassing lokale resultaat van uitgevoerde](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Bestaande IntelliJ IDEA toepassingen met Azure Toolkit voor IntelliJ converteren
 U kunt de bestaande Spark Scala converteren toepassingen die u in IntelliJ IDEA voor compatibiliteit met Azure Toolkit voor IntelliJ gemaakt. Vervolgens kunt u de invoegtoepassing voor het verzenden van de toepassingen naar een HDInsight Spark-cluster.

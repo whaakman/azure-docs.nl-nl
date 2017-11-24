@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory-ontwikkelaar verklarende woordenlijst
 In dit artikel bevat definities voor enkele van de belangrijkste Azure Active Directory (AD) concepten voor ontwikkelaars, dit handig is bij leren over het ontwikkelen van toepassingen voor Azure AD.
@@ -33,6 +33,9 @@ Toegangstokens worden soms aangeduid als 'Gebruiker + App' of 'App alleen-lezen'
 * ['Clientreferenties ' authorization grant](#authorization-grant), de client is de enige verificatie werkt zonder de resource-eigenaar verificatie/autorisatie, zodat het token kan soms worden aangeduid als een token 'App-Only'.
 
 Zie [Azure AD-tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
+
+## <a name="application-id-client-id"></a>toepassings-id (client-id)
+De unieke id van Azure AD-problemen voor de registratie van een toepassing die een bepaalde toepassing en de bijbehorende configuraties identificeert.  Deze toepassing-id ([client-id](https://tools.ietf.org/html/rfc6749#page-15)) wordt gebruikt wanneer verificatie vereist en die aan de verificatiebibliotheken in ontwikkeling. De toepassings-id (client-id) is niet een geheim. 
 
 ## <a name="application-manifest"></a>Het toepassingsmanifest
 Een functie die is geleverd door de [Azure-portal][AZURE-portal], dat resulteert in een JSON-weergave van de identiteit van de configuratie van toepassing, gebruikt als een mechanisme voor het bijwerken van de bijbehorende [ Toepassing] [ AAD-Graph-App-Entity] en [ServicePrincipal] [ AAD-Graph-Sp-Entity] entiteiten. Zie [inzicht in de Azure Active Directory-toepassingsmanifest] [ AAD-App-Manifest] voor meer informatie.
@@ -174,7 +177,7 @@ Net zoals die een service-principal-object wordt gebruikt voor de instantie van 
 Een soort [clienttoepassing](#client-application) die alle code op een webserver, en kunnen functioneren als een "Vertrouwelijk" client door de referenties veilig opslaan op de server wordt uitgevoerd. Zie [OAuth2-client van het type en -profielen] [ OAuth2-Client-Types] voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-De [Ontwikkelaarshandleiding voor Azure AD] [ AAD-Dev-Guide] is de portal kunt gebruiken voor alle Azure AD-ontwikkeling Verwante onderwerpen, waaronder een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios].
+De [Ontwikkelaarshandleiding voor Azure AD] [ AAD-Dev-Guide] is de startpagina kunt gebruiken voor alle Azure AD-ontwikkeling Verwante onderwerpen, waaronder een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios].  U vindt ook codevoorbeelden en zelfstudies over het ophalen van snel gebruiksklaar op [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze inhoud, met inbegrip van aanvragen voor nieuwe definities of voor het bijwerken van bestaande vorm!
 

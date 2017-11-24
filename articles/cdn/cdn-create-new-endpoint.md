@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Aan de slag met Azure CDN
 In dit artikel wordt beschreven hoe u Azure CDN inschakelt door een nieuw CDN-profiel en -eindpunt te maken.
@@ -82,7 +82,7 @@ Een CDN-profiel is een verzameling van CDN-eindpunten.  Elk profiel bevat een of
    > Voor de toegang tot CDN-inhoud via HTTPS gelden de volgende beperkingen:
    > 
    > * U moet het SSL-certificaat gebruiken dat door het CDN is verstrekt. Certificaten van derden worden niet ondersteund.
-   > * HTTPS-ondersteuning voor aangepaste Azure CDN-domeinen is alleen beschikbaar bij **Azure CDN van Verizon**-producten (Standard en Premium). Dit wordt niet ondersteund in producten van **Azure CDN van Akamai**. Zie [Enable or disable HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md) (HTTPS op een aangepast Azure CDN-domein in- of uitschakelen) voor meer informatie.
+   > * HTTPS-ondersteuning voor aangepaste Azure CDN-domeinen is alleen beschikbaar bij **Azure CDN van Verizon**-producten (Standard en Premium). Dit wordt niet ondersteund in producten van **Azure CDN van Akamai**. Zie [HTTPS op een aangepast Azure CDN-domein configureren](cdn-custom-ssl.md) voor meer informatie.
   
 9. Klik op de knop **Toevoegen** om het nieuwe eindpunt te maken.
    

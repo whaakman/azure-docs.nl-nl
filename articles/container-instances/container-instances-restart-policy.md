@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Een beperkte taak uitvoeren in Azure Containerexemplaren
 
@@ -147,7 +147,7 @@ Geef een opdrachtregel te gebruiken bij het maken van een exemplaar van de conta
 
 U kunt bijvoorbeeld de voorbeeld-container tekst dan analyseren hebben *Hamlet* door te geven van een andere vanaf de opdrachtregel. Het Python-script uitgevoerd op de container *wordcount.py*, een URL als een argument accepteert en verwerkt die pagina-inhoud in plaats van de standaard.
 
-Om bijvoorbeeld te bepalen van de drie belangrijkste vijf letters woorden in *Valentijn en Juliet*:
+Om bijvoorbeeld te bepalen van de top-3 vijf letters woorden in *Valentijn en Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ Uitvoer:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
+### <a name="persist-task-output"></a>Taakuitvoer behouden
 
 Zie voor meer informatie over het behouden van de uitvoer van de containers die voor uitvoering [koppelen van een Azure-bestandsshare met Azure Containerexemplaren](container-instances-mounting-azure-files-volume.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Een Event Hub gebeurtenisbron toevoegen aan uw omgeving Azure Time Series Insights | Microsoft Docs
+title: Een Event Hub gebeurtenisbron toevoegen aan Azure Time Series Insights | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u een gebeurtenisbron die is verbonden met een Event Hub aan uw omgeving Time Series Insights toevoegt.
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: f3a9a1c7e57383925877f674a2e02f931e5c1e3c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Het toevoegen van een Event Hub gebeurtenisbron aan Time Series Insights-omgeving
 
@@ -61,7 +61,7 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
    | Event hub beleidssleutel | Waarde van de sleutel mogelijk vooraf worden ingevuld.
    | Event hub klantengroep | De consumergroep gebeurtenissen moeten worden gelezen van de Event Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron. |
    | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de berichtindeling van de berichtgegevens in Event Hub worden verzonden. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+   | Naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de berichtindeling van de berichtgegevens in Event Hub worden verzonden. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
 
 9. Als u hebt geselecteerd de **bieden Event Hub-instellingen handmatig** optie, de volgende tabel wordt uitgelegd dat alle vereiste eigenschappen:
@@ -76,7 +76,7 @@ Dit artikel wordt beschreven hoe u met de Azure portal een gebeurtenisbron die g
    | Event hub beleidssleutel | De toegang tot de gedeelde sleutel gebruikt voor het verifiëren van toegang tot de Service Bus-naamruimte. Voer de primaire of secundaire sleutel hier in.
    | Event hub klantengroep | De Consumergroep gebeurtenissen moeten worden gelezen van de Event Hub. Het is raadzaam een speciale klantengroep gebruiken voor de gebeurtenisbron.
    | Gebeurtenis serialisatie-indeling | JSON is de enige beschikbare serialisatie op dit moment. De event-berichten moeten zich in deze indeling of er zijn geen gegevens kunnen worden gelezen. |
-   | De naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de berichtindeling van de berichtgegevens in Event Hub worden verzonden. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
+   | Naam van de timestamp-eigenschap | Om te bepalen deze waarde, moet u inzicht in de berichtindeling van de berichtgegevens in Event Hub worden verzonden. Deze waarde is de **naam** van de specifieke gebeurtenis-eigenschap in de berichtgegevens die u wilt gebruiken als de tijdstempel van de gebeurtenis. De waarde is hoofdlettergevoelig. Als er niets wordt opgegeven, de **gebeurtenistijd in de wachtrij plaatsen** binnen de gebeurtenis bron wordt gebruikt als de tijdstempel van de gebeurtenis. |
 
 
 10. Selecteer **maken** om toe te voegen van de nieuwe gebeurtenisbron.
