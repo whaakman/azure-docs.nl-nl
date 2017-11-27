@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -118,7 +118,7 @@ De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen
 
 Een on-premises netwerkgateway kan via BGP (Border Gateway Protocol) routes uitwisselen met de gateway van een virtueel Azure-netwerk. Het gebruik van BGP met de gateway van een virtueel Azure-netwerk is afhankelijk van het type dat u hebt geselecteerd tijdens het maken van de gateway. Als het geselecteerde type is:
 
-- **ExpressRoute**: u moet BGP gebruiken om routes te adverteren naar de Microsoft-edge router. U kunt geen door de gebruiker gedefinieerde routes maken als u de gateway van een virtueel netwerk implementeert als het type: ExpressRoute.
+- **ExpressRoute**: u moet BGP gebruiken om on-premises routes te adverteren naar de Microsoft Edge router. U kunt geen door de gebruiker gedefinieerde routes maken om af te dwingen dat verkeer naar de gateway van een virtueel ExpressRoute-netwerk wordt geleid, wanneer u de gateway van een virtueel netwerk implementeert als het type ExpressRoute. U kunt door de gebruiker gedefinieerde routes gebruiken om af te dwingen dat verkeer van ExpressRoute naar bijvoorbeeld een virtueel-netwerkapparaat wordt geleid. 
 - **VPN**: u kunt desgewenst BGP gebruiken. Zie [Overzicht van BGP met Azure VPN-gateways](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie.
 
 Wanneer u routes met Azure uitwisselt via BGP, wordt er voor elk geadverteerd voorvoegsel een afzonderlijke route toegevoegd aan de routetabel van alle subnetten in een virtueel netwerk. De route wordt toegevoegd met *Gateway van virtueel netwerk* als de bron en het 'volgende hoptype'. 

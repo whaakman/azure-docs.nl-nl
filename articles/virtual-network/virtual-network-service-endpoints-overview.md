@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Virtual Network Service Endpoints (preview)
 
@@ -28,7 +28,7 @@ Met service-eindpunten van Virtual Network (VNet) kunt u de privé-adresruimte v
 Deze functie is beschikbaar als preview voor de volgende Azure-services en regio's:
 
 - **Azure Storage**: alle regio's in de openbare cloud van Azure.
-- **Azure SQL Database**: WestCentralUS, WestUS2 en EastUS.
+- **Azure SQL**: alle regio's in de openbare cloud van Azure.
 
 Voor recente updates over de preview kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 
@@ -122,4 +122,5 @@ Voor een Azure-serviceresource (zoals een Azure Storage-account) kunnen services
 - Zie [Secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure Storage-account aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure SQL Database aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Azure service integration in virtual networks](virtual-network-for-azure-services.md) (Integratie van Azure-services in virtuele netwerken) voor meer informatie
+-  Snel starten: [Azure Resource Manager-sjabloon](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) als u een service-eindpunt wilt instellen op het subnet van een VNet en het Azure Storage-account op dat subnet wilt beveiligen.
 

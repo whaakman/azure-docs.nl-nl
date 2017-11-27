@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van PowerShell
 
@@ -59,13 +59,17 @@ Zie voor meer informatie over verbindingen tussen VNets de [Veelgestelde vragen 
 
 ## <a name="which-set-of-steps-should-i-use"></a>Welke stappen moet ik gebruiken?
 
-In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor [VNets die zich in hetzelfde abonnement bevinden](#samesub) en een andere voor [VNets die zich in verschillende abonnementen bevinden](#difsub). Het belangrijkste verschil tussen de reeksen is of u alle resources van het virtuele netwerk en de gateway kunt maken en configureren binnen dezelfde PowerShell-sessie.
-
-In de stappen in dit artikel worden variabelen gebruikt die aan het begin van elke sectie zijn gedeclareerd. Als u al met bestaande VNets werkt, wijzigt u de variabelen zo dat ze overeenkomen met de instellingen in uw eigen omgeving. Zie [Naamomzetting](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) als u naamomzetting voor uw virtuele netwerken wilt.
-
-## <a name="samesub"></a>VNets verbinden die tot hetzelfde abonnement behoren
+In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor [VNets die tot hetzelfde abonnement behoren](#samesub). De stappen voor deze configuratie maken gebruik van TestVNet1 en TestVNet4.
 
 ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Er is een apart artikel voor [VNets die tot verschillende abonnementen behoren](#difsub). De stappen voor die configuratie maken gebruik van TestVNet1 en TestVNet5.
+
+![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+Het belangrijkste verschil tussen de reeksen is of u alle resources van het virtuele netwerk en de gateway kunt maken en configureren binnen dezelfde PowerShell-sessie. U moet afzonderlijke PowerShell-sessies gebruiken voor het configureren van verbindingen voor VNets die tot verschillende abonnementen behoren. Als u wilt, kunt u configuraties combineren of alleen die configuratie kiezen waarmee u wilt werken.
+
+## <a name="samesub"></a>VNets verbinden die tot hetzelfde abonnement behoren
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
@@ -90,7 +94,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * Openbare IP: VNet1GWIP
 * VPNType: op route gebaseerd
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (voor VNets in verschillende abonnementen)
 * ConnectionType: VNet2VNet
 
 **Waarden voor TestVNet4:**
@@ -279,8 +283,6 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hier
 4. Controleer de verbinding. Raadpleeg de sectie [De verbinding controleren](#verify).
 
 ## <a name="difsub"></a>VNets verbinden die tot verschillende abonnement behoren
-
-![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 In dit scenario worden TestVNet1 en TestVNet5 met elkaar verbonden. TestVNet1 en TestVNet5 bevinden zich in een verschillend abonnement. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn. Het verschil tussen deze stappen en de eerste set is dat een deel van de configuratiestappen moet worden uitgevoerd in een aparte PowerShell-sessie in de context van het tweede abonnement. Dit geldt met name wanneer de twee abonnementen tot verschillende organisaties behoren.
 

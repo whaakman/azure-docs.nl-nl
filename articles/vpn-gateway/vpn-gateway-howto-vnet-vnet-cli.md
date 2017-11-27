@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure CLI
 
@@ -59,11 +59,17 @@ Zie voor meer informatie over verbindingen tussen VNets de [Veelgestelde vragen 
 
 ### <a name="which-set-of-steps-should-i-use"></a>Welke stappen moet ik gebruiken?
 
-In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor [VNets die zich in hetzelfde abonnement bevinden](#samesub) en een andere voor [VNets die zich in verschillende abonnementen bevinden](#difsub).
-
-## <a name="samesub"></a>VNets verbinden die tot hetzelfde abonnement behoren
+In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor [VNets die tot hetzelfde abonnement behoren](#samesub). De stappen voor deze configuratie maken gebruik van TestVNet1 en TestVNet4.
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+Er is een apart artikel voor [VNets die tot verschillende abonnementen behoren](#difsub). De stappen voor die configuratie maken gebruik van TestVNet1 en TestVNet5.
+
+![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+Als u wilt, kunt u configuraties combineren of alleen die configuratie kiezen waarmee u wilt werken.
+
+## <a name="samesub"></a>VNets verbinden die tot hetzelfde abonnement behoren
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
@@ -88,7 +94,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * Openbare IP: VNet1GWIP
 * VPNType: op route gebaseerd
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (voor VNets in verschillende abonnementen)
 * ConnectionType: VNet2VNet
 
 **Waarden voor TestVNet4:**
@@ -255,8 +261,6 @@ U hebt nu twee VNets met VPN-gateways. De volgende stap is het maken van VPN-gat
 
 ## <a name="difsub"></a>VNets verbinden die tot verschillende abonnement behoren
 
-![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 In dit scenario worden TestVNet1 en TestVNet5 met elkaar verbonden. De VNets behoren tot verschillende abonnementen. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn. Met de stappen voor deze configuratie voegt u nog een VNet-naar-VNet-verbinding toe om TestVNet1 te verbinden met TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Stap 5: TestVNet1 maken en configureren
@@ -362,7 +366,7 @@ Omdat de gateways tot verschillende abonnementen behoren, is deze stap opgesplit
 ## <a name="verify"></a>De verbindingen controleren
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Veelgestelde vragen over VNet-naar-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

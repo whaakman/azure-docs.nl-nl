@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ms.author: erikje
-ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6ce8f86592ece59e338578be86c2cb673c35dbc1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Azure Stack registreren bij uw Azure-abonnement
 
@@ -42,22 +42,6 @@ Voordat u registreert Stack van Azure met Azure, moet u het volgende hebben:
 Als u geen een Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/en-us/free/?b=17.06). Azure-Stack registreren maakt geen kosten op uw Azure-abonnement.
 
 
-
-## <a name="register-azure-stack-resource-provider-in-azure"></a>Azure-Stack resourceprovider in Azure registreren
-> [!NOTE] 
-> Deze stap moet slechts één keer worden voltooid in een Azure-Stack-omgeving.
->
-
-1. Een Powershell-sessie start als beheerder.
-2. Aanmelden bij de Azure-account is eigenaar van het Azure-abonnement (u kunt de cmdlet Login-AzureRmAccount aanmelden en wanneer u zich aanmeldt, zorg ervoor dat de parameter - EnvironmentName 'AzureCloud' instellen).
-3. Registreer de Azure-resourceprovider 'Microsoft.AzureStack'.
-
-**Voorbeeld:** 
-```Powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
-```
-
 ## <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
 > [!NOTE]
@@ -66,7 +50,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 1. Open een PowerShell-console als beheerder en [Installeer PowerShell voor Azure-Stack](azure-stack-powershell-install.md).  
 
-2. De Azure-account die u gebruiken wilt voor het registreren van de Azure-Stack toevoegen. U kunt dit doen de `Add-AzureRmAccount` cmdlet zonder parameters. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.  
+2. De Azure-account die u gebruiken wilt voor het registreren van de Azure-Stack toevoegen. U kunt dit doen de `Add-AzureRmAccount` cmdlet met de parameter EnvironmentName ingesteld op 'AzureCloud'. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken. 
+
+   ```Powershell
+   Add-AzureRmAccount -EnvironmentName "AzureCloud"
+   ```
 
 3. Als u meerdere abonnementen hebt, voert u de volgende opdracht om te selecteren die dat u wilt gebruiken:  
 
@@ -74,22 +62,28 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Verwijder alle bestaande versies van de Powershell-modules die met de registratie overeenkomen en [download de nieuwste versie van deze vanuit GitHub](azure-stack-powershell-download.md).  
+4. Registreer de provider van de resource AzureStack in uw Azure-abonnement. Voer hiertoe de volgende opdracht:
 
-5. In de map 'AzureStack-hulpprogramma's-master' dat is gemaakt in de vorige stap, navigeer naar de map "Registratie" en importeer de module '.\RegisterWithAzure.psm1':  
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Verwijder alle bestaande versies van de Powershell-modules die met de registratie overeenkomen en [download de nieuwste versie van deze vanuit GitHub](azure-stack-powershell-download.md).  
+
+6. In de map 'AzureStack-hulpprogramma's-master' dat is gemaakt in de vorige stap, navigeer naar de map "Registratie" en importeer de module '.\RegisterWithAzure.psm1':  
 
    ```powershell 
    Import-Module .\RegisterWithAzure.psm1 
    ```
 
-6. Voer het volgende script in dezelfde PowerShell-sessie. Wanneer u wordt gevraagd om referenties, opgeven `azurestack\cloudadmin` als de gebruiker en het wachtwoord hetzelfde is als wat u hebt gebruikt voor de lokale beheerder tijdens de implementatie.  
+7. Voer het volgende script in dezelfde PowerShell-sessie. Wanneer u wordt gevraagd om referenties, opgeven `azurestack\cloudadmin` als de gebruiker en het wachtwoord hetzelfde is als wat u hebt gebruikt voor de lokale beheerder tijdens de implementatie.  
 
    ```powershell
    $AzureContext = Get-AzureRmContext
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
-       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureSubscriptionId $AzureContext.Subscription.SubscriptionId `
        -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
        -PrivilegedEndpoint AzS-ERCS01 `
        -BillingModel Development 
@@ -103,7 +97,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    | PrivilegedEndpoint | Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekgegevens verzameld en andere post implementatietaken. Voor development kit wordt het bevoegde eindpunt gehost op de 'AzS ERCS01' virtuele machine. Als u een geïntegreerd systeem, moet u contact op met uw Azure-Stack-operator als deze waarde wilt ophalen. Raadpleeg voor meer informatie de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md) onderwerp.|
    | BillingModel | Het facturering model die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn 'Capaciteit', 'PayAsYouUse' en 'Ontwikkeling'. Voor development kit, wordt deze waarde ingesteld op 'Ontwikkeling'. Als u een geïntegreerd systeem, moet u contact op met uw Azure-Stack-operator als deze waarde wilt ophalen. |
 
-7. Als het script is voltooid, ziet u een bericht ' activeren Azure Stack (deze stap kan maximaal 10 minuten duren). ' 
+8. Als het script is voltooid, ziet u een bericht ' activeren Azure Stack (deze stap kan maximaal 10 minuten duren). ' 
 
 ## <a name="verify-the-registration"></a>Controleer of de registratie
 

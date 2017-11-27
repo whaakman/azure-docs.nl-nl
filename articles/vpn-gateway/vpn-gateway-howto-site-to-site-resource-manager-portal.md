@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4f5e249238020429b6c6e0d39c580c83bc43969e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Een site-naar-site-verbinding maken in Azure Portal
 
@@ -50,15 +50,13 @@ Controleer voordat u met de configuratie begint of u aan de volgende criteria he
 In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt deze waarden gebruiken om een testomgeving te maken of ze raadplegen om meer inzicht te krijgen in de voorbeelden in dit artikel. Zie [Over instellingen voor VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md) voor meer informatie over instellingen voor VPN-gateways in het algemeen.
 
 * **VNet-naam:** TestVNet1
-* **Adresruimte:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (optioneel voor deze oefening)
-* **Subnetten:**
-  * FrontEnd: 10.11.0.0/24
-  * Back-end: 10.12.0.0/24 (optioneel voor deze oefening)
-* **Gatewaysubnet**: 10.11.255.0/27
+* **Adresruimte:** 10.11.0.0/16 en 10.12.0.0/16 (optioneel voor deze oefening)
+* **Abonnement:** Het gewenste abonnement
 * **Resourcegroep:** TestRG1
 * **Locatie:** VS - oost
+* **Subnet:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (optioneel voor deze oefening)
+* **Naam gatewaysubnet:** GatewaySubnet (dit wordt in de portal automatisch ingevuld)
+* **Adresbereik gatewaysubnet:** 10.11.255.0/27
 * **DNS-server:** optioneel. Het IP-adres van de DNS-server.
 * **Gatewaynaam van het virtuele netwerk:** VNet1GW
 * **Openbare IP:** VNet1GWIP
@@ -67,6 +65,7 @@ In de voorbeelden in dit artikel worden de volgende waarden gebruikt. U kunt dez
 * **Gatewaytype:** VPN
 * **Naam van lokale netwerkgateway:** Site2
 * **Verbindingsnaam:** VNet1toSite2
+* **Gedeelde sleutel:** In dit voorbeeld gebruiken we abc123. Maar u kunt datgene gebruiken wat compatibel is met uw VPN-hardware. Het belangrijkste is dat de waarden aan beide zijden van de verbinding met elkaar overeenkomen.
 
 ## <a name="CreatVNet"></a>1. Een virtueel netwerk maken
 
@@ -125,10 +124,21 @@ Het opnieuw instellen van een Azure VPN-gateway is handig als u cross-premises V
 
 Zie [Gateway-SKU's](vpn-gateway-about-vpn-gateway-settings.md#gwsku) voor de stappen voor het wijzigen van een gateway-SKU.
 
+## <a name="addconnect"></a>Een extra verbinding toevoegen aan een VPN-gateway
+
+U kunt extra verbindingen toevoegen, mits geen van de adresruimten tussen verbindingen met elkaar overlappen.
+
+1. Als u een extra verbinding wilt toevoegen, gaat u naar de VPN-gateway en klikt u vervolgens op **Verbindingen** om de pagina Verbindingen te openen.
+2. Klik op **+Toevoegen** om uw verbinding toe te voegen. Pas het verbindingstype zodanig aan dat dit overeenkomt met VNet-naar-VNet (als u verbinding wilt maken met een andere VNet-gateway) of met site-naar-site.
+3. Als u verbinding maakt met behulp van site-naar-site maar nog geen lokale netwerkgateway hebt gemaakt, kunt u een nieuwe maken.
+4. Geef op welke gedeelde sleutel u wilt gebruiken en klik vervolgens op **OK** om de verbinding te maken.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * Voor meer informatie over BGP raadpleegt u [BGP Overview](vpn-gateway-bgp-overview.md) (BGP-overzicht) en [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (BGP configureren).
 * Zie [Informatie over geforceerde tunneling](vpn-gateway-forced-tunneling-rm.md) voor meer informatie over geforceerde tunneling.
 * Zie [Maximaal beschikbare cross-premises en VNet-naar-VNet-connectiviteit](vpn-gateway-highlyavailable.md) voor meer informatie over maximaal beschikbare actieve verbindingen.
+* Zie [Netwerkbeveiliging](../virtual-network/security-overview.md) voor informatie over het beperken van netwerkverkeer tot resources in een virtueel netwerk.
+* Zie [Routering van verkeer in virtuele netwerken](../virtual-network/virtual-networks-udr-overview.md) voor informatie over hoe Azure verkeer routeert tussen Azure-resources, on-premises resources en resources op internet.
 * Zie [Een site-naar-site-VPN-verbinding maken](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/) voor meer informatie over het maken van een site-naar-site-VPN-verbinding met behulp van een Azure Resource Manager-sjabloon.
-* Zie [HBase-geo-replicatie implementeren](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/) voor meer informatie over het maken van een vnet-naar-vnet-VPN-verbinding met behulp van een Azure Resource Manager-sjabloon.
+* Zie [HBase-geo-replicatie implementeren](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/) voor meer informatie over het maken van een VNet-naar-VNet-VPN-verbinding met behulp van een Azure Resource Manager-sjabloon.

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -75,7 +75,7 @@ U kunt een Azure Batch-account maken met de [Azure Portal](batch-account-create-
 U kunt in één Batch-account meerdere Batch-workloads uitvoeren of uw workloads verdelen over Batch-accounts in hetzelfde abonnement maar in verschillende Azure-regio's.
 
 > [!NOTE]
-> Als u een Batch-account maakt, moet u normaliter de standaardmodus **Batch-service** kiezen, waarbij pools achter de schermen van door Azure beheerde abonnementen worden toegewezen. In de alternatieve modus, **Gebruikersabonnement**, die niet meer wordt aanbevolen, worden Batch-VM's en andere resources rechtstreeks in uw abonnement gemaakt wanneer een groep wordt gemaakt. Voor het maken van een Batch-account in de gebruikersabonnementmodus moet u de account ook aan een Azure Key Vault koppelen.
+> Als u een Batch-account maakt, moet u normaliter de standaardmodus **Batch-service** kiezen, waarbij pools achter de schermen van door Azure beheerde abonnementen worden toegewezen. In de alternatieve modus, **Gebruikersabonnement**, die voor de meeste scenario's niet meer wordt aanbevolen, worden Batch-VM's en andere resources rechtstreeks in uw abonnement gemaakt wanneer er een groep wordt gemaakt. Voor het maken van een Batch-account in de gebruikersabonnementmodus moet u het account ook bij Azure Batch registreren en aan een Azure Key Vault koppelen.
 >
 
 
@@ -150,7 +150,9 @@ Zie [Use a custom image to create a pool of virtual machines](batch-custom-image
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Ondersteuning voor containers in virtuele machine-pools
 
-Bij het maken van een virtuele machine-pool met de Batch-API's, kunt u de pool instellen voor het uitvoeren van taken in Docker-containers. Op dit moment moet u de pool maken met Windows Server 2016 Datacenter met de Containers-installatiekopie van Azure Marketplace of een aangepaste VM-installatiekopie opgeven die Docker Community Edition en alle vereiste stuurprogramma's bevat. De poolinstellingen moeten een [containerconfiguratie](/rest/api/batchservice/pool/add#definitions_containerconfiguration) bevatten die containerinstallatiekopieën naar de virtuele machines kopieert wanneer de pool wordt gemaakt. Taken die worden uitgevoerd op de pool kunnen vervolgens verwijzen naar de containerinstallatiekopieën en uitvoeringsopties voor containers.
+Bij het maken van een virtuele machine-pool met de Batch-API's, kunt u de pool instellen voor het uitvoeren van taken in Docker-containers. Momenteel moet u de pool maken met behulp van een installatiekopie die ondersteuning biedt voor Docker-containers. Gebruik Windows Server 2016 Datacenter met de Containers-installatiekopie van Azure Marketplace of geef een aangepaste VM-installatiekopie op die Docker Community Edition of Enterprise Edition en alle vereiste stuurprogramma's bevat. De poolinstellingen moeten een [containerconfiguratie](/rest/api/batchservice/pool/add#definitions_containerconfiguration) bevatten die containerinstallatiekopieën naar de virtuele machines kopieert wanneer de pool wordt gemaakt. Taken die worden uitgevoerd op de pool kunnen vervolgens verwijzen naar de containerinstallatiekopieën en uitvoeringsopties voor containers.
+
+Zie voor meer informatie [Docker-containertoepassingen uitvoeren op Azure Batch](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Type rekenknooppunt en beoogd aantal knooppunten
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Classificeren van Iris deel 2: een model bouwen
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -53,7 +53,7 @@ Volg de [instructies voor het maken van een virtuele Azure Data Science-machine 
    >[!NOTE]
    >Het is mogelijk dat de code die u ziet, en de code in de zelfstudie niet exact overeenkomen. De reden hiervoor is dat dit voorbeeldproject regelmatig wordt bijgewerkt.
 
-4. Bekijk de code van het Python-script om vertrouwd te raken met de stijl van coderen. Met het script worden de volgende taken uitgevoerd:
+4. Bekijk de code van het Python script om vertrouwd te raken met de stijl van coderen. Met het script worden de volgende taken uitgevoerd:
 
    - Het gegevensvoorbereidingspakket **iris.dprep** wordt geladen om een [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) te maken. 
 
@@ -291,7 +291,7 @@ Met Machine Learning kunt u gemakkelijk extra uitvoeringsomgevingen configureren
    Wanneer `run.py` is voltooid, ziet u een grafiek in de uitvoeringsgeschiedenis in Workbench.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Uitvoeren in een Docker-container op een externe computer
-Als u het script wilt uitvoeren in een Docker-container op een externe Linux-computer, moet u SSH-toegang (gebruikersnaam en wachtwoord) hebben tot die externe computer. Bovendien moet op deze externe computer een Docker-engine zijn geïnstalleerd en worden uitgevoerd. De eenvoudigste manier om een dergelijke Linux-machine in te richten, is door een [op Ubuntu gebaseerde DSVM (Data Science Virtual Machine)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) te maken in Azure. 
+Als u het script wilt uitvoeren in een Docker-container op een externe Linux-computer, moet u SSH-toegang (gebruikersnaam en wachtwoord) hebben tot die externe computer. Bovendien moet op deze externe computer een Docker-engine zijn geïnstalleerd en worden uitgevoerd. De eenvoudigste manier om een dergelijke Linux-machine in te richten, is door een op Ubuntu gebaseerde DSVM (Data Science Virtual Machine) te maken in Azure. Leer [hoe u een Ubuntu-DSVM maakt die u in Azure ML Workbench kunt gebruiken](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >De op CentOS gebaseerde DSVM wordt *niet* ondersteund.
@@ -343,7 +343,9 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Script uitvoeren in een HDInsight-cluster
-U kunt dit script ook uitvoeren in een echt Spark-cluster. 
+U kunt dit script ook uitvoeren in een HDInsight Spark-cluster. Leer [hoe u een HDInsight Spark-cluster maakt dat u kunt gebruiken in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![OPMERKING] Het HDInsight-cluster moet Azure Blob als primaire opslag gebruiken. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
 
 1. Als u toegang hebt tot een Spark-cluster voor Azure HDInsight, genereert u een opdracht voor het uitvoeren van een HDInsight-configuratie zoals hieronder wordt weergegeven. Geef de naam op van het HDInsight-cluster, en uw HDInsight-gebruikersnaam en wachtwoord op als parameters. Gebruik de volgende opdracht:
 

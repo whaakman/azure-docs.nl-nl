@@ -1,6 +1,6 @@
 ---
-title: Web-, mobiele en API-apps beschikbaar te maken voor de gebruikers van uw Azure-Stack | Microsoft Docs
-description: Zelfstudie voor het installeren van de App Service-resourceprovider en maken biedt die uw gebruikers Azure Stack geven de mogelijkheid te maken van webtoepassingen, mobiele en API apps.
+title: Web- en API-apps beschikbaar te maken voor de gebruikers van uw Azure-Stack | Microsoft Docs
+description: Zelfstudie voor het installeren van de App Service-resourceprovider en maken biedt die uw gebruikers Azure Stack bieden de mogelijkheid om web en API-apps te maken.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Web-, mobiele en API-apps beschikbaar te maken voor uw Azure-Stack-gebruikers
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web- en API-apps beschikbaar te maken voor uw Azure-Stack-gebruikers
 
-Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) Azure Functions en web-, mobiele en API-toepassingen maken. Dankzij de toegang tot deze op aanvraag, cloud-gebaseerde apps aan uw gebruikers, kunt u ze bespaart tijd en bronnen. Dit als u wilt instellen, kun je het:
+Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) Azure Functions- en web- en API-toepassingen maken. Dankzij de toegang tot deze op aanvraag, cloud-gebaseerde apps aan uw gebruikers, kunt u ze bespaart tijd en bronnen. Dit als u wilt instellen, kun je het:
 
 > [!div class="checklist"]
 > * Implementeert de bronprovider van App Service
@@ -43,7 +43,7 @@ Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers
 U kunt bijvoorbeeld een aanbieding waarmee gebruikers maken DNN web content management systems maken. De SQL Server-service die u al hebt ingeschakeld door het installeren van de resource-provider voor SQL Server vereist.
 
 1.  [Een quotum](azure-stack-setting-quotas.md) en noem deze *AppServiceQuota*. Selecteer **Microsoft.Web** voor de **Namespace** veld.
-2.  [Maak een plan](azure-stack-create-plan.md). Naam *TestAppServicePlan*, selecteer de de **Microsoft.SQL** service, en **AppService quotum** quotum.
+2.  [Maak een plan](azure-stack-create-plan.md). Naam *TestAppServicePlan*, selecteer de **Microsoft.SQL** service, en **AppService quotum** quotum.
 
     > [!NOTE]
     > Als gebruikers wilt laten maken van andere apps, andere services vereist zijn in het plan. Bijvoorbeeld: Azure Functions is vereist dat het plan ook de **Microsoft.Storage** service gebruikt, terwijl Wordpress vereist **Microsoft.MySQL**.

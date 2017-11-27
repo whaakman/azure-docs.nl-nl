@@ -1,6 +1,6 @@
 ---
-title: 'Implementeren: Azure AD-self-service voor wachtwoordherstel | Microsoft Docs'
-description: Tips voor een geslaagde implementatie van Azure AD-self-service voor wachtwoordherstel
+title: 'Implementeren: Azure AD-selfservice voor wachtwoordherstel | Microsoft Docs'
+description: Tips voor een geslaagde implementatie van Azure AD-selfservice voor wachtwoordherstel
 services: active-directory
 keywords: 
 documentationcenter: 
@@ -13,74 +13,76 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
+# <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
-De meeste klanten volgen deze stappen voor een soepele implementatie van selfservice voor wachtwoordherstel.
+De meeste klanten voeren de volgende stappen uit voor een goede implementatie van de functionaliteit van de selfservice voor wachtwoordherstel (SSPR) van Azure Active directory (Azure AD):
 
 1. [Schakel wachtwoordherstel in in uw directory](active-directory-passwords-getting-started.md).
-2. [Configureer on-premises AD-machtigingen voor write-back van wachtwoord](active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configureer write-back van wachtwoord](active-directory-passwords-writeback.md#configuring-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
+2. [Configureer on-premises Active Directory-machtigingen voor write-back van wachtwoord](active-directory-passwords-writeback.md#active-directory-permissions).
+3. [Configureer write-back van wachtwoord](active-directory-passwords-writeback.md#configure-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
 4. [Wijs de vereiste licenties toe en verifieer ze](active-directory-passwords-licensing.md).
-5. Als u selfservice voor wachtwoordherstel geleidelijk wilt implementeren, kunt u toegang tot een groep gebruikers beperken zodat u met een specifieke groep kunt testen. Stel hiervoor de wisselknop **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** in op **Geselecteerd** en selecteer de beveiligingsgroep waarvoor u wachtwoordherstel wilt inschakelen. 
-6. Vul [Authenticatiegegevens](active-directory-passwords-data.md) in voor uw gebruikers, zoals hun zakelijke telefoonnummer, mobiele telefoonnummer en een alternatief e-mailadres.
+5. Bepaal of u een geleidelijke implementatie wilt uitvoeren. Als u selfservice voor wachtwoordherstel geleidelijk wilt implementeren, kunt u de toegang beperken tot bepaalde gebruikers, zodat u het programma met een specifieke groep kunt testen. Voor implementatie in een specifieke groep stelt u de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in op **Geselecteerd** en selecteert u de beveiligingsgroep waarvoor u wachtwoordherstel mogelijk wilt maken. 
+6. Vul de [verificatiegegevens](active-directory-passwords-data.md) in die uw gebruikers nodig hebben om zich te kunnen registreren, zoals hun zakelijke telefoonnummer, mobiele telefoonnummer en een alternatief e-mailadres.
 7. [Pas de Azure Active Directory-aanmeldingservaring aan met de huisstijl van uw bedrijf](active-directory-passwords-customize.md).
-8. Instrueer uw gebruikers over het gebruik van self-service voor wachtwoordherstel door hen instructies te sturen om hen te laten zien hoe ze zich kunnen registreren en het wachtwoord opnieuw kunnen instellen.
-9. U kunt ervoor kiezen registratie op elk gewenst moment af te dwingen en gebruikers te vereisen hun verificatiegegevens na een bepaalde periode opnieuw te bevestigen.
-10. Controleer in de loop van de tijd gebruikers die zich hebben geregistreerd en gebruikmaken van de service door de [rapporten die worden verstrekt door Azure AD](active-directory-passwords-reporting.md) te bekijken.
-11. Schakel wanneer u klaar bent wachtwoordherstel in voor alle gebruikers door de wisselknop **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** op **Alle** te zetten. 
+8. Leer uw gebruikers hoe ze de selfservice voor wachtwoordherstel moeten gebruiken. Geef ze instructies voor hoe ze zich kunnen registreren en hun wachtwoord kunnen herstellen.
+9. Bepaal of u de registratie verplicht wilt maken. U kunt ervoor kiezen registratie op elk gewenst moment af te dwingen. U kunt ook afdwingen dat gebruikers hun verificatiegegevens na een bepaalde periode opnieuw moeten bevestigen.
+10. Gebruik de rapportagefunctionaliteit. Na verloop van tijd kunt u de registratie van gebruikers en het gebruik controleren met de [rapportagefunctionaliteit van Azure AD](active-directory-passwords-reporting.md).
+11. Schakel wachtwoordherstel in. Wanneer u klaar bent, schakelt u wachtwoordherstel in voor alle gebruikers door de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in te stellen op **Alle**. 
+12. [Bied Windows 10-gebruikers de mogelijkheid tot wachtwoordherstel op het aanmeldingsscherm](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
-   > Test self-service voor wachtwoordherstel met een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](active-directory-passwords-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
+   > Test de selfservice voor wachtwoordherstel als gebruiker en niet als beheerder, omdat Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](active-directory-passwords-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
 
 ## <a name="email-based-rollout"></a>Implementatie op basis van e-mail
 
-Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, de eenvoudigste manier om gebruikers self-service voor wachtwoordherstel te laten gebruiken. [We hebben drie eenvoudige e-mailberichten gemaakt die u als sjabloon kunt gebruiken om te helpen bij uw implementatie.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
+Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, de eenvoudigste manier om gebruikers selfservice voor wachtwoordherstel te laten gebruiken. [We hebben drie eenvoudige e-mailberichten gemaakt die u als sjabloon kunt gebruiken om te helpen bij uw implementatie](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16):
 
-* De e-mailsjabloon **Binnenkort beschikbaar** die in de weken of dagen vóór implementatie moet worden gebruikt om gebruikers te laten weten dat ze iets moeten gaan doen.
-* De e-mailsjabloon **Nu beschikbaar** die moet worden gebruikt op de dag van de lancering om gebruikers ertoe te zetten zich te registreren en hun verificatiegegevens te bevestigen, zodat ze self-service voor wachtwoordherstel kunnen gebruiken als ze het nodig hebben.
-* De e-mailsjabloon **Herinnering voor aanmelding** die enkele dagen tot weken na implementatie moet worden gebruikt om gebruikers eraan te herinneren zich te registreren hun verificatiegegevens te bevestigen.
+* **Binnenkort beschikbaar**: Een e-mailsjabloon die in de weken of dagen vóór implementatie moet worden gebruikt om gebruikers te laten weten dat ze iets moeten gaan doen.
+* **Nu beschikbaar**: Een e-mailsjabloon die moet worden gebruikt op de dag van de lancering om gebruikers ertoe over te halen zich te registreren en hun verificatiegegevens te bevestigen. Als de gebruikers zich nu registreren, kunnen ze selfservice voor wachtwoordherstel gebruiken wanneer het nodig is.
+* **Herinnering voor aanmelding**: Een e-mailsjabloon die enkele weken of dagen na de implementatie moet worden gebruikt om gebruikers eraan te herinneren dat ze zich moeten registreren en hun verificatiegegevens moeten bevestigen.
 
 ![E-mail][Email]
 
-## <a name="creating-your-own-password-portal"></a>Uw eigen wachtwoordportal maken
+## <a name="create-your-own-password-portal"></a>Uw eigen wachtwoordportal maken
 
-Veel van onze klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoals https://passwords.contoso.com. Ze vullen deze pagina met koppelingen naar de functionaliteit van Azure AD voor wachtwoordherstel, registratie voor wachtwoordherstel, portals voor het wijzigen van het wachtwoord en andere organisatiespecifieke informatie. In e-mailberichten of flyers die u verstuurt, kunt u een in huisstijl opgemaakte, gemakkelijk te onthouden URL opnemen die gebruikers kunnen raadplegen wanneer ze de services moeten gebruiken.
+Veel klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoals https://passwords.contoso.com. Ze vullen deze pagina met koppelingen naar de volgende informatie:
 
-* Portal voor wachtwoordherstel: https://aka.ms/sspr
-* Portal voor registratie voor wachtwoordherstel: http://aka.ms/ssprsetup
-* Portal voor wijzigen wachtwoord: https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+* [Azure AD-portal voor wachtwoordherstel](https://aka.ms/sspr)
+* [Azure AD-registratieportal voor wachtwoordherstel](http://aka.ms/ssprsetup)
+* [Azure AD-portal voor wachtwoordwijziging](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* Overige organisatiespecifieke informatie
 
-We hebben een voorbeeldpagina gemaakt die u kunt gebruiken en aanpassen aan de behoeften van uw organisatie. U kunt deze via [GitHub](https://github.com/ajamess/password-reset-page) downloaden.
+In e-mailberichten of flyers die u verstuurt, kunt u een in huisstijl opgemaakte, gemakkelijk te onthouden URL opnemen die gebruikers kunnen raadplegen wanneer ze de services moeten gebruiken. We hebben een [voorbeeldpagina voor wachtwoordherstel](https://github.com/ajamess/password-reset-page) gemaakt die u kunt gebruiken en aanpassen aan de behoeften van uw organisatie.
 
-## <a name="using-enforced-registration"></a>Gedwongen registratie gebruiken
+## <a name="use-enforced-registration"></a>Gedwongen registratie gebruiken
 
-Als u wilt dat uw gebruikers zich registreren voor wachtwoordherstel, kunt u hen dwingen zich te registreren wanneer ze zich aanmelden via Azure AD. U kunt deze optie inschakelen via de blade **Wachtwoordherstel** van uw directory door de optie **Vereisen dat gebruikers zich bij aanmelding registreren?** te kiezen op het tabblad **Registratie**.
+Als u wilt dat uw gebruikers zich registreren voor wachtwoordherstel, kunt u hen dwingen zich te registreren wanneer ze zich aanmelden via Azure AD. U kunt deze optie inschakelen via het deelvenster **Wachtwoordherstel** van uw directory door de optie **Vereisen dat gebruikers zich bij aanmelding registreren?** te kiezen op het tabblad **Registratie**.
 
-Beheerders kunnen gebruikers verplichten om zich na een bepaalde periode opnieuw te registreren door **Aantal dagen waarna gebruikers wordt gevraagd om hun verificatiegegevens te bevestigen** tussen 0-730 dagen in te stellen.
+Beheerders kunnen gebruikers dwingen zich opnieuw te registreren na een bepaalde periode. Ze kunnen de optie **Aantal dagen waarna gebruikers wordt gevraagd om de verificatiegegevens opnieuw te bevestigen** instellen op een waarde van 0 tot 730 dagen.
 
-Nadat u deze optie hebt ingeschakeld, zien gebruikers een bericht dat hen informeert dat de beheerder vereist dat ze hun verificatiegegevens controleren.
+Nadat u deze optie hebt ingeschakeld, zien gebruikers bij aanmelding een bericht dat hen informeert dat de beheerder vereist dat ze hun verificatiegegevens controleren.
 
 ## <a name="populate-authentication-data"></a>Verificatiegegevens invullen
 
-Als u [verificatiegegevens voor uw gebruikers invult](active-directory-passwords-data.md), hoeven gebruikers zich niet te registreren voor wachtwoordherstel om gebruik te kunnen maken van self-service voor wachtwoordherstel. Zolang gebruikers de verificatiegegevens hebben gedefinieerd die voldoen aan het beleid voor wachtwoordherstel dat u hebt gedefinieerd hebben, kunnen gebruikers hun wachtwoord opnieuw instellen.
+U moet [de verificatiegegevens voor uw gebruikers invullen](active-directory-passwords-data.md). Op die manier hoeven gebruikers zich niet te registreren voor wachtwoordherstel voordat ze SSPR kunnen gebruiken. Zolang gebruikers de verificatiegegevens hebben gedefinieerd die voldoen aan het beleid voor wachtwoordherstel dat u hebt gedefinieerd, kunnen gebruikers hun wachtwoord opnieuw instellen.
 
-## <a name="disabling-self-service-password-reset"></a>Self-service voor wachtwoordherstel uitschakelen
+## <a name="disable-self-service-password-reset"></a>Selfservice voor wachtwoordherstel uitschakelen
 
-Het uitschakelen van self-service voor wachtwoordherstel is heel eenvoudig. Open uw Azure AD-tenant en ga naar **Wachtwoordherstel**, **Eigenschappen**. Kies **Niemand** onder **Self-service voor wachtwoord opnieuw instellen is ingeschakeld**
+Selfservice voor wachtwoordherstel kan eenvoudig worden uitgeschakeld. Open uw Azure AD-tenant en ga naar **Wachtwoord opnieuw instellen** > **Eigenschappen** en selecteer vervolgens **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Stel uw wachtwoord opnieuw in of wijzig het](active-directory-passwords-update-your-own-password.md).
-* [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
+* [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
 * [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)

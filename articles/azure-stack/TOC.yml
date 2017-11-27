@@ -46,7 +46,7 @@
         - name: Implementeren
           href: azure-stack-run-powershell-script.md
         - name: PowerShell installeren
-          href: azure-stack-powershell-configure-quickstart.md
+          href: azure-stack-powershell-install.md
         - name: Registreren
           href: azure-stack-register.md
         - name: Verbinding maken met Azure Stack
