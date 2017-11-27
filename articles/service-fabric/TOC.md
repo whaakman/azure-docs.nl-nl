@@ -2,7 +2,7 @@
 # Overzicht
 ## [Wat is Service Fabric?](service-fabric-overview.md)
 
-# QuickStarts
+# Snelstartgidsen
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
 ## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
 ## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
@@ -243,6 +243,7 @@
 ### [Fouten opsporen in een .NET-service in Visual Studio](service-fabric-debugging-your-application.md)
 ### [Veelvoorkomende fouten en uitzonderingen](service-fabric-errors-and-exceptions.md)
 ### [Lokaal bewaken en diagnoses uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Een Linux-cluster instellen in Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Werken in een Linux-ontwikkelomgeving
 ### [Aan de slag met Eclipse-invoegtoepassing voor Java-ontwikkeling](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Testscenario's gebruiken](service-fabric-testability-scenarios.md)
 ##### [De API's voor knooppuntovergang gebruiken](service-fabric-node-transition-apis.md)
 
-### [Uw Java-toepassing voor Linux implementeren met behulp van Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Continue integratie instellen
+#### [Continue integratie met VSTS instellen](service-fabric-set-up-continuous-integration.md)
+#### [Uw Linux-toepassingen implementeren met behulp van Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Clusters maken en beheren
 ### Clusters op Azure
