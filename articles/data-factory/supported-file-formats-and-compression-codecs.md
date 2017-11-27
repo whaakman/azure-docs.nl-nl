@@ -13,7 +13,8 @@ ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde bestandsindelingen en compressiecodecs in Azure Data Factory
 
@@ -25,13 +26,10 @@ Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerd
 * [JSON-indeling](#json-format)
 * [Avro-indeling](#avro-format)
 * [ORC-indeling](#orc-format)
-* [Parketvloeren-indeling](#parquet-format)
+* [Parquet-indeling](#parquet-format)
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [bestands- en compressie indelingen ondersteund in de Data Factory version1 gedefinieerd](v1//data-factory-supported-file-and-compression-formats.md).
-
-> [!TIP]
-> Meer informatie over hoe de kopieerbewerking de brongegevens opvangen van toegewezen [schematoewijzing in kopieeractiviteit](copy-activity-schema-and-type-mapping.md), met inbegrip van hoe de metagegevens wordt bepaald op basis van uw bestandsindelingsinstellingen en tips over opgeven de [gegevensset `structure` ](concepts-datasets-linked-services.md#dataset-structure) sectie.
 
 ## <a name="text-format"></a>Tekstopmaak
 
@@ -444,7 +442,7 @@ Houd rekening met de volgende punten:
 * Complexe gegevenstypen worden niet ondersteund (STRUCT, MAP, LIST, UNION)
 * Een ORC-bestand heeft drie [opties voor compressie](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory ondersteunt het lezen van gegevens uit ORC-bestanden in een van deze gecomprimeerde indelingen. Hierbij wordt de compressiecodec in de metagegevens gebruikt om de gegevens te lezen. Bij het schrijven naar een ORC-bestand kiest Data Factory echter ZLIB, de standaardinstelling voor ORC. Er is momenteel geen optie om dit gedrag te overschrijven.
 
-## <a name="parquet-format"></a>Parketvloeren-indeling
+## <a name="parquet-format"></a>Parquet-indeling
 
 Als u de Parquet-bestanden wilt parseren of de gegevens in Parquet-indeling wilt schrijven, stelt u de eigenschap `format` `type` in op **ParquetFormat**. U hoeft geen eigenschappen op te geven in het gedeelte Indeling binnen het gedeelte typeProperties. Voorbeeld:
 
@@ -524,3 +522,4 @@ Zie de volgende artikelen voor bestandsgebaseerde gegevensarchieven die door Azu
 - [SFTP-connector](connector-sftp.md)
 - [HDFS-connector](connector-hdfs.md)
 - [HTTP-connector](connector-http.md)
+
