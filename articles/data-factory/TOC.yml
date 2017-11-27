@@ -121,6 +121,8 @@
               href: connector-postgresql.md
             - name: SalesForce
               href: connector-salesforce.md
+            - name: SalesForce Service Cloud
+              href: connector-salesforce.md
             - name: SAP Business Warehouse
               href: connector-sap-business-warehouse.md
             - name: SAP HANA
@@ -170,11 +172,11 @@
           href: compute-linked-services.md
     - name: Controlestroom
       items:
-        - name: If Condition-activiteit
+        - name: If Condition Activity
           href: control-flow-if-condition-activity.md
         - name: Until-activiteit
           href: control-flow-until-activity.md
-        - name: Webactiviteit
+        - name: Web Activity
           href: control-flow-web-activity.md
         - name: Opzoekactiviteit
           href: control-flow-lookup-activity.md
