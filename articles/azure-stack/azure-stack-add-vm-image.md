@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 520e4dfaadf1d476447a600ef2b3d092b6955a89
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een aangepaste virtuele machine in Azure Stack beschikbaar maken
 
@@ -100,7 +100,7 @@ Als u wilt de installatiekopie toevoegen aan de Stack Azure Marketplace, moet u 
           -EnableAdfsAuthentication:$true
 
         $TenantID = Get-AzsDirectoryTenantId `
-          -ADFS 
+          -ADFS `
           -EnvironmentName AzureStackAdmin 
 
         Login-AzureRmAccount `
@@ -150,7 +150,7 @@ Remove-AzsVMImage `
 | **uitgever** |Het segment van de naam van uitgever van de VM-installatiekopie die gebruikers gebruiken wanneer ze de installatiekopie implementeren. Een voorbeeld is **Microsoft**. Neem geen een spatie of andere speciale tekens in dit veld. |
 | **aanbieding** |De aanbieding naam segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Windows Server**. Neem geen een spatie of andere speciale tekens in dit veld. |
 | **SKU** |De SKU-naam-segment van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Een voorbeeld is **Datacenter2016**. Neem geen een spatie of andere speciale tekens in dit veld. |
-| **Versie** |De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Deze versie is in de notatie *\#.\#.\#*. Een voorbeeld is **1.0.0**. Neem geen een spatie of andere speciale tekens in dit veld. |
+| **Versie** |De versie van de VM-installatiekopie die gebruikers gebruiken wanneer ze de VM-installatiekopie implementeert. Deze versie is in de notatie  *\#.\#. \#*. Een voorbeeld is **1.0.0**. Neem geen een spatie of andere speciale tekens in dit veld. |
 | **besturingssysteemtype** |Het besturingssysteemtype van de afbeelding moet een **Windows** of **Linux**. |
 | **osDiskLocalPath** |Het lokale pad naar de schijf met het besturingssysteem VHD die u als een VM-installatiekopie naar Azure-Stack uploaden wilt. |
 | **dataDiskLocalPaths** |Een optionele matrix van de lokale paden voor gegevensschijven dat als onderdeel van de VM-installatiekopie kunnen worden geüpload. |

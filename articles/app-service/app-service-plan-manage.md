@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Een App Service-abonnement in Azure beheren
 
@@ -58,7 +58,7 @@ Selecteer **wijziging App Service-abonnement** om het proces te starten.
 
 **App Service-abonnement wijzigen** Hiermee opent u de **App Service-abonnement** selector. Selecteer een bestaand abonnement verplaatsen van deze app in. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > De **Selecteer App Service-abonnement** pagina wordt gefilterd op de volgende criteria: 
 > - Er bestaat in dezelfde resourcegroep 
 > - Er bestaat in dezelfde geografische regio 
@@ -82,7 +82,7 @@ U vindt **kloon App** in de **ontwikkelingsprogramma's** gedeelte van het menu.
 
 ## <a name="scale-an-app-service-plan"></a>Schalen van een App Service-abonnement
 
-Schalen van ah-App Service-abonnement de prijscategorie, Zie [een app in Azure opschalen](web-sites-scale.md).
+Schalen van een App Service plan de prijscategorie, Zie [een app in Azure opschalen](web-sites-scale.md).
 
 Als u wilt uitbreiden een app-exemplaren, Zie [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

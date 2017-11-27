@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 Met Visual Studio en de [Azure SDK](https://azure.microsoft.com/downloads/) kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. U kunt ook een virtuele machine, een virtueel netwerk en een opslagaccount opgeven en die infrastructuur implementeren in combinatie met een script dat wordt uitgevoerd op de virtuele machine. Met het implementatieproject voor de **Azure-resourcegroep** kunt u alle vereiste resources met één herhaalbare bewerking implementeren. Zie voor meer informatie over het implementeren en beheren van uw resources [Overzicht van Azure Resource Manager](resource-group-overview.md).
@@ -32,7 +32,7 @@ In dit artikel wordt Visual Studio 2017 gebruikt. Als u Visual Studio 2015 Updat
 ## <a name="create-azure-resource-group-project"></a>Een Azure-resourcegroepproject maken
 In deze procedure maakt u een Azure Resource Group-project met het sjabloon **Web app + SQL**.
 
-1. Ga in Visual Studio naar **Bestand**, **Nieuw project**. Kies vervolgens **C#** of **Visual Basic**. Kies vervolgens **Cloud** en het project **Azure-resourcegroep**.
+1. Kies in Visual Studio **Bestand** en vervolgens **Nieuw Project**. Selecteer **C#** of **Visual Basic** (welke taal u kiest heeft geen invloed op de latere stadia, omdat deze projecten alleen JSON- en PowerShell-inhoud bevatten). Kies vervolgens **Cloud** en het project **Azure-resourcegroep**.
    
     ![Project voor cloudimplementatie](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Kies het sjabloon dat u wilt implementeren in Azure Resource Manager. Er zijn diverse opties beschikbaar op basis van het type project dat u wilt implementeren. Voor dit artikel kiest u de sjabloon **Web-app + SQL**.

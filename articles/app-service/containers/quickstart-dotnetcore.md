@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2a8000cadd6f6d7204e1790df62443a7ac7598c9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Een .NET Core web-app maken in App-Service op Linux
 
@@ -34,8 +34,8 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
-* [Git installeren](https://git-scm.com/)
-* [De .NET Core SDK installeren](https://www.microsoft.com/net/download/core)
+* <a href="https://git-scm.com/" target="_blank">Git installeren</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">De .NET Core SDK installeren</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -85,11 +85,11 @@ git commit -m "first commit"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Een web-app maken met installatiekopie van het ingebouwde
+## <a name="create-a-web-app"></a>Een webtoepassing maken
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Blader naar uw nieuwe web-app. Vervang  _&lt;app-naam >_ met een unieke app-naam.
+Blader naar uw nieuwe web-app. Vervang  _&lt;app-naam >_ met de naam van uw web-app.
 
 ```bash
 http://<app name>.azurewebsites.net

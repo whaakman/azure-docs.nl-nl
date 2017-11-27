@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen in Azure Security Center
 Dit artikel helpt u te begrijpen welke verschillende typen beveiligingswaarschuwingen en bijbehorende inzichten er beschikbaar zijn in Azure Security Center. Lees [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md) voor meer informatie over het beheren van waarschuwingen en incidenten.
@@ -53,6 +53,45 @@ De volgende velden worden vaak weergegeven in de voorbeelden van waarschuwingen 
 * DUMPFILE: naam van het crashdumpbestand.
 * PROCESSNAME: naam van het vastgelopen proces.
 * PROCESSVERSION: versie van het vastgelopen proces.
+
+### <a name="code-injection-discovered"></a>Code-injectie gedetecteerd
+Code-injectie is het invoegen van uitvoerbare modules in actieve processen of threads.  Deze methode wordt gebruikt door schadelijke software om toegang krijgen tot gegevens, zich te verbergen of te voorkomen dat deze wordt verwijderd (bijvoorbeeld persistentie). Met deze waarschuwing wordt aangegeven dat de crashdump een geïnjecteerde module bevat. Legitieme softwareontwikkelaars voeren af en toe code-injectie uit voor niet-kwaadwillende redenen, bijvoorbeeld om een bestaande toepassing of een bestaand besturingssysteemonderdeel te wijzigen of uit te breiden.  Om onderscheid te kunnen maken tussen schadelijke en niet-schadelijke geïnjecteerde modules, controleert Security Center of de geïnjecteerde module voldoet aan een profiel met verdacht gedrag. Het resultaat van deze controle wordt aangegeven door het veld "SIGNATURE" van de waarschuwing en is te zien aan de ernst van de waarschuwing, de omschrijving van de waarschuwing en herstelstappen voor de waarschuwing. 
+
+Deze waarschuwing bevat de volgende extra velden:
+
+- ADDRESS: De locatie in het geheugen van de geïnjecteerde module
+- IMAGENAME: De naam van de geïnjecteerde module. Deze kan leeg zijn als de naam van de installatiekopie niet is opgegeven in de installatiekopie.
+- SIGNATURE: Hiermee wordt aangegeven of de geïnjecteerde module voldoet aan een profiel met verdacht gedrag. 
+
+In de onderstaande tabel ziet u voorbeelden van mogelijke resultaten en de bijbehorende beschrijving:
+
+| Waarde handtekening                      | Beschrijving                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Verdacht misbruik door reflective loader | Dit verdachte gedrag komt vaak overeen met het laden van geïnjecteerde code, onafhankelijk van het laadprogramma van het besturingssysteem |
+| Verdacht misbruik via injectie          | Geeft een aanval aan die vaak overeenkomt met het injecteren van code in het geheugen                                       |
+| Verdachte injectie-aanval         | Geeft een aanval aan die vaak overeenkomt met het gebruik van geïnjecteerde code in het geheugen                                   |
+| Verdachte geïnjecteerde foutopsporingsprogramma-aanval | Geeft een aanval aan die vaak overeenkomt met detectie of omzeiling van een foutopsporingsprogramma                         |
+| Verdachte injectie-aanval op afstand   | Geeft een aanval aan die vaak overeenkomt met command-n-control-scenario’s (C2)                                 |
+
+Hier volgt een voorbeeld van dit type waarschuwing:
+
+![Waarschuwing voor code-injectie](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Verdacht codesegment
+Hiermee wordt aangegeven dat een codesegment is toegewezen met behulp van niet-standaardmethoden, zoals die worden gebruikt bij reflectieve injectie en procesuitholling.  Deze waarschuwing bevat ook aanvullende kenmerken van het codesegment voor meer context over de mogelijkheden en het gedrag van het gerapporteerde codesegment.
+
+Deze waarschuwing bevat de volgende extra velden:
+
+- ADDRESS: De locatie in het geheugen van de geïnjecteerde module
+- SIZE: De grootte van het verdachte codesegment
+- STRINGSIGNATURES: In dit veld ziet u een lijst met mogelijkheden van API's waarvan functienamen zijn opgenomen in het codesegment. Voorbeelden van mogelijkheden zijn:
+    - Descriptoren voor secties van installatiekopieën, dynamische code uitvoeren voor x64, mogelijkheid voor het toewijzen en laden van geheugen, mogelijkheid voor het injecteren van externe code, mogelijkheid tot het overnemen van de besturing, omgevingsvariabelen lezen, geheugen voor willekeurige processen lezen, tokenbevoegdheden opvragen of wijzigen, HTTP-/HTTPS-netwerkcommunicatie en netwerksocketcommunicatie.
+- IMAGEDETECTED: In dit veld wordt aangegeven of een PE-installatiekopie is geïnjecteerd in het proces waarin het verdachte codesegment is gedetecteerd, en op welk adres de geïnjecteerde module wordt gestart.
+- SHELLCODE: In dit veld wordt de aanwezigheid aangegeven van gedrag dat vaak wordt gebruikt door schadelijke nettoladingen om toegang te krijgen tot extra beveiligingsgevoelige functies van het besturingssysteem. 
+
+Hier volgt een voorbeeld van dit type waarschuwing:
+
+![Waarschuwing voor verdacht codesegment](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Shellcode gedetecteerd
 Shellcode is de nettolading die wordt uitgevoerd nadat de schadelijke software misbruik heeft gemaakt van een beveiligingslek in de software. Deze waarschuwing geeft aan dat de crashdumpanalyse uitvoerbare code heeft gedetecteerd dat gedrag vertoont dat gewoonlijk wordt uitgevoerd door schadelijke nettoladingen. Hoewel niet-schadelijke software dit gedrag kan vertonen, is het niet gebruikelijk voor normale softwareontwikkelingsprocedures.
@@ -246,7 +285,7 @@ Als er extra informatie beschikbaar is, wordt deze weergegeven in het beveiligin
 
 
 ## <a name="see-also"></a>Zie ook
-In dit artikel bent u meer te weten gekomen over de verschillende soorten beveiligingswaarschuwingen in Security Center. Zie de volgende onderwerpen voor meer informatie over Security Center:
+In dit artikel bent u meer te weten gekomen over de verschillende soorten beveiligingswaarschuwingen in Security Center. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
 * [Beveiligingsincidenten afhandelen in Azure Security Center](security-center-incident.md)
 * [Detectiemogelijkheden van Azure Security Center](security-center-detection-capabilities.md)

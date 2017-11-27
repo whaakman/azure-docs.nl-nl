@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module van de Azure-portal naar een Linux-apparaat implementeren - voorbeeld
 
@@ -66,24 +66,26 @@ Maak een apparaat-id waarmee uw gesimuleerde apparaat kan communiceren met uw Io
 De runtime IoT-rand wordt geïmplementeerd op alle rand van de IoT-apparaten. Het omvat twee modules. Eerst vergemakkelijkt de agent IoT rand implementatie en controle van modules die zich in de IoT-randapparaat. Ten tweede beheert de rand van de IoT-hub communicatie tussen het apparaat aan de rand van de IoT-modules en tussen het apparaat en IoT Hub. 
 
 Download het script IoT Edge-besturingselement op de machine waarop u het apparaat aan de rand van de IoT voert:
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configureer de runtime door uw verbindingsreeks rand van de IoT-apparaat uit het vorige gedeelte:
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Start de runtime:
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Controleer de Docker om te zien of de rand van de IoT-agent wordt uitgevoerd als een module:
-```python
+```cmd
 sudo docker ps
 ```
+
+![Zie edgeAgent in Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Een module implementeren
 
@@ -93,11 +95,21 @@ sudo docker ps
 
 In deze snelstartgids gemaakt van een nieuwe IoT Edge-apparaat en de rand van de IoT-runtime is geïnstalleerd. Vervolgens gebruikt u de Azure-portal voor de push-een IoT-Edge-module worden uitgevoerd op het apparaat zonder dat wijzigingen aanbrengen in het apparaat zelf. In dit geval wordt maakt de module die u gepusht milieu gegevens die u voor de zelfstudies gebruiken kunt. 
 
-De berichten worden verzonden vanaf de module tempSensor weergeven:
+Open de opdrachtprompt op de computer die uw gesimuleerde apparaat nogmaals uit te voeren. Bevestig dat de module op basis van de cloud geïmplementeerd op uw IoT-randapparaat wordt uitgevoerd:
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Drie modules op uw apparaat weergeven](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+De berichten die naar de cloud worden verzonden vanaf de module tempSensor weergeven:
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![De gegevens van uw module weergeven](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 U kunt ook weergeven met de telemetrie verzenden van het apparaat met behulp van de [IoT Hub explorer hulpprogramma][lnk-iothub-explorer]. 
 
@@ -115,7 +127,7 @@ U hebt geleerd hoe een module IoT rand implementeert op een rand van de IoT-appa
 
 * [Uw eigen code implementeren als een module](tutorial-csharp-module.md)
 * [Azure-functie implementeren als een module](tutorial-deploy-function.md)
-* [Azure Stream Analytics implementeren als een module](tutorial-deploy-stream-analytics.md)
+* [Azure Stream Analytics implementeren als module](tutorial-deploy-stream-analytics.md)
 
 
 <!-- Images -->

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e1337ddf5ed84a06a62e2faa198f3e8fb49bc3bd
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c9f71a7e95ea8c1b2cbd9b74ef20f9b0342d00f8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-an-iot-edge-gateway-device-to-process-data-from-other-iot-devices---preview"></a>Een IoT-gateway randapparaat maken om gegevens te verwerken van andere apparaten IoT - voorbeeld
 
@@ -68,7 +68,9 @@ Dit leidt tot een oplossing waarmee alle apparaten een IoT-randapparaat als een 
 
 U kunt het Powershell-voorbeeld en Bash-scripts die worden beschreven [voorbeeld van het beheren van CA-certificaat] [ lnk-ca-scripts] voor het genereren van een zelfondertekend **IoT hub eigenaar CA** en certificaten voor apparaten ondertekend met het.
 
-1. Ga als volgt stap 1 van [voorbeeld van het beheren van CA-certificaat] [ lnk-ca-scripts] voor het installeren van de scripts.
+1. Ga als volgt stap 1 van [voorbeeld van het beheren van CA-certificaat] [ lnk-ca-scripts] voor het installeren van de scripts. Zorg ervoor dat u het klonen van de `modules-preview` vertakking:
+                
+                git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
 2. Voer stap 2 voor het genereren van de **IoT hub eigenaar CA**, dit bestand wordt gebruikt door de downstream-apparaten voor het valideren van de verbinding.
 
 Gebruik de volgende instructies voor het genereren van een certificaat voor uw gatewayapparaat.
@@ -77,7 +79,7 @@ Gebruik de volgende instructies voor het genereren van een certificaat voor uw g
 
 * Voer `./certGen.sh create_edge_device_certificate myGateway` voor het maken van het nieuwe apparaatcertificaat.  
   Hiermee maakt u de bestanden.\certs\new-edge-device.* met de openbare sleutel en de PFX en het.\private\new-edge-device.key.pem dat de persoonlijke sleutel van het apparaat bevat.  
-* `cat new-edge-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-edge-device-full-chain.cert.pem`ophalen van de openbare sleutel.
+* In de `certs` directory uitvoeren `cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem` ophalen van de volledige keten van de openbare sleutel voor het apparaat.
 * `./private/new-edge-device.cert.pem`bevat de persoonlijke sleutel van het apparaat.
 
 #### <a name="powershell"></a>PowerShell
@@ -135,7 +137,7 @@ Een downstream-apparaat kan worden alle toepassingen met behulp van de [Azure Io
 
 Eerst een downstream-device-toepassing te vertrouwen heeft de **IoT hub eigenaar CA** certificaat om te valideren van de TLS-verbindingen met de gatewayapparaten. Deze stap kan doorgaans worden uitgevoerd op twee manieren: op het niveau van het besturingssysteem of (voor bepaalde talen) op het toepassingsniveau van de.
 
-Voor .NET-toepassingen, kunt u bijvoorbeeld het volgende fragment voor vertrouwen in een certificaat in PEM-indeling opgeslagen in pad toevoegen `certPath`.
+Voor .NET-toepassingen, kunt u bijvoorbeeld het volgende fragment voor vertrouwen in een certificaat in PEM-indeling opgeslagen in pad toevoegen `certPath`. Als u de bovenstaande script gebruikt, het pad wordt verwezen naar `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) of `RootCA.pem` (Powershell).
 
         using System.Security.Cryptography.X509Certificates;
         
@@ -145,8 +147,6 @@ Voor .NET-toepassingen, kunt u bijvoorbeeld het volgende fragment voor vertrouwe
         store.Open(OpenFlags.ReadWrite);
         store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
         store.Close();
-
-Opmerking dat de hierboven vermelde voorbeeldscripts wordt gegenereerd voor de openbare sleutel in het bestand `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) of `RootCA.pem` (Powershell).
 
 Uitvoeren van deze stap op het niveau van het besturingssysteem verschilt tussen Windows en Linux-distributies.
 
@@ -176,6 +176,8 @@ Bij het implementeren van een ondoorzichtige gateway gebruikt uw module protocol
 
 Bij het implementeren van een transparante gateway, maakt de module meerdere exemplaren van de IoT Hub apparaat-client met behulp van de verbindingsreeksen voor de downstream-apparaten.
 
+De [Azure IoT rand Modbus Module] [ lnk-modbus-module] is een open implementatie van een module protocol-adapter voor een ondoorzichtige gateway.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Overzicht van de vereisten en hulpmiddelen voor het ontwikkelen van IoT rand modules][lnk-module-dev].
@@ -191,4 +193,5 @@ Bij het implementeren van een transparante gateway, maakt de module meerdere exe
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/CACertToolEdge/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md
+[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus

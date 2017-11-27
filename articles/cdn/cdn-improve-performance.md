@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>De prestaties verbeteren door het comprimeren van bestanden in Azure CDN
 Compressie is een eenvoudige en effectieve methode voor het verbeteren van bestand overdrachtssnelheid en laadprestaties van de pagina vergroten door bestandscompressie voordat deze wordt verzonden van de server. Het verlaagt de bandbreedtekosten en biedt een responsievere ervaring voor uw gebruikers.
@@ -100,7 +100,7 @@ Deze tabellen beschrijven Azure CDN compressie gedrag voor elk scenario.
 > * Groter zijn dan 128 bytes.
 > * Kleiner dan 1 MB zijn.
 > 
-> Ondersteuning voor deze profielen **gzip** (GNU zip), **deflate**, **bzip2**, of **br** codering (Brotli). De compressie is gedaan voor het coderen van Brotli alleen aan de rand. De aanvraag voor het coderen van Brotli door de clientbrowser moet verzenden en het gecomprimeerde actief moet zijn gecomprimeerd aan de kant van de oorsprong eerst. 
+> Ondersteuning voor deze profielen **gzip** (GNU zip), **deflate**, **bzip2**, of **br** codering (Brotli). Voor het coderen van Brotli moet de compressie worden uitgevoerd op de oorsprong. De aanvraag voor het coderen van Brotli door de clientbrowser moet verzenden en het gecomprimeerde actief moet zijn gecomprimeerd aan de kant van de oorsprong eerst. 
 
 > [!IMPORTANT]
 > Voor **Azure CDN van Akamai** profielen, alle bestanden in aanmerking komen voor compressie. Een bestand moet echter een MIME-type dat is [geconfigureerd voor compressie](#enabling-compression).

@@ -16,124 +16,139 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ae1e6c34b610aff245e051454269f0b8619b54c7
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en -beperkingen in Azure Active Directory
 
-In dit artikel beschrijft de wachtwoordbeleid en vereisten voor wachtwoordcomplexiteit die zijn gekoppeld aan de gebruikersaccounts die zijn opgeslagen in uw Azure AD-tenant.
+In dit artikel beschrijft de wachtwoordbeleid en vereisten voor wachtwoordcomplexiteit die zijn gekoppeld aan de gebruikersaccounts die zijn opgeslagen in uw tenant van Azure Active Directory (Azure AD).
 
 ## <a name="administrator-password-policy-differences"></a>Administrator-wachtwoord beleid verschillen
 
-Microsoft dwingt een sterk standaardbeleid via **twee gates** af voor Wachtwoord opnieuw instellen voor elke Azure-beheerdersrol (zoals de hoofdbeheerder, Helpdesk-beheerder, wachtwoordbeheerder, enzovoort)
+Microsoft dwingt een sterke standaard *twee gate* beleid voor elk Azure beheerdersrol voor wachtwoordherstel. 
 
-Dit wordt uitgeschakeld beheerders beveiligingsvragen te gebruiken en het volgende wordt afgedwongen.
+Met een beleid twee gate hebben niet beheerders de mogelijkheid om met beveiligingsvragen.
 
-Twee gate-beleid, vereisen van twee soorten verificatiegegevens (e-mailadres **en** telefoonnummer), is van toepassing in de volgende omstandigheden
+ Een beleid twee gate vereist twee soorten verificatiegegevens, zoals een e-mailadres *en* een telefoonnummer. Een twee-gate-beleid van toepassing is in de volgende omstandigheden:
 
-* Alle Azure-beheerdersrollen
+* De volgende Azure-beheerdersrollen worden beïnvloed:
   * Helpdesk-beheerder
   * Serviceondersteuningsbeheerder
   * Financieel medewerker
   * Partner Tier1-ondersteuning
   * Partner Tier2-ondersteuning
-  * De beheerder van Exchange
-  * Lync servicebeheerder
+  * Exchange-servicebeheerder
+  * Lync-servicebeheerder
   * De beheerder van gebruiker
   * Directory-schrijvers
-  * Globale beheerder/Company Administrator
+  * Globale beheerder of bedrijfsbeheerder
   * SharePoint-servicebeheerder
-  * Naleving beheerder
+  * Beheerder voor naleving
   * Toepassingsbeheerder
   * Beveiligingsbeheerder
   * Beheerder met bevoorrechte rol
-  * Intune-servicebeheerder
-  * Toepassingsbeheerder Proxy-Service
+  * Microsoft Intune-servicebeheerder
+  * Toepassingsbeheerder proxy-service
   * CRM-servicebeheerder
   * Power BI-servicebeheerder
   
-* in een proefversie van 30 dagen verstreken **of**
-* Vanity domein aanwezig is (contoso.com) **of**
+* Als er 30 dagen zijn verstreken in een proefabonnement
+
+  of
+
+* Er is een vanity domein aanwezig is, zoals contoso.com
+
+  of
+
 * Azure AD Connect synchroniseert identiteiten van uw on-premises directory
 
 ### <a name="exceptions"></a>Uitzonderingen
-Beleid voor één poort, gegevenselementen verificatie vereisen (e-mailadres **of** telefoonnummer), is van toepassing in de volgende omstandigheden
+Een beleid een gate vereist een stukje informatie, verificatie, zoals een e-mailadres *of* telefoonnummer. Een één-gate-beleid van toepassing is in de volgende omstandigheden:
 
-* De eerste 30 dagen van een proef **of**
-* Vanity domein is niet aanwezig (*. onmicrosoft.com) **en** Azure AD Connect identiteiten niet synchroniseren
+* Het is in de eerste 30 dagen van een proefabonnement
+
+  of
+
+* Een vanity-domein is niet aanwezig (*. onmicrosoft.com) 
+
+  en 
+
+  Azure AD Connect is niet identiteiten synchroniseren
 
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName beleidsregels die van toepassing op alle gebruikersaccounts
 
-Elke gebruikersaccount die behoeften aan te melden bij Azure AD, moet een unieke gebruikers UPN (User Principal Name)-kenmerkwaarde die is gekoppeld aan hun account hebben. De tabel hieronder overzichten de beleidsregels die van toepassing op zowel on-premises Active Directory-gebruikersaccounts gesynchroniseerd met de cloud als met alleen-gebruikersaccounts.
+Elke gebruikersaccount die behoeften aan te melden bij Azure AD, moet een unieke gebruikers UPN (User Principal Name)-kenmerkwaarde die is gekoppeld aan hun account hebben. De volgende tabel die worden beschreven de beleidsregels die van toepassing op zowel lokale Active Directory-gebruikersaccounts die zijn gesynchroniseerd met de cloud en alleen in de cloud gebruikersaccounts:
 
 | Eigenschap | UserPrincipalName vereisten |
 | --- | --- |
 | Toegestane tekens |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Niet-toegestane tekens |<ul> <li>Een ' @' teken dat niet is scheiden van de gebruikersnaam van het domein.</li> <li>Een periode teken niet bevatten '.' direct vóór de ' @' symbool</li></ul> |
-| Lengte-beperkingen |<ul> <li>De totale lengte mag niet groter zijn dan 113 tekens</li><li>64 tekens lang voordat de ' @' symbool</li><li>48 tekens na de ' @' symbool</li></ul> |
+| Niet-toegestane tekens |<ul> <li>Een ' @ ' teken dat niet de gebruikersnaam van het domein tussen.</li> <li>Een periode teken niet bevatten "." direct vóór de ' @ ' symbool</li></ul> |
+| Lengte-beperkingen |<ul> <li>De totale lengte mag niet groter zijn dan 113 tekens</li><li>Er mag maximaal 64 tekens lang voordat de ' @ ' symbool</li><li>Er mag maximaal 48 tekens na de ' @ ' symbool</li></ul> |
 
-## <a name="password-policies-that-apply-only-to-cloud-user-accounts"></a>Wachtwoordbeleid die alleen van toepassing op cloud-gebruikersaccounts
+## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Wachtwoordbeleid die alleen van toepassing op cloud-gebruikersaccounts
 
-De volgende tabel beschrijft de instellingen voor wachtwoordbeleid beschikbaar die kunnen worden toegepast op gebruikersaccounts die zijn gemaakt en beheerd in Azure AD.
+De volgende tabel beschrijft de instellingen voor wachtwoordbeleid beschikbaar die kunnen worden toegepast op gebruikersaccounts die zijn gemaakt en beheerd in Azure AD:
 
 | Eigenschap | Vereisten |
 | --- | --- |
 | Toegestane tekens |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Niet-toegestane tekens |<ul><li>Unicode-tekens</li><li>Spaties</li><li> **Sterke wachtwoorden alleen**: een punt-teken niet bevatten '.' direct vóór de ' @' symbool</li></ul> |
-| Wachtwoordbeperkingen |<ul><li>minimum van 8 tekens en maximaal 16 tekens</li><li>**Sterke wachtwoorden alleen**: 3 buiten 4 van de volgende vereist:<ul><li>Kleine letters</li><li>Hoofdletters</li><li>Cijfers (0-9)</li><li>Symbolen (Zie wachtwoordbeperkingen hierboven)</li></ul></li></ul> |
-| Wachtwoordverval |<ul><li>Standaardwaarde: **90** dagen </li><li>Waarde kan worden geconfigureerd met de cmdlet Set-MsolPasswordPolicy van de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |
-| Meldingen verlopen van wachtwoorden |<ul><li>Standaardwaarde: **14** dagen (voordat wachtwoord is verlopen)</li><li>Waarde kan worden geconfigureerd met de cmdlet Set-MsolPasswordPolicy.</li></ul> |
-| Wachtwoord verloopt |<ul><li>Standaardwaarde: **false** dagen (geeft aan dat totdat het wachtwoord afloopt is ingeschakeld) </li><li>Waarde kan worden geconfigureerd voor afzonderlijke gebruikersaccounts met de cmdlet Set-MsolUser. </li></ul> |
-| Wachtwoord **wijzigen** geschiedenis |Laatste wachtwoordupdate **kan niet** opnieuw worden gebruikt wanneer **wijzigen** een wachtwoord. |
-| Wachtwoord **opnieuw** geschiedenis | Laatste wachtwoordupdate **mogelijk** opnieuw worden gebruikt wanneer **opnieuw instellen van** een vergeten wachtwoord. |
-| Accountvergrendeling |Na 10 mislukte aanmeldpogingen (onjuist wachtwoord), wordt de gebruiker gedurende een minuut worden vergrendeld. Verder aanmelden onjuist vergrendeling van de gebruiker voor de duur te verhogen. |
+| Niet-toegestane tekens |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Sterke wachtwoorden alleen: een punt-teken niet bevatten "." direct vóór de ' @ ' symbool.</li></ul> |
+| Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Sterke wachtwoorden alleen: drie op vier van de volgende vereist:<ul><li>Kleine letters character.s</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>Symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
+| Wachtwoordverval |<ul><li>Standaardwaarde: **90** dagen.</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet uit de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |
+| Meldingen verlopen van wachtwoorden |<ul><li>Standaardwaarde: **14** dagen (voordat wachtwoord is verlopen).</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
+| Wachtwoord verloopt |<ul><li>Standaardwaarde: **false** dagen (geeft aan dat totdat het wachtwoord afloopt is ingeschakeld).</li><li>De waarde kan worden geconfigureerd voor afzonderlijke gebruikersaccounts met behulp van de `Set-MsolUser` cmdlet.</li></ul> |
+| Wachtwoordgeschiedenis wijzigen |Het laatste wachtwoord *kan niet* opnieuw worden gebruikt wanneer de gebruiker een wachtwoord wijzigt. |
+| Geschiedenis-wachtwoord opnieuw instellen | Het laatste wachtwoord *kunt* opnieuw worden gebruikt wanneer de gebruiker een vergeten wachtwoord opnieuw instelt. |
+| Accountvergrendeling |Na 10 mislukte aanmeldpogingen met een onjuist wachtwoord, de gebruiker gedurende een minuut vergrendeld. Verder aanmelden onjuist vergrendeling van de gebruiker om de duur van de tijd te vergroten. |
 
-## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Beleidsregels voor het verlopen van wachtwoord instellen in Azure Active Directory
+## <a name="set-password-expiration-policies-in-azure-ad"></a>Beleidsregels voor het verlopen van wachtwoord instellen in Azure AD
 
-Een globale beheerder voor een cloudservice van Microsoft kunt u de Microsoft Azure Active Directory-Module voor Windows PowerShell gebruiken voor het instellen van wachtwoorden niet te laten verlopen. U kunt ook Windows PowerShell-cmdlets gebruiken om te verwijderen de-verloopt nooit configuratie of om te zien welke gebruiker wachtwoorden zijn ingesteld op niet verlopen. In deze richtlijnen is van toepassing op andere providers zoals Microsoft Intune en Office 365, die ook afhankelijk van Microsoft Azure Active Directory voor identiteits- en directory services zijn. Dit is het enige deel van het beleid dat kan worden gewijzigd.
+Een globale beheerder voor een cloudservice van Microsoft kunt de Microsoft Azure AD-Module voor Windows PowerShell gebruiken om in te stellen wachtwoorden niet te laten verlopen. U kunt ook Windows PowerShell-cmdlets gebruiken om te verwijderen de-verloopt nooit configuratie of om te zien welke gebruiker de wachtwoorden nooit verlopen zijn ingesteld. 
+
+In deze richtlijnen is van toepassing op andere providers, zoals Intune en Office 365, die ook afhankelijk van Azure AD voor identiteits- en directory services zijn. Verlopen van wachtwoorden is het enige deel van het beleid dat kan worden gewijzigd.
 
 > [!NOTE]
-> Alleen de wachtwoorden voor gebruikersaccounts die niet zijn gesynchroniseerd door middel van directory-synchronisatie kunnen worden geconfigureerd voor het niet is verlopen. Zie voor meer informatie over adreslijstsynchronisatie[AD met Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+> Alleen de wachtwoorden voor gebruikersaccounts die niet zijn gesynchroniseerd door middel van directory-synchronisatie kunnen worden geconfigureerd voor het niet is verlopen. Zie voor meer informatie over adreslijstsynchronisatie [AD met Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
 >
 
-## <a name="set-or-check-password-policies-using-powershell"></a>Instellen of wachtwoordbeleid met behulp van PowerShell controleren
+## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Instellen of het wachtwoordbeleid controleren met behulp van PowerShell
 
-Om te beginnen, moet u [downloaden en installeren van de Azure AD PowerShell-module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Nadat u geïnstalleerd hebt, kunt u de onderstaande stappen voor het configureren van elk veld volgen.
+Om te beginnen, moet u [downloaden en installeren van de Azure AD PowerShell-module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Nadat u geïnstalleerd hebt, kunt u de volgende stappen uit voor het configureren van elk veld.
 
-### <a name="how-to-check-expiration-policy-for-a-password"></a>Het vervalbeleid voor wachtwoord controleren
-1. Verbinding maken met Windows PowerShell met de administrator-referenties van uw bedrijf.
+### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Het controleren van het vervalbeleid voor wachtwoord
+1. Verbinding maken met Windows PowerShell met de beheerdersreferenties van uw bedrijf.
 2. Voer een van de volgende opdrachten:
 
-   * Om te zien of het wachtwoord van een enkele gebruiker is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (user Principal name) (bijvoorbeeld aprilr@contoso.onmicrosoft.com) of de gebruikers-ID van de gebruiker die u wilt controleren:`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Overzicht van de instelling 'Wachtwoord verloopt nooit' voor alle gebruikers, voer de volgende cmdlet:`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Als u wilt zien als een enkele gebruiker-wachtwoord is ingesteld op nooit verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (bijvoorbeeld  *aprilr@contoso.onmicrosoft.com* ) of de gebruikers-ID van de gebruiker die u wilt controleren:`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Om te zien de **wachtwoord verloopt nooit** instellen voor alle gebruikers, voer de volgende cmdlet:`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### <a name="set-a-password-to-expire"></a>Een wachtwoord verloopt instellen
 
-1. Verbinding maken met Windows PowerShell met de administrator-referenties van uw bedrijf.
+1. Verbinding maken met Windows PowerShell met de beheerdersreferenties van uw bedrijf.
 2. Voer een van de volgende opdrachten:
 
-   * Om het wachtwoord van een gebruiker zo instellen dat het wachtwoord is verlopen, kunt u de volgende cmdlet uitvoeren met behulp van de UPN (user Principal name) of de gebruikers-ID van de gebruiker:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * Om het wachtwoord van een gebruiker zo instellen dat het wachtwoord is verlopen, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
    * Om in te stellen de wachtwoorden van alle gebruikers in de organisatie, zodat ze zijn verlopen, gebruikt u de volgende cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ### <a name="set-a-password-to-never-expire"></a>Een wachtwoord nooit verloopt instellen
 
-1. Verbinding maken met Windows PowerShell met de administrator-referenties van uw bedrijf.
+1. Verbinding maken met Windows PowerShell met de beheerdersreferenties van uw bedrijf.
 2. Voer een van de volgende opdrachten:
 
-   * Stel het wachtwoord van een gebruiker nooit verlopen door de volgende cmdlet uitvoeren met behulp van de UPN (user Principal name) of de gebruikers-ID van de gebruiker:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * Als u wilt dat het wachtwoord van een gebruiker nooit verloopt, moet u de volgende cmdlet uitvoeren met behulp van de UPN of de gebruikers-ID van de gebruiker:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Om in te stellen de wachtwoorden van alle gebruikers in een organisatie nooit verloopt, moet u de volgende cmdlet uitvoeren:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
-   > Als u instelt `-PasswordNeverExpires $true` het wachtwoord wordt nog steeds leeftijd op basis van de `pwdLastSet` kenmerk. Dit betekent dat als u instellen dat wachtwoorden nooit verlopen en 90 dagen door op basis van gaat `pwdLastSet` en u kunt wijzigen `-PasswordNeverExpires $false` alle wachtwoorden die u hebt een `pwdLastSet` ouder is dan 90 dagen moet wijzigen bij volgende aanmelding. Deze wijziging kan invloed op een groot aantal gebruikers. 
+   > Wachtwoorden die zijn ingesteld op `-PasswordNeverExpires $true` nog leeftijd op basis van de `pwdLastSet` kenmerk. Als u de wachtwoorden nooit verlopen instellen en 90 dagen gaat door, de wachtwoorden zijn verlopen. Op basis van de `pwdLastSet` kenmerk, als u de vervaldatum voor wijzigt `-PasswordNeverExpires $false`, alle wachtwoorden die u hebt een `pwdLastSet` ouder is dan 90 dagen de gebruiker moet te wijzigen van de volgende keer dat ze zich aanmelden. Deze wijziging kan invloed hebben op een groot aantal gebruikers. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
+De volgende artikelen bevatten aanvullende informatie over het wachtwoord opnieuw instellen via Azure AD:
 
 * [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
 * [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).

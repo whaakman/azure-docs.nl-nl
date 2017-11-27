@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>COMPUTE benchmark scores voor VM's van Windows
 De volgende SPECInt benchmark scores weergeven computerprestaties voor Azure krachtige VM selectie met Windows Server. COMPUTE benchmark scores zijn ook beschikbaar voor [virtuele Linux-machines](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -65,7 +65,7 @@ De volgende SPECInt benchmark scores weergeven computerprestaties voor Azure kra
 | Standard_H16mr |16 |2 |Intel Xeon E5 2667 v3 @ 3,2 GHz |7 |569.6 |2.8 |
 
 ## <a name="about-specint"></a>Over SPECint
-Windows-getallen worden berekend door het uitvoeren van [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) op Windows Server. SPECint is uitgevoerd met behulp van de optie base snelheid (resultaten van SPECint_rate2006), met één exemplaar per core. SPECint bestaat uit afzonderlijke tests 12, elke drie keer uitgevoerd, waarbij de mediaanwaarde van elke test en weging zodat ze vormen een samengestelde score. Deze tests zijn vervolgens uitgevoerd tussen meerdere virtuele machines voor de gemiddelde scores weergegeven.
+Windows-getallen worden berekend door het uitvoeren van [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) op Windows Server. SPECint is uitgevoerd met behulp van de optie base snelheid (resultaten van SPECint_rate2006), met één exemplaar per vCPU. SPECint bestaat uit afzonderlijke tests 12, elke drie keer uitgevoerd, waarbij de mediaanwaarde van elke test en weging zodat ze vormen een samengestelde score. Deze tests zijn vervolgens uitgevoerd tussen meerdere virtuele machines voor de gemiddelde scores weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor opslagcapaciteit, details van de schijf en aanvullende overwegingen voor het kiezen van de VM-grootten, [grootten voor virtuele machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

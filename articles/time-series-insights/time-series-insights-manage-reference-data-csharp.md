@@ -1,5 +1,5 @@
 ---
-title: Referentiegegevens voor een Azure Time Series Insights-omgeving beheren met C# | Microsoft Docs
+title: Referentiegegevens in Azure Time Series Insights-omgeving beheren met C# | Microsoft Docs
 description: In dit artikel wordt beschreven hoe referentiegegevens voor een Azure Time Series Insights-omgeving beheren door te maken van een aangepaste toepassing in de C# (c-sharp) .NET taal geschreven.
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,21 +11,23 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: fa4a115cc1199a99c7acf64281082dca5dfb8579
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Referentiegegevens voor een Azure Time Series Insights-omgeving beheren met C#
 
-Dit artikel wordt beschreven in de C# voorbeeldcode voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving kan worden gecompileerd.
+Dit onderwerp beschrijft de C# voorbeeldcode voor het beheren van referentiegegevens voor een Azure Time Series Insights-omgeving kan worden gecompileerd.
 
-Zorg ervoor dat de volgende stappen zijn voltooid voordat het compileren en wordt de voorbeeldcode uitgevoerd:
-1. Een verwijzing gegevensset is gemaakt met behulp van [in dit artikel](time-series-insights-add-reference-data-set.md).
+De volgende stappen uitvoeren voordat u compileren en de voorbeeldcode uitvoeren:
+1. [Maken van een gegevensset verwijzing](time-series-insights-add-reference-data-set.md).
 
-2. Configureer het toegangstoken moet worden gebruikt voor door de toepassing voor autorisatie bij. Zorg ervoor dat het token is verkregen via de Azure Active Directory-API. Dit token moet worden doorgegeven de `Authorization` koptekst van elke Query API-aanvraag. Zie voor het instellen van niet-interactieve toepassingen, de [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md) artikel.
+2. Configureer het toegangstoken autorisatie voor de toepassing. Zorg ervoor dat het token is verkregen via de Azure Active Directory-API. U moet doorgeven in dit token in de `Authorization` koptekst van elke API-queryaanvraag. 
+ 
+   Zie voor meer informatie over het instellen van niet-interactieve toepassingen [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md).
 
 3. Bewerk de voorbeeldcode ter vervanging van de voorbeeld-constanten, aangewezen op **DUMMY #**, in de buurt van het begin van de code. 
 
@@ -232,4 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor de volledige REST-API-verwijzing [API van Data-verwijzing](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[Referentiegegevens API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

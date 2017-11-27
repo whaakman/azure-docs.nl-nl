@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Platform niveau gebeurtenis- en logboekbestanden genereren
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Het is belangrijk om te controleren op het niveau van het platform om te bepalen of uw hardware en het cluster gedragen zich zoals verwacht. Hoewel Service Fabric kunnen toepassingen die worden uitgevoerd tijdens een hardwarefout behouden, maar u toch wilt vaststellen of een fout optreedt in een toepassing of in de onderliggende infrastructuur. Ook moet u controleren clusters beter plannen van capaciteit, ondersteuning bij het nemen van beslissingen over het toevoegen of verwijderen van de hardware.
 
-Service Fabric bevat vijf verschillende logboek kanalen out-of-the-box die de volgende gebeurtenissen genereren:
-
-* Operationele kanaal: op hoog niveau bewerkingen wordt uitgevoerd door de Service Fabric en het cluster, met inbegrip van gebeurtenissen voor een knooppunt is afkomstig van een nieuwe toepassing wordt geïmplementeerd, of een SF upgrade terugdraaien, enzovoort.
+Service Fabric bevat de volgende logboek kanalen out-of-the-box:
+* Operationele kanaal: op hoog niveau bewerkingen wordt uitgevoerd door de Service Fabric en het cluster, met inbegrip van gebeurtenissen voor een knooppunt dat oefening, een nieuwe toepassing wordt geïmplementeerd of een upgrade terugdraaien, enzovoort.
 * Operationele kanaal - gedetailleerde: statusrapporten en beslissingen voor taakverdeling
-* Gegevens & Messaging-kanaal: essentiële logboeken en gebeurtenissen die worden gegenereerd in onze messaging (momenteel alleen de ReverseProxy) en gegevenspad (betrouwbare services-modellen)
+* Gegevens & Messaging-kanaal: essentiële logboeken en gebeurtenissen die worden gegenereerd in de berichtgeving (momenteel alleen de ReverseProxy) en gegevenspad (betrouwbare services-modellen)
 * Gegevens & Messaging kanaal - gedetailleerde: uitgebreide kanaal dat deze de niet-kritieke logboeken van gegevens en berichten in het cluster bevat (dit kanaal heeft een zeer groot aantal gebeurtenissen)   
+
+Naast deze zijn er twee gestructureerde EventSource kanalen die zijn opgegeven, evenals logboeken die worden verzameld voor ondersteuning.
 * [Gebeurtenissen van betrouwbare Services](service-fabric-reliable-services-diagnostics.md): programming model specifieke gebeurtenissen
 * [Gebeurtenissen van betrouwbare actoren](service-fabric-reliable-actors-diagnostics.md): programming model specifieke gebeurtenissen en prestatiemeteritems
 * Ondersteuning voor logboeken: het systeemlogboek in logboeken die worden gegenereerd door de Service Fabric alleen moet worden gebruikt door ons bij om ondersteuning te bieden

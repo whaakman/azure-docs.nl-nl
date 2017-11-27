@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Met behulp van .NET-klassebibliotheken met Azure Functions
 
@@ -37,7 +37,7 @@ In dit artikel heeft de volgende vereisten:
 
 Vanuit Visual Studio een nieuw Azure Functions-project te maken. Het nieuwe projectsjabloon maakt u de bestanden *host.json* en *local.settings.json*. U kunt [aanpassen van Azure Functions-runtime-instellingen in host.json](functions-host-json.md). 
 
-Het bestand *local.settings.json* app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core hulpprogramma's worden opgeslagen. Zie voor meer informatie over de structuur, [Code en testen van Azure functions lokaal](functions-run-local.md#local-settings).
+Het bestand *local.settings.json* app-instellingen, verbindingsreeksen en instellingen voor Azure Functions Core hulpprogramma's worden opgeslagen. Zie voor meer informatie over de structuur, [Code en testen van Azure functions lokaal](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>Functienaam kenmerk
 

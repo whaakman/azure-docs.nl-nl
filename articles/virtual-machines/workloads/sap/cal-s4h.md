@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>SAP S/4HANA of BW/4HANA in Azure implementeren
 In dit artikel wordt beschreven hoe S/4HANA in Azure implementeren met behulp van de bibliotheek voor SAP Cloud toestel (SAP CAL) 3.0. Volg dezelfde stappen voor het implementeren van andere SAP HANA-oplossingen, zoals BW/4HANA.
@@ -95,7 +95,7 @@ Een SAP CAL-account dat kan worden gemaakt:
 U kunt nu beginnen met het S/4HANA implementeren in uw gebruikerabonnement in Azure.
 
 > [!NOTE]
-Voordat u doorgaat, moet u bepalen of er Azure core quota's voor virtuele machines van Azure H-serie. Op dit moment de CAL SAP H-serie virtuele machines van Azure gebruikt voor het implementeren van enkele van de SAP HANA-oplossingen. Uw Azure-abonnement mogelijk geen quota's core H-serie voor H-serie. Als dit het geval is, moet u mogelijk contact opnemen met ondersteuning van Azure als u een quotum van ten minste 16 H-serie kernen.
+Voordat u doorgaat, moet u bepalen of er Azure vCPU quota's voor virtuele machines van Azure H-serie. Op dit moment de CAL SAP H-serie virtuele machines van Azure gebruikt voor het implementeren van enkele van de SAP HANA-oplossingen. Uw Azure-abonnement mogelijk geen quota's vCPU H-serie voor H-serie. Als dit het geval is, moet u mogelijk contact opnemen met ondersteuning van Azure als u een quotum van ten minste 16 H-serie vcpu's.
 
 > [!NOTE]
 Wanneer u een oplossing op Azure in de CAL SAP implementeert, kan het gebeuren dat u slechts één Azure-regio kunt. Als u wilt implementeren in Azure-regio's dan die wordt voorgesteld door de CAL SAP, moet u een CAL-abonnement aanschaffen van SAP. Ook is het mogelijk voor het openen van een bericht met SAP hebben uw CAL-account te leveren in Azure-regio's dan degene die in eerste instantie aanbevolen ingeschakeld.

@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b05cc76f8d8b2d14ac87fa3c55479bf0cf2377b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Kies de Azure Multi-Factor Authentication-oplossing die bij u past
 Omdat er verschillende versies van Azure Multi-Factor Authentication (MFA) zijn, moet u een aantal vragen beantwoorden om te kunnen beoordelen welke versie voor u de beste is.  Deze vragen zijn:
@@ -60,7 +60,7 @@ De volgende tabel bevat een vergelijking van de functies van Multi-Factor Authen
 | Een verificatiecode op mobiele app als een tweede factor | ● | ● |
 | Telefoonoproep als tweede factor | ● | ● |
 | Sms in één richting als tweede factor | ● | ● |
-| Sms in twee richtingen als tweede factor | | ● |
+| Sms in twee richtingen als tweede factor | | ●  (Afgeschaft)| 
 | Hardwaretokens als tweede factor | | ● |
 | App-wachtwoorden voor Office 365-clients die geen ondersteuning voor MFA bieden | ● | |
 | Beheerdercontrole over verificatiemethoden | ● | ● |

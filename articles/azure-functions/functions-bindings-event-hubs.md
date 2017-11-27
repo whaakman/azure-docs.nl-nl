@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Event Hubs-bindingen | Microsoft Docs
+title: Azure Functions Event Hubs-bindingen
 description: Het gebruik van Azure Event Hubs bindingen in de Azure Functions begrijpen.
 services: functions
 documentationcenter: na
@@ -14,57 +14,74 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 85eb6985ef3579b1b2313db3ce5f91c3471da72f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Azure Functions Event Hubs-bindingen
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-In dit artikel wordt uitgelegd hoe u configureert en gebruikt [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindingen voor Azure Functions.
-Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Event Hubs.
+Dit artikel wordt uitgelegd hoe u werkt met [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindingen voor Azure Functions. Azure Functions ondersteunt activeren en uitvoer van de bindingen voor Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Als u niet bekend met Azure Event Hubs bent, raadpleegt u de [overzicht van Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+## <a name="event-hubs-trigger"></a>Event Hubs activeren
 
-<a name="trigger"></a>
-
-## <a name="event-hub-trigger"></a>Event hub trigger
 Gebruik de Event Hubs-trigger om te reageren op een gebeurtenis verzonden naar de gebeurtenisstroom van een event hub. U moet leestoegang hebben tot de event hub voor het instellen van de trigger.
 
-De trigger Event Hubs-functie maakt gebruik van de volgende JSON-object in de `bindings` matrix van function.json:
+Wanneer een functie van Event Hubs trigger wordt geactiveerd, wordt het bericht dat deze wordt geactiveerd als een tekenreeks in de functie doorgegeven.
 
-```json
+## <a name="trigger---example"></a>Trigger - voorbeeld
+
+Zie het voorbeeld taalspecifieke:
+
+* [Vooraf gecompileerde C#](#trigger---c-example)
+* [C#-script](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
+
+Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die de logboeken van de berichttekst van de event hub-trigger.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
 {
-    "type": "eventHubTrigger",
-    "name": "<Name of trigger parameter in function signature>",
-    "direction": "in",
-    "path": "<Name of the event hub>",
-    "consumerGroup": "Consumer group to use - see below",
-    "connection": "<Name of app setting with connection string - see below>"
+    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
-`consumerGroup`is een optionele eigenschap gebruikt om de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt.  
-`connection`moet de naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte.
-Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.
+Als u toegang tot de metagegevens van de gebeurtenis, binden aan een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (vereist een `using` -instructie voor `Microsoft.ServiceBus.Messaging`).
 
-[Extra instellingen](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) kan worden opgegeven in een bestand host.json verder verbeteren van de Event Hubs-triggers.  
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+Zorg voor het ontvangen van gebeurtenissen in een batch, `string` of `EventData` een matrix:
 
-<a name="triggerusage"></a>
+```cs
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
+}
+```
 
-## <a name="trigger-usage"></a>Gebruik van de trigger
-Wanneer een functie van Event Hubs trigger wordt geactiveerd, wordt het bericht dat deze wordt geactiveerd als een tekenreeks in de functie doorgegeven.
+### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
-<a name="triggersample"></a>
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie Logboeken de berichttekst van de event hub-trigger.
 
-## <a name="trigger-sample"></a>Voorbeeld van de trigger
-Stel dat u hebt de volgende Event Hubs activeren de `bindings` matrix van function.json:
+Dit zijn de bindingsgegevens de *function.json* bestand:
 
 ```json
 {
@@ -75,16 +92,7 @@ Stel dat u hebt de volgende Event Hubs activeren de `bindings` matrix van functi
   "connection": "myEventHubReadConnectionString"
 }
 ```
-
-Zie de taalspecifieke-voorbeeldtoepassing die u de berichttekst van de event hub-trigger registreert.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Voorbeeld van de trigger in C# #
+Dit is de C#-scriptcode:
 
 ```cs
 using System;
@@ -95,7 +103,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-U kunt ook ontvangen de gebeurtenis als een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object, waarmee u toegang krijgt tot de metagegevens van de gebeurtenis.
+Als u toegang tot de metagegevens van de gebeurtenis, binden aan een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (vereist een met-instructie voor `Microsoft.ServiceBus.Messaging`).
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -108,7 +116,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-Voor het ontvangen van gebeurtenissen in een batch, wijzigt de methodehandtekening voor `string[]` of `EventData[]`.
+Zorg voor het ontvangen van gebeurtenissen in een batch, `string` of `EventData` een matrix:
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -120,18 +128,46 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-<a name="triggerfsharp"></a>
+### <a name="trigger---f-example"></a>Trigger - F #-voorbeeld
 
-### <a name="trigger-sample-in-f"></a>Voorbeeld van de trigger in F # #
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie Logboeken de berichttekst van de event hub-trigger.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+Dit is de F #-code:
 
 ```fsharp
 let Run(myEventHubMessage: string, log: TraceWriter) =
     log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
-<a name="triggernodejs"></a>
+### <a name="trigger---javascript-example"></a>Trigger - JavaScript-voorbeeld
 
-### <a name="trigger-sample-in-nodejs"></a>Voorbeeld van de trigger in Node.js
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie Logboeken de berichttekst van de event hub-trigger.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+Hier volgt de JavaScript-code:
 
 ```javascript
 module.exports = function (context, myEventHubMessage) {
@@ -140,39 +176,68 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-<a name="output"></a>
+## <a name="trigger---attributes-for-precompiled-c"></a>Trigger - kenmerken voor vooraf gecompileerde C#
+
+Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+De constructor van het kenmerk werkt met de naam van de event hub, de naam van de consumergroep en de naam van een app-instelling met de verbindingsreeks. Zie voor meer informatie over deze instellingen de [activeren configuratiesectie](#trigger---configuration). Hier volgt een `EventHubTriggerAttribute` kenmerk voorbeeld:
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+```
+
+## <a name="trigger---configuration"></a>Trigger - configuratie
+
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `EventHubTrigger` kenmerk.
+
+|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|---------|---------|----------------------|
+|**type** | N.v.t. | moet worden ingesteld op `eventHubTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
+|**richting** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
+|**naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
+|**pad** |**EventHubName** | De naam van de event hub. | 
+|**consumerGroup** |**ConsumerGroup** | Een optionele eigenschap die bepaalt de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.<br/>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+
+## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen host.json
+
+De [host.json](functions-host-json.md#eventhub) bestand bevat instellingen voor Event Hubs trigger gedrag.
+
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="event-hubs-output-binding"></a>Event Hubs uitvoer binding
-De uitvoer van de Event Hubs binding gebeurtenissen schrijven naar de gebeurtenisstroom van een event hub gebruiken. U moet gemachtigd verzenden naar een event hub gebeurtenissen om ernaar te schrijven.
 
-De uitvoer-binding gebruikt de volgende JSON-object in de `bindings` matrix van function.json:
+De uitvoer van de Event Hubs binding gebeurtenissen schrijven naar een stroom gebeurtenissen gebruiken. U moet gemachtigd verzenden naar een event hub gebeurtenissen om ernaar te schrijven.
 
-```json
+## <a name="output---example"></a>Output - voorbeeld
+
+Zie het voorbeeld taalspecifieke:
+
+* [Vooraf gecompileerde C#](#output---c-example)
+* [C#-script](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Output - C#-voorbeeld
+
+Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die een bericht naar een event hub, met behulp van de geretourneerde waarde van de methode als uitvoer geschreven:
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
-    "type": "eventHub",
-    "name": "<Name of output parameter in function signature>",
-    "path": "<Name of event hub>",
-    "connection": "<Name of app setting with connection string - see below>"
-    "direction": "out"
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    return $"{DateTime.Now}";
 }
 ```
 
-`connection`moet de naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte.
-Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet verzenden machtigingen hebben voor het bericht naar de stroom gebeurtenissen sturen.
+### <a name="output---c-script-example"></a>Output - voorbeeld van C#-script
 
-## <a name="output-usage"></a>Gebruik voor uitvoer
-Deze sectie wordt beschreven hoe u de uitvoer van uw Event Hubs in uw functiecode binding.
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie schrijft een bericht naar een event hub.
 
-U kunt berichten naar de geconfigureerde event hub uitvoeren met de volgende parametertypen:
-
-* `out string`
-* `ICollector<string>`(om uit te voeren op meerdere berichten)
-* `IAsyncCollector<string>`(async-versie van `ICollector<T>`)
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Voorbeeld van uitvoer
-Stel dat u hebt de volgende Event Hubs uitvoer binding in de `bindings` matrix van function.json:
+Dit zijn de bindingsgegevens de *function.json* bestand:
 
 ```json
 {
@@ -184,15 +249,7 @@ Stel dat u hebt de volgende Event Hubs uitvoer binding in de `bindings` matrix v
 }
 ```
 
-Zie het voorbeeld taalspecifieke die een gebeurtenis naar de zelfs stroom geschreven.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Voorbeeld van uitvoer in C# #
+Hier volgt een C# script-code die een bericht worden gemaakt:
 
 ```cs
 using System;
@@ -205,7 +262,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Of om meerdere berichten te maken:
+Hier volgt C# script-code die wordt gemaakt van meerdere berichten:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -217,9 +274,23 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-<a name="outfsharp"></a>
+### <a name="output---f-example"></a>Output - F #-voorbeeld
 
-### <a name="output-sample-in-f"></a>Voorbeeld van uitvoer in F # #
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie schrijft een bericht naar een event hub.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+Dit is de F #-code:
 
 ```fsharp
 let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
@@ -228,9 +299,23 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
     outputEventHubMessage <- msg;
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Output - JavaScript-voorbeeld
 
-### <a name="output-sample-for-nodejs"></a>Voorbeeld van uitvoer voor Node.js
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie schrijft een bericht naar een event hub.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+Hier volgt JavaScript-code die door een enkel bericht verzonden:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -241,7 +326,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Of om meerdere berichten te verzenden
+Hier volgt JavaScript-code waarmee meerdere berichten worden verzonden:
 
 ```javascript
 module.exports = function(context) {
@@ -256,5 +341,37 @@ module.exports = function(context) {
 };
 ```
 
+## <a name="output---attributes-for-precompiled-c"></a>Output - kenmerken voor vooraf gecompileerde C#
+
+Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+De constructor van het kenmerk werkt met de naam van de event hub en de naam van een app-instelling met de verbindingsreeks. Zie voor meer informatie over deze instellingen [Output - configuratie](#output---configuration). Hier volgt een `EventHub` kenmerk voorbeeld:
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+```
+
+## <a name="output---configuration"></a>Output - configuratie
+
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `EventHub` kenmerk.
+
+|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|---------|---------|----------------------|
+|**type** | N.v.t. | Moet worden ingesteld op 'eventHub'. |
+|**richting** | N.v.t. | Moet worden ingesteld op 'out'. Deze parameter wordt automatisch ingesteld bij het maken van de binding in de Azure portal. |
+|**naam** | N.v.t. | De naam van de variabele gebruikt in de functiecode waarmee de gebeurtenis. | 
+|**pad** |**EventHubName** | De naam van de event hub. | 
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de *naamruimte*, niet de event hub zelf. Deze verbindingsreeks moet verzenden machtigingen hebben voor het bericht naar de stroom gebeurtenissen sturen.<br/>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+
+## <a name="output---usage"></a>Output - gebruik
+
+In C# en C# script, kunt u berichten verzenden met behulp van een methodeparameter zoals `out string paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt gebruiken voor het schrijven van meerdere berichten `ICollector<string>` of `IAsyncCollector<string>` in plaats van `out string`.
+
+In JavaScript, opent u de uitvoergebeurtenis met behulp van `context.bindings.<name>`. `<name>`de waarde is opgegeven in de `name` eigenschap van *function.json*.
+
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)

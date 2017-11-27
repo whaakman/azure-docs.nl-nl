@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Een lab maken in Azure DevTest Labs
 Een lab in Azure DevTest Labs is de infrastructuur die een groep resources omvat, zoals VM's (virtuele machines), waarmee u deze resources beter kunt beheren door limieten en quota op te geven. In dit artikel wordt uitgelegd hoe u een lab maakt met behulp van Azure Portal.
@@ -59,9 +59,9 @@ In de volgende stappen ziet u hoe u Azure Portal kunt gebruiken om een lab te ma
 ## <a name="next-steps"></a>Volgende stappen
 Wanneer u uw lab hebt gemaakt, kunt u onder andere de volgende stappen uitvoeren:
 
-* [Toegang tot een lab beveiligen](devtest-lab-add-devtest-user.md).
-* [Labbeleidsregels instellen](devtest-lab-set-lab-policy.md).
-* [Een labsjabloon maken](devtest-lab-create-template.md).
-* [Aangepaste artefacten maken voor uw virtuele machines](devtest-lab-artifact-author.md).
-* [Een VM met artefacten toevoegen aan een lab](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
+* [Toegang tot een lab beveiligen](devtest-lab-add-devtest-user.md)
+* [Labbeleidsregels instellen](devtest-lab-set-lab-policy.md)
+* [Een labsjabloon maken](devtest-lab-create-template.md)
+* [Aangepaste artefacten maken voor uw virtuele machines](devtest-lab-artifact-author.md)
+* [Een virtuele machine aan een lab toevoegen](devtest-lab-add-vm.md)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -49,8 +49,6 @@ Nadat een verslechtering van prestatieprobleem is gedetecteerd door meerdere waa
 
 De metrische gegevens gebruikt om te meten en Detecteer prestatieproblemen met de database zijn gebaseerd op de duur van de query, time-out voor aanvragen, overmatige wachttijden en foutieve aanvragen. Zie voor meer informatie over metrische gegevens de [detectie metrische gegevens](sql-database-intelligent-insights.md#detection-metrics) gedeelte van dit document.
 
-## <a name="degradations-detected"></a>Degradations gedetecteerd
-
 Geïdentificeerd SQL-Database prestaties degradations worden vastgelegd in het logboek voor diagnostische gegevens met intelligent vermeldingen die bestaan uit de volgende eigenschappen:
 
 | Eigenschap             | Details              |
@@ -64,36 +62,49 @@ Geïdentificeerd SQL-Database prestaties degradations worden vastgelegd in het l
 | Hoofdmap hoofdoorzaken analyseren | Hoofdoorzaak analyse van het probleem dat is aangetroffen in een leesbare indeling. Sommige insights bevatten mogelijk een prestaties verbetering aanbeveling waar mogelijk. |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>Problemen met de levenscyclus van status: 'Active', 'Controleren' en 'Voltooi'
-
 Prestatieproblemen die zijn vastgelegd in het logboek voor diagnostische gegevens zijn gemarkeerd met een van de drie statussen van de levenscyclus van een probleem: 'Active', 'Controleren' en 'Voltooid'. Na een prestaties probleem wordt gedetecteerd en als lang deze heeft vastgesteld dat als aanwezig ingebouwde intelligentie SQL-Database, het probleem is gemarkeerd als 'Actief'. Als het probleem wordt beschouwd als verholpen, wordt gecontroleerd en wordt de status van het probleem wordt gewijzigd in 'Controleren'. Nadat de SQL-Database ingebouwde intelligentie beschouwt het probleem is opgelost, wordt de status van probleem gemarkeerd als 'Voltooid'.
 
 ## <a name="use-intelligent-insights"></a>Intelligent Insights gebruiken
 
-U kunt het logboek van Intelligent Insights diagnostische gegevens verzenden Azure Log Analytics, Azure Event Hubs en Azure Storage. Zie voor meer informatie [Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens](sql-database-metrics-diag-logging.md). Nadat u het logboek op een van deze doelen verzonden, kan het logboek worden gebruikt voor aangepaste waarschuwingen en de controle van ontwikkeling met behulp van Microsoft of hulpprogramma's van derden. 
+Intelligent Insights is een intelligente prestatielogboek diagnostische gegevens. Kunnen worden geïntegreerd met andere producten voor consumptie en dergelijke specifieke toepassingen zijn Azure Log Analytics, Azure Event Hubs en Azure-opslag, of een producten van derden. 
 
-Zie voor meer informatie op de prestaties van SQL-Database problemen oplossen met behulp van Intelligent Insights [Azure SQL Database oplossen van prestatieproblemen met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights samen met Azure Log Analytics wordt meestal gebruikt om de inzichten via een webbrowser en mogelijk een van de eenvoudigste manieren om het eerste begin met het gebruik van het product weer te geven. Intelligent Insights samen met Azure Event Hubs wordt doorgaans gebruikt voor het configureren van aangepaste bewaking en waarschuwingen van scenario's. Intelligent insights samen met de Azure-opslag wordt doorgaans gebruikt voor de ontwikkeling van aangepaste toepassingen, zoals bijvoorbeeld aangepaste rapporten, of misschien gegevensarchivering en ophalen.
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>Ingebouwde Intelligent Insights analytics met Log Analytics 
+Integratie van Intelligent Insights met andere Azure-logboekanalyse-producten, Azure Event Hub, Azure storage of producten van derden voor consumptie wordt uitgevoerd via de eerste inschakelen Intelligent Insights logging (logboekregistratie SQLInsights) en vervolgens configureren Intelligent Insights meld gegevens kunnen worden gestreamd naar een van deze producten. Zie voor meer informatie over het Intelligent Insights logboekregistratie inschakelen en configureren van logboekgegevens kunnen worden gestreamd naar een consumerende product [Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens](sql-database-metrics-diag-logging.md). 
 
-Een Log Analytics-oplossing biedt reporting en waarschuwen mogelijkheden boven op de diagnostics Intelligent Insights gegevens vastleggen. Het volgende voorbeeld ziet een rapport Intelligent inzichten in Azure SQL Analytics:
+Zie voor een praktische overzicht over het gebruik van Intelligent Insights met Azure Log Analytics en typische gebruiksscenario's de ingesloten video:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Intelligent Insights wat in detecteren en het oplossen van prestatieproblemen met de SQL-Database. Als u wilt gebruiken Intelligent Insights oplossen van problemen met prestaties van de SQL-Database, Zie [Azure SQL Database oplossen van prestatieproblemen met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>Intelligent Insights met logboekanalyse instellen 
+
+Meld u Analytics-oplossing reporting biedt en waarschuwingen mogelijkheden boven op de Intelligent inzichten diagnostische gegevens vastleggen.
+
+Om intelligente Insights met Log Analytics, configureren Intelligent Insights logboekgegevens worden gestreamd naar Log Analytics, raadpleeg dan [Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens](sql-database-metrics-diag-logging.md). 
+
+Het volgende voorbeeld ziet een rapport Intelligent inzichten in Azure SQL Analytics:
 
 ![Intelligent Insights-rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 Nadat het logboek van de diagnostische gegevens Intelligent Insights is geconfigureerd voor het SQL-Analytics van stroomgegevens, kunt u [bewaken van de SQL-database met behulp van SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>Aangepaste integraties van Intelligent Insights-logboek
-
-Zie voor meer informatie over aangepaste waarschuwingen en de controle van ontwikkeling met behulp van Microsoft of hulpprogramma's van derden [gebruik de prestatiecontrole Intelligent Insights database Meld](sql-database-intelligent-insights-use-diagnostics-log.md).
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>Intelligent Insights met Event Hubs instellen
 
-- Zie voor het configureren van Intelligent Insights om te streamen van gebeurtenissen naar Event Hubs [stroom Azure diagnostics logboeken naar Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
-- Zie voor het gebruik van Event Hubs voor aangepaste bewaking en waarschuwingen, [wat te doen met metrische gegevens en diagnostische gegevens geregistreerd in Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Om intelligente Insights met Event Hubs, configureren Intelligent Insights logboekgegevens worden gestreamd naar Event Hubs, raadpleeg dan [stroom Azure diagnostics logboeken naar Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+
+Voor het gebruik van Event Hubs om aangepaste bewaking en waarschuwingen in te stellen, Zie [wat te doen met metrische gegevens en diagnostische gegevens geregistreerd in Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>Intelligent Insights met opslag instellen
 
-- Zie voor het configureren van Intelligent inzicht moeten worden opgeslagen met Storage [Stream in Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+Om intelligente Insights met opslag, configureren Intelligent Insights logboekgegevens worden gestreamd naar opslag, raadpleeg dan [Stream in Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>Aangepaste integraties van Intelligent Insights-logboek
+
+Zie voor het gebruik van Intelligent Insights met hulpprogramma's van derden of aangepaste waarschuwingen en controle van de ontwikkeling, [gebruik de prestatiecontrole Intelligent Insights database Meld](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Detectie van metrische gegevens
 

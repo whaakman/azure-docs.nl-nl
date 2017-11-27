@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2017
+ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7629e496f2d73798b94acdc611014a8b3afead7
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ebda2f11f93b04a5592d18f8e15c8fc3b560aac3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
 
@@ -37,7 +37,8 @@ Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie 
 
 ## <a name="create-a-batch-account"></a>Batch-account maken
 
-
+> [!NOTE]
+> Als u een Batch-account maakt, moet u normaliter de standaardmodus **Batch-service** kiezen, waarbij pools achter de schermen van door Azure beheerde abonnementen worden toegewezen. In de alternatieve modus, **Gebruikersabonnement**, die voor de meeste scenario's niet meer wordt aanbevolen, worden Batch-VM's en andere resources rechtstreeks in uw abonnement gemaakt wanneer er een groep wordt gemaakt. Voor het maken van een Batch-account in de gebruikersabonnementmodus moet u het account ook bij Azure Batch registreren en aan een Azure Key Vault koppelen.
 
 1. Meld u aan bij [Azure Portal][azure_portal].
 2. Klik op **Nieuw** en zoek op de Marketplace naar **Batch-service**.
@@ -66,7 +67,7 @@ Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie 
 ## <a name="view-batch-account-properties"></a>Eigenschappen van Batch-account weergeven
 Zodra het account is gemaakt, klikt u op het account om naar de instellingen en eigenschappen te gaan. U hebt toegang tot alle eigenschappen en accountinstellingen via het linkermenu.
 
-![Blade Batch-account in Azure Portal][account_blade]
+![Pagina Batch-account in Azure Portal][account_blade]
 
 * **Batch-account-URL**: wanneer u een toepassing ontwikkelt met de [Batch-API‘s](batch-apis-tools.md#azure-accounts-for-batch-development), hebt u een account-URL nodig voor toegang tot de Batch-resources. Een Batch-account-URL heeft de volgende indeling:
 
@@ -91,11 +92,45 @@ U wordt aangeraden een nieuw opslagaccount te maken dat alleen wordt gebruikt vo
 ![Een opslagaccount voor algemeen gebruik maken][storage_account]
 
 > [!NOTE]
-> Wees voorzichtig bij het opnieuw genereren van de toegangssleutels van een gekoppeld opslagaccount. Genereer slechts één opslagaccountsleutel opnieuw en klik op **Sleutels synchroniseren** op de blade voor het gekoppelde opslagaccount. Wacht vijf minuten tot de sleutels aan de rekenknooppunten in uw groepen zijn doorgegeven en genereer en synchroniseer de andere sleutel opnieuw, indien nodig. Als u beide sleutels tegelijk opnieuw genereert, kunnen uw rekenknooppunten geen van beide sleutels synchroniseren en zullen zij toegang verliezen tot het opslagaccount.
+> Wees voorzichtig bij het opnieuw genereren van de toegangssleutels van een gekoppeld opslagaccount. Genereer slechts één opslagaccountsleutel opnieuw en klik op **Sleutels synchroniseren** op de pagina voor het gekoppelde opslagaccount. Wacht vijf minuten tot de sleutels aan de rekenknooppunten in uw groepen zijn doorgegeven en genereer en synchroniseer de andere sleutel opnieuw, indien nodig. Als u beide sleutels tegelijk opnieuw genereert, kunnen uw rekenknooppunten geen van beide sleutels synchroniseren en zullen zij toegang verliezen tot het opslagaccount.
 >
 >
 
 ![Sleutels van opslagaccounts opnieuw genereren][4]
+
+## <a name="additional-configuration-for-user-subscription-mode"></a>Aanvullende configuratie voor de modus Gebruikersabonnement
+
+Als u ervoor kiest een Batch-account te maken in de modus Gebruikersabonnement, moet u de volgende aanvullende stappen uitvoeren voordat u het account gaat maken.
+
+### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Azure Batch toegang geven tot het abonnement (eenmalige bewerking)
+Wanneer u uw eerste Batch-account maakt in de modus Gebruikersabonnement, moet u de volgende stappen uitvoeren om uw abonnement te registreren bij Batch. (Als u dit eerder hebt gedaan, gaat u naar de volgende sectie.)
+
+1. Meld u aan bij [Azure Portal][azure_portal].
+
+2. Klik op **Meer services** > **abonnementen** en klik op het abonnement dat u wilt gebruiken voor het Batch-account.
+
+3. Klik op de pagina **Abonnement** op **Toegangsbeheer (IAM)** > **Toevoegen**.
+
+    ![Toegangsbeheer voor abonnement][subscription_access]
+
+4. Selecteer op de pagina **Machtigingen toevoegen** de rol **Bijdrager** en zoek naar de Batch API. Zoek deze tekenreeksen totdat u de API hebt gevonden:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Nieuwere Azure AD-tenants kunnen deze naam gebruiken.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is de id voor de Batch-API. 
+
+5. Als u de Batch-API hebt gevonden, selecteert u deze en klikt u op **Opslaan**.
+
+    ![Batch-machtigingen toevoegen][add_permission]
+
+### <a name="create-a-key-vault"></a>Een sleutelkluis maken
+In de modus Gebruikersabonnement is een Azure-sleutelkluis vereist die behoort tot dezelfde resourcegroep als het Batch-account dat moet worden gemaakt. Zorg ervoor dat de resourcegroep zich bevindt in een regio waarin Batch [beschikbaar](https://azure.microsoft.com/regions/services/) is en die uw abonnement ondersteunt.
+
+1. Klik in de [Azure Portal][azure_portal] op **Nieuw** > **Beveiliging en identiteit** > **Sleutelkluis**.
+
+2. Typ op de pagina **Sleutelkluis maken** een naam voor de sleutelkluis en maak een resourcegroep in de gewenste regio voor uw Batch-account. Laat de overige instellingen op de standaardwaarden staan en klik op **Maken**.
+
+
+
 
 ## <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 Er zijn bepaalde [quota en limieten](batch-quota-limit.md) van toepassing op Batch-account, net als bij uw Azure-abonnement en andere Azure-services. De huidige quota voor een Batch-account worden weergegeven in **Quota**.
@@ -133,4 +168,4 @@ Naast het gebruik van Azure Portal kunt u op de volgende manieren Batch-accounts
 [quotas]: ./media/batch-account-create-portal/quotas.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
-[account_portal_byos]: ./media/batch-account-create-portal/batch_acct_portal_byos.png
+

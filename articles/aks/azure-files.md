@@ -13,67 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Azure-bestanden gebruiken in Kubernetes
 
-Op basis van containertoepassingen moeten vaak voor toegang tot en het behouden van gegevens in een externe gegevensbron-volume. Azure-bestanden kunnen worden gebruikt als deze externe gegevensarchief. Dit artikel gegevens als een volume Kubernetes in Azure Container Service met behulp van Azure files.
+Container gebaseerde toepassingen moeten vaak voor toegang tot en het behouden van gegevens in een externe gegevensbron-volume. Azure-bestanden kunnen worden gebruikt als deze externe gegevensarchief. Dit artikel gegevens als een volume Kubernetes in Azure Container Service met behulp van Azure files.
 
 Zie voor meer informatie over Kubernetes volumes [Kubernetes volumes][kubernetes-volumes].
 
-## <a name="creating-a-file-share"></a>Een bestandsshare maken
+## <a name="create-an-azure-file-share"></a>Een Azure-bestandsshare maken
 
-Een bestaande Azure-bestandsshare kan worden gebruikt met Azure Container Service. Als u maken wilt, gebruikt u de volgende reeks opdrachten.
-
-Maak een resourcegroep voor de Azure File share met de [az groep maken] [ az-group-create] opdracht. De resourcegroep van de storage-account en het cluster Kubernetes moet zich bevinden in dezelfde regio.
+Voordat u een Azure-bestandsshare als een volume Kubernetes, moet u een Azure Storage-account en de bestandsshare te maken. Het volgende script kan worden gebruikt om deze taken te voltooien. Let op of de parameterwaarden die zijn bijgewerkt, sommige van deze nodig zijn bij het maken van het volume Kubernetes.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myAKSShare
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=aksshare
 
-Gebruik de [az storage-account maken] [ az-storage-create] opdracht voor het maken van een Azure Storage-account. Naam van het opslagaccount moet uniek zijn. Werk de waarde van de `--name` argument met een unieke waarde.
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Create the storage account
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-Gebruik de [lijst met opslagaccounts die sleutels az ] [ az-storage-key-list] opdracht voor het retourneren van de opslagsleutel. Werk de waarde van de `--account-name` argument met de unieke opslagaccountnaam.
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Let op één van de belangrijkste waarden, dit wordt gebruikt bij volgende stappen.
+# Create the file share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Gebruik de [az storage-share maken] [ az-storage-share-create] opdracht om de Azure-bestandsshare te maken. Update de `--account-key` waarde met de waarde in de laatste stap verzameld.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## <a name="create-kubernetes-secret"></a>Kubernetes geheim maken
 
-Kubernetes moet referenties voor toegang tot de bestandsshare. In plaats van de Azure Storage-accountnaam en de sleutel met elke schil worden opgeslagen, wordt deze opgeslagen eenmaal in een [Kubernetes geheim] [ kubernetes-secret] en waarnaar wordt verwezen door elk volume van de Azure-bestanden. 
+Kubernetes moet referenties voor toegang tot de bestandsshare. Deze referenties worden opgeslagen een [Kubernetes geheim][kubernetes-secret], die bij het maken van een schil Kubernetes wordt verwezen.
 
-De waarden in een Kubernetes geheime manifest moet base64-gecodeerd. Gebruik de volgende opdrachten om gecodeerde waarden te retourneren.
+Wanneer u een Kubernetes geheime maakt, moet de geheime waarden base64-gecodeerd.
 
-Codeer eerst de naam van het opslagaccount. Vervang `storage-account` met de naam van uw Azure storage-account.
+Codeer eerst de naam van het opslagaccount. Indien nodig, Vervang `$AKS_PERS_STORAGE_ACCOUNT_NAME` met de naam van de Azure storage-account.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Vervolgens wordt is de toegangssleutel voor opslagaccount vereist. Voer de volgende opdracht om te retourneren van de gecodeerde sleutel. Vervang `storage-key` met de sleutel die wordt verzameld in een eerdere stap
+Codeer vervolgens de sleutel van het opslagaccount. Indien nodig, Vervang `$STORAGE_KEY` met de naam van de sleutel van de Azure storage-account.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Maak een bestand met de naam `azure-secret.yml` en kopieer de volgende YAML. Update de `azurestorageaccountname` en `azurestorageaccountkey` waarden met de base64-gecodeerd waarden in de laatste stap opgehaald.
@@ -89,15 +86,15 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Gebruik de [kubectl toepassen] [ kubectl-apply] opdracht voor het maken van het geheim.
+Gebruik de [kubectl maken] [ kubectl-create] opdracht voor het maken van het geheim.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Bestandsshare als een volume koppelen
 
-U kunt de share van uw Azure-bestanden in uw schil koppelen door het configureren van het volume in de specificatie. Maak een nieuw bestand met de naam `azure-files-pod.yml` met de volgende inhoud. Update `share-name` met de naam van de Azure-bestanden delen.
+U kunt de share van uw Azure-bestanden in uw schil koppelen door het configureren van het volume in de specificatie. Maak een nieuw bestand met de naam `azure-files-pod.yml` met de volgende inhoud. Update `aksshare` met de naam van de Azure-bestanden delen.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +112,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: aksshare
       readOnly: false
 ```
 
@@ -139,6 +136,6 @@ Meer informatie over Kubernetes volumes met behulp van Azure-bestanden.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create

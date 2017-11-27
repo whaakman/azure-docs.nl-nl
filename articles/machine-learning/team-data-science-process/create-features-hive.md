@@ -4,7 +4,7 @@ description: Voorbeelden van Hive-query's die functies in de gegevens die zijn o
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Met Hive-query’s functies maken voor gegevens in een Hadoop-cluster
-Dit document wordt beschreven hoe de functies voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's maken. Deze Hive-query's gebruiken ingesloten Hive gebruiker gedefinieerde functies (UDF's), de scripts die worden geleverd.
+# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Functies voor gegevens in een Hadoop-cluster met behulp van Hive-query's maken
+Dit document wordt beschreven hoe de functies voor gegevens die zijn opgeslagen in een Azure HDInsight Hadoop-cluster met behulp van Hive-query's maken. Deze Hive-query's gebruiken ingesloten Hive User-Defined-functies (UDF's), de scripts die worden geleverd.
 
 De bewerkingen die nodig zijn voor het maken van functies kunnen geheugenintensief zijn. De prestaties van Hive-query's wordt meer kritieke in dergelijke gevallen en kan worden verbeterd door het afstemmen van bepaalde parameters. Het afstemmen van deze parameters wordt besproken in het laatste gedeelte.
 
@@ -36,7 +36,7 @@ In dit artikel wordt ervan uitgegaan dat u hebt:
 
 * Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [een Azure Storage-account maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Een aangepaste Hadoop-cluster met de HDInsight-service wordt ingericht.  Als u instructies nodig hebt, raadpleegt u [aanpassen Azure HDInsight Hadoop-Clusters voor geavanceerde analyses](customize-hadoop-cluster.md).
-* De gegevens is geüpload naar de Hive-tabellen in Azure HDInsight Hadoop-clusters. Als dit niet het geval is, voert u [maken en gegevens laden met Hive-tabellen](move-hive-tables.md) eerst gegevens uploaden naar Hive-tabellen.
+* De gegevens is geüpload naar de Hive-tabellen in Azure HDInsight Hadoop-clusters. Als dit niet het geval is, voert u de [maken en gegevens laden met Hive-tabellen](move-hive-tables.md) eerst gegevens uploaden naar Hive-tabellen.
 * Externe toegang tot het cluster is ingeschakeld. Als u instructies nodig hebt, raadpleegt u [toegang tot de hoofd-knooppunt van Hadoop-Cluster](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Functie generatie
@@ -62,8 +62,8 @@ Vaak is het nuttig om de frequenties van de niveaus van een categorische variabe
         order by frequency desc;
 
 
-### <a name="hive-riskfeature"></a>Risico's van Categorische variabelen in binaire classificatie
-In binaire indeling moeten we niet-numerieke categorische variabelen converteren naar numerieke onderdelen wanneer de modellen die alleen wordt gebruikt, neemt de numerieke onderdelen. Dit wordt gedaan door elk niet-numerieke niveau vervangen door een numerieke risico. Deze sectie vindt enkele algemene Hive-query's die de waarden van de risico's (log kans) van een variabele categorische berekenen.
+### <a name="hive-riskfeature"></a>Risico's van categorische variabelen in binaire classificatie
+In binaire indeling, moeten niet-numerieke categorische variabelen worden geconverteerd naar numerieke onderdelen wanneer de modellen die alleen wordt gebruikt, neemt de numerieke onderdelen. Deze conversie wordt uitgevoerd door verschillende niveaus van niet-numerieke vervangen door een numerieke risico. Deze sectie vindt enkele algemene Hive-query's die de waarden van de risico's (log kans) van een variabele categorische berekenen.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -87,7 +87,7 @@ In dit voorbeeld variabelen `smooth_param1` en `smooth_param2` vloeiend de risic
 
 Na het risico is tabel berekend dat gebruikers kunnen risico waarden toewijzen aan een tabel door deze samen te voegen met de tabel risico. De gekoppelde Hive-query is opgegeven in de vorige sectie.
 
-### <a name="hive-datefeatures"></a>Functies van Datetime-Fields uitpakken
+### <a name="hive-datefeatures"></a>Functies van datetime-velden uitpakken
 Hive wordt geleverd met een reeks UDF's voor het verwerken van datetime-velden. In component, de standaardnotatie voor datum/tijd is ' jjjj-MM-dd 00:00:00 ' ('01-01-1970 12:21:32 ' bijvoorbeeld). In deze sectie bevat voorbeelden die de dag van een maand, de maand van een datetime-veld uitpakken en andere voorbeelden die een datum/tijd-tekenreeks in een indeling geconverteerd andere dan de standaardindeling naar een datum/tijd-tekenreeks in standaard opmaken.
 
         select day(<datetime field>), month(<datetime field>)
@@ -134,34 +134,44 @@ De velden die worden gebruikt in deze query zijn de GPS-coördinaten van ophalen
         and dropoff_latitude between 30 and 90
         limit 10;
 
-De wiskundige vergelijkingen die de afstand tussen twee GPS-coördinaten berekenen vindt u op de <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">MovableType Scripts</a> geschreven door Peter Lapisu-site. In diens Javascript, de functie `toRad()` is zojuist *lat_or_lon*pi/180 *, die graden converteert naar radialen. Hier *lat_or_lon* is de breedtegraad of lengtegraad. Aangezien Hive niet in de functie voorziet `atan2`, maar de functie biedt `atan`, wordt de `atan2` functie wordt geïmplementeerd door `atan` functie in de bovenstaande Hive-query met de opgegeven in de definitie <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia (Engelstalig)</a>.
+De wiskundige vergelijkingen die de afstand tussen twee GPS-coördinaten berekenen vindt u op de <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">MovableType Scripts</a> geschreven door Peter Lapisu-site. In deze Javascript, de functie `toRad()` is zojuist *lat_or_lon*pi/180 *, die graden converteert naar radialen. Hier *lat_or_lon* is de breedtegraad of lengtegraad. Aangezien Hive niet in de functie voorziet `atan2`, maar de functie biedt `atan`, wordt de `atan2` functie wordt geïmplementeerd door `atan` functie in de bovenstaande Hive-query met de opgegeven in de definitie <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia (Engelstalig)</a>.
 
 ![Werkruimte maken](./media/create-features-hive/atan2new.png)
 
 Een volledige lijst met Hive ingesloten UDF's vindt u in de **ingebouwde functies** sectie op de <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Onderwerpen over geavanceerde: stemmen Hive-Parameters voor Query-snelheid verbeteren
-De standaardinstellingen van de parameter van Hive-cluster is mogelijk niet geschikt is voor de Hive-query's en de gegevens die de verwerking van de query's. In deze sectie bespreken we een aantal parameters die gebruikers kunnen afstemmen de prestaties van Hive-query's verbeteren. Gebruikers moeten de parameter afstemmen van query's voordat de query's van het verwerken van gegevens toevoegen.
+## <a name="tuning"></a>Onderwerpen over geavanceerde: stemmen Hive-parameters voor het verbeteren van de query
+De standaardinstellingen van de parameter van Hive-cluster is mogelijk niet geschikt is voor de Hive-query's en de gegevens die de verwerking van de query's. Deze sectie wordt beschreven sommige parameters die gebruikers afstemmen kunnen om de prestaties van Hive-query's te verbeteren. Gebruikers moeten de parameter afstemmen van query's voordat de query's van het verwerken van gegevens toevoegen.
 
-1. **Java-heap ruimte**: voor query's met betrekking tot lid te worden grote gegevenssets of verwerken van lange records **bijna vol heap** is een van de algemene fouten. Dit door het instellen van de parameters kan worden afgestemd *mapreduce.map.java.opts* en *mapreduce.task.io.sort.mb* naar de gewenste waarden. Hier volgt een voorbeeld:
+1. **Java-heap ruimte**: voor query's met betrekking tot lid te worden grote gegevenssets of verwerken van lange records **bijna vol heap** is een van de algemene fouten. Deze fout kan worden voorkomen door het instellen van de parameters *mapreduce.map.java.opts* en *mapreduce.task.io.sort.mb* naar de gewenste waarden. Hier volgt een voorbeeld:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Deze parameter 4GB geheugen met Java heap adresruimte toewijst en maakt ook sorteren efficiënter door meer geheugen toewijzen voor deze. Er is een goed idee om af te spelen met deze toewijzingen als er een taak mislukt fouten met betrekking tot heap-ruimte.
 
-1. **DFS-blokgrootte**: deze parameter stelt de kleinste gegevenseenheid die het bestandssysteem worden opgeslagen. Als u bijvoorbeeld dat als de blokgrootte van DFS-128MB, klikt u vervolgens de gegevens van de grootte van minder dan en maximaal is 128MB wordt opgeslagen in één blok, terwijl de gegevens die groter is dan 128MB extra blokken wordt toegewezen. Het kiezen van een zeer kleine blokgrootte zorgt ervoor dat grote overhead in Hadoop omdat de naam van knooppunt heeft veel meer aanvragen zoeken van de relevante blok met betrekking tot het bestand te verwerken. Een aanbevolen instelling als betreft gigabyte (of groter) gegevens:
-   
+1. **DFS-blokgrootte**: deze parameter stelt de kleinste gegevenseenheid die het bestandssysteem worden opgeslagen. Als u bijvoorbeeld dat als de blokgrootte van DFS-128 MB, klikt u vervolgens de gegevens van de grootte van minder dan en maximaal is 128 MB wordt opgeslagen in één blok. Gegevens die groter is dan 128 MB extra blokken wordt toegewezen. 
+2. Het kiezen van een kleine blokgrootte zorgt ervoor dat grote overhead in Hadoop omdat de naam van knooppunt heeft veel meer aanvragen zoeken van de relevante blok met betrekking tot het bestand te verwerken. Een aanbevolen instelling als betreft gigabyte (of groter) gegevens:
+
         set dfs.block.size=128m;
+
 2. **Join-bewerking in Hive optimaliseren**: terwijl joinbewerkingen in het kader van de kaart/verminderen doorgaans in de verminderen fase soms plaatsvinden enorm veel toeneemt kunnen worden bereikt door planning joins in de fase van de kaart (ook wel 'mapjoins' genoemd). Rechtstreeks Hive om dit te doen indien mogelijk, instellen:
    
-        set hive.auto.convert.join=true;
-3. **Waarmee het aantal mappers aan component**: terwijl Hadoop kan de gebruiker het aantal verkleiningstoestellen instellen, het aantal mappers is doorgaans niet worden ingesteld door de gebruiker. Een slag waarmee bepaalde mate van controle op dit aantal is het kiezen van de variabelen Hadoop *mapred.min.split.size* en *mapred.max.split.size* als de grootte van elke kaart taak wordt bepaald door:
+       set hive.auto.convert.join=true;
+
+3. **Waarmee het aantal mappers aan component**: terwijl Hadoop kan de gebruiker het aantal verkleiningstoestellen instellen, het aantal mappers is doorgaans niet worden ingesteld door de gebruiker. Een slag waarmee bepaalde mate van controle op dit aantal is het kiezen van de Hadoop-variabelen *mapred.min.split.size* en *mapred.max.split.size* als de grootte van elke kaart taak wordt bepaald door:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-    Normaal gesproken de standaardwaarde van *mapred.min.split.size* is ingesteld op 0 van *mapred.max.split.size* is **Long.MAX** , evenals *dfs.block.size* is 64 MB. Zoals we zien, krijgt de gegevensgrootte afstemming van deze parameters door 'instelling' ze kunt u ons af te stemmen, het aantal mappers gebruikt.
-4. Enkele andere meer **geavanceerde opties voor** voor het optimaliseren van Hive prestaties hieronder worden vermeld. Deze kunnen u instellen van het geheugen toegewezen als u wilt toewijzen en taken te verminderen en nuttig kunnen zijn bij het afstemmen van de prestaties. Neem Houd rekening met de *mapreduce.reduce.memory.mb* mag niet groter zijn dan de grootte van fysiek geheugen van elk knooppunt van de werknemer in het Hadoop-cluster.
+    Normaal gesproken de standaardwaarde van:
+    
+    - *mapred.min.split.Size* is ingesteld op 0 van
+    - *mapred.Max.split.Size* is **Long.MAX** en die van 
+    - *DFS.Block.Size* is 64 MB.
+
+    Zoals we zien, krijgt de gegevensgrootte afstemming van deze parameters door 'instelling' ze kunt u ons af te stemmen, het aantal mappers gebruikt.
+
+4. Hier volgen enkele andere meer **geavanceerde opties voor** voor Hive-prestaties te optimaliseren. Deze kunnen u instellen van het geheugen toegewezen als u wilt toewijzen en taken te verminderen en nuttig kunnen zijn bij het afstemmen van de prestaties. Houd rekening met de *mapreduce.reduce.memory.mb* mag niet groter zijn dan de grootte van fysiek geheugen van elk knooppunt van de werknemer in het Hadoop-cluster.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

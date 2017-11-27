@@ -4,7 +4,7 @@ description: Beheerconcepten en uitleg over het beheren van een domeinnaam in Az
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Aangepaste domeinnamen in uw Azure Active Directory beheren
 Een domeinnaam is een belangrijk onderdeel van de id voor veel directory-resources: het deel uitmaakt van een gebruikersnaam of e-mailadres voor een gebruiker deel van het adres voor een groep, en kan deel uitmaken van de app-ID-URI voor een toepassing. Een resource in Azure Active Directory (Azure AD), kan een domeinnaam die al is geverifieerd als eigendom van de map die de bron bevat bevatten. Alleen een globale beheerder kunt domein-beheertaken uitvoeren in Azure AD.
@@ -29,18 +29,18 @@ Wanneer de map wordt gemaakt, wordt de initiële domeinnaam, zoals 'contoso.onmi
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
 2. Selecteer **Azure Active Directory**.
-   
-   ![Gebruikersbeheer openen](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Selecteer **domeinnamen**.
-4. Selecteer de naam van het domein dat u wilt maken van het primaire domein.
+3. Selecteer **aangepaste domeinnamen**.
+     
+   ![Gebruikersbeheer openen](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
+4. Selecteer de naam van het domein dat u wilt worden van het primaire domein.
 5. Selecteer de **primair** opdracht. Bevestig uw keuze wanneer u wordt gevraagd.
    
-   ![Een domeinnaam primair maken](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![Een domeinnaam primair maken](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 U kunt de primaire domeinnaam voor uw directory om te worden geverifieerd aangepaste domeinen die niet federatief wijzigen. Het wijzigen van het primaire domein voor uw directory heeft geen invloed op de gebruikersnamen voor alle bestaande gebruikers.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Aangepaste domeinnamen toevoegen aan uw Azure AD
-> U kunt tot maximaal 900 beheerde domeinnamen toevoegen. Als u van plan bent uw domeinen voor federatie configureren met lokale Active Directory, kunt u toevoegen aan een maximum van 450 domeinnamen in elke map. Zie voor meer informatie [federatieve en beheerde domeinnamen](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Aangepaste domeinnamen toevoegen aan uw Azure AD-tenant
+U kunt tot maximaal 900 beheerde domeinnamen toevoegen. Als u uw domeinen voor federatie met lokale Active Directory configureren wilt, kunt u met een maximum van 450 domeinnamen in elke directory up toevoegen. Zie voor meer informatie [federatieve en beheerde domeinnamen](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Toevoegen van subdomeinen van een aangepast domein
 Als u wilt een derde niveau domeinnaam zoals 'europe.contoso.com' toevoegen aan uw directory, moet u eerst toevoegen en controleren van het domein van de tweede niveau, zoals contoso.com. Het subdomein wordt automatisch geverifieerd door Azure AD. Overzicht van het subdomein dat u zojuist hebt toegevoegd is geverifieerd, vernieuw de pagina in de browser die domeinen.

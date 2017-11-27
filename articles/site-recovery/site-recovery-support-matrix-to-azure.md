@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van on-premises naar Azure
 
@@ -145,6 +145,7 @@ Meerdere NIC 's | Ja | Ja
 Reserved IP | Ja | Ja
 IPv4 | Ja | Ja
 Behouden van de bron-IP | Ja | Ja
+Virtueel netwerk Service-eindpunten (Azure Storage firewalls en virtuele netwerken) | Nee | Nee
 
 
 ## <a name="support-for-storage"></a>Ondersteuning voor opslag
@@ -188,9 +189,11 @@ GRS | Ja | Ja
 RA-GRS | Ja | Ja
 Cool storage | Nee | Nee
 Hot storage| Nee | Nee
+Blok-blobs | Nee | Nee
 Versleuteling op rest(SSE)| Ja | Ja
 Premium Storage | Ja | Ja
 Service voor importeren/exporteren | Nee | Nee
+Virtueel netwerk Service-eindpunten (Azure Storage firewalls en virtuele netwerken) geconfigureerd op de doelopslag account of storage-account gebruikt voor het opslaan van gegevens van replicatie in de cache | Nee | Nee
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Ondersteuning voor Azure compute-configuratie

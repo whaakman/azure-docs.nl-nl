@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="governance-in-azure"></a>Beheeracties in Azure
 
 We weten dat beveiliging taak in de cloud en hoe belangrijk is dat u tijdig en informatie over Azure-beveiliging vinden. Een van de beste redenen voor het gebruik van Azure voor uw toepassingen en services is om te profiteren van de breed scala aan mogelijkheden en hulpprogramma's voor beveiliging. Deze hulpprogramma's en mogelijkheden te maken het mogelijk om veilige oplossingen maken op de beveiligde Azure-platform.
 
-Als u wilt, kunt u beter begrip van de matrix van Governance besturingselementen in Microsoft Azure wordt uitgevoerd vanuit het perspectief van de klant en de Microsoft-operations dit artikel 'Governance in Azure', wordt geschreven, biedt een uitgebreid overzicht van de Beheer functies die beschikbaar zijn met Microsoft Azure.
+Om beter inzicht in de matrix van toezicht besturingselementen die zijn geïmplementeerd in Microsoft Azure vanuit zowel van de klant en de Microsoft operations perspectieven, in dit artikel 'Governance in Azure', wordt geschreven naar bieden een uitgebreide blik op de Governance functies die beschikbaar zijn met Microsoft Azure.
 
 ## <a name="azure-platform"></a>Azure-platform
 

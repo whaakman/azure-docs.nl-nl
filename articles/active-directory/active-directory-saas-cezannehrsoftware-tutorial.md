@@ -1,289 +1,292 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Cezanne HR software | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Cezanne HR-software.
+title: 'Zelfstudie: Azure Active Directory-integratie met Cezanne HR Software | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Cezanne HR-Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: fb8f95bf-c3c1-4e1f-b2b3-3b67526be72d
+ms.reviewer: joflore
+ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 623c438edfce5f98c2d32d8bb25a97d86aa77909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-cezanne-hr-software"></a>Zelfstudie: Azure Active Directory integreren met Cezanne HR-software
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Zelfstudie: Azure Active Directory-integratie met Cezanne HR-Software
 
-In deze zelfstudie leert u hoe Cezanne HR software integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe Cezanne HR Software integreren met Azure Active Directory (Azure AD).
 
-Cezanne HR software integreren met Azure AD biedt u de volgende voordelen. U kunt:
+Cezanne HR Software integreren met Azure AD biedt de volgende voordelen:
 
-- Beheren in Azure AD die toegang tot Cezanne HR-software heeft.
-- Kunnen uw gebruikers automatisch aanmelden bij Cezanne HR-software met eenmalige aanmelding (SSO) met hun Azure AD-accounts.
-- Uw accounts op één locatie beheren: de Azure-portal.
+- U kunt beheren in Azure AD die toegang tot Cezanne HR-Software heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Cezanne HR-Software (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Zie voor meer informatie over software als een dienst (SaaS)-app-integratie met Azure AD, [wat is er toegang tot toepassingen en SSO met Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Cezanne HR-software, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Cezanne HR-Software, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Cezanne HR software abonnement SSO-ingeschakeld
+- Een Cezanne HR Software eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, is het raadzaam dat u niet een productieomgeving gebruikt.
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-Test de stappen in deze zelfstudie, volgt u deze aanbevelingen:
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
 - Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie kunt u Azure AD SSO testen in een testomgeving. 
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+1. Cezanne HR Software uit de galerie toevoegen
+2. Configureren en testen van Azure AD eenmalige aanmelding
 
-* Cezanne HR software uit de galerie toevoegen
-* Configureren en testen van Azure AD-SSO
+## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Cezanne HR Software uit de galerie toevoegen
+Voor het configureren van de integratie van Cezanne HR-Software in Azure AD, moet u Cezanne HR Software uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
-## <a name="add-cezanne-hr-software-from-the-gallery"></a>Cezanne HR software uit de galerie toevoegen
-Voor het configureren van de integratie van Cezanne HR-software in Azure AD Cezanne HR software uit de galerie te toevoegen aan uw lijst met beheerde SaaS-apps.
+**Als u wilt toevoegen Cezanne HR Software uit de galerie, moet u de volgende stappen uitvoeren:**
 
-Als u wilt toevoegen Cezanne HR software uit de galerie, het volgende doen:
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, selecteer in het linkerdeelvenster de **Azure Active Directory** knop. 
+    ![De Azure Active Directory-knop][1]
 
-    ![De knop 'Azure Active Directory'][1]
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-2. Selecteer **bedrijfstoepassingen** > **alle toepassingen**.
-
-    ![De koppeling 'Alle toepassingen'][2]
+    ![De blade Enterprise-toepassingen][2]
     
-3. Een nieuwe toepassing toevoegen aan de bovenkant van de **alle toepassingen** dialoogvenster, **nieuwe toepassing**.
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    !['Nieuwe application' knop][3]
+    ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak **Cezanne HR Software**.
+4. Typ in het zoekvak **Cezanne HR Software**, selecteer **Cezanne HR Software** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Het zoekvak](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_search.png)
-
-5. Selecteer in de lijst met resultaten **Cezanne HR Software** en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
-
-    ![De lijst met resultaten](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
+    ![Cezanne HR-Software in de lijst met resultaten](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
-In deze sectie maakt u configureren en testen van Azure AD-SSO met Cezanne HR-software op basis van een testgebruiker genaamd "Britta Simon."
 
-Azure AD moet weten de equivalente Cezanne HR software naar de Azure AD-gebruiker voor eenmalige aanmelding werkt. Met andere woorden, moet u een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker maken in de Cezanne HR-software.
+In deze sectie configureert en test eenmalige aanmelding Azure AD met Cezanne HR-Software op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Toewijzen om vast te stellen op de koppeling relatie, de software Cezanne HR **gebruikersnaam** waarde als de Azure AD **gebruikersnaam** waarde.
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Cezanne HR-Software is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Cezanne HR Software worden gemaakt.
 
-Als u wilt configureren en testen van Azure AD-SSO met behulp van Cezanne HR-software, voltooi de volgende elementen.
+Wijs in Cezanne HR-Software, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD-eenmalige aanmelding configureren
+Om te configureren en testen van Azure AD eenmalige aanmelding met Cezanne HR-Software, moet u de volgende bouwstenen voltooien:
 
-In deze sectie kunt u Azure AD-eenmalige aanmelding inschakelen in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Cezanne HR als volgt:
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Cezanne HR Software](#create-a-cezannehrsoftware-test-user)**  - Cezanne HR-Software die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-1. In de Azure-portal op de **Cezanne HR Software** toepassing Integratiepagina **eenmalige aanmelding**.
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
-    ![De opdracht "Single sign-on"][4]
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Cezanne HR-Software.
 
-2. Voor het inschakelen van eenmalige aanmelding, in de **eenmalige aanmelding** selecteert u de **modus** als **op basis van SAML aanmelding**.
+**Voor het configureren van Azure AD eenmalige aanmelding met Cezanne HR-Software, moet u de volgende stappen uitvoeren:**
+
+1. In de Azure-portal op de **Cezanne HR Software** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+
+    ![Koppeling voor eenmalige aanmelding configureren][4]
+
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
-    ![Het selectievakje 'Modus'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
 
-3. Onder **Cezanne HR Software domein en de URL's**, het volgende doen:
+3. Op de **Cezanne HR Software domein en de URL's** sectie, voert u de volgende stappen uit:
 
-    ![De sectie 'Cezanne HR Software domein en URL's '](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
+    ![URL's en Cezanne HR Software domein eenmalige aanmelding informatie](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. In de **aanmeldings-URL** typt u een URL die heeft de volgende syntaxis:`https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`
+    a. In de **aanmeldings-URL** textbox, typ de URL:`https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
 
-    b. In de **antwoord-URL** typt u een URL die heeft de volgende syntaxis:`https://w3.cezanneondemand.com:443/<tenantid>`    
-     
-    > [!NOTE] 
-    > De voorgaande waarden zijn niet echt. Deze bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. De waarden, neem contact op met de [Cezanne HR software client ondersteuningsteam](mailto:info@cezannehr.com).
+    b. In de **id** textbox, typ de URL:`https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-4. Onder **SAML-certificaat voor ondertekening van**, selecteer **certificaat (Base64)**, en sla het certificaatbestand op uw computer.
+    c. In de **antwoord-URL** textbox, typ de URL:`https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
 
-    ![De sectie 'SAML handtekeningcertificaat'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
-5. Selecteer **Opslaan**.
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-    ![De knop 'Opslaan'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
+5. Klik op **opslaan** knop.
+
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
+
+6. Op de **Cezanne HR-softwareconfiguratie** sectie, klikt u op **Cezanne HR-Software configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+
+    ![De softwareconfiguratie voor Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+
+7. In een ander browservenster aanmelding bij uw tenant Cezanne HR Software als een beheerder.
+
+8. Klik in het navigatiedeelvenster links op **Setup van System**. Ga naar **beveiligingsinstellingen**. Navigeer naar **configuratie voor één aanmelding**.
+
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+
+9. In de **toestaan dat gebruikers zich aanmelden met de volgende Service voor eenmalige aanmelding (SSO)** Configuratiescherm, Controleer de **SAML 2.0** vak en selecteer de **geavanceerde configuratie** optie.
+
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+
+10. Klik op **nieuwe toevoegen** knop.
+
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+
+11. Voer de volgende stappen uit op **SAML 2.0 IDENTITEITSPROVIDERS** sectie.
+
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
-6. Onder **Cezanne HR-softwareconfiguratie**, selecteer **Cezanne HR-Software configureren** openen de **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID** en **SAML Single Sign-On-Service** URL uit de **Naslaggids** sectie.
+    a. Voer de naam van de id-Provider als de **weergavenaam**.
 
-    ![De sectie 'Cezanne HR softwareconfiguratie'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    b. In de **entiteits-id** textbox, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd uit de Azure portal. 
 
-7. In een ander browservenster geopend, moet u zich aanmelden bij uw tenant Cezanne HR software als een beheerder.
+    c. Wijzig de **SAML Binding** op 'POST'.
 
-8. Selecteer in het linkerdeelvenster **Setup van System**. Selecteer **beveiligingsinstellingen** > **eenmalige aanmelding configuratie**.
+    d. In de **Security Token Service-eindpunt** textbox, plak de waarde van **SAML aanmelding Service-URL met eenmalige** die u hebt gekopieerd uit de Azure portal.
 
-    ![De koppeling 'Single Sign-On-configuratie'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
-
-9. In de **toestaan dat gebruikers zich aanmelden met de volgende services voor eenmalige aanmelding (SSO)** deelvenster, selecteer de **SAML 2.0** selectievakje in en selecteer de **geavanceerde configuratie** optie.
-
-    ![Eenmalige aanmelding opties voor services](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
-
-10. Selecteer **nieuwe toevoegen**.
-
-    ![De knop 'Nieuw toevoegen'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
-
-11. Onder **SAML 2.0 identiteitsproviders**, het volgende doen:
-
-    ![De sectie 'SAML 2.0 identiteitsproviders'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    e. Voer in het tekstvak voor de gebruikersnaam van het ID-kenmerk, `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
-    a. In de **weergavenaam** Voer de naam van de id-provider.
-
-    b. In de **entiteits-id** vak, plak de **SAML entiteit-ID** die u hebt gekopieerd uit de Azure-portal. 
-
-    c. In de **SAML Binding** keuzelijst met invoervak, selecteer **POST**.
-
-    d. In de **Security Token Service-eindpunt** vak, plak de **SAML Single Sign-On-Service** URL die u hebt gekopieerd uit de Azure-portal. 
+    f. Klik op **uploaden** pictogram voor het uploaden van het gedownloade certificaat vanuit Azure-portal.
     
-    e. In de **gebruikersnaam van het ID-kenmerk** Voer `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-    
-    f. Selecteer de gedownloade om certificaat te uploaden van Azure AD, de **uploaden** knop.
-    
-    g. Selecteer **OK**. 
+    g. Klik op de knop **OK**. 
 
-12. Selecteer **Opslaan**.
+12. Klik op **opslaan** knop.
 
-    ![De knop 'Opslaan'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> Bij het instellen van de app, vindt u een beknopte versie van de voorgaande instructies in de [Azure-portal](https://portal.azure.com). Na het toevoegen van de app vanuit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **eenmalige aanmelding** tabblad. Vervolgens toegang krijgen tot de ingesloten documentatie van de **configuratie** sectie. 
-
-Zie voor meer informatie over de functie embedded-documentatie, [documentatie van Azure AD ingesloten]( https://go.microsoft.com/fwlink/?linkid=845985).
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-In deze sectie maakt u testgebruiker Britta Simon in de Azure portal.
 
-![De testgebruiker Britta Simon][100]
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
-Als u wilt een testgebruiker maken in Azure AD, het volgende doen:
+   ![Een Azure AD-testgebruiker maken][100]
 
-1. In de **Azure-portal**, selecteer in het linkerdeelvenster de **Azure Active Directory** knop.
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-    ![De knop 'Azure Active Directory'](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png) 
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-2. Als u wilt weergeven in de lijst met gebruikers, selecteer **gebruikers en groepen** > **alle gebruikers**.
-    
-    ![De koppeling 'Alle gebruikers'](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png) 
-    
-    De **alle gebruikers** dialoogvenster wordt geopend.
+    ![De Azure Active Directory-knop](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png)
 
-3. Openen van de **gebruiker** dialoogvenster, **toevoegen**.
- 
-    ![De knop "Toevoegen"](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png) 
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-4. In de **gebruiker** dialoogvenster de volgende handelingen uit:
- 
-    ![Het dialoogvenster 'Gebruiker'](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png) 
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png)
+
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+
+    ![De knop toevoegen](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png)
+
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png)
 
     a. In de **naam** in het vak **BrittaSimon**.
 
-    b. In de **gebruikersnaam** vak gebruiker Britta Simon **e-mailadres**.
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** uit en noteer de waarde die is gegenereerd in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
-    d. Selecteer **Maken**.
+    d. Klik op **Create**.
  
-### <a name="create-a-cezanne-hr-software-test-user"></a>Maak een testgebruiker Cezanne HR-software
+### <a name="create-a-cezanne-hr-software-test-user"></a>Maak een testgebruiker Cezanne HR-Software
 
-Om Azure AD-gebruikers aan te melden bij Cezanne HR-software, moeten ze worden ingericht in Cezanne HR-software. Inrichting is een handmatige taak in het geval van Cezanne HR-software.
+Om in te schakelen gebruikers van Azure AD aan te melden bij Cezanne HR-Software, moeten ze worden ingericht in Cezanne HR-Software. In het geval van Cezanne HR-Software is inrichting een handmatige taak.
 
-Een gebruikersaccount inrichten als volgt:
+**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
-1.  Meld u aan bij uw site Cezanne HR software bedrijf als beheerder.
+1.  Meld u aan bij uw bedrijf Cezanne HR Software site als beheerder.
 
-2.  Selecteer in het linkerdeelvenster **Setup van System** > **gebruikers beheren** > **nieuwe gebruiker toevoegen**.
+2.  Klik in het navigatiedeelvenster links op **Setup van System**. Ga naar **gebruikers beheren**. Navigeer naar **nieuwe gebruiker toevoegen**.
 
-    ![De koppeling 'Nieuwe gebruiker toevoegen'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "nieuwe gebruiker")
+    ![Nieuwe gebruiker](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "nieuwe gebruiker")
 
-3.  Onder **persoon Details**, het volgende doen:
+3.  Op **persoon Details** sectie, voert u onderstaande stappen te volgen:
 
-    ![De sectie 'Persoon Details'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "nieuwe gebruiker")
+    ![Nieuwe gebruiker](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "nieuwe gebruiker")
     
-    a. Stel **interne gebruiker** als **OFF**.
+    a. Stel **interne gebruiker** als OFF.
     
-    b. In de **voornaam** voornaam van de gebruiker, bijvoorbeeld: Typ **Britta**.  
+    b. In de **voornaam** textbox type de voornaam van de gebruiker, zoals **Britta**.  
  
-    c. In de **achternaam** achternaam van de gebruiker, bijvoorbeeld: Typ **Simon**.
+    c. In de **achternaam** textbox type de achternaam van de gebruiker, zoals **Simon**.
     
-    d. In de **e** e-mailadres van de gebruiker, bijvoorbeeld: Typ Brittasimon@contoso.com.
+    d. In de **e** textbox, typ het e-mailadres van gebruiker, zoals Brittasimon@contoso.com.
 
-4.  Onder **accountgegevens**, het volgende doen:
+4.  Op **accountgegevens** sectie, voert u onderstaande stappen te volgen:
 
-    ![De sectie "Gegevens"](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "nieuwe gebruiker")
+    ![Nieuwe gebruiker](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "nieuwe gebruiker")
     
-    a. In de **gebruikersnaam** e-mailadres van de gebruiker, bijvoorbeeld: Typ Brittasimon@contoso.com.
+    a. In de **gebruikersnaam** textbox, typ het e-mailadres van gebruiker, zoals Brittasimon@contoso.com.
     
-    b. In de **wachtwoord** typt u het wachtwoord van de gebruiker.
+    b. In de **wachtwoord** textbox, typt u het wachtwoord van gebruiker.
     
-    c. In de **beveiligingsrol** de optie **HR Professional**.
+    c. Selecteer **HR Professional** als **beveiligingsrol**.
     
-    d. Selecteer **OK**.
+    d. Klik op **OK**.
 
-5. Op de **eenmalige aanmelding** tabblad, in de **SAML 2.0-id's** sectie **nieuwe toevoegen**.
+5. Navigeer naar **Single Sign-On** tabblad en selecteer **nieuwe toevoegen** in de **SAML 2.0-id's** gebied.
 
-    ![De knop 'Nieuw toevoegen'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "gebruiker")
+    ![Gebruiker](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "gebruiker")
 
-6. In de **identiteitsprovider** keuzelijst, selecteert u de id-provider. In de **gebruikers-id** Voer het e-mailadres voor test gebruiker Britta Simon van account.
+6. Kies uw id-Provider voor de **identiteitsprovider** en in het tekstvak van **gebruikers-id**, voer het e-mailadres van Britta Simon account.
 
-    ![De vakken 'Identiteitsprovider' en 'Gebruikers-id'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "gebruiker")
+    ![Gebruiker](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "gebruiker")
     
-7. Selecteer **Opslaan**.
+7. Klik op **opslaan** knop.
 
-    ![De knop 'Opslaan'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "gebruiker")
+    ![Gebruiker](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "gebruiker")
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u testgebruiker Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot Cezanne HR-software.
+In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verleent tot Cezanne HR-Software gebruiken.
 
-![Toegang van gebruikers testen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
-1. Open de toepassingen in de Azure portal en gaat u naar de directoryweergave. Selecteer **bedrijfstoepassingen** > **alle toepassingen**.
+**Britta Simon om aan te wijzen Cezanne HR-Software, moet u de volgende stappen uitvoeren:**
 
-    ![De koppeling 'Alle toepassingen'][201] 
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+
+    ![Gebruiker toewijzen][201] 
 
 2. Selecteer in de lijst met toepassingen **Cezanne HR Software**.
 
-    ![De lijst met 'Toepassingen'](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png) 
+    ![De koppeling Cezanne HR-Software in de lijst met toepassingen](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png)  
 
-3. Selecteer in het menu aan de linkerkant **gebruikers en groepen**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Selecteer **Toevoegen**. Klik in de **toevoegen toewijzing** dialoogvenster, **gebruikers en groepen**.
+4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![De koppeling 'Gebruikers en groepen'][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
-5. In de **gebruikers en groepen** het dialoogvenster de **gebruikers** selecteert **Britta Simon**.
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
-6. In de **gebruikers en groepen** dialoogvenster, **Selecteer**.
+6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
 
-7. In de **toevoegen toewijzing** dialoogvenster, **toewijzen**.
+7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-sso"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-In deze sectie kunt u de configuratie van uw Azure AD SSO testen met behulp van het toegangsvenster.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Wanneer u selecteert de tegel Cezanne HR-software in het deelvenster toegang u automatisch zich aanmelden bij uw toepassing Cezanne HR-software.
+Als u op de tegel Cezanne HR-Software in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Cezanne HR-Software.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en SSO met Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

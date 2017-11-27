@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementeren van Azure Stream Analytics als een module van de rand van de IoT - voorbeeld
 
@@ -62,13 +62,16 @@ In deze sectie maakt u een Azure Stream Analytics-taak voor het nemen van gegeve
     ![Nieuw opslagaccount][1]
 
 3. Ga naar het opslagaccount dat u zojuist hebt gemaakt in de Azure portal. Klik op **bladeren blobs** onder **Blob-Service**. 
-1. Maak een nieuwe container voor de ASA-module voor het opslaan van gegevens. Stel de toegang op _Container_. Klik op **OK**.
+4. Maak een nieuwe container voor de ASA-module voor het opslaan van gegevens. Stel de toegang op _Container_. Klik op **OK**.
 
     ![instellingen voor de opslag][10]
 
-1. Navigeer in de Azure-portal naar **maken van een resource** > **Internet der dingen** en selecteer **Stream Analytics-taak**.
+5. Navigeer in de Azure-portal naar **maken van een resource** > **Internet der dingen** en selecteer **Stream Analytics-taak**.
 
-1. Voer een naam **'Edge' als hostomgeving Kies** en de overige standaardwaarden gebruiken.  Klik op **Create**.
+2. Geef een naam, kiest u **rand** als de Hosting-omgeving, en de overige standaardwaarden gebruiken.  Klik op **Create**.
+
+    >[!NOTE]
+    >Op dit moment worden niet ASA-jobs op IoT rand ondersteund in de regio VS West 2. Selecteer een andere locatie.
 
     ![ASA maken][5]
 

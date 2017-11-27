@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Configuratie- en veelgestelde vragen voor Web-Apps in Azure
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Oplossing
 
-We werken voor het bijwerken van hybride Verbindingsbeheer als dit probleem wilt oplossen. Zie voor tijdelijke oplossingen, [fout hybride verbindingen met SQL Server: System.OverflowException: rekenkundige bewerking resulteerde in een overloop](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+De uitzondering is veroorzaakt door een probleem met hybride Verbindingsbeheer die sindsdien zijn opgelost. Zorg ervoor dat [bijwerken van uw hybride Verbindingsbeheer](https://go.microsoft.com/fwlink/?LinkID=841308) om dit probleem te verhelpen.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Hoe ik toevoegen of bewerken van een regel voor het herschrijven van URL?
 
@@ -319,4 +319,4 @@ U kunt ook de specifieke dynamische en statische MIME-typen die u wilt comprimer
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Hoe Migreer ik van een on-premises-omgeving in App Service?
 
-Voor het migreren van sites van Windows en Linux-webservers in App Service, kunt u assistent Azure App Service-migratie. Het hulpprogramma voor migratie van web-apps en databases maakt in Azure indien nodig en vervolgens de inhoud wordt gepubliceerd. Zie voor meer informatie [assistent Azure App Service-migratie](https://www.movemetothecloud.net/).
+Voor het migreren van sites van Windows en Linux-webservers in App Service, kunt u assistent Azure App Service-migratie. Het hulpprogramma voor migratie van web-apps en databases maakt in Azure indien nodig en vervolgens de inhoud wordt gepubliceerd. Zie voor meer informatie [assistent Azure App Service-migratie](https://www.migratetoazure.net/).

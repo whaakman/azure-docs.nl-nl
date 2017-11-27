@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
 
-> [!IMPORTANT]
-> Om te communiceren met het ondersteuningsteam, is het belangrijk dat u hebt het build-nummer. U vindt hier het build-nummer van de app door te klikken op de **Help** menu. Klik op het build-nummer kopieert deze naar het Klembord. U kunt plakken in e-mailberichten of forums om u te helpen problemen rapporteren ondersteunt.
-
-![versienummer controleren](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Het buildnummer Workbench vinden
+Om te communiceren met het ondersteuningsteam, is het belangrijk dat u het build-nummer van de Workbench-app. In Windows, kunt u het build-nummer uitzoeken door te klikken op de **Help** menu en kies **over Azure ML-Workbench**. Op Mac OS, kunt u klikken op de **Azure ML-Workbench** menu en kies **over Azure ML-Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN-Forum
 We hebben een MSDN-Forum dat u vragen kunt plaatsen. Het productteam bewaakt het forum actief. Het forum-URL is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
@@ -75,10 +73,13 @@ Als u in Azure ML-Workbench werkt, kunt u ook verzenden ons een frons (of een gl
     >Deze limiet niet van toepassing op `.git`, `docs` en `outputs` mappen. Deze mapnamen zijn hoofdlettergevoelig. Als u met grote bestanden werkt, raadpleegt u [behouden blijven van wijzigingen en behandelen van grote bestanden](how-to-read-write-files.md).
 
 - Maximaal toegestane uitvoeringstijd experiment: zeven dagen
+
 - Maximale grootte van getraceerde bestand in `outputs` map na een uitvoering: 512 MB
   - Dit betekent dat als het script een bestand groter is dan 512 MB in de map uitvoer wordt, deze is niet verzameld er. Als u met grote bestanden werkt, raadpleegt u [behouden blijven van wijzigingen en behandelen van grote bestanden](how-to-read-write-files.md).
 
 - SSH-sleutels worden niet ondersteund bij het verbinden met een externe computer of een Spark-cluster via SSH. Modus van de gebruikersnaam en wachtwoord alleen wordt momenteel ondersteund.
+
+- Wanneer u HDInsight-cluster als doel berekenen, moet uw organisatie gebruiken Azure blobs als primaire opslag. Met behulp van Azure Data Lake Storage wordt niet ondersteund.
 
 - Clustering transformaties tekst worden niet ondersteund voor Mac.
 

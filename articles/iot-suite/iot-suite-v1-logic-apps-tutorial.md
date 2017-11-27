@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Zelfstudie: Logic App verbinden met uw Azure IoT Suite Remote Monitoring vooraf geconfigureerde oplossing
 De [Microsoft Azure IoT Suite] [ lnk-internetofthings] vooraf geconfigureerde oplossing voor externe controle is een uitstekende manier om snel aan de slag met een end-to-end-functieset die verklaart de IoT-oplossing. Deze zelfstudie leert u hoe u logische App toevoegt aan uw vooraf geconfigureerde oplossing voor externe controle van Microsoft Azure IoT Suite. Deze stappen laten zien hoe u uw IoT-oplossing nog verder door verbinding te maken aan een bedrijfsproces kunt nemen.
@@ -33,7 +33,7 @@ Voordat u deze zelfstudie begint, moet u het volgende doen:
 
 Voor deze zelfstudie hebt voltooid, moet u Visual Studio 2015 of Visual Studio 2017 te wijzigen van de acties in de vooraf geconfigureerde oplossing voor back-end.
 
-Ervan uitgaande dat u al hebt ingericht uw externe controle vooraf geconfigureerde oplossing, gaat u naar de resourcegroep voor deze oplossing in de [Azure-portal][lnk-azureportal]. De resourcegroep heeft dezelfde naam als de oplossingsnaam van de u hebt gekozen wanneer u uw oplossing voor externe controle ingericht. In de resourcegroep ziet u alle ingerichte Azure-resources voor uw oplossing, met uitzondering van de Azure Active Directory-toepassing die u in de klassieke Azure-Portal vinden kunt. De volgende schermafbeelding ziet u een voorbeeld **resourcegroep** blade voor een externe controle vooraf geconfigureerde oplossing:
+Ervan uitgaande dat u al hebt ingericht uw externe controle vooraf geconfigureerde oplossing, gaat u naar de resourcegroep voor deze oplossing in de [Azure-portal][lnk-azureportal]. De resourcegroep heeft dezelfde naam als de oplossingsnaam van de u hebt gekozen wanneer u uw oplossing voor externe controle ingericht. In de resourcegroep ziet u alle ingerichte Azure-resources voor uw oplossing. De volgende schermafbeelding ziet u een voorbeeld **resourcegroep** blade voor een externe controle vooraf geconfigureerde oplossing:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

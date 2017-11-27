@@ -12,24 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="develop-for-azure-files-with-net"></a>Ontwikkelen voor Azure Files met .NET 
-> [!NOTE]
-> In dit artikel leest u hoe u Azure Files beheert met .NET-code. Raadpleeg de [Inleiding tot Azure Files](storage-files-introduction.md) voor meer informatie over Azure Files.
->
+# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Ontwikkelen voor Azure Files met .NET en WindowsAzure.Storage
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
-
-In deze zelfstudie worden de basisbeginselen uitgelegd van het gebruik van .NET voor het ontwikkelen van toepassingen of services die Azure Files gebruiken voor het opslaan van gegevens uit een bestand. In deze zelfstudie maakt u een eenvoudige consoletoepassing en laten we zien hoe u basisbewerkingen uitvoert met .NET en Azure Files:
+In deze zelfstudie worden de basisbeginselen uitgelegd van het gebruik van .NET en de `WindowsAzure.Storage`API voor het ontwikkelen van toepassingen of services die [Azure Files](storage-files-introduction.md) gebruiken voor het opslaan van gegevens uit een bestand. In deze zelfstudie maakt u een eenvoudige consoletoepassing voor het uitvoeren van basisbewerkingen met .NET en Azure Files:
 
 * De inhoud van een bestand ophalen
 * Een quotum (maximumgrootte) voor de bestandsshare instellen.
@@ -38,9 +33,21 @@ In deze zelfstudie worden de basisbeginselen uitgelegd van het gebruik van .NET 
 * Een bestand kopiëren naar een blob in hetzelfde opslagaccount.
 * Metrische gegevens van Azure Storage gebruiken voor het oplossen van problemen
 
-> [!Note]  
-> Omdat Azure Files toegankelijk is via SMB, is het mogelijk om eenvoudige toepassingen te schrijven die toegang hebben tot de Azure-bestandsshare met behulp van de standaard System.IO-klassen voor i/o-bestanden. In dit artikel wordt beschreven hoe u toepassingen schrijft die gebruikmaken van de Azure Storage .NET SDK, die gebruikmaakt van de [File REST-API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) voor communicatie met Azure Files. 
+Raadpleeg de [Inleiding tot Azure Files](storage-files-introduction.md) voor meer informatie over Azure Files.
 
+[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+
+## <a name="understanding-the-net-apis"></a>De .NET-API's
+
+Azure Files biedt twee veelzijdige methoden voor het maken van clienttoepassingen: Server Message Block (SMB) en REST. Binnen .NET worden deze methoden geabstraheerd door middel van de `System.IO`- en `WindowsAzure.Storage`-API's.
+
+API | Wanneer gebruikt u dit? | Opmerkingen
+----|-------------|------
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Uw toepassing: <ul><li>Moet bestanden lezen/schrijven via SMB</li><li>Wordt uitgevoerd op een apparaat met toegang tot uw Azure Files-account via poort 445</li><li>Hoeft geen beheerinstellingen van de bestandsshare te beheren</li></ul> | I/O-bestandscodering met Azure Files via SMB gaat ongeveer hetzelfde als I/O-codering via een netwerkbestandsshare of een lokaal opslagapparaat. Raadpleeg [deze zelfstudie](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) voor een inleiding tot een aantal functies in .NET, met inbegrip van I/O van bestanden.
+[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Uw toepassing: <ul><li>Heeft geen toegang tot Azure Files via SMB op poort 445 vanwege firewall- of ISP-beperkingen</li><li>Vereist beheerfunctionaliteit, zoals de mogelijkheid tot het instellen van een quotum voor een bestandsshare of het maken van een Shared Access Signature (gedeelde-toegangshandtekening)</li></ul> | In dit artikel wordt beschreven hoe u `WindowsAzure.Storage` gebruikt voor I/O van bestanden met behulp van REST (in plaats van SMB) en het beheer van de bestandsshare.
+
+> [!TIP]
+> Mogelijk is Azure Blobs een geschiktere keuze, afhankelijk van de opslagvereisten voor de toepassing. Zie voor meer informatie over het kiezen van Azure Files of Azure Blobs [Deciding when to use Azure Blobs, Azure Files, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks) (Kiezen of u Azure Blobs, Azure Files of Azure-schijven wilt gebruiken).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>De consoletoepassing maken en de assembly verkrijgen
 Maak in Visual Studio een nieuwe Windows-consoletoepassing. De volgende stappen laten zien hoe u een consoletoepassing maakt in Visual Studio 2017, maar de stappen zijn hetzelfde in andere versies van Visual Studio.

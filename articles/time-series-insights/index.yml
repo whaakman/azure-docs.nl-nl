@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Time Series Insights
+metadata:
+  title: 'Documentatie voor Azure Time Series Insights - zelfstudies, API-verwijzing | Microsoft Docs'
+  description: 'Leer hoe u IoT-analyses uitvoert in de cloud met volledig beheerde gebeurtenisverwerking. Analyseer gegevens van toepassingen, sensoren, apparaten en meer in realtime.'
+  services: time-series-insights
+  author: kfile
+  manager: jhubbard
+  ms.service: time-series-insights
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/13/2017
+  ms.author: kfile
+abstract:
+  description: 'Informatie over het instellen van een Time Series Insights-omgeving, en het verkennen en analyseren van Time Series-gegevens van uw IoT-oplossingen of verbonden apparaten. De documentatie omvat de vereisten, een handleiding, API-naslaginformatie en andere artikelen waarmee u in slechts enkele minuten aan de slag kunt.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: 'Meer informatie over het implementeren van Log Analytics en het configureren van verzamelingen gegevens uit Azure, andere cloudproviders en on-premises resources.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg'
+            text: Azure Time Series Insights verkennen
+            href: /azure/time-series-insights/time-series-quickstart
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API's
+            html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">Query-API</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Querysyntaxis</a></p>

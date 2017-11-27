@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
 In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten.
@@ -72,7 +72,7 @@ Zie de volgende secties voor de volledige lijst van ondersteunde parameters en r
 De totale lengte van de hoofdtekst van de geavanceerde regel kan niet groter zijn dan 2048 tekens bestaan.
 
 > [!NOTE]
-> De tekenreeks en de regex-bewerkingen zijn niet hoofdlettergevoelig. U kunt ook een Null-controles, met behulp van $null als een constante bijvoorbeeld, user.department - eq $null uitvoeren.
+> De tekenreeks en de regex-bewerkingen zijn niet hoofdlettergevoelig. U kunt ook uitvoeren Null-controles met *null* als een constante, bijvoorbeeld user.department - eq *null*.
 > Tekenreeksen met aanhalingstekens ' moet worden voorafgegaan met ' teken bijvoorbeeld user.department - eq \`'Verkoop'.
 
 ## <a name="supported-expression-rule-operators"></a>Ondersteunde expressie regeloperators
@@ -158,31 +158,31 @@ Toegestane operators
 
 | Eigenschappen | Toegestane waarden | Gebruik |
 | --- | --- | --- |
-| city |Een string-waarde of $null |(user.city - eq '' waarde '') |
-| Land |Een string-waarde of $null |(user.country - eq '' waarde '') |
-| Bedrijfsnaam | Een string-waarde of $null | (user.companyName - eq '' waarde '') |
-| Afdeling |Een string-waarde of $null |(user.department - eq '' waarde '') |
+| city |Een tekenreekswaarde of *null* |(user.city - eq '' waarde '') |
+| Land |Een tekenreekswaarde of *null* |(user.country - eq '' waarde '') |
+| Bedrijfsnaam | Een tekenreekswaarde of *null* | (user.companyName - eq '' waarde '') |
+| Afdeling |Een tekenreekswaarde of *null* |(user.department - eq '' waarde '') |
 | Weergavenaam |Waarde van een tekenreeks |(user.displayName - eq '' waarde '') |
-| facsimileTelephoneNumber |Een string-waarde of $null |(user.facsimileTelephoneNumber - eq '' waarde '') |
-| Voornaam |Een string-waarde of $null |(user.givenName - eq '' waarde '') |
-| Functie |Een string-waarde of $null |(user.jobTitle - eq '' waarde '') |
-| E-mail |Een string-waarde of $null (SMTP-adres van de gebruiker) |(user.mail - eq '' waarde '') |
+| facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber - eq '' waarde '') |
+| Voornaam |Een tekenreekswaarde of *null* |(user.givenName - eq '' waarde '') |
+| Functie |Een tekenreekswaarde of *null* |(user.jobTitle - eq '' waarde '') |
+| E-mail |Een tekenreekswaarde of *null* (SMTP-adres van de gebruiker) |(user.mail - eq '' waarde '') |
 | mailNickName |De waarde van een tekenreeks (mailalias van de gebruiker) |(user.mailNickName - eq '' waarde '') |
-| mobiele |Een string-waarde of $null |(user.mobile - eq '' waarde '') |
+| mobiele |Een tekenreekswaarde of *null* |(user.mobile - eq '' waarde '') |
 | object-id |GUID van het gebruikersobject |(user.objectId - eq '1111111-1111-1111-1111-111111111111') |
 | onPremisesSecurityIdentifier | On-premises beveiligings-id (SID) voor gebruikers die zijn gesynchroniseerd van on-premises naar de cloud. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Geen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Een string-waarde of $null |(user.physicalDeliveryOfficeName - eq '' waarde '') |
-| Postcode |Een string-waarde of $null |(user.postalCode - eq '' waarde '') |
+| physicalDeliveryOfficeName |Een tekenreekswaarde of *null* |(user.physicalDeliveryOfficeName - eq '' waarde '') |
+| Postcode |Een tekenreekswaarde of *null* |(user.postalCode - eq '' waarde '') |
 | preferredLanguage |ISO 639-1-code |(user.preferredLanguage - eq 'en-US') |
-| sipProxyAddress |Een string-waarde of $null |(user.sipProxyAddress - eq '' waarde '') |
-| state |Een string-waarde of $null |(user.state - eq '' waarde '') |
-| StreetAddress |Een string-waarde of $null |(user.streetAddress - eq '' waarde '') |
-| Achternaam |Een string-waarde of $null |(user.surname - eq '' waarde '') |
-| telephoneNumber |Een string-waarde of $null |(user.telephoneNumber - eq '' waarde '') |
+| sipProxyAddress |Een tekenreekswaarde of *null* |(user.sipProxyAddress - eq '' waarde '') |
+| state |Een tekenreekswaarde of *null* |(user.state - eq '' waarde '') |
+| StreetAddress |Een tekenreekswaarde of *null* |(user.streetAddress - eq '' waarde '') |
+| Achternaam |Een tekenreekswaarde of *null* |(user.surname - eq '' waarde '') |
+| telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber - eq '' waarde '') |
 | usageLocation |Twee letters landcode |(user.usageLocation - eq "VS") |
 | UserPrincipalName |Waarde van een tekenreeks |(user.userPrincipalName - eq "alias@domain") |
-| UserType |lid Gast $null |(user.userType - eq 'Lid') |
+| UserType |lid Gast *null* |(user.userType - eq 'Lid') |
 
 ### <a name="properties-of-type-string-collection"></a>Eigenschappen van het type tekenreeks-verzameling
 Toegestane operators
@@ -225,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Gebruik van Null-waarden
 
-Geef een null-waarde in een regel, kunt u 'null' of $null. Voorbeeld:
+Geef een null-waarde in een regel, kunt u de *null* waarde. Zorg ervoor dat u geen gebruik aanhalingstekens rond het woord *null* -als u dit doet, wordt dit geïnterpreteerd als een letterlijke tekenreeks-waarde. De juiste manier om te verwijzen naar de null-waarde is als volgt:
 ```
    user.mail –ne null
 ```
-is gelijk aan
-```
-   user.mail –ne $null
-   ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Extensie-kenmerken en aangepaste kenmerken
 Uitbreidingskenmerken en aangepaste kenmerken worden ondersteund in de regels voor dynamisch lidmaatschap.

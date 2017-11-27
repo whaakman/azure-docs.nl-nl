@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Problemen met implementatie van de service en de omgeving in te stellen
 De volgende informatie kunt de oorzaak van fouten bij het instellen van de model-omgeving.
 
 ## <a name="model-management-environment"></a>Model beheeromgeving
-### <a name="owner-permission-required"></a>De eigenaarsmachtiging vereist
-U moet eigenaarsmachtiging hebben voor de Azure-abonnement Machine Learning Compute registreren.
-
-U moet ook de eigenaarsmachtiging voor het instellen van een cluster voor de implementatie van uw webservices.
+### <a name="contributor-permission-required"></a>Inzender toestemming vereist
+Moet u bijdrager toegang tot het abonnement of de resourcegroep voor het instellen van een cluster voor de implementatie van uw webservices.
 
 ### <a name="resource-availability"></a>Beschikbaarheid van resources
 U moet voldoende bronnen beschikbaar zijn in uw abonnement hebben, zodat u de omgeving-resources kunt inrichten.
@@ -89,6 +87,7 @@ Python-voorbeeld:
 ```
 
 ## <a name="other-common-problems"></a>Andere veelvoorkomende problemen
+- Als pip-installatie van azure cli ml met de fout mislukt `cannot find the path specified` op een Windows-machine, moet u lang pad ondersteuning inschakelen. Zie https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Als de `env setup` mislukt met de opdracht `LocationNotAvailableForResourceType`, gebruikt u waarschijnlijk de verkeerde locatie (regio) voor de machine learning-resources. Zorg ervoor dat de locatie die is opgegeven met de `-l` parameter `eastus2`, `westcentralus`, of `australiaeast`.
 - Als de `env setup` mislukt met de opdracht `Resource quota limit exceeded`, Controleer of u voldoende kernen beschikbaar in uw abonnement hebt en dat uw resources niet worden gebruikt boven in andere processen.
 - Als de `env setup` mislukt met de opdracht `Invalid environment name. Name must only contain lowercase alphanumeric characters`, zorg ervoor dat de servicenaam geen hoofdletters, symbolen of het onderstrepingsteken (_) (zoals in *my_environment*).

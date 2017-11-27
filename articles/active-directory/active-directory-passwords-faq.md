@@ -16,66 +16,66 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
-Hier volgen enkele veelgestelde vragen voor alle bewerkingen die betrekking hebben op wachtwoord opnieuw instellen.
+Hier volgen enkele veelgestelde vragen (FAQ) voor alle bewerkingen die betrekking hebben op wachtwoord opnieuw instellen.
 
-Als er een algemene vraag over Azure AD en zelf uw wachtwoord opnieuw instellen, die niet wordt beantwoord hier, kunt u vragen de community om hulp op de [Azure Ad-forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Leden van de community opnemen Engineers, Product Managers, MVP's en fellow IT-Professionals.
+Als er een algemene vraag over Azure Active Directory (Azure AD) en selfservice voor wachtwoordherstel (SSPR) die hier niet wordt beantwoord, kunt u vragen de community om hulp op de [Azure AD-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Leden van de community opnemen engineers, productmanagers, MVP's en andere IT-professionals.
 
 Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
-* [**Vragen over het registreren voor wachtwoord opnieuw instellen**](#password-reset-registration)
-* [**Vragen over wachtwoordherstel**](#password-reset)
-* [**Vragen over het wijzigen van wachtwoorden**](#password-change)
-* [**Rapporten voor vragen over wachtwoordbeheer**](#password-management-reports)
-* [**Vragen over Write-back van wachtwoord**](#password-writeback)
+* [Registratie voor vragen over het wachtwoord opnieuw instellen](#password-reset-registration)
+* [Vragen over wachtwoordherstel](#password-reset)
+* [Vragen over het wijzigen van wachtwoorden](#password-change)
+* [Vragen over de wachtwoord-rapporten](#password-management-reports)
+* [Vragen over Write-back van wachtwoord](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Registratie voor wachtwoord opnieuw instellen
 
 * **V: kunnen mijn gebruikers registreren hun eigen wachtwoord opnieuw instellen van gegevens?**
 
-  > **A:** Ja, zoals wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, kunnen ze naar de portal van de registratie voor wachtwoord opnieuw instellen op http://aka.ms/ssprsetup registreren hun verificatiegegevens. Gebruikers kunnen ook registreren door te gaan naar het toegangspaneel bij http://myapps.microsoft.com, te klikken op het profieltabblad en te klikken op het Register voor de optie wachtwoord opnieuw instellen.
+  > **A:** Ja. Zolang wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, gaat u naar de registratieportal voor wachtwoordherstel (http://aka.ms/ssprsetup) registreren hun verificatiegegevens gebruikers. Gebruikers kunnen ook registreren via het toegangsvenster (http://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
   >
   >
 * **V: kan ik wachtwoord opnieuw instellen van gegevens definiëren namens mijn gebruikers?**
 
-  > **A:** Ja, u kunt dit doen met Azure AD Connect, PowerShell, de [Azure-portal](https://portal.azure.com), of de beheerder van Office-portal. Zie voor meer informatie het artikel [gegevens die worden gebruikt door Azure AD selfservice voor wachtwoordherstel](active-directory-passwords-data.md).
+  > **A:** Ja, u kunt dit doen met Azure AD Connect, PowerShell, de [Azure-portal](https://portal.azure.com), of het Office 365-beheercentrum. Zie voor meer informatie [gegevens die worden gebruikt door Azure AD zelf uw wachtwoord opnieuw instellen](active-directory-passwords-data.md).
   >
   >
 * **V: kan ik gegevens voor vragen over de beveiliging van on-premises synchroniseren?**
 
-  > **A:** dit niet mogelijk is vandaag de dag.
+  > **A:** Nee, dit niet mogelijk is vandaag de dag.
   >
   >
 * **V: kunnen mijn gebruikers gegevens registreren zodanig dat deze gegevens door andere gebruikers niet zien?**
 
-  > **A:** Ja, wanneer gebruikers zich registreren voor gegevens met behulp van de Wachtwoordregistratieportal opnieuw instellen dat het wordt opgeslagen in persoonlijke verificatie velden die alleen zichtbaar voor globale beheerders en de gebruiker.
+  > **A:** Ja. Wanneer gebruikers zich registreren gegevens met behulp van het wachtwoord opnieuw instellen van registratieportal, worden de gegevens worden opgeslagen in persoonlijke verificatie-velden alleen zichtbaar voor globale beheerders en de gebruiker zijn.
   >
   >
 * **V: Mijn gebruikers hoeft te worden geregistreerd voordat ze kunnen voor wachtwoordherstel gebruiken?**
 
-  > **A:** Nee, als u onvoldoende verificatiegegevens namens hen definieert, gebruikers niet hoeven te registreren. Wachtwoord opnieuw moet worden ingesteld als u hebt opgeslagen gegevens in de juiste velden in de map juist opgemaakt.
+  > **A:** Nee. Als u onvoldoende verificatiegegevens namens hen definieert, worden gebruikers niet hebben om te registreren. Wachtwoord opnieuw moet worden ingesteld als u hebt de gegevens die zijn opgeslagen in de juiste velden in de map juist opgemaakt.
   >
   >
-* **V: kan ik synchroniseren of instellen van de telefoon voor authenticatie, authenticatie-e-mailadres of andere telefoon voor authenticatie velden namens mijn gebruikers?**
+* **V: kan ik synchroniseren of instellen van de telefoon voor authenticatie, authenticatie e-mail of alternatieve verificatie phone velden namens mijn gebruikers?**
 
-  > **A:** dit niet mogelijk is vandaag de dag.
+  > **A:** Nee, dit niet mogelijk is vandaag de dag.
   >
   >
-* **V: hoe de portal voor wachtwoordregistratie weet welke opties mijn gebruikers?**
+* **V: hoe de portal voor wachtwoordregistratie bepalen welke opties mijn gebruikers?**
 
-  > **A:** de registratieportal voor wachtwoordherstel alleen ziet u de opties die u hebt ingeschakeld voor uw gebruikers. Deze opties zijn gevonden onder de sectie gebruiker opnieuw instellen wachtwoordbeleid van uw directory configureren tabblad. Dit betekent bijvoorbeeld dat als u vragen over de beveiliging niet inschakelt, klikt u vervolgens gebruikers zich niet kunnen registreren voor die optie.
+  > **A:** het wachtwoord opnieuw ingesteld registratie portal bevat alleen de opties die u hebt ingeschakeld voor uw gebruikers. Deze opties zijn gevonden onder de **gebruiker opnieuw instellen wachtwoordbeleid** gedeelte van uw map **configureren** tabblad. Bijvoorbeeld, als u vragen over de beveiliging niet inschakelt, zich klikt u vervolgens gebruikers niet kunnen registreren voor die optie.
   >
   >
 * **V: wanneer een gebruiker als beschouwd ingeschreven?**
 
-  > **A:** een gebruiker wordt beschouwd geregistreerd voor SSPR, wanneer zij hebben geregistreerd ten minste de **aantal methoden die zijn vereist om in te stellen** die u hebt ingesteld in de [Azure-portal](https://portal.azure.com).
+  > **A:** een gebruiker wordt beschouwd geregistreerd voor SSPR, wanneer zij hebben geregistreerd ten minste de **aantal methoden die zijn vereist om in te stellen** een wachtwoord dat u hebt ingesteld in de [Azure-portal](https://portal.azure.com).
   >
   >
 
@@ -83,12 +83,11 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 * **V: hoe lang moet ik wachten om te ontvangen van een e-mail, SMS of telefoongesprek van wachtwoord opnieuw instellen?**
 
-  > **A:** SMS-berichten, e-mailadres en telefoongesprekken moet binnenkomen in onder één minuut, met het normale geval wordt de 5-20 seconden.
+  > **A:** e-mailberichten, SMS-berichten en telefoongesprekken moet binnenkomen minder dan een minuut. Het normale geval is 5-20 seconden.
     >Als u de melding niet binnen deze tijd ontvangt:
         > * Controleer de map Ongewenste e-mail.
-        > * Controleer het nummer of de e-mailadres waarmee contact wordt opgenomen is die u verwacht.
-        > * Controleer dat de verificatiegegevens in de map is juist opgemaakt.
-                >     * Voorbeeld: "+ 1 4255551234' of 'user@contoso.com'
+        > * Controleer of het nummer of de e-mailadres waarmee contact wordt gemaakt die u verwacht.
+        > * Controleren of de verificatiegegevens in de map juist is opgemaakt, bijvoorbeeld: + 1 4255551234 of  *user@contoso.com* . 
   >
   >
 * **V: welke talen worden ondersteund door het wachtwoord opnieuw instellen?**
@@ -96,14 +95,14 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   > **A:** -gebruikersinterface voor het wachtwoord opnieuw instellen van SMS-berichten en telefoongesprekken in dezelfde talen worden ondersteund in Office 365 worden gelokaliseerd.
   >
   >
-* **V: welke onderdelen van de ervaring van wachtwoord opnieuw instellen wanneer ik ingesteld organisatie huisstijl in mijn directory ophalen huisstijl het tabblad configureren?**
+* **V: welke onderdelen van de ervaring van wachtwoord opnieuw instellen wanneer ik de organisatie-huisstijl items instelt in mijn directory ophalen huisstijl het tabblad configureren?**
 
-  > **A:** de portal voor wachtwoord opnieuw instellen, ziet u het logo van uw organisatie en kunt u configureren van de contact op met uw beheerder koppeling om te verwijzen naar een aangepaste e-mailadres of URL. Een e-mailbericht dat wordt verzonden door het wachtwoord opnieuw instellen van uw organisatie logo, de kleuren, de naam in de hoofdtekst van het e-mailbericht bevat en aangepast met de naam van.
+  > **A:** de portal voor wachtwoord opnieuw instellen van uw organisatie logo toont en kunt u de koppeling 'Contact op met uw beheerder' om te verwijzen naar een aangepaste e-mailadres of de URL configureren. Een e-mailbericht dat wordt verzonden door wachtwoordherstel logo, kleuren en de naam van uw organisatie in de hoofdtekst van het e-mailbericht bevat en wordt aangepast via de instellingen voor die specifieke naam.
   >
   >
 * **V: hoe kan ik mijn gebruikers opleiden waar u om hun wachtwoord opnieuw instellen?**
 
-  > **A:** kunt proberen de suggesties in onze [SSPR implementatie artikel](active-directory-passwords-best-practices.md#email-based-rollout)
+  > **A:** kunt proberen de suggesties in onze [SSPR implementatie](active-directory-passwords-best-practices.md#email-based-rollout) artikel.
   >
   >
 * **V: kan ik deze pagina vanaf een mobiel apparaat gebruiken?**
@@ -111,34 +110,34 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   > **A:** Ja, deze pagina werkt op mobiele apparaten.
   >
   >
-* **V: ondersteund ontgrendelen lokale active directory-accounts wanneer gebruikers hun wachtwoord opnieuw instellen?**
+* **V: ondersteund ontgrendelen lokale Active Directory-accounts wanneer gebruikers hun wachtwoord opnieuw instellen?**
 
-  > **A:** Ja, als hun wachtwoord opnieuw instellen van een gebruiker en wachtwoord terugschrijven is geïmplementeerd met Azure AD Connect, die gebruikersaccount is automatisch ontgrendeld wanneer ze hun wachtwoord opnieuw instellen.
+  > **A:** Ja. Wanneer een gebruiker het wachtwoord opnieuw instelt als wachtwoord terugschrijven is geïmplementeerd met Azure AD Connect, is het account van die gebruiker automatisch ontgrendeld, wanneer ze hun wachtwoord opnieuw instellen.
   >
   >
 * **V: hoe kan ik wachtwoordherstel rechtstreeks in mijn gebruiker aanmelden Bureaubladervaring worden geïntegreerd?**
 
-  > **A:** als u een Azure AD Premium-klant bent, kunt u Microsoft Identity Manager installeren zonder extra kosten en implementeren van de on-premises-oplossing wachtwoord opnieuw instellen om te voldoen aan deze vereiste.
+  > **A:** als u een Azure AD Premium-klant bent, kunt u Microsoft Identity Manager installeren zonder extra kosten en implementeren van de on-premises-oplossing voor wachtwoord opnieuw instellen.
   >
   >
 * **V: kan ik andere beveiligingsvragen voor verschillende talen instellen?**
 
-  > **A:** dit niet mogelijk is vandaag de dag.
+  > **A:** Nee, dit niet mogelijk is vandaag de dag.
   >
   >
-* **V: hoe zoveel mogelijk vragen kunnen we configureren voor de verificatie-optie beveiligingsvragen**
+* **V: hoe zoveel mogelijk vragen kan ik configureren voor de beveiligingsoptie voor de verificatie van vragen?**
 
   > **A:** kunt u maximaal 20 aangepaste beveiligingsvragen in de [Azure-portal](https://portal.azure.com).
   >
   >
-* **V: hoe lang mogelijk beveiligingsvragen?**
+* **V: hoe lang kunnen beveiligingsvragen zijn?**
 
-  > **A:** beveiligingsvragen mogelijk tussen 3 en 200 tekens bevatten.
+  > **A:** beveiligingsvragen mag niet 3 tot 200 tekens.
   >
   >
-* **V: hoe lang mogelijk antwoorden op beveiligingsvragen?**
+* **V: hoe lang kunnen de antwoorden op beveiligingsvragen zijn?**
 
-  > **A:** antwoorden mogelijk 3 tot 40 tekens lang zijn.
+  > **A:** antwoorden mag niet 3 tot 40 tekens.
   >
   >
 * **V: zijn dubbele antwoorden op beveiligingsvragen afgewezen?**
@@ -146,39 +145,39 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
   > **A:** Ja, er dubbele antwoorden op beveiligingsvragen afwijzen.
   >
   >
-* **V: kan registreren van een gebruiker de dezelfde beveiligingsvraag het meer dan één keer?**
+* **V: kan een gebruiker de dezelfde beveiligingsvraag meer dan één keer registreren?**
 
-  > **A:** Nee, wanneer een gebruiker zich registreert voor een bepaald criterium, ze kunnen niet worden geregistreerd voor deze vraag een tweede keer.
+  > **A:** Nee. Nadat een gebruiker zich registreert voor een bepaald criterium, kunnen deze niet registreren voor deze vraag een tweede keer.
   >
   >
 * **V: is het mogelijk is de ondergrens van beveiligingsvragen voor registratie instellen en resetten?**
 
-  > **A:** Ja, een limiet kan worden ingesteld voor registratie en een andere voor het opnieuw instellen. 3-5-beveiligingsvragen mogelijk zijn vereist voor inschrijving en 3-5 mogelijk zijn vereist voor opnieuw instellen.
+  > **A:** Ja, een limiet kan worden ingesteld voor registratie en een andere voor het opnieuw instellen. Vragen over de beveiliging van de drie tot vijf kunnen vereist voor inschrijving, en drie tot vijf vragen kunnen worden vereist voor het opnieuw instellen.
   >
   >
-* **V: ik mijn beleid om te vereisen dat gebruikers beveiligingsvragen gebruiken voor het opnieuw instellen hebt geconfigureerd, maar Azure beheerders lijken anders worden geconfigureerd.**
+* **V: ik mijn beleid om te vereisen dat gebruikers beveiligingsvragen gebruiken voor het opnieuw instellen hebt geconfigureerd, maar de Azure-beheerders lijken anders worden geconfigureerd.**
 
-  > **A:** dit is het verwachte gedrag. Microsoft zorgt ervoor dat een sterke twee gate wachtwoord opnieuw instellen van standaardbeleid voor de rol van een Azure-beheerder. Beheerders van het gebruik van beveiligingsvragen wordt uitgeschakeld. Meer informatie over dit beleid kan worden gevonden in het artikel [wachtwoordbeleid en -beperkingen in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences)
+  > **A:** dit is het verwachte gedrag. Microsoft zorgt er een sterk wachtwoord twee poort opnieuw instellen standaardbeleid voor de rol van een Azure-beheerder. Dit voorkomt dat beheerders beveiligingsvragen gebruiken. U vindt meer informatie over dit beleid in de [wachtwoordbeleid en -beperkingen in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences) artikel.
   >
   >
-* **V: als een gebruiker meer dan het maximum aantal vragen dat vereist is om in te stellen is geregistreerd, hoe beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**
+* **V: als een gebruiker meer dan het maximum aantal vragen dat vereist is om in te stellen is geregistreerd, hoe worden de beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**
 
-  > **A:** N beveiligingsvragen willekeurig geselecteerd van het totale aantal vragen dat een gebruiker is geregistreerd, waarbij N staat voor de **aantal vragen dat vereist is om in te stellen**. Bijvoorbeeld, als een gebruiker 5 beveiligingsvragen geregistreerd heeft, maar alleen 3 nodig zijn om in te stellen, zijn 3 van de 5 willekeurig geselecteerd en gepresenteerd op opnieuw instellen. Als de gebruiker de antwoorden op de vragen verkeerde ontvangt, wordt het selectieproces om te voorkomen dat vraag hammering optreedt.
+  > **A:** *N* aantal beveiligingsvragen zijn willekeurig geselecteerd buiten het totale aantal vragen dat een gebruiker is geregistreerd voor waar *N* is het bedrag dat is ingesteld voor de  **Aantal vragen dat vereist is om in te stellen** optie. Bijvoorbeeld, als een gebruiker vijf beveiligingsvragen is geregistreerd, maar slechts drie vereist zijn voor een wachtwoord opnieuw instellen, drie van de vijf vragen willekeurig geselecteerd en vindt u op opnieuw instellen. Om te voorkomen dat vraag hammering, als de gebruiker de antwoorden op de vragen ontvangt verkeerde het selectieproces begint.
   >
   >
-* **V: heb u voorkomen dat gebruikers vaak in een korte periode voor wachtwoordherstel probeert?**
+* **V: heb u te voorkomen dat gebruikers meerdere pogingen om een wachtwoord in een korte periode opnieuw instellen?**
 
-  > **A:** Ja, er zijn ingebouwd in het wachtwoord opnieuw instellen om te beveiligen tegen misbruik beveiligingsfuncties. Gebruikers kunnen alleen proberen opnieuw instellen van 5 wachtwoordpogingen binnen een uur voordat ze worden geblokkeerd voor 24 uur. Gebruikers kunnen alleen proberen te valideren een telefoonnummer 5 maal binnen een uur voordat ze worden geblokkeerd voor 24 uur. Gebruikers kunnen alleen een één verificatiemethode proberen 5 maal binnen een uur voordat ze worden geblokkeerd voor 24 uur.
+  > **A:** Ja, er zijn ingebouwd in het wachtwoord opnieuw instellen als u wilt beveiligen tegen misbruik beveiligingsfuncties. Gebruikers kunnen proberen slechts vijf wachtwoord herstelpogingen binnen een uur voordat ze zijn vergrendeld voor 24 uur. Gebruikers kunnen proberen een telefoonnummer slechts vijf keer valideren binnen een uur voordat ze zijn vergrendeld voor 24 uur. Gebruikers kunnen een één verificatiemethode slechts vijf keer proberen binnen een uur voordat ze zijn vergrendeld voor 24 uur.
   >
   >
-* **V: voor hoe lang de e-mail en SMS eenmalige wachtwoordcode geldig zijn?**
+* **V: hoe lang zijn de e-mail en SMS eenmalige wachtwoordcodes geldig?**
 
-  > **A:** de levensduur van de sessie voor wachtwoordherstel is 15 minuten. De gebruiker heeft vanaf het begin van de bewerking van wachtwoord opnieuw instellen van 15 minuten hun wachtwoord opnieuw instellen. De e-mail en SMS eenmalige wachtwoordcode zijn ongeldig nadat deze periode is verstreken.
+  > **A:** de levensduur van de sessie voor wachtwoordherstel is 15 minuten. De gebruiker heeft vanaf het begin van de bewerking van het wachtwoord opnieuw instellen, 15 minuten hun wachtwoord opnieuw instellen. De e-mail en SMS eenmalige wachtwoordcode zijn ongeldig nadat deze periode is verstreken.
   >
   >
 * **V: kan ik verhinderen dat gebruikers hun wachtwoord opnieuw instellen?**
 
-  > **A:** Ja, als u een groep gebruikt voor het inschakelen van de selfservice voor wachtwoordherstel kunt u deze verwijderen uit de groep waarmee ze deze mogelijkheid.
+  > **A:** Ja, als u een groep gebruiken om in te schakelen SSPR, u kunt een afzonderlijke gebruiker verwijderen uit de groep waarmee gebruikers hun wachtwoord opnieuw instellen.
   >
   >
 
@@ -186,17 +185,17 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 * **V: waar moeten Mijn gebruikers hun wachtwoord moeten wijzigen gaan?**
 
-  > **A:** gebruikers kunnen hun wachtwoord wijzigen waar ze hun profielfoto of pictogram ziet (zoals in de rechterbovenhoek van hun [Office 365](https://portal.office.com) of [Toegangspaneel](https://myapps.microsoft.com) optreedt. Gebruikers kunnen hun wachtwoorden op wijzigen de [Toegangspaneel profielpagina](https://account.activedirectory.windowsazure.com/r#/profile). Gebruikers kunnen ook worden gevraagd hun wachtwoord moeten wijzigen automatisch op de Azure AD in het scherm als hun wachtwoord is verlopen. Ten slotte gebruikers mogelijk gaat u naar de [Azure AD-wachtwoord wijzigen Portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) rechtstreeks als ze willen hun wachtwoord wijzigen.
+  > **A:** kunnen gebruikers hun wachtwoorden wijzigen waar ze ziet hun profielfoto of pictogram, zoals in de rechterbovenhoek van hun [Office 365](https://portal.office.com) portal of [Toegangspaneel](https://myapps.microsoft.com) optreedt. Gebruikers kunnen hun wachtwoorden op wijzigen de [toegang Configuratiescherm profielpagina](https://account.activedirectory.windowsazure.com/r#/profile). Gebruikers kunnen ook worden gevraagd hun wachtwoord moeten wijzigen automatisch op de aanmeldingspagina van Azure AD als hun wachtwoord is verlopen. Ten slotte gebruikers kunnen bladeren naar de [Azure AD-portal voor wachtwoord wijzigen](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) rechtstreeks als ze willen hun wachtwoord wijzigen.
   >
   >
-* **V: kunnen mijn gebruikers worden gewaarschuwd in de Office-Portal wanneer hun on-premises wachtwoord is verlopen?**
+* **V: kunnen mijn gebruikers worden gewaarschuwd in de Office-portal wanneer hun on-premises wachtwoord is verlopen?**
 
-  > **A:** dit vandaag is mogelijk als u AD FS gebruikt door de volgende instructies te volgen: [wachtwoord beleid Claims verzenden met AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Als u synchronisatie van wachtwoordhash, is dit niet mogelijk vandaag. Dit is omdat we niet wachtwoordbeleid van on-premises synchroniseren zodat het is niet mogelijk om te posten verlopen-meldingen naar cloud ervaringen. In beide gevallen is het ook mogelijk te [Waarschuw gebruikers waarvan de wachtwoorden bijna verlopen zijn met behulp van PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** Ja, dit is mogelijk vandaag als u Active Directory Federation Services (AD FS) gebruiken. Als u AD FS gebruikt, volg de instructies in de [wachtwoord beleid claims met AD FS te verzenden](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) artikel. Als u synchronisatie van wachtwoordhash, is dit niet mogelijk vandaag. We synchroniseren niet wachtwoordbeleid van on-premises adreslijsten, zodat het is niet mogelijk om te posten verlopen-meldingen naar cloud ervaringen. In beide gevallen is het ook mogelijk te [Waarschuw gebruikers waarvan de wachtwoorden worden verloopt via PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **V: kan ik verhinderen dat gebruikers hun wachtwoord wijzigen?**
 
-  > **A:** voor cloudconfiguratie gebruikers deze kan niet worden geblokkeerd. U kunt instellen voor on-premises gebruikers `User cannot change password` gecontroleerd en die gebruikers niet kunnen worden om hun wachtwoord te wijzigen.
+  > **A:** voor gebruikers alleen in de cloud, wachtwoordwijzigingen kunnen niet worden geblokkeerd. U kunt instellen voor on-premises gebruikers de **gebruiker kan wachtwoord niet wijzigen** optie geselecteerd. De geselecteerde gebruikers wijzigen hun wachtwoord niet.
   >
   >
 
@@ -204,32 +203,32 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 * **V: hoe lang duurt het voor de gegevens worden weergegeven op de wachtwoord-rapporten?**
 
-  > **A:** gegevens op de wachtwoord-rapporten moet worden weergegeven in 5-10 minuten. Deze sommige gevallen is het een uur duren kan om te worden weergegeven.
+  > **A:** gegevens op de wachtwoord-rapporten moet worden weergegeven in 5 tot 10 minuten. In sommige gevallen is het mogelijk een uur duren worden weergegeven.
   >
   >
 * **V: hoe kan ik de wachtwoord-rapporten filteren?**
 
-  > **A:** kunt u de wachtwoord-rapporten filteren door te klikken op het Vergrootglas kleine uiterst rechts van de kolomlabels boven aan het rapport. Als u doen uitgebreidere filteren wilt, kunt u het rapport naar excel en maak een draaitabel kunt downloaden.
+  > **A:** wilt de wachtwoord-rapporten filteren, selecteert u het kleine Vergrootglas uiterst rechts van de kolomlabels boven aan het rapport. Als u doen uitgebreidere filteren wilt, kunt u downloaden van het rapport naar Excel en een draaitabel maken.
   >
   >
-* **V: Wat is het maximum aantal gebeurtenissen in de wachtwoord-rapporten worden opgeslagen?**
+* **V: Wat is het maximum aantal gebeurtenissen die zijn opgeslagen in de wachtwoord-rapporten?**
 
-  > **A:** maximaal 75.000 wachtwoord opnieuw instellen of het wachtwoord opnieuw instellen van inschrijving gebeurtenissen worden opgeslagen in de wachtwoord-rapporten, back-spanning maximaal 30 dagen.  We werken als u dit aantal zodanig dat meer gebeurtenissen wilt uitbreiden.
+  > **A:** maximaal 75.000 wachtwoord opnieuw instellen of het wachtwoord opnieuw instellen van inschrijving gebeurtenissen worden opgeslagen in de wachtwoord-rapporten, spanning terug tot 30 dagen. We werken als u dit aantal zodanig dat meer gebeurtenissen wilt uitbreiden.
   >
   >
 * **V: hoe ver terug de wachtwoordbeheer rapporten gaan doen?**
 
-  > **A:** de wachtwoordbeheer rapporten weergeven-bewerkingen plaatsvinden in de afgelopen 30 dagen. Op dit moment als u nodig hebt om deze gegevens te archiveren kunt u periodiek de rapporten downloaden en opslaan op een andere locatie.
+  > **A:** de wachtwoordbeheer rapporten weergeven bewerkingen die in de afgelopen 30 dagen is opgetreden. Op dit moment als u nodig hebt om deze gegevens te archiveren kunt u periodiek de rapporten downloaden en opslaan op een andere locatie.
   >
   >
 * **V: is er een maximale aantal rijen dat kan worden weergegeven op de wachtwoord-rapporten?**
 
-  > **A:** Ja, maximaal 75.000 rijen kan worden weergegeven op een van de wachtwoord-rapporten, of ze worden weergegeven in de gebruikersinterface of wordt gedownload.
+  > **A:** Ja. Een maximum van 75.000 rijen kan worden weergegeven op een van de wachtwoord-rapporten, of ze worden weergegeven in de gebruikersinterface of worden gedownload.
   >
   >
 * **V: is er een API voor toegang tot het wachtwoord opnieuw instellen of de registratie rapportagegegevens?**
 
-  > **A:** Ja, Zie de volgende documentatie voor meer informatie over hoe u toegang hebt tot de rapportage van de gegevensstroom voor wachtwoordherstel.  [Informatie over wachtwoordherstel rapportages programmatisch toegang tot](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** Ja. Zie voor meer informatie over hoe u toegang hebt tot wachtwoord opnieuw instellen van de gegevensstroom reporting, [informatie over wachtwoordherstel rapportages programmatisch toegang tot](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
@@ -237,46 +236,46 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 * **V: hoe werkt wachtwoord terugschrijven achter de schermen?**
 
-  > **A:** Zie [de werking van wachtwoord terugschrijven](active-directory-passwords-writeback.md) voor een uitleg van wat er gebeurt als u terugschrijven van wachtwoord en hoe gegevens via het systeem loopt terug naar uw on-premises-omgeving inschakelen.
+  > **A:** Zie het artikel [de werking van wachtwoord terugschrijven](active-directory-passwords-writeback.md) voor meer informatie over wat er gebeurt als u terugschrijven van wachtwoord en hoe gegevens loopt door het systeem back in uw on-premises omgeving.
   >
   >
-* **V: hoe lang duurt wachtwoord terugschrijven voordat werken?  Is er een vertraging synchronisatie zoals met wachtwoordhashsynchronisatie?**
+* **V: hoe lang duurt wachtwoord terugschrijven voordat werken? Is er een synchronisatie uit te stellen er met wachtwoordhashsynchronisatie is?**
 
   > **A:** wachtwoord terugschrijven is snel. Het is een synchrone pijplijn die fundamenteel anders dan de synchronisatie van wachtwoordhash werkt. Wachtwoord terugschrijven kan gebruikers realtime feedback over het succes van hun wachtwoord opnieuw instellen of wijzigen van de bewerking. De gemiddelde tijd voor een geslaagde write-back van een wachtwoord is onder 500 ms.
   >
   >
-* **V: hoe wordt mijn account/toegang tot de cloud getroffen als mijn lokale account is uitgeschakeld?**
+* **V: als mijn lokale account is uitgeschakeld, hoe wordt mijn account van de cloud en de toegang van invloed op een?**
 
-  > **A:** als uw lokale ID is uitgeschakeld, uw cloud-ID/access worden ook uitgeschakeld op de volgende synchronisatie-interval via AAD Connect standaard is dit elke 30 minuten.
+  > **A:** als uw lokale ID is uitgeschakeld, uw cloud-ID en de toegang wordt ook uitgeschakeld op het volgende interval synchroniseren met Azure AD Connect. Deze synchronisatie wordt standaard elke 30 minuten.
   >
   >
-* **V: als mijn lokale account wordt beperkt door een beleid on-premises Active Directory-wachtwoord, houdt SSPR zich aan dit beleid wanneer ik het wachtwoord wijzigen?**
+* **V: als mijn lokale account wordt beperkt door een beleid on-premises Active Directory-wachtwoord, houdt SSPR zich aan dit beleid wanneer ik mijn wachtwoord wijzigen?**
 
-  > **A:** Ja, SSPR is afhankelijk van en houdt zich aan de on-premises AD-wachtwoordbeleid, met inbegrip van typische wachtwoordbeleid van de AD-domein, evenals alle fijnmazige wachtwoordbeleid dat is bestemd voor een bepaalde gebruiker gedefinieerd.
+  > **A:** Ja, SSPR is afhankelijk van en houdt zich aan het beleid on-premises Active Directory-wachtwoord. Dit beleid bevat de typische wachtwoordbeleid van Active Directory-domein, evenals alle gedefinieerde, Fijnmazig wachtwoordbeleid die bedoeld zijn voor een gebruiker.
   >
   >
 * **V: wat typen accounts werkt wachtwoord terugschrijven voor?**
 
-  > **A:** wachtwoord terugschrijven is geschikt voor gebruikers van federatieve en het wachtwoord-Hash gesynchroniseerd.
+  > **A:** wachtwoord terugschrijven werkt voor federatieve en wachtwoord-hash gebruikers gesynchroniseerd.
   >
   >
 * **V: bevat wachtwoord terugschrijven mijn domein wachtwoordbeleid afdwingen?**
 
-  > **A:** Ja, wachtwoord terugschrijven worden afgedwongen wachtwoord leeftijd, geschiedenis, complexiteit, filters en eventuele andere beperkingen die u in plaats van wachtwoorden in uw lokale domein kan plaatsen.
+  > **A:** Ja. Wachtwoord terugschrijven worden afgedwongen wachtwoord leeftijd, geschiedenis, complexiteit, filters en eventuele andere beperkingen die u in plaats van wachtwoorden in uw lokale domein mogelijk plaatsen.
   >
   >
 * **V: wachtwoord terugschrijven veilig is?  Hoe kan ik dat ik won't ingebroken zijn?**
 
-  > **A:** Ja, Write-back van wachtwoord is beveiligd. Bekijk meer informatie over de vier beveiligingslagen geïmplementeerd door de service van de Write-back van wachtwoord, de [wachtwoord terugschrijven beveiligingsmodel](active-directory-passwords-writeback.md#password-writeback-security-model) sectie in de werking van wachtwoord terugschrijven.
+  > **A:** Ja, Write-back van wachtwoord is beveiligd. Bekijk meer informatie over de vier beveiligingslagen geïmplementeerd door de service van de Write-back van wachtwoord, de [wachtwoord terugschrijven beveiligingsmodel](active-directory-passwords-writeback.md#password-writeback-security-model) sectie de [wachtwoord terugschrijven overzicht](active-directory-passwords-writeback.md) artikel.
   >
   >
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
-* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
-* [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
+* [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
+* [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
+* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)

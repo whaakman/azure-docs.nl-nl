@@ -14,101 +14,103 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: jeedes
-ms.openlocfilehash: e4e7c7273acc216ae82a52b3e6dcd530a6ad1bd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 591fadb7a218802ec5685d3bd5886ecded1f9920
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Zelfstudie: Azure Active Directory-integratie met SAP Cloud Platform identiteitsverificatie
 
-In deze zelfstudie leert u hoe SAP Cloud Platform identiteitsverificatie integreren met Azure Active Directory (Azure AD). SAP Cloud Platform-ID-verificatie wordt gebruikt als een IdP-proxy voor toegang tot SAP-toepassingen met Azure AD als de belangrijkste IdP.
+In deze zelfstudie leert u hoe SAP Cloud Platform identiteitsverificatie integreren met Azure Active Directory (Azure AD). SAP Cloud Platform-ID-verificatie wordt gebruikt als een IdP-proxy voor toegang tot SAP-toepassingen die gebruikmaken van Azure AD als de belangrijkste IdP.
 
-SAP Cloud Platform identiteitsverificatie integreren met Azure AD biedt de volgende voordelen:
+Als u SAP Cloud Platform identiteitsverificatie met Azure AD integreren, krijgt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot SAP-toepassing heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij SAP-toepassingen eenmalige aanmelding (SSO) inschakelen) met hun Azure AD-accounts.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot de SAP-toepassingen heeft.
+- U kunt uw gebruikers automatisch aanmelden bij het SAP-toepassingen met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie--de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Zie het artikel voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met SAP Cloud Platform-ID-verificatie, moet u de volgende items:
 
-- Een Azure AD-abonnement
-- Een SAP Cloud Platform identiteitsverificatie eenmalige aanmelding ingeschakeld abonnement
+- Een Azure AD-abonnement.
+- Een enkel teken op ingeschakeld abonnement voor identiteitsverificatie voor SAP Cloud-Platform.
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Gebruik een productie-omgeving voor het testen van de stappen in deze zelfstudie aanbevolen niet.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Test de stappen in deze zelfstudie, volgt u deze aanbevelingen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productieomgeving geen tenzij dit noodzakelijk is.
+- Als u een proefabonnement Azure AD-omgeving geen [ophalen van een gratis proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario dat wordt beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. SAP Cloud Platform identiteitsverificatie uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
-Vooraleer technische informatie, is het essentieel om te begrijpen van de concepten die u van plan bent om te kijken. De Federatie SAP Cloud Platform-ID-verificatie en Azure Active Directory kunt u voor het implementeren van eenmalige aanmelding via toepassingen of services die zijn beveiligd door AAD (als een IdP) met SAP-toepassingen en services die zijn beveiligd door de identiteit van het Platform voor SAP-Cloud -Verificatie.
+Voordat u Duik in de technische details, is het essentieel om te begrijpen van de concepten die u van plan bent om te kijken. De SAP Cloud Platform identiteitsverificatie en Active Directory Federation Services kunt u eenmalige aanmelding via toepassingen of services die worden beveiligd door Azure AD (als een IdP) met SAP-toepassingen en services die worden beveiligd door SAP Cloud implementeren Identiteitsverificatie platform.
 
 Op dit moment fungeert SAP Cloud Platform identiteitsverificatie als een Proxy-id-Provider voor SAP-toepassingen. Azure Active Directory wordt op zijn beurt fungeert als de toonaangevende id-Provider in deze installatie. 
 
-Het volgende diagram illustreert dit:
+Het volgende diagram ziet u deze relatie:
 
 ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-sapcloudauth-tutorial/architecture-01.png)
 
-Met deze instelling wordt uw tenant SAP Cloud Platform identiteitsverificatie worden geconfigureerd als een vertrouwde toepassing in Azure Active Directory. 
+Uw tenant SAP Cloud Platform identiteitsverificatie wordt met deze instelling geconfigureerd als een vertrouwde toepassing in Azure Active Directory. 
 
-Alle SAP-toepassingen en services die u wilt beveiligen via deze manier worden vervolgens geconfigureerd in de beheerconsole voor SAP Cloud Platform identiteitsverificatie!
+Alle SAP-toepassingen en services die u wilt beveiligen op deze manier worden vervolgens geconfigureerd in de beheerconsole voor identiteitsverificatie voor SAP Cloud-Platform.
 
-Dit betekent dat de autorisatie voor het verlenen van toegang tot SAP-toepassingen en services plaatsvinden in SAP Cloud Platform identiteitsverificatie voor dergelijke installatie moet (tegengesteld autorisatie configureren in Azure Active Directory).
+Daarom moet de autorisatie voor het verlenen van toegang tot SAP-toepassingen en services te kunnen uitvoeren in SAP Cloud Platform identiteitsverificatie (in plaats van Azure Active Directory).
 
-SAP Cloud Platform identiteitsverificatie configureert als een toepassing via de Azure Active Directory Marketplace, u hoeft niet te behandelen van het configureren van benodigde afzonderlijke claims / SAML asserties en transformaties die nodig zijn voor het produceren van een geldige verificatietoken voor SAP-toepassingen.
+SAP Cloud Platform identiteitsverificatie configureren als een toepassing via de Azure Active Directory Marketplace, hoeft u niet om afzonderlijke claims of SAML asserties te configureren.
 
 >[!NOTE] 
->Web-SSO is momenteel getest door beide partijen alleen. Stromen nodig voor App-naar-API of API-API-communicatie moeten werken, maar zijn niet getest, nog. Ze worden getest als onderdeel van de volgende activiteiten.
+>Momenteel wordt alleen Web-SSO is getest door beide partijen. De stromen die nodig voor de App naar API of API-API-communicatie zijn moeten werken maar nog niet is getest. Ze worden tijdens de volgende activiteiten getest.
 >
 
-## <a name="adding-sap-cloud-platform-identity-authentication-from-the-gallery"></a>SAP Cloud Platform identiteitsverificatie uit de galerie toevoegen
+## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>SAP Cloud Platform identiteitsverificatie uit de galerie toevoegen
 Voor het configureren van de integratie van SAP Cloud Platform identiteitsverificatie in Azure AD, moet u SAP Cloud Platform identiteitsverificatie uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen SAP Cloud Platform identiteitsverificatie uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de [Azure-portal](https://portal.azure.com), selecteer in het navigatievenster aan de linkerkant de **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+3. Als u wilt de nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het dialoogvenster.
 
     ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak **SAP Cloud Platform identiteitsverificatie**, selecteer **SAP Cloud Platform identiteitsverificatie** van resultaat deelvenster klik vervolgens op **toevoegen** knop de toepassing toevoegen.
+4. Typ in het zoekvak **SAP Cloud Platform identiteitsverificatie**. 
+
+5. Selecteer **SAP Cloud Platform identiteitsverificatie** vanuit het deelvenster resultaten en selecteer vervolgens de **toevoegen** knop.
 
     ![SAP Cloud Platform identiteitsverificatie in de lijst met resultaten](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met SAP Cloud Platform identiteitsverificatie op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met identiteitsverificatie voor SAP Cloud-Platform. U configureert en getest met een testgebruiker genaamd "Britta Simon."
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in SAP Cloud Platform identiteitsverificatie in Azure AD voor een gebruiker is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in SAP Cloud Platform identiteitsverificatie tot stand worden gebracht.
+Voor eenmalige aanmelding werkt, moet Azure AD te weten wie de gebruiker equivalent in SAP Cloud Platform identiteitsverificatie is. Met andere woorden, moet u een koppeling tussen een Azure AD-gebruiker en de betreffende gebruiker in SAP Cloud Platform identiteitsverificatie vast te stellen.
 
-Wijs in SAP Cloud Platform identiteitsverificatie de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+Geef de waarde in SAP Cloud Platform identiteitsverificatie **gebruikersnaam** dezelfde waarde als **gebruikersnaam** in Azure AD. U kunt de koppeling tussen de twee gebruikers nu hebt vastgesteld.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met SAP Cloud Platform identiteitsverificatie, moet u de volgende bouwstenen voltooien:
+Om te configureren en testen van Azure AD eenmalige aanmelding met SAP Cloud Platform identiteitsverificatie, voert u de volgende elementen:
 
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker SAP Cloud Platform identiteitsverificatie](#create-an-sap-cloud-platform-identity-authentication-test-user)**  - SAP Cloud Platform verificatie van de identiteit die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. [Eenmalige aanmelding Azure AD configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers om deze functie te gebruiken.
+2. [Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. [Maken van een testgebruiker SAP Cloud Platform identiteitsverificatie](#create-an-sap-cloud-platform-identity-authentication-test-user) SAP Cloud Platform verificatie van de identiteit die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. [Test eenmalige aanmelding](#test-single-sign-on) om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
@@ -116,79 +118,77 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 **Voor het configureren van Azure AD eenmalige aanmelding met SAP Cloud Platform-ID-verificatie, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **SAP Cloud Platform identiteitsverificatie** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **SAP Cloud Platform identiteitsverificatie** toepassing Integratiepagina **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+2. In de **eenmalige aanmelding** dialoogvenster onder **op basis van SAML aanmelding**, selecteer **modus** voor eenmalige aanmelding inschakelen.
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Op de **SAP Cloud Platform identiteit verificatiedomein en de URL's** sectie als u wilt configureren van de toepassing in **IDP** modus gestart:
+3. Als u wilt configureren van de toepassing in **IDP** modus gestart in de **SAP Cloud Platform identiteit verificatiedomein en de URL's** sectie in het **id** vak Typ een URL met het volgende patroon volgen: `https://<entity-id>.accounts.ondemand.com`.  
 
     ![URL's en SAP Cloud Platform Identity verificatie Domain eenmalige aanmelding informatie](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<entity-id>.accounts.ondemand.com`
-
     > [!NOTE] 
-    > Deze waarde is geen echte. Deze waarde door de werkelijke ID bijwerken. Neem contact op met [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) deze waarde op te halen. Als u deze waarde niet weet, volg de documentatie SAP Cloud Platform identiteitsverificatie op [Tenantconfiguratie SAML 2.0](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+    > Deze waarde is niet echt. Deze waarde door de werkelijke ID bijwerken. Neem contact op met de [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) deze waarde op te halen. Als u deze waarde niet begrijpt, de SAP Cloud Platform identiteitsverificatie documentatie te lezen over [Tenant SAML 2.0 configuratie](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
 
-4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** modus gestart:
+4. Als u wilt configureren van de toepassing in **SP** geïnitieerd modus, selecteer **weergeven geavanceerde instellingen voor URL**. 
 
     ![URL's en SAP Cloud Platform Identity verificatie Domain eenmalige aanmelding informatie](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://<entity-id>.accounts.ondemand.com/admin`
+    In de **aanmelding op URL** vak een URL met het volgende patroon volgen: `https://<entity-id>.accounts.ondemand.com/admin`.
 
     > [!NOTE] 
-    > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) deze waarde op te halen.
+    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met de [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) deze waarde op te halen.
 
-5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+5. In de **SAML-certificaat voor ondertekening van** sectie **Metadata XML**. Sla het metagegevensbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_certificate.png)
 
-6. De SAML-asserties verwacht SAP Cloud Platform identiteitsverificatie toepassing in een specifieke indeling. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze. 
+6. De SAML-asserties verwacht SAP Cloud Platform identiteitsverificatie toepassing in een specifieke indeling. Beheren van de waarden van deze kenmerken van de **gebruikerskenmerken** sectie op de pagina van de integratie van toepassingen. De volgende Schermafbeelding toont een voorbeeld van de indeling. 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sapcloudauth-tutorial/attribute.png)
 
-7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster als uw SAP-toepassing een kenmerk bijvoorbeeld 'firstName' wordt verwacht. Voeg het 'firstName'-kenmerk in het dialoogvenster SAML-token kenmerken.
+7. Als uw toepassing SAP een kenmerk, zoals verwacht **firstName**, voeg de **firstName** kenmerk in de **gebruikerskenmerken** sectie. Deze optie is beschikbaar in de **eenmalige aanmelding** in het dialoogvenster van de **SAML-token kenmerken** in het dialoogvenster...
 
-    a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
+    a. Openen van de **kenmerk toevoegen** dialoogvenster, **toevoegen kenmerk**. 
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_attribute_04.png)
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_attribute_05.png)
     
-    b. In de **naam** textbox, typt u het kenmerk name 'firstName'.
+    b. In de **naam** typt u de kenmerknaam **firstName**.
     
-    c. Van de **waarde** , selecteert u de waarde van het kenmerk 'user.givenname'.
+    c. Van de **waarde** , selecteert u de kenmerkwaarde **user.givenname**.
     
-    d. Klik op **OK**.
+    d. Selecteer **Ok**.
 
-8. Klik op **opslaan** knop.
+8. Selecteer de knop **Opslaan**.
 
-    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding knop Opslaan](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_400.png)
 
-9. Op de **SAP Cloud Identity verificatie platformconfiguratie** sectie, klikt u op **configureren SAP Cloud Platform identiteitsverificatie** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+9. In de **SAP Cloud Identity verificatie platformconfiguratie** sectie **configureren SAP Cloud Platform identiteitsverificatie** openen de **configureren aanmelding**venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
     ![SAP Cloud Platform identiteit verificatie-configuratie](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_configure.png) 
 
-10. Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, gaat u naar SAP Cloud Platform identiteit verificatie-beheerconsole. De URL is het volgende patroon volgen: `https://<tenant-id>.accounts.ondemand.com/admin`. Volg de documentatie op SAP Cloud Platform identiteitsverificatie naar [Configure Microsoft Azure AD als id-Provider op SAP Cloud Platform identiteitsverificatie zakelijke](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
+10. Als u eenmalige aanmelding die zijn geconfigureerd voor uw toepassing, gaat u naar de SAP Cloud Platform identiteitsverificatie-beheerconsole. De URL is het volgende patroon volgen: `https://<tenant-id>.accounts.ondemand.com/admin`. Lees de documentatie over SAP Cloud Platform identiteitsverificatie op [integratie met Microsoft Azure AD](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html). 
 
-11. Klik in de Azure-portal op **opslaan** knop.
+11. Selecteer in de Azure-portal, de **opslaan** knop.
 
-12. De volgende stappen blijven alleen als u wilt toevoegen en eenmalige aanmelding inschakelen voor een andere SAP-toepassing. Herhaal de stappen in de sectie 'Toevoegen SAP Cloud Platform identiteitsverificatie uit de galerie' een ander exemplaar van SAP Cloud Platform identiteitsverificatie toevoegen.
+12. Ga door met de volgende alleen als u wilt toevoegen en eenmalige aanmelding inschakelen voor een andere SAP-toepassing. Herhaal de stappen in de sectie **toe te voegen SAP Cloud Platform identiteitsverificatie uit de galerie**.
 
-13. In de Azure-portal op de **SAP Cloud Platform identiteitsverificatie** toepassing Integratiepagina, klikt u op **gekoppelde aanmelding**.
+13. In de Azure-portal op de **SAP Cloud Platform identiteitsverificatie** toepassing Integratiepagina **gekoppelde aanmelding**.
 
     ![Gekoppelde aanmelding configureren](./media/active-directory-saas-sapcloudauth-tutorial/linked_sign_on.png)
 
 14. De configuratie op te slaan.
 
 >[!NOTE] 
->De nieuwe toepassing zal gebruikmaken van de SSO-configuratie voor de vorige SAP-toepassing. Controleer of dat u dezelfde zakelijke id-Providers gebruiken in de beheerconsole SAP Cloud Platform identiteit verificatie.
+>De nieuwe toepassing maakt gebruik van de configuratie voor één aanmelding van de vorige SAP-toepassing. Zorg ervoor dat u dezelfde zakelijke id-Providers gebruiken in de beheerconsole identiteitsverificatie voor SAP Cloud-Platform.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de functie embedded-documentatie op [documentatie van Azure AD ingesloten]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
@@ -199,19 +199,19 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. Selecteer in de Azure-portal in het linkerdeelvenster de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/active-directory-saas-sapcloudauth-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-sapcloudauth-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+3. Openen van de **gebruiker** dialoogvenster, **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/active-directory-saas-sapcloudauth-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+4. In de **gebruiker** dialoogvenster vak, voert de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/active-directory-saas-sapcloudauth-tutorial/create_aaduser_04.png)
 
@@ -221,17 +221,17 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
-    d. Klik op **Create**.
+    d. Selecteer **Maken**.
  
 ### <a name="create-an-sap-cloud-platform-identity-authentication-test-user"></a>Een SAP Cloud Platform identiteitsverificatie testgebruiker maken
 
-U hoeft niet te maken van een gebruiker op identiteitsverificatie voor SAP Cloud-Platform. Gebruikers die zich in het archief van de Azure AD-gebruiker kunnen de functionaliteit van eenmalige aanmelding gebruiken.
+U hoeft niet te maken van een gebruiker in identiteitsverificatie voor SAP Cloud-Platform. Gebruikers die zich in het archief van de Azure AD-gebruiker kunnen de functionaliteit van eenmalige aanmelding gebruiken.
 
-SAP Cloud Platform identiteitsverificatie ondersteunt de optie identiteitsfederatie. Deze optie kunt de toepassing om te controleren als de gebruikers die zijn geverifieerd door de identiteitsprovider zakelijke aanwezig zijn in het archief van SAP Cloud Platform identiteit gebruikersverificatie. 
+SAP Cloud Platform identiteitsverificatie ondersteunt de optie identiteitsfederatie. Deze optie kunt de toepassing om te controleren of gebruikers die zijn geverifieerd door de provider van de zakelijke identiteit in het archief van SAP Cloud Platform identiteit gebruikersverificatie bestaan. 
 
-In de standaardinstelling is de optie identiteitsfederatie is uitgeschakeld. Als identiteitsfederatie is ingeschakeld, zijn alleen de gebruikers die worden geïmporteerd in SAP Cloud Platform identiteitsverificatie toegang tot de toepassing. 
+De optie identiteitsfederatie is standaard uitgeschakeld. Als identiteitsfederatie is ingeschakeld, kan alleen de gebruikers die worden geïmporteerd in SAP Cloud Platform identiteitsverificatie toegang krijgen tot de toepassing. 
 
-Zie voor meer informatie over het in- of uitschakelen van identiteitsfederatie met SAP Cloud Platform identiteitsverificatie identiteitsfederatie inschakelen met SAP Cloud Platform identiteitsverificatie in [identiteitsfederatie configureren met de Archief van SAP Cloud Platform identiteit gebruikersverificatie](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
+Zie voor meer informatie over het in- of uitschakelen van identiteitsfederatie met SAP Cloud Platform identiteitsverificatie 'Identiteit Federation met SAP Cloud Platform identiteit Authentication inschakelen' in [identiteitsfederatie configureren met de Archief van SAP Cloud Platform identiteit gebruikersverificatie](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -241,7 +241,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 **Britta Simon om aan te wijzen identiteitsverificatie voor SAP Cloud-Platform, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de toepassingen in de Azure portal en gaat u naar de directoryweergave. Ga vervolgens naar **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
@@ -249,25 +249,26 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
     ![De koppeling SAP Cloud Platform identiteitsverificatie in de lijst met toepassingen](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+3. Selecteer in het menu aan de linkerkant **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+4. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+5. In de **gebruikers en groepen** dialoogvenster, **Britta Simon** in de gebruikerslijst.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+6. Klik op de **Selecteer** knop in de **gebruikers en groepen** in het dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+7. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** in het dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
-Als u op de tegel SAP Cloud Platform identiteitsverificatie in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing identiteitsverificatie voor SAP Cloud-Platform.
+Wanneer u de tegel SAP Cloud Platform identiteitsverificatie in het deelvenster toegang selecteert, krijgen u automatisch aangemeld bij uw toepassing identiteitsverificatie voor SAP Cloud Platform.
+
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen

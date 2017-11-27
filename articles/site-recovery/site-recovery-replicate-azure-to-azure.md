@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/22/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Azure virtuele machines repliceren naar een andere Azure-regio
 
@@ -32,7 +32,7 @@ In dit artikel wordt beschreven hoe de replicatie van virtuele machines in een A
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Het artikel wordt ervan uitgegaan dat u al over de Site Recovery en de Recovery Services-kluis weet. U moet een 'Recovery services-kluis' vooraf gemaakt hebben.
+* Het artikel wordt ervan uitgegaan dat u al over de Site Recovery en de Recovery Services-kluis weet. U moet een 'Recovery services-kluis' vooraf gemaakte hebben.
 
     >[!NOTE]
     >
@@ -53,9 +53,9 @@ Virtuele we voor deze afbeelding wordt uitgevoerd in de Oost-Azië-machines repl
 
 1. **Bron:** deze verwijst naar het punt van oorsprong van de machines die in dit geval **Azure**.
 
-2. **Bronlocatie:** is de Azure-regio waar u wilt beveiligen van uw virtuele machines. In dit voorbeeld worden de bronlocatie Oost-Azië
+2. **Bronlocatie:** is de Azure-regio waar u wilt beveiligen van uw virtuele machines. In dit voorbeeld is de locatie van de Oost-Azië
 
-3. **Implementatiemodel:** het verwijst naar het model van de Azure-implementatie van de bronmachine. U kunt ofwel classic selecteren of resourcemanager en de machines die horen bij het specifieke model wordt weergegeven voor beveiliging in de volgende stap.
+3. **Implementatiemodel:** het verwijst naar het model van de Azure-implementatie van de bronmachine. U kunt ofwel Classic selecteren of Resource Manager en de machines die horen bij het specifieke model wordt weergegeven voor beveiliging in de volgende stap.
 
       >[!NOTE]
       >
@@ -76,27 +76,27 @@ Onder de sectie instellingen kunt u doel voor site-eigenschappen configureren
     > [!TIP]
     > Het verdient aanbeveling dat doellocatie dezelfde vanaf uw recovery services-kluis.
 
-2. **Doelresourcegroep:** is de resourcegroep waarin alle uw gerepliceerde virtuele machines behoort. Standaard maakt ASR een nieuwe resourcegroep in de doelregio met naam 'asr' achtervoegsel heeft. Als de resourcegroep die zijn gemaakt door ASR al bestaat, wordt opnieuw gebruikt. U kunt ook aanpassen zoals weergegeven in de onderstaande sectie.    
-3. **Virtuele doelnetwerk:** standaard ASR maakt een nieuw virtueel netwerk in de doelregio met naam 'asr' achtervoegsel heeft. Dit worden toegewezen aan de bron-netwerk en wordt gebruikt voor alle toekomstige beveiliging.
+2. **Doelresourcegroep:** is de resourcegroep waarin alle uw gerepliceerde virtuele machines behoort. Standaard maakt Azure Site Recovery een nieuwe resourcegroep in de doelregio met naam 'asr' achtervoegsel heeft. Als resourcegroep gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt. U kunt ook aanpassen zoals weergegeven in de onderstaande sectie.    
+3. **Virtuele doelnetwerk:** standaard Azure Site Recovery maakt een nieuw virtueel netwerk in de doelregio met naam 'asr' achtervoegsel heeft. Dit worden toegewezen aan de bron-netwerk en wordt gebruikt voor alle toekomstige beveiliging.
 
     > [!NOTE]
     > [Controleer de gegevens van de netwerken](site-recovery-network-mapping-azure-to-azure.md) voor meer informatie over de netwerktoewijzing.
 
-4. **Storage-accounts als doel:** standaard ASR maakt de nieuwe doelaccount opslag mimicking de opslagconfiguratie van de bron-VM. Als storage-account gemaakt door ASR al bestaat, wordt opnieuw gebruikt.
+4. **Storage-accounts als doel:** standaard Azure Site Recovery de nieuwe doelaccount opslag mimicking de opslagconfiguratie van de bron-VM wordt gemaakt. Als storage-account gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt.
 
-5. **Storage-accounts in de cache:** ASR moet extra opslagruimte account met de naam van cache-opslag in de regio van de bron. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache storage-account voordat deze naar de doellocatie te repliceren.
+5. **Storage-accounts in de cache:** Azure Site Recovery moet extra opslagruimte account met de naam van cache-opslag in de regio van de bron. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache storage-account voordat deze naar de doellocatie te repliceren.
 
-6. **Beschikbaarheidsset:** ASR maakt standaard een nieuwe beschikbaarheidsset voor de doelregio met naam 'asr' achtervoegsel heeft. Als beschikbaarheidsset gemaakt door ASR al bestaat, wordt opnieuw gebruikt.
+6. **Beschikbaarheidsset:** Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset voor de doelregio met naam 'asr' achtervoegsel heeft. Als beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt.
 
-7.  **Beleid voor wachtwoordreplicatie:** definieert de instellingen voor herstelpunt bewaren geschiedenis en app consistent de frequentie van momentopnamen. Standaard maakt ASR een nieuw replicatiebeleid voor met de standaardinstellingen van 24 uur voor herstel bewaarperiode en "60 minuten voor de frequentie van app-consistente momentopname te maken.
+7.  **Beleid voor wachtwoordreplicatie:** definieert de instellingen voor herstelpunt bewaren geschiedenis en app consistent de frequentie van momentopnamen. Standaard maakt Azure Site Recovery een nieuw replicatiebeleid voor met de standaardinstellingen van 24 uur voor herstel bewaarperiode en "60 minuten voor de frequentie van app-consistente momentopname te maken.
 
     ![Replicatie inschakelen](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 ## <a name="customize-target-resources"></a>Doelresources aanpassen
 
-Als u de standaardwaarden die worden gebruikt door ASR hebt gewijzigd wilt, kunt u de instellingen op basis van uw behoeften kunt wijzigen.
+Als u wijzigen van de standaardwaarden worden gebruikt door Azure Site Recovery wilt, kunt u de instellingen op basis van uw behoeften kunt wijzigen.
 
-1. **Aanpassen:** Klik hierop om te wijzigen van de standaardwaarden die worden gebruikt door ASR.
+1. **Aanpassen:** Klik hierop om te wijzigen van de standaardwaarden worden gebruikt door Azure Site Recovery.
 
 2. **Doelresourcegroep:** kunt u de resourcegroep uit de lijst met alle resourcegroepen die aanwezig is in de doellocatie in het abonnement.
 
@@ -112,7 +112,7 @@ Als u de standaardwaarden die worden gebruikt door ASR hebt gewijzigd wilt, kunt
 Wanneer virtuele machines zijn beveiligd kunt u de status van de status van de virtuele machines onder controleren **gerepliceerde items**
 
 >[!NOTE]
->Kan tijdens de periode van de initiële replicatie er een kans dat status kost tijd om te vernieuwen en er geen uitgevoerd gedurende een bepaalde periode. U kunt klikken op de knop Vernieuwen boven aan de blade om op te halen van de meest recente status.
+>Tijdens de periode van de initiële replicatie kan er een kans dat status kost tijd om te vernieuwen en er geen uitgevoerd gedurende een bepaalde periode. U kunt klikken op de knop Vernieuwen boven aan de blade om op te halen van de meest recente status.
 >
 
 ![Replicatie inschakelen](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>De service Manager voor StorSimple-apparaat voor StorSimple 8000 series apparaten implementeren
 
@@ -113,6 +113,7 @@ Voer de volgende stappen uit om de overgang van uw service naar de Azure portal.
 
 Zodra de overgang voltooid is, kunt u uw apparaten via de service Manager voor StorSimple-apparaat in de Azure portal kunt beheren. Als u een optie om te migreren naar Azure-portal niet ziet, maar u verplaatsen wilt, kunt u [een aanvraag indienen](https://aka.ms/ss8000-cx-signup).
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Ondersteunde bewerkingen op apparaten met eerdere versies Update 3.0
 In de Azure portal, worden alleen de StorSimple-apparaten met Update 3.0 en hoger ondersteund. De apparaten waarop oudere versies worden in beperkte mate ondersteunt. Nadat u hebt gemigreerd naar de Azure portal, gebruikt u de volgende tabel om te begrijpen welke bewerkingen worden ondersteund op apparaten met eerdere versies Update 3.0.
 
 | Bewerking                                                                                                                       | Ondersteund      |

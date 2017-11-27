@@ -11,7 +11,7 @@
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin-resources delen](cdn-cors.md)
 ### [Een aangepast domein aan uw CDN-eindpunt toevoegen](cdn-map-content-to-custom-domain.md)
-### [HTTPS op een aangepast domein inschakelen](cdn-custom-ssl.md)
+### [HTTPS in een aangepast domein configureren](cdn-custom-ssl.md)
 ## Inhoud optimaliseren
 ### [Optimalisatieoverzicht](cdn-optimization-overview.md)
 ####[Optimalisatie van grote bestanden](cdn-large-file-optimization.md)

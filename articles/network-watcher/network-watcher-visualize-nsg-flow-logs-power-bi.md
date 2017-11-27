@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f32c8cd6e32e99bc34d62435bcd1883ba957e716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19bd7ed4bab915d7918a192a046653666cfaa498
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Netwerkbeveiligingsgroep visualizing stroom logboeken met Power BI
 
@@ -119,7 +119,7 @@ U kunt deze sjabloon voor uw behoeften passen. Er zijn veel verschillende manier
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het visualiseren van uw NSG-logboeken stroom met de Elastick Stack in via [visualiseren patronen in het netwerkverkeer naar en van uw virtuele machines met open-source hulpprogramma's](network-watcher-using-open-source-tools.md)
+Meer informatie over het visualiseren van uw NSG-logboeken stroom met de Elastick Stack in via [visualiseren Azure-netwerk-Watcher NSG stroom logboeken met open-source hulpprogramma's](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -54,7 +54,14 @@ De hersteltijd herstellen van een database met behulp van automatische databaseb
 * Het aantal gelijktijdige restore-aanvragen worden verwerkt in de doelregio. 
   
   Voor een zeer groot en/of actieve database, kan het terugzetten van enkele uren duren. Als er langdurige storing in een regio, is het mogelijk dat er grote aantallen geo-restore-aanvragen worden verwerkt door een andere regio's zijn. Wanneer er veel aanvragen, kan de hersteltijd verhogen voor databases in deze regio. De meeste database herstelt voltooid binnen de 12 uur.
-  
+
+Voor een enkele abonnement, er zijn enkele beperkingen op het aantal gelijktijdige restore-aanvragen (inclusief punt in tijd terugzetten, geo-restore en lange termijn bewaren van back-up) wordt ingediend en soepel:
+|  | **Maximum aantal gelijktijdige aanvragen worden verwerkt** | **Maximum aantal gelijktijdige aanvragen worden verzonden** |
+| :--- | --: | --: |
+|Individuele database (per abonnement)|10|60|
+|Elastische pool (per groep)|4|200|
+||||
+
 Er is geen ingebouwde functionaliteit bulksgewijs terugzetten. De [Azure SQL Database: volledige Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is een voorbeeld van een manier van deze taak uitvoeren.
 
 > [!IMPORTANT]
@@ -73,7 +80,7 @@ De database kan worden hersteld naar een service tier of de prestaties, en als e
 
 U meestal herstellen een database naar een eerder voor hersteldoeleinden. Wanneer doet, kunt u de herstelde database behandelen als vervanging voor de oorspronkelijke database of gebruikt om gegevens van ophalen en werk vervolgens de oorspronkelijke database. 
 
-* ***Vervanging van de database:*** als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u controleren of het prestatieniveau en/of servicelaag geschikt zijn en schalen van de database indien nodig. U kunt de naam van de oorspronkelijke database wijzigen en vervolgens de oorspronkelijke naam met de opdracht ALTER DATABASE in T-SQL geven de teruggezette database. 
+* ***Vervanging van de database:*** als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u controleren of het prestatieniveau en/of servicelaag geschikt zijn en schalen van de database indien nodig. U kunt de oorspronkelijke database wijzigen en vervolgens geeft de teruggezette database van de oorspronkelijke naam met behulp de [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) opdracht in T-SQL. 
 * ***Herstel van gegevens:*** als u van plan bent om gegevens te halen uit de herstelde database van een gebruiker of toepassing fout wilt herstellen, moet u schrijven en uitvoeren van de scripts voor het herstel van gegevens die nodig zijn om gegevens te extraheren uit de herstelde database naar de oorspronkelijke database. Hoewel de herstelbewerking lang duren kan om te voltooien, zijn terug te zetten database is zichtbaar in de lijst van de database in het herstelproces. Als u de database verwijderd tijdens het herstellen, de restore-bewerking is geannuleerd en u niet weet in rekening gebracht voor de database die de herstelbewerking kan niet worden voltooid. 
 
 ### <a name="azure-portal"></a>Azure Portal

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Verklarende woordenlijst voor Microsoft Azure: een dictionary van cloud-terminologie op de Azure-platform
 
@@ -87,13 +87,13 @@ De prijzen, tegoeden, en de bijbehorende voorwaarden van toepassing op een Azure
 Zie de [detailpagina aanbieding voor Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-De beveiligde webportal te implementeren en beheren van Azure-services.  Er zijn twee portals: de [Azure-portal](http://portal.azure.com/) en de [klassieke portal](http://manage.windowsazure.com/). Sommige services zijn beschikbaar in beide portals, terwijl andere weer alleen beschikbaar in een of andere zijn. De [Azure portal beschikbaarheid grafiek](https://azure.microsoft.com/features/azure-portal/availability/) lijsten welke services beschikbaar in welke portal zijn.
+De beveiligde webportal te implementeren en beheren van Azure-services.
 
-## <a name="region"></a>Regio
+## <a name="region"></a>regio
 Een gebied binnen een geografisch die niet snijpunt nationale grenzen en bevat een of meer datacenters. Prijzen regionale diensten en aanbiedingstypen worden weergegeven op het regioniveau van de. Een regio is meestal gekoppeld aan een andere regio, wat kan maximaal enkele honderden mijl verwijderd. Regionale paren kunnen worden gebruikt als een mechanisme voor herstel na noodgevallen en scenario's voor hoge beschikbaarheid. Ook wel *locatie*.  
 Zie [Azure-regio's](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>Resource
+## <a name="resource"></a>Bron
 Een item die deel uitmaakt van uw Azure-oplossing. Elke Azure-service kunt u verschillende soorten resources, zoals databases of virtuele machines te implementeren.   
 Zie [overzicht van Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 

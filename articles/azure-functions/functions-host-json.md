@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>host.JSON-documentatie voor Azure Functions
 
@@ -132,28 +132,14 @@ Bepaalt de [steekproeven functie in Application Insights](functions-monitoring.m
 
 |Eigenschap  |Standaard | Beschrijving |
 |---------|---------|---------| 
-|IsEnabled|ONWAAR|Hiermee of steekproeven uitgeschakeld.| 
+|IsEnabled|onwaar|Hiermee of steekproeven uitgeschakeld.| 
 |maxTelemetryItemsPerSecond|5|De drempelwaarde op welke steekproeven begint.| 
 
 ## <a name="eventhub"></a>EventHub
 
-Configuratie-instelling voor [Event Hub-triggers en bindingen](functions-bindings-event-hubs.md).
+Configuratie-instellingen voor [Event Hub-triggers en bindingen](functions-bindings-event-hubs.md).
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Eigenschap  |Standaard | Beschrijving |
-|---------|---------|---------| 
-|maxBatchSize|64|Het aantal voor de maximale gebeurtenissen ontvangen per lus voor ontvangen.|
-|prefetchCount|N.v.t.|De standaard PrefetchCount die wordt gebruikt door de onderliggende EventProcessorHost.| 
-|batchCheckpointFrequency|1|Het aantal batches van gebeurtenissen verwerken voordat u een controlepunt van de cursor EventHub maakt.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>Functies
 
@@ -184,7 +170,7 @@ Configuratie-instellingen voor [HTTP-triggers en bindingen](functions-bindings-h
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
+        "maxConcurrentRequests": 
         "dynamicThrottlesEnabled": false
     }
 }
@@ -195,7 +181,7 @@ Configuratie-instellingen voor [HTTP-triggers en bindingen](functions-bindings-h
 |routePrefix|api|Het routeprefix die voor alle routes geldt. Gebruik een lege tekenreeks om te verwijderen van het standaardvoorvoegsel. |
 |maxOutstandingRequests|-1|Het maximale aantal openstaande aanvragen die op elk moment (-1 betekent unbounded) wordt gehouden. De limiet omvatten aanvragen die in de wachtrij staan, maar nog niet begonnen wordt uitgevoerd, evenals alle uitvoeringen wordt uitgevoerd. Alle binnenkomende aanvragen gedurende deze limiet worden met een 429 'Bezet' antwoord geweigerd. Aanroepfuncties kunnen reactie op basis van tijd nieuwe pogingen strategieën alvast gebruiken. Deze instelling bepaalt u alleen queuing die deze gebeurtenis treedt op binnen het pad taak host worden uitgevoerd. Er zijn andere wachtrijen, zoals de aanvraagwachtrij ASP.NET niet is beïnvloed door deze instelling. |
 |maxConcurrentRequests|-1|Het maximum aantal HTTP-functies die parallel (-1 betekent unbounded) wordt uitgevoerd. U kunt bijvoorbeeld een limiet instellen als uw HTTP-functies te veel systeembronnen gebruikt als gelijktijdigheid hoog is. Of als uw functies uitgaande aanvragen in een service van derden aanbrengen, deze aanroepen moeten mogelijk worden snelheid beperkt.|
-|dynamicThrottlesEnabled|ONWAAR|Zorgt ervoor dat de verwerking van aanvragen pijplijn systeemprestatiemeteritems periodiek controleren. Prestatiemeteritems zijn verbindingen, threads, processen, geheugen en cpu. Als een van de items via een ingebouwde drempelwaarde (80%), worden aanvragen met een 429 'Bezet' antwoord geweigerd totdat de counter(s) terug naar de normale niveaus terechtkomen.|
+|dynamicThrottlesEnabled|onwaar|Zorgt ervoor dat de verwerking van aanvragen pijplijn systeemprestatiemeteritems periodiek controleren. Prestatiemeteritems zijn verbindingen, threads, processen, geheugen en cpu. Als een van de items via een ingebouwde drempelwaarde (80%), worden aanvragen met een 429 'Bezet' antwoord geweigerd totdat de counter(s) terug naar de normale niveaus terechtkomen.|
 
 ## <a name="id"></a>id
 
@@ -260,21 +246,7 @@ Configuratie-instellingen voor [opslag queue-triggers en bindingen](functions-bi
 
 Configuratie-instelling voor [Service Bus-triggers en bindingen](functions-bindings-service-bus.md).
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|Eigenschap  |Standaard | Beschrijving |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|Het maximum aantal gelijktijdige oproepen aan de callback die de bericht-pomp moet starten. | 
-|prefetchCount|N.v.t.|De standaard PrefetchCount die wordt gebruikt door de onderliggende MessageReceiver.| 
-|autoRenewTimeout|00:05:00|De maximale tijdsduur waarbinnen de vergrendeling van het bericht automatisch wordt vernieuwd.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>Singleton
 

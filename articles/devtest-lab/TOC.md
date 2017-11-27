@@ -55,6 +55,9 @@
 ### [Virtuele netwerken configureren](devtest-lab-configure-vnet.md)
 ### [Een IP-configuratie-optie selecteren](devtest-lab-shared-ip.md)
 
+## Gegevensschijven beheren
+### [Gegevensschijven koppelen en ontkoppelen](devtest-lab-attach-detach-data-disk.md)
+
 ## [Uw lab schalen](devtest-lab-scale-lab.md)
 
 # Naslaginformatie

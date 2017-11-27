@@ -28,12 +28,6 @@
 #### [Sparkfun ESP8266 Thing Dev met Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 met Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### Het IoT Gateway-startpakket gebruiken
-##### [Intel NUC instellen als gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [De gateway aan IoT Hub koppelen](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [De gateway gebruiken voor gegevensconversie](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [Problemen oplossen](iot-hub-gateway-kit-c-troubleshooting.md)
-
 ## Uitgebreide IoT-scenario 's
 ### [Berichten op cloudapparaten beheren met iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ### [IoT Hub-berichten opslaan in Azure-gegevensopslag](iot-hub-store-data-in-azure-table-storage.md)
@@ -43,7 +37,7 @@
 ### [Apparaatbeheer met iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Externe bewaking en meldingen met Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# Procedures
+# Handleidingen
 ## Plannen
 ### [IoT Hub met Event Hubs vergelijken](iot-hub-compare-event-hubs.md)
 ### [Uw oplossing schalen](iot-hub-scaling.md)
@@ -147,30 +141,6 @@
 ##### [Concepten van beveiliging op basis van X.509-CA-certificaten](iot-hub-x509ca-concept.md)
 #### [Aan de slag met beveiliging op basis van X.509-CA-certificaten](iot-hub-security-x509-get-started.md)
 ##### [Certificaten maken - PowerShell](iot-hub-security-x509-create-certificates.md)
-
-## Azure IoT Edge
-### [Overzicht](iot-hub-iot-edge-overview.md)
-### Aan de slag
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### Een apparaat simuleren
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [Een echt apparaat gebruiken](iot-hub-iot-edge-physical-device.md)
-### Een module maken
-#### [Java](iot-hub-iot-edge-create-module-java.md)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.js](iot-hub-iot-edge-create-module-js.md)
-### Ontwikkelen
-#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [.NET Core-module](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [Beheerde .NET Core-gateway](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [Module dynamisch toevoegen](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [Out of process-proxy-module](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [Systeemeigen module-host](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)

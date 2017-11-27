@@ -4,7 +4,7 @@ description: Hoe beheert u de instellingen voor groepen met behulp van Azure Act
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/16/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory cmdlets voor het configureren van groepsinstellingen
+In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Azure AD), PowerShell-cmdlets voor groepen maken en bijwerken. Deze inhoud geldt alleen voor Office 365-groepen. 
 
 > [!IMPORTANT]
-> Deze inhoud geldt alleen voor Office 365-groepen. Voor meer informatie over het zodat gebruikers kunnen beveiligingsgroepen maken, stelt `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Sommige instellingen vereist een Azure Active Directory Premium P1-licentie. Zie voor meer informatie de [sjablooninstellingen](#template-settings) tabel.
+
+Voor meer informatie over het zodat gebruikers kunnen beveiligingsgroepen maken, stelt `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Instellingen voor Office 365-groepen zijn geconfigureerd met een object-instellingen en een SettingsTemplate-object. In eerste instantie is er geen voor instellingenobjecten in uw directory omdat uw directory is geconfigureerd met de standaardinstellingen. Als u wilt de standaardinstellingen wilt wijzigen, moet u een nieuw object voor instellingen met een sjabloon voor instellingen. Instellingen voor sjablonen zijn gedefinieerd door Microsoft. Er zijn verschillende sjablonen met verschillende instellingen. Instellingen voor Office 365-groep voor uw directory configureren, moet u de sjabloon met de naam 'Group.Unified' gebruiken. Gebruik de sjabloon met de naam "Group.Unified.Guest" voor informatie over het configureren van instellingen voor Office 365-groep op één groep. Deze sjabloon wordt gebruikt voor het beheren van gasttoegang tot een Office 365-groep. 
 
@@ -85,11 +88,12 @@ Heeft voltooid wordt de cmdlet de ID van de nieuwe voor instellingenobject:
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsTemplate.
+## <a name="template-settings"></a>Sjablooninstellingen
+Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsTemplate. Tenzij anders vermeld, wordt door deze functies een Azure Active Directory Premium P1-licentie vereist. 
 
 | **Instelling** | **Beschrijving** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Booleaanse<li>Standaard: True |De vlag die aangeeft of het maken van Unified groep in de map is toegestaan door niet-beheerders. |
+|  <ul><li>EnableGroupCreation<li>Type: Booleaanse<li>Standaard: True |De vlag die aangeeft of het maken van Unified groep in de map is toegestaan door niet-beheerders. Deze instelling vereist niet dat voor een Azure Active Directory Premium P1-licentie.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Standaardwaarde: ' " |GUID van de beveiligingsgroep waarvan de leden mogen Unified groepen maken, zelfs wanneer EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Standaardwaarde: ' " |Een koppeling naar de richtlijnen voor het gebruik van groep. |
 |  <ul><li>ClassificationDescriptions<li>Type: String<li>Standaardwaarde: ' " | Een door komma's gescheiden lijst met beschrijvingen van de classificatie. |
@@ -98,7 +102,7 @@ Hier vindt u de instellingen die zijn gedefinieerd in de Group.Unified SettingsT
 | <ul><li>CustomBlockedWordsList<li>Type: String<li>Standaardwaarde: ' " | Gebruik geen. Niet geïmplementeerd. |
 | <ul><li>EnableMSStandardBlockedWords<li>Type: Booleaanse<li>Standaardwaarde: 'False' | Gebruik geen
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Booleaanse<li>Standaard: False | Een Boolean die aangeeft of een gastgebruiker moet een eigenaar van de groepen kan worden. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type: Booleaanse<li>Standaard: True | Een Boolean die aangeeft of een gastgebruiker toegang tot inhoud Unified-groepen krijgen kan. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Type: Booleaanse<li>Standaard: True | Een Boolean die aangeeft of een gastgebruiker toegang tot inhoud Unified-groepen krijgen kan.  Deze instelling vereist niet dat voor een Azure Active Directory Premium P1-licentie.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Standaardwaarde: ' " | De url van een koppeling naar de richtlijnen voor het gebruik van Gast. |
 |  <ul><li>AllowToAddGuests<li>Type: Booleaanse<li>Standaard: True | Een boolean die aangeeft of of niet is toegestaan gasten toevoegen aan deze map.|
 |  <ul><li>ClassificationList<li>Type: String<li>Standaardwaarde: ' " |Een door komma's gescheiden lijst met geldige classificatiewaarden die kunnen worden toegepast op groepen Unified. |

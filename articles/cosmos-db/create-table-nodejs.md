@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met Node.js en Azure Cosmos DB API-app bouwen
 
@@ -38,6 +38,10 @@ Daarnaast doet u het volgende:
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
+
+> [!IMPORTANT] 
+> U moet een nieuwe tabel API-account om te werken met de SDK algemeen beschikbaar tabel-API's maken. Tabel gemaakt tijdens de preview-API-accounts worden niet ondersteund door de algemeen beschikbaar SDK's.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -74,8 +78,6 @@ We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en d
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Open vervolgens het oplossingenbestand in Visual Studio. 
-
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan uw app kan communiceren met uw gehoste-database. 
@@ -84,7 +86,13 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
     ![Bekijken en kopiëren van de vereiste verbindingsinformatie van de in het deelvenster verbindingsreeks](./media/create-table-nodejs/connection-string.png)
 
-2. Open het bestand app.config en kopieer de vereiste eigenschappen van een verbindingsreeks in het configuratiebestand.
+2. Kopieer de primaire VERBINDINGSREEKS met behulp van de knop kopiëren aan de rechterkant.
+
+3. Open het bestand app.config en de waarde in de connectionString op regel drie plakken. 
+
+    > [!IMPORTANT]
+    > Als uw eindpunt documents.azure.com treedt op wanneer u een preview-account hebt gebruikt, en u wilt maken een [nieuwe tabel API account](#create-a-database-account) werken met de algemeen beschikbaar tabel API SDK.
+    >
 
 3. Sla het bestand app.config.
 
@@ -94,14 +102,19 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 1. In het terminalvenster git `cd` naar de map voor opslag-tabel-java-aan de slag.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. In de git start terminalvenster, voer de volgende opdrachten om uit te voeren de Java-toepassing.
+2. Voer de volgende opdracht voor het installeren van de [azure] [knooppunt-uuid] [nconf] en [asynchrone] modules lokaal ook over een vermelding voor ze opslaan in het package.json-bestand
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. In de git start terminalvenster, voer de volgende opdrachten om uit te voeren de knooppunt-toepassing.
+
+    ```
     node ./tableSample.js 
     ```
 

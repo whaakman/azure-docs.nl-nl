@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c8e598159d2139397952a5c11eac54dc38939f47
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-a-java-application"></a>Een Java-toepassing maken
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en beheren van microservices en containers. 
@@ -83,7 +83,7 @@ Voor het implementeren van de toepassing naar een cluster in Azure maken van uw 
 
 Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Door het Service Fabric-team waar iedereen toepassingen implementeren en meer informatie over het platform worden uitgevoerd. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 
-Zie voor meer informatie over het maken van uw eigen cluster [Uw eerste Service Fabric-cluster maken op Azure](service-fabric-get-started-azure-cluster.md).
+Zie voor meer informatie over het maken van uw eigen cluster [Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > De web-front-service is geconfigureerd om te luisteren op poort 8080 voor binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. Als u het Cluster van derden gebruikt, is deze poort is geopend.
@@ -147,5 +147,5 @@ In deze snelstartgids hebt u de volgende zaken geleerd:
 > * Scale-out van de toepassing op meerdere knooppunten
 
 * Meer informatie over [Foutopsporingsservices in Eclipse met Java](service-fabric-debugging-your-application-java.md)
-* Meer informatie over [uw doorlopende integreation & implementatie met behulp van Jenkins instellen](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* Meer informatie over [uw doorlopende integreation & implementatie met behulp van Jenkins instellen](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Afhandeling van andere [Java-voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started)

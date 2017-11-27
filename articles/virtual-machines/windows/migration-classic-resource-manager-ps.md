@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 489e6cc6bd3c5b36635f5f7e398d08fed681d2e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migreren IaaS-middelen van klassiek naar Azure Resource Manager met behulp van Azure PowerShell
 Deze stappen ziet u hoe u Azure PowerShell-opdrachten voor het migreren van infrastructuur als een dienst (IaaS) resources van het klassieke implementatiemodel naar het Azure Resource Manager-implementatiemodel.
@@ -126,8 +126,8 @@ Stel uw Azure-abonnement voor de huidige sessie. In dit voorbeeld wordt het stan
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Stap 5: Controleer of er voldoende kernen virtuele Machine van Azure Resource Manager in Azure-regio van uw huidige implementatie of VNET
-U kunt de volgende PowerShell-opdracht gebruiken om te controleren van het huidige aantal kernen dat u in Azure Resource Manager hebt. Zie voor meer informatie over quota core, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Stap 5: Controleer of er voldoende virtuele Machine van Azure Resource Manager vcpu's in de Azure-regio van uw huidige implementatie of VNET
+U kunt de volgende PowerShell-opdracht gebruiken om te controleren van het huidige aantal vcpu's die u in Azure Resource Manager hebt. Zie voor meer informatie over quota vCPU, [limieten en de Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
 
 In dit voorbeeld controleert de beschikbaarheid de **VS-West** regio. De regionaam voorbeeld vervangen door uw eigen.
 

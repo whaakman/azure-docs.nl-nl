@@ -1,499 +1,463 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met ServiceNow | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ServiceNow en ServiceNow Express.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en ServiceNow.
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
-ms.assetid: 1d8eb99e-8ce5-4ba4-8b54-5c3d9ae573f6
+ms.reviewer: joflore
+ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 11/16/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b25e2184296182687d49b798e5e5a9a2d623c6e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Zelfstudie: Azure Active Directory-integratie met ServiceNow
-In deze zelfstudie leert u hoe ServiceNow en ServiceNow Express integreren met Azure Active Directory (Azure AD).
 
-ServiceNow en ServiceNow Express integreren met Azure AD biedt de volgende voordelen:
+In deze zelfstudie leert u hoe ServiceNow integreren met Azure Active Directory (Azure AD).
 
-* U kunt beheren in Azure AD die toegang tot ServiceNow en ServiceNow Express heeft
-* U kunt uw gebruikers automatisch ophalen aangemeld bij ServiceNow en ServiceNow Express (Single Sign-On) met hun Azure AD-accounts inschakelen
-* U kunt uw accounts op één centrale locatie - en de klassieke Azure portal beheren
+ServiceNow integreren met Azure AD biedt de volgende voordelen:
+
+- U kunt beheren in Azure AD die toegang tot ServiceNow heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij ServiceNow (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het configureren van Azure AD-integratie met ServiceNow en ServiceNow Express, moet u de volgende items:
 
-* Een Azure AD-abonnement
-* Voor ServiceNow, een exemplaar of de tenant van ServiceNow, Calgary versie of hoger
-* Voor ServiceNow snelle, een exemplaar van ServiceNow Express, Helsinki versie of hoger
-* De ServiceNow-tenant moet hebben de [meerdere Provider eenmalige aanmelding op invoegtoepassing](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) ingeschakeld. Dit kan worden gedaan door [indienen van een serviceaanvraag](https://hi.service-now.com). 
+Voor het configureren van Azure AD-integratie met ServiceNow, moet u de volgende items:
+
+- Een Azure AD-abonnement
+- Voor ServiceNow, een exemplaar of de tenant van ServiceNow, Calgary versie of hoger
+- Voor ServiceNow snelle, een exemplaar van ServiceNow Express, Helsinki versie of hoger
+- De ServiceNow-tenant moet hebben de [meerdere Provider eenmalige aanmelding op invoegtoepassing](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) ingeschakeld. Dit kan worden gedaan door [indienen van een serviceaanvraag](https://hi.service-now.com).
 
 > [!NOTE]
 > Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
-> 
-> 
 
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-* U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.
-* Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. ServiceNow uit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding voor ServiceNow of ServiceNow Express
+2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-servicenow-from-the-gallery"></a>ServiceNow uit de galerie toevoegen
-Voor het configureren van de integratie van ServiceNow of ServiceNow Express in Azure AD, moet u ServiceNow uit de galerie toevoegen aan de lijst met beheerde SaaS-apps. 
+Voor het configureren van de integratie van ServiceNow in Azure AD, moet u ServiceNow uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen ServiceNow uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **klassieke Azure-portal**, klik op het navigatiedeelvenster links **Active Directory**. 
-   
-    ![Active Directory][1]
-2. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
-3. De weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.
-   
-    ![Toepassingen][2]
-4. Klik op **toevoegen** aan de onderkant van de pagina.
-   
-    ![Toepassingen][3]
-5. Op de **wat wilt u doen** dialoogvenster, klikt u op **toevoegen van een toepassing uit de galerie**.
-   
-    ![Toepassingen][4]
-6. Typ in het zoekvak **ServiceNow**.
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_01.png)
-7. Selecteer in het deelvenster met resultaten **ServiceNow**, en klik vervolgens op **Complete** de toepassing toevoegen.
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_02.png)
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie maakt u configureert en test eenmalige aanmelding Azure AD met ServiceNow of ServiceNow snelle op basis van een testgebruiker 'Britta Simon' genoemd.
+    ![De Azure Active Directory-knop][1]
+
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+
+    ![De blade Enterprise-toepassingen][2]
+    
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+
+    ![De knop Nieuw toepassing][3]
+
+4. Typ in het zoekvak **ServiceNow**, selecteer **ServiceNow** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+
+    ![ServiceNow in de lijst met resultaten](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+
+In deze sectie configureert en test eenmalige aanmelding Azure AD met ServiceNow op basis van een testgebruiker 'Britta Simon' genoemd.
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in ServiceNow is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante ServiceNow-gebruiker worden gemaakt.
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in ServiceNow. Om te configureren en testen van Azure AD eenmalige aanmelding met ServiceNow, moet u de volgende bouwstenen voltooien:
 
-1. **[Azure AD eenmalige aanmelding configureren voor ServiceNow](#configuring-azure-ad-single-sign-on-for-servicenow)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Configureren van Azure AD eenmalige aanmelding voor snelle ServiceNow](#configuring-azure-ad-single-sign-on-for-servicenow-express)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-3. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-4. **[Maken van een testgebruiker ServiceNow](#creating-a-servicenow-test-user)**  - ServiceNow die is gekoppeld aan de Azure AD-representatie van haar van een exemplaar van Britta Simon bevatten.
-5. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-6. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+Wijs in ServiceNow, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-> [!NOTE]
-> Als u wilt configureren ServiceNow weglaten stap 2. Op dezelfde manier als u wilt configureren ServiceNow Express weglaten stap 1.
-> 
-> 
+Om te configureren en testen van Azure AD eenmalige aanmelding met ServiceNow, moet u de volgende bouwstenen voltooien:
 
-### <a name="configuring-azure-ad-single-sign-on-for-servicenow"></a>Azure AD voor eenmalige aanmelding configureren voor ServiceNow
-1. In de klassieke Azure AD-portal op de **ServiceNow** toepassing Integratiepagina, klikt u op **eenmalige aanmelding configureren** openen de **configureren eenmalige aanmelding** dialoogvenster.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC749323.png "eenmalige aanmelding configureren")
+1. **[Azure AD eenmalige aanmelding configureren voor ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Azure AD eenmalige aanmelding configureren voor de snelle ServiceNow](#configure-azure-ad-single-sign-on-for-servicenow-express)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+3. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Maak een testgebruiker ServiceNow](#create-a-servicenow-test-user)**  - ServiceNow die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+5. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+6. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-2. Op de **hoe wilt u dat gebruikers zich aanmelden op ServiceNow** pagina **Microsoft Azure AD Single Sign-On**, en klik vervolgens op **volgende**.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC749324.png "eenmalige aanmelding configureren")
+### <a name="configure-azure-ad-single-sign-on-for-servicenow"></a>Azure AD voor eenmalige aanmelding configureren voor ServiceNow
 
-3. Op de **App-instellingen configureren** pagina, voert u de volgende stappen uit:
-   
-    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/IC769497.png "app-URL configureren")
-   
-    a. in de **ServiceNow aanmelding op URL** textbox, typ de URL van uw gebruikt door uw gebruikers aan te melden bij uw ServiceNow-toepassing die het patroon volgen: `https://<instance-name>.service-now.com`.
-   
-    b. In de **id** textbox, typ de URL van uw gebruikt door uw gebruikers aan te melden bij uw ServiceNow-toepassing die het patroon volgen: `https://<instance-name>.service-now.com`.
-   
-    c. Klik op **Volgende**
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw ServiceNow-toepassing.
 
-4. Azure AD ServiceNow automatisch te configureren voor verificatie op basis van SAML Voer uw ServiceNow-instantienaam, beheerdersgebruikersnaam en beheerwachtwoord in de **automatisch eenmalige aanmelding configureren** vormen en klikt u op  *Configureer*. Let op: de opgegeven beheerdersgebruikersnaam moet de **security_admin** rol die is toegewezen in ServiceNow voor deze werkt. Klik anders op om handmatig te configureren tussen ServiceNow voor het gebruik van Azure AD als SAML-identiteitsprovider, **handmatig configureren van de toepassing voor eenmalige aanmelding**, klikt u vervolgens op **volgende** en voltooi de volgende stappen .
-   
-    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "app-URL configureren")
+**Voor het configureren van Azure AD eenmalige aanmelding met ServiceNow, moet u de volgende stappen uitvoeren:**
 
-5. Op de **eenmalige aanmelding configureren op ServiceNow** pagina, klikt u op **certificaat downloaden**, sla het certificaatbestand lokaal op uw computer.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC749325.png "eenmalige aanmelding configureren")
+1. In de Azure-portal op de **ServiceNow** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-6. Aanmelding bij uw ServiceNow-toepassing als een beheerder.
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
-7. Activeer de *integratie - meerdere Provider Single Sign-On-installatieprogramma* invoegtoepassing door de volgende stappen te volgen:
-   
-    a. Ga in het navigatievenster aan de linkerkant naar **System Definition** sectie en klik vervolgens op **Plugins**.
-   
-    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "invoegtoepassing activeren")
-   
-    b. Zoeken naar *integratie - meerdere Provider Single Sign-On-installatieprogramma*.
-   
-    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "invoegtoepassing activeren")
-   
-    c. Selecteer de invoegtoepassing. Rigth op en selecteer **activeren/Upgrade**.
-   
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+ 
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_samlbase.png)
+
+3. Op de **ServiceNow-domein en de URL's** sectie, voert u de volgende stappen uit:
+
+    ![ServiceNow-domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
+
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instance-name>.service-now.com/navpage.do`
+
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<instance-name>.service-now.com`
+
+    > [!NOTE] 
+    > Deze waarden zijn niet echt. U moet deze waarden uit de werkelijke aanmeldings-URL en de id die verderop in de zelfstudie wordt uitgelegd bijwerken.
+
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+
+5. Klik op **opslaan** knop.
+
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
+
+6. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
+
+    a. Klik op **App registraties**.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
+
+    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.
+    
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
+    
+    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
+
+    d. Nu gaat u naar **ServiceNow** eigenschappen en kopieer de **toepassings-ID** met **kopie** knop en plak deze in Kladblok.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/appid.png)
+
+    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Kopieer de gegenereerde waarde in Kladblok als deze metagegevens die URL verderop in de zelfstudie wordt gebruikt.
+
+7. Met één klik service configureren is opgegeven voor ServiceNow dat wil zeggen, om in Azure AD automatisch configureren ServiceNow voor verificatie op basis van SAML. Om in te schakelen naar deze service gaan **ServiceNow configuratie** sectie, klikt u op **ServiceNow configureren** om configureren aanmelding venster te openen.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_configure.png)
+
+8. Voer uw ServiceNow-instantienaam, beheerdersgebruikersnaam en beheerwachtwoord in de **eenmalige aanmelding configureren** vormen en klikt u op **nu configureren**. Let op: de opgegeven beheerdersgebruikersnaam moet de **security_admin** rol die is toegewezen in ServiceNow voor deze werkt. Klik anders op om handmatig te configureren tussen ServiceNow voor het gebruik van Azure AD als SAML-identiteitsprovider, **handmatig configureren van eenmalige aanmelding** en kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** uit de sectie eenvoudig kunt raadplegen.
+
+    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/configure.png "app-URL configureren")
+
+9. Meld u bij uw ServiceNow-toepassing als een beheerder.
+
+10. Activeer de **integratie - meerdere Provider Single Sign-On-installatieprogramma** invoegtoepassing door de volgende stappen te volgen:
+
+    a. Zoek in het navigatievenster aan de linkerkant **System Definition** sectie zoekbalk en klik vervolgens op **Plugins**.
+
+    ![Activeren van de invoegtoepassing](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "invoegtoepassing activeren")
+
+     b. Zoeken naar **integratie - meerdere Provider Single Sign-On-installatieprogramma**.
+
+     ![Activeren van de invoegtoepassing](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "invoegtoepassing activeren")
+
+    c. Selecteer de invoegtoepassing. Klik met de rechtermuisknop en selecteer **activeren/Upgrade**.
+
     d. Klik op de **activeren** knop.
 
-8. Klik in het navigatievenster aan de linkerkant op **eigenschappen**.  
-   
+11. Zoek in het navigatievenster aan de linkerkant **meerdere Provider SSO** sectie zoekbalk en klik vervolgens op **eigenschappen**.
+
     ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "app-URL configureren")
 
-9. Op de **meerdere eigenschappen van de Provider SSO** dialoogvenster de volgende stappen uitvoeren:
-   
-    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "app-URL configureren")
-   
+12. Op de **meerdere eigenschappen van de Provider SSO** dialoogvenster de volgende stappen uitvoeren:
+
+    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "app-URL configureren")
+
     a. Als **provider voor meervoudige eenmalige aanmelding inschakelen**, selecteer **Ja**.
-   
-    b. Als **logboekregistratie voor foutopsporing hebt u de provider voor meervoudige SSO-integratie inschakelen**, selecteer **Ja**.
-   
-    c. In **het veld op de gebruiker die tabel...**  textbox type **gebruikersnaam**.
-   
-    d. Klik op **Opslaan**.
 
-10. Klik in het navigatievenster aan de linkerkant op **x509 certificaten**.
-    
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "eenmalige aanmelding configureren")
+    b. Als **inschakelen automatisch importeren van gebruikers van alle id-providers in de gebruikerstabel**, selecteer **Ja**.
 
-11. Op de **X.509-certificaten** dialoogvenster, klikt u op **nieuw**.
-    
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "eenmalige aanmelding configureren")
+    c. Als **logboekregistratie voor de provider voor meervoudige SSO-integratie voor het inschakelen van foutopsporing**, selecteer **Ja**.
 
-12. Op de **X.509-certificaten** dialoogvenster de volgende stappen uitvoeren:
-    
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "eenmalige aanmelding configureren")
-    
-     a. Klik op **Nieuw**.
-    
-     b. In de **naam** textbox, typ een naam voor uw configuratie (bijvoorbeeld: **TestSAML2.0**).
-    
-     c. Selecteer **Active**.
-    
-     d. Als **indeling**, selecteer **PEM**.
-    
-     e. Als **Type**, selecteer **vertrouwen Store Cert**.
-    
-     f. De met Base64 versleuteld certificaat openen in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **PEM certificaat** textbox.
-    
-     g. Klik op **Update**.
+    d. In **het veld op de gebruiker die tabel...**  textbox type **gebruikersnaam**.
 
-13. Klik in het navigatievenster aan de linkerkant op **identiteitsproviders**.
-    
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "eenmalige aanmelding configureren")
+    e. Klik op **Opslaan**.
 
-14. Op de **identiteitsproviders** dialoogvenster, klikt u op **nieuw**:
-    
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "eenmalige aanmelding configureren")
+13. Zoek in het navigatievenster aan de linkerkant **meerdere Provider SSO** sectie zoekbalk en klik vervolgens op **x509 certificaten**.
 
-15. Op de **identiteitsproviders** dialoogvenster, klikt u op **SAML2 Update1?**:
-    
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "eenmalige aanmelding configureren")
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "eenmalige aanmelding configureren")
 
-16. Voer de volgende stappen uit in het dialoogvenster SAML2 Update1 eigenschappen:
-    
-     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "eenmalige aanmelding configureren")
+14. Op de **X.509-certificaten** dialoogvenster, klikt u op **nieuw**.
 
-    a. in de **naam** textbox, typ een naam voor uw configuratie (bijvoorbeeld: **SAML 2.0**).
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694974.png "eenmalige aanmelding configureren")
 
-    b. In de **Gebruikersveld** textbox type **e** of **gebruikersnaam**, afhankelijk van welk veld wordt gebruikt als unieke identificatie van gebruikers in uw ServiceNow-implementatie. 
+15. Op de **X.509-certificaten** dialoogvenster de volgende stappen uitvoeren:
 
-    > [!NOTE] 
-    > U kunt configue Azure AD voor het verzenden van de Azure AD-gebruikers-ID (UPN) of het e-mailadres als de unieke id in het SAML-token door te gaan naar de **ServiceNow > kenmerken > eenmalige aanmelding** sectie van de klassieke Azure Portal Portal en de toewijzing van het gewenste veld de **nameidentifier** kenmerk. De waarde voor het geselecteerde kenmerk opgeslagen in Azure AD (bijvoorbeeld gebruiker principal name) moet overeenkomen met de waarde die is opgeslagen in ServiceNow voor het opgegeven veld (bijvoorbeeld gebruikersnaam)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "eenmalige aanmelding configureren")
 
-    c. In de klassieke Azure AD-portal kopieert de **identiteit Provider-ID** waarde en plak deze in de **identiteit Provider URL** textbox.
+    a. In de **naam** textbox, typ een naam voor uw configuratie (bijvoorbeeld: **TestSAML2.0**).
 
-    d. In de klassieke Azure AD-portal kopieert de **aanvraag-URL voor webverificatie** waarde en plak deze in de **van de identiteitsprovider AuthnRequest** textbox.
+    b. Selecteer **Active**.
 
-    e. In de klassieke Azure AD-portal kopieert de **Service-URL met eenmalige Sign-Out** waarde en plak deze in de **van de identiteitsprovider SingleLogoutRequest** textbox.
+    c. Als **indeling**, selecteer **PEM**.
 
-    f. In de **ServiceNow Homepage** textbox, typ de URL van de startpagina van uw ServiceNow-exemplaar.
+    d. Als **Type**, selecteer **vertrouwen Store Cert**.
 
-    > [!NOTE] 
+    e. Open uw Base64-gecodeerde certificaat dat is gedownload van Azure in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **PEM certificaat** textbox.
+
+     f. Klik op **indienen**.
+
+16. Klik in het navigatievenster aan de linkerkant op **identiteitsproviders**.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "eenmalige aanmelding configureren")
+
+17. Op de **identiteitsproviders** dialoogvenster, klikt u op **nieuw**.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694977.png "eenmalige aanmelding configureren")
+
+18. Op de **identiteitsproviders** dialoogvenster, klikt u op **SAML2 Update1?**.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694978.png "eenmalige aanmelding configureren")
+
+19. Voer de volgende stappen uit in het dialoogvenster SAML2 Update1 eigenschappen:
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/idp.png "eenmalige aanmelding configureren")
+
+    a. Selecteer **URL** optie in **metagegevens importeren Identity-Provider** dialoogvenster.
+
+    b. Voer de **metagegevens-URL** gegenereerd op basis van de Azure-portal.
+
+    c. Klik op **Import**.
+
+20. De URL van de metagegevens IdP worden gelezen en alle informatie in de velden gevuld.
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694982.png "eenmalige aanmelding configureren")
+
+    a. In de **naam** textbox, typ een naam voor uw configuratie (bijvoorbeeld **SAML 2.0**).
+
+    b. In de **Gebruikersveld** textbox type **e** of **gebruikersnaam**, afhankelijk van welk veld wordt gebruikt als unieke identificatie van gebruikers in uw ServiceNow-implementatie.
+
+    > [!NOTE]
+    > U kunt Azure AD voor het verzenden van de Azure AD-gebruikers-ID (UPN) of het e-mailadres als de unieke id in het SAML-token door te gaan naar de **ServiceNow > kenmerken > eenmalige aanmelding** sectie van de Azure-portal toewijzing van het gewenste veld en de **nameidentifier** kenmerk. De waarde voor het geselecteerde kenmerk opgeslagen in Azure AD (bijvoorbeeld naam user principal name) moet overeenkomen met de waarde die is opgeslagen in ServiceNow voor het opgegeven veld (bijvoorbeeld gebruikersnaam)
+
+    c. Kopiëren **ServiceNow Homepage** waarde: plak deze in de **aanmeldings-URL** textbox in **ServiceNow-domein en de URL's** sectie op Azure-portal.
+
+    > [!NOTE]
     > De startpagina ServiceNow-exemplaar is een samenvoeging van uw **ServieNow tenant-URL** en **/navpage.do** (bijvoorbeeld:`https://fabrikam.service-now.com/navpage.do`).
 
-    g. In de **entiteit-ID / verlener** textbox, typ de URL van uw ServiceNow-tenant.
+    d. Kopiëren **entiteit-ID / verlener** waarde: plak deze in **id** textbox in **ServiceNow-domein en de URL's** sectie op Azure-portal.
 
-    h. In de **doelgroep URL** textbox, typ de URL van uw ServiceNow-tenant. 
+     e. Onder **x509 certificaat**, geeft een lijst van het certificaat dat u in de vorige stap hebt gemaakt.
 
-    ik. In de **Protocol Binding voor de IDP SingleLogoutRequest** textbox type **urn: oasis: namen: tc: SAML:2.0:bindings:HTTP-omleiden**.
+### <a name="configure-azure-ad-single-sign-on-for-servicenow-express"></a>Azure AD voor eenmalige aanmelding configureren voor de snelle ServiceNow
 
-    j. Typ in het tekstvak NameID beleid **urn: oasis: namen: tc: SAML:1.1:nameid-indeling: niet-gespecificeerde**.
+1. In de Azure-portal op de **ServiceNow** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-    k. Hef de selectie **maken van een AuthnContextClass**.
+    ![Eenmalige aanmelding configureren][4]
 
-    l. In de **AuthnContextClassRef methode**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. Dit is alleen nodig als u alleen cloud-organisatie. Als u werkt met on-premises AD FS of MFA voor verificatie en vervolgens moet u deze waarde niet configureren. 
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
 
-    m. In **klok leiden tot onjuiste** textbox type **60**.
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_samlbase.png)
 
-    n. Als **eenmalige aanmelding op Script**, selecteer **MultiSSO_SAML2_Update1**.
+3. Op de **ServiceNow-domein en de URL's** sectie, voert u de volgende stappen uit:
 
-    o. Als **x509 certificaat**, selecteert u het certificaat dat u in de vorige stap hebt gemaakt.
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_url.png)
 
-    p. Klik op **indienen**. 
+    a. In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen:`https://<instance-name>.service-now.com/navpage.do`
 
-1. Bij de klassieke Azure AD-portal, selecteert u de configuratie voor één aanmelding bevestiging en klik op **volgende**. 
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "eenmalige aanmelding configureren")
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<instance-name>.service-now.com`
 
-2. Op de **eenmalige aanmelding bevestiging** pagina, klikt u op **Complete**.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "eenmalige aanmelding configureren")
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL en de id. Neem contact op met [ServiceNow Client ondersteuningsteam](https://www.servicenow.com/support/contact-support.html) ophalen van deze waarden.
 
-### <a name="configuring-azure-ad-single-sign-on-for-servicenow-express"></a>Configureren van Azure AD voor eenmalige aanmelding voor snelle ServiceNow
-1. In de klassieke Azure AD-portal op de **ServiceNow** toepassing Integratiepagina, klikt u op **eenmalige aanmelding configureren** openen de **configureren eenmalige aanmelding** dialoogvenster.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC749323.png "eenmalige aanmelding configureren")
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
-2. Op de **hoe wilt u dat gebruikers zich aanmelden op ServiceNow** pagina **Microsoft Azure AD Single Sign-On**, en klik vervolgens op **volgende**.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC749324.png "eenmalige aanmelding configureren")
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
 
-3. Op de **App-instellingen configureren** pagina, voert u de volgende stappen uit:
-   
-    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/IC769497.png "app-URL configureren")
-   
-    a. in de **ServiceNow aanmelding op URL** textbox, typ de URL van uw gebruikt door uw gebruikers aan te melden bij uw ServiceNow-toepassing die het patroon volgen: `https://<instance-name>.service-now.com`.
-   
-    b. In de **URL-verlener** textbox, typ de URL van uw gebruikt door uw gebruikers aan te melden bij uw ServiceNow-toepassing die het patroon volgen `https://<instance-name>.service-now.com`.
-   
-    c. Klik op **Volgende**
+5. Klik op **opslaan** knop.
 
-4. Klik op **handmatig configureren van de toepassing voor eenmalige aanmelding**, klikt u vervolgens op **volgende** en de volgende stappen uitvoeren.
-   
-    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "app-URL configureren")
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-5. Op de **eenmalige aanmelding configureren op ServiceNow** pagina, klikt u op **certificaat downloaden**, sla het certificaatbestand lokaal op uw computer en klik vervolgens op **volgende**.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC749325.png "eenmalige aanmelding configureren")
+6. Met één klik service configureren is opgegeven voor ServiceNow dat wil zeggen, om in Azure AD automatisch configureren ServiceNow voor verificatie op basis van SAML. Om in te schakelen naar deze service gaan **ServiceNow configuratie** sectie, klikt u op **ServiceNow configureren** om configureren aanmelding venster te openen.
 
-6. Aanmelding bij uw ServiceNow-Express-toepassing als beheerder.
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_configure.png)
 
-7. Klik in het navigatievenster aan de linkerkant op **Single Sign-On**.  
-   
+7. Voer uw ServiceNow-instantienaam, beheerdersgebruikersnaam en beheerwachtwoord in de **eenmalige aanmelding configureren** vormen en klikt u op **nu configureren**. Let op: de opgegeven beheerdersgebruikersnaam moet de **security_admin** rol die is toegewezen in ServiceNow voor deze werkt. Klik anders op om handmatig te configureren tussen ServiceNow voor het gebruik van Azure AD als SAML-identiteitsprovider, **handmatig configureren van eenmalige aanmelding** en kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** uit de sectie eenvoudig kunt raadplegen.
+
+    ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/configure.png "app-URL configureren")
+
+8. Meld u bij uw ServiceNow-Express-toepassing als beheerder.
+
+9. Klik in het navigatievenster aan de linkerkant op **Single Sign-On**.
+
     ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "app-URL configureren")
 
-8. Op de **Single Sign-On** dialoogvenster, klikt u op het configuratiepictogram op de rechterbovenhoek en stelt u de volgende eigenschappen:
-   
+10. Op de **Single Sign-On** dialoogvenster, klikt u op het configuratiepictogram op de rechterbovenhoek en stelt u de volgende eigenschappen:
+
     ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "app-URL configureren")
-   
+
     a. Wisselknop **provider voor meervoudige eenmalige aanmelding inschakelen** naar rechts.
-   
+    
     b. Wisselknop **logboekregistratie voor de provider voor meervoudige SSO-integratie voor het inschakelen van foutopsporing** naar rechts.
-   
+    
     c. In **het veld op de gebruiker die tabel...**  textbox type **gebruikersnaam**.
-9. Op de **Single Sign-On** dialoogvenster, klikt u op **nieuw certificaat toevoegen**.
-   
+
+11. Op de **Single Sign-On** dialoogvenster, klikt u op **nieuw certificaat toevoegen**.
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "eenmalige aanmelding configureren")
-10. Op de **X.509-certificaten** dialoogvenster de volgende stappen uitvoeren:
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "eenmalige aanmelding configureren")
-    
+
+12. Op de **X.509-certificaten** dialoogvenster de volgende stappen uitvoeren:
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694975.png "eenmalige aanmelding configureren")
+
     a. In de **naam** textbox, typ een naam voor uw configuratie (bijvoorbeeld: **TestSAML2.0**).
-    
+
     b. Selecteer **Active**.
-    
+
     c. Als **indeling**, selecteer **PEM**.
-    
+
     d. Als **Type**, selecteer **vertrouwen Store Cert**.
-    
-    e. Maak een Base64-gecodeerde bestand uit het gedownloade certificaat.
-    
-    > [!NOTE]
-    > Zie voor meer informatie [het converteren van een binaire certificaat naar een tekstbestand](http://youtu.be/PlgrzUZ-Y1o).
-    > 
-    > 
-    
-    f. De met Base64 versleuteld certificaat openen in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **PEM certificaat** textbox.
-    
-    g. Klik op **Update**.
-11. Op de **Single Sign-On** dialoogvenster, klikt u op **toevoegen van nieuwe IdP**.
-    
+
+    e. Open uw Base64-gecodeerde certificaat gedownload vanuit Azure-portal in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **PEM certificaat** textbox.
+
+    f. Klik op **Update**
+
+13. Op de **Single Sign-On** dialoogvenster, klikt u op **toevoegen van nieuwe IdP**.
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "eenmalige aanmelding configureren")
-12. Op de **identiteitsprovider toevoegen** dialoogvenster onder **id-Provider configureren**, voer de volgende stappen uit:
-    
+
+14. Op de **identiteitsprovider toevoegen** dialoogvenster onder **id-Provider configureren**, voer de volgende stappen uit:
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "eenmalige aanmelding configureren")
 
-    a. in de **naam** textbox, typ een naam voor uw configuratie (bijvoorbeeld: **SAML 2.0**).
+    a. In de **naam** textbox, typ een naam voor uw configuratie (bijvoorbeeld: **SAML 2.0**).
 
-    b. In de klassieke Azure AD-portal kopieert de **identiteit Provider-ID** waarde en plak deze in de **identiteit Provider URL** textbox.
+    b. In de **identiteit Provider URL** veld, plak de waarde van **identiteit Provider-ID** die u hebt gekopieerd vanuit Azure-portal.
+    
+    c. In de **van de identiteitsprovider AuthnRequest** veld, plak de waarde van **aanvraag-URL voor webverificatie** die u hebt gekopieerd vanuit Azure-portal.
 
-    c. In de klassieke Azure AD-portal kopieert de **aanvraag-URL voor webverificatie** waarde en plak deze in de **van de identiteitsprovider AuthnRequest** textbox.
-
-    d. In de klassieke Azure AD-portal kopieert de **Service-URL met eenmalige Sign-Out** waarde en plak deze in de **van de identiteitsprovider SingleLogoutRequest** textbox.
+    d. In de **van de identiteitsprovider SingleLogoutRequest** veld, plak de waarde van **Service-URL met eenmalige Sign-Out** die u hebt gekopieerd vanuit Azure-portal
 
     e. Als **Provider identiteitscertificaat**, selecteert u het certificaat dat u in de vorige stap hebt gemaakt.
 
+15. Klik op **geavanceerde instellingen**, en klikt u onder **extra identiteitseigenschappen Provider**, voer de volgende stappen uit:
 
-1. Klik op **geavanceerde instellingen**, en klikt u onder **extra identiteitseigenschappen Provider**, voer de volgende stappen uit:
-   
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "eenmalige aanmelding configureren")
-   
+
     a. In de **Protocol Binding voor de IDP SingleLogoutRequest** textbox type **urn: oasis: namen: tc: SAML:2.0:bindings:HTTP-omleiden**.
-   
-    b. In de **NameID beleid** textbox type **urn: oasis: namen: tc: SAML:1.1:nameid-indeling: niet-gespecificeerde**.    
-   
-    c. In de **AuthnContextClassRef methode**, type **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
-   
+
+    b. In de **NameID beleid** textbox type **urn: oasis: namen: tc: SAML:1.1:nameid-indeling: niet-gespecificeerde**.
+
+    c. In de **AuthnContextClassRef methode**, type `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
+
     d. Hef de selectie **maken van een AuthnContextClass**.
 
-2. Onder **extra eigenschappen van de Service Provider**, voer de volgende stappen uit:
-   
+16. Onder **extra eigenschappen van de Service Provider**, voer de volgende stappen uit:
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "eenmalige aanmelding configureren")
-   
+
     a. In de **ServiceNow Homepage** textbox, typ de URL van de startpagina van uw ServiceNow-exemplaar.
-   
+
     > [!NOTE]
     > De startpagina ServiceNow-exemplaar is een samenvoeging van uw **ServieNow tenant-URL** en **/navpage.do** (bijvoorbeeld: `https://fabrikam.service-now.com/navpage.do`).
-    > 
-    > 
-   
+
     b. In de **entiteit-ID / verlener** textbox, typ de URL van uw ServiceNow-tenant.
-   
-    c. In de **doelgroep-URI** textbox, typ de URL van uw ServiceNow-tenant. 
-   
+
+    c. In de **doelgroep-URI** textbox, typ de URL van uw ServiceNow-tenant.
+
     d. In **klok leiden tot onjuiste** textbox type **60**.
-   
+
     e. In de **Gebruikersveld** textbox type **e** of **gebruikersnaam**, afhankelijk van welk veld wordt gebruikt als unieke identificatie van gebruikers in uw ServiceNow-implementatie.
-   
+
     > [!NOTE]
-    > U kunt configue Azure AD voor het verzenden van de Azure AD-gebruikers-ID (UPN) of het e-mailadres als de unieke id in het SAML-token door te gaan naar de **ServiceNow > kenmerken > eenmalige aanmelding** sectie van de klassieke Azure Portal Portal en de toewijzing van het gewenste veld de **nameidentifier** kenmerk. De waarde voor het geselecteerde kenmerk opgeslagen in Azure AD (bijvoorbeeld gebruiker principal name) moet overeenkomen met de waarde die is opgeslagen in ServiceNow voor het opgegeven veld (bijvoorbeeld gebruikersnaam)
-    > 
-    > 
-   
-    f. Klik op **Opslaan**. 
+    > U kunt Azure AD voor het verzenden van de Azure AD-gebruikers-ID (UPN) of het e-mailadres als de unieke id in het SAML-token door te gaan naar de **ServiceNow > kenmerken > eenmalige aanmelding** sectie van de Azure-portal toewijzing van het gewenste veld en de **nameidentifier** kenmerk. De waarde voor het geselecteerde kenmerk opgeslagen in Azure AD (bijvoorbeeld naam user principal name) moet overeenkomen met de waarde die is opgeslagen in ServiceNow voor het opgegeven veld (bijvoorbeeld gebruikersnaam)
 
-3. Bij de klassieke Azure AD-portal, selecteert u de configuratie voor één aanmelding bevestiging en klik op **volgende**. 
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "eenmalige aanmelding configureren")
+    f. Klik op **Opslaan**.
 
-4. Op de **eenmalige aanmelding bevestiging** pagina, klikt u op **Complete**.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "eenmalige aanmelding configureren")
+> [!TIP]
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## <a name="configuring-user-provisioning"></a>Configuratie van gebruikers inrichten
-Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van Active Directory-gebruikersaccounts met ServiceNow overzicht.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Als u wilt configureren voor gebruikers inrichten, moet u de volgende stappen uitvoeren:
-1. In de klassieke Azure Management-portal op de **ServiceNow** pagina van de integratie van toepassing, klikt u op **configureren gebruikersaanvragen**. 
-   
-    ![Gebruikers inrichten](./media/active-directory-saas-servicenow-tutorial/IC769498.png "gebruikers inrichten")
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
-2. Op de **Voer uw ServiceNow-referenties om in te schakelen automatisch gebruikers inrichten** pagina, bieden de volgende configuratie-instellingen:
-   
-     a. In de **ServiceNow-exemplaarnaam** textbox, typ de naam van het ServiceNow-exemplaar.
-   
-     b. In de **ServiceNow-Beheerdersgebruikersnaam** textbox, typ de naam van de ServiceNow-account.
-   
-     c. In de **ServiceNow-beheerderswachtwoord** textbox, typt u het wachtwoord voor dit account.
-   
-     d. Klik op **valideren** om te controleren of uw configuratie.
-   
-     e. Klik op de **volgende** te openen de **Vervolgstappen** pagina.
-   
-     f. Als u inrichten van alle gebruikers deze toepassing wilt, selecteert u '**automatisch inrichten van alle gebruikersaccounts in de directory voor deze toepassing**'. 
-   
-    ![Volgende stappen](./media/active-directory-saas-servicenow-tutorial/IC698804.png "volgende stappen")
-   
-     g. Op de **Vervolgstappen** pagina, klikt u op **Complete** aan uw configuratie op te slaan.
-
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-In deze sectie maakt u een testgebruiker in de klassieke portal Britta Simon aangeroepen.
-
-![Azure AD-gebruiker maken][20]
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **klassieke Azure-portal**, klik op het navigatiedeelvenster links **Active Directory**.
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/create_aaduser_09.png) 
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-2. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
+    ![De Azure Active Directory-knop](./media/active-directory-saas-servicenow-tutorial/create_aaduser_01.png)
 
-3. De lijst met gebruikers, in het menu bovenaan, klikt u op **gebruikers**.
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/create_aaduser_03.png) 
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-4. Openen van de **gebruiker toevoegen** dialoogvenster op de werkbalk aan de onderkant, klikt u op **gebruiker toevoegen**.
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/create_aaduser_04.png) 
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-servicenow-tutorial/create_aaduser_02.png)
 
-5. Op de **Vertel ons meer over deze gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/create_aaduser_05.png) 
-   
-    a. Selecteer de nieuwe gebruiker in uw organisatie als Type gebruiker.
-   
-    b. De gebruikersnaam **textbox**, type **BrittaSimon**.
-   
-    c. Klik op **Volgende**.
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-6. Op de **gebruikersprofiel** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-   ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/create_aaduser_06.png) 
-   
-   a. In de **voornaam** textbox type **Britta**.  
-   
-   b. In de **achternaam** textbox type, **Simon**.
-   
-   c. In de **weergavenaam** textbox type **Britta Simon**.
-   
-   d. In de **rol** selecteert **gebruiker**.
-   
-   e. Klik op **Volgende**.
+    ![De knop toevoegen](./media/active-directory-saas-servicenow-tutorial/create_aaduser_03.png)
 
-7. Op de **tijdelijk wachtwoord** dialoogvenster pagina, klikt u op **maken**.
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/create_aaduser_07.png) 
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-8. Op de **tijdelijk wachtwoord** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-servicenow-tutorial/create_aaduser_08.png) 
-   
-    a. Noteer de waarde van de **nieuw wachtwoord**.
-   
-    b. Klik op **Voltooien**.   
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-servicenow-tutorial/create_aaduser_04.png)
 
-### <a name="creating-a-servicenow-test-user"></a>Maken van een testgebruiker ServiceNow
-In deze sectie maakt maken u een gebruiker Britta Simon aangeroepen in ServiceNow. In deze sectie maakt maken u een gebruiker Britta Simon aangeroepen in ServiceNow. Als u niet hoe u een gebruiker in uw ServiceNow of ServiceNow Express-account toevoegt weet, moet u contact op met ServiceNow-ondersteuningsteam.
+    a. In de **naam** in het vak **BrittaSimon**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang verlenen aan ServiceNow.
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-![Gebruiker toewijzen][200] 
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+
+    d. Klik op **Create**.
+ 
+### <a name="create-a-servicenow-test-user"></a>Maak een testgebruiker ServiceNow
+
+In deze sectie maakt maken u een gebruiker Britta Simon aangeroepen in ServiceNow. Als u een gebruiker toevoegen aan uw ServiceNow of ServiceNow Express-account niet weet, neem dan contact op met [ondersteuningsteam ServiceNow-Client](https://www.servicenow.com/support/contact-support.html)
+
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
+
+In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan ServiceNow.
+
+![Toewijzen van de gebruikersrol][200] 
 
 **Britta Simon om aan te wijzen ServiceNow, moet u de volgende stappen uitvoeren:**
 
-1. In de klassieke portal, de weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.
-   
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+
     ![Gebruiker toewijzen][201] 
 
 2. Selecteer in de lijst met toepassingen **ServiceNow**.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_10.png) 
 
-3. Klik in het menu bovenaan op **gebruikers**.
-   
-    ![Gebruiker toewijzen][203] 
+    ![De ServiceNow-koppeling in de lijst met toepassingen](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_app.png)  
 
-4. Selecteer in de lijst met alle gebruikers **Britta Simon**.
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-5. Klik in de werkbalk aan de onderkant op **toewijzen**.
-   
-    ![Gebruiker toewijzen][205]
+    ![De koppeling 'Gebruikers en groepen'][202]
 
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+
+    ![Het deelvenster toewijzing toevoegen][203]
+
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+
+6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+
+7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+    
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel ServiceNow in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw ServiceNow-toepassing.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
+
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -504,16 +468,10 @@ Als u op de tegel ServiceNow in het deelvenster toegang, u moet ophalen automati
 [3]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_04.png
 
-
-[5]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_05.png
-[6]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_06.png
-[7]:  ./media/active-directory-saas-servicenow-tutorial/tutorial_general_050.png
-[10]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_060.png
-[11]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_070.png
-[20]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_205.png
+

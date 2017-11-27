@@ -16,6 +16,7 @@
 ## [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
 
 # Procedures
+## [Azure AD Domain Services inschakelen met behulp van PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Een beheerd domein koppelen
 ### [Windows Server-VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Windows Server-VM op basis van sjabloon](active-directory-ds-join-windows-vm-template.md)

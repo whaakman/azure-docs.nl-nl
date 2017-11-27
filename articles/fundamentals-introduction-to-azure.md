@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Inleiding tot Microsoft Azure
 Microsoft Azure is Microsoft toepassingsplatform voor de openbare cloud.  Het doel van dit artikel is het bieden u een basis voor informatie over de grondbeginselen van Azure, zelfs als u niet over cloud weet computing.
@@ -77,7 +77,7 @@ Een van de meest voorkomende dingen die mensen doen in de cloud wordt websites e
 
 Dit is precies wat Web Apps biedt. Dit model compute biedt een beheerde omgeving met behulp van de Azure-beheerportal, alsmede de API's. U kunt een bestaande websitetoepassing naar ongewijzigd Web-Apps verplaatsen of kunt u een nieuwe rechtstreeks in de cloud. Wanneer een website wordt uitgevoerd, kunt u toevoegen of exemplaren dynamisch verwijderen vertrouwen op Azure Web Apps laden van aanvragen verdelen over ertussen. Apps van Azure biedt zowel een gedeelde optie, waar uw website wordt uitgevoerd in een virtuele machine met andere sites, en een standaard optie waarmee u een site in een eigen virtuele machine uit te voeren. De standaard optie kunt u de grootte (rekenkracht) van uw exemplaren verhogen, indien nodig.
 
-Web-Apps biedt voor ontwikkeling, .NET, PHP, Node.js, Java en Python samen met de SQL-Database en MySQL (van ClearDB, een Microsoft-partner) ondersteuning voor relationele opslag. Het biedt ook ingebouwde ondersteuning voor verschillende veelgebruikte toepassingen, zoals WordPress, Joomla en Drupal. Het doel is het bieden van een goedkope, schaalbare en veelzijdige, handige platform voor het maken van websites en webtoepassingen in de openbare cloud.
+Voor ontwikkeling ondersteunt Web-Apps .NET, PHP, Node.js, Java en Python samen met de SQL-Database en de Azure-Database voor MySQL voor relationele opslag. Het biedt ook ingebouwde ondersteuning voor verschillende veelgebruikte toepassingen, zoals WordPress, Joomla en Drupal. Het doel is het bieden van een goedkope, schaalbare en veelzijdige, handige platform voor het maken van websites en webtoepassingen in de openbare cloud.
 
 **Web-Apps-scenario 's**
 

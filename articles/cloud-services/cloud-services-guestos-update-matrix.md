@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 11/16/2017
 ms.author: raiye
-ms.openlocfilehash: 90ce26733c7018e2cf9464470a65bd0539772c3b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
 Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -88,7 +88,7 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |8 november 2017 |Post 5.14 |NOG TE BEPALEN |
+| WA-GUEST-OS-5.12_201710-02 |8 november 2017 |Post 5.14 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.11_201709-01 |6 oktober 2017 |Post 5.13 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.10_201708-01 |24 augustus 2017 |Post 5.12 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
@@ -111,7 +111,7 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-01 |8 november 2017 |Post 4.49 |NOG TE BEPALEN |
+| WA-GUEST-OS-4.47_201710-02 |8 november 2017 |Post 4.49 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.46_201709-01 |6 oktober 2017 |Post 4.48 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.45_201708-01 |24 augustus 2017 |Post 4.47 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
@@ -134,7 +134,7 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |8 november 2017 |Post 3,56. |NOG TE BEPALEN |
+| WA-GUEST-OS-3.54_201710-02 |8 november 2017 |Post 3,56. |NOG TE BEPALEN |
 | WA-GUEST-OS-3.53_201709-01 |6 oktober 2017 |Post 3.55 |NOG TE BEPALEN |
 | WA-GUEST-OS-3.52_201708-01 |24 augustus 2017 |Post 3.54 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |
@@ -157,7 +157,7 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |8 november 2017 |Post 2.69 |NOG TE BEPALEN |
+| WA-GUEST-OS-2.67_201710-02 |8 november 2017 |Post 2.69 |NOG TE BEPALEN |
 | WA-GUEST-OS-2.66_201709-01 |6 oktober 2017 |Post 2.68 |NOG TE BEPALEN |
 | WA-GUEST-OS-2.65_201708-01 |24 augustus 2017 |Post 2,67 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 augustus 2017 |8 november 2017 |NOG TE BEPALEN |

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
+ms.date: 11/17/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup-cmdlets gebruiken om back-up van virtuele machines
 > [!div class="op_single_selector"]
@@ -266,7 +266,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Een Azure-virtuele machine herstellen
-Er is een belangrijk verschil tussen het herstellen van een virtuele machine met de Azure portal en herstellen van een virtuele machine met behulp van PowerShell. Met PowerShell, is de herstelbewerking is voltooid zodra de schijven en configuratie-informatie uit het herstelpunt worden gemaakt.
+Er is een belangrijk verschil tussen het herstellen van een virtuele machine met de Azure portal en herstellen van een virtuele machine met behulp van PowerShell. Met PowerShell, is de herstelbewerking is voltooid zodra de schijven en configuratie-informatie uit het herstelpunt worden gemaakt. Als u wilt herstellen of enkele bestanden van een virtuele machine van Azure back-up herstellen, raadpleegt u de [bestand sectie herstel](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 
 > [!NOTE]
 > De herstelbewerking maakt geen een virtuele machine.
@@ -507,6 +507,76 @@ Nadat u de schijven hebt teruggezet, volg deze stappen voor het maken en configu
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+## <a name="restore-files-from-an-azure-vm-backup"></a>Bestanden terugzetten vanaf een virtuele machine van Azure back-up
+
+Naast het herstellen van schijven kunt u ook afzonderlijke bestanden terugzetten vanaf een back-up van virtuele machine van Azure. De functionaliteit van de bestanden terugzetten krijgt toegang tot alle bestanden in een herstelpunt wordt gemaakt en u ze kunt beheren via de Verkenner zoals u voor normale bestanden doen zou.
+
+De basisstappen voor het terugzetten van een bestand van de virtuele machine van Azure back-up zijn:
+
+* Selecteer de virtuele machine
+* Kies een herstelpunt
+* Koppel de schijven van een herstelpunt
+* Kopieer de benodigde bestanden
+* Ontkoppel de schijf
+
+
+### <a name="select-the-vm"></a>Selecteer de virtuele machine
+Als u het PowerShell-object waarmee de juiste back-artikel, start vanuit de container in de kluis en werk van de object-hiërarchie. Gebruik om te selecteren in de container waarin de VM vertegenwoordigt, de  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet en doorsluizen die u wilt de  **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet.
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+```
+
+### <a name="choose-a-recovery-point"></a>Kies een herstelpunt
+Gebruik de  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  cmdlet voor een lijst met alle herstelpunten voor de back-item. Kies het herstelpunt te herstellen. Als u niet zeker welk herstelpunt weet te gebruiken, is het verstandig om te kiezen van de meest recente RecoveryPointType = AppConsistent punt in de lijst.
+
+In het volgende script wordt de variabele **$rp**, is een matrix van herstelpunten voor de geselecteerde back-item van de afgelopen zeven dagen. De matrix is in omgekeerde volgorde gesorteerd tijd met de meest recente herstelpunt bij index 0. Gebruik standaard PowerShell matrix indexeren om op te halen van het herstelpunt. $Rp [0] selecteert in het voorbeeld wordt het meest recente herstelpunt.
+
+```
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM/recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
+```
+
+### <a name="mount-the-disks-of-recovery-point"></a>Koppel de schijven van een herstelpunt
+
+Gebruik de  **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)**  cmdlet ophalen van het script om alle schijven van de herstelpunten te koppelen.
+
+> [!NOTE]
+> De schijven zijn gekoppeld als iSCSI-gekoppelde schijven op de computer waarop het script wordt uitgevoerd. Daarom is bijna onmiddellijk en heeft geen gevolgen voor eventuele kosten
+>
+>
+
+```
+PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+
+OsType  Password        Filename
+------  --------        --------
+Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
+```
+Voer het script op de computer waar u de bestanden te herstellen. U moet invoeren van het wachtwoord dat wordt weergegeven boven het script wilt uitvoeren. Nadat de schijven zijn gekoppeld, moet u de Windows Verkenner gebruiken om te bladeren door de nieuwe volumes en bestanden. Raadpleeg voor meer informatie de [bestand herstel documentatie](backup-azure-restore-files-from-vm.md)
+
+### <a name="unmount-the-disks"></a>Ontkoppel de schijven
+Nadat de vereiste bestanden zijn gekopieerd, ontkoppel de schijven met de  **[uitschakelen AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)**  cmdlet. Dit wordt sterk aanbevolen omdat hiermee u ervoor zorgt dat toegang tot de bestanden van het herstelpunt is verwijderd
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u liever PowerShell gebruiken om na te gaan met uw Azure-resources, Zie het artikel PowerShell [implementeren en beheren van back-up voor Windows Server](backup-client-automation.md). Als u DPM-back-ups beheren, Zie het artikel [implementeren en beheren van Backup voor DPM](backup-dpm-automation.md). Hebben beide van deze artikelen een versie voor implementaties van Resource Manager en klassieke implementaties.  

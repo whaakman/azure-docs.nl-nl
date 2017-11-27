@@ -14,6 +14,9 @@
 ### [Servicelimieten](key-vault-service-limits.md)
 ### [HSM-beveiligde sleutels](key-vault-hsm-protected-keys.md)
 ### [Migreren naar .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Web-app-geheimen opslaan](vs-secure-secret-appsettings.md)
+### [Serviceverificatie met behulp van .NET](service-to-service-authentication.md)
+
 ### Overzichten
 #### [Beveiligingsgebieden](key-vault-ovw-security-worlds.md)
 #### [Voorlopig verwijderen](key-vault-ovw-soft-delete.md)
@@ -37,7 +40,7 @@
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure-CLI](/cli/azure/keyvault)
+## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

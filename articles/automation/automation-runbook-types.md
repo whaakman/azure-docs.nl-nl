@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation-runbooktypen
 Azure Automation biedt ondersteuning voor verschillende soorten runbooks die worden kort beschreven in de volgende tabel.  De onderstaande secties bevatten meer informatie over elk met inbegrip van de overwegingen over het gebruik van elk type.
@@ -30,7 +30,6 @@ Azure Automation biedt ondersteuning voor verschillende soorten runbooks die wor
 | [PowerShell](#powershell-runbooks) |Tekstrunbook op basis van Windows PowerShell-script. |
 | [PowerShell-werkstroom](#powershell-workflow-runbooks) |Tekstrunbook op basis van Windows PowerShell-werkstroom. |
 | [Python](#python-runbooks) |Tekstrunbook op basis van Python. |
-| [Bash](#bash-runbooks) |Tekstrunbook op basis van Bash. |
 
 ## <a name="graphical-runbooks"></a>Grafische runbooks
 [Grafische](automation-runbook-types.md#graphical-runbooks) en grafische PowerShell Workflow-runbooks zijn gemaakt en bewerkt met de grafische editor in Azure portal.  U kunt exporteren naar een bestand en importeer ze in een andere automation-account, maar u kunt maken of bewerken met een ander hulpprogramma.  Grafische runbooks PowerShell-code genereren, maar u kunt rechtstreeks weergeven of wijzigen van de code. Grafische runbooks kan niet worden geconverteerd naar een van de [tekstindelingen](automation-runbook-types.md), noch kan een tekstrunbook worden geconverteerd naar grafische indeling. Grafische runbooks kunnen worden geconverteerd naar grafische PowerShell Workflow-runbooks tijdens het importeren en vice versa.
@@ -64,7 +63,7 @@ PowerShell-runbooks zijn gebaseerd op Windows PowerShell.  Rechtstreeks bewerkt 
 ### <a name="known-issues"></a>Bekende problemen
 Hieronder vindt u huidige bekende problemen met de PowerShell-runbooks.
 
-* PowerShell-runbooks kunnen niet kan niet ophalen van een niet-versleutelde [variabelenactivum](automation-variables.md) met een null-waarde.
+* PowerShell-runbooks kunnen niet ophalen van een niet-versleutelde [variabelenactivum](automation-variables.md) met een null-waarde.
 * Kan de PowerShell-runbooks niet ophalen een [variabelenactivum](automation-variables.md) met  *~*  in de naam.
 * Get-Process in een lus in een PowerShell runbook vastlopen na ongeveer 80 iteraties. 
 * Een PowerShell-runbook kan mislukken als wordt geprobeerd een zeer grote hoeveelheid gegevens in één keer naar de uitvoerstroom schrijven.   U kunt gewoonlijk dit probleem omzeilen door het uitvoeren van alleen de informatie die u nodig hebt bij het werken met grote objecten.  Bijvoorbeeld, in plaats van het uitvoeren van ongeveer *Get-Process*, kunt u de vereiste velden met uitvoeren *Get-Process | Selecteer de procesnaam, CPU*.
@@ -76,7 +75,7 @@ PowerShell Workflow-runbooks zijn tekst runbooks op basis van [Windows PowerShel
 * Alle complexe logica met PowerShell Workflow-code implementeren.
 * Gebruik [controlepunten](automation-powershell-workflow.md#checkpoints) runbook in geval van een fout bij hervatten.
 * Gebruik [parallelle verwerking](automation-powershell-workflow.md#parallel-processing) meerdere acties parallel uitvoeren.
-* Andere grafische runbooks en PowerShell Workflow-runbooks kunt opnemen als onderliggende runbooks op hoog niveau werkstromen maken.
+* Andere grafische runbooks en PowerShell Workflow-runbooks kunt opnemen als onderliggende runbooks voor het maken van werkstromen op hoog niveau.
 
 ### <a name="limitations"></a>Beperkingen
 * Auteur moet bekend zijn met PowerShell Workflow.

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ae410c7fabac6d23a69922804a0a87fde63594a2
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Een Python-web-app maken in Azure
 
@@ -33,8 +33,8 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-1. [Git installeren](https://git-scm.com/)
-1. [Python installeren](https://www.python.org/downloads/)
+* <a href="https://git-scm.com/" target="_blank">Git installeren</a>
+* <a href="https://www.python.org/downloads/" target="_blank">Python installeren</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

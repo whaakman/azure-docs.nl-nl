@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
-ms.author: glenga
-ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Achtergrondtaken uitvoeren met WebJobs in Azure App Service
 
@@ -36,7 +36,7 @@ Azure Functions bevat een andere manier om uit te voeren programma's en scripts.
 De volgende tabel beschrijft de verschillen tussen *continue* en *geactiveerd* WebJobs.
 
 
-|Continue  |Geactiveerd  |
+|Doorlopend  |Geactiveerd  |
 |---------|---------|
 | Start zodra de webtaak wordt gemaakt. Het programma of script, doet om te voorkomen dat de taak beëindigen, gewoonlijk de taken binnen een oneindige lus. Als de taak eindigt, kunt u het opnieuw opstarten. | Wordt alleen gestart als geactiveerd handmatig of volgens een schema. |
 | Wordt uitgevoerd op alle exemplaren die op de web-app wordt uitgevoerd. U kunt eventueel de webtaak beperken tot één exemplaar. |Wordt uitgevoerd op één instantie die door Azure wordt geselecteerd voor taakverdeling.|
@@ -82,7 +82,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Naam** | myContinuousWebJob | Een naam die uniek is binnen een App Service-app. Moet beginnen met een letter of cijfer en mag geen andere waarde dan speciale tekens bevatten '-' en '_'. |
    | **Bestand uploaden** | ConsoleApp.zip | Een *.zip* -bestand met het uitvoerbare bestand of script bestand, evenals alle ondersteunende bestanden die nodig zijn voor het uitvoeren van het programma of script. De ondersteunde bestandstypen uitvoerbaar bestand of script worden vermeld in de [ondersteunde bestandstypen](#acceptablefiles) sectie. |
-   | **Type** | Continue | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
+   | **Type** | Doorlopend | De [webtaak typen](#webjob-types) eerder in dit artikel worden beschreven. |
    | **Schalen** | Meerdere exemplaren | Alleen beschikbaar voor doorlopende webtaken. Hiermee wordt bepaald of het programma of script wordt uitgevoerd op alle exemplaren of slechts één exemplaar. De optie uit te voeren op meerdere exemplaren niet van toepassing op de Free of Shared [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Klik op **OK**.
@@ -131,7 +131,7 @@ when making changes in one don't forget the other two.
 
 7. De webtaak wordt uitgevoerd, met de rechtermuisknop op de naam ervan in de lijst en klikt u op **uitvoeren**.
    
-    ![Webtaak wordt uitgevoerd](./media/web-sites-create-web-jobs/runondemand.png)
+    ![Webtaak uitvoeren](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateScheduledCRON"></a>Een geplande webtaak maken
 

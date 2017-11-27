@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack gebruiksgegevens rapporteren naar Azure 
 
@@ -53,7 +53,7 @@ Als u gegevens gebruiksrapportage instelt, moet u [registreren van uw Azure-Stac
 
 ## <a name="view-usage---csp-subscriptions"></a>Gebruik in de weergave - CSP-abonnementen
 
-Als u uw Azure-Stack met behulp van een CSP-abonnement hebt geregistreerd, kunt u uw gebruik en de kosten kunt weergeven op dezelfde manier waarop u Azure-verbruik weergeven. Azure Stack-gebruik worden opgenomen in uw factuur is vermeld en in het bestand afstemming via [Partnercentrum](https://partnercenter.microsoft.com/en-us/partner/home). Het bestand afstemming wordt maandelijks bijgewerkt. Als u nodig hebt voor toegang tot gebruiksgegevens van recente Azure Stack, kunt u de Partner Center API's.
+Als u uw Azure-Stack met behulp van een CSP-abonnement hebt geregistreerd, kunt u uw gebruik en de kosten kunt weergeven op dezelfde manier waarop u Azure-verbruik weergeven. Azure Stack-gebruik worden opgenomen in uw factuur is vermeld en in het bestand afstemming via [Partnercentrum](https://partnercenter.microsoft.com/partner/home). Het bestand afstemming wordt maandelijks bijgewerkt. Als u nodig hebt voor toegang tot gebruiksgegevens van recente Azure Stack, kunt u de Partner Center API's.
 
    ![partnercentrum](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,7 +82,7 @@ Gebruikers worden alleen kosten in rekening gebracht voor virtuele machines die 
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Ik heb een Windows Server-licentie die ik wil op Azure-Stack gebruiken, hoe kan ik dat doen?
 
-Met behulp van de bestaande licenties voorkomt gebruik meters genereren. Bestaande Windows Server-licenties kunnen worden gebruikt in Azure-Stack, zoals beschreven in de sectie 'Met behulp van bestaande software met Azure Stack' van [de Azure-handleiding voor het licentieverlening van Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klanten willen hun virtuele machines van Windows Server implementeren, zoals beschreven in de [hybride-voordeel voor Windows Server-licentie](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) onderwerp om te kunnen gebruiken hun bestaande licenties.
+Met behulp van de bestaande licenties voorkomt gebruik meters genereren. Bestaande Windows Server-licenties kunnen worden gebruikt in Azure-Stack, zoals beschreven in de sectie 'Met behulp van bestaande software met Azure Stack' van [de Azure-handleiding voor het licentieverlening van Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klanten willen hun virtuele machines van Windows Server implementeren, zoals beschreven in de [hybride-voordeel voor Windows Server-licentie](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) onderwerp om te kunnen gebruiken hun bestaande licenties.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Welke abonnement wordt in rekening gebracht voor de resources die worden gebruikt?
 Het abonnement dat is geleverd wanneer [Azure Stack registreren bij Azure](azure-stack-register.md) wordt in rekening gebracht.
@@ -97,7 +97,7 @@ In de Azure-Stack Development Kit, gegevens gebruiksrapportage abonnementen die 
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Hoe kunnen gebruikers Azure Stack gebruiksgegevens in de Azure portal facturering identificeren?
 
-Gebruikers kunnen zien van de Azure-Stack-gebruiksgegevens in het gegevensbestand van het gebruik. Als u wilt weten over het ophalen van het gegevensbestand van het gebruik, verwijzen naar de [gebruik bestand downloaden van het Azure-Accountcentrum artikel](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Het gebruik van details-bestand bevat de Azure-Stack meters die Azure-Stack opslag en virtuele machines te identificeren. Alle resources die worden gebruikt in Azure-Stack worden gerapporteerd in het gebied met de naam 'Azure Stack'.
+Gebruikers kunnen zien van de Azure-Stack-gebruiksgegevens in het gegevensbestand van het gebruik. Als u wilt weten over het ophalen van het gegevensbestand van het gebruik, verwijzen naar de [gebruik bestand downloaden van het Azure-Accountcentrum artikel](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Het gebruik van details-bestand bevat de Azure-Stack meters die Azure-Stack opslag en virtuele machines te identificeren. Alle resources die worden gebruikt in Azure-Stack worden gerapporteerd in het gebied met de naam 'Azure Stack'.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Waarom niet het-gebruik gerapporteerd in de Azure-Stack overeenkomt met het rapport is gegenereerd op basis van de Azure-Accountcentrum?
 

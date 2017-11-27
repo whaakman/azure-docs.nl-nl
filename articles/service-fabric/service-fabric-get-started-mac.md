@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: cf67c377cd5c17f7b540fb23af48a333a9cddf69
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 309fcb901a1a3878edbfbe06e12122615b74664e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 11/06/2017
 >
 >  
 
-U kunt Service Fabric-toepassingen bouwen voor uitvoering op Linux-clusters met behulp van Mac OS X. In dit artikel wordt uitgelegd hoe u uw Mac kunt instellen voor ontwikkeling.
+U kunt Service Fabric-toepassingen bouwen voor uitvoering in Linux-clusters met behulp van Mac OS X. In dit document wordt uitgelegd hoe u uw Mac kunt instellen voor ontwikkeling.
 
 ## <a name="prerequisites"></a>Vereisten
-Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Service Fabric-cluster wilt uitvoeren, bieden we een vooraf geconfigureerde Docker-containerinstallatiekopie. Voordat u aan de slag gaat, hebt u het volgende nodig:
+Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Service Fabric-cluster wilt uitvoeren, wordt er een vooraf geconfigureerde Docker-containerinstallatiekopie aangeboden. Voordat u aan de slag gaat, hebt u het volgende nodig:
 
 * Ten minste 4 GB RAM-geheugen
 * Nieuwste versie van [Docker](https://www.docker.com/)
@@ -51,29 +51,39 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. Start een instantie van een Service Fabric-One-box-container met de installatiekopie:
+2. Werk de configuratie van de Docker-daemon op uw host bij met het volgende en start de Docker-daemon opnieuw op: 
+
+    ```json
+    {
+        "ipv6": true,
+        "fixed-cidr-v6": "fd00::/64"
+    }
+    ```
+    U kunt de configuratie rechtstreeks bijwerken in daemon.json in uw Docker-installatiepad (de locatie hiervan kan per machine verschillen. Bijvoorbeeld: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json). De aanbevolen bijwerkmethode is: ga naar Docker-pictogram > Voorkeuren > Daemon > Geavanceerd en werk daar de configuratie bij.
+
+3. Start een instantie van een Service Fabric-One-box-container met de installatiekopie:
 
     ```bash
     docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
     ```
     >[!TIP]
-    >Door een naam op te geven voor uw instantie van de container, kunt u deze op een beter leesbare manier verwerken. 
+    > * Door een naam op te geven voor uw instantie van de container, kunt u deze op een beter leesbare manier verwerken. 
+    > * Als uw toepassing op bepaalde poorten luistert, moeten deze worden opgegeven met extra -p-tags. Bijvoorbeeld: als uw toepassing luistert op poort 8080, voert u deze opdracht uit: docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
 
-3. Meld u aan bij de Docker-container in interactieve ssh-modus:
+4. Meld u aan bij de Docker-container in interactieve ssh-modus:
 
     ```bash
     docker exec -it sfonebox bash
     ```
 
-4. Voer het installatiescript uit om de vereiste afhankelijkheden op te halen en start daarna het cluster op de container.
+5. Voer het installatiescript uit om de vereiste afhankelijkheden op te halen en start daarna het cluster op de container.
 
     ```bash
     ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
     ./run.sh       # Starts the local cluster
     ```
 
-5. Nadat stap 4 is voltooid, gaat u op uw Mac naar ``http://localhoist:19080`` en zou u de verkenner van Service Fabric moeten zien.
-
+6. Nadat stap 5 is voltooid, gaat u op uw Mac naar ``http://localhost:19080``. Als het goed is, ziet u nu de verkenner van Service Fabric.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>De Service Fabric-CLI (sfctl) instellen op een Mac
 
@@ -84,7 +94,7 @@ De CLI-opdrachten voor interactie met Service Fabric-entiteiten, inclusief clust
 
 Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator van Service Fabric werkt op uw computer.
 
-1. Node.js en NPM moeten zijn geïnstalleerd op uw Mac. Als dat niet het geval is, kunt u Node.js en NPM als volgt installeren met behulp van Homebrew. Gebruik de optie ``-v`` om te controleren welke versies van Node.js en NPM zijn geïnstalleerd op uw Mac.
+1. Node.js en NPM moeten zijn geïnstalleerd op uw Mac. Als dat niet het geval is, kunt u Node.js en NPM als volgt installeren met behulp van Homebrew:
 
     ```bash
     brew install node
@@ -146,7 +156,7 @@ waarbij ``/Users/sayantan/work/workspaces/mySFWorkspace`` het volledig gekwalifi
 
 > [!NOTE]
 >1. Als de naam of het pad van uw werkruimte anders is, moet u in de opdracht ``docker run`` hierboven deze namen gebruiken.
->2. Als u de container met een andere naam start dan ``sfonebox``, moet u de naam bijwerken in het bestand ``testclient.sh`` in de Java-toepassing van uw Service Fabric-actor.
+>2. Als u de container met een andere naam start dan ``sfonebox``, werkt u de naam bij in het bestand ``testclient.sh`` in de Java-toepassing van uw Service Fabric-actor.
 
 ## <a name="next-steps"></a>Volgende stappen
 <!-- Links -->
@@ -156,6 +166,7 @@ waarbij ``/Users/sayantan/work/workspaces/mySFWorkspace`` het volledig gekwalifi
 * [Een Service Fabric-cluster maken met behulp van de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Inzicht krijgen in het Service Fabric-toepassingsmodel](service-fabric-application-model.md)
 * [De Service Fabric-CLI gebruiken voor het beheren van uw toepassingen](service-fabric-application-lifecycle-sfctl.md)
+* [Een Linux-ontwikkelomgeving voorbereiden in Windows](service-fabric-local-linux-cluster-windows.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png

@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Voorbeeld van de Azure-infrastructuur overzicht voor het Windows-VM 's
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-In dit artikel wordt uitgelegd opzetten van een voorbeeld van de toepassing-infrastructuur. We beschreven ontwerpen van een infrastructuur voor een eenvoudige online winkel die de richtlijnen en beslissingen rond naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers verenigt en distribueren van uw virtuele machines (VM's).
+In dit artikel wordt uitgelegd opzetten van een voorbeeld van de toepassing-infrastructuur. Een infrastructuur voor een eenvoudige onlinewinkel die de richtlijnen en beslissingen rond naamconventies, beschikbaarheidssets, virtuele netwerken en taakverdelers samenbrengt ontwerpen en distribueren van uw virtuele machines (VM's) detail te beschrijven.
 
 ## <a name="example-workload"></a>Voorbeeld van de werkbelasting
 Adventure Works Cycles wil maken van een online store-toepassing in Azure die bestaat uit:

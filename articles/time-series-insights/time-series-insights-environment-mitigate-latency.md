@@ -1,5 +1,5 @@
 ---
-title: Het prestaties bewaken, verminderen bandbreedtebeperking en te voorkomen dat latentie in Azure Time Series Insights | Microsoft Docs
+title: Het controleren en te beperken om te voorkomen dat latentie in Azure Time Series Insights beperking | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u kunt controleren, diagnoses stellen en prestatieproblemen waardoor latentie en beperking in Azure Time Series Insights beperken.
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 5af5589922ded802703b9ba8f3b0aa8c5524bbad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9d53cd0ee8e15d47ac1daa122331b3145f936adb
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="improve-performance-reduce-latency-and-mitigate-throttling-in-azure-time-series-insights"></a>De prestaties verbeteren, de latentie te verminderen en beperking in Azure Time Series Insights beperken
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Bewaken en te verhelpen bandbreedtebeperking om de latentie in Azure Time Series inzichten te verminderen
 Wanneer de hoeveelheid binnenkomende gegevens groter is dan de configuratie van uw omgeving, kunnen wachttijden of beperking in Azure Time Series Insights optreden.
 
 U kunt voorkomen dat latentie en beperkingen door het instellen van uw omgeving voor de hoeveelheid gegevens die u wilt analyseren.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 121dd1a90e9bde66f1c3b752412a657a67295084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Overwegingen voor een App Service-omgeving netwerken #
 
@@ -103,7 +103,7 @@ Naast de functionele afhankelijkheden van de as-omgeving zijn er enkele extra ar
 
 -   Webtaken
 -   Functies
--   Streaming-logboek
+-   Logboekstreaming
 -   Kudu
 -   Extensies
 -   Procesverkenner
@@ -164,7 +164,7 @@ Alle items weergegeven in de volgende uitgaande regels nodig zijn, met uitzonder
 
 ![Uitgaande beveiligingsregels][5]
 
-Nadat uw nsg's zijn gedefinieerd, kunt u ze aan het subnet dat u uw as-omgeving op toewijzen. Als je het as-omgeving VNet of een subnet, kunt u het bekijken van de beheerportal as-omgeving. Het NSG toewijzen aan uw subnet, gaat u naar de gebruikersinterface van het subnet en het NSG selecteren.
+Nadat uw nsg's zijn gedefinieerd, kunt u ze aan het subnet dat u uw as-omgeving op toewijzen. Als je het as-omgeving VNet of een subnet, kunt u het bekijken van de as-omgeving portal-pagina. Het NSG toewijzen aan uw subnet, gaat u naar de gebruikersinterface van het subnet en het NSG selecteren.
 
 ## <a name="routes"></a>Routes ##
 

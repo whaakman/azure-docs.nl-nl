@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -84,7 +84,7 @@ U kunt de onderstaande 'volgende hoptypen' opgeven wanneer u een door de gebruik
 
 - **Virtueel apparaat**: een virtueel apparaat is een virtuele machine waarop meestal een netwerktoepassing wordt uitgevoerd, zoals een firewall. Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) voor meer informatie over een aantal vooraf geconfigureerde virtuele netwerkapparaten die u in een virtueel netwerk kunt implementeren. Wanneer u een route maakt met het hoptype **Virtueel apparaat**, moet u ook het IP-adres van de volgende hop opgeven. Het IP-adres kan bestaan uit:
 
-    - Het [privé-IP-adres](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) van een netwerkinterface die is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine die netwerkverkeer doorstuurt naar een ander adres dan het eigen adres, moet in Azure de optie *Doorsturen via IP inschakelen* zijn ingeschakeld voor de interface. Deze instelling zorgt ervoor dat Azure de bron en bestemming voor een netwerkinterface niet controleert. Lees hier meer over het [inschakelen van doorsturen via IP voor een netwerkinterface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Hoewel *Doorsturen via IP inschakelen* een instelling van Azure is, moet u doorsturen via IP mogelijk ook inschakelen in het besturingssysteem van de virtuele machine, omdat de virtuele machine anders geen verkeer kan doorsturen tussen netwerkinterfaces. Raadpleeg de documentatie voor uw besturingssysteem of netwerktoepassing om de vereiste instellingen voor de virtuele machine te bepalen.
+    - Het [privé-IP-adres](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) van een netwerkinterface die is gekoppeld aan een virtuele machine. Als een netwerkinterface is gekoppeld aan een virtuele machine die netwerkverkeer doorstuurt naar een ander adres dan het eigen adres, moet in Azure de optie *Doorsturen via IP inschakelen* zijn ingeschakeld voor de interface. Deze instelling zorgt ervoor dat Azure de bron en bestemming voor een netwerkinterface niet controleert. Lees hier meer over het [inschakelen van doorsturen via IP voor een netwerkinterface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Hoewel *Doorsturen via IP inschakelen* een instelling van Azure is, moet u doorsturen via IP mogelijk ook inschakelen in het besturingssysteem van de virtuele machine voor het apparaat om verkeer door te sturen tussen privé-IP-adressen die zijn toegewezen aan Azure-netwerkinterfaces. Als het apparaat verkeer moet routeren naar een openbaar IP-adres, moet het een proxy uitvoeren op het verkeer of het netwerkadres omzetten in het privé IP-adres van het privé IP-adres van de bron in een eigen privé-IP-adres, waarvan Azure het netwerkadres vervolgens omzet in een openbaar IP-adres, voordat het verkeer naar internet wordt verzonden. Raadpleeg de documentatie voor uw besturingssysteem of netwerktoepassing om de vereiste instellingen voor de virtuele machine te bepalen. Zie [Uitleg over uitgaande verbindingen](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over uitgaande verbindingen in Azure.
 
     > [!NOTE]
     > Het is belangrijk dat u een virtueel apparaat in een ander subnet implementeert dan het subnet waarin de resources zijn geïmplementeerd die gegevens via het virtuele apparaat routeren. Als u het virtuele apparaat in hetzelfde subnet implementeert en vervolgens een routetabel toepast op het subnet dat verkeer via het virtuele apparaat leidt, kan dit routeringslussen veroorzaken, waardoor verkeer het subnet nooit verlaat.
@@ -118,7 +118,7 @@ De naam die wordt weergegeven en waarnaar wordt verwezen voor 'volgende hoptypen
 
 Een on-premises netwerkgateway kan via BGP (Border Gateway Protocol) routes uitwisselen met de gateway van een virtueel Azure-netwerk. Het gebruik van BGP met de gateway van een virtueel Azure-netwerk is afhankelijk van het type dat u hebt geselecteerd tijdens het maken van de gateway. Als het geselecteerde type is:
 
-- **ExpressRoute**: u moet BGP gebruiken om routes te adverteren naar de Microsoft-edge router. U kunt geen door de gebruiker gedefinieerde routes maken als u de gateway van een virtueel netwerk implementeert als het type: ExpressRoute.
+- **ExpressRoute**: u moet BGP gebruiken om on-premises routes te adverteren naar de Microsoft Edge router. U kunt geen door de gebruiker gedefinieerde routes maken om af te dwingen dat verkeer naar de gateway van een virtueel ExpressRoute-netwerk wordt geleid, wanneer u de gateway van een virtueel netwerk implementeert als het type ExpressRoute. U kunt door de gebruiker gedefinieerde routes gebruiken om af te dwingen dat verkeer van ExpressRoute naar bijvoorbeeld een virtueel-netwerkapparaat wordt geleid. 
 - **VPN**: u kunt desgewenst BGP gebruiken. Zie [Overzicht van BGP met Azure VPN-gateways](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie.
 
 Wanneer u routes met Azure uitwisselt via BGP, wordt er voor elk geadverteerd voorvoegsel een afzonderlijke route toegevoegd aan de routetabel van alle subnetten in een virtueel netwerk. De route wordt toegevoegd met *Gateway van virtueel netwerk* als de bron en het 'volgende hoptype'. 

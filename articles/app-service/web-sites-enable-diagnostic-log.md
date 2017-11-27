@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -53,21 +53,20 @@ Inschakelen van diagnostische gegevens in de [Azure-portal](https://portal.azure
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logboeken-onderdeel](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Wanneer u het inschakelen van **application diagnostics**, u er ook voor kiezen de **niveau**. Deze instelling kunt u de gegevens die zijn vastgelegd op wilt filteren **informatief**, **waarschuwing**, of **fout** informatie. Als u dit op **uitgebreide** registreert alle informatie die wordt geproduceerd door de toepassing.
+Wanneer u het inschakelen van **application diagnostics**, u er ook voor kiezen de **niveau**. Deze instelling kunt u de gegevens die zijn vastgelegd op wilt filteren **informatief**, **waarschuwing**, of **fout** informatie. Instellen op **uitgebreide** registreert alle informatie die wordt geproduceerd door de toepassing.
 
 > [!NOTE]
 > In tegenstelling tot het bestand web.config te wijzigen, komt Application diagnostics inschakelen of wijzigen van diagnostische logboekniveaus niet gerecycled het app-domein dat de toepassing wordt uitgevoerd in.
 >
 >
 
-In de [klassieke portal](https://manage.windowsazure.com) Web-app **configureren** tabblad kunt u **opslag** of **bestandssysteem** voor **web server-logboekregistratie**. Selecteren **opslag** kunt u een opslagaccount en een blob-container die de logboeken worden geschreven om te selecteren. Alle logboeken voor **site diagnostics** worden geschreven naar het bestandssysteem alleen.
+Voor **toepassingslogboeken**, kunt u de optie file system tijdelijk voor foutopsporing inschakelen. Deze optie schakelt automatisch op 12 uur. U kunt ook de optie te selecteren van een container blog schrijven logboeken naar blob inschakelen.
 
-De [klassieke portal](https://manage.windowsazure.com) Web-app **configureren** tabblad heeft ook aanvullende instellingen voor application diagnostics:
+Voor **Web server-logboekregistratie**, kunt u **opslag** of **bestandssysteem**. Selecteren **opslag** kunt u een opslagaccount en een blob-container die de logboeken worden geschreven om te selecteren. 
 
-* **Bestandssysteem** -de toepassing diagnostische gegevens naar het bestandssysteem van de web-app worden opgeslagen. Deze bestanden worden geopend door FTP of gedownload als een Zip-archief met behulp van de Azure PowerShell of Azure-opdrachtregelinterface (Azure CLI).
-* **Table storage** -de toepassing diagnostische gegevens opslaat in de opgegeven naam van de Azure Storage-Account en de tabel.
-* **BLOB-opslag** -de toepassing diagnostische gegevens worden opgeslagen in de opgegeven Azure Storage-Account en de blob-container.
-* **Bewaarperiode** -standaard logboeken worden niet automatisch verwijderd uit **blobopslag**. Selecteer **bewaarperiode instellen** en voer het aantal dagen dat Logboeken als u automatisch logboeken te verwijderen.
+Als u Logboeken op het bestandssysteem opslaat, worden de bestanden geopend door FTP of gedownload als een Zip-archief met behulp van de Azure PowerShell of Azure-opdrachtregelinterface (Azure CLI).
+
+Standaard logboeken worden niet automatisch verwijderd (met uitzondering van **toepassingslogboeken (bestandssysteem)**). Voor het automatisch verwijderen van Logboeken, stel de **bewaartermijn (dagen)** veld.
 
 > [!NOTE]
 > Als u [toegangssleutels voor uw opslagaccount opnieuw genereren](../storage/common/storage-create-storage-account.md), moet u de configuratie van de respectieve logboekregistratie voor het gebruik van de bijgewerkte sleutels opnieuw instellen. Om dit te doen:
@@ -101,12 +100,10 @@ De mapstructuur die de logboeken worden opgeslagen in is als volgt:
 * **Implementatielogboeken** -logboekbestanden/Git. Deze map bevat de logboeken die worden gegenereerd door de van interne implementatieprocessen die worden gebruikt door de Azure-web-apps, evenals de logboeken voor Git-implementaties.
 
 ### <a name="ftp"></a>FTP
-Voor toegang tot de diagnostische gegevens met FTP, gaat u naar de **Dashboard** van uw web-app in de [klassieke portal](https://manage.windowsazure.com). In de **snelle weergave** sectie, gebruikt u de **FTP-logboeken met diagnostische gegevens** koppeling voor toegang tot de logboekbestanden met FTP. De **implementatie/FTP-gebruiker** vermelding bevat de naam van de gebruiker die moet worden gebruikt voor toegang tot de FTP-site.
 
-> [!NOTE]
-> Als de **implementatie/FTP-gebruiker** vermelding niet is ingesteld, of u het wachtwoord voor deze gebruiker bent vergeten, kunt u een nieuwe gebruiker en een wachtwoord met behulp van de **opnieuw instellen van referenties voor implementatie** koppelen de **snelle weergave** sectie van de **Dashboard**.
->
->
+Zie het openen van een FTP-verbinding met uw app FTP-server [uw app implementeren in Azure App Service met behulp van FTP/S](app-service-deploy-ftp.md).
+
+Zodra de verbinding met uw web-app FTP-/ S-server, opent u de **logboekbestanden** map, waarin de logboekbestanden worden opgeslagen.
 
 ### <a name="download-with-azure-powershell"></a>Met Azure PowerShell downloaden
 Downloaden van de logboekbestanden, start een nieuw exemplaar van Azure PowerShell en gebruik de volgende opdracht:
@@ -145,7 +142,7 @@ Visual Studio Application Insights biedt hulpprogramma's voor het filteren en zo
 [Meer informatie over prestaties bijhouden met Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a>Hoe: Logboeken Stream
-Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om gegevens in bijna realtime logboekregistratie te bekijken. Dit kan worden bereikt door het streaming-logboekgegevens naar uw ontwikkelomgeving met behulp van Azure PowerShell of Azure-opdrachtregelinterface.
+Tijdens het ontwikkelen van een toepassing, is het vaak nuttig om gegevens in bijna realtime logboekregistratie te bekijken. U kunt informatie logboekregistratie op uw ontwikkelomgeving met behulp van Azure PowerShell of Azure-opdrachtregelinterface streamen.
 
 > [!NOTE]
 > Bepaalde typen logboekregistratie buffer schrijven naar het logboekbestand, in volgorde van gebeurtenissen in de stroom resulteren kan. Een toepassing logboekvermelding die deze gebeurtenis treedt op wanneer een gebruiker een pagina bezoekt kan bijvoorbeeld worden weergegeven in de stroom voordat de bijbehorende HTTP logboekvermelding voor de pagina-aanvraag.
@@ -207,7 +204,7 @@ Elke regel geregistreerd in het bestandssysteem of ontvangen met streaming is in
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-Een foutgebeurtenis zou bijvoorbeeld de volgende strekking weergegeven:
+Zo zou een foutgebeurtenis vergelijkbaar met het volgende voorbeeld weergegeven:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -221,13 +218,13 @@ Bij het aanmelden naar table storage, worden aanvullende eigenschappen gebruikt 
 | --- | --- |
 | PartitionKey |Datum/tijd van de gebeurtenis in de indeling yyyyMMddHH |
 | RowKey |Een GUID-waarde die is uniek voor deze entiteit |
-| tijdstempel |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
+| Timestamp |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
 | EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (nauwkeuriger) |
 | ApplicationName |De naam van de web-app |
 | Niveau |Gebeurtenisniveau (bijvoorbeeld fout, waarschuwing, informatie) |
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
 | Exemplaar-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
-| PID |Proces-ID |
+| PID |Proces-id |
 | TID |De thread-ID van de thread die de gebeurtenis geproduceerd |
 | Bericht |Detail gebeurtenisbericht |
 
@@ -243,11 +240,11 @@ Tijdens de registratie naar de blob storage, kunnen gegevens worden opgeslagen i
 | Exemplaar-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
 | EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (nauwkeuriger) |
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
-| PID |Proces-ID |
+| PID |Proces-id |
 | TID |De thread-ID van de thread die de gebeurtenis geproduceerd |
 | Bericht |Detail gebeurtenisbericht |
 
-De gegevens die zijn opgeslagen in een blob eruit ziet er als volgt:
+De gegevens die zijn opgeslagen in een blob eruit als in het volgende voorbeeld:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,14 +255,14 @@ De gegevens die zijn opgeslagen in een blob eruit ziet er als volgt:
 >
 
 ### <a name="failed-request-traces"></a>Aanvraag traceringen is mislukt
-Traceringen van mislukte aanvragen zijn opgeslagen in XML-bestanden met de naam **fr ### .xml**. Als u wilt zodat het eenvoudiger om de geregistreerde gegevens weer te geven, een XSL-opmaakmodel met de naam **freb.xsl** vindt u in dezelfde map als de XML-bestanden. Als u een van de XML-bestanden in Internet Explorer openen, Internet Explorer het XSL-opmaakmodel gebruikt om een opgemaakte weergave van de trace-informatie. Dit wordt de volgende strekking weergegeven:
+Traceringen van mislukte aanvragen zijn opgeslagen in XML-bestanden met de naam **fr ### .xml**. Als u wilt zodat het eenvoudiger om de geregistreerde gegevens weer te geven, een XSL-opmaakmodel met de naam **freb.xsl** vindt u in dezelfde map als de XML-bestanden. Als u een van de XML-bestanden in Internet Explorer openen, worden in Internet Explorer het XSL-opmaakmodel gebruikt voor het bieden van een opgemaakte weergave van de traceergegevens, vergelijkbaar met het volgende voorbeeld:
 
 ![mislukte aanvragen in de browser weergegeven](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 ### <a name="detailed-error-logs"></a>Gedetailleerde foutenlogboeken
 Gedetailleerde foutenlogboeken zijn HTML-documenten met meer gedetailleerde informatie over HTTP-fouten dat is opgetreden. Aangezien ze gewoon HTML-documenten, kunnen ze worden weergegeven met een webbrowser.
 
-### <a name="web-server-logs"></a>Web server-Logboeken
+### <a name="web-server-logs"></a>Webserverlogboeken
 De web server-logboeken zijn geformatteerd met het [uitgebreide W3C-logboekbestandsindeling](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Deze informatie kan worden gelezen met een teksteditor of met behulp van de hulpprogramma's zoals geparseerd [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]

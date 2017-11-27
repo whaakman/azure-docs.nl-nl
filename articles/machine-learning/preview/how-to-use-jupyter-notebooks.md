@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Het gebruik van Jupyter-notebook in Azure Machine Learning Workbench
 
 Interactieve gegevens wetenschappelijke experimenteren dankzij de integratie van Jupyter-notebook biedt ondersteuning voor Azure Machine Learning-Workbench. Dit artikel wordt beschreven hoe u effectief gebruik van deze functie om de snelheid en de kwaliteit van uw gegevens op interactieve wetenschappelijke experimenten te verhogen.
 
 ## <a name="prerequisites"></a>Vereisten
-- [Installeren en het maken van Azure Machine Learning](/machine-learning/preview/quickstart-installation.md).
+- [Installeren en het maken van Azure Machine Learning](quickstart-installation.md).
 - Vertrouwd zijn met [Jupyter-notebook](http://jupyter.org/), aangezien dit artikel niet gaat over het gebruik van Jupyter lichten.
 
 ## <a name="jupyter-notebook-architecture"></a>Architectuur van Jupyter-notebook

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: renash
-ms.openlocfilehash: 871fc85d0b406d2de35a79eb2906ff2d6ada9570
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/07/2017
 In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies en functionaliteit, waaronder het gebruik van Azure File-synchronisatie met Azure-bestanden. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in groeiende volgorde):
 
 1. Het gedeelte met opmerkingen van dit artikel.
-2. [Azure Storage-Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
 3. [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft ondersteuning. Maken van een nieuw ondersteuningsverzoek in de Azure-portal op de **Help** tabblad de **Help + ondersteuning** knop en selecteer vervolgens **nieuw ondersteuningsverzoek**.
 
@@ -112,7 +112,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
         | A | Archiveren | Hiermee wordt aangegeven dat het bestand moet een back-up door back-upsoftware. Dit kenmerk is altijd ingesteld, ongeacht of het bestand is gelaagd of volledig opgeslagen op schijf. |
         | P | Verspreid bestand | Geeft aan dat het bestand een sparse-bestand. Een sparse-bestand is een speciaal type bestand dat NTFS biedt voor efficiënt gebruik te maken als het bestand op de schijf stroom voornamelijk leeg is. Azure File-synchronisatie wordt gebruikgemaakt van verspreide bestanden omdat een bestand is gelaagd volledig of gedeeltelijk ingetrokken. De bestandsstroom is opgeslagen in een volledig gelaagde bestand in de cloud. In een gedeeltelijk teruggehaald bestand, die deel van het bestand al op schijf is. Als een bestand volledig is ingetrokken op schijf Azure bestand Sync geconverteerd van een sparse-bestand naar een reguliere-bestand. |
         | L | Reparsepunt | Hiermee wordt aangegeven dat het bestand een reparsepunt heeft. Een reparsepunt is een speciale aanwijzer voor gebruik door een bestandssysteemfilter. Azure File-synchronisatie reparsepunten gebruikt voor het definiëren van de Azure-bestand Sync bestandssysteemfilter (StorageSync.sys) de cloud-locatie waar het bestand is opgeslagen. Dit ondersteunt naadloze toegang. Gebruikers hoeft niet te weten dat Azure File-synchronisatie wordt gebruikt of hoe ze toegang krijgen tot het bestand in uw Azure-bestandsshare. Wanneer een bestand volledig worden teruggehaald, verwijdert Azure bestand Sync het reparsepunt uit het bestand. |
-        | O | Off line | Hiermee wordt aangegeven dat bepaalde of alle inhoud van het bestand niet is opgeslagen op schijf. Wanneer een bestand volledig worden teruggehaald, verwijdert Azure bestand Sync dit kenmerk. |
+        | O | Offline | Hiermee wordt aangegeven dat bepaalde of alle inhoud van het bestand niet is opgeslagen op schijf. Wanneer een bestand volledig worden teruggehaald, verwijdert Azure bestand Sync dit kenmerk. |
 
         ![Het dialoogvenster Eigenschappen voor een bestand met het tabblad met Details geselecteerd](media/storage-files-faq/azure-file-sync-file-attributes.png)
         

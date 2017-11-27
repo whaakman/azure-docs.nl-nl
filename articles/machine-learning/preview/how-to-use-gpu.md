@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 2501113fe75f20602059927a4e0a50cecd86b187
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 552a4c9565bef62bb1aa7071b88473feb21a05f8
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Het gebruik van GPU in Azure Machine Learning
 Grafische verwerken Unit (GPU) wordt veel gebruikt voor het verwerken van rekenkracht taken die doorgaans kunnen ontstaan bij het trainen van bepaalde diepe neural network-modellen. Met behulp van GPU's, kunt u de trainingstijd van de modellen aanzienlijk verkorten. In dit document, u informatie over het configureren van Azure ML-Workbench om te gebruiken [DSVM (gegevens wetenschappelijke virtuele Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) uitgerust met GPU's als doel kan worden uitgevoerd. 
@@ -88,7 +88,7 @@ Open de `my_dsvm.compute`. Wijzig de `baseDockerImage` naar `microsoft/mmlspark:
  
 ```yaml
 ...
-baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.91
+baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9
 nvidiaDocker: true
 ```
  
@@ -147,7 +147,7 @@ Total memory: 11.17GiB
 Free memory: 11.11GiB
 ```
 
-Gefeliciteerd! Uw script om alleen deze om de kracht van GPU via een Docker-container!
+Gefeliciteerd. Uw script om alleen deze om de kracht van GPU via een Docker-container!
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk een voorbeeld van het gebruik van GPU te diep neurale netwerk trainingsmateriaal op Galerie van Azure ML versnellen.

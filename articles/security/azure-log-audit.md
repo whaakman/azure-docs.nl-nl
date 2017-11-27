@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Azure logboekregistratie en controle
 ## <a name="introduction"></a>Inleiding
@@ -209,7 +209,7 @@ De volgende soorten geverifieerde en anonieme aanvragen worden geregistreerd.
 
 
 
-| Geverifieerd  | Anonieme|
+| Geauthenticeerd  | Anoniem|
 | :------------- | :-------------|
 | Geslaagde aanvragen | Geslaagde aanvragen |
 |Mislukte aanvragen, met inbegrip van de time-outperiode, beperking, netwerk, autorisatie en andere fouten | -Aanvragen via een Shared Access Signature (SAS), met inbegrip van mislukte en geslaagde aanvragen |
@@ -365,7 +365,7 @@ Er zijn vier verschillende manieren van [verzamelen van Logboeken en metrische g
 |Event Hub-naamruimte|   Microsoft.EventHub/<br>Naamruimten|  Diagnostiek|    Diagnostiek||
 |IoT-Hubs|  Microsoft.Devices/<br>IotHubs||     Diagnostiek||
 |Key Vault| Microsoft.KeyVault/<br>Kluizen|  Diagnostiek  || [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
-|Taakverdelers|    Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
+|Load Balancers|    Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
 |Logic Apps|    Microsoft.Logic/<br>Werkstromen|  Diagnostiek|    Diagnostiek||
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Netwerkbeveiligingsgroep Azure Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|

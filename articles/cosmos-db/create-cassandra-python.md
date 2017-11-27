@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Snelstartgids: Een app Cassandra met Python en Azure Cosmos DB bouwen
 
@@ -29,13 +29,14 @@ Azure Cosmos-database is de service van Microsoft wereldwijd gedistribueerde dat
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Voordat u met dit voorbeeld aan de slag gaat, moet u aan de volgende vereisten voldoen:
-    * [Python](https://www.python.org/downloads/) versie v2.7.14
-    * [Git](http://git-scm.com/)
-    * [Python-stuurprogramma voor Apache Cassandra](https://github.com/datastax/python-driver)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]U kunt ook [gratis Azure Cosmos DB probeer](https://azure.microsoft.com/try/cosmosdb/) gratis verbintenissen en zonder een Azure-abonnement.
 
+Toegang tot de API van Azure Cosmos DB Cassandra preview-programma. Als u nog niet voor toegang tot toegepast [nu aanmelden](cassandra-introduction.md#sign-up-now).
+
+Daarnaast doet u het volgende:
+* [Python](https://www.python.org/downloads/) versie v2.7.14
+* [Git](http://git-scm.com/)
+* [Python-stuurprogramma voor Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
@@ -132,7 +133,7 @@ Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en ko
 
 1. In de [Azure-portal](http://portal.azure.com/), klikt u op **verbindingsreeks**. 
 
-    Gebruik de ![Knop kopiëren](./media/create-cassandra-python/copy.png) knop aan de rechterkant van het scherm voor het kopiëren van de bovenste waarde, het CONTACT-punt.
+    Gebruik de ![Knop Kopiëren](./media/create-cassandra-python/copy.png) knop aan de rechterkant van het scherm voor het kopiëren van de bovenste waarde, het CONTACT-punt.
 
     ![Bekijken en kopiëren van een gebruiker via een toegangspunt, wachtwoord en neem contact op met de Azure portal, verbinding tekenreeks blade](./media/create-cassandra-python/keys.png)
 

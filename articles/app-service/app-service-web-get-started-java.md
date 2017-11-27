@@ -4,7 +4,7 @@ description: In dit artikel leest u hoe u door het implementeren van een eenvoud
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 6/7/2017
+ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
 Azure [Web-Apps](app-service-web-overview.md) biedt een zeer schaalbaar, zelf patch webhosting-service. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
+
+Wanneer u deze Quick Start hebt voltooid, ziet uw toepassing er ongeveer als de volgende afbeelding wanneer u deze in een webbrowser bekijken:
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -31,8 +33,8 @@ Azure [Web-Apps](app-service-web-overview.md) biedt een zeer schaalbaar, zelf pa
 
 Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooien:
 
-* De gratis [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/). Deze Quickstart maakt gebruik van Eclipse Neon.
-* De [Azure Toolkit voor Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* De gratis <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze Quickstart maakt gebruik van Eclipse Neon.
+* De <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit voor Eclipse</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -167,9 +169,9 @@ Klik in Projectverkenner met de rechtermuisknop op het project en selecteer verv
 
 Het dialoogvenster **Web-app implementeren** wordt geopend, met de app-service die u eerder hebt gemaakt. 
 
-> [!NOTE]
-> Selecteer **Implementeren in hoofdmap** telkens wanneer u gaat publiceren.
->
+> [!NOTE] 
+> Selecteer **Implementeren in hoofdmap** telkens wanneer u gaat publiceren. 
+> 
 
 Selecteer de web-app en selecteer **Implementeren** om de wijzigingen te publiceren.
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 280001f9057825b9dcd98c5180340a54e2e239cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Het installeren en configureren van SAP HANA (grote exemplaren) in Azure
 
@@ -172,7 +172,7 @@ SAP ondersteuning opmerkingen van toepassing op het implementeren van SAP HANA o
 - [SAP ondersteuning Opmerking #171356 – SAP-Software op Linux: algemene informatie](https://launchpad.support.sap.com/#/notes/1984787).
 - [SAP ondersteuning Opmerking #1391070 – Linux UUID oplossingen](https://launchpad.support.sap.com/#/notes/1391070).
 
-[Red Hat Enterprise Linux voor SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is een andere aanbieding voor SAP HANA uitgevoerd op grote HANA-exemplaren. Releases van RHEL 6.7 en 7.2 zijn beschikbaar. 
+[Red Hat Enterprise Linux voor SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is een andere aanbieding voor SAP HANA uitgevoerd op grote HANA-exemplaren. Releases van RHEL 6.7 en 7.2 zijn beschikbaar. Neem notitie in in de systeemeigen virtuele Azure-machines waar alleen RHEL 7.2 en meer recente versies worden ondersteund, HANA grote exemplaren bieden ondersteuning voor RHEL 6.7 ook. Maar wordt u aangeraden een RHEL 7.x release.
 
 Aanvullende en nuttige SAP op Red Hat verwante koppelingen:
 - [SAP HANA op Red Hat Linux Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
