@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Een Linux-containertoepassing voor Azure Service Fabric implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -27,7 +27,7 @@ In deze Quick Start leert u hoe u Linux-containers kunt implementeren in een Ser
 
 ![quickstartpic][quickstartpic]
 
-In deze snelstartgids leert u de volgende zaken:
+In deze QuickStart leert u de volgende zaken:
 > [!div class="checklist"]
 > * Containers implementeren in een Linux Service Fabric-cluster in Azure
 > * Containers schalen en er failovers voor uitvoeren in Service Fabric
@@ -59,7 +59,7 @@ Gebruik uw eigen cluster of een cluster van derden om de toepassing te implement
 
 Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden onderhouden door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 
-Zie voor meer informatie over het maken van uw eigen cluster [Uw eerste Service Fabric-cluster maken op Azure](service-fabric-get-started-azure-cluster.md).
+Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 
 > [!Note]
 > De web-front-endservice is geconfigureerd om te luisteren op poort 80 naar binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
@@ -133,7 +133,7 @@ Gebruik het uninstall-script dat is opgegeven in de sjabloon om het toepassingse
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u de volgende zaken geleerd:
+In deze QuickStart hebt u de volgende zaken geleerd:
 > [!div class="checklist"]
 > * Een Linux-containertoepassing implementeren in Azure
 > * Failover uitvoeren voor een container in een Service Fabric-cluster

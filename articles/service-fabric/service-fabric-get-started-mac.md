@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: f55279436af39d9bc0d4b1d7ef2253e2fc3074c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 309fcb901a1a3878edbfbe06e12122615b74664e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -28,127 +28,135 @@ ms.lasthandoff: 11/11/2017
 >
 >  
 
-U kunt Service Fabric-toepassingen bouwen voor uitvoering op Linux-clusters met behulp van Mac OS X. In dit artikel wordt uitgelegd hoe u uw Mac kunt instellen voor ontwikkeling.
+U kunt Service Fabric-toepassingen bouwen voor uitvoering in Linux-clusters met behulp van Mac OS X. In dit document wordt uitgelegd hoe u uw Mac kunt instellen voor ontwikkeling.
 
 ## <a name="prerequisites"></a>Vereisten
-Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Service Fabric-cluster wilt uitvoeren, bieden we een vooraf geconfigureerde virtuele Ubuntu-machine met Vagrant en VirtualBox. Voordat u aan de slag gaat, hebt u het volgende nodig:
+Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Service Fabric-cluster wilt uitvoeren, wordt er een vooraf geconfigureerde Docker-containerinstallatiekopie aangeboden. Voordat u aan de slag gaat, hebt u het volgende nodig:
 
-* [Vagrant (v1.8.4 of hoger)](http://www.vagrantup.com/downloads.html)
-* [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
+* Ten minste 4 GB RAM-geheugen
+* Nieuwste versie van [Docker](https://www.docker.com/)
+* Toegang tot Service Fabric One-box Docker-[containerinstallatiekopie](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
 
->[!NOTE]
-> U moet wederzijds ondersteunde versies van Vagrant en VirtualBox gebruiken. Vagrant functioneert mogelijk niet goed in combinatie met een niet-ondersteunde versie van VirtualBox.
->
+>[!TIP]
+> * Volg de stappen in de officiële Docker-[documentatie](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) om Docker te installeren op uw Mac. 
+> * Wanneer u klaar bent met de installatie, controleert u of de installatie goed is verlopen door [deze stappen](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine) uit te voeren
 
-## <a name="create-the-local-vm"></a>De lokale virtuele machine maken
-Ga als volgt te werk om de lokale VM te maken met een Service Fabric-cluster met 5-knooppunten:
 
-1. De `Vagrantfile`-opslagplaats klonen
+## <a name="create-a-local-container-and-setup-service-fabric"></a>Een lokale container maken en Service Fabric configureren
+Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cluster wilt uitvoeren, voert u de volgende stappen uit:
 
-    ```bash
-    git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
-    ```
-    Met deze stappen verkrijgt u het bestand `Vagrantfile` dat de VM-configuratie bevat plus de locatie van waar de virtuele machine is gedownload.  Het bestand verwijst naar een voorraadinstallatiekopie van Ubuntu.
-
-2. Navigeer naar de lokale kloon van de opslagplaats
+1. Haal de installatiekopie op uit de opslagplaats op de Docker-hub:
 
     ```bash
-    cd service-fabric-linux-vagrant-onebox
+    docker pull servicefabricoss/service-fabric-onebox
     ```
-3. Wijzig de standaardinstellingen van de virtuele machine (optioneel)
 
-    Standaard wordt de lokale virtuele machine als volgt geconfigureerd:
+2. Werk de configuratie van de Docker-daemon op uw host bij met het volgende en start de Docker-daemon opnieuw op: 
 
-   * 3 GB toegewezen geheugen
-   * Persoonlijk hostnetwerk geconfigureerd op IP 192.168.50.50 dat passthrough van verkeer van de Mac-host inschakelt
+    ```json
+    {
+        "ipv6": true,
+        "fixed-cidr-v6": "fd00::/64"
+    }
+    ```
+    U kunt de configuratie rechtstreeks bijwerken in daemon.json in uw Docker-installatiepad (de locatie hiervan kan per machine verschillen. Bijvoorbeeld: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json). De aanbevolen bijwerkmethode is: ga naar Docker-pictogram > Voorkeuren > Daemon > Geavanceerd en werk daar de configuratie bij.
 
-     U kunt deze instellingen wijzigen of een andere configuratie toevoegen aan de virtuele machine in de `Vagrantfile`. Zie de [Vagrant-documentatie](http://www.vagrantup.com/docs) voor de volledige lijst met configuratieopties.
-4. De virtuele machine maken
+3. Start een instantie van een Service Fabric-One-box-container met de installatiekopie:
 
     ```bash
-    vagrant up
+    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
     ```
-
-
-5. Aanmelden bij de VM en de Service Fabric SDK installeren
-
-    ```bash
-    vagrant ssh
-    ```
-
-   Installeer de SDK zoals wordt beschreven in [SDK-installatie](service-fabric-get-started-linux.md).  Het onderstaande script is bedoeld om u te helpen bij het installeren van de Service Fabric-runtime en de algemene Service Fabric SDK samen met SFTCL CLI. Als u het script uitvoert, wordt ervan uitgegaan dat u de licenties voor alle software die wordt geïnstalleerd, hebt gelezen en hiermee akkoord gaat.
-
-    ```bash
-    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
-    ```
-
-5.  Het Service Fabric-cluster starten
-
-    ```bash
-    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
-    ```
-
     >[!TIP]
-    > Als het downloaden van de virtuele machine lang duurt, kunt u deze downloaden met behulp van wget of curl, of via een browser door te navigeren naar de koppeling die met **config.vm.box_url** is opgegeven in het bestand `Vagrantfile`. Nadat u deze lokaal hebt gedownload, bewerkt u `Vagrantfile`, zodat dit wijst naar het lokale pad waar u de installatiekopie hebt gedownload. Als u de installatiekopie bijvoorbeeld hebt gedownload naar /home/users/test/azureservicefabric.tp8.box, stelt u **config.vm.box_url** in op dat pad.
-    >
+    > * Door een naam op te geven voor uw instantie van de container, kunt u deze op een beter leesbare manier verwerken. 
+    > * Als uw toepassing op bepaalde poorten luistert, moeten deze worden opgegeven met extra -p-tags. Bijvoorbeeld: als uw toepassing luistert op poort 8080, voert u deze opdracht uit: docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
 
-5. Test of het cluster correct is ingesteld door naar Service Fabric Explorer te gaan op http://192.168.50.50:19080/Explorer (ervan uitgaande dat u het standaard IP-adres van het privénetwerk hebt gehouden).
+4. Meld u aan bij de Docker-container in interactieve ssh-modus:
 
-    ![Service Fabric Explorer bekeken vanuit de host-Mac][sfx-mac]
+    ```bash
+    docker exec -it sfonebox bash
+    ```
 
-## <a name="install-the-necessary-java-artifacts-on-vagrant-optional-if-you-want-to-use-the-java-programming-models"></a>De benodigde Java-artefacten op Vagrant installeren (alleen als u de Java-programmeermodellen wilt gebruiken)
+5. Voer het installatiescript uit om de vereiste afhankelijkheden op te halen en start daarna het cluster op de container.
 
-Als u Service Fabric-services wilt bouwen met behulp van Java, moet JDK 1.8 zijn samen zijn geïnstalleerd met Gradle, dat wordt gebruikt voor het uitvoeren van build-taken. Met het volgende fragment wordt Open JDK 1.8 samen geïnstalleerd met Gradle. De Service Fabric-Java-bibliotheken worden opgehaald uit Maven.
+    ```bash
+    ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
+    ./run.sh       # Starts the local cluster
+    ```
 
-  ```bash
-  vagrant ssh
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-```
+6. Nadat stap 5 is voltooid, gaat u op uw Mac naar ``http://localhost:19080``. Als het goed is, ziet u nu de verkenner van Service Fabric.
 
-## <a name="set-up-the-service-fabric-cli"></a>De Service Fabric-CLI instellen
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>De Service Fabric-CLI (sfctl) instellen op een Mac
 
-De [Service Fabric-CLI](service-fabric-cli.md) bevat opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters en toepassingen. De CLI is gebaseerd op python, dus is het belangrijk dat python en pip zijn geïnstalleerd voordat u verdergaat met de volgende opdracht:
+Volg de instructies in [Service Fabric-CLI](service-fabric-cli.md#cli-mac) als u de Service Fabric-CLI (`sfctl`) wilt installeren op een Mac.
+De CLI-opdrachten voor interactie met Service Fabric-entiteiten, inclusief clusters, toepassingen en services.
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-your-mac-using-yeoman"></a>Toepassingen maken op een Mac met Yeoman
 
-## <a name="create-application-on-mac-using-yeoman"></a>Toepassingen maken op een Mac met Yeoman
 Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator. Volg de stappen hieronder om te controleren of de Yeoman-sjabloongenerator van Service Fabric werkt op uw computer.
 
-1. Node.js en NPM moeten zijn geïnstalleerd op uw Mac. Als dat niet het geval is, kunt u Node.js en NPM als volgt installeren met behulp van Homebrew. Gebruik de optie ``-v`` om te controleren welke versies van Node.js en NPM zijn geïnstalleerd op uw Mac.
+1. Node.js en NPM moeten zijn geïnstalleerd op uw Mac. Als dat niet het geval is, kunt u Node.js en NPM als volgt installeren met behulp van Homebrew:
 
-  ```bash
-  brew install node
-  node -v
-  npm -v
-  ```
-2. [Yeoman](http://yeoman.io/)-sjabloongenerator installeren op uw computer vanuit NPM
+    ```bash
+    brew install node
+    node -v
+    npm -v
+    ```
+2. Installeer de [Yeoman](http://yeoman.io/)-sjabloongenerator op uw computer vanuit NPM.
 
-  ```bash
-  npm install -g yo
-  ```
+    ```bash
+    npm install -g yo
+    ```
 3. Installeer de Yeoman generator die u wilt gebruiken. Volg hiervoor de stappen in deze [documentatie](service-fabric-get-started-linux.md). Volg deze stappen om Service Fabric-toepassingen te maken met behulp van Yeoman:
 
-  ```bash
-  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
-  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
-  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
-  ```
-4. Als u een Service Fabric Java-toepassing wilt maken op een Mac, moeten JDK 1.8 en Gradle op de computer zijn geïnstalleerd.
+    ```bash
+    npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+    npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+    npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+    ```
+4. Als u een Service Fabric Java-toepassing wilt maken op een Mac, moeten JDK 1.8 en Gradle op de hostcomputer zijn geïnstalleerd. Als dat niet het geval is, kunt u ze installeren met behulp van [HomeBrew](https://brew.sh/). 
+
+    ```bash
+    brew update
+    brew cask install java
+    brew install gradle
+    ```
+
+## <a name="deploy-application-on-your-mac-from-terminal"></a>Toepassingen implementeren op uw Mac vanuit terminal
+
+Nadat u de Service Fabric-toepassing hebt gemaakt en gebouwd, kunt u de toepassing als volgt implementeren met [Service Fabric CLI](service-fabric-cli.md#cli-mac):
+
+1. Maak verbinding met het Service Fabric-cluster dat wordt uitgevoerd binnen de containerinstantie op uw Mac.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Ga naar de directory van uw project en voer het installatiescript uit.
+
+    ```bash
+    cd MyProject
+    bash install.sh
+    ```
 
 ## <a name="set-up-net-core-20-development"></a>.NET Core 2.0-ontwikkeling instellen
 
 Installeer de [.NET Core 2.0 SDK voor Mac](https://www.microsoft.com/net/core#macos) om [C# Service Fabric-toepassingen te maken](service-fabric-create-your-first-linux-application-with-csharp.md). Pakketten voor .NET Core 2.0 Service Fabric-toepassingen worden gehost op NuGet.org, momenteel in preview.
 
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-on-your-mac"></a>De Service Fabric-invoegtoepassing installeren voor Eclipse Neon op uw Mac
 
-## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>De Service Fabric-invoegtoepassing installeren voor Eclipse Neon
+Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE** die het maken, bouwen en implementeren van Java-services kan vereenvoudigen. U kunt de installatiestappen volgen uit deze algemene [documentatie](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) over het installeren en bijwerken van de Service Fabric Eclipse-invoegtoepassing naar de nieuwste versie.
 
-Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE** die het maken, bouwen en implementeren van Java-services kan vereenvoudigen. U kunt de installatiestappen volgen uit deze algemene [documentatie](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) over het installeren en bijwerken van de Service Fabric Eclipse-invoegtoepassing.
+Alle andere stappen die worden genoemd in de [Service Fabric-documentatie voor Eclipse](service-fabric-get-started-eclipse.md) voor het maken van een toepassing, het toevoegen van een service aan de toepassing, het installeren/verwijderen van de toepassing, enzovoort, zijn ook hier van toepassing.
 
->[!TIP]
-> De standaardinstelling is dat het standaard-IP-adres wordt ondersteund dat is opgegeven voor ``Vagrantfile`` in de ``Local.json`` van de gegenereerde toepassing. Als u dat adres wijzigt en Vagrant implementeert met een ander IP-adres, moet u het bijbehorende IP-adres in de ``Local.json`` van uw toepassing ook bijwerken.
+Om de Service Fabric Eclipse-invoegtoepassing werkend te krijgen met de Docker-container op uw Mac, moet u naast de bovenstaande stappen een instantie van de container maken met een pad dat wordt gedeeld met de host. Dit kan als volgt:
+```bash
+docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
+```
+waarbij ``/Users/sayantan/work/workspaces/mySFWorkspace`` het volledig gekwalificeerde pad van de werkruimte op de Mac is en ``/tmp/mySFWorkspace`` het pad binnen de container, waaraan het wordt toegewezen.
+
+> [!NOTE]
+>1. Als de naam of het pad van uw werkruimte anders is, moet u in de opdracht ``docker run`` hierboven deze namen gebruiken.
+>2. Als u de container met een andere naam start dan ``sfonebox``, werkt u de naam bij in het bestand ``testclient.sh`` in de Java-toepassing van uw Service Fabric-actor.
 
 ## <a name="next-steps"></a>Volgende stappen
 <!-- Links -->
@@ -158,6 +166,7 @@ Service Fabric biedt een invoegtoepassing voor de **Eclipse Neon voor Java IDE**
 * [Een Service Fabric-cluster maken met behulp van de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Inzicht krijgen in het Service Fabric-toepassingsmodel](service-fabric-application-model.md)
 * [De Service Fabric-CLI gebruiken voor het beheren van uw toepassingen](service-fabric-application-lifecycle-sfctl.md)
+* [Een Linux-ontwikkelomgeving voorbereiden in Windows](service-fabric-local-linux-cluster-windows.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png

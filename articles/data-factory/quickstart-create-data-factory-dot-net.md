@@ -13,33 +13,101 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: e27c1a8e130d20eb0ba0e5c001fc9a435e07c1cd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versie 2 - Preview](quickstart-create-data-factory-dot-net.md)
 
-Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken. 
-
-In deze snelstartgids wordt beschreven hoe u .NET SDK kunt gebruiken om een Azure data factory te maken. Met de pijplijn in deze data factory worden gegevens gekopieerd van de ene map naar een andere map in een Azure Blob-opslag.
+In deze QuickStart wordt beschreven hoe u .NET SDK kunt gebruiken om een Azure data factory te maken. Met de pijplijn die u in deze data factory maakt, worden gegevens **gekopieerd** van één map naar een andere map in een Azure Blob Storage. Zie [Zelfstudie: Gegevens transformeren met Spark](transform-data-using-spark.md) voor meer informatie over het **transformeren** van gegevens met Azure Data Factory. 
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Aan de slag met versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+>
+> Dit artikel is geen gedetailleerde introductie tot de Data Factory-service. Zie [Inleiding tot Azure Data Factory](introduction.md) voor een inleiding tot Azure Data Factory-service.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-* **Azure Storage-account**. U gebruikt de blob-opslag als de gegevensopslag voor de **bron** en de **sink**. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) om er een te maken. 
-* Maak een **blob-container** in Blob Storage, maak een **invoermap** in de container en upload een aantal bestanden naar de map. U kunt hulpprogramma's zoals [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gebruiken om verbinding te maken met Azure Blob Storage, een blob-container te maken, een invoerbestand te uploaden en het uitvoerbestand te controleren.
-* **Visual Studio** 2013, 2015, of 2017. De procedures in dit artikel zijn gebaseerd op Visual Studio 2017.
-* **Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
-* **Maak een toepassing in Azure Active Directory** aan de hand van [deze instructie](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Noteer de volgende waarden voor later gebruik: **toepassings-id**, **verificatiesleutel** en **tenant-id**. Wijs de toepassing toe aan de rol '**Inzender**' door de instructies in hetzezlfde artikel te volgen. 
-*  
+
+### <a name="azure-subscription"></a>Azure-abonnement
+Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+### <a name="azure-roles"></a>Azure-rollen
+Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen **Inzender** of **Eigenaar**, of moet dit een **beheerder** van het Azure-abonnement zijn. Klik in Azure Portal op uw **gebruikersnaam** in de rechterbovenhoek en selecteer **Machtigingen** om de machtigingen weer te geven die u in het abonnement hebt. Als u toegang tot meerdere abonnementen hebt, moet u het juiste abonnement selecteren. Zie het artikel [Rollen toevoegen](../billing/billing-add-change-azure-subscription-administrator.md) voor voorbeelden van instructies voor het toevoegen van een gebruiker aan een rol.
+
+### <a name="azure-storage-account"></a>Azure Storage-account
+In deze QuickStart gaat u een algemeen Azure Storage-account (en dan met name voor Blob Storage) gebruiken als zowel **bron-** als **doel**gegevensarchieven. Zie het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen Azure Storage-account hebt voor algemene doeleinden en er een wilt maken. 
+
+#### <a name="get-storage-account-name-and-account-key"></a>De naam en sleutel van een opslagaccount ophalen
+In deze QuickStart gaat u de naam en sleutel van uw Azure Storage-account gebruiken. De volgende procedure bevat stappen waarmee u de naam en sleutel van uw opslagaccount kunt ophalen. 
+
+1. Open een browser en navigeer naar [Azure Portal](https://portal.azure.com). Meld u aan met uw Azure-gebruikersnaam en -wachtwoord. 
+2. Klik op **Meer services >** in het menu links, filter op het trefwoord **Opslag** en selecteer **Opslagaccounts**.
+
+    ![Zoeken naar een opslagaccount](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
+3. Filter in de lijst met opslagaccounts op uw opslagaccount (indien nodig) en selecteer vervolgens **uw opslagaccount**. 
+4. Selecteer op de pagina **Opslagaccount** de optie **Toegangssleutels** in het menu.
+
+    ![De naam en sleutel van het opslagaccount ophalen](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
+5. Kopieer de waarden voor de velden **Opslagaccountnaam** en **key1** naar het klembord. Plak deze in Kladblok of een andere editor en sla ze op.  
+
+#### <a name="create-input-folder-and-files"></a>Invoermap en bestanden maken
+In deze sectie maakt u in uw Azure Blob Storage een blobcontainer met de naam **adftutorial**. Vervolgens maakt u in de container een map met de naam **Invoer** en uploadt u een voorbeeldbestand naar de map Invoer. 
+
+1. Schakel op de pagina **Opslagaccount** over naar **Overzicht** en klik vervolgens op **Blobs**. 
+
+    ![De optie Blobs selecteren](media/quickstart-create-data-factory-dot-net/select-blobs.png)
+2. Klik op de pagina **Blob service** in de werkbalk op **+ Container**. 
+
+    ![Knop Container toevoegen](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
+3. Voer in het dialoogvenster **Nieuwe container** als naam **adftutorial** in en klik op **OK**. 
+
+    ![Naam van container invoeren](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
+4. Klik op **adftutorial** in de lijst met containers. 
+
+    ![De container selecteren](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
+1. Klik op de pagina **Container** in de werkbalk op **Uploaden**.  
+
+    ![Knop Uploaden](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
+6. Klik op de pagina **Blob uploaden** op **Geavanceerd**.
+
+    ![Op de koppeling Geavanceerd klikken](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
+7. Start **Kladblok** en maak een bestand met de naam **emp.txt** met de volgende inhoud. Sla dit bestand op in de map **c:\ADFv2QuickStartPSH**. Maak de map **ADFv2QuickStartPSH** als deze nog niet bestaat.
+    
+    ```
+    John, Doe
+    Jane, Doe
+    ```    
+8. Blader in Azure Portal op de pagina **Blob uploaden** naar het bestand **emp.txt** en selecteer dit voor het veld **Bestanden**. 
+9. Typ **Invoer** als waarde in het veld **Uploaden naar map**. 
+
+    ![Blob-instellingen uploaden](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
+10. Controleer of de map **Invoer** en het bestand **emp.txt** is en klik op **Uploaden**.
+11. Als het goed is, ziet u in de lijst nu het bestand **emp.txt**, evenals de uploadstatus hiervan. 
+12. Sluit de pagina **Blob uploaden** door op de **X** in de hoek te klikken. 
+
+    ![De pagina Blob uploaden sluiten](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
+1. Houd de pagina **Container** geopend. U gaat hiermee aan het einde van deze QuickStart de uitvoer controleren.
+
+### <a name="visual-studio"></a>Visual Studio
+De procedures in dit artikel zijn gebaseerd op Visual Studio 2017. U kunt ook Visual Studio 2013 of 2015 gebruiken.
+
+### <a name="azure-net-sdk"></a>Azure .NET SDK
+Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/) op uw computer.
+
+### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
+Volg de instructies in [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
+
+1. **Een Azure Active Directory-toepassing maken**. Maak een toepassing in Azure Active Directory die staat voor de .NET-toepassing die u in deze zelfstudie maakt. Voor de aanmeldings-URL kunt u een dummy-URL opgeven, zoals wordt getoond in het artikel (`https://contoso.org/exampleapp`).
+2. Haal de **toepassings-id** en **verificatiesleutel*** op met behulp van de instructies in de sectie **De toepassings-id en verificatiesleutel ophalen** in het artikel. Noteer deze waarden, zodat u ze later in deze zelfstudie kunt gebruiken. 
+3. Haal de **tenant-id** op met behulp van de instructies in de sectie **Tenant-id ophalen** in het artikel. Noteer deze waarde. 
+4. Wijs de toepassing toe aan de rol **Inzender** op het niveau van het abonnement, zodat met de toepassing gegevensfactory's in het abonnement kunnen worden gemaakt. Volg de instructies in de sectie **Toepassing toewijzen aan rol** in het artikel. 
 
 ## <a name="create-a-visual-studio-project"></a>Een Visual Studio-project maken
 
@@ -112,7 +180,7 @@ Maak met behulp van Visual Studio 2013/2015/2017 een C# .NET-consoletoepassing.
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Een data factory maken
+## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 
 Voeg de volgende code toe aan de methode **Main** om een **data factory** te maken. 
 
@@ -137,7 +205,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 Voeg de volgende code toe aan de methode **Main** om een **gekoppelde Azure Storage-service** te maken.
 
-U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze snelstartgids hoeft u maar één gekoppelde Azure Storage-service te maken, die wordt gebruikt als de bron voor het kopiëren en als de sinkopslag, met de naam 'AzureStorageLinkedService'.
+U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze QuickStart hoeft u maar één gekoppelde Azure Storage-service te maken, die wordt gebruikt als de bron voor het kopiëren en als de sinkopslag, met de naam 'AzureStorageLinkedService'.
 
 ```csharp
 // Create an Azure Storage linked service
@@ -253,7 +321,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>Een pijplijnuitvoering controleren
 
-1. Voeg de volgende code toe aan de methode **Main** om continu de status van de pijplijnuitvoering te controleren totdat deze klaar is met het kopiëren van de gegevens.
+1. Voeg de volgende code toe aan de methode **Main** om continu de status te controleren totdat het kopiëren van de gegevens is voltooid.
 
     ```csharp
     // Monitor the pipeline run
@@ -397,8 +465,18 @@ Checking copy activity run details...
 }
 
 Press any key to exit...
-
 ```
+
+## <a name="verify-the-output"></a>De uitvoer controleren
+De uitvoermap wordt automatisch door de pijplijn gemaakt in de blobcontainer adftutorial. Vervolgens wordt het bestand emp.txt gekopieerd van de invoermap naar de uitvoermap. 
+
+1. Klik in Azure Portal op de pagina met de **adftutorial**-container op **Vernieuwen** om de uitvoermap weer te geven. 
+    
+    ![Vernieuwen](media/quickstart-create-data-factory-dot-net/output-refresh.png)
+2. Klik in de lijst met mappen op **Uitvoer**. 
+2. Controleer of het bestand **emp.txt** naar de uitvoermap is gekopieerd. 
+
+    ![Vernieuwen](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Als u de data factory programmatisch wilt verwijderen, voegt u de volgende regels code toe aan het programma: 

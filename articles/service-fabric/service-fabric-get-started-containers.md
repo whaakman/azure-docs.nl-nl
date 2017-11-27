@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ De Service Fabric SDK en hulpprogramma's bieden een servicesjabloon waarmee u ee
 5. Geef de service een naam en klik op **OK**.
 
 ## <a name="configure-communication"></a>Communicatie configureren
-De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen.  
+De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. Voor deze QuickStart luistert de containerservice naar poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen.  
 
 ```xml
 <Resources>
@@ -294,8 +294,7 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > De hyperv-isolatiemodus is beschikbaar in de Azure-SKU's Ev3 en Dv3 aangezien die ondersteuning voor geneste virtualisatie bieden. 
-   >
+   > De hyperv-isolatiemodus is beschikbaar in de Azure-SKU's Ev3 en Dv3 aangezien die ondersteuning voor geneste virtualisatie bieden. Zorg ervoor dat de Hyper-V-rol op de hosts is geïnstalleerd. U kunt dit controleren door verbinding te maken met de hosts.
    >
 
 ## <a name="configure-resource-governance"></a>Resourcebeheer configureren
@@ -325,7 +324,7 @@ De toepassing is gereed bij een ```Ready```-status: ![Gereed][2]
 Open een browser en ga naar http://containercluster.westus2.cloudapp.azure.com:8081. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ## <a name="clean-up"></a>Opruimen
-Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-clusters](https://try.servicefabric.azure.com/) worden na een paar uur automatisch verwijderd.
+Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Party-clusters](https://try.servicefabric.azure.com/) worden na een paar uur automatisch verwijderd.
 
 Nadat u de installatiekopie naar het containerregister hebt gepusht, kunt u de lokale installatiekopie op de ontwikkelcomputer verwijderen:
 

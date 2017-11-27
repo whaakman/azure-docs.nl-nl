@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Wat zijn virtuele-machineschaalsets in Azure?
 Virtuele-machineschaalsets vormen een compute-resource van Azure die u kunt gebruiken om een set identieke VM's te implementeren en te beheren. Met behulp van schaalsets worden alle virtuele machines op dezelfde manier geconfigureerd en automatisch geschaald. U hoeft de virtuele machines dus niet vooraf in te richten. Hierdoor wordt het gemakkelijker om grootschalige services te ontwikkelen voor Big Compute, big data en beperkte workloads.
@@ -124,7 +124,7 @@ In dit gedeelte wordt een aantal typische scenario's voor schaalsets genoemd. De
 * Een schaalset biedt ondersteuning voor maximaal 1000 VM's. Als u uw eigen aangepaste VM-installatiekopieën wilt maken en uploaden, is de limiet 300. Zie [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md) voor overwegingen bij het gebruik van grote virtuele-machineschaalsets.
 * U hoeft vooraf geen Azure-opslagaccounts te maken om schaalsets te kunnen gebruiken. Schaalsets bieden ondersteuning voor beheerde schijven in Azure. Hierdoor hoeft u zich geen zorgen meer te maken over de prestaties als u veel schijven per opslagaccount gebruikt. Zie voor meer informatie [Schaalsets en beheerde schijven voor virtuele Azure-machines](virtual-machine-scale-sets-managed-disks.md).
 * Overweeg om Azure Premium-opslag te gebruiken in plaats van Azure-opslag voor snellere, beter te voorspellen VM-inrichting en verbeterde IO-prestaties.
-* Het aantal VM's dat u kunt maken, is beperkt tot het kernquotum van de regio waarin u ze implementeert. Mogelijk moet u contact opnemen met klantondersteuning om de limiet voor uw rekenquotum te verhogen, zelfs als u nu een hoge limiet hebt voor het aantal cores dat u gebruikt met Azure Cloud Services. Voer de volgende Azure CLI-opdracht uit om uw quotum op te vragen: `azure vm list-usage`. Of voer deze PowerShell-opdracht uit: `Get-AzureRmVMUsage`.
+* Het aantal vCPU's dat u kunt maken, is beperkt tot het kernquotum van de regio waarin u ze implementeert. Mogelijk moet u contact opnemen met klantondersteuning om de limiet voor uw rekenquotum te verhogen, zelfs als u nu een hoge limiet hebt voor het aantal vCPU's dat u met Azure Cloud Services gebruikt. Voer de volgende Azure CLI-opdracht uit om uw quotum op te vragen: `azure vm list-usage`. Of voer deze PowerShell-opdracht uit: `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Veelgestelde vragen over schaalsets
 **V:** Hoeveel virtuele machines kan een schaalset bevatten?
