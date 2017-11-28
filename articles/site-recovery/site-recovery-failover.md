@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Dit artikel wordt beschreven hoe met failover-virtuele machines en fysieke servers beveiligd door Site Recovery.
@@ -70,7 +70,7 @@ Deze procedure wordt beschreven hoe u een failover voor een [herstelplan](site-r
 1. Wanneer u tevreden met de mislukte bent via de virtuele machine, kunt u **doorvoeren** de failover. Commit verwijdert alle herstelpunten die beschikbaar zijn met de service en **herstelpunt wijzigen** optie niet langer beschikbaar.
 
 ## <a name="planned-failover"></a>Geplande failover
-Virtuele machines of fysieke servers die zijn beveiligd met Site Recovery ook ondersteuning **geplande failover**. Geplande failover is een nul gegevens verloren gaan failover-optie. Wanneer een geplande failover wordt geactiveerd, eerst de virtuele bronmachines afgesloten, de gegevens nog moeten worden gesynchroniseerd zijn gesynchroniseerd en vervolgens een failover wordt geactiveerd.
+Virtuele machines of fysieke servers die zijn beveiligd met Site Recovery ook ondersteuning **geplande failover**. Geplande failover is een nul gegevens verloren gaan failover-optie. Wanneer een geplande failover wordt geactiveerd, eerst de virtuele bronmachines afgesloten, de meest recente gegevens worden gesynchroniseerd en vervolgens een failover wordt geactiveerd.
 
 > [!NOTE]
 > Wanneer u een failover-Hyper-v virtuele machines van een on-premises site naar een andere lokale site naar keert u terug naar de primaire lokale site hebt u in eerste **omgekeerd repliceren** de virtuele machine weer naar primaire site en vervolgens Hiermee activeert u een failover. Als de primaire virtuele machine niet beschikbaar is, voordat begint met het **omgekeerd repliceren** hebt u de virtuele machine uit een back-up hersteld.   

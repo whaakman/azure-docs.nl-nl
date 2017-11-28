@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 2348db8f19391292f79608092a3c2482216493c6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Een virtuele-machineschaalset ingesteld met de Azure CLI 2.0 beheren
 Gedurende de levenscyclus van een virtuele-machineschaalset, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u scripts maken die verschillende lifecycle-taken automatiseren. In dit artikel vindt u details van de algemene 2.0 voor Azure CLI-opdrachten die u kunnen deze taken uitvoeren.
@@ -36,7 +36,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Weergave virtuele machines in een schaalset
-Een overzicht van VM-instantie in een schaalset gebruiken [az vmss lijstexemplaren](/cli/azure/vmss#list-instances). Het volgende voorbeeld lijst met alle VM-exemplaren in de set met de naam scale *myScaleSet* en in de *myResourceGroup* resourcegroep. Uw eigen waarden opgeven voor deze namen:
+Een overzicht van VM-instantie in een schaalset gebruiken [az vmss lijstexemplaren](/cli/azure/vmss#list-instances). Het volgende voorbeeld lijst met alle VM-exemplaren in de set met de naam scale *myScaleSet* in de *myResourceGroup* resourcegroep. Uw eigen waarden opgeven voor deze namen:
 
 ```azurecli
 az vmss list-instances \

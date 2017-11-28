@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 4e1f2f7d63666315f363caa8fec272ec2b6f18fc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8fcce0e3fea8f0789e198d19754f93dcdf0c84f9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins gebruiken om te bouwen en implementeren van uw Linux-toepassingen
 Jenkins is een populair hulpprogramma voor doorlopende integratie en implementatie van uw apps. Hier leest u hoe u een Azure Service Fabric-toepassing maakt en implementeert met behulp van Jenkins.
@@ -42,24 +42,24 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
    > [!NOTE]
    > Zorg ervoor dat de poort 8081 is opgegeven als een aangepaste eindpunt op het cluster.
    >
-2. Klonen van de toepassing met behulp van de volgende stappen uit:
 
+2. Klonen van de toepassing met behulp van de volgende stappen uit:
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. De status van de container Jenkins in een bestandsshare behouden:
   * Maken van een Azure storage-account in de **dezelfde regio** als uw cluster met een naam zoals ``sfjenkinsstorage1``.
   * Maak een **bestandsshare** onder de storage-Account met een naam, zoals ``sfjenkins``.
   * Klik op **Connect** voor de bestandsshare en noteer de waarden wordt weergegeven onder **verbinding te maken van Linux**, de waarde moet er ongeveer als hieronder:
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> Koppelpunt cifs shares moet u beschikken over de cifs-utils-pakket geïnstalleerd in de clusterknooppunten.         
->
+  > [!NOTE]
+  > Koppelpunt cifs shares moet u beschikken over de cifs-utils-pakket geïnstalleerd in de clusterknooppunten.       
+  >
 
 4. Werk de tijdelijke aanduiding voor waarden in de ```setupentrypoint.sh``` script met de azure-opslag-details van stap 3.
 ```sh
@@ -68,16 +68,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * Vervang ``[REMOTE_FILE_SHARE_LOCATION]`` met de waarde ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` uit de uitvoer van de verbinding te maken in stap 3 hierboven.
   * Vervang ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` met de waarde ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` uit stap 3 hierboven.
 
-5. Verbinding maken met het cluster en installeer de containertoepassing.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-Hiermee wordt een Jenkins-container in het cluster geïnstalleerd. Dit kan worden bewaakt met de Service Fabric Explorer.
+5. **Alleen beveiligde Cluster:** voordat de implementatie van toepassingen op een beveiligde cluster met Jenkins configureren, moet het certificaat in de container Jenkins toegankelijk zijn. Op Linux-clusters, de certificates(PEM) gewoon gekopieerd uit de store naar de container door X509StoreName is opgegeven. Dit certificaatverwijzing toevoegen in de ApplicationManifest onder ContainerHostPolicies en werk de vingerafdrukwaarde. De vingerafdrukwaarde moet zijn dat van een certificaat dat zich op het knooppunt bevindt.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > De vingerafdrukwaarde moet hetzelfde zijn als het certificaat dat wordt gebruikt voor verbinding met het beveiligde cluster. 
+  >
 
-   > [!NOTE]
-   > Het duurt een paar minuten voor de installatiekopie Jenkins worden gedownload op het cluster.
-   >
+6. Verbinding maken met het cluster en installeer de containertoepassing.
+
+  **Beveiligde Cluster**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **Niet-beveiligde Cluster**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  Hiermee wordt een Jenkins-container in het cluster geïnstalleerd. Dit kan worden bewaakt met de Service Fabric Explorer.
+
+    > [!NOTE]
+    > Het duurt een paar minuten voor de installatiekopie Jenkins worden gedownload op het cluster.
+    >
 
 ### <a name="steps"></a>Stappen
 1. Ga in uw browser naar ``http://PublicIPorFQDN:8081``. Hier vindt u het pad naar het eerste beheerderswachtwoord dat nodig is om u aan te melden. 
@@ -176,13 +193,19 @@ Hier kunt u een invoegtoepassing uploaden. Selecteer **bestand kiezen**, en sele
 
     ![Service Fabric-bouwactie voor Jenkins][build-step-dotnet]
   
-   h. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. Hier moet u clustergegevens opgeven, zoals waar de via Jenkins gecompileerde Service Fabric-toepassing wordt geïmplementeerd. U kunt ook aanvullende toepassingsgegevens opgeven. Deze worden gebruikt om de toepassing te implementeren. Bekijk de volgende schermafbeelding voor een voorbeeld van hoe dit er uitziet:
+   h. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. Hier moet u clustergegevens opgeven, zoals waar de via Jenkins gecompileerde Service Fabric-toepassing wordt geïmplementeerd. Het pad naar het certificaat kan worden gevonden door de waarde van de echo Certificates_JenkinsOnSF_Code_MyCert_PEM omgevingsvariabele uit in de container echo. Dit pad kan worden gebruikt voor de sleutel van de Client en de Client Cert velden.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    U kunt ook aanvullende toepassingsgegevens opgeven. Deze worden gebruikt om de toepassing te implementeren. Bekijk de volgende schermafbeelding voor een voorbeeld van hoe dit er uitziet:
 
     ![Service Fabric-bouwactie voor Jenkins][post-build-step]
 
-    > [!NOTE]
-    > Het cluster dat u hier gebruikt, moet het cluster zijn waarin de Jenkins-containertoepassing wordt gehost als u Service Fabric gebruikt om de installatiekopie van de Jenkins-containerinstallatiekopie te implementeren.
-    >
+      > [!NOTE]
+      > Het cluster dat u hier gebruikt, moet het cluster zijn waarin de Jenkins-containertoepassing wordt gehost als u Service Fabric gebruikt om de installatiekopie van de Jenkins-containerinstallatiekopie te implementeren.
+      >
 
 ## <a name="next-steps"></a>Volgende stappen
 GitHub en Jenkins zijn nu geconfigureerd. U zou een aantal voorbeeldwijzigingen in uw ``MyActor``-project in de voorbeeldopslagplaats https://github.com/sayantancs/SFJenkins kunnen aanbrengen. Push de wijzigingen naar een externe ``master``-vertakking (of een andere vertakking die u hebt geconfigureerd om mee te werken). Op die manier wordt de geconfigureerde Jenkins-taak ``MyJob`` geactiveerd. Hiermee worden de wijzigingen opgehaald van GitHub. Daarna worden ze gebouwd en wordt de toepassing geïmplementeerd in het clustereindpunt dat u hebt opgegeven voor de acties ná het bouwen.  

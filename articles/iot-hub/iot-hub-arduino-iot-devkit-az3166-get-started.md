@@ -12,13 +12,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: deb362796966524ec2db5808623d2f92a1bf44e1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Verbinding maken met IoT DevKit AZ3166 Azure IoT Hub in de cloud
 
@@ -197,42 +197,45 @@ Het ZIP-bestand bevat de volgende hulpprogramma's en pakketten. Als u al een aan
 
 In de zoekfunctie zoek naar de .zip en pakt:
 
+![Mac OS zoeken](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
+
 Start Terminal app, Ga naar de map die u ZIP-bestand uitpakken en uitvoeren:
 
 ```bash
 ./install.sh
 ```
 
+![Mac OS installeren](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
+
 > [!NOTE] 
 > Als u voldoet aan de Machtigingsfout Homebrew, voert u `brew doctor` downloaden vast. Controleer [Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) voor meer informatie.
 
 U hebt nu alle benodigde hulpprogramma's en pakketten die zijn geïnstalleerd voor Mac OS.
 
-## <a name="open-the-project-folder"></a>Open de projectmap
 
-U start een Azure-IoT-Hub maken, om verbinding te DevKit, en de temperatuur en vochtigheid gegevens verzamelen van sensoren en de gegevens verzenden naar de IoT-hub.
+## <a name="open-the-project-folder"></a>Open de projectmap
 
 ### <a name="start-vs-code"></a>VS Code starten
 
 Zorg ervoor dat uw DevKit niet is verbonden. VS Code eerst te starten en de DevKit aansluiten op uw computer. VS-Code wordt automatisch de DevKit vindt en opent een pagina Inleiding:
 
-![Introductiepagina](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+![Introductiepagina](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
-> Van tijd tot tijd, wanneer u Code tegenover start, wordt u gevraagd met fout die Arduino IDE of verwante mededelingenbord pakket niet vinden. Sluiten tegenover Code, opnieuw starten Arduino IDE en VS-Code moeten Arduino IDE pad correct vinden.
+> In sommige gevallen terwijl u Code van de VS, wordt u gevraagd met een fout dat geen met de Arduino IDE of het gerelateerde mededelingenbord pakket gevonden. VS Code sluiten en opnieuw starten van de Arduino IDE. VS Code moet vervolgens Ga naar het pad Arduino IDE.
 
 
 ### <a name="open-the-arduino-examples-folder"></a>Open de map Arduino-voorbeelden
 
-Vouw de linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **GetStarted**. Hiermee wordt een nieuw venster van de VS Code project map in het geopend.
+Op de **Arduino voorbeelden** tabblad, blader naar **voorbeelden voor MXCHIP AZ3166** > **AzureIoT**, en selecteer **GetStarted**.
 
-![Tabblad Arduino-voorbeelden](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
+![Tabblad Arduino-voorbeelden](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 Als u per ongeluk het venster sluit, kunt u deze opnieuw openen. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) typt u de opdracht om palet te openen, **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
 
 ## <a name="provision-azure-services"></a>Azure-services inrichten
 
-In het oplossingsvenster kunt u uw taak uitvoeren via `Ctrl+P` (Mac OS: `Cmd+P`) door te voeren `task cloud-provision`:
+In het oplossingsvenster kunt u uw taak uitvoeren via `Ctrl+P` (Mac OS: `Cmd+P`) door te voeren `task cloud-provision`.
 
 In de terminal VS-Code in leert een interactieve opdrachtregel u de vereiste Azure-services inrichten:
 
@@ -240,25 +243,23 @@ In de terminal VS-Code in leert een interactieve opdrachtregel u de vereiste Azu
 
 ## <a name="build-and-upload-the-arduino-sketch"></a>Bouwen en de Arduino schema uploaden
 
-### <a name="install-the-required-library"></a>Installeer de vereiste bibliotheek
+### <a name="windows"></a>Windows
 
-1. Druk op `F1` of `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) typt u de opdracht om palet te openen, **Arduino**, en zoek en selecteer **Arduino: Library Manager**.
-
-2. Zoeken naar de **ArduinoJson** bibliotheek en selecteer **installeren**: ![bibliotheek Arduino installeren](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)
-
-### <a name="build-and-upload-the-device-code-windows"></a>Maken en uploaden van de apparaatcode (Windows)
 1. Gebruik `Ctrl+P` om uit te voeren `task device-upload`.
 2. De terminal vraagt u om de configuratie activeren. Om dit te doen, houdt u A, en vervolgens push en release van de knop herstellen. Het scherm wordt weergegeven voor de DevKit-id en 'Configuration'.
 
 Dit is het instellen van de verbindingsreeks die wordt opgehaald uit `task cloud-provision` stap.
 
-Vervolgens wordt de terminal gestart te controleren en het schema Arduino uploaden:
+VS Code begint vervolgens te controleren en het schema Arduino uploaden:
 
 ![Verificatie en uploaden van het schema Arduino](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
 
 De DevKit opnieuw wordt opgestart en de code wordt gestart.
 
-### <a name="build-and-upload-the-device-code-mac"></a>Bouwen en de apparaatcode (Mac) uploaden
+> [!NOTE] 
+> In sommige gevallen krijgt u de fout ' fout: AZ3166: onbekende pakket '. Dit wordt veroorzaakt door het mededelingenbord package index is niet vernieuwd. Dit selectievakje inschakelt [Veelgestelde vragen over stappen](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) voor het oplossen van deze.
+
+### <a name="macos"></a>macOS
 
 1. DevKit in configuratiemodus geplaatst: houd knop A, en vervolgens push en release van de knop herstellen. Het scherm weergegeven 'Configuration'.
 2. Gebruik `Cmd+P` om uit te voeren `task device-upload`.
@@ -271,13 +272,17 @@ VS Code begint vervolgens te controleren en het schema Arduino uploaden:
 
 De DevKit opnieuw wordt opgestart en de code wordt gestart.
 
+> [!NOTE] 
+> In sommige gevallen krijgt u de fout ' fout: AZ3166: onbekende pakket '. Dit wordt veroorzaakt door het mededelingenbord package index is niet vernieuwd. Dit selectievakje inschakelt [Veelgestelde vragen over stappen](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) voor het oplossen van deze.
+
+
 ## <a name="test-the-project"></a>Het project testen
 
 In de VS Code volgende stappen uit om te openen en het instellen van de seriële Monitor:
 
 1. Klik op de `COM[X]` word op de statusbalk om in te stellen met de juiste COM-poort `STMicroelectronics`: ![com-poort](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
-2. Klik op power plug-pictogram op de statusbalk om te openen van de seriële Monitor: ![serieel-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
+2. Klik op power plug-pictogram op de statusbalk om te openen van de seriële Monitor: ![serieel-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
 
 3. Klik op de statusbalk op het getal dat de Baud-Rate en ingesteld op `115200`: ![baud-rate](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
 

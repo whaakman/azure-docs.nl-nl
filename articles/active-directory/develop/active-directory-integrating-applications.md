@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -178,7 +178,7 @@ De volgende sectie leest u hoe toegangsbereiken, door het wijzigen van de resour
   }
   ```
   > [!NOTE]
-  > De waarde 'id' moet worden gegenereerd met een hulpprogramma voor het genereren van GUID zoals [guidgen]] (https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) of via een programma. Een unieke id voor de scope is door de web-API beschikbaar gesteld. Zodra een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot uw web-API, is het een toegangstoken OAuth2.0 uitgegeven door Azure AD. Wanneer de clientaanroepen van de de web-API, dit geeft het toegangstoken dat het bereik (scp) heeft ingesteld claim de machtigingen die in de registratie van de toepassing wordt aangevraagd.
+  > De waarde 'id' moet worden gegenereerd met een hulpprogramma voor het genereren van GUID, zoals [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) of via een programma. Een unieke id voor de scope is door de web-API beschikbaar gesteld. Zodra een client op de juiste wijze is geconfigureerd met machtigingen voor toegang tot uw web-API, is het een toegangstoken OAuth2.0 uitgegeven door Azure AD. Wanneer de clientaanroepen van de de web-API, dit geeft het toegangstoken dat het bereik (scp) heeft ingesteld claim de machtigingen die in de registratie van de toepassing wordt aangevraagd.
   >
   > Extra scopes later zo nodig kan worden blootgesteld. U kunt uw web-API kan meerdere scopes die zijn gekoppeld met tal van verschillende functies worden blootgesteld. De resource toegang tot de web-API tijdens runtime, beheren door te evalueren van het bereik (`scp`) claim (s) in de ontvangen toegangstoken van OAuth 2.0.
   > 

@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Het inschakelen van geneste netwerkvirtualisatie in een Azure VM
 
@@ -140,7 +140,7 @@ Volg onderstaande stappen voor het configureren van DHCP op de host virtuele mac
   
 2. In de wizard op **volgende** totdat de pagina serverfuncties.
   
-3. Selecteer de **DHCP-Server** selectievakje, klikt u op **onderdelen toevoegen**, en klik vervolgens op**volgende** totdat u de wizard hebt voltooid.
+3. Selecteer de **DHCP-Server** selectievakje, klikt u op **onderdelen toevoegen**, en klik vervolgens op **volgende** totdat u de wizard hebt voltooid.
   
 4. Klik op **Install**.
 
@@ -159,7 +159,7 @@ Volg onderstaande stappen voor het configureren van DHCP op de host virtuele mac
 6. Klik op **volgende** totdat de wizard is voltooid, klikt u vervolgens alle standaardwaarden verlaten op **voltooien**.
     
 ### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Optie 2: Stel handmatig een statisch IP-adres op de virtuele gastmachine
-Als u DHCP wilt dynamisch een IP-adres toe de virtuele gastmachine toewijzen, als volgt te werk om in te stellen van een statisch IP-adres niet hebt geconfigureerd.
+Als u DHCP om dynamisch een IP-adres toewijzen aan de virtuele gastmachine niet hebt geconfigureerd, volgt u deze stappen om een statisch IP-adres.
 
 1. Open PowerShell als beheerder op de virtuele machine van Azure.
 

@@ -1,6 +1,7 @@
 ---
 title: Een bestaande aangepaste DNS-naam toegewezen aan Azure Web Apps | Microsoft Docs
 description: Informatie over het toevoegen van een bestaande aangepaste DNS-domeinnaam (vanity domein) aan een web-app, back-end voor mobiele app of API-app in Azure App Service.
+keywords: App service, azure app service, domein toewijzing, domeinnaam, bestaand domein, hostnaam
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Een bestaande aangepaste DNS-naam toegewezen aan Azure-Web-Apps
 
@@ -269,6 +270,27 @@ Selecteer de  **+**  pictogram opnieuw naar een andere hostnaam die overeenkomt 
 Blader naar de DNS-namen die u eerder hebt geconfigureerd (bijvoorbeeld `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, en `sub2.contoso.com`).
 
 ![Navigatie naar Azure-app in de portal](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>404-fout 'Website niet gevonden' oplossen
+
+Als er een HTTP 404 (niet gevonden)-fout bij het bladeren naar de URL van uw aangepaste domein, moet u controleren of uw domein wordt omgezet naar uw app IP-adres met <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Als dat niet het geval is, dit wordt mogelijk veroorzaakt door een van de volgende redenen:
+
+- Het aangepaste domein geconfigureerd ontbreekt een A-record en/of een CNAME-record.
+- De browserclient heeft het oude IP-adres van uw domein in de cache. Wis de cache en test DNS-omzetting opnieuw. Op een Windows-machine, schakelt u in de cache `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Standaard-URL naar een aangepaste map omleiden
+
+Standaard stuurt App Service webaanvragen naar de hoofdmap van uw app-code. Echter starten bepaalde frameworks web niet in de hoofdmap. Bijvoorbeeld: [Laravel](https://laravel.com/) start in de `public` submap. Om door te gaan de `contoso.com` DNS-voorbeeld, zoals een app is toegankelijk op `http://contoso.com/public`, maar u zeker wilt sturen `http://contoso.com` naar de `public` directory in plaats daarvan. Deze stap niet hebben betrekking op DNS-omzetting, maar de virtuele map aanpassen.
+
+Om dit te doen, selecteert u **toepassingsinstellingen** in de linkernavigatiebalk van uw web-app-pagina. 
+
+Aan de onderkant van de pagina, de virtuele hoofdmap `/` verwijst naar `site\wwwroot` standaard is dit de hoofdmap van uw app-code. Wijzig deze verwijzen naar de `site\wwwroot\public` in plaats daarvan bijvoorbeeld en sla de wijzigingen. 
+
+![Virtuele map aanpassen](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+Nadat de bewerking is voltooid, moet u de app worden de juiste pagina op het hoofdpad (bijvoorbeeld http://contoso.com) geretourneerd.
 
 ## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
 

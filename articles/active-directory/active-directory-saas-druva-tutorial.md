@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Zelfstudie: Azure Active Directory-integratie met Druva
 
@@ -104,23 +104,29 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Op de **Druva domein en de URL's** sectie, voert u de volgende stappen uit:
+3. Op de **Druva domein en de URL's** sectie als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    In de **id** textbox, typt u de string-waarde:`druva-cloud`
+    
+4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** modus gestart:
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     In de **aanmeldings-URL** textbox, typ de URL:`https://cloud.druva.com/home`
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Uw toepassing Druva verwacht de SAML-asserties in een specifieke indeling waarvoor u het toevoegen van aangepast kenmerktoewijzingen aan uw **SAML-Token kenmerken** configuratie. 
+6. Uw toepassing Druva verwacht de SAML-asserties in een specifieke indeling waarvoor u het toevoegen van aangepast kenmerktoewijzingen aan uw **SAML-Token kenmerken** configuratie. 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
+7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
 
-    | Naam van kenmerk      | De waarde van kenmerk      |
+    | Kenmerknaam      | Kenmerkwaarde      |
     | ------------------- | -------------------- |
     | synchroon\_auth\_token |Voer de token gegenereerde waarde |
     
@@ -136,47 +142,47 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     d. Klik op **OK**.    
 
-7. Klik op **opslaan** knop.
+8. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. Op de **Druva configuratie** sectie, klikt u op **configureren Druva** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's en SAML Single Sign-On Service** van de **Naslaggids punt.**
+9. Op de **Druva configuratie** sectie, klikt u op **configureren Druva** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's en SAML Single Sign-On Service** van de **Naslaggids punt.**
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. In een ander browservenster, meld u aan bij uw bedrijf Druva site als beheerder.
+10. In een ander browservenster, meld u aan bij uw bedrijf Druva site als beheerder.
 
-10. Ga naar **beheren \> instellingen**.
+11. Ga naar **beheren \> instellingen**.
 
     ![Instellingen](./media/active-directory-saas-druva-tutorial/ic795091.png "instellingen")
 
-11. Voer de volgende stappen uit in het dialoogvenster Instellingen voor eenmalige aanmelding:
+12. Voer de volgende stappen uit in het dialoogvenster Instellingen voor eenmalige aanmelding:
 
     ![Eenmalige aanmelding instellingen](./media/active-directory-saas-druva-tutorial/ic795092.png "eenmalige aanmelding-instellingen")
     
-    a. Plakken **SAML Single Sign-On Service-URL** waarde, die u hebt gekopieerd vanuit de Azure-portal in de **ID-Provider aanmeldings-URL** textbox.
-    
-    b. Plakken **Sign-Out URL** waarde, die u hebt gekopieerd vanuit de Azure-portal in de **ID-Provider afmelding URL** textbox.
-    
-     c. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **ID-Provider certificaat** tekstvak
+    a. In **ID-Provider aanmeldings-URL** textbox, plak de waarde van **Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+        
+    b. In **ID-Provider afmelding URL** textbox, plak de waarde van **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal
+        
+    c. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **ID-Provider certificaat** tekstvak
      
-     d. Openen van de **instellingen** pagina, klikt u op **opslaan**.
+    d. Openen van de **instellingen** pagina, klikt u op **opslaan**.
 
-12. Op de **instellingen** pagina, klikt u op **SSO-Token genereren**.
+13. Op de **instellingen** pagina, klikt u op **SSO-Token genereren**.
 
     ![Instellingen](./media/active-directory-saas-druva-tutorial/ic795093.png "instellingen")
 
-13. Op de **Single Sign-on-verificatietoken** dialoogvenster de volgende stappen uitvoeren:
+14. Op de **Single Sign-on-verificatietoken** dialoogvenster de volgende stappen uitvoeren:
 
     ![SSO-Token](./media/active-directory-saas-druva-tutorial/ic795094.png "SSO-Token")
     
-    a. Klik op **kopie**, plakken gekopieerd waarde in de **waarde** textbox in de **kenmerk toevoegen** sectie.
+    a. Klik op **kopie**, plakken gekopieerd waarde in de **waarde** textbox in de **kenmerk toevoegen** sectie in de Azure-portal.
     
     b. Klik op **Sluiten**.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -280,8 +286,6 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
 In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten.
@@ -163,6 +163,7 @@ Toegestane operators
 | Bedrijfsnaam | Een tekenreekswaarde of *null* | (user.companyName - eq '' waarde '') |
 | Afdeling |Een tekenreekswaarde of *null* |(user.department - eq '' waarde '') |
 | Weergavenaam |Waarde van een tekenreeks |(user.displayName - eq '' waarde '') |
+| werknemer-id |Waarde van een tekenreeks |(user.employeeId - eq '' waarde '')<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber - eq '' waarde '') |
 | Voornaam |Een tekenreekswaarde of *null* |(user.givenName - eq '' waarde '') |
 | Functie |Een tekenreekswaarde of *null* |(user.jobTitle - eq '' waarde '') |

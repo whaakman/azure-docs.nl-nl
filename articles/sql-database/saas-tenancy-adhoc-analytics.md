@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ad-hoc analytics query's uitvoeren op meerdere Azure SQL-databases
 
-In deze zelfstudie maakt uitvoeren u gedistribueerde query's op de hele set tenant databases zodat ad-hoc interactieve rapportage. Deze query's kunnen inzicht in de dagelijkse operationele gegevens van de app Wingtip Tickets SaaS overspoeld extraheren. U doet dit door u een database voor aanvullende analyses implementeren in de catalogusserver en elastische Query gebruiken om in te schakelen gedistribueerde query's.
+In deze zelfstudie maakt uitvoeren u gedistribueerde query's op de hele set tenant databases zodat ad-hoc interactieve rapportage. Deze query's kunnen inzicht in de dagelijkse operationele gegevens van de app Wingtip Tickets SaaS overspoeld extraheren. U doet dit door een extra analytics-database op de catalogusserver implementeren en elastische Query gebruiken om in te schakelen gedistribueerde query's.
 
 
 In deze zelfstudie komen deze onderwerpen aan bod:
@@ -57,7 +57,7 @@ Door query's over de tenant-databases worden verdeeld, biedt elastische Query on
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De toepassingsscripts Wingtip Tickets SaaS Database Per Tenant ophalen
 
-De scripts Wingtip Tickets SaaS Database Per Tenant en de broncode van toepassing zijn beschikbaar in de [github-repo-WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Zorg ervoor dat u Volg de stappen die worden beschreven in de Leesmij-bestand blokkering opheffen.
+De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-opslagplaats. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 
 ## <a name="create-ticket-sales-data"></a>Ticket verkoopgegevens maken
 
@@ -71,9 +71,9 @@ Voor informatie over het uitvoeren van query's op basis van een gegevensset inte
 
 In de toepassing Wingtip Tickets SaaS Database Per Tenant krijgt elke tenant een database. De gegevens in de databasetabellen is dus afgestemd op het perspectief van een enkele tenant. Bij het uitvoeren van query's voor alle databases, is het echter belangrijk dat de gegevens in elastische Query kan worden behandeld alsof deze een onderdeel van één logische database shard door tenant is. 
 
-Om te simuleren dit patroon, een reeks 'global' weergaven worden toegevoegd aan de tenant-database dat project een tenant-id in elk van de tabellen die globaal worden opgevraagd. Bijvoorbeeld, de *VenueEvents* weergave toegevoegd een berekende *VenueId* aan de kolommen geprojecteerd vanuit de *gebeurtenissen* tabel. Op dezelfde manier de *VenueTicketPurchases* en *VenueTickets* weergaven toevoegen een berekende *VenueId* kolom geprojecteerd uit hun respectieve tabellen. Deze weergaven worden gebruikt door elastische Query om query's en push ze naar beneden op de juiste externe tenant-database wanneer parallelize een *VenueId* kolom aanwezig is. Dit vermindert aanzienlijk de hoeveelheid gegevens die wordt geretourneerd en resulteert in een aanzienlijke toename van de prestaties voor veel query's. Deze globale weergaven zijn vooraf gemaakte in alle databases van de tenant.
+Om te simuleren dit patroon, een reeks 'global' weergaven worden toegevoegd aan de tenant-database dat project een tenant-ID in elk van de tabellen die globaal worden opgevraagd. Bijvoorbeeld, de *VenueEvents* weergave toegevoegd een berekende *VenueId* aan de kolommen geprojecteerd vanuit de *gebeurtenissen* tabel. Op dezelfde manier de *VenueTicketPurchases* en *VenueTickets* weergaven toevoegen een berekende *VenueId* kolom geprojecteerd uit hun respectieve tabellen. Deze weergaven worden gebruikt door elastische Query om query's en push ze naar beneden op de juiste externe tenant-database wanneer parallelize een *VenueId* kolom aanwezig is. Dit vermindert aanzienlijk de hoeveelheid gegevens die wordt geretourneerd en resulteert in een aanzienlijke toename van de prestaties voor veel query's. Deze globale weergaven zijn vooraf gemaakte in alle databases van de tenant.
 
-1. Open SSMS en [verbinding maken met de tenants1 -&lt;gebruiker&gt; server](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Open SSMS en [verbinding maken met de tenants1 -&lt;gebruiker&gt; server](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Vouw **Databases**, met de rechtermuisknop op **contosoconcerthall**, en selecteer **nieuwe Query**.
 3. De volgende query's uitvoeren om het verschil tussen de tabellen voor één tenant en de globale weergaven verkennen:
 
@@ -95,7 +95,7 @@ In deze weergaven de *VenueId* wordt berekend als een hash van de naam wilt, maa
 
 Om te onderzoeken van de definitie van de *plaatsen* weergeven:
 
-1. In **Objectverkenner**, vouw **contosoconcethall** > **weergaven**:
+1. In **Objectverkenner**, vouw **contosoconcerthall** > **weergaven**:
 
    ![Weergaven](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -121,13 +121,13 @@ In deze oefening wordt schema (de externe gegevensbron en een externe tabeldefin
 
 1. Open SQL Server Management Studio en verbinding maken met de ad-hoc rapportagedatabase die u in de vorige stap hebt gemaakt. De naam van de database is *ad-hoc reporting*.
 2. Open ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *initialiseren AdhocReportingDB.sql* in SSMS.
-3. Controleer het SQL-script en Let op het volgende:
+3. Raadpleeg de SQL-script en de opmerking:
 
    Een database-scoped referentie elastische Query gebruikt voor toegang tot elk van de tenant-databases. Deze referentie moet beschikbaar zijn in alle databases en moeten normaal gesproken verleend de minimale rechten nodig zijn voor deze ad-hocquery's inschakelen.
 
     ![referentie maken](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   De externe gegevensbron die is gedefinieerd voor het gebruik van de tenant shard-toewijzing in de catalogusdatabase. Query's worden via deze als de externe gegevensbron, gedistribueerd naar alle databases in de catalogus wordt geregistreerd wanneer de query wordt uitgevoerd. Omdat servernamen verschillend voor elke implementatie zijn, dit Initialisatiescript van de locatie van de catalogusdatabase opgehaald door op te halen van de huidige server (@@servername) waarop het script wordt uitgevoerd.
+   Query's worden door de catalogusdatabase als de externe gegevensbron, gedistribueerd naar alle databases in de catalogus wordt geregistreerd wanneer de query wordt uitgevoerd. Omdat servernamen verschillend voor elke implementatie zijn, dit Initialisatiescript van de locatie van de catalogusdatabase opgehaald door op te halen van de huidige server (@@servername) waarop het script wordt uitgevoerd.
 
     ![externe gegevensbron maken](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Nu de *ad-hoc reporting* database is ingesteld, gaat u verder gaan en sommige ge
 
 Bij de inspectie van het uitvoeringsplan Beweeg de muisaanwijzer over de pictogrammen plan voor meer informatie. 
 
-Belangrijk te weten, is deze instelling **DISTRIBUTION = SHARDED(VenueId)** wanneer we de externe gegevensbron gedefinieerd, verbetert de prestaties voor veel scenario's. Omdat elke *VenueId* is toegewezen aan een individuele database, is eenvoudig gefilterd op afstand, retourneert alleen de gegevens die we nodig hebben.
+Belangrijk te weten, is deze instelling **DISTRIBUTION = SHARDED(VenueId)** verbetert de prestaties voor veel scenario's als de externe gegevensbron is gedefinieerd. Aangezien aan elk *VenueId* is toegewezen aan een individuele database, is eenvoudig gefilterd op afstand, alleen de benodigde gegevens retourneren.
 
 1. Open... \\Learning-Modules\\operationele Analytics\\ad-hoc Reporting\\*Demo AdhocReportingQueries.sql* in SSMS.
 2. Zorg ervoor dat u verbonden bent met de **ad-hoc reporting** database.
@@ -160,7 +160,7 @@ Belangrijk te weten, is deze instelling **DISTRIBUTION = SHARDED(VenueId)** wann
 
    De query retourneert de hele wetten lijst ter illustratie van hoe snel en eenvoudig het is in alle tenants opvragen en gegevens retourneren vanaf elke tenant.
 
-   Bekijk het plan en dat alle kosten voor de externe query is omdat we gewoon bent gaan naar elke tenant-database en de informatie die u wilt selecteren.
+   Bekijk het plan en dat alle kosten voor de externe query is omdat elke tenant database een eigen query verwerkt en de informatie wilt retourneert.
 
    ![Selecteer * uit dbo. Plaatsen](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Belangrijk te weten, is deze instelling **DISTRIBUTION = SHARDED(VenueId)** wann
 
    Gegevens van de tenant-databases en de lokale lid wordt van deze query *VenueTypes* tabel (lokale computer, zoals deze wordt een tabel de *ad-hoc reporting* database).
 
-   Het plan controleren en zien dat het merendeel van de kosten van de externe query omdat er een query uitvoeren op elke tenant wilt info (dbo. Plaatsen) en voert u een snelle lokale koppelen met de lokale *VenueTypes* tabel de beschrijvende naam te geven.
+   Bekijk het plan en dat het merendeel van de kosten van de externe query is. Elke tenant database retourneert de informatie wilt en voert een lokale koppeling met de lokale *VenueTypes* tabel de beschrijvende naam te geven.
 
    ![Lid worden van lokale en externe gegevens](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Nu selecteren de *op welke dag zijn de meest tickets verkocht?* query en druk op **F5**.
 
-   Deze query heeft iets meer complexe lid worden en cumulatie-instellingen. Wat is belangrijk te weten is dat de meeste van de verwerking op afstand wordt uitgevoerd en nogmaals we alleen de rijen die we nodig hebben terugbrengen, slechts één rij voor elke wetten cumulatieve ticket verkoop aantal per dag retourneren.
+   Deze query heeft iets meer complexe lid worden en cumulatie-instellingen. Wat is belangrijk te weten is dat de meeste van de verwerking op afstand wordt uitgevoerd en nogmaals retourneert alleen de rijen die nodig zijn, één rij voor elke wetten cumulatieve ticket verkoop aantal per dag.
 
    ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 
@@ -189,7 +189,7 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Implementeer een ad-hoc rapportagedatabase en schema niet toevoegen aan deze gedistribueerde query's uitvoeren.
 
 
-Nu proberen de [Tenant Analytics zelfstudie](saas-tenancy-tenant-analytics.md) uitpakken gegevens verkennen met een afzonderlijke analytics-database voor complexere analytics verwerking...
+Nu proberen de [Tenant Analytics zelfstudie](saas-tenancy-tenant-analytics.md) uitpakken gegevens verkennen met een afzonderlijke analytics-database voor complexere analytics-verwerking.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

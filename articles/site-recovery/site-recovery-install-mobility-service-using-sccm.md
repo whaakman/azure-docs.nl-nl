@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 11/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: 49b72cd306aa91f114af7688f02d95db6f6eca05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cfcc20b55b9e9b662ea8eec0802727b9a5a0ebf0
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>Installatie van de Mobility-Service automatiseren met behulp van hulpprogramma's voor software-implementatie
 
@@ -56,7 +56,7 @@ Dit artikel bevat een voorbeeld van hoe u System Center Configuration Manager ge
 
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-6. Kopieer de  **Microsoft ASR\_UA\_*versie*\_Windows\_GA\_*datum* \_Release.exe** naar de **MobSvcWindows** map op de netwerkshare.
+6. Kopieer de * *Microsoft ASR\_UA\_*versie*\_Windows\_GA\_*datum* \_Release.exe** naar de **MobSvcWindows** map op de netwerkshare.
 7. Kopieer de volgende code en sla het bestand als **install.bat** in de **MobSvcWindows** map.
 
    > [!NOTE]
@@ -197,7 +197,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="step-3-deploy-the-package"></a>Stap 3: Het pakket implementeren
 1. Met de rechtermuisknop op het pakket in de Configuration Manager-console en selecteer **inhoud distribueren**.
   ![Schermopname van Configuration Manager-console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. Selecteer de  **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  u aan bij de pakketten moeten worden gekopieerd.
+2. Selecteer de ** [distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints) ** u aan bij de pakketten moeten worden gekopieerd.
 3. Voltooi de wizard. Het pakket vervolgens wordt gestart repliceren naar de opgegeven distributiepunten.
 4. Nadat de pakketdistributie is voltooid, met de rechtermuisknop op het pakket en selecteert u **implementeren**.
   ![Schermopname van Configuration Manager-console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
@@ -420,7 +420,7 @@ cd /tmp
 ### <a name="step-3-deploy-the-package"></a>Stap 3: Het pakket implementeren
 1. Met de rechtermuisknop op het pakket in de Configuration Manager-console en selecteer **inhoud distribueren**.
   ![Schermopname van Configuration Manager-console](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. Selecteer de  **[distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  u aan bij de pakketten moeten worden gekopieerd.
+2. Selecteer de ** [distributiepunten](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints) ** u aan bij de pakketten moeten worden gekopieerd.
 3. Voltooi de wizard. Het pakket vervolgens wordt gestart repliceren naar de opgegeven distributiepunten.
 4. Nadat de pakketdistributie is voltooid, met de rechtermuisknop op het pakket en selecteert u **implementeren**.
   ![Schermopname van Configuration Manager-console](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)

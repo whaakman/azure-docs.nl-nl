@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/10/2017
-ms.openlocfilehash: 924766aee7486f0cf5006dd89d5d77b83753833b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 60db74535edd09841a1b660c2bf832af65fbfcad
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="deploy-and-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Implementeren en Azure Machine Learning-model voor een Azure-IoT-randapparaat
+# <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Een Azure Machine Learning-model implementeren op een Azure-IoT-randapparaat
 
 Alle Azure Machine Learning-modellen als webservices op basis van Docker beperkte kunnen ook uitvoeren op Azure IoT Edge-apparaten. Extra scripts en instructies vindt u in de [AI Toolkit voor Azure IoT rand](http://aka.ms/AI-toolkit).
 

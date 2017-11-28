@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: df9ba6367b2d2ce1b2c281ce483e63b0baa9feb6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure Data Factory met Oracle
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,11 +35,11 @@ U kunt gegevens van Oracle-database kopiëren naar een ondersteunde sink-gegeven
 
 In het bijzonder deze Oracle-connector ondersteunt de volgende versies van Oracle-database, en ondersteunt Basic of de OID-verificaties.
 
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+- Oracle 12c R1 (12.1)
+- Oracle 11g R1, R2 (11.1, 11.2)
+- Oracle 10g R1, R2 (10.1, 10.2)
+- Oracle 9i R1, R2 (9.0.1, 9.2)
+- Oracle 8i R3 (8.1.7)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -207,26 +207,26 @@ Bij het kopiëren van gegevens van/naar Oracle, worden de volgende toewijzingen 
 | Oracle-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BBESTAND |Byte] |
-| BLOB |Byte] |
-| CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
-| DATUM |Datum/tijd |
+| BLOB |Byte]<br/>(alleen ondersteund voor Oracle 10g en hoger) |
+| CHAR |Reeks |
+| CLOB |Reeks |
+| DATUM |Datum en tijd |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
-| LANG |Tekenreeks |
+| LANG |Reeks |
 | LANGE ONBEWERKTE |Byte] |
-| NCHAR |Tekenreeks |
-| NCLOB |Tekenreeks |
+| NCHAR |Reeks |
+| NCLOB |Reeks |
 | AANTAL |Decimaal, tekenreeks (als precision > 28) |
-| NVARCHAR2 |Tekenreeks |
+| NVARCHAR2 |Reeks |
 | ONBEWERKTE |Byte] |
-| ROWID |Tekenreeks |
-| TIJDSTEMPEL |Datum/tijd |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Tekenreeks |
-| TIJDSTEMPEL MET TIJDZONE |Tekenreeks |
+| ROWID |Reeks |
+| TIJDSTEMPEL |Datum en tijd |
+| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Reeks |
+| TIJDSTEMPEL MET TIJDZONE |Reeks |
 | NIET-ONDERTEKEND GEHEEL GETAL |Aantal |
-| VARCHAR2 |Tekenreeks |
-| XML |Tekenreeks |
+| VARCHAR2 |Reeks |
+| XML |Reeks |
 
 > [!NOTE]
 > Gegevenstype INTERVAL jaar, maand en INTERVAL dag aan worden tweede niet ondersteund.

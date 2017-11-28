@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Informatie over het inrichten van nieuwe tenants en registreert u ze in de catalogus
 
@@ -68,9 +68,9 @@ De inrichting aanpak die u gebruikt moet worden comprehended in de algemene sche
 De Database Wingtip Tickets SaaS per Tenant app richt nieuwe tenants door te kopiëren van de sjabloondatabase van een met de naam _basetenantdb_, geïmplementeerd op de GC-server.  Inrichting kan worden geïntegreerd in de toepassing als onderdeel van een aanmelding ervaring en/of ondersteunde offline met behulp van scripts. Deze zelfstudie behandelt inrichten met behulp van PowerShell. De inrichting scripts Kopieer de basetenantdb database voor het maken van een nieuwe tenant-database in een elastische pool en vervolgens het met tenant-specifieke gegevens initialiseren en registreren in de catalogus shard-toewijzing.  In Wingtip Tickets SaaS Database Per tenant-app krijgen tenant databases namen op basis van de naam van de tenant, maar dit is geen een essentieel onderdeel van het patroon – het gebruik van de catalogus kunnen elke willekeurige naam moet worden toegewezen aan de tenant-databases. + 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De toepassingsscripts Wingtip Tickets SaaS Database Per Tenant ophalen
 
-De Wingtip SaaS-scripts en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-opslagplaats. [Stappen voor het downloaden van de scripts Wingtip Tickets SaaS](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-opslagplaats. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Gedetailleerd overzicht van inrichten en catalogiseren

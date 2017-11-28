@@ -12,28 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 03/19/2017
+ms.date: 11/13/2017
 ms.author: kraigb
-ms.openlocfilehash: b2578c837732ab05d538e9b896ed3a3035075a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54acfc7c686dc7025368c381d79cde93d7d48fc5
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>Toegang tot persoonlijke Azure-clouds met Visual Studio
-Visual Studio ondersteunt standaard openbare Azure-cloud REST-eindpunten. In dit onderwerp leert u hoe uw persoonlijke cloud-certificaat gebruiken voor toegang tot - en interactie met - de privécloud vanuit Visual Studio.
 
-## <a name="to-access-a-private-azure-cloud-in-visual-studio"></a>Voor toegang tot een persoonlijke Azure cloud in Visual Studio
-1. In de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885) download het bestand met publicatie-instellingen voor de privécloud, of neem contact op met uw beheerder voor een bestand met publicatie-instellingen. Op de openbare versie van Azure, de koppeling voor het downloaden van dit is [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (Het gedownloade bestand moet een extensie van `.publishsettings`)
+Visual Studio ondersteunt standaard Azure-cloud REST-eindpunten. In dit artikel leert u hoe u uw persoonlijke cloud-certificaat gebruiken voor toegang tot en communiceren met de privécloud vanuit Visual Studio.
 
-1. Open Visual Studio
+1. Download het bestand met publicatie-instellingen in de Azure portal voor de privécloud, of neem contact op met uw beheerder voor een bestand met publicatie-instellingen. (Het bestand de extensie heeft `.publishsettings`.)
 
-1. In **Server Explorer**, met de rechtermuisknop op de **Azure** knooppunt en selecteer in het contextmenu **beheren en Filter abonnementen**.
-   
+1. In Visual Studio **Server Explorer**, met de rechtermuisknop op de **Azure** uit en selecteer **beheren en Filter abonnementen**.
+
     ![Opdracht voor abonnementen beheren](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790778.png)
 
 1. In de **Microsoft Azure-abonnementen beheren** dialoogvenster, selecteer de **certificaten** tabblad en selecteer vervolgens **importeren**.
-   
+
     ![Azure certificaten importeren](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790779.png)
 
 1. In de **importeren Microsoft Azure-abonnementen** dialoogvenster Selecteer **Bladeren**.
@@ -49,7 +47,4 @@ Visual Studio ondersteunt standaard openbare Azure-cloud REST-eindpunten. In dit
     ![Het bestand met publicatie-instellingen importeren](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790780.png)
 
     De certificaten zijn geïmporteerd uit het bestand met publicatie-instellingen in Visual Studio en u kunt nu werken met de resources van uw privécloud.
-   
-## <a name="next-steps"></a>Volgende stappen
-- [Publiceren naar een Azure Cloudservice vanuit Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-- [How to: downloaden en importeren van instellingen en abonnementsgegevens publiceren](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
+

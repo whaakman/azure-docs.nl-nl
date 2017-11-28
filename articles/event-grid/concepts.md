@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event raster
 
@@ -20,7 +20,7 @@ De belangrijkste concepten in Azure gebeurtenis raster zijn:
 
 ## <a name="events"></a>Gebeurtenissen
 
-Een gebeurtenis is de kleinste hoeveelheid informatie op die volledig beschrijft iets die hebben plaatsgevonden in het systeem.  Elke gebeurtenis heeft een algemene informatie, zoals: bron van de gebeurtenis wanneer de gebeurtenis plaatsgevonden en de unieke id heeft.  Elke gebeurtenis heeft ook specifieke informatie die is alleen relevant zijn voor de specifieke gebeurtenis. Bijvoorbeeld, bevat gebeurtenis over een nieuw bestand wordt gemaakt in Azure Storage informatie over het bestand, zoals de lastTimeModified-waarde. Of een gebeurtenis over een virtuele machine opnieuw opstarten bevat de naam van de virtuele machine en de reden voor het opnieuw opstarten. Elke gebeurtenis is beperkt tot 64 KB aan gegevens.
+Een gebeurtenis is de kleinste hoeveelheid informatie op die volledig beschrijft iets die hebben plaatsgevonden in het systeem.  Elke gebeurtenis heeft een algemene informatie, zoals: bron van de gebeurtenis wanneer de gebeurtenis plaatsgevonden en de unieke id heeft.  Elke gebeurtenis heeft ook specifieke informatie die is alleen relevant zijn voor het specifieke type van de gebeurtenis. Bijvoorbeeld een gebeurtenis over een nieuw bestand wordt gemaakt in Azure Storage bevat details over het bestand, zoals de `lastTimeModified` waarde. Of een gebeurtenis over een virtuele machine opnieuw opstarten bevat de naam van de virtuele machine en de reden voor het opnieuw opstarten. Elke gebeurtenis is beperkt tot 64 KB aan gegevens.
 
 ## <a name="event-sourcespublishers"></a>Gebeurtenisuitgevers bronnen
 
@@ -46,7 +46,7 @@ Wanneer u zich abonneert op een onderwerp, kunt u de gebeurtenissen die worden v
 
 ## <a name="security"></a>Beveiliging
 
-Gebeurtenis biedt beveiliging voor uw abonnement op onderwerpen en publiceren van onderwerpen. Als u zich abonneert, moet u voldoende machtigingen op het bron- of onderwerp hebt. Wanneer u publiceert, moet u een SAS-token of verificatie van de sleutel voor het onderwerp hebben. Zie voor meer informatie [gebeurtenis raster beveiligings- en verificatie](security-authentication.md).
+Gebeurtenis raster biedt beveiliging voor uw abonnement op onderwerpen en publiceren van onderwerpen. Als u zich abonneert, moet u voldoende machtigingen op het bron- of onderwerp hebt. Wanneer u publiceert, moet u een SAS-token of verificatie van de sleutel voor het onderwerp hebben. Zie voor meer informatie [gebeurtenis raster beveiligings- en verificatie](security-authentication.md).
 
 ## <a name="failed-delivery"></a>Mislukte bezorging
 

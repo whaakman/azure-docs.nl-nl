@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Cloud App Discovery instellen in Azure AD
 
@@ -37,7 +37,7 @@ Cloud App Discovery in Azure AD is nu gebaseerd op de integratie met gegevens di
 
 2. [Instellen van continue reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker) voor het analyseren van alle logboeken die zijn doorgestuurd vanaf uw netwerk met behulp van de logboekverzamelaar Cloud App Security. U kunt deze gebruiken om nieuwe apps en trends in gebruik te identificeren.
 
-3. Als uw logboeken worden momenteel niet ondersteund, [instellen van een aangepaste log parser](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) zodat ze door Cloud App Discovery kunt analyseren.
+3. Als uw logboeken worden momenteel niet ondersteund, [instellen van een aangepaste log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser) zodat ze door Cloud App Discovery kunt analyseren.
   
 ## <a name="log-processing-flow"></a>Verwerking van de stroom van de logboekbestanden
 
@@ -65,7 +65,7 @@ Cloud App Discovery gebruikt de gegevens in uw verkeerslogboeken. Meer details d
 * Hoeveelheid geüpload of waarin deze gedownloade gegevens om inzicht te krijgen over patronen van app-cloudgebruik
 * Actie op die (toegestaan/geblokkeerd)
 
-Cloud App Discovery kan weergeven of kenmerken die niet zijn opgenomen in de logboeken te analyseren. Bijvoorbeeld: **Cisco ASA-Firewall** standaard logboekindeling bevat niet de **hoeveelheid geüploade bytes per transactie**, **gebruikersnaam**, of **doel-URL**  , maar alleen het IP-doeladres. Daarom moet u wellicht minder inzicht in de cloud-apps van deze gegevensbron. Voor Cisco ASA firewalls, moet u de informatie-niveau instellen op 6.1.
+Cloud App Discovery kan weergeven of kenmerken die niet zijn opgenomen in de logboeken te analyseren. Bijvoorbeeld: **Cisco ASA-Firewall** standaard logboekindeling bevat niet de **hoeveelheid geüploade bytes per transactie**, **gebruikersnaam**, of **doel-URL ** , maar alleen het IP-doeladres. Daarom moet u wellicht minder inzicht in de cloud-apps van deze gegevensbron. Voor Cisco ASA firewalls, moet u de informatie-niveau instellen op 6.1.
 
 Om een Cloud App Discovery-rapport is gegenereerd, moeten uw verkeerslogboeken voldoen aan de volgende voorwaarden:
 

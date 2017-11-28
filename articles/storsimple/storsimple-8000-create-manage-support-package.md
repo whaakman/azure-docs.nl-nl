@@ -4,7 +4,7 @@ description: Informatie over het maken en bewerken van een ondersteuningspakket 
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Maken en beheren van een ondersteuningspakket voor StorSimple 8000-serie
 
@@ -58,14 +58,14 @@ U kunt uw handmatig gegenereerde ondersteuningspakket delen met Microsoft Suppor
    
    * Voer voor netwerkshares die beveiligd met een wachtwoord zijn:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       U wordt gevraagd een wachtwoord, een pad naar de gedeelde netwerkmap en een wachtwoordzin voor versleuteling (omdat het ondersteuningspakket is versleuteld). Een ondersteuningspakket wordt vervolgens in de opgegeven map gemaakt.
+       U wordt gevraagd om een wachtwoord en een wachtwoordzin voor versleuteling (omdat het ondersteuningspakket is versleuteld). Een ondersteuningspakket wordt vervolgens gemaakt in de standaardmap (apparaatnaam toegevoegd aan de huidige datum en tijd).
    * Voor shares die niet beveiligd met een wachtwoord zijn, hoeft u niet de `-Credential` parameter. Voer het volgende:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       Het ondersteuningspakket wordt gemaakt voor beide domeincontrollers in de opgegeven gedeelde netwerkmap. Het is een versleutelde, gecomprimeerd bestand dat kan worden verzonden naar Microsoft Support voor het oplossen van problemen. Zie voor meer informatie [contact opnemen met Microsoft ondersteuning](storsimple-8000-contact-microsoft-support.md).
+       Het ondersteuningspakket met voor beide domeincontrollers in de standaardmap gemaakt. Het pakket is een versleutelde, gecomprimeerd bestand dat kan worden verzonden naar Microsoft Support voor probleemoplossing. Zie voor meer informatie [contact opnemen met Microsoft ondersteuning](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>De parameters van de cmdlet Export-HcsSupportPackage
 

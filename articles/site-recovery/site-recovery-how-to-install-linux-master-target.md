@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 029e1b51c52e440666238f6177d15aea0a5e07a7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoel-server installeren
 Nadat u uw virtuele machines failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u de doelserver van een lokale voor het ontvangen van het verkeer. 

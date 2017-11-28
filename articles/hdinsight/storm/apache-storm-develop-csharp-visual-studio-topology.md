@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2017
+ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d972def582ff8fee74c2eae59f4756eb1dcd0a70
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van het Data Lake tools voor Visual Studio
 
@@ -42,6 +42,9 @@ Als u wilt gebruiken een C#-topologie met een cluster op basis van Linux, moet u
 
 > [!IMPORTANT]
 > C#-topologieën met op Linux gebaseerde clusters moeten .NET 4.5 en Mono gebruiken om op het HDInsight-cluster te worden uitgevoerd. Controleer [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) voor potentiële compatibiliteitsproblemen.
+
+> [!WARNING]
+> Als u problemen bouwen van de projecten die gebruikmaken van SCP.NET versie 1.0.0.x, neem contact op met Microsoft ondersteuning voor hulp.
 
 ## <a name="install-visual-studio"></a>Visual Studio installeren
 

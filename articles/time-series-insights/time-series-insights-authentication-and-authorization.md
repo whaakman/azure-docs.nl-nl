@@ -1,5 +1,5 @@
 ---
-title: Verificatie en autorisatie API's in Azure Time Series Insights configureren
+title: "Het verifiëren en autoriseren door Azure Time Series Insights-API"
 description: In dit artikel wordt beschreven hoe configureren voor verificatie en autorisatie voor een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Verificatie en autorisatie voor Azure Time Series Insights-API
 
@@ -32,7 +32,7 @@ Wanneer u een toepassing die u toegang Time Series Insights moet hebt, moet u ee
 * U hoeft niet te wijzigen van de referenties van de app als uw verantwoordelijkheden wijzigt.
 * U kunt een certificaat of een Toepassingssleutel automatiseren verificatie wanneer u een script zonder toezicht uitvoert.
 
-Dit onderwerp wordt beschreven hoe u deze stappen uitvoert via de Azure portal. Het is gericht op een één-tenant-toepassing waarin de toepassing is bedoeld om uit te voeren in slechts één organisatie. Doorgaans gebruikt u toepassingen voor één tenant voor line-of-business-toepassingen die worden uitgevoerd in uw organisatie.
+Dit artikel laat zien hoe u deze stappen uitvoert via de Azure portal. Het is gericht op een één-tenant-toepassing waarin de toepassing is bedoeld om uit te voeren in slechts één organisatie. Doorgaans gebruikt u toepassingen voor één tenant voor line-of-business-toepassingen die worden uitgevoerd in uw organisatie.
 
 De setup-stroom bestaat uit drie hoofdstappen:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT rand (preview)
 
@@ -61,6 +61,11 @@ U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/io
 
 #### <a name="create-an-asa-edge-job"></a>Een Edge ASA-taak maken
 1. Maak een nieuwe 'Stream Analytics-taak' vanuit de Azure-portal. [Directe koppeling te maken van een nieuwe ASA-taak hier](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> U kunt de Edge-taken maken in alle regio's wordt ondersteund door ASA, **behalve in 'VS-West 2' regio**.
+> Deze beperking wordt binnenkort verwijderd.
+
 2. Selecteer in het scherm voor het maken van **rand** als **hostomgeving** (Zie de volgende afbeelding) ![maken van de taak](media/stream-analytics-edge/ASAEdge_create.png)
 3. Taakdefinitie
     1. **Definieer invoer Stream(s)**. Een of meer invoer stromen voor uw project definiëren.
