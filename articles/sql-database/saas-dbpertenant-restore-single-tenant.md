@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Een enkele tenants Azure SQL database in een multitenant SaaS-app herstellen
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Een enkele tenant Azure SQL database in een multitenant SaaS-app herstellen
 
-De app Wingtip SaaS gebouwd met behulp van een database per tenant-model, waarbij elke tenant hun eigen database heeft. Een van de voordelen van dit model is dat deze gemakkelijk kunt herstellen van gegevens van één tenant in isolatie zonder enige impact op andere tenants.
+De app Wingtip Tickets SaaS gebouwd met behulp van een database per tenant-model, waarbij elke tenant hun eigen database heeft. Een van de voordelen van dit model is dat deze gemakkelijk kunt herstellen van gegevens van één tenant in isolatie zonder enige impact op andere tenants.
 
 In deze zelfstudie leert u twee data recovery patronen:
 
@@ -53,9 +53,9 @@ Gegevens worden in het eerste patroon teruggezet naar een nieuwe database. De te
 
 In het tweede patroon, waarbij ervan wordt uitgegaan dat de tenant heeft geleden een verlies of beschadiging van gegevens, van de tenant-productiedatabase hersteld naar een eerdere punt in tijd. Het herstel in plaats patroon is de tenant offline gezet gedurende een korte periode terwijl de database is hersteld en weer online. De oorspronkelijke database wordt verwijderd, maar kan nog steeds worden hersteld vanuit als u wilt teruggaan naar een zelfs eerder in de tijd. Een variant van dit patroon kan wijzigen in de database in plaats van te verwijderen, hoewel de naam van de database biedt geen extra voordelen in termen van de beveiliging van gegevens.
 
-## <a name="get-the-wingtip-application-scripts"></a>De scripts van de Wingtip-toepassing downloaden
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De toepassingsscripts Wingtip Tickets SaaS Database Per Tenant ophalen
 
-De Wingtip SaaS-scripts en de broncode van toepassing zijn beschikbaar in de [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-opslagplaats. [Stappen voor het downloaden van de scripts Wingtip SaaS](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-opslagplaats. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simuleren van een tenant per ongeluk verwijderen van gegevens
 
@@ -146,6 +146,6 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
-* Aanvullende [zelfstudies waarin voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Aanvullende zelfstudies waarin voort op de Wingtip SaaS-toepassing bouwen](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Overzicht van zakelijke continuïteit met Azure SQL Database](sql-database-business-continuity.md)
 * [Meer informatie over back-ups van SQL-Database](sql-database-automated-backups.md)

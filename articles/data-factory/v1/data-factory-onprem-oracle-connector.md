@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09850217018321f67e2e20270aadd054258c90a2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Gegevens kopiëren van lokale Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -573,28 +573,28 @@ Bij het verplaatsen van gegevens uit Oracle, worden de volgende toewijzingen geb
 | Oracle-gegevenstype | .NET framework-gegevenstype |
 | --- | --- |
 | BBESTAND |Byte] |
-| BLOB |Byte] |
-| CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
-| DATUM |Datum/tijd |
+| BLOB |Byte]<br/>(alleen ondersteund voor Oracle 10g en hoger als met Microsoft-stuurprogramma) |
+| CHAR |Reeks |
+| CLOB |Reeks |
+| DATUM |Datum en tijd |
 | FLOAT |Decimaal, tekenreeks (als precision > 28) |
 | GEHEEL GETAL |Decimaal, tekenreeks (als precision > 28) |
 | INTERVAL JAAR, MAAND |Int32 |
 | TWEEDE INTERVAL DAG |TimeSpan |
-| LANG |Tekenreeks |
+| LANG |Reeks |
 | LANGE ONBEWERKTE |Byte] |
-| NCHAR |Tekenreeks |
-| NCLOB |Tekenreeks |
+| NCHAR |Reeks |
+| NCLOB |Reeks |
 | AANTAL |Decimaal, tekenreeks (als precision > 28) |
-| NVARCHAR2 |Tekenreeks |
+| NVARCHAR2 |Reeks |
 | ONBEWERKTE |Byte] |
-| ROWID |Tekenreeks |
-| TIJDSTEMPEL |Datum/tijd |
-| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Datum/tijd |
-| TIJDSTEMPEL MET TIJDZONE |Datum/tijd |
+| ROWID |Reeks |
+| TIJDSTEMPEL |Datum en tijd |
+| TIJDSTEMPEL MET DE LOKALE TIJDZONE |Datum en tijd |
+| TIJDSTEMPEL MET TIJDZONE |Datum en tijd |
 | NIET-ONDERTEKEND GEHEEL GETAL |Aantal |
-| VARCHAR2 |Tekenreeks |
-| XML |Tekenreeks |
+| VARCHAR2 |Reeks |
+| XML |Reeks |
 
 > [!NOTE]
 > Gegevenstype **INTERVAL aan maand** en **INTERVAL dag naar tweede** worden niet ondersteund bij gebruik van Microsoft-stuurprogramma.

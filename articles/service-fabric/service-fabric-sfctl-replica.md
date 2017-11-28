@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 De replica's die deel uitmaken van servicepartities beheren.
@@ -29,8 +29,7 @@ De replica's die deel uitmaken van servicepartities beheren.
 | --- | --- |
 |    geïmplementeerd  | Hiermee haalt u de details van replica is geïmplementeerd op een Service Fabric-knooppunt.|
 |    geïmplementeerd lijst| Hiermee haalt u de lijst van replica's die zijn geïmplementeerd op een Service Fabric-knooppunt.|
-|    Status    | De status van een Service Fabric stateful service replica of stateless service opgehaald
-                   exemplaar.|
+|    status    | Hiermee haalt u de status van een Service Fabric stateful service replica of stateless service-exemplaar.|
 |    Info      | Hiermee haalt u de informatie over een replica van een Service Fabric-partitie.|
 |    lijst      | Hiermee haalt u de informatie over de replica's van de partitie van een Service Fabric-service.|
 |    verwijderen    | Hiermee verwijdert u de replica van een service uitgevoerd op een knooppunt.|

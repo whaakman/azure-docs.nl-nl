@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: billgib
-ms.openlocfilehash: 346177be29ec196464f4f441858222ac5d5eb8c3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e4b8e38d20ec408869f2228597afdf2f9620515b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Schema voor meerdere tenants in een multitenant-toepassing die gebruikmaakt van Azure SQL Database beheren
 
@@ -45,7 +45,7 @@ Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende 
 * De laatste versie van SQL Server Management Studio (SSMS) moet zijn geïnstalleerd. [SSMS downloaden en installeren](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> *In deze zelfstudie wordt gebruikgemaakt van de functies van de SQL Database-service die deel uitmaken van een beperkte preview (elastische databasetaken). Als u deze zelfstudie wilt volgen, stuurt u uw abonnements-id naar SaaSFeedback@microsoft.com, met als onderwerp 'Elastic Jobs Preview'. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Dit voorbeeld is beperkt, dus neem contact op met SaaSFeedback@microsoft.com voor vragen over of ondersteuning.*
+> Deze zelfstudie maakt gebruik van functies van de service SQL-Database die zich in een beperkte preview (elastische Database taken). Als u deze zelfstudie wilt volgen, stuurt u uw abonnements-id naar SaaSFeedback@microsoft.com, met als onderwerp 'Elastic Jobs Preview'. Wanneer u de bevestiging hebt ontvangen dat uw abonnement is ingeschakeld, [downloadt en installeert u de taak-cmdlets van de voorlopige versie](https://github.com/jaredmoo/azure-powershell/releases). Dit voorbeeld is beperkt, dus neem contact op met SaaSFeedback@microsoft.com voor vragen over of ondersteuning.
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Kennismaking met patronen voor SaaS-schemabeheer
@@ -58,9 +58,9 @@ De shard multitenant-databasemodel gebruikt in dit voorbeeld kunt een database t
 
 Er is een nieuwe versie beschikbaar van Elastische taken; dit is nu een ingebouwde functie in Azure SQL Database (waarvoor geen extra services of onderdelen zijn vereist). Van deze nieuwe versie van Elastische taken is momenteel een beperkte preview beschikbaar. Deze beperkte preview biedt ondersteuning voor PowerShell voor het maken van taakaccounts en voor T-SQL voor het maken en beheren van taken.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Ophalen van de toepassingsscripts Wingtip Tickets SaaS multitenant Database
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ophalen van de broncode van de Database Wingtip Tickets SaaS-multitenant-toepassing en scripts
 
-De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-opslagplaats. <!-- [Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-opslagplaats. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren. 
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Een taakaccountdatabase en een nieuw taakaccount maken
 
@@ -89,13 +89,14 @@ Voor het maken van een nieuwe taak gebruikt u een reeks in het systeem opgeslage
 6. Wijzig de instructie: Stel @User = &lt;gebruiker&gt; en vervang de waarde van de gebruiker gebruikt wanneer u de toepassing Wingtip Tickets SaaS multitenant Database geïmplementeerd.
 7. Druk op **F5** om het script uit te voeren.
 
-    * **SP\_toevoegen\_doel\_groep** wordt gemaakt van de doelgroep naam DemoServerGroup, nu doelleden toevoegen aan de groep.
-    * **SP\_toevoegen\_doel\_groep\_lid** voegt een *server* doeltype lid, die alle databases binnen die server acht (dit is de tenants1 - mt - &lt;gebruiker&gt; server met de database voor tenants) tijdens het uitvoeren van de taak moet worden opgenomen in de taak een *database* lid doeltype, voor de 'gouden'-database (basetenantdb) die zich op catalogus-mt -&lt;gebruiker&gt; server, en ten slotte een *database* lidtype om op te nemen van de ad-hoc reporting-database die wordt gebruikt in een latere zelfstudie richt.
-    * **SP\_toevoegen\_taak** maakt een taak "Implementatie verwijzing gegevens" genoemd.
-    * **SP\_toevoegen\_taakstap** wordt gemaakt met de tekst van T-SQL-opdracht voor het bijwerken van de verwijzingstabel, VenueTypes taakstap.
-    * De resterende weergaven in het script tonen het bestaan van de objecten en controleren de taakuitvoering. Gebruik deze query's om te controleren van de statuswaarde in de **lifecycle** kolom om te bepalen wanneer de taak is voltooid op de database van tenants en de twee extra databases met de referentietabel.
+Houd rekening met het volgende in de *DeployReferenceData.sql* script:
+* **SP\_toevoegen\_doel\_groep** wordt gemaakt van de doelgroep naam DemoServerGroup, nu doelleden toevoegen aan de groep.
+* **SP\_toevoegen\_doel\_groep\_lid** voegt een *server* doeltype lid, die alle databases binnen die server acht (dit is de tenants1 - mt - &lt;gebruiker&gt; server met de database voor tenants) tijdens het uitvoeren van de taak moet worden opgenomen in de taak een *database* lid doeltype, voor de 'gouden'-database (basetenantdb) die zich op catalogus-mt -&lt;gebruiker&gt; server, en ten slotte een *database* lidtype om op te nemen van de ad-hoc reporting-database die wordt gebruikt in een latere zelfstudie richt.
+* **SP\_toevoegen\_taak** maakt een taak "Implementatie verwijzing gegevens" genoemd.
+* **SP\_toevoegen\_taakstap** wordt gemaakt met de tekst van T-SQL-opdracht voor het bijwerken van de verwijzingstabel, VenueTypes taakstap.
+* De resterende weergaven in het script tonen het bestaan van de objecten en controleren de taakuitvoering. Gebruik deze query's om te controleren van de statuswaarde in de **lifecycle** kolom om te bepalen wanneer de taak is voltooid op de database van tenants en de twee extra databases met de referentietabel.
 
-1. In SSMS, blader naar de tenant-database op de *tenants1-mt -&lt;gebruiker&gt;*  server en de query de *VenueTypes* tabel om te bevestigen dat *motor race* en *zwemmen vereniging* zijn nu **toegevoegd* aan de tabel.
+In SSMS, blader naar de tenant-database op de *tenants1-mt -&lt;gebruiker&gt;*  server en de query de *VenueTypes* tabel om te bevestigen dat *motor race* en *zwemmen vereniging* zijn nu **toegevoegd* aan de tabel.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Een taak maken voor het beheren van de referentietabelindex
@@ -105,11 +106,12 @@ Net als bij de vorige oefening, wordt bij deze oefening een taak gemaakt om de i
 
 1. In SSMS, verbinding maken met jobaccount-database in de catalogus-mt -&lt;gebruiker&gt;. database.windows.net-server.
 2. Open in SSMS... \\Learning-Modules\\Schemabeheer\\OnlineReindex.sql.
-3. Druk op **F5** het script uitvoeren
+3. Druk op **F5** om het script uit te voeren.
 
-    * **SP\_toevoegen\_taak** maakt een nieuwe taak genaamd ' Online opnieuw indexeren PK\_\_VenueTyp\_\_265E44FD7FD4C885 '.
-    * **SP\_toevoegen\_taakstap** taakstap met T-SQL-opdrachttekst voor het bijwerken van de index maakt.
-    * De resterende weergaven in de script monitor taak wordt uitgevoerd. Gebruik deze query's om te controleren van de statuswaarde in de **lifecycle** kolom om te bepalen wanneer de taak is voltooid op op alle leden van de doel-groep.
+Houd rekening met het volgende in de *OnlineReindex.sql* script:
+* **SP\_toevoegen\_taak** maakt een nieuwe taak genaamd ' Online opnieuw indexeren PK\_\_VenueTyp\_\_265E44FD7FD4C885 '.
+* **SP\_toevoegen\_taakstap** taakstap met T-SQL-opdrachttekst voor het bijwerken van de index maakt.
+* De resterende weergaven in de script monitor taak wordt uitgevoerd. Gebruik deze query's om te controleren van de statuswaarde in de **lifecycle** kolom om te bepalen wanneer de taak is voltooid op op alle leden van de doel-groep.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -121,7 +123,7 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Gegevens in alle tenantdatabases bijwerken
 > * Een index in een tabel maken in alle tenantdatabases
 
-[Zelfstudie over ad-hocanalyses](saas-multitenantdb-adhoc-reporting.md)
+Probeer vervolgens de [Ad-hoc reporting zelfstudie](saas-multitenantdb-adhoc-reporting.md).
 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen

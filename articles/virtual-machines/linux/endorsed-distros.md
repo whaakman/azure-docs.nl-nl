@@ -13,24 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 39cb2464eb593a29c4436afb5c14419b704ebff4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811769443e322af3a2981c58979040a1e33b06e9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux op door Azure goedgekeurde distributies
 Partners bieden Linux-installatiekopieën in Azure Marketplace. We werken met verschillende Linux-community's nog meer versies toevoegen aan de lijst met goedgekeurde distributie. In de tussentijd voor distributies die niet beschikbaar in de Marketplace, u kunt altijd brengt uw eigen Linux door de richtlijnen op [maken en uploaden van een virtuele harde schijf met het Linux-besturingssysteem](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="supported-distributions-and-versions"></a>Ondersteunde distributies en versies
-De volgende tabel bevat de Linux-distributies en versies die worden ondersteund in Azure. Raadpleeg [ondersteuning voor Linux-installatiekopieën in Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) voor meer informatie gedetailleerde.
+De volgende tabel bevat de Linux-distributies en versies die worden ondersteund in Azure. Raadpleeg [ondersteuning voor Linux-afbeeldingen in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) voor meer informatie over ondersteuning voor Linux en open source-technologie in Azure gedetailleerde.
 
 De Linux Integration Services (LIS) stuurprogramma's voor Hyper-V en Azure zijn kernelmodules die Microsoft rechtstreeks aan de upstream Linux-kernel bijdraagt.  Sommige LIS stuurprogramma's zijn ingebouwd in de distributie kernel standaard. Oudere distributies die zijn gebaseerd op Red Hat Enterprise (RHEL) / CentOS zijn beschikbaar als een afzonderlijke download op [Linux Integration Services versie 4.1 voor Hyper-V](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Zie [Linux kernel vereisten](create-upload-generic.md#linux-kernel-requirements) voor meer informatie over de LIS stuurprogramma's.
 
 De Azure Linux Agent al vooraf is geïnstalleerd op de Azure Marketplace-installatiekopieën en van de distributie pakket opslagplaats doorgaans beschikbaar is. Broncode vindt u op [GitHub](https://github.com/azure/walinuxagent).
 
+  
 | Distributie | Versie | Stuurprogramma's | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS downloaden](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: In de kernel |Pakket: In [opslagplaats](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) onder 'WALinuxAgent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -39,8 +40,11 @@ De Azure Linux Agent al vooraf is geïnstalleerd op de Azure Marketplace-install
 | Oracle Linux |6.4+, 7.0+ |In de kernel |Pakket: In de opslagplaats onder 'WALinuxAgent' <br/>Broncode: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 +, 7.1 + |In de kernel |Pakket: In de opslagplaats onder 'WALinuxAgent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES voor SAP<br>11 SP4<br>12 SP1 +|In de kernel |Pakket:<p> voor 11 in [Cloud: extra](https://build.opensuse.org/project/show/Cloud:Tools) opslagplaats<br>voor 12 opgenomen in de Module 'Openbare Cloud' onder 'python-azure-agent'<br/>Broncode: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE Leap 42,1 + |In de kernel |Pakket: In [Cloud: extra](https://build.opensuse.org/project/show/Cloud:Tools) opslagplaats onder 'python-azure-agent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16,10 |In de kernel |Pakket: In de opslagplaats onder 'walinuxagent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE |openSUSE Leap 42,2 + |In de kernel |Pakket: In [Cloud: extra](https://build.opensuse.org/project/show/Cloud:Tools) opslagplaats onder 'python-azure-agent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |In de kernel |Pakket: In de opslagplaats onder 'walinuxagent' <br/>Broncode: [GitHub](https://github.com/Azure/WALinuxAgent) |
+
+  - **<sup>1</sup>**  voor Ubuntu 12.04 ondersteuning op Azure raadpleegt u de [EOL kennisgeving](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+
 
 ## <a name="partners"></a>Partners
 
@@ -59,7 +63,7 @@ Credativ is een onafhankelijke advies en dienstverlener die gespecialiseerd in d
 ### <a name="oracle"></a>Oracle
 [http://www.Oracle.com/technetwork/Topics/cloud/FAQ-1963009.HTML](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Van Oracle-strategie is een breed scala aan oplossingen voor openbare en persoonlijke clouds te bieden. De strategie biedt klanten keuze en flexibiliteit in hoe ze Oracle-software in Oracle-clouds en andere clouds implementeren. De Oracle-samen met Microsoft kan klanten implementeren Oracle-software in Microsoft openbare en persoonlijke clouds met het vertrouwen van de certificeringsinstantie en ondersteuning van Oracle.  Het streven en de investeringen in Oracle openbare en persoonlijke cloud-oplossingen van Oracle blijft ongewijzigd.
+Van Oracle-strategie is een breed scala aan oplossingen voor openbare en persoonlijke clouds te bieden. De strategie biedt klanten keuze en flexibiliteit in hoe ze Oracle-software in Oracle-clouds en andere clouds implementeren. De partnerschap van Oracle met Microsoft stelt klanten in staat Oracle-software in openbare en besloten clouds van Microsoft te implementeren in de wetenschap dat ze certificeringen en ondersteuning kunnen krijgen van Oracle.  Het streven en de investeringen in Oracle openbare en persoonlijke cloud-oplossingen van Oracle blijft ongewijzigd.
 
 ### <a name="red-hat"></a>Red Hat
 [http://www.RedHat.com/en/partners/Strategic-Alliance/Microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6eb37ef4e836bd33a77180ef5aa8589ca5139af
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Problemen met Azure-bestanden in Linux
 
@@ -154,6 +154,21 @@ Meest voorkomende oorzaken van dit probleem zijn:
 ### <a name="solution"></a>Oplossing
 
 U lost het probleem met de [hulpprogramma probleemoplossing voor Azure Files koppeling van fouten op Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Dit hulpprogramma helpt u bij het valideren van de omgeving-client, ontdekt de configuratie van de niet-compatibele client die toegang fout veroorzaakt voor Azure-bestanden, geeft richtlijnen over het zelf oplossen en, de diagnostische traceringen worden verzameld.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: geen toegang tot '&lt;pad&gt;': I/o-fout
+
+Wanneer u te lijst met bestanden in een Azure-bestandsshare probeert met behulp van de opdracht ls, wordt de volgende fout:
+
+**ls: geen toegang tot '&lt;pad&gt;': I/o-fout**
+
+
+### <a name="solution"></a>Oplossing
+De Linux-kernel upgraden naar de volgende versies die de oplossing voor dit probleem hebt:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Alle versies die groter is of gelijk zijn aan 4.13
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 

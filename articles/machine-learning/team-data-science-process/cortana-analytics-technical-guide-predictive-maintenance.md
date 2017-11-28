@@ -14,74 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 03ae6245e83c1f26546ec2a33c74dc9519847d7b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Technische handleiding voor de sjabloon Cortana Intelligence-oplossing voor voorspeld onderhoud in ruimtevaart en andere bedrijven
 
-## <a name="important"></a>**Belangrijk**
-In dit artikel is afgeschaft. De bespreking van de relevant is voor bij de hand, het probleem dat wil zeggen voorspeld onderhoud momenteel, maar verwijzen naar [overzicht van de oplossing voor zakelijke doelgroepen](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) voor actuele informatie.
+>[!Important]
+In dit artikel is afgeschaft. De discussie over voorspeld onderhoud momenteel is nog steeds relevant zijn, maar voor actuele informatie, raadpleegt u [overzicht van de oplossing voor zakelijke doelgroepen](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
-## <a name="acknowledgements"></a>**Bevestigingen**
-In dit artikel is geschreven door gegevenswetenschappers Yan Zhang, Gauher Shaheen, Fidan Boylu Uz, en software engineering Dan Grecoe bij Microsoft.
 
-## <a name="overview"></a>**Overzicht**
-Oplossingssjablonen zijn ontworpen om het proces van het bouwen van een demo E2E boven op de Cortana Intelligence Suite versnellen. Een geïmplementeerde sjabloon bepalingen van uw abonnement met vereiste Cortana Intelligence-onderdelen en hun onderlinge relaties bouwen. Deze ook de seeding van de pijplijn gegevens met voorbeeldgegevens die zijn gegenereerd op basis van een toepassing van de generator gegevens, die u downloadt en installeert op uw lokale computer nadat u de oplossingssjabloon implementeert. De gegevens die zijn gegenereerd op basis van de generator hydrates de gegevens pijplijn en start het genereren van machine learning voorspellingen, die vervolgens kunnen worden weergegeven op het Power BI-dashboard. Het implementatieproces begeleidt u bij verschillende stappen voor het instellen van de referenties van uw oplossing. Zorg ervoor dat u de referenties zoals de naam van de oplossing, gebruikersnaam en wachtwoord dat u tijdens de implementatie opgeeft vastleggen.  
+Oplossingssjablonen zijn ontworpen om het proces van het bouwen van een demo E2E boven op de Cortana Intelligence Suite versnellen. Een geïmplementeerde sjabloon voorziet in uw abonnement met vereiste onderdelen van de Cortana Intelligence en vervolgens de relaties tussen deze twee wordt gemaakt. Deze ook seeding van de pijplijn gegevens met voorbeeldgegevens van een toepassing van de generator gegevens, die u downloadt en installeert op uw lokale computer nadat u de oplossingssjabloon implementeert. De gegevens van de generator hydrates de gegevens pijplijn en start het genereren van machine learning voorspellingen, die vervolgens kunnen worden weergegeven op het Power BI-dashboard.
 
-Het doel van dit document om uit te leggen van de referentiearchitectuur en onderdelen die zijn ingericht in uw abonnement als onderdeel van de oplossingssjabloon voor deze is, ziet u hoe u de voorbeeldgegevens vervangt door uw eigen gegevens en het wijzigen van de sjabloon voor de oplossing.  
+Het implementatieproces begeleidt u bij verschillende stappen voor het instellen van de referenties van uw oplossing. Zorg ervoor dat u de referenties zoals de naam van de oplossing, gebruikersnaam en wachtwoord die u tijdens de implementatie opgeeft vastleggen. 
+
+
+De doelstellingen van dit artikel zijn naar:
+- Beschrijf de referentiearchitectuur en onderdelen die zijn ingericht in uw abonnement.
+- Laten zien hoe de voorbeeldgegevens vervangen door uw eigen gegevens. 
+- Hoe de oplossingssjabloon te wijzigen.  
 
 > [!TIP]
-> U kunt downloaden en afdrukken een [PDF-versie van dit document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> U kunt downloaden en afdrukken een [PDF-versie van dit artikel](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
-## <a name="overview"></a>**Overzicht**
+## <a name="overview"></a>Overzicht
 ![Architectuur voor voorspeld onderhoud](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-Implementeer de oplossing wordt geactiveerd voor Azure-services binnen de Cortana-Analytics Suite (Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning *enzovoort*). Het architectuurdiagram toont hoe de voorspeld onderhoud voor lucht oplossingssjabloon is samengesteld. U kunt deze services in de Azure-portal door erop te klikken op de oplossing sjabloon diagram gemaakt met de implementatie van de oplossing (met uitzondering van HDInsight, die is ingericht op aanvraag bij het uitvoeren van de pijplijn gerelateerde activiteiten zijn vereist onderzoeken en daarna verwijderd).
+Wanneer u de oplossing implementeert, wordt deze geactiveerd Azure-services binnen de Cortana-Analytics Suite (inclusief Event Hub, Stream Analytics, HDInsight, Data Factory en Machine Learning). Het architectuurdiagram toont hoe de voorspeld onderhoud voor lucht oplossingssjabloon is samengesteld. U kunt deze services in de Azure-portal door erop te klikken in het oplossing sjabloon diagram gemaakt met de implementatie van de oplossing (met uitzondering van HDInsight, die is ingericht op aanvraag wanneer de bijbehorende pipeline-activiteiten vereist zijn voor het uitvoeren en onderzoeken verwijderd daarna).
 Download een [volledige versie van het diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 De volgende secties worden de onderdelen van de oplossing.
 
-## <a name="data-source-and-ingestion"></a>**Gegevensbron en opnamesnelheid**
+## <a name="data-source-and-ingestion"></a>Gegevensbron en opnamesnelheid
 ### <a name="synthetic-data-source"></a>Synthetische gegevensbron
-Voor deze sjabloon wordt de gegevensbron waarmee gegenereerd vanuit een bureaubladtoepassing die u downloaden en lokaal worden uitgevoerd na een geslaagde implementatie. De instructies voor het downloaden en installeren van deze toepassing zijn op de Eigenschappenbalk wanneer u het eerste knooppunt voorspeld onderhoud Gegevensgenerator aangeroepen in het diagram van de sjabloon oplossing selecteert. Deze toepassing feeds de [Azure Event Hub](#azure-event-hub) service met gegevenspunten of gebeurtenissen, die worden gebruikt in de rest van de stroom van de oplossing. Deze gegevensbron is afgeleid van openbaar beschikbare gegevens uit de [NASA gegevensopslagplaats](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) met behulp van de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Voor deze sjabloon wordt de gegevensbron waarmee gegenereerd vanuit een bureaubladtoepassing die u downloaden en lokaal uitvoeren na een geslaagde implementatie.
+
+Selecteer het eerste knooppunt voorspeld onderhoud Gegevensgenerator, in het diagram van de sjabloon oplossing de instructies voor het downloaden en installeren van deze toepassing. De instructies hiervoor vindt u in de balk eigenschappen. Deze toepassing feeds de [Azure Event Hub](#azure-event-hub) service met gegevenspunten of gebeurtenissen, die worden gebruikt in de rest van de stroom van de oplossing. Deze gegevensbron is afgeleid van openbaar beschikbare gegevens uit de [NASA gegevensopslagplaats](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) met behulp van de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
 De toepassing voor het genereren van gebeurtenis vult de Azure Event Hub alleen terwijl deze wordt uitgevoerd op uw computer.
 
-### <a name="azure-event-hub"></a>Azure event hub
+### <a name="azure-event-hub"></a>Azure Event Hub
 De [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) -service is de ontvanger van de ingevoerde door de synthetische gegevensbron.
 
-## <a name="data-preparation-and-analysis"></a>**Voorbereiden van gegevens en analyse**
+## <a name="data-preparation-and-analysis"></a>Voorbereiden van gegevens en analyse
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-Gebruik [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service bijna in realtime analyses op de invoerstroom van geven de [Azure Event Hub](#azure-event-hub) service en publiceren van de resultaten naar een [Power BI](https://powerbi.microsoft.com) dashboard, evenals alle onbewerkte binnenkomende gebeurtenissen te archiveren de [Azure Storage](https://azure.microsoft.com/services/storage/) service later worden verwerkt door de [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service.
+Gebruik [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) voor near realtime analyses op de invoerstroom van het [Azure Event Hub](#azure-event-hub) service. U publiceert resultaten naar een [Power BI](https://powerbi.microsoft.com) dashboard en archiveren van alle onbewerkte binnenkomende gebeurtenissen naar de [Azure Storage](https://azure.microsoft.com/services/storage/) service later worden verwerkt door de [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)service.
 
 ### <a name="hdinsight-custom-aggregation"></a>Aangepaste HDInsight-aggregatie
 Voer [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (gedirigeerd door Azure Data Factory) met HDInsight voor aggregaties op de onbewerkte gebeurtenissen gearchiveerd met de Azure Stream Analytics-service.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Maken van voorspellingen op de resterende levensduur (resterende Levensduur) van een bepaalde vliegtuigmotor gegeven van de invoer ontvangen met [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning/) (gedirigeerd door Azure Data Factory) naar 
+Maken van voorspellingen op de resterende levensduur (resterende Levensduur) van een bepaalde vliegtuigmotor met behulp van de invoer ontvangen met [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning/) (gedirigeerd door Azure Data Factory). 
 
-## <a name="data-publishing"></a>**Gegevens publiceren**
-### <a name="azure-sql-database-service"></a>Azure SQL Database-Service
-Gebruik [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) om op te slaan (beheerd door Azure Data Factory) de voorspellingen ontvangen door de service Azure Machine Learning worden verbruikt in de [Power BI](https://powerbi.microsoft.com) dashboard.
+## <a name="data-publishing"></a>Gegevens publiceren
+### <a name="azure-sql-database"></a>Azure SQL Database
+Gebruik [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) voor het opslaan van de voorspellingen ontvangen door de service Azure Machine Learning, die vervolgens worden gebruikt in de [Power BI](https://powerbi.microsoft.com) dashboard.
 
-## <a name="data-consumption"></a>**Gegevens verbruik**
+## <a name="data-consumption"></a>Gegevensverbruik
 ### <a name="power-bi"></a>Power BI
-Gebruik [Power BI](https://powerbi.microsoft.com) service om weer te geven van een dashboard met aggregaties en waarschuwingen die worden geleverd door de [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) service en de resterende Levensduur voorspellingen opgeslagen in [Azure SQL Database ](https://azure.microsoft.com/services/sql-database/) die zijn geproduceerd met behulp van de [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) service.
+Gebruik [Power BI](https://powerbi.microsoft.com) om weer te geven van een dashboard met aggregaties en waarschuwingen die worden geleverd door [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), evenals resterende Levensduur voorspellingen opgeslagen in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) die zijn geproduceerd met [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
-## <a name="how-to-bring-in-your-own-data"></a>**Hoe op te zetten in uw eigen gegevens**
+## <a name="how-to-bring-in-your-own-data"></a>Hoe op te zetten in uw eigen gegevens
 Deze sectie wordt beschreven hoe u uw eigen gegevens overbrengen naar Azure en welke gebieden moeten worden gewijzigd voor de gegevens die u in deze architectuur brengt.
 
 Het lijkt onwaarschijnlijk dat uw gegevensset overeenkomt met de gegevensset die wordt gebruikt door de [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) voor deze oplossingssjabloon gebruikt. Inzicht in uw gegevens en de vereisten zijn van cruciaal belang bij hoe het wijzigen van deze sjabloon wilt werken met uw eigen gegevens. 
 
-De volgende secties worden besproken in de secties van de sjabloon die moeten worden aangepast wanneer een nieuwe gegevensset wordt geïntroduceerd.
+De volgende secties worden de onderdelen van de sjabloon die moeten worden aangepast wanneer een nieuwe gegevensset wordt geïntroduceerd.
 
 ### <a name="azure-event-hub"></a>Azure Event Hub
-De service Azure Event Hub is algemeen; gegevens kan worden geplaatst op de hub in CSV- of JSON-indeling. Geen speciale verwerking optreedt in de Azure Event Hub, maar het is belangrijk dat u begrijpt dat de gegevens die wordt ingevoerd.
+Azure Event Hub is algemeen; gegevens kan worden geplaatst op de hub in CSV- of JSON-indeling. Geen speciale verwerking optreedt in de Azure Event Hub, maar het is belangrijk dat u begrijpt dat de gegevens die wordt ingevoerd.
 
 Dit document beschrijft niet hoe u uw gegevens opnemen, maar u kunt eenvoudig verzenden gebeurtenissen of gegevens naar een Azure Event Hub met de Event Hub-API's.
 
@@ -142,7 +147,7 @@ De [Azure Machine Learning](https://azure.microsoft.com/services/machine-learnin
 
 Zie voor meer informatie over hoe het Azure Machine Learning-experiment is gemaakt, [voorspeld onderhoud: stap 1 van 3, het voorbereiden van gegevens en functie-engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
-## <a name="monitor-progress"></a>**Voortgang van de monitor**
+## <a name="monitor-progress"></a>Voortgang van de monitor
 Zodra de Generator van gegevens wordt gestart, de pijplijn begint met het dehydrate en de verschillende onderdelen van uw oplossing start bij de start in de actie volgende de opdrachten die zijn uitgegeven door de data factory. Er zijn twee manieren voor het bewaken van de pijplijn.
 
 1. Een van de Stream Analytics-taken schrijft de onbewerkte binnenkomende gegevens naar blob storage. Als u op voor Blob Storage-onderdeel van uw oplossing van het scherm u is de oplossing geïmplementeerd en klik vervolgens op openen in het rechterpaneel, duurt het voor de [Azure-portal](https://portal.azure.com/). Klik op Blobs. In het volgende deelvenster ziet u een lijst van Containers. Klik op **maintenancesadata**. In de volgende deelvenster is de **rawdata** map. In de map rawdata zijn mappen met namen zoals uur = 17 en uur = 18. De aanwezigheid van deze mappen geeft de onbewerkte gegevens worden gegenereerd op uw computer en opgeslagen in blob storage. U ziet de csv-bestanden met beperkte grootte in MB in deze mappen.
@@ -152,7 +157,7 @@ Zodra de Generator van gegevens wordt gestart, de pijplijn begint met het dehydr
    
     U kunt hier, klik op nieuwe Query en de query voor het aantal rijen (bijvoorbeeld select count(*) van PMResult). Als uw database groeit, wordt het aantal rijen in de tabel moet verhogen.
 
-## <a name="power-bi-dashboard"></a>**Power BI-Dashboard**
+## <a name="power-bi-dashboard"></a>Power BI Dashboard
 
 Een Power BI-dashboard instellen voor het visualiseren van uw Azure Stream Analytics-gegevens (hot pad) en de resultaten van de batch voorspelling van Azure machine learning-(koude pad).
 
@@ -227,10 +232,10 @@ De volgende stappen helpen u hoe u de gegevensuitvoer van de Stream Analytics-ta
    * Klik op de **pincode Visual** pictogram in de rechterbovenhoek van dit lijndiagram. Een venster 'Vastmaken aan Dashboard' kan weergegeven voor u een dashboard te kiezen. Selecteer 'Voorspeld onderhoud Demo' en klik op 'Pincode'.
    * Beweeg de muisaanwijzer over deze tegel op het dashboard, klikt u op het pictogram "edit" in de rechterbovenhoek te wijzigen van de titel 'vloot weergave van Sensor 11 vs. Drempelwaarde 48,26" en subtitel van de"Gemiddelde via wagenpark gedurende een bepaalde periode."
 
-## <a name="how-to-delete-your-solution"></a>**Het verwijderen van uw oplossing**
-Zorg ervoor dat u de gegevensgenerator van stopt wanneer de oplossing niet actief wordt gebruikt als de gegevensgenerator uitgevoerd wordt hogere kosten in rekening worden. Verwijder de oplossing als u dit niet gebruikt. Uw oplossing verwijdert, worden de onderdelen die zijn ingericht in uw abonnement wanneer u de oplossing hebt geïmplementeerd. Voor het verwijderen van de oplossing Klik op de oplossingsnaam van uw in het linkerpaneel van de oplossingssjabloon en klik op verwijderen.
+## <a name="delete-your-solution"></a>Uw oplossing verwijderen
+Zorg ervoor dat u de gegevensgenerator van stopt wanneer de oplossing niet actief wordt gebruikt als de gegevensgenerator uitgevoerd wordt hogere kosten in rekening worden. Verwijder de oplossing als u dit niet gebruikt. Uw oplossing verwijdert, worden de onderdelen die zijn ingericht in uw abonnement wanneer u de oplossing hebt geïmplementeerd. Klik op de oplossingsnaam van uw in het linkerdeelvenster van de oplossingssjabloon voor het verwijderen van de oplossing en klik vervolgens op **verwijderen**.
 
-## <a name="cost-estimation-tools"></a>**Schatting extra kosten**
+## <a name="cost-estimation-tools"></a>Schatting extra kosten
 De volgende twee hulpprogramma's zijn beschikbaar om te helpen u de totale kosten die betrokken zijn bij de voorspeld onderhoud in uw abonnement voor lucht oplossingssjabloon beter te begrijpen:
 
 * [Microsoft Azure kosten Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)

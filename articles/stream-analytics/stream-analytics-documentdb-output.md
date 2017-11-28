@@ -4,7 +4,7 @@ description: Meer informatie over hoe Stream Analytics doel Azure Cosmos DB voor
 keywords: JSON-uitvoer
 documentationcenter: 
 services: stream-analytics,documentdb
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,19 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Azure Cosmos Doeldatabase voor JSON-uitvoer van de Stream Analytics
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, lage latentie en archiveren gegevensquery op niet-gestructureerde JSON-gegevens. Dit document bevat informatie over enkele aanbevolen procedures voor het implementeren van deze configuratie.
 
 Voor gebruikers die niet bekend met Cosmos DB bent, Bekijk [leertraject voor Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) aan de slag. 
 
-Opmerking: Mongo DB API gebaseerd Cosmos DB verzamelingen wordt momenteel niet ondersteund. 
+> [!Note]
+> Op dit moment Azure Stream Analytics biedt alleen ondersteuning voor verbinding met behulp van CosmosDB **DocumentDB SQL-API**.
+> Andere Azure Cosmos DB-API's zijn nog niet ondersteund. Als u punt Azure Stream Analytics aan de Azure DB die Cosmos-accounts die worden gemaakt met andere API's, zijn de gegevens mogelijk niet juist opgeslagen. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Basisprincipes van Cosmos-database als een output-doel
 De Azure DB die Cosmos-uitvoer in Stream Analytics kunt schrijven uw stream resultaten als JSON-uitvoer in uw verzameling(en) Cosmos DB verwerken. Stream Analytics maakt geen verzamelingen in uw database in plaats daarvan moeten ze tevoren maken. Dit is zodat de facturering kosten van de Cosmos-DB verzamelingen transparant voor u zijn, en zodat u kunt afstemmen prestatie, consistentie en capaciteit van uw verzamelingen direct met de [Cosmos DB-API's](https://msdn.microsoft.com/library/azure/dn781481.aspx). U kunt het beste een Cosmos-DB-Database per streaming-taak logische scheiding aanbrengen tussen uw verzamelingen voor streaming-taak gebruikt.
@@ -67,5 +69,5 @@ Gepartitioneerde verzameling | Verzamelingen met meerdere 'Één partitie'
 * **Verzameling naampatroon** – naam van de verzameling of het patroon voor de verzamelingen moet worden gebruikt. Indeling van de Collectienaam kan worden samengesteld met behulp van de optionele {partition}-token, waarbij partities beginnen bij 0. Hieronder vindt u voorbeeld geldige invoer:  
   1\) MyCollection: een verzameling met de naam 'MyCollection' moet aanwezig zijn.  
   2\) MyCollection {partition} – deze verzamelingen moeten bestaan – 'MyCollection0', 'MyCollection1', 'MyCollection2', enzovoort.  
-* **Partitie-sleutel** : optioneel. Dit is alleen nodig als u een token {partitie} in het patroon van de naam van verzameling. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt om de sleutel op te geven voor het partitioneren van uitvoer in collecties. Voor één verzameling uitvoer, elke willekeurige uitvoerkolom kan worden gebruikt, bijvoorbeeld PartitionId.  
+* **Partitie-sleutel** : optioneel. Dit is alleen nodig als u een token {partition} in het patroon van de naam van verzameling. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor het opgeven van de sleutel voor het partitioneren van uitvoer in collecties. Voor één verzameling uitvoer, elke willekeurige uitvoerkolom kan worden gebruikt, bijvoorbeeld PartitionId.  
 * **ID-document** : optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven in welke invoegen of updatebewerkingen zijn gebaseerd.  

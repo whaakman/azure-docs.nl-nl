@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
@@ -59,7 +59,6 @@ Zie voor meer informatie over het kiezen van het juiste aantal SUs deze pagina: 
 
 > [!Note]
 > Hoeveel SUs kiezen zijn vereist voor een bepaalde taak is afhankelijk van de partitieconfiguratie van de voor de invoer en de query gedefinieerd voor de taak. U kunt maximaal uw quotum in SUs voor een taak selecteren. Elk Azure-abonnement heeft standaard een quotum van maximaal 200 SUs voor alle analytics-taken in een specifieke regio. Als u wilt SUs voor uw abonnementen buiten dit quotum verhogen, neem contact op met [Microsoft Support](http://support.microsoft.com). Geldige waarden voor SUs per taak zijn 1, 3, 6, en omhoog in stappen van 6.
-> Houd er rekening mee dat met behulp van 1 SU niet voor productietaken aanbevolen wordt. We meestal advies SU-1-taken alleen worden gebruikt voor het maken van een prototype en het testen van taken.
 
 
 

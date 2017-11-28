@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Azure-regio terug naar de primaire regio beveiligt van failover
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Overzicht
 Wanneer u [failover](site-recovery-failover.md) de virtuele machines van één Azure-regio naar een andere, de virtuele machines zijn in een onbeveiligde toestand. Als u zorgen dat ze terug naar de primaire regio wilt, moet u eerst de virtuele machines en failover opnieuw te beveiligen. Er is geen verschil tussen het failover in één richting of andere. Inschakelen van de beveiliging van de virtuele machines op dezelfde manier te posten, er is geen verschil tussen de beveiligt post failover of post failback.
-Om uit te leggen van de werkstromen van opnieuw beveiligen en om verwarring te voorkomen, gebruikt we de primaire site van de beveiligde machines als Oost-Azië regio en de herstelsite machines als Zuidoost-Azië regio. Tijdens de failover kun je het failover de virtuele machines voor de regio Zuidoost-Azië. Voordat u failback moet u de virtuele machines van Zuidoost-Azië terug naar de Oost-Azië beveiligt. In dit artikel beschrijft de stappen voor het opnieuw beveiligen.
+Om uit te leggen van de werkstromen van beveiligt, en om verwarring te voorkomen, verwijzen naar de primaire site van de beveiligde machines als Oost-Azië regio en de site recovery machines als Zuidoost-Azië regio. Tijdens de failover, wordt de virtuele machines worden opgestart in de regio Zuidoost-Azië. Voordat u failback moet u de virtuele machines van Zuidoost-Azië terug naar de Oost-Azië beveiligt. In dit artikel beschrijft de stappen voor het opnieuw beveiligen.
 
 > [!WARNING]
-> Als u hebt [migratie voltooid](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), de virtuele machine naar een andere resourcegroep verplaatst of verwijderd van de virtuele machine van Azure, u kunt geen failback daarna.
+> Als u hebt [migratie voltooid](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), de virtuele machine naar een andere resourcegroep verplaatst of verwijderd van de virtuele machine van Azure, u kunt geen beveiligt of failback van de virtuele machine.
 
 Nadat beveiligt is voltooid en de beveiligde virtuele machines worden gerepliceerd, kunt u een failover op de virtuele machines zodat deze terug naar de Oost-Azië regio starten.
 
@@ -56,7 +56,7 @@ Hier volgen de stappen voor een virtuele machine met de standaardinstellingen op
 
 ![Blade opnieuw beveiligen](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Controleer de **Resource groep, netwerk, opslag en beschikbaarheid sets** informatie en klik op OK. Als er geen bronnen gemarkeerd (nieuw), wordt ze worden gemaakt als onderdeel van de beveiligt.
+3. Controleer de **resourcegroep, netwerk-, opslag- en beschikbaarheid sets** informatie en klik op OK. Als er geen bronnen gemarkeerd (nieuw), wordt ze worden gemaakt als onderdeel van de beveiligt.
 
 Hiermee wordt een taak trigger taak die wordt eerst seed-doelsite (SEA in dit geval) met de meest recente gegevens beveiligt en als dat is voltooid, wordt gerepliceerd de delta's voordat u failover terug naar Zuidoost-Azië.
 
@@ -72,7 +72,7 @@ U kunt de volgende eigenschappen van de doel-virtuele machine aanpassen tijdens 
 |Eigenschap |Opmerkingen  |
 |---------|---------|
 |Doelresourcegroep     | U kunt wijzigen van de doelresourcegroep waarin de virtuele machine wordt gemaakt. Als het onderdeel van het beveiligt, de virtuele doelmachine worden verwijderd, daarom kunt u een nieuwe resourcegroep van de virtuele machine na failover maken         |
-|Doel virtueel netwerk     | Netwerk kan niet worden gewijzigd tijdens het opnieuw beveiligen. Als u wilt wijzigen in het netwerk, de netwerktoewijzing bij het opnieuw.         |
+|Doel virtueel netwerk     | Netwerk kan niet worden gewijzigd tijdens de beveiligt jb. Als u wilt wijzigen in het netwerk, de netwerktoewijzing bij het opnieuw.         |
 |Doelopslag     | U kunt het storage-account waarnaar de virtuele machine wordt gemaakt na failover wijzigen.         |
 |Cache-opslag     | U kunt opgeven dat een cache-storage-account die wordt gebruikt tijdens de replicatie. Als u de verbinding met de standaardinstellingen, wordt een nieuw opslagaccount voor de cache gemaakt, als deze niet al bestaat.         |
 |Beschikbaarheidsset     |Als de virtuele machine in Oost-Azië deel van een beschikbaarheidsset uitmaakt, kunt u een beschikbaarheidsset voor de virtuele doelmachine in Zuidoost-Azië. Standaardinstellingen van de bestaande beschikbaarheidsset voor SEA zoekt en probeert te gebruiken. Aangepast, kunt u een volledig nieuw AV-set.         |
@@ -99,7 +99,7 @@ Hieronder vindt u de lijst met stappen die ontstaan wanneer u een taak beveiligt
 > [!NOTE]
 > U kunt geen op een plan herstel niveau. U kunt alleen opnieuw beveiligen op een per VM-niveau.
 
-Nadat de beveiligt slaagt, wordt de virtuele machine een beveiligde status invoeren.
+Nadat de taak opnieuw beveiligen slaagt, wordt de virtuele machine een beveiligde status invoeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

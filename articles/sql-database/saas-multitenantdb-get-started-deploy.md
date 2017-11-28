@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementeren en een shard multitenant-toepassing die gebruikmaakt van Azure SQL Database verkennen
 
@@ -35,7 +35,7 @@ De volgende Implementatiesectie biedt de **implementeren in Azure** knop. Wannee
 
 De toepassing wordt geïmplementeerd met gegevens voor drie voorbeeld tenants. De tenants worden samen in een multitenant-database opgeslagen.
 
-Iedereen kan de broncode C# en PowerShell downloaden voor Wingtip Tickets van [onze Github-opslagplaats][link-github-wingtip-multitenantdb-55g].
+Iedereen kan de broncode C# en PowerShell downloaden voor Wingtip Tickets van [onze GitHub-opslagplaats][link-github-wingtip-multitenantdb-55g].
 
 #### <a name="learn-in-this-tutorial"></a>In deze zelfstudie leert
 
@@ -93,7 +93,7 @@ Download de bron en het beheer toepassingsscripts tijdens de implementatie van d
 > [!IMPORTANT]
 > Uitvoerbare inhoud (scripts, dll-bestanden) mogelijk geblokkeerd door Windows als zip-bestanden van een externe bron wordt gedownload en uitgepakt. Bij het uitpakken van de scripts uit een zipbestand, gebruikt u de volgende stappen uit om de blokkering van het ZIP-bestand voor het uitpakken van te. Het ZIP-bestand deblokkering zorgt u ervoor dat de scripts mogen worden uitgevoerd.
 
-1. Blader naar [de github-repo-WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Blader naar [de WingtipTicketsSaaS MultiTenantDb GitHub-repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Klik op **klonen of downloaden**.
 3. Klik op **ZIP downloaden** en sla het bestand.
 4. Met de rechtermuisknop op de **WingtipTicketsSaaS-MultiTenantDb-master.zip** bestand en selecteer **eigenschappen**.
@@ -120,7 +120,7 @@ In de app worden venues gepresenteerd, zoals concertzalen, jazzclubs en stadions
 Een centraal **gebeurtenissen Hub** geeft een lijst met koppelingen voor de tenants in uw specifieke implementatie.
 
 1. Open de *gebeurtenissen Hub* in uw webbrowser:
-    - http://events.Wingtip-MT.&lt;gebruiker&gt;. trafficmanager.net &nbsp; *(vervangen door de waarde van de gebruiker van uw implementatie.)*
+    - http://events.Wingtip. &lt;Gebruiker&gt;. trafficmanager.net &nbsp; *(vervangen door de waarde van de gebruiker van uw implementatie.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Een centraal **gebeurtenissen Hub** geeft een lijst met koppelingen voor de tena
 
 Om te bepalen van de distributie van inkomende aanvragen en het gebruik van de app [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). De gebeurtenissen pagina's, die tenantspecifieke, bevatten de naam van de tenant in de URL. De URL's opnemen van uw specifieke waarde van de gebruiker ook en volgt deze indeling:
 
-- http://events.Wingtip-MT.&lt;gebruiker&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.Wingtip. &lt;Gebruiker&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 De app gebeurtenissen parseert de tenantnaam van de URL en hash-voor het maken van een sleutel voor toegang tot een catalogus met [shard kaart management](sql-database-elastic-scale-shard-map-management.md). De sleutel van de catalogus wordt toegewezen aan de locatie van de database van de tenant. De **gebeurtenissen Hub** geeft een lijst van de tenants die zijn geregistreerd in de catalogus. De **gebeurtenissen Hub** uitgebreide metagegevens in de catalogus gebruikt voor het ophalen van de tenantnaam die zijn gekoppeld aan elke wordt toegewezen aan de URL's samenstellen.
 
@@ -156,7 +156,7 @@ Mogelijk wilt de sessie laden generator voor het gebruik van andere parameterwaa
 
 De eerste implementatie omvat drie voorbeeld tenants in de *Tenants1* database. We gaan een andere tenant om te zien hoe dit heeft gevolgen voor de gedistribueerde toepassing maken. In deze stap maakt maken u snel een nieuwe tenant.
 
-1. Open... \\Learning Modules\ProvisionTenants\\*Demo ProvisionTenants.ps1* in de *PowerShell ISE*.
+1. Open... \\Learning Modules\Provision en catalogus\\*Demo ProvisionTenants.ps1* in de *PowerShell ISE*.
 2. Druk op **F5** het script uit te voeren (laat de standaardwaarden voor deze oefening).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ De shard multitenant-model kunt u kiezen of voor het inrichten van een nieuwe te
 
 Nu voorzien we in een andere tenant dit moment in een eigen database.
 
-1. In... \\Learning-Modules\\ProvisionTenants\\*Demo ProvisionTenants.ps1*, wijzigen *$TenantName* naar **Salix Salsa**,  *$VenueType* naar **dans** en *$Scenario* naar **2**.
+1. In... \\Learning-Modules\\inrichten en catalogus\*Demo-ProvisionTenants.ps1* wijzigen *$TenantName* naar **Salix Salsa**, *$VenueType*  naar **dans** en *$Scenario* naar **2**.
 
 2. Druk op **F5** het script opnieuw uitvoeren.
     - Deze F5 drukt u op inricht de nieuwe tenant in een aparte database. De database en de tenant worden geregistreerd in de catalogus. De browser wordt geopend op de pagina gebeurtenissen van de tenant.
@@ -239,7 +239,7 @@ In deze zelfstudie hebt u het volgende geleerd:
 > - Poolgebruik bekijken om de activiteit in een tenant te controleren
 > - Voorbeeldresources verwijderen om gerelateerde facturering te stoppen
 
-Nu proberen de [inrichten Tenants zelfstudie](sql-database-saas-tutorial-provision-and-catalog.md).
+Nu proberen de [inrichten en catalogus zelfstudie](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

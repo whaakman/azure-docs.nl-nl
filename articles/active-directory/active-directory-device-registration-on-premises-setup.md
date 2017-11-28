@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Lokale voorwaardelijke toegang instellen met behulp van Azure Active Directory-apparaatregistratie
 Als u werkplek koppelen gebruikers hun persoonlijke apparaten naar de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekend is bij uw organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -166,9 +166,9 @@ Er zijn veel verschillende manieren om te communiceren deze URL voor uw gebruike
 4. Wanneer u wordt gevraagd, aanmelden met uw referenties. Het apparaat is nu lid geworden.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Lid worden van een apparaat met Windows 7 met Azure Active Directory-apparaatregistratie
-Voor het registreren van apparaten voor Windows 7 domein, moet u het softwarepakket voor apparaatregistratie implementeren. Het softwarepakket is aangeroepen Workplace Join voor Windows 7 en de beschikbaar voor downloaden op de [Microsoft Connect-website](https://connect.microsoft.com/site1164). 
+Voor het registreren van apparaten voor Windows 7 domein, moet u voor het implementeren van de [softwarepakket voor apparaatregistratie](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Instructies over het gebruik van het pakket zijn beschikbaar in [automatische registratie van Windows-domein-apparaten met Azure Active Directory configureren](active-directory-conditional-access-automatic-device-registration-setup.md).
+Zie voor instructies over het gebruik van het pakket [Windows Installer-pakketten voor Windows 10-computers](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Controleer of dat geregistreerde apparaten worden teruggeschreven naar Active Directory
 U kunt bekijken en controleren of uw apparaatobjecten hebben is teruggeschreven naar uw Active Directory met LDP.exe of ADSI bewerken. Beide zijn beschikbaar met de beheerder van Active Directory's.

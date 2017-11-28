@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 54aa3d9982ff5cd99be2eb145e223397ca8d6a3f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Cross-tenant analytics met gegevens opgehaald
 
@@ -73,7 +73,7 @@ Begrijpen hoe consistent elke tenant wordt via de service biedt de mogelijkheid 
 Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende vereisten is voldaan:
 
 - De toepassing Wingtip Tickets SaaS Database Per Tenant is geïmplementeerd. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en Verken de Wingtip SaaS-toepassing](saas-dbpertenant-get-started-deploy.md)
-- De scripts Wingtip Tickets SaaS Database Per Tenant en de toepassing [broncode](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) worden gedownload van GitHub. Zie voor downloadinstructies ontvangen. Zorg ervoor dat *blokkering van het zip-bestand* voordat het uitpakken van de inhoud ervan.
+- De scripts Wingtip Tickets SaaS Database Per Tenant en de toepassing [broncode](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) worden gedownload van GitHub. Zie voor downloadinstructies ontvangen. Zorg ervoor dat *blokkering van het zip-bestand* voordat het uitpakken van de inhoud ervan. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 - Power BI Desktop is geïnstalleerd. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - De batch van extra tentants is ingericht, raadpleegt u de [ **inrichten tenants zelfstudie**](saas-dbpertenant-provision-and-catalog.md).
 - Een taak account en accountdatabase taak hebt gemaakt. Zie de juiste stappen in de [ **Schema management zelfstudie**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).

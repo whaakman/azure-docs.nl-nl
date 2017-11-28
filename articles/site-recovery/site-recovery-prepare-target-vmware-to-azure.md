@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Doel (VMware naar Azure) voorbereiden
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Dit artikel wordt beschreven hoe u uw Azure-omgeving om te virtuele VMware-machi
 
 ## <a name="prerequisites"></a>Vereisten
 
-Het artikel wordt ervan uitgegaan:
+Het artikel wordt ervan uitgegaan dat:
 - U kunt een Recovery Services-kluis ter bescherming van uw virtuele VMware-machines hebt gemaakt. Kunt u een Recovery Services-kluis uit de [Azure-portal](http://portal.azure.com "Azure-portal").
 - U hebt [instellen van uw on-premises omgeving](./site-recovery-set-up-vmware-to-azure.md) virtuele VMware-machines repliceren naar Azure.
 
@@ -39,14 +39,14 @@ Na het voltooien van de **stap 1: Selecteer beveiligingsdoel** en **stap 2: bere
 
 ![Doel voorbereiden](./media/site-recovery-prepare-target-vmware-to-azure/prepare-target-vmware-to-azure.png)
 
-1. **Abonnement:** in de vervolgkeuzelijst, selecteer het abonnement dat u wilt repliceren van uw virtuele machines naar.
+1. **Abonnement:** uit de vervolgkeuzelijst selecteert u het abonnement dat u wilt uw virtuele machines te repliceren.
 2. **Implementatiemodel:** selecteren van het implementatiemodel (klassiek of Resource Manager)
 
 Op basis van het gekozen implementatiemodel, wordt een validatie uitgevoerd om ervoor te zorgen dat er ten minste één compatibel storage-account en het virtuele netwerk in het doelabonnement voor replicatie en failover uw virtuele machine.
 
 Zodra de validaties wordt voltooid, klikt u op OK om door te gaan met de volgende stap.
 
-Als u geen compatibel Resource Manager-opslagaccount of virtueel netwerk hebt of wilt meer toevoegen, kunt u doen door te klikken op de **+ Opslagaccount** of **+ netwerk** knoppen boven aan de blade.
+Als u geen een compatibel Resource Manager storage-account of een virtueel netwerk hebt, kunt u op door te klikken op de **+ Opslagaccount** of **+ netwerk** knoppen aan de bovenkant van de pagina.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Replicatie-instellingen configureren](./site-recovery-setup-replication-settings-vmware.md).

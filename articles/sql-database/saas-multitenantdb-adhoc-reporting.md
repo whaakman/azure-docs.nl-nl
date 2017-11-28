@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ad-hoc analytics query's uitvoeren op meerdere Azure SQL-databases
 
@@ -52,12 +52,11 @@ U kunt gemakkelijk toegang tot deze gegevens krijgen in een database met meerder
 
 Door query's over de tenant-databases worden verdeeld, biedt elastische Query onmiddellijk inzicht in live productiegegevens. Echter, zoals elastische Query gegevens op uit mogelijk veel databases haalt, latentie van query kunt soms hoger zijn dan voor gelijkwaardige query's verzonden naar een enkele multitenant-database. Zorg ervoor dat ontwerp query's te minimaliseren, de gegevens die wordt geretourneerd. Elastische Query is vaak het beste geschikt voor kleine hoeveelheden realtime gegevens, in plaats van veelgebruikte gebouw of complexe analytics query's of rapporten uitvoeren van query's. Als u query's niet goed uitvoert, bekijkt u de [uitvoeringsplan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) om te zien welke deel van de query heeft omlaag op de externe database is gedrukt. En bepalen hoeveel gegevens geretourneerd. Query's waarvoor complexe analytische verwerking beter kan worden afgehandeld door de uitgepakte tenant gegevens opslaan in een database die is geoptimaliseerd voor analytics query's. SQL-Database en SQL Data Warehouse kan deze de analytics-database host.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Dit patroon voor analyses wordt uitgelegd in de [tenant analytics zelfstudie](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Ophalen van de toepassingsscripts Wingtip Tickets SaaS multitenant Database
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ophalen van de broncode van de Database Wingtip Tickets SaaS-multitenant-toepassing en scripts
 
-De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [github-repo-WingtipTicketsSaaS MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Zorg ervoor dat u de stappen voor het opheffen van blokkering in de Leesmij-bestand.
+De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-opslagplaats. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 
 ## <a name="create-ticket-sales-data"></a>Ticket verkoopgegevens maken
 
@@ -96,7 +95,7 @@ In deze oefening wordt schema (de externe gegevensbron en een externe tabeldefin
 
     ![referentie maken](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   De externe gegevensbron die is gedefinieerd voor het gebruik van de tenant shard-toewijzing in de catalogusdatabase. Query's worden via deze als de externe gegevensbron, gedistribueerd naar alle databases in de catalogus wordt geregistreerd wanneer de query wordt uitgevoerd. Omdat servernamen verschillend voor elke implementatie zijn, dit Initialisatiescript van de locatie van de catalogusdatabase opgehaald door op te halen van de huidige server (@@servername) waarop het script wordt uitgevoerd.
+   Query's worden door de catalogusdatabase als de externe gegevensbron, gedistribueerd naar alle databases in de catalogus wordt geregistreerd wanneer de query wordt uitgevoerd. Omdat servernamen verschillend voor elke implementatie zijn, dit Initialisatiescript van de locatie van de catalogusdatabase opgehaald door op te halen van de huidige server (@@servername) waarop het script wordt uitgevoerd.
 
     ![externe gegevensbron maken](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Nu de *ad-hoc reporting* database is ingesteld, gaat u verder gaan en sommige ge
 
 Bij de inspectie van het uitvoeringsplan Beweeg de muisaanwijzer over de pictogrammen plan voor meer informatie. 
 
-1. Open... \\Learning-Modules\\operationele Analytics\\ad-hoc Reporting\\*Demo AdhocReportingQueries.sql* in SSMS.
+1. In *SSMS*open... \\Learning-Modules\\operationele Analytics\\ad-hoc Reporting\\*Demo AdhocReportingQueries.sql*.
 2. Zorg ervoor dat u verbonden bent met de **ad-hoc reporting** database.
 3. Selecteer de **Query** en klik op **werkelijke uitvoeringsplan opnemen**
 4. Markeer de *welke plaatsen zijn momenteel geregistreerd?* query en druk op **F5**.
@@ -155,9 +154,7 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Gedistribueerde query's uitvoeren voor alle databases van de tenant
 > * Implementeer een ad-hoc rapportagedatabase en schema niet toevoegen aan deze gedistribueerde query's uitvoeren.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Nu proberen de [Tenant Analytics zelfstudie](saas-multitenantdb-tenant-analytics.md) uitpakken gegevens verkennen met een afzonderlijke analytics-database voor complexere analytics-verwerking.
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

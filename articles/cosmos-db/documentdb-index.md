@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: ce24e445177b7e2e499309f016478030efa6bfe8
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API-documentatie
 
@@ -36,7 +36,7 @@ Dit moet zijn gelezen onderwerpen en resources voor meer informatie over de Docu
 
 ## <a name="quickstarts"></a>Snelstartgidsen
 
-De Quick Start-onderwerpen worden de snelste manier om een werkende toepassing maken met Azure Cosmos DB. In elke Quick Start leert u hoe u de gebruikersinterface gebaseerde Azure-portal en uw favoriete taal coderen om databaseoplossingen te maken met Azure Cosmos DB. Kloonbare web-apps vanuit GitHub ruimte beschikbaar is voor elke Quick Start. 
+De Quick Start-onderwerpen worden de snelste manier om een werkende toepassing maken met Azure Cosmos DB. In elke Quick Start leert u hoe u de gebruikersinterface gebaseerde Azure-portal en uw favoriete taal coderen om databaseoplossingen te maken met Azure Cosmos DB. Kloonbare web-apps vanuit GitHub zijn beschikbaar voor elke Quick Start. 
 
 - [.NET + azure-portal + Web-apps](create-documentdb-dotnet.md)
 - [Java + Azure-portal + Web-apps](create-documentdb-java.md)

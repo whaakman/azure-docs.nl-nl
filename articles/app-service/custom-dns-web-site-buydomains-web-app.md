@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Een aangepaste domeinnaam voor Azure-Web-Apps kopen
 
@@ -31,6 +31,7 @@ Dit artikel is voor Azure App Service (Web-Apps, API-Apps, Mobile Apps, Logic Ap
 Vereisten voor het voltooien van deze zelfstudie:
 
 * [Een App Service-app maken](/azure/app-service/), of gebruik een app die u hebt gemaakt voor een andere zelfstudie.
+* [Verwijder de bestedingslimiet voor uw abonnement](../billing/billing-spending-limit.md#remove). U kunt App Service-domeinen met een gratis abonnement tegoed kan niet kopen.
 
 ## <a name="prepare-the-app"></a>De app voorbereiden
 
@@ -82,15 +83,25 @@ In de **Web-Apps** en klik op de naam van uw web-app, selecteer **instellingen**
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-In de **aangepaste domeinen** pagina, klikt u op **domeinen kopen**.
+In de **aangepaste domeinen** pagina, klikt u op **domein kopen**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> Als u niet ziet de **Service AppDomains** sectie, moet u de bestedingslimiet op uw Azure-account verwijderen (Zie [vereisten](#prerequisites)).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>De aankoop van het domein configureren
 
-In de **Service toepassingsdomein** pagina in de **zoeken naar domein** typt u de domeinnaam die u wilt kopen en typ `Enter`. De voorgestelde beschikbare domeinen worden weergegeven onder het tekstvak. Selecteer een of meer domeinen die u wilt aanschaffen. 
+In de **Service toepassingsdomein** pagina in de **zoeken naar domein** typt u de domeinnaam die u wilt kopen en typ `Enter`. De voorgestelde beschikbare domeinen worden weergegeven onder het tekstvak. Selecteer een of meer domeinen die u wilt aanschaffen.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> De volgende [topleveldomeinen](https://wikipedia.org/wiki/Top-level_domain) worden ondersteund door App Service-domeinen: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_, en _co.in_.
+>
+>
 
 Klik op de **contactgegevens** en het domein contactgegevens formulier invullen. Wanneer u klaar bent, klikt u op **OK** om terug te keren naar de pagina App-domein.
    
@@ -100,8 +111,7 @@ Selecteer vervolgens de gewenste opties voor uw domein. Zie de volgende tabel vo
 
 | Instelling | Voorgestelde waarde | Beschrijving |
 |-|-|-|
-|Automatisch vernieuwen | **Inschakelen** | Hiermee vernieuwt u uw App Service-domein automatisch elk jaar. Uw creditcard is op het moment van verlenging in rekening gebracht het dezelfde aankoopbedrag. |
-|Privacybescherming | Inschakelen | U meldt zich aan 'Privacy protection', dat van het aankoopbedrag uitmaakt deel _gratis_ (met uitzondering van het hoogste niveau domeinen die het register ondersteunen geen privacybescherming, zoals _. co.in_, _. co.uk_ , enzovoort). |
+|Privacybescherming | Inschakelen | U meldt zich aan 'Privacy protection', dat van het aankoopbedrag uitmaakt deel _gratis_. Sommige domeinen op het hoogste niveau worden beheerd door registrars die privacybescherming niet ondersteunen, en ze worden weergegeven op de **privacybescherming** pagina. |
 | Standaard hostnamen toewijzen | **www** en**@** | Selecteer de gewenste hostnaambindings indien gewenst. Wanneer de aankoop domein voltooid is, kan uw web-app op de geselecteerde hostnamen worden benaderd. Als de web-app zich achter [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), de optie voor het toewijzen van het hoofddomein niet wordt weergegeven (@), omdat het Traffic Manager biedt geen ondersteuning voor A-records. Nadat de aankoop van het domein is voltooid, kunt u wijzigingen in de toewijzingen van de hostnaam. |
 
 ### <a name="accept-terms-and-purchase"></a>Voorwaarden accepteren en kopen
@@ -125,7 +135,7 @@ Als u een standaard hostnamen aan uw web-app toegewezen hebt, ziet u ook een mel
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-U ziet ook de geselecteerde hostnamen in de **aangepaste domeinen** pagina in de **hostnamen** sectie. 
+U ziet ook de geselecteerde hostnamen in de **aangepaste domeinen** pagina in de **aangepaste hostnamen** sectie. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ U ziet nu de nieuw toegewezen hostname(s) in uw app **aangepaste domeinen** pagi
 
 Navigeer naar de vermelde hostnamen in de browser. In het voorbeeld in de vorige schermafbeelding, kunt u navigeren naar _abc.kontoso.net_.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>Vernieuwen van het domein
+
+Het App Service-domein dat u hebt gekocht is één jaar vanaf het moment van aanschaf geldig. Het domein is standaard geconfigureerd om automatisch vernieuwen door uw betalingsmethode in rekening gebracht voor het volgende jaar. Als u wilt uitschakelen voor de automatische vernieuwing, of als u wilt handmatig vernieuwen van uw domein, voert u de volgende stappen uit.
+
+In de **Web-Apps** en klik op de naam van uw web-app, selecteer **instellingen**, en selecteer vervolgens **aangepaste domeinen**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+In de **Service AppDomains** sectie, selecteert u het domein dat u wilt configureren.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+Selecteer in het navigatievenster aan de linkerkant van het domein, **domeinverlenging**. Als u wilt stoppen met het automatisch vernieuwen van uw domein, selecteer **uit**, en vervolgens **opslaan**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+Voor het handmatig vernieuwen van uw domein, selecteer **vernieuwen domein**. Deze knop is echter niet actief tot 90 dagen vóór de vervaldatum van het domein.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>Aangepaste DNS-records beheren
 
@@ -236,6 +264,14 @@ Als de annulering is op het aangeschafte domein niet verstreken is, selecteert u
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Selecteer **OK** om te bevestigen dat de bewerking. Als u niet wilt doorgaan, klikt u op een willekeurige plaats buiten het bevestigingsvenster.
+Selecteer om te controleren van de bewerking, **Ja**.
 
 Nadat de bewerking voltooid is, wordt het domein is vrijgegeven voor uw abonnement en beschikbaar zijn voor iedereen om aan te schaffen opnieuw. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Standaard-URL naar een aangepaste map omleiden
+
+Standaard stuurt App Service webaanvragen naar de hoofdmap van uw app-code. Om deze zoals leiden naar een submap `public`, Zie [directe standaard-URL naar een aangepaste map](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## <a name="more-resources"></a>Meer bronnen
+
+[Veelgestelde vragen over: De App Service-domein (preview) en aangepaste domeinen](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

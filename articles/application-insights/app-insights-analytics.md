@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: 80a9e248ca50c11ef61a5c50c4986c4f8f4ead9d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
 Analytics is de krachtig hulpprogramma voor de zoekopdracht en van [Application Insights](app-insights-overview.md). Analytics is een hulpprogramma web zodat er zijn geen instellingen vereist. Als u Application Insights al hebt geconfigureerd voor een van uw apps, dan u uw app-gegevens analyseren kunt door het openen van Analytics van uw app [overzichtsblade](app-insights-dashboards.md).
@@ -49,7 +49,7 @@ De taal heeft veel voordelen bieden:
 
 * [Filter](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) uw app onbewerkte telemetrie op alle velden, met inbegrip van uw aangepaste eigenschappen en metrische gegevens.
 * [Deelnemen aan](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) meerdere tabellen – correleer aanvragen met paginaweergaven, afhankelijkheidsaanroepen, uitzonderingen en logboektraceringen.
-* Krachtige statistische [aggregaties](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+* Krachtige statistische [aggregaties](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
 * Onmiddellijke en krachtige visualisaties.
 * [REST-API](https://dev.applicationinsights.io/) waarmee u kunt query's uitvoeren via een programma, bijvoorbeeld via PowerShell.
 

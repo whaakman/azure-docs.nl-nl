@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Bewaken en beheren van de prestaties van Azure SQL-databases en opslaggroepen in een multitenant SaaS-app
 
@@ -62,9 +62,9 @@ Groepen en de databases in groepen, moeten worden gecontroleerd om te controlere
 
 Voor grote hoeveelheden scenario's waarin u met veel resources werkt, [logboekanalyse (OMS)](saas-dbpertenant-log-analytics.md) kan worden gebruikt. Dit is een afzonderlijke Azure-service die in analyse via verzonden diagnostische logboeken en telemetrie verzameld in een log analytics-werkruimte voorziet. Log Analytics telemetriegegevens kan verzamelen van veel services en worden gebruikt om te vragen en waarschuwingen instellen.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Ophalen van de broncode Wingtip Tickets SaaS Database Per Tenant-toepassing en scripts
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>De toepassingsscripts Wingtip Tickets SaaS Database Per Tenant ophalen
 
-De scripts Wingtip Tickets SaaS Database Per Tenant en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github-opslagplaats. [Stappen voor het downloaden van de scripts Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassing zijn beschikbaar in de [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-opslagplaats. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 
 ## <a name="provision-additional-tenants"></a>Extra tenants inrichten
 
@@ -220,7 +220,7 @@ Deze oefening simuleert het effect van een hoge load voor Contoso Concert Hall w
 
 Zodra de hoge belasting van de database contosoconcerthall subsidies retourneer deze aan de groep om de kosten te beperken. Als het is onduidelijk wanneer dat gebeurt u kan een waarschuwing instellen voor de database die wordt geactiveerd wanneer de DTU-gebruik onder per database zakt max op de groep. Het verplaatsen van een database naar een pool wordt beschreven in oefening 5.
 
-## <a name="other-performance-management-patterns"></a>Andere patronen voor prestatiebeheer
+## <a name="other-performance-management-patterns"></a>Andere prestaties management patronen
 
 **Preventieve schalen** In de vorige oefening waar u een geïsoleerde database schalen verkend, wist u welke database om te zoeken. Als u het beheer van Contoso overleg Hall had op de hoogte Wingtips van de aanstaande ticket verkoop, kan de database zijn verplaatst buiten de pool pre-emptively. Anders was er waarschijnlijk een waarschuwing voor de pool of de database nodig geweest om te zien wat er aan de hand was. U wilt dit liever niet te weten komen doordat andere tenants in de pool klagen over verminderde prestaties. Als de tenant kan voorspellen hoe lang deze aanvullende resources nodig heeft, kunt u een Azure Automation-runbook instellen om de database uit de pool te plaatsen en later weer terug de plaatsen volgens een ingesteld schema.
 

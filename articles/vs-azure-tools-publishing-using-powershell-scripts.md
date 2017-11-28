@@ -14,39 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e9409aac836a60e7ea01261840c084ff09e954e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Windows PowerShell-scripts gebruiken om ontwikkel- en testomgevingen te publiceren
+
 Wanneer u een webtoepassing in Visual Studio maakt, kunt u een Windows PowerShell-script dat u later gebruiken kunt voor het automatiseren van de publicatie van uw website naar Azure als een Web-App in Azure App Service- of een virtuele machine genereren. U kunt bewerken en de Windows PowerShell-script in de Visual Studio-editor om te voldoen aan uw vereisten uitbreiden of het script integreren met bestaande bouwen, testen en publiceren van scripts.
 
-Deze scripts kunt u aangepaste versies (ook wel bekend als dev- en testomgevingen) van uw site voor tijdelijk gebruik inrichten. U kunt bijvoorbeeld een bepaalde versie van uw website op een virtuele machine van Azure of op de faseringssleuf op een website op een test-suite uitvoeren, reproduceren een bug, een bug correctie proefversie test een voorgestelde wijziging of instellen van een aangepaste omgeving voor een demo of presentatie instellen. Nadat u een script dat uw project publiceert hebt gemaakt, kunt u identieke omgevingen door het script opnieuw uit te voeren indien nodig opnieuw of Voer het script met uw eigen build van uw webtoepassing te maken van een aangepaste omgeving voor het testen.
+Deze scripts kunt u aangepaste versies (ook wel bekend als dev- en testomgevingen) van uw site voor tijdelijk gebruik inrichten. U kunt bijvoorbeeld een bepaalde versie van uw website op een virtuele machine van Azure of op de faseringssleuf op een website op een test-suite uitvoeren, reproduceren een bug, een bug correctie proefversie test een voorgestelde wijziging of instellen van een aangepaste omgeving voor een demo of presentatie instellen. Nadat u een script dat uw project publiceert hebt gemaakt, kunt u identieke omgevingen opnieuw door het script opnieuw naar behoefte of het script uitgevoerd met uw eigen build van uw webtoepassing te maken van een aangepaste omgeving voor het testen.
 
-## <a name="what-you-need"></a>Wat u nodig hebt
-* Azure SDK 2.3 of hoger. Zie [Visual Studio-Downloads](http://go.microsoft.com/fwlink/?LinkID=624384) voor meer informatie.
+## <a name="prerequisites"></a>Vereisten
 
-U hoeft niet in de Azure SDK met de scripts voor webprojecten genereren. Deze functie is voor webprojecten, niet webrollen in cloudservices.
-
-* Azure PowerShell 0.7.4 of hoger. Zie [installeren en configureren van Azure PowerShell](/powershell/azure/overview) voor meer informatie.
+* Azure SDK 2.3 of hoger. Zie [Visual Studio-Downloads](http://go.microsoft.com/fwlink/?LinkID=624384). (U hoeft niet de Azure SDK met de scripts voor webprojecten genereren. Deze functie is voor webprojecten, niet webrollen in cloudservices.)
+* Azure PowerShell 0.7.4 of hoger. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
 * [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) of hoger.
 
 ## <a name="additional-tools"></a>Extra hulpprogramma 's
+
 Extra hulpprogramma's en bronnen voor het werken met PowerShell in Visual Studio voor het ontwikkelen van Azure zijn beschikbaar. Zie [PowerShell-Tools voor Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Genereren van de scripts publiceren
+
 U kunt de scripts publiceren voor een virtuele machine die als host fungeert voor uw website wanneer u een nieuw project met de volgende maakt genereren [deze instructies](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). U kunt ook [genereren van scripts voor web-apps publiceren in Azure App Service](app-service/app-service-web-get-started-dotnet.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Scripts die door Visual Studio gegenereerd
+
 Visual Studio-oplossing niveau map met de naam gegenereerd **PublishScripts** die bevat twee bestanden van Windows PowerShell, een script publiceren voor de virtuele machine of website en een module die functies die u kunt gebruiken bevat in de scripts. Visual Studio gegenereerd ook een bestand in de JSON-indeling die Hiermee geeft u de details van het project dat u implementeert.
 
 ### <a name="windows-powershell-publish-script"></a>Windows PowerShell publiceren script
+
 Het script publiceren bevat specifieke Publiceren stappen voor het implementeren van een website of virtuele machine. Visual Studio biedt syntaxis kleuren voor de ontwikkeling van Windows PowerShell. Help voor de functies die beschikbaar is en u de functies in het script wilt aanpassen aan uw veranderende vereisten vrijelijk kunt bewerken.
 
 ### <a name="windows-powershell-module"></a>Windows PowerShell-module
-De Windows PowerShell-module die Visual Studio gegenereerd bevat functies die gebruikmaakt van het script publiceren. Deze Azure PowerShell-functies zijn en zijn niet bedoeld om te worden gewijzigd. Zie [installeren en configureren van Azure PowerShell](/powershell/azure/overview) voor meer informatie.
+
+De Windows PowerShell-module die Visual Studio gegenereerd bevat functies die gebruikmaakt van het script publiceren. Deze Azure PowerShell-functies zijn niet bedoeld om te worden gewijzigd. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ### <a name="json-configuration-file"></a>JSON-configuratiebestand
 Het JSON-bestand wordt gemaakt in de **configuraties** map en bevat configuratiegegevens die Hiermee geeft u precies welke resources te implementeren in Azure. De naam van het bestand dat door Visual Studio gegenereerd is project-naam-WAWS-dev.json als u een website of project de naam van VM dev.json gemaakt als u een virtuele machine hebt gemaakt. Hier volgt een voorbeeld van een JSON-configuratiebestand die wordt gegenereerd wanneer u een website hebt gemaakt. De meeste van de waarden behoeven geen uitleg. Naam van de website wordt gegenereerd door Azure, zodat deze mogelijk niet overeen met de projectnaam van uw.
@@ -72,7 +76,8 @@ Het JSON-bestand wordt gemaakt in de **configuraties** map en bevat configuratie
     }
 }
 ```
-Wanneer u een virtuele machine maakt, wordt het JSON-configuratiebestand lijkt op het volgende. Houd er rekening mee dat een service in de cloud als een container voor de virtuele machine wordt gemaakt. De virtuele machine bevat de gebruikelijke eindpunten voor internettoegang via HTTP en HTTPS, evenals de eindpunten voor Web Deploy waarmee u vanuit uw lokale computer, extern bureaublad en Windows PowerShell publiceren naar de website.
+
+Wanneer u een virtuele machine maakt, wordt het JSON-configuratiebestand lijkt op het volgende. Een cloudservice is gemaakt als een container voor de virtuele machine. De virtuele machine bevat de gebruikelijke eindpunten voor internettoegang via HTTP en HTTPS, evenals de eindpunten voor Web Deploy waarmee u vanuit uw lokale computer, extern bureaublad en Windows PowerShell publiceren naar de website.
 
 ```json
 {
@@ -138,22 +143,24 @@ Wanneer u een virtuele machine maakt, wordt het JSON-configuratiebestand lijkt o
 }
 ```
 
-U kunt de JSON-configuratie om te wijzigen wat er gebeurt wanneer het uitvoeren van scripts publiceren bewerken. De `cloudService` en `virtualMachine` secties zijn vereist, maar u kunt verwijderen de `databases` sectie als u deze niet nodig. De eigenschappen die zijn leeg in het configuratiebestand dat Visual Studio gegenereerd zijn optioneel. die waarden in het configuratiebestand zijn vereist.
+U kunt de JSON-configuratie om te wijzigen wat er gebeurt wanneer het uitvoeren van scripts publiceren bewerken. De `cloudService` en `virtualMachine` secties zijn vereist, maar u kunt verwijderen de `databases` sectie als u deze niet nodig. De eigenschappen die zijn leeg in het configuratiebestand dat Visual Studio gegenereerd zijn optioneel. Deze eigenschappen met waarden in het configuratiebestand zijn vereist.
 
-Als u een website met meerdere implementatieomgevingen (bekend als sleuven) in plaats van een productiesite één in Azure hebt, kunt u de naam van de site op de naam van de website kunt opnemen in het JSON-configuratiebestand. Bijvoorbeeld, als er een website met de naam **persoonlijke site** en een site voor deze met de naam **testen** en vervolgens de URI persoonlijke site test.cloudapp.net is, maar de juiste naam te gebruiken in het configuratiebestand mysite(test) is. U kunt dit als de website alleen doen en sleuven bestaat al in uw abonnement. Als deze nog niet bestaan, maakt u de website door het script zonder op te geven van de sleuf, maak vervolgens de sleuf in de [klassieke Azure-portal](http://go.microsoft.com/fwlink/?LinkID=213885), en daarna het script uitgevoerd met de naam van de aangepaste website. Zie voor meer informatie over implementatiesites voor web-apps, [faseringsomgevingen voor web-apps in Azure App Service instellen](app-service/web-sites-staged-publishing.md).
+Als u een website met meerdere implementatieomgevingen (bekend als sleuven) in plaats van een productiesite één in Azure hebt, kunt u de naam van de site op de naam van de website kunt opnemen in het JSON-configuratiebestand. Bijvoorbeeld, als er een website met de naam **persoonlijke site** en een site voor deze met de naam **testen** dan is de URI `mysite-test.cloudapp.net`, maar de juiste naam te gebruiken in het configuratiebestand is mysite(test). U kunt dit als de website alleen doen en sleuven bestaat al in uw abonnement. Als deze nog niet bestaan, maakt u de website door het script zonder op te geven van de sleuf, maak vervolgens de sleuf in de [Azure-portal](https://portal.azure.com/), en daarna het script uitgevoerd met de naam van de aangepaste website. Zie voor meer informatie over implementatiesites voor web-apps, [faseringsomgevingen voor web-apps in Azure App Service instellen](app-service/web-sites-staged-publishing.md).
 
 ## <a name="how-to-run-the-publish-scripts"></a>Het uitvoeren van de scripts publiceren
-Als u een Windows PowerShell-script voordat nooit hebt uitgevoerd, moet u eerst het uitvoeringsbeleid voor het uitvoeren van scripts inschakelen instellen. Dit is een beveiligingsfunctie om te voorkomen dat gebruikers Windows PowerShell-scripts uitgevoerd als ze kwetsbaar voor schadelijke software en virussen die betrekking hebben op het uitvoeren van scripts.
+
+Als u een Windows PowerShell-script voordat nooit hebt uitgevoerd, moet u eerst het uitvoeringsbeleid voor het uitvoeren van scripts inschakelen instellen. Het beleid is een beveiligingsfunctie om te voorkomen dat gebruikers Windows PowerShell-scripts uitgevoerd als ze kwetsbaar voor schadelijke software en virussen die betrekking hebben op het uitvoeren van scripts.
 
 ### <a name="run-the-script"></a>Het script uitvoeren
+
 1. Het Web Deploy-pakket voor uw project maken. Een Web Deploy-pakket is een gecomprimeerd archief (ZIP-bestand) met bestanden die u wilt kopiëren naar uw website of virtuele machine. U kunt Web Deploy-pakketten in Visual Studio maken voor een webtoepassing.
 
 ![Maken van webinhoud pakket implementeren](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-Zie voor meer informatie [procedure: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). U kunt ook het maken van uw pakket Web Deploy automatiseren zoals beschreven in de sectie **aanpassen en uitbreiden van de scripts publiceren** verderop in dit onderwerp.
+Zie voor meer informatie [procedure: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx). U kunt ook het maken van uw pakket Web Deploy automatiseren zoals beschreven in [aanpassen en uitbreiden van de scripts[(#customizing-and-extending-publish-scripts) publiceren]
 
 1. In **Solution Explorer**, opent u het snelmenu voor het script en kies vervolgens **openen met de PowerShell ISE**.
-2. Als dit de eerste keer dat u Windows PowerShell-scripts op deze computer uitvoeren hebt, open een opdrachtpromptvenster met Administrator-bevoegdheden en typ de volgende opdracht:
+2. Als Windows PowerShell-scripts uitgevoerd op deze computer voor de eerste keer, open een opdrachtpromptvenster met Administrator-bevoegdheden en typ de volgende opdracht:
 
     ```powershell
     Set-ExecutionPolicy RemoteSigned
@@ -167,7 +174,7 @@ Zie voor meer informatie [procedure: een Web-implementatiepakket maken in Visual
 
     Als u wordt gevraagd, geeft u uw gebruikersnaam en wachtwoord.
 
-    Houd er rekening mee dat wanneer u het script automatiseren, deze methode van het bieden van Azure-referenties werken niet. In plaats daarvan moet u de .publishsettings-bestand gebruiken om referenties te verstrekken. Één keer alleen u de opdracht gebruiken **Get-AzurePublishSettingsFile** downloaden van het bestand in Azure, en daarna gebruiken **importeren AzurePublishSettingsFile** het bestand te importeren. Zie voor gedetailleerde instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+    Houd er rekening mee dat wanneer u het script automatiseren, deze methode van het bieden van Azure-referenties niet werkt. In plaats daarvan moet u de `.publishsettings` bestand referenties op te geven. Één keer alleen u de opdracht gebruiken **Get-AzurePublishSettingsFile** downloaden van het bestand in Azure, en daarna gebruiken **importeren AzurePublishSettingsFile** het bestand te importeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor gedetailleerde instructies.
 
 4. (Optioneel) Als u maken van Azure-resources, zoals de virtuele machine wilt, database en een website zonder het publiceren van uw webtoepassing gebruikt het **publiceren WebApplication.ps1** opdracht met de **-configuratie**argument ingesteld op het JSON-configuratiebestand. Met deze opdrachtregel maakt gebruik van het JSON-configuratiebestand om te bepalen welke resources om te maken. Omdat deze gebruikmaakt van de standaardinstellingen voor andere opdrachtregelargumenten, maakt u de resources, maar uw webtoepassing niet publiceren. De uitgebreide optie vindt u meer informatie over wat er gebeurt.
 
@@ -236,7 +243,7 @@ Voor het automatiseren van uw project te bouwen, voeg code MSBuild naar roept `N
     }
     ```
 
-3. Vervang `New-WebDeployPackage` met de volgende code en vervang de tijdelijke aanduidingen in het construeren van de regel `$msbuildCmd`. Deze code is voor Visual Studio 2015. Als u Visual Studio 2013, wijzigt u de **VisualStudioVersion** eigenschap hieronder `12.0`.
+3. Vervang `New-WebDeployPackage` met de volgende code en vervang de tijdelijke aanduidingen in het construeren van de regel `$msbuildCmd`. Deze code is voor Visual Studio 2017. Als u Visual Studio 2015 gebruikt, wijzigt u de **VisualStudioVersion** eigenschap `14.0` (`12.0` voor Visual Studio 2013).
 
     ```powershell
     function New-WebDeployPackage
@@ -249,7 +256,7 @@ Voor het automatiseren van uw project te bouwen, voeg code MSBuild naar roept `N
     ```powershell
     Write-VerboseWithTime 'Build-WebDeployPackage: Start'
 
-    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
+    $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=15.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
 
     Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
     ```
@@ -287,7 +294,7 @@ return $WebDeployPackage
     }
     ```
 
-2. Aanroepen van het aangepaste script vanaf de opdrachtregel doorgegeven met de `$Project` argument, zoals in het volgende voorbeeld-opdrachtregel.
+2. Aanroepen van het aangepaste script vanaf de opdrachtregel doorgegeven met de `$Project` argument, zoals in het volgende voorbeeld:
 
     ```powershell
     .\Publish-WebApplicationVM.ps1 -Configuration .\Configurations\WebApplication5-VM-dev.json `
@@ -308,15 +315,15 @@ Voor informatie over functies die u bij de opdrachtprompt van Windows PowerShell
 | --- | --- |
 | Voeg AzureSQLDatabase |Maakt een nieuwe Azure SQL-database. |
 | Voeg AzureSQLDatabases |Azure SQL-databases maakt van de waarden in het JSON-configuratiebestand dat Visual Studio gegenereerd. |
-| -AzureVM |Een virtuele machine in Azure maakt en retourneert de URL van de geïmplementeerde virtuele machine. De functie stelt u de vereisten en roept vervolgens de **New-AzureVM** functie (Azure module) voor het maken van een nieuwe virtuele machine. |
+| -AzureVM |Azure een virtuele machine maakt en retourneert de URL van de geïmplementeerde virtuele machine. De functie stelt u de vereisten en roept vervolgens de **New-AzureVM** functie (Azure module) voor het maken van een nieuwe virtuele machine. |
 | Voeg AzureVMEndpoints |Nieuwe invoereindpunten toegevoegd aan een virtuele machine en de virtuele machine met het nieuwe eindpunt retourneert. |
-| Voeg AzureVMStorage |Maakt een nieuwe Azure storage-account in het huidige abonnement. De naam van het account begint met 'devtest' gevolgd door een unieke alfanumerieke tekenreeks. De functie retourneert de naam van het nieuwe opslagaccount. U moet een locatie of een affiniteitsgroep voor het nieuwe opslagaccount opgeven. |
+| Voeg AzureVMStorage |Maakt een nieuwe Azure storage-account in het huidige abonnement. De naam van het account begint met 'devtest' gevolgd door een unieke alfanumerieke tekenreeks. De functie retourneert de naam van het nieuwe opslagaccount. Geef een locatie of een affiniteitsgroep voor het nieuwe opslagaccount. |
 | Voeg AzureWebsite |Hiermee maakt een website met de opgegeven naam en locatie. Deze functie roept de **nieuw AzureWebsite** functie in de Azure-module. Als het abonnement niet al een website met de opgegeven naam bevat, wordt deze functie wordt gemaakt van de website en een website-object geretourneerd. Anders is het resultaat `$null`. |
 | Back-up-abonnement |Hiermee slaat u het huidige Azure-abonnement in de `$Script:originalSubscription` variabele in script-bereik. Deze functie slaat de huidige Azure-abonnement (verkregen met `Get-AzureSubscription -Current`) en de storage-account en het abonnement dat door dit script wordt gewijzigd (opgeslagen in de variabele `$UserSpecifiedSubscription`) en de opslagaccount in script-bereik. Als u de waarden opslaat, kunt u een functie, zoals `Restore-Subscription`, om te herstellen van de oorspronkelijke huidige abonnement en storage-account naar de huidige status als de huidige status is gewijzigd. |
 | Zoek-AzureVM |Hiermee haalt u de opgegeven virtuele machine van Azure. |
 | Indeling DevTestMessageWithTime |Voegt toe de datum en tijd aan een bericht. Deze functie is ontworpen voor berichten die naar de fout en uitgebreid stromen worden geschreven. |
 | Get-AzureSQLDatabaseConnectionString |Ophaalprotocol een verbindingsreeks verbinding maken met een Azure SQL database. |
-| Get-AzureVMStorage |Retourneert de naam van het eerste storage-account met het naampatroon ' devtest*' (hoofdlettergevoelig) in de opgegeven locatie of affiniteitsgroep. Als de "devtest*' storage-account komt niet overeen met de locatie of affiniteitsgroep, de functie negeert deze. U moet een locatie of een affiniteitsgroep opgeven. |
+| Get-AzureVMStorage |Retourneert de naam van het eerste storage-account met het naampatroon ' devtest*' (hoofdlettergevoelig) in de opgegeven locatie of affiniteitsgroep. Als de "devtest*' storage-account komt niet overeen met de locatie of affiniteitsgroep, de functie negeert deze. Geef een locatie of een affiniteitsgroep. |
 | Get-MSDeployCmd |Retourneert een opdracht voor het hulpprogramma MsDeploy.exe uitvoeren. |
 | Nieuwe AzureVMEnvironment |Zoeken naar of maakt een virtuele machine in het abonnement dat overeenkomt met de waarden in het JSON-configuratiebestand. |
 | Publiceren WebPackage |Maakt gebruik van MsDeploy.exe en een web-pakket niet publiceren. ZIP-bestand voor het implementeren van resources met een website. Deze functie biedt geen uitvoer gegenereerd. Als de aanroep van MSDeploy.exe mislukt, wordt de functie genereert een uitzondering. Als u meer gedetailleerde uitvoer, gebruikt de **-uitgebreide** optie. |

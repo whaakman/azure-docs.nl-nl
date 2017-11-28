@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/24/2017
 ms.author: jingwang
-ms.openlocfilehash: 017d03b76bd19a0b3a1e19c22233c61be9067d0d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: d0db2bd3a7e4d93a8d0690fcb4535c4552cef7ab
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Gegevens kopiëren van/naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -248,13 +248,13 @@ Om gegevens te kopiëren naar Salesforce, stelt u het sink-type in de kopieerbew
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Salesforce input dataset name>",
+                "referenceName": "<input dataset name>",
                 "type": "DatasetReference"
             }
         ],
         "outputs": [
             {
-                "referenceName": "<output dataset name>",
+                "referenceName": "<Salesforce output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -300,25 +300,25 @@ Bij het kopiëren van gegevens van Salesforce, worden de volgende toewijzingen v
 
 | SalesForce-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| Automatische getal |Tekenreeks |
-| Selectievakje |Booleaanse waarde |
+| Automatische getal |Reeks |
+| Selectievakje |Boole-waarde |
 | Valuta |dubbele |
-| Date |Datum/tijd |
-| Datum/tijd |Datum/tijd |
-| E-mail |Tekenreeks |
-| Id |Tekenreeks |
-| Opzoekrelatie |Tekenreeks |
-| Meervoudige selectie selectielijst |Tekenreeks |
+| Date |Datum en tijd |
+| Datum/tijd |Datum en tijd |
+| E-mail |Reeks |
+| Id |Reeks |
+| Opzoekrelatie |Reeks |
+| Meervoudige selectie selectielijst |Reeks |
 | Aantal |dubbele |
 | Procent |dubbele |
-| Telefoon |Tekenreeks |
-| Selectielijst |Tekenreeks |
-| Tekst |Tekenreeks |
-| Tekstgebied |Tekenreeks |
-| Tekstgebied (lang) |Tekenreeks |
-| Tekstgebied (uitgebreid) |Tekenreeks |
-| Tekst (versleuteld) |Tekenreeks |
-| URL |Tekenreeks |
+| Telefoon |Reeks |
+| Selectielijst |Reeks |
+| Tekst |Reeks |
+| Tekstgebied |Reeks |
+| Tekstgebied (lang) |Reeks |
+| Tekstgebied (uitgebreid) |Reeks |
+| Tekst (versleuteld) |Reeks |
+| URL |Reeks |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

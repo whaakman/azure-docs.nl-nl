@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>De Wingtip Tickets SaaS-toepassing
 
@@ -27,7 +27,7 @@ Dezelfde *Wingtip Tickets* toepassing is geïmplementeerd in elk van de drie ste
 
 ## <a name="three-saas-application-patterns"></a>Drie patronen voor SaaS-toepassing
 
-Er zijn drie vesions van de app beschikbaar. elk behandelt een andere database tenancymodus patroon in Azure SQL-Database.  De eerste maakt gebruik van een toepassing voor één tenant met een geïsoleerd één tenant-database. De tweede maakt gebruik van een multitenant-app met een database per tenant. Het derde voorbeeld gebruikt een multitenant-app met shard multitenant-databases.
+Er zijn drie versies van de app beschikbaar; elk behandelt een andere database tenancymodus patroon in Azure SQL-Database.  De eerste maakt gebruik van een toepassing voor één tenant met een geïsoleerd één tenant-database. De tweede maakt gebruik van een multitenant-app met een database per tenant. Het derde voorbeeld gebruikt een multitenant-app met shard multitenant-databases.
 
 ![Drie tenancymodus patronen][image-three-tenancy-patterns]
 
@@ -63,15 +63,15 @@ Bekijk de [zelfstudies] [ docs-tutorials-for-wingtip-mt] en code op GitHub [.../
 
 - Zelfstandige app:
     - [Zelfstudies voor zelfstandige app][docs-tutorials-for-wingtip-sa].
-    - [Code voor zelfstandige op Github][github-code-for-wingtip-sa].
+    - [Code voor zelfstandige op GitHub][github-code-for-wingtip-sa].
 
 - Database per tenant:
     - [Zelfstudies voor database per tenant][docs-tutorials-for-wingtip-dpt].
-    - [Code voor de database per tenant op Github][github-code-for-wingtip-dpt].
+    - [Code voor de database per tenant op GitHub][github-code-for-wingtip-dpt].
 
 - Shard multitenant:
     - [Zelfstudies voor shard multitenant][docs-tutorials-for-wingtip-mt].
-    - [Code voor de shard multitenant op Github][github-code-for-wingtip-mt].
+    - [Code voor de shard multitenant op GitHub][github-code-for-wingtip-mt].
 
 
 

@@ -9,11 +9,11 @@ ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Een beleidstoewijzing om te identificeren van niet-compatibele bronnen in uw Azure-omgeving maken
 De eerste stap bij de naleving van inzicht in Azure is weten waar u met uw eigen huidige resources staan. Deze snelstartgids begeleidt u door het proces van het maken van een beleidstoewijzing om te identificeren van virtuele machines die geen gebruik van beheerde schijven maakt.
@@ -62,7 +62,7 @@ In deze snelstartgids we een beleidstoewijzing maken en toewijzen de *Audit virt
 5. Geef een weergave **naam** voor de beleidstoewijzing. In dit geval gaan we gebruiken *Audit virtuele machines die geen van beheerde schijven gebruikmaken*. U kunt ook toevoegen een optionele **beschrijving**. De beschrijving bevat details over hoe deze beleidstoewijzing alle virtuele machines die worden gemaakt in deze omgeving en die geen van beheerde schijven gebruikmaken identificeert.
 6. Wijzig de prijscategorie te **standaard** om ervoor te zorgen dat het beleid wordt toegepast op bestaande bronnen.
 
-   Er zijn twee prijscategorieën in Azure beleid – *vrije* en *standaard*. Met de gratis laag, kunt u alleen beleid afdwingen op toekomstige resources met de standaard, kunt u ook afdwingen ze op bestaande resources beter inzicht in uw compatibiliteitsstatus. Omdat we in de beperkte Preview, we nog niet is vrijgegeven prijsmodel gebruikt, zodat u ontvangt geen een factuur voor het selecteren van *standaard*. Voor meer informatie over prijzen, bekijk: [prijzen van Azure beleid](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Er zijn twee prijscategorieën in Azure beleid – *vrije* en *standaard*. Met de gratis laag, kunt u alleen beleid afdwingen op toekomstige resources met de standaard, kunt u ook afdwingen ze op bestaande resources beter inzicht in uw compatibiliteitsstatus. Omdat we in de beperkte Preview, we nog niet is vrijgegeven prijsmodel gebruikt, zodat u ontvangt geen een factuur voor het selecteren van *standaard*. Voor meer informatie over prijzen, bekijk: [prijzen van Azure beleid](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Selecteer de **bereik** u wilt dat het beleid moet worden toegepast op.  Een bereik bepaalt welke resources of groeperen van resources de toewijzing van beleid wordt afgedwongen op. Dit kan variëren van een abonnement aan resourcegroepen.
 8. Selecteer het abonnement (of resourcegroep) u eerder hebt geregistreerd wanneer u mee aan het beleid van Azure. In dit voorbeeld gebruiken we dit abonnement - **Azure Analytics capaciteit Dev**, maar uw opties zullen verschillen.

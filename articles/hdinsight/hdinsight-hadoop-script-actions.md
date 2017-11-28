@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Scripts voor HDInsight Windows gebaseerde clusters scriptactie ontwikkelen
 Informatie over het scriptactie om scripts te schrijven voor HDInsight. Zie voor meer informatie over het gebruik van de scriptactie scripts [aanpassen HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster.md). Zie voor hetzelfde artikel geschreven voor Linux gebaseerde HDInsight-clusters, [scriptactie ontwikkelen scripts voor HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -245,7 +245,8 @@ Hier volgen de stappen die we bij de voorbereiding voor het implementeren van de
 
 ## <a name="debug-custom-scripts"></a>Fouten opsporen in aangepaste scripts
 De script-foutenlogboeken zijn opgeslagen, samen met andere uitvoer, in het standaardopslagaccount die u hebt opgegeven voor het cluster bij het maken ervan. De logboeken worden opgeslagen in een tabel met de naam van de *u < \cluster-name-fragment >< \time-stamp > bestand*. Dit zijn de cumulatieve logboeken die records van alle knooppunten (hoofdknooppunt en worker-knooppunten) op waarop het script wordt uitgevoerd in het cluster hebben.
-Er is een eenvoudige manier om te controleren van de logboeken met HDInsight Tools voor Visual Studio. Zie voor het installeren van de hulpprogramma's voor [aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+
+Er is een eenvoudige manier om te controleren van de logboeken met HDInsight Tools voor Visual Studio. Zie voor het installeren van de hulpprogramma's voor [aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
 
 **Controleer het logboek met Visual Studio**
 

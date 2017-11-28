@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 064a6782970b950543f93c24800998c1f104c8df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen herstel van virtuele machines die zijn beveiligd met Site Recovery indelen. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. De herstelplannen ook zorgt u ervoor dat het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines in Azure een failover, uitgebreid integratie met Azure Automation uw plannen voor herstel. U kunt het uitvoeren van runbooks die krachtige automatiseringstaken bieden.

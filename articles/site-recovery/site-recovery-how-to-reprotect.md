@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Beveiligt van Azure naar een on-premises site
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 In dit artikel wordt beschreven hoe beveiligt Azure virtuele machines van Azure naar een on-premises site. Volg de instructies in dit artikel wanneer u klaar bent, mislukken back-uw virtuele VMware-machines of Windows of Linux fysieke servers nadat ze hebt failover van de on-premises site naar Azure (zoals beschreven in [repliceren VMware virtuele machines en fysieke servers naar Azure met Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> U kunt geen failback nadat u een hebt [migratie voltooid](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), een virtuele machine naar een andere resourcegroep verplaatst of verwijderd van virtuele machine van Azure. Als u de beveiliging van de virtuele machine uitschakelt, maar u kunt geen failback.
+> U kunt geen failback nadat u een hebt [migratie voltooid](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), een virtuele machine naar een andere resourcegroep verplaatst of verwijderd van virtuele machine van Azure. Als u de beveiliging van de virtuele machine uitschakelt, maar u kunt geen failback. Als de virtuele machine is gemaakt in Azure (geboren in de cloud) vervolgens u kan niet opnieuw beveiligen naar on-premises. De machine moet zijn in eerste instantie beveiligde lokale en een failover naar Azure voordat opnieuw beveiligen.
 
 
 Nadat de beveiligingspoging is voltooid en de beveiligde virtuele machines worden gerepliceerd, kunt u een failback op de virtuele machines zodat deze naar de lokale site starten.
@@ -63,7 +63,10 @@ Wanneer u beveiligt virtuele machines voorbereidt, uitvoeren of kunt u de volgen
     * [Een virtuele Linux-machine moet een Linux-hoofddoelserver](site-recovery-how-to-install-linux-master-target.md).
     * Een virtuele Windows-computer moet een Windows-hoofddoelserver. U kunt de lokale proces server en master doelmachines opnieuw gebruiken.
 
-    Het hoofddoel heeft andere vereisten die worden vermeld in [algemene wat u moet controleren op een hoofddoel voordat beveiligt](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Alle virtuele machines van een replicatiegroep moeten van hetzelfde besturingssysteem type (alle Windows of Linux alle). Een replicatiegroep met gemengde besturingssystemen wordt momenteel niet ondersteund voor beveiligt en failback naar on-premises. Dit is omdat het hoofddoel van hetzelfde besturingssysteem als de virtuele machine moet en de virtuele machines van een replicatiegroep moet het dezelfde hoofddoel hebben. 
+
+    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 * Een configuratieserver is vereist on-premises wanneer u een failback uit. Tijdens de failback, moet de virtuele machine zich in de configuratiedatabase van de server. Anders wordt de failback is mislukt. 
 
@@ -170,6 +173,8 @@ Op dit moment ondersteunt Azure Site Recovery mislukt weer alleen aan een virtue
 * De hoofddoelserver kan geen momentopnamen op de schijven hebben. Als er momentopnamen, beveiligingspoging en failback is mislukt.
 
 * Het hoofddoel kan niet een Paravirtuele SCSI-controller hebben. De controller kan alleen worden een LSI Logic-controller. Zonder een domeincontroller LSI Logic mislukt beveiligingspoging.
+
+* Op een bepaald geval kan het hoofddoel atmst 60 schijven die zijn gekoppeld aan deze hebben. Als het aantal virtuele machines opnieuw aan het hoofddoel lokale wordt beveiligd som totale aantal meer dan 60 schijven hebt, gaat u aan het hoofddoel reprotects zal mislukken. Zorg ervoor dat er voldoende master schijf sleuven doel of extra hoofddoelservers implementeren.
 
 <!--
 ### Failback policy

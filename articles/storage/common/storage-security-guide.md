@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 ## <a name="overview"></a>Overzicht
@@ -354,7 +354,7 @@ De oplossing ondersteunt niet de volgende scenario's, functies en -technologie i
 Deze functie zorgt ervoor dat alle gegevens voor de virtuele machine-schijven is versleuteld in rust in Azure Storage.
 
 #### <a name="resources"></a>Resources
-* [Azure Disk Encryption for Windows and Linux IaaS VM 's](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption for Windows and Linux IaaS VM 's](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Vergelijking van Azure Disk Encryption, SSE en Client-Side-versleuteling
 #### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VM's en hun VHD-bestanden

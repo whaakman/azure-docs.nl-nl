@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementeren en een multitenant SaaS-toepassing die gebruikmaakt van de database per tenant patroon met Azure SQL Database verkennen
 
@@ -173,11 +173,11 @@ Nu dat u hebt gestart met het uitvoeren van een werklast in de verzameling tenan
 
 Als de load-generator enkele minuten actief is, moeten er voldoende gegevens beschikbaar zijn om eens te kijken naar enkele bewakingsfuncties die zijn ingebouwd in pools en databases.
 
-1. Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;**, en klik op **Pool1** om weer te geven Resourcegebruik voor de pool (de load-generator uitgevoerd in de volgende grafieken voor een uur):
+Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;**, en klik op **Pool1** om weer te geven Resourcegebruik voor de pool (de load-generator uitgevoerd in de volgende grafieken voor een uur):
 
    ![pool bewaken](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-De bovenste diagram toont de pool-eDTU-gebruik, terwijl de grafiek onder eDTU utiization van de bovenste 5 databases in de groep.  Wat deze twee grafieken mooi laten zien, is dat elastische pools en SQL Database uitermate geschikt zijn voor workloads van SaaS-toepassingen. Vier databases die elk 'bursten' met maximaal 40 eDTU's kunnen makkelijk worden ondersteund in een pool van 50 eDTU. Als ze zijn ingericht als zelfstandige databases, zoals elke moeten een S2 (50 DTU) voor de ondersteuning van de bursts. De kosten van 4 zelfstandige S2 databases zijn bijna 3 keer de prijs van de groep en de toepassingen nog volop mogelijkheden voor veel meer databases. In de praktijk situaties worden SQL-Database klanten momenteel uitgevoerd maximaal 500 databases in 200 eDTU-toepassingen. Zie voor meer informatie de [zelfstudie over prestatiebewaking](saas-dbpertenant-performance-monitoring.md).
+De bovenste diagram toont de pool-eDTU-gebruik, terwijl de grafiek onder eDTU-gebruik van de bovenste 5 databases in de groep.  Wat deze twee grafieken mooi laten zien, is dat elastische pools en SQL Database uitermate geschikt zijn voor workloads van SaaS-toepassingen. Vier databases die elk 'bursten' met maximaal 40 eDTU's kunnen makkelijk worden ondersteund in een pool van 50 eDTU. Als ze zijn ingericht als zelfstandige databases, zoals elke moeten een S2 (50 DTU) voor de ondersteuning van de bursts. De kosten van 4 zelfstandige S2 databases zijn bijna 3 keer de prijs van de groep en de toepassingen nog volop mogelijkheden voor veel meer databases. In de praktijk situaties worden SQL-Database klanten momenteel uitgevoerd maximaal 500 databases in 200 eDTU-toepassingen. Zie voor meer informatie de [zelfstudie over prestatiebewaking](saas-dbpertenant-performance-monitoring.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen

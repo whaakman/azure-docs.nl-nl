@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Gegevens verplaatsen naar en uit Azure Storage
 Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of andersom), zijn er verschillende manieren om dit te doen. De benadering die voor u het meest geschikt is afhankelijk van uw scenario. In dit artikel biedt een snel overzicht van verschillende scenario's en de juiste aanbiedingen voor elk criterium.
@@ -76,4 +76,4 @@ Wanneer u lokale werkbelastingen en toepassingen hebt, moet u een oplossing waar
 Zie [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) voor meer informatie.
 ### <a name="moving-data-faq"></a>Veelgestelde vragen over gegevens te verplaatsen:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Kan ik migreren VHD's van de ene regio naar een andere zonder te kopiëren?
-De enige manier om de VHD's kopiëren tussen regio heeft het kopiëren van de gegevens tussen de storage-accounts op elke regio. U kunt AZCopy gebruiken voor deze. Zie de overdracht van gegevens met het AzCopy-opdrachtregelprogramma voor meer informatie. Voor zeer grote hoeveelheden gegevens kunt u ook Azure Import/Export. Zie [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) voor meer informatie.
+De enige manier om de VHD's kopiëren tussen regio heeft het kopiëren van de gegevens tussen de storage-accounts op elke regio. U kunt AZCopy gebruiken voor deze. Zie de overdracht van gegevens met het AzCopy-opdrachtregelprogramma voor meer informatie. Voor zeer grote hoeveelheden gegevens kunt u ook Azure Import/Export. Zie [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) voor meer informatie.

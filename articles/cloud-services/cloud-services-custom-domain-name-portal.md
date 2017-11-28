@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Een aangepaste domeinnaam voor een Azure-cloud-service configureren
 Wanneer u een Cloudservice maakt, Azure toegewezen aan een subdomein van **cloudapp.net**. Bijvoorbeeld, als uw Cloudservice met de naam 'contoso', zich uw gebruikers toegang tot uw toepassing op een URL als http://contoso.cloudapp.net. Azure wordt ook een virtueel IP-adres toegewezen.
@@ -28,7 +28,7 @@ Echter, kan ook worden blootgesteld uw toepassing op uw eigen domeinnaam, zoals 
 U al begrijpen wat CNAME en A-records zijn? [Korte inleiding voorbij de uitleg](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> De procedures in deze taak van toepassing op Azure Cloud Services. Zie voor App-Services, [dit](../app-service/app-service-web-tutorial-custom-domain.md). Zie voor storage-accounts [dit](../storage/blobs/storage-custom-domain-name.md).
+> De procedures in deze taak van toepassing op Azure Cloud Services. Zie voor App-Services, [aangepaste DNS-naam van een bestaande toewijzen aan Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md). Zie voor storage-accounts [een aangepaste domeinnaam configureren voor het eindpunt van de Azure Blob-opslag](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Cross-tenant analytics met gegevens opgehaald
 
@@ -73,7 +73,7 @@ Begrijpen hoe consistent elke tenant wordt via de service biedt de mogelijkheid 
 Voor het voltooien van deze zelfstudie moet u ervoor zorgen dat aan de volgende vereisten is voldaan:
 
 - De toepassing Wingtip Tickets SaaS multitenant Database wordt geïmplementeerd. Als u wilt implementeren in minder dan vijf minuten, Zie [implementeren en de toepassing Wingtip Tickets SaaS multitenant Database verkennen](saas-multitenantdb-get-started-deploy.md)
-- De Wingtip SaaS-scripts en de toepassing [broncode](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) worden gedownload van GitHub. Zorg ervoor dat *blokkering van het zip-bestand* voordat het uitpakken van de inhoud ervan.
+- De Wingtip SaaS-scripts en de toepassing [broncode](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) worden gedownload van GitHub. Zorg ervoor dat *blokkering van het zip-bestand* voordat het uitpakken van de inhoud ervan. Bekijk de [algemene richtlijnen](saas-tenancy-wingtip-app-guidance-tips.md) voor stappen voor het downloaden en de scripts Wingtip Tickets SaaS deblokkeren.
 - Power BI Desktop is geïnstalleerd. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - De batch van extra tentants is ingericht, raadpleegt u de [ **inrichten tenants zelfstudie**](saas-multitenantdb-provision-and-catalog.md).
 - Een taak account en accountdatabase taak hebt gemaakt. Zie de juiste stappen in de [ **Schema management zelfstudie**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -212,7 +212,7 @@ De voorgaande tekent voor Contoso overleg Hall toont het gekke enthousiasme gebe
 
 De inzichten in ticket verkopen patronen kunnen leiden Wingtip kaartjes voor hun bedrijfsmodel optimaliseren. In plaats van alle huurders evenveel laden, mogelijk introduceert Wingtip Servicelagen met verschillende prestatieniveaus. Grotere plaatsen die nodig zijn om te verkopen meer tickets per dag kunnen worden aangeboden als een hogere laag met een hogere service level agreement (SLA). De plaatsen van uitvoering kunnen hebben hun databases in de groep met hogere limieten per database geplaatst. Elke servicelaag kan een toewijzing voor de per uur verkoop hebben met extra kosten in rekening gebracht voor het overschrijden van de toewijzing. Grotere plaatsen waarvoor periodieke lichtflitsen verkoop zouden kunnen profiteren van de hogere lagen en Wingtip Tickets kunt Verdien er geld mee hun service efficiënter.
 
-Ondertussen klagen sommige klanten Wingtip Tickets dat ze moeilijk te verkopen voldoende tickets te rechtvaardigen de servicekosten. In deze inzichten is er wellicht een kans om de ticket verkoop voor attenderen plaatsen. Hogere verkoop zou een hogere waargenomen waarde van de service. Klik met de rechtermuisknop op fact_Tickets en selecteer **nieuwe meting**. Voer de volgende expressie voor de nieuwe meting aangeroepen **AverageTicketsSold**:
+Ondertussen klagen sommige klanten Wingtip Tickets dat ze moeilijk te verkopen voldoende tickets te rechtvaardigen de servicekosten. In deze inzichten is er wellicht een kans om de verkoop van de ticket voor onder het uitvoeren van plaatsen. Hogere verkoop zou een hogere waargenomen waarde van de service. Klik met de rechtermuisknop op fact_Tickets en selecteer **nieuwe meting**. Voer de volgende expressie voor de nieuwe meting aangeroepen **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
