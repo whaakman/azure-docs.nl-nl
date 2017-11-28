@@ -1,4 +1,4 @@
----
+﻿---
 title: Ondersteunde bestandsindelingen in Azure Data Factory | Microsoft Docs
 description: Dit onderwerp worden de bestandsindelingen en de compressie-codes die worden ondersteund door de connectors op basis van bestanden in Azure Data Factory.
 author: linda33wj
@@ -13,8 +13,7 @@ ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Ondersteunde bestandsindelingen en compressiecodecs in Azure Data Factory
 
@@ -30,6 +29,9 @@ Als u wilt **kopiëren van bestanden als-is** overslaan tussen bestandsgebaseerd
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [bestands- en compressie indelingen ondersteund in de Data Factory version1 gedefinieerd](v1//data-factory-supported-file-and-compression-formats.md).
+
+> [!TIP]
+> Meer informatie over hoe de kopieerbewerking de brongegevens opvangen van toegewezen [schematoewijzing in kopieeractiviteit](copy-activity-schema-and-type-mapping.md), met inbegrip van hoe de metagegevens wordt bepaald op basis van uw bestandsindelingsinstellingen en tips over opgeven de [gegevensset `structure` ](concepts-datasets-linked-services.md#dataset-structure) sectie.
 
 ## <a name="text-format"></a>Tekstopmaak
 
@@ -522,4 +524,3 @@ Zie de volgende artikelen voor bestandsgebaseerde gegevensarchieven die door Azu
 - [SFTP-connector](connector-sftp.md)
 - [HDFS-connector](connector-hdfs.md)
 - [HTTP-connector](connector-http.md)
-
