@@ -1,4 +1,4 @@
----
+﻿---
 title: Zelfstudie voor Azure Container Service - App voorbereiden | Microsoft Docs
 description: Zelfstudie voor Azure Container Service - App voorbereiden
 services: container-service
