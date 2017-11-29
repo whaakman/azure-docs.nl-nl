@@ -3,7 +3,7 @@ title: Het installeren van een Linux-hoofddoelserver voor failover van Azure met
 description: Voordat een virtuele Linux-machine opnieuw te beveiligen, moet u een Linux-hoofddoelserver. Informatie over het installeren van een.
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 029e1b51c52e440666238f6177d15aea0a5e07a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/28/2017
@@ -369,12 +369,12 @@ Nadat de installatie is voltooid, moet u de configuratieserver registreren met b
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Wacht totdat het script is voltooid. Als het hoofddoel geregistreerd met succes is is, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
+   Wacht totdat het script is voltooid. Als het hoofddoel met succes is geregistreerd, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
 
 
 ### <a name="upgrade-the-master-target"></a>Het hoofddoel upgraden
 
-Het installatieprogramma uitvoert. Automatisch wordt gedetecteerd dat de agent is geïnstalleerd op het hoofddoel. Als u wilt bijwerken, selecteert u **Y**.  Nadat de installatie is voltooid, controleert u de versie van het hoofddoel geïnstalleerd met behulp van de volgende opdracht.
+Het installatieprogramma uitvoert. Automatisch wordt gedetecteerd dat de agent is geïnstalleerd op het hoofddoel. Als u wilt bijwerken, selecteert u **Y**.  Nadat de installatie is voltooid, controleert u de versie van het hoofddoel geïnstalleerd met behulp van de volgende opdracht:
 
     ```
     cat /usr/local/.vx_version
@@ -387,7 +387,7 @@ Kunt u zien dat de **versie** veld kunt u het versienummer van het hoofddoel.
 U moet VMware tools installeren op het hoofddoel zodat deze de gegevensarchieven kan detecteren. Als de hulpprogramma's zijn niet geïnstalleerd, wordt het scherm beveiligt niet vermeld in de gegevensarchieven. Na installatie van de VMware-hulpprogramma's moet u opnieuw opstarten.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat de installatie en registratie van het hoofddoel heeft finsihed, ziet u het hoofddoel worden weergegeven op de **hoofddoel** in sectie **Site Recovery-infrastructuur**, onder de configuratie overzicht van de server.
+Nadat de installatie en registratie van het hoofddoel is voltooid, ziet u het hoofddoel worden weergegeven op de **hoofddoel** in sectie **Site Recovery-infrastructuur**, onder de configuratie overzicht van de server.
 
 U kunt nu doorgaan met [beveiligingspoging](site-recovery-how-to-reprotect.md), gevolgd door de failback.
 

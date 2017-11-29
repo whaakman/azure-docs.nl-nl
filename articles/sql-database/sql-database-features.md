@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/25/2017
 ms.author: carlrab
-ms.openlocfilehash: 1505b85a8828cd64045a982ece48e49d85ea3314
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: dd78b1a8703f2e6aaa7854a7b3cb774d014e7270
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database-functies
 
@@ -109,7 +109,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Niet - Zie [elastische taken](sql-database-elastic-jobs-getting-started.md) |
 | [SQL Server analyseservices (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Zie [Azure analyseservices](https://azure.microsoft.com/services/analysis-services/) |
 | [Controle van SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Niet - Zie [SQL Database auditing](sql-database-auditing.md) |
-| [SQL Server integratieservices (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Zie [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
+| [SQL Server integratieservices (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja - Zie [Lift en shift SQL Server integratieservices-werkbelastingen naar de cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview) |
 | [SQL Server-PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Niet - Zie [uitgebreide gebeurtenissen](sql-database-xevent-db-diff-from-svr.md) |
 | [SQL Server-replicatie](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Alleen voor transactionele abonnees en abonnees met momentopnamereplicatie](sql-database-cloud-migrate.md) |

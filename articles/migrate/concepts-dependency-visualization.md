@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: e787cd6746b53c28fc1495b9a3ac62f2aa08f639
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="dependency-visualization"></a>Visualisatie van afhankelijkheid
 
@@ -43,7 +43,7 @@ Voor het gebruik van afhankelijkheid visualisatie die u wilt downloaden en insta
 
 ## <a name="do-i-need-to-pay-for-it"></a>Heb ik nodig voor het betalen?
 
-Ja. De werkruimte voor logboekanalyse standaard wordt gemaakt, maar deze wordt niet gebruikt, tenzij u afhankelijkheid visualisatie in Azure migreren gebruiken. Als u afhankelijkheid visualisatie gebruiken (of gebruik de werkruimte buiten Azure migreren), wordt u in rekening gebracht voor gebruik van de werkruimte.  [Meer informatie](https://www.microsoft.com/cloud-platform/operations-management-suite) over Serviceoverzicht oplossing prijzen. 
+Ja. De werkruimte voor logboekanalyse standaard wordt gemaakt, maar deze wordt niet gebruikt, tenzij u afhankelijkheid visualisatie in Azure migreren gebruiken. Als u afhankelijkheid visualisatie gebruiken (of gebruik de werkruimte buiten Azure migreren), wordt u in rekening gebracht voor gebruik van de werkruimte.  [Meer informatie](https://azure.microsoft.com/pricing/details/insight-analytics/) over Serviceoverzicht oplossing prijzen. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Hoe kan ik de werkruimte beheren?
 

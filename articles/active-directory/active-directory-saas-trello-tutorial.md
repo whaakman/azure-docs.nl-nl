@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Zelfstudie: Azure Active Directory-integratie met Trello
 
@@ -96,6 +96,10 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Trello, moet 
 
 In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Trello.
 
+>[!NOTE]
+    >Deze krijgt u de  **\<enterprise\>**  slug van Trello. Als u de slug-waarde niet hebt, neem dan contact op met [Trello ondersteuningsteam](mailto:support@trello.com) de slug ophalen voor uw onderneming.
+    > 
+
 **Voor het configureren van Azure AD eenmalige aanmelding met Trello, moet u de volgende stappen uitvoeren:**
 
 1. In de Azure-portal op de **Trello** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
@@ -112,17 +116,15 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://trello.com/auth/saml/consume/<enterprise>`
 
-4. Op de **Trello domein en de URL's** sectie als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
+
+  ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Klik op de **weergeven geavanceerde instellingen voor URL**.
 
-    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >Deze krijgt u de  **\<enterprise\>**  slug van Trello. Als u de slug-waarde niet hebt, neem dan contact op met [Trello ondersteuningsteam](mailto:support@trello.com) ophalen van de slug voor u enterprise.
-    > 
+  c. In de **id** textbox, typ de volgende URL:`https://trello.com/auth/saml/metadata`
 
 5. Trello toepassing verwacht de SAML-asserties naar specifieke kenmerken bevatten. Configureer de volgende kenmerken voor deze toepassing. U kunt de waarden van deze kenmerken van beheren de **'Gebruikerskenmerken'** van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze.
 
@@ -130,7 +132,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
 6. Op de **SAML-token kenmerken** dialoogvenster uitvoeren voor elke rij in de onderstaande tabel wordt weergegeven op de volgende stappen uit:
  
-    | Naam van kenmerk | De waarde van kenmerk |
+    | Kenmerknaam | Kenmerkwaarde |
     | --- | --- |
     | User.Email | User.mail |
     | User.FirstName | User.givenName |

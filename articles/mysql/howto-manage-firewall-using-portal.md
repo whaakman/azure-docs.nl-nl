@@ -1,5 +1,5 @@
 ---
-title: Maken en beheren van Azure-Database voor firewallregels MySQL met de Azure portal | Microsoft Docs
+title: Maken en beheren van de firewallregels MySQL in Azure-Database voor MySQL | Microsoft Docs
 description: Maken en beheren van Azure-Database voor firewallregels MySQL met de Azure portal
 services: mysql
 author: v-chenyh
@@ -8,19 +8,19 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: 63ea6337b35193420924096690ed15cc1d5ede25
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Maken en beheren van Azure-Database voor firewallregels MySQL met behulp van de Azure-portal
 Firewallregels op serverniveau kunnen beheerders toegang krijgen tot een Azure-Database voor MySQL-Server uit een opgegeven IP-adres of een bereik met IP-adressen. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Een serverfirewallregel maken in Azure Portal
 
-1. Op de blade MySQL-server onder de instellingen voor kop, klikt u op **verbindingsbeveiliging** de verbindingsbeveiliging blade voor de Azure-Database voor MySQL openen.
+1. Op de pagina MySQL-server onder de instellingen voor kop, klikt u op **verbindingsbeveiliging** de pagina beveiliging van de verbinding voor de Azure-Database voor MySQL openen.
 
    ![Azure-portal - Klik op de beveiliging van de verbinding](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
@@ -52,4 +52,4 @@ Herhaal de stappen voor het beheren van de firewall-regels.
 * Klik op **Opslaan** om de wijzigingen op te slaan.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Voor hulp bij het verbinding maken met een Azure-Database voor de MySQL-server, Zie [verbindingsbibliotheken voor Azure-Database voor MySQL](./concepts-connection-libraries.md)
+Voor hulp bij het verbinding maken met een Azure-Database voor de MySQL-server, Zie [verbindingsbibliotheken voor Azure-Database voor MySQL](./concepts-connection-libraries.md)

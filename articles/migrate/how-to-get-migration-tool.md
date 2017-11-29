@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: d633f140635ba184642a2af999efcde845f3ec31
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Machines na beoordeling migreren
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 11/27/2017
 
 Dit artikel wordt beschreven hoe u suggesties voor een hulpprogramma voor migratie van na het uitvoeren van een migratie uit te voeren.
 
-## <a name="migration-methods"></a>Migratiemethoden
+## <a name="migration-tool-suggestion"></a>Migratie hulpprogramma suggestie
 
-Na een evaluatie met behulp van Azure migreren, moet u dit is wat we raden aan:
+Als u suggesties met betrekking tot de hulpprogramma's voor migratie, moet u agents installeren op de lokale computers.  
 
-1. Een Azure migreren-project maken, lokale machines detecteren en uitvoeren van een migratie uit te voeren. [Meer informatie](tutorial-assessment-vmware.md).
+1. Een Azure migreren-project maken, lokale machines detecteren en maken van een migratie uit te voeren. [Meer informatie](tutorial-assessment-vmware.md).
 2. Download en installeer de Azure migreren agents op elke lokale machine waarvoor u wilt laten zien van een van de aanbevolen migratiemethode. [Volg deze procedure](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) om de agents te installeren.
 2. Identificeer uw lokale machines die geschikt voor migratie van de lift en shift zijn. Dit zijn de virtuele machines die wijzigingen in apps die worden uitgevoerd op deze niet nodig en kunnen worden gemigreerd zoals is.
 3. Lift en shift migratie, is het raadzaam met Azure Site Recovery. [Meer informatie](../site-recovery/tutorial-migrate-on-premises-to-azure.md). U kunt ook 3e hulpprogramma's van derden die ondersteuning bieden voor migratie naar Azure.

@@ -14,21 +14,25 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: 652719a80133434ecb31c00738dcda261cfa0683
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a780a7d954486dbce402e4bf45be55af8ad36ab9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark-streaming (DStream) voorbeeld met Kafka in HDInsight
 
 Informatie over het gebruik van Spark Apache Spark als stream gegevens van of naar Apache Kafka op HDInsight met behulp van DStreams. In dit voorbeeld wordt een Jupyter-notebook die wordt uitgevoerd op het Spark-cluster.
+
 > [!NOTE]
 > De stappen in dit document wordt een Azure-resourcegroep met zowel een Spark in HDInsight en een Kafka op HDInsight-cluster maken Deze clusters zijn beide zich binnen een virtueel netwerk van Azure, waardoor het Spark-cluster rechtstreeks communiceren met de Kafka-cluster.
 >
 > Wanneer u klaar bent met de stappen in dit document, vergeet niet de clusters om te voorkomen dat de overtollige kosten te verwijderen.
+
+> [!IMPORTANT]
+> In dit voorbeeld wordt DStreams, dit een oudere Spark-streaming technologie is. Zie voor een voorbeeld met nieuwere Spark-streaming-functies, de [gestructureerde Streaming van Spark met Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) document.
 
 ## <a name="create-the-clusters"></a>Clusters maken
 

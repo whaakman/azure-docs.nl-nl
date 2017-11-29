@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5e758e831765ba2762b7efe7c3a10f10e59a5ddc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9e463273fff0ecc198b0574443c4241dde7be79
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Gebruik Service Bus-onderwerpen en abonnementen met behulp van Node.js
 
@@ -61,7 +61,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Een Service Bus-verbinding instellen
-De Azure-module leest de omgevingsvariabelen `AZURE_SERVICEBUS_NAMESPACE` en `AZURE_SERVICEBUS_ACCESS_KEY` voor de benodigde informatie om te verbinden met Service Bus. Als deze omgevingsvariabelen zijn niet ingesteld, moet u de accountgegevens opgeven bij het aanroepen van `createServiceBusService`.
+De Azure-module leest de omgevingsvariabele `AZURE_SERVICEBUS_CONNECTION_STRING` voor de verbindingsreeks die u uit de vorige stap hebt verkregen, ' de referenties ophalen'. Als deze omgevingsvariabele niet is ingesteld, moet u de accountgegevens opgeven bij het aanroepen van `createServiceBusService`.
 
 Zie voor een voorbeeld van de omgevingsvariabelen instellen voor een Azure Cloud Service [Node.js-Cloudservice met Storage][Node.js Cloud Service with Storage].
 

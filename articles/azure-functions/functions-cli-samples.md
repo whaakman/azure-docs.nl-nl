@@ -1,6 +1,26 @@
---titel: Azure CLI-voorbeelden - Azure Functions | Microsoft Docs beschrijving: Azure CLI-voorbeelden - services van Azure Functions: documentationcenter fungeert: functies auteur: syntaxc4 manager: cfowler-editor: ggailey777 tags: azure-servicebeheer
-
-MS.AssetID: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0 ms.service: ms.devlang fungeert: n.v.t. ms.topic: voorbeeld ms.tgt_pltfrm: na ms.workload: functies ms.date: 11-04/2017 ms.author: glenga ms.custom: mvc
+---
+title: Voorbeelden van Azure CLI - Azure Functions | Microsoft Docs
+description: Voorbeelden van Azure CLI - Azure Functions
+services: functions
+documentationcenter: functions
+author: syntaxc4
+manager: cfowler
+editor: ggailey777
+tags: azure-service-management
+ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
+ms.service: functions
+ms.devlang: na
+ms.topic: sample
+ms.tgt_pltfrm: na
+ms.workload: functions
+ms.date: 04/11/2017
+ms.author: glenga
+ms.custom: mvc
+ms.openlocfilehash: 6a86c931134ddfeb17ca540a299a369482d47370
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
 

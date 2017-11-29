@@ -6,21 +6,21 @@ keywords: Wachtwoordbeheer Active directory, wachtwoordbeheer, Azure AD self ser
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>Overzicht van de Write-back van wachtwoord
 
@@ -108,8 +108,8 @@ Als u niet zeker weet welk account het account beschreven verwijst, opent u de A
 
 Als u deze machtigingen instelt, kan het MA-serviceaccount voor elk forest wachtwoorden beheren namens de gebruikersaccounts in dat forest. 
 
->[!IMPORTANT]
->Als u niet de volgende machtigingen toe te wijzen, klikt u vervolgens treden terugschrijven weergegeven correct worden geconfigureerd, maar gebruikers fouten op bij de poging voor het beheren van hun on-premises wachtwoorden vanuit de cloud.
+> [!IMPORTANT]
+> Als u niet de volgende machtigingen toe te wijzen, klikt u vervolgens treden terugschrijven weergegeven correct worden geconfigureerd, maar gebruikers fouten op bij de poging voor het beheren van hun on-premises wachtwoorden vanuit de cloud.
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ Als u de juiste machtigingen voor terugschrijving wachtwoord instelt, moet u de 
 5. Kies het account dat machtigingen worden toegepast op (van de Azure AD Connect-installatie).
 6. In de **is van toepassing op** vervolgkeuzelijst, selecteer **onderliggende gebruiker** objecten.
 7. Onder **machtigingen**, schakelt u de selectievakjes voor het volgende:
-    * **Unexpire wachtwoord**
     * **Wachtwoord opnieuw instellen**
     * **Wachtwoord wijzigen**
     * **LockoutTime schrijven**
@@ -224,7 +223,7 @@ De grootte van elk van de eerder beschreven bericht is doorgaans dan 1 KB. De se
 * [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
 * [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md).
 * [Registreer u voor selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md).
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)

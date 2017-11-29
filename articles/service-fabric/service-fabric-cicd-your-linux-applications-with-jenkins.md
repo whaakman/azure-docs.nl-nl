@@ -14,8 +14,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 8fcce0e3fea8f0789e198d19754f93dcdf0c84f9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/28/2017
@@ -129,8 +129,8 @@ U moet Docker hebben geïnstalleerd. De volgende opdrachten kunnen worden gebrui
 Wanneer u ``docker info`` nu uitvoert in de terminal, ziet u in de uitvoer dat de Docker-service wordt uitgevoerd.
 
 ### <a name="steps"></a>Stappen
-  1. Haal de Service Fabric-installatiekopie van de container voor Jenkins op: ``docker pull raunakpandya/jenkins:9``
-  2. Voer de installatiekopie van de container uit: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v9``
+  1. Haal de Service Fabric-installatiekopie van de container voor Jenkins op: ``docker pull sayantancs/jenkins:v9``
+  2. Voer de installatiekopie van de container uit: ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
   3. Haal de id op van het exemplaar van de installatiekopie van de container. U kunt een lijst van alle Docker-containers bekijken met de opdracht ``docker ps –a``
   4. Voer de volgende stappen uit om u aan te melden bij de Jenkins-portal:
 

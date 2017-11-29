@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Een bestandsserver met Azure Site Recovery beveiligen 
 
@@ -24,9 +24,8 @@ De [Azure Site Recovery](site-recovery-overview.md) service draagt bij aan uw st
 
 In dit artikel wordt beschreven hoe een bestandsserver die aan de behoeften van verschillende omgevingen met behulp van Azure Site Recovery en andere aanbevelingen beveiligen.     
 
-- [Azure IaaS-bestand server machines beveiligen](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
-- [Lokale bestandsservers beveiligen](#replicate-an-onpremises-file-server-using-azure-site-recovery)
-
+- [Azure IaaS-bestand server-machines repliceren](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
+- [Replicatie van de lokale bestandsserver met Azure Site Recovery](#replicate-an-onpremises-file-server-using-azure-site-recovery)
 
 ## <a name="file-server-architecture"></a>File Server-architectuur
 Het doel van een open gedistribueerde bestandsdeling system is voor een omgeving waar een groep geografisch verspreide gebruikers samenwerken kan om efficiënt te werken aan bestanden en worden gegarandeerd dat de vereisten voor integriteit worden afgedwongen. Een typische lokale bestandsserver ecosysteem die ondersteuning biedt voor een groot aantal gelijktijdige gebruikers en een groot aantal inhoudsitems Distributed File System Replication (DFSR) voor replicatie planning en bandbreedtebeperking gebruiken DFSR maakt gebruik van een compressiealgoritme, ook bekend als Remote Differential Compression (RDC), die kunnen worden gebruikt voor het efficiënt updatebestanden via een netwerk met beperkte bandbreedte. Er wordt gedetecteerd invoegingen, verwijderingen en of van gegevens in bestanden inschakelen DFSR gerepliceerd alleen de gewijzigde bestandsblokken wanneer bestanden worden bijgewerkt. Er zijn ook bestandsserver omgevingen, waarbij de dagelijkse back-ups worden uitgevoerd in niet-piekuren tijdsinstellingen die geschikt zijn voor noodherstel behoeften en er is geen implementatie van DFSR.
@@ -49,12 +48,12 @@ In de bovenstaande verwijzing meerdere bestandsservers aangeduid als leden, acti
 
 3.  Azure File-Sync-service gebruiken om te repliceren van uw bestanden: als u voorbereidt voor uw reis naar de cloud of een Azure VM al gebruikt, moet we raden het gebruik van Azure File sync-service biedt synchroniseren van een volledig beheerde bestandsshares in de cloud die toegankelijk v IA de industriestandaard [Server Message Block ](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)protocol (SMB). Azure File shares vervolgens worden gekoppeld, gelijktijdig door cloud of on-premises implementaties van Windows, Linux en Mac OS. 
 
-Onderstaande diagram, biedt een grafisch weergegeven die gericht is op versnelling van de beslissing over welke strategie moet worden gebruikt voor uw serveromgeving bestand.
+Volgende diagram biedt een grafisch weergegeven die gericht is op versnelling van de beslissing over welke strategie moet worden gebruikt voor uw serveromgeving bestand.
 
 ![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
-### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Factoren bij het indienen van disaster recovery besluit
+### <a name="factors-to-consider-while-making-decision-of-disaster-recovery-to-azure"></a>Factoren tijdens het maken van de beslissing over noodherstel naar Azure
 
 |Omgeving  |Aanbeveling  |Aandachtspunten |
 |---------|---------|---------|
@@ -76,7 +75,7 @@ Als de replicatie van Site Recovery is networkdirect toepassing, de aanbevelinge
 > [!IMPORTANT]
 > Voordat u met een van verdergaat de onderstaande drie methoden ervoor te zorgen dat de volgende afhankelijkheden worden afgehandeld:
 
-**Site-naar-Site-connectiviteit**: directe verbinding tussen de lokale site en de Azure-netwerk moet worden gemaakt voor de communicatie tussen servers.  Dit kan worden gegarandeerd door een veilige Site-naar-Site VPN-verbinding met een Windows Azure-netwerk dat wordt gebruikt als de DR-site.  
+**Site-naar-Site-connectiviteit**: directe verbinding tussen de lokale site en de Azure-netwerk moet worden gemaakt voor de communicatie tussen servers.  Dit kan worden gegarandeerd door een veilige Site-naar-Site VPN-verbinding met een Microsoft Azure-netwerk dat wordt gebruikt als de DR-site.  
 Raadpleeg: [maken Site-naar-Site VPN-verbinding tussen on-premises site en Azure-netwerk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
 **Active Directory**: DFSR is afhankelijk van Active Directory.  Dit betekent dat de Active Directory-forest met lokale domeincontrollers wordt uitgebreid naar de DR-site in Azure. Zelfs als u DFSR niet gebruikt als de beoogde gebruikers moeten worden verleend of geverifieerd voor toegang zoals in de meeste organisaties, moeten deze stappen worden uitgevoerd.
@@ -84,44 +83,42 @@ Raadpleeg: [on-premises Active Directory naar Azure uitbreiden](https://docs.mic
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Aanbeveling van herstel na noodgevallen voor Azure IaaS virtuele machines
 
-Als u de basis van bewerkingen voor het beheren van herstel na noodgevallen van bestandsservers gehost op Azure IaaS VM's, kunt u kiezen uit twee opties wilt configureren op basis van of u verplaatsen wilt naar [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Als u configureren wilt en beheren van herstel na noodgevallen van bestandsservers gehost op Azure IaaS VM's u uit twee opties kiezen kunt, op basis van of u verplaatsen wilt naar [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
 1. [Azure File Sync gebruiken](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine)
 2. [Azure Site Recovery gebruiken](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
 
 ## <a name="use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine"></a>Gebruik Azure bestand Sync-service voor replicatie van bestanden die worden gehost op IaaS virtuele machine
 
-**Azure Files** kan worden gebruikt om volledig vervangen of vormen een aanvulling op de bestandsservers traditionele on-premises of NAS-apparaten. Azure-bestandsshares kunnen ook met Azure-bestandssynchronisatie worden gerepliceerd naar Windows-Servers, on-premises of in de cloud, voor een krachtige en gedistribueerde opslag in de cache van gegevens waar deze worden gebruikt. Onderstaande stappen detailleren de aanbeveling Noodherstel voor de Azure VM's die dezelfde functionaliteit als traditionele bestandsservers uitvoeren:
-1.  Met Azure Site Recovery met hier vermelde stappen machines beveiligen
+**Azure Files** kan worden gebruikt om volledig vervangen of vormen een aanvulling op de bestandsservers traditionele on-premises of NAS-apparaten. Azure-bestandsshares kunnen ook met Azure-bestandssynchronisatie worden gerepliceerd naar Windows-Servers, on-premises of in de cloud, voor een krachtige en gedistribueerde opslag in de cache van gegevens waar deze worden gebruikt. Volgende stappen wordt beschreven de aanbeveling Noodherstel voor de Azure VM's die dezelfde functionaliteit als traditionele bestandsservers uitvoeren:
+1.  Beveiligen met Azure Site Recovery met behulp van stappen genoemde machines [hier](azure-to-azure-quickstart.md).
 2.  Azure bestand Sync gebruiken om te repliceren van bestanden van de virtuele machine die als de bestandsserver, naar de cloud fungeert.
-3.  Azure Site Recovery herstel plan functie gebruiken om toe te voegen scripts [de Azure-bestandsshare koppelen](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) en toegang tot de share in de virtuele machine.
+3.  Gebruik van Azure Site Recovery [herstelplan](site-recovery-create-recovery-plans.md) functie scripts toevoegen [de Azure-bestandsshare koppelen](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) en toegang tot de share in de virtuele machine.
 
 De onderstaande stappen beschreven kort hoe u Azure File-Sync-service:
 
 1. [Een opslagaccount maken in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u geografisch redundante opslag met leestoegang (RA-GRS) voor uw storage-accounts hebt gekozen, krijgt u leestoegang tot uw gegevens van de secundaire regio als er een ramp optreedt. Raadpleeg de [Azure File share disaster recovery strategieën](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie.
-
-2. [Een bestandsshare maken](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
-
+2. [Een bestandsshare maken](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Azure File-synchronisatie implementeren](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) op uw Azure-bestandsserver.
-
 4. Maken van een groep voor synchronisatie: eindpunten in een groep voor synchronisatie synchroon met elkaar worden behouden. Een groep voor synchronisatie moet ten minste één Cloudeindpunt dat vertegenwoordigt een Azure-bestandsshare, en één servereindpunt waarmee een pad op een Windows-Server bevatten.
 5.  Uw bestanden wordt nu gesynchroniseerd blijven in uw Azure-bestandsshare en de lokale server.
-6.  Er in een noodsituatie in uw on-premises omgeving uitvoeren als een herstelplan met failover en voeg het script [de Azure-bestandsshare koppelen](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) en toegang tot de share in de virtuele machine.
+6.  Uitvoeren in het geval van een ramp in uw on-premises-omgeving, als het gebruik van de failover een [herstelplan](site-recovery-create-recovery-plans.md) en voeg het script [de Azure-bestandsshare koppelen](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) en toegang tot de share in de virtuele machine.
 
 ### <a name="replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery"></a>Een IaaS-bestand server virtuele machine met Azure Site Recovery repliceren
 
-Als u lokale clients toegang tot het uitvoeren van de virtuele machine van bestand IaaS wordt de eerste 2 stappen ook anders verder met stap 3.
+Als u lokale clients toegang tot het uitvoeren van de virtuele machine van bestand IaaS hebt u de eerste twee stappen, anders verder met stap 3.
 
-1. Site-naar-Site VPN-verbinding tussen on-premises site en Azure-netwerk maken.  
-2. On-premises Active Directory uitbreiden.
-3. [Instellen van herstel na noodgevallen](azure-to-azure-tutorial-enable-replication.md) voor de servercomputer van IaaS-bestand naar een secundaire regio.
+1. Site-naar-Site VPN-verbinding tussen on-premises site en Azure-netwerk maken.
+1. On-premises Active Directory uitbreiden.
+1. [Instellen van herstel na noodgevallen](azure-to-azure-tutorial-enable-replication.md) voor de servercomputer van IaaS-bestand naar een secundaire regio.
 
 
 Raadpleeg voor meer informatie over herstel na noodgevallen in een secundaire regio [hier](concepts-azure-to-azure-architecture.md).
 
 
 ## <a name="replicate-an-on-premises-file-server-using-azure-site-recovery"></a>Een lokale bestandsserver met Azure Site Recovery repliceren
-De onderstaande stappen detail replicatie voor een VM VMware voor stappen voor het repliceren van een Hyper-V-machine verwijzen hier.
+
+De onderstaande stappen detail replicatie voor een VM VMware voor stappen voor het repliceren van een Hyper-V-machine verwijzen [hier](tutorial-hyper-v-to-azure.md).
 
 1.  [Voorbereiden van de Azure-resources](tutorial-prepare-azure.md) voor replicatie van machines lokale.
 2.  Site-naar-Site VPN-verbinding tussen on-premises site en Azure-netwerk maken.  
@@ -134,33 +131,26 @@ De onderstaande stappen detail replicatie voor een VM VMware voor stappen voor h
 1.  Site-naar-Site VPN-verbinding tussen on-premises site en Azure-netwerk maken. 
 2.  On-premises Active Directory uitbreiden.
 3.  [Maken en inrichten van een bestandsserver VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) op de Windows Azure Virtual Network.
-
-    Zorg ervoor dat de virtuele machine is toegevoegd aan het dezelfde Windows Azure virtuele netwerk, waardoor de cross verbinding met de on-premises omgeving heeft. 
-
+Zorg ervoor dat de virtuele machine is toegevoegd aan het dezelfde Windows Azure virtuele netwerk, waardoor de cross verbinding met de on-premises omgeving heeft. 
 4.  Installeren en [DFS-replicatie configureren](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) op Windows Server.
-
 5.  [Implementeren van een DFS-Namespace](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6.  Met de DFS Namespace geïmplementeerd, kan de failover van gedeelde mappen van de productie DR sites worden gedaan door de DFS Namespace-mapdoelen bij te werken.  Zodra deze wijzigingen van de DFS Namespace via Active Directory repliceren, zijn gebruikers verbonden met de juiste mapdoelen transparant.
 
 ## <a name="use-azure-file-sync-service-to-replicate-your-on-premises-files"></a>Gebruik Azure bestand Sync-service voor replicatie van uw lokale bestanden:
 Met de Azure-bestand Sync-service, kunt u repliceren de gewenste bestanden in de cloud, zodat in het geval van een noodherstel en het ontbreken van de lokale bestandsserver, kunt u de gewenste bestandslocaties vanuit de cloud te koppelen en serviceaanvragen van blijven de clientcomputers.
 De voorgestelde benadering van de integratie van Azure File-synchronisatie met Azure Site Recovery is
-1.  De file server-machines met Azure Site Recovery met behulp van stappen vermeld beveiligen [hier](tutorial-vmware-to-azure.md)
+1.  De file server-machines met Azure Site Recovery met behulp van stappen vermeld beveiligen [hier](tutorial-vmware-to-azure.md).
 2.  Azure bestand Sync gebruiken om te repliceren van bestanden van de computer die als een bestandsserver, naar de cloud fungeert.
 3.  Gebruik van Azure Site Recovery herstel plan functie toevoegen scripts voor het koppelen van de Azure-bestandsshare op de mislukte via FileServer VM in Azure.
 
 De onderstaande stappen detail controleren met behulp van Azure bestand Sync-service:
 
-1. [Een opslagaccount maken in Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u kiest geografisch redundante opslag met leestoegang (RA-GRS) voor uw storage-accounts (aanbevolen), hebt u alleen toegang tot uw gegevens van de secundaire regio als er een ramp optreedt. Raadpleeg de [Azure File share disaster recovery strategieën](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie.
-
-2. [Een bestandsshare maken](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
-
+1. [Een opslagaccount maken in Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u hebt gekozen geografisch redundante opslag met leestoegang (RA-GRS) voor uw storage-accounts (aanbevolen), hebt u leestoegang tot uw gegevens van de secundaire regio als er een ramp optreedt. Raadpleeg de [Azure File share disaster recovery strategieën](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie.
+2. [Een bestandsshare maken](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Azure File-synchronisatie implementeren](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) in uw lokale bestandsserver.
-
 4. Maken van een groep voor synchronisatie: eindpunten in een groep voor synchronisatie synchroon met elkaar worden behouden. Een groep voor synchronisatie moet ten minste één Cloudeindpunt dat vertegenwoordigt een Azure-bestandsshare, en één servereindpunt waarmee een pad op de lokale Windows-Server bevatten.
-
 1. Uw bestanden wordt nu gesynchroniseerd blijven in uw Azure-bestandsshare en de lokale server.
-6.  In het geval van een noodgeval in uw on-premises omgeving uitvoeren als een herstelplan met failover en voeg het script voor het koppelen van de Azure-bestandsshare en toegang tot de share in de virtuele machine.
+6.  In het geval van een noodgeval in uw on-premises omgeving uitvoeren als het gebruik van de failover een [herstelplan](site-recovery-create-recovery-plans.md) en het script voor het koppelen van de Azure-bestandsshare en toegang tot de share in de virtuele machine toe te voegen.
 
 > [!NOTE]
 > Zorg ervoor dat poort 445 is geopend: Azure Files SMB-protocol gebruikt. SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd.
@@ -186,4 +176,4 @@ Voor hulp bij de testfailover uitvoeren voor AD en DNS, verwijzen naar [testfail
 3.  Klik op 'Failover'.
 4.  Selecteer het herstelpunt om de failoverproces te starten.
 
-Raadpleeg voor meer informatie over het uitvoeren van de testfailover [hier](site-recovery-failover.md).
+Raadpleeg voor meer informatie over het uitvoeren van een failover [hier](site-recovery-failover.md).

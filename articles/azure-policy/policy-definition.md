@@ -9,19 +9,19 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 8ff85f842356eff3f12ccd04e337d71c52d0efcd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-policy-definition-structure"></a>Definitie van Azure beleidsstructuur
+# <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
 Beleid resourcedefinitie gebruikt door het beleid van Azure kunt u conventies voor resources in uw organisatie tot stand brengen door te beschrijven wanneer het beleid wordt afgedwongen en welke actie moet worden uitgevoerd. Door het definiëren van conventies u kosten kunt beheren en meer eenvoudig beheren van uw resources. U kunt bijvoorbeeld opgeven dat alleen bepaalde typen virtuele machines zijn toegestaan. Of u kunt vereisen dat alle resources een bepaald label hebben. Beleidsregels worden overgenomen door alle onderliggende resources. Dus als een beleid wordt toegepast op een resourcegroep, is van toepassing op alle resources in die resourcegroep.
 
 JSON kunt u een beleidsdefinitie maken. De beleidsdefinitie bevat-elementen voor:
 
-* Modus
+* modus
 * parameters
 * Weergavenaam
 * description
@@ -88,13 +88,21 @@ U kunt bijvoorbeeld een beleid voor een broneigenschap te beperken van de locati
     "type": "array",
     "metadata": {
       "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations"
+      "displayName": "Allowed locations",
+      "strongType": "location"
     }
   }
 }
 ```
 
 Het type van een parameter kan tekenreeks- of matrixtype zijn. De metagegevenseigenschap wordt gebruikt voor hulpprogramma's zoals de Azure-portal om gebruiksvriendelijke informatie weer te geven.
+
+U kunt gebruiken in de van metagegevenseigenschap **strongType** om te voorzien in een meervoudige selectie lijst van opties in de Azure-portal.  Toegestane waarden voor **strongType** momenteel omvatten:
+
+* `"location"`
+* `"resourceTypes"`
+* `"storageSkus"`
+* `"vmSKUs"`
 
 In de beleidsregel verwijzen naar parameters met de volgende syntaxis:
 

@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/15/2017
-ms.author: markgal;arunak
-ms.openlocfilehash: a3d50d0066f1d0fe38bd7c5474386f54df81bec5
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: markgal;arunak;sogup
+ms.openlocfilehash: ad685744595ab86def8d226d7c2fb5455af98da4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>Overzicht van Recovery Services-kluizen
 
 In dit artikel beschrijft de functies van een Recovery Services-kluis. Een Recovery Services-kluis is een entiteit opslag in Azure met gegevens. De gegevens zijn meestal kopieën van gegevens of configuratie-informatie voor virtuele machines (VM's), werkbelastingen, servers of werkstations. U kunt de Recovery Services-kluizen gebruiken voor het opslaan van back-upgegevens voor verschillende Azure-services zoals IaaS VM's (Linux of Windows) en Azure SQL-databases. Recovery Services-kluizen ondersteuning van System Center DPM, Windows Server back-upserver van Azure, en meer. Recovery Services-kluizen maken het eenvoudig om uw back-upgegevens te ordenen, terwijl de beheertaken minimaal zijn. 
 
-U kunt maximaal 25 Recovery Services-kluizen maken binnen een Azure-abonnement.
+Binnen een Azure-abonnement kunt u maximaal 25 Recovery Services-kluizen per regio.
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Vergelijken Recovery Services-kluizen en back-upkluizen
 

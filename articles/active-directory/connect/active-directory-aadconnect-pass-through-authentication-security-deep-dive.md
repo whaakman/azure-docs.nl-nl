@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-verificatie voor Pass Through-beveiliging diepgaand
 
@@ -39,7 +39,7 @@ Dit zijn de sleutelbeveiliging aspecten van deze functie:
 - Alleen standaard poorten (80 en 443) worden gebruikt voor uitgaande communicatie van de verificatie-Agents naar Azure AD. U hoeft niet te openen van poorten voor inkomend verkeer op uw firewall. 
   - Poort 443 wordt gebruikt voor alle geverifieerde uitgaande communicatie.
   - Poort 80 wordt alleen voor het downloaden van de certificaatintrekkingslijsten (CRL's) gebruikt om ervoor te zorgen dat geen van de certificaten die door deze functie is ingetrokken.
-  - Zie voor de volledige lijst van de netwerkvereisten [Azure Active Directory Pass-through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - Zie voor de volledige lijst van de netwerkvereisten [Azure Active Directory Pass-through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Wachtwoorden die gebruikers tijdens het aanmelden opgeven worden gecodeerd in de cloud voordat de Agents van lokale verificatie ermee akkoord bent gegaan voor validatie op basis van Active Directory.
 - Het HTTPS-kanaal tussen Azure AD en de lokale verificatie-Agent is beveiligd met behulp van wederzijdse verificatie.
 - De functie integreert naadloos met Azure AD cloud beveiliging mogelijkheden, zoals beleidsregels voor voorwaardelijke toegang (met inbegrip van Azure multi-factor Authentication), bescherming van identiteiten en slimme vergrendeling.

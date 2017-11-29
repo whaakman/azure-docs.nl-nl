@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions bewaken
 
@@ -50,7 +50,7 @@ Application Insights op de functie-App inschakelen **maken** pagina:
 
 ### <a name="existing-function-app"></a>Bestaande functie-app
 
-Een instrumentatiesleutel ophalen en opslaan in een functie-app:
+De instrumentatiesleutel ophalen en opslaan in een functie-app:
 
 1. De Application Insights-exemplaar maken. Toepassingstype ingesteld op **algemene**.
 
@@ -60,7 +60,7 @@ Een instrumentatiesleutel ophalen en opslaan in een functie-app:
 
    ![De Application Insights-instrumentatiesleutel kopiëren](media/functions-monitoring/copy-ai-key.png)
 
-1. In de functie-app **toepassingsinstellingen** pagina [een app-instelling toevoegen](functions-how-to-use-azure-function-app-settings.md#settings) APPINSIGHTS_INSTRUMENTATIONKEY met de naam en de instrumentatiesleutel plakken.
+1. In de functie-app **toepassingsinstellingen** pagina [een app-instelling toevoegen](functions-how-to-use-azure-function-app-settings.md#settings) door te klikken op **toevoegen van nieuwe instelling**. Naam van de nieuwe instelling APPINSIGHTS_INSTRUMENTATIONKEY en plak de gekopieerde instrumentatiesleutel.
 
    ![Instrumentatiesleutel toevoegen aan de app-instellingen](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Een instrumentatiesleutel ophalen en opslaan in een functie-app:
 
 ## <a name="view-telemetry-data"></a>Telemetrie-gegevens weergeven
 
-Om te navigeren naar Application Insights van een functie-app in de portal, selecteer de **Application Insights** koppeling op een van de functie app **overzicht** pagina.
+Om te navigeren naar de verbonden Application Insights-exemplaar van een functie-app in de portal, selecteer de **Application Insights** koppeling op een van de functie app **overzicht** pagina.
 
 Zie voor meer informatie over het gebruik van Application Insights de [Application Insights documentatie](https://docs.microsoft.com/azure/application-insights/). Deze sectie vindt enkele voorbeelden van gegevens weergeven in Application Insights. Als u al bekend met Application Insights bent, kunt u gaan rechtstreeks naar [de secties over het configureren en aanpassen van de telemetriegegevens](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ Op de [prestaties](../application-insights/app-insights-performance-counters.md)
 
 ![Prestaties](media/functions-monitoring/performance.png)
 
-De **Servers** tabblad toont brongebruik en doorvoer per server. Deze gegevens kan nuttig zijn voor foutopsporing in scenario's waarin functies zijn bogging uw onderliggende resources. Servers worden aangeduid als *rolinstanties Cloud*. 
+De **Servers** tabblad toont brongebruik en doorvoer per server. Deze gegevens kan nuttig zijn voor foutopsporing in scenario's waarin functies zijn bogging uw onderliggende resources. Servers worden aangeduid als **rolinstanties Cloud**.
 
 ![Servers](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ De [livestream metrische gegevens](../application-insights/app-insights-live-str
 
 ## <a name="query-telemetry-data"></a>Telemetrie querygegevens
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) hebt u toegang tot alle telemetriegegevens in de vorm van tabellen in een database. Analytics biedt een querytaal voor uitpakken en het bewerken van gegevens.
+[Application Insights Analytics](../application-insights/app-insights-analytics.md) hebt u toegang tot alle telemetriegegevens in de vorm van tabellen in een database. Analytics biedt een querytaal voor uitpakken, bewerken en de gegevens te visualiseren.
 
 ![Selecteer Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ De runtime biedt `customDimensions.LogLevel` en `customDimensions.Category`. U k
 
 ## <a name="configure-categories-and-log-levels"></a>Configureren van de categorieën en meld u niveaus
 
-U kunt Application Insights gebruiken zonder aangepaste configuratie, maar de standaardconfiguratie kan leiden tot grote hoeveelheden gegevens. Als u een Visual Studio-Azure-abonnement, kunt u mogelijk de initiaal van uw gegevens voor App Insights raakt. De rest van dit artikel laat zien hoe configureren en aanpassen van de gegevens die uw functies naar Application Insights verzendt.
+U kunt Application Insights gebruiken zonder aangepaste configuratie, maar de standaardconfiguratie kan leiden tot grote hoeveelheden gegevens. Als u een Visual Studio-Azure-abonnement, kunt u uw gegevens cap voor Application Insights bereikt. De rest van dit artikel laat zien hoe configureren en aanpassen van de gegevens die uw functies naar Application Insights verzendt.
 
 ### <a name="categories"></a>Categorieën
 
@@ -152,7 +152,7 @@ Het logboek van Azure functions bevat ook een *Meld niveau* met elke logboek. [L
 |Informatie | 2 |
 |Waarschuwing     | 3 |
 |Fout       | 4 |
-|Kritieke    | 5 |
+|Kritiek    | 5 |
 |Geen        | 6 |
 
 Meld u niveau `None` in de volgende sectie wordt uitgelegd. 
@@ -178,7 +178,7 @@ De *host.json* bestand wordt geconfigureerd hoeveel logboekregistratie een funct
 
 In dit voorbeeld stelt u de volgende regels:
 
-1. Voor logboeken met categorie 'Host.Results' of 'De functie' alleen verzenden `Error` niveau en hoger naar Application Insights. De logboeken voor `Information` niveau en hieronder worden genegeerd.
+1. Voor logboeken met categorie 'Host.Results' of 'De functie' alleen verzenden `Error` niveau en hoger naar Application Insights. De logboeken voor `Warning` niveau en hieronder worden genegeerd.
 2. Voor de logboeken met categorie Host. Aggregator, verzenden alleen `Information` niveau en hoger naar Application Insights. De logboeken voor `Debug` niveau en hieronder worden genegeerd.
 3. Voor alle andere logboeken verzenden alleen `Information` niveau en hoger naar Application Insights.
 
@@ -217,7 +217,7 @@ Al deze logboeken worden geschreven op `Information` niveau, dus als u filteren 
 
 Deze logboeken bieden aantallen en gemiddelden van functie aanroepen via een [configureerbare](#configure-the-aggregator) periode van tijd. De standaardperiode is 30 seconden of 1000 resultaten, afhankelijk van wat zich het eerste voordoet. 
 
-De logboeken weergegeven als 'customMetrics' in Application Insights. Voorbeelden zijn nummer wordt uitgevoerd, slagingspercentage en duur.
+De logboeken zijn beschikbaar in de **customMetrics** tabel in Application Insights. Voorbeelden zijn nummer wordt uitgevoerd, slagingspercentage en duur.
 
 ![customMetrics query](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Al deze logboeken worden geschreven op `Information` niveau, dus als u filteren 
 
 ### <a name="other-categories"></a>Andere categorieën
 
-Alle logboeken voor categorieën dan degene die al wordt vermeld weergeven als 'traceringen' in Application Insights.
+Alle logboeken voor categorieën dan degene die al zijn beschikbaar in de **traceringen** tabel in Application Insights.
 
 ![traceringen query](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Als u dezelfde bericht tekenreeks houden en de volgorde van de parameters, hebbe
 
 Tijdelijke aanduidingen worden op deze manier behandeld, zodat u gestructureerde logboekregistratie kunt doen. Application Insights slaat de parameter naam / waarde-paren naast de bericht-tekenreeks. Het resultaat is dat de Berichtargumenten velden die u kunt een query op.
 
-Als uw methodeaanroep berichtenlogboek op het vorige voorbeeld lijkt, kan u bijvoorbeeld het veld query `customDimensions.prop__rowKey`. Het voorvoegsel wordt toegevoegd om ervoor te zorgen dat er geen conflicten tussen die de runtime worden toegevoegd en de functiecode voegt velden zijn.
+Als uw methodeaanroep berichtenlogboek op het vorige voorbeeld lijkt, kan u bijvoorbeeld het veld query `customDimensions.prop__rowKey`. De `prop__` voorvoegsel wordt toegevoegd om ervoor te zorgen dat er geen conflicten tussen velden de runtime wordt toegevoegd en uw functiecode velden zijn toegevoegd.
 
 U kunt ook een query op de oorspronkelijke reeks van bericht door te verwijzen naar het veld `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ De `tagOverrides` parametersets `operation_Id` naar de functie aanroep-ID. Deze 
 
 ### <a name="dependencies"></a>Afhankelijkheden
 
-Afhankelijkheden automatisch niet weergeven, maar u kunt aangepaste code schrijven voor afhankelijkheden weergeven. De voorbeeldcode in de [C# aangepaste telemetrie sectie](#custom-telemetry-in-c-functions) ziet u hoe. De voorbeeldcode resulteert in een *toepassingstoewijzing* in Application Insights dat ziet er als volgt:
+Afhankelijkheden die de functie met andere services heeft worden niet weergegeven automatisch, maar u kunt aangepaste code schrijven voor de afhankelijkheden weergeven. De voorbeeldcode in de [C# aangepaste telemetrie sectie](#custom-telemetry-in-c-functions) ziet u hoe. De voorbeeldcode resulteert in een *toepassingstoewijzing* in Application Insights dat ziet er als volgt:
 
 ![Overzicht van de toepassing](media/functions-monitoring/app-map.png)
 
@@ -473,10 +473,10 @@ Selecteer de **Monitor** tabblad voor een functie en u een lijst van de functies
 
 ### <a name="real-time-monitoring"></a>Realtime-controle
 
-Realtime-controle is beschikbaar door te klikken op **stream live gebeurtenis** op de functie **Monitor** tabblad. De stream live gebeurtenis wordt weergegeven in een grafiek in een nieuw tabblad in de browser
+Realtime-controle is beschikbaar door te klikken op **Live gebeurtenis Stream** op de functie **Monitor** tabblad. De stream live gebeurtenis wordt weergegeven in een grafiek in een nieuw browsertabblad.
 
 > [!NOTE]
-> Er is een bekend probleem dat ertoe leiden uw gegevens dat kan niet kunnen worden ingevuld. U wilt het browsertabblad met de stream live gebeurtenis sluiten en klik vervolgens op **stream live gebeurtenis** opnieuw toe te staan dat uw stream gebeurtenisgegevens correct te vullen. 
+> Er is een bekend probleem dat ertoe leiden uw gegevens dat kan niet kunnen worden ingevuld. U wilt het browsertabblad met de stream live gebeurtenis sluiten en klik vervolgens op **Live gebeurtenis Stream** opnieuw toe te staan dat uw stream gebeurtenisgegevens correct te vullen. 
 
 Deze statistieken zijn realtime maar de werkelijke grafieken van de uitvoering van gegevens mogelijk van de latentie van ongeveer 10 seconden.
 

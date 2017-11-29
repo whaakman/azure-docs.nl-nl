@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten
 In dit onderwerp biedt een overzicht van de belangrijkste concepten van Media Services.
@@ -83,7 +83,7 @@ Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, gebruik
 Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Een Media Service-account kunt koppelen aan een of meer opslagaccounts. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 500TB per storage-account is.  Media Services biedt SDK niveau tooling zodat u meerdere opslagaccounts beheren en taakverdeling van de distributie van uw assets tijdens het uploaden naar deze accounts op basis van metrische gegevens of willekeurige distributie. Voor meer informatie raadpleegt u Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Jobs en taken
-Een [taak](https://https://docs.microsoft.com/rest/api/media/operations/job) wordt meestal gebruikt om te verwerken (bijvoorbeeld index of coderen) een audio/video-presentatie. Als u meerdere video's verwerkt, maakt u een taak voor elke video om te worden gecodeerd.
+Een [taak](https://docs.microsoft.com/en-us/rest/api/media/operations/job) wordt meestal gebruikt om te verwerken (bijvoorbeeld index of coderen) een audio/video-presentatie. Als u meerdere video's verwerkt, maakt u een taak voor elke video om te worden gecodeerd.
 
 Een taak bevat metagegevens over de verwerking moet worden uitgevoerd. Elke taak bevat een of meer [taak](https://docs.microsoft.com/rest/api/media/operations/task)s die een atomic verwerkingstaak in de invoer activa, geef uitvoer activa, een Mediaprocessor en de bijbehorende instellingen. Taken in een job kunnen keten worden samengesteld, waarbij de uitvoerasset van een taak wordt gegeven als de invoer asset met de volgende taak. Op deze manier kan één taak bevatten alle van de verwerking nodig is voor een presentatie media.
 

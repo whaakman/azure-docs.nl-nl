@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/27/2017
+ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-Database voor PostgreSQL-Servers
 Dit artikel vindt overwegingen en richtlijnen voor het werken met Azure-Database voor PostgreSQL-servers.
@@ -38,13 +38,7 @@ U kunt een of meerdere databases maken binnen een Azure-Database voor PostgreSQL
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Hoe ik verbinding maken en verifiëren met een Azure-Database voor PostgreSQL-server?
 De volgende elementen zorgt het veilige toegang tot uw database.
 
-|||
-| :-- | :-- |
-| **Verificatie en autorisatie** | Azure-Database voor PostgreSQL-server ondersteunt systeemeigen PostgreSQL-verificatie. U kunt verbinding maken en verifiëren bij de server met de server admin aanmelden. |
-| **Protocol** | De service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door PostgreSQL. |
-| **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. |
-| **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw server en de databases, totdat u opgeven welke computers over de machtiging beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
-|||
+| :-- | :-- | | **Verificatie en autorisatie** | Azure-Database voor PostgreSQL-server ondersteunt systeemeigen PostgreSQL-verificatie. U kunt verbinding maken en verifiëren bij de server met de server admin aanmelden. | | **Protocol** | De service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door PostgreSQL. | | **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. | | **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw server en de databases, totdat u opgeven welke computers over de machtiging beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Hoe kan ik een server beheren?
 U kunt Azure-Database voor PostgreSQL-servers beheren met behulp van de [Azure-portal](https://portal.azure.com) of de [Azure CLI](/cli/azure/postgres).

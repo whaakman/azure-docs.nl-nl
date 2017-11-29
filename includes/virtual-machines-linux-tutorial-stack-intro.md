@@ -12,7 +12,7 @@ az group create --name myResourceGroup --location eastus
 
 Maak een VM met de opdracht [az vm create](/cli/azure/vm#create). 
 
-In het volgende voorbeeld wordt een VM gemaakt met de naam *myVM* en worden er SSH-sleutels gemaakt, als deze nog niet bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
+In het volgende voorbeeld wordt een VM gemaakt met de naam *myVM* en worden er SSH-sleutels gemaakt, als deze nog niet bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`. De opdracht stelt ook *azureuser* als de gebruikersnaam van een beheerder. U gebruikt deze naam later verbinding maken met de virtuele machine. 
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld. Noteer het `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.
+Wanneer de virtuele machine is gemaakt, toont de Azure CLI informatie die lijkt op de informatie in het volgende voorbeeld. Noteer het `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine in latere stappen.
 
 ```azurecli-interactive 
 {
@@ -50,14 +50,14 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>SSH in uw virtuele machine
 
 
-Als u al het openbare IP-adres van uw virtuele machine niet weet, voert u de [az netwerk openbare ip-lijst](/cli/azure/network/public-ip#list) opdracht:
+Als u al het openbare IP-adres van uw virtuele machine niet weet, voert u de [az netwerk openbare ip-lijst](/cli/azure/network/public-ip#list) opdracht. U moet dit IP-adres voor de verschillende volgende stappen.
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machine. Vervangen door de juiste openbare IP-adres van uw virtuele machine. In dit voorbeeld wordt het IP-adres is *40.68.254.142*.
+Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machine. Vervangen door de juiste openbare IP-adres van uw virtuele machine. In dit voorbeeld wordt het IP-adres is *40.68.254.142*. *azureuser* is de naam van de administrator-gebruiker ingesteld tijdens het maken van de virtuele machine.
 
 ```bash
 ssh azureuser@40.68.254.142

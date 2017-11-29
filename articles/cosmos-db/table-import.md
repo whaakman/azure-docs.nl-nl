@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 5163d20aece01addddeae93cb07355bde928a440
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Gegevens importeren voor gebruik met de Azure-API voor tabel Cosmos DB
 
@@ -32,11 +32,11 @@ Deze zelfstudie bevat de volgende taken:
 
 ## <a name="data-migration-tool"></a>Hulpprogramma voor migratie van gegevens
 
-Het opdrachtregelprogramma van Azure Cosmos DB Data Migration (dt.exe) kan worden gebruikt om uw bestaande Azure Table storage-gegevens importeren in een tabel API GA-account of migreren van gegevens uit een tabel-API (preview)-account in een tabel API GA-account. Andere bronnen worden momenteel niet ondersteund.
+Het opdrachtregelprogramma van Azure Cosmos DB Data Migration (dt.exe) kan worden gebruikt om uw bestaande Azure Table storage-gegevens importeren in een tabel API GA-account of migreren van gegevens uit een tabel-API (preview)-account in een tabel API GA-account. Andere bronnen worden momenteel niet ondersteund. De gebruikersinterface op basis van de gegevensmigratie hulpprogramma (dtui.exe) wordt momenteel niet ondersteund voor tabel-API-accounts. 
 
 Voor een migratie van gegevens in een tabel, moet u de volgende taken uitvoeren:
 
-1. Download het hulpprogramma voor migratie van de [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) of van [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Download het hulpprogramma voor migratie van [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Voer `dt.exe` met behulp van de opdrachtregelargumenten voor uw scenario.
 
 DT.exe heeft een opdracht in de volgende indeling:

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -194,9 +194,11 @@ Er zijn enkele gedrag van die afkomstig zijn van Azure Table storage gebruikers 
 * Azure Cosmos DB tabel-API maakt gebruik van een gereserveerde capaciteit om ervoor te zorgen gegarandeerde prestaties, maar dit betekent dat een voor de capaciteit betaalt als de tabel is gemaakt, zelfs als de capaciteit niet wordt gebruikt. Met Azure Table storage betaalt één alleen voor capaciteit die daadwerkelijk wordt gebruikt. Dit helpt waarin wordt uitgelegd waarom tabel API kunt aanbieden aan dat een 10 ms lezen en 15 ms schrijven, SLA op het 99th percentiel terwijl Azure Table storage een 10 tweede SLA biedt. Maar als gevolg hiervan met tabel-API-tabellen, zelfs lege tabellen zonder verzoeken kosten geld om ervoor te zorgen dat de capaciteit is beschikbaar voor het verwerken van aanvragen voor deze aan de SLA die worden aangeboden door Azure Cosmos DB.
 * De resultaten van de query is geretourneerd door de tabel-API worden niet gesorteerd partitie sleutel/rij sleutel omdat ze zich in Azure Table storage.
 * Rij sleutels mag uit maximaal 255 bytes
+* Batches mogen slechts tot 2 MB
 * CreateIfNotExists aanroepen worden beperkt door een management-versnelling die vaste en werkt afzonderlijk van andere tabelbewerkingen die RUs vallen. Dit betekent dat die een groot aantal CreateIfNotExists maken beperkt ophalen en verder niets te doen over het omdat de limiet is niet afkomstig zijn van hun RUs niet mogelijk.
 * CORS wordt momenteel niet ondersteund.
 * Namen van tabellen in de Azure Table storage zijn niet hoofdlettergevoelig, maar ze zijn in Azure Cosmos DB tabel-API
+* Sommige Azure Cosmos DB interne indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk nodig hebt. Daarom kan dit onverwachte beperkingen op gegevensgrootte veroorzaken. Bijvoorbeeld: momenteel een kan niet gebruiken de volledige 1 Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens groter wordt.
 
 Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azure Cosmos DB tabel API in termen van de REST-API:
 | Rest-methode(n) | Rest-eindpunt/Query-optie | Doc-URL 's | Uitleg |

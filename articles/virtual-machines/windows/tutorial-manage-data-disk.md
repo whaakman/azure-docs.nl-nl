@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Azure-schijven met PowerShell beheren
 
@@ -41,7 +41,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudi
 
 Wanneer een virtuele machine van Azure is gemaakt, worden twee schijven automatisch gekoppeld aan de virtuele machine. 
 
-**Besturingssysteemschijf** -systeemschijven kan worden verkleind tot 1 terabyte is, en fungeert als host voor het besturingssysteem van de virtuele machines.  De besturingssysteemschijf is toegewezen stationsletter van *c:* standaard. De configuratie van de besturingssysteemschijf van de schijfcache is geoptimaliseerd voor OS-prestaties. De besturingssysteemschijf **beter niet** toepassingen of gegevens hosten. Gebruik een gegevensschijf, die verderop in dit artikel wordt beschreven voor toepassingen en gegevens.
+**Besturingssysteemschijf** -systeemschijven kan worden verkleind tot 4 terabyte is, en fungeert als host voor het besturingssysteem van de virtuele machines.  De besturingssysteemschijf is toegewezen stationsletter van *c:* standaard. De configuratie van de besturingssysteemschijf van de schijfcache is geoptimaliseerd voor OS-prestaties. De besturingssysteemschijf **beter niet** toepassingen of gegevens hosten. Gebruik een gegevensschijf, die verderop in dit artikel wordt beschreven voor toepassingen en gegevens.
 
 **Tijdelijke schijf** -tijdelijke schijven gebruiken een SSD-schijf die zich op dezelfde Azure host als de virtuele machine. Tijdelijke schijven zijn maximaal zodat en kunnen worden gebruikt voor bewerkingen, zoals tijdelijke gegevensverwerking. Als de virtuele machine wordt verplaatst naar een nieuwe host, wordt echter gegevens die zijn opgeslagen op een tijdelijke schijf verwijderd. De grootte van de tijdelijke schijf wordt bepaald door de VM-grootte. Tijdelijke schijven zijn toegewezen stationsletter van *d:* standaard.
 
@@ -81,7 +81,7 @@ Standard Storage wordt ondersteund door HDD's en biedt voordelige en hoogwaardig
 
 ### <a name="premium-disk"></a>Premium-schijf
 
-Premium-schijven worden ondersteund door de hoge prestaties, lage latentie SSD-schijf. Ideaal voor virtuele machines met productie werkbelasting. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie en virtuele machines FS-serie. Premium-schijven zijn drie typen (P10, P20, P30), de grootte van de schijf bepaalt het schijftype. Wanneer u selecteert, wordt de een de waarde van de schijfgrootte afgerond naar het volgende type. Bijvoorbeeld, als de grootte lager dan 128 GB is wordt het schijftype P10, worden tussen 129 512 P20 en meer dan 512 P30. 
+Premium-schijven worden ondersteund door de hoge prestaties, lage latentie SSD-schijf. Ideaal voor virtuele machines met productie werkbelasting. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie en virtuele machines FS-serie. Premium-schijven zijn drie typen (P10, P20, P30, p 40, P50), de grootte van de schijf bepaalt het schijftype. Wanneer u selecteert, wordt de een de waarde van de schijfgrootte afgerond naar het volgende type. Bijvoorbeeld, als de grootte lager dan 128 GB is het schijftype worden P10, tussen 129 en 512 P20, 512 voor P30, p 40 voor 2TB en P50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Premium-schijfprestaties
 

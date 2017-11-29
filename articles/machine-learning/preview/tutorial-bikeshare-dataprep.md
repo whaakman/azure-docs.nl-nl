@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Fiets-share-zelfstudie: gegevens voorbereiden met Azure Machine Learning Workbench geavanceerde
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end gegevenswetenschap en geavanceerde analyses oplossing voor professionals gegevenswetenschappers gegevens voorbereiden, experimenten te ontwikkelen en implementeren van modellen in de cloud.
@@ -261,10 +261,7 @@ Als u de gegevens in een voorspelling voor twee uur tijdblokken, moet u de voorw
 
    > [!NOTE]
    > Azure ML-Workbench synthesizes een programma op basis van de voorbeelden die u hebt opgegeven en hetzelfde programma toegepast op de overige rijen. De overige rijen worden automatisch ingevuld op basis van het voorbeeld dat u hebt opgegeven. Workbench ook uw gegevens analyseert en probeert rand gevallen identificeren. 
-
-   > [!IMPORTANT]
-   > Identificatie van de rand gevallen werken wellicht niet op Mac in de huidige versie van de Workbench. Overslaan de __stap 3__ en __stap 4__ hieronder op Mac. In plaats daarvan, drukt u op __OK__ nadat alle rijen ophalen gevuld met de afgeleide waarden.
-   
+  
 3. De tekst **analyseren van gegevens** geeft aan dat Workbench probeert te detecteren rand gevallen boven het raster. Wanneer u klaar bent, wordt de status gewijzigd in **revisie van de volgende voorgestelde rij** of **geen suggesties**. In dit voorbeeld **revisie van de volgende voorgestelde rij** wordt geretourneerd.
 
 4. Selecteer de voorgestelde om wijzigingen te bekijken, **revisie van de volgende voorgestelde rij**. De cel die u moet controleren en corrigeren (indien nodig) wordt gemarkeerd op de weergave.
@@ -294,11 +291,6 @@ Als u de gegevens in een voorspelling voor twee uur tijdblokken, moet u de voorw
 
    ![Afbeelding van het voorbeeld ' 01 januari 2015 12: 00 A.M. - 2 uur](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > Voer de volgende stap in plaats van op Mac __stap 8__ hieronder.
-   >
-   > * Ga naar de eerste cel met `Feb 01, 2015 12AM-2AM`. Deze moet de __15 rij__. Corrigeer de waarde voor `Jan 02, 2015 12AM-2AM`, en druk op __Enter__. 
-   
 
 8. Wacht totdat de status te wijzigen van **analyseren van gegevens** naar **revisie van de volgende voorgestelde rij**. Dit kan enkele seconden duren. Selecteer de statuskoppeling om te navigeren naar de voorgestelde rij. 
 
@@ -513,12 +505,7 @@ Samenvattend fiets vraag gedurende 2 uur afgeleide kolommen te gebruiken.
     > U kunt een voorbeeld met een van de rijen op te geven. In dit voorbeeld is de waarde van `Jan 01, 2017 12AM-2AM` is geldig voor de eerste rij van gegevens.
 
     ![Afbeelding van de bijvoorbeeld gegevens](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > Voer de volgende stap in plaats van op Mac __stap 3__ hieronder.
-   >
-   > * Ga naar de eerste cel met `Jan 01, 2017 1AM-2AM`. Deze moet de __rij 14__. Corrigeer de waarde voor `Jan 01, 2017 12AM-2AM`, en druk op __Enter__. 
-
+   
 3. Wacht totdat de waarden op basis van alle rijen door de toepassing wordt berekend. Het kan enkele seconden duren. Nadat analyseren voltooid is, gebruikt u de __revisie van de volgende voorgestelde rij__ koppeling om gegevens te bekijken.
 
    ![Afbeelding van de voltooide analyse met de koppeling controleren](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

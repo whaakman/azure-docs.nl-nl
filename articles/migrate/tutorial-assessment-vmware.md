@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: fd9513cda899a7ac2a51c4e1ab03a80ce0adf2fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/28/2017
@@ -76,12 +76,20 @@ Controleer of de. EICELLEN bestand is beveiligd voordat u deze implementeert.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Voorbeeld van syntaxis:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. De gegenereerde hash moet overeenkomen met deze instellingen.
-
+    
+    Voor de versie eicellen 1.0.8.38
     **Algoritme** | **Hash-waarde**
     --- | ---
     MD5 | dd27dd6ace28f9195a2b5d52a4003067 
     SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
     SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+
+    Voor de versie eicellen 1.0.8.40
+    **Algoritme** | **Hash-waarde**
+    --- | ---
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
+    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
 ## <a name="create-the-collector-vm"></a>De collector VM maken
 
@@ -98,7 +106,6 @@ Het gedownloade bestand importeren in de vCenter-server.
 8. In **schijfindeling**, het schijftype en de grootte opgeven.
 9. In **netwerktoewijzing**, geeft u het netwerk waarmee de VM-collector verbinding maakt. Het netwerk moet verbinding met internet, metagegevens verzenden naar Azure. 
 10. Controleer en Bevestig de instellingen en klik op **voltooien**.
-
 
 ## <a name="run-the-collector-to-discover-vms"></a>De collector voor het detecteren van virtuele machines worden uitgevoerd
 
@@ -118,6 +125,9 @@ Het gedownloade bestand importeren in de vCenter-server.
     - In **Tag categorie voor groepering**, selecteer **geen**.
 1. In **Project selecteren**, geeft u de Azure migreren project-ID en sleutel dat u hebt gekopieerd uit de portal. Als niet kopiëren, de Azure portal openen van de VM-collector. In het project **overzicht** pagina, klikt u op **Machines detecteren**, en kopieer de waarden.  
 2. In **volledige detectie**, detectie bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector zorgt voor een geschatte detectie.
+
+> [!NOTE]
+> De collector ondersteunt alleen 'Engels (Verenigde Staten)' als de taal van het besturingssysteem en de taal van de gebruikersinterface van de collector. Ondersteuning voor meer talen is binnenkort beschikbaar.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Controleer of virtuele machines in de portal

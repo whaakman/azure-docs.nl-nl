@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure-Cloud-Shell
 Azure Cloud-Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -55,9 +55,9 @@ Naast het Cloud-Shell wordt beschikbaar vanuit de Azure-portal, kunt u deze ook 
 * [Mobiele Apps van Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>Koppel de opslag van uw Azure-bestanden
+### <a name="connect-your-microsoft-azure-files-storage"></a>Verbinding maken met uw Microsoft Azure File storage
 Cloud-Shell-machines zijn tijdelijk en als gevolg hiervan vereisen een Azure-bestanden-share moet worden gekoppeld als `clouddrive` voor het persistent maken van uw directory $Home.
-Op de eerste keer opstarten die cloud Shell wordt gevraagd om een resource te maken delen groep, storage-account en -bestand namens jou. Dit is een eenmalige stap en wordt automatisch voor alle sessies worden gekoppeld. Één bestandsshare kan worden toegewezen en wordt gebruikt door zowel Bash als PowerShell in de Cloud-Shell (Preview).
+Op de eerste keer opstarten die cloud Shell wordt gevraagd om een resourcegroep te maken, delen storage-account en een Azure-bestand namens jou. Dit is een eenmalige stap en wordt automatisch voor alle sessies worden gekoppeld. Één Azure-bestandsshare kan worden toegewezen en wordt gebruikt door zowel Bash als PowerShell in de Cloud-Shell (Preview).
 
 #### <a name="create-new-storage"></a>Maken van nieuwe opslag
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Drie bronnen worden namens jou gemaakt:
 3. De bestandsshare met de naam:`cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Bash in de Cloud-Shell maakt ook een standaardinstallatiekopie van 5 GB schijfruimte om te blijven behouden `$Home`. Alle bestanden in uw directory $Home zoals SSH-sleutels worden doorgevoerd in de schijfinstallatiekopie van uw gebruiker opgeslagen in de gekoppelde bestandsshare. Aanbevolen procedures van toepassing bij het opslaan van bestanden in uw directory $Home en gekoppelde bestandsshare.
+> Bash in de Cloud-Shell maakt ook een standaardinstallatiekopie van 5 GB schijfruimte om te blijven behouden `$Home`. Alle bestanden in uw directory $Home zoals SSH-sleutels worden doorgevoerd in de schijfinstallatiekopie van uw gebruiker opgeslagen in de gekoppelde Azure-bestandsshare. Aanbevolen procedures van toepassing bij het opslaan van bestanden in uw directory $Home en de gekoppelde Azure-bestandsshare.
 
 #### <a name="use-existing-resources"></a>Bestaande bronnen gebruiken
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Een geavanceerde optie is opgegeven voor het koppelen van bestaande resources vo
 Klik op 'Weergeven geavanceerde instellingen' bij de prompt opslag setup om extra opties weer te geven.
 Opgegeven waarin DropDowns worden gefilterd voor uw toegewezen Cloud Shell regio en lokaal/globaal-redundant storage-accounts.
 
-[Meer informatie over opslag voor Cloud-Shell, gedeelde bestanden bijwerken en het uploaden/downloaden van bestanden.](persisting-shell-storage.md)
+[Meer informatie over Cloud Shell opslag, updaten van Azure-bestandsshares en het uploaden/downloaden van bestanden.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Concepten
 * Cloud-Shell wordt uitgevoerd op een tijdelijke host die is opgegeven op een per-sessie per gebruiker
 * Time-out opgetreden voor de cloud Shell na 20 minuten zonder interactieve activiteit
-* Cloud-Shell vereist een bestandsshare te koppelen
-* Cloud-Shell maakt gebruik van dezelfde bestandsshare voor zowel Bash en PowerShell
+* Cloud-Shell vereist een Azure-bestandsshare te koppelen
+* Cloud-Shell de dezelfde Azure-bestandsshare gebruikt voor zowel Bash en PowerShell
 * Cloud-Shell wordt één machine per gebruikersaccount toegewezen
 * Machtigingen zijn ingesteld als een gewone gebruiker Linux in Bash
 

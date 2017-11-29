@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.openlocfilehash: c2c3530df62a1f291be51739a7918f7b8ab08487
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce48f8dd71d5b9e48dcd506df976e07d385f34c5
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Een Azure-functie die is verbonden met een Cosmos Azure DB maken
 
@@ -54,7 +54,7 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 | [AZ groep maken](https://docs.microsoft.com/cli/azure/group#az_group_create) | Een resourcegroep maken met de locatie |
 | [AZ storage-account maken](https://docs.microsoft.com/cli/azure/storage/account) | Een opslagaccount maken |
 | [AZ functionapp maken](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Een nieuwe functie-app maken |
-| [AZ documentdb maken](https://docs.microsoft.com/cli/azure/documentdb#az_documentdb_create) | Documentdb-database maken |
+| [AZ cosmosdb maken](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Cosmosdb database maken |
 | [AZ groep verwijderen](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Opruimen |
 
 ## <a name="next-steps"></a>Volgende stappen

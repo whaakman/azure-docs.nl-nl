@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6a0f8cb76684a6efcc5e2d4be05493f18d5d4c76
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Verificatie in twee stappen voor een gebruiker of groep vereisen
 
@@ -40,11 +40,11 @@ Beide opties gebruikers vragen om te registreren voor Azure multi-factor Authent
 
 Gebruikersaccounts in Azure multi-factor Authentication hebben de volgende drie afzonderlijke statussen:
 
-| Status | Beschrijving | Van invloed op een niet-browsertoepassingen |
-|:---:|:---:|:---:|
-| Uitgeschakeld |De standaardstatus voor een nieuwe gebruiker is niet ingeschreven voor Azure multi-factor Authentication (MFA). |Nee |
-| Ingeschakeld |De gebruiker is geregistreerd in Azure MFA, maar is niet geregistreerd. Ze wordt gevraagd om te registreren van de volgende keer dat ze zich aanmelden. |Nee.  Ze blijven werken totdat het registratieproces is voltooid. |
-| Afgedwongen |De gebruiker is ingeschreven en het registratieproces is voltooid voor de Azure MFA. |Ja.  Apps vereisen app-wachtwoorden. |
+| Status | Beschrijving | Van invloed op een niet-browsertoepassingen | Browser-apps en moderne verificatiescenario van invloed op een |
+|:---:|:---:|:---:|:--:|
+| Uitgeschakeld |De standaardstatus voor een nieuwe gebruiker is niet ingeschreven voor Azure multi-factor Authentication (MFA). |Nee |Nee |
+| Ingeschakeld |De gebruiker is geregistreerd in Azure MFA, maar is niet geregistreerd. Ze wordt gevraagd om te registreren van de volgende keer dat ze zich aanmelden. |Nee.  Ze blijven werken totdat het registratieproces is voltooid. | Ja. Zodra het vernieuwingstoken dat voor de sessie is verlopen, is registratieprocedure voor MFA is vereist.|
+| Afgedwongen |De gebruiker is ingeschreven en het registratieproces is voltooid voor de Azure MFA. |Ja.  Apps vereisen app-wachtwoorden. |Ja. MFA is vereist bij het aanmelden. |
 
 De status van een gebruiker zijn of een beheerder heeft ingeschreven ze in Azure MFA en of ze het registratieproces voltooid.
 

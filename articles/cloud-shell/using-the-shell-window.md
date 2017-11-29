@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 5d376ea0bce1088206aa369decf92b1b7523918a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Met behulp van het venster Azure Cloud Shell
 
@@ -32,7 +32,7 @@ Gebruik de selector omgeving op de werkbalk Cloud Shell wisselen tussen Bash en 
 ## <a name="restart-cloud-shell"></a>Cloud-Shell starten
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Cloud-Shell opnieuw te starten, wordt MACHINESTATUS opnieuw instellen en alle bestanden niet door het bestand share niet verloren.
+> Cloud-Shell opnieuw te starten, wordt MACHINESTATUS opnieuw instellen en alle bestanden niet door uw Azure-bestandsshare niet verloren.
 
 * Klik op het pictogram opnieuw opstarten in de werkbalk Cloud Shell opnieuw instellen van status van de machine.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Schalen van een Service Fabric-cluster in- of met regels voor automatisch schalen
 Virtuele-machineschaalsets zijn een Azure compute resource die u gebruiken kunt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype dat is gedefinieerd in een Service Fabric-cluster is ingesteld als een afzonderlijke virtuele-machineschaalset. Elk knooppunttype kan vervolgens worden uitgebreid of uit onafhankelijk, hebben verschillende sets van poorten openen en andere capaciteitsmetrieken kan hebben. Lees meer over in de [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) document. Omdat de typen van de Service Fabric-knooppunt in het cluster zijn gemaakt van de virtuele-machineschaalsets op de back-end, moet u regels voor elk knooppunt type/virtuele-machineschaalset automatisch schalen instellen.
@@ -72,8 +72,8 @@ Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.
 
 U moet de volgende stappen uit één VM-instantie tegelijk uitvoeren. Hierdoor kunnen de systeemservices (en uw stateful services) worden afsluiten op de VM-instantie die u wilt verwijderen en de nieuwe replica's die zijn gemaakt op andere knooppunten.
 
-1. Voer [uitschakelen ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
-2. Voer [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet het geval is, wacht totdat het knooppunt is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
+1. Voer [uitschakelen ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
+2. Voer [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet het geval is, wacht totdat het knooppunt is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
 3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één die Nodetype. Het exemplaar dat is verwijderd is de hoogste VM-instantie. 
 4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ U moet de volgende stappen uit één VM-instantie tegelijk uitvoeren. Hierdoor k
 
 In dat geval moet u het uitvoeren van de volgende stappen uit één VM-instantie in op een tijdstip. Hiermee kunt u de systeemservices (en uw stateful services) worden afsluiten op de VM-instantie die u wilt verwijderen en nieuwe replica's gemaakt waar u anders.
 
-1. Voer [uitschakelen ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
-2. Voer [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet, wacht u tot de knooppunten is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
+1. Voer [uitschakelen ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) met opzet 'RemoveNode' naar het knooppunt uitschakelen u wilt verwijderen (hoogste exemplaar in het desbetreffende knooppunttype).
+2. Voer [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om ervoor te zorgen dat het knooppunt inderdaad is overgegaan op uitgeschakeld. Als dat niet, wacht u tot de knooppunten is uitgeschakeld. U kunt geen wacht niet langer in deze stap.
 3. Volg de sample/instructies in de [sjablonengalerie snel starten](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) wijzigen van het aantal virtuele machines met één die Nodetype. Hiermee wordt de hoogste VM-instantie nu verwijderd. 
 4. Herhaal stap 1 tot en met 3 indien nodig, maar nooit terugschroeven het aantal exemplaren in het primaire knooppunttypen die kleiner is dan wat de betrouwbaarheidslaag garandeert. Raadpleeg [de details op betrouwbaarheid lagen hier](service-fabric-cluster-capacity.md).
 

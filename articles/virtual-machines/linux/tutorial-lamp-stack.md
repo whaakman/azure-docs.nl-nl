@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Een webserver licht installeren op een virtuele machine in Azure
 Dit artikel begeleidt u bij het implementeren van een Apache-webserver, MySQL en PHP (de licht-stack) op een Ubuntu VM in Azure. Als u liever de NGINX-webserver, Zie de [LEMP stack](tutorial-lemp-stack.md) zelfstudie. Overzicht van de server licht in actie kunt u optioneel installeren en configureren van een WordPress-site. In deze zelfstudie leert u het volgende:
@@ -32,7 +32,7 @@ Dit artikel begeleidt u bij het implementeren van een Apache-webserver, MySQL en
 > * WordPress installeren op de server licht
 
 
-Zie voor meer informatie over de stack licht, aanbevelingen voor een productie-omgeving, inclusief de [Ubuntu documentatie](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Deze instelling is voor de snelle tests noch een bewijs van het concept. Zie voor meer informatie over de stack licht, aanbevelingen voor een productie-omgeving, inclusief de [Ubuntu documentatie](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereis
 
 ## <a name="install-apache-mysql-and-php"></a>Apache, MySQL en PHP installeren
 
-Voer de volgende opdracht om te werken Ubuntu pakket bronnen en Apache, MySQL en PHP installeren. Noteer de dakje (^) aan het einde van de opdracht.
+Voer de volgende opdracht om te werken Ubuntu pakket bronnen en Apache, MySQL en PHP installeren. Houd er rekening mee de dakje (^) aan het einde van de opdracht die deel uitmaakt van de `lamp-server^` pakketnaam. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 U wordt gevraagd om de pakketten en andere afhankelijkheden te installeren. Wanneer u wordt gevraagd, een root-wachtwoord instellen voor MySQL, en vervolgens [Enter] om door te gaan. Volg de aanwijzingen resterende. Dit proces installeert de minimale vereiste PHP-uitbreidingen die nodig zijn voor PHP met MySQL gebruikt. 
@@ -78,15 +77,15 @@ Controleer de versie van MySQL met de volgende opdracht (Let op het kapitaal `V`
 mysql -V
 ```
 
-U wordt aangeraden het volgende script voor het beveiligen van de installatie van MySQL uitgevoerd:
+Ter beveiliging van de installatie van MySQL uitvoeren de `mysql_secure_installation` script. Als u alleen een tijdelijke server instelt, kunt u deze stap overslaan.
 
 ```bash
 mysql_secure_installation
 ```
 
-Voer uw MySQL root-wachtwoord en de beveiligingsinstellingen voor uw omgeving.
+Geef een root-wachtwoord voor MySQL en de beveiligingsinstellingen voor uw omgeving.
 
-Als u maken van een MySQL-database wilt, gebruikers toevoegen of wijzigen van configuratie-instellingen, meld u aan bij de MySQL:
+Als u wilt proberen MySQL-functies (een MySQL-database maken, gebruikers toevoegen of wijzigen van configuratie-instellingen), meld u aan bij MySQL. Deze stap is niet vereist om deze zelfstudie te voltooien.
 
 ```bash
 mysql -u root -p
