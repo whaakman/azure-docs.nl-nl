@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Functies en hulpprogramma's voor PowerShell in Azure Cloud-Shell (Preview)
 
@@ -37,7 +37,7 @@ PowerShell in de Cloud-Shell (Preview) verifieert veilig en automatisch accountt
 
 ### <a name="files-persistence-across-sessions"></a>Persistentie bestanden over de sessies
 
-Om te blijven behouden bestanden over de sessies, helpt Cloud Shell u bij het koppelen van een Azure-bestandsshare op de eerste keer opstarten.
+Om te blijven behouden bestanden over de sessies, helpt Cloud Shell u bij het koppelen van een share Microsoft Azure-bestanden op de eerste keer opstarten.
 Zodra de voltooid, Cloud Shell uw opslag automatisch koppelen (gekoppeld als `$home\clouddrive`) voor alle toekomstige sessies.
 Omdat elke aanvraag voor Cloud-Shell is een tijdelijke machine toewijzen buiten bestanden uw `$home\clouddrive` en status van de machine blijven niet bestaan tussen sessies.
 

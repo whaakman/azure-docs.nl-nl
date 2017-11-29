@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -29,43 +29,11 @@ Onze diagnostische hulpprogramma's zorgen dat het mechanisme voor het verzamelen
  
 ## <a name="trace-collector"></a>Trace-Collector
  
-De Trace-verzamelaar is standaard ingeschakeld. Continu op de achtergrond uitgevoerd en alle Event Tracing voor Windows (ETW) logboeken verzamelt van componentservices op de Stack Azure en slaat ze op een algemene lokale share. 
+De Trace-verzamelaar is standaard ingeschakeld en continu op de achtergrond voor het verzamelen van alle Event Tracing voor Windows (ETW) logboeken van Azure-Stack componentservices worden uitgevoerd. ETW-logboeken worden opgeslagen in een algemene lokale share met een limiet van vijf dagen oud. Zodra deze limiet is bereikt, wordt de oudste bestanden worden verwijderd wanneer er nieuwe worden gemaakt. De standaard maximale grootte van elk bestand is 200MB. Controle van de grootte periodiek (elke 2 minuten) en als het huidige bestand > = 200 MB wordt opgeslagen en een nieuw bestand is gegenereerd. Er is ook een limiet voor 8GB op de totale bestandsgrootte gegenereerd per gebeurtenissessie. 
 
-De volgende zijn belangrijk om te weten over de Trace-Collector:
- 
-* De Trace-verzamelaar wordt continu uitgevoerd met standaard maximale grootte ervan. De maximale grootte voor elk bestand (200 MB) toegestaan standaardwaarde is **niet** een ingestelde grootte. Controle van de grootte periodiek (momenteel elke 2 minuten) en als het huidige bestand > = 200 MB wordt opgeslagen en een nieuw bestand is gegenereerd. Er is ook een limiet voor de 8 GB (configureerbaar) op de totale bestandsgrootte gegenereerd per gebeurtenissessie. Zodra deze limiet is bereikt, wordt de oudste bestanden worden verwijderd wanneer er nieuwe worden gemaakt.
-* Er is een leeftijdslimiet van 5 dagen op de logboeken. Deze limiet kan ook worden geconfigureerd. 
-* Elk onderdeel definieert de trace-configuratie-eigenschappen via een JSON-bestand. De JSON-bestanden worden opgeslagen in **C:\TraceCollector\Configuration**. Indien nodig, kan deze bestanden kunnen worden bewerkt om te wijzigen van de grenzen leeftijd en de grootte van de verzamelde Logboeken. Wijzigingen in deze bestanden moeten opnieuw worden opgestart de *Microsoft Azure-Stack Trace Collector* service om de wijzigingen van kracht te laten worden.
-
-Het volgende voorbeeld is een tracering configuratie JSON-bestand voor bewerkingen van de VM XRP FabricRingServices: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. Deze parameter bepaalt de leeftijd van de bestanden moeten worden bewaard. Oude logboekbestanden worden verwijderd.
-* **MaxSizeInMB**. Deze parameter bepaalt de drempelwaarde voor één bestand. Als de grootte is bereikt, wordt een nieuwe etl-bestand gemaakt.
-* **TotalSizeInMB**. Deze parameter bepaalt de totale grootte van de etl-bestanden dat is gegenereerd op basis van een event-sessie. Als de totale bestandsgrootte groter dan de parameterwaarde van deze is, oudere bestanden verwijderd.
-  
 ## <a name="log-collection-tool"></a>Hulpprogramma voor log-verzameling
  
-De PowerShell-opdracht **Get-AzureStackLog** kan worden gebruikt voor het verzamelen van Logboeken van alle onderdelen van een Azure-Stack-omgeving. Opgeslagen in het zip-bestanden in een door de gebruiker gedefinieerde locatie. Als het team voor onze technische ondersteuning uw logboeken moet bij het oplossen van een probleem, kunnen ze vragen u dit programma wilt uitvoeren.
+De PowerShell-cmdlet **Get-AzureStackLog** kan worden gebruikt voor het verzamelen van Logboeken van alle onderdelen van een Azure-Stack-omgeving. Opgeslagen in het zip-bestanden in een door de gebruiker gedefinieerde locatie. Als het team voor onze technische ondersteuning uw logboeken moet bij het oplossen van een probleem, kunnen ze vragen u dit programma wilt uitvoeren.
 
 > [!CAUTION]
 > Deze logboekbestanden mogelijk persoonsgegevens (PII) bevatten. Hiermee rekening houden voordat u alle logboekbestanden openbaar.
@@ -78,38 +46,38 @@ Hier volgen enkele voorbeeld logboek typen die worden verzameld:
 *   **Diagnostische logboeken van opslag**
 *   **ETW-Logboeken**
 
-Deze bestanden worden verzameld door de Trace-verzamelaar en opgeslagen op een share waar **Get-AzureStackLog** ze worden opgehaald.
+Deze bestanden worden verzameld en opgeslagen in een share Trace-collector. De **Get-AzureStackLog** PowerShell-cmdlet kan vervolgens worden gebruikt voor het verzamelen van deze indien nodig.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Voor het uitvoeren van Get-AzureStackLog op een systeem Azure Stack Development Kit (ASDK)
 1. Meld u aan als **AzureStack\CloudAdmin** op de host.
 2. Open een PowerShell-venster als beheerder.
 3. Voer de **Get-AzureStackLog** PowerShell-cmdlet.
 
-   **Voorbeelden**
+**Voorbeelden:**
 
-    Alle logboeken voor alle rollen verzamelen:
+  Alle logboeken voor alle rollen verzamelen:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    Logboeken van de rollen van virtuele machines en BareMetal verzamelen:
+  Logboeken van de rollen van virtuele machines en BareMetal verzamelen:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Logboeken van virtuele machines en BareMetal rollen, met datum filteren voor logboekbestanden voor de afgelopen 8 uur verzamelen:
+  Logboeken van virtuele machines en BareMetal rollen, met datum filteren voor logboekbestanden voor de afgelopen 8 uur verzamelen:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    Logboeken van virtuele machines en BareMetal rollen, met datum filteren voor logboekbestanden voor de periode tussen de 8 uur geleden en 2 uur geleden verzamelen:
+  Logboeken van virtuele machines en BareMetal rollen, met datum filteren voor logboekbestanden voor de periode tussen de 8 uur geleden en 2 uur geleden verzamelen:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Voor het uitvoeren van Get-AzureStackLog op een Azure-Stack geïntegreerd systeem
 
@@ -158,7 +126,7 @@ if($s)
    | Domein                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | AANVRAAGPAD                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | Virtuele machines    |  
    | IS                     | WASPUBLIC              | WDS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>Verzamelen van logboeken met behulp van een grafische gebruikersinterface
+In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure-Stack-logboeken bieden, kunt u gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de belangrijkste Azure Stack extra GitHub-opslagplaats op http://aka.ms/AzureStackTools.
+
+De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Het script hebt gestart vanuit een administratief PowerShell-sessie, verbinding maakt met het bevoorrechte eindpunt en Get-AzureStackLog uitvoert met de opgegeven parameters. Als geen parameters zijn opgegeven, wordt het script wordt standaard bevestiging voor parameters via een grafische gebruikersinterface.
+
+Voor meer informatie over de ERCS_AzureStackLogs.ps1 PowerShell script dat u kunnen bekijken [een korte video](https://www.youtube.com/watch?v=Utt7pLsXEBc) of weergeven van het script [Leesmij-bestand](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) zich in de Azure-Stack extra GitHub-opslagplaats. 
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 

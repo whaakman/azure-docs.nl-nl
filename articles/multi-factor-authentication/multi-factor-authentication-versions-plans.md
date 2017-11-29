@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Het ophalen van Azure multi-factor Authentication
 
@@ -56,7 +56,7 @@ De volgende tabel bevat een lijst van de functies die beschikbaar in de verschil
 | SMS als tweede factor |● |● |● |
 | App-wachtwoorden voor clients die geen ondersteuning voor MFA bieden |● |● |● |
 | Beheerdercontrole over verificatiemethoden |● |● |● |
-| Beveiligen van niet-beheerdersaccounts met MFA | | |● |
+| Beveiligen van niet-beheerdersaccounts met MFA |● (alleen voor Office 365-toepassingen) | |● |
 | Pincodemodus | | |● |
 | Fraudewaarschuwing | | |● |
 | MFA-rapporten | | |● |

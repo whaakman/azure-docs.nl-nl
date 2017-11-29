@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: c3cb598825477bd588a6680d5c6ddb07b72eca79
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Maken en beheren van Azure-Database voor firewallregels PostgreSQL met Azure CLI
 Firewallregels op serverniveau kunnen beheerders om toegang tot een Azure-Database voor PostgreSQL-Server beheren vanaf een specifiek IP-adres of een bereik van IP-adressen. U handige Azure CLI-opdrachten gebruikt, kunt u maken, bijwerken, verwijderen, de lijst en firewallregels voor het beheren van uw server weergegeven. Zie voor een overzicht van Azure-Database voor firewallregels PostgreSQL [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md)
@@ -28,7 +28,7 @@ Stap in deze handleiding instructies, wilt u het volgende nodig:
 De [az postgres server-firewallregel](/cli/azure/postgres/server/firewall-rule) opdrachten worden gebruikt voor het configureren van firewallregels.
 
 ## <a name="list-firewall-rules"></a>Lijst met firewall-regels 
-Uitvoeren als de bestaande server firewallregels wilt weergeven, de [az postgres firewallregel serverlijst](/cli/azure/postgres/server/firewall-rule#list) opdracht.
+Uitvoeren als de bestaande server firewallregels wilt weergeven, de [az postgres firewallregel serverlijst](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_list) opdracht.
 ```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401
 ```
@@ -37,7 +37,7 @@ De uitvoer bevat de firewallregels als een standaard in JSON opmaken. U kunt de 
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401 --output table
 ```
 ## <a name="create-firewall-rule"></a>Firewallregel maken
-U maakt een nieuwe firewallregel op de server, voeren de [az postgres server-firewallregel maken](/cli/azure/postgres/server/firewall-rule#create) opdracht. 
+U maakt een nieuwe firewallregel op de server, voeren de [az postgres server-firewallregel maken](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) opdracht. 
 
 Door op te geven 0.0.0.0 als de `--start-ip-address` en 255.255.255.255 als de `--end-ip-address` bereik, het volgende voorbeeld kan alle IP-adressen voor toegang tot de server **mypgserver 20170401.postgres.database.azure.com**
 ```azurecli-interactive
@@ -51,7 +51,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup
 Als dit lukt bevat de uitvoer van de opdracht de details van de firewallregel die u hebt gemaakt, in JSON-indeling standaard. Als er een fout is, ziet de uitvoer in plaats daarvan een foutbericht weergegeven.
 
 ## <a name="update-firewall-rule"></a>Firewallregel bijwerken 
-Bijwerken van een bestaande firewallregel op de server met [az postgres serverupdate firewallregel](/cli/azure/postgres/server/firewall-rule#update) opdracht. Geef de naam van de bestaande firewallregel als invoer en het begin IP- en end IP-kenmerken om bij te werken.
+Bijwerken van een bestaande firewallregel op de server met [az postgres serverupdate firewallregel](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) opdracht. Geef de naam van de bestaande firewallregel als invoer en het begin IP- en end IP-kenmerken om bij te werken.
 ```azurecli-interactive
 az postgres server firewall-rule update --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
 ```
@@ -60,14 +60,14 @@ Als dit lukt bevat de uitvoer van de opdracht de details van de firewallregel di
 > Als de firewallregel die niet bestaat, haalt het is gemaakt door de opdracht update.
 
 ## <a name="show-firewall-rule-details"></a>Firewall regeldetails weergeven
-U kunt de details van een bestaande firewallregel op serverniveau ook weergeven door te voeren [az postgres server-firewallregel weergeven](/cli/azure/postgres/server/firewall-rule#show) opdracht.
+U kunt de details van een bestaande firewallregel op serverniveau ook weergeven door te voeren [az postgres server-firewallregel weergeven](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_show) opdracht.
 ```azurecli-interactive
 az postgres server firewall-rule show --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```
 Als dit lukt bevat de uitvoer van de opdracht de details van de firewallregel die u hebt opgegeven, standaard in JSON-indeling. Als er een fout is, ziet de uitvoer in plaats daarvan een foutbericht weergegeven.
 
 ## <a name="delete-firewall-rule"></a>Firewallregel verwijderen
-Als u wilt intrekken van toegang voor een IP-adresbereik op de server, verwijdert u een bestaande firewallregel door het uitvoeren van de [az postgres server firewall-regel verwijderen](/cli/azure/postgres/server/firewall-rule#delete) opdracht. Geef de naam van de bestaande firewallregel.
+Als u wilt intrekken van toegang voor een IP-adresbereik op de server, verwijdert u een bestaande firewallregel door het uitvoeren van de [az postgres server firewall-regel verwijderen](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) opdracht. Geef de naam van de bestaande firewallregel.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```

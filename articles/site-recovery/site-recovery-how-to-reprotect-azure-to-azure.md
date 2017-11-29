@@ -3,7 +3,7 @@ title: Hoe beveiligt failover van virtuele machines terug naar de primaire Azure
 description: "U kunt na een failover van virtuele machines van één Azure-regio naar een andere Azure Site Recovery gebruiken ter bescherming van de machines in omgekeerde richting. Meer informatie over de stappen procedure een beveiligt voordat opnieuw een failover."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/28/2017
@@ -58,7 +58,7 @@ Hier volgen de stappen voor een virtuele machine met de standaardinstellingen op
 
 3. Controleer de **resourcegroep, netwerk-, opslag- en beschikbaarheid sets** informatie en klik op OK. Als er geen bronnen gemarkeerd (nieuw), wordt ze worden gemaakt als onderdeel van de beveiligt.
 
-Hiermee wordt een taak trigger taak die wordt eerst seed-doelsite (SEA in dit geval) met de meest recente gegevens beveiligt en als dat is voltooid, wordt gerepliceerd de delta's voordat u failover terug naar Zuidoost-Azië.
+De taak opnieuw beveiligen seeding van de doelsite (SEA in dit geval) met de meest recente gegevens eerst verzorgt en zodra dat is voltooid, wordt de delta's voordat u failover repliceren naar Zuidoost-Azië.
 
 ### <a name="reprotect-customization"></a>Aanpassing beveiligt
 Als u het extract storage-account of het netwerk kiezen tijdens het beveiligt wilt, kunt u doen met behulp van de optie aanpassen die op de blade opnieuw beveiligen.

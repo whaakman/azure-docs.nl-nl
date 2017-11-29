@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Problemen met Azure Active Directory Pass-through-verificatie
 
@@ -57,7 +57,7 @@ Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook z
 
 Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/) en klik op een specifieke gebruiker aanmelden activiteit. Zoek naar de **SIGN-IN-FOUTCODE** veld. De waarde van dat veld worden toegewezen aan een reden voor fout en de oplossing met behulp van de volgende tabel:
 
-|Aanmelden foutcode|Aanmelding mislukt reden|Oplossing
+|Foutcode voor aanmelding|Aanmelding mislukt reden|Oplossing
 | --- | --- | ---
 | 50144 | Het Active Directory-wachtwoord van de gebruiker is verlopen. | Wachtwoord van de gebruiker in uw lokale Active Directory worden ingesteld.
 | 80001 | Er is geen verificatieagent beschikbaar. | Installeren en registreren van een verificatie-Agent.
@@ -67,7 +67,7 @@ Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active
 | 80005 | Verificatieagent: er is een fout opgetreden. | Tijdelijke fout. Probeer het later opnieuw.
 | 80007 | Verificatieagent kan geen verbinding maken met Active Directory. | Controleer of uw Active Directory bereikbaar is vanaf de verificatie-Agent is.
 | 80010 | Verificatieagent kan wachtwoord niet ontsleutelen. | Als het probleem consistent reproduceerbare is, installeren en registreren van een nieuwe Agent voor verificatie. En de huidige versie verwijderen. 
-| 80011 | Verificatie-Agent kan niet worden opgehaald van de ontsleutelingssleutel. | Als het probleem consistent reproduceerbare is, installeren en registreren van een nieuwe Agent voor verificatie. En de huidige versie verwijderen.
+| 80011 | Verificatieagent kan ontsleutelingssleutel hier ophalen. | Als het probleem consistent reproduceerbare is, installeren en registreren van een nieuwe Agent voor verificatie. En de huidige versie verwijderen.
 
 ## <a name="authentication-agent-installation-issues"></a>Agent-installatie verificatieproblemen
 
@@ -79,7 +79,7 @@ Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Registratie van de verificatie-Agent is mislukt vanwege geblokkeerde poorten
 
-Zorg ervoor dat de server waarop de verificatie-Agent is geïnstalleerd met onze service communiceren kan-URL's en poorten vermeld [hier](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Zorg ervoor dat de server waarop de verificatie-Agent is geïnstalleerd met onze service communiceren kan-URL's en poorten vermeld [hier](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Registratie van de verificatie-Agent is mislukt vanwege een token of account autorisatie-fouten
 
@@ -105,7 +105,7 @@ U moet ten minste één actieve verificatie-Agent in te schakelen van Pass throu
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>Inschakelen van de functie is mislukt vanwege een geblokkeerde poorten
 
-Zorg ervoor dat de server waarop Azure AD Connect is geïnstalleerd met onze service communiceren kan-URL's en poorten vermeld [hier](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Zorg ervoor dat de server waarop Azure AD Connect is geïnstalleerd met onze service communiceren kan-URL's en poorten vermeld [hier](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Inschakelen van de functie is mislukt vanwege een token of account autorisatie-fouten
 

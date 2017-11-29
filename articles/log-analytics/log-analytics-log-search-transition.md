@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Overstappen naar de nieuwe querytaal Azure Log Analytics
 Log Analytics geïmplementeerd onlangs een nieuwe querytaal.  In dit artikel biedt hulp bij het overstappen naar deze taal voor logboekanalyse als u al bekend met de verouderde taal bent en nog steeds bepaalde hulp nodig hebt.
+
+## <a name="resources"></a>Resources
+
 
 ## <a name="language-converter"></a>Taal converter
 
 Als u bekend met de verouderde Log Analytics query language bent, is de eenvoudigste manier om dezelfde query maken in de nieuwe taal gebruiken de Converter taal die geïnstalleerd in de portal logboek zoeken wanneer uw werkruimte is geconverteerd.  Met het conversieprogramma is net zo eenvoudig als een verouderde query in het bovenste tekstvak typen en vervolgens te klikken op **converteren**.  U kunt ofwel op de zoekknop voor het uitvoeren van de query of kopieer en plak deze voor het gebruik van deze ergens anders klikt.
 
 ![Taal converter](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Resources
+De [documentatiesite voor Log Analytics Query Language](https://docs.loganalytics.io) heeft alle resources die u moet over de nieuwe taal worden geleverd aan de slag.  Dit omvat zelfstudies, voorbeelden en complete naslaggids.
 
 
 ## <a name="cheat-sheet"></a>Overzichtskaart

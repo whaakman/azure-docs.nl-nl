@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfb37ae51400210ef80a0f267b294d1e2e465b76
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implementeren van Azure-functie als een module van de rand van de IoT - voorbeeld
 U kunt Azure Functions gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks aan de rand van de IoT-apparaten implementeert. In deze zelfstudie wordt u begeleid bij het maken en implementeren van een Azure-functie waarmee sensorgegevens op het gesimuleerde rand van de IoT-apparaat dat u hebt gemaakt in de implementatie van Azure IoT-Edge van een gesimuleerd apparaat op gefilterd [Windows] [ lnk-tutorial1-win]of [Linux] [ lnk-tutorial1-lin] zelfstudies. In deze zelfstudie leert u het volgende:     
@@ -225,7 +225,7 @@ Voor het bewaken van het apparaat verzonden van uw IoT-randapparaat naar uw IoT-
 In deze zelfstudie maakt u een Azure-functie met code voor het filteren van onbewerkte gegevens die worden gegenereerd door uw IoT-randapparaat gemaakt. Informatie over het gebruik van een IoT-randapparaat als een gateway om te blijven verkennen van Azure IoT rand. 
 
 > [!div class="nextstepaction"]
-> [Een IoT-Edge gateway-apparaat maken](how-to-create-gateway-device.md)
+> [Een IoT-Edge gateway-apparaat maken](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

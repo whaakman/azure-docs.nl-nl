@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Menselijke tussenkomst in duurzame functies - Phone verificatie voorbeeld
 
@@ -33,7 +33,7 @@ Dit voorbeeld implementeert een telefoon op basis van SMS-verificatiesysteem. De
 
 ## <a name="scenario-overview"></a>Overzicht van scenario's
 
-Verificatie via de telefoon wordt een gebruikt om te controleren of de eindgebruikers van uw toepassing geen afzenders van spam hebben en dat ze zijn die zij beweren te zijn. Multi-factor authentication-server is een algemene gebruiksvoorbeeld voor gebruikersaccounts beveiligen tegen hackers. De uitdaging met de implementatie van uw eigen verificatie via de telefoon is dat een **stateful interactie** met fotograferen. De gebruiker wordt meestal verzorgd door code (bijvoorbeeld een 4 cijfers) en moet reageren **binnen redelijke tijd**.
+Verificatie via de telefoon wordt gebruikt om te controleren of de eindgebruikers van uw toepassing geen afzenders van spam hebben en dat ze zijn die zij beweren te zijn. Multi-factor authentication-server is een algemene gebruiksvoorbeeld voor gebruikersaccounts beveiligen tegen hackers. De uitdaging met de implementatie van uw eigen verificatie via de telefoon is dat een **stateful interactie** met fotograferen. De gebruiker wordt meestal verzorgd door code (bijvoorbeeld een 4 cijfers) en moet reageren **binnen redelijke tijd**.
 
 Gewone Azure Functions staatloze zijn (zoals zijn veel andere cloud-eindpunten op andere platforms), zodat deze typen interacties eruit ziet expliciet beheren status extern in een database of enige andere permanente opslaan. Bovendien moet de interactie worden verdeeld in meerdere functies die gecoördineerd samen worden kunnen. Bijvoorbeeld, moet u ten minste één functie voor het kiezen van een code en verzending aan telefoonnummer van de gebruiker ergens permanent. Bovendien moet u ten minste één andere functie reactie ontvangen van de gebruiker en enigszins terug naar de oorspronkelijke functieaanroep hiervoor de codevalidatie toewijzen. Er is een time-out is ook een belangrijk aspect om beveiliging te waarborgen. Dit kan krijgen relatief complex vrij snel.
 
@@ -43,7 +43,7 @@ De complexiteit van dit scenario is aanzienlijk verminderd wanneer u duurzame fu
 
 Dit voorbeeld ook met behulp van de [Twilio](https://www.twilio.com/) SMS-berichten verzenden naar een mobiele telefoon-service. Azure Functions heeft al ondersteuning voor Twilio via de [Twilio-binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), en het voorbeeld maakt gebruik van deze functie.
 
-De eerst te beginnen u moet u een Twilio-account is. Kunt u een gratis op https://www.twilio.com/try-twilio. Zodra u een account hebt, voeg de volgende drie **appinstellingen** aan uw project.
+U moet eerst is een Twilio-account. Kunt u een gratis op https://www.twilio.com/try-twilio. Zodra u een account hebt, voeg de volgende drie **appinstellingen** aan uw app functie.
 
 | De naam van de App-instelling | Waardebeschrijving |
 | - | - |

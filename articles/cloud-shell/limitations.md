@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Beperkingen van de Azure-Cloud-Shell
 
@@ -28,10 +28,10 @@ Azure Cloud-Shell heeft de volgende beperkingen:
 
 ### <a name="system-state-and-persistence"></a>Systeemstatus en persistentie
 
-De computer waarmee u uw Cloud-Shell-sessie is tijdelijk en deze wordt gerecycled nadat uw sessie is niet actief is gedurende 20 minuten. Cloud-Shell vereist een bestandsshare te koppelen. Uw abonnement moet als gevolg hiervan kunnen storage-resources instellen voor toegang tot Cloud-Shell. Andere overwegingen zijn onder andere:
+De computer waarmee u uw Cloud-Shell-sessie is tijdelijk en deze wordt gerecycled nadat uw sessie is niet actief is gedurende 20 minuten. Cloud-Shell vereist een Azure-bestandsshare te koppelen. Uw abonnement moet als gevolg hiervan kunnen storage-resources instellen voor toegang tot Cloud-Shell. Andere overwegingen zijn onder andere:
 
 * Met gekoppelde opslag, alleen de wijzigingen in de `clouddrive` directory blijven bestaan. In Bash, uw `$Home` directory ook persistent is gemaakt.
-* Bestandsshares worden gekoppeld, alleen vanuit uw [regio toegewezen](persisting-shell-storage.md#mount-a-new-clouddrive).
+* Azure-bestandsshares worden gekoppeld, alleen vanuit uw [regio toegewezen](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Voer in Bash, `env` vinden van uw regio ingesteld als `ACC_LOCATION`.
 * Azure Files ondersteunt alleen lokaal redundante opslag en geo-redundant storage-accounts.
 
@@ -47,7 +47,7 @@ Cloud-Shell biedt ondersteuning voor de nieuwste versies van Microsoft Edge, Mic
 
 Gebruikers kunnen alleen openen één type shell op een tijdstip ofwel **Bash** of **PowerShell**. U wellicht echter meerdere exemplaren van Bash of PowerShell tegelijkertijd uitvoert. Wisselen tussen Bash of PowerShell oorzaken Cloud Shell opnieuw wordt opgestart, waarmee bestaande sessies wordt beëindigd.
 
-### <a name="usage-limits"></a>Limieten voor Resourcegebruik
+### <a name="usage-limits"></a>Gebruiksbeperkingen
 
 Cloud-Shell is bedoeld voor interactieve gebruiksvoorbeelden. Als gevolg hiervan zijn geen niet-interactieve sessies langlopende beëindigd zonder waarschuwing.
 
@@ -77,10 +77,15 @@ PowerShell in Azure Cloud-Shell (Preview) kan enige tijd duren om te initialiser
 Gegevens geschreven naar `$Home` door elke toepassing (bijvoorbeeld: git, vim en andere) niet bewaard is gebleven via PowerShell-sessies. Voor een tijdelijke oplossing [Hier ziet](troubleshooting.md#powershell-resolutions).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standaardbestandslocatie tijdens het maken van het Azure-station:
+
 Met PowerShell-cmdlets, kunnen gebruikers niet maken onder het Azure-station. Wanneer gebruikers nieuwe bestanden met andere hulpprogramma's, zoals vim of nano, maken worden de bestanden naar de map C:\Users standaard opgeslagen. 
+
+### <a name="gui-applications-are-not-supported"></a>GUI-toepassingen worden niet ondersteund
+
+Als de gebruiker wordt uitgevoerd een opdracht die u een Windows-dialoogvenster zoals maakt `Connect-AzureAD` of `Login-AzureRMAccount`, een foutbericht zoals ziet: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 [Het oplossen van Cloud-Shell](troubleshooting.md) <br>
 [Snelstartgids voor Bash](quickstart.md) <br>
-[Quick Start voor PowerShell](quickstart-powershell.md)
+[Snelstartgids voor PowerShell](quickstart-powershell.md)

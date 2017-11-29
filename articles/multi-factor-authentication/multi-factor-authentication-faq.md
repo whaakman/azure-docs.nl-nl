@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 Deze Veelgestelde vragen over de antwoorden op veelgestelde vragen over Azure multi-factor Authentication en het gebruik van de multi-factor Authentication-service. Het onderverdeeld in vragen over de service in het algemeen modellen, gebruikerservaringen, facturering en het oplossen van problemen.
@@ -45,6 +45,22 @@ Wanneer verificatieaanvragen worden verzonden naar de cloudservice worden gegeve
 De optionele velden kunnen worden geconfigureerd in de multi-factor Authentication-Server.
 
 Het resultaat van de verificatie (slagen of mislukken) en de reden als deze is geweigerd, wordt opgeslagen met de verificatiegegevens. Deze gegevens is beschikbaar in de verificatie- en gebruiksrapporten.
+
+**V: wat korte SMS-codes worden gebruikt voor het verzenden van SMS-berichten aan Mijn gebruikers?**
+
+In de Verenigde Staten Microsoft maakt gebruik van de volgende SMS korte codes:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+Maakt gebruik van de volgende korte SMS-codes in Canada Microsoft:
+
+   * 759731 
+   * 673801
+
+Microsoft garandeert geen consistente, SMS of multi-Factor-verificatie op basis van een stem vragen levering met hetzelfde getal. Met het oog op onze gebruikers kan Microsoft toevoegen of verwijderen van korte codes op elk gewenst moment terwijl we de route-aanpassingen voor het verbeteren van de SMS-deliverability aanbrengt. Microsoft biedt geen ondersteuning voor korte codes voor landen naast de Verenigde Staten en Canada
 
 ## <a name="billing"></a>Facturering
 De meeste vragen over facturering kunnen worden beantwoord door te verwijzen naar een de [pagina met prijzen van multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) of de documentatie over [het ophalen van Azure multi-factor Authentication](multi-factor-authentication-versions-plans.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -309,7 +309,9 @@ Bij het weergeven van telemetrie naar u terug, past de Application Insights-serv
 
 De nauwkeurigheid van de aanpassing is grotendeels afhankelijk van het geconfigureerde voorbeeldpercentage. De nauwkeurigheid verhoogt ook, voor toepassingen die een groot aantal in het algemeen soortgelijke aanvragen van een groot aantal gebruikers verwerken. Aan de andere kant voor toepassingen die niet met een aanzienlijke belasting werken is steekproeven niet nodig als u deze toepassingen kunnen doorgaans alle hun telemetrie verzenden bijwerkt binnen het quotum zonder verlies van gegevens van de beperking. 
 
-Houd er rekening mee dat Application Insights biedt geen telemetrie-typen, metrische gegevens en sessies, sinds het voorbeeld voor deze typen, vermindering van de precisie mag maximaal ongewenste. 
+> [!WARNING]
+> Application Insights biedt geen metrische gegevens en sessies telemetrie typen steekproef. Verlaging van de precisie mag maximaal ongewenste voor deze typen telemetrie.
+> 
 
 ### <a name="adaptive-sampling"></a>Adaptieve steekproeven
 Adaptieve steekproeven wordt toegevoegd een component die wordt bewaakt de huidige frequentie van de overdracht van de SDK en past u het voorbeeldpercentage om te blijven binnen de maximale snelheid doel. De aanpassing is berekend met regelmatige tussenpozen en is gebaseerd op een zwevend gemiddelde van de uitgaande verzending snelheid.

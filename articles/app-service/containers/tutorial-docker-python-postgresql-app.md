@@ -5,25 +5,22 @@ services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: 
-ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: fa3aa3a73338970fde2d0b0230e7b2e6ca687dc9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 55d6f1d10ff08fd8f0ea4aba775a96549192cef2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Een Docker Python en PostgreSQL web-app in Azure bouwen
 
-Web-App voor Containers biedt een zeer schaalbaar, zelf patch webhosting-service. Deze zelfstudie laat zien hoe een eenvoudige Docker Python-web-app maken in Azure. U hebt deze app verbinding maken met een PostgreSQL-database. Wanneer u bent klaar, hebt u een Python Flask-toepassing uitgevoerd binnen een Docker-container op [op Linux-App Service](app-service-linux-intro.md).
+Web-App voor Containers biedt een zeer schaalbaar, zelf patch webhosting-service. Deze zelfstudie laat zien hoe een eenvoudige Docker Python-web-app maken in Azure. U kunt deze app verbinding met een PostgreSQL-database. Wanneer u klaar bent, hebt u een Python Flask-toepassing uitgevoerd binnen een Docker-container op [op Linux-App Service](app-service-linux-intro.md).
 
 ![Docker Python Flask-app in App Service op Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -146,7 +143,7 @@ Gebruik de [az appservice lijst-locaties](/cli/azure/appservice#list-locations) 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken
 
-Maak een PostgreSQL-server met de [az postgres server maken](/cli/azure/documentdb#create) opdracht.
+Maak een PostgreSQL-server met de [az postgres server maken](/cli/azure/postgres/server#az_postgres_server_create) opdracht.
 
 In de volgende opdracht te vervangen door een unieke naam voor de  *\<postgresql_name >* tijdelijke aanduiding en een gebruiker een naam voor de  *\<admin_username >* tijdelijke aanduiding. Naam van de server wordt gebruikt als onderdeel van uw eindpunt PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), zodat de naam moet uniek zijn in alle servers in Azure. De gebruikersnaam is voor de gebruikersaccount van de oorspronkelijke database-beheerder. U wordt gevraagd een wachtwoord voor deze gebruiker kiest.
 
@@ -293,7 +290,7 @@ De database bevat al de registratie die u eerder hebt gemaakt.
 
 ## <a name="upload-the-docker-container-to-a-container-registry"></a>De Docker-container uploaden naar een container-register
 
-In deze stap kunt u de Docker-container uploaden naar een container-register. Gebruikt u Azure Container register, maar u kunt ook andere populaire protocollen zoals Docker-Hub.
+In deze stap kunt u de Docker-container uploaden naar een container-register. Gebruik Azure Container register, maar u kunt ook andere populaire protocollen zoals Docker-Hub.
 
 ### <a name="create-an-azure-container-registry"></a>Een Azure Container Registry maken
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9de535b2fb70181c68fb698e847dd8361bf54385
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 899ca9f7a82ce526eba04b88420ab01e208fe784
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -43,18 +43,20 @@ Neem terugkeren naar deze pagina regelmatig werken wij deze op maandelijkse basi
 
 ## <a name="november-2017"></a>November 2017
  
+### <a name="retiring-acs"></a>Buiten gebruik stellen van ACS
+
 
 
 **Type:** wijzigingen  
 **Servicecategorie:** ACS  
 **Mogelijkheid tot het product:** toegang tot de Control-Service 
 
-**Buiten gebruik stellen van ACS**
 
 Microsoft Azure Active Directory-toegangsbeheer (ook wel bekend als Access Control Service of ACS) wordt in latere 2018 buiten gebruik worden gesteld.  Meer informatie, inclusief een gedetailleerde planning & op hoog niveau migratie-instructies worden vermeld in de volgende enkele weken. In de tussentijd reacties op deze pagina met vragen met betrekking tot ACS en lid is van ons team helpt te beantwoorden.
 
 ---
 
+### <a name="restrict-browser-access-to-the-intune-managed-browser"></a>De browsertoegang tot de Intune managed browser beperken 
 
 
 **Type:** wijzigingen  
@@ -62,7 +64,6 @@ Microsoft Azure Active Directory-toegangsbeheer (ook wel bekend als Access Contr
 **Mogelijkheid tot het product:** identiteit beveiliging en gegevensbescherming
 
 
-**De browsertoegang tot de Intune managed browser beperken** 
 
 
 Met dit gedrag kunt u zich kunt browsertoegang tot Office 365 en andere Azure AD verbonden cloud-apps met behulp van de Intune Managed Browser als een goedgekeurde app beperken. 
@@ -82,6 +83,7 @@ Zie voor meer informatie [voorwaardelijke toegang in Azure Active Directory](act
  
 ---
 
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde client-apps voor voorwaardelijke toegang van Azure AD op basis van een app
 
  
 **Type:** wijzigingen  
@@ -89,7 +91,6 @@ Zie voor meer informatie [voorwaardelijke toegang in Azure Active Directory](act
 **Mogelijkheid tot het product:** identiteit beveiliging en gegevensbescherming
 
 
-**Nieuwe goedgekeurde client-apps voor voorwaardelijke toegang van Azure AD op basis van een app**
 
 
 De volgende apps zijn gepland om te worden toegevoegd aan de lijst met [client-apps goedgekeurd](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
@@ -108,6 +109,9 @@ Zie voor meer informatie:
 
 ---
 
+### <a name="terms-of-use-support-for-multiple-languages"></a>Gebruiksvoorwaarden gebruik ondersteuning voor meerdere talen
+
+
 
 **Type:** nieuwe functie    
 **Servicecategorie:** gebruiksvoorwaarden  
@@ -115,7 +119,6 @@ Zie voor meer informatie:
 
 
 
-**Gebruiksvoorwaarden gebruik ondersteuning voor meerdere talen**
 
 
 Beheerders kunnen nu nieuwe gebruiksvoorwaarden (TOU) waarin meerdere PDF-documenten maken. U kunt deze PDF-documenten met een overeenkomstige taal labelen. Gebruikers die vallen binnen het bereik weergegeven het PDF-bestand met de overeenkomstige taal op basis van hun voorkeuren. Als er geen overeenkomst, wordt de standaardtaal weergegeven.
@@ -124,13 +127,15 @@ Beheerders kunnen nu nieuwe gebruiksvoorwaarden (TOU) waarin meerdere PDF-docume
 ---
  
 
+### <a name="realtime-password-writeback-client-status"></a>Realtime wachtwoord terugschrijven clientstatus
+
+
 
 **Type:** nieuwe functie  
 **Servicecategorie:** SSPR  
 **Mogelijkheid tot het product:** gebruikersverificatie
 
 
-**Realtime wachtwoord terugschrijven clientstatus**
  
 
 U kunt nu de status van uw lokale wachtwoord terugschrijven client bekijken. Deze optie is beschikbaar in de **On-premises integratie** sectie van de  **[wachtwoordherstel](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)**  pagina. 
@@ -145,6 +150,12 @@ Zie voor meer informatie [On-premises integratie](active-directory-passwords-how
 
  
 ---
+
+
+### <a name="azure-ad-app-based-conditional-access"></a>Azure AD app gebaseerde voorwaardelijke toegang 
+
+
+
  
 **Type:** nieuwe functie  
 **Servicecategorie:** Azure AD  
@@ -152,7 +163,6 @@ Zie voor meer informatie [On-premises integratie](active-directory-passwords-how
 
 
 
-**Azure AD app gebaseerde voorwaardelijke toegang** 
 
 
 U kunt nu toegang tot Office 365 en andere Azure AD verbonden cloud-apps te beperken [client-apps goedgekeurd](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) die ondersteuning bieden voor Intune App Protection beleidsregels met behulp van [voorwaardelijke toegang van Azure AD op basis van een app](active-directory-conditional-access-mam.md). Intune app beveiliging beleidsregels worden gebruikt om te configureren en beveiligen van bedrijfsgegevens op deze clienttoepassingen.
@@ -180,6 +190,8 @@ Zie voor meer informatie [voorwaardelijke toegang voor Azure Active Directory op
  
 ---
 
+### <a name="managing-azure-ad-devices-in-the-azure-portal"></a>Het beheer van Azure AD-apparaten in de Azure portal
+
 
 
 **Type:** nieuwe functie  
@@ -188,7 +200,6 @@ Zie voor meer informatie [voorwaardelijke toegang voor Azure Active Directory op
 
  
 
-**Het beheer van Azure AD-apparaten in de Azure portal**
 
 
 U kunt nu uw apparaten die zijn verbonden met Azure AD zoeken en de activiteiten die betrekking hebben op apparaten op één plek. Er is een nieuwe beheerervaring voor het beheren van uw apparaat-id's en instellingen in de Azure-portal. In deze release kunt u het volgende doen:
@@ -209,14 +220,13 @@ Zie voor meer informatie [apparaten beheert met de Azure-portal](device-manageme
  
 ---
 
+### <a name="support-for-macos-as-device-platform-for-azure-ad-conditional-access"></a>Ondersteuning voor Mac OS als apparaatplatform voor voorwaardelijke toegang van Azure AD 
+
+
 
 **Type:** nieuwe functie    
 **Servicecategorie:** voorwaardelijke toegang  
 **Mogelijkheid tot het product:** identiteit beveiliging en gegevensbescherming 
-
-
-
-**Ondersteuning voor Mac OS als apparaatplatform voor voorwaardelijke toegang van Azure AD** 
  
 
 U kunt nu opnemen of uitsluiten Mac OS als apparaat platform voorwaarde in uw beleid voor voorwaardelijke toegang van Azure AD. U kunt met de toevoeging van Mac OS aan de ondersteunde platforms voor apparaten:
@@ -236,13 +246,14 @@ Zie voor meer informatie:
  
 ---
 
+### <a name="nps-extension-for-azure-mfa"></a>NPS-extensie voor Azure MFA 
+
 
 **Type:** nieuwe functie    
 **Servicecategorie:** MFA  
 **Mogelijkheid tot het product:** gebruikersverificatie
 
 
-**NPS-extensie voor Azure MFA** 
 
 
 De Network Policy Server (NPS)-extensie voor Azure MFA biedt een voor de verificatie-infrastructuur met behulp van uw bestaande servers cloud-gebaseerde MFA mogelijkheden. Met de extensie NPS kunt u telefoongesprek, tekstbericht of verificatie via de telefoon-app toevoegen aan uw bestaande authenticatiestroom zonder te installeren, configureren en onderhouden van nieuwe servers. 
@@ -281,14 +292,12 @@ In het Azure AD-beheercentrum kunt u nu:
  
 ---
 
-
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nieuwe goedgekeurde client-apps voor voorwaardelijke toegang van Azure AD op basis van een app
 
  
 **Type:** gewijzigde functie  
 **Servicecategorie:** voorwaardelijke toegang  
 **Mogelijkheid tot het product:** identiteit beveiliging en gegevensbescherming
-
-**Nieuwe goedgekeurde client-apps voor voorwaardelijke toegang van Azure AD op basis van een app**
 
 
 De volgende apps zijn toegevoegd aan de lijst met [client-apps goedgekeurd](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
@@ -307,14 +316,13 @@ Zie voor meer informatie:
 
 ---
 
+### <a name="ability-to-or-between-controls-in-a-conditional-access-policy"></a>Mogelijkheid om te 'of' tussen besturingselementen in een beleid voor voorwaardelijke toegang 
 
 
 **Type:** gewijzigde functie    
 **Servicecategorie:** voorwaardelijke toegang  
 **Mogelijkheid tot het product:** identiteit beveiliging en gegevensbescherming
 
-
-**Mogelijkheid om te 'of' tussen besturingselementen in een beleid voor voorwaardelijke toegang** 
  
 De mogelijkheid om te 'Of' (een van de geselecteerde besturingselementen vereisen) besturingselementen voor voorwaardelijke toegang is vrijgegeven. Deze functie kunt u voor het maken van beleid met een **of** tussen toegangsbeheer. Bijvoorbeeld, u kunt deze functie een beleid maken dat vereist dat een gebruiker zich aanmelden met multi-factor authentication **of** op een apparaat dat compatibel is.
 
@@ -323,13 +331,13 @@ Zie voor meer informatie [besturingselementen in voorwaardelijke toegang van Azu
  
 ---
 
+### <a name="aggregation-of-realtime-risk-events"></a>Aggregatie van realtime risico 's
 
 
 **Type:** gewijzigde functie    
 **Servicecategorie:** Identity Protection  
 **Mogelijkheid tot het product:** identiteit beveiliging en gegevensbescherming
 
-**Aggregatie van realtime risico 's**
 
 Ter verbetering van uw beheerervaring in Azure AD Identity Protection worden nu alle realtime risicogebeurtenissen die afkomstig zijn uit hetzelfde IP-adres zijn op een bepaalde dag samengevoegd voor elk type risico gebeurtenis. Deze wijziging beperkt de omvang van de risicogebeurtenissen die worden weergegeven zonder wijziging van de gebruikersbeveiliging.
 
@@ -344,12 +352,15 @@ De onderliggende realtime-detectie werkt elke keer dat de gebruiker zich aanmeld
 
 ## <a name="october-2017"></a>Oktober 2017
 
+
+### <a name="deprecating-azure-ad-reports"></a>Azure AD-rapporten bestandstypen
+
+
 **Type:** wijzigingen  
 **Servicecategorie:** rapportage  
 **Mogelijkheid tot het product:** Identity Lifecycle Management  
 
 
-**Azure AD-rapporten bestandstypen**
 
 De Azure-portal beschikt u over:
 
@@ -360,12 +371,13 @@ Als gevolg van deze nieuwe functies, het rapport API's onder de **/reports** ein
 
 ---
 
+### <a name="automatic-sign-in-field-detection"></a>Detectie van het veld voor automatische aanmelding
+
+
 **Type:** vast   
 **Servicecategorie:** mijn Apps  
 **Mogelijkheid tot het product:** eenmalige aanmelding  
 
-
-**Detectie van het veld voor automatische aanmelding**
 
 
 Azure Active Directory ondersteunt automatische aanmelding veld detectie voor toepassingen die een HTML-gebruikersnaam en wachtwoord veld weergeven.  Deze stappen zijn gedocumenteerd in [automatisch vastleggen velden aanmelden voor een toepassing](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). U vindt deze mogelijkheid door toe te voegen een *Non-galerie* toepassing op de **bedrijfstoepassingen** pagina in de [Azure-portal](http://aad.portal.azure.com). Bovendien kunt u de **Single Sign-on** modus op deze nieuwe toepassing **op basis van wachtwoorden Single Sign-on**, voert u een URL en vervolgens de pagina op te slaan.
@@ -374,12 +386,14 @@ Deze functionaliteit is vanwege een serviceprobleem tijdelijk uitgeschakeld voor
 
 ---
 
+### <a name="new-mfa-features"></a>Nieuwe MFA-functies
+
+
 **Type:** nieuwe functie  
 **Servicecategorie:** MFA  
 **Mogelijkheid tot het product:** identiteit beveiliging en gegevensbescherming  
 
 
-**Nieuwe MFA-functies**
 
 Multi-factor authentication (MFA) is een essentieel onderdeel van het beveiligen van uw organisatie. Als u meer geavanceerde referenties en de ervaring meer naadloze, zijn de volgende functies toegevoegd: 
 
@@ -393,12 +407,16 @@ Zie voor meer informatie [verwijzing voor multi-factor authentication rapportage
 
 
 ---
+
+### <a name="introducing-terms-of-use"></a>Inleiding tot gebruiksvoorwaarden
+
+
+
 **Type:** nieuwe functie  
 **Servicecategorie:** gebruiksvoorwaarden  
 **Mogelijkheid tot het product:** Governance  
 
 
-**Inleiding tot gebruiksvoorwaarden**
 
 Azure AD-gebruiksvoorwaarden bieden u een eenvoudige methode om gegevens te presenteren aan eindgebruikers. Dit zorgt ervoor dat gebruikers relevante afwijzingen voor juridische of naleving vereisten bekijken.
 
@@ -414,11 +432,14 @@ Zie voor meer informatie [Azure Active Directory gebruiksvoorwaarden](active-dir
 
 
 ---
+
+### <a name="enhancements-to-privileged-identity-management"></a>Verbeteringen bij privileged identity management
+
+
 **Type:** nieuwe functie  
 **Servicecategorie:** PIM  
 **Mogelijkheid tot het product:** Privileged Identity Management  
 
-**Verbeteringen bij privileged identity management**
 
 Met Azure Active Directory Privileged Identity Management (PIM), kunt u nu beheren, beheren en te controleren, toegang tot Azure-Resources (Preview) binnen uw organisatie:
 
@@ -432,11 +453,14 @@ Zie voor meer informatie [PIM voor Azure-resources](privileged-identity-manageme
 
 
 ---
+
+### <a name="introducing-access-reviews"></a>Introductie van de toegang controleert
+
+
 **Type:** nieuwe functie  
 **Servicecategorie:** beoordelingen openen  
 **Mogelijkheid tot het product:** Governance  
 
-**Introductie van de toegang controleert**
 
 
 Toegang beoordelingen (preview) kunnen organisaties efficiënt groepslidmaatschap beheren en toegang tot zakelijke toepassingen: 
@@ -451,12 +475,16 @@ Zie voor meer informatie [beoordeelt de toegang van Azure AD](active-directory-a
 
 
 ---
+
+### <a name="hiding-third-party-applications-from-my-apps-and-the-office-365-launcher"></a>Toepassingen van derden van mijn Apps en de Office 365-launcher verbergen
+
+
+
 **Type:** nieuwe functie  
 **Servicecategorie:** mijn Apps  
 **Mogelijkheid tot het product:** eenmalige aanmelding  
 
 
-**Toepassingen van derden van mijn Apps en de Office 365-launcher verbergen**
 
 U kunt nu beter beheer van apps die worden weergegeven op de portals gebruiker via een nieuwe **app verbergen** eigenschap. Apps verbergen helpt met gevallen waarbij de app-tegels voor back-end-services of dubbele tegels, verschijnen en dat de gebruiker de app voor ruimtevaartuigen terechtkomen. De wisselknop bevindt zich op het eigenschappengedeelte van de app van derden en heet **zichtbaar voor gebruiker?** U kunt ook een app via een programma via PowerShell verbergen. 
 
@@ -470,12 +498,14 @@ Zie voor meer informatie [verbergen van een toepassing van derden van de gebruik
 
 ## <a name="september-2017"></a>September 2017
 
+### <a name="hotfix-for-microsoft-identity-manager"></a>Hotfix voor Microsoft Identity Manager
+
+
 **Type:** gewijzigde functie  
 **Servicecategorie:** Microsoft Identity Manager  
 **Mogelijkheid tot het product:** Identity Lifecycle Management  
 
 
-**Hotfix voor Microsoft Identity Manager**
 
 Een hotfixpakket (build 4.4.1642.0) is beschikbaar vanaf 25 September 2017 voor Microsoft Identity Manager (MIM) 2016 2016 servicepack 1 (SP1). Dit updatepakket:
 

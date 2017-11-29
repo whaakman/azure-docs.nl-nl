@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76be085aa114b571f40603b4f182b13b9354b8b8
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 Specifieke functies delen in Azure Functions enkele core technische concepten en -onderdelen, ongeacht de taal of een binding die u gebruikt. Voordat u in het leren van gegevens die specifiek zijn voor een bepaalde taal of binding gaan, moet Lees dit overzicht die van toepassing op alle mappen.
@@ -81,11 +81,8 @@ De functie editor ingebouwd in de Azure-portal kunt u bijwerken de *function.jso
 Functie apps zijn gebouwd op App Service, zodat alle de [implementatie-opties die beschikbaar zijn voor een standaard web-apps](../app-service/app-service-deploy-local-git.md) zijn ook beschikbaar voor de functie apps. Hier volgen enkele methoden die u gebruiken kunt om te uploaden of bijwerken van de functie app-bestanden. 
 
 #### <a name="to-use-app-service-editor"></a>App Service-Editor gebruiken
-1. Klik in de Azure Functions-portal op **werken app-instellingen**.
-2. In de **geavanceerde instellingen** sectie, klikt u op **gaat u naar App Service-instellingen**.
-3. Klik op **App Service-Editor** in App-Menu Nav onder **ONTWIKKELINGSPROGRAMMA's**.
-4. Klik op **gaat**.
-   
+1. Klik in de Azure Functions-portal op **platformfuncties**.
+2. In de **ONTWIKKELINGSPROGRAMMA's** sectie, klikt u op **App Service-Editor**.   
    Nadat de App Service-Editor wordt geladen, ziet u de *host.json* bestands- en mappen onder *wwwroot*. 
 5. Open bestanden, bewerken of slepen en neerzetten van uw ontwikkelcomputer om bestanden te uploaden.
 

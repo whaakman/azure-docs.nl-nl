@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: ae92f7bb7b471c54b33e8714c5775c04c9db04e8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Hive query via JDBC-stuurprogramma in HDInsight
 
@@ -197,7 +197,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 Nu dat u hebt geleerd hoe JDBC gebruiken om te werken met Hive, gebruik de volgende koppelingen om te verkennen andere manieren om te werken met Azure HDInsight.
 
 * [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
-* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
+* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel en Hadoop koppelen met Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Verbinding maken met Azure HDInsight en het uitvoeren van Hive-query's met Data Lake Tools voor Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

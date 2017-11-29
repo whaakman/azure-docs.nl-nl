@@ -12,39 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0396c59d9d95ab71f0af04029d87afbb6e47dc35
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bbb25af888f34737f6a61cf43890ff248c4cc4de
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Hoe klanten gebruikmaakt van uw toepassing met de Application Insights schoorstenen detecteren
+# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Hoe klanten uw toepassing gebruiken met Application Insights schoorstenen detecteren
 
-Understanding klantervaring is van het grootste belang voor uw bedrijf. Als uw toepassing meerdere fasen omvat, moet u weten als u de voortgang van de meeste klanten door het hele proces, of als ze beëindigt het proces op een bepaald moment. De voortgang door een reeks stappen in een webtoepassing staat bekend als een 'trechter'. De Application Insights schoorstenen kunt u inzicht in uw gebruikers en de monitor stapsgewijze conversie tarieven. 
+Inzicht in de klantervaring is van het grootste belang voor uw bedrijf. Als uw toepassing meerdere fasen omvat, moet u weten als u de voortgang van de meeste klanten door het hele proces, of als ze beëindigt het proces op een bepaald moment. De voortgang door een reeks stappen in een webtoepassing wordt ook wel een *trechter*. U kunt Azure Application Insights schoorstenen gebruiken om inzicht in uw gebruikers te krijgen, en stapsgewijze conversie tarieven controleren. 
 
 ## <a name="create-your-funnel"></a>Maken van de trechter
-Voordat u uw trechter maakt, moet u beslissen over de vraag die u wilt beantwoorden. Bijvoorbeeld, u mogelijk wilt weten hoeveel gebruikers bekijkt de introductiepagina van een klantprofiel bekijken en het maken van een ticket. In dit voorbeeld wilt de eigenaars van het bedrijf Fabrikam Fiber weet het percentage van de klanten die een klant-ticket maken.
+Voordat u uw trechter maakt, kunt u beslissen over de vraag die u wilt beantwoorden. Bijvoorbeeld, u mogelijk wilt weten hoeveel gebruikers bekijkt de introductiepagina van een klantprofiel bekijken en het maken van een ticket. In dit voorbeeld wilt de eigenaars van het bedrijf Fabrikam Fiber weet het percentage van de klanten die een klant-ticket maken.
 
 Hier volgen de stappen waarmee ze hun trechter maken.
 
-1. Klik op de knop Nieuw op het hulpprogramma schoorstenen.
-1. Selecteer het tijdsbereik van 'Afgelopen 90 dagen' in de **tijdsbereik** vervolgkeuzelijst. Selecteer 'Mijn schoorstenen' of 'Schoorstenen wordt gedeeld'
-1. Selecteer de **Index** gebeurtenis op basis van de **stap 1** vervolgkeuzelijst. 
-1. Selecteer de **klant** gebeurtenis op basis van de **stap 2** vervolgkeuzelijst.
-1. Selecteer de **maken** gebeurtenis op basis van de **stap 3** vervolgkeuzelijst.
-1. Een naam in de trechter toevoegen en klik op **opslaan**.
+1. Selecteer in het hulpprogramma Application Insights schoorstenen **nieuw**.
+1. Van de **tijdsbereik** vervolgkeuzelijst, selecteer **laatste 90 dagen**. Selecteer een **mijn schoorstenen** of **schoorstenen gedeeld**.
+1. Van de **stap 1** vervolgkeuzelijst, selecteer **Index**. 
+1. Van de **stap 2** selecteert **klant**.
+1. Van de **stap 3** selecteert **maken**.
+1. Voeg een naam toe aan de trechter en selecteer **opslaan**.
 
-De volgende afbeelding ziet u hoe dat de gegevens van het hulpprogramma schoorstenen genereert. Eigenaars kunnen hier de Fabrikam zien dat de 54.3% aan hun klanten die de startpagina bezocht tijdens de afgelopen 90 dagen een klant-ticket gemaakt. Ze kunnen ook zien die afkomstig zijn 2.7k van hun klanten naar de index van de startpagina, dit kan duiden op een probleem met vernieuwen.
+De volgende Schermafbeelding toont dat een voorbeeld van het type gegevens het hulpprogramma schoorstenen genereert. De eigenaren van Fabrikam kunnen zien dat tijdens de afgelopen 90 dagen 54.3 procent van hun klanten die de startpagina van een klant-ticket gemaakt bezocht. Ze kunnen ook zien dat 2700 van hun klanten naar de index afkomstig zijn van de startpagina. Dit kan duiden op een probleem met vernieuwen.
 
 
-![Schoorstenen hulpprogramma met gegevens](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Schermopname van schoorstenen hulpprogramma met gegevens](./media/app-insights-understand-usage-patterns/funnel1.png)
 
-### <a name="funnel-features"></a>Functies van de trechter
-1. Als uw app door actieve is, ziet u een banner steekproeven. Op de banner te klikken, wordt een context deelvenster tijdens het uitschakelen van steekproeven geopend. 
+### <a name="funnels-features"></a>Schoorstenen functies
+De vorige schermafbeelding omvat vijf gemarkeerde gebieden. Dit zijn functies van schoorstenen. De volgende lijst worden meer over elk overeenkomend gebied in de schermafbeelding:
+1. Als uw app door actieve is, ziet u een banner steekproeven. De banner selecteren Hiermee opent u een deelvenster context waarin wordt uitgelegd hoe steekproeven om uit te schakelen. 
 2. U kunt uw trechter om te exporteren [Power BI](app-insights-export-power-bi.md).
-3. Klik op een stap voor dieper inzicht aan de rechterkant. 
-4. Historische conversie wordt de conversie gedurende de afgelopen 90 dagen. 
-5. Uw gebruikers betere door te gaan naar het hulpprogramma voor gebruikers van schoorstenen begrijpen. Elke stap, krijgt u samengestelde gebruikers filters. 
+3. Selecteer een stap voor meer informatie over het recht. 
+4. De conversie van historische grafiek toont de tarieven voor conversie gedurende de afgelopen 90 dagen. 
+5. Uw gebruikers betere door het openen van het hulpprogramma gebruikers begrijpen. U kunt filters gebruiken in elke stap. 
 
 ## <a name="next-steps"></a>Volgende stappen
   * [Overzicht gebruik](app-insights-usage-overview.md)

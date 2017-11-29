@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - Cloud back-voorbeeld
 
@@ -67,13 +67,13 @@ Deze functie voor orchestrator in wezen doet het volgende:
 4. Wacht tot alle uploads te voltooien.
 5. Retourneert de som totaal aantal bytes dat is geüpload naar Azure Blob Storage.
 
-U ziet de `await Task.WhenAll(tasks);` regel. Alle aanroepen voor de `E2_CopyFileToBlob` functie zijn *niet* afgewacht. Dit is opzettelijk zodat ze parallel worden uitgevoerd. Wanneer we deze matrix van taken aan doorgeven `Task.WhenAll`, krijgen we weer een taak die won't voltooien *tot alle kopieerbewerkingen hebt voltooid*. Als u ervaring hebt met de taak parallelle bibliotheek (TPL) in .NET, dan dit geen nieuw voor u is. Het verschil is dat deze taken mogelijk gelijktijdig op meerdere virtuele machines worden uitgevoerd en de extensie zorgt ervoor dat de end-to-end-uitvoering tegen recyclen van processen is.
+U ziet de `await Task.WhenAll(tasks);` regel. Alle aanroepen voor de `E2_CopyFileToBlob` functie zijn *niet* afgewacht. Dit is opzettelijk zodat ze parallel worden uitgevoerd. Wanneer we deze matrix van taken aan doorgeven `Task.WhenAll`, krijgen we weer een taak die won't voltooien *tot alle kopieerbewerkingen hebt voltooid*. Als u ervaring hebt met de taak parallelle bibliotheek (TPL) in .NET, dan dit geen nieuw voor u is. Het verschil is dat deze taken mogelijk gelijktijdig op meerdere virtuele machines worden uitgevoerd en de extensie duurzame functies zorgt ervoor dat de end-to-end-uitvoering tegen recyclen van processen is.
 
 Na het in afwachting van `Task.WhenAll`, we weten dat alle functieaanroepen zijn voltooid en back-waarden aan ons zijn geretourneerd. Elke aanroep van `E2_CopyFileToBlob` retourneert het aantal bytes geüpload, zodat toe te voegen die alle retourwaarden samen het berekenen van het aantal som totaal aantal bytes is.
 
 ## <a name="helper-activity-functions"></a>Activiteit hulpfuncties
 
-Activiteit hulpfuncties net als bij andere voorbeelden zijn alleen normale functies die gebruikmaken van de `activityTrigger` binding activeren. Bijvoorbeeld: *de function.json* voor het bestand `E2_GetFileList` vergelijkbaar is met het volgende:
+Activiteit hulpfuncties net als bij andere voorbeelden zijn alleen normale functies die gebruikmaken van de `activityTrigger` binding activeren. Bijvoorbeeld, de *function.json* voor het bestand `E2_GetFileList` vergelijkbaar is met het volgende:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -92,7 +92,7 @@ De implementatie is ook heel eenvoudig. Dit gebeurt dat u een aantal geavanceerd
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-De implementatie laadt het bestand van de schijf en asynchroon streams de inhoud naar een blob met dezelfde naam. De geretourneerde waarde is het aantal bytes dat wordt gekopieerd naar opslag, dat vervolgens wordt gebruikt door de orchestrator-functie het totaal te berekenen.
+De implementatie laadt het bestand van de schijf en asynchroon streams de inhoud naar een blob met dezelfde naam in de container 'back-ups'. De geretourneerde waarde is het aantal bytes dat wordt gekopieerd naar opslag, dat vervolgens wordt gebruikt door de orchestrator-functie het totaal te berekenen.
 
 > [!NOTE]
 > Dit is een voorbeeld van het verplaatsen van i/o-bewerkingen in een `activityTrigger` functie. Niet alleen kan het werk verdeeld over veel verschillende VM's, maar worden ook de voordelen van het plaatsen van controlepunten de voortgang. Als het hostproces opgehaald beëindigd om welke reden, weet u welke uploads al hebt voltooid.

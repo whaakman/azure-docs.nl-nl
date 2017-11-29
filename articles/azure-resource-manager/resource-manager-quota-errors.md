@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Los de fouten voor de resource-quota
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Oplossing 3
 
-Als u nodig hebt om een quotumlimiet te verhogen, gaat u naar de portal en bestanden van een probleem met ondersteuning voor het genereren van uw quotum voor de regio waarin u wilt implementeren.
+Om aan te vragen een verhoging van het quotum, gaat u naar de portal en bestanden van een probleem met ondersteuning. In het probleem ondersteuning verzoeken om een verhoging van uw quotum voor de regio waarin u wilt implementeren.
 
 > [!NOTE]
 > Vergeet niet dat voor de resourcegroepen het quotum voor elke afzonderlijke regio, niet voor het hele abonnement. Als u implementeren, 30 kernen in VS-West wilt, hebt u vragen om 30 Resource Manager kernen in VS-West. Als u implementeren, 30 kernen in een van de regio's waartoe u toegang hebt wilt, vraagt u 30 Resource Manager kernen in alle regio's.
 >
 >
+
+1. Selecteer **abonnementen**.
+
+   ![Abonnementen](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Selecteer het abonnement waarvoor u een grotere quota.
+
+   ![Abonnement selecteren](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Selecteer **gebruik + quota**
+
+   ![Informatie over het gebruik en quota's selecteren](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. Selecteer in de rechterbovenhoek **verhoging aanvragen**.
+
+   ![Verhoging aanvragen](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Vul in de formulieren voor het type quota die u wilt verhogen.
+
+   ![Formulier invullen](./media/resource-manager-quota-errors/forms.png)

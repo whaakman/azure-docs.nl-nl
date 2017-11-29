@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/28/2017
+ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL-uitbreidingen in een Azure-Database voor PostgreSQL
 PostgreSQL biedt de mogelijkheid om uit te breiden de functionaliteit van de database met de extensies. Extensies kunnen voor bundeling van meerdere verwante objecten in de SQL samen in één pakket die kan worden geladen of verwijderd uit de database met één opdracht. Extensies kunnen na wordt geladen in de database, functioneren als ingebouwde functies. Zie voor meer informatie over PostgreSQL extensies [verpakking verwante objecten in een uitbreiding](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -94,7 +94,7 @@ De volgende tabellen worden de standaard PostgreSQL-uitbreidingen die momenteel 
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topologie, postgis\_tiger\_geocoder, postgis\_sfcgal | Ruimtelijke en geografische objecten voor PostgreSQL. |
 | adres\_standardizer, adres\_standardizer\_gegevens\_ons | Gebruikt bij het parseren van een adres in de elementen. Gebruikt ter ondersteuning van geocodering adres normalisatie stap. |
-| [grouting](http://pgrouting.org/) | Breidt de PostGIS / PostgreSQL georuimtelijke database een georuimtelijke routering functionaliteit. |
+| [pgrouting](http://pgrouting.org/) | Breidt de PostGIS / PostgreSQL georuimtelijke database een georuimtelijke routering functionaliteit. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u een extensie die u wilt gebruiken, laat ons weten niet ziet. Stemmen voor bestaande aanvragen of maak nieuwe feedback en aanvragen in onze [forum met feedback van klanten](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

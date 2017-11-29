@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installeer de duurzame functies extensie en voorbeelden (Azure-functies)
 
@@ -33,7 +33,7 @@ Visual Studio biedt momenteel de beste ervaring voor het ontwikkelen van apps di
 
 ### <a name="prerequisites"></a>Vereisten
 
-* Installeer de [meest recente versie van Visual Studio](https://www.visualstudio.com/downloads/) (versie 15.3 of hoger). De Azure-hulpprogramma's in uw installatieopties bevatten.
+* Installeer de [meest recente versie van Visual Studio](https://www.visualstudio.com/downloads/) (versie 15.3 of hoger). Bevatten de **ontwikkelen van Azure** werkbelasting in uw installatieopties.
 
 ### <a name="start-with-sample-functions"></a>Beginnen met Voorbeeldfuncties
 
@@ -61,7 +61,7 @@ Als u liever, kunt u de Azure-portal voor het ontwikkelen van duurzame functies.
 
 1. Maak een nieuwe functie-app op [functions.azure.com](https://functions.azure.com/signin).
 2. Configureren van de functie app [versie 2.0 runtime](functions-versions.md).
-3. Maak een nieuwe functie en selecteer de **duurzame functies Orchestrator - C#** sjabloon.
+3. Maakt een nieuwe functie door te kiezen 'C# ' voor de taal en 'All' voor het Scenario. Selecteer vervolgens de **duurzame functies Orchestrator - C#** sjabloon.
 4. Onder **extensies is niet geïnstalleerd**, klikt u op **installeren** downloaden van de uitbreiding van NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Voorbeeldcode kopiëren naar de functie-app

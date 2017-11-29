@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/19/2017
+ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 243c42b8637b7887047c85a60e5dfedfd7f6904a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory voorwaardelijke toegang technische naslaginformatie
 
@@ -147,25 +147,24 @@ Client en app-toegang beheren met behulp van de **mobiele apps en bureaublad-cli
 De volgende apps voor mobiele en bureaublad-clients ondersteuning voor voorwaardelijke toegang voor Office 365 en andere toepassingen Azure AD-connected-service:
 
 
-| Client-apps| Target-Service| Platform |
-| --- | --- | --- |
-| Azure RemoteApp| Azure RemoteApp-service| Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS X|
-| Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS en Android|
-| Agenda-mail/mensen app, Outlook 2016 Outlook 2013 (met moderne verificatie)| Office 365 Exchange Online| Windows 10|
-| Beleid voor apps MFA en locatie. Apparaten op basis van beleid worden niet ondersteund.| Alle services van de app mijn Apps| Android en iOS|
-| Services van Microsoft-Teams - Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft-Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS|
-| Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Apps van Office 2016, Office Universal-apps, Office 2013 (met moderne verificatie), OneDrive sync-client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-groepen ondersteuning voor de toekomst zijn gepland, ondersteuning voor SharePoint-app is gepland voor de toekomst| Office 365 SharePoint Online| Windows 10|
-| Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland| Office 365 SharePoint Online| Mac OS X|
-| Office mobile-apps| Office 365 SharePoint Online| voor iOS, Android|
-| De app Yammer Office| Office 365 Yammer| Windows 10, iOS, Android|
-| Outlook 2016 (Office voor Mac OS)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Mobiele app voor Outlook| Office 365 Exchange Online| iOS|
-| Power BI-app. De Power BI-app voor Android biedt momenteel geen ondersteuning voor voorwaardelijke toegang op basis van apparaten.| Power BI-service| Windows 10, Windows 8.1, Windows 7 en iOS|
-| Skype voor bedrijven| Office 365 Exchange Online| Android-, IOS|
-| Visual Studio Team Services-app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS en Android|
-
+|Client-apps|Target-Service|Platform|
+|---|---|---|
+|Azure RemoteApp|Azure RemoteApp-service|Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS X|
+|Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS en Android|
+|Agenda-mail/mensen app, Outlook 2016 Outlook 2013 (met moderne verificatie)|Office 365 Exchange Online|Windows 10|
+|Beleid voor apps MFA en locatie. Apparaten op basis van beleid worden niet ondersteund. |Alle services van de app mijn Apps|Android en iOS|
+|Services van Microsoft-Teams - Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft-Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS |
+|Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Apps van Office 2016, Office Universal-apps, Office 2013 (met moderne verificatie), OneDrive sync-client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-groepen ondersteuning voor de toekomst zijn gepland, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
+|Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland|Office 365 SharePoint Online|Mac OS X|
+|Office mobile-apps|Office 365 SharePoint Online|Android, iOS|
+|De app Yammer Office|Office 365 Yammer|Windows 10, iOS, Android|
+|Outlook 2016 (Office voor Mac OS)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Mobiele app voor Outlook|Office 365 Exchange Online|Android, iOS|
+|Power BI-app. De Power BI-app voor Android biedt momenteel geen ondersteuning voor voorwaardelijke toegang op basis van apparaten.|Power BI-service|Windows 10, Windows 8.1, Windows 7 en iOS|
+|Skype voor bedrijven|Office 365 Exchange Online|Android-, IOS |
+|Visual Studio Team Services-app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS en Android|
 
 
 

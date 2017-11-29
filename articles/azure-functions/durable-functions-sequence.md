@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Functie chaining in duurzame functies - Hallo sequence-voorbeeld
 
@@ -46,7 +46,7 @@ Als u de Azure-portal voor ontwikkeling gebruikt, hier is de inhoud van de *func
 Het belangrijkste is dat de `orchestrationTrigger` bindingstype. Alle orchestrator-functies moeten dit triggertype te gebruiken.
 
 > [!WARNING]
-> Om door te gaan met de regel 'geen i/o-' van orchestrator-functies, niet gebruikmaken van een invoer of uitvoer bindingen bij gebruik van de `orchestrationTrigger` binding activeren.  Als andere invoer of uitvoer bindingen nodig zijn, ze in plaats daarvan moeten worden gebruikt in de context van `activityTrigger` functies.
+> Om door te gaan met de regel 'geen i/o-' van orchestrator-functies, niet gebruikmaken van een invoer of uitvoer bindingen bij gebruik van de `orchestrationTrigger` binding activeren.  Als andere invoer of uitvoer bindingen nodig zijn, ze in plaats daarvan moeten worden gebruikt in de context van `activityTrigger` functies die worden aangeroepen door de orchestrator.
 
 ## <a name="c-script"></a>C#-script
 
@@ -54,7 +54,7 @@ Dit is de broncode:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-Alle C# orchestration functies moeten hebben een `DurableOrchestrationContext` parameter, die voorkomt in de `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. Als u C# script, de assembly kan worden verwezen met de `#r` notatie. Dit contextobject kunt u andere aanroepen *activiteit* functies en invoerparameters op te geven met behulp van de [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) methode.
+Alle C# orchestration functies moeten een parameter van het type hebben `DurableOrchestrationContext`, die bestaat in de `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. Als u C# script, de assembly kan worden verwezen met de `#r` notatie. Dit contextobject kunt u andere aanroepen *activiteit* functies en invoerparameters op te geven met behulp van de [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) methode.
 
 Het aanroepen van de code `E1_SayHello` drie keer in de reeks met andere parameterwaarden. De geretourneerde waarde van elke aanroep wordt toegevoegd aan de `outputs` lijst, die aan het einde van de functie wordt geretourneerd.
 
@@ -69,7 +69,7 @@ De implementatie van `E1_SayHello` is een relatief trivial tekenreeks bewerking 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-Deze functie heeft een [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)parameter, die wordt gebruikt voor invoer die is doorgegeven door aanroep van de orchestrator-functie [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
+Deze functie heeft een parameter van het type [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), die wordt gebruikt om op te halen van de ingang die is doorgegeven door de aanroep van de orchestrator-functie [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
 ## <a name="run-the-sample"></a>Het voorbeeld uitvoert
 

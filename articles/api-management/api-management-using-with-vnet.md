@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -45,7 +45,7 @@ Als u de stappen in dit artikel, moet u het volgende hebben:
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>VNET-connectiviteit met de Azure portal inschakelen
 
 1. Navigeer naar uw APIM exemplaar in de [Azure-portal](https://portal.azure.com/).
-2. Selecteer **aangepaste domeinen en SSL**.
+2. Selecteer **virtueel netwerk**.
 3. Het exemplaar van API Management te worden geïmplementeerd in een virtueel netwerk configureren.
 
     ![Virtueel netwerk menu van API Management][api-management-using-vnet-menu]
@@ -109,13 +109,14 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | Bron / bestemming poort(en) | Richting | Protocol-transport | Bron / doel | Doel (*) | Type virtueel netwerk |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Communicatie van clients met API Management|Extern |
-| * / 3443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Eindpunt voor Azure-portal en Powershell |interne |
+| * / 3443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Eindpunt voor Azure-portal en Powershell |Intern |
 | * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot Azure Storage-eindpunten** |Externe & interne |
 | * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot Azure SQL-eindpunten** |Externe & interne |
 | * / 11000 - 11999 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot de V12 Azure SQL** |Externe & interne |
 | * / 14000 - 14999 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot de V12 Azure SQL** |Externe & interne |
 | * / 5671 |Uitgaand |AMQP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek Event Hub-beleid en bewakingsagent |Externe & interne |
 | * / 445 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure-bestandsshare voor GIT |Externe & interne |
+| * / 25028 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten |Externe & interne |
 | * / 6381 - 6383 |Binnenkomend en uitgaand |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Exemplaren van toegang tot Redis-Cache tussen RoleInstances |Externe & interne |
 | * / * | Inkomend |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure-infrastructuur Load Balancer |Externe & interne |
 

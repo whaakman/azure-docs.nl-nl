@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: b5f80427234549b13a1aca94cd04e4f7e6f94ccf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cffc78c06de6be252704c2a116d7ded2c7e8567f
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snelstartgids: Een Spark taak uitvoeren op Azure Databricks met de Azure portal
 
@@ -97,7 +97,7 @@ Voer de volgende stappen uit voor het maken van een laptop in Databricks, laptop
     Zie voor instructies over het ophalen van de opslagaccountsleutel [beheren van uw toegangssleutels voor opslag](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
-    > U kunt ook Azure Data Lake Store met een Spark-cluster op Azure Databricks gebruiken. Zie voor instructies [gebruik Data Lake Store met Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+    > U kunt ook Azure Data Lake Store met een Spark-cluster op Azure Databricks gebruiken. Zie voor instructies [gebruik Data Lake Store met Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. Voer een SQL-instructie voor het maken van een tijdelijke tabel met gegevens uit het voorbeeldgegevensbestand JSON, **small_radio_json.json**. Vervang de tijdelijke aanduiding voor waarden met de containernaam en de naam van het opslagaccount in het volgende codefragment. Plak het codefragment in een codecel in de notebook en druk vervolgens op SHIFT + ENTER. In het codefragment `path` geeft de locatie van het voorbeeld JSON-bestand dat u hebt geÃ¼pload naar uw Azure Storage-account.
 
@@ -159,4 +159,4 @@ Als u het selectievakje niet hebt geselecteerd, moet u het cluster handmatig beÃ
 In dit artikel wordt gemaakt van een Spark-cluster in Azure Databricks en een Spark-taak met gegevens in Azure storage is uitgevoerd. U kunt ook zoeken op [Spark gegevensbronnen](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) om gegevens uit andere gegevensbronnen importeren in Azure Databricks te leren. Ga naar het volgende artikel voor meer informatie over het gebruik van Azure Data Lake Store met Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Gebruik Data Lake Store met Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)
+>[Gebruik Data Lake Store met Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)

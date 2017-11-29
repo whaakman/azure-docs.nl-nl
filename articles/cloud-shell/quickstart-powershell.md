@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Quick Start voor PowerShell in de Azure-Cloud-Shell (Preview)
 
@@ -135,7 +135,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-U kunt met de verbindingsreeks de volgende opdracht gebruiken om de Azure-bestandsshare te koppelen.
+Met de verbindingsreeks kunt u de volgende opdracht om te koppelen van de share Azure-bestanden.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -143,9 +143,9 @@ net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<My
 
 ```
 
-Zie voor meer informatie [koppelen van een Azure-bestandsshare en toegang tot de share in Windows][azmount].
+Zie voor meer informatie [koppelen van een Azure-bestanden delen en toegang tot de share in Windows][azmount].
 
-U kunt ook de mappen onder de Azure-bestandsshare als volgt navigeren:
+U kunt ook de mappen onder de share Azure bestanden als volgt navigeren:
 
             
 ``` PowerShell
@@ -288,7 +288,7 @@ U kunt nog steeds gevolgd door een cmdlet Get-Help voor een specifieke opdracht 
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>Azure File Storage gebruiken voor het opslaan van uw gegevens
+## <a name="use-azure-files-to-store-your-data"></a>Azure-bestanden gebruiken voor het opslaan van uw gegevens
 
 Kunt u een script spreek `helloworld.ps1`, en sla deze op uw `CloudDrive` gebruiken over de shell-sessies.
 
@@ -300,7 +300,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Wanneer u PowerShell in de Cloud-Shell gebruiken zodra de `helloworld.ps1` bestand blijft aanwezig in de `CloudDrive` map die uw Azure-bestandsshare koppelt.
+Wanneer u PowerShell in de Cloud-Shell gebruiken zodra de `helloworld.ps1` bestand blijft aanwezig in de `CloudDrive` map die uw Azure-bestanden-share koppelt.
 
 ## <a name="use-custom-profile"></a>Aangepast profiel gebruiken
 

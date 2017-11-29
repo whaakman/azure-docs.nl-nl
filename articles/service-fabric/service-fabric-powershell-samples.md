@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e255382b1263c162bfc80cf41f9e8d362be55a8e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ae132dbb650e08c3a25a9366563e70c6d56e089d
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell-voorbeelden
 
@@ -32,8 +32,10 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts d
 |-|-|
 | **Cluster maken** ||
 | [Maak een cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Een Azure Service Fabric-cluster maakt. |
-| **Cluster beheren** ||
+| **Cluster en knooppunten beheren** ||
 | [Het toepassingscertificaat van een toevoegen](./scripts/service-fabric-powershell-add-application-certificate.md)| Voegt een X.509-certificaat van toepassing op alle knooppunten in een cluster. |
+|[Het RDP-poortbereik op clusterknooppunt virtuele machines wijzigen](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Hiermee wijzigt u het RDP-poortbereik op clusterknooppunt virtuele machines in een geïmplementeerde cluster.|
+| [Bijwerken van de gebruiker met beheerdersrechten en het wachtwoord voor het knooppunt VM 's](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | De gebruikersnaam van de beheerder en het wachtwoord voor clusterknooppunt VMs-updates. |
 | **Toepassingen beheren** ||
 | [Een toepassing implementeren](./scripts/service-fabric-powershell-deploy-application.md)| Een toepassing implementeert op een cluster.|
 | [Upgrade van een toepassing](./scripts/service-fabric-powershell-upgrade-application.md)| Een upgrade van een app uitvoeren |

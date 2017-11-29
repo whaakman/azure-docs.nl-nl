@@ -8,27 +8,27 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/25/2017
-ms.openlocfilehash: 83830e4776eaa7c4f10bc14dcefd47c6eaf25997
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/27/2017
+ms.openlocfilehash: 289d1c4c0ffd2667c49c5625e72780d54a71ceb5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>SSL-verbindingen in uw toepassing veilig verbinding kunnen maken met Azure-Database voor MySQL configureren
 Azure MySQL-Database ondersteunt verbindingen van uw Azure-Database voor de MySQL-server met clienttoepassingen met Secure Sockets Layer (SSL). Afdwingen van SSL-verbindingen tussen uw database-server en client-toepassingen beschermt tegen 'man-in het midden'-aanvallen door het versleutelen van de gegevensstroom tussen de server en uw toepassing.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Stap 1: SSL-certificaat verkrijgen
-Download het certificaat nodig om te communiceren via SSL met uw Azure-Database voor de server uit een MySQL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) en sla het certificaatbestand op de lokale schijf (met Deze zelfstudie hebben we gebruikt c:\ssl).
+Download het certificaat nodig om te communiceren via SSL met uw Azure-Database voor de server uit een MySQL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) en sla het certificaatbestand op de lokale schijf (dit zelfstudie gebruikt c:\ssl bijvoorbeeld).
 **Voor Microsoft Internet Explorer en Microsoft Edge:** nadat het downloaden is voltooid, wijzig de naam van het certificaat naar BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="step-2-bind-ssl"></a>Stap 2: SSL is gekoppeld
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Verbinding maken met server met behulp van de MySQL-Workbench via SSL
 Configureer de MySQL Workbench veilig verbinding te maken via SSL. Navigeer via de dialoog nieuwe Setup-verbinding naar de **SSL** tabblad. In de **SSL CA bestand:** en voer de locatie van het bestand van de **BaltimoreCyberTrustRoot.crt.pem**. 
-![Sla aangepaste tegel](./media/howto-configure-ssl/mysql-workbench-ssl.png) voor bestaande verbindingen kunt u SSL is gekoppeld met de rechtermuisknop te klikken op het verbindingspictogram en kiest u bewerken. Navigeer naar de **SSL** tabblad en verbindt u het certificaatbestand.
+![Sla aangepaste tegel](./media/howto-configure-ssl/mysql-workbench-ssl.png) voor bestaande verbindingen kunt u SSL binden door met de rechtermuisknop op het verbindingspictogram en kiest u bewerken. Navigeer naar de **SSL** tabblad en verbindt u het certificaatbestand.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Verbinding maken met server met behulp van de CLI MySQL via SSL
-De SSL-certificaat binden op een andere manier wordt de MySQL-opdrachtregelinterface gebruikt door de volgende opdracht uitvoeren:
+De SSL-certificaat binden op een andere manier is met de opdrachtregelinterface MySQL door het uitvoeren van de volgende opdracht:
 ```dos
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
@@ -52,9 +52,10 @@ mysql> status
 Controleer de verbinding is versleuteld aan de hand van de uitvoer, die moet worden weergegeven: **SSL: Cipher in gebruik is AES256 SHA** 
 
 ## <a name="sample-code"></a>Voorbeeldcode
-Raadpleeg voor het opzetten van een beveiligde verbinding met Azure-Database voor MySQL via SSL van uw toepassing, de volgende codevoorbeelden.
+Voor het opzetten van een beveiligde verbinding met Azure-Database voor MySQL via SSL van uw toepassing, raadpleegt u de volgende codevoorbeelden:
+
 ### <a name="php"></a>PHP
-```
+```php
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
 mysqli_real_connect($conn, 'myserver4demo.mysql.database.azure.com', 'myadmin@myserver4demo', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
@@ -63,7 +64,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
-```
+```python
 try:
     conn=mysql.connector.connect(user='myadmin@myserver4demo', 
         password='yourpassword', 
@@ -74,7 +75,7 @@ except mysql.connector.Error as err:
     print(err)
 ```
 ### <a name="python-pymysql"></a>Python (PyMySQL)
-```
+```python
 conn = pymysql.connect(user = 'myadmin@myserver4demo', 
         password = 'yourpassword', 
         database = 'quickstartdb', 
@@ -82,7 +83,7 @@ conn = pymysql.connect(user = 'myadmin@myserver4demo',
         ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 ### <a name="ruby"></a>Ruby
-```
+```ruby
 client = Mysql2::Client.new(
         :host     => 'myserver4demo.mysql.database.azure.com', 
         :username => 'myadmin@myserver4demo',      
@@ -92,7 +93,7 @@ client = Mysql2::Client.new(
     )
 ```
 ### <a name="golang"></a>Golang
-```
+```go
 rootCertPool := x509.NewCertPool()
 pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
@@ -104,7 +105,7 @@ connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&
 db, _ := sql.Open("mysql", connectionString)
 ```
 ### <a name="javajdbc"></a>JAVA(JDBC)
-```
+```java
 # generate truststore and keystore in code
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
@@ -131,7 +132,7 @@ properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
 ### <a name="javamariadb"></a>Java(MariaDB)
-```
+```java
 # generate truststore and keystore in code
 String importCert = " -import "+
     " -alias mysqlServerCACert "+

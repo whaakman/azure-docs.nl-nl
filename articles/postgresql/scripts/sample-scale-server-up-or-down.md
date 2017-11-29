@@ -10,19 +10,19 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 11/03/2017
-ms.openlocfilehash: 9fe5b56d64d325f855b6030ef3dcc0ed65ad7afc
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: a5a24e9aeea193df28bd49d5c428a72b5ec75d1b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Bewaken en schalen van één PostgreSQL-server met Azure CLI
 Dit voorbeeldscript CLI schaalt één Azure-Database voor PostgreSQL-server naar een andere prestatieniveau na het uitvoeren van query's de metrische gegevens. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in dit artikel is vereist dat u de Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Voorbeeld van een script
 Wijzig de gemarkeerde regels voor het aanpassen van de gebruikersnaam van de beheerder en het wachtwoord in dit voorbeeldscript. Vervang de abonnements-id in de opdrachten az monitor met uw eigen abonnement-id wordt gebruikt.
@@ -37,10 +37,10 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 
 | **Opdracht** | **Opmerkingen bij de** |
 |---|---|
-| [AZ groep maken](/cli/azure/group#create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
-| [AZ postgres server maken](/cli/azure/postgres/server#create) | Maakt een PostgreSQL-server die als host fungeert voor de databases. |
-| [lijst met AZ monitor metrische gegevens](/cli/azure/monitor/metrics#list) | Lijst van de metrische waarde voor de bronnen. |
-| [AZ groep verwijderen](/cli/azure/group#delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
+| [AZ groep maken](/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
+| [AZ postgres server maken](/cli/azure/postgres/server#az_postgres_server_create) | Maakt een PostgreSQL-server die als host fungeert voor de databases. |
+| [lijst met AZ monitor metrische gegevens](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Lijst van de metrische waarde voor de bronnen. |
+| [AZ groep verwijderen](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle ingesloten resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over de Azure CLI: [Azure CLI-documentatie](/cli/azure/overview)

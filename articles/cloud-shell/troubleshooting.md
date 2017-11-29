@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 59aec1cb6433e90caf683b4bce98c92e9f79fd18
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure-Cloud-Shell probleemoplossing
 
@@ -64,8 +64,9 @@ Bekende oplossingen voor problemen in de Azure-Cloud-Shell zijn onder andere:
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-toepassingen worden niet ondersteund
 
-- **Details**: als een gebruiker een GUI-app is gestart, de prompt geen waarde retourneert. Bijvoorbeeld: wanneer een gebruiker wordt gekloond van een persoonlijke GitHub-repo tweeledige verificatie ingeschakeld is, wordt een dialoogvenster weergegeven voor het voltooien van de verificatie met twee factoren.
-- **Resolutie**: `Ctrl+C` om af te sluiten van de opdracht.
+- **Details**: als een gebruiker een GUI-app is gestart, de prompt geen waarde retourneert. Bijvoorbeeld: wanneer een gebruiker wordt gekloond van een persoonlijke GitHub-repo tweeledige verificatie ingeschakeld is, wordt een dialoogvenster weergegeven voor het voltooien van de verificatie met twee factoren.  
+- **Resolutie**: sluit en Open de shell.
+
 
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online help-pagina niet geopend
 

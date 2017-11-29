@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Opslagwachtrijen en Service Bus-wachtrijen - vergeleken en tegenstelling tot
 In dit artikel analyseert de verschillen en overeenkomsten tussen de twee typen wachtrijen die tegenwoordig worden aangeboden door Microsoft Azure: opslagwachtrijen en Service Bus-wachtrijen. U kunt deze informatie gebruiken om de verschillende technologieën te vergelijken en tegen elkaar af te zetten zodat u een weloverwogen beslissing kunt nemen en de oplossing kiest die beste voldoet aan uw behoeften.
@@ -30,12 +30,12 @@ Azure ondersteunt twee soorten wachtrij mechanismen: **opslagwachtrijen** en **S
 
 **Service Bus-wachtrijen** deel uitmaken van een breder [Azure messaging](https://azure.microsoft.com/services/service-bus/) infrastructuur die ondersteuning biedt voor queuing evenals publiceren/abonneren en meer geavanceerde integratie patronen. Zie voor meer informatie over Service Bus-onderwerpen-wachtrijen/abonnementen de [overzicht van Service Bus](service-bus-messaging-overview.md).
 
-Hoewel beide queuing technologieën gelijktijdig bestaan, kennisgemaakt opslagwachtrijen eerst als een toegewezen wachtrij opslagmechanisme gebouwd op Azure Storage-services. Service Bus-wachtrijen zijn gebouwd op de breder ' ' berichteninfrastructuur ontworpen voor integratie van toepassingen of de onderdelen van de toepassing die meerdere communicatieprotocollen, gegevenscontracten, vertrouwen domeinen en/of netwerkomgevingen kunnen omvatten.
+Hoewel beide queuing technologieën gelijktijdig bestaan, kennisgemaakt opslagwachtrijen eerst als een toegewezen wachtrij opslagmechanisme gebouwd op Azure Storage-services. Service Bus-wachtrijen zijn gebouwd op de breder berichteninfrastructuur ontworpen voor integratie van toepassingen of de onderdelen van de toepassing die meerdere communicatieprotocollen, gegevenscontracten, vertrouwen domeinen en/of netwerkomgevingen kunnen omvatten.
 
 ## <a name="technology-selection-considerations"></a>Overwegingen voor selectie van technologie
 Zijn de implementaties van de message Queuing-service die momenteel worden aangeboden door Microsoft Azure Storage-wachtrijen en Service Bus-wachtrijen. Elk heeft een iets andere functieset, wat betekent dat u kunt kiezen een of beide, afhankelijk van de behoeften van uw bepaalde oplossing of -business-technische probleem, u het oplossen van.
 
-Bij het bepalen van welke queuing technologie geschikt is voor het doel voor een bepaalde oplossing oplossingsarchitecten en -ontwikkelaars moeten rekening houden met de onderstaande aanbevelingen. Zie de volgende sectie voor meer informatie.
+Bij het bepalen van welke queuing technologie geschikt is voor het doel voor een bepaalde oplossing overwegen oplossingsarchitecten en -ontwikkelaars deze aanbevelingen. Zie de volgende sectie voor meer informatie.
 
 Als een oplossing systeemarchitect of ontwikkelaar, **Overweeg het gebruik van opslagwachtrijen** wanneer:
 
@@ -75,8 +75,8 @@ Deze sectie worden enkele van de fundamentele queuing mogelijkheden van opslagwa
 | Push-stijl-API |**Nee** |**Ja**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) en **OnMessage** sessies .NET API. |
 | Modus ontvangen |**Inspecteren & Lease** |**Inspecteren & vergrendelen**<br/><br/>**Ontvangen & verwijderen** |
 | Modus van exclusieve toegang |**Op basis van de lease** |**Op basis van een vergrendeling** |
-| Leasevergrendeling duur |**30 seconden (standaard)**<br/><br/>**7 dagen (maximum)** (u kunt vernieuwen of vrijgeven van een bericht lease met de [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API.) |**60 seconden (standaard)**<br/><br/>U kunt ook een bericht vergrendelen met verlengen de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
-| Leasevergrendeling precisie |**Berichtniveau**<br/><br/>(elk bericht kan hebben een verschillende time-outwaarde, die u vervolgens indien nodig bijwerken kunt tijdens het verwerken van het bericht met behulp van de [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API) |**Wachtrijniveau**<br/><br/>(elke wachtrij heeft een vergrendeling precisie toegepast op alle van de berichten, maar kunt u ook het gebruik van de vergrendeling vernieuwen de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
+| Leasevergrendeling duur |**30 seconden (standaard)**<br/><br/>**7 dagen (maximum)** (u kunt vernieuwen of vrijgeven van een bericht lease met de [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API.) |**60 seconden (standaard)**<br/><br/>U kunt ook een bericht vergrendelen met verlengen de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
+| Leasevergrendeling precisie |**Berichtniveau**<br/><br/>(elk bericht kan hebben een verschillende time-outwaarde, die u vervolgens indien nodig bijwerken kunt tijdens het verwerken van het bericht met behulp van de [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API) |**Wachtrijniveau**<br/><br/>(elke wachtrij heeft een vergrendeling precisie toegepast op alle van de berichten, maar kunt u ook het gebruik van de vergrendeling vernieuwen de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
 | Batch verwerkt ontvangen |**Ja**<br/><br/>(expliciet op te geven aantal berichten bij het ophalen van berichten, maximaal 32 berichten) |**Ja**<br/><br/>(inschakelen van de eigenschap van een vooraf vastgestelde impliciet of expliciet door het gebruik van transacties) |
 | Batch verzenden |**Nee** |**Ja**<br/><br/>(door het gebruik van transacties of clientzijde batchverwerking) |
 
@@ -89,7 +89,7 @@ Deze sectie worden enkele van de fundamentele queuing mogelijkheden van opslagwa
 * Service Bus-wachtrijen bieden ondersteuning voor lokale transacties in de context van een enkele wachtrij.
 * De **ontvangt en verwijdert** modus wordt ondersteund door Service Bus biedt de mogelijkheid te reduceren messaging bewerking count (en de bijbehorende kosten) voor de levering van verlaagde zekerheid.
 * Leases bieden opslagwachtrijen de mogelijkheid om uit te breiden de leases voor berichten. Hierdoor kan de werknemers korte-leases op berichten te onderhouden. Dus als een werknemer vastloopt, kan het bericht snel opnieuw worden verwerkt door een andere werknemer. Bovendien een werknemer die de lease op een bericht kunt uitbreiden, als moet worden verwerkt het langer dan de leasetijd voor het huidige.
-* Opslagwachtrijen bieden een zichtbaarheid time-out die u kunt instellen op de doelwachtrij plaatsen of waarbij van een bericht. U kunt bovendien bijwerken van een bericht met verschillende lease waarden tijdens runtime, en verschillende waarden voor berichten in de wachtrij met dezelfde werk. Service Bus vergrendeling time-outs zijn gedefinieerd in de metagegevens van de wachtrij. u kunt echter de vergrendeling verlengen door het aanroepen van de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) methode.
+* Opslagwachtrijen bieden een zichtbaarheid time-out die u kunt instellen op de enqueuing of waarbij van een bericht. U kunt bovendien bijwerken van een bericht met verschillende lease waarden tijdens runtime, en verschillende waarden voor berichten in de wachtrij met dezelfde werk. Service Bus vergrendeling time-outs zijn gedefinieerd in de metagegevens van de wachtrij. u kunt echter de vergrendeling verlengen door het aanroepen van de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) methode.
 * De maximale time-out is voor een blokkering ontvangstbewerking in Service Bus-wachtrijen 24 dagen. Time-outs REST gebaseerde hebben echter een maximumwaarde van 55 seconden.
 * Client-side batchverwerking geleverd door de Service Bus, kunnen clients wachtrij om meerdere berichten in een enkel verzendbewerking batch te verwerken. Batchverwerking is alleen beschikbaar voor verzenden van asynchrone bewerkingen.
 * Functies, zoals het maximum 200 TB opslagwachtrijen (meer wanneer u accounts virtualiseren) en onbeperkte wachtrijen maken het een ideaal platform voor SaaS-providers.
@@ -132,9 +132,9 @@ Deze sectie vergelijkt opslagwachtrijen en Service Bus-wachtrijen vanuit het per
 | Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
 | Maximale wachtrijgrootte |**500 TB**<br/><br/>(beperkt tot een [opslagaccountcapaciteit eenmalige](../storage/common/storage-introduction.md#queue-storage)) |**1 GB tot 80 GB**<br/><br/>(gedefinieerd bij het maken van een wachtrij en [inschakelen partitioneren](service-bus-partitioning.md) : Zie de sectie 'Aanvullende informatie') |
-| Maximale berichtgrootte |**64 KB**<br/><br/>(48 KB bij gebruik van **Base64** codering)<br/><br/>Azure biedt ondersteuning voor grote berichten door een combinatie van wachtrijen en blobs – in dat geval u in de wachtrij plaatsen kunt van 200GB voor één item. |**256 KB** of **1 MB**<br/><br/>(met inbegrip van de kop- en hoofdtekst maximale header-grootte: 64 KB).<br/><br/>Afhankelijk van de [servicelaag](service-bus-premium-messaging.md). |
+| Maximale berichtgrootte |**64 KB**<br/><br/>(48 KB bij gebruik van **Base64** codering)<br/><br/>Azure biedt ondersteuning voor grote berichten door een combinatie van wachtrijen en blobs – in dat geval u in de wachtrij plaatsen kunt van 200 GB voor één item. |**256 KB** of **1 MB**<br/><br/>(met inbegrip van de kop- en hoofdtekst maximale header-grootte: 64 KB).<br/><br/>Afhankelijk van de [servicelaag](service-bus-premium-messaging.md). |
 | Maximale bericht TTL |**7 dagen** |**TimeSpan.Max** |
-| Maximum aantal wachtrijen |**Onbeperkt** |**10,000**<br/><br/>(per naamruimte van de service kan worden verhoogd) |
+| Maximum aantal wachtrijen |**Onbeperkt** |**10,000**<br/><br/>(per Servicenaamruimte) |
 | Maximum aantal gelijktijdige clients |**Onbeperkt** |**Onbeperkt**<br/><br/>(de limiet van 100 gelijktijdige verbindingen alleen van toepassing op TCP-protocol-communicatie) |
 
 ### <a name="additional-information"></a>Aanvullende informatie
@@ -174,7 +174,7 @@ Deze sectie wordt de verificatie en autorisatie functies ondersteund door opslag
 
 | Vergelijkingscriteria | Opslagwachtrijen | Service Bus-wachtrijen |
 | --- | --- | --- |
-| Verificatie |**Symmetrische sleutel** |**Symmetrische sleutel** |
+| Authentication |**Symmetrische sleutel** |**Symmetrische sleutel** |
 | Beveiligingsmodel |Gedelegeerde toegang via SAS-tokens. |SAS |
 | Provider van identiteitsfederatie |**Nee** |**Ja** |
 

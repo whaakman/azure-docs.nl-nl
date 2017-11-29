@@ -3,7 +3,7 @@ title: Beveiligt van Azure naar een on-premises site | Microsoft Docs
 description: U kunt een failback naar on-premises om virtuele machines starten na een failover van virtuele machines naar Azure. Informatie over het opnieuw te beveiligen voordat u een failback.
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 06/05/2017
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/28/2017
@@ -62,16 +62,20 @@ Wanneer u beveiligt virtuele machines voorbereidt, uitvoeren of kunt u de volgen
   * **Hoofddoelserver**: de hoofddoelserver ontvangt gegevens van failback. De lokale management-server die u hebt gemaakt, heeft een hoofddoelserver standaard geïnstalleerd. Afhankelijk van het volume is mislukt-back-verkeer moet u mogelijk echter maken van een afzonderlijke hoofddoelserver voor failback.
     * [Een virtuele Linux-machine moet een Linux-hoofddoelserver](site-recovery-how-to-install-linux-master-target.md).
     * Een virtuele Windows-computer moet een Windows-hoofddoelserver. U kunt de lokale proces server en master doelmachines opnieuw gebruiken.
+    * Het hoofddoel heeft andere vereisten die worden vermeld in [algemene wat u moet controleren op een hoofddoel voordat beveiligt](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 > [!NOTE]
 > Alle virtuele machines van een replicatiegroep moeten van hetzelfde besturingssysteem type (alle Windows of Linux alle). Een replicatiegroep met gemengde besturingssystemen wordt momenteel niet ondersteund voor beveiligt en failback naar on-premises. Dit is omdat het hoofddoel van hetzelfde besturingssysteem als de virtuele machine moet en de virtuele machines van een replicatiegroep moet het dezelfde hoofddoel hebben. 
 
-    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+    
 
 * Een configuratieserver is vereist on-premises wanneer u een failback uit. Tijdens de failback, moet de virtuele machine zich in de configuratiedatabase van de server. Anders wordt de failback is mislukt. 
 
 > [!IMPORTANT]
 > Zorg ervoor dat u rekening houden met regelmatig geplande back-ups van uw configuratieserver. Als er een ramp, de server met hetzelfde IP-adres herstellen zodat failback werkt.
+
+> [!WARNING]
+> Een replicatiegroep mag alleen hebben VM's van Windows of Linux VM's en niet een combinatie van beide omdat alle virtuele machines in een groep replictaion maakt gebruik van dezelfde hoofddoelserver en Linux-VM is een server voor Linux-hoofddoel vereist en verstandig, zoals voor de virtuele machine van Windows.
 
 * Stel de `disk.EnableUUID=true` instellen in de configuratieparameters van het hoofddoel virtuele machine in VMware. Als deze rij niet bestaat, moet u deze toevoegen. Deze instelling is vereist voor een consistente UUID naar de schijf van de virtuele machine (VMDK) bieden, zodat deze correct koppelt.
 

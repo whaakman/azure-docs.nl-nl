@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Een webserver LEMP installeren op een virtuele machine in Azure
 Dit artikel begeleidt u bij het implementeren van een NGINX-webserver, MySQL en PHP (de LEMP-stack) op een Ubuntu VM in Azure. De stack LEMP vormt een alternatief voor de populaire [licht stack](tutorial-lamp-stack.md), die u kunt ook installeren in Azure. Overzicht van de server LEMP in actie kunt u optioneel installeren en configureren van een WordPress-site. In deze zelfstudie leert u het volgende:
@@ -31,6 +31,8 @@ Dit artikel begeleidt u bij het implementeren van een NGINX-webserver, MySQL en 
 > * Controleer of de installatie en configuratie
 > * WordPress installeren op de server LEMP
 
+
+Deze instelling is voor de snelle tests noch een bewijs van het concept.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,15 +75,16 @@ Controleer de versie van MySQL met de volgende opdracht (Let op het kapitaal `V`
 mysql -V
 ```
 
-U wordt aangeraden het volgende script voor het beveiligen van de installatie van MySQL uitgevoerd:
+Ter beveiliging van de installatie van MySQL uitvoeren de `mysql_secure_installation` script. Als u alleen een tijdelijke server instelt, kunt u deze stap overslaan. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Voer uw MySQL root-wachtwoord en de beveiligingsinstellingen voor uw omgeving.
+Geef een root-wachtwoord voor MySQL en de beveiligingsinstellingen voor uw omgeving.
 
-Als u maken van een MySQL-database wilt, gebruikers toevoegen of wijzigen van configuratie-instellingen, meld u aan bij de MySQL:
+Als u wilt proberen MySQL-functies (een MySQL-database maken, gebruikers toevoegen of wijzigen van configuratie-instellingen), meld u aan bij MySQL. Deze stap is niet vereist om deze zelfstudie te voltooien. 
+
 
 ```bash
 mysql -u root -p

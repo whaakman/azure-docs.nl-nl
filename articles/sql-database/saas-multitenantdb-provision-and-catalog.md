@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: 93a2f8aa8890f40a8ef9b88fe172efa24aac7811
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/28/2017
@@ -86,10 +86,10 @@ De scripts Wingtip Tickets SaaS multitenant Database en de broncode van toepassi
 
 Om te begrijpen hoe de toepassing Wingtip Tickets nieuwe tenant inrichten in een gedeelde database wordt geïmplementeerd, moet u een onderbrekingspunt en stap via de werkstroom toevoegen:
 
-1. In de _PowerShell ISE_open... \\Learning-Modules\\ProvisionAndCatalog\\_Demo ProvisionAndCatalog.ps1_ en de volgende parameters instellen:
-   * **$TenantName** = **Bushwillow blauwe**, de naam van de nieuwe plaats.
-   * **$VenueType** = **blauwe**, een van de vooraf gedefinieerde wilt typen: *blauwe*, classicalmusic, dans, jazz, judo, motorracing multipurpose, opera, rockmusic, doel ( kleine letters, zonder spaties).
-   * **$Scenario** = **1**, naar *inrichten van een tenant in een gedeelde database wordt met andere tenants*.
+1. In de _PowerShell ISE_open... \\Learning-Modules\\ProvisionTenants\\_Demo ProvisionTenants.ps1_ en de volgende parameters instellen:
+   * **$TenantName** = **Bushwillow blauwe**, de naam van een nieuwe plaats.
+   * **$VenueType** = **blauwe**, een van de vooraf gedefinieerde wilt typen: blauwe, classicalmusic, dans, jazz, judo, motorracing multipurpose, opera, rockmusic, doel (kleine letters, zonder spaties).
+   * **$DemoScenario** = **1**, naar *inrichten van een tenant in een gedeelde database wordt met andere tenants*.
 
 1. Een onderbrekingspunt toevoegen door een willekeurige plaats de cursor in de regel 38, de mededeling dat plaatsen: *New-Tenant '*, en druk op **F9**.
 
@@ -120,10 +120,10 @@ Hier volgen de belangrijkste elementen van de inrichting werkstroom doorlopen:
 
 Nu overzicht het proces bij het maken van een tenant in zijn eigen database:
 
-1. Nog steeds in... \\Learning-Modules\\ProvisionAndCatalog\\_Demo ProvisionAndCatalog.ps1_ de volgende parameters instellen:
-   * **$TenantName** = **sequoia grootste**, de naam van de nieuwe plaats.
-   * **$VenueType** = **grootste**, een van de vooraf gedefinieerde wilt typen: blauwe, classicalmusic, dans, jazz, judo, motorracing multipurpose, opera, rockmusic, *grootste* () kleine letters, zonder spaties).
-   * **$Scenario** = **2**, naar *inrichten van een tenant in een gedeelde database wordt met andere tenants*.
+1. Nog steeds in... \\Learning-Modules\\ProvisionTenants\\_Demo ProvisionTenants.ps1_ de volgende parameters instellen:
+   * **$TenantName** = **sequoia grootste**, de naam van een nieuwe plaats.
+   * **$VenueType** = **grootste**, een van de vooraf gedefinieerde wilt typen: blauwe, classicalmusic, dans, jazz, judo, motorracing multipurpose, opera, rockmusic, doel (kleine letters, zonder spaties).
+   * **$DemoScenario** = **2**, naar *een tenant in te richten in een eigen database*.
 
 1. Een nieuwe onderbrekingspunt toevoegen door een willekeurige plaats de cursor in de regel 57, de mededeling dat plaatsen:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*, en druk op **F9**.
 
@@ -151,30 +151,31 @@ Hier volgen de belangrijkste elementen van de werkstroom die u tijdens het trace
 
 In deze oefening voorziet in een batch 17 tenants. Het raadzaam dat u deze batch van tenants inrichten voordat u andere zelfstudies Wingtip Tickets start, dus er meer databases zijn werken met.
 
-1. In de *PowerShell ISE*open... \\Learning-Modules\\ProvisionAndCatalog\\*Demo ProvisionAndCatalog.ps1* en wijzig de *$Scenario* parameter in 3:
-   * **$Scenario** = **3**, naar *een batch van tenants in te richten in een gedeelde database*.
+
+1. In de *PowerShell ISE*open... \\Learning-Modules\\ProvisionTenants\\*Demo ProvisionTenants.ps1* en wijzig de *$DemoScenario* parameter tot en met 4:
+   * **$DemoScenario** = **4**, naar *een batch van tenants in te richten in een gedeelde database*.
 1. Druk op **F5** om het script uit te voeren.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Controleer of de geïmplementeerde reeks tenants 
-U hebt een combinatie van tenants in een gedeelde database wordt geïmplementeerd en tenants in hun eigen databases geïmplementeerd in deze fase. De Azure-portal kan worden gebruikt om te controleren van de databases die zijn gemaakt:  
-
-* In de [Azure-portal](https://portal.azure.com), open de **tenants1-mt -\<gebruiker\>**  server door te bladeren naar de lijst met SQL-servers.  De **SQL-databases** lijst met de gedeelde moet bevatten **tenants1** database en de databases voor de tenants die zich in hun eigen database:
+U hebt een combinatie van tenants in een gedeelde database wordt geïmplementeerd en tenants in hun eigen databases geïmplementeerd in deze fase. De Azure-portal kan worden gebruikt om te controleren van de databases die zijn gemaakt. In de [Azure-portal](https://portal.azure.com), open de **tenants1-mt -\<gebruiker\>**  server door te bladeren naar de lijst met SQL-servers.  De **SQL-databases** lijst met de gedeelde moet bevatten **tenants1** database en de databases voor de tenants die zich in hun eigen database:
 
    ![databaselijst](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Terwijl de Azure-portal de tenant databases toont, u kunt hier geen raadpleegt de tenants *binnen* de gedeelde database. De volledige lijst met tenants kan worden weergegeven in de pagina van de hub Wingtip Tickets gebeurtenissen en door te bladeren door de catalogus:   
 
-1. Open de pagina gebeurtenissen Hub in de browser (http:events.wingtip-mt.\<gebruiker\>. trafficmanager.net)  
+**Met behulp van Wingtip Tickets gebeurtenissen hub pagina** <br>
+Open de pagina gebeurtenissen Hub in de browser (http:events.wingtip-mt.\<gebruiker\>. trafficmanager.net)  
 
-   De volledige lijst van tenants en hun bijbehorende database is beschikbaar in de catalogus. Een SQL-weergave is opgegeven in de database tenantcatalog die lid wordt van de naam van de tenant opgeslagen in de tabel Tenants de naam van de database in de Shard-Management-tabellen. Deze weergave toont mooi aan de waarde van het uitbreiden van de metagegevens die zijn opgeslagen in de catalogus.
+**Met behulp van de catalogusdatabase** <br>
+De volledige lijst van tenants en hun bijbehorende database is beschikbaar in de catalogus. Een SQL-weergave is opgegeven in de database tenantcatalog die lid wordt van de naam van de tenant opgeslagen in de tabel Tenants de naam van de database in de Shard-Management-tabellen. Deze weergave toont mooi aan de waarde van het uitbreiden van de metagegevens die zijn opgeslagen in de catalogus.
 
-2. In *SQL Server Management Studio (SSMS)*, verbinding maken met de server tenants op **tenants1-onderwerp mt.\<gebruiker\>. database.windows.net**, met aanmelding: **ontwikkelaars** , Wachtwoord:**P@ssword1**
+1. In *SQL Server Management Studio (SSMS)* verbinding maken met de server tenants op **catalogus-onderwerp mt.\<gebruiker\>. database.windows.net**, met aanmelding: **developer**, Wachtwoord:**P@ssword1**
 
     ![Het dialoogvenster verbinding SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. In de *Objectverkenner*, blader naar de weergaven in de *tenantcatalog* database.
-2. Klik met de rechtermuisknop op de weergave *TenantsExtended* en kies **Selecteer Top 1000 rijen**. Noteer de toewijzing tussen tenantnaam en -database voor de verschillende tenants.
+1. In de *Objectverkenner*, blader naar de weergaven in de *tenantcatalog* database.
+1. Klik met de rechtermuisknop op de weergave *TenantsExtended* en kies **Selecteer Top 1000 rijen**. Noteer de toewijzing tussen tenantnaam en -database voor de verschillende tenants.
 
     ![De weergave ExtendedTenants in SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       
