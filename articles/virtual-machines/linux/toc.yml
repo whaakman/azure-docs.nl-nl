@@ -83,7 +83,7 @@
         - name: Krachtig rekenvermogen
           href: sizes-hpc.md
         - name: Azure Compute Units (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Goedgekeurde distributies
       href: endorsed-distros.md
     - name: Onderhoud en updates
