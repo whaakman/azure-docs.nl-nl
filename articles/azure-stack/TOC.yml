@@ -29,6 +29,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Geïntegreerde systemen release-opmerkingen
           items:
+            - name: 1711 update
+              href: azure-stack-update-1711.md
             - name: 1710 update
               href: azure-stack-update-1710.md
     - name: Belangrijke functies en concepten
