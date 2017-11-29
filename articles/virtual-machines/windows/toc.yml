@@ -77,7 +77,7 @@
         - name: Krachtig rekenvermogen
           href: sizes-hpc.md
         - name: Azure Compute Units (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Onderhoud en updates
       href: maintenance-and-updates.md
     - name: File Storage

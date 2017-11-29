@@ -185,19 +185,10 @@
 #### [Netwerkmodi voor containers](service-fabric-networking-modes.md)
 
 ### Een Reliable Services-service bouwen
-#### [Overzicht](service-fabric-reliable-services-introduction.md)
-#### Concepten
-##### [Levenscyclus van Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Levenscyclus van Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Betrouwbare verzamelingen
-##### [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
-##### [Richtlijnen en aanbevelingen voor betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
-##### [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Betrouwbare gelijktijdige wachtrij](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Betrouwbare verzamelingserialisatie](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Beheer van betrouwbare status en interne werking van betrouwbare verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Aan de slag
 ##### [C# op Windows](service-fabric-reliable-services-quick-start.md)
