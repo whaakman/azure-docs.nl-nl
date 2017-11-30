@@ -16,11 +16,11 @@ ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: abf207a3ceec708a828170936f7dc7948ccf34a9
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 67df6d893c0770b9210fc73e96865d5c6396796c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Een Azure-abonnement toevoegen aan Azure Active Directory
 In dit artikel vindt u informatie over de relatie tussen een Azure-abonnement en Azure Active Directory (Azure AD), en instructies voor het toevoegen van een bestaand abonnement aan uw Azure AD-directory. Uw Azure-abonnement heeft een vertrouwensrelatie met Azure AD, wat betekent dat de directory wordt vertrouwd voor de authenticatie van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement kan slechts één directory vertrouwen. 
@@ -39,7 +39,6 @@ U moet zich aanmelden met een account dat bestaat in zowel de huidige directory 
 5. De ontvanger klikt op de link en volgt de instructies, waaronder het invoeren van zijn of haar betaalgegevens. Als de ontvanger klaar is, wordt het abonnement overgedragen. 
 6. De standaarddirectory van het abonnement wordt gewijzigd in de directory waarin de gebruiker zich bevindt.
 
-Zie [Het eigendom van een Azure-abonnement overdragen aan een ander account](../billing/billing-subscription-transfer.md) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md) voor meer informatie over het wijzigen van de beheerders voor een Azure-abonnement.

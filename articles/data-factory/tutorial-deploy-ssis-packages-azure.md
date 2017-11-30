@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 10/06/2017
 ms.author: spelluru
-ms.openlocfilehash: 434c1de8a7310036fb1bb93d45c6b1364ba1fe6a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 37c096199f4217e31d075fb5b6ee584936e9011b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Pakketten van SQL Server Integration Services implementeren in Azure
 
@@ -55,6 +55,8 @@ Start **Windows PowerShell ISE** met beheerdersbevoegdheden.
 Kopieer en plak het volgende script: geef waarden op voor de variabelen. Voor een lijst met ondersteunde **prijscategorieën** voor Azure SQL Database raadpleegt u [SQL Database resource limits](../sql-database/sql-database-resource-limits.md) (Limieten voor SQL Database-resources).
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -138,7 +140,7 @@ Als uw resourcegroep al bestaat, hoeft u deze code niet naar het script te kopi�
 New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
-## <a name="create-a-data-factory"></a>Een data factory maken
+## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 Voer de volgende opdracht uit om een data factory te maken:
 
 ```powershell
@@ -214,6 +216,8 @@ Voor een lijst met ondersteunde **prijscategorieën** voor Azure SQL Database ra
 Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor een lijst met regio's die worden ondersteund door Azure Data Factory V2 en Azure-SSIS Integration Runtime. Vouw **Gegevens en analyses** uit om **Data Factory V2** en **SSIS Integration Runtime** te zien.
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
