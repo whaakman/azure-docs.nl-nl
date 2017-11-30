@@ -1,5 +1,5 @@
 ---
-title: Azure Functions wachtrij opslag bindingen
+title: Azure Queue storage-bindingen voor Azure Functions
 description: Begrijpen hoe de Azure Queue storage trigger te gebruiken en de uitvoer van de binding in Azure Functions.
 services: functions
 documentationcenter: na
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 9cf506d571c8d67a1e48ce34860db3dbc3445509
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-queue-storage-bindings"></a>Azure Functions wachtrij opslag bindingen
+# <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met Azure Queue storage bindingen in de Azure Functions. Azure Functions ondersteunt activeren en uitvoer van de bindingen voor wachtrijen.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="queue-storage-trigger"></a>Queue storage trigger
+## <a name="trigger"></a>Trigger
 
 Gebruik de trigger wachtrij een functie wordt gestart wanneer een nieuw item is ontvangen op een wachtrij. Bericht uit de wachtrij is opgegeven als invoer voor de functie.
 
@@ -151,7 +151,7 @@ module.exports = function (context) {
 
 De [gebruik](#trigger---usage) sectie wordt uitgelegd `myQueueItem`, die door de naam de `name` eigenschap in function.json.  De [metagegevenssectie bericht](#trigger---message-metadata) wordt uitgelegd dat alle variabelen weergegeven.
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Trigger - kenmerken voor vooraf gecompileerde C#
+## <a name="trigger---attributes"></a>Trigger - kenmerken
  
 Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de volgende kenmerken gebruiken voor het configureren van een trigger wachtrij:
 
@@ -164,6 +164,9 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
@@ -173,8 +176,13 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
       TraceWriter log)
+  {
+      ....
+  }
   ```
  
+  Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#trigger---c-example).
+
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
   Biedt een andere manier om op te geven van de storage-account te gebruiken. De constructor, wordt de naam van een app-instelling met een verbindingsreeks voor opslag. Het kenmerk kan worden toegepast op het parameter, klasseniveau of methode. Het volgende voorbeeld ziet u klasseniveau en methode:
@@ -186,6 +194,9 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
       [FunctionName("QueueTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Het opslagaccount moet worden gebruikt, wordt bepaald in de volgende volgorde:
@@ -206,7 +217,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**richting**| N.v.t. | In de *function.json* alleen het bestand. moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**naam** | N.v.t. |De naam van de variabele die staat voor de wachtrij in functiecode.  | 
 |**Wachtrijnaam** | **Wachtrijnaam**| De naam van de wachtrij om te pollen. | 
-|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br/>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
  
@@ -245,7 +258,7 @@ De [host.json](functions-host-json.md#queues) bestand bevat instellingen die wac
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## <a name="queue-storage-output-binding"></a>Queue storage uitvoer binding
+## <a name="output"></a>Uitvoer
 
 De Azure Queue storage uitvoer binding berichten schrijven naar een wachtrij gebruiken.
 
@@ -386,7 +399,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Output - kenmerken voor vooraf gecompileerde C#
+## <a name="output---attributes"></a>Output - kenmerken
  
 Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -396,6 +409,9 @@ Het kenmerk is van toepassing op een `out` parameter of de retourwaarde van de f
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
 U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
@@ -404,9 +420,14 @@ U kunt instellen de `Connection` eigenschap om de storage-account moet worden ge
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
-U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken voor vooraf gecompileerde C#](#trigger---attributes-for-precompiled-c).
+Zie voor een compleet voorbeeld [uitvoer - vooraf gecompileerde C#-voorbeeld](#output---c-example).
+
+U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken](#trigger---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Output - configuratie
 
@@ -418,7 +439,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**richting** | N.v.t. | moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij in functiecode. Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.| 
 |**Wachtrijnaam** |**Wachtrijnaam** | De naam van de wachtrij. | 
-|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+|**verbinding** | **Verbinding** |De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Output - gebruik
  

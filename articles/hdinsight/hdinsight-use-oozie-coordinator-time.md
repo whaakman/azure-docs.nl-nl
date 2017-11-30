@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a1f6285dd230afd6d4de202a0cb25e5097e378f2
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Tijd gebaseerde Oozie-coördinator gebruiken met Hadoop in HDInsight voor het definiëren van werkstromen en coördineren van taken
 In dit artikel leert u hoe u werkstromen en coördinator definiëren en het activeren van de coördinator-taken op basis van tijd. Is het handig om te gaan via [Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook taken met behulp van Azure Data Factory plannen. Zie voor meer informatie over Azure Data Factory, [Use Pig en Hive met Data Factory](../data-factory/transform-data.md).
@@ -82,14 +82,15 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
     <tr><td>Naam van het Azure-opslagaccount</td><td>$storageAccountName</td><td></td><td>Een Azure Storage-account beschikbaar is voor het HDInsight-cluster. Gebruik het standaardopslagaccount die u hebt opgegeven tijdens het inrichten van het cluster voor deze zelfstudie.</td></tr>
     <tr><td>Naam van een Azure Blob-container</td><td>$containerName</td><td></td><td>Voor dit voorbeeld gebruikt u de Azure Blob storage-container die wordt gebruikt voor het standaardbestandssysteem HDInsight-cluster. Standaard is deze dezelfde naam als het HDInsight-cluster.</td></tr>
     </table>
-* **Een Azure SQL database**. U moet een firewallregel voor de SQL-databaseserver toegang toestaan via uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en de firewall configureren [aan de slag met Azure SQL database] [SQL-get-started]. Dit artikel vindt een Windows PowerShell-script voor het maken van de Azure SQL database-tabel die u nodig hebt voor deze zelfstudie.
+
+* **Een Azure SQL database**. U moet een firewallregel voor de SQL-databaseserver toegang toestaan via uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en het configureren van de firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. Dit artikel vindt een Windows PowerShell-script voor het maken van de Azure SQL database-tabel die u nodig hebt voor deze zelfstudie.
 
     <table border = "1">
     <tr><th>SQL database-eigenschap</th><th>Naam variabele voor Windows PowerShell</th><th>Waarde</th><th>Beschrijving</th></tr>
     <tr><td>SQL server-databasenaam</td><td>$sqlDatabaseServer</td><td></td><td>De SQL-databaseserver waarnaar Sqoop gegevens worden geëxporteerd. </td></tr>
     <tr><td>Aanmeldingsnaam voor SQL-database</td><td>$sqlDatabaseLogin</td><td></td><td>Aanmeldingsnaam van de SQL-Database.</td></tr>
     <tr><td>Aanmeldingswachtwoord voor SQL-database</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Aanmeldingswachtwoord voor SQL-Database.</td></tr>
-    <tr><td>Naam van de SQL-database</td><td>$sqlDatabaseName</td><td></td><td>De Azure SQL database waarnaar Sqoop gegevens worden geëxporteerd. </td></tr>
+    <tr><td>SQL-databasenaam</td><td>$sqlDatabaseName</td><td></td><td>De Azure SQL database waarnaar Sqoop gegevens worden geëxporteerd. </td></tr>
     </table>
 
   > [!NOTE]
@@ -727,17 +728,17 @@ In deze zelfstudie hebt u geleerd hoe u een werkstroom Oozie en Oozie-coördinat
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-java-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md

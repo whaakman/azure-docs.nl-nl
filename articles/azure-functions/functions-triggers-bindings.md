@@ -1,5 +1,5 @@
 ---
-title: Werken met triggers en bindingen in de Azure Functions | Microsoft Docs
+title: Werken met triggers en bindingen in de Azure-functies
 description: Informatie over het gebruik van triggers en bindingen in de Azure Functions verbinding maken met de uitvoering van uw code online gebeurtenissen en cloudservices.
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 Azure Functions, kunt u code te schrijven in reactie op gebeurtenissen in Azure en andere services via *triggers* en *bindingen*. Dit artikel is een conceptueel overzicht van triggers en bindingen voor alle programmeertalen worden ondersteund. Functies die gemeenschappelijk voor alle bindingen zijn worden hier beschreven.
 
 ## <a name="overview"></a>Overzicht
 
-Triggers en bindingen zijn een declaratieve manier om te definiëren hoe een functie is aangeroepen en wat dit proces met werkt gegevens. Een *trigger* definieert hoe een functie wordt aangeroepen. Een functie moet exact één trigger hebben. Triggers hebt gekoppeld aan gegevens, die is meestal de nettolading waarmee de functie is geactiveerd. 
+Triggers en bindingen zijn een declaratieve manier om te definiëren hoe een functie is aangeroepen en wat dit proces met werkt gegevens. Een *trigger* definieert hoe een functie wordt aangeroepen. Een functie moet exact één trigger hebben. Triggers hebt gekoppeld aan gegevens, die is meestal de nettolading waarmee de functie is geactiveerd.
 
 Invoer en uitvoer *bindingen* bieden een declaratieve manier verbinding maken met gegevens vanuit uw code. Net als de triggers, geeft u verbindingsreeksen en andere eigenschappen in de configuratie van de functie. Bindingen zijn optioneel en een functie kunt meerdere invoer en uitvoer bindingen. 
 
@@ -35,11 +34,13 @@ Met behulp van triggers en bindingen kunt u code schrijven die meer algemeen en 
 
 U kunt configureren, triggers en bindingen in de **integreren** tabblad in de Azure Functions-portal. Onder de behandelt de gebruikersinterface een bestand met de naam wijzigt *function.json* bestand in de map van de functie. U kunt dit bestand bewerken door te wijzigen in de **geavanceerde editor**.
 
-De volgende tabel toont de triggers en bindingen die worden ondersteund door Azure Functions. 
+## <a name="supported-bindings"></a>Ondersteunde bindingen
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Voorbeeld: wachtrij trigger en tabel uitvoer binding
+Zie voor informatie over welke bindingen zijn Preview-versie of voor gebruik in productieomgevingen zijn goedgekeurd, [ondersteunde talen](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Voorbeeld: wachtrij trigger en tabel uitvoer binding
 
 Stel dat u een nieuwe rij naar Azure Table Storage schrijven telkens wanneer een nieuw bericht wordt weergegeven in Azure Queue Storage. Dit scenario kan worden geïmplementeerd met behulp van een Azure-wachtrij trigger en een Azure-tabelopslag uitvoer binding. 
 
@@ -126,9 +127,9 @@ Weergeven en bewerken van de inhoud van *function.json* in de Azure-portal klikt
 
 Zie voor meer voorbeelden van code en meer informatie over de integratie met Azure Storage [Azure Functions triggers en bindingen voor Azure Storage](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Richting van de binding
+## <a name="binding-direction"></a>Richting van de binding
 
-Alle triggers en bindingen hebben een `direction` eigenschap:
+Alle triggers en bindingen hebben een `direction` eigenschap in de *function.json* bestand:
 
 - Voor triggers is de richting altijd`in`
 - Invoer- en uitvoergegevens bindingen gebruiken `in` en`out`
@@ -243,7 +244,7 @@ Een Azure-Opslagwachtrij-trigger ondersteunt bijvoorbeeld de volgende eigenschap
 
 Details van de eigenschappen van de metagegevens voor elke trigger worden beschreven in het bijbehorende naslagonderwerp. Documentatie is ook beschikbaar in de **integreren** tabblad van de portal in de **documentatie** hieronder de configuratiegebied binding.  
 
-Bijvoorbeeld, aangezien blob triggers sommige vertragingen hebben, kunt u een wachtrij-trigger voor het uitvoeren uw functie (Zie [Blob Storage Trigger](functions-bindings-storage-blob.md#blob-storage-trigger)). Bericht uit de wachtrij kan de blob filename activeren op zou bevatten. Met behulp van de `queueTrigger` metagegevenseigenschap, kunt u dit gedrag in uw configuratie, in plaats van uw code.
+Bijvoorbeeld, aangezien blob triggers sommige vertragingen hebben, kunt u een wachtrij-trigger voor het uitvoeren uw functie (Zie [Blob Storage Trigger](functions-bindings-storage-blob.md#trigger)). Bericht uit de wachtrij kan de blob filename activeren op zou bevatten. Met behulp van de `queueTrigger` metagegevenseigenschap, kunt u dit gedrag in uw configuratie, in plaats van uw code.
 
 ```json
   "bindings": [

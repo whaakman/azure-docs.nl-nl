@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Op Linux FAQ-Azure App Service
 
@@ -64,6 +64,20 @@ Ja.
 **Kan ik gebruiken *webimplementatie* mijn web-app implementeren?**
 
 Ja, moet u een app instelling instellen `WEBSITE_WEBDEPLOY_USE_SCM` naar *false*.
+
+**GIT-implementatie van mijn toepassing mislukt wanneer u Linux-web-app. Hoe kan ik tijdelijke oplossing van het probleem?**
+
+Als uw Linux-web-app niet Git-implementatie, kunt u de volgende alternatieve opties om de toepassingscode van uw te implementeren:
+
+- Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Team Services Git-opslagplaats of GitHub-repo-continue levering van Azure gebruiken. Zie voor meer informatie [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u uw code te implementeren. Voer het volgende uit:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   Als u een foutmelding dat krijgt de `curl` opdracht is niet gevonden, zorg ervoor dat u curl installeert met behulp van `apt-get install curl` voordat u de vorige uitvoert `curl` opdracht.
 
 ## <a name="language-support"></a>Taalondersteuning
 

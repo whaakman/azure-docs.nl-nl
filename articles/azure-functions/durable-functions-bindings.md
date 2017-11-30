@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindingen voor duurzame functies (Azure-functies)
 
@@ -55,7 +55,7 @@ Deze binding trigger opgevraagd intern een reeks van wachtrijen in het standaard
 Hieronder vindt u informatie over de orchestration-trigger:
 
 * **Single-threading** -een enkele dispatcher-thread wordt gebruikt voor alle orchestrator-functie uitvoeren op een exemplaar van één host. Daarom is het belangrijk om ervoor te zorgen dat de functiecode orchestrator efficiënte en alle i/o niet uitvoeren. Het is ook belangrijk om ervoor te zorgen dat deze thread geen asynchrone werk, behalve wanneer in afwachting voor duurzame functies-specifieke taaktypen.
-* **Afhandeling van poising berichten** -er is geen ondersteuning voor verontreinigd bericht in de orchestration-triggers.
+* **Afhandeling van poison-bericht** -er is geen ondersteuning voor verontreinigd bericht in de orchestration-triggers.
 * **Bericht zichtbaarheid** -Orchestration triggerberichten worden uit wachtrij geplaatst en onzichtbaar voor een configureerbare duur behouden. De zichtbaarheid van deze berichten wordt automatisch vernieuwd, zolang de functie-app uitgevoerd en goed wordt.
 * **Retourwaarden** -waarden worden geserialiseerd naar JSON en opgeslagen in de geschiedenistabel orchestration in Azure Table storage worden geretourneerd. Deze waarden geretourneerd, kunnen worden opgevraagd met de orchestration-client binding, die verderop worden beschreven.
 

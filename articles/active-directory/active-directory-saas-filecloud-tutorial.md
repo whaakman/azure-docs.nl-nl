@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Zelfstudie: Azure Active Directory-integratie met FileCloud
 
@@ -108,12 +108,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en FileCloud domein eenmalige aanmelding informatie](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.filecloudhosted.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.filecloudonline.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [FileCloud Client ondersteuningsteam](mailto:support@codelathe.com) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [FileCloud Client ondersteuningsteam](mailto:support@codelathe.com) ophalen van deze waarden. 
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -131,23 +131,23 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 8. Klik in het navigatiedeelvenster links op **instellingen**. 
    
-    ![Instellingen sectie op App aan clientzijde](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Klik op **SSO** tabblad op het gedeelte instellingen. 
    
-    ![Single Sign-On tabblad op App aan clientzijde](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Selecteer **SAML** als **SSO standaardtype** op **instellingen voor eenmalige aanmelding op (SSO)** Configuratiescherm.
    
-    ![Single Sign-On Configuratiescherm op App instellingen aan clientzijde](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal in de **IdP eindpunt-URL** textbox.
+11. In de **IdP eindpunt-URL** textbox, plak de waarde van **SAML entiteit-ID** die u hebt gekopieerd vanuit Azure-portal.
 
-    ![IDP End punt URL Textbox](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Open de van het gedownloade metagegevensbestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **IdP metagegevens** textbox op **SAML instellingen** Configuratiescherm.
 
-    ![IDP Meta gegevenssectie App-zijde](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Klik op **opslaan** knop.
 
@@ -192,7 +192,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 Het doel van deze sectie is het maken van een gebruiker Britta Simon in FileCloud genoemd. FileCloud ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot FileCloud als deze nog niet bestaat.
 
 >[!NOTE]
->Als u een gebruiker handmatig maken wilt, moet u contact op met de [FileCloud Client ondersteuningsteam](mailto:support@codelathe.com). 
+>Als u een gebruiker handmatig maken wilt, moet u contact op met de [FileCloud Client ondersteuningsteam](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -226,9 +226,10 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
     
 ### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behulp van het toegangsvenster.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel FileCloud in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing FileCloud.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6f9259ae5e8f382c6714d468004624c2cbcbbc33
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Fouten opsporen in Spark scala-toepassingen lokaal of extern op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH
 
@@ -121,7 +121,7 @@ Deze fout op te lossen [downloaden van het uitvoerbare bestand](http://public-re
    
    ![Knop voor extern uitvoeren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Als niet wilt zien van het actieve logboek in het rechterpaneel weergegeven, kunt u op de **Disconnect** knop. Echter deze nog wordt uitgevoerd op de back-end en het resultaat wordt weergegeven in het linkerdeelvenster.
+7. Klik op de **Disconnect** knop waarmee de logboeken van de verzending niet wordt weergegeven in het linkerdeelvenster. Het is echter nog steeds uitgevoerd op de back-end.
 
    ![Knop voor extern uitvoeren](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 

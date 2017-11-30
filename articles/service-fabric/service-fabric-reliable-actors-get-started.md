@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Aan de slag met Reliable Actors
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Maak een eenvoudige consoletoepassing de actor-service aanroepen.
     ![Dialoogvenster Nieuw Project toevoegen][6]    
     
     > [!NOTE]
-    > Een consoletoepassing is niet het type app die u vaak als een Service Fabric-client gebruikt, maar het is een voorbeeld van een handige voor foutopsporing en testen met behulp van de lokale Service Fabric-emulator.
+    > Een consoletoepassing is niet het type app die u vaak als een Service Fabric-client gebruikt, maar het voorbeeld van een handige voor foutopsporing en testen met behulp van de lokale Service Fabric-cluster maakt.
 
 3. De consoletoepassing moet een 64-bits toepassing voor compatibiliteit met de interface-project en andere afhankelijkheden.  Klik in Solution Explorer met de rechtermuisknop op de **ActorClient** project en klik vervolgens op **eigenschappen**.  Op de **bouwen** tabblad, stelt u **Platform doel** naar **x64**.
     

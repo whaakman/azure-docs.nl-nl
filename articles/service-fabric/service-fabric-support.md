@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2017
+ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Opties voor Azure Service Fabric-ondersteuning
 
@@ -68,15 +68,15 @@ Raadpleeg de volgende documenten voor meer informatie over hoe u uw een onderste
  
 Hier vindt u de lijst met de Service Fabric-versies die worden ondersteund en de einddatum van de ondersteuning.
 
-| **Service Fabric-runtime-cluster** | **Compatibel SDK / NuGet-pakket versies** | **Einde van ondersteuning datum** |
-| --- | --- | --- |
-| Alle clusterversies voordat 5.3.121 |Kleiner dan of gelijk zijn aan versie 2.3 |20 januari 2017 |
-| 5.3.* |Kleiner dan of gelijk zijn aan versie 2.3 |24 februari 2017 |
-| 5.4.* |Kleiner dan of gelijk zijn aan versie 2.4 |Kan 10,2017       |
-| 5.5.* |Kleiner dan of gelijk zijn aan versie 2.5 |Augustus 10,2017    |
-| 5.6.* |Kleiner dan of gelijk zijn aan versie 2.6 |Oktober 13,2017   |
-| 5.7.* |Kleiner dan of gelijk zijn aan versie 2.7 |December 15,2017  |
-| 6.0.* |Kleiner dan of gelijk zijn aan versie 2.8 |Huidige versie en dus geen einddatum
+| **Service Fabric-runtime in het cluster** | **Kan rechtstreeks upgraden van cluster versie** |**Compatibel SDK / NuGet-pakket versies** | **Einde van ondersteuning datum** |
+| --- | --- |--- | --- |
+| Alle clusterversies voordat 5.3.121 | 5.1.158* |Kleiner dan of gelijk zijn aan versie 2.3 |20 januari 2017 |
+| 5.3.* | 5.1.158.* |Kleiner dan of gelijk zijn aan versie 2.3 |24 februari 2017 |
+| 5.4.* | 5.1.158.* |Kleiner dan of gelijk zijn aan versie 2.4 |Kan 10,2017       |
+| 5.5.* | 5.4.164.* |Kleiner dan of gelijk zijn aan versie 2.5 |Augustus 10,2017    |
+| 5.6.* | 5.4.164.* |Kleiner dan of gelijk zijn aan versie 2.6 |Oktober 13,2017   |
+| 5.7.* | 5.4.164.* |Kleiner dan of gelijk zijn aan versie 2.7 |December 15,2017  |
+| 6.0.* | 5.6.205.* |Kleiner dan of gelijk zijn aan versie 2.8 |Huidige versie en dus geen einddatum |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric-Preview versies - wordt niet ondersteund voor gebruik in productieomgevingen.
 Van tijd tot tijd brengen we versies die we feedback willen, belangrijke functies die worden uitgebracht als voorbeelden hebben. Deze preview-versies mag alleen worden gebruikt voor testdoeleinden. Uw productiecluster moet altijd een ondersteunde, stabiele, Service Fabric-versie worden uitgevoerd. Een preview-versie begint altijd met een primaire en secundaire versienummer van 255. Bijvoorbeeld, als er een Service Fabric versie 255.255.5703.949, die versie alleen moet worden gebruikt in testclusters en is Preview-versie. Deze preview-versies worden ook vermeld in de [Service Fabric-teamblog](https://blogs.msdn.microsoft.com/azureservicefabric) en details hebben op de functies die worden.

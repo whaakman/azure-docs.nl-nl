@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>How to: in Azure App Service-Apps bewaken
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) biedt ingebouwde bewaking functionaliteit in de [Azure-portal](https://portal.azure.com).
-Dit omvat de mogelijkheid om te controleren **quota** en **metrische gegevens** voor een app, evenals de App Service-abonnement in te stellen **waarschuwingen** en zelfs **schalen**automatisch op basis van deze metrische gegevens.
+De Azure-portal biedt de mogelijkheid om te controleren **quota** en **metrische gegevens** voor een app, evenals de App Service-abonnement in te stellen **waarschuwingen** en zelfs **schalen**  automatisch op basis van deze metrische gegevens.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -37,7 +37,7 @@ Als de toepassing wordt gehost een **Basic**, **standaard** of **Premium** plant
 **Quota's** voor **vrije** of **gedeelde** apps zijn:
 
 * **CPU(Short)**
-  * De hoeveelheid CPU toegestaan voor deze toepassing in een interval van 5 minuten. Dit quotum wordt opnieuw ingesteld om de 5 minuten.
+  * De hoeveelheid CPU toegestaan voor deze toepassing in een interval van 5 minuten. Dit quotum wordt opnieuw ingesteld om de vijf minuten.
 * **CPU(Day)**
   * Totale hoeveelheid CPU toegestaan voor deze toepassing in een dag. Dit quotum wordt elke 24 uur om middernacht UTC hersteld.
 * **Geheugen**
@@ -48,12 +48,12 @@ Als de toepassing wordt gehost een **Basic**, **standaard** of **Premium** plant
 * **Bestandssysteem**
   * Totale hoeveelheid opslag dat is toegestaan.
 
-Het alleen van toepassing op apps die worden gehost op quotum **Basic**, **standaard** en **Premium** plannen is **bestandssysteem**.
+Het alleen van toepassing op apps die worden gehost op quotum **Basic**, **standaard**, en **Premium** plannen is **bestandssysteem**.
 
 Meer informatie over de specifieke quota, limieten en functies beschikbaar zijn voor de verschillende App Service-SKU's vindt u hier: [Servicelimieten voor Azure-abonnement](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Het afdwingen van quota
-Als een toepassing in het gebruik ervan hoger is dan de **CPU (korte)**, **CPU (dag)**, of **bandbreedte** quotum vervolgens de toepassing wordt gestopt, totdat het quotum wordt opnieuw ingesteld. Tijdens deze periode kunnen alle inkomende aanvragen resulteren in een **HTTP 403**.
+Als een toepassing overschrijdt de **CPU (korte)**, **CPU (dag)**, of **bandbreedte** quotum vervolgens de toepassing wordt gestopt, totdat het quotum wordt opnieuw ingesteld. Tijdens deze periode kunnen alle inkomende aanvragen resulteren in een **HTTP 403**.
 ![][http403]
 
 Als de toepassing **geheugen** quotum wordt overschreden, en vervolgens de toepassing opnieuw wordt opgestart.
@@ -125,14 +125,14 @@ Er zijn twee metrische gegevens die overeenkomen met het CPU-gebruik. **CPU-tijd
 
 **CPU-tijd** is nuttig voor apps die worden gehost **vrije** of **gedeelde** plannen omdat een van hun quota is gedefinieerd in CPU minuten gebruikt door de app.
 
-**CPU-percentage** is nuttig voor apps die worden gehost **basic**, **standaard** en **premium** omdat ze kunnen worden uitgebreid en met deze metriek een goede indicatie is plannen van het totale gebruik voor alle exemplaren.
+**CPU-percentage** is nuttig voor apps die worden gehost **basic**, **standaard**, en **premium** plannen omdat ze kunnen worden uitgebreid. CPU-percentage is een goede indicatie van het totale gebruik voor alle exemplaren.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Samenvattingen van de metrische gegevens en bewaarbeleid
 Metrische gegevens voor een toepassing en de app service-abonnement zijn geregistreerd en samenvoegen met de service met de volgende granulaties en bewaarbeleidsregels:
 
-* **Minuut** granulatie metrische gegevens worden bewaard voor **48 uur**
+* **Minuut** granulatie metrische gegevens worden bewaard voor **30 uur**
 * **Uur** granulatie metrische gegevens worden bewaard voor **30 dagen**
-* **Dag** granulatie metrische gegevens worden bewaard voor **90 dagen**
+* **Dag** granulatie metrische gegevens worden bewaard voor **30 dagen**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Controle-quota's en metrische gegevens in de Azure-portal.
 U kunt de status van de verschillende bekijken **quota** en **metrische gegevens** die invloed hebben op een toepassing in de [Azure-portal](https://portal.azure.com).
@@ -149,7 +149,7 @@ U kunt meer informatie over metrische gegevens hier: [service metrische gegevens
 ## <a name="alerts-and-autoscale"></a>Waarschuwingen en voor automatisch schalen
 Metrische gegevens voor een App of een App Service-plan kan worden aangesloten op waarschuwingen. Zie voor meer informatie over het [meldingen van waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service-apps die worden gehost in basic, standard of premium-App Service-plan ondersteuning **automatisch schalen**. Zodoende kunt u regels te configureren die de App Service plan metrische gegevens controleren en kunnen vergroten of verkleinen het aantal exemplaren verstrekken aanvullende bronnen die nodig is of opslaan geld wanneer de toepassing te veel inrichten is. U kunt meer informatie over automatisch schalen hier: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) en hier [Best practices voor het bewaken van de Azure-automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+App Service-apps die worden gehost in basic, standard of premium-App Service-plan ondersteuning **automatisch schalen**. Automatisch schalen kunt u regels configureren waarmee de App Service plan metrische gegevens controleren. Regels kunnen vergroten of verkleinen het aantal exemplaren verstrekken aanvullende bronnen die nodig is. Regels kunnen ook helpen u geld besparen wanneer de toepassing te veel is ingericht. U kunt meer informatie over automatisch schalen hier: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) en hier [Best practices voor het bewaken van de Azure-automatisch schalen](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.

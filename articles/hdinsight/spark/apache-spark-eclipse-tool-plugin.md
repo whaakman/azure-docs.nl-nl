@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c609f3af1b97b16fca3aabc5d7ce568ff8c660f2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor Eclipse Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -86,10 +86,7 @@ Wanneer u Eclipse opent, detecteert HDInsight-hulpprogramma automatisch of u de 
    * In de **Spark bibliotheek** gebied kunt u **Maven gebruiken voor het configureren van Spark SDK** optie.  Onze hulpprogramma integreert de juiste versie voor Spark SDK en Scala SDK. U kunt ook **Spark SDK handmatig toevoegen** optie, downloaden en Spark SDK door handmatig toevoegen.
 
    ![Het dialoogvenster New Project van HDInsight Scala](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Vanwege een bekend probleem, moet u controleren welke versie scala opnieuw te klikken op **volgende**. Zorg ervoor dat de versie scala dicht bij de selectie voor de stap 4.
-
-   ![de bevestiging hebt gestuurd-scala-bibliotheek](./media/apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
-6. Selecteer in het volgende dialoogvenster **voltooien**. 
+5. Selecteer in het volgende dialoogvenster **voltooien**. 
    
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Een Scala-toepassing voor een HDInsight Spark-cluster maken
@@ -148,7 +145,7 @@ U kunt verschillende bewerkingen kunt uitvoeren met behulp van HDInsight-hulppro
 
 3. Open de taak van de **taken** knooppunt. In het rechterdeelvenster de **Spark taakweergave** tabblad geeft alle toepassingen die op het cluster worden uitgevoerd. Selecteer de naam van de toepassing waarvoor u wilt voor meer informatie.
 
-   ![App-details](./media/apache-spark-eclipse-tool-plugin/view-job-logs.png)
+   ![Toepassingsgegevens](./media/apache-spark-eclipse-tool-plugin/view-job-logs.png)
 
    Vervolgens kunt u een van deze acties uitvoeren:
 

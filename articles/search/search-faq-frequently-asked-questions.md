@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - Veelgestelde vragen (FAQ)
  
@@ -30,7 +30,7 @@ Azure Search biedt ondersteuning voor meerdere gegevensbronnen [taalkundige anal
 Bij het vergelijken van de zoekopdracht technologieën vragen klanten vaak voor specifieke informatie over op hoe Azure Search worden vergeleken met Elasticsearch. Klanten die Azure Search via Elasticsearch voor hun zoekacties toepassing projecten meestal kiezen doen omdat we een belangrijke taak eenvoudiger aangebracht hebben of de ingebouwde integratie met andere Microsoft-technologieën moeten:
 
 + Azure Search is een volledig beheerde cloudservice met 99,9% serviceovereenkomsten (SLA) wanneer ingericht met voldoende redundantie (2 replica's voor leestoegang, 3 replica's voor lezen-schrijven).
-+ Microsoft [natuurlijke taal processors](https://docs.microsoft.com/rest/api/searchservice/language-support) toonaangevende inguistic analysis bieden.  
++ Microsoft [natuurlijke taal processors](https://docs.microsoft.com/rest/api/searchservice/language-support) toonaangevende taalkundige analysis bieden.  
 + [Azure Search indexeerfuncties](search-indexer-overview.md) tal van Azure-gegevensbronnen voor initiële en incrementele indexeren kunt verkennen.
 + Als u snelle reactie op schommelingen in de query of volumes te indexeren nodig hebt, kunt u [schuifregelaars](search-manage.md#scale-up-or-down) in de Azure portal of voer een [PowerShell-script](search-manage-powershell.md), shard management rechtstreeks te omzeilen.  
 + [Score berekenen en afstemmen van functies](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) bieden de mogelijkheid om invloed zoeken positie scores afgezien van wat de zoekmachine alleen kunt opgeven. 

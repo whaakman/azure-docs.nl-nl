@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Servicestatusmeldingen
 ## <a name="overview"></a>Overzicht
 
 Dit artikel laat zien hoe u servicestatusmeldingen met de Azure portal weergeeft.
 
-Servicestatusmeldingen kunnen u berichten van health-service gepubliceerd door het team van Azure die invloed kan zijn op van de resources in uw abonnement weergeven. Deze meldingen zijn een subklasse zijn van de activiteit logboekgebeurtenissen en kunnen worden gevonden op de activiteit logboek-blade. Servicestatusmeldingen zijn informatief of actie worden uitgevoerd, afhankelijk van de klasse.
+Servicestatusmeldingen kunnen u berichten van health-service gepubliceerd door het team van Azure die invloed kan zijn op van de resources in uw abonnement weergeven. Deze meldingen zijn een subklasse zijn van de activiteit logboekgebeurtenissen en kunnen worden gevonden in het gebeurtenissenlogboek. Servicestatusmeldingen zijn informatief of actie worden uitgevoerd, afhankelijk van de klasse.
 
 Er zijn vijf soorten servicestatusmeldingen:  
 
-- **De actie is vereist:** van tijd tot tijd ziet er iets vreemds optreden op uw account. We willen samen met u lost dit probleem. We sturen u een melding ofwel met gedetailleerde informatie over de acties die u moet ondernemen of met meer informatie over het contact opnemen met Azure engineering of ondersteuning.  
-- **Assisted Recovery:** een gebeurtenis heeft plaatsgevonden en engineers hebt bevestigd dat u nog steeds gevolgen ondervindt. Engineering moet samen met u rechtstreeks ervoor zorgt dat uw services op herstel.  
+- **De actie is vereist:** van tijd tot tijd Azure is het mogelijk iets vreemds optreden op uw account. Azure wellicht samen met u lost dit probleem. Azure stuurt u een melding ofwel met gedetailleerde informatie over de acties die u moet uitvoeren of met meer informatie over het contact opnemen met Azure engineering of ondersteuning.  
+- **Assisted Recovery:** een gebeurtenis heeft plaatsgevonden en engineers hebt bevestigd dat u nog steeds gevolgen ondervindt. Azure-engineering moet samenwerken met u rechtstreeks uw services naar volledige status te herstellen.  
 - **Incident:** een service die van invloed op de gebeurtenis is momenteel die betrekking hebben op een of meer van de resources in uw abonnement.  
 - **Onderhoud:** dit is een melding van een gepland onderhoud-activiteit die mogelijk van invloed op een of meer van de resources in uw abonnement.  
-- **Gegevens:** van tijd voor de tijd die we sturen u mogelijk meldingen die een communiceren aan u over potentiële optimalisaties die kan helpen uw Resourcegebruik verbeteren.  
+- **Gegevens:** van tijd tot tijd Azure u meldingen die u informeren over potentiële optimalisaties die kunnen helpen uw Resourcegebruik verbeteren kan verzenden.  
 - **Beveiliging:** urgente beveiliging gerelateerde informatie met betrekking tot uw oplossing(en) uitgevoerd op Azure.
 
-Elke melding van de health service voert u de details van het bereik en de gevolgen voor uw resources. Bevat de details:
+Elke melding van de health service bevat de details van het bereik en de gevolgen voor uw resources. Details opnemen:
 
 De naam van eigenschap | Beschrijving
 -------- | -----------
@@ -54,7 +54,7 @@ subscriptionId | Het Azure-abonnement in waarmee deze gebeurtenis is vastgelegd
 status | De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: In voortgang, geslaagd, mislukt, actief, opgelost gestart.
 operationName | De naam van de bewerking.
 category | 'ServiceHealth'
-resourceId | Bron-id van de betrokken resource.
+resourceId | Bron-ID van de betrokken resource.
 Properties.title | De gelokaliseerde titel voor deze communicatie. Engels is de standaardtaal.
 Properties.Communication | De gelokaliseerde details van de communicatie met de HTML-opmaak. Engels is de standaardinstelling.
 Properties.incidentType | Mogelijke waarden: AssistedRecovery, ActionRequired, informatie, Incident-, onderhoud, beveiliging
@@ -70,14 +70,12 @@ Properties.communicationId | De communicatie deze gebeurtenis is gekoppeld.
 1.  In de [portal](https://portal.azure.com), gaat u naar de **Monitor** service
 
     ![Bewaken](./media/monitoring-service-notifications/home-monitor.png)
-2.  Klik op de **Monitor** optie om de Monitor-blade te openen. In deze blade zijn al uw controle-instellingen en -gegevens bijeengebracht in één geconsolideerde weergave. Als eerste wordt de sectie **Activiteitenlogboek** geopend.
+2.  Klik op de **Monitor** optie om de ervaring van de Monitor te openen. Monitor voor Azure samenbrengt uw controle-instellingen en gegevens in één geconsolideerde weergave. Als eerste wordt de sectie **Activiteitenlogboek** geopend.
 
-3.  Klik nu op **servicemeldingen** sectie
+3.  Klik nu op **waarschuwingen** sectie
 
     ![Bewaken](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Klik op een van de regels om meer details te bekijken
-
-5. Klik op de **+ activiteit logboek waarschuwing toevoegen** bewerking voor het ontvangen van meldingen om te controleren of u wordt gewaarschuwd voor toekomstige servicemeldingen van dit type. Voor meer informatie over het configureren van waarschuwingen op servicemeldingen [Klik hier](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Klik op de **+ activiteit logboek waarschuwing toevoegen** en een waarschuwing, zodat u wordt gewaarschuwd voor toekomstige servicemeldingen configureren. Voor meer informatie over het configureren van waarschuwingen op servicemeldingen [Ga naar de pagina activiteit logboek waarschuwingen en meldingen van de Service](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Ontvangen [meldingen wanneer een melding van de health service](monitoring-activity-log-alerts-on-service-notifications.md) wordt gepost  

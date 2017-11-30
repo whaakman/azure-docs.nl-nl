@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -75,13 +75,13 @@ De e-handtekening bevat van de B2C-tenant-naam die u hebt opgegeven tijdens het 
 Er is momenteel geen manier om de ' uit: ' op het e-mailbericht. Stemmen over [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) u geïnteresseerd bent in de hoofdtekst van de bevestigingsmail aanpassen.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hoe kan ik migreren mijn bestaande gebruikersnamen, wachtwoorden en profielen uit mijn database naar Azure AD B2C?
-De Azure AD Graph API kunt u het hulpprogramma voor migratie van schrijven. Zie de [Graph API-voorbeeld](active-directory-b2c-devquickstarts-graph-dotnet.md) voor meer informatie.
+De Azure AD Graph API kunt u het hulpprogramma voor migratie van schrijven. Zie de [gebruikershandleiding voor de migratie](active-directory-b2c-user-migration.md) voor meer informatie.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Welke beleidsregels voor wachtwoorden voor lokale accounts in Azure AD B2C wordt gebruikt?
 De Azure AD B2C-beleidsregels voor wachtwoorden voor lokale accounts is gebaseerd op het beleid voor Azure AD. Azure AD B2C wordt de registratie, registreren of aanmelden en het wachtwoord opnieuw instellen van beleidsregels gebruikt de sterkte 'sterk' wachtwoord en wachtwoorden niet verloopt. Lees de [Azure AD-wachtwoordbeleid](https://msdn.microsoft.com/library/azure/jj943764.aspx) voor meer informatie.
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan ik Azure AD Connect gebruiken voor het migreren van consumentidentiteiten die zijn opgeslagen op mijn lokale Active Directory naar Azure AD B2C?
-Nee, Azure AD Connect is niet ontworpen voor gebruik met Azure AD B2C. Overweeg het gebruik van de [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) voor gebruikersmigratie.
+Nee, Azure AD Connect is niet ontworpen voor gebruik met Azure AD B2C. Overweeg het gebruik van de [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) voor gebruikersmigratie.  Zie de [gebruikershandleiding voor de migratie](active-directory-b2c-user-migration.md) voor meer informatie.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Kan mijn app openen om Azure AD B2C-pagina's binnen een iFrame?
 Nee, uit veiligheidsoverwegingen Azure AD B2C-pagina's niet openen binnen een iFrame.  Onze service communiceert met de browser om te voorkomen dat iFrames.  De beveiligingscommunity in het algemeen en de specificatie OAUTH2 u wordt aangeraden met iFrames voor identiteitservaringen vanwege het risico van steunpunten voor van klikken.

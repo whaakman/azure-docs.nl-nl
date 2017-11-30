@@ -16,8 +16,8 @@ ms.workload: service-fabric
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: ae132dbb650e08c3a25a9366563e70c6d56e089d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 738677def8b0eb70cfcab46e6fe57f9a344867a5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/29/2017
@@ -32,12 +32,13 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts d
 |-|-|
 | **Cluster maken** ||
 | [Maak een cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Een Azure Service Fabric-cluster maakt. |
-| **Cluster en knooppunten beheren** ||
+| **Cluster, knooppunten en infrastructuur beheren** ||
 | [Het toepassingscertificaat van een toevoegen](./scripts/service-fabric-powershell-add-application-certificate.md)| Voegt een X.509-certificaat van toepassing op alle knooppunten in een cluster. |
-|[Het RDP-poortbereik op clusterknooppunt virtuele machines wijzigen](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Hiermee wijzigt u het RDP-poortbereik op clusterknooppunt virtuele machines in een geïmplementeerde cluster.|
+| [Het RDP-poortbereik op cluster virtuele machines bijwerken](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Hiermee wijzigt u het RDP-poortbereik op clusterknooppunt virtuele machines in een geïmplementeerde cluster.|
 | [Bijwerken van de gebruiker met beheerdersrechten en het wachtwoord voor het knooppunt VM 's](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | De gebruikersnaam van de beheerder en het wachtwoord voor clusterknooppunt VMs-updates. |
+| [Een poort in de load balancer openen](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open de poort van een toepassing in de Azure load balancer waarmee binnenkomend verkeer op een specifieke poort. |
+| [Maken van een binnenkomende groep van de netwerkbeveiligingsregel](./scripts/service-fabric-powershell-add-nsg-rule.md) | Maak een binnenkomende groep netwerkbeveiligingsregel dat binnenkomend verkeer naar het cluster op een specifieke poort toegestaan. |
 | **Toepassingen beheren** ||
 | [Een toepassing implementeren](./scripts/service-fabric-powershell-deploy-application.md)| Een toepassing implementeert op een cluster.|
-| [Upgrade van een toepassing](./scripts/service-fabric-powershell-upgrade-application.md)| Een upgrade van een app uitvoeren |
+| [Upgrade van een toepassing](./scripts/service-fabric-powershell-upgrade-application.md)| Bijwerken van een toepassing.|
 | [Een toepassing verwijderen](./scripts/service-fabric-powershell-remove-application.md)| Een toepassing verwijderen uit een cluster.|
-| [Een poort in de load balancer openen](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open de poort van een toepassing in de Azure load balancer. |

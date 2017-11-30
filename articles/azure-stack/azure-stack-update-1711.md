@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 61917ea76f7f512776e4fe425dd8e475fa194bc1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-stack-1711-update"></a>Azure-Stack 1711 update
 
@@ -136,7 +136,7 @@ Deze sectie bevat na de installatie bekende problemen met build **20171122.1**.
 In Azure Active Directory Federation Services (ADFS) geïmplementeerd omgevingen, de **azurestack\azurestackadmin** account is niet langer de eigenaar van de standaard Provider-abonnement. In plaats van de aanmelding bij de **beheerportal / adminmanagement eindpunt** met de **azurestack\azurestackadmin**, kunt u de **azurestack\cloudadmin** account, dus u kunt beheren en gebruiken de standaard Provider-abonnement.
 
 > [!IMPORTANT]
-> Zelfs de **azurestack\cloudadmin** account is de eigenaar van het abonnement van de Provider standaard in omgevingen met ADFS geïmplementeerd, heeft geen machtigingen voor RDP in de host. Blijven gebruiken de **azurestack\azurestackadmin** account of het lokale administrator-account aanmelden, toegang tot en beheren van de host, indien nodig.
+> Hoewel de **azurestack\cloudadmin** account is de eigenaar van het abonnement van de Provider standaard in omgevingen met ADFS geïmplementeerd, heeft geen machtigingen voor RDP in de host. Blijven gebruiken de **azurestack\azurestackadmin** account of het lokale administrator-account aanmelden, toegang tot en beheren van de host, indien nodig.
 
 ## <a name="download-the-update"></a>De update downloaden
 

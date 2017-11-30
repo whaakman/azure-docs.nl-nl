@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Blob storage-bindingen
+title: Azure Blob storage-bindingen voor Azure Functions
 description: Begrijpen hoe Azure Blob storage triggers en bindingen in de Azure Functions.
 services: functions
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob storage-bindingen
+# <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met Azure Blob storage bindingen in de Azure Functions. Azure Functions ondersteunt activeren, invoer en uitvoer van de bindingen voor blobs.
 
@@ -30,7 +30,7 @@ Dit artikel wordt uitgelegd hoe u werkt met Azure Blob storage bindingen in de A
 > [!NOTE]
 > [Alleen-BLOB storage-accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) worden niet ondersteund. BLOB storage triggers en bindingen vereisen een algemeen opslagaccount. 
 
-## <a name="blob-storage-trigger"></a>BLOB storage trigger
+## <a name="trigger"></a>Trigger
 
 Gebruik een Blob storage-trigger in een functie wordt gestart wanneer een nieuwe of bijgewerkte blob wordt gedetecteerd. De blobinhoud worden geleverd als invoer voor de functie.
 
@@ -59,7 +59,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Voor meer informatie over de `BlobTrigger` kenmerk, Zie [Trigger - kenmerken voor vooraf gecompileerde C#](#trigger---attributes-for-precompiled-c).
+Voor meer informatie over de `BlobTrigger` kenmerk, Zie [Trigger - kenmerken](#trigger---attributes-for-precompiled-c).
 
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
@@ -138,7 +138,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Trigger - kenmerken voor vooraf gecompileerde C#
+## <a name="trigger---attributes"></a>Trigger - kenmerken
 
 Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de volgende kenmerken gebruiken voor het configureren van een blob-trigger:
 
@@ -151,6 +151,9 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
   public static void Run(
       [BlobTrigger("sample-images/{name}")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
 
   U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
@@ -160,7 +163,12 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
+
+  Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -173,6 +181,9 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
       [FunctionName("BlobTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ....
+  }
   ```
 
 Het opslagaccount moet worden gebruikt, wordt bepaald in de volgende volgorde:
@@ -193,7 +204,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**richting** | N.v.t. | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. Uitzonderingen worden vermeld de [gebruik](#trigger---usage) sectie. |
 |**naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode. | 
 |**pad** | **BlobPath** |De container om te controleren.  Kan een [blob naampatroon](#trigger-blob-name-patterns). | 
-|**verbinding** | **Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+|**verbinding** | **Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
@@ -295,7 +308,7 @@ Als alle 5 pogingen mislukken, wordt een bericht met Azure Functions toegevoegd 
 
 Als de blob-container die wordt bewaakt meer dan 10.000 blobs bevat, logboekbestanden de functies runtime scans moeten worden gecontroleerd voor nieuwe of gewijzigde blobs. Dit proces kan leiden tot vertragingen. Een functie mogelijk niet ophalen geactiveerd tot enkele minuten of langer nadat de blob is gemaakt. Bovendien [opslag logboeken worden gemaakt op een 'best effort'](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Er is geen garantie dat alle gebeurtenissen worden vastgelegd. Onder bepaalde omstandigheden wellicht Logboeken niet opgehaald. Als u sneller of betrouwbaarder blob verwerking vereist, kunt u een [wachtrijbericht](../storage/queues/storage-dotnet-how-to-use-queues.md) bij het maken van de blob. Gebruik vervolgens een [wachtrij trigger](functions-bindings-storage-queue.md) in plaats van een blob-trigger voor het verwerken van de blob. Een andere optie is het gebruik van de gebeurtenis raster; Zie de zelfstudie [automatisch vergroten/verkleinen geüpload met behulp van gebeurtenis raster installatiekopieën](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="blob-storage-input--output-bindings"></a>BLOB-opslag-invoer en uitvoer bindingen
+## <a name="input--output"></a>Invoer en uitvoer
 
 Gebruik Blob storage invoer en uitvoer bindingen lezen en schrijven blobs.
 
@@ -434,7 +447,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes-for-precompiled-c"></a>Invoer en uitvoer - kenmerken voor vooraf gecompileerde C#
+## <a name="input--output---attributes"></a>Invoer en uitvoer - kenmerken
 
 Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -445,6 +458,9 @@ De constructor van het kenmerk wordt het pad naar de blob en een `FileAccess` pa
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+    ...
+}
 ```
 
 U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
@@ -454,9 +470,14 @@ U kunt instellen de `Connection` eigenschap om de storage-account moet worden ge
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+{
+    ...
+}
 ```
 
-U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken voor vooraf gecompileerde C#](#trigger---attributes-for-precompiled-c).
+Zie voor een compleet voorbeeld [invoer en uitvoer - vooraf gecompileerde C#-voorbeeld](#input--output---c-example).
+
+U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken](#trigger---attributes-for-precompiled-c).
 
 ## <a name="input--output---configuration"></a>Invoer en uitvoer - configuratie
 
@@ -468,8 +489,10 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**richting** | N.v.t. | Moet worden ingesteld op `in` voor een invoer-binding of voor een binding van de uitvoer. Uitzonderingen worden vermeld de [gebruik](#input--output---usage) sectie. |
 |**naam** | N.v.t. | De naam van de variabele die staat voor de blob in de functiecode.  Ingesteld op `$return` om te verwijzen naar de retourwaarde van de functie.|
 |**pad** |**BlobPath** | Het pad naar de blob. | 
-|**verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+|**verbinding** |**Verbinding**| De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br><br>De verbindingsreeks moet voor een algemeen opslagaccount niet een [alleen blob storage-account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |N.v.t. | **Toegang** | Geeft aan of u wordt lezen of schrijven. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input--output---usage"></a>Invoer en uitvoer - gebruik
 

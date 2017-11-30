@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 899ca9f7a82ce526eba04b88420ab01e208fe784
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/29/2017
@@ -178,7 +178,7 @@ De volgende voorwaarden en besturingselementen zijn nu beschikbaar voor gebruik 
 
 **Voorwaarde voor client-apps**
 
-- Mobiele apps en bureaublad-clients
+- Mobiele apps en bureaubladclients
 
 **Toegangsbeheer**
 
@@ -266,13 +266,13 @@ Zie voor meer informatie [uw bestaande NPS-infrastructuur integreren met Azure m
  
 ---
 
+### <a name="restore-or-permanently-remove-deleted-users"></a>Herstellen of verwijderde gebruikers permanent verwijderen
+
 
 **Type:** nieuwe functie    
 **Servicecategorie:** Gebruikersbeheer  
 **Mogelijkheid tot het product:** Directory 
 
-
-**Herstellen of verwijderde gebruikers permanent verwijderen**
 
 
 In het Azure AD-beheercentrum kunt u nu:

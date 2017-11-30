@@ -1,9 +1,9 @@
 ---
-title: Azure Functions tabel opslag bindingen
+title: Azure Table storage-bindingen voor Azure Functions
 description: Begrijpen hoe Azure Table storage bindingen in de Azure Functions.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
-ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: tdykstra
+ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-table-storage-bindings"></a>Azure Functions tabel opslag bindingen
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
 Dit artikel wordt uitgelegd hoe u werkt met Azure Table storage bindingen in de Azure Functions. Azure Functions ondersteunt invoer en uitvoer van de bindingen voor Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="table-storage-input-binding"></a>Invoer tabelbinding opslag
+## <a name="input"></a>Invoer
 
 De invoer binding voor Azure Table storage gebruiken om te lezen van een tabel in een Azure Storage-account.
 
@@ -284,7 +284,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes-for-precompiled-c"></a>Invoer - kenmerken voor vooraf gecompileerde C#
+## <a name="input---attributes"></a>Invoer - kenmerken
  
 Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de volgende kenmerken gebruiken voor het configureren van een tabel invoer binding:
 
@@ -298,6 +298,9 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
@@ -308,7 +311,12 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  Zie voor een compleet voorbeeld [invoer - vooraf gecompileerde C#-voorbeeld](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -321,6 +329,9 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Het opslagaccount moet worden gebruikt, wordt bepaald in de volgende volgorde:
@@ -345,7 +356,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**rowKey** |**RowKey** | Optioneel. De rijsleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
 |**duren** |**Duren** | Optioneel. Het maximum aantal entiteiten kunnen worden gelezen in JavaScript. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
 |**filter** |**Filter** | Optioneel. Een OData-filterexpressie voor de tabel invoer in JavaScript. Zie de [gebruik](#input---usage) sectie voor hulp bij het gebruik van deze eigenschap.| 
-|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br/>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Invoer - gebruik
 
@@ -368,7 +381,7 @@ De tabel opslag invoer binding ondersteunt de volgende scenario's:
 
   Stel de `filter` en `take` eigenschappen. Stelt niet `partitionKey` of `rowKey`. Toegang tot de invoer tabel entiteit (of entiteiten) met behulp van `context.bindings.<name>`. De gedeserialiseerde objecten hebben `RowKey` en `PartitionKey` eigenschappen.
 
-## <a name="table-storage-output-binding"></a>Tabelopslag uitvoer binding
+## <a name="output"></a>Uitvoer
 
 Een Azure Table storage uitvoer binding entiteiten schrijven naar een tabel in een Azure Storage-account gebruiken.
 
@@ -554,9 +567,9 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Output - kenmerken voor vooraf gecompileerde C#
+## <a name="output---attributes"></a>Output - kenmerken
 
- Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 De constructor van het kenmerk wordt de tabelnaam. Kan worden gebruikt op een `out` parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -566,6 +579,9 @@ De constructor van het kenmerk wordt de tabelnaam. Kan worden gebruikt op een `o
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 U kunt instellen de `Connection` eigenschap om de storage-account moet worden gebruikt, zoals wordt weergegeven in het volgende voorbeeld:
@@ -576,9 +592,14 @@ U kunt instellen de `Connection` eigenschap om de storage-account moet worden ge
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [invoer - kenmerken voor vooraf gecompileerd C#](#input---attributes-for-precompiled-c).
+Zie voor een compleet voorbeeld [uitvoer - vooraf gecompileerde C#-voorbeeld](#output---c-example).
+
+U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [invoer - kenmerken](#input---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Output - configuratie
 
@@ -592,7 +613,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**tableName** |**TableName** | De naam van de tabel.| 
 |**partitionKey** |**PartitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
 |**rowKey** |**RowKey** | De rijsleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor hulp bij het gebruik van deze eigenschap.| 
-|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.<br/>Wanneer u lokaal ontwikkelt, app-instellingen gaan in de waarden van de [local.settings.json bestand](functions-run-local.md#local-settings-file).|
+|**verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'MyStorage', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyStorage'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard-verbindingsreeks voor opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Output - gebruik
 

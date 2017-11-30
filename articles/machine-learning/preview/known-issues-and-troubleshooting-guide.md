@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -39,6 +39,17 @@ Als u probleem tijdens de installatie, worden de logboekbestanden van het instal
 /tmp/amlinstaller/logs/*
 ```
 U kunt een zip-up van de inhoud van deze mappen en naar ons verzenden voor diagnostische gegevens.
+
+### <a name="app-update"></a>App-Update 
+#### <a name="no-update-notification-on-windows-desktop"></a>Er is geen melding van updates op Windows-bureaublad 
+Dit probleem wordt in een toekomstige update worden verholpen. De tijdelijke oplossing is in de tussentijd om te voorkomen dat de app vanuit de snelkoppeling vastgemaakt aan de taakbalk opnieuw te starten. In plaats daarvan de app te starten via het menu Start of Start zoekbalk of de snelkoppeling op het bureaublad (indien aanwezig). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Er is geen melding van updates op een virtuele Ubuntu gegevens Sciece virtuele Machine (DSVM)
+Voer de volgende stappen uit om te downloaden van de meest recente toepassing:   
+   - Verwijder de map \Users\AppData\Local\amlworkbench
+   - script verwijderen`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - verwijderen van snelkoppeling op het bureaublad waarmee het bovenstaande script wordt gestart
+   - installeren met foutloos [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Workbench bureaublad-app
 Als u problemen ondervindt bij het aanmelden of als het bureaublad Workbench vastloopt, vindt u hier logboekbestanden:

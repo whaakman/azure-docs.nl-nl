@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: f872972135f43efd1fbfdedcf9697c3e8100ebde
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 2b873501085ba2d293be564009b5d5daccbf9c1e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure Service metagegevens: Geplande gebeurtenissen (Preview) voor Windows-VM 's
 
@@ -60,26 +60,41 @@ Geplande gebeurtenissen worden afgeleverd bij:
 
 Als gevolg hiervan moet u controleren de `Resources` veld in de gebeurtenis geven aan welke VM's gaan worden beïnvloed. 
 
-### <a name="discovering-the-endpoint"></a>Het eindpunt detecteren
+## <a name="discovering-the-endpoint"></a>Het eindpunt detecteren
+Voor VNET ingeschakeld voor virtuele machines, is het volledig eindpunt voor de nieuwste versie van gebeurtenissen voor gepland: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 In het geval waarbij een virtuele Machine is gemaakt vanuit een virtueel netwerk (VNet), de metagegevensservice is beschikbaar via een statische niet-routeerbare IP-adres `169.254.169.254`.
-Als de virtuele Machine niet vanuit een virtueel netwerk, de standaard gevallen voor cloudservices en klassieke virtuele machines gemaakt is, worden extra logica is vereist voor het detecteren van het eindpunt te gebruiken. Raadpleeg dit voorbeeld voor meer informatie over hoe [de host-eindpunt detecteren](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Als de virtuele Machine niet vanuit een virtueel netwerk, de standaard gevallen voor cloudservices en klassieke virtuele machines gemaakt is, worden extra logica is vereist voor het detecteren van het IP-adres te gebruiken. Raadpleeg dit voorbeeld voor meer informatie over hoe [de host-eindpunt detecteren](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Versiebeheer 
-De Service-exemplaar voor metagegevens is samengestelde. Versies zijn verplicht en de huidige versie is `2017-03-01`.
+De gebeurtenissen geplande Service is samengesteld. Versies zijn verplicht en de huidige versie is `2017-08-01`.
+
+| Versie | Releaseopmerkingen | 
+| - | - | 
+| 2017-08-01 | <li> De functienaam geplaatst onderstrepingsteken verwijderd uit resourcenamen voor Iaas VM 's<br><li>Metagegevenskoptekst vereiste afgedwongen voor alle aanvragen | 
+| 2017-03-01 | <li>Openbare Preview-versie
 
 > [!NOTE] 
 > Eerdere versies van de preview van geplande gebeurtenissen {laatste} wordt ondersteund als de api-versie. Deze indeling wordt niet meer ondersteund en in de toekomst wordt afgeschaft.
 
 ### <a name="using-headers"></a>Met behulp van headers
-Wanneer u een query de Metadata-Service, moet u de header geven `Metadata: true` om te controleren of de aanvraag is niet per ongeluk wordt omgeleid.
+Wanneer u een query de Metadata-Service, moet u de header geven `Metadata:true` om te controleren of de aanvraag is niet per ongeluk wordt omgeleid. De `Metadata:true` -header is vereist voor alle geplande gebeurtenissen aanvragen. De header opnemen in de aanvraag is mislukt leidt tot een onjuiste aanvraag reactie van de Metadata-Service.
 
 ### <a name="enabling-scheduled-events"></a>Geplande gebeurtenissen inschakelen
 De eerste keer dat u een aanvraag voor geplande gebeurtenissen schakelt Azure impliciet de functie in op de virtuele Machine. U moet een vertraagde antwoord als gevolg hiervan verwacht in de eerste aanroep van twee minuten.
+
+> [!NOTE]
+> Geplande gebeurtenissen wordt automatisch uitgeschakeld voor uw service als uw service het eindpunt niet aanroepen voor 1 dag. Zodra de geplande gebeurtenissen voor uw service is uitgeschakeld, zullen niet er gebeurtenissen die zijn gemaakt voor het onderhoud van de gebruiker worden gestart.
 
 ### <a name="user-initiated-maintenance"></a>Onderhoud van de gebruiker gestarte
 Gebruiker gestart onderhoud op virtuele machines via de Azure-portal API, CLI of PowerShell resulteert in een geplande gebeurtenis. Dit kunt u de voorbereiding van onderhoud logica in uw toepassing testen en kan de toepassing om voor te bereiden voor het onderhoud van de gebruiker worden gestart.
 
 Een virtuele machine opnieuw plant u een gebeurtenis met type `Reboot`. Een virtuele machine opnieuw plant u een gebeurtenis met type `Redeploy`.
+
+> [!NOTE] 
+> Op dit moment kan maximaal 100 gebruiker gestarte onderhoudsbewerkingen worden tegelijkertijd gepland.
 
 > [!NOTE] 
 > Gebruiker gestarte onderhoud gepland gebeurtenissen ertoe kan momenteel niet worden geconfigureerd. Configuratiemogelijkheden is gepland voor een toekomstige release.
@@ -89,8 +104,9 @@ Een virtuele machine opnieuw plant u een gebeurtenis met type `Reboot`. Een virt
 ### <a name="query-for-events"></a>Query voor gebeurtenissen
 U kunt een query voor geplande gebeurtenissen gewoon door de volgende oproep verzenden:
 
+#### <a name="powershell"></a>PowerShell
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @{"Metadata"="true"}
 ```
 
 Een antwoord bevat een matrix van geplande gebeurtenissen. Een lege matrix betekent zijn momenteel geen gebeurtenissen die zijn gepland.
@@ -134,8 +150,20 @@ Elke gebeurtenis is gepland op basis van de minimale hoeveelheid tijd in de toek
 
 Zodra u hebt geleerd van een aanstaande gebeurtenis en de logica voor het correct afsluiten voltooid, kunt u de openstaande gebeurtenis goedkeuren door het maken van een `POST` aanroep van de metagegevensservice met de `EventId`. Hiermee geeft u aan Azure dat deze de minimale melding kunt inkorten tijd (indien mogelijk). 
 
+Hieronder volgt de json verwacht in de `POST` aanvraagtekst. De aanvraag moet bevatten een lijst met `StartRequests`. Elke `StartRequest` bevat de `EventId` voor de gebeurtenis die u wilt versnellen:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
+}
+```
+
+#### <a name="powershell"></a>PowerShell
+```
+curl -H @{"Metadata"="true"} -Method POST -Body '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
@@ -148,7 +176,7 @@ Het volgende voorbeeld query op de metagegevensservice voor geplande gebeurtenis
 
 ```PowerShell
 # How to get scheduled events 
-function GetScheduledEvents($uri)
+function Get-ScheduledEvents($uri)
 {
     $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
     $json = ConvertTo-Json $scheduledEvents
@@ -157,7 +185,7 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
+function Approve-ScheduledEvent($eventId, $docIncarnation, $uri)
 {    
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
@@ -172,7 +200,7 @@ function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
     Invoke-RestMethod -Uri $uri -Headers @{"Metadata"="true"} -Method POST -Body $approvalString
 }
 
-function HandleScheduledEvents($scheduledEvents)
+function Handle-ScheduledEvents($scheduledEvents)
 {
     # Add logic for handling events here
 }
@@ -184,10 +212,10 @@ $localHostIP = "169.254.169.254"
 $scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 # Get events
-$scheduledEvents = GetScheduledEvents $scheduledEventURI
+$scheduledEvents = Get-ScheduledEvents $scheduledEventURI
 
 # Handle events however is best for your service
-HandleScheduledEvents $scheduledEvents
+Handle-ScheduledEvents $scheduledEvents
 
 # Approve events when ready (optional)
 foreach($event in $scheduledEvents.Events)
@@ -196,190 +224,13 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-        ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
+        Approve-ScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
 
-
-## <a name="c-sample"></a>C\# voorbeeld 
-
-Het volgende voorbeeld is van een eenvoudige client die met de metagegevensservice communiceert.
-
-```csharp
-public class ScheduledEventsClient
-{
-    private readonly string scheduledEventsEndpoint;
-    private readonly string defaultIpAddress = "169.254.169.254"; 
-
-    // Set up the scheduled events URI for a VNET-enabled VM
-    public ScheduledEventsClient()
-    {
-        scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
-    }
-
-    // Get events
-    public string GetScheduledEvents()
-    {
-        Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Metadata", "true");
-            return webClient.DownloadString(cloudControlUri);
-        }   
-    }
-
-    // Approve events
-    public void ApproveScheduledEvents(string jsonPost)
-    {
-        using (var webClient = new WebClient())
-        {
-            webClient.Headers.Add("Content-Type", "application/json");
-            webClient.UploadString(scheduledEventsEndpoint, jsonPost);
-        }
-    }
-}
-```
-
-Geplande gebeurtenissen kunnen met behulp van de volgende gegevensstructuren worden voorgesteld:
-
-```csharp
-public class ScheduledEventsDocument
-{
-    public string DocumentIncarnation;
-    public List<CloudControlEvent> Events { get; set; }
-}
-
-public class CloudControlEvent
-{
-    public string EventId { get; set; }
-    public string EventStatus { get; set; }
-    public string EventType { get; set; }
-    public string ResourceType { get; set; }
-    public List<string> Resources { get; set; }
-    public DateTime? NotBefore { get; set; }
-}
-
-public class ScheduledEventsApproval
-{
-    public string DocumentIncarnation;
-    public List<StartRequest> StartRequests = new List<StartRequest>();
-}
-
-public class StartRequest
-{
-    [JsonProperty("EventId")]
-    private string eventId;
-
-    public StartRequest(string eventId)
-    {
-        this.eventId = eventId;
-    }
-}
-```
-
-Het volgende voorbeeld query op de metagegevensservice voor geplande gebeurtenissen en keurt deze goed elke openstaande gebeurtenis.
-
-```csharp
-public class Program
-{
-    static ScheduledEventsClient client;
-
-    static void Main(string[] args)
-    {
-        client = new ScheduledEventsClient();
-
-        while (true)
-        {
-            string json = client.GetDocument();
-            ScheduledEventsDocument scheduledEventsDocument = JsonConvert.DeserializeObject<ScheduledEventsDocument>(json);
-
-            HandleEvents(scheduledEventsDocument.Events);
-
-            // Wait for user response
-            Console.WriteLine("Press Enter to approve executing events\n");
-            Console.ReadLine();
-
-            // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
-            {
-                DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
-            };
-        
-            foreach (CloudControlEvent event in scheduledEventsDocument.Events)
-            {
-                scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(event.EventId));
-            }
-
-            if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
-            {
-                // Serialize using Newtonsoft.Json
-                string approveEventsJsonDocument =
-                    JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
-
-                Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
-                client.ApproveScheduledEvents(approveEventsJsonDocument);
-            }
-
-            Console.WriteLine("Complete. Press enter to repeat\n\n");
-            Console.ReadLine();
-            Console.Clear();
-        }
-    }
-
-    private static void HandleEvents(List<CloudControlEvent> events)
-    {
-        // Add logic for handling events here
-    }
-}
-```
-
-## <a name="python-sample"></a>Python-voorbeeld 
-
-Het volgende voorbeeld query op de metagegevensservice voor geplande gebeurtenissen en keurt deze goed elke openstaande gebeurtenis.
-
-```python
-#!/usr/bin/python
-
-import json
-import urllib2
-import socket
-import sys
-
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
-headers = "{Metadata:true}"
-this_host = socket.gethostname()
-
-def get_scheduled_events():
-   req = urllib2.Request(metadata_url)
-   req.add_header('Metadata', 'true')
-   resp = urllib2.urlopen(req)
-   data = json.loads(resp.read())
-   return data
-
-def handle_scheduled_events(data):
-    for evt in data['Events']:
-        eventid = evt['EventId']
-        status = evt['EventStatus']
-        resources = evt['Resources']
-        eventtype = evt['EventType']
-        resourcetype = evt['ResourceType']
-        notbefore = evt['NotBefore'].replace(" ","_")
-        if this_host in resources:
-            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
-            # Add logic for handling events here
-
-def main():
-   data = get_scheduled_events()
-   handle_scheduled_events(data)
-   
-if __name__ == '__main__':
-  main()
-  sys.exit(0)
-```
-
 ## <a name="next-steps"></a>Volgende stappen 
 
+- Bekijk de codevoorbeelden gepland gebeurtenissen in de [Azure exemplaar metagegevens gepland gebeurtenissen Github-opslagplaats](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Meer informatie over de beschikbare API's in de [service-exemplaar metagegevens](instance-metadata-service.md).
 - Meer informatie over [gepland onderhoud voor Windows virtuele machines in Azure](planned-maintenance.md).
-

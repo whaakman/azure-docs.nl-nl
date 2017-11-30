@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -277,7 +277,7 @@ Azure Resource Manager vereist voor alle resourcegroepen een locatie die de stan
 
 De huidige bewakingsstatus van elk eindpunt dat, naast de algehele profiel wordt weergegeven in de Azure portal. Deze informatie is ook beschikbaar via de Monitor verkeer [REST-API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), en [platformoverschrijdende Azure CLI](../cli-install-nodejs.md).
 
-Azure biedt geen historische gegevens over afgelopen eindpunt status of de mogelijkheid om waarschuwingen over wijzigingen in de gezondheid van het eindpunt te genereren.
+U kunt ook Azure Monitor de status van uw eindpunten bijhouden en een visuele representatie van deze Zie gebruiken. Zie voor meer informatie over het gebruik van Azure-Monitor de [documentatie Azure Monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Kan ik de HTTPS-eindpunten bewaken?
 
@@ -288,6 +288,10 @@ Het Traffic manager biedt geen een validatie van het servercertificaat, met inbe
 * Serverzijde certificaten worden niet gevalideerd.
 * SNI-serverzijde certificaten worden niet ondersteund
 * Clientcertificaten worden niet ondersteund.
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Ik een Azure-cloud-service gestopt / web-toepassingseindpunt in mijn Traffic Manager-profiel, maar ik ontvang geen verkeer zelfs nadat ik het opnieuw opgestart. Hoe kan ik dit oplossen?
+
+Wanneer een Azure cloud service / web-eindpunt is gestopt Traffic Manager stopt de status controleren en het opnieuw opstarten van de statuscontroles alleen na het detecteren van het eindpunt opnieuw is opgestart. Om te voorkomen dat deze vertraging, uitschakelen en vervolgens dat eindpunt in het Traffic Manager-profiel inschakelen nadat u het eindpunt opnieuw starten.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Kan ik Traffic Manager zelfs als de toepassing heeft geen ondersteuning voor HTTP of HTTPS gebruiken?
 

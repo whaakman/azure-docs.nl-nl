@@ -3,7 +3,7 @@ title: Omgekeerde DNS voor Azure-services | Microsoft Docs
 description: Informatie over het configureren van de reverse DNS-zoekacties voor services die worden gehost in Azure
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Omgekeerde DNS voor services die worden gehost in Azure configureren
 
@@ -28,9 +28,8 @@ Dit scenario moet niet de mogelijkheid om te verwarren [de zones voor reverse DN
 
 Voordat u dit artikel leest, moet u bekend bent met dit [overzicht van de reverse DNS- en biedt ondersteuning in Azure](dns-reverse-dns-overview.md).
 
-Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../azure-resource-manager/resource-manager-deployment-model.md).
-* In het Resource Manager-implementatiemodel compute-bronnen (zoals virtuele machines, virtuele-machineschaalsets of Service Fabric-clusters) beschikbaar worden gemaakt via een PublicIpAddress-resource. Omgekeerde DNS-zoekacties zijn geconfigureerd met de eigenschap 'ReverseFqdn' van de PublicIpAddress.
-* In het klassieke implementatiemodel rekenresources zichtbaar met behulp van Cloudservices. Omgekeerde DNS-zoekacties zijn geconfigureerd met de eigenschap 'ReverseDnsFqdn' van de Cloudservice.
+In Azure DNS compute-bronnen (zoals virtuele machines, virtuele-machineschaalsets of Service Fabric-clusters) beschikbaar worden gemaakt via een PublicIpAddress-resource. Omgekeerde DNS-zoekacties zijn geconfigureerd met de eigenschap 'ReverseFqdn' van de PublicIpAddress.
+
 
 Omgekeerde DNS is momenteel niet ondersteund voor de Azure App Service.
 
