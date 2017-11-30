@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configureren van instellingen voor Azure multi-factor Authentication - Public preview
 
@@ -49,7 +49,7 @@ Gebruikers blokkeren/blokkering kunnen worden gebruikt om te voorkomen dat gebru
 4. Selecteer de **replicatiegroep**, de geblokkeerde gebruikersnaam als invoer  **username@domain.com** , en voer een opmerking in het **reden** veld.
 5. Klik op **toevoegen** voltooid blokkeren van de gebruiker.
 
-### <a name="unblock-a-user"></a>Een gebruiker deblokkeren
+### <a name="unblock-a-user"></a>Een gebruiker de blokkering opheffen
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **gebruikers blokkeren/blokkering**.
 3. Klik op **blokkering** in de **actie** kolom naast de gebruiker die u wilt deblokkeren.
@@ -87,7 +87,7 @@ Fraudewaarschuwing worden geconfigureerd en zo instellen dat uw gebruikers fraud
 8. Geef het datumbereik dat u wilt weergeven in het rapport. U kunt ook gebruikersnamen, telefoonnummers en de status van de gebruiker opgeven.
 9. Klik op **uitvoeren** online zetten van een rapport van Fraudewaarschuwingen. Klik op **exporteren naar CSV** als u wilt exporteren van het rapport.
 
-## <a name="one-time-bypass"></a>Eenmalige bypass
+## <a name="one-time-bypass"></a>Eenmalig overslaan
 Eenmalig overslaan kan een gebruiker één keer verifiëren zonder verificatie in twee stappen uitvoeren. De bypass is tijdelijk en verloopt na een opgegeven aantal seconden. In situaties waar de mobiele app of de telefoon geen een melding of telefoongesprek ontvangt, kunt u een eenmalig overslaan inschakelen zodat de gebruiker toegang heeft tot de gewenste resource.
 
 ### <a name="create-a-one-time-bypass"></a>Maken van een eenmalig overslaan
@@ -95,7 +95,7 @@ Eenmalig overslaan kan een gebruiker één keer verifiëren zonder verificatie i
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **eenmalig overslaan**.
 
-   ![Eenmalige bypass](./media/multi-factor-authentication-whats-next/onetimebypass.png)
+   ![Eenmalig overslaan](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. Selecteer **Toevoegen**.
 4. Selecteer indien nodig, de replicatiegroep voor deze overslaan.
 5. Geef de gebruikersnaam (in de vorm van username@domain.com), wordt het aantal seconden dat het overslaan voor moet duren en de reden voor het overslaan. 
@@ -142,7 +142,7 @@ Opslaan in cache is niet bedoeld om te worden gebruikt voor aanmeldingen bij Azu
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **MFA-Server** > **regels opslaan in cache**.
 
-   ![Regels voor opslaan in cache](./media/multi-factor-authentication-whats-next/cachingrules.png)
+   ![Regels opslaan in cache](./media/multi-factor-authentication-whats-next/cachingrules.png)
 
 4. Selecteer **Toevoegen**.
 5. Selecteer het cachetype in de vervolgkeuzelijst en geef het aantal max. aantal cache-seconden. 
@@ -156,7 +156,7 @@ Goedgekeurde dat IP-adressen is een functie van Azure MFA die beheerders van een
 | Type van Azure AD-Tenant | Beschikbare goedgekeurde IP-opties |
 |:--- |:--- |
 | Managed |<li>Specifiek IP-adresbereiken: beheerders kunnen een bereik met IP-adressen die verificatie in twee stappen voor gebruikers die vanaf het bedrijfsintranet aanmelden zich omzeilen opgeven.</li> |
-| Federatieve |<li>Alle federatieve gebruikers: alle federatieve gebruikers die vanaf binnen de organisatie aanmelden zich wordt verificatie in twee stappen met behulp van een claim uitgegeven door AD FS overslaan.</li><br><li>Specifiek IP-adresbereiken: beheerders kunnen een bereik met IP-adressen die verificatie in twee stappen voor gebruikers die vanaf het bedrijfsintranet aanmelden zich omzeilen opgeven. |
+| Federatief |<li>Alle federatieve gebruikers: alle federatieve gebruikers die vanaf binnen de organisatie aanmelden zich wordt verificatie in twee stappen met behulp van een claim uitgegeven door AD FS overslaan.</li><br><li>Specifiek IP-adresbereiken: beheerders kunnen een bereik met IP-adressen die verificatie in twee stappen voor gebruikers die vanaf het bedrijfsintranet aanmelden zich omzeilen opgeven. |
 
 Dit werkt alleen in binnen het intranet van een bedrijf overslaan. Als u alle federatieve gebruikers hebt geselecteerd, en een gebruiker zich aanmeldt via buiten het bedrijfsintranet, moet die de gebruiker heeft bijvoorbeeld om te verifiëren met behulp van verificatie in twee stappen, zelfs als de gebruiker een AD FS-claim aanbiedt. 
 
@@ -170,21 +170,40 @@ Wanneer de goedgekeurde IP-adressen is ingeschakeld, wordt verificatie in twee s
 
 Verificatie in twee stappen is vereist voor de browser stromen of goedgekeurde IP-adressen is ingeschakeld of niet, en app-wachtwoorden vereist zijn voor oudere interactieve apps. 
 
-### <a name="to-enable-trusted-ips"></a>Goedgekeurde IP-adressen inschakelen
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Selecteer de map die u wilt beheren. 
-4. Selecteer **configureren**
-5. Selecteer onder multi-factor Authentication **service-instellingen beheren**.
-6. Op de pagina Service-instellingen onder goedgekeurde IP-adressen, hebt u twee opties:
+### <a name="enable-named-locations-using-conditional-access"></a>Benoemde locaties met behulp van voorwaardelijke toegang inschakelen
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Azure Active Directory** > **voorwaardelijke toegang** > **locaties met de naam**
+3. Selecteer **nieuwe locatie**
+4. Geef een naam voor de locatie
+5. Selecteer **markeren als vertrouwde locatie**
+6. Geef het IP-adresbereik in CIDR-notatie (voorbeeld 192.168.1.1/24)
+7. Selecteer **maken**
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>Goedgekeurde IP-adressen met behulp van voorwaardelijke toegang inschakelen
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Azure Active Directory** > **voorwaardelijke toegang** > **locaties met de naam**
+3. Selecteer **MFA configureren goedgekeurde IP-adressen**
+4. Op de pagina Service-instellingen onder goedgekeurde IP-adressen, hebt u twee opties:
    
    * **Voor aanvragen van federatieve gebruikers die afkomstig zijn van mijn intranet** : Schakel het selectievakje in. Alle federatieve gebruikers die vanaf het bedrijfsnetwerk aanmelden zich wordt verificatie in twee stappen met behulp van een claim uitgegeven door AD FS overslaan. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS: ' c: [Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c); "
 
+   * **Voor aanvragen van een specifiek bereik van openbare IP-adressen** – Geef de IP-adressen in het tekstvak opgegeven CIDR-notatie. Bijvoorbeeld: xxx.xxx.xxx.0/24 voor IP-adressen in het bereik xxx.xxx.xxx.1 – xxx.xxx.xxx.254 of xxx.xxx.xxx.xxx/32 voor een enkel IP-adres. U kunt maximaal 50 IP-adresbereiken. Gebruikers die zich via deze IP-adressen aanmelden overslaan verificatie in twee stappen.
+5. Selecteer **Opslaan**.
 
+### <a name="enable-trusted-ips-using-service-settings"></a>Goedgekeurde IP-adressen met behulp van de service-instellingen inschakelen
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**
+3. Selecteer **Multi-Factor Authentication**
+4. Selecteer onder multi-factor Authentication **service-instellingen**.
+5. Op de pagina Service-instellingen onder goedgekeurde IP-adressen, hebt u twee opties:
+   
+   * **Voor aanvragen van federatieve gebruikers die afkomstig zijn van mijn intranet** : Schakel het selectievakje in. Alle federatieve gebruikers die vanaf het bedrijfsnetwerk aanmelden zich wordt verificatie in twee stappen met behulp van een claim uitgegeven door AD FS overslaan. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS: ' c: [Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] = > issue(claim = c); "
 
    * **Voor aanvragen van een specifiek bereik van openbare IP-adressen** – Geef de IP-adressen in het tekstvak opgegeven CIDR-notatie. Bijvoorbeeld: xxx.xxx.xxx.0/24 voor IP-adressen in het bereik xxx.xxx.xxx.1 – xxx.xxx.xxx.254 of xxx.xxx.xxx.xxx/32 voor een enkel IP-adres. U kunt maximaal 50 IP-adresbereiken. Gebruikers die zich via deze IP-adressen aanmelden overslaan verificatie in twee stappen.
-7. Klik op **Opslaan**.
-8. Nadat de updates zijn toegepast, klikt u op **sluiten**.
+6. Selecteer **Opslaan**.
 
 ![Goedgekeurde IP-adressen](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -239,11 +258,10 @@ Azure AD biedt ondersteuning voor federatie (eenmalige aanmelding) met het lokal
 ### <a name="allow-app-password-creation"></a>Maken van app-wachtwoord toestaan
 Gebruikers kunnen geen app-wachtwoorden maken standaard. Deze functie moet zijn ingeschakeld. Als u wilt toestaan dat gebruikers de mogelijkheid te maken van app-wachtwoorden, gebruikt u de volgende procedure:
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Selecteer de map die u wilt beheren. 
-4. Selecteer **configureren**
-5. Selecteer onder multi-factor Authentication **service-instellingen beheren**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**
+3. Selecteer **Multi-Factor Authentication**
+4. Selecteer onder multi-factor Authentication **service-instellingen**.
 6. Schakel het keuzerondje naast **gebruikers toestaan te maken van app-wachtwoorden voor aanmelding bij niet-browsertoepassingen**.
 
 ![App-wachtwoorden maken](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ Daarom MFA onthouden op vertrouwde apparaten beperkt het aantal authenticaties o
 >Deze functie is niet compatibel met de functie 'Aangemeld blijven' van AD FS wanneer gebruikers verificatie in twee stappen voor AD FS via de Azure MFA-Server of een MFA-oplossing van derden uitvoeren. Als uw gebruikers "Aangemeld blijven" Selecteer op de AD FS en ook hun apparaat als vertrouwd voor MFA markeren, is ze niet kunnen verifiëren nadat het 'MFA onthouden' aantal dagen is verlopen. Azure AD de verificatie van een nieuwe in twee stappen aanvraagt, maar de AD FS retourneert een token met het oorspronkelijke MFA claim en de datum in plaats van het uitvoeren van verificatie in twee stappen weer. Hiermee stelt u uit een lus verificatie tussen Azure AD en AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Onthoud dat multi-factor authentication inschakelen
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Selecteer de map die u wilt beheren. 
-4. Selecteer **configureren**
-5. Selecteer onder multi-factor Authentication **service-instellingen beheren**.
-6. Op de pagina Service-instellingen beheren onder instellingen voor het apparaat van gebruikers, Controleer de **gebruikers toestaan om te onthouden meervoudige verificatie op vertrouwde apparaten** vak.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**
+3. Selecteer **Multi-Factor Authentication**
+4. Selecteer onder multi-factor Authentication **service-instellingen**.
+5. Op de pagina Service-instellingen onder **beheren onthouden multi-factorauthenticatie**, Controleer de **gebruikers toestaan om te onthouden meervoudige verificatie op vertrouwde apparaten** vak.
+
    ![Onthouden van apparaten](./media/multi-factor-authentication-whats-next/remember.png)
-7. Stel het aantal dagen dat u wilt toestaan dat de vertrouwde apparaten verificatie in twee stappen overslaan. De standaardwaarde is 14 dagen.
-8. Klik op **Opslaan**.
-9. Klik op **Sluiten**.
+
+6. Stel het aantal dagen dat u wilt toestaan dat de vertrouwde apparaten verificatie in twee stappen overslaan. De standaardwaarde is 14 dagen.
+7. Selecteer **Opslaan**.
 
 ### <a name="mark-a-device-as-trusted"></a>Een apparaat als vertrouwd is ingeschakeld
 
@@ -300,13 +318,12 @@ Wanneer uw gebruikers hun account voor MFA registreren, kiest u de methode voork
 | Verificatiecode via mobiele app |De Microsoft Authenticator-app genereert elke 30 seconden een nieuwe OATH-verificatiecode uit. De gebruiker voert deze bevestigingscode in de interface voor aanmelden.<br>De Microsoft Authenticator-app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), en [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Hoe verificatiemethoden in-of uitschakelen
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Selecteer de map die u wilt beheren. 
-4. Selecteer **configureren**
-5. Selecteer onder multi-factor Authentication **service-instellingen beheren**.
-6. Op de pagina Service-instellingen onder verificatie-opties selecteren/uitschakelen de opties die u wilt gebruiken.
-   ![Verificatie-opties](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. Klik op **Opslaan**.
-8. Klik op **Sluiten**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**
+3. Selecteer **Multi-Factor Authentication**
+4. Selecteer onder multi-factor Authentication **service-instellingen**.
+5. Op de pagina Service-instellingen onder **verificatie-opties**, selecteren/uitschakelen van de opties die u wilt gebruiken.
 
+   ![Verificatie-opties](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. Klik op **Opslaan**.

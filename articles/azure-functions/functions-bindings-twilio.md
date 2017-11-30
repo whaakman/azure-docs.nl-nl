@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Twilio-binding | Microsoft Docs
+title: Azure Functions Twilio-binding
 description: Begrijpen hoe Twilio-bindingen met Azure Functions.
 services: functions
 documentationcenter: na
@@ -8,43 +8,64 @@ manager: cfowler
 editor: 
 tags: 
 keywords: Azure functions, functies, verwerking van gebeurtenissen, dynamische compute zonder server architectuur
-ms.assetid: a60263aa-3de9-4e1b-a2bb-0b52e70d559b
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8c5e8f2dfedae26486e1c8afbe0cec3f3228e86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae97045c27f3ad8b62e7798b2060ea59ccd66ac5
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>SMS-bericht verzenden berichten van Azure Functions met behulp van de Twilio uitvoer binding
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="twilio-binding-for-azure-functions"></a>Twilio-binding voor Azure Functions
 
-In dit artikel wordt uitgelegd hoe configureren en gebruiken van Twilio-bindingen met Azure Functions. 
+In dit artikel wordt uitgelegd hoe u om berichten te verzenden met behulp van [Twilio](https://www.twilio.com/) bindingen in de Azure Functions. Azure Functions ondersteunt uitvoer bindingen voor Twilio.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Azure Functions ondersteunt Twilio uitvoer bindingen zodat uw functies voor het verzenden van SMS-berichten met een paar regels code en een [Twilio](https://www.twilio.com/) account. 
+## <a name="example"></a>Voorbeeld
 
-## <a name="functionjson-for-the-twilio-output-binding"></a>Function.JSON voor de Twilio uitvoer binding
-Het bestand function.json biedt de volgende eigenschappen:
+Zie het voorbeeld taalspecifieke:
 
-|Eigenschap  |Beschrijving  |
-|---------|---------|
-|**naam**| Naam van de variabele in functiecode gebruikt voor de Twilio SMS-bericht. |
-|**type**| moet worden ingesteld op `twilioSms`.|
-|**accountSid**| Deze waarde moet worden ingesteld op de naam van een App-instelling van de Sid van uw Twilio-Account.|
-|**authToken**| Deze waarde moet worden ingesteld op de naam van een App-instelling die uw Twilio-verificatietoken bevat.|
-|**Aan**| Deze waarde is ingesteld op het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
-|**Van**| Deze waarde is ingesteld op het telefoonnummer dat door de SMS-tekst wordt verzonden.|
-|**richting**| moet worden ingesteld op `out`.|
-|**hoofdtekst**| Deze waarde kan worden gebruikt voor de SMS-bericht harde code als u niet hoeft worden dynamisch ingesteld in de code voor de functie. |
+* [Vooraf gecompileerde C#](#c-example)
+* [C#-script](#c-script-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>C#-voorbeeld
+
+Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die verstuurt een tekstbericht wanneer deze worden geactiveerd door een wachtrijbericht.
+
+```cs
+[FunctionName("QueueTwilio")]
+[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
+public static SMSMessage Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
+    TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {order}");
+
+    var message = new SMSMessage()
+    {
+        Body = $"Hello {order["name"]}, thanks for your order!",
+        To = order["mobileNumber"].ToString()
+    };
+
+    return message;
+}
+```
+
+In dit voorbeeld wordt de `TwilioSms` kenmerk met de geretourneerde waarde van de methode. Een alternatief is met het kenmerk met een `out SMSMessage` parameter of een `ICollector<SMSMessage>` of `IAsyncCollector<SMSMessage>` parameter.
+
+### <a name="c-script-example"></a>Voorbeeld van C#-script
+
+Het volgende voorbeeld wordt een Twilio-uitvoer binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie gebruikt een `out` -parameter voor het verzenden van een SMS-bericht.
+
+Hier zijn bindingsgegevens de *function.json* bestand:
 
 Voorbeeld function.json:
 
@@ -61,10 +82,7 @@ Voorbeeld function.json:
 }
 ```
 
-
-## <a name="example-c-queue-trigger-with-twilio-output-binding"></a>Voorbeeld van C# wachtrij trigger met Twilio uitvoer binding
-#### <a name="synchronous"></a>Synchrone
-Deze synchrone voorbeeldcode voor een Azure Storage-wachtrij-trigger gebruikt een out-parameter voor een SMS-bericht verzenden naar een klant die een bestelling geplaatst.
+Hier volgt een C#-scriptcode:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -95,8 +113,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-#### <a name="asynchronous"></a>Asynchrone
-Deze asynchrone voorbeeldcode voor een Azure Storage-trigger voor wachtrij verzendt een SMS-bericht naar een klant die een bestelling geplaatst.
+U kunt niet out-parameters in de asynchrone code gebruiken. Hier volgt een asynchrone C# script codevoorbeeld:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -129,8 +146,28 @@ public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> mes
 }
 ```
 
-## <a name="example-nodejs-queue-trigger-with-twilio-output-binding"></a>Voorbeeld Node.js wachtrij trigger met Twilio uitvoer binding
-In dit voorbeeld Node.js verzendt een SMS-bericht naar een klant die een bestelling geplaatst.
+### <a name="javascript-example"></a>JavaScript-voorbeeld
+
+Het volgende voorbeeld wordt een Twilio-uitvoer binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding.
+
+Hier zijn bindingsgegevens de *function.json* bestand:
+
+Voorbeeld function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSid": "TwilioAccountSid",
+  "authToken": "TwilioAuthToken",
+  "to": "+1704XXXXXXX",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+Hier volgt de JavaScript-code:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -156,6 +193,48 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+## <a name="attributes"></a>Kenmerken
+
+Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+
+Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [configuratie](#configuration). Hier volgt een `TwilioSms` kenmerk voorbeeld in een handtekening voor methode:
+
+```csharp
+[FunctionName("QueueTwilio")]
+[return: TwilioSms(
+    AccountSidSetting = "TwilioAccountSid", 
+    AuthTokenSetting = "TwilioAuthToken", 
+    From = "+1425XXXXXXX" )]
+public static SMSMessage Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
+    TraceWriter log)
+{
+    ...
+}
+ ```
+
+Zie voor een compleet voorbeeld [vooraf gecompileerd C#-voorbeeld](#c-example).
+
+## <a name="configuration"></a>Configuratie
+
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `TwilioSms` kenmerk.
+
+|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|---------|---------|----------------------|
+|**type**|| moet worden ingesteld op `twilioSms`.|
+|**richting**|| moet worden ingesteld op `out`.|
+|**naam**|| Naam van de variabele in functiecode gebruikt voor de Twilio SMS-bericht. |
+|**accountSid**|**AccountSid**| Deze waarde moet worden ingesteld op de naam van een app-instelling van de Sid van uw Twilio-Account.|
+|**authToken**|**AuthToken**| Deze waarde moet worden ingesteld op de naam van een app-instelling die uw Twilio-verificatietoken bevat.|
+|**Aan**|**Aan**| Deze waarde is ingesteld op het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
+|**Van**|**Van**| Deze waarde is ingesteld op het telefoonnummer dat door de SMS-tekst wordt verzonden.|
+|**hoofdtekst**|**Hoofdtekst**| Deze waarde kan worden gebruikt voor de SMS-bericht harde code als u niet hoeft worden dynamisch ingesteld in de code voor de functie. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)
+
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>Overzicht van hoge beschikbaarheid-poorten
 
@@ -65,69 +65,10 @@ De HA-poorten-functie is beschikbaar in de [dezelfde regio's als Load Balancer s
 
 ## <a name="preview-sign-up"></a>Preview-registratie
 
-Als u wilt deelnemen aan de evaluatieversie van de functie van de HA-poorten in Load Balancer standaard Registreer uw abonnement om toegang te krijgen. U kunt Azure CLI 2.0 of PowerShell gebruiken.
+Als u wilt deelnemen aan de evaluatieversie van de functie van de HA-poorten in Load Balancer standaard Registreer uw abonnement voor de Load Balancer [standaard preview](https://aka.ms/lbpreview#preview-sign-up). U kunt registreren met Azure CLI 2.0 of PowerShell.
 
 >[!NOTE]
->Deze functie wilt gebruiken, moet u ook aanmelden voor de Load Balancer [standaard preview](https://aka.ms/lbpreview#preview-sign-up), naast de functie HA-poorten. Registratie kan een uur duren.
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Aanmelden met behulp van Azure CLI 2.0
-
-1. Registreer het onderdeel met de provider:
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. De vorige bewerking kan maximaal 10 minuten duren. U kunt de status van de bewerking met de volgende opdracht controleren:
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    De bewerking is voltooid wanneer de status van het onderdeel registratie retourneert **geregistreerde**, zoals hier wordt weergegeven:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Voer de registratie preview door uw abonnement met de resourceprovider opnieuw te registreren:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>Aanmelden met behulp van PowerShell
-
-1. Registreer het onderdeel met de provider:
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. De vorige bewerking kan maximaal 10 minuten duren. U kunt de status van de bewerking met de volgende opdracht controleren:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    De bewerking is voltooid wanneer de status van het onderdeel registratie retourneert **geregistreerde**, zoals hier wordt weergegeven:
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. Voer de registratie preview door uw abonnement met de resourceprovider opnieuw te registreren:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>Registratie kan een uur duren.
 
 ## <a name="limitations"></a>Beperkingen
 

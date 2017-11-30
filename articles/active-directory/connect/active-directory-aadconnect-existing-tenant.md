@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7df154748a4ce8ac592a41f2a3d6b10ac359113
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Wanneer u hebt een bestaande tenant
 De meeste van de onderwerpen over het gebruik van Azure AD Connect wordt ervan uitgegaan dat u begint met een nieuwe Azure AD-tenant en dat er geen gebruikers of er andere objecten zijn. Maar als u hebt gestart met een Azure AD-tenant gevuld zijn met gebruikers en andere objecten, en wilt verbinden, gebruik vervolgens dit onderwerp is voor u.
@@ -33,7 +33,7 @@ Als u gestart voor het beheren van gebruikers in Azure AD die zich ook in on-pre
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchroniseren met bestaande gebruikers in Azure AD
 Wanneer u Azure AD Connect installeert en u begint met het synchroniseren, wordt de Azure AD sync-service (in Azure AD) biedt een controle op elk nieuw object en probeer het vinden van een bestaand object moet worden gezocht. Er zijn drie kenmerken die worden gebruikt voor dit proces: **userPrincipalName**, **proxyAddresses**, en **sourceAnchor**/**onveranderbare id genoemd**. Een overeenkomst op **userPrincipalName** en **proxyAddresses** wordt ook wel een **zachte overeen**. Een overeenkomst op **sourceAnchor** staat bekend als **harde overeen**. Voor de **proxyAddresses** alleen de waarde met het kenmerk **SMTP:**, die het primaire e-mailadres wordt gebruikt voor de evaluatie.
 
-De overeenkomst wordt alleen voor nieuwe objecten die afkomstig zijn van Connect geëvalueerd. Als u een bestaande object wijzigen zodat deze met een van deze kenmerken overeen komt, klikt u vervolgens ziet u een fout in plaats daarvan.
+De overeenkomst wordt alleen voor nieuwe objecten die afkomstig zijn van Connect geëvalueerd. Als u een bestaand object wijzigen zodat deze met een van deze kenmerken overeen komt, klikt u vervolgens ziet u een fout in plaats daarvan.
 
 Als Azure AD vindt een object waar de kenmerkwaarden zijn hetzelfde voor een object dat afkomstig is van Connect en die is al aanwezig in Azure AD, wordt klikt u vervolgens het object in Azure AD overgenomen Connect. Het object eerder cloud beheerd is gemarkeerd als lokale beheerd. Alle kenmerken in Azure AD met een waarde in de lokale AD overschreven met de lokale waarde. De uitzondering is wanneer een kenmerk heeft een **NULL** lokale waarde. In dit geval wordt kunt nog steeds de waarde in Azure AD blijft, maar u deze alleen wijzigen lokale in iets anders.
 

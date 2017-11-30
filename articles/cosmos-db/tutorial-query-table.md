@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1b2645580c12777ea39816bdcc62cfabc172d16
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Hoe een query over tabelgegevens met behulp van de tabel-API
 
@@ -38,7 +38,7 @@ De query's in dit artikel gebruik het volgende voorbeeld `People` tabel:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Zie [opvragen van tabellen en entiteiten] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) voor meer informatie over de query met behulp van de tabel-API. 
+Zie [opvragen van tabellen en entiteiten](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) voor meer informatie over de query met behulp van de tabel-API. 
 
 Zie voor meer informatie over de premium-mogelijkheden die Azure Cosmos DB biedt [Azure Cosmos DB tabel API](table-introduction.md) en [ontwikkelen met de API van de tabel in .NET](tutorial-develop-table-dotnet.md). 
 

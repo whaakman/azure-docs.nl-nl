@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>host.JSON-documentatie voor Azure Functions
 
@@ -141,7 +141,7 @@ Configuratie-instellingen voor [Event Hub-triggers en bindingen](functions-bindi
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>Functies
+## <a name="functions"></a>functies
 
 Een lijst met functies die de host van de taak wordt uitgevoerd.  Een lege matrix betekent dat alle functies uitvoeren.  Bedoeld voor gebruik alleen wanneer [lokaal uitgevoerd](functions-run-local.md). In functie-apps gebruiken de *function.json* `disabled` eigenschap in plaats van deze eigenschap in *host.json*.
 
@@ -165,23 +165,7 @@ Hiermee geeft u de time-outduur voor alle functies. Het geldige bereik is van 1 
 
 Configuratie-instellingen voor [HTTP-triggers en bindingen](functions-bindings-http-webhook.md).
 
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
-        "dynamicThrottlesEnabled": false
-    }
-}
-```
-
-|Eigenschap  |Standaard | Beschrijving |
-|---------|---------|---------| 
-|routePrefix|api|Het routeprefix die voor alle routes geldt. Gebruik een lege tekenreeks om te verwijderen van het standaardvoorvoegsel. |
-|maxOutstandingRequests|-1|Het maximale aantal openstaande aanvragen die op elk moment (-1 betekent unbounded) wordt gehouden. De limiet omvatten aanvragen die in de wachtrij staan, maar nog niet begonnen wordt uitgevoerd, evenals alle uitvoeringen wordt uitgevoerd. Alle binnenkomende aanvragen gedurende deze limiet worden met een 429 'Bezet' antwoord geweigerd. Aanroepfuncties kunnen reactie op basis van tijd nieuwe pogingen strategieën alvast gebruiken. Deze instelling bepaalt u alleen queuing die deze gebeurtenis treedt op binnen het pad taak host worden uitgevoerd. Er zijn andere wachtrijen, zoals de aanvraagwachtrij ASP.NET niet is beïnvloed door deze instelling. |
-|maxConcurrentRequests|-1|Het maximum aantal HTTP-functies die parallel (-1 betekent unbounded) wordt uitgevoerd. U kunt bijvoorbeeld een limiet instellen als uw HTTP-functies te veel systeembronnen gebruikt als gelijktijdigheid hoog is. Of als uw functies uitgaande aanvragen in een service van derden aanbrengen, deze aanroepen moeten mogelijk worden snelheid beperkt.|
-|dynamicThrottlesEnabled|onwaar|Zorgt ervoor dat de verwerking van aanvragen pijplijn systeemprestatiemeteritems periodiek controleren. Prestatiemeteritems zijn verbindingen, threads, processen, geheugen en cpu. Als een van de items via een ingebouwde drempelwaarde (80%), worden aanvragen met een 429 'Bezet' antwoord geweigerd totdat de counter(s) terug naar de normale niveaus terechtkomen.|
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 

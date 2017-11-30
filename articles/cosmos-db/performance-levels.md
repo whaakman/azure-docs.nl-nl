@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Buiten gebruik stellen van de prestaties S1, S2 en S3
 
@@ -93,7 +93,7 @@ Ervan uitgaande dat u hebt 10 S1 verzamelingen, 1 GB aan opslagruimte voor elk i
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Wat gebeurt er als ik meer dan 10 GB aan opslagruimte nodig?
 
-Of u een verzameling met een prestatieniveau S1, S2 of S3 of een verzameling van één partitie, die allemaal 10 GB aan opslagruimte beschikbaar is, dat kunt u het hulpprogramma voor gegevensmigratie Cosmos-DB uw om gegevens te migreren naar een gepartitioneerde verzameling met vrijwel hebben onbeperkte opslag. Zie voor meer informatie over de voordelen van een gepartitioneerde verzameling [partitionering en schalen in Azure Cosmos DB](documentdb-partition-data.md). Zie voor meer informatie over het migreren van uw S1, S2, S3 of verzameling van één partitie in een gepartitioneerde verzameling [migreren van één partitie naar gepartitioneerde verzamelingen](documentdb-partition-data.md#migrating-from-single-partition). 
+Of u een verzameling met een prestatieniveau S1, S2 of S3 of een verzameling van één partitie, die allemaal 10 GB aan opslagruimte beschikbaar is, dat kunt u het hulpprogramma voor gegevensmigratie Cosmos-DB uw om gegevens te migreren naar een gepartitioneerde verzameling met vrijwel hebben onbeperkte opslag. Zie voor meer informatie over de voordelen van een gepartitioneerde verzameling [partitionering en schalen in Azure Cosmos DB](documentdb-partition-data.md). 
 
 <a name="change-before"></a>
 

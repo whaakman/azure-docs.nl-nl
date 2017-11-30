@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur 
 
-Dit artikel wordt uitgelegd van de Azure SQL Database connectivity-architectuur en wordt uitgelegd hoe de andere onderdelen functie voor het verkeer naar uw Azure SQL Database-exemplaar. Deze Azure SQL Database connectivity onderdelen functie om netwerkverkeer te regelen met de Azure-database met clients die verbinding maken vanuit Azure en clients die verbinding maakt vanaf buiten Azure. In dit artikel biedt ook scriptvoorbeelden wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen die betrekking hebben op de standaardinstellingen van de verbinding wijzigen. Als er vragen na het lezen van dit artikel, neem contact op met Dhruv op dmalik@microsoft.com. 
+Dit artikel wordt uitgelegd van de Azure SQL Database connectivity-architectuur en wordt uitgelegd hoe de andere onderdelen functie voor het verkeer naar uw Azure SQL Database-exemplaar. Deze Azure SQL Database connectivity onderdelen functie om netwerkverkeer te regelen met de Azure-database met clients die verbinding maken vanuit Azure en clients die verbinding maakt vanaf buiten Azure. In dit artikel biedt ook scriptvoorbeelden wijzigen hoe de verbinding plaatsvindt, evenals de overwegingen die betrekking hebben op de standaardinstellingen van de verbinding wijzigen. 
 
 ## <a name="connectivity-architecture"></a>Connectiviteitsarchitectuur
 
-Het volgende diagram biedt een overzicht van de Azure SQL Database connectivity-architectuur. 
+Het volgende diagram biedt een overzicht van de Azure SQL Database connectivity-architectuur.
 
 ![overzicht van de architectuur](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL D
 | --- | --- |--- |
 | Australië - oost | 191.238.66.109 | 13.75.149.87 |
 | Australië - zuidoost | 191.239.192.109 | 13.73.109.251 |
-| Brazilië - zuid | 104.41.11.5 | |    
-| Canada - midden | 40.85.224.249 | |    
+| Brazilië - zuid | 104.41.11.5 | |
+| Canada - midden | 40.85.224.249 | |
 | Canada - oost | 40.86.226.166 | |
 | VS - midden | 23.99.160.139 | 13.67.215.62 |
 | Oost-Azië | 191.234.2.139 | 52.175.33.150 |
 | VS-Oost 1 | 191.238.6.43 | 40.121.158.30 |
 | VS - oost 2 | 191.239.224.107 | 40.79.84.180 |
-| India - midden | 104.211.96.159  | |   
+| India - midden | 104.211.96.159  | |
 | India - zuid | 104.211.224.146  | |
 | India - west | 104.211.160.80 | |
 | Japan - oost | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL D
 | Zuid-centraal VS | 23.98.162.75 | 13.66.62.124 |
 | Zuidoost-Azië | 23.100.117.95 | 104.43.15.0 |
 | VK, noord | 13.87.97.210 | |
-| VK Zuid 1 | 51.140.184.11 | |    
+| VK Zuid 1 | 51.140.184.11 | |
 | VK, zuid 2 | 13.87.34.7 | |
 | Verenigd Koninkrijk West | 51.141.8.11  | |
 | West-centraal VS | 13.78.145.25 | |
@@ -95,12 +95,12 @@ De volgende tabel bevat de primaire en secundaire IP-adressen van de Azure SQL D
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL Database verbindingsbeleid wijzigen
 
-Om te wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server, gebruiken de [REST-API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Om te wijzigen van het beleid van de Azure SQL Database-verbinding voor een Azure SQL Database-server, gebruiken de [REST-API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Als uw verbindingsbeleid voor de is ingesteld op **Proxy**, alle netwerkapparaten stroom van pakketten via de Azure SQL Database-gateway. Voor deze instelling moet u uitgaand verkeer op alleen de Azure SQL Database gateway IP toestaan. Met behulp van een instelling van **Proxy** heeft latentie van meer dan een instelling van **omleiden**. 
-- Als uw verbindingsbeleid voor de tot stand **omleiden**, alle pakketten stroom rechtstreeks naar de proxy middleware netwerkapparaten. Voor deze instelling moet u uitgaand verkeer naar meerdere IP-adressen toestaan. 
+- Als uw verbindingsbeleid voor de is ingesteld op **Proxy**, alle netwerkapparaten stroom van pakketten via de Azure SQL Database-gateway. Voor deze instelling moet u uitgaand verkeer op alleen de Azure SQL Database gateway IP toestaan. Met behulp van een instelling van **Proxy** heeft latentie van meer dan een instelling van **omleiden**.
+- Als uw verbindingsbeleid voor de tot stand **omleiden**, alle pakketten stroom rechtstreeks naar de proxy middleware netwerkapparaten. Voor deze instelling moet u uitgaand verkeer naar meerdere IP-adressen toestaan.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Script verbindingsinstellingen via PowerShell wijzigen 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script verbindingsinstellingen via PowerShell wijzigen
 
 > [!IMPORTANT]
 > Dit script vereist de [Azure PowerShell-module](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script verbindingsinstellingen via Azure CLI 2.0 wijzigen 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script verbindingsinstellingen via Azure CLI 2.0 wijzigen
 
 > [!IMPORTANT]
 > Dit script vereist de [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 De volgende CLI-script laat zien hoe het verbindingsbeleid wijzigen.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

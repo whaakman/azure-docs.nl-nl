@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 083e614628645d2eb94b7d84f4127b690865d770
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Machines na beoordeling migreren
 
@@ -29,13 +29,13 @@ Dit artikel wordt beschreven hoe u suggesties voor een hulpprogramma voor migrat
 
 ## <a name="migration-tool-suggestion"></a>Migratie hulpprogramma suggestie
 
-Als u suggesties met betrekking tot de hulpprogramma's voor migratie, moet u agents installeren op de lokale computers.  
+Als u suggesties met betrekking tot de hulpprogramma's voor migratie, moet u doen een grondige detectie van de on-premises omgeving. Grondige detectie wordt uitgevoerd door de installatie van agents op de lokale-machines.  
 
 1. Een Azure migreren-project maken, lokale machines detecteren en maken van een migratie uit te voeren. [Meer informatie](tutorial-assessment-vmware.md).
 2. Download en installeer de Azure migreren agents op elke lokale machine waarvoor u wilt laten zien van een van de aanbevolen migratiemethode. [Volg deze procedure](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) om de agents te installeren.
 2. Identificeer uw lokale machines die geschikt voor migratie van de lift en shift zijn. Dit zijn de virtuele machines die wijzigingen in apps die worden uitgevoerd op deze niet nodig en kunnen worden gemigreerd zoals is.
-3. Lift en shift migratie, is het raadzaam met Azure Site Recovery. [Meer informatie](../site-recovery/tutorial-migrate-on-premises-to-azure.md). U kunt ook 3e hulpprogramma's van derden die ondersteuning bieden voor migratie naar Azure.
-4. Als u lokale computers die niet geschikt is voor een migratie lift en shift, bijvoorbeeld als u wilt migreren van specifieke app in plaats van een volledige virtuele machine hebt, kunt u andere hulpprogramma's voor migratie. Bijvoorbeeld, het is raadzaam de [Migratieservice voor Azure Database](https://azure.microsoft.com/campaigns/database-migration/) als u wilt migreren lokale databases, zoals een SQL Server, MySQL of Oracle naar Azure.
+3. Lift en shift migratie, is het raadzaam met Azure Site Recovery. [Meer informatie](../site-recovery/tutorial-migrate-on-premises-to-azure.md). U kunt ook de hulpprogramma's van derden die ondersteuning bieden voor migratie naar Azure.
+4. Als u lokale computers die niet geschikt is voor een migratie lift en shift hebt, dat wil zeggen, kunt als u wilt migreren van specifieke app in plaats van een volledige virtuele machine, u andere hulpprogramma's voor migratie. Bijvoorbeeld, het is raadzaam de [Migratieservice voor Azure Database](https://azure.microsoft.com/campaigns/database-migration/) als u wilt migreren lokale databases, zoals een SQL Server, MySQL of Oracle naar Azure.
 
 
 ## <a name="review-suggested-migration-methods"></a>Voorgestelde migratiemethoden controleren

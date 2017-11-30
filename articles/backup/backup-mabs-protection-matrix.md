@@ -8,15 +8,15 @@ ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-ms.date: 05/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45e3e7e1288c9c468619bd553963cfd018298c32
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
 
@@ -91,7 +91,7 @@ Dit artikel worden de verschillende servers en werkbelastingen die u met Azure B
 |Hyper-V-host - DPM-beveiligingsagent op de Hyper-V-hostserver, cluster- of virtuele machine|Windows Server 2008 R2 SP1 - Enterprise en Standard|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|J|J|Beveiligen: Hyper-V-computers, gedeelde clustervolumes (CSV's)<br /><br />Herstellen: virtuele machine, herstel op itemniveau van bestanden en map, volumes, virtuele harde schijven|
 |Hyper-V-host - DPM-beveiligingsagent op de Hyper-V-hostserver, cluster- of virtuele machine|Windows Server 2008|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|N|N|Beveiligen: Hyper-V-computers, gedeelde clustervolumes (CSV's)<br /><br />Herstellen: virtuele machine, herstel op itemniveau van bestanden en map, volumes, virtuele harde schijven|
 |Virtuele VMware-machines|VMware server 5.5 of 6.0 of 6.5 |On-premises Hyper-V virtuele machine|J|Y (met UR1)|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen die alleen beschikbaar voor Windows<br /> VMware vApps niet ondersteund|
-|Linux|Linux uitvoeren als Hyper-V- of VMware-Gast|On-premises Hyper-V virtuele machine|J|J|Hyper-V moet worden uitgevoerd op Windows Server 2012 R2 of Windows Server 2016. Beveiligen: Volledige virtuele machine<br /><br />Herstellen: Volledige virtuele machine|
+|Linux|Linux uitvoeren als Hyper-V- of VMware-Gast|On-premises Hyper-V virtuele machine|J|J|Hyper-V moet worden uitgevoerd op Windows Server 2012 R2 of Windows Server 2016. Beveiligen: Volledige virtuele machine<br /><br />Herstellen: Volledige virtuele machine <br/><br/> Zie het artikel voor een volledige lijst van ondersteunde Linux-distributies en versies [Linux op door Azure goedgekeurde distributies](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Clusterondersteuning
 Azure Backup-Server kan gegevens beschermen in de volgende geclusterde toepassingen:

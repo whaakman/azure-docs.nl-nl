@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Het configureren van poorten voor hoge beschikbaarheid voor de interne Load Balancer
 
@@ -41,13 +41,10 @@ Afbeelding 1: virtuele netwerkapparaten geïmplementeerd achter een interne Load
 
 ## <a name="preview-sign-up"></a>Preview-registratie
 
-Als u wilt deelnemen aan de evaluatieversie van de functie van de HA-poorten in Load Balancer standaard Registreer uw abonnement om met Azure CLI 2.0 of PowerShell toegang te krijgen.  Registreer uw abonnement voor
-
-1. [Load Balancer standaard preview](https://aka.ms/lbpreview#preview-sign-up) en 
-2. [HA poorten preview](https://aka.ms/haports#preview-sign-up).
+Als u wilt deelnemen aan de evaluatieversie van de functie van de HA-poorten in Load Balancer standaard Registreer uw abonnement om met Azure CLI 2.0 of PowerShell toegang te krijgen. Registreren van uw abonnement voor [Load Balancer standaard preview](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Deze functie wilt gebruiken, moet u ook aanmelden voor de Load Balancer [standaard Preview](https://aka.ms/lbpreview#preview-sign-up) behalve HA poorten. Registratie van de voorbeelden HA poorten of Load Balancer standaard kan een uur duren.
+>De registratie van de Load Balancer standaard previews kan een uur duren.
 
 ## <a name="configuring-ha-ports"></a>HA-poorten configureren
 

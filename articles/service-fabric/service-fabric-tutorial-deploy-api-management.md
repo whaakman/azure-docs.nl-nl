@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management met Service Fabric implementeren
 Deze zelfstudie maakt deel uit drie van een serie.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u nodig hebt voor het publiceren van API's met een groot aantal routeringsregels voor uw back-end Service Fabric-services. Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. Een gateway kan alle stateless services die zijn bestemd voor inkomend verkeer zoals een APP.NET Core toepassing, Event Hubs, IoT-Hub of Azure API Management zijn in Service Fabric. 
@@ -326,7 +326,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="conclusion"></a>Conclusie
+## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
@@ -335,6 +335,10 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een API-bewerking maken
 > * Een back-end-beleid configureren
 > * De API toevoegen aan een product
+
+Ga vervolgens naar de volgende zelfstudie voor informatie over het upgraden van de cluster-runtime.
+> [!div class="nextstepaction"]
+> [Upgrade de Azure Service Fabric-cluster-runtime](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

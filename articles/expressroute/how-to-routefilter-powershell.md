@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Routefilters voor Microsoft-peering configureren: PowerShell
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Om te kunnen maken met services via Microsoft-peering, moet u de volgende config
 
 Voordat u begint met de configuratie, zorg er dan voor dat u voldoet aan de volgende criteria:
 
- - Installeer de meest recente versie van de PowerShell-cmdlets van Azure Resource Manager. Zie voor meer informatie [installeren en configureren van Azure PowerShelll](/powershell/azure/install-azurerm-ps).
+ - Installeer de meest recente versie van de PowerShell-cmdlets van Azure Resource Manager. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor meer informatie.
 
   > [!NOTE]
   > Download de nieuwste versie van de PowerShell-galerie in plaats van met het installatieprogramma. Het installatieprogramma ondersteunt momenteel niet de vereiste cmdlets.

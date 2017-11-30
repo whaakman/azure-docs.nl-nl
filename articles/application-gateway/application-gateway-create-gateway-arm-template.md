@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Een toepassingsgateway maken met de Azure Resource Manager-sjabloon
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application Gateway bevat veel ADC-functies (Application Delivery Controller), waaronder HTTP-taakverdeling, op cookies gebaseerde sessieaffiniteit, SSL-offload (Secure Sockets Layer), aangepaste statustests en ondersteuning voor meerdere locaties. Ga voor een volledige lijst met ondersteunde functies naar [Application Gateway-overzicht](application-gateway-introduction.md)
 
-Dit artikel begeleidt u bij het downloaden en wijzigen van een bestaande Azure Resource Manager-sjabloon vanuit GitHub en implementeren van de sjabloon vanuit GitHub, PowerShell en de Azure CLI.
+Dit artikel begeleidt u bij het downloaden en wijzigen van een bestaande [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) GitHub en implementeren van de sjabloon vanuit GitHub, PowerShell en de Azure CLI.
 
-Als u de Azure Resource Manager-sjabloon rechtstreeks vanuit GitHub wilt implementeren zonder deze te wijzigen, gaat u naar Een sjabloon implementeren vanuit GitHub.
+Als u de sjabloon rechtstreeks vanuit GitHub zonder wijzigingen wilt implementeren, gaat u als u wilt een sjabloon implementeren vanuit GitHub.
 
 ## <a name="scenario"></a>Scenario
 
@@ -75,9 +75,6 @@ U kunt de bestaande Azure Resource Manager-sjabloon downloaden om een virtueel n
    * **type**. Het type resource dat door de sjabloon wordt aangemaakt. In dit geval wordt het type is `Microsoft.Network/applicationGateways`, die staat voor een toepassingsgateway.
    * **Naam**. Naam voor de resource. Let op het gebruik van `[parameters('applicationGatewayName')]`, wat betekent dat de naam is opgegeven als invoer door u of door een parameterbestand tijdens de implementatie.
    * **Eigenschappen**. Lijst met eigenschappen voor de resource. Deze sjabloon maakt tijdens het maken van de toepassingsgateway gebruik van het virtuele netwerk en het openbare IP-adres.
-
-   > [!NOTE]
-   > Voor meer informatie over sjablonen gaat u naar: [verwijzing naar Resource Manager-sjablonen](/templates/)
 
 1. Ga terug naar [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Klik op **azuredeploy-parameters.json**, en klik vervolgens op **RAW**.

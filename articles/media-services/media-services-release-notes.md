@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -81,7 +81,7 @@ Zie voor meer informatie over de REST-API voor Media Services-versiegeschiedenis
 Ondersteunt nu het Media Services [Azure Active Directory (Azure AD)-gebaseerde verificatie](media-services-use-aad-auth-to-access-ams-api.md).
 
 > [!IMPORTANT]
-> Media Services ondersteunt momenteel, het model van Azure Access Control service-verificatie. Access Control-autorisatie wordt echter op 1 juni 2018 afgeschaft. Het is raadzaam om te migreren naar het model van Azure AD authentication zo snel mogelijk.
+> Media Services ondersteunt momenteel, het model van Azure Access Control service-verificatie. Access Control-autorisatie wordt echter op 1 juni 2018 afgeschaft. We raden u aan om zo snel mogelijk naar het Azure Active Directory-verificatiemodel te migreren.
 
 ## <a name="march-2017-release"></a>Maart 2017 Release
 
@@ -411,7 +411,7 @@ De volgende wijzigingen zijn aangebracht in 3.0.0.3:
 
 De nieuwste versie van de Media Services SDK is nu 3.0.0.0-prestatiemeters. U kunt de meest recente downloaden vanuit Nuget of ophalen van de bits van [GitHub].
 
-Beginnen met het Media Services SDK versie 3.0.0.0-prestatiemeters, kunt u opnieuw gebruiken de [Azure Active Directory Access Control Service (ACS)] tokens. Zie voor meer informatie de sectie 'Hergebruiken Access Control Service Tokens' in de [verbinding met Media Services maken via de Media Services SDK voor .NET] artikel.
+U kunt de tokens van Azure Active Directory Access Control Service (ACS) vanaf de Media Services SDK versie 3.0.0.0-prestatiemeters kunt hergebruiken. 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK Extensions 2.0.0.0
 Azure Media Services .NET SDK Extensions is een set uitbreidingsmethoden en Help-functies die uw code vereenvoudigen en makkelijker te ontwikkelen met Azure Media Services. U kunt de meest recente bits van krijgen [Azure Media Services .NET SDK Extensions].
@@ -443,7 +443,7 @@ De wijzigingen die worden vermeld in deze sectie zijn opgenomen in de versies va
 
 * Mogelijkheid om meerdere opslagaccounts aan een Media Service-account koppelen. 
   
-    StorageAccount
+    Opslagaccount
   
     Asset.StorageAccountName en Asset.StorageAccount
 * De mogelijkheid om bij te werken Job.Priority. 
@@ -581,7 +581,7 @@ De volgende functionaliteit is nieuw in de release van November van de SDK.
 [Video segmenten wilt]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [releases van Azure Media Services .NET SDK 3.0.0.1 en 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[verbinding met Media Services maken via de Media Services SDK voor .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK Extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Oplossen, opsporen en voorkomen van SQL-verbindingsfouten en tijdelijke fouten voor SQL-database
 In dit artikel wordt beschreven hoe voorkomen, oplossen, analyseren en beperken verbindingsfouten en tijdelijke fouten die uw clienttoepassing tegenkomt wanneer deze met Azure SQL Database samenwerkt. Informatie over het configureren van Pogingslogica, de verbindingsreeks en andere verbindingsinstellingen aanpassen.
@@ -40,16 +40,17 @@ U probeert de SQL-verbinding of opnieuw instellen, afhankelijk van het volgende:
 * **Een tijdelijke fout optreedt tijdens een verbindingspoging**: de verbinding moet opnieuw worden geprobeerd na enkele seconden vertraagd.
 * **Een tijdelijke fout optreedt tijdens de opdracht van een SQL-query**: de opdracht mag niet onmiddellijk opnieuw uitgevoerd. In plaats daarvan na een vertraging de verbinding moet worden opnieuw worden gemaakt. Vervolgens de opdracht kan opnieuw worden geprobeerd.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Pogingslogica voor tijdelijke problemen
+## <a name="retry-logic-for-transient-errors"></a>Pogingslogica voor tijdelijke problemen
 Client-programma's die soms treedt er een tijdelijke fout zijn krachtiger wanneer ze Pogingslogica bevatten.
 
 Wanneer uw programma met Azure SQL Database via een 3e partij middleware communiceert, informeren met de leverancier of de middleware Pogingslogica voor tijdelijke fouten bevat.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Principes voor een nieuwe poging
+### <a name="principles-for-retry"></a>Principes voor een nieuwe poging
 * Een poging om een verbinding te openen, moet opnieuw worden uitgevoerd als de fout tijdelijk is.
 * Een SQL SELECT-instructie is mislukt met een tijdelijke fout moet niet opnieuw worden geprobeerd rechtstreeks.
   
@@ -58,30 +59,31 @@ Wanneer uw programma met Azure SQL Database via een 3e partij middleware communi
   
   * De Pogingslogica moet ervoor zorgen dat de gehele databasetransactie is voltooid of dat de hele transactie wordt teruggedraaid.
 
-#### <a name="other-considerations-for-retry"></a>Andere overwegingen voor een nieuwe poging
+### <a name="other-considerations-for-retry"></a>Andere overwegingen voor een nieuwe poging
 * Een batch-programma die automatisch wordt gestart nadat de werkuren en die wordt voltooid voordat de ochtend toestaan van zeer geduld met lange tijdsintervallen tussen de nieuwe pogingen.
 * Een gebruikersinterfaceprogramma moet rekening houden met de menselijke neiging te geven, na een wachttijd te lang.
   
   * De oplossing moet echter niet opnieuw proberen om de paar seconden worden omdat dit beleid kan het systeem met aanvragen overspoelen.
 
-#### <a name="interval-increase-between-retries"></a>Verhoging van het interval tussen nieuwe pogingen
+### <a name="interval-increase-between-retries"></a>Verhoging van het interval tussen nieuwe pogingen
 Het is raadzaam om u te stellen voor 5 seconden voordat de eerste poging. Opnieuw proberen na een vertraging die korter is dan 5 seconden risico's die zijn afgeleid van de cloudservice. Voor elke opeenvolgende pogingen de vertraging exponentieel, moet groeien maximaal 60 seconden.
 
 Een bespreking van de *blokkerende periode* voor clients die gebruikmaken van ADO.NET is beschikbaar in [SQL Server-verbinding groeperen (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 U kunt ook het maximale aantal nieuwe pogingen ingesteld voordat het programma zelf wordt beëindigd.
 
-#### <a name="code-samples-with-retry-logic"></a>Codevoorbeelden met Pogingslogica
-Codevoorbeelden met Pogingslogica in diverse programmeertalen, zijn beschikbaar op:
+### <a name="code-samples-with-retry-logic"></a>Codevoorbeelden met Pogingslogica
+Codevoorbeelden met Pogingslogica zijn beschikbaar op:
 
-* [Verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md)
+- [Resiliently verbinding te maken met SQL met ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Resiliently verbinding te maken met SQL met PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Uw Pogingslogica testen
+### <a name="test-your-retry-logic"></a>Uw Pogingslogica testen
 Als u wilt testen uw Pogingslogica, moet u simuleren of een fout veroorzaken, dan kan worden gecorrigeerd terwijl uw programma nog steeds actief is.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Testen door het netwerk verbreekt
+#### <a name="test-by-disconnecting-from-the-network"></a>Testen door het netwerk verbreekt
 Een manier kunt u uw Pogingslogica testen is op uw computer loskoppelen van het netwerk terwijl het programma wordt uitgevoerd. De fout is:
 
 * **SqlException.Number** 11001 =
@@ -98,7 +100,7 @@ Om dit praktisch, loskoppelen u uw computer via het netwerk voordat u uw program
    * Onderbreken verder worden uitgevoerd met behulp van de **Console.ReadLine** methode of een dialoogvenster met de knop OK. De gebruiker op de Enter-toets drukt nadat de computer is aangesloten op het netwerk.
 5. Opnieuw verbinding probeert te, succes verwacht.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testen door de databasenaam bevat een typefout wanneer verbinding wordt gemaakt
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testen door de databasenaam bevat een typefout wanneer verbinding wordt gemaakt
 Het programma kan de naam van de gebruiker voordat de eerste verbindingspoging opzettelijk Maak een typefout. De fout is:
 
 * **SqlException.Number** 18456 =
@@ -114,15 +116,15 @@ Om dit praktisch, kan uw programma herkend door een runtime-parameter zorgt ervo
 4. 'WRONG_' verwijderen uit de gebruikersnaam.
 5. Opnieuw verbinding probeert te, succes verwacht.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET-SqlConnection parameters voor een nieuwe poging verbinding
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET-SqlConnection parameters voor een nieuwe poging verbinding
 Als uw clientprogramma verbindt met naar Azure SQL Database met behulp van de .NET Framework-klasse **System.Data.SqlClient.SqlConnection**, moet u .NET 4.6.1 of hoger (of .NET Core) zodat u van de functie van de verbinding opnieuw gebruikmaken kunt. Details van de functie zijn [hier](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 Wanneer u bouwt het [verbindingsreeks](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) voor uw **SqlConnection** object, moet u de waarden onder de volgende parameters coördineren:
 
@@ -138,7 +140,7 @@ Bijvoorbeeld, als het aantal = 3, en interval = 10 seconden, een time-out van al
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>De verbinding ten opzichte van de opdracht
+## <a name="connection-versus-command"></a>De verbinding ten opzichte van de opdracht
 De **ConnectRetryCount** en **ConnectRetryInterval** parameters, kunnen uw **SqlConnection** object probeer het opnieuw verbinden zonder ontvangt of proberen alles uit uw programma, zoals het besturingselement wordt teruggezonden naar uw programma. De nieuwe pogingen kunnen optreden in de volgende situaties:
 
 * de methodeaanroep mySqlConnection.Open
@@ -146,8 +148,9 @@ De **ConnectRetryCount** en **ConnectRetryInterval** parameters, kunnen uw **Sql
 
 Er is een geldt de volgende werkwijze. Als een tijdelijke fout optreedt terwijl uw *query* wordt uitgevoerd, uw **SqlConnection** object komt niet opnieuw verbinding maken en deze gewoon probeert niet opnieuw uw query. Echter, **SqlConnection** zeer snel controleert de verbinding voordat de query voor uitvoering worden verzonden. Als de snelle controle een verbindingsprobleem detecteert **SqlConnection** opnieuw probeert de bewerking verbinding maken. Als de nieuwe poging is gelukt, wordt u query verzonden voor uitvoering.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Moet ConnectRetryCount worden gecombineerd met toepassingslogica opnieuw proberen?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Moet ConnectRetryCount worden gecombineerd met toepassingslogica opnieuw proberen?
 Stel dat uw toepassing robuuste aangepaste Pogingslogica. Deze mogelijk opnieuw verbinding maken met 4 keer. Als u **ConnectRetryInterval** en **ConnectRetryCount** = 3 op uw verbindingsreeks verhoogt u het maximale aantal pogingen tot en met 4 * 3 = 12 nieuwe pogingen. U kunt niet van plan bent een groot aantal pogingen.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Zie voor meer informatie: [5 - als gemakkelijk als vallen buiten een logboek: me
 ### <a name="entlib60-istransient-method-source-code"></a>EntLib60 IsTransient methode broncode
 Vervolgens uit de **SqlDatabaseTransientErrorDetectionStrategy** klasse, is de C#-broncode voor de **IsTransient** methode. De broncode wordt uitleg gegeven over welke fouten zijn aangemerkt als een tijdelijke en leveringsopties opnieuw vanaf April 2013.
 
-Talrijke **//comment** regels zijn verwijderd uit deze kopie benadrukken leesbaarheid.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Voor het oplossen van andere veelvoorkomende verbindingsproblemen van Azure SQL Database, gaat u naar [verbindingsproblemen met Azure SQL Database oplossen](sql-database-troubleshoot-common-connection-issues.md).
-* [SQL Server-verbinding (ADO.NET) groeperen](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md)
+* [SQL Server-verbinding (ADO.NET) groeperen](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Opnieuw proberen* is een Apache 2.0 in licentie gegeven algemene bibliotheek, geschreven in opnieuw **Python**, voor het vereenvoudigen van de taak van het gedrag voor het opnieuw op vrijwel elk element toevoegen.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Azure Functions externe tabel binding (Preview)
 In dit artikel laat zien hoe manipuleren tabelgegevens op aanbieders van SaaS (zoals Sharepoint, Dynamics) binnen de functie met ingebouwde bindingen. Azure Functions ondersteunt de invoer en uitvoer bindingen voor externe tabellen.
@@ -103,8 +103,8 @@ Een in tabelvorm connector biedt gegevenssets en elke gegevensset tabellen bevat
 |:-----|:---|:---| 
 |**SharePoint**|Site|SharePoint-lijst
 |**SQL**|Database|Tabel 
-|**Google blad**|Werkblad|Werkblad 
-|**Excel**|Excel-bestand|Blad 
+|**Google blad**|Spreadsheet|Werkblad 
+|**Excel**|Excel-bestand|Spreadsheet 
 
 <!--
 See the language-specific sample that copies the input file to the output file.
@@ -198,4 +198,6 @@ In Google Docs, maakt u een werkblad met een werkblad met de naam `Contact`. De 
 dataSetName is 'standaard'.
 
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)

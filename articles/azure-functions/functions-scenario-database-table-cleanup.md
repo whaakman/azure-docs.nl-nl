@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions gebruiken voor verbinding met een Azure SQL Database
-Dit onderwerp leest u het gebruik van Azure Functions voor het maken van een geplande taak opruimen van rijen in een tabel in een Azure SQL Database. De nieuwe C#-functie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in de Azure-portal. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een instelling in de functie-app. Dit scenario maakt gebruik van een bulksgewijze bewerking op de database. Als u wilt laten verwerken afzonderlijke CRUD-bewerkingen in een tabel met Mobile Apps, moet u in plaats daarvan gebruiken [Mobile Apps-bindingen](functions-bindings-mobile-apps.md).
+Dit onderwerp leest u het gebruik van Azure Functions voor het maken van een geplande taak opruimen van rijen in een tabel in een Azure SQL Database. De nieuwe C#-functie is gemaakt op basis van een vooraf gedefinieerde timer trigger-sjabloon in de Azure-portal. Ter ondersteuning van dit scenario, moet u ook een databaseverbindingsreeks instellen als een app-instelling in de functie-app. Dit scenario maakt gebruik van een bulksgewijze bewerking op de database. 
+
+Functie proces afzonderlijke hebben maken, lezen, bijwerken en delete (CRUD)-bewerkingen in een tabel met Mobile Apps, moet u in plaats daarvan gebruiken [Mobile Apps-bindingen](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -59,7 +61,7 @@ Een functie-app fungeert als host voor de uitvoering van uw functies in Azure. H
     | Instelling       | Voorgestelde waarde | Beschrijving             | 
     | ------------ | ------------------ | --------------------- | 
     | **Naam**  |  sqldb_connection  | Gebruikt voor toegang tot de opgeslagen verbindingsreeks in uw functiecode.    |
-    | **Waarde** | Gekopieerde tekenreeks  | U hebt gekopieerd uit het verleden de verbindingsreeks in de vorige sectie. |
+    | **Waarde** | Gekopieerde tekenreeks  | Plak de verbindingsreeks die u in de vorige sectie hebt gekopieerd en vervang `{your_username}` en `{your_password}` tijdelijke aanduidingen door echte waarden. |
     | **Type** | SQL Database | De standaard SQL Database-verbinding gebruiken. |   
 
 3. Klik op **Opslaan**.
@@ -84,7 +86,7 @@ U kunt nu de C# functiecode die verbinding met uw SQL-Database maakt toevoegen.
     using System.Threading.Tasks;
     ```
 
-4. Vervang de bestaande **uitvoeren** functie met de volgende code:
+4. Vervang de bestaande `Run` functie met de volgende code:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ U kunt nu de C# functiecode die verbinding met uw SQL-Database maakt toevoegen.
     }
     ```
 
-    Bij deze voorbeeldopdracht updates de **Status** kolom op basis van de verzending. Het moet 32 gegevensrijen bijwerken.
+    Bij deze voorbeeldopdracht updates de `Status` kolom op basis van de verzending. Het moet 32 gegevensrijen bijwerken.
 
 5. Klik op **opslaan**, bekijk de **logboeken** windows voor de volgende functie uitvoering en noteer het aantal rijen bijgewerkt in de **SalesOrderHeader** tabel.
 

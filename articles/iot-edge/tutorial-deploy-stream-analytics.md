@@ -6,22 +6,24 @@ keywords:
 author: msebolt
 manager: timlt
 ms.author: v-masebo
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 5a143bbf7abb5304ac51782d517c02ec184a05a2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementeren van Azure Stream Analytics als een module van de rand van de IoT - voorbeeld
 
 IoT-apparaten kunnen grote hoeveelheden gegevens produceren. Soms heeft deze gegevens worden geanalyseerd of verwerkt alvorens de cloud te verminderen, de grootte van verzonden gegevens of voor het verwijderen van de round trip latentie van inzicht actie worden uitgevoerd.
 
-[Azure Stream Analytics] [ azure-stream] (ASA) biedt een rijke structured querysyntaxis voor analyse van gegevens in de cloud en IoT rand apparaten. Zie voor meer informatie over ASA op IoT rand [ASA documentatie](../stream-analytics/stream-analytics-edge.md).
+IoT-rand wordt gebruikgemaakt van vooraf samengestelde Azure Service IoT Edge-modules voor snelle implementatie en [Azure Stream Analytics] [ azure-stream] (ASA) is één van deze module. U kunt een ASA-taak maken vanuit de portal en vervolgens keert naar IoT Hub-portal aan als een Module van de rand IoT implementeren.  
 
-Deze zelfstudie helpt bij het maken van een Azure Stream Analytics-taak en de implementatie ervan op een Edge van de IoT-apparaat voor het verwerken van een lokale telemetriestroom rechtstreeks op het apparaat en het genereren van waarschuwingen naar station directe actie op het apparaat.  Er zijn twee modules die zijn betrokken bij deze zelfstudie. Een gesimuleerde temperatuursensor module (tempSensor) die gegevens van de temperatuur van 20 genereert en 120 graden verhoogd met 1 om de vijf seconden en een ASA-module die groter zijn dan 100 graden temperaturen gefilterd. De ASA-module ook hersteld de tempSensor wanneer de gemiddelde 30 seconden 100 bereikt.
+Azure Stream Analytics biedt in de syntaxis van een rijke structured query voor gegevensanalyse in de cloud en IoT rand. Zie voor meer informatie over ASA op IoT rand [ASA documentatie](../stream-analytics/stream-analytics-edge.md).
+
+Deze zelfstudie helpt bij het maken van een Azure Stream Analytics-taak en de implementatie ervan op een Edge van de IoT-apparaat voor het verwerken van een lokale telemetriestroom rechtstreeks op het apparaat en het genereren van waarschuwingen naar station directe actie op het apparaat.  Er zijn twee modules die zijn betrokken bij deze zelfstudie. Een gesimuleerde temperatuursensor module (tempSensor) genereert gegevens van de temperatuur van 20 tot 120 graden, om de vijf seconden met 1 verhoogd. Een Stream Analytics-module Hiermee stelt u de tempSensor wanneer de gemiddelde 30 seconden 70 bereikt. In een productieomgeving, kan deze functionaliteit worden gebruikt voor een machine afgesloten of voorzorgsmaatregelen treffen wanneer de temperatuur gevaarlijke niveaus bereikt. 
 
 Procedures voor:
 
@@ -33,64 +35,58 @@ Procedures voor:
 ## <a name="prerequisites"></a>Vereisten
 
 * Een IoT-Hub 
-* Het apparaat dat u hebt gemaakt en geconfigureerd in de Quick Start of in Azure IoT-rand implementeren om een gesimuleerd apparaat in [Windows] [ lnk-tutorial1-win] en [Linux] [ lnk-tutorial1-lin].
-* Docker op uw IoT-randapparaat
-    * [Docker installeren op Windows] [ lnk-docker-windows] en zorg ervoor dat deze wordt uitgevoerd.
-    * [Docker installeren op Linux] [ lnk-docker-linux] en zorg ervoor dat deze wordt uitgevoerd.
+* Het apparaat dat u hebt gemaakt en geconfigureerd in de Quick Start of in Azure IoT-rand implementeren om een gesimuleerd apparaat in [Windows] [ lnk-tutorial1-win] en [Linux] [ lnk-tutorial1-lin]. U moet weten van de sleutel voor het apparaat verbinding en de apparaat-ID. 
+* Docker uitgevoerd op uw IoT-randapparaat
+    * [Docker op Windows installeren][lnk-docker-windows]
+    * [Docker installeren op Linux][lnk-docker-linux]
 * Python 2.7.x op uw IoT-randapparaat
     * [Python 2.7 installeren op Windows][lnk-python].
     * De meeste Linux-distributies, Ubuntu, waaronder nog Python 2.7 geïnstalleerd.  Gebruik de volgende opdracht om ervoor te zorgen dat pip is geïnstalleerd: `sudo apt-get install python-pip`.
 
-> [!NOTE]
-> Merk op uw apparaat de verbindingstekenreeks en de rand van de IoT-apparaat-ID zijn nodig voor deze zelfstudie.
-
-IoT-rand wordt gebruikgemaakt van vooraf samengestelde Azure Service IoT Edge-modules voor snelle implementatie en Azure Stream Analytics (ASA) is één van deze module. U kunt een ASA-taak maken vanuit de portal en vervolgens keert naar IoT Hub-portal aan als een Module van de rand IoT implementeren.  
-
-Zie voor meer informatie over Azure Stream Analytics de **overzicht** sectie van de [Stream Analytics-documentatie][azure-stream].
 
 ## <a name="create-an-asa-job"></a>Een ASA-taak maken
 
 In deze sectie maakt u een Azure Stream Analytics-taak voor het nemen van gegevens uit uw IoT-hub, telemetriegegevens verzonden van uw apparaat opvragen en doorsturen van de resultaten naar een Azure Storage-Container (BLOB). Zie voor meer informatie de **overzicht** sectie van de [Stream Analytics-documentatie][azure-stream]. 
 
-> [!NOTE]
-> Een Azure Storage-account is vereist voor het bieden van een eindpunt moet worden gebruikt als uitvoer in uw ASA-taak. Het volgende voorbeeld maakt gebruik van het type BLOB-opslag.  Zie voor meer informatie de **Blobs** sectie van de [documentatie bij Azure Storage][azure-storage].
+### <a name="create-a-storage-account"></a>Een opslagaccount maken
 
-1. Navigeer in de Azure-portal naar **maken een resource -> opslag**, klikt u op **alle**, en klik op **opslagaccount - blob, bestand, tabel, wachtrij**.
+Een Azure Storage-account is vereist voor het bieden van een eindpunt moet worden gebruikt als uitvoer in uw ASA-taak. Het volgende voorbeeld maakt gebruik van het type BLOB-opslag.  Zie voor meer informatie de **Blobs** sectie van de [documentatie bij Azure Storage][azure-storage].
 
-2. Voer een naam voor uw opslagaccount en selecteert u dezelfde locatie waar uw IoT-Hub is opgeslagen. Klik op **Create**. Noteer de naam voor later.
+1. Navigeer in de Azure-portal naar **maken van een resource** en voer `Storage account` in de zoekbalk. Selecteer **opslagaccount - blob, bestand, tabel, wachtrij**.
+
+2. Voer een naam voor uw opslagaccount en selecteert u dezelfde locatie waar uw IoT-hub zich bevindt. Klik op **Create**. Vergeet niet de naam op voor later.
 
     ![Nieuw opslagaccount][1]
 
-3. Ga naar het opslagaccount dat u zojuist hebt gemaakt in de Azure portal. Klik op **bladeren blobs** onder **Blob-Service**. 
-4. Maak een nieuwe container voor de ASA-module voor het opslaan van gegevens. Stel de toegang op _Container_. Klik op **OK**.
+3. Ga naar het opslagaccount dat u zojuist hebt gemaakt. Klik op **bladeren blobs**. 
+4. Maak een nieuwe container voor de ASA-module voor het opslaan van gegevens. Stel de toegang op **Container**. Klik op **OK**.
 
     ![instellingen voor de opslag][10]
 
-5. Navigeer in de Azure-portal naar **maken van een resource** > **Internet der dingen** en selecteer **Stream Analytics-taak**.
+### <a name="create-a-stream-analytics-job"></a>Een Stream Analytics-taak maken
+
+1. Navigeer in de Azure-portal naar **maken van een resource** > **Internet der dingen** en selecteer **Stream Analytics-taak**.
 
 2. Geef een naam, kiest u **rand** als de Hosting-omgeving, en de overige standaardwaarden gebruiken.  Klik op **Create**.
 
     >[!NOTE]
-    >Op dit moment worden niet ASA-jobs op IoT rand ondersteund in de regio VS West 2. Selecteer een andere locatie.
+    >Op dit moment worden niet ASA-jobs op IoT rand ondersteund in de regio VS-West 2. 
 
-    ![ASA maken][5]
+3. Ga in de taak gemaakt. Selecteer **invoer** klikt u vervolgens op **toevoegen**.
 
-2. Ga naar de gemaakte taak onder **taak topologie**, selecteer **invoer**, klikt u op **toevoegen**.
+4. Voer voor de invoeralias `temperature`, het brontype ingesteld op **gegevensstroom**, en gebruik de standaardinstellingen voor de andere parameters. Klik op **Create**.
 
-3. Voer naam `temperature`, kies **gegevensstroom** als het brontype en gebruik van de standaardwaarden voor de andere parameters. Klik op **Create**.
+   ![Invoer ASA](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-    ![Invoer ASA][2]
+5. Selecteer **uitvoer** klikt u vervolgens op **toevoegen**.
 
-    > [!NOTE]
-    > Extra ingangen kunnen specifieke eindpunten van IoT rand bevatten.
+6. Voer voor de uitvoeralias `alert`, en gebruik de standaardinstellingen voor de andere parameters. Klik op **Create**.
 
-4. Onder **taak topologie**, selecteer **uitvoer**, klikt u op **toevoegen**.
+   ![ASA-uitvoer](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-5. Voer naam `alert` en gebruik de standaardinstellingen. Klik op **Create**.
 
-    ![ASA-uitvoer][3]
-
-6. Onder **taak topologie**, selecteer **Query**, en voer de volgende:
+7. Selecteer **Query**.
+8. De standaardtekst vervangen door de volgende query:
 
     ```sql
     SELECT  
@@ -100,27 +96,31 @@ In deze sectie maakt u een Azure Stream Analytics-taak voor het nemen van gegeve
     FROM 
        temperature TIMESTAMP BY timeCreated 
     GROUP BY TumblingWindow(second,30) 
-    HAVING Avg(machine.temperature) > 100
+    HAVING Avg(machine.temperature) > 70
     ```
+9. Klik op **Opslaan**.
 
 ## <a name="deploy-the-job"></a>De taak implementeren
 
 U bent nu klaar om te implementeren, de ASA-taak op het apparaat aan uw IoT-rand.
 
-1. Navigeer in de Azure-portal in uw IoT-Hub naar **IoT rand (preview)** en open uw *{deviceId}*van blade.
-
-1. Selecteer **modules ingesteld**, selecteer daarna **importeren Azure IoT rand servicemodule**.
-
-1. Selecteer het abonnement en de rand van de ASA-taak die u hebt gemaakt. Selecteer vervolgens uw storage-account. Klik op **Opslaan**.
+1. Navigeer in de Azure-portal in uw IoT-hub naar **IoT rand (preview)** en open de detailpagina voor uw IoT-Edge-apparaat.
+1. Selecteer **modules ingesteld**.
+1. Als u de module tempSensor op dit apparaat hebt geïmplementeerd, kunnen er automatisch invullen. Als dat niet het geval is, gebruik de volgende stappen om toe te voegen die module:
+   1. Klik op **IoT rand Module toevoegen**
+   1. Voer `tempSensor` als de naam en `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` voor de URI van de installatiekopie. 
+   1. De overige instellingen ongewijzigd laat, en klik op **opslaan**.
+1. Selecteer om uw taak ASA rand toe **Import Azure Stream Analytics IoT rand Module**.
+1. Selecteer uw abonnement en de rand van de ASA-taak die u hebt gemaakt. 
+1. Selecteer uw abonnement en het opslagaccount dat u hebt gemaakt. Klik op **Opslaan**.
 
     ![set-module][6]
 
-1. Klik op **IoT rand Module toevoegen** de temperatuursensor module wilt toevoegen. Voer _tempSensor_ naam `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` voor afbeeldings-URL. De overige instellingen ongewijzigd laat, en klik op **opslaan**.
+1. De naam die automatisch is gegenereerd voor de module ASA kopiëren. 
 
     ![temperatuur-module][11]
 
-1. De naam van de module ASA kopiëren. Klik op **volgende** routes configureren.
-
+1. Klik op **volgende** routes configureren.
 1. Kopieer de volgende **Routes**.  Vervang _{moduleName}_ met de naam van de module die u hebt gekopieerd:
 
     ```json
@@ -138,7 +138,7 @@ U bent nu klaar om te implementeren, de ASA-taak op het apparaat aan uw IoT-rand
 
 1. In de **Template bekijken** stap, klikt u op **indienen**.
 
-1. Ga terug naar de detailpagina voor het apparaat en klikt u op **vernieuwen**.  U ziet nu de nieuwe _{moduleName}_ module uitgevoerd samen met de **IoT rand agent** module en de **rand van de IoT hub**.
+1. Ga terug naar de detailpagina voor het apparaat en klikt u op **vernieuwen**.  U ziet nu de nieuwe Stream Analytics-module met samen met de **IoT rand agent** module en de **rand van de IoT hub**.
 
     ![module-uitvoer][7]
 
@@ -146,37 +146,24 @@ U bent nu klaar om te implementeren, de ASA-taak op het apparaat aan uw IoT-rand
 
 U kunt nu gaat u naar uw IoT-randapparaat de interactie tussen de ASA-module en de module tempSensor uitchecken.
 
-1. Configureer de runtime door uw verbindingsreeks van de rand van de IoT-apparaat bij een opdrachtprompt:
+Controleer of alle modules worden uitgevoerd in Docker:
 
-    ```cmd/sh
-    iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords  
-    ```
+   ```cmd/sh
+   docker ps  
+   ```
 
-1. Voer de opdracht de runtime starten:
+   ![docker-uitvoer][8]
 
-    ```cmd/sh
-    iotedgectl start  
-    ```
+Zie alle logboeken en metrische gegevens systeemgegevens. Gebruik de naam van de Stream Analytics-module:
 
-1. Voer de opdracht om te zien van de modules dat wordt uitgevoerd:
+   ```cmd/sh
+   docker logs -f {moduleName}  
+   ```
 
-    ```cmd/sh
-    docker ps  
-    ```
+U moet mogelijk moeten worden gecontroleerd van de machine temperatuur geleidelijk toename totdat het 70 graden gedurende 30 seconden bereikt. Vervolgens wordt de Stream Analytics-module een reset geactiveerd en de temperatuur machine vallen terug tot en met 21. 
 
-    ![docker-uitvoer][8]
+   ![docker-logboek][9]
 
-1. Voer de opdracht om alle systeemlogboeken en metrische gegevens te zien. Gebruik de naam van de module van boven:
-
-    ```cmd/sh
-    docker logs -f {moduleName}  
-    ```
-
-    ![docker-logboek][9]
-
-1. In de Azure-portal in uw opslagaccount onder **Blob-Service**, klikt u op **bladeren blobs**, selecteer uw container en selecteer de zojuist gemaakte JSON-bestand.
-
-1. Klik op **downloaden** en bekijk de resultaten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -187,8 +174,6 @@ In deze zelfstudie maakt u een Azure Storage-container en geconfigureerd een Str
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png
-[2]: ./media/tutorial-deploy-stream-analytics/asa_input.png
-[3]: ./media/tutorial-deploy-stream-analytics/asa_output.png
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png

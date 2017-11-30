@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: e8e943db5a48f8fbbcd63a448abe34b66f5f987a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure Service metagegevens: Geplande gebeurtenissen (Preview) voor virtuele Linux-machines
 
@@ -61,25 +61,41 @@ Geplande gebeurtenissen worden afgeleverd bij:
 Als gevolg hiervan moet u controleren de `Resources` veld in de gebeurtenis geven aan welke VM's gaan worden beïnvloed.
 
 ### <a name="discovering-the-endpoint"></a>Het eindpunt detecteren
+Voor VNET ingeschakeld voor virtuele machines, is het volledig eindpunt voor de nieuwste versie van gebeurtenissen voor gepland: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 In het geval waarbij een virtuele Machine is gemaakt vanuit een virtueel netwerk (VNet), de metagegevensservice is beschikbaar via een statische niet-routeerbare IP-adres `169.254.169.254`.
-Als de virtuele Machine niet vanuit een virtueel netwerk, de standaard gevallen voor cloudservices en klassieke virtuele machines gemaakt is, worden extra logica is vereist voor het detecteren van het eindpunt te gebruiken. Raadpleeg dit voorbeeld voor meer informatie over hoe [de host-eindpunt detecteren](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Als de virtuele Machine niet vanuit een virtueel netwerk, de standaard gevallen voor cloudservices en klassieke virtuele machines gemaakt is, worden extra logica is vereist voor het detecteren van het IP-adres te gebruiken. Raadpleeg dit voorbeeld voor meer informatie over hoe [de host-eindpunt detecteren](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Versiebeheer 
-De Service-exemplaar voor metagegevens is samengestelde. Versies zijn verplicht en de huidige versie is `2017-03-01`.
+De gebeurtenissen geplande Service is samengesteld. Versies zijn verplicht en de huidige versie is `2017-08-01`.
+
+| Versie | Releaseopmerkingen | 
+| - | - | 
+| 2017-08-01 | <li> De functienaam geplaatst onderstrepingsteken verwijderd uit resourcenamen voor Iaas VM 's<br><li>Metagegevenskoptekst vereiste afgedwongen voor alle aanvragen | 
+| 2017-03-01 | <li>Openbare Preview-versie
+
 
 > [!NOTE] 
 > Eerdere versies van de preview van geplande gebeurtenissen {laatste} wordt ondersteund als de api-versie. Deze indeling wordt niet meer ondersteund en in de toekomst wordt afgeschaft.
 
 ### <a name="using-headers"></a>Met behulp van headers
-Wanneer u een query de Metadata-Service, moet u de header geven `Metadata: true` om te controleren of de aanvraag is niet per ongeluk wordt omgeleid.
+Wanneer u een query de Metadata-Service, moet u de header geven `Metadata:true` om te controleren of de aanvraag is niet per ongeluk wordt omgeleid. De `Metadata:true` -header is vereist voor alle geplande gebeurtenissen aanvragen. De header opnemen in de aanvraag is mislukt leidt tot een onjuiste aanvraag reactie van de Metadata-Service.
 
 ### <a name="enabling-scheduled-events"></a>Geplande gebeurtenissen inschakelen
 De eerste keer dat u een aanvraag voor geplande gebeurtenissen schakelt Azure impliciet de functie in op de virtuele Machine. U moet een vertraagde antwoord als gevolg hiervan verwacht in de eerste aanroep van twee minuten.
+
+> [!NOTE]
+> Geplande gebeurtenissen wordt automatisch uitgeschakeld voor uw service als uw service het eindpunt niet aanroepen voor 1 dag. Zodra de geplande gebeurtenissen voor uw service is uitgeschakeld, zullen niet er gebeurtenissen die zijn gemaakt voor het onderhoud van de gebruiker worden gestart.
 
 ### <a name="user-initiated-maintenance"></a>Onderhoud van de gebruiker gestarte
 Gebruiker gestart onderhoud op virtuele machines via de Azure-portal API, CLI of PowerShell resulteert in een geplande gebeurtenis. Dit kunt u de voorbereiding van onderhoud logica in uw toepassing testen en kan de toepassing om voor te bereiden voor het onderhoud van de gebruiker worden gestart.
 
 Een virtuele machine opnieuw plant u een gebeurtenis met type `Reboot`. Een virtuele machine opnieuw plant u een gebeurtenis met type `Redeploy`.
+
+> [!NOTE] 
+> Op dit moment kan maximaal 100 gebruiker gestarte onderhoudsbewerkingen worden tegelijkertijd gepland.
 
 > [!NOTE] 
 > Gebruiker gestarte onderhoud gepland gebeurtenissen ertoe kan momenteel niet worden geconfigureerd. Configuratiemogelijkheden is gepland voor een toekomstige release.
@@ -89,8 +105,9 @@ Een virtuele machine opnieuw plant u een gebeurtenis met type `Reboot`. Een virt
 ### <a name="query-for-events"></a>Query voor gebeurtenissen
 U kunt een query voor geplande gebeurtenissen gewoon door de volgende oproep verzenden:
 
+#### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 Een antwoord bevat een matrix van geplande gebeurtenissen. Een lege matrix betekent zijn momenteel geen gebeurtenissen die zijn gepland.
@@ -134,15 +151,24 @@ Elke gebeurtenis is gepland op basis van de minimale hoeveelheid tijd in de toek
 
 Zodra u hebt geleerd van een aanstaande gebeurtenis en de logica voor het correct afsluiten voltooid, kunt u de openstaande gebeurtenis goedkeuren door het maken van een `POST` aanroep van de metagegevensservice met de `EventId`. Hiermee geeft u aan Azure dat deze de minimale melding kunt inkorten tijd (indien mogelijk). 
 
+Hieronder volgt de json verwacht in de `POST` aanvraagtekst. De aanvraag moet bevatten een lijst met `StartRequests`. Elke `StartRequest` bevat de `EventId` voor de gebeurtenis die u wilt versnellen:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
+}
+```
+
+#### <a name="bash-sample"></a>Bash-voorbeeld
+```
+curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
 > Een gebeurtenis zijn bevestigd, kan de gebeurtenis om door te gaan voor alle `Resources` in het gebeurtenislogboek, niet alleen de virtuele machine bevestigt dat de gebeurtenis. Daarom kunt u ervoor kiest een opvulteken voor het coördineren van de bevestiging die net zo eenvoudig als het eerste virtuele machine in de `Resources` veld.
-
-
-
 
 ## <a name="python-sample"></a>Python-voorbeeld 
 
@@ -189,6 +215,6 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>Volgende stappen 
-
+- Bekijk de codevoorbeelden gepland gebeurtenissen in de [Azure exemplaar metagegevens gepland gebeurtenissen Github-opslagplaats](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Meer informatie over de beschikbare API's in de [service-exemplaar metagegevens](instance-metadata-service.md).
 - Meer informatie over [gepland onderhoud voor Linux virtuele machines in Azure](planned-maintenance.md).

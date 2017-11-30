@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: d6cc4d95adb52b5b0bfc4b674ade878af764a3e7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Programmeerhandleiding voor Event Hubs
 
@@ -117,7 +117,7 @@ Verzenden van gebeurtenissen in batches kunt verhogen doorvoer. De [SendBatch](/
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Let op: één batch mag niet groter zijn dan de limiet van 256 kB voor een gebeurtenis. Daarnaast maakt elk bericht in de batch gebruik van dezelfde uitgever-id. Het is de verantwoordelijkheid van de afzender om ervoor te zorgen dat de batch de maximale gebeurtenisgrootte niet overschrijdt. Als dit wel gebeurt, wordt aan clientzijde een **Verzendfout** gegenereerd. U kunt de helperklasse [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) om ervoor te zorgen dat de batch niet meer dan 256 KB. Ophalen van een lege [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) van de [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API en gebruik vervolgens [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) om toe te voegen gebeurtenissen kan de batch. Gebruik tot slot [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) ophalen van de onderliggende gebeurtenissen moeten worden doorgegeven aan de [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) API.
+Let op: één batch mag niet groter zijn dan de limiet van 256 kB voor een gebeurtenis. Daarnaast maakt elk bericht in de batch gebruik van dezelfde uitgever-id. Het is de verantwoordelijkheid van de afzender om ervoor te zorgen dat de batch de maximale gebeurtenisgrootte niet overschrijdt. Als dit wel gebeurt, wordt aan clientzijde een **Verzendfout** gegenereerd. U kunt de Help-methode [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) om ervoor te zorgen dat de batch niet meer dan 256 KB. Ophalen van een lege [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) van de [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API en gebruik vervolgens [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) om toe te voegen gebeurtenissen kan de batch. Gebruik tot slot [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) ophalen van de onderliggende gebeurtenissen moeten worden doorgegeven aan de [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) API.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Asynchroon verzenden en op schaal verzenden
 U kunt ook gebeurtenissen naar een event hub asynchroon verzenden. Asynchroon verzenden kan de snelheid verhogen waarmee een client gebeurtenissen verzendt. Zowel de methode [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) als de methode [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) is beschikbaar in asynchrone versies die een [Taak](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)-object retourneren. Hoewel dit de doorvoer kan verhogen, kan het er ook voor zorgen dat de client gebeurtenissen blijft verzenden terwijl deze wordt beperkt door de Event Hubs-service. Bij onjuiste implementatie kan dit resulteren in fouten of verloren berichten. Daarnaast kunt u voor de client de eigenschap [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) gebruiken om de opties van de client voor direct opnieuw proberen te beheren.

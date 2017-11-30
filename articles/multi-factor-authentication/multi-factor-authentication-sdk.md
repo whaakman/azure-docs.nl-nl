@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dc12037928d5cc62c35535d45cf674865e3bfe25
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Gebouw multi-factor Authentication in aangepaste Apps (SDK)
 
 > [!IMPORTANT]
-> De afschaffing van de Azure multi-factor Authentication Software Development Kit (SDK) is aangekondigd. Deze functie wordt niet langer ondersteund voor nieuwe klanten. Huidige klanten kunnen blijven met de SDK tot en met 14 November 2018. Na dit tijdstip mislukken aanroepen naar de SDK. 
+> De afschaffing van de Azure Multi-Factor Authentication Software Development Kit (SDK) is aangekondigd. Deze functie wordt niet langer ondersteund voor nieuwe klanten. Huidige klanten kunnen de SDK nog gebruiken tot en met 14 november 2018. Na deze datum kan de SDK niet meer worden aangeroepen. 
 
 De Azure multi-factor Authentication Software Development Kit (SDK) kunt u de verificatie in twee stappen rechtstreeks in het aanmelden of transactie processen van toepassingen in uw Azure AD-tenant maken.
 

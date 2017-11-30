@@ -1,56 +1,76 @@
 ---
-title: Azure Functions SendGrid-bindingen | Microsoft Docs
-description: Naslaginformatie over Azure Functions SendGrid bindingen
+title: Azure Functions SendGrid-bindingen
+description: Azure Functions SendGrid-bindingen naar verwijzen.
 services: functions
 documentationcenter: na
-author: rachelappel
+author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
-ms.author: rachelap
-ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: tdykstra
+ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindingen
 
-In dit artikel wordt uitgelegd hoe configureren en werken met de SendGrid-bindingen in de Azure Functions. Als de sendgrid, kunt u Azure Functions aangepaste om e-mail te verzenden via een programma.
+Dit artikel wordt uitgelegd hoe u e-mail verzendt met behulp van [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) bindingen in de Azure Functions. Azure Functions ondersteunt een uitvoer-binding voor SendGrid.
 
-Dit artikel is referentie-informatie voor ontwikkelaars voor Azure Functions. Als u geen ervaring met Azure Functions, start u de volgende bronnen:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-[Uw eerste Azure-functie maken](functions-create-first-azure-function.md). 
-[C#](functions-reference-csharp.md), [F #](functions-reference-fsharp.md), of [knooppunt](functions-reference-node.md) referenties voor ontwikkelaars.
+## <a name="example"></a>Voorbeeld
 
-## <a name="functionjson-for-sendgrid-bindings"></a>Function.JSON voor SendGrid-bindingen
+Zie het voorbeeld taalspecifieke:
 
-Azure Functions bevat een uitvoer-binding voor SendGrid. De SendGrid-uitvoer binding schakelt u maken en verzenden van e-programmatisch. 
+* [Vooraf gecompileerde C#](#c-example)
+* [C#-script](#c-script-example)
+* [JavaScript](#javascript-example)
 
-De SendGrid-binding ondersteunt de volgende eigenschappen:
+### <a name="c-example"></a>C#-voorbeeld
 
-|Eigenschap  |Beschrijving  |
-|---------|---------|
-|**naam**| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. Deze waarde is ```$return``` wanneer er slechts één waarde. |
-|**type**| Vereist - moet worden ingesteld op `sendGrid`.|
-|**richting**| Vereist - moet worden ingesteld op `out`.|
-|**apiKey**| Vereist - moet worden ingesteld op de naam van uw API-sleutel die is opgeslagen in de instellingen van de functie App-app. |
-|**Aan**| e-mailadres van de geadresseerde. |
-|**Van**| e-mailadres van de afzender. |
-|**Onderwerp**| het onderwerp van het e-mailbericht. |
-|**tekst**| de inhoud van e-mail. |
+Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) dat maakt gebruik van een Service Bus-wachtrij activeren en een SendGrid uitvoer binding.
 
-Voorbeeld van **function.json**:
+```cs
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
+
+Kunt u de instelling van het kenmerk weglaten `ApiKey` eigenschap als u uw API-sleutel in een app-instelling met de naam 'AzureWebJobsSendGridApiKey'.
+
+### <a name="c-script-example"></a>Voorbeeld van C#-script
+
+Het volgende voorbeeld ziet u de uitvoer van een SendGrid binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
 
 ```json 
 {
     "bindings": [
         {
-            "name": "$return",
+            "name": "message",
             "type": "sendGrid",
             "direction": "out",
             "apiKey" : "MySendGridKey",
@@ -62,19 +82,16 @@ Voorbeeld van **function.json**:
 }
 ```
 
-> [!NOTE]
-> Azure Functions slaat uw verbindingsgegevens en API-sleutels als de app-instellingen zodat ze niet zijn ingeschakeld in uw resourcebeheerbibliotheek. Deze actie beschermt uw vertrouwelijke gegevens.
->
->
+De [configuratie](#configuration) sectie wordt uitgelegd deze eigenschappen.
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>C#-voorbeeld van de SendGrid uitvoer binding
+Dit is de C#-scriptcode:
 
 ```csharp
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
 
-public static Mail Run(TraceWriter log, string input, out Mail message)
+public static void Run(TraceWriter log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -94,7 +111,31 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Voorbeeld van de knooppunten van het SendGrid uitvoer binding
+### <a name="javascript-example"></a>JavaScript-voorbeeld
+
+Het volgende voorbeeld ziet u de uitvoer van een SendGrid binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding.
+
+Dit zijn de bindingsgegevens de *function.json* bestand:
+
+```json 
+{
+    "bindings": [
+        {
+            "name": "$return",
+            "type": "sendGrid",
+            "direction": "out",
+            "apiKey" : "MySendGridKey",
+            "to": "{ToEmail}",
+            "from": "{FromEmail}",
+            "subject": "SendGrid output bindings"
+        }
+    ]
+}
+```
+
+De [configuratie](#configuration) sectie wordt uitgelegd deze eigenschappen.
+
+Hier volgt de JavaScript-code:
 
 ```javascript
 module.exports = function (context, input) {    
@@ -110,13 +151,44 @@ module.exports = function (context, input) {
 
     context.done(null, message);
 };
-
 ```
 
+## <a name="attributes"></a>Kenmerken
+
+Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+
+Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [configuratie](#configuration). Hier volgt een `SendGrid` kenmerk voorbeeld in een handtekening voor methode:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    ...
+}
+```
+
+Zie voor een compleet voorbeeld [vooraf gecompileerd C#-voorbeeld](#c-example).
+
+## <a name="configuration"></a>Configuratie
+
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `SendGrid` kenmerk.
+
+|de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
+|---------|---------|----------------------|
+|**type**|| Vereist - moet worden ingesteld op `sendGrid`.|
+|**richting**|| Vereist - moet worden ingesteld op `out`.|
+|**naam**|| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. Deze waarde is ```$return``` wanneer er slechts één waarde. |
+|**apiKey**|**ApiKey**| De naam van een app-instelling die uw API-sleutel bevat. Als niet is ingesteld, de standaard-app instellen van is de naam 'AzureWebJobsSendGridApiKey'.|
+|**Aan**|**Aan**| e-mailadres van de geadresseerde. |
+|**Van**|**Van**| e-mailadres van de afzender. |
+|**Onderwerp**|**Onderwerp**| het onderwerp van het e-mailbericht. |
+|**tekst**|**Tekst**| de inhoud van e-mail. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over andere bindingen en triggers voor Azure Functions 
-- [Azure Functions triggers en bindingen referentie voor ontwikkelaars](functions-triggers-bindings.md)
 
-- [Aanbevolen procedures voor Azure Functions](functions-best-practices.md) vindt u enkele aanbevolen procedures voor gebruik bij het maken van Azure Functions.
-
-- [Naslaginformatie over Azure Functions developer](functions-reference.md) programmeurs verwijzing voor het coderen van functies en definiëren van triggers en bindingen.
+> [!div class="nextstepaction"]
+> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)

@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/29/2017
 ms.author: dobett
-ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Berichtroutes en aangepaste eindpunten gebruikt voor apparaat-naar-cloud-berichten
 
@@ -33,6 +33,8 @@ IoT-Hub kunt u voor het routeren van [apparaat-naar-cloudberichten] [ lnk-device
 Een enkel bericht mogelijk overeenkomt met de voorwaarde op meerdere regels voor het doorsturen, geval IoT Hub waarin het bericht naar het eindpunt dat is gekoppeld aan elke overeenkomende regel biedt. IoT Hub deduplicates ook automatisch levering van berichten, dus als een bericht overeenkomt met meerdere regels die hetzelfde doel hebben, wordt alleen geschreven naar deze bestemming eenmaal.
 
 Een IoT-hub is een standaard [ingebouwd eindpunt][lnk-built-in]. U kunt aangepaste eindpunten om berichten te routeren naar maken door andere services in uw abonnement koppelen aan de hub. IoT Hub ondersteunt momenteel Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen als aangepaste eindpunten.
+
+Wanneer u Routering en aangepaste eindpunten, worden berichten alleen geleverd met het ingebouwde eindpunt als ze komen niet met alle regels overeen. Voeg een route dat berichten naar verzendt berichten met het ingebouwde eindpunt ook over een aangepaste eindpunt worden afgeleverd, de **gebeurtenissen** eindpunt.
 
 > [!NOTE]
 > IoT Hub biedt alleen ondersteuning voor het schrijven van gegevens naar Azure Storage-containers als blobs.

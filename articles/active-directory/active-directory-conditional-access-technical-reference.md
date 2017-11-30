@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 243c42b8637b7887047c85a60e5dfedfd7f6904a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory voorwaardelijke toegang technische naslaginformatie
 
-U kunt [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) af te stemmen hoe geautoriseerde gebruikers toegang uw resources tot hebben.  
+U kunt [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) af te stemmen hoe geautoriseerde gebruikers toegang uw resources tot hebben.   
 
-Dit onderwerp bevat informatie over ondersteuning voor de volgende configuratieopties voor beleid voor voorwaardelijke toegang: 
+Dit artikel vindt u informatie over ondersteuning voor de volgende configuratieopties voor beleid voor voorwaardelijke toegang: 
 
 - Toewijzingen voor cloud-toepassingen
 
@@ -38,7 +38,7 @@ Dit onderwerp bevat informatie over ondersteuning voor de volgende configuratieo
 
 ## <a name="cloud-apps-assignments"></a>Toewijzingen voor cloud-apps
 
-Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u [Selecteer de cloud-apps die gebruikmaken van uw beleid](active-directory-conditional-access-azure-portal.md#who). 
+Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot uw [cloud-apps](active-directory-conditional-access-azure-portal.md#who). Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u ten minste één cloud-app selecteren. 
 
 ![Selecteer de cloud-apps voor uw beleid](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u [Selectee
 U kunt beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-apps van Microsoft:
 
 - Azure Information Protection - [meer informatie](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ U kunt de voorwaarde voor het platform van apparaat voor het koppelen van het be
 
 ## <a name="client-apps-condition"></a>Voorwaarde voor client-apps 
 
-Wanneer u een beleid voor voorwaardelijke toegang configureert, kunt u [client-apps selecteert](active-directory-conditional-access-azure-portal.md#client-apps) voor de client app-voorwaarde. De client-apps probleem verlenen of toegang blokkeren als er een toegangspoging wordt uitgevoerd vanaf de volgende typen van de client-apps instellen:
+In uw beleid voor voorwaardelijke toegang configureert u de [client-apps](active-directory-conditional-access-azure-portal.md#client-apps) voorwaarde voor het koppelen van het beleid naar de clientapp die een toegangspoging heeft gestart. De client-apps probleem verlenen of toegang blokkeren als er een toegangspoging wordt uitgevoerd vanaf de volgende typen van de client-apps instellen:
 
 - Browser
 - Mobiele apps en bureaublad-apps
@@ -112,11 +113,11 @@ Wanneer u een beleid voor voorwaardelijke toegang configureert, kunt u [client-a
 
 ### <a name="supported-browsers"></a>Ondersteunde browsers 
 
-Toegang tot de browser beheren met behulp van de **Browser** optie in uw beleid voor voorwaardelijke toegang. Alleen wanneer de toegang wordt geprobeerd met een ondersteunde browser, wordt toegang verleend. Bij een toegangspoging is aangevraagd door een niet-ondersteunde browser, wordt de poging wordt geblokkeerd.
+In uw beleid voor voorwaardelijke toegang, kunt u **Browsers** als client-app.
 
 ![Toegang beheren voor ondersteunde browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
-In uw beleid voor voorwaardelijke toegang, zijn de volgende browsers worden ondersteund: 
+Deze instelling heeft gevolgen op toegangspogingen tot van de volgende browsers: 
 
 
 | OS                     | Browsers                            | Ondersteuning     |
@@ -140,11 +141,13 @@ In uw beleid voor voorwaardelijke toegang, zijn de volgende browsers worden onde
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Ondersteunde mobiele toepassingen en bureaublad-clients
 
-Client en app-toegang beheren met behulp van de **mobiele apps en bureaublad-clients** optie in uw beleid voor voorwaardelijke toegang. Alleen wanneer de toegang wordt geprobeerd met een ondersteunde mobiele app of bureaubladclient toegang verleend. Bij een toegangspoging is aangevraagd door een niet-ondersteunde app of de client, wordt de poging wordt geblokkeerd.
+In uw beleid voor voorwaardelijke toegang, kunt u **mobiele apps en bureaublad-clients** als client-app.
+
 
 ![Toegang beheren voor ondersteunde mobiele apps of bureaubladclients](./media/active-directory-conditional-access-technical-reference/06.png)
 
-De volgende apps voor mobiele en bureaublad-clients ondersteuning voor voorwaardelijke toegang voor Office 365 en andere toepassingen Azure AD-connected-service:
+
+Deze instelling heeft gevolgen op toegangspogingen tot van de volgende apps voor mobiele en bureaublad-clients: 
 
 
 |Client-apps|Target-Service|Platform|
@@ -170,11 +173,11 @@ De volgende apps voor mobiele en bureaublad-clients ondersteuning voor voorwaard
 
 ## <a name="approved-client-app-requirement"></a>Goedgekeurde app vereiste 
 
-Clientverbindingen beheren met behulp van de **goedgekeurde app vereist** optie in uw beleid voor voorwaardelijke toegang. Alleen wanneer er een verbindingspoging wordt gedaan door een goedgekeurde clientapp, wordt toegang verleend.
+U kunt in uw beleid voor voorwaardelijke toegang vereisen dat een toegang wilt de geselecteerde cloud-apps moet worden gemaakt van een goedgekeurde client-app. 
 
 ![Toegang beheren voor goedgekeurde client-apps](./media/active-directory-conditional-access-technical-reference/21.png)
 
-De volgende ClientApps kunnen worden gebruikt met de vereiste goedgekeurde client-toepassing:
+Deze instelling geldt voor de volgende ClientApps:
 
 
 - Microsoft Azure Information Protection

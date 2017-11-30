@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
-ms.openlocfilehash: f6131d7f177c3ca02cf8dfe5d140df5e6d8a7ffa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="payment-processing-blueprint-for-pci-dss-compliant-environments"></a>Betaling verwerken blauwdruk voor PCI DSS-compatibele omgevingen
+# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Automation blauwdruk: Betaling verwerken voor PCI DSS-compatibele omgevingen
 
-De betaling verwerken blauwdruk voor PCI DSS-compatibele omgevingen bevat richtlijnen voor de implementatie van een geschikt is voor het verwerken van gegevens van gevoelige payment card PCI DSS-compatibel Platform-as-a-Service (PaaS)-omgeving. Het een algemene referentiearchitectuur gepresenteerd en is ontworpen om u te vereenvoudigen, de acceptatie van Microsoft Azure. Deze fundamentele architectuur ziet u een end-to-end-oplossing om te voldoen aan de behoeften van organisaties die een vermindering van de werkbelasting en de kosten van de implementatie van cloud-gebaseerde benadering zoeken.
+## <a name="overview"></a>Overzicht
 
-Deze fundamentele architectuur voldoet aan de vereisten van strenge Payment Card Industry Data Security Standards (PCI DSS 3.2) voor de verzameling, opslaan en ophalen van gegevens voor de betaling voor. Laat de juiste manier waarop creditcardgegevens (inclusief de gegevens, de vervaldatum en de verificatie voor) in een beveiligde, compatibele meerdere lagen omgeving geïmplementeerd als een end-to-end oplossing op basis van Azure. Zie voor meer informatie over deze oplossing en PCI DSS 3.2 [vereisten in de PCI-DSS - High-Level overzicht](pci-dss-requirements-overview.md).
+Het verwerken van de betaling voor PCI DSS-compatibele omgevingen bevat richtlijnen voor de implementatie van een geschikt is voor het verwerken van gegevens van gevoelige payment card PCI DSS-compatibel Platform-as-a-Service (PaaS)-omgeving. Het een algemene referentiearchitectuur gepresenteerd en is ontworpen om u te vereenvoudigen, de acceptatie van Microsoft Azure. Deze blauwdruk ziet u een end-to-end-oplossing om te voldoen aan de behoeften van organisaties die een vermindering van de werkbelasting en de kosten van de implementatie van cloud-gebaseerde benadering zoeken.
 
-Deze architectuur is bedoeld om te fungeren als basis voor klanten om aan te passen aan hun specifieke vereisten en mag niet worden gebruikt als-is in een productieomgeving. Implementeren van een toepassing in deze omgeving zonder aanpassing is niet voldoende volledig voldoen aan de vereisten van een oplossing voor PCI DSS-compatibel. Houd rekening met het volgende:
-- Deze fundamentele architectuur biedt een basis zodat klanten Microsoft Azure gebruiken op een manier PCI DSS-compatibel.
+Deze blauwdruk is ontworpen om te voldoen aan de vereisten van strenge Payment Card Industry Data Security Standards (PCI DSS 3.2) voor de verzameling, opslaan en ophalen van gegevens voor de betaling voor. Laat de juiste manier waarop creditcardgegevens (inclusief de gegevens, de vervaldatum en de verificatie voor) in een beveiligde, compatibele meerdere lagen omgeving geïmplementeerd als een end-to-end oplossing PaaS op basis van Azure. Zie voor meer informatie over deze oplossing en PCI DSS 3.2 [vereisten in de PCI-DSS - High-Level overzicht](pci-dss-requirements-overview.md).
+
+Deze blauwdruk is bedoeld om te fungeren als basis voor klanten om de specifieke vereisten beter te begrijpen en mag niet worden gebruikt als-is in een productieomgeving. Implementeren van een toepassing in deze omgeving zonder aanpassing is niet voldoende volledig voldoen aan de vereisten van een PCI DSS-compatibele oplossing voor een aangepaste oplossing. Houd rekening met het volgende:
+- Deze blauwdruk biedt een basis zodat klanten Microsoft Azure gebruiken op een manier PCI DSS-compatibel.
 - Bereiken PCI DSS-compatibiliteit vereist dat een erkende gekwalificeerde beveiliging beoordelaar (QSA) een oplossing van de klant productie certificeren.
 - Klanten zijn verantwoordelijk voor het uitvoeren van de juiste beveiliging en naleving beoordelingen van een oplossing die zijn gebouwd met behulp van deze fundamentele architectuur als vereisten kunnen variëren op basis van de details van de implementatie en de locatie van elke klant.  
 
@@ -41,7 +43,7 @@ De fundamentele architectuur bestaat uit de volgende onderdelen:
 - **Implementatiesjablonen**. In deze implementatie [Azure Resource Manager-sjablonen](/azure/azure-resource-manager/resource-group-overview#template-deployment) worden gebruikt voor de onderdelen van de architectuur automatisch implementeren in Microsoft Azure door te geven configuratieparameters tijdens de installatie.
 - **Geautomatiseerde implementatiescripts**. Deze scripts helpen bij het implementeren van de end-to-end-oplossing. De scripts bestaan uit:
     - Een installatie van de module en [hoofdbeheerder](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installatiescript wordt gebruikt om te installeren en te controleren of vereiste PowerShell-modules en -rollen van de globale beheerder correct zijn geconfigureerd.
-    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met SQL database voorbeeldinhoud opgegeven. De broncode voor deze oplossing beschikbaar is voor controle is [hier](https://github.com/Microsoft/azure-sql-security-sample).
+    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, die beschikbaar zijn via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met [SQL-databasevoorbeeld](https://github.com/Microsoft/azure-sql-security-sample). inhoud. De broncode voor deze oplossing beschikbaar is voor controle is [betaling verwerken blauwdruk code opslagplaats][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Architectuurdiagram
 
@@ -49,9 +51,9 @@ De fundamentele architectuur bestaat uit de volgende onderdelen:
 
 ## <a name="user-scenario"></a>Scenario voor gebruikers
 
-De fundamentele architectuur heeft betrekking op het onderstaande gebruiksvoorbeeld.
+De blauwdruk heeft betrekking op het onderstaande gebruiksvoorbeeld.
 
-> Dit scenario ziet u hoe een fictieve webarchief hun betaling kaart verwerking naar een oplossing op basis van Azure verplaatst. De oplossing verzameling basisgebruiker informatie inclusief betalingsgegevens verwerkt. De oplossing verwerkt geen betalingen met deze gegevens kaarthouder; Nadat de gegevens worden verzameld, zijn klanten zelf verantwoordelijk voor het initiëren en uitvoeren van transacties met een processor betaling. Zie voor meer informatie het document "Controleren en richtlijnen voor implementatie" op de [Microsoft Trust serviceportal](http://aka.ms/stp).
+> Dit scenario ziet u hoe een fictieve webarchief hun betaling kaart verwerking naar een oplossing op basis van Azure PaaS verplaatst. De oplossing verzameling basisgebruiker informatie inclusief betalingsgegevens verwerkt. De oplossing verwerkt geen betalingen met deze gegevens kaarthouder; Nadat de gegevens worden verzameld, zijn klanten zelf verantwoordelijk voor het initiëren en uitvoeren van transacties met een processor betaling. Zie voor meer informatie de ["Controleren en richtlijnen voor implementatie"](https://aka.ms/pciblueprintprocessingoverview).
 
 ### <a name="use-case"></a>Gebruiksvoorbeeld
 Een kleine webarchief aangeroepen *Contoso Webstore* is gereed om te verplaatsen van hun betalingssysteem naar de cloud. Ze hebt Microsoft Azure voor het hosten van het proces voor het aanschaffen van en naar een medewerker creditcardbetalingen verzamelen van hun klanten toestaan geselecteerd.
@@ -76,9 +78,9 @@ Gebruikersrollen gebruikt voor het gebruiksvoorbeeld illustreren en bieden inzic
 | Naam: |`Global Admin Azure PCI Samples`|
 |Gebruikerstype:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* De account van de beheerder kan creditcardgegevens ontmaskerd niet lezen. Alle acties worden vastgelegd.
-* De account van de beheerder kan beheren of meld u aan bij de SQL-Database.
-* De beheerder kan beheren Active Directory en abonnement.
+- De account van de beheerder kan creditcardgegevens ontmaskerd niet lezen. Alle acties worden vastgelegd.
+- De account van de beheerder kan beheren of meld u aan bij de SQL-Database.
+- De beheerder kan beheren Active Directory en abonnement.
 
 #### <a name="role-sql-administrator"></a>-Functie: De beheerder van de SQL
 
@@ -90,8 +92,8 @@ Gebruikersrollen gebruikt voor het gebruiksvoorbeeld illustreren en bieden inzic
 |Achternaam: |`PCI Samples`|
 |Gebruikerstype:| `Administrator`|
 
-* Het account sqladmin weergeven niet ongefilterde creditcardgegevens. Alle acties worden vastgelegd.
-* De sqladmin kan SQL-database beheren.
+- Het account sqladmin weergeven niet ongefilterde creditcardgegevens. Alle acties worden vastgelegd.
+- De sqladmin kan SQL-database beheren.
 
 #### <a name="role-clerk"></a>Rol: Clerk
 
@@ -113,13 +115,13 @@ Edna Benson is de manager receptionist en bedrijven. Ze is verantwoordelijk voor
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - geschatte prijzen
 
-Deze fundamentele architectuur en voorbeeld-webtoepassing hebben een maandelijkse kostenstructuur en gebruikskosten per uur dat bij het formaat van de oplossing moet worden beschouwd. Deze kosten worden geschat met behulp van de [Azure goedkoper Rekenmachine](https://azure.microsoft.com/pricing/calculator/). Vanaf September 2017 de geschatte maandelijkse kosten voor deze oplossing is ~ $900. Deze kosten variëren, afhankelijk van de hoeveelheid en nog worden gewijzigd. Het is aan de klant voor het berekenen van de geschatte kosten van het maandelijkse op het moment van implementatie voor een meer nauwkeurige schatting. 
+Deze fundamentele architectuur en voorbeeld-webtoepassing hebben een maandelijkse kostenstructuur en gebruikskosten per uur dat bij het formaat van de oplossing moet worden beschouwd. Deze kosten worden geschat met behulp van de [Azure goedkoper Rekenmachine](https://azure.microsoft.com/pricing/calculator/). Vanaf September 2017 de geschatte maandelijkse kosten voor deze oplossing is ~ $2500 hierbij $1000 per maand gebruik kosten met zich mee voor v2 as-omgeving. Deze kosten variëren, afhankelijk van de hoeveelheid en nog worden gewijzigd. Het is aan de klant voor het berekenen van de geschatte kosten van het maandelijkse op het moment van implementatie voor een meer nauwkeurige schatting. 
 
 Deze oplossing gebruikt de volgende Azure-services. Details van de architectuur voor implementatie bevinden zich in de [architectuur voor implementatie](#deployment-architecture) sectie.
 
 >- Application Gateway
 >- Azure Active Directory
->- App Service-omgeving
+>- App Service-omgeving v2
 >- OMS Log Analytics
 >- Azure Key Vault
 >- Netwerkbeveiligingsgroepen
@@ -234,7 +236,7 @@ Zie voor meer informatie over het gebruik van de beveiligingsfuncties van Azure 
 
 [Azure App Service](/azure/app-service/) is een beheerde service voor het implementeren van web-apps. De toepassing Contoso Webstore wordt geïmplementeerd als een [App Service-Web-App](/azure/app-service-web/app-service-web-overview).
 
-[Azure App Service omgeving (as-omgeving)](/azure/app-service/app-service-environment/intro) is een App Service-functie een volledig geïsoleerde en toegewezen omgeving biedt voor het uitvoeren van App Service-apps veilig op grote schaal. het is een Premium-service-abonnement gebruikt door deze fundamentele architectuur PCI DSS naleving inschakelen.
+[Azure App Service-omgeving (as-omgeving v2)](/azure/app-service/app-service-environment/intro) is een App Service-functie een volledig geïsoleerde en toegewezen omgeving biedt voor het uitvoeren van App Service-apps veilig op grote schaal. het is een Premium-service-abonnement gebruikt door deze fundamentele architectuur PCI DSS naleving inschakelen.
 
 ASEs zijn geïsoleerd, zodat slechts één klant toepassingen uitvoeren en altijd in een virtueel netwerk worden geïmplementeerd. Klanten hebben fijnmazig controle over beide-toepassing voor binnenkomend en uitgaand netwerkverkeer en toepassingen kunnen verbinding maken snelle beveiligde verbindingen via virtuele netwerken met lokale bedrijfsbronnen.
 
@@ -270,7 +272,7 @@ Een virtuele machine is gemaakt als een jumpbox (bastion host) met de volgende c
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) voor Azure Cloud Services en virtuele Machines is real-timebeveiliging-functie waarmee identificeren en te verwijderen van virussen, spyware en andere schadelijke software, met configureerbare waarschuwingen wanneer bekende schadelijke of ongewenste software probeert zichzelf te installeren of uitvoeren op uw Azure-systemen.
 
-### <a name="operations-management"></a>Operationeel beheer
+### <a name="operations-management"></a>Operationeel management
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -282,7 +284,7 @@ Gebruik [Application Insights](https://azure.microsoft.com/services/application-
 
 #### <a name="oms-solutions"></a>OMS-oplossingen
 
-De volgende OMS-oplossingen zijn vooraf geïnstalleerd als onderdeel van de fundamentele-architectuur:
+Deze extra OMS-oplossingen moeten worden gezien en geconfigureerd:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL-analyses](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,7 +340,7 @@ Het is raadzaam dat een schone installatie van PowerShell worden gebruikt voor h
     
     Zie voor instructies over het gebruik van gedetailleerde, [Script instructies - implementeren en configureren van de Azure-Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS logboekregistratie en controle. Zodra de oplossing is geïmplementeerd, een [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) werkruimte te openen en de voorbeeldsjablonen die is opgegeven in de opslagplaats oplossing kunnen worden gebruikt om te laten zien hoe een bewakingsdashboard kan zijn geconfigureerd. Voor de OMS-voorbeeldsjablonen naar verwijzen de [omsDashboards map](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+3. OMS logboekregistratie en controle. Zodra de oplossing is geïmplementeerd, een [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) werkruimte te openen en de voorbeeldsjablonen die is opgegeven in de opslagplaats oplossing kunnen worden gebruikt om te laten zien hoe een bewakingsdashboard kan zijn geconfigureerd. Voor de OMS-voorbeeldsjablonen naar verwijzen de [omsDashboards map](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Houd er rekening mee dat de gegevens moeten worden verzameld in OMS voor sjablonen voor het implementeren van correct. Dit kan duren een uur of langer, afhankelijk van de activiteiten op websites.
  
     Overweeg bij het instellen van uw OMS-logboekregistratie, waaronder de volgende bronnen:
  
@@ -355,11 +357,11 @@ Het is raadzaam dat een schone installatie van PowerShell worden gebruikt voor h
     
 ## <a name="threat-model"></a>Risicomodel
 
-Een gegevensstroom-diagram (GSD) en een risicomodel voorbeeld voor het Contoso Webstore zijn beschikbaar in de sectie documenten van de [code opslagplaats][code-repo].
+Een gegevensstroom-diagram (GSD) en een risicomodel voorbeeld voor het Contoso Webstore [risicomodel betaling verwerken blauwdruk](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
-Zie voor meer informatie de [PCI blauwdruk risicomodel](https://aka.ms/pciblueprintthreatmodel).
+
 
 ## <a name="customer-responsibility-matrix"></a>Klant verantwoordelijkheid matrix
 
@@ -376,7 +378,10 @@ De oplossing is gelezen door Coalfire systems, Inc. (PCI-DSS gekwalificeerde bev
 - Dit document is alleen ter informatie. MICROSOFT EN AVYAN, WAARDOOR GEEN ENKELE EXPLICIETE, IMPLICIETE OF WETTELIJKE GARANTIE VOOR DE INFORMATIE IN DIT DOCUMENT. Dit document wordt geleverd ' as-is. " Informatie en inzichten die in dit document, inclusief URL's en andere websiteverwijzingen, kunnen zonder kennisgeving worden gewijzigd. Dit document lezen klanten draagt het risico voor het gebruik ervan.  
 - Dit document biedt geen enkel wettelijk recht op enig intellectueel eigendom van oplossingen van andere producten van Microsoft of Avyan of klanten.  
 - Klanten kunnen kopiëren en gebruiken van dit document voor interne referentiedoeleinden.  
-- Bepaalde aanbevelingen in dit artikel kunnen leiden tot hogere-, netwerk- of compute-Resourcegebruik in Azure en een klant Azure licentie of abonnement kosten kunnen verhogen.  
+
+  > [!NOTE]
+  > Bepaalde aanbevelingen in dit artikel kunnen leiden tot hogere-, netwerk- of compute-Resourcegebruik in Azure en een klant Azure licentie of abonnement kosten kunnen verhogen.  
+
 - De oplossing in dit document is bedoeld als een fundamenteel architectuur en moet niet worden gebruikt als-is bedoeld voor productie. PCI-naleving kan bereiken, vereist dat klanten hun gekwalificeerde beveiliging beoordelaar raadplegen.  
 - Alle klantnamen van de, transactierecords en alle bijbehorende gegevens op deze pagina zijn fictief, gemaakt met het oog op deze fundamentele architectuur en slechts ter illustratie. Er is geen echte verwantschap of relatie is bedoeld en geen mag niet worden afgeleid.  
 - Deze oplossing is ontwikkeld door Microsoft en Avyan advies en is beschikbaar in de [MIT-licentie](https://opensource.org/licenses/MIT).
@@ -384,8 +389,8 @@ De oplossing is gelezen door Coalfire systems, Inc. (PCI-DSS gekwalificeerde bev
 
 ### <a name="document-authors"></a>Auteurs van documenten
 
-* *Frank Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan advies)*
+- *Frank Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan advies)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code-opslagplaats"
