@@ -23,6 +23,10 @@
       href: tutorial-forecast-spending.md
     - name: 4 - Kosten beheren
       href: tutorial-manage-costs.md
+- name: Concepten
+  items:
+    - name: Inzicht krijgen in kostenrapporten
+      href: understading-cost-reports.md
 - name: Resources
   items:
     - name: Video's over Kostenbeheer

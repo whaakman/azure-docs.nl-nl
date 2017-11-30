@@ -20,7 +20,7 @@
 
 ## Taken maken
 ### [Invoer maken](stream-analytics-define-inputs.md)
-### [Voorbeeldinvoergegevens](stream-analytics-sample-data-input.md)
+### [Query's en voorbeelden van invoergegevens testen](stream-analytics-sample-data-input.md)
 ### [Veelvoorkomende querypatronen](stream-analytics-stream-analytics-query-patterns.md)
 ### [Vensterfuncties](stream-analytics-window-functions.md)
 

@@ -4,18 +4,18 @@
   items:
     - name: Over Azure IoT Edge
       href: how-iot-edge-works.md
-- name: QuickStarts
+- name: Snelstartgidsen
   items:
-    - name: Implementeren naar de rand - Windows
-      href: quickstart.md
     - name: Implementeren naar de rand - Linux
       href: quickstart-linux.md
+    - name: Implementeren naar de rand - Windows
+      href: quickstart.md
 - name: Zelfstudies
   items:
-    - name: Een Edge-apparaat simuleren - Windows
-      href: tutorial-simulate-device-windows.md
     - name: Een Edge-apparaat simuleren - Linux
       href: tutorial-simulate-device-linux.md
+    - name: Een Edge-apparaat simuleren - Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Een C#-module ontwikkelen'
       href: tutorial-csharp-module.md
     - name: Azure Stream Analytics implementeren
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Handleidingen
   items:
-    - name: Een gateway-apparaat maken
-      href: how-to-create-gateway-device.md
+    - name: Een transparante gateway maken
+      href: how-to-create-transparent-gateway.md
     - name: Op schaal implementeren en bewaken
       href: how-to-deploy-monitor.md
     - name: Een IoT Core-apparaat inrichten
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Implementaties
       href: module-deployment-monitoring.md
+    - name: IoT Edge-apparaat als gateway
+      href: iot-edge-as-gateway.md
     - name: Beveiliging
       href: security.md
 - name: Resources

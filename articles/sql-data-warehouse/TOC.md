@@ -1,52 +1,56 @@
 # Overzicht
 
-## [Wat is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
-## [Datawarehouse-workload](sql-data-warehouse-overview-workload.md)
+## [Over SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 
-# Aan de slag
+# Snelstartgidsen
 
-## [Zelfstudie over het laden van gegevens](load-data-from-azure-blob-storage-using-polybase.md)
-## [Elastische query-zelfstudie](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [Aanbevolen procedures](sql-data-warehouse-best-practices.md)
-## [Beheren](sql-data-warehouse-overview-manage.md)
+## [Maken en koppelen - portal](create-data-warehouse-portal.md)
 
-# Procedures
+# Zelfstudies
+## [1 - Gegevens uit een blob laden](load-data-from-azure-blob-storage-using-polybase.md)
 
+# Concepten
 ## Servicekenmerken
 ### [MPP-architectuur](massively-parallel-processing-mpp-architecture.md)
 ### [Prestatielagen](performance-tiers.md)
 ### [Datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Datawarehouse-back-ups](sql-data-warehouse-backups.md)
+### [Controle](sql-data-warehouse-auditing-overview.md)
 ### [Capaciteitslimieten](sql-data-warehouse-service-capacity-limits.md)
 ### [Veelgestelde vragen](sql-data-warehouse-overview-faq.md)
 
-## Back-ups en herstellen
+## Beveiliging
+### [Overzicht](sql-data-warehouse-overview-manage-security.md)
+### [Verificatie](sql-data-warehouse-authentication.md)
 
-### [Overzicht van back-up](sql-data-warehouse-backups.md)
-### [Overzicht van herstel](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
-## Verbinding maken
+## Naar SQL Data Warehouse migreren
+### [Overzicht](sql-data-warehouse-overview-migrate.md)
+### [Migratiehulpprogramma](sql-data-warehouse-migrate-migration-utility.md)
+### [Schema migreren](sql-data-warehouse-migrate-schema.md)
+### [Code migreren](sql-data-warehouse-migrate-code.md)
+### [Gegevens migreren](sql-data-warehouse-migrate-data.md)
 
-### [Overzicht](sql-data-warehouse-connect-overview.md)
-### [SSMS](sql-data-warehouse-query-ssms.md)
-### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [Visual Studio installeren](sql-data-warehouse-install-visual-studio.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [Verbindingsreeksen](sql-data-warehouse-connection-strings.md)
+## Gegevens laden en verplaatsen
+### [Overzicht](sql-data-warehouse-overview-load.md)
+### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
 
-## Maken
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
-## Ontwikkelen
+## Integreren
+### [Overzicht](sql-data-warehouse-overview-integrate.md)
 
+
+## Bewaken en afstemmen
+### [Richtlijnen](resource-classes-for-workload-management.md)
+### [Columnstore-compressie](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
+### [Controle](sql-data-warehouse-manage-monitor.md)
+### [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
+
+## Datawarehouses ontwikkelen
 ### [Overzicht](sql-data-warehouse-overview-develop.md)
+### [Datawarehouse-onderdelen](sql-data-warehouse-overview-workload.md)
 
 ### Tabellen
-
 #### [Overzicht](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
 #### [Gegevenstypen](sql-data-warehouse-tables-data-types.md)
@@ -59,13 +63,11 @@
 #### [Tijdelijk](sql-data-warehouse-tables-temporary.md)
 
 ### Query's
-
 #### [Dynamic SQL](sql-data-warehouse-develop-dynamic-sql.md)
 #### [Groeperen op opties](sql-data-warehouse-develop-group-by-options.md)
 #### [Labels](sql-data-warehouse-develop-label.md)
 
 ### Taalelementen T-SQL
-
 #### [Lussen](sql-data-warehouse-develop-loops.md)
 #### [Opgeslagen procedures](sql-data-warehouse-develop-stored-procedures.md)
 #### [Transacties](sql-data-warehouse-develop-transactions.md)
@@ -74,77 +76,45 @@
 #### [Variabele toewijzing](sql-data-warehouse-develop-variable-assignment.md)
 #### [Weergaven](sql-data-warehouse-develop-views.md)
 
-## Integreren
-
-### [Overzicht](sql-data-warehouse-overview-integrate.md)
-### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)
-### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [Zelfstudie over Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Power BI-visualisatie](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
-### [Elastische query met SQL Database en SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
-
-## Belasting
-
-### Concepten
-#### [Overzicht](sql-data-warehouse-overview-load.md)
-#### [Hulp bij PolyBase](sql-data-warehouse-load-polybase-guide.md)
-
-### Zelfstudies
-#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-
-### Handleidingen
-#### [Voorbeeldgegevens](sql-data-warehouse-load-sample-databases.md)
-#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-#### [BCP](sql-data-warehouse-load-with-bcp.md)
-#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-#### [PolyBase uit Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-#### [PolyBase uit SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-#### [RedGate](sql-data-warehouse-load-with-redgate.md)
-#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
-## Migreren
-
-### [Overzicht](sql-data-warehouse-overview-migrate.md)
-### [Migratiehulpprogramma](sql-data-warehouse-migrate-migration-utility.md)
-### [Schema migreren](sql-data-warehouse-migrate-schema.md)
-### [Code migreren](sql-data-warehouse-migrate-code.md)
-### [Gegevens migreren](sql-data-warehouse-migrate-data.md)
-### [Migreren naar Premium-opslag](sql-data-warehouse-migrate-to-premium-storage.md)
-
-## Compute beheren
-
-### [Overzicht](sql-data-warehouse-manage-compute-overview.md)
-### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
-### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [REST-API](sql-data-warehouse-manage-compute-rest-api.md)
-### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
-### [Rekenniveaus automatiseren](manage-compute-with-azure-functions.md)
-
-### Resourceklassen
-#### [Richtlijnen](resource-classes-for-workload-management.md)
-#### [Uw werkbelasting analyseren](analyze-your-workload.md)
-
-## Prestaties
-
-### [Overzicht](sql-data-warehouse-overview-manage-user-queries.md)
-### [Columnstore-compressie](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Controle](sql-data-warehouse-manage-monitor.md)
+# Handleidingen
+## Servicekenmerken
+### [Een datawarehouse herstellen - portal](sql-data-warehouse-restore-database-portal.md)
+### [Een datawarehouse herstellen - PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [Een datawarehouse herstellen - REST API](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Beveiliging
-
-### [Overzicht](sql-data-warehouse-overview-manage-security.md)
-### [Controle](sql-data-warehouse-auditing-overview.md)
-### [Controle voor downlevel-clients](sql-data-warehouse-auditing-downlevel-clients.md)
-### [Verificatie](sql-data-warehouse-authentication.md)
-### [Versleuteling](sql-data-warehouse-encryption-tde.md)
-### [Versleuteling met T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
+### [Versleuteling inschakelen - portal](sql-data-warehouse-encryption-tde.md)
+### [Versleuteling inschakelen - T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Detectie van bedreigingen](sql-data-warehouse-security-threat-detection.md)
 
-## Problemen oplossen
-### [Problemen oplossen](sql-data-warehouse-troubleshoot.md)
+
+## Gegevens laden en verplaatsen
+### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+### [PolyBase uit Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [PolyBase uit SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [RedGate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
+
+## Integreren
+###  [Een elastische query in SQL Database configureren](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Een Azure Stream Analytics-taak toevoegen](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Een elastische query configureren](how-to-use-elastic-query-with-sql-data-warehouse.md)
+### [Machine Learning gebruiken](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [Visualiseren met Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+
+## Bewaken en afstemmen
+### [Uw werkbelasting analyseren](analyze-your-workload.md)
+
+## Uitschalen
+### [Compute beheren - portal](sql-data-warehouse-manage-compute-portal.md)
+### [Compute beheren - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [Compute beheren - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [Rekenniveaus automatiseren](manage-compute-with-azure-functions.md)
+
 
 # Naslaginformatie
 
