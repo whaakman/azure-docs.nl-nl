@@ -1,0 +1,40 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Location Based Services (preview)
+metadata:
+  document_id: null
+  title: Documentatie voor Azure Location Based Services (preview) | Microsoft Docs
+  meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
+  services: location-based-services
+  author: philmea
+  manager: timlt
+  ms.service: location-based-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: philmea
+abstract:
+  description: 'Azure Location Based Services (preview) biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die nodig zijn om mobiele en webapplicaties te voorzien van geografische context. Deze service bestaat uit een Azure One API-compatibele set REST API''s en een webgebaseerd JavaScript-besturingselement die ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel maken.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Start een kaartenzoekapp met Azure Location Based Services (preview).
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Een demokaartenapplicatie starten
+            href: /azure/location-based-services/quick-demo-map-app
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: Bouw een georuimtelijke webapplicatie om naar bezienswaardigheden en een route naar die locaties te zoeken met Azure Location Based Services (preview).
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/location-based-services/tutorial-search-location">Zoeken naar bezienswaardigheden</a>
+          - html: <a href="/azure/location-based-services/tutorial-route-location">Route naar bezienswaardigheden</a>
+          - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Routes per vervoersoptie</a>

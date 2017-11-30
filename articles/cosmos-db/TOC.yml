@@ -6,7 +6,7 @@
       href: introduction.md
     - name: 20 dagen met tips
       href: 20-days-of-tips.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: DocumentDB
@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Partitionering
       href: partition-data.md
+    - name: Unieke sleutels
+      href: unique-keys.md
     - name: Consistentie
       href: consistency-levels.md
     - name: Doorvoer

@@ -4,14 +4,15 @@
 # Aan de slag
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure-CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
 # Procedures
 
 ## Data Lake Analytics beheren
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure-CLI](data-lake-analytics-manage-use-cli.md)
+### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
 ### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
@@ -29,7 +30,7 @@
 ### [U-SQL-R-extensies](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL-cognitieve-extensies](data-lake-analytics-u-sql-cognitive.md)
 ### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)
-### [U-SQL voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Aangepaste U-SQL-code voor Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 
 ## Fouten in U-SQL-programma’s opsporen
 ### [Taken controleren en problemen oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
