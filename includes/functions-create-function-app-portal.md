@@ -1,15 +1,18 @@
-1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+1. Klik op de **nieuw** knop gevonden in de linkerbovenhoek van de Azure portal, vervolgens selecteert **Compute** > **functie-App**. 
 
-1. Klik op **Compute** > **functie-App**. Vervolgens gebruikt u de instellingen voor de functie-app zoals in de tabel wordt vermeld.
+    ![Een functie-app maken in de Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-    ![Functie-app maken in Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
+2. Gebruik de functie app-instellingen zoals opgegeven in de tabel hieronder de installatiekopie.
+
+    ![Nieuwe functie app-instellingen definiëren](./media/functions-create-function-app-portal/function-app-create-flow2.png)
 
     | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam van app** | Wereldwijd unieke naam | Naam waarmee uw nieuwe functie-app wordt aangeduid. Geldige tekens zijn `a-z`, `0-9`, en `-`.  | 
     | **Abonnement** | Uw abonnement | Het abonnement waaronder deze nieuwe functie-app wordt gemaakt. | 
     | **[Resourcegroep](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Naam voor de nieuwe resourcegroep waarin uw functie-app moet worden gemaakt. | 
-    | **[Hostingplan](../articles/azure-functions/functions-scale.md)** |   Verbruiksabonnement | Hostingabonnement dat definieert hoe resources worden toegewezen aan uw functie-app. In het standaard **Verbruiksabonnement** worden resources dynamisch toegevoegd zoals door uw functies wordt vereist. U betaalt alleen voor de tijd die uw functies worden uitgevoerd.   |
+    | **BESTURINGSSYSTEEM** | Windows | Zonder server die als host fungeert is momenteel alleen beschikbaar wanneer u gebruikmaakt van Windows. Zie voor het hosten van Linux [maken van uw eerste functie met op Linux met de Azure CLI](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
+    | **[Hostingplan](../articles/azure-functions/functions-scale.md)** |   Verbruiksabonnement | Hostingabonnement dat definieert hoe resources worden toegewezen aan uw functie-app. In het standaard **Verbruiksabonnement** worden resources dynamisch toegevoegd zoals door uw functies wordt vereist. In deze [zonder server](https://azure.microsoft.com/overview/serverless-computing/) host, u betaalt alleen voor de uitvoering van uw functies.   |
     | **Locatie** | West-Europa | Kies een locatie in de buurt of in de buurt van andere services die door uw functies worden gebruikt. |
     | **[Opslagaccount](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Wereldwijd unieke naam |  Naam van het nieuwe opslagaccount dat door uw functie-app wordt gebruikt. Namen van opslagaccounts moeten tussen 3 en 24 tekens lang zijn en mogen alleen cijfers en kleine letters bevatten. U kunt ook een bestaand account gebruiken. |
 

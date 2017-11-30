@@ -5,7 +5,7 @@ Als u geen gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen of ve
 Elke keer dat u een wijziging aanbrengt, moet de volledige lijst met voorvoegsels worden opgegeven, niet alleen de voorvoegsels die u wilt wijzigen. Geef alleen de voorvoegsels op die u wilt houden. In dit geval 10.0.0.0/24 en 20.0.0.0/24
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --connection-name TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ### <a name="withconnection"></a>IP-adresvoorvoegsels wijzigen voor de gateway van een lokaal netwerk - bestaande gatewayverbinding
@@ -15,5 +15,5 @@ Als u een gatewayverbinding hebt en u IP-adresvoorvoegsels wilt toevoegen of ver
 Elke keer dat u een wijziging aanbrengt, moet de volledige lijst met voorvoegsels worden opgegeven, niet alleen de voorvoegsels die u wilt wijzigen. In dit voorbeeld zijn 10.0.0.0/24 en 20.0.0.0/24 al aanwezig. We voegen de voorvoegsels 30.0.0.0/24 en 40.0.0.0/24 toe en geven alle 4 voorvoegsels op bij het bijwerken.
 
 ```azurecli
-az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 --connection-name TestRG1
+az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 -g TestRG1
 ```

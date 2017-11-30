@@ -12,6 +12,6 @@ Als u dit nog niet hebt gedaan, kunt u functie-apps toevoegen aan uw favorieten 
 
 3. Sluit het menu en scrol omlaag naar het pictogram Functies. Klik op dit pictogram om een lijst met al uw functie-apps weer te geven. Klik op uw functie-app om met functies in deze app te werken. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Functie-Apps in Favorieten](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

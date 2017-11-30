@@ -1,4 +1,4 @@
-Maak een resourcegroep in de Cloud Shell met de opdracht [az group create](/cli/azure/group#create).
+Maak een resourcegroep in de Cloud Shell met de opdracht [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
