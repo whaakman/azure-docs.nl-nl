@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 8946166c04ce778d751ad79f7a010c9a5e71a05c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b41cebcc8592468fcabb157b1aee830dfe954229
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Een virtuele Ubuntu-machine in Azure toevoegen aan een beheerd domein
 In dit artikel leest u hoe een virtuele Ubuntu Linux-machine toevoegen aan een beheerd domein van Azure AD Domain Services.
@@ -120,12 +120,12 @@ Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, de vo
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Voor probleemoplossing:** als *realm detecteren* is niet gevonden uw beheerde domein:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+   > [!NOTE] 
+   > **Voor probleemoplossing:** als *realm detecteren* is niet gevonden uw beheerde domein:
+     * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).
+     * Controleer of de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
+     * Controleer als u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
+   >
 
 2. Initialiseren van Kerberos. Typ de volgende opdracht in uw terminal SSH: 
 

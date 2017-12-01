@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT rand (preview)
 
@@ -35,7 +35,7 @@ Deze functie is een Preview-versie, als u vragen of feedback hebt kunt u [deze e
 * **Lage latentie opdracht en controle**: bijvoorbeeld veiligheid productiesystemen moet reageren op de operationele gegevens met een zeer lage latentie. Met ASA over IoT-zijde, kunt u sensor, gegevens in near-realtime en opdrachten uitgeven wanneer u detecteren afwijkingen is vereist om een machine stoppen of trigger waarschuwingen te analyseren.
 *   **De verbinding met de cloud beperkt**: missie kritieke systemen zoals externe analysemodel apparatuur, verbonden vaartuigen of drijvende analyseren hoeft te analyseren en reageren op gegevens, zelfs wanneer de connectiviteit van de cloud wordt onderbroken. Uw streaming logica wordt uitgevoerd onafhankelijk van de netwerkverbinding met ASA, en u kunt kiezen wat u verzenden naar de cloud voor verdere verwerking of opslag.
 * **Beperkte bandbreedte**: de hoeveelheid gegevens die wordt geproduceerd door jet-engines of verbonden auto's kunnen zo groot dat gegevens moeten worden gefilterd of vooraf verwerken voordat deze naar de cloud verzonden. ASA gebruikt, kunt u filteren en samenvoegen van de gegevens die moeten worden verzonden naar de cloud.
-* **Naleving**: naleving van regelgeving kan vereisen sommige gegevens lokaal worden geanonimiseerde of geaggregeerd voordat ze worden verzonden naar de cloud. Met ASA, u 
+* **Naleving**: naleving van regelgeving kan vereisen sommige gegevens lokaal worden geanonimiseerde of geaggregeerd voordat ze worden verzonden naar de cloud.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Edge-taken in Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Wat is er een taak 'edge'?
@@ -55,7 +55,7 @@ De stappen op hoog niveau worden in de volgende tabel beschreven. Meer details z
 | ---   | ---   | ---       |  ---      |
 | 1   | **Een ASA edge-taak maken**   | Azure Portal      |  Maak een nieuwe taak, selecteer **rand** als **hostomgeving**. <br> Deze taken zijn gemaakt/beheerd vanuit de cloud en uitvoeren op uw eigen IoT Edge-apparaten.     |
 | 2   | **Een opslagcontainer maken**   | Azure Portal       | Storage-containers worden gebruikt voor het opslaan van de taakdefinitie van de waar ze toegankelijk zijn voor uw IoT-apparaten. <br>  U kunt een bestaande opslagcontainer hergebruiken.     |
-| 3   | **Uw omgeving zijde van IoT op uw apparaten instellen**   | Apparaten      | Instructies voor het [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) of [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 3   | **Uw omgeving zijde van IoT op uw apparaten instellen**   | Appara(a)t(en)      | Instructies voor het [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) of [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **ASA implementeren op de rand van de IoT-apparaten**   | Azure Portal      |  De taakdefinitie ASA wordt geëxporteerd naar de storage-container die eerder hebt gemaakt.       |
 U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) voor het implementeren van uw eerste baan ASA op IoT rand.
 

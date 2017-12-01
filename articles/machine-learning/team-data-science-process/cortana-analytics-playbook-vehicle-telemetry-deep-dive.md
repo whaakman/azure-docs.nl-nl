@@ -4,7 +4,7 @@ description: De mogelijkheden van Cortana Intelligence gebruiken om inzicht in r
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/24/2017
 ms.author: bradsev
-ms.openlocfilehash: cdde0c8dc2fd1189970c0782769a609ca8142372
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle telemetrie Analytics-oplossing playbook: Deep Duik in de oplossing
 Dit menu is gekoppeld aan de secties van dit playbook: 
@@ -302,7 +302,7 @@ Nadat de pijplijn succes is uitgevoerd, ziet u de volgende partities in uw opsla
 
 De gegevens zijn nu geoptimaliseerd beter kan worden beheerd en klaar voor verdere verwerking voor het verkrijgen van inzicht uitgebreide batch. 
 
-## <a name="data-analysis"></a>Data-analyse
+## <a name="data-analysis"></a>Gegevensanalyse
 In deze sectie ziet u het combineren van Stream Analytics, Azure Machine Learning, Data Factory en HDInsight voor rich geavanceerde analyses van vehicle status en die zorg draagt gewoonten.
 
 ### <a name="machine-learning"></a>Machine learning

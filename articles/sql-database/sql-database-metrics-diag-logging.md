@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens 
 Azure SQL Database kunt verzenden metrische gegevens en diagnostische logboeken voor het bewaken van eenvoudiger. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -48,7 +48,7 @@ Wanneer u metrische gegevens en logboekregistratie van diagnostische gegevens in
 
 U kunt inrichten van een nieuwe Azure resource of Selecteer een bestaande resource. Na het selecteren van de opslagbronnen, moet u opgeven welke gegevens worden verzameld. Beschikbare opties zijn:
 
-- [1 minuut metrieken](sql-database-metrics-diag-logging.md#1-minute-metrics): bevat DTU-percentage, DTU limiet, CPU-percentage fysieke gegevens gelezen percentage, logboek schrijven percentage, mislukt-geslaagd/geblokkeerd door de firewall-verbindingen, sessies percentage, werknemers percentage, opslag, opslag percentage en XTP-opslagpercentage.
+- [Alle metrische gegevens](sql-database-metrics-diag-logging.md#all-metrics): bevat DTU-percentage, DTU limiet, CPU-percentage fysieke gegevens gelezen percentage, logboek schrijven percentage, mislukt-geslaagd/geblokkeerd door de firewall-verbindingen, sessies percentage, werknemers percentage, opslag, opslagpercentage , en het percentage voor XTP-opslag.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): bevat informatie over de query-runtime-statistieken, zoals de duur van de CPU-gebruik en de query.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): bevat informatie over de statistieken van de wachttijd query, dit geeft aan wat uw query's gewacht op, zoals CPU, het logboek en VERGRENDELEN.
 - [Fouten](sql-database-metrics-diag-logging.md#errors-dataset): bevat informatie over SQL-fouten die hebben plaatsgevonden om op deze database.
@@ -72,7 +72,7 @@ Voor informatie over het inschakelen van logboekregistratie en begrijpen van de 
 
 2. Maken van nieuwe of bestaande diagnostische instellingen bewerken door het doel en de telemetrie te selecteren.
 
-   ![Instellingen voor diagnostische gegevens](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+   ![Diagnostische instellingen](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -243,7 +243,7 @@ Of gewoon meer:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Zo mogelijk een blob-naam voor 1 minuut metrieken:
+Bijvoorbeeld, een blobnaam voor alle metrische gegevens mogelijk:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -261,12 +261,12 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 
 ## <a name="metrics-and-logs-available"></a>Metrische gegevens en logboeken beschikbaar
 
-### <a name="1-minute-metrics"></a>1 minuut metrische gegevens
+### <a name="all-metrics"></a>Alle metrische gegevens
 
 |**Resource**|**Metrische gegevens**|
 |---|---|
 |Database|DTU-percentage DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, mislukt-geslaagd/geblokkeerd door de firewall-verbindingen, sessies percentage, werknemers percentage, opslag, opslagpercentage, XTP-opslagpercentage, en impassen |
-|Elastische pool|percentage van de eDTU, eDTU gebruikt, eDTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, werknemers percentage, opslag, opslagpercentage, opslaglimiet bereikt, XTP-opslagpercentage |
+|Elastische groep|percentage van de eDTU, eDTU gebruikt, eDTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, werknemers percentage, opslag, opslagpercentage, opslaglimiet bereikt, XTP-opslagpercentage |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
@@ -331,7 +331,7 @@ Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.mi
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: QueryStoreWaitStatistics|
 |OperationName|De naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -369,7 +369,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: fouten|
 |OperationName|De naam van de bewerking. Altijd: ErrorEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -398,7 +398,7 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/en-us
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: DatabaseWaitStatistics|
 |OperationName|De naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -427,7 +427,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: time-outs|
 |OperationName|De naam van de bewerking. Altijd: TimeoutEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -450,7 +450,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: blokken|
 |OperationName|De naam van de bewerking. Altijd: BlockEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Het herstellen van 10 GB-limiet LocalDB
 Azure AD Connect vereist een SQL Server-database voor het opslaan van identiteitsgegevens. U kunt de standaard SQL Server 2012 Express LocalDB gebruiken die samen met Azure AD Connect is geïnstalleerd, maar ook uw eigen volledige SQL. Voor SQL Server Express geldt een limiet van 10 GB. Wanneer u LocalDB gebruikt en deze limiet is bereikt, kan de Azure AD Connect-synchronisatieservice niet langer starten of goed synchroniseren. Dit artikel bevat de herstelstappen.
@@ -63,11 +63,11 @@ De naam van de database gemaakt voor Azure AD Connect is **ADSync**. Als u wilt 
 * De synchronisatie-serviceaccount die wordt gebruikt als de context van Azure AD Connect-synchronisatieservice.
 * De lokale groep ADSyncAdmins die is gemaakt tijdens de installatie.
 
-1. Maak een back-up van de database door te kopiëren **ADSync.mdf** en **ADSync_log.ldf** bestanden onder `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` naar een veilige locatie.
+1. Maak een back-up van de database door te kopiëren **ADSync.mdf** en **ADSync_log.ldf** bestanden onder `%ProgramFiles%\Microsoft Azure AD Sync\Data` naar een veilige locatie.
 
 2. Start een nieuwe PowerShell-sessie.
 
-3. Navigeer naar de map `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Navigeer naar de map `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Start **sqlcmd** hulpprogramma met de opdracht `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, met de referenties van een sysadmin of de DBO-database.
 

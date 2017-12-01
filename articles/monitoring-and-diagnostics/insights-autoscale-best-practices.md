@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Aanbevolen procedures voor Automatisch schalen
 In dit artikel leert aanbevolen beveiligingsprocedures voor automatisch schalen in Azure. Monitor voor automatisch schalen die Azure is alleen bedoeld voor [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), en [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/). Andere Azure-services verschillende schalen methoden gebruiken.
@@ -113,7 +113,7 @@ Laten we Controleer dit met een voorbeeld:
 
 De onderstaande afbeelding ziet u een instelling voor automatisch schalen met een standaardprofiel met minimale exemplaren = 2- en maximumaantal exemplaren = 10. In dit voorbeeld regels zijn geconfigureerd voor scale-out wanneer het aantal berichten in de wachtrij groter dan 10 is en schaal in wanneer het aantal berichten in de wachtrij minder dan 3 is. De resource kan nu worden geschaald tussen 2 en 10 exemplaren.
 
-Er is bovendien een terugkerende profiel instellen voor maandag. Deze waarde is ingesteld voor minimale exemplaren = 2- en maximumaantal exemplaren = 12. Dit betekent dat op maandag, de eerste keer voor automatisch schalen voor deze voorwaarde controleert als het aantal exemplaren 2 is, wordt geschaald naar het nieuwe minimum van 3. Zolang automatisch schalen, blijft deze voorwaarde profiel vinden vergeleken (maandag), wordt alleen de regels worden verwerkt op basis van CPU scale-out/in voor dit profiel is geconfigureerd. Op dit moment wordt niet gecontroleerd voor de lengte van de wachtrij. Echter, als u wilt dat de wachtrij lengte voorwaarde moet worden gecontroleerd, moet u opnemen die regels uit het standaardprofiel ook in uw profiel maandag.
+Er is bovendien een terugkerende profiel instellen voor maandag. Deze waarde is ingesteld voor minimale exemplaren = 3- en maximumaantal exemplaren = 10. Dit betekent dat op maandag, de eerste keer voor automatisch schalen voor deze voorwaarde controleert als het aantal exemplaren 2 is, wordt geschaald naar het nieuwe minimum van 3. Zolang automatisch schalen, blijft deze voorwaarde profiel vinden vergeleken (maandag), wordt alleen de regels worden verwerkt op basis van CPU scale-out/in voor dit profiel is geconfigureerd. Op dit moment wordt niet gecontroleerd voor de lengte van de wachtrij. Echter, als u wilt dat de wachtrij lengte voorwaarde moet worden gecontroleerd, moet u opnemen die regels uit het standaardprofiel ook in uw profiel maandag.
 
 Op dezelfde manier als voor automatisch schalen terug naar de standaard-profiel schakelt, controleert eerst deze als de minimale en maximale voorwaarden wordt voldaan. Als het aantal exemplaren op het moment van 12 is, wordt het op 10, het toegestane maximum voor het standaardprofiel schalen.
 

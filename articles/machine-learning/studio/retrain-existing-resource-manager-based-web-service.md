@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Een bestaande voorspellende webservice opnieuw trainen
 Dit document beschrijft de retraining voor het volgende scenario:
@@ -86,20 +86,19 @@ In de **Basic verbruik info** sectie van de **verbruiken** pagina, Ga naar de pr
 ### <a name="update-the-azure-storage-information"></a>De informatie van de Azure Storage bijwerken
 De voorbeeldcode BES uploadt een bestand vanaf een lokaal station (bijvoorbeeld ' C:\temp\CensusIpnput.csv') naar Azure Storage, verwerkt en schrijft de resultaten terug naar Azure Storage.  
 
-Voor het bijwerken van de Azure Storage-gegevens, moet u de naam van het opslagaccount, de sleutel en de container-informatie ophalen voor uw opslagaccount vanuit de klassieke Azure portal en werk vervolgens de bijbehorende waarden in de code.
 Nadat uw experiment is uitgevoerd, moet de resulterende werkstroom ziet er als volgt:
 
 ![Resulterende werkstroom na het uitvoeren van][4]
 
-1. Meld u aan bij de klassieke Azure-portal.
-2. Klik in de kolom linkernavigatievenster **opslag**.
+1. Meld u aan bij Azure Portal.
+2. Klik in de kolom linkernavigatievenster **meer services**, zoeken naar **opslagaccounts**, en selecteer deze.
 3. Selecteer in de lijst met opslagaccounts, een voor het opslaan van het retrained model.
-4. Klik onder aan de pagina op **toegangssleutels beheren**.
-5. Kopieer en sla de **primaire toegangssleutel** en sluit het dialoogvenster.
-6. Klik boven aan de pagina op **Containers**.
+4. Klik in de kolom linkernavigatievenster **toegangssleutels**.
+5. Kopieer en sla de **primaire toegangssleutel**.
+6. Klik in de kolom linkernavigatievenster **Containers**.
 7. Selecteer een bestaande container of maak een nieuwe en sla het op.
 
-Zoek de *StorageAccountName*, *StorageAccountKey*, en *StorageContainerName* declaraties, en werk de waarden die u hebt opgeslagen vanuit de klassieke portal.
+Zoek de *StorageAccountName*, *StorageAccountKey*, en *StorageContainerName* declaraties, en werk de waarden die u hebt genoteerd in de portal.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

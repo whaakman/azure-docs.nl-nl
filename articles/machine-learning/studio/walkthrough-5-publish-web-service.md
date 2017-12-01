@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Kennismaken, stap 5: De Azure Machine Learning-webservice implementeren
 Dit is de vijfde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ De resultaten van de test worden weergegeven aan de rechterkant van de pagina in
 
 
 ## <a name="manage-the-web-service"></a>De webservice beheren
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Een klassieke webservice in de klassieke Azure portal beheren
-
-Als u uw webservice klassieke hebt geïmplementeerd, kunt u het beheren van de [klassieke Azure-portal](https://manage.windowsazure.com).
-
-1. Aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com)
-2. Klik in het deelvenster Microsoft Azure-services op **MACHINE LEARNING**
-3. Klik op de werkruimte
-4. Klik op de **webservices** tabblad
-5. Klik op de webservice die is gemaakt
-6. Klik op het eindpunt 'standaard'
-
-Hier kunt u doen zoals controleren hoe de webservice presteert en controleer prestaties trucs door het wijzigen van het aantal gelijktijdige roept de service kunnen verwerken.
-
-Zie voor meer informatie:
-
-* [Eindpunten maken](create-endpoint.md)
-* [Web-service schalen](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Een klassieke of een nieuwe webservice in de portal voor Azure Machine Learning-webservices worden beheerd
 
 Als u hebt uw webservice geïmplementeerd of klassieke of nieuwe, kunt u het beheren van de [Microsoft Azure Machine Learning-webservices](https://services.azureml.net/quickstart) portal.
 

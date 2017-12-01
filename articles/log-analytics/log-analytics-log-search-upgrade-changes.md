@@ -11,16 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: bwren
-ms.openlocfilehash: 783223a37c2a13c9affbf382209ca2aa4f1ba4c7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 017a1da233827f19489a99b234ee9009fd9f6fe3
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Wat er gewijzigd in Azure Log Analytics?
 Naast de querytaal zelf, zijn er verschillende verbeteringen en wijzigingen die u rekening moet houden wanneer uw werkruimte voor logboekanalyse is [bijgewerkt naar de nieuwe querytaal](log-analytics-log-search-new.md).  In dit artikel worden de wijzigingen tussen een verouderde en bijgewerkte werkruimte met koppelingen naar gedetailleerde informatie voor elke kort beschreven. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Whats-changed-in-Azure-Log-Analytics/player]
 
 Zie [logboekanalyse nieuwe veelgestelde vragen over het zoeken en bekende problemen melden](log-analytics-log-search-faq.md) voor een beschrijving van de bekende problemen met de upgrade en antwoorden op veelgestelde vragen.  
 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 11/03/2017
 ms.author: roalexan
-ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Informatie over het beheren van AzureML-webservices met API Management
 ## <a name="overview"></a>Overzicht
@@ -39,94 +39,133 @@ Voor het voltooien van deze handleiding hebt u het volgende nodig:
 * De werkruimte, service en api_key voor een AzureML-experiment geïmplementeerd als een webservice. Klik op [hier](create-experiment.md) voor meer informatie over het maken van een experiment AzureML. Klik op [hier](publish-a-machine-learning-web-service.md) voor meer informatie over het implementeren van een AzureML als een webservice experimenteren. Bijlage A bevat ook instructies voor het maken en testen van een eenvoudig experiment van AzureML en als een webservice implementeren.
 
 ## <a name="create-an-api-management-instance"></a>Een API Management-exemplaar maken
-Hieronder vindt u de stappen voor het beheren van de AzureML-webservice met behulp van API Management. Maak eerst een service-exemplaar. Meld u aan bij de [klassieke Portal](https://manage.windowsazure.com/) en klik op **nieuw** > **App Services** > **API Management**  >  **Maken**.
 
-![instantie maken](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
+U kunt uw Azure Machine Learning-webservice met een exemplaar van API Management beheren.
 
-Geef een unieke **URL**. Maakt gebruik van deze handleiding **demoazureml** – moet u ervoor kiezen een iets andere betekenis. Kies het gewenste **Abonnement** en de gewenste **Regio** voor uw service-exemplaar. Klik na het maken van uw selecties op de knop Volgende.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer **+ maken van een resource**.
+3. In het zoekvak typt u 'API management' en selecteer vervolgens de resource 'API management'.
+4. Klik op **Create**.
+5. De **naam** waarde wordt gebruikt voor het maken van een unieke URL (in dit voorbeeld wordt 'demoazureml').
+6. Selecteer een **abonnement**, **resourcegroep**, en **locatie** voor uw service-exemplaar.
+7. Geef een waarde op voor **organisatienaam** (in dit voorbeeld wordt 'demoazureml').
+8. Voer uw **beheerder e** -dit e-mailadres wordt gebruikt voor meldingen van het API Management-systeem.
+9. Klik op **Create**.
 
-![maken van service 1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
+Duurt 30 minuten duren voordat een nieuwe service moet worden gemaakt.
 
-Geef een waarde op voor de **organisatienaam**. Maakt gebruik van deze handleiding **demoazureml** – moet u ervoor kiezen een iets andere betekenis. Voer uw e-mailadres in de **e-mail beheerder** veld. Dit e-mailadres wordt gebruikt voor meldingen van het API Management-systeem.
+![service maken](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-![maken van service 2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-Schakel het selectievakje in om uw service-exemplaar te maken. *Het duurt dertig minuten duren voordat een nieuwe service moet worden gemaakt*.
 
 ## <a name="create-the-api"></a>De API maken
 Zodra het service-exemplaar is gemaakt, wordt de volgende stap is het maken van de API. Een API bestaat uit een reeks bewerkingen die vanuit een clienttoepassing kunnen worden aangeroepen. API-bewerkingen worden geproxied naar bestaande webservices. Deze handleiding maakt API's aan de bestaande webservices AzureML RRS en BES proxyinstellingen.
 
-API's worden gemaakt en geconfigureerd via de API-publicatieportal, die wordt geopend via de klassieke Azure Portal. De als publicatieportal wilt openen, selecteer uw service-exemplaar.
+De API maken:
 
-![Selecteer-service-exemplaar](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
+1. Open het service-exemplaar dat u zojuist hebt gemaakt in de Azure-portal.
+2. Selecteer in het navigatiedeelvenster links **API's**.
 
-Klik op **beheren** in de klassieke Azure-Portal voor uw API Management-service.
+   ![menu-beheer-API](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-![beheren-service](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
+1. Klik op **API toevoegen**.
+2. Voer een **Web API-naam** (in dit voorbeeld wordt 'AzureML Demo-API).
+3. Voor **webservice-URL**, voer '`https://ussouthcentral.services.azureml.net`'.
+4. Voer een ** achtervoegsel URL Web-API '. Hiermee worden het laatste deel van de URL die klanten wordt gebruikt voor het verzenden van aanvragen naar de service-exemplaar (in dit voorbeeld wordt 'azureml-demo').
+5. Voor **Web API-URL-schema**, selecteer **HTTPS**.
+6. Voor **producten**, selecteer **Starter**.
+7. Klik op **Opslaan**.
 
-Klik op **API's** van de **API Management** menu aan de linkerkant en klik vervolgens op **API toevoegen**.
-
-![menu-beheer-API](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-Type **AzureML Demo API** als de **Web API-naam**. Type **https://ussouthcentral.services.azureml.net** als de **webservice-URL**. Type **azureml-demo** als de **achtervoegsel URL Web-API**. Controleer **HTTPS** als de **URL Web-API** schema. Selecteer **Starter** als **producten**. Wanneer u klaar bent, klikt u op **opslaan** voor het maken van de API.
-
-![nieuwe-api toevoegen](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## <a name="add-the-operations"></a>De bewerkingen toevoegen
-Klik op **toevoegbewerking** bewerkingen toevoegen aan deze API.
 
-![toevoegen-bewerking](./media/manage-web-service-endpoints-using-api-management/add-operation.png)
+Bewerkingen zijn toegevoegd en geconfigureerd voor een API in de publicatieportal. Voor toegang tot de publicatieportal bevindt, klikt u op **publicatieportal** Selecteer in de Azure-portal voor uw API Management-service **API's**, **Operations**, klikt u vervolgens op **Toevoegbewerking**.
+
+![toevoegen-bewerking](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 De **nieuwe bewerking** venster wordt weergegeven en de **handtekening** tabblad wordt standaard geselecteerd.
 
 ## <a name="add-rrs-operation"></a>RRS bewerking toevoegen
-Maak eerst een bewerking voor de AzureML RRS-service. Selecteer **POST** als de **HTTP-term**. Type **/workspaces/ {werkruimte} /services/ {service} / execute? api-version = {apiversion} & details = {details}** als de **URL sjabloon**. Type **RRS uitvoeren** als de **weergavenaam**.
+Maak eerst een bewerking voor de AzureML RRS-service:
 
-![rrs-bewerking-handtekening toevoegen](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+1. Voor de **HTTP-term**, selecteer **POST**.
+2. Voor de **URL sjabloon**, type '`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`'.
+3. Voer een **weergavenaam** (in dit voorbeeld wordt "RRS uitvoeren").
 
-Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**. Klik op **opslaan** opslaan van deze bewerking.
+   ![rrs-bewerking-handtekening toevoegen](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-![toevoegen-rrs--bewerkingsantwoord](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+4. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**.
+5. Klik op **opslaan** opslaan van deze bewerking.
+
+   ![toevoegen-rrs--bewerkingsantwoord](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>BES bewerkingen toevoegen
-Schermopnamen worden niet vermeld voor de BES bewerkingen zoals ze vergelijkbaar met die zijn voor de bewerking Bronrecords toe te voegen.
+
+> [!NOTE]
+> Schermafbeeldingen hier niet worden voor de BES bewerkingen zoals ze vergelijkbaar met die zijn voor de bewerking Bronrecords toe te voegen.
 
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>Een taak Batchuitvoering verzenden (maar niet worden gestart)
-Klik op **toevoegbewerking** de bewerking voor met AzureML BES toevoegen aan de API. Selecteer **POST** voor de **HTTP-term**. Type **/workspaces/ {werkruimte} /services/ {service} / taken? api-version = {apiversion}** voor de **URL sjabloon**. Type **BES indienen** voor de **weergavenaam**. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**. Klik op **opslaan** opslaan van deze bewerking.
+
+1. Klik op **toevoegbewerking** een bewerking BES toevoegen aan de API.
+2. Voor de **HTTP-term**, selecteer **POST**.
+3. Voor de **URL sjabloon**, type '`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`'.
+4. Voer een **weergavenaam** (in dit voorbeeld wordt 'BES verzenden').
+5. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**.
+6. Klik op **Opslaan**.
 
 ### <a name="start-a-batch-execution-job"></a>Een taak Batchuitvoering starten
-Klik op **toevoegbewerking** de bewerking voor met AzureML BES toevoegen aan de API. Selecteer **POST** voor de **HTTP-term**. Type **/workspaces/ {werkruimte} /services/ {service} /jobs/ {jobid} / starten? api-version = {apiversion}** voor de **URL sjabloon**. Type **BES Start** voor de **weergavenaam**. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**. Klik op **opslaan** opslaan van deze bewerking.
+
+1. Klik op **toevoegbewerking** een bewerking BES toevoegen aan de API.
+2. Voor de **HTTP-term**, selecteer **POST**.
+3. Voor de **HTTP-term**, type '`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`'.
+4. Voer een **weergavenaam** (in dit voorbeeld wordt 'BES Start').
+6. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**.
+7. Klik op **Opslaan**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>De status of het resultaat van een taak Batchuitvoering ophalen
-Klik op **toevoegbewerking** de bewerking voor met AzureML BES toevoegen aan de API. Selecteer **ophalen** voor de **HTTP-term**. Type **/workspaces/ {werkruimte} /services/ {service} /jobs/ {jobid}? api-version = {apiversion}** voor de **URL sjabloon**. Type **BES Status** voor de **weergavenaam**. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**. Klik op **opslaan** opslaan van deze bewerking.
+
+1. Klik op **toevoegbewerking** een bewerking BES toevoegen aan de API.
+2. Voor de **HTTP-term**, selecteer **ophalen**.
+3. Voor de **URL sjabloon**, type '`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`'.
+4. Voer een **weergavenaam** (in dit voorbeeld wordt "BES Status").
+6. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**.
+7. Klik op **Opslaan**.
 
 ### <a name="delete-a-batch-execution-job"></a>Een taak Batchuitvoering verwijderen
-Klik op **toevoegbewerking** de bewerking voor met AzureML BES toevoegen aan de API. Selecteer **verwijderen** voor de **HTTP-term**. Type **/workspaces/ {werkruimte} /services/ {service} /jobs/ {jobid}? api-version = {apiversion}** voor de **URL sjabloon**. Type **BES verwijderen** voor de **weergavenaam**. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**. Klik op **opslaan** opslaan van deze bewerking.
 
-## <a name="call-an-operation-from-the-developer-portal"></a>Een bewerking aanroepen vanuit de ontwikkelaarsportal
-Bewerkingen kunnen rechtstreeks vanuit de portal voor ontwikkelaars die biedt een handige manier om te bekijken en testen van de bewerkingen van een API worden aangeroepen. In deze handleiding stap roept u de **RRS uitvoeren** methode die is toegevoegd aan de **AzureML Demo API**. Klik op **ontwikkelaarsportal** in het menu aan de bovenkant rechtsboven in de klassieke Portal.
+1. Klik op **toevoegbewerking** een bewerking BES toevoegen aan de API.
+2. Voor de **HTTP-term**, selecteer **verwijderen**.
+3. Voor de **URL sjabloon**, type '`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`'.
+4. Voer een **weergavenaam** (in dit voorbeeld wordt 'BES verwijderen').
+5. Klik op **antwoorden** > **toevoegen** op de linkerkant en selecteer **200 OK**.
+6. Klik op **Opslaan**.
 
-![portal voor ontwikkelaars](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+## <a name="call-an-operation-from-the-developer-portal"></a>Een bewerking aanroepen vanuit de portal voor ontwikkelaars
 
-Klik op **API's** van het bovenste menu en klik op **AzureML Demo API** om de beschikbare bewerkingen te bekijken.
+Bewerkingen kunnen rechtstreeks vanuit de portal voor ontwikkelaars die biedt een handige manier om te bekijken en testen van de bewerkingen van een API worden aangeroepen. In deze stap roept u de **RRS uitvoeren** methode die is toegevoegd aan de **AzureML Demo API**. 
 
-![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+1. Klik op **ontwikkelaarsportal**.
 
-Selecteer **RRS uitvoeren** voor de bewerking. Klik op **Try It**.
+   ![portal voor ontwikkelaars](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-![Try it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+2. Klik op **API's** van het bovenste menu en klik op **AzureML Demo API** om de beschikbare bewerkingen te bekijken.
 
-Aanvraagparameters, typt u uw **werkruimte**, **service**, **2.0** voor de **apiversion**, en **waar**voor de **details**. U vindt uw **werkruimte** en **service** in het dashboard voor met AzureML web service (Zie **testen van de webservice** in bijlage A).
+   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-Aanvraagheaders, klikt u op **header toevoegen** en het type **Content-Type** en **application/json**, klikt u vervolgens op **header toevoegen** en het type  **Autorisatie** en **Bearer <YOUR AZUREML SERVICE API-KEY>** . U vindt uw **api-sleutel** in het dashboard voor met AzureML web service (Zie **testen van de webservice** in bijlage A).
+3. Selecteer **RRS uitvoeren** voor de bewerking. Klik op **Try It**.
 
-Type **{'Invoer': {"input1": {'ColumnNames': ["Col2"] "waarden": [[' Dit is een goede dag']]}}, "GlobalParameters": {}}** voor de aanvraagtekst.
+   ![Try it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+4. Voor **aanvraagparameters**, type uw **werkruimte** en **service**, type ' 2.0 voor de **apiversion**, en 'true' voor de **details**. U vindt uw **werkruimte** en **service** in het dashboard voor met AzureML web service (Zie **testen van de webservice** in bijlage A).
 
-Klik op **verzenden**.
+   Voor **aanvraagheaders**, klikt u op **header toevoegen** en typ 'Content-Type' en ' application/json'. Klik op **header toevoegen** opnieuw en typt u 'Autorisatie' en ' Bearer  *\<uw service API-sleutel\>*'. U vindt uw API-sleutel in het dashboard voor met AzureML web service (Zie **testen van de webservice** in bijlage A).
 
-![Verzenden](./media/manage-web-service-endpoints-using-api-management/send.png)
+   Voor **aanvraagtekst**, type `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
+
+   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+
+5. Klik op **verzenden**.
+
+   ![Verzenden](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Nadat een bewerking is aangeroepen, de ontwikkelaarsportal de **aangevraagde URL** van de back-end-service de **antwoordstatus**, wordt de **antwoordheaders**, en eventuele  **Antwoordinhoud**.
 
@@ -196,7 +235,7 @@ U vindt de **api_key** door te klikken op uw experiment in het dashboard van web
 ##### <a name="test-button"></a>Knop Testen
 Een eenvoudige manier voor het testen van het eindpunt RRS is te klikken op **testen** op het web service-dashboard.
 
-![Test](./media/manage-web-service-endpoints-using-api-management/test.png)
+![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Type **dit is een goede dag** voor **col2**. Klik op het vinkje.
 

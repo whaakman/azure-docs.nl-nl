@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Upgrade de runtime van een Service Fabric-cluster
 
-Deze zelfstudie maakt deel uit vier van een reeks en ziet u hoe u een upgrade van de Service Fabric-runtime in een Azure Service Fabric-cluster. Deze zelfstudie is geschreven voor Service Fabric-clusters die zijn uitgevoerd op Azure en niet van toepassing op zelf gehoste Service Fabric-clusters.
+Deze zelfstudie maakt deel uit drie van een reeks en ziet u hoe u een upgrade van de Service Fabric-runtime in een Azure Service Fabric-cluster. Deze zelfstudie is geschreven voor Service Fabric-clusters die zijn uitgevoerd op Azure en niet van toepassing op zelfstandige Service Fabric clusters.
 
 > [!WARNING]
 > Dit deel van de zelfstudie is PowerShell vereist. Ondersteuning voor het upgraden van de cluster-runtime is nog niet ondersteund door de Azure CLI-hulpprogramma's. U kunt ook kan een cluster worden bijgewerkt in de portal. Zie voor meer informatie [upgraden van een Azure Service Fabric-cluster](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
 > * Lezen van de cluster-versie
 > * De versie van het cluster instellen
+
+In deze zelfstudie reeks leert u hoe:
+> [!div class="checklist"]
+> * Maken van een veilige [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) op Azure met behulp van een sjabloon
+> * [Een in- of -cluster schalen](service-fabric-tutorial-scale-cluster.md)
+> * Upgrade de runtime van een cluster
+> * [API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u deze zelfstudie begint:
@@ -190,3 +197,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * De versie van de cluster-runtime ophalen
 > * Upgrade van de cluster-runtime
 > * Monitor voor de upgrade
+
+Ga vervolgens naar de volgende zelfstudie voor meer informatie over het implementeren van API Management met een Service Fabric-cluster.
+> [!div class="nextstepaction"]
+> [API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)

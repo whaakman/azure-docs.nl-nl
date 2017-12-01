@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning-webservices: implementatie en verbruik
 U kunt Azure Machine Learning gebruiken machine learning werkstromen en modellen als webservices te implementeren. Deze webservices kunnen vervolgens worden gebruikt voor het aanroepen van de machine learning-modellen van toepassingen via Internet te doen voorspellingen in realtime of in de batchmodus. Omdat de webservices RESTful, kunt u ze aanroepen uit verschillende programmeertalen en platforms, zoals .NET en Java, en toepassingen, zoals Excel.
@@ -26,6 +26,7 @@ U kunt Azure Machine Learning gebruiken machine learning werkstromen en modellen
 De volgende secties vindt u koppelingen naar procedures, code en documentatie waarmee u op weg.
 
 ## <a name="deploy-a-web-service"></a>Een webservice implementeren
+
 ### <a name="with-azure-machine-learning-studio"></a>Met Azure Machine Learning Studio
 Machine Learning Studio en de portal voor Microsoft Azure Machine Learning-webservices te implementeren en beheren van een webservice zonder code te schrijven.
 
@@ -58,7 +59,7 @@ De toepassing wordt uitgevoerd, maakt een web service JSON-sjabloon. De sjabloon
 
 * Naam van het opslagaccount en de sleutel
 
-    U kunt de opslagaccountnaam en sleutel ophalen uit de [Azure-portal](https://portal.azure.com/) of de [klassieke Azure-portal](http://manage.windowsazure.com/).
+    U kunt de opslagaccountnaam ophalen en sleutel uit de [Azure-portal](https://portal.azure.com/).
 * Het streven plan-ID
 
     U krijgt de abonnement-ID van de [Azure Machine Learning-webservices](https://services.azureml.net) portal aanmelden en de naam van een abonnement op.

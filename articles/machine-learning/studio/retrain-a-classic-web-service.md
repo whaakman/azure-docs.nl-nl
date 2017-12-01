@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Een klassieke webservice opnieuw trainen
 De voorspellende webservice die u hebt geïmplementeerd is de standaardinstelling score-eindpunt. Standaardeindpunten worden gesynchroniseerd met de oorspronkelijke training en experimenten score berekenen en daarom het getrainde model voor het standaardeindpunt kan niet worden vervangen. Als u wilt opnieuw trainen van de webservice, moet u een nieuw eindpunt toevoegen aan de webservice. 
@@ -43,11 +43,10 @@ Een nieuw score-eindpunt op de voorspellende webservice die kan worden bijgewerk
 > 
 > 
 
-Er zijn drie manieren waarin u een nieuw eindpunt met een webservice kunt toevoegen:
+Er zijn twee manieren waarop u een nieuw eindpunt bij een webservice kunt toevoegen:
 
 1. Programmatisch
 2. Gebruik de Microsoft Azure Web Services-portal
-3. Gebruik de klassieke Azure portal
 
 ### <a name="programmatically-add-an-endpoint"></a>Programmatisch een eindpunt toevoegen
 U kunt toevoegen scoreprofiel eindpunten voor de voorbeeldcode in dit [github-opslagplaats](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -58,18 +57,10 @@ U kunt toevoegen scoreprofiel eindpunten voor de voorbeeldcode in dit [github-op
 3. Klik op **Add**.
 4. Typ een naam en beschrijving voor het nieuwe eindpunt. Selecteer het niveau van logboekregistratie en of de voorbeeldgegevens is ingeschakeld. Zie voor meer informatie over logboekregistratie [logboekregistratie inschakelen voor Machine Learning-webservices](web-services-logging.md).
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Gebruik de klassieke Azure portal een eindpunt toevoegen
-1. Aanmelden bij de [klassieke Azure portal](https://manage.windowsazure.com).
-2. Klik in het menu links op **Machine Learning**.
-3. Onder de naam, uw werkruimte op en klik op **webservices**.
-4. Klik onder de naam, **telling Model [voorspellende exp].** .
-5. Klik onder aan de pagina op **eindpunt toevoegen**. Zie voor meer informatie over het toevoegen van eindpunten [eindpunten maken](create-endpoint.md). 
-
-## <a name="update-the-added-endpoints-trained-model"></a>Het toegevoegde eindpunt getraind Model bijwerken
+## <a name="update-the-added-endpoints-trained-model"></a>Het toegevoegde eindpunt getraind model bijwerken
 De retraining om proces te voltooien, moet u het getrainde model van het nieuwe eindpunt dat u hebt toegevoegd bijwerken.
 
-* Als u het nieuwe eindpunt met de klassieke Azure portal hebt toegevoegd, kunt u de naam van het nieuwe eindpunt in de portal, de **UpdateResource** koppeling voor de URL die u moet van het eindpunt model bijwerken.
-* Als u het eindpunt met de voorbeeldcode hebt toegevoegd, dit omvat de locatie van de help-URL die is geïdentificeerd door de *HelpLocationURL* waarde in de uitvoer.
+Als u het eindpunt met de voorbeeldcode hebt toegevoegd, dit omvat de locatie van de help-URL die is geïdentificeerd door de *HelpLocationURL* waarde in de uitvoer.
 
 Voor het ophalen van de pad-URL:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Een aangepast domein toevoegen aan uw CDN-eindpunt
 Nadat u een profiel maakt, u doorgaans ook maken een of meer CDN [eindpunten](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) (een subdomein van `azureedge.net`) leveren van uw inhoud met behulp van HTTP en HTTPS. Standaard dit eindpunt is opgenomen in alle URL's (bijvoorbeeld `https://contoso.azureedge.net/photo.png`). Voor uw gemak Azure CDN kunt u koppelen van een aangepast domein (bijvoorbeeld `www.contoso.com`) met het eindpunt. Met deze optie kunt u een aangepast domein gebruiken voor het leveren van uw inhoud in plaats van uw eindpunt. Deze optie is handig als u bijvoorbeeld wilt u uw eigen domeinnaam moet zichtbaar zijn voor uw klanten voor de huisstijl van de toepassing.
@@ -54,7 +54,7 @@ Gebruik een van de volgende opties om uw aangepaste domein toewijzen aan een CDN
  
   | NAAM             | TYPE  | WAARDE                  |
   |------------------|-------|------------------------|
-  | www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | www\.contoso.com | CNAME | Contoso\.azureedge.net |
 
 
 - Optie 2: Toewijzing met de **cdnverify** subdomein. Als de productie-verkeer kan niet worden onderbroken op het aangepaste domein wordt uitgevoerd, kunt u een tijdelijke CNAME-toewijzing maken naar uw CDN-eindpunt. Met deze optie gebruikt u de Azure **cdnverify** subdomein te geven van een tussenliggende registratiestap zodat gebruikers toegang uw domein zonder onderbreking tijdens de DNS-toewijzing tot plaatsvindt.
@@ -64,7 +64,7 @@ Gebruik een van de volgende opties om uw aangepaste domein toewijzen aan een CDN
 
    | NAAM                       | TYPE  | WAARDE                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Stap 3: De toewijzing van de CNAME-record in Azure inschakelen
@@ -103,7 +103,7 @@ Deze stap is afhankelijk van stap 2, optie 2 (toewijzing met de **cdnverify** su
  
    | NAAM             | TYPE  | WAARDE                  |
    |------------------|-------|------------------------|
-   | www\.consoto.com | CNAME | consoto\.azureedge.net |
+   | www\.contoso.com | CNAME | Contoso\.azureedge.net |
 2. Verwijder de CNAME-record met de **cdnverify** subdomein dat u eerder hebt gemaakt.
 
 ## <a name="see-also"></a>Zie ook

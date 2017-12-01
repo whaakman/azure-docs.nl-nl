@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
 ms.author: himad
-ms.openlocfilehash: 821ad87fc10b2380e5ed89c037c335bc7747009e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6de83042779a1a4edae57499f108dcddc9d68309
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="creating-endpoints"></a>Eindpunten maken
 > [!NOTE]
@@ -33,11 +33,10 @@ Om dit te realiseren, kunt Azure Machine Learning u meerdere eindpunten voor een
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Eindpunten toevoegen aan een webservice
-Er zijn drie manieren een eindpunt toevoegen aan een webservice.
+Er zijn twee manieren een eindpunt toevoegen aan een webservice.
 
 * Programmatisch
 * Via de portal voor Azure Machine Learning-webservices
-* Hoewel de klassieke Azure portal
 
 Zodra het eindpunt is gemaakt, kunt u deze via synchrone API's, batch-API's, wordt gebruikt en excel-werkbladen. U kunt ook het eindpunt Management-API's via programmacode toevoegen van eindpunten naast het toevoegen van eindpunten via deze gebruikersinterface gebruiken.
 
@@ -54,20 +53,6 @@ U kunt een eindpunt toevoegen aan uw webservice programmatisch met behulp van de
 2. Klik aan de onderkant van het dashboard van Web service **eindpunten beheren**. De Azure Machine Learning-webservices wordt geopend op de pagina eindpunten voor de webservice.
 3. Klik op **Nieuw**.
 4. Typ een naam en beschrijving voor het nieuwe eindpunt. Namen van eindpunten moeten 24 tekens of minder lang zijn en moeten bestaan uit kleine letters of cijfers. Selecteer het niveau van logboekregistratie en of de voorbeeldgegevens is ingeschakeld. Zie voor meer informatie over logboekregistratie [inschakelen van logboekregistratie voor Machine Learning-webservices](web-services-logging.md).
-
-## <a name="adding-an-endpoint-using-the-azure-classic-portal"></a>Toevoegen van een eindpunt met de klassieke Azure portal
-1. Aanmelden bij de [klassieke Azure-portal](http://manage.windowsazure.com), klikt u op **Machine Learning** in de linkerkolom staat. Klik op de werkruimte waarin de webservice waarin u geïnteresseerd bent.
-   
-    ![Navigeer naar de werkruimte](./media/create-endpoint/figure-1.png)
-2. Klik op **webservices**.
-   
-    ![Navigeer naar de Web-services](./media/create-endpoint/figure-2.png)
-3. Klik op de webservice die u geïnteresseerd bent in de lijst van beschikbare eindpunten wilt zien.
-   
-    ![Navigeer naar het eindpunt](./media/create-endpoint/figure-3.png)
-4. Klik onder aan de pagina op **eindpunt toevoegen**. Typ een naam en beschrijving, zorg ervoor dat er zijn geen andere eindpunten met dezelfde naam in deze webservice. Laat het niveau van de throttle met de standaardwaarde, tenzij u speciale vereisten hebt. Zie voor meer informatie over het beperken van [API-eindpunten schalen](scaling-webservice.md).
-   
-    ![Eindpunt maken](./media/create-endpoint/figure-4.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een Azure Machine Learning-webservice gebruiken](consume-web-services.md).

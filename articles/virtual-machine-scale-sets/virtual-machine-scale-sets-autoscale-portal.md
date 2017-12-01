@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatisch schalen van een virtuele-machineschaalset ingesteld in de Azure portal
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren die u wilt uitvoeren. Als uw toepassing vraag verandert, kunt u automatisch vergroten of verkleinen van het aantal VM-exemplaren. De mogelijkheid om te schalen kunt u met de vraag van klanten houden of reageren op wijzigingen in de toepassingsprestaties gedurende de levenscyclus van uw app.
@@ -54,7 +54,7 @@ Als uw toepassing vraag toeneemt stelt de belasting van de VM-exemplaren in uw s
     | *Operator*             | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                     | Groter dan   |
     | *Drempelwaarde*            | Het percentage dat ervoor zorgt de regel voor automatisch schalen dat voor het activeren van een actie.                                                 | 70             |
     | *Duur*             | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten     |
-    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                        | Percentage verhogen met |
+    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                        | Percentage door |
     | *Aantal exemplaren*       | Het percentage van de VM-exemplaren moet worden gewijzigd wanneer de regel wordt geactiveerd.                                            | 20             |
     | *Cool omlaag (minuten)*  | De hoeveelheid tijd moet worden gewacht voordat de regel wordt opnieuw toegepast zodat de acties voor automatisch schalen die tijd hebt om te laten treden. | 5 minuten      |
 
@@ -77,7 +77,7 @@ Op een 's avonds of het weekend en kan uw aanvraag toepassing afnemen. Als deze 
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operator*             | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                      | Kleiner dan   |
     | *Drempelwaarde*            | Het percentage dat ervoor zorgt de regel voor automatisch schalen dat voor het activeren van een actie.                                                 | 30             |
-    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                         | Percentage verlagen met |
+    | *Bewerking*            | Hiermee wordt aangegeven of de schaalaanpassingsset moet schaal omhoog of omlaag wanneer de regel geldt, en door welke verhoging                         | Percentage door verkleinen |
     | *Aantal exemplaren*       | Het percentage van de VM-exemplaren moet worden gewijzigd wanneer de regel wordt geactiveerd.                                             | 20             |
 
 3. Voor het maken van de regel, selecteer **toevoegen**
@@ -122,7 +122,7 @@ De eerdere voorbeelden automatisch geschaald op een schaal in- of instellen met 
 
     ![Regels voor automatisch schalen die schalen volgens een schema maken](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Selecteer om te zien hoe uw regels voor automatisch schalen die zijn toegepast, **Uitvoeringsgeschiedenis** aan de bovenkant van de **schaal** venster. De grafiek en gebeurtenissen lijst staat bij het activeren van de regels voor automatisch schalen en het aantal VM-exemplaren in uw scale verhoogt of verlaagt u hiermee.
+Selecteer om te zien hoe uw regels voor automatisch schalen die zijn toegepast, **Uitvoeringsgeschiedenis** aan de bovenkant van de **schaal** venster. De grafiek en gebeurtenissen lijst staat als de trigger van de regels voor automatisch schalen en het aantal VM-exemplaren in uw scale ingesteld toename of afname.
 
 
 ## <a name="next-steps"></a>Volgende stappen
