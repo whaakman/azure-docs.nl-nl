@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Een virtuele Linux-machine maken met de Stack van Azure-portal
 
@@ -26,7 +26,7 @@ Stack van virtuele machines in Azure kunnen worden gemaakt via de Stack van Azur
 
 * **Een Linux-installatiekopie in de Stack van Azure marketplace**
 
-   De Stack van Azure marketplace bevat geen standaard een Linux-installatiekopie. Dus voordat u een virtuele Linux-machine maken kunt, moet u controleren of de Azure-Stack-operator heeft gedownload de **Ubuntu Server 16.04 LT** installatiekopie met behulp van de stappen in de [downloaden marketplace-items van Azure naar Azure Stack](../azure-stack-download-azure-marketplace-item.md) onderwerp.
+   De Stack van Azure marketplace bevat geen standaard een Linux-installatiekopie. Dus voordat u een virtuele Linux-machine maken kunt, moet u controleren of de Azure-Stack-operator heeft gedownload de **Ubuntu Server 16.04 LTS** installatiekopie met behulp van de stappen in de [downloaden marketplace-items van Azure naar Azure Stack](../azure-stack-download-azure-marketplace-item.md) onderwerp.
 
 * **Toegang tot een SSH-client**
 
