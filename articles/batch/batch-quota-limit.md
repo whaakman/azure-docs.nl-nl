@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -51,10 +51,11 @@ Als u een Batch-account maken met toepassingen toewijzing modus is ingesteld op 
 | Toepassingspakketten per toepassing |40 |
 | Grootte van de toepassing-pakket (elk) |Ongeveer 195GB<sup>1</sup> |
 | Maximale startgrootte van taak | 32768 tekens<sup>2</sup> |
+| Taak maximale levensduur | 7 dagen<sup>3</sup> |
 
 <sup>1</sup> azure Storage-limiet voor maximale blob blokgrootte<br />
-<sup>2</sup> bevat bronbestanden en omgevingsvariabelen
-
+<sup>2</sup> bevat bronbestanden en omgevingsvariabelen<br />
+<sup>3</sup> de maximale levensduur van een taak uit wanneer deze wordt toegevoegd aan de taak is wanneer deze is voltooid, is 7 dagen. Voltooide taken behouden voor onbepaalde tijd; gegevens voor taken zijn niet voltooid binnen de maximale levensduur is niet toegankelijk.
 
 
 ## <a name="view-batch-quotas"></a>Batch-quota's weergeven

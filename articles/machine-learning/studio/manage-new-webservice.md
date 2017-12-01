@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Beheren van een webservice via de portal voor Azure Machine Learning-webservices
 U kunt uw Machine Learning nieuwe en klassieke webservices met behulp van de Microsoft Azure Machine Learning Web Services-portal beheren. Aangezien klassieke webservices en nieuwe Web-services zijn gebaseerd op verschillende onderliggende technologieën, hebt u iets anders beheermogelijkheden voor elk van deze.
@@ -155,36 +155,4 @@ U kunt de volgende eigenschappen bijwerken:
 * **Logboekregistratie** kunt u in- of uitschakelen van de fout bij het aanmelden op het eindpunt. Zie voor meer informatie over logboekregistratie inschakelen [logboekregistratie voor Machine Learning-webservices](web-services-logging.md).
 * **Inschakelen van voorbeeldgegevens** kunt u voorbeeldgegevens die u gebruiken kunt voor het testen van de aanvraag / antwoord-service opgeven. Als u de webservice in Machine Learning Studio gemaakt, is de voorbeeldgegevens genomen van de gegevens uw gebruikt voor het model te trainen. Als u de service via een programma hebt gemaakt, worden de gegevens worden opgehaald uit de bijvoorbeeld gegevens die u hebt opgegeven als onderdeel van de JSON-pakket.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Verleen of onderbreken toegang krijgen tot webservices voor gebruikers in de portal
-Met de klassieke Azure portal, kunt u toestaan of weigeren van toegang tot specifieke gebruikers.
-
-### <a name="access-for-users-of-new-web-services"></a>Toegang voor gebruikers van de nieuwe Web-services
-Om andere gebruikers werken met uw Web-services in de portal voor Azure Machine Learning-webservices, moet u ze als co-beheerders voor uw Azure-abonnement toevoegen.
-
-Aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com/) met uw Microsoft Azure-account - gebruik van het account dat is gekoppeld aan het Azure-abonnement.
-
-1. Klik in het navigatievenster op **instellingen**, klikt u vervolgens op **beheerders**.
-2. Klik onderaan in het venster **toevoegen**. 
-3. Typ het e-mailadres van degene die u wilt toevoegen als medebeheerder en selecteer vervolgens het abonnement dat u wilt dat de medebeheerder voor toegang tot in het dialoogvenster ADD A CO-ADMINISTRATOR.
-4. Klik op **Opslaan**.
-
-### <a name="access-for-users-of-classic-web-services"></a>Toegang voor gebruikers van klassieke webservices
-Voor het beheren van een werkruimte:
-
-Aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com/) met uw Microsoft Azure-account - gebruik van het account dat is gekoppeld aan het Azure-abonnement.
-
-1. Klik in het deelvenster Microsoft Azure-services op **MACHINE LEARNING**.
-2. Klik op de werkruimte die u wilt beheren.
-3. Klik op de **configureren** tabblad.
-
-Op het tabblad configuratie kunt u toegang tot de Machine Learning-werkruimte onderbreken door te klikken op **weigeren**. Gebruikers niet meer worden kunnen de werkruimte te openen in Machine Learning Studio. Om toegang te herstellen, klikt u op **toestaan**.
-
-Voor specifieke gebruikers:
-
-Voor het beheren van extra accounts die toegang tot de werkruimte in Machine Learning Studio hebben, klikt u op **aanmelden bij ML Studio** in de **DASHBOARD** tabblad. Hiermee opent u de werkruimte in Machine Learning Studio. Hier kunt klikt u op de **instellingen** tabblad en vervolgens **gebruikers**. U kunt klikken op **meer gebruikers UITNODIGEN** gebruikers toegang geven tot de werkruimte of Selecteer een gebruiker en klik op **verwijderen**.
-
-> [!NOTE]
-> De **aanmelden bij ML Studio** koppeling met de Microsoft-Account dat u momenteel bent aangemeld bij van Machine Learning Studio wordt geopend. Het Microsoft-Account waarmee u zich aanmeldt bij de klassieke Azure portal om een werkruimte te maken is niet automatisch gemachtigd om deze werkruimte te openen. Om te openen in een werkruimte, moet u zijn aangemeld bij de Microsoft-Account dat is gedefinieerd als eigenaar van de werkruimte of moet u een uitnodiging ontvangen van de eigenaar van het koppelen van de werkruimte.
-> 
-> 
 

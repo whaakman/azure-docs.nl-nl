@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Azure content delivery voor uw scenario optimaliseren
 
@@ -35,7 +35,7 @@ Dit artikel bevat een overzicht van diverse functies voor optimalisatie en wanne
 
 Het Azure Content Delivery Network van Akamai ondersteunt:
 
-* Algemene webtoepassingen levering 
+* Algemene webweergave 
 
 * Algemene mediastreaming
 
@@ -43,7 +43,7 @@ Het Azure Content Delivery Network van Akamai ondersteunt:
 
 * Grote bestanden downloaden
 
-* Dynamische site-versnelling 
+* Dynamische siteversnelling 
 
 Het Azure Content Delivery Network van Verizon ondersteunt alleen algemene webtoepassingen levering. Het kan worden gebruikt voor de video op aanvraag en grote bestanden te downloaden. U hoeft niet te selecteren van een type optimalisatie.
 
@@ -65,7 +65,7 @@ Selecteer een type optimalisatie die het meest geschikt is voor het scenario en 
 
 U kunt het CDN-eindpunt voor een van de volgende scenario's optimaliseren. 
 
-### <a name="general-web-delivery"></a>Algemene webtoepassingen levering
+### <a name="general-web-delivery"></a>Algemene webweergave
 
 Algemene webtoepassingen levering is de meest voorkomende optimalisatieoptie. Het ontworpen voor algemene web content optimalisatie, zoals webpagina's en webtoepassingen. Deze optimalisatie kan ook worden gebruikt voor het bestand en video downloadt.
 
@@ -103,11 +103,11 @@ Als u het Azure Content Delivery Network van Akamai gebruikt, moet u grote besta
 
 Als u het Azure inhoud Delivery Network van Akamai gebruikt, worden downloads van grote bestanden zijn geoptimaliseerd voor inhoud groter is dan 10 MB. Als de gemiddelde grootte kleiner dan 10 MB is, is het raadzaam algemene webtoepassingen levering gebruiken. Als de gemiddelde bestandsgrootte consistent groter dan 10 MB zijn, is dit mogelijk efficiënter om een afzonderlijke eindpunt voor grote bestanden te maken. Firmware of software-updates zijn bijvoorbeeld meestal grote bestanden.
 
-Het Azure inhoud Delivery Network van Verizon maakt gebruik van het type Algemeen web levering optimalisatie streaming media-inhoud leveren.
+Het Azure inhoud Delivery Network van Verizon maakt gebruik van het type Algemeen web levering optimalisatie leveren van inhoud van grote bestanden downloaden.
 
 Zie voor meer informatie over de optimalisatie van grote bestanden, [groot bestand optimalisatie](cdn-large-file-optimization.md).
 
-### <a name="dynamic-site-acceleration"></a>Dynamische site-versnelling
+### <a name="dynamic-site-acceleration"></a>Dynamische siteversnelling
 
  Dynamische site-versnelling is beschikbaar via zowel Akamai en Verizon Content Delivery Network-profielen. Deze optimalisatie omvat een extra kosten te gebruiken. Zie voor meer informatie de pagina met prijzen.
 

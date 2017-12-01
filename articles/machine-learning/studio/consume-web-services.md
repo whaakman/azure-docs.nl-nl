@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice gebruiken
 
@@ -64,18 +64,11 @@ Voor het ophalen van de API-sleutel voor een klassieke Machine-Learning-webservi
 5. Kopieer en sla de **primaire sleutel**.
 
 ### <a name="classic-web-service"></a>Klassieke-webservice
- U kunt ook een sleutel voor een klassieke webservice ophalen van Machine Learning Studio of de klassieke Azure portal.
+ U kunt ook een sleutel voor een klassieke webservice ophalen van Machine Learning Studio.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. Klik in Machine Learning Studio **WEBSERVICES** aan de linkerkant.
 2. Klik op een webservice. De **API-sleutel** is op de **DASHBOARD** tabblad.
-
-#### <a name="azure-classic-portal"></a>Klassieke Azure-portal
-1. Klik op **MACHINE LEARNING** aan de linkerkant.
-2. Klik op de werkruimte waarin uw Web-service zich bevindt.
-3. Klik op **WEBSERVICES**.
-4. Klik op een webservice.
-5. Klik op een eindpunt. 'API KEY' is niet beschikbaar in de rechterbenedenhoek.
 
 ## <a id="connect"></a>Verbinding maken met een Machine Learning-webservice
 U kunt verbinding maken met een Machine Learning-webservice met behulp van elke programmeertaal die ondersteuning biedt voor HTTP-aanvraag en -antwoord. U kunt de voorbeelden in C#, Python en R weergeven van een help-pagina Machine Learning-webservice.

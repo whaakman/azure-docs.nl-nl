@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4ff0556ba79c7104fa0e1cd84ece7fe27521ebbb
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synchronisatie: functieverwijzing
 In Azure AD Connect worden functies gebruikt voor het bewerken van een kenmerkwaarde tijdens de synchronisatie.  
@@ -453,7 +453,7 @@ De indeling van de uitvoer van deze functie wordt gebruikt door Azure Active Dir
 Retourneert 48656C6C6F20776F726C6421
 
 - - -
-### <a name="count"></a>Count
+### <a name="count"></a>Aantal
 **Beschrijving:**  
 De functie Count retourneert het aantal elementen in een kenmerk met meerdere waarden
 
@@ -828,7 +828,7 @@ De functie Item is nuttig in combinatie met de functie bevat sinds de laatste fu
 Genereert een fout als de index valt buiten het bereik.
 
 **Voorbeeld:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Retourneert het primaire e-mailadres.
 
 - - -
@@ -1248,7 +1248,7 @@ Waarde kan ook worden de functie fout, die een aangepaste tekenreeks geretournee
 Retourneert de taal gesproken in sommige steden, anders wordt een fout geretourneerd.
 
 - - -
-### <a name="trim"></a>Trim
+### <a name="trim"></a>Knippen
 **Beschrijving:**  
 De functie spaties verwijdert voorloopspaties en afsluitende spaties uit een tekenreeks.
 
@@ -1293,7 +1293,7 @@ Retourneert een subset van de waarden van een met meerdere waarden kenmerk (of d
 Retourneert de waarden van het certificaat in het kenmerk met meerdere waarden userCertificate die niet zijn verlopen.
 
 - - -
-### <a name="with"></a>met
+### <a name="with"></a>Met
 **Beschrijving:**  
 De With-functie biedt een manier voor het vereenvoudigen van een samengestelde expressie met behulp van een variabele om weer te geven van een subexpressie die wordt weergegeven een of meer keer in de complexe expressie.
 

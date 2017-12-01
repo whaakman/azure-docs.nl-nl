@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice implementeren
 Azure Machine Learning kunt u bouwen, testen en implementeren van voorspellende analytische oplossingen.
@@ -108,7 +108,7 @@ Op de **configuratie** pagina kunt u de beschrijving, de titel wijzigen, de opsl
 Zodra u de web-service hebt geïmplementeerd, kunt u het volgende doen:
 
 * **Toegang** deze via de API-webservice.
-* **Beheren** deze via Azure Machine Learning web services-portal of de klassieke Azure portal.
+* **Beheren** deze via Azure Machine Learning web services-portal.
 * **Update** deze als het model wordt gewijzigd.
 
 #### <a name="access-your-new-web-service"></a>Toegang tot uw nieuwe webservice
@@ -141,7 +141,7 @@ Als u wilt testen van de Batch-Service kan worden uitgevoerd, klikt u op **teste
 
 ![De webservice testen](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Op de **configuratie** pagina kunt u de weergavenaam van de service wijzigen en een omschrijving. De naam en beschrijving wordt weergegeven in de [klassieke Azure-portal](http://manage.windowsazure.com/) waar u uw webservices beheren.
+Op de **configuratie** pagina kunt u de weergavenaam van de service wijzigen en een omschrijving. De naam en beschrijving wordt weergegeven in de [Azure-portal](https://portal.azure.com/) waar u uw webservices beheren.
 
 U kunt een beschrijving opgeven voor uw invoergegevens, uitvoergegevens en web parameters van de service door een tekenreeks opgeven voor elke kolom onder **INVOERSCHEMA**, **UITVOERSCHEMA**, en **Web SERVICE PARAMETER**. Deze beschrijvingen worden gebruikt in de steekproef code-documentatie voor de webservice.
 

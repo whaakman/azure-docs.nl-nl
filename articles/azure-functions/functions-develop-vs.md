@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions-Tools voor Visual Studio  
 
@@ -32,6 +32,9 @@ De hulpprogramma's van Azure Functions biedt de volgende voordelen:
 * Uw functies in C#-code terwijl alle voordelen van Visual Studio-ontwikkeling. 
 
 Dit onderwerp leest u hoe de Azure Functions-Tools voor Visual Studio 2017 gebruiken voor het ontwikkelen van uw functies in C#. U leert ook hoe uw project publiceren naar Azure als een .NET-assembly.
+
+> [!IMPORTANT]
+> Combineer geen lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u vanaf een lokaal project naar een functie-app publiceert, overschrijft het implementatieproces kunnen functies die u hebt ontwikkeld in de portal.
 
 ## <a name="prerequisites"></a>Vereisten
 

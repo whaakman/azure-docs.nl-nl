@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit onderwerp vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -76,8 +76,8 @@ Antwoordcode|De naam van de reactie|Beschrijving
 302|Gevonden|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header. Deze statuscode is de standaardmethode voor de branche van de uitvoering van een omleiding.
 307|Tijdelijke omleiding|Deze statuscode wordt niet-geautoriseerde gebruikers omgeleid naar de URL die is opgegeven in de locatie-header.
 401|Niet geautoriseerd|Deze statuscode combineren met de reactie WWW-Authenticate-header, kunt u een gebruiker voor de verificatie wordt gevraagd.
-403|Is niet toegestaan|Dit is de standaard 403 verboden statusbericht dat een onbevoegde gebruiker ziet wanneer u probeert te krijgen tot beveiligde inhoud.
-404|Bestand is niet gevonden|Deze statuscode geeft aan dat de HTTP-client kan communiceren met de server is, maar de aangevraagde inhoud is niet gevonden.
+403|Verboden|Dit is de standaard 403 verboden statusbericht dat een onbevoegde gebruiker ziet wanneer u probeert te krijgen tot beveiligde inhoud.
+404|Het bestand is niet gevonden|Deze statuscode geeft aan dat de HTTP-client kan communiceren met de server is, maar de aangevraagde inhoud is niet gevonden.
 
 #### <a name="url-redirection"></a>URL-omleiding
 
@@ -218,7 +218,7 @@ De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en
 Waarde|Resultaat
 --|--
 Overschrijven|Zorgt ervoor dat de volgende acties wordt uitgevoerd:<br/> -Overschrijft de header van de Cache-Control die worden gegenereerd door de bronserver. <br/>-Voegt de header van de Cache-Control geproduceerd door de functie externe maximumleeftijd aan het antwoord.
-Doorgeven|Zorgt ervoor dat de header van de Cache-Control geproduceerd door de functie externe maximumleeftijd nooit is toegevoegd aan het antwoord. <br/> Als de bronserver een Cache-Control-header ontstaat, worden doorgegeven aan de eindgebruiker. <br/> Als de oorspronkelijke server geen Cache-Control-header levert en vervolgens deze optie ertoe leiden de response-header dat kan bevat niet de header van een Cache-Control.
+Pass Through|Zorgt ervoor dat de header van de Cache-Control geproduceerd door de functie externe maximumleeftijd nooit is toegevoegd aan het antwoord. <br/> Als de bronserver een Cache-Control-header ontstaat, worden doorgegeven aan de eindgebruiker. <br/> Als de oorspronkelijke server geen Cache-Control-header levert en vervolgens deze optie ertoe leiden de response-header dat kan bevat niet de header van een Cache-Control.
 Indien deze ontbreken toevoegen|Als een Cache-Control-header niet op de bronserver ontvangen is, voegt de header van de Cache-Control geproduceerd door de functie externe maximumleeftijd met deze optie. Deze optie is nuttig om ervoor te zorgen dat alle activa een Cache-Control-header wordt toegewezen.
 Verwijderen| Deze optie zorgt ervoor dat een Cache-Control-header niet opgenomen in de header-reactie is. Als de header van een Cache-Control al is toegewezen, worden klikt u vervolgens het verwijderd uit het antwoord van de header.
 
@@ -378,7 +378,7 @@ De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en
 Waarde|Resultaat
 --|--
 Overschrijven|Zorgt ervoor dat de volgende acties wordt uitgevoerd:<br/>-Overschrijft de Expires-header die worden gegenereerd door de bronserver.<br/>-Voegt de Expires-header die wordt geproduceerd door de functie externe maximumleeftijd aan het antwoord.
-Doorgeven|Zorgt ervoor dat de Expires-header die wordt geproduceerd door de functie externe maximumleeftijd nooit is toegevoegd aan het antwoord. <br/> Als de bronserver een Expires-header ontstaat, worden doorgegeven aan de eindgebruiker. <br/>Als de bronserver geen een Expires-header produceert, klikt u vervolgens deze optie kan ertoe leiden dat de response-header bevat geen een Expires-header.
+Pass Through|Zorgt ervoor dat de Expires-header die wordt geproduceerd door de functie externe maximumleeftijd nooit is toegevoegd aan het antwoord. <br/> Als de bronserver een Expires-header ontstaat, worden doorgegeven aan de eindgebruiker. <br/>Als de bronserver geen een Expires-header produceert, klikt u vervolgens deze optie kan ertoe leiden dat de response-header bevat geen een Expires-header.
 Indien deze ontbreken toevoegen| Als een Expires-header niet van de bronserver ontvangen is, voegt de geproduceerd door de functie externe maximumleeftijd Expires-header met deze optie. Deze optie is nuttig om ervoor te zorgen dat alle activa een Expires-header wordt toegewezen.
 Verwijderen| Zorgt ervoor dat een Expires-header niet opgenomen in de header-reactie is. Als er al een Expires-header is toegewezen, worden klikt u vervolgens het verwijderd uit het antwoord van de header.
 
@@ -644,7 +644,7 @@ Uitgeschakeld|De X-EC-Debug response-header worden uitgesloten van het antwoord.
 
 **Standaardgedrag:** uitgeschakeld.
 
-###<a name="modify-client-response-header"></a>Client-antwoordheader wijzigen
+###<a name="modify-client-request-header"></a>De aanvraagheader Client wijzigen
 **Doel:** elke aanvraag bevat een set [aanvraagheaders]() die het worden beschreven. Deze functie de volgende mogelijkheden:
 
 - Toevoegen of de waarde die is toegewezen aan een aanvraagheader overschrijven. Als de opgegeven aanvraagkop niet bestaat, wordt klikt u vervolgens deze functie deze toevoegen aan de aanvraag.
@@ -680,7 +680,7 @@ Belangrijke informatie:
 ###<a name="modify-client-response-header"></a>Client-antwoordheader wijzigen
 Elk antwoord bevat een reeks [antwoordheaders]() die het worden beschreven. Deze functie de volgende mogelijkheden:
 
-- Toevoegen of de waarde die is toegewezen aan een antwoordheader overschrijven. Als de opgegeven aanvraagkop niet bestaat, wordt klikt u vervolgens deze functie deze toevoegen aan het antwoord.
+- Toevoegen of de waarde die is toegewezen aan een antwoordheader overschrijven. Als de opgegeven antwoordkop niet bestaat, wordt klikt u vervolgens deze functie deze toevoegen aan het antwoord.
 - Een antwoordheader verwijderen uit het antwoord.
 
 Standaard worden met de headerwaarden antwoord op een bronserver en op onze randservers gedefinieerd.
@@ -689,9 +689,9 @@ Een van de volgende acties worden uitgevoerd op een antwoordheader:
 
 Optie|Beschrijving|Voorbeeld
 -|-|-
-Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de aanvraag-header.|**Antwoord headerwaarde (Client):**Value1 <br/> **Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value1Value2
-Overschrijven|De waarde van de aanvraag-header wordt ingesteld op de opgegeven waarde.|**Antwoord headerwaarde (Client):**Value1 <br/>**Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value2 <br/>
-Verwijderen|Hiermee verwijdert u de opgegeven aanvraagheader.|**Headerwaarde (Client) aanvraag:** Value1 <br/> **Aanvraag-Header voor Client-configuratie wijzigen:** antwoordheader van de desbetreffende verwijderen. <br/>**Resultaat:** de opgegeven antwoordkop niet doorgestuurd naar de aanvrager.
+Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de antwoord-header.|**Antwoord headerwaarde (Client):**Value1 <br/> **Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value1Value2
+Overschrijven|De waarde van de antwoord-header wordt met de opgegeven waarde worden ingesteld.|**Antwoord headerwaarde (Client):**Value1 <br/>**Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value2 <br/>
+Verwijderen|Hiermee verwijdert u de opgegeven antwoordheader.|**Antwoord headerwaarde (Client):** Value1 <br/> **Configuratie van de Client antwoordheader wijzigen:** antwoordheader van de desbetreffende verwijderen. <br/>**Resultaat:** de opgegeven antwoordkop niet doorgestuurd naar de aanvrager.
 
 Belangrijke informatie:
 
@@ -708,7 +708,7 @@ Belangrijke informatie:
     - codering van inhoud
     - lengte van inhoud
     - inhoud bereik
-    - Datum
+    - datum
     - server
     - aanhangwagen
     - Transfer-encoding
@@ -995,7 +995,7 @@ Deze functie bevat die overeenkomt met de criteria die moeten worden voldaan voo
 
 - AS-nummer
 - CDN-oorsprong
-- IP-clientadres
+- IP-adres van client
 - Oorsprong van de klant
 - Aanvraag-schema
 - URL-pad naar map

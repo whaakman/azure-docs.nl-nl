@@ -3,75 +3,96 @@ title: Het koppelen van een Azure-abonnement aan Azure AD B2C | Microsoft Docs
 description: Stapsgewijze handleiding voor het inschakelen van facturering voor Azure AD B2C-tenant in een Azure-abonnement.
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
-manager: mbaldwin
+author: parakhj
+manager: krassk
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
-ms.author: joroja
-ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: parja
+ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Een Azure-abonnement koppelen aan een Azure B2C-tenant betalen voor gebruikskosten
-
-Doorlopende gebruikskosten voor Azure Active Directory B2C (of Azure AD B2C) worden gefactureerd op een Azure-abonnement. Dit is nodig voor de tenantbeheerder expliciet de Azure AD B2C-tenant te koppelen aan een Azure-abonnement na het maken van de B2C-tenant zelf.  Deze koppeling wordt bereikt door het maken van een Azure AD 'B2C-Tenant' resource in de doel-Azure-abonnement. Veel B2C tenants kunnen worden gekoppeld aan een enkele Azure-abonnement samen met andere Azure-resources (bijvoorbeeld virtuele machines, gegevensopslag, LogicApps)
-
+# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Een Azure-abonnement koppelen aan een Azure AD B2C-tenant
 
 > [!IMPORTANT]
-> De meest recente informatie over het gebruik van facturering en prijzen voor B2C op de volgende pagina is: [prijzen van Azure AD B2C](
-https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> De meest recente informatie over het gebruik van facturering en prijzen voor Azure AD B2C op de volgende pagina is: [prijzen van Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Stap 1: een Azure AD B2C-Tenant maken
-Maken van de B2C-tenant moet eerst worden voltooid. Deze stap overslaan als u uw doel B2C-Tenant al hebt gemaakt. [Aan de slag met Azure AD B2C](active-directory-b2c-get-started.md)
+Gebruikskosten voor Azure AD B2C wordt gefactureerd voor een Azure-abonnement. Wanneer een Azure AD B2C-tenant is gemaakt, moet de tenantbeheerder expliciet de Azure AD B2C-tenant te koppelen aan een Azure-abonnement. Dit artikel ziet u hoe.
 
-## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Stap 2: Open Azure-portal op de Azure AD-Tenant waarin uw Azure-abonnement
-Navigeer naar [Azure Portal](https://portal.azure.com). Overschakelen naar de Azure AD-Tenant met het Azure-abonnement dat u wilt gebruiken. Deze Azure AD-tenant wijkt af van de B2C-tenant. Klik in de Azure-portal op de accountnaam in de rechterbovenhoek van het dashboard te selecteren van de Azure AD-Tenant. Er is een Azure-abonnement nodig om door te gaan. [Een Azure-abonnement ophalen](https://account.windowsazure.com/signup?showCatalog=True)
+> [!NOTE]
+> Een abonnement dat is gekoppeld aan een Azure AD B2C-tenant kan alleen worden gebruikt voor de facturering van Azure AD B2C-gebruik. Het abonnement kan niet worden gebruikt voor het toevoegen van andere Azure-services of Office 365-licenties *binnen de Azure AD B2C-tenant*.
 
-![Overschakelen naar uw Azure AD-Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+ De abonnementskoppeling wordt bereikt door het maken van een Azure AD B2C 'resource' binnen de doel-Azure-abonnement. Veel Azure AD B2C 'resources' kunnen worden gemaakt binnen een één Azure-abonnement, samen met andere Azure-resources (voor opslag van bijvoorbeeld virtuele machines, gegevens, LogicApps). U kunt alle resources binnen het abonnement zien door te gaan met de Azure AD-tenant waaraan het abonnement is gekoppeld.
 
-## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Stap 3: een B2C-Tenant-resource maken in Azure Marketplace
-Open Marketplace door te klikken op het pictogram Marketplace of selecteren van de groene '+' in de linkerbovenhoek van het dashboard.  Zoek en selecteer Azure Active Directory B2C. Selecteer maken.
+Er is een geldige Azure-abonnement nodig om door te gaan.
 
-![Selecteer Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+## <a name="create-an-azure-ad-b2c-tenant"></a>Een Azure AD B2C-tenant maken
 
-![AD B2C zoeken](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
+U moet eerst [een Azure AD B2C-tenant maken](active-directory-b2c-get-started.md) dat u wilt koppelen van een abonnement op. Deze stap overslaan als u een Azure AD B2C-tenant al hebt gemaakt.
 
-De Azure AD B2C-Resource maken dialoogvenster omvat de volgende parameters:
+## <a name="open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Open Azure-portal op de Azure AD-tenant waarin uw Azure-abonnement
 
-1. Azure AD B2C-Tenant – Selecteer een Azure AD B2C-Tenant in de vervolgkeuzelijst.  Alleen in aanmerking komende Azure AD B2C tenants weergeven.  In aanmerking komende B2C tenants aan deze voorwaarden voldoet: U bent van de globale beheerder van de B2C-tenant en de B2C-tenant is momenteel niet gekoppeld aan een Azure-abonnement
+Navigeer naar de Azure AD-tenant waarin uw Azure-abonnement. Open de [Azure-portal](https://portal.azure.com), en schakel over naar de Azure AD-tenant met het Azure-abonnement u wilt gebruiken.
 
-2. Resourcenaam van Azure AD B2C - is voorgeselecteerd, zodat deze overeenkomen met de domeinnaam van de B2C-Tenant
+![Overschakelen naar uw Azure AD-tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
-3. Abonnement - een actief Azure-abonnement waarin u een beheerder of medebeheerder zijn.  Meerdere Tenants van Azure AD B2C kunnen worden toegevoegd aan één Azure-abonnement
+## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Azure AD B2C zoeken in Azure Marketplace
 
-4. Locatie van de resourcegroep en resourcegroep - deze artefacten kunt u meerdere Azure-resources te organiseren.  Deze optie heeft geen invloed op uw B2C-tenant locatie, prestaties of facturering status
+Klik op de knop **Nieuw**. Voer in het veld **Marketplace doorzoeken** in: `B2C`.
 
-5. Vastmaken aan dashboard voor eenvoudige toegang tot je factureringsgegevens voor B2C-tenant en de instellingen van de tenant B2C ![B2C-Resource maken](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Knop gemarkeerd en de Azure AD B2C-tekst toevoegen in de zoekopdracht de marketplace-veld](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-## <a name="step-4---manage-your-b2c-tenant-resources-optional"></a>Stap 4: uw B2C-Tenant resources (optioneel) beheren
-Zodra de implementatie is voltooid, wordt een nieuwe 'B2C-Tenant'-resource is gemaakt in de doelresourcegroep en gerelateerde Azure-abonnement.  U ziet een nieuwe resource van het type 'B2C-Tenant' toegevoegd naast uw andere Azure-resources.
+Selecteer in de lijst met resultaten **Azure AD B2C**.
 
-![B2C-Resource maken](./media/active-directory-b2c-how-to-enable-billing/b2cresourcedashboard.png)
+![Azure AD B2C wordt geselecteerd in de lijst met resultaten](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Door te klikken op de resource B2C-tenant, zich u kunt
-- Klik op de naam van het abonnement factureringsgegevens te bekijken. Zie facturering en informatie over het gebruik.
-- Klik op Azure AD B2C-instellingen om een nieuw browsertabblad geopend rechtstreeks in uw B2C-tenant blade instellingen
+Meer informatie over Azure AD B2C worden weergegeven. Klik op de knop **Maken** om de nieuwe Azure Active Directory B2C-tenant te configureren.
+
+Selecteer in het scherm voor het maken van resource **koppeling een bestaande Azure AD B2C-Tenant met mijn Azure-abonnement**.
+
+## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Een Azure AD B2C-resource in het Azure-abonnement maken
+
+Selecteer een Azure AD B2C-tenant in de vervolgkeuzelijst in het dialoogvenster voor het maken van resource. U ziet alle van de tenants dat u de globale beheerder van en die nog niet zijn gekoppeld aan een abonnement.
+
+De naam van de Azure AD B2C-resource wordt vooraf geselecteerd zodat deze overeenkomen met de domeinnaam van de Azure AD B2C-tenant.
+
+Voor het abonnement, selecteert u een actief Azure-abonnement dat u de beheerder van.
+
+Selecteer een resourcegroep en locatie van resourcegroep. De selectie hier heeft geen invloed op de locatie van Azure AD B2C-tenant, prestaties of facturering status.
+
+![B2C-Resource maken](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+
+## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Uw Azure AD B2C-tenant resources beheren
+
+Als een Azure AD B2C-resource is gemaakt in het Azure-abonnement, ziet u een nieuwe resource van het type 'B2C tenant' samen met andere Azure-resources toegevoegd.
+
+U kunt deze bron te gebruiken:
+
+- Ga naar het abonnement op de factureringsgegevens te bekijken.
+- Ga naar uw Azure AD B2C-tenant
 - Een ondersteuningsaanvraag indienen
-- Uw B2C-tenant resource verplaatsen naar een andere Azure-abonnement of naar een andere resourcegroep.  Deze keuze wijzigingen in welke Azure-abonnement ontvangt gebruikskosten.
+- Uw Azure AD B2C-tenant resource verplaatsen naar een andere Azure-abonnement of een andere resourcegroep.
 
 ![B2C broninstellingen](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Bekende problemen
-- Verwijderen van een B2C-Tenant. Als een B2C-Tenant is gemaakt, verwijderd en opnieuw gemaakt met dezelfde domeinnaam moet ook verwijderen en opnieuw maken van de resource 'Linking' met dezelfde domeinnaam.  Deze resource 'Linking' onder 'Alle resources' vindt u in de tenant voor abonnement via de Azure-portal.
-- Zelf-opgelegde beperkingen op regionale Resourcelocatie.  In zeldzame gevallen, kan een gebruiker een regionale beperking voor het maken van Azure resource hebt vastgesteld.  Deze beperking kan voorkomen dat het maken van de koppeling tussen een Azure-abonnement en een B2C-Tenant. Om te beperken, verwijzen wij u versoepelen deze beperking.
+
+### <a name="csp-subscriptions"></a>CSP-abonnementen
+
+Op dit moment wordt een Azure AD B2C-tenant **kan niet** koppeling naar de CSP-abonnementen.
+
+### <a name="self-imposed-restrictions"></a>Zelf-opgelegde beperkingen
+
+Een gebruiker kan een regionale beperking voor het maken van Azure-resource hebt vastgesteld. Deze beperking kan voorkomen dat het maken van Azure AD B2C-bron. Om te beperken, verwijzen wij u versoepelen deze beperking.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zodra deze stappen voltooid voor elk van uw B2C-tenants zijn, wordt uw Azure-abonnement in rekening gebracht volgens de details van uw Azure directe of Enterprise Agreement.
-- Bekijk informatie over het gebruik en facturering binnen uw geselecteerde Azure-abonnement
-- Bekijk gedetailleerde dag gebruiksrapporten met behulp van de [gebruik rapportage-API](active-directory-b2c-reference-usage-reporting-api.md)
+
+Zodra deze stappen voltooid voor elk van uw Azure AD B2C-tenants zijn, wordt uw Azure-abonnement in rekening gebracht volgens de details van uw Azure directe of Enterprise Agreement.
+
+U kunt het gebruik en factureringsgegevens bekijken binnen uw geselecteerde Azure-abonnement. U kunt ook bekijken gedetailleerde dag gebruiksrapporten met behulp van de [gebruiksrapportage API](active-directory-b2c-reference-usage-reporting-api.md).

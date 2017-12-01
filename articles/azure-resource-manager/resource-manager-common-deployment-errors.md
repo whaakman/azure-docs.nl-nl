@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
@@ -31,6 +31,7 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Ga als volgt naamsbeperkingen voor opslagaccounts. | [Naam van het opslagaccount oplossen](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Controleer de eigenschappen van het opslagaccount beschikbaar. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | Het cluster of de regio is geen beschikbare bronnen of het aangevraagde VM-grootte kan niet worden ondersteund. De aanvraag op een later tijdstip opnieuw proberen of vraag een andere VM-grootte. | [Inrichten en de toewijzing van problemen voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) en [inrichten en de toewijzing van problemen voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Wacht u totdat de gelijktijdige bewerking is voltooid. | |
 | AuthorizationFailed | Uw account of de service-principal heeft niet voldoende toegangsrechten voor het voltooien van de implementatie. Controleer de uw account behoort tot rol en de toegang voor de implementatie-scope. | [Op rollen gebaseerde toegangsbeheer van Azure](../active-directory/role-based-access-control-configure.md) |
 | BadRequest | U verzonden implementatie-waarden die niet overeenkomen met wat er wordt verwacht door Resource Manager. Controleer de binnenste statusbericht voor meer informatie over het oplossen van problemen. | [Verwijzing naar de sjabloon](/azure/templates/) en [locaties ondersteund](resource-manager-template-location.md) |
@@ -54,7 +55,7 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | MissingRegistrationForLocation | Controleer de registratiestatus van de resource-provider en de ondersteunde locaties. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Uw abonnement bij de resourceprovider registreren. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Registratiestatus resource provider. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
-| notFound | U probeert mogelijk voor het implementeren van een afhankelijke bron in combinatie met een bovenliggende resource. Controleer of u moet een afhankelijkheid toevoegen. | [Afhankelijkheden moeten worden opgelost](resource-manager-not-found-errors.md) |
+| Niet gevonden | U probeert mogelijk voor het implementeren van een afhankelijke bron in combinatie met een bovenliggende resource. Controleer of u moet een afhankelijkheid toevoegen. | [Afhankelijkheden moeten worden opgelost](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | De implementatie wordt geprobeerd een bewerking die het quotum voor het abonnement, resourcegroep of regio overschrijdt. Indien mogelijk uw implementatie om te blijven binnen de quota herzien. Overweeg anders de aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Zorg ervoor dat een bovenliggende resource bestaat voordat het maken van de onderliggende resources. | [Bovenliggende resource oplossen](resource-manager-parent-resource-errors.md) |
 | PrivateIPAddressInReservedRange | Het opgegeven IP-adres bevat een adresbereik vereist door Azure. IP-adres om te voorkomen dat gereserveerde bereik wijzigen. | [IP-adressen](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |

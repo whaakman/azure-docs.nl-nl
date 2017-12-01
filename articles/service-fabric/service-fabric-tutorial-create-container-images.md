@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-container-images-for-service-fabric"></a>Maken van installatiekopieën van de container voor Service Fabric
 
@@ -53,9 +53,9 @@ De voorbeeldtoepassing gebruikt in deze zelfstudie is een stemmende app. De toep
 Git gebruiken voor het downloaden van een kopie van de toepassing op uw ontwikkelomgeving.
 
 ```bash
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/
+cd service-fabric-containers/Linux/container-tutorial/
 ```
 
 De container-tutorial-map bevat een map met de naam 'azure-stem'. Deze map 'azure-stem' bevat de broncode van de front-end- en een Dockerfile om de front-end samen te stellen. De container-tutorial-map bevat ook de map 'redis' waarvoor de Dockerfile het redis-image. Deze mappen bevatten de benodigde activa voor deze zelfstudie. 

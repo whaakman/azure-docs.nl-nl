@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management met Service Fabric implementeren
-Deze zelfstudie maakt deel uit drie van een serie.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u nodig hebt voor het publiceren van API's met een groot aantal routeringsregels voor uw back-end Service Fabric-services. Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. Een gateway kan alle stateless services die zijn bestemd voor inkomend verkeer zoals een APP.NET Core toepassing, Event Hubs, IoT-Hub of Azure API Management zijn in Service Fabric. 
+Deze zelfstudie is een vierde deel van een reeks.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u nodig hebt voor het publiceren van API's met een groot aantal routeringsregels voor uw back-end Service Fabric-services. Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. Een gateway kan alle stateless services die zijn bestemd voor inkomend verkeer zoals een APP.NET Core toepassing, Event Hubs, IoT-Hub of Azure API Management zijn in Service Fabric. 
 
 Deze zelfstudie ziet u het instellen van [Azure API Management](../api-management/api-management-key-concepts.md) met Service Fabric om verkeer te leiden naar een back-end-service in Service Fabric.  Wanneer u klaar bent, hebt u API Management geïmplementeerd op een VNET, een API-bewerking voor het verzenden van verkeer naar de back-end-stateless services geconfigureerd. Zie voor meer informatie over Azure API Management-scenario's met Service Fabric, de [overzicht](service-fabric-api-management-overview.md) artikel.
 
@@ -38,6 +38,7 @@ In deze zelfstudie reeks leert u hoe:
 > [!div class="checklist"]
 > * Maken van een veilige [Windows-cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) of [Linux-cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) op Azure met behulp van een sjabloon
 > * [Een in- of -cluster schalen](/service-fabric-tutorial-scale-cluster.md)
+> * [Upgrade de runtime van een cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * API Management met Service Fabric implementeren
 
 ## <a name="prerequisites"></a>Vereisten
@@ -335,10 +336,6 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Een API-bewerking maken
 > * Een back-end-beleid configureren
 > * De API toevoegen aan een product
-
-Ga vervolgens naar de volgende zelfstudie voor informatie over het upgraden van de cluster-runtime.
-> [!div class="nextstepaction"]
-> [Upgrade de Azure Service Fabric-cluster-runtime](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -195,7 +195,6 @@ Er zijn enkele gedrag van die afkomstig zijn van Azure Table storage gebruikers 
 * De resultaten van de query is geretourneerd door de tabel-API worden niet gesorteerd partitie sleutel/rij sleutel omdat ze zich in Azure Table storage.
 * Rij sleutels mag uit maximaal 255 bytes
 * Batches mogen slechts tot 2 MB
-* CreateIfNotExists aanroepen worden beperkt door een management-versnelling die vaste en werkt afzonderlijk van andere tabelbewerkingen die RUs vallen. Dit betekent dat die een groot aantal CreateIfNotExists maken beperkt ophalen en verder niets te doen over het omdat de limiet is niet afkomstig zijn van hun RUs niet mogelijk.
 * CORS wordt momenteel niet ondersteund.
 * Namen van tabellen in de Azure Table storage zijn niet hoofdlettergevoelig, maar ze zijn in Azure Cosmos DB tabel-API
 * Sommige Azure Cosmos DB interne indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk nodig hebt. Daarom kan dit onverwachte beperkingen op gegevensgrootte veroorzaken. Bijvoorbeeld: momenteel een kan niet gebruiken de volledige 1 Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens groter wordt.
@@ -205,7 +204,7 @@ Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azur
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= eigenschappen| [Tabel-Service-eigenschappen instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt voor het CORS-regels, configuratie van storage analytics en instellingen voor logboekregistratie instellen. CORS wordt momenteel niet ondersteund en analytics en logboekregistratie anders in Azure Cosmos DB dan Azure Storage-tabellen worden verwerkt |
 | OPTIES | / < resource-tabelnaam > | [Vooraf vlucht CORS tabel aanvraag](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit is onderdeel van CORS die Azure Cosmos DB momenteel niet ondersteund. |
-| TOEVOEGEN | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
+| GET | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
 | GET, PUT | /MyTable? comp acl = | [Tabel ACL verkrijgen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid dat is gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
 
 Daarnaast ondersteunt Azure Cosmos DB tabel API alleen de JSON-indeling niet ATOM.
@@ -504,7 +503,7 @@ Gebruik [metrische gegevens](use-metrics.md) gebruik [diagnostische logboeken](l
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Welke client-SDK's kunnen werken met Apache Cassandra API van Azure Cosmos DB?
 Stuurprogramma's die gebruik CQLv3 zijn persoonlijke preview Apache Cassandra van de SDK-client voor clientprogramma's gebruikt. Als u beschikt over andere stuurprogramma's die u gebruikt of als u problemen worden geconfronteerd verzend een e-mail naar [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
 
-### <a name="is-composite-primary-key-supported"></a>Is een samengestelde primaire sleutel ondersteund?
+### <a name="is-composite-partition-key-supported"></a>Wordt samengesteld partitiesleutel ondersteund?
 Ja, kunt u de syntaxis van de reguliere samengestelde partitiesleutel maken. 
 
 ### <a name="can-i-use-sstable-loader-for-data-loading"></a>Kan ik sstable loader gebruiken om gegevens te laden?
