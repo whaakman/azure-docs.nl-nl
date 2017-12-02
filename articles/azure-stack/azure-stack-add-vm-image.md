@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een aangepaste virtuele machine in Azure Stack beschikbaar maken
 
@@ -184,7 +184,7 @@ Installatiekopieën moet kunnen worden verwezen door een Blob storage-URI. De in
 
 2. Aanmelden bij Azure Stack als operator. Selecteer in het menu **meer services** > **Resourceproviders**. Selecteer **Compute** > **VM-installatiekopieën** > **toevoegen**.
 
-3. Onder **een VM-installatiekopie toe te voegen**, voer de uitgever, aanbieding, SKU en versie van de installatiekopie van de virtuele machine. Deze segmenten naam verwijzen naar de VM-installatiekopie in de Resource Manager-sjablonen. Zorg ervoor dat u selecteert de **besturingssysteemtype** correct waarde. Voor **OD schijf Blob-URI**, voer de Blob-URI waar de installatiekopie is geüpload. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
+3. Onder **een VM-installatiekopie toe te voegen**, voer de uitgever, aanbieding, SKU en versie van de installatiekopie van de virtuele machine. Deze segmenten naam verwijzen naar de VM-installatiekopie in de Resource Manager-sjablonen. Zorg ervoor dat u selecteert de **besturingssysteemtype** correct waarde. Voor **OS schijf Blob-URI**, voer de Blob-URI waar de installatiekopie is geüpload. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
    
    ![Begin met het maken van de installatiekopie](./media/azure-stack-add-vm-image/image4.png)
 
