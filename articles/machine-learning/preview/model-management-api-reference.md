@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1939a18fbaf0aed0f62ac9e7641b9901ec4762ea
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Naslaginformatie over Azure Machine Learning-Model Management Account API
 
-Zie voor meer informatie over het instellen van de implementatieomgeving [Model-Management-accountconfiguratie](model-management-configuration.md).
+Zie voor meer informatie over het instellen van de implementatieomgeving [Model-Management-accountconfiguratie](deployment-setup-configuration.md).
 
 Azure Machine Learning-Model Management Account API implementeert de volgende bewerkingen:
 
@@ -70,73 +70,73 @@ De model-registratiestap registreert uw Machine Learning-model met de Azure-Mode
 
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
  |
 ### <a name="description"></a>Beschrijving
 Registreert een model.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
-| Model | Hoofdtekst | De nettolading die wordt gebruikt voor het registreren van een model. | Ja | [Model](#model) |
+| model | hoofdtekst | De nettolading die wordt gebruikt voor het registreren van een model. | Ja | [Model](#model) |
 
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | OK. De modelregistratie is voltooid. | [Model](#model) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-models-in-an-account"></a>Query uitvoeren op de lijst met modellen in een account
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
  |
 ### <a name="description"></a>Beschrijving
 De lijst met modellen in een account een query. U kunt de lijst met resultaten op label en naam filteren. Als geen filter wordt doorgegeven, bevat de query alle modellen in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 | naam | query | Objectnaam. | Nee | Tekenreeks |
 | Label | query | Model label. | Nee | Tekenreeks |
-| Aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
+| aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
 | $skipToken | query | Het vervolgtoken voor het ophalen van de volgende pagina. | Nee | Tekenreeks |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedModelList](#paginatedmodellist) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-model-details"></a>Modeldetails van het ophalen
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /models/ {id}  
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /models/ {id}  
  |
 
 ### <a name="description"></a>Beschrijving
 Een model met id opgehaald
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Object-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Object-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -144,80 +144,80 @@ Een model met id opgehaald
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Model](#model) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="register-a-manifest-with-the-registered-model-and-all-dependencies"></a>Een manifest te registreren met het geregistreerde model en alle afhankelijkheden
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
 
 ### <a name="description"></a>Beschrijving
 Registreert een manifest met het geregistreerde model en de afhankelijkheden ervan.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
-| manifestRequest | Hoofdtekst | De nettolading die wordt gebruikt voor het registreren van een manifest. | Ja | [Manifest](#manifest) |
+| manifestRequest | hoofdtekst | De nettolading die wordt gebruikt voor het registreren van een manifest. | Ja | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Manifest registratie is gelukt. | [Manifest](#manifest) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-manifests-in-an-account"></a>Query uitvoeren op de lijst van de manifesten in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
 
 ### <a name="description"></a>Beschrijving
 De lijst van de manifesten in een account met een query. U kunt het resultatenlijst filteren op model-ID en naam manifest. Als geen filter wordt doorgegeven, bevat de query de manifesten in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 | Model | query | Model-ID. | Nee | Tekenreeks |
 | ManifestName | query | Naam van het manifest. | Nee | Tekenreeks |
-| Aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
+| aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
 | $skipToken | query | Het vervolgtoken voor het ophalen van de volgende pagina. | Nee | Tekenreeks |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedManifestList](#paginatedmanifestlist) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-manifest-details"></a>Details van het manifest ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /manifests/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /manifests/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Haalt het manifest van-ID.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Object-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Object-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -225,80 +225,80 @@ Haalt het manifest van-ID.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Manifest](#manifest) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="create-an-image"></a>Een installatiekopie maken
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
 
 ### <a name="description"></a>Beschrijving
 Hiermee maakt u een installatiekopie van het als een Docker-installatiekopie in Azure Container register.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
-| imageRequest | Hoofdtekst | De nettolading die wordt gebruikt om een installatiekopie te maken. | Ja | [ImageRequest](#imagerequest) |
+| imageRequest | hoofdtekst | De nettolading die wordt gebruikt om een installatiekopie te maken. | Ja | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynchrone bewerking locatie-URL. Een GET-aanroep ziet u de status van de installatiekopie van het maken van taak. | Locatie van de bewerking |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-images-in-an-account"></a>Query uitvoeren op de lijst met afbeeldingen in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
 
 ### <a name="description"></a>Beschrijving
 De lijst met afbeeldingen in een account een query. U kunt de lijst met resultaten door de manifest-ID en naam filteren. Als geen filter wordt doorgegeven, bevat de query de afbeeldingen in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 | manifest-id | query | Manifest-ID. | Nee | Tekenreeks |
 | ManifestName | query | Naam van het manifest. | Nee | Tekenreeks |
-| Aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
+| aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
 | $skipToken | query | Het vervolgtoken voor het ophalen van de volgende pagina. | Nee | Tekenreeks |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedImageList](#paginatedimagelist) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-image-details"></a>Details van de installatiekopie ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /images/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /images/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Een installatiekopie met id opgehaald
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Installatiekopie-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Installatiekopie-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -306,7 +306,7 @@ Een installatiekopie met id opgehaald
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Afbeelding](#image) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 
 ## <a name="create-a-service"></a>Een service maken
@@ -314,44 +314,44 @@ Een installatiekopie met id opgehaald
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
 
 ### <a name="description"></a>Beschrijving
 Maakt een service van een installatiekopie.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
-| Serviceaanvraag | Hoofdtekst | De nettolading die wordt gebruikt voor het maken van een service. | Ja | [ServiceCreateRequest](#servicecreaterequest) |
+| Serviceaanvraag | hoofdtekst | De nettolading die wordt gebruikt voor het maken van een service. | Ja | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynchrone bewerking locatie-URL. Een GET-aanroep ziet u de status van de taak service maken. | Locatie van de bewerking |
 | 409 | Er bestaat al een service met de opgegeven naam. |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-services-in-an-account"></a>Query uitvoeren op de lijst met services in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
 
 ### <a name="description"></a>Beschrijving
 De lijst met services in een account een query. U kunt het resultatenlijst filteren op naam-/ ID model, manifest naam-ID, afbeeldings-ID, servicenaam of Machine Learning compute resource-ID. Als geen filter wordt doorgegeven, bevat de query alle services in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 | Servicenaam | query | De naam van de service. | Nee | Tekenreeks |
@@ -361,32 +361,32 @@ De lijst met services in een account een query. U kunt het resultatenlijst filte
 | ManifestName | query | Naam van het manifest. | Nee | Tekenreeks |
 | imageId | query | Installatiekopie-ID. | Nee | Tekenreeks |
 | computeResourceId | query | Machine Learning compute resource-ID. | Nee | Tekenreeks |
-| Aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
+| aantal | query | Aantal items in een pagina ophalen. | Nee | Tekenreeks |
 | $skipToken | query | Het vervolgtoken voor het ophalen van de volgende pagina. | Nee | Tekenreeks |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedServiceList](#paginatedservicelist) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-service-details"></a>Servicedetails van ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Een service met id opgehaald
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Object-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Object-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -394,53 +394,53 @@ Een service met id opgehaald
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [ServiceResponse](#serviceresponse) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="update-a-service"></a>Een service bijwerken
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| PLAATSEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| PUT |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Een bestaande service-updates.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Object-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Object-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
-| serviceUpdateRequest | Hoofdtekst | De nettolading die wordt gebruikt voor het bijwerken van een bestaande service. | Ja |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| serviceUpdateRequest | hoofdtekst | De nettolading die wordt gebruikt voor het bijwerken van een bestaande service. | Ja |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynchrone bewerking locatie-URL. Een GET-aanroep ziet u de status van de taak van de service-update. | Locatie van de bewerking |
 | 404 | De service met de opgegeven ID bestaat niet. |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="delete-a-service"></a>Een service verwijderen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERWIJDEREN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| DELETE |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Hiermee verwijdert u een service.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Object-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Object-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -449,25 +449,25 @@ Hiermee verwijdert u een service.
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. |  |
 | 204 | De service met de opgegeven ID bestaat niet. |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-service-keys"></a>Service-sleutels ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / sleutels | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / sleutels | 
 
 ### <a name="description"></a>Beschrijving
 Sleutels service opgehaald.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Service-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Service-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -475,51 +475,51 @@ Sleutels service opgehaald.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [AuthKeys](#authkeys)
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="regenerate-service-keys"></a>Opnieuw genereren van sleutels service
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / sleutels | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / sleutels | 
 
 ### <a name="description"></a>Beschrijving
 Service sleutels genereert en vrijgegeven, gaan ze.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Service-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Service-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
-| regenerateKeyRequest | Hoofdtekst | De nettolading die wordt gebruikt voor het bijwerken van een bestaande service. | Ja | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| regenerateKeyRequest | hoofdtekst | De nettolading die wordt gebruikt voor het bijwerken van een bestaande service. | Ja | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Antwoorden
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [AuthKeys](#authkeys)
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="query-the-list-of-deployments-in-an-account"></a>Query uitvoeren op de lijst met implementaties in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / implementaties | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / implementaties | 
 
 ### <a name="description"></a>Beschrijving
 De lijst met implementaties in een account een query. U kunt de lijst met resultaten door de service-ID, die alleen de implementaties die zijn gemaakt voor de desbetreffende service retourneert filteren. Als geen filter wordt doorgegeven, bevat de query alle implementaties in het account.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 | serviceId | query | Service-ID. | Nee | Tekenreeks |
@@ -528,25 +528,25 @@ De lijst met implementaties in een account een query. U kunt de lijst met result
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [DeploymentList](#deploymentlist) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-deployment-details"></a>Implementatiedetails ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /deployments/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /deployments/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Opgehaald van de implementatie van-ID.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Implementatie-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Implementatie-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -554,25 +554,25 @@ Opgehaald van de implementatie van-ID.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Implementatie](#deployment) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-operation-details"></a>Bewerkingsdetails van de ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /operations/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /operations/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Met deze eigenschap wordt de status van de asynchrone bewerking door de bewerking-ID.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | Pad | Azure-abonnement-ID. | Ja | Tekenreeks |
-| resourceGroupName | Pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
-| Accountnaam | Pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
-| id | Pad | Bewerking-ID. | Ja | Tekenreeks |
+| subscriptionId | pad | Azure-abonnement-ID. | Ja | Tekenreeks |
+| resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | Tekenreeks |
+| Accountnaam | pad | De naam van het Model-Management-account. | Ja | Tekenreeks |
+| id | pad | Bewerking-ID. | Ja | Tekenreeks |
 | API-versie | query | Versie van de resourceprovider Microsoft.Machine.Learning API te gebruiken. | Ja | Tekenreeks |
 | Autorisatie | koptekst | Verificatietoken. Deze moet ongeveer "Bearer XXXXXX." | Ja | Tekenreeks |
 
@@ -580,7 +580,7 @@ Met deze eigenschap wordt de status van de asynchrone bewerking door de bewerkin
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [OperationStatus](#asyncoperationstatus) |
-| Standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 
 
@@ -596,7 +596,7 @@ Het object van het asset die tijdens het maken van de afbeelding Docker nodig.
 |---|---|---|
 |**ID**  <br>*optioneel*|Asset-ID.|Tekenreeks|
 |**mimeType**  <br>*optioneel*|MIME-type van de modelinhoud. Zie voor meer informatie over MIME-type, de [lijst met mediatypen IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|Tekenreeks|
-|**uitpakken**  <br>*optioneel*|Hiermee wordt aangegeven waar moeten we het uitpakken van de inhoud tijdens het maken van de Docker-installatiekopie.|Booleaanse waarde|
+|**uitpakken**  <br>*optioneel*|Hiermee wordt aangegeven waar moeten we het uitpakken van de inhoud tijdens het maken van de Docker-installatiekopie.|booleaans|
 |**URL**  <br>*optioneel*|Asset locatie-URL.|Tekenreeks|
 
 
@@ -641,7 +641,7 @@ Instellingen voor de autoscaler.
 
 |Naam|Beschrijving|Schema|
 |---|---|---|
-|**autoscaleEnabled**  <br>*optioneel*|In- of uitschakelen van de autoscaler.|Booleaanse waarde|
+|**autoscaleEnabled**  <br>*optioneel*|In- of uitschakelen van de autoscaler.|booleaans|
 |**maxReplicas**  <br>*optioneel*|Maximum aantal replica's schil maximaal schalen.  <br>**Minimumwaarde**:`1`|geheel getal|
 |**minReplicas**  <br>*optioneel*|Minimum aantal replica's schil omlaag te schalen.  <br>**Minimumwaarde**:`0`|geheel getal|
 |**refreshPeriodInSeconds**  <br>*optioneel*|Voor automatisch schalen trigger te vernieuwen.  <br>**Minimumwaarde**:`1`|geheel getal|
@@ -791,7 +791,7 @@ Een exemplaar van een Azure Machine Learning-model.
 |**mimeType**  <br>*Vereist*|MIME-type van de modelinhoud. Zie voor meer informatie over MIME-type, de [lijst met mediatypen IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|Tekenreeks|
 |**naam**  <br>*Vereist*|Naam van het model.|Tekenreeks|
 |**tags**  <br>*optioneel*|Lijst van de tag model.|<string>matrix|
-|**uitpakken**  <br>*optioneel*|Hiermee wordt aangegeven of we wilt uitpakken van het model tijdens het maken van de Docker-installatiekopie.|Booleaanse waarde|
+|**uitpakken**  <br>*optioneel*|Hiermee wordt aangegeven of we wilt uitpakken van het model tijdens het maken van de Docker-installatiekopie.|booleaans|
 |**URL**  <br>*Vereist*|URL van het model. Meestal wordt een shared access signature-URL hier plaatst.|Tekenreeks|
 |**Versie**  <br>*optioneel*  <br>*alleen-lezen*|Versie van het model die door de Model-Management-service is toegewezen.|geheel getal|
 
@@ -803,8 +803,8 @@ Gegevens verzamelen informatie over het model.
 
 |Naam|Beschrijving|Schema|
 |---|---|---|
-|**eventHubEnabled**  <br>*optioneel*|Schakel een event hub voor een service.|Booleaanse waarde|
-|**storageEnabled**  <br>*optioneel*|Schakel de opslag voor een service.|Booleaanse waarde|
+|**eventHubEnabled**  <br>*optioneel*|Schakel een event hub voor een service.|booleaans|
+|**storageEnabled**  <br>*optioneel*|Schakel de opslag voor een service.|booleaans|
 
 
 <a name="paginatedimagelist"></a>
@@ -858,7 +858,7 @@ Een aanvraag voor het maken van een service.
 
 |Naam|Beschrijving|Schema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*optioneel*|Application insights voor een service inschakelen.|Booleaanse waarde|
+|**appInsightsEnabled**  <br>*optioneel*|Application insights voor een service inschakelen.|booleaans|
 |**autoScaler**  <br>*optioneel*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*Vereist*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*optioneel*||[ContainerResourceReservation](#containerresourcereservation)|
@@ -895,7 +895,7 @@ De gedetailleerde status van de service.
 |**scoringUri**  <br>*optioneel*|De URI voor score berekenen voor de service.|Tekenreeks|
 |**status**  <br>*optioneel*||[AsyncOperationState](#asyncoperationstate)|
 |**updatedAt**  <br>*optioneel*|Laatste bijwerking van de tijd (UTC).|tekenreeks (datum-tijd)|
-|**appInsightsEnabled**  <br>*optioneel*|Application insights voor een service inschakelen.|Booleaanse waarde|
+|**appInsightsEnabled**  <br>*optioneel*|Application insights voor een service inschakelen.|booleaans|
 |**autoScaler**  <br>*optioneel*||[AutoScaler](#autoscaler)|
 |**computeResource**  <br>*Vereist*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*optioneel*||[ContainerResourceReservation](#containerresourcereservation)|
@@ -912,7 +912,7 @@ Een aanvraag voor het bijwerken van een service.
 
 |Naam|Beschrijving|Schema|
 |---|---|---|
-|**appInsightsEnabled**  <br>*optioneel*|Application insights voor een service inschakelen.|Booleaanse waarde|
+|**appInsightsEnabled**  <br>*optioneel*|Application insights voor een service inschakelen.|booleaans|
 |**autoScaler**  <br>*optioneel*||[AutoScaler](#autoscaler)|
 |**containerResourceReservation**  <br>*optioneel*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*optioneel*||[ModelDataCollection](#modeldatacollection)|

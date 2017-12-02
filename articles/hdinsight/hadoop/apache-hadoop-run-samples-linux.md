@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 3e52fc6ee18faa9b8a04ad19db52dd48505782ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 700f73d86686761908d241f989aab25e0fb43c0e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Voer de MapReduce-voorbeelden opgenomen in HDInsight
 
@@ -67,10 +67,7 @@ Informatie over het uitvoeren van de MapReduce-voorbeelden opgenomen met Hadoop 
 * `wordmedian`: Een mapreduce-programma dat de mediaan lengte van de woorden in de invoerbestanden telt.
 * `wordstandarddeviation`: Een mapreduce-programma dat de standaarddeviatie van de lengte van de woorden in de invoerbestanden telt.
 
-**Broncode**: broncode voor deze voorbeelden is opgenomen op het HDInsight-cluster op `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
-
-> [!NOTE]
-> De `2.2.4.9-1` in het pad is de versie van het Hortonworks Data Platform voor het HDInsight-cluster, en kunnen afwijken voor uw cluster.
+**Broncode**: broncode voor deze voorbeelden is opgenomen op het HDInsight-cluster op `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Het wordcount-voorbeeld uitvoeren
 

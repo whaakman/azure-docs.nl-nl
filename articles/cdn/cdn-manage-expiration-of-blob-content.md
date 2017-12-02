@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 6fa563e102569064d045fbb60ebd5d1df52e3e73
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren
 > [!div class="op_single_selector"]
@@ -111,22 +111,21 @@ Bijwerken van de *CacheControl* eigenschap van een blob met Azure Storage Explor
 ![Azure Storage Explorer-eigenschappen](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure-opdrachtregelinterface
-Wanneer u een blob uploadt, kunt u instellen de *cacheControl* eigenschap met de `-p` switch in de [Azure-opdrachtregelinterface](../cli-install-nodejs.md). Het volgende voorbeeld laat zien hoe de TTL-waarde ingesteld op één uur (3600 seconden):
+Met de [Azure-opdrachtregelinterface](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), kunt u Azure blob-bronnen beheren vanaf de opdrachtregel. Om in te stellen van de header cache-control tijdens het uploaden van een blob met de Azure CLI het *cacheControl* eigenschap met behulp van de `-p` overschakelen. Het volgende voorbeeld laat zien hoe de TTL-waarde ingesteld op één uur (3600 seconden):
   
-```command
-azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+''' Azure storage-blob van azure CLI -c uploaden <connectionstring> - p cacheControl = "maximumleeftijd 3600" .\test.txt myContainer test.txt =
 ```
 
-### <a name="azure-storage-services-rest-api"></a>REST-API van Azure storage-services
-U kunt de [REST-API van Azure storage-services](https://msdn.microsoft.com/library/azure/dd179355.aspx) expliciet instellen de *x-ms-blob-cache-control* eigenschap door de volgende bewerkingen voor een aanvraag:
+### Azure storage services REST API
+You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:
   
-   - [Blob plaatsen](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Lijst met geblokkeerde websites plaatsen](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
-   - [Blob-eigenschappen instellen](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
+   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
-## <a name="testing-the-cache-control-header"></a>Testen van de Cache-Control-header
-U kunt eenvoudig de TTL-instellingen van uw blobs controleren. Met uw browser [hulpprogramma's voor ontwikkelaars](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test die uw blob bevat de `Cache-Control` antwoordheader. U kunt ook een hulpprogramma zoals gebruiken [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), of [Fiddler](http://www.telerik.com/fiddler) om te onderzoeken de antwoordheaders.
+## Testing the Cache-Control header
+You can easily verify the TTL settings of your blobs. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
 
-## <a name="next-steps"></a>Volgende stappen
-* [Informatie over het beheren van de verlooptijd van Cloudservice-inhoud in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+## Next Steps
+* [Learn how to manage expiration of Cloud Service content in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

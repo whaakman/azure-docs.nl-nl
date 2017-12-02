@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure beheerde Service-identiteit gebruiken in Azure API Management
 
@@ -116,6 +116,25 @@ Het volgende voorbeeld ziet hoe u een certificaat verkrijgen van Azure Sleutelkl
 1. Exemplaar van API Management maken met een identiteit.
 2. Werk het toegangsbeleid van een exemplaar van Azure Sleutelkluis en toestaan dat het exemplaar van API Management geheimen verkrijgen.
 3. Werk het exemplaar van API Management door in te stellen van een aangepaste domeinnaam via een certificaat van de Sleutelkluis-exemplaar.
+
+### <a name="prerequisites"></a>Vereisten
+Voor het uitvoeren van de onderstaande arm-sjabloon moet de volgende 
+1. De Sleutelkluis met het pfx-certificaat in het hetzelfde abonnement en dezelfde resourcegroup als de Api Management-service. Dit is vereiste van arm-sjabloon. 
+2. Het type inhoud van het geheim moet *x-toepassing-pkcs12*. U kunt het volgende script gebruiken om het certificaat te uploaden
+
+```powershell
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
+Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
+```
 
 > [!Important]
 > Als de Objectversie van het certificaat niet is opgegeven, wordt API Management automatisch de nieuwere versie van het certificaat verkrijgen nadat deze is geüpload naar Sleutelkluis. 

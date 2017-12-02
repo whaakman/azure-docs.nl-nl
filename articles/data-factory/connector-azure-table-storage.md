@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Gegevens kopiëren naar of van de Azure-tabel met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -173,17 +173,19 @@ Om gegevens te kopiëren van Azure Table, stelt u het brontype in de kopieerbewe
 
 ### <a name="azuretablesourcequery-examples"></a>Voorbeelden van azureTableSourceQuery
 
-Als Azure Table-kolom van het tekenreekstype:
-
-```json
-"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', <datetime parameter>)"
-```
-
 Als Azure Table-kolom van het type datetime:
 
 ```json
-"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', <datetime parameter>, <datetime parameter>)"
+"azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
+
+Als Azure Table-kolom van het tekenreekstype:
+
+```json
+"azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
+```
+
+Als u de pijplijn-parameter gebruikt, geconverteerd naar de juiste indeling volgens bovenstaande voorbeelden de datetime-waarde.
 
 ### <a name="azure-table-as-sink"></a>Azure-tabel als sink
 
@@ -265,11 +267,11 @@ Wanneer u gegevens verplaatst naar & van Azure-tabel, de volgende [toewijzingen 
 | Edm.Binary |Byte] |Een matrix met bytes maximaal 64 KB. |
 | Edm.Boolean |BOOL |Een Booleaanse waarde. |
 | Edm.DateTime |Datum en tijd |Een 64-bits waarde wordt uitgedrukt als Coordinated Universal Time (UTC). Het ondersteunde bereik van de datum-/ begint vanaf 12:00 middernacht, 1 januari 1601 A.D. (C.E.) UTC. Het bereik eindigt op 31 December 9999. |
-| Edm.Double |dubbele |Een 64-bits drijvende-kommawaarde. |
+| Edm.Double |dubbel |Een 64-bits drijvende-kommawaarde. |
 | Edm.Guid |GUID |Een globally unique identifier van 128-bits. |
 | Edm.Int32 |Int32 |Een 32-bits geheel getal. |
 | Edm.Int64 |Int64 |Een 64-bits geheel getal. |
-| Edm.String |Tekenreeks |Een waarde UTF-16-codering. Tekenreekswaarden mogelijk maximaal 64 KB. |
+| Edm.String |Reeks |Een waarde UTF-16-codering. Tekenreekswaarden mogelijk maximaal 64 KB. |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

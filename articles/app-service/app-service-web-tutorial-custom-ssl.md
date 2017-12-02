@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Een bestaande aangepaste SSL-certificaat binden aan Azure-Web-Apps
 
@@ -214,61 +214,17 @@ Alle die nog moet doen nu om ervoor te zorgen dat HTTPS voor uw aangepaste domei
 
 ## <a name="enforce-https"></a>HTTPS afdwingen
 
-App Service biedt *niet* afdwingen HTTPS, zodat iedereen nog steeds toegang tot uw web-app met behulp van HTTP. Als u wilt afdwingen HTTPS voor uw web-app, definieert u een regel herschrijven in de _web.config_ -bestand voor uw web-app. App Service maakt gebruik van dit bestand, ongeacht het kader van de taal van uw web-app.
+Iedereen nog steeds standaard toegang tot uw web-app met behulp van HTTP. U kunt alle HTTP-aanvragen omleiden naar de HTTPS-poort.
 
-> [!NOTE]
-> Er is een specifieke taal zijn gebonden omleiding van aanvragen. ASP.NET MVC kunt gebruiken de [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter in plaats van de regel herschrijven in _web.config_.
+Selecteer in de app webpagina in de navigatiebalk links **aangepaste domeinen**. Klik op **alleen HTTPS**, selecteer **op**.
 
-Als u een .NET-ontwikkelaar bent, moet u relatief vertrouwd zijn met dit bestand zijn. Het is in de hoofdmap van uw oplossing.
+![HTTPS afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-U kunt ook als u met PHP, Node.js, Python of Java ontwikkelt, is er een kans we dit bestand namens jou gegenereerd in App Service.
+Wanneer de bewerking voltooid is, gaat u naar een van de HTTP-URL's die naar uw app verwijzen. Bijvoorbeeld:
 
-Verbinding maken met uw web-app FTP-eindpunt volgens de instructies op [uw app implementeren in Azure App Service met behulp van FTP/S](app-service-deploy-ftp.md).
-
-Dit bestand moet zich in _/home/site/wwwroot_. Als dit niet het geval is, maakt u een _web.config_ bestand in deze map met de volgende XML-code:
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-Voor een bestaande _web.config_ bestand, Kopieer de gehele `<rule>` element in uw _web.config_van `configuration/system.webServer/rewrite/rules` element. Als er andere `<rule>` elementen in uw _web.config_, plaatst u de gekopieerde `<rule>` element voordat de andere `<rule>` elementen.
-
-Deze regel retourneert HTTP 301 (permanente omleiding) en het HTTPS-protocol, wanneer de gebruiker een HTTP-aanvraag aan uw web-app maakt. Bijvoorbeeld, wordt hij omgeleid van `http://contoso.com` naar `https://contoso.com`.
-
-Zie voor meer informatie over de module voor het herschrijven van IIS-URL, de [herschrijven van URL's](http://www.iis.net/downloads/microsoft/url-rewrite) documentatie.
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>Afdwingen van HTTPS voor Web-Apps op Linux
-
-Op Linux-App Service biedt *niet* afdwingen HTTPS, zodat iedereen nog steeds toegang tot uw web-app met behulp van HTTP. Als u wilt afdwingen HTTPS voor uw web-app, definieert u een regel herschrijven in de _.htaccess_ -bestand voor uw web-app. 
-
-Verbinding maken met uw web-app FTP-eindpunt volgens de instructies op [uw app implementeren in Azure App Service met behulp van FTP/S](app-service-deploy-ftp.md).
-
-In _/home/site/wwwroot_, maak een _.htaccess_ bestand met de volgende code:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-Deze regel retourneert HTTP 301 (permanente omleiding) en het HTTPS-protocol, wanneer de gebruiker een HTTP-aanvraag aan uw web-app maakt. Bijvoorbeeld, wordt hij omgeleid van `http://contoso.com` naar `https://contoso.com`.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
 
@@ -312,7 +268,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Certificaten voor openbare (optioneel)
-U kunt uploaden [certificaten voor openbare](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) aan uw web-app. U kunt certificaten voor openbare gebruiken met Web-Apps in App Service- of as-omgeving (App Service omgeving). Als u het certificaat wordt opgeslagen in het certificaatarchief van de hoofdmap van LocalMachine moet, moet u een web-app op App Service-omgeving gebruiken. Zie voor meer informatie [openbare certificaten aan uw Web-App configureren](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+U kunt uploaden [certificaten voor openbare](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) aan uw web-app. U kunt ook certificaten voor openbare voor apps in App Service-omgevingen. Als u het certificaat wordt opgeslagen in het certificaatarchief van de hoofdmap van LocalMachine moet, moet u een web-app op App Service-omgeving gebruiken. Zie voor meer informatie [openbare certificaten aan uw Web-App configureren](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Openbaar certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ Ga naar de volgende zelfstudie voor meer informatie over het gebruik van Azure C
 
 > [!div class="nextstepaction"]
 > [Een Content Delivery Network (CDN) toevoegen aan een Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+
+Zie voor meer informatie [gebruiken een SSL-certificaat in uw toepassingscode in Azure App Service](app-service-web-ssl-cert-load.md).

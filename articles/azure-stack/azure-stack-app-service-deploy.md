@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure-Stack
 
@@ -73,7 +73,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
     ![App Service-installatie](media/azure-stack-app-service-deploy/image04.png)
 
 8. Op de volgende pagina:
-    1. In de **identiteit toepassings-ID** Voer de GUID voor de toepassing die u voor identiteit.
+    1. In de **identiteit toepassings-ID** Voer de GUID voor de toepassing die u voor de identiteit (van Azure AD gebruikt).
     2. In de **Application Identity-certificaatbestand** vak (Typ of blader naar) de locatie van het certificaatbestand.
     3. In de **identiteit toepassing certificaatwachtwoord** Voer het wachtwoord voor het certificaat. Dit wachtwoord is die u genoteerd hebt als u het script gebruikt voor het maken van de certificaten.
     4. In de **Azure Resource Manager basiscertificaatbestand** vak (Typ of blader naar) de locatie van het certificaatbestand.
@@ -106,7 +106,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     | Rol | Minimale exemplaren | Minimale SKU | Opmerkingen |
     | --- | --- | --- | --- |
-    | Domeincontroller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Beheert en onderhoudt de status van de cloud-App Service. |
+    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Beheert en onderhoudt de status van de cloud-App Service. |
     | Beheer | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
     | Uitgever | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Inhoud via FTP en web deployment publiceert. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes aanvragen voor App Service-toepassingen. |
@@ -157,7 +157,7 @@ Nadat u de App Service-resourceprovider registreren en implementeert, testen om 
 >
 U *moet* beschikt over een tenantabonnement te maken van toepassingen die gebruikmaken van App Service op Azure-Stack. De enige mogelijkheden die een servicebeheerder kan worden voltooid binnen de beheerportal zijn gerelateerd aan het beheer van de resource provider van App Service. Deze mogelijkheden zijn capaciteit toe te voegen, implementatie-bronnen configureren en lagen van de werknemer en SKU's toe te voegen.
 >
-Vanaf de derde technical preview functies voor het maken van web-API en Azure apps, moet u een tenantabonnement hebt en de tenantportal gebruiken.
+Als u wilt maken van web-API en Azure functies apps, moet u een tenantabonnement hebt en de tenantportal gebruiken.
 
 1. Klik in de tenantportal Azure Stack op **nieuw** > **Web en mobiel** > **Web-App**.
 

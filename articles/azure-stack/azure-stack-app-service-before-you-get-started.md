@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 
@@ -68,7 +68,7 @@ Deze eerste script werkt met de Azure-Stack-certificeringsinstantie vier certifi
 
 Het script uitvoert op de host Azure Stack Development Kit en zorg ervoor dat u PowerShell als azurestack\CloudAdmin uitvoert.
 
-1. In een PowerShell-sessie wordt uitgevoerd als azurestack\CloudAdmin voert u het script maken AppServiceCerts.ps1 vanuit de map waar u de scripts helper hebt uitgepakt. Het script maakt vier certificaten in dezelfde map als het script van maken certificaten die App Service nodig heeft.
+1. In een PowerShell-sessie wordt uitgevoerd als azurestack\AzureStackAdmin voert u het script maken AppServiceCerts.ps1 vanuit de map waar u de scripts helper hebt uitgepakt. Het script maakt vier certificaten in dezelfde map als het script van maken certificaten die App Service nodig heeft.
 2. Een wachtwoord invoeren voor het pfx-bestanden beveiligen en noteer deze. U moet deze invoeren in de App-Service op Azure-Stack-installatieprogramma.
 
 #### <a name="create-appservicecertsps1-parameters"></a>Maak AppServiceCerts.ps1 parameters
@@ -120,7 +120,7 @@ Het certificaat voor identiteit moet een onderwerpnaam die overeenkomt met de vo
 | --- | --- |
 | SSO.appservice. \<regio\>.\< DomainName\>.\< de extensie\> | SSO.appservice.Redmond.azurestack.external |
 
-#### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Pak het basiscertificaat Azure Stack Azure Resource Manager
+### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Pak het basiscertificaat Azure Stack Azure Resource Manager
 
 In een PowerShell-sessie wordt uitgevoerd als azurestack\CloudAdmin voert u het script Get-AzureStackRootCert.ps1 vanuit de map waar u de scripts helper hebt uitgepakt. Het script maakt vier certificaten in dezelfde map als het script van maken certificaten die App Service nodig heeft.
 
@@ -134,12 +134,10 @@ In een PowerShell-sessie wordt uitgevoerd als azurestack\CloudAdmin voert u het 
 
 Azure App Service vereist het gebruik van een bestandsserver. Voor productie-implementaties moet de bestandsserver geconfigureerd dat deze maximaal beschikbaar en kan afhandelen van fouten.
 
-Voor gebruik met alleen Azure Stack Development Kit-implementaties, kunt u dit voorbeeld Azure Resource Manager-implementatiesjabloon om een bestandsserver geconfigureerde één knooppunt te implementeren: https://aka.ms/appsvconmasdkfstemplate.
+Voor gebruik met alleen Azure Stack Development Kit-implementaties, kunt u dit voorbeeld Azure Resource Manager-implementatiesjabloon om een bestandsserver geconfigureerde één knooppunt te implementeren: https://aka.ms/appsvconmasdkfstemplate. De bestandsserver van één knooppunt bevindt zich in een werkgroep.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Inrichten van groepen en accounts in Active Directory
 
->[!NOTE]
-> De volgende opdrachten uitvoeren bij het configureren van de bestandsserver in een opdrachtprompt als Administrator-sessie.  **Gebruik geen PowerShell.**
 
 1. Maak de volgende globale beveiligingsgroepen van Active Directory:
     - FileShareOwners
@@ -159,7 +157,10 @@ Voor gebruik met alleen Azure Stack Development Kit-implementaties, kunt u dit v
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Inrichten van groepen en accounts in een werkgroep
 
-In een werkgroep, net en WMIC-opdrachten voor het inrichten van groepen en accounts uitvoeren.
+>[!NOTE]
+> De volgende opdrachten uitvoeren bij het configureren van de bestandsserver in een opdrachtprompt als Administrator-sessie.  **Gebruik geen PowerShell.**
+
+Wanneer u de bovenstaande Azure Resource Manager-sjabloon gebruikt, worden de gebruikers zijn al gemaakt.
 
 1. Voer de volgende opdrachten voor het maken van de accounts FileShareOwner en FileShareUser. Vervang <password> met uw eigen waarden.
 ``` DOS
@@ -185,11 +186,11 @@ De inhoudsshare van bevat de inhoud van de tenant-website. De procedure voor het
 
 #### <a name="provision-the-content-share-on-a-single-file-server-ad-or-workgroup"></a>Inrichten van de inhoud-share op een server met één bestand (AD of werkgroep)
 
-Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheden op een server met één bestand. Vervang de waarde voor < C:\WebSites > door de bijbehorende paden in uw omgeving.
+Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheden op een server met één bestand. Vervang de waarde voor 'C:\WebSites' door de bijbehorende paden in uw omgeving.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -223,7 +224,7 @@ Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheid op 
 #### <a name="active-directory"></a>Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -234,7 +235,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 #### <a name="workgroup"></a>Werkgroep
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -251,7 +252,7 @@ Voor gebruik met de Azure-Stack Development Kit, kunt u SQL Express 2014 SP2 of 
 
 Voor productie en maximale beschikbaarheid dient u moet een volledige versie van SQL 2014 SP2 of hoger, verificatie in gemengde modus inschakelen en implementeren in een [maximaal beschikbare configuratie](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-De Azure App Service op Azure Stack SQL Server moet toegankelijk is vanaf alle functies van de App Service. SQL Server kan worden geïmplementeerd in de Provider standaard abonnement in Azure-Stack. Of u kunt het gebruik van de bestaande infrastructuur binnen uw organisatie (zo lang er is verbinding met Azure-Stack).
+De Azure App Service op Azure Stack SQL Server moet toegankelijk is vanaf alle functies van de App Service. SQL Server kan worden geïmplementeerd in de Provider standaard abonnement in Azure-Stack. Of u kunt het gebruik van de bestaande infrastructuur binnen uw organisatie (zo lang er is verbinding met Azure-Stack). Als u van een Azure Marketplace-installatiekopie gebruikmaakt, moet de firewall dienovereenkomstig configureren. 
 
 Voor een van de SQL Server-rollen, kunt u een standaardexemplaar of een benoemd exemplaar. Als u een benoemd exemplaar gebruikt, zijn echter ervoor dat u handmatig de SQL Browser-Service starten en -poort 1434 openen.
 
@@ -269,12 +270,12 @@ Beheerders moeten eenmalige aanmelding te configureren:
 
 Volg deze stappen:
 
-1. Open een PowerShell-exemplaar als azurestack\cloudadmin.
+1. Open een PowerShell-exemplaar als azurestack\AzureStackAdmin.
 2. Ga naar de locatie van de scripts gedownload en uitgepakt de [vereiste stap](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Stack van Azure PowerShell installeren](azure-stack-powershell-install.md).
 4. Voer de **maken AADIdentityApp.ps1** script. Wanneer u wordt gevraagd om uw Azure AD-tenant-ID, voert u de Azure AD tenant-ID die u voor uw Azure-Stack-implementatie, bijvoorbeeld myazurestack.onmicrosoft.com.
 5. In de **referentie** venster, Voer uw Azure AD-service admin-account en wachtwoord. Klik op **OK**.
-6. Geef het bestandspad van de certificaat en het wachtwoord van het certificaat voor de [certificaat eerder gemaakte](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat dat standaard wordt gemaakt voor deze stap is sso.appservice.local.azurestack.external.pfx.
+6. Geef het bestandspad van de certificaat en het wachtwoord van het certificaat voor de [certificaat eerder gemaakte](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Het certificaat voor deze stap standaard is gemaakt, **sso.appservice.local.azurestack.external.pfx**.
 7. Het script maakt een nieuwe toepassing in de Azure AD-tenant. Noteer de toepassings-ID die wordt geretourneerd in de PowerShell-uitvoer. U moet deze informatie tijdens de installatie.
 8. Open een nieuw browservenster en meld u aan bij de Azure portal (portal.azure.com) als de **Azure Active Directory-servicebeheerder**.
 9. Open de Azure AD-resourceprovider.

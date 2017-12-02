@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.openlocfilehash: 2c844ce8aec04c74a9c2dbecdd1b3effb286df97
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 649d138a85ca47440e43c00637ee92b86f4eb03e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Domein-HDInsight-clusters (Preview) configureren
+# <a name="configure-domain-joined-hdinsight-clusters"></a>Domein-HDInsight-clusters configureren
 
 Meer informatie over het instellen van een Azure HDInsight-cluster met Azure Active Directory (Azure AD) en [Apache Zwerver](http://hortonworks.com/apache/ranger/) om te profiteren van sterke authenticatie- en uitgebreide op rollen gebaseerde toegang beleid voor toegangsbeheer (RBAC).  Domein HDInsight kan alleen worden geconfigureerd op Linux gebaseerde clusters. Zie voor meer informatie [introduceren domein HDInsight-clusters](apache-domain-joined-introduction.md).
 

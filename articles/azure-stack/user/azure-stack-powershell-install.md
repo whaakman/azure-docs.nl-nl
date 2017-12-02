@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack  
 
@@ -51,7 +51,7 @@ Voordat u de vereiste versie installeert, moet u eventuele bestaande Azure Power
 
 De volgende secties beschrijven de stappen voor het installeren van PowerShell voor Azure-Stack. PowerShell kan worden geïnstalleerd op Azure-Stack die wordt gebruikt in verbonden, gedeeltelijk is verbonden, of in een scenario met niet-verbonden. 
 
-## <a name="install-powershell-in-a-connected-scenario"></a>Installeer PowerShell in een scenario met verbonden 
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Installeer PowerShell in een scenario met verbonden (met de verbinding met internet)
 
 Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist de **2017-03-09-profiel** profiel API-versie die beschikbaar is door de module AzureRM.Bootstrapper installeren. Raadpleeg voor meer informatie over profielen voor API-versie en de cmdlets die is geleverd door ze naar de [API-versie Profielbeheer](azure-stack-version-profiles.md). Naast de modules AzureRM, moet u ook de Azure-Stack-specifieke PowerShell-modules installeren. Voer het volgende PowerShell-script voor deze modules installeren op uw ontwikkelwerkstation:
 
@@ -80,7 +80,7 @@ Bevestig de installatie door de volgende opdracht uitvoeren:
   ```
   Als de installatie geslaagd is, worden de modules AzureRM en AzureStack weergegeven in de uitvoer.
 
-## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>In een niet-verbonden of in een gedeeltelijk verbonden scenario PowerShell installeren
+## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installeer PowerShell in een niet-verbonden of een gedeeltelijk verbonden scenario (met beperkte verbinding met internet)
 
 In een scenario met en zonder gedeeltelijk verbinding moet u eerst de PowerShell-modules voor een machine die verbinding heeft met internet te downloaden en deze vervolgens overbrengen naar de Azure-Stack Development Kit voor installatie.
 

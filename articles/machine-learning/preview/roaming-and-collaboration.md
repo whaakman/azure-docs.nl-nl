@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming en samenwerking in Azure Machine Learning Workbench
 Dit document leert u hoe u Azure Machine Learning Workbench kan helpen uw projecten roamen tussen machines, evenals inschakelen samenwerking met de teamleden. 
@@ -156,9 +156,9 @@ Ter illustratie van de stroom samenwerking, kunt u een voorbeeld gaan we doorlop
 
 7. Berend klikt op de projectnaam en het project is gedownload naar deze computer.
     
-    a. Het gedownloade project-bestanden zijn klonen van de momentopname van de meest recente vastgelegd in de uitvoeringsgeschiedenis uitgevoerd. Ze zijn niet het laatste doorvoeren op de hoofdvertakking.
+    a. Het gedownloade project-bestanden zijn een kopie van de momentopname van de meest recente uitvoeren in de uitvoeringsgeschiedenis vastgelegd. Ze zijn niet het laatste doorvoeren op de hoofdvertakking.
     
-    b. De lokale projectmap is ingesteld op _master_ vertakking met unstaged wijzigingen.
+    b. De lokale projectmap is ingesteld op _master_ vertakking met de bovenstaande unstaged wijzigingen.
 
 8. Bob kan nu bladeren door Els en herstel momentopname van een eerder uitgevoerde uitgevoerd wordt uitgevoerd.
 

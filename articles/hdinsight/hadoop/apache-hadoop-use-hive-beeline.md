@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 7c582c81aac889b2b6f57777fab4531107e0fad3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>De client Beeline gebruiken met Apache Hive
 
@@ -202,7 +202,7 @@ Gebruik de volgende stappen uit om te maken van een bestand en voer vervolgens m
     ```
 
     > [!NOTE]
-    > De `-i` parameter Beeline begint, voert u de instructies in het bestand query.hql. Nadat de query is voltooid, wordt u aankomt bij de `jdbc:hive2://headnodehost:10001/>` prompt. U kunt ook uitvoeren voor een bestand met de `-f` parameter Beeline afgesloten nadat de query is voltooid.
+    > De `-i` parameter Beeline wordt gestart en voert u de instructies de `query.hql` bestand. Nadat de query is voltooid, wordt u aankomt bij de `jdbc:hive2://headnodehost:10001/>` prompt. U kunt ook uitvoeren voor een bestand met de `-f` parameter Beeline afgesloten nadat de query is voltooid.
 
 5. Om te controleren of de **foutenlogboeken** tabel is gemaakt, met de volgende instructie retourneert alle rijen uit **foutenlogboeken**:
 
@@ -243,7 +243,7 @@ Gebruik de informatie in de volledig gekwalificeerde domeinnaam van een headnode
 
 ## <a id="sparksql"></a>Beeline met Spark gebruiken
 
-Spark biedt een eigen implementatie van HiveServer2, die wordt vaak aangeduid als de Spark Thrift-server. Deze service wordt Spark SQL gebruikt voor query's in plaats van Hive omzetten en kan zorgen voor betere prestaties, afhankelijk van uw query.
+Spark biedt een eigen implementatie van HiveServer2, die wordt soms aangeduid als de Spark Thrift-server. Deze service wordt Spark SQL gebruikt voor query's in plaats van Hive omzetten en kan zorgen voor betere prestaties, afhankelijk van uw query.
 
 Poort gebruiken voor verbinding met de Spark Thrift-server van een Spark in HDInsight-cluster, `10002` in plaats van `10001`. Bijvoorbeeld `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
 

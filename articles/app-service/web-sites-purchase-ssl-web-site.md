@@ -1,11 +1,10 @@
 ---
-title: Een SSL-certificaat toevoegen aan uw app in Azure App Service | Microsoft Docs
-description: Informatie over het toevoegen van een SSL-certificaat aan uw App Service-app.
+title: Kopen en configureren van een SSL-certificaat voor uw Azure App Service | Microsoft Docs
+description: Informatie over het aanschaffen van een App Service-certificaat en bindt dit aan uw app in App Service
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -74,12 +73,16 @@ Nadat u de opslagplaats van de kluis sleutel voor het opslaan van dit certificaa
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Stap 4: Controleer of het eigendom van het domein
 
-> [!NOTE]
-> Er zijn drie soorten verificatie van het domein wordt ondersteund door App service Certificate: domein, E-mail, handmatige verificatie. Meer informatie in deze typen verificatie worden beschreven de [geavanceerde sectie](#advanced).
-
 Uit dezelfde **Certificaatconfiguratie** pagina die u in stap 3 wordt gebruikt, klikt u op **stap 2: Controleer of**.
 
-**Verificatie van domein** dit is het meest geschikte proces **alleen als** u  **[uw aangepaste domein via Azure App Service hebt aangeschaft.](custom-dns-web-site-buydomains-web-app.md)**
+Kies de verificatiemethode voorkeur domein. 
+
+Er zijn vier typen domeinverificatie ondersteund door App Service Certificate: App Service, domein, E-mail en handmatige verificatie. Meer informatie in deze typen verificatie worden beschreven de [geavanceerde sectie](#advanced).
+
+> [!NOTE]
+> **App Service-verificatie** is de meest geschikte optie bij het domein dat u wilt controleren al aan een App Service-app in hetzelfde abonnement toegewezen is. Dit maakt gebruik van het feit dat de App Service-app al het eigendom van het domein is geverifieerd.
+>
+
 Klik op **controleren** knop om deze stap te voltooien.
 
 ![afbeelding van domeinverificatie invoegen](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -133,7 +136,7 @@ Op dit moment moet u kunnen bezoeken uw app met `HTTPS://` in plaats van `HTTP:/
 
 Er zijn twee soorten verificatie van het domein wordt ondersteund door App service Certificate: e-Mail en handmatige verificatie.
 
-#### <a name="mail-verification"></a>Controle e-mail
+#### <a name="mail-verification"></a>E-mailverificatie
 
 Reeds is bevestigingsmail verzonden naar de e-adressen die zijn gekoppeld aan dit aangepast domein.
 De e-verificatiestap voltooid, opent u het e-mailbericht en klik op de koppeling voor verificatie.
@@ -141,6 +144,10 @@ De e-verificatiestap voltooid, opent u het e-mailbericht en klik op de koppeling
 ![afbeelding van e-mailverificatie invoegen](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
 
 Als u de verificatie-e-mail verzenden moet, klikt u op de **E-mail opnieuw verzenden** knop.
+
+#### <a name="domain-verification"></a>Domeinverificatie
+
+Selecteer deze optie alleen voor [een App Service-domein dat u hebt aangeschaft van Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automatisch de verificatie TXT-record voor u worden toegevoegd en het proces is voltooid.
 
 #### <a name="manual-verification"></a>Handmatige verificatie
 
@@ -197,6 +204,7 @@ Als uw SSL-certificaat is geconfigureerd voor automatisch verlengen, maar deze n
 - GoDaddy dit App Service-certificaten genereert, vereist verificatie van het domein om de drie jaar. De domeinbeheerder ontvangt een e-mailbericht om de drie jaar om te controleren of het domein. Controleer het e-mailbericht of verifieer uw domein voorkomt u het App Service-certificaat dat automatisch wordt vernieuwd. 
 - Alle App Service-certificaten uitgegeven vóór maart 31 2017 moeten Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatisch verlengen is ingeschakeld voor het certificaat). Dit is een resultaat van de wijziging in GoDaddy-beleid. Controleer je e-mail en voltooit deze domeinverificatie eenmalige om door te gaan automatisch verlengen van het App Service-certificaat. 
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="more-resources"></a>Meer bronnen
 
-* [Een Content Delivery Network toevoegen](app-service-web-tutorial-content-delivery-network.md)
+* [Een SSL-certificaat gebruiken in uw toepassingscode in Azure App Service](app-service-web-ssl-cert-load.md)
+* [Veelgestelde vragen over: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
