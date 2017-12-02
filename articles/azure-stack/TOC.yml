@@ -213,6 +213,10 @@
           items:
             - name: Verbinding maken via VPN
               href: azure-stack-connect-vpn.md
+            - name: Over VPN-gateway
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: Instellingen voor VPN-gateway
+              href: azure-stack-vpn-gateway-settings.md
             - name: Verbinding maken via ExpressRoute
               href: azure-stack-connect-expressroute.md
     - name: Problemen oplossen
