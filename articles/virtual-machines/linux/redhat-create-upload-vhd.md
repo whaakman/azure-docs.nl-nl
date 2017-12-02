@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 12/01/2017
 ms.author: szark
-ms.openlocfilehash: b753c76b8c3d789c681d7fbff6aa07590b860be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18b7a5ec2a04962523a70886e1aa2344eb818458
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Een op Red Hat gebaseerde virtuele machine voor Azure voorbereiden
 In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure. De versies van RHEL die worden beschreven in dit artikel zijn 6.7 + en 7.1 +. De hypervisors voor voorbereiding die worden besproken in dit artikel zijn Hyper-V, op basis van de kernel virtuele machine (KVM) en VMware. Zie voor meer informatie over de vereisten voor in aanmerking komt voor deelname aan het programma voor toegang tot de Cloud van Red Hat [Red Hat van toegang tot de Cloud website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) en [RHEL uitgevoerd op Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -343,24 +343,33 @@ Deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand van de website v
 
 19. De installatiekopie van het qcow2 converteren naar het VHD-indeling.
 
-    De installatiekopie eerst niet converteren naar onbewerkte indeling:
+> [!NOTE]
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-6.8.qcow2 rhel-6.8.raw
 
-    Zorg ervoor dat de grootte van de onbewerkte afbeelding wordt uitgelijnd met 1 MB. Anders wordt de grootte uitgelijnd met 1 MB afronden:
+    First convert the image to raw format:
+
+        # qemu-img convert -f qcow2 -O raw rhel-6.9.qcow2 rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    De onbewerkte schijf converteren naar een vaste grootte en VHD:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
 
+    Or, with qemu version **2.6+** include the `force_size` option:
 
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+        
 ### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>Een virtuele machine voor RHEL 7 van KVM voorbereiden
 
 1. Download de installatiekopie van het KVM RHEL 7 van de website van Red Hat. Deze procedure maakt gebruik van RHEL 7 als voorbeeld.
@@ -483,22 +492,32 @@ Deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand van de website v
 
 19. De installatiekopie van het qcow2 converteren naar het VHD-indeling.
 
-    De installatiekopie eerst niet converteren naar onbewerkte indeling:
+> [!NOTE]
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-7.3.qcow2 rhel-7.3.raw
 
-    Zorg ervoor dat de grootte van de onbewerkte afbeelding wordt uitgelijnd met 1 MB. Anders wordt de grootte uitgelijnd met 1 MB afronden:
+    First convert the image to raw format:
+
+        # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    De onbewerkte schijf converteren naar een vaste grootte en VHD:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Een Red Hat-virtuele machine van VMware voorbereiden
 ### <a name="prerequisites"></a>Vereisten
@@ -600,22 +619,32 @@ Deze sectie wordt ervan uitgegaan dat u al een RHEL virtuele machine in VMware h
 
 15. Sluit de virtuele machine en het bestand VMDK converteren naar een .vhd-bestand.
 
-    De installatiekopie eerst niet converteren naar onbewerkte indeling:
+> [!NOTE]
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-6.8.vmdk rhel-6.8.raw
 
-    Zorg ervoor dat de grootte van de onbewerkte afbeelding wordt uitgelijnd met 1 MB. Anders wordt de grootte uitgelijnd met 1 MB afronden:
+    First convert the image to raw format:
+
+        # qemu-img convert -f vmdk -O raw rhel-6.9.vmdk rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    De onbewerkte schijf converteren naar een vaste grootte en VHD:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>Een RHEL 7 virtuele machine van VMware voorbereiden
 1. Creëer of bewerk de `/etc/sysconfig/network` bestand en voeg de volgende tekst:
@@ -704,22 +733,32 @@ Deze sectie wordt ervan uitgegaan dat u al een RHEL virtuele machine in VMware h
 
 14. Sluit de virtuele machine en het VMDK-bestand naar de VHD-indeling converteren.
 
-    De installatiekopie eerst niet converteren naar onbewerkte indeling:
+> [!NOTE]
+> Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is verholpen in QEMU 2.6. Het verdient aanbeveling gebruik qemu-img 2.2.0 of kleine of bijwerken van op 2.6 of hoger. Verwijzing: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-7.3.vmdk rhel-7.3.raw
 
-    Zorg ervoor dat de grootte van de onbewerkte afbeelding wordt uitgelijnd met 1 MB. Anders wordt de grootte uitgelijnd met 1 MB afronden:
+    First convert the image to raw format:
+
+        # qemu-img convert -f vmdk -O raw rhel-7.4.vmdk rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    De onbewerkte schijf converteren naar een vaste grootte en VHD:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Een Red Hat-virtuele machine van een ISO met behulp van een bestand kickstart automatisch voorbereiden
 ### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Een RHEL 7 virtuele machine uit een bestand kickstart voorbereiden

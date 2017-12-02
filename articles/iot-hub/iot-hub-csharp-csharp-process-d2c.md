@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub apparaat-naar-cloud-berichten met behulp van routes (.Net) | Microsoft Docs
-description: Klik hier voor meer informatie over het verwerken van IoT Hub apparaat-naar-cloud-berichten met behulp van regels voor het doorsturen en aangepaste eindpunten verzending van berichten naar andere back-end-services.
+title: Routeren van berichten met Azure IoT Hub (.Net) | Microsoft Docs
+description: Hoe Azure IoT Hub apparaat-naar-cloud-berichten verwerken met behulp van regels voor het doorsturen en aangepaste eindpunten verzending van berichten naar andere back-end-services.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Verwerken van Iothub apparaat-naar-cloud-berichten met behulp van routes (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>Routeren van berichten met IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * Visual Studio 2015 of Visual Studio 2017.
 * Een actief Azure-account. <br/>Als u geen account hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) binnen een paar minuten.
 
-Er is enige basiskennis van [Azure Storage] en [Azure Service Bus].
+Wordt ook aangeraden lezen over [Azure Storage] en [Azure Service Bus].
 
 ## <a name="send-interactive-messages"></a>Interactieve berichten verzenden
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` op berichten die door het apparaat verzonden, die een bericht dat directe actie is vereist door de oplossing voor back-end simuleert. De apparaattoepassing geeft deze informatie in de berichteigenschappen in plaats van in de hoofdtekst van het bericht, zodat deze IoT Hub het bericht naar de juiste bestemming sturen kan.
+Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` en `"level": "storage"` op berichten die door het apparaat verzonden, die een bericht waarvoor onmiddellijke actie door de back-end van de toepassing of een die moet worden permanent opgeslagen simuleert. De toepassing geeft deze informatie in de berichteigenschappen in plaats van in de hoofdtekst van het bericht, zodat deze IoT Hub het bericht naar de juiste bestemming sturen kan.
 
 > [!NOTE]
 > U kunt de berichteigenschappen om berichten te routeren voor verschillende scenario's, inclusief de verwerking van koude pad, naast het hot pad voorbeeld dat hier wordt weergegeven.
 
 > [!NOTE]
-> Omwille van de eenvoud in deze zelfstudie niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u een beleid voor opnieuw proberen zoals exponentieel uitstel, zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout].
+> Het wordt aangeraden dat u een beleid voor opnieuw proberen zoals exponentieel uitstel, zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout].
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Routeren van berichten aan een wachtrij in uw IoT-hub
 
@@ -177,6 +185,30 @@ U kunt nu de toepassingen gaan uitvoeren.
    
    ![Drie console-apps][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Optioneel) Storage-Container toevoegen aan uw IoT hub en route-berichten naar het
+
+In deze sectie een opslagaccount maken, verbinden met uw IoT-hub en configureren van uw iothub berichten verzenden naar de account op basis van de aanwezigheid van een eigenschap van het bericht. Zie voor meer informatie over het beheren van opslag [aan de slag met Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > Als u niet beperkt tot één **eindpunt**, u kunt setup de **StorageContainer** naast de **CriticalQueue** en beide simulatneously uitvoeren.
+
+1. Een opslagaccount maken zoals beschreven in [Azure Storage documentatie] [lnk-opslag]. Noteer de accountnaam.
+
+2. Open uw IoT-hub in de Azure-portal en klikt u op **eindpunten**.
+
+3. In de **eindpunten** blade, selecteer de **CriticalQueue** eindpunt en klik op **verwijderen**. Klik op **Ja**, en klik vervolgens op **toevoegen**. Naam van het eindpunt **StorageContainer** en selecteer met de vervolgkeuzelijsten **Azure Storage-Container**, en maak een **opslagaccount** en een **opslag container**.  Noteer de namen.  Wanneer u klaar bent, klikt u op **OK** onderaan. 
+
+ > [!NOTE]
+   > Als u niet beperkt tot één **eindpunt**, u hoeft niet te verwijderen de **CriticalQueue**.
+
+4. Klik op **Routes** in uw IoT-Hub. Klik op **toevoegen** boven aan de blade voor het maken van een regel voor doorsturen waarmee berichten worden doorgestuurd naar de wachtrij die u zojuist hebt toegevoegd. Selecteer **apparaat-berichten** als de bron van gegevens. Voer `level="storage"` als de voorwaarde, en kies **StorageContainer** als een aangepaste eindpunt als de routering eindpunt van de regel. Klik op **opslaan** onderaan.  
+
+    Zorg ervoor dat de terugval route is ingesteld op **ON**. Deze instelling is de standaardconfiguratie van een IoT-hub.
+
+1. Zorg ervoor dat uw vorige toepassingen worden nog steeds uitgevoerd. 
+
+1. In de Azure-Portal, gaat u naar uw opslagaccount onder **Blob-Service**, klikt u op **blobs bladeren...** .  Selecteer de container, gaat u naar en klikt u op het JSON-bestand en klikt u op **downloaden** om de gegevens weer te geven.
+
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe betrouwbaar apparaat-naar-cloud-berichten verzenden met behulp van de berichtroutering van IoT Hub.
 
@@ -204,5 +236,5 @@ Zie voor meer informatie over het routeren van berichten van IoT-Hub, [berichten
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [afhandeling van tijdelijke fout]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

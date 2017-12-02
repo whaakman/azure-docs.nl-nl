@@ -8,14 +8,26 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 12/01/2017
+ms.openlocfilehash: 9320a08217a5748ee8e41ab6f282490757b4acd1
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure-Database voor de MySQL-video 's
+
+[Overzicht: Azure-Database voor PostgreSQL en MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure PostgreSQL-Database en de Azure-Database voor MySQL samenbrengen community edition database-engines en mogelijkheden van een volledig beheerde service, zodat u zich kunt richten op uw apps in plaats van een database beheren. Afstemmen op een overzicht van de voordelen van het gebruik van de service en sommige van de mogelijkheden in actie zien.
+
+[Deep dive op beheerde servicemogelijkheden voor MySQL en PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure PostgreSQL-Database en de Azure-Database voor MySQL samenbrengen community edition database motoren en de mogelijkheden van een volledig beheerde service. Afstemmen op te halen van een diepgaand over de werking van deze services: hoe we hoge beschikbaarheid te garanderen en snelle schaling (in seconden), zodat u voldoen aan de behoeften van uw klanten. Ook leert u over een aantal van de onderliggende investeringen in de beveiliging en beschikbaarheid van overal ter wereld.
 
 [Hoe u aan de slag met de nieuwe Azure-Database voor de MySQL-service](https://channel9.msdn.com/events/Build/2017/B8045)
 

@@ -1,9 +1,9 @@
 ---
-title: U-SQL-taken voor foutopsporing | Microsoft Docs
-description: Informatie over fouten opsporen in een mislukte hoekpunt van U-SQL met Visual Studio.
+title: Foutopsporing van de gebruiker gedefinieerde C#-code voor mislukte Azure Data Lake U-SQL-taken | Microsoft Docs
+description: Informatie over fouten opsporen in een mislukte hoekpunt van U-SQL met Azure Data Lake Tools voor Visual Studio.
 services: data-lake-analytics
 documentationcenter: 
-author: saveenr
+author: yanancai
 manager: jhubbard
 editor: cgronlun
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
@@ -12,27 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
-ms.author: saveenr
-ms.openlocfilehash: 2a77c72d3062272305208934d6406d040266c753
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/31/2017
+ms.author: yanacai
+ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Foutopsporing van de gebruiker gedefinieerde C#-code voor mislukte U-SQL-taken
 
-U-SQL biedt een model van uitbreidbaarheid met C#, zodat u kunt uw code om toe te voegen zoals een aangepaste zelfstandig uitpakken of reducer schrijven. Zie voor meer informatie, [U-SQL programmeerbaarheid handleiding](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). In de praktijk code mogelijk moet foutopsporing en big-datasystemen leveren alleen beperkt runtime foutopsporingsinformatie zoals logboekbestanden.
+U-SQL biedt een model van uitbreidbaarheid met C#. In de U-SQL-scripts is het eenvoudig C#-functies aanroepen en analytische functies uitvoeren die biedt geen ondersteuning voor SQL-achtige declaratieve taal. Zie voor meer informatie voor de U-SQL-uitbreidbaarheid, [U-SQL programmeerbaarheid handleiding](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-Azure Data Lake Tools voor Visual Studio biedt een functie **hoekpunt foutopsporing kan niet**, waarmee u een mislukte taak vanuit de cloud op uw lokale computer voor het opsporen van klonen. De lokale kloon bevat de volledige in de cloud-omgeving, inclusief eventuele invoergegevens en gebruikerscode.
+In de praktijk code wellicht foutopsporing, maar het is moeilijk fouten opsporen in een gedistribueerde taak met aangepaste code in de cloud met beperkte logboekbestanden. [Azure Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs) biedt een functie **hoekpunt foutopsporing kan niet**, waarmee u gemakkelijker fouten opsporen in de fouten die optreden in uw aangepaste code. Wanneer U-SQL-taak is mislukt, de service blijft de foutstatus en het hulpprogramma helpt u bij het downloaden van de cloudomgeving fout naar de lokale computer voor foutopsporing. Het downloaden van de lokale bevat de volledige in de cloud-omgeving, inclusief eventuele invoergegevens en gebruikerscode.
 
 De volgende video toont mislukt hoekpunt fouten opsporen in Azure Data Lake Tools voor Visual Studio.
 
-> [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
+> [!VIDEO https://www.youtube.com/embed/3enkNvprfm4]
 >
 
-> [!NOTE]
-> Visual Studio de volgende twee updates is vereist als ze nog niet zijn geïnstalleerd: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) en de [universeel C Runtime voor Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> [!IMPORTANT]
+> Visual Studio de volgende twee updates vereist voor het gebruik van deze functie: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) en de [universeel C Runtime voor Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+>
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Hoekpunt naar de lokale computer downloaden is mislukt
 
@@ -44,80 +45,73 @@ Als u een taak die is mislukt in Azure Data Lake Tools voor Visual Studio opent,
 
 ![Azure Data Lake Analytics U-SQL foutopsporing visual studio downloaden hoekpunt](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-Taken kunnen de bronbestanden van de code-behind of geregistreerde assembly's bevatten, en deze twee typen hebben verschillende scenario's voor foutopsporing.
-
-- [Fouten opsporen in een taak die is mislukt met code-behind](#debug-job-failed-with-code-behind)
-- [Fouten opsporen in een mislukte taak met assembly 's](#debug-job-failed-with-assemblies)
-
-
-## <a name="debug-job-failed-with-code-behind"></a>Taak is mislukt met de code-behind voor foutopsporing
-
-Als een U-SQL-taak is mislukt en de taak bevat een gebruikerscode (meestal onder de naam `Script.usql.cs` in een project U-SQL), dat de broncode wordt geïmporteerd in de oplossing voor foutopsporing.  Daar kunt u de Visual Studio foutopsporingsprogramma's (controle, variabelen, enz.) het probleem op te lossen.
+## <a name="configure-the-debugging-environment"></a>De foutopsporingsomgeving configureren
 
 > [!NOTE]
 > Voordat u foutopsporing, moet u controleren **Common Language Runtime uitzonderingen** in het venster Instellingen voor uitzonderingen (**Ctrl + Alt + E**).
 
 ![Azure Data Lake Analytics U-SQL foutopsporing visual studio-instelling](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-1. Druk op **F5** het code-behind code uit te voeren. Deze wordt uitgevoerd totdat deze is gestopt vanwege een uitzondering.
+In het nieuwe gestarte Visual Studio-exemplaar mogelijk of kan de gebruiker gedefinieerde C#-broncode niet vinden:
 
-2. Open de `ADLTool_Codebehind.usql.cs` bestands- en Stel onderbrekingspunten, drukt u vervolgens op **F5** fouten opsporen in de code stap voor stap.
+1. [Ik kan mijn broncode vinden in de oplossing](#source-code-is-included-in-debugging-solution)
+
+2. [Ik kan mijn broncode niet vinden in de oplossing](#source-code-is-not-included-in-debugging-solution)
+
+### <a name="source-code-is-included-in-debugging-solution"></a>Broncode is opgenomen in de oplossing voor foutopsporing
+
+Er zijn twee cases dat de C#-broncode wordt vastgelegd:
+
+1. De gebruikerscode is gedefinieerd in de code-behind-bestand (meestal onder de naam `Script.usql.cs` in een project U-SQL).
+
+2. De gebruikerscode is gedefinieerd in C# class library-project voor de U-SQL-toepassing en geregistreerd als een assembly met **info debug**.
+
+Als de broncode wordt geïmporteerd naar de oplossing, kunt u de foutopsporingsprogramma's van Visual Studio (controle, variabelen, enz.) het probleem oplossen:
+
+1. Druk op **F5** foutopsporing te starten. De code wordt uitgevoerd totdat deze is gestopt vanwege een uitzondering.
+
+2. Open het bronbestand van de code en Stel onderbrekingspunten, drukt u vervolgens op **F5** fouten opsporen in de code stap voor stap.
 
     ![Azure Data Lake Analytics U-SQL-uitzondering voor foutopsporing](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
 
-## <a name="debug-job-failed-with-assemblies"></a>Taak is mislukt met de assembly's voor foutopsporing
+### <a name="source-code-is-not-included-in-debugging-solution"></a>Broncode is niet opgenomen in de oplossing voor foutopsporing
 
-Als u geregistreerde assembly's in uw U-SQL-script gebruikt, kan geen het systeem automatisch de broncode ophalen. Handmatig in dit geval is de assembly's broncodebestanden toevoegen aan de oplossing.
+Als de gebruikerscode niet in de code-behind-bestand opgenomen is registreren of u hebt niet de assembly met **info debug**, en vervolgens de broncode niet automatisch in de oplossing voor foutopsporing opgenomen wordt. In dit geval moet u extra stappen voor het toevoegen van uw broncode:
 
-### <a name="configure-the-solution"></a>De oplossing configureren
-
-1. Met de rechtermuisknop op **oplossing 'VertexDebug' > toevoegen > bestaand Project...**  broncode de assembly's vinden en het project toevoegen aan de oplossing voor foutopsporing.
+1. Met de rechtermuisknop op **oplossing 'VertexDebug' > toevoegen > bestaand Project...**  vinden van de assembly broncode en het project toevoegen aan de oplossing voor foutopsporing.
 
     ![Azure Data Lake Analytics U-SQL-foutopsporing project toevoegen](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 
-2. Met de rechtermuisknop op **LocalVertexHost > eigenschappen** in de oplossing en kopieer de **werkmap** pad.
+2. Ophalen van het pad van de map project voor **FailedVertexDebugHost** project. 
 
-3. Met de rechtermuisknop op **CodeProject voor assembly-bron > eigenschappen**, selecteer de **bouwen** tabblad aan de linkerkant en plak de gekopieerde pad als **uitvoer > uitvoerpad**.
+3. Met de rechtermuisknop op **het CodeProject toegevoegde assembly-bron > eigenschappen**, selecteer de **bouwen** tabblad aan de linkerkant en plak de gekopieerde pad eindigt met \bin\debug als **uitvoer > uitvoerpad**. Het pad van de uiteindelijke uitvoer is vergelijkbaar met '<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
 
     ![Azure Data Lake Analytics U-SQL-foutopsporing instellen pdb pad](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
-4. Druk op **Ctrl + Alt + E**, Controleer **Common Language Runtime uitzonderingen** in het venster Instellingen voor uitzondering.
-
-### <a name="start-debug"></a>Foutopsporing starten
-
-1. Met de rechtermuisknop op **CodeProject voor assembly-bron > opnieuw samenstellen** uitvoer .pdb bestanden voor de `LocalVertexHost` werkmap.
-
-2. Druk op **F5** en het project wordt uitgevoerd totdat deze is gestopt vanwege een uitzondering. Mogelijk ziet u de volgende waarschuwing die u kunt negeren. Het kan tot een minuut duren ophalen naar het scherm voor foutopsporing.
-
-    ![Azure Data Lake Analytics U-SQL foutopsporing visual studio-waarschuwing](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
-
-3. Open de broncode en Stel onderbrekingspunten, drukt u vervolgens op **F5** fouten opsporen in de code stap voor stap.
-
-U kunt ook de Visual Studio tools (controle, variabelen, enz.) het probleem oplossen foutopsporing gebruiken.
+Start na deze instellingen foutopsporing met **F5** en onderbrekingspunten. U kunt ook de Visual Studio tools (controle, variabelen, enz.) het probleem oplossen foutopsporing gebruiken.
 
 > [!NOTE]
 > Bouw het CodeProject voor assembly-bron opnieuw telkens nadat u de code voor het genereren van bijgewerkte .pdb bestanden aanpassen.
 
+## <a name="resubmit-the-job"></a>De taak opnieuw indienen
+
 Als het project voltooid is ziet het uitvoervenster na foutopsporing, het volgende bericht:
 
-```
-The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
-```
+    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
 
 ![Azure Data Lake Analytics U-SQL-foutopsporing is mislukt](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
-## <a name="resubmit-the-job"></a>De taak opnieuw indienen
+Aan de mislukte taak opnieuw:
 
-Als u klaar bent met het opsporen van fouten opnieuw in als de mislukte taak.
+1. Voor taken met oplossingen voor code-behind, door de C#-code te kopiëren naar het code-behind bronbestand (meestal `Script.usql.cs`).
 
-1. Voor taken met oplossingen voor code-behind door uw C#-code te kopiëren naar het code-behind bronbestand (meestal `Script.usql.cs`).
-2. Registreer de bijgewerkte .dll-assembly's in uw database ADLA voor taken met assembly's:
-    1. Vouw in Server Explorer of Cloud Explorer, de **ADLA account > Databases** knooppunt.
-    2. Met de rechtermuisknop op **assembly's** en registreren van uw nieuwe .dll-assembly's met de database ADLA: ![Azure Data Lake Analytics U-SQL-foutopsporing assembly registreren](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)
-3. De taak opnieuw.
+2. Voor taken met assembly's met de rechtermuisknop op het CodeProject assembly-bron in een oplossing voor foutopsporing en registreer de bijgewerkte .dll-assembly's in uw Azure Data Lake-catalogus.
+
+3. De U-SQL-taak opnieuw indienen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Handleiding voor het programmeren van U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 - [Ontwikkelen van U-SQL-gebruiker gedefinieerde operators voor Azure Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-- [Zelfstudie: U-SQL-scripts ontwikkelen met Data Lake Tools voor Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [U-SQL-taken testen en controleren op fouten met behulp van lokale uitvoering en de Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
+- [Problemen met een abnormale terugkerende taak oplossen](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

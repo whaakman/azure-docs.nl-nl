@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Het gebruik van PerfInsights 
 
@@ -30,7 +30,7 @@ Het is raadzaam dat u dit script uitvoert voordat u een ondersteuningsticket met
 
 PerfInsights kunt verzamelen en analyseren van verschillende soorten gegevens die zijn gegroepeerd in unieke scenario's.
 
-### <a name="collect-disk-configuration"></a>De schijfconfiguratie verzamelen 
+### <a name="collect-basic-configuration"></a>Basisconfiguratie verzamelen 
 
 Dit scenario worden verzameld voor de configuratie van de schijf en andere belangrijke informatie, met inbegrip van de volgende items:
 
@@ -57,7 +57,7 @@ Dit is een passief verzamelen van informatie die mag niet van invloed zijn op he
 >[!Note]
 >Dit scenario wordt automatisch opgenomen in elk van de volgende scenario's.
 
-### <a name="benchmarkstorage-performance-test"></a>De prestatietest benchmark/opslag
+### <a name="benchmarking"></a>Benchmarking
 
 Dit scenario wordt uitgevoerd de [diskspd](https://github.com/Microsoft/diskspd) benchmarktest (IOPS en MBPS) voor alle stations die zijn gekoppeld aan de virtuele machine. 
 
@@ -65,11 +65,11 @@ Dit scenario wordt uitgevoerd de [diskspd](https://github.com/Microsoft/diskspd)
 > Dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test kan een nadelige invloed heeft op de prestaties van uw virtuele machine.
 >
 
-### <a name="general-vm-slow-analysis"></a>Algemene VM langzaam analyse 
+### <a name="slow-vm-analysis"></a>Analyse van trage VM 
 
 Dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) traceren met behulp van de items die zijn opgegeven in het bestand Generalcounters.txt. Als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd, wordt een teller prestatietracering uitgevoerd met behulp van de items die zijn gevonden in het bestand Sqlcounters.txt. Dit omvat ook prestaties Diagnostics-gegevens.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>Trage VM analyse en benchmark
+### <a name="slow-vm-analysis-and-benchmarking"></a>Analyse van trage VM en benchmarking
 
 Dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace die wordt gevolgd door een [diskspd](https://github.com/Microsoft/diskspd) benchmarktest. 
 
@@ -99,9 +99,9 @@ Dit scenario voert een speciale prestaties teller vastleggen samen met een netwe
 |              | Gem. Wachtrijlengte voor schrijven       |
 |              | Gem. Wachtrijlengte van gegevens        |
 
-### <a name="custom-configuration"></a>Aangepaste configuratie 
+### <a name="custom-slow-vm-analysis"></a>Aangepaste analyse van trage VM 
 
-Wanneer u een aangepaste configuratie hebt uitgevoerd, uitvoert u alle traces (prestatiecontrole, prestatiemeteritems, xperf, netwerk, storport) parallel, afhankelijk van hoeveel andere traceringen zijn geselecteerd. Nadat de tracering is voltooid, wordt door het hulpprogramma de benchmark diskspd uitgevoerd als deze optie is geselecteerd. 
+Wanneer u een aangepaste trage VM analyse uitvoert, uitvoert u alle traces (prestatiemeteritem, xperf, netwerk, storport) parallel, afhankelijk van hoeveel andere traceringen zijn geselecteerd. Nadat de tracering is voltooid, wordt door het hulpprogramma de benchmark diskspd uitgevoerd als deze optie is geselecteerd. 
 
 > [!Note]
 > Dit scenario kan invloed hebben op het systeem en mag niet worden uitgevoerd op een live productiesysteem. Voer indien nodig in dit scenario in een speciale onderhoudsvenster om eventuele problemen te voorkomen. Een grotere werkbelasting die wordt veroorzaakt door een tracering of benchmark-test kan een nadelige invloed heeft op de prestaties van uw virtuele machine.
@@ -113,7 +113,7 @@ Registreert informatie over de virtuele machine van Windows, schijven of groepen
 
 |Gegevens die worden verzameld                              |  |  | Scenario's voor prestaties |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Schijfconfiguratie verzamelen | Testen van de prestaties van de benchmark/opslag | Algemene VM langzaam analyse | Trage VM analyse en benchmark | Azure bestanden analyse | Aangepaste configuratie |
+|                              | Basisconfiguratie verzamelen | Benchmarking | Analyse van trage VM | Analyse van trage VM en benchmarking | Azure bestanden analyse | Aangepaste analyse van trage VM |
 | Gegevens van gebeurtenislogboeken      | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Informatie over het bestandssysteem               | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Volume-kaart                       | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
@@ -127,7 +127,7 @@ Registreert informatie over de virtuele machine van Windows, schijven of groepen
 | Netwerkconfiguratie            | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Firewall-configuratie           | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Configuratie van SQL Server         | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
-| Prestaties diagnostische traceringen * |                            |                                    | Ja                      |                                |                      | Ja                  |
+| Prestaties diagnostische traceringen * | Ja                        | Ja                                | Ja                      |                                | Ja                  | Ja                  |
 | Prestatiemeteritem Trace **     |                            |                                    |                          |                                |                      | Ja                  |
 | SMB-prestatiemeteritems Trace **             |                            |                                    |                          |                                | Ja                  |                      |
 | Teller voor SQL Server Trace **      |                            |                                    |                          |                                |                      | Ja                  |
@@ -180,9 +180,9 @@ Diskspd IO werkbelasting tests [Besturingssysteemschijf (schrijven) en groep-sch
 
 **Mogelijke problemen wanneer u het script voor productie-virtuele machines uitvoert:**
 
-1.  Het script mogelijk nadelige invloed heeft op de prestaties van de virtuele machine als deze wordt gebruikt samen met het 'Benchmark' of 'Aangepaste'-scenario dat is geconfigureerd met behulp van XPerf of DiskSpd. Wees voorzichtig wanneer u het script in een productieomgeving uitvoert.
+1.  Wanneer u een Benchmarking scenario's of 'Aangepaste trage VM analysis'-scenario dat is geconfigureerd voor gebruik van XPerf of DiskSpd, kan het script heeft een nadelige invloed op de prestaties van de virtuele machine. Het is niet raadzaam deze scenario's in een productieomgeving zonder toezicht van een CSS-engineer uitvoeren.
 
-2.  Wanneer u het script samen met het 'Benchmark' of 'Aangepaste'-scenario dat wordt geconfigureerd met behulp van DiskSpd gebruiken, moet u dat er geen andere activiteit op de achtergrond de i/o-werkbelasting op de schijven geteste verstoort.
+2.  Wanneer u een Benchmarking scenario's of 'Aangepaste trage VM analysis'-scenario dat is geconfigureerd voor gebruik van DiskSpd, zorg dat er geen andere activiteit op de achtergrond de i/o-werkbelasting op de schijven geteste verstoort.
 
 3.  Het script maakt standaard gebruik van het station voor tijdelijke opslag om gegevens te verzamelen. Als u tracering blijft ingeschakeld gedurende een langere periode, kan de hoeveelheid gegevens die worden verzameld relevant zijn. Hierdoor kan de beschikbaarheid van de ruimte op de tijdelijke schijf, dus die invloed hebben op alle toepassingen die afhankelijk van dit station is.
 
@@ -236,7 +236,7 @@ Het script PerfInsights uitgevoerd, de volgende stappen uit:
 
 8.  U kunt ook PerfInsights zonder gebruikersinterface uitvoeren.
 
-    De volgende opdracht wordt uitgevoerd de 'algemene VM langzaam analyse' scenario zonder een prompt UI probleemoplossing of vastleggen van gegevens gedurende 30 seconden. U wordt gevraagd toestemming te geven tot dezelfde afwijzing en overeenkomst die worden vermeld in stap 4.
+    De volgende opdracht wordt uitgevoerd 'trage VM analyse' scenario zonder een prompt UI probleemoplossing of vastleggen van gegevens gedurende 30 seconden. U wordt gevraagd toestemming te geven tot dezelfde afwijzing en overeenkomst die worden vermeld in stap 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Als u fout optreden zelfs na verschillende pogingen blijven, raden wij aan dat u
 
 Nadat de fout zich voordoet, Kopieer de volledige uitvoer van de PowerShell-console en verzonden naar de agent van Microsoft Support helpt u bij het oplossen van het probleem.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Hoe voer het script in de modus voor aangepaste configuratie?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>Hoe voer het script in de aangepaste trage VM analysis modus?
 
-U selecteert de **aangepaste** configuratie, kunt u verschillende traceringen parallel (gebruik SHIFT ingedrukt om meerdere selecteren) inschakelen:
+U selecteert de **aangepaste trage VM analysis**, kunt u verschillende traceringen parallel (gebruik SHIFT ingedrukt om meerdere selecteren) inschakelen:
 
 ![scenario's selecteren](media/how-to-use-perfInsights/select-scenario.png)
 
-Wanneer u de prestaties van diagnostische gegevens selecteert, teller prestatietracering, XPerf Trace, netwerktracering of Storport Trace-scenario's, volg de instructies in de dialoogvensters en probeer het probleem te reproduceren trage prestaties na het starten van de traceringen.
+Wanneer u de teller prestatietracering, XPerf Trace, netwerktracering of Storport Trace-scenario's selecteert, volg de instructies in de dialoogvensters en probeer het probleem te reproduceren trage prestaties nadat u de traceringen hebt gestart.
 
 Het volgende dialoogvenster kunt u een tracering starten:
 
@@ -290,20 +290,21 @@ Binnen de **CollectedData\_jjjj-MM-dd\_hh\_mm\_ss.zip bestand** die is gegeneree
 Selecteer de **bevindingen** tabblad.
 
 ![tabblad Zoeken](media/how-to-use-perfInsights/findingtab.png)
+![bevindingen](media/how-to-use-perfInsights/findings.PNG)
 
 **Opmerkingen bij de**
 
--   Berichten in rood bekend configuratieproblemen die prestatieproblemen kunnen veroorzaken.
+-   Bevindingen gecategoriseerd als kritiek zijn bekende problemen die prestatieproblemen kunnen veroorzaken.
 
--   Geel zijn waarschuwingen voor niet-optimale configuraties die niet noodzakelijkerwijs prestatieproblemen veroorzaken.
+-   Bevindingen geclassificeerd als belangrijk vertegenwoordigen niet optimaal configuraties die niet noodzakelijkerwijs prestatieproblemen veroorzaken.
 
--   Berichten in blauw zijn alleen informatief instructies.
+-   Bevindingen aangemerkt als informatief zijn alleen informatief instructies.
 
-Bekijk de HTTP-koppelingen voor alle foutberichten in rood meer gedetailleerde informatie over de bevindingen en kunnen invloed op de prestaties of de aanbevolen procedures voor optimale prestaties van configuraties ophalen.
+Controleer de aanbevelingen en koppelingen naar alle essentiële en belangrijke bevindingen meer gedetailleerde informatie over de bevindingen en kunnen invloed op de prestaties of de aanbevolen procedures voor optimale prestaties van configuraties ophalen.
 
-### <a name="disk-configuration-tab"></a>Tabblad voor schijf-configuratie
+### <a name="storage-tab"></a>Tabblad opslag
 
-De **overzicht** sectie vindt u verschillende weergaven van de opslagconfiguratie, inclusief de gegevens van Diskpart en opslagruimten
+De **bevindingen** sectie vindt u verschillende bevindingen en aanbevelingen met betrekking tot opslag.
 
 De **DiskMap** en **VolumeMap** secties wordt beschreven in een dubbele perspectief logische volumes en fysieke schijven aan elkaar zijn gerelateerd.
 
@@ -315,21 +316,24 @@ In het perspectief van het Volume (*VolumeMap*), de tabellen geven de fysieke sc
 
 ![tabblad volume](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>SQL Server-tabblad
+### <a name="sql-tab"></a>SQL-tabblad
 
-Als het doel-virtuele machine fungeert als host voor alle exemplaren van SQL Server, ziet u een extra tabblad in de lijst met de naam **SQL Server**:
+Als het doel-virtuele machine fungeert als host voor alle exemplaren van SQL Server, ziet u een extra tabblad in de lijst met de naam **SQL**:
 
 ![SQL-tabblad](media/how-to-use-perfInsights/sqltab.png)
 
-Deze sectie bevat een 'overzicht' en aanvullende sub tabbladen voor elk van de SQL Server-exemplaren die worden gehost op de virtuele machine.
+Deze sectie bevat een tabblad 'Bevindingen' en de aanvullende sub-tabbladen voor elk van de SQL Server-exemplaren die worden gehost op de virtuele machine.
 
-De sectie 'Overzicht' bevat een handig tabel overzicht van alle fysieke schijven (systeem- en gegevensschijven) die worden uitgevoerd en die een mengeling van gegevensbestanden en transactielogboekbestanden bevatten.
+Het tabblad 'Bevindingen' bevat een lijst met alle SQL gerelateerd prestatieproblemen samen met de aanbevelingen zijn gevonden.
 
 In het volgende voorbeeld *PhysicalDrive0* (het station C wordt uitgevoerd) wordt weergegeven, omdat zowel de *modeldev* en *modellog* bestanden bevinden zich op station C, en ze zijn van verschillende typen (zoals het gegevensbestand en het transactielogboek, respectievelijk):
 
 ![LogInfo](media/how-to-use-perfInsights/loginfo.png)
 
 De SQL Server-exemplaar-specifieke tabbladen bevatten een algemene sectie waarin algemene informatie over het geselecteerde exemplaar en extra secties voor gedetailleerde informatie, waaronder instellingen, configuraties en opties voor gebruikers.
+
+### <a name="diagnostic-tab"></a>Diagnostische tabblad
+Diagnostische tabblad bevat informatie over het hoogste CPU, schijf en geheugen consumenten op het selectievakje voor de duur van PerfInsights uitgevoerd. U kunt ook andere nuttige informatie zoals essentiële patches vinden dat het systeem mogelijk ontbreken, lijst met taken en belangrijke systeemgebeurtenissen. 
 
 ## <a name="references-to-the-external-tools-used"></a>Verwijzingen naar de externe hulpprogramma's gebruikt
 

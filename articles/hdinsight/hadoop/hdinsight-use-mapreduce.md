@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: b267f5ce5ec76a89327ac58ca76895f8bcc4696b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>MapReduce in Hadoop in HDInsight gebruiken
 
@@ -57,7 +57,7 @@ MapReduce kan worden geïmplementeerd in diverse talen. Java is de meest voorkom
 
 ## <a name="development-languages"></a>Ontwikkelingstalen
 
-Talen of frameworks die zijn gebaseerd op Java en de virtuele Java-Machine kan rechtstreeks als een MapReduce-taak worden uitgevoerd. Het voorbeeld gebruikt in dit document is een MapReduce Java-toepassing. Niet-Java-talen, zoals C#, Python of zelfstandige uitvoerbare bestanden, moeten het Hadoop-streaming gebruiken.
+Talen of frameworks die zijn gebaseerd op Java en de virtuele Java-Machine kan rechtstreeks als een MapReduce-taak worden uitgevoerd. Het voorbeeld gebruikt in dit document is een MapReduce Java-toepassing. Niet-Java-talen, zoals C#, Python of zelfstandige uitvoerbare bestanden, moeten gebruiken **Hadoop-streaming**.
 
 Hadoop-streaming communiceert met de toewijzen en reducer via STDIN en STDOUT. De toewijzen en reducer gegevens van een regel op een tijdstip van STDIN lezen en schrijven van de uitvoer naar STDOUT. Elke regel lezen of verzonden door de toewijzen en reducer moet de indeling van een sleutel-waardepaar, gescheiden door een tab-teken zijn:
 

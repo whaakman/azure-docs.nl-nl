@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub apparaat-naar-cloud-berichten (Java) | Microsoft Docs
-description: Klik hier voor meer informatie over het verwerken van IoT Hub apparaat-naar-cloud-berichten met behulp van regels voor het doorsturen en aangepaste eindpunten verzending van berichten naar andere back-end-services.
+title: Routeren van berichten met Azure IoT Hub (Java) | Microsoft Docs
+description: Hoe Azure IoT Hub apparaat-naar-cloud-berichten verwerken met behulp van regels voor het doorsturen en aangepaste eindpunten verzending van berichten naar andere back-end-services.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 81f846e1fd8cca586613e6fc57737ec27e43a639
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-java"></a>Verwerken van Iothub apparaat-naar-cloud-berichten (Java)
+# <a name="routing-messages-with-iot-hub-java"></a>Routeren van berichten met IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -44,7 +44,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 * [Maven 3](https://maven.apache.org/install.html)
 * Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 
-Er is enige basiskennis van [Azure Storage] en [Azure Service Bus].
+Wordt ook aangeraden lezen over [Azure Storage] en [Azure Service Bus].
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>Interactieve berichten verzenden vanuit een apparaat-app
 In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de slag met IoT Hub] zelfstudie af en toe om berichten te verzenden waarvoor onmiddellijke verwerking.
@@ -66,9 +66,15 @@ In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de sl
                     String msgStr;
                     Message msg;
                     if (new Random().nextDouble() > 0.7) {
-                        msgStr = "This is a critical message.";
-                        msg = new Message(msgStr);
-                        msg.setProperty("level", "critical");
+                        if (new Random().nextDouble() > 0.5) {
+                            msgStr = "This is a critical message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "critical");
+                        } else {
+                            msgStr = "This is a storage message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "storage");
+                        }
                     } else {
                         double currentTemperature = minTemperature + rand.nextDouble() * 15;
                         double currentHumidity = minHumidity + rand.nextDouble() * 20; 
@@ -99,7 +105,7 @@ In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de sl
     }
     ```
    
-    Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` op berichten die door het apparaat verzonden, die een bericht dat directe actie is vereist door de toepassing van de back-end simuleert. De toepassing geeft deze informatie in de berichteigenschappen in plaats van in de hoofdtekst van het bericht, zodat deze IoT Hub het bericht naar de juiste bestemming sturen kan.
+    Deze methode wordt willekeurig toegevoegd voor de eigenschap `"level": "critical"` en `"level": "storage"` op berichten die door het apparaat verzonden, die een bericht waarvoor onmiddellijke actie door de back-end van de toepassing of een die moet worden permanent opgeslagen simuleert. De toepassing geeft deze informatie in de berichteigenschappen in plaats van in de hoofdtekst van het bericht, zodat deze IoT Hub het bericht naar de juiste bestemming sturen kan.
    
    > [!NOTE]
    > U kunt de berichteigenschappen om berichten te routeren voor verschillende scenario's, inclusief de verwerking van koude pad, naast het hot pad voorbeeld dat hier wordt weergegeven.
@@ -107,7 +113,7 @@ In deze sectie die u wijzigt de apparaat-app die u hebt gemaakt in de [aan de sl
 2. Sla en sluit het bestand simulated-device\src\main\java\com\mycompany\app\App.java.
 
     > [!NOTE]
-    > Omwille van de eenvoud in deze zelfstudie niet geïmplementeerd voor een beleid voor opnieuw proberen. In productiecode moet u een beleid voor opnieuw proberen zoals exponentieel uitstel, zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout].
+    > Het wordt aangeraden dat u een beleid voor opnieuw proberen zoals exponentieel uitstel, zoals voorgesteld in het MSDN-artikel implementeren [afhandeling van tijdelijke fout].
 
 3. Als u de app **simulated-device** wilt maken met behulp van Maven, geeft u de volgende opdracht op in het opdrachtvenster in de map simulated-device:
 
@@ -168,6 +174,30 @@ U bent nu klaar om uit te voeren van de drie toepassingen.
    ```
    
    ![Simulated-device uitvoeren][simulateddevice]
+
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Optioneel) Storage-Container toevoegen aan uw IoT hub en route-berichten naar het
+
+In deze sectie een opslagaccount maken, verbinden met uw IoT-hub en configureren van uw iothub berichten verzenden naar de account op basis van de aanwezigheid van een eigenschap van het bericht. Zie voor meer informatie over het beheren van opslag [aan de slag met Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > Als u niet beperkt tot één **eindpunt**, u kunt setup de **StorageContainer** naast de **CriticalQueue** en beide simulatneously uitvoeren.
+
+1. Een opslagaccount maken zoals beschreven in [Azure Storage documentatie] [lnk-opslag]. Noteer de accountnaam.
+
+2. Open uw IoT-hub in de Azure-portal en klikt u op **eindpunten**.
+
+3. In de **eindpunten** blade, selecteer de **CriticalQueue** eindpunt en klik op **verwijderen**. Klik op **Ja**, en klik vervolgens op **toevoegen**. Naam van het eindpunt **StorageContainer** en selecteer met de vervolgkeuzelijsten **Azure Storage-Container**, en maak een **opslagaccount** en een **opslag container**.  Noteer de namen.  Wanneer u klaar bent, klikt u op **OK** onderaan. 
+
+ > [!NOTE]
+   > Als u niet beperkt tot één **eindpunt**, u hoeft niet te verwijderen de **CriticalQueue**.
+
+4. Klik op **Routes** in uw IoT-Hub. Klik op **toevoegen** boven aan de blade voor het maken van een regel voor doorsturen waarmee berichten worden doorgestuurd naar de wachtrij die u zojuist hebt toegevoegd. Selecteer **apparaat-berichten** als de bron van gegevens. Voer `level="storage"` als de voorwaarde, en kies **StorageContainer** als een aangepaste eindpunt als de routering eindpunt van de regel. Klik op **opslaan** onderaan.  
+
+    Zorg ervoor dat de terugval route is ingesteld op **ON**. Deze instelling is de standaardconfiguratie van een IoT-hub.
+
+1. Zorg ervoor dat uw vorige toepassingen worden nog steeds uitgevoerd. 
+
+1. In de Azure-Portal, gaat u naar uw opslagaccount onder **Blob-Service**, klikt u op **blobs bladeren...** .  Selecteer de container, gaat u naar en klikt u op het JSON-bestand en klikt u op **downloaden** om de gegevens weer te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

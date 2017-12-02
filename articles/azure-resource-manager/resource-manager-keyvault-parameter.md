@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Gebruik Azure Sleutelkluis beveiligde parameterwaarde worden doorgegeven tijdens de implementatie
 
@@ -66,7 +66,11 @@ Of u een nieuwe sleutelkluis of een bestaande gebruikt, zorg ervoor dat de imple
 
 ## <a name="reference-a-secret-with-static-id"></a>Verwijst naar een geheim met statische-ID
 
-De sjabloon die u een geheim sleutelkluis ontvangt is vergelijkbaar met een andere sjabloon. Dat komt doordat **u verwijzen naar de sleutelkluis in de parameter-bestand niet in de sjabloon.** Bijvoorbeeld, implementeert u de volgende sjabloon een SQL-database met een administrator-wachtwoord. De wachtwoordparameter is ingesteld op een veilige tekenreeks. Maar de sjabloon geeft geen waar die waarde worden opgehaald.
+De sjabloon die u een geheim sleutelkluis ontvangt is vergelijkbaar met een andere sjabloon. Dat komt doordat **u verwijzen naar de sleutelkluis in de parameter-bestand niet in de sjabloon.** De volgende afbeelding toont hoe de parameterbestand verwijst naar het geheim en wordt die waarde doorgegeven aan de sjabloon.
+
+![Statische-ID](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+Bijvoorbeeld, de [na sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) implementeert een SQL-database met een administrator-wachtwoord. De wachtwoordparameter is ingesteld op een veilige tekenreeks. Maar de sjabloon geeft geen waar die waarde worden opgehaald.
 
 ```json
 {
@@ -102,7 +106,7 @@ De sjabloon die u een geheim sleutelkluis ontvangt is vergelijkbaar met een ande
 }
 ```
 
-Maak nu een parameterbestand voor de voorgaande sjabloon. Geef in het parameterbestand een parameter die overeenkomt met de naam van de parameter in de sjabloon. De waarde van parameter verwijst naar het geheim van de sleutelkluis. U verwijzen naar het geheim door het doorgeven van de resource-id van de sleutelkluis en de naam van het geheim. In het volgende voorbeeld wordt het geheim sleutelkluis moet al bestaan en u een statische waarde opgeven voor de bron-ID.
+Maak nu een parameterbestand voor de voorgaande sjabloon. Geef in het parameterbestand een parameter die overeenkomt met de naam van de parameter in de sjabloon. De waarde van parameter verwijst naar het geheim van de sleutelkluis. U verwijzen naar het geheim door het doorgeven van de resource-id van de sleutelkluis en de naam van het geheim. In de [parameterbestand na](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json), het geheim sleutelkluis moet al bestaan en u een statische waarde opgeven voor de bron-ID. Kopieer dit bestand lokaal en stel de abonnements-ID, de kluisnaam en de naam van SQL server.
 
 ```json
 {
@@ -127,25 +131,27 @@ Maak nu een parameterbestand voor de voorgaande sjabloon. Geef in het parameterb
 }
 ```
 
-Nu de sjabloon implementeert en in het parameterbestand. Gebruik voor Azure CLI:
+Nu de sjabloon implementeert en in het parameterbestand. U kunt de voorbeeldsjabloon vanuit GitHub, maar u moet een lokale parameterbestand gebruiken met de waarden die zijn ingesteld op uw omgeving.
+
+Gebruik voor Azure CLI:
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 Gebruik voor PowerShell:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 De vorige sectie hebt u geleerd hoe u een statisch resource-ID voor de sleutelkluis-geheim doorgeven. In sommige gevallen moet u echter verwijzen naar een sleutelkluis geheim dat varieert op basis van de huidige implementatie. In dat geval kunt u niet vastleggen de bron-ID in het parameterbestand. Helaas kan niet u dynamisch genereren de resource-ID in het parameterbestand Sjabloonexpressies zijn niet toegestaan in het parameterbestand.
 
-Als de resource-ID voor een geheim sleutelkluis dynamisch worden gegenereerd, moet u de resource die het geheim in een geneste sjabloon moet verplaatsen. In de sjabloon master u de geneste sjabloon toevoegen en geeft u in een parameter die de dynamisch gegenereerde resource-id bevat. De geneste sjabloon moet beschikbaar zijn via een externe URI zijn. De rest van dit artikel wordt ervan uitgegaan dat u de voorgaande sjabloon naar een opslagaccount hebt toegevoegd en is beschikbaar in de URI - `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+Als de resource-ID voor een geheim sleutelkluis dynamisch worden gegenereerd, moet u de resource die het geheim in een gekoppelde sjabloon moet verplaatsen. In de sjabloon bovenliggende u de gekoppelde sjabloon toevoegen en geeft u in een parameter die de dynamisch gegenereerde resource-id bevat. De volgende afbeelding toont hoe een parameter in de gekoppelde sjabloon verwijst naar het geheim.
+
+![Dynamische-ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+De sjabloon voor het gekoppelde moet beschikbaar zijn via een externe URI zijn. Uw sjabloon toevoegen aan een opslagaccount doorgaans te krijgen tot de URI zoals `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+
+De [na sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dynamisch maakt de sleutelkluis-ID en wordt doorgegeven als parameter. Het is gekoppeld aan een [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) in GitHub.
 
 ```json
 {
@@ -184,7 +196,7 @@ Als de resource-ID voor een geheim sleutelkluis dynamisch worden gegenereerd, mo
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ Als de resource-ID voor een geheim sleutelkluis dynamisch worden gegenereerd, mo
 }
 ```
 
-Implementeer de voorgaande sjabloon en geef waarden op voor de parameters.
+Implementeer de voorgaande sjabloon en geef waarden op voor de parameters. U kunt de voorbeeldsjabloon vanuit GitHub, maar u moet de parameterwaarden opgeven voor uw omgeving.
+
+Gebruik voor Azure CLI:
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * Raadpleeg voor algemene informatie over sleutelkluizen [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).

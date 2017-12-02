@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -33,6 +33,27 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Event Hubs](../event-hubs/eve
 Gebruik de Event Hubs-trigger om te reageren op een gebeurtenis verzonden naar de gebeurtenisstroom van een event hub. U moet leestoegang hebben tot de event hub voor het instellen van de trigger.
 
 Wanneer een functie van Event Hubs trigger wordt geactiveerd, wordt het bericht dat deze wordt geactiveerd als een tekenreeks in de functie doorgegeven.
+
+## <a name="trigger---scaling"></a>Activeren - schaling
+
+Elk exemplaar van een functie Event Hub-Triggered wordt ondersteund door alleen 1 EventProcessorHost (EPH)-exemplaar. Event Hubs zorgt ervoor dat slechts 1 EPH een lease op een bepaalde partitie kunt krijgen.
+
+Stel bijvoorbeeld dat we beginnen met de volgende instellingen en veronderstellingen voor een Event Hub:
+
+1. 10 partities.
+1. 1000 gebeurtenissen gelijkmatig verdeeld over alle partities = > 100 berichten in elke partitie.
+
+Wanneer de functie voor het eerst wordt ingeschakeld, is er slechts 1 exemplaar van de funciton. Laten we dit exemplaar van de functie Function_0 aanroepen. Function_0 hebben 1 EPH die beheert voor een lease op alle 10 partities. Lezen van gebeurtenissen uit partities 0-9 wordt gestart. Vanaf dit punt een van de volgende gebeurt:
+
+* **Functie slechts 1 exemplaar nodig** -Function_0 kunnen worden verwerkt alle 1000 voordat de Azure Functions schalen logica gang is. Daarom worden alle 1000 berichten worden verwerkt door Function_0.
+
+* **1 meer functie exemplaar toevoegen** -'Azure Functions schalen logica bepaalt dat Function_0 meer berichten dan kunnen worden verwerkt, heeft zodat een nieuw exemplaar Function_1, wordt gemaakt. Event Hubs detecteert dat een nieuw exemplaar van de EPH probeert berichten lezen. Event Hubs de partities voor taakverdeling over de exemplaren EPH wordt gestart, bijv, 0-4 partities zijn toegewezen aan Function_0 en partities 5-9 zijn toegewezen aan Function_1. 
+
+* **Voeg N werken meer exemplaren** -'Azure Functions schalen logica bepaalt dat zowel Function_0 als Function_1 geen berichten meer hebben dan ze kunnen verwerken. Dit wordt opnieuw schalen voor Function_2... N, waarbij N groter dan de paritions Event Hub is. Event Hubs wordt geladen verdeeld de partities Function_0... 9 exemplaren.
+
+Uniek is voor de huidige Azure-Functions schalen logica is het feit dat N groter dan het aantal partities is. Dit wordt gedaan om ervoor te zorgen dat er altijd exemplaren van EPH beschikken snel een vergrendeling krijgen voor de partities zodra deze beschikbaar zijn van andere exemplaren. Gebruikers worden alleen kosten in rekening gebracht voor de bronnen die worden gebruikt wanneer het exemplaar van de functie wordt uitgevoerd, en worden niet in rekening gebracht voor deze overprovisioning.
+
+Als alle functies die zonder fouten slagen, worden controlepunten toegevoegd aan het bijbehorende opslagaccount. Als controle wijzen is geslaagd, moeten alle 1000 berichten nooit opnieuw worden opgehaald.
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 

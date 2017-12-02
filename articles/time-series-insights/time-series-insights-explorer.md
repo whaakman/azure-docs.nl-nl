@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/30/2017
+ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 Dit artikel bevat informatie over de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U kunt explorer Time Series inzicht in uw webbrowser maken visualisaties van uw gegevens.
@@ -60,7 +60,7 @@ U kunt binnen enkele minuten verbinding te maken met uw gebeurtenisbron op uw om
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, is NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, is NULL        |  Alle operanden moeten van hetzelfde type zijn of NULL-constante.        |
-         |HEEFT     | Tekenreeks        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
+         |HEEFT     | Reeks        |  Alleen constante letterlijke tekenreeksen zijn toegestaan op de rechterkant. Lege tekenreeks en NULL zijn niet toegestaan.       |
 
       - **Voorbeelden van query 's**
       

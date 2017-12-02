@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
 
 ## <a name="summary"></a>Samenvatting
-Azure Diagnostics VM-extensie van prestaties helpt diagnostische prestatiegegevens verzamelen van VM's van Windows, voert analyse en biedt een rapport van bevindingen & aanbevelingen voor het identificeren en oplossen van prestatieproblemen met voor de virtuele machine. Deze uitbreiding is geïnstalleerd voor probleemoplossing hulpprogramma [PerfInsights](http://aka.ms/perfinsights).
+Helpt diagnostische prestatiegegevens verzamelen van VM's van Windows, voert analyse en biedt een rapport van de resultaten en aanbevelingen voor het identificeren en oplossen van prestatieproblemen met voor de virtuele machine van Azure Diagnostics VM-extensie van prestaties. Deze uitbreiding is geïnstalleerd voor probleemoplossing hulpprogramma [PerfInsights](http://aka.ms/perfinsights).
 
 ## <a name="prerequisites"></a>Vereisten
 ### <a name="operating-systems"></a>Besturingssystemen
@@ -46,7 +46,6 @@ De volgende JSON vindt u het schema voor de extensie voor diagnostische gegevens
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -70,15 +69,13 @@ De volgende JSON vindt u het schema voor de extensie voor diagnostische gegevens
 |Uitgever|Microsoft.Azure.Performance.Diagnostics|Publisher naamruimte voor de extensie
 |type|AzurePerformanceDiagnostics|Type van de VM-extensie
 |typeHandlerVersion|1.0|Versie van de extensie-Handler
-|performanceScenario|Basic|Prestaties scenario voor het vastleggen van de gegevens voor. Geldige waarden zijn: **basic**, **vmslow**, **azurefiles**, en **aangepaste**.
+|performanceScenario|standaard|Prestaties scenario voor het vastleggen van de gegevens voor. Geldige waarden zijn: **basic**, **vmslow**, **azurefiles**, en **aangepaste**.
 |traceDurationInSeconds|300|De duur van de traceringen als een van de traceeropties zijn geselecteerd.
-|DiagnosticsTrace|D|De optie voor het inschakelen van de diagnostische traceerlogboeken. Geldige waarden zijn **d** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde leeg.
 |perfCounterTrace|P|De optie voor het inschakelen van de teller prestatietracering. Geldige waarden zijn **p** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde leeg.
 |networkTrace|n|De optie voor het inschakelen van Netmon Trace. Geldige waarden zijn  **n**  of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde leeg.
 |xperfTrace|x|De optie voor het inschakelen van XPerf Trace. Geldige waarden zijn **x** of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde leeg.
 |storPortTrace|s|De optie StorPort-tracering inschakelen. Geldige waarden zijn s of lege waarde. Als u niet vastleggen van deze trace wilt, laat u de waarde leeg.
 |srNumber|123452016365929|Ondersteuning voor Ticketnummer indien beschikbaar. Laat leeg als u niet hebt.
-|requestTimeUtc|2-9/2017 23:06:00 UUR|De tijd van de huidige datum in Utc. U hoeft niet te geven deze waarde als u de portal voor het installeren van deze extensie.
 |storageAccountName|mystorageaccount|De naam van het opslagaccount voor het opslaan van de logboeken met diagnostische gegevens en de resultaten.
 |storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Sleutel voor het opslagaccount.
 
@@ -104,7 +101,7 @@ Volg deze stappen voor het installeren van de VM-extensie op Windows virtuele Ma
     ![Bericht inrichting voltooid](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > De extensie-uitvoering wordt gestart nadat het inrichten is voltooid en het duurt enkele minuten of minder uitgevoerd voor eenvoudige scenario. Voor andere scenario's, wordt deze uitgevoerd door de duur van de opgegeven tijdens de installatie.
+    > De uitvoering van de uitbreiding wordt gestart nadat het inrichten is voltooid en het duurt enkele minuten of minder uitgevoerd voor eenvoudige scenario. Voor andere scenario's, deze wordt uitgevoerd door de duur van de opgegeven tijdens de installatie.
 
 ## <a name="remove-the-extension"></a>Verwijder de extensie
 Als u wilt verwijderen van de uitbreiding van een virtuele machine, de volgende stappen uit:
@@ -153,10 +150,6 @@ Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sja
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sja
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,13 +223,13 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informatie over de gegevens die zijn vastgelegd
-PerfInsights hulpprogramma verzamelt verschillende logboeken, configuratie, enz., afhankelijk van het geselecteerde scenario voor diagnostische gegevens. Voor meer informatie over de gegevens die worden verzameld per scenario Neem Bezoek [PerfInsights documentatie](http://aka.ms/perfinsights).
+PerfInsights hulpprogramma verzamelt verschillende logboeken, configuratie, enz., afhankelijk van het geselecteerde scenario voor diagnostische gegevens. Ga voor meer informatie over de gegevens die worden verzameld per scenario naar [PerfInsights documentatie](http://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Bekijken en delen van de resultaten
 
 Uitvoer van de uitbreiding wordt opgeslagen in een map met de naam log_collection onder Temp-station (meestal D:\log_collection) standaard. Onder deze map ziet u het zip-bestanden met de logboeken met diagnostische gegevens en een rapport met bevindingen en aanbevelingen.
 
-Het zip-bestand gemaakt ook wordt geüpload naar de storage-account dat is opgegeven tijdens de installatie en wordt gedeeld voor 30 dagen met [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Een tekstbestand met de naam *zipfilename*_saslink.txt ook in de map log_collection is gemaakt. Dit bestand bevat de SAS-koppeling voor het downloaden van het zip-bestand gemaakt. Iedereen die deze koppeling heeft zich voor het downloaden van het zip-bestand.
+Het zip-bestand gemaakt ook wordt geüpload naar de storage-account dat is opgegeven tijdens de installatie en wordt gedeeld voor 30 dagen met [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Een tekstbestand met de naam *zipfilename*_saslink.txt ook in de map log_collection is gemaakt. Dit bestand bevat de SAS-koppeling voor het downloaden van het zip-bestand gemaakt. Iedereen die deze koppeling heeft kan downloaden van het zip-bestand.
 
 Microsoft mag deze SAS-koppeling gebruiken voor het downloaden van de Diagnostics-gegevens voor verder onderzoek door de medewerker op uw ondersteuningsticket werkt.
 

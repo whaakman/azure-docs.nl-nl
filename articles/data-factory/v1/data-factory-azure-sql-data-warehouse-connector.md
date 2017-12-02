@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a56afa7c5200b53b398f8a99e8a36df3685b2f66
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -196,7 +196,7 @@ SQL Data Warehouse PolyBase ondersteuning rechtstreeks voor Azure-Blob en Azure 
 Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de instellingen en automatisch terugvalt op het BULKINSERT mechanisme voor de verplaatsing van gegevens.
 
 1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore met verificatie van de service-principal**.  
-2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStore**, en de indeling Typ onder `type` eigenschappen is **OrcFormat**, of **TextFormat** met de volgende configuraties:
+2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStore**, en de indeling Typ onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat** met de volgende configuraties:
 
    1. `rowDelimiter`moet  **\n** .
    2. `nullValue`is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
@@ -275,7 +275,7 @@ Overweeg om de best mogelijke doorvoer behalen, grotere bronklasse toewijzen aan
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName in Azure SQL Data Warehouse
 De volgende tabel bevat voorbeelden op het opgeven van de **tableName** eigenschap in de gegevensset JSON voor verschillende combinaties van schema en de tabelnaam.
 
-| DB Schema | De tabelnaam van de | JSON-eigenschap tableName |
+| DB Schema | Tabelnaam | JSON-eigenschap tableName |
 | --- | --- | --- |
 | dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MijnTabel] |
 | dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MijnTabel] |
@@ -303,21 +303,21 @@ Data Factory maakt in de tabel in het doelarchief met dezelfde tabelnaam in het 
 
 | Type gegevensbron SQL Database-kolom | Doel-SQL DW-kolomtype (de maximale grootte) |
 | --- | --- |
-| int | int |
+| Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
 | bits | bits |
 | Decimale | Decimale |
-| numerieke | Decimale |
+| Numeriek | Decimale |
 | Float | Float |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binaire | Binaire |
+| Binair bestand | Binair bestand |
 | varbinary | Varbinary (maximaal 8000) |
 | Date | Date |
-| Datum/tijd | Datum/tijd |
+| Datum en tijd | Datum en tijd |
 | DateTime2 | DateTime2 |
 | Time | Time |
 | DateTimeOffset | DateTimeOffset |
@@ -348,11 +348,11 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | --- | --- |
 | bigint |Int64 |
 | Binaire |Byte] |
-| bits |Booleaanse waarde |
+| bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| Datum |Datum/tijd |
-| Datum/tijd |Datum/tijd |
-| datetime2 |Datum/tijd |
+| datum |Datum en tijd |
+| Datum en tijd |Datum en tijd |
+| datetime2 |Datum en tijd |
 | DateTimeOffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte] |
@@ -364,9 +364,9 @@ De toewijzing is hetzelfde als de [SQL Server gegevenstypetoewijzing voor ADO.NE
 | ntext |Tekenreeks, Char] |
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
-| echte |Één |
+| echte |Single |
 | ROWVERSION |Byte] |
-| smalldatetime |Datum/tijd |
+| smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |

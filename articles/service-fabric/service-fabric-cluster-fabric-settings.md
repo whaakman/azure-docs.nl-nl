@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
-Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
+Dit document wordt beschreven hoe verschillende fabric-instellingen aanpassen en het bijwerken van beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
 
 > [!NOTE]
 > Niet alle instellingen zijn beschikbaar in de portal. Als een instelling hieronder vermelde niet beschikbaar via de portal aanpassen met behulp van een Azure Resource Manager-sjabloon.
@@ -772,8 +772,8 @@ PropertyGroup|X509NameMap, standaardwaarde is geen|Dynamisch| |
 |MaxPrimaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de wachtrij voor de primaire replicatie in bytes.|
 |MaxSecondaryReplicationQueueSize|uint, standaard is 2048|Statisch|Dit is het maximum aantal bewerkingen die kunnen bestaan in de secundaire replicatiewachtrij. Houd er rekening mee dat deze een macht van 2 moet.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, de standaardwaarde is 0|Statisch|Dit is de maximale waarde van de secundaire replicatiewachtrij in bytes.|
-|QueueHealthMonitoringInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Statisch|Geef de interval in seconden. Deze waarde bepaalt de periode die wordt gebruikt door de replicatie voor het bewaken van de waarschuwing/fout health-gebeurtenissen in de bewerking replicatiewachtrijen. De waarde '0' wordt uitgeschakeld statuscontrole |
-|QueueHealthWarningAtUsagePercent|uint, standaard is 80|Statisch|Deze waarde bepaalt de replicatie wachtrij gebruik (in percentage) waarna er waarschuwing rapporteren over het gebruik van hoge wachtrij. We doen dit na een interval van de respijtperiode van QueueHealthMonitoringInterval. Als de wachtrij-gebruik lager is dan dit percentage in het interval respijtperiode|
+|QueueHealthMonitoringInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(30)|Statisch|Geef de interval in seconden. Deze waarde bepaalt de periode die wordt gebruikt door de replicatie voor het bewaken van de waarschuwing/fout health-gebeurtenissen in de bewerking replicatiewachtrijen. De waarde '0' wordt uitgeschakeld statuscontrole. |
+|QueueHealthWarningAtUsagePercent|uint, standaard is 80|Statisch|Deze waarde bepaalt de replicatie wachtrij gebruik (in percentage) waarna er waarschuwing rapporteren over het gebruik van hoge wachtrij. We doen dit na een interval van de respijtperiode van QueueHealthMonitoringInterval. Als de wachtrij-gebruik lager is dan dit percentage in het interval respijtperiode de waarschuwing niet gerapporteerd.|
 |retryInterval|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(5)|Statisch|Geef de interval in seconden. Wanneer een bewerking verloren is gegaan of afgewezen deze timer bepaalt hoe vaak de replicatie wordt opnieuw geprobeerd de bewerking uit te verzenden.|
 
 ### <a name="section-name-transport"></a>Sectienaam: Transport

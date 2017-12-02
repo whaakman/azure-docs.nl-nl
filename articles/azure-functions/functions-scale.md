@@ -1,5 +1,5 @@
 ---
-title: Azure Functions die als host fungeert voor de vergelijking plannen | Microsoft Docs
+title: Azure Functions schalen en het hosten van | Microsoft Docs
 description: Informatie over hoe u kiest tussen Azure Functions verbruik plannings- en App Service-abonnement.
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions die als host fungeert voor de vergelijking plannen
+# <a name="azure-functions-scale-and-hosting"></a>Azure Functions schalen en die als host fungeert
 
-U kunt Azure Functions uitvoeren in twee verschillende modi: verbruik plannings- en Azure App Service-abonnement. Het plan verbruik wijst automatisch rekencapaciteit wanneer uw code wordt uitgevoerd, indien nodig om belasting te verwerken uitgeschaald en vervolgens omlaag geschaald wanneer de code wordt niet uitgevoerd. Dus u hoeft niet te betalen voor niet-actieve virtuele machines en hoeft niet te worden van tevoren capaciteit reserveren. In dit artikel is gericht op het plan verbruik een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) app-model. Zie voor meer informatie over de werking van de App Service-abonnement de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+U kunt Azure Functions uitvoeren in twee verschillende modi: verbruik plannings- en Azure App Service-abonnement. Het plan verbruik wijst automatisch rekencapaciteit wanneer uw code wordt uitgevoerd, indien nodig om belasting te verwerken uitgeschaald en vervolgens omlaag geschaald wanneer de code wordt niet uitgevoerd. U hoeft niet te betalen voor niet-actieve virtuele machines en hoeft niet te worden van tevoren capaciteit reserveren. In dit artikel is gericht op het plan verbruik een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) app-model. Zie voor meer informatie over de werking van de App Service-abonnement de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > Linux-host is momenteel alleen beschikbaar op een App Service-abonnement.
@@ -84,18 +84,20 @@ AlwaysOn is alleen beschikbaar op een App Service-abonnement. Functie apps die h
 
 Een functie-app vereist op een plan verbruik of een App Service-abonnement en een algemene Azure Storage-account die ondersteuning biedt voor opslag in Azure Blob, wachtrijen, bestanden en tabel. Azure Functions gebruikt intern, Azure Storage voor bewerkingen zoals het beheren van triggers en functies die logboekregistratie. Sommige opslagaccounts bieden geen ondersteuning voor wachtrijen en tabellen, zoals alleen-blob storage-accounts (met inbegrip van premium-opslag) en opslagaccounts met replicatie van de zone-redundante opslag. Deze accounts zijn gefilterd uit de **Opslagaccount** blade als u een functie-app.
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 Zie voor meer informatie over opslagaccounttypen, [introductie van de Azure Storage-services](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Hoe werkt dit plan verbruik
 
-In het plan verbruik schaalt de controller schaal automatisch CPU en geheugenbronnen door toe te voegen extra exemplaren van de host van functies, op basis van het aantal gebeurtenissen die de functies worden geactiveerd op. Elk exemplaar van de host van functies is beperkt tot 1,5 GB aan geheugen.
+In het plan verbruik schaalt de controller schaal automatisch CPU en geheugenbronnen door toe te voegen extra exemplaren van de host van functies, op basis van het aantal gebeurtenissen die de functies worden geactiveerd op. Elk exemplaar van de host van functies is beperkt tot 1,5 GB aan geheugen.  Een exemplaar van de host is de functie-App, wat betekent dat alle functies binnen een funciton resources van de app delen binnen een exemplaar en de schaal op hetzelfde moment.
 
 Wanneer u het verbruik die als host fungeert voor plan gebruikt, wordt de functie codebestanden worden opgeslagen op Azure-bestandsshares op de belangrijkste storage-account van de functie. Wanneer u de belangrijkste storage-account van de functie-app verwijdert, wordt de functie code-bestanden worden verwijderd en kunnen niet worden hersteld.
 
 > [!NOTE]
 > Wanneer u een blob-trigger op een plan verbruik, kunnen er maximaal 10 minuten vertraging bij de verwerking van nieuwe blobs als een functie-app niet actief is geworden. Nadat de functie-app wordt uitgevoerd, worden onmiddellijk blobs verwerkt. Overweeg om te voorkomen dat deze initiële vertraging, een van de volgende opties:
 > - Host functie-app op een App Service-abonnement met altijd op ingeschakeld.
-> - Gebruik een ander mechanisme voor het activeren van de blob verwerken, zoals een wachtrijbericht met de blob-naam. Zie voor een voorbeeld de [C# script en JavaScript-voorbeelden voor de blob invoer en uitvoer bindingen](functions-bindings-storage-blob.md#input--output---example).
+> - Gebruik een ander mechanisme voor het activeren van de blob verwerken, zoals een gebeurtenis raster-abonnement of een wachtrijbericht met de blob-naam. Zie voor een voorbeeld de [C# script en JavaScript-voorbeelden voor de blob invoer en uitvoer bindingen](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Runtime-schaling
 
@@ -104,6 +106,20 @@ Azure Functions maakt gebruik van een onderdeel genaamd de *scale controller* om
 De eenheid van de schaal is de functie-app. Wanneer de functie-app is uitgebreid, worden aanvullende bronnen toegewezen aan meerdere exemplaren van de Azure Functions-host uitvoeren. Als u daarentegen, zoals Reken-aanvraag wordt verlaagd, de controller scale functie host worden exemplaren verwijderd. Het aantal exemplaren wordt uiteindelijk geschaald naar beneden op nul wanneer er geen functies worden uitgevoerd binnen een functie-app.
 
 ![Schaal controller controle van gebeurtenissen en het maken van exemplaren](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>Understanding schaalmogelijkheden
+
+Schalen kan variëren van een aantal factoren en schaal anders op basis van de trigger en de geselecteerde taal. Er zijn echter enkele aspecten van de schaal die in het systeem bestaat vandaag:
+* Een enkele functie-app worden alleen geschaald tot maximaal 200 exemplaren. Slechts één exemplaar mogelijk meer dan één bericht of aanvraag tegelijk verwerken echter zodat er een limiet van het aantal gelijktijdige uitvoeringen niet.
+* Nieuwe exemplaren wordt alleen toegewezen maximaal één keer voor elke 10 seconden.
+
+Andere triggers mogelijk ook andere schaalbaarheidsgrenzen, evenals een gedocumenteerde hieronder:
+
+* [Event Hub](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>Aanbevolen procedures en patronen voor schaalbare apps
+
+Er zijn veel aspecten van een functie-app die is van invloed op hoe goed het kunnen worden geschaald, zoals de hostconfiguratie, runtime footprint en resource effeciency.  Weergave de [schaalbaarheid sectie van het artikel van de overwegingen met betrekking tot prestaties](functions-best-practices.md#scalability-best-practices) voor meer informatie.
 
 ### <a name="billing-model"></a>Factureringsmodel
 

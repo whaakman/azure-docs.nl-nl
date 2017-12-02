@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -112,6 +112,19 @@ Er is helaas geen eenvoudig correctie dit project. U hebt de volgende stappen ui
    - script verwijderen`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - verwijderen van snelkoppeling op het bureaublad waarmee het bovenstaande script wordt gestart
    - het installatieprogramma https://aka.ms/azureml-wb-msi downloaden en te installeren.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Hangen 'Experimenteren account controleren' scherm na het aanmelden
+Na het aanmelden, kan de Workbench-app op een leeg scherm ophalen vastgelopen met een bericht weergegeven met 'Controleren experimenteren account' met een draaiende wheel. U lost dit probleem, moet u de volgende stappen uitvoeren:
+1. Afsluiten van de app.
+2. Het volgende bestand verwijderen:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. De app opnieuw starten.
 
 ## <a name="cant-delete-experimentation-account"></a>Experimenteren Account verwijderen niet
 U kunt de CLI gebruiken om een Account experimenteren te verwijderen, maar u moet de onderliggende werkruimten en de onderliggende projecten in deze werkruimten onderliggende eerst verwijderen. Anders wordt er een fout opgetreden.

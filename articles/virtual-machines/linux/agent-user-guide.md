@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Uitleg en het gebruik van de Azure Linux Agent
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Een configuratiebestand (/ etc/waagent.conf) bepaalt de acties van waagent. Een 
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Een configuratiebestand (/ etc/waagent.conf) bepaalt de acties van waagent. Een 
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 De verschillende configuratieopties worden hieronder in detail beschreven. Configuratie-opties zijn van de drie typen; Booleaanse waarde, String of Integer. De opties voor Boole-waarde kunnen worden opgegeven als "y" of "n". Het speciale sleutelwoord 'None' kunnen worden gebruikt voor bepaalde tekenreeks type configuratie-items als gedetailleerde hieronder.
 
@@ -209,8 +211,12 @@ Standaard: n
 
 Als de ingesteld, worden waagent CustomData na het inrichten uitgevoerd.
 
+**Provisioning.AllowResetSysUser** Type: Booleaanse standaard: n
+
+Met deze optie kunt het wachtwoord voor de gebruiker sys worden gereset; Standaard is uitgeschakeld.
+
 **Provisioning.PasswordCryptId**  
-Type: tekenreeks  
+Type: String  
 Standaard: 6
 
 Door crypt gebruikt bij het genereren van wachtwoord-hash-algoritme.  
@@ -220,7 +226,7 @@ Door crypt gebruikt bij het genereren van wachtwoord-hash-algoritme.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Type: tekenreeks  
+Type: String  
 Standaard: 10
 
 Lengte van willekeurige salt gebruikt bij het genereren van wachtwoord-hash.
@@ -290,6 +296,12 @@ Type: String
 Standaard: geen
 
 Als is ingesteld, de agent wordt gebruikt voor deze proxyserver om toegang tot het internet. 
+
+**AutoUpdate.Enabled** Type: Booleaanse standaard: y
+
+In- of uitschakelen van automatische updates voor de doel-status verwerking; Standaard is ingeschakeld.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu Cloud installatiekopieën
 Opmerking die gebruikmaken van installatiekopieën van de Cloud Ubuntu [cloud init](https://launchpad.net/ubuntu/+source/cloud-init) veel configuratietaken die anders zou worden beheerd door de Azure Linux Agent uit te voeren.  Houd rekening met de volgende verschillen:

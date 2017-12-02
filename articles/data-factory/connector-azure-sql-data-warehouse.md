@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,7 +269,7 @@ SQL Data Warehouse PolyBase ondersteuning rechtstreeks voor Azure-Blob en Azure 
 Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de instellingen en automatisch terugvalt op het BULKINSERT mechanisme voor de verplaatsing van gegevens.
 
 1. **Bron gekoppelde service** is van het type: **AzureStorage** of **AzureDataLakeStore**.
-2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStoreFile**, en de indeling Typ onder `type` eigenschappen is **OrcFormat** , of **TextFormat** met de volgende configuraties:
+2. De **invoergegevensset** is van het type: **AzureBlob** of **AzureDataLakeStoreFile**, en de indeling Typ onder `type` eigenschappen is **OrcFormat** , **ParquetFormat**, of **TextFormat** met de volgende configuraties:
 
    1. `rowDelimiter`moet  **\n** .
    2. `nullValue`is ingesteld op **lege tekenreeks** (""), of `treatEmptyAsNull` is ingesteld op **true**.
@@ -390,7 +390,7 @@ Overweeg om de best mogelijke doorvoer behalen, grotere bronklasse toewijzen aan
 
 De volgende tabel bevat voorbeelden op het opgeven van de **tableName** eigenschap in de gegevensset JSON voor verschillende combinaties van schema en de tabelnaam.
 
-| DB Schema | De tabelnaam van de | JSON-eigenschap tableName |
+| DB Schema | Tabelnaam | JSON-eigenschap tableName |
 | --- | --- | --- |
 | dbo |MyTable |MyTable of dbo. MyTable of [dbo]. [MijnTabel] |
 | dbo1 |MyTable |dbo1. MyTable of [dbo1]. [MijnTabel] |
@@ -421,11 +421,11 @@ Bij het kopiëren van gegevens van/naar Azure SQL Data Warehouse, worden de volg
 |:--- |:--- |
 | bigint |Int64 |
 | Binaire |Byte] |
-| bits |Booleaanse waarde |
+| bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| Datum |Datum/tijd |
-| Datum/tijd |Datum/tijd |
-| datetime2 |Datum/tijd |
+| datum |Datum en tijd |
+| Datum en tijd |Datum en tijd |
+| datetime2 |Datum en tijd |
 | DateTimeOffset |DateTimeOffset |
 | Decimale |Decimale |
 | FILESTREAM-kenmerk (varbinary(max)) |Byte] |
@@ -437,9 +437,9 @@ Bij het kopiëren van gegevens van/naar Azure SQL Data Warehouse, worden de volg
 | ntext |Tekenreeks, Char] |
 | numerieke |Decimale |
 | nvarchar |Tekenreeks, Char] |
-| echte |Één |
+| echte |Single |
 | ROWVERSION |Byte] |
-| smalldatetime |Datum/tijd |
+| smalldatetime |Datum en tijd |
 | smallint |Int16 |
 | smallmoney |Decimale |
 | sql_variant |Object * |
