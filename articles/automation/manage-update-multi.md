@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -87,6 +87,16 @@ Updatebeheer is ingeschakeld voor uw virtuele machine.
 Zie [Windows-computers verbinden met de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agents.md) voor instructies over het inschakelen van Updatebeheer voor virtuele Windows-machines en -computers zonder Azure.
 
 Zie [Uw Linux-computers verbinden met Log Analytics](../log-analytics/log-analytics-agent-linux.md) voor instructies over het inschakelen van Updatebeheer voor virtuele Linux-machines en -computers zonder Azure.
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Computers weergeven die zijn gekoppeld aan uw Automation-account
+Nadat updatebeheer is ingeschakeld voor uw computers, kunt u de computergegevens bekijken door te klikken op **Computers**. Beschikbare computergegevens zijn: *Naam*, *Naleving*, *Omgeving*, *Type besturingssysteem*, *Essentiële updates en beveiligingsupdates*  en *Andere updates*. 
+
+  ![Tabblad Computers weergeven](./media/manage-update-multi/update-computers-tab.png)
+
+Computers waarvoor updatebeheer recent is ingeschakeld, zijn nog niet beoordeeld. De nalevingsstatus voor deze computers is dan: *Niet beoordeeld*.  Hier volgt een lijst met waarden voor de nalevingsstatus:
+* Compatibel: Computers met ontbrekende essentiële updates of beveiligingsupdates.
+* Niet-compatibel: Computers met minstens één ontbrekende essentiële update of beveiligingsupdate.
+* Niet beoordeeld: De beoordelingsgegevens voor de update zijn niet binnen het verwachte tijdsbestek ontvangen vanaf de computer.  Voor Linux-computers is dat in de afgelopen drie uur en voor Windows-computers in de afgelopen 12 uur.  
 
 ## <a name="view-an-update-assessment"></a>Een update-evaluatie bekijken
 

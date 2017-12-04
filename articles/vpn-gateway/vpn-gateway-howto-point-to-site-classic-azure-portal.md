@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Een punt-naar-site-verbinding naar een VNet configureren met behulp van verificatie via een certificaat (klassiek): Azure Portal
 
@@ -35,8 +35,10 @@ In dit artikel wordt beschreven hoe u een VNet met een punt-naar-site-verbinding
 
 Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientcomputer een beveiligde verbinding maken met uw virtuele netwerk. P2S-verbindingen zijn nuttig als u verbinding wilt maken met uw VNet vanaf een externe locatie, bijvoorbeeld als u ook thuis werkt of op een congres verbinding wilt maken. Een P2S-VPN is ook een uitstekende oplossing in plaats van een site-naar-site-VPN wanneer u maar een paar clients hebt die verbinding moeten maken met een VNet. Een P2S-verbinding wordt tot stand gebracht door deze te starten vanaf de clientcomputer.
 
-Het klassieke implementatiemodel ondersteunt alleen Windows VPN-clients en maakt gebruik van het SSTP-protocol (Secure Socket Tunneling Protocol), een VPN-protocol op basis van SSL. Voor de ondersteuning van niet-Windows VPN-clients, moet uw VNet worden gemaakt met het implementatiemodel van Resource Manager. Het implementatiemodel van Resource Manager biedt ondersteuning voor IKEv2 VPN, naast SSTP. Zie [Informatie over P2S-verbindingen](point-to-site-about.md) voor meer informatie.
-
+> [!IMPORTANT]
+> Het klassieke implementatiemodel ondersteunt alleen Windows VPN-clients en maakt gebruik van het SSTP-protocol (Secure Socket Tunneling Protocol), een VPN-protocol op basis van SSL. Voor de ondersteuning van niet-Windows VPN-clients, moet uw VNet worden gemaakt met het implementatiemodel van Resource Manager. Het Resource Manager-implementatiemodel biedt naast ondersteuning voor SSTP ook ondersteuning voor het VPN-type IKEv2. Zie [Informatie over P2S-verbindingen](point-to-site-about.md) voor meer informatie.
+>
+>
 
 ![Punt-naar-site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

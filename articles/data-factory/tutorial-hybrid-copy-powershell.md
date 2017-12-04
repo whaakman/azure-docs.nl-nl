@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Zelfstudie: gegevens van een on-premises SQL-server naar Azure Blob Storage kopiëren
 In deze zelfstudie gebruikt u Azure PowerShell om een Data Factory-pijplijn te maken waarmee gegevens worden gekopieerd van een on-premises SQL Server-database naar een Azure Blob-opslag. U gaat een zelf-hostende Integration Runtime maken en gebruiken. Deze verplaatst gegevens van on-premises gegevensarchieven en gegevensarchieven in de cloud en omgekeerd. 
@@ -51,7 +51,7 @@ In deze zelfstudie gebruikt u een on-premises SQL Server-database als een **bron
 1. Start **SQL Server Management Studio** op uw computer. Als u SQL Server Management Studio niet op uw computer hebt geïnstalleerd, installeert u dit via het [Downloadcentrum](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
 2. Maak verbinding met SQL Server met behulp van uw referenties. 
 3. Maak een voorbeelddatabase. Klik in de structuurweergave met de rechtermuisknop op **Databases** en klik op **Nieuwe database**. Voer in het venster **Nieuwe database** een **naam** in voor de database en klik op **OK**. 
-4. Voer het volgende script uit op de database; de **emp** tabel wordt gemaakt. In de structuurweergave klikt u met de rechtermuisknop op de **database** die u hebt gemaakt en klikt u op **Nieuwe query**. 
+4. Voer het volgende queryscript uit voor de database. Hiermee wordt de **emp**-tabel gemaakt en worden enkele voorbeeldgegevens ingevoegd in deze tabel. In de structuurweergave klikt u met de rechtermuisknop op de **database** die u hebt gemaakt en klikt u op **Nieuwe query**. 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -61,13 +61,10 @@ In deze zelfstudie gebruikt u een on-premises SQL Server-database als een **bron
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. Voer de volgende opdrachten uit op de database waarbij een aantal voorbeeldgegevens worden ingevoegd in de tabel:
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### <a name="azure-storage-account"></a>Azure-opslagaccount
@@ -105,10 +102,10 @@ In deze sectie maakt u in uw Azure Blob Storage een blobcontainer met de naam **
 
     ![Pagina Container](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="windows-powershell"></a>Windows Powershell
 
-#### <a name="install-azure-powershell"></a>Azure PowerShell installeren
-Installeer de nieuwste versie van Azure PowerShell als u deze niet al op uw computer hebt. 
+#### <a name="install-powershell"></a>PowerShell installeren
+Installeer de nieuwste versie van PowerShell als deze niet al op de computer staat. 
 
 1. Navigeer in uw webbrowser naar de pagina [Azure SDK-downloads en SDK’s](https://azure.microsoft.com/downloads/). 
 2. Klik op **Windows installeren** in de sectie **Opdrachtregelprogramma's** -> **PowerShell**. 
@@ -116,9 +113,9 @@ Installeer de nieuwste versie van Azure PowerShell als u deze niet al op uw comp
 
 Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor gedetailleerde instructies. 
 
-#### <a name="log-in-to-azure-powershell"></a>Aanmelden bij Azure PowerShell
+#### <a name="log-in-to-powershell"></a>Aanmelden bij PowerShell
 
-1. Start **PowerShell** op uw computer. Houd Azure PowerShell geopend tot het einde van deze QuickStart. Als u het programma sluit en opnieuw opent, moet u deze opdrachten opnieuw uitvoeren.
+1. Start **PowerShell** op uw computer. Houd het PowerShell-venster geopend tot het einde van deze QuickStart. Als u het programma sluit en opnieuw opent, moet u deze opdrachten opnieuw uitvoeren.
 
     ![PowerShell starten](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
@@ -142,25 +139,28 @@ Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azu
 1. Definieer een variabele voor de naam van de resourcegroep die u later gaat gebruiken in PowerShell-opdrachten. Kopieer de tekst van de volgende opdracht naar PowerShell, geef tussen dubbele aanhalingstekens een naam op voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en voer de opdracht uit. Bijvoorbeeld: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Definieer een variabele voor de naam van de data factory die u later kunt gebruiken in PowerShell-opdrachten. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. Definieer een variabele voor de locatie van de data factory: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. Voer de volgende opdracht uit om de resourcegroep te maken: 
+2. Voer de volgende opdracht uit om de resourcegroep te maken: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit.   
+    Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit.
+3. Definieer een variabele voor de naam van de data factory die u later kunt gebruiken in PowerShell-opdrachten. Namen moeten beginnen met een letter of cijfer en mogen alleen letters, cijfers en streepjes (-) bevatten.
+
+    > [!IMPORTANT]
+    >  Werk de naam van de data factory zodanig bij dat deze uniek is. Bijvoorbeeld: ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. Definieer een variabele voor de locatie van de data factory: 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. Voer de volgende cmdlet **Set AzureRmDataFactoryV2** uit om de data factory te maken: 
     
     ```powershell       
@@ -182,12 +182,12 @@ Houd rekening met de volgende punten:
 
 In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppelen aan een on-premises computer met de SQL Server database. De zelf-hostende Integration Runtime is het onderdeel waarmee gegevens worden gekopieerd van SQL Server op uw computer naar Azure Blob Storage. 
 
-1. Maak een variabele voor de naam van een Integration Runtime. Noteer deze naam. U gaat deze verderop in de zelfstudie gebruiken. 
+1. Maak een variabele voor de naam van een Integration Runtime. Gebruik een unieke naam en noteer deze. U gaat deze verderop in de zelfstudie gebruiken. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Een zelf-hostende Integration Runtime maken. Gebruik een unieke naam voor het geval er al een integratieruntime met dezelfde naam bestaat.
+1. Een zelf-hostende Integration Runtime maken. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -230,7 +230,7 @@ In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppel
    State                     : NeedRegistration
    ```
 
-3. Voer de volgende opdracht uit om **verificatiesleutels** op te halen voor het registreren van de zelf-hostende Integration Runtime met Data Factory-service in de cloud. Kopieer een van de sleutels (zonder de dubbele aanhalingstekens) om de zelf-hostende Integration Runtime te registeren die u tijdens de volgende stap op uw computer gaat installeren.  
+3. Voer de volgende opdracht uit om **verificatiesleutels** op te halen voor het registreren van de zelf-hostende Integration Runtime met Data Factory-service in de cloud. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -243,7 +243,8 @@ In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppel
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Kopieer een van de sleutels (zonder de dubbele aanhalingstekens) om de zelf-hostende Integration Runtime te registeren die u tijdens de volgende stap op uw computer gaat installeren.  
 
 ## <a name="install-integration-runtime"></a>Integration Runtime installeren
 1. [Download](https://www.microsoft.com/download/details.aspx?id=39717) de zelf-hostende Integration Runtime op een lokale Windows-computer en voer de installatie uit. 
@@ -283,6 +284,7 @@ In deze sectie kunt u een zelf-hostende Integration Runtime maken en deze koppel
     - Voer de **gebruikersnaam** in. 
     - Voer het **wachtwoord** voor de gebruikersnaam in.
     - Klik op **Test** om te controleren of Integration Runtime verbinding kan maken met de SQL Server. U ziet een groen vinkje als het gelukt is om verbinding te maken. Anders wordt er een foutbericht weergegeven. Los eventuele problemen op en zorg ervoor dat de Integration Runtime verbinding met uw SQL Server kan maken.
+    - Noteer deze waarden (verificatietype, server, database, gebruiker, wachtwoord). U hebt deze waarden verderop in deze zelfstudie nodig. 
     
       
 ## <a name="create-linked-services"></a>Gekoppelde services maken
@@ -294,7 +296,7 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
 1. Maak een JSON-bestand met de naam **AzureStorageLinkedService.json** in de map **C:\ADFv2Tutorial** met de volgende inhoud: Maak de map ADFv2Tutorial als deze nog niet bestaat.  
 
     > [!IMPORTANT]
-    > Vervang &lt;accountName&gt; en &lt;accountKey&gt; door de naam en sleutel van uw Azure Storage-account voordat u het bestand opslaat.
+    > Vervang &lt;accountName&gt; en &lt;accountKey&gt; door de naam en sleutel van uw **Azure Storage-account** voordat u het bestand opslaat. U hebt deze waarden genoteerd als onderdeel van de [vereisten](#get-storage-account-name-and-account-key).
 
    ```json
     {
@@ -310,6 +312,8 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
         "name": "AzureStorageLinkedService"
     }
    ```
+
+    Als u Kladblok gebruikt, selecteert u **Alle bestanden** voor het veld **Opslaan als** in het dialoogvenster **Opslaan als**. Als u dat niet doet, wordt mogelijk de extensie `.txt` toegevoegd aan het bestand. Bijvoorbeeld `AzureStorageLinkedService.json.txt`. Als u het bestand in Verkenner maakt voordat u het opent in Kladblok, ziet u de extensie `.txt` mogelijk niet omdat de optie **Extensies voor bekende bestandstypen verbergen** standaard is ingeschakeld. Verwijder de extensie `.txt` voordat u doorgaat met de volgende stap. 
 2. Schakel in **Azure PowerShell** over naar de map **C:\ADFv2Tutorial**.
 
    Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureStorageLinkedService** te maken. 
@@ -326,6 +330,8 @@ Tijdens deze stap koppelt u uw Azure Storage-account aan de data factory.
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    Als er een foutmelding wordt geretourneerd waarin staat dat het bestand niet is gevonden, voert u de `dir`-opdracht uit om te bevestigen dat het bestand bestaat. Als de bestandsnaam de extensie `.txt` heeft (bijvoorbeeld AzureStorageLinkedService.json.txt), verwijdert u deze en voert u vervolgens de PowerShell-opdracht opnieuw uit. 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Een gekoppelde SQL Server-service (bron) maken en versleutelen
 In deze stap gaat u uw on-premises SQL Server aan de data factory koppelen.
@@ -366,7 +372,7 @@ In deze stap gaat u uw on-premises SQL Server aan de data factory koppelen.
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: billmath
-ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e52adf302a34566076d8787b9befc4da34195416
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Uw on-premises directory's integreren met Azure Active Directory
 Azure AD Connect integreert uw on-premises directory's met Azure Active Directory. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. In dit onderwerp wordt de planning, implementatie en bewerking besproken. Het is een verzameling van koppelingen naar de onderwerpen die betrekking hebben op dit gebied.
 
 > [!IMPORTANT]
-> [Azure AD Connect is de beste manier om uw on-premises adreslijst te verbinden met Azure AD en Office 365. Dit is het perfecte moment om te upgraden van Windows Azure Active Directory-synchronisatie (DirSync) of Azure AD Sync naar Azure AD Connect omdat deze hulpprogramma's zijn afgeschaft en vanaf 13 april 2017 niet meer worden ondersteund.](active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect is de beste manier om uw on-premises adreslijst te verbinden met Azure AD en Office 365. Dit is het perfecte moment om te upgraden van Windows Azure Active Directory-synchronisatie (DirSync) of Azure AD Sync naar Azure AD Connect, aangezien deze hulpprogramma's zijn afgeschaft en vanaf 13 april 2017 niet meer worden ondersteund.](active-directory-aadconnect-dirsync-deprecated.md)
 > 
 > 
 

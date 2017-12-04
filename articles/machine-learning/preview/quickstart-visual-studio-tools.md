@@ -1,6 +1,6 @@
 ---
-title: Snelstartartikel voor Visual Studio Code-hulpprogramma's voor Machine Learning in Azure | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Visual Studio Code-hulpprogramma's voor Machine Learning, van het maken van een experiment, via het trainen van een model tot het operationaliseren van een webservice.
+title: QuickStart-artikel voor Visual Studio Tools voor Machine Learning in Azure | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Visual Studio Tools voor Machine Learning, van het maken van een experiment, via het trainen van een model tot het operationaliseren van een webservice.
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger
@@ -10,72 +10,71 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
-ms.date: 09/12/2017
-ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 11/15/2017
+ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="visual-studio-code-tools-for-ai"></a>Visual Studio Code-hulpprogramma's voor AI
-Visual Studio Code-hulpprogramma's voor AI is een ontwikkelingsextensie voor het bouwen, testen en implementeren van deep learning- en AI-oplossingen. Het zorgt voor naadloze integratie met Azure Machine Learning, met name een uitvoeringsgeschiedenisweergave, met gedetailleerde informatie over de prestaties van vorige trainingen en aangepaste metrische gegevens. Het biedt een voorbeeldverkennerweergave waarmee ontwikkelaars door voorbeelden kunnen bladeren en snel nieuwe projecten opstarten met [Microsoft Cognitive Toolkit (vroeger bekend als CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) en andere deep learning-frameworks. Tot slot biedt het een verkenner voor compute-doelen, waarmee u taken kunt verzenden voor het trainen van modellen op externe omgevingen zoals Azure Virtual Machines of Linux-servers met GPU. 
+# <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools voor AI
+Visual Studio Tools voor AI is een ontwikkelingsextensie voor het bouwen, testen en implementeren van deep learning- en AI-oplossingen. Het zorgt voor naadloze integratie met Azure Machine Learning, met name een uitvoeringsgeschiedenisweergave, met gedetailleerde informatie over de prestaties van vorige trainingen en aangepaste metrische gegevens. Het biedt een voorbeeldverkennerweergave waarmee ontwikkelaars door voorbeelden kunnen bladeren en snel nieuwe projecten opstarten met [Microsoft Cognitive Toolkit (vroeger bekend als CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) en andere deep learning-frameworks. Tot slot biedt het een verkenner voor compute-doelen, waarmee u taken kunt verzenden voor het trainen van modellen op externe omgevingen zoals Azure Virtual Machines of Linux-servers met GPU. Het programma biedt ook toegang tot [Azure Batch AI (preview-versie)](https://docs.microsoft.com/en-us/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Aan de slag 
-Om te beginnen moet u eerst [Visual Studio Code](https://code.visualstudio.com/Download) downloaden en installeren. Wanneer u Visual Studio Code open hebt, voert u de volgende stappen uit:
-1. Klik op het pictogram van de extensie in de activiteitenbalk. 
-2. Zoek naar "Visual Studio Code-hulpprogramma's voor AI". 
-3. Klik op de knop **Installeren**. 
-4. Klik na de installatie op de knop **Opnieuw laden**. 
+U moet eerst [Visual Studio](https://www.visualstudio.com/downloads/) downloaden en installeren om aan de slag te kunnen gaan. Wanneer u Visual Studio hebt geopend, voert u de volgende stappen uit:
+1. Klik op de menubalk in Visual Studio en selecteer Uitbreidingen en updates...
+2. Klik op het tabblad Online en selecteer Zoeken in Visual Studio Marketplace.
+3. Ga naar Visual Studio voor AI. 
+3. Klik op de knop **Downloaden**. 
+4. Start Visual Studio na de installatie opnieuw. 
 
-Wanneer Visual Studio Code opnieuw is geladen, is de extensie actief. [Meer informatie over het installeren van extensies](https://code.visualstudio.com/docs/editor/extension-gallery).
-
-## <a name="exploring-project-samples"></a>Voorbeelden van projecten verkennen
-Visual Studio Code-hulpprogramma's voor AI wordt geleverd met een voorbeeldverkenner. Met de voorbeeldverkenner kunt u gemakkelijk voorbeelden ontdekken en ze met een paar klikken uitproberen. Ga als volgt te werk om de verkenner te openen:   
-1. Open het opdrachtenpalet (Beeld > **Opdrachtenpalet** of **Ctrl+Shift+P**).
-2. Voer "AI-voorbeeld" in. 
-3. U krijgt een aanbeveling voor 'AI: Open Azure ML voorbeeldverkenner'. Selecteer deze en druk op Enter. 
-
-U kunt ook op het pictogram van de voorbeeldverkenner klikken.
-
-## <a name="creating-a-new-project-from-the-sample-explorer"></a>Een nieuw project maken vanuit de voorbeeldverkenner 
-U kunt door verschillende voorbeelden bladeren en daar meer informatie over krijgen. We gaan bladeren totdat we het voorbeeld 'Classifying Iris' (Iris classificeren) hebben gevonden. Maak als volgt een nieuw project op basis van dit voorbeeld:
-1. Klik op de installatieknop van het projectvoorbeeld en let op de voorgestelde opdrachten waarmee u door de stappen voor het maken ven een nieuw project wordt geleid. 
-2. Kies een naam voor het project, bijvoorbeeld 'Iris'.
-3. Kies een mappad waar u uw project wilt maken en druk op Enter. 
-4. Selecteer een bestaande werkruimte en druk op Enter.
-
-Het project wordt gemaakt.
-
-> [!TIP]
-> U moet aangemeld zijn om toegang te krijgen tot uw Azure-resource. Voer vanuit de ingesloten terminal 'az login' in en volg de instructies op. 
-
-## <a name="submitting-experiment-with-the-new-project"></a>Experiment met het nieuwe project verzenden
-Met het nieuwe project open in Visual Studio Code, verzenden we een taak naar ons andere compute-doel (lokale en virtuele machine met docker).
-Visual Studio Code-hulpprogramma's voor AI biedt meerdere methoden om een experiment te verzenden. 
-1. Contextmenu (klik rechts) - **AI: Taak verzenden**.
-2. Vanuit het opdrachtenpalet: 'AI: Taak verzenden'.
-3. U kunt de opdracht ook direct uitvoeren met behulp van Azure CLI, Machine Learning Commands, met behulp van de ingesloten terminal.
-
-Open iris_sklearn.py, klik met de rechtermuisknop en selecteer **AI: Taak verzenden**.
-1. Selecteer uw platform: 'Azure Machine Learning'.
-2. Selecteer de uitvoeringsconfiguratie: 'Docker-Python'.
+Wanneer Visual Studio opnieuw is geladen, is de extensie actief. [Meer informatie over het zoeken naar extensies](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
-> Als dit de eerste keer is dat u een taak verzendt, krijgt u een bericht met de mededeling dat er geen machine learning-configuratie is gevonden, maar dat er een wordt gemaakt. Er wordt een JSON-bestand geopend; sla dit op (**Ctrl+S**).
+> Voor Visual Studio Tools voor AI is Visual Studio 2015 of 2017 vereist in de editie voor professionals of bedrijven. De Apple OSX-versie wordt niet ondersteund. 
 
-Wanneer de taak is verzonden, wordt de voortgang van de uitvoeringen weergegeven in de ingesloten terminal. 
+
+## <a name="exploring-project-samples"></a>Voorbeelden van projecten verkennen
+Visual Studio Tools voor AI wordt geleverd met een voorbeeldverkenner. Met de voorbeeldverkenner kunt u gemakkelijk voorbeelden ontdekken en ze met een paar klikken uitproberen. Ga als volgt te werk om de verkenner te openen:   
+1. Klik in de menubalk op **AI-hulpprogramma’s**.
+2. Klik op Azure Machine Learning-galerie.
+
+Er wordt een tabblad geopend met alle Azure ML-voorbeelden.
+
+## <a name="creating-a-new-project-from-the-sample-explorer"></a>Een nieuw project maken vanuit de voorbeeldverkenner 
+U kunt door verschillende voorbeelden bladeren en daar meer informatie over krijgen. We gaan bladeren totdat we het voorbeeld 'Classifying Iris' (Iris classificeren) hebben gevonden. Ga als volgt te werk om een nieuw project te maken op basis van dit voorbeeld:
+1. Klik op de knop **Installeren** in het projectvoorbeeld om een nieuw dialoogvenster te openen. 
+2. Selecteer een resourcegroep, een account en een werkruimte.
+3. U kunt het projecttype op Algemeen laten staan.
+4. Voer een pad en een naam in voor het project, en druk vervolgens op Enter. 
+5. Er wordt een dialoogvenster geopend waarin u wordt gevraagd om een oplossing op te slaan. Klik op Opslaan. 
+
+Zodra dit is voltooid, wordt er een nieuw project geopend in een nieuwe instantie van Visual Studio. 
+
+> [!TIP]
+> U moet zijn aangemeld om toegang te krijgen tot uw Azure-resource. Voer vanuit de ingesloten terminal 'az login' in en volg de instructies op. 
+
+## <a name="submitting-experiment-with-the-new-project"></a>Experiment met het nieuwe project verzenden
+Met het nieuwe project open in Visual Studio verzendt u een taak naar een compute-doel (een lokale of virtuele machine met Docker).
+Ga als volgt te werk om de taak te verzenden: 
+1. Klik in Solution Explorer met de rechtermuisknop op het bestand dat u wilt verzenden en selecteer **Instellen als opstartbestand**.
+2. Selecteer de naam van het project, klik er met de rechtermuisknop op en selecteer **Taak verzenden...**
+3. Er wordt een nieuw dialoogvenster geopend, waarin u het cluster (of het compute-doel) kunt kiezen om het script uit te voeren.
+4. Klik op **Verzenden**
+
+Wanneer de taak is verzonden, wordt de voortgang van de uitvoeringen weergegeven in de ingesloten terminal.
 
 ## <a name="view-list-of-jobs"></a>Lijst met taken bekijken
-Wanneer de taken zijn verzonden, kunt u een lijst weergeven met de taken vanuit de uitvoeringsgeschiedenis.
-1. Open het opdrachtenpalet (Beeld > **Opdrachtenpalet** of **Ctrl+Shift+P**).
-2. Voer 'AI-lijst' in.
-3. U krijgt een aanbeveling voor 'AI: taken weergeven'. Selecteer deze en druk op Enter.
+Wanneer de taak is verzonden, kunt u een lijst met de taken weergeven vanuit de uitvoeringsgeschiedenis.
+1. Klik in **Server Explorer** op **AI-hulpprogramma's**.
+2. Selecteer vervolgens **Azure Machine Learning**
+3. Klik op het menu **Taken**.
 
-De takenlijstweergave wordt geopend en toont alle uitvoeringen met een aantal gerelateerde gegevens.
+In Job Explorer worden alle verzonden experimenten voor dit project weergegeven. 
 
 ## <a name="view-job-details"></a>Taakdetails weergeven
-Met de takenlijstweergave nog open, klikt u op de eerste uitvoering in de lijst.
-U kunt dieper ingaan op de resultaten van een taak door op de bovenste **taak-ID** te klikken om gedetailleerde informatie te bekijken. 
+Met Job Explorer geopend klikt u op de eerste uitvoering in de lijst.
+Hierdoor worden de volgende panelen geladen: Taakoverzicht en Logboeken en uitvoer.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

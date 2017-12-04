@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9c0d9274ac78a5e1c4c12ea8e373b69b6f9e165c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Een service-principal voor Azure AD voor een Kubernetes-cluster in Container Service instellen
 
@@ -36,7 +36,7 @@ In dit artikel worden verschillende opties getoond om een service-principal in t
 
 U kunt een bestaande Azure AD-service-principal gebruiken die voldoet aan de volgende vereisten, maar u kunt ook een nieuwe maken.
 
-* **Bereik**: het abonnement dat is gebruikt voor het implementeren van het cluster.
+* **Bereik**: de resourcegroep die is gebruikt om het cluster te implementeren.
 
 * **Rol**: **inzender**
 
@@ -128,7 +128,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Op de hoofd- en agent-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand /etc/kubernetes/azure.json.
 
-* Als u de opdracht `az acs create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand ~/.azure/acsServicePrincipal.json geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
+* Als u de opdracht `az acs create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand ~/.azure/acsServicePrincipal.json geschreven op de machine die wordt gebruikt om de opdracht uit te voeren.
 
 * Als u de opdracht `az acs create` gebruikt om de service-principal automatisch te genereren, kan de service-principal ook worden geverifieerd bij een [Azure Container Registry](../../container-registry/container-registry-intro.md) dat in hetzelfde abonnement wordt gemaakt.
 

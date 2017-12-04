@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d26fb8caacdd775b62d704a4b474e68e2f5a3ec
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: b1212bf46261b3fc4cc22224223cf00ec53881cb
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -53,7 +53,7 @@ Als u niet zeker weet welke Azure Backup-onderdelen geschikt zijn voor uw behoef
 
 | Onderdeel | Voordelen | Limieten | Wat wordt er beveiligd? | Waar worden de back-ups opgeslagen? |
 | --- | --- | --- | --- | --- |
-| Azure Backup-agent (MARS) |<li>Back-ups maken van bestanden en mappen op een fysiek of virtueel Windows-besturingssysteem (VM's kunnen zich on-premises of in Azure bevinden)<li>Geen afzonderlijk back-upserver vereist. |<li>Drie keer per dag een back-up maken <li>Niet toepassingsbewust; alleen herstelbewerkingen op bestands-, map- of volumeniveau, <li>  Geen ondersteuning voor Linux. |<li>Bestanden, <li>Mappen |Recovery Services-kluis |
+| Azure Backup-agent (MARS) |<li>Back-ups maken van bestanden en mappen op een fysiek of virtueel Windows-besturingssysteem (VM's kunnen zich on-premises of in Azure bevinden)<li>Geen afzonderlijk back-upserver vereist. |<li>Drie keer per dag een back-up maken <li>Niet toepassingsbewust; alleen herstelbewerkingen op bestands-, map- of volumeniveau, <li>  Geen ondersteuning voor Linux. |<li>Bestanden, <li>Mappen, <li>Systeemstatus |Recovery Services-kluis |
 | System Center DPM |<li>App-gerichte momentopnamen (VSS)<li>Volledige flexibiliteit met betrekking tot het moment waarop u back-ups wilt maken<li>Herstelgranulariteit (alles)<li>Kan Recovery Services-kluis gebruiken<li>Linux Support op virtuele Hyper-V- en VMware-machines <li>Back-ups maken van virtuele VMware-machines en deze herstellen met DPM 2012 R2 |Kan geen back-up maken van Oracle-workload.|<li>Bestanden, <li>Mappen,<li> Volumes, <li>VM's,<li> Toepassingen,<li> Workloads |<li>Recovery Services-kluis,<li> Lokaal gekoppelde schijf,<li>  Tape (alleen on-premises) |
 | Azure Backup-server |<li>App-gerichte momentopnamen (VSS)<li>Volledige flexibiliteit met betrekking tot het moment waarop u back-ups wilt maken<li>Herstelgranulariteit (alles)<li>Kan Recovery Services-kluis gebruiken<li>Linux Support op virtuele Hyper-V- en VMware-machines<li>Back-ups maken van virtuele VMware-machines en deze herstellen <li>Vereist geen System Center-licentie |<li>Kan geen back-up maken van Oracle-workload.<li>Altijd een live Azure-abonnement nodig<li>Geen ondersteuning voor tape met back-up |<li>Bestanden, <li>Mappen,<li> Volumes, <li>VM's,<li> Toepassingen,<li> Workloads |<li>Recovery Services-kluis,<li> Lokaal gekoppelde schijf |
 | Back-up van virtuele machines van Azure IaaS |<li>Systeemeigen back-ups voor Windows/Linux<li>Er zijn geen specifieke agentinstallatie vereist<li>Back-ups op infrastructuurniveau zonder dat er een back-upinfrastructuur nodig is |<li>Eens per dag back-ups maken van VM's <li>VM's alleen op schijfniveau herstellen<li>Geen back-up on-premises |<li>VM's, <li>Alle schijven (met PowerShell) |<p>Recovery Services-kluis</p> |

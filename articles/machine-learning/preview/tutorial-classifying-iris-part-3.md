@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificeren van Iris deel 3: een model implementeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -163,7 +163,7 @@ U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine
 
 3. Maak de omgeving. U moet deze stap eenmaal per omgeving uitvoeren. Voer de stap bijvoorbeeld eenmaal uit voor de ontwikkelomgeving en eenmaal voor de productie. Gebruik de _lokale modus_ voor deze eerste omgeving. U kunt de schakeloptie `-c` of `--cluster` gebruiken in de volgende opdracht om later een omgeving in de _clustermodus_ in te stellen.
 
-Houd er rekening mee dat u voor de volgende installatieopdracht toegangsrechten van een bijdrager voor het abonnement moet hebben. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Als u dat laatste wilt doen, moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
+   Houd er rekening mee dat u voor de volgende installatieopdracht toegangsrechten van een bijdrager voor het abonnement moet hebben. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Als u dat laatste wilt doen, moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ U kunt de webservice nu gaan uitvoeren.
 
 Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record die een matrix van vier willekeurige getallen bevat:
 
-1. De webservice bevat voorbeeldgegevens. Wanneer u in de lokale modus werkt, kunt u de opdracht **az ml service show realtime** aanroepen. Hiermee haalt u een voorbeeld van een run-opdracht op die handig is om de service te testen. Hiermee haalt u ook de scoring-URL op die u kunt gebruiken om de service in uw eigen aangepaste app te integreren:
+1. De webservice bevat voorbeeldgegevens. Wanneer u in de lokale modus werkt, kunt u de opdracht **az ml service usage realtime** aanroepen. Hiermee haalt u een voorbeeld van een run-opdracht op die handig is om de service te testen. Hiermee haalt u ook de scoring-URL op die u kunt gebruiken om de service in uw eigen aangepaste app te integreren:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. Als u de service wilt testen, voert u de geretourneerde run-opdracht voor de service uit:
