@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Overzicht van Azure Content Delivery Network (CDN)
+Azure Content Delivery Network (CDN) slaat op strategisch geplaatste locaties statische webinhoud in de cache om een maximale doorvoer voor de levering van inhoud te waarborgen. Het CDN biedt ontwikkelaars een globale oplossing voor de levering van inhoud met een hoge bandbreedte door de inhoud op fysieke knooppunten over de hele wereld op te slaan in de cache. 
+
 > [!NOTE]
-> In dit document wordt uitgelegd wat Azure Content Delivery Network (CDN) is, hoe het werkt en wat de functies van elk Azure CDN-product zijn.  Zie [Azure CDN gebruiken](cdn-create-new-endpoint.md) als u deze informatie wilt overslaan om rechtstreeks naar een zelfstudie over het maken van een CDN-eindpunt te aan.  Zie [Azure CDN POP-locaties](cdn-pop-locations.md) als u een lijst met de huidige CDN-knooppuntlocaties wilt weergeven.
+> In dit artikel wordt beschreven wat het Azure CDN is, hoe het werkt en wat de functies zijn van elk Azure CDN-product. Zie [Aan de slag met Azure CDN](cdn-create-new-endpoint.md) als u deze informatie wilt overslaan en een zelfstudie wilt bekijken over het maken van een CDN-eindpunt. Zie [Azure CDN POP-locaties](cdn-pop-locations.md) om een lijst met de huidige CDN-knooppuntlocaties te bekijken.
 > 
-> 
 
-Azure Content Delivery Network (CDN) slaat op strategisch geplaatste locaties statische webinhoud in de cache om een maximale doorvoer voor de levering van inhoud te waarborgen.  Het CDN biedt ontwikkelaars een globale oplossing voor de levering van inhoud met een hoge bandbreedte door de inhoud op fysieke knooppunten over de hele wereld op te slaan in de cache. 
+Enkele voordelen van het gebruik van een CDN om website-assets op te slaan in de cache:
 
-Enkele voordelen van het gebruik van de CDN om website-assets op te slaan in de cache:
+* Betere prestaties en een betere gebruikerservaring voor eindgebruikers, met name bij het gebruik van toepassingen waarin meerdere retouren zijn vereist om inhoud te laden.
+* Grote schaalbaarheid, zodat korte hoge belastingen beter kunnen worden verwerkt, bijvoorbeeld bij het starten van een product.
+* Distribueren van gebruikersaanvragen en uitvoeren van inhoud vanaf randservers, zodat er minder verkeer naar de oorsprong wordt verzonden.
 
-* Betere prestaties en gebruikerservaring voor eindgebruikers wanneer er toepassingen worden gebruikt waarbij meerdere retouren zijn vereist om inhoud te laden.
-* Grote schaalbaarheid zodat een korte hoge belasting, bijvoorbeeld wanneer een product wordt gestart, beter kan worden verwerkt.
-* Door de gebruikersaanvragen te distribueren en de inhoud uit te voeren vanaf randservers wordt er minder verkeer naar de oorsprong verzonden.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 ![Overzicht van CDN](./media/cdn-overview/cdn-overview.png)
@@ -90,13 +90,13 @@ Er zijn drie Azure CDN-producten: **Azure CDN Standard van Akamai**, **Azure CDN
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Azure CDN gebruiken](cdn-create-new-endpoint.md) om aan de slag te gaan met CDN.
+Zie [Aan de slag met Azure CDN](cdn-create-new-endpoint.md) om aan de slag te gaan met CDN.
 
 Als u een bestaande CDN-klant bent, kunt u uw CDN-eindpunten nu beheren via [Microsoft Azure Portal](https://portal.azure.com) of met [PowerShell](cdn-manage-powershell.md).
 
-Bekijk de [video van de Build 2016-sessie](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) om CDN in actie te zien.
+Bekijk de [video van de Build 2016-sessie](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) om te zien hoe het CDN werkt.
 
 Meer informatie over hoe u Azure CDN kunt automatiseren met [.NET](cdn-app-dev-net.md) of [Node.js](cdn-app-dev-node.md).
 
-Zie [Prijzen van CDN](https://azure.microsoft.com/pricing/details/cdn/) voor informatie over de prijzen.
+Zie [Prijzen voor Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/) voor informatie over prijzen.
 

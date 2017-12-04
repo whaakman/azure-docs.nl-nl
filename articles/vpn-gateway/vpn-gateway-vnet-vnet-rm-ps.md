@@ -1,6 +1,6 @@
 ---
-title: 'Een virtueel Azure-netwerk verbinden met een ander VNet: Powershell | Microsoft Docs'
-description: Dit artikel helpt u bij het met elkaar verbinden van virtuele netwerken met behulp van Azure Resource Manager en PowerShell.
+title: 'Een virtueel Azure-netwerk verbinden met een ander VNet met behulp van een VNet-naar-VNet-verbinding: PowerShell | Microsoft Docs'
+description: Dit artikel helpt u bij het met elkaar verbinden van virtuele netwerken met behulp van een VNet-naar-VNet-verbinding en PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van PowerShell
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNet’s configureren met behulp van PowerShell
 
-In dit artikel wordt beschreven hoe u een VPN-gatewayverbinding tussen virtuele netwerken maakt. De virtuele netwerken kunnen zich in dezelfde of verschillende regio's bevinden en tot dezelfde of verschillende abonnementen behoren. Wanneer u VNets uit verschillende abonnementen koppelt, hoeven de abonnementen niet aan dezelfde Active Directory-tenant gekoppeld te zijn. 
+In dit artikel leest u hoe u virtuele netwerken verbindt met behulp van het verbindingstype VNet-naar-VNet. De virtuele netwerken kunnen zich in dezelfde of verschillende regio's bevinden en tot dezelfde of verschillende abonnementen behoren. Wanneer u VNet’s uit verschillende abonnementen koppelt, hoeven de abonnementen niet aan dezelfde Active Directory-tenant gekoppeld te zijn.
 
 De stappen in dit artikel zijn van toepassing op het Resource Manager-implementatiemodel. Er wordt gebruikgemaakt van PowerShell. U kunt deze configuratie ook maken met een ander implementatiehulpprogramma of een ander implementatiemodel door in de volgende lijst een andere optie te selecteren:
 
@@ -37,13 +37,15 @@ De stappen in dit artikel zijn van toepassing op het Resource Manager-implementa
 >
 >
 
-Het verbinden van een virtueel netwerk met een ander virtueel netwerk (VNet-naar-VNet) lijkt op het verbinden van een VNet met een on-premises locatie. Voor beide connectiviteitstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden. Als uw VNET's zich in dezelfde regio bevinden, kunt u daarmee verbinding maken met behulp van VNet-peering. Bij VNet-peering wordt geen VPN-gateway gebruikt. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie.
+## <a name="about"></a>Over het verbinden van VNet's
 
-VNet-naar-VNet-communicatie kan worden gecombineerd met configuraties voor meerdere locaties. Zoals u in het volgende diagram kunt zien, kunt u netwerktopologieën maken waarin cross-premises connectiviteit wordt gecombineerd met connectiviteit tussen virtuele netwerken:
+Het verbinden van een virtueel netwerk met een ander virtueel netwerk met behulp van het VNet-naar-VNet-verbindingstype (VNet2VNet) is vergelijkbaar met het maken van een IPsec-verbinding naar een on-premises locatie. Voor beide verbindingstypen wordt een VPN-gateway gebruikt om een beveiligde tunnel met IPsec/IKE te bieden en beide typen werken tijdens het communiceren op dezelfde manier. Het verschil tussen de verbindingstypen is de manier waarop de lokale netwerkgateway is geconfigureerd. Als u een VNet-naar-VNet-verbinding maakt, ziet u de adresruimte voor het lokale netwerkgateway niet. Deze wordt automatisch gemaakt en ingevuld. Wanneer u de adresruimte voor een VNet bijwerkt, is de route naar de bijgewerkte adresruimte automatisch bekend voor het andere VNet.
 
-![Over verbindingen](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+Wanneer u met ingewikkelde configuraties werkt, geeft u er wellicht de voorkeur aan om het IPsec-verbindingstype te gebruiken, in plaats van VNet-naar-VNet. Hiermee kunt u extra adresruimte voor de lokale netwerkgateway opgeven om het verkeer te routeren. Als u VNet's verbindt met behulp van het IPSec-verbindingstype, moet u de lokale netwerkgateway handmatig maken en configureren. Zie [Site-naar-site-configuraties](vpn-gateway-create-site-to-site-rm-powershell.md) voor meer informatie.
 
-### <a name="why-connect-virtual-networks"></a>Waarom virtuele netwerken koppelen?
+Daarnaast kunt u, als de VNet's zich in dezelfde regio bevinden, overwegen verbinding te maken met behulp van VNet-peering. VNet-peering maakt geen gebruik van een VPN-gateway, en de prijzen en functionaliteit zijn enigszins anders. Zie het artikel [VNet-peering](../virtual-network/virtual-network-peering-overview.md) voor meer informatie.
+
+### <a name="why"></a>Waarom een VNet-met-VNet-verbinding maken?
 
 U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
@@ -55,21 +57,24 @@ U wilt virtuele netwerken wellicht koppelen om de volgende redenen:
 
   * Binnen dezelfde regio kunt u vanwege isolatie- of beheervereisten toepassingen met meerdere lagen instellen met meerdere virtuele netwerken die met elkaar zijn verbonden.
 
-Zie voor meer informatie over verbindingen tussen VNets de [Veelgestelde vragen over VNet-naar-VNet](#faq) aan het einde van dit artikel.
+VNet-naar-VNet-communicatie kan worden gecombineerd met configuraties voor meerdere locaties. Zo kunt u netwerktopologieën maken waarin cross-premises connectiviteit is gecombineerd met connectiviteit tussen virtuele netwerken.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Welke stappen moet ik gebruiken?
 
-In dit artikel ziet u twee verschillende reeksen stappen. Een reeks stappen voor [VNets die tot hetzelfde abonnement behoren](#samesub). De stappen voor deze configuratie maken gebruik van TestVNet1 en TestVNet4.
+In dit artikel ziet u twee verschillende reeksen stappen. Eén reeks stappen voor [VNet's die onderdeel uitmaken van hetzelfde abonnement](#samesub) en één reeks voor [VNet's die onderdeel uitmaken van verschillende abonnementen](#difsub).
+Het belangrijkste verschil tussen de reeksen is dat u afzonderlijke PowerShell-sessies moet gebruiken voor het configureren van verbindingen voor VNet's die onderdeel uitmaken van verschillende abonnementen. 
 
-![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+Voor deze oefening kunt u configuraties combineren of alleen de configuratie kiezen waarmee u wilt werken. Alle configuraties maken gebruik van het verbindingstype VNet-naar-VNet. Netwerkverkeer verloopt tussen de VNet's die rechtstreeks met elkaar zijn verbonden. In deze oefening wordt verkeer van TestVNet4 niet gerouteerd naar TestVNet5.
 
-Er is een apart artikel voor [VNets die tot verschillende abonnementen behoren](#difsub). De stappen voor die configuratie maken gebruik van TestVNet1 en TestVNet5.
+* [VNet's die zich in hetzelfde abonnement bevinden:](#samesub) in de stappen voor deze configuratie wordt gebruikgemaakt van TestVNet1 en TestVNet4.
 
-![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+  ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-Het belangrijkste verschil tussen de reeksen is of u alle resources van het virtuele netwerk en de gateway kunt maken en configureren binnen dezelfde PowerShell-sessie. U moet afzonderlijke PowerShell-sessies gebruiken voor het configureren van verbindingen voor VNets die tot verschillende abonnementen behoren. Als u wilt, kunt u configuraties combineren of alleen die configuratie kiezen waarmee u wilt werken.
+* [VNet's die zich in verschillende abonnementen bevinden:](#difsub) in de stappen voor deze configuratie wordt gebruikgemaakt van TestVNet1 en TestVNet5.
 
-## <a name="samesub"></a>VNets verbinden die tot hetzelfde abonnement behoren
+  ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+## <a name="samesub"></a>VNet’s verbinden die tot hetzelfde abonnement behoren
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
@@ -77,7 +82,7 @@ Installeer eerst de meest recente versie van de Azure Resource Manager PowerShel
 
 ### <a name="Step1"></a>Stap 1: De IP-adresbereiken plannen
 
-In de volgende stappen maakt u twee virtuele netwerken en hun bijbehorende gatewaysubnetten en configuraties. Vervolgens maakt u een VPN-verbinding tussen de twee VNets. Het is belangrijk dat u de IP-adresbereiken voor uw netwerkconfiguratie plant. De VNet-bereiken of de bereiken van het lokale netwerk mogen elkaar niet overlappen. In deze voorbeelden behandelen we geen DNS-server. Zie [Naamomzetting](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) als u naamomzetting voor uw virtuele netwerken wilt.
+In de volgende stappen maakt u twee virtuele netwerken en de bijbehorende gatewaysubnetten en configuraties. Vervolgens maakt u een VPN-verbinding tussen de twee VNet's. Het is belangrijk dat u de IP-adresbereiken voor uw netwerkconfiguratie plant. De VNet-bereiken of de bereiken van het lokale netwerk mogen elkaar niet overlappen. In deze voorbeelden behandelen we geen DNS-server. Zie [Naamomzetting](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) als u naamomzetting voor uw virtuele netwerken wilt.
 
 In de voorbeelden worden de volgende waarden gebruikt:
 
@@ -94,7 +99,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * Openbare IP: VNet1GWIP
 * VPNType: op route gebaseerd
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5 (voor VNets in verschillende abonnementen)
+* Connection(1to5): VNet1toVNet5 (voor VNet’s in verschillende abonnementen)
 * ConnectionType: VNet2VNet
 
 **Waarden voor TestVNet4:**
@@ -282,9 +287,9 @@ Wanneer u TestVNet1 hebt geconfigureerd, maakt u TestVNet4. Volg de stappen hier
   ```
 4. Controleer de verbinding. Raadpleeg de sectie [De verbinding controleren](#verify).
 
-## <a name="difsub"></a>VNets verbinden die tot verschillende abonnement behoren
+## <a name="difsub"></a>VNet’s verbinden die tot verschillende abonnement behoren
 
-In dit scenario worden TestVNet1 en TestVNet5 met elkaar verbonden. TestVNet1 en TestVNet5 bevinden zich in een verschillend abonnement. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn. Het verschil tussen deze stappen en de eerste set is dat een deel van de configuratiestappen moet worden uitgevoerd in een aparte PowerShell-sessie in de context van het tweede abonnement. Dit geldt met name wanneer de twee abonnementen tot verschillende organisaties behoren.
+In dit scenario verbindt u TestVNet1 met TestVNet5. TestVNet1 en TestVNet5 bevinden zich in een verschillend abonnement. De abonnementen hoeven niet aan dezelfde Active Directory-tenant gekoppeld te zijn. Het verschil tussen deze stappen en de eerste set is dat een deel van de configuratiestappen moet worden uitgevoerd in een aparte PowerShell-sessie in de context van het tweede abonnement. Dit geldt met name wanneer de twee abonnementen tot verschillende organisaties behoren.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Stap 5: TestVNet1 maken en configureren
 

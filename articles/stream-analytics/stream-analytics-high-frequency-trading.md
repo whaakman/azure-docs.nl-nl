@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulatie van high-frequency trading met Stream Analytics
-De combinatie van de SQL-taal van Azure Stream Analytics en JavaScript UDF en UDA is een krachtige combinatie waarmee gebruikers geavanceerde analyses, met inbegrip van online machine learning-trainingen en -scoring, evenals de simulatie van stateful processen kunnen uitvoeren. In dit artikel wordt beschreven hoe u lineaire regressie kunt uitvoeren in een Azure Stream Analytics-taak met continue training- en scoring in een high-frequency trading-scenario.
+Met een combinatie van SQL-taal en UDF's (door de gebruiker gedefinieerde functies) en UDA's (door de gebruiker gedefinieerde aggregaties) van JavaScript in Azure Stream Analytics kunnen gebruikers geavanceerde analyses uitvoeren. Geavanceerde analyses omvatten mogelijk onder andere onlinetraining en -scoring voor Machine Learning, evenals simulatie van het stateful-proces. In dit artikel wordt beschreven hoe u lineaire regressie kunt uitvoeren in een Azure Stream Analytics-taak met continue training en scoring in een high-frequency trading-scenario.
 
 ## <a name="high-frequency-trading"></a>High-frequency trading
-De logische stroom van high-frequency trading bestaat uit het opvragen van koersen van een effectenbeurs in realtime, om een voorspellend model te bouwen rondom die koersen zodat er geanticipeerd kan worden op prijsbewegingen, en om op basis daarvan orders te plaatsen om te kopen of verkopen, met het doel geld te verdienen aan het juist voorspellen van de prijsbewegingen. Om dat mogelijk te maken is het volgende vereist
-* Koersfeed in realtime
-* Een voorspellend model dat kan werken op basis van de koersen in realtime
-* Een tradingsimulatie die u de winst of het verlies toont die wordt gemaakt als het tradingalgoritme wordt gebruikt
+De logische stroom van high-frequency trading gaat over:
+1. Koersen in realtime ophalen bij een effectenbeurs.
+2. Een voorspellend model rond de koersen bouwen, zodat we de prijsstijgingen en -dalingen kunnen voorspellen.
+3. Koop- of verkooporders plaatsen om geld te verdienen met de succesvolle voorspelling van de prijsstijgingen en -dalingen. 
+
+Op basis hiervan hebben we het volgende nodig:
+* Een koersfeed in realtime.
+* Een voorspellend model voor de koersen in realtime.
+* Een tradingsimulatie die de winst of het verlies toont, gemaakt op basis van het tradingalgoritme.
 
 ### <a name="real-time-quote-feed"></a>Koersfeed in realtime
-IEX biedt gratis bied- en laatkoersen door gebruik te maken van socket.io, https://iextrading.com/developer/docs/#websockets. Er kan een eenvoudig consoleprogramma worden geschreven voor het ontvangen van koersen in realtime en deze als gegevensbron naar Event Hub te pushen. Hieronder vindt u een schematische weergave van het programma. Om het kort te houden, komt foutafhandeling hier niet aan de orde. U moet ook NuGet-pakketten van SocketIoClientDotNet en WindowsAzure.ServiceBus opnemen in uw project.
+IEX biedt gratis [realtime-koersen voor vraag en aanbod](https://iextrading.com/developer/docs/#websockets) met behulp van socket.io. Er kan een eenvoudig consoleprogramma worden geschreven voor het ontvangen van koersen in realtime en als gegevensbron worden gepusht naar Azure Event Hub. De volgende code is het geraamte van het programma. In de code is foutafhandeling weggelaten om het beknopt te houden. U moet ook NuGet-pakketten van SocketIoClientDotNet en WindowsAzure.ServiceBus opnemen in uw project.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ IEX biedt gratis bied- en laatkoersen door gebruik te maken van socket.io, https
         socket.Emit("subscribe", symbols);
     });
 
-Hierbij worden een aantal voorbeeldgebeurtenissen gegenereerd.
+Hier volgt een aantal gegenereerde voorbeeldgebeurtenissen:
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -62,18 +67,20 @@ Hierbij worden een aantal voorbeeldgebeurtenissen gegenereerd.
     {"symbol":"GOOG","marketPercent":0.04795,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953362629,"sector":"softwareservices","securityType":"commonstock"}
 
 >[!NOTE]
->De tijdstempel van de gebeurtenis is **lastUpdated**, in epoche-tijd.
+>De tijdstempel van de gebeurtenis is **lastUpdated**, in tijdvak.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Voorspellend model voor high-frequency trading
-Ter demonstratie gebruiken we een lineaire model dat door Darryl Shen in zijn verhandeling wordt beschreven. http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+Ter demonstratie gebruiken we een lineair model dat door Darryl Shen in [zijn verhandeling](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf) wordt beschreven.
 
-Volume Order Imbalance (VOI) is een functie van de huidige bid-/vraagprijs- en het volume, en de bid-/vraagprijs/volume van de laatste tick. In de verhandeling wordt aangetoond dat er een correlatie is tussen VOI en toekomstige prijsbewegingen, en wordt er een lineair model gemaakt tussen de afgelopen 5 VOI-waarden en de prijsbewegingen in de volgende 10 ticks. Het model wordt getraind door lineaire regressie voor de gegevens van de vorige dag te gebruiken. Het getrainde model wordt vervolgens gebruikt voor het maken van voorspellingen van koersen in realtime op de huidige handelsdag. Als er een prijswijziging van voldoende grootte wordt voorspeld, wordt een aandelentransactie uitgevoerd. Afhankelijk van de instelling voor de drempelwaarde, kunnen voor een enkel aandeel tijdens een handelsdag duizenden transacties worden verwacht.
+VOI (Volume Order Imbalance) is een functie van de huidige prijs en het huidige volume voor vraag/aanbod, en de prijs en het volume voor vraag/aanbod sinds de laatste tick. In de verhandeling wordt de correlatie tussen VOI en toekomstige prijsstijgingen en -dalingen geïdentificeerd. Er wordt een lineair model gebouwd tussen de afgelopen 5 VOI-waarden en de prijswijziging in de volgende 10 ticks. Het model wordt getraind door lineaire regressie te gebruiken voor de gegevens van de vorige dag. 
+
+Het getrainde model wordt vervolgens gebruikt voor het maken van voorspellingen van koersen in realtime op de huidige handelsdag. Als er een prijswijziging van voldoende grootte wordt voorspeld, wordt een aandelentransactie uitgevoerd. Afhankelijk van de instelling voor de drempelwaarde, kunnen voor een enkel aandeel tijdens een handelsdag duizenden transacties worden verwacht.
 
 ![Definitie van VOI](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Laten we nu eens de trainings- en voorspellingsbewerkingen uitdrukken die tijdens een Azure Stream Analytics-taak plaatshebben.
 
-Eerst wordt de invoer opgeschoond. Epoche-tijd wordt geconverteerd naar datum en tijd met behulp van **DATEADD**. **TRY_CAST** wordt gebruikt om gegevens af te dwingen zonder dat de query mislukt. Het is altijd een goed idee om invoervelden naar de verwachte uitvoervelden te casten, zodat er zich geen onverwacht gedrag voordoet als de velden worden gemanipuleerd of met elkaar worden vergeleken.
+Eerst wordt de invoer opgeschoond. Tijdvak wordt geconverteerd naar datum en tijd via **DATEADD**. **TRY_CAST** wordt gebruikt om gegevens af te dwingen zonder dat de query mislukt. Het is altijd een goed idee om invoervelden naar de verwachte uitvoervelden te casten, zodat zich geen onverwacht gedrag voordoet als de velden worden gemanipuleerd of met elkaar worden vergeleken.
 
     WITH
     typeconvertedquotes AS (
@@ -93,12 +100,12 @@ Eerst wordt de invoer opgeschoond. Epoche-tijd wordt geconverteerd naar datum en
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Als volgende wordt de functie **LAG** gebruikt om waarden van de laatste tick te krijgen. Eén uur van de waarde **LIMIT DURATION** wordt willekeurig gekozen. Door de frequentie waarmee koersen worden gegeven, is het veilig om ervan uit te gaan dat u de vorige tick vindt door een uur terug te gaan.  
+Als volgende wordt de functie **LAG** gebruikt om waarden van de laatste tick te krijgen. Eén uur van de waarde **LIMIT DURATION** wordt willekeurig gekozen. Door de frequentie waarmee koersen worden gegeven, kunt u er gerust van uitgaan dat u de vorige tick vindt door één uur terug te gaan.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -116,7 +123,7 @@ Als volgende wordt de functie **LAG** gebruikt om waarden van de laatste tick te
         FROM timefilteredquotes
     ),
 
-Dan kan de VOI waarde worden berekend. Opmerking: voor alle zekerheid worden de null-waarden eruit gefilterd als de vorige tick niet bestaat.
+Dan kan de VOI waarde worden berekend. Voor alle zekerheid worden de null-waarden eruit gefilterd als de vorige tick niet bestaat.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -163,7 +170,7 @@ We gaan nu **LAG** weer gebruiken om een reeks met 2 opeenvolgende VOI waarden t
         FROM currentPriceAndVOI
     ),
 
-We zetten de gegevens vervolgens om in invoer voor een lineair model met twee variabelen. Filter opnieuw de gebeurtenissen eruit waarvan we niet alle gegevens hebben.
+We zetten de gegevens vervolgens om in invoer voor een lineair model met twee variabelen. Opnieuw worden de gebeurtenissen eruit gefilterd waarvan we niet alle gegevens hebben.
 
     modelInput AS (
         /* create feature vector, x being VOI, y being delta price */
@@ -230,7 +237,7 @@ Omdat Azure Stream Analytics niet beschikt over een ingebouwde lineaire-regressi
         FROM modelparambs
     ),
 
-Als we het model van de vorige dag willen gebruiken voor het verzamelen van scores voor de huidige gebeurtenis, moeten we de koersen met het model samenvoegen. In de plaats van **JOIN**, gebruiken we nu echter **UNION** voor de model- en koersgebeurtenissen, en vervolgens **LAG** om de gebeurtenissen aan het model van de vorige dag te koppelen, zodat we exact één overeenkomst krijgen. Vanwege het weekend moeten we drie dagen terugkijken. Als er een eenvoudige **JOIN** wordt gebruikt, zou dat drie modellen voor elke koersgebeurtenis moeten opleveren.
+Als we het model van de vorige dag willen gebruiken voor het verzamelen van scores voor de huidige gebeurtenis, moeten we de koersen samenvoegen met het model. Maar in plaats van **JOIN** gebruiken we **UNION** voor de modelgebeurtenissen en koersgebeurtenissen. Vervolgens gebruiken we **LAG** om de gebeurtenissen te koppelen met het model van de vorige dag, zodat er precies één overeenkomst wordt opgehaald. Vanwege het weekend moeten we drie dagen terugkijken. Als we een eenvoudige **JOIN** hebben gebruikt, worden er voor elke koersgebeurtenis drie modellen opgehaald.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ Als we het model van de vorige dag willen gebruiken voor het verzamelen van scor
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ Als we het model van de vorige dag willen gebruiken voor het verzamelen van scor
         WHERE type = 'voi'
     ),
 
-Nu kunnen we voorspellingen maken en signalen voor kopen/verkopen genereren op basis van het model, met een drempelwaarde van 0,02. Een handelswaarde 10 is kopen; een handelswaarde van -10 is verkopen.
+Nu kunnen we voorspellingen maken en signalen voor kopen/verkopen genereren op basis van het model, met een drempelwaarde van 0,02. Een handelswaarde van 10 is kopen. Een handelswaarde van -10 is verkopen.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ Nu kunnen we voorspellingen maken en signalen voor kopen/verkopen genereren op b
     ),
 
 ### <a name="trading-simulation"></a>Simulatie van trading
-Zodra we over tradingsignalen beschikken, gaan we testen hoe effectief de tradingstrategie is zonder dat er echt iets wordt verhandeld. Dit kan worden gedaan met behulp van een door de gebruiker gedefinieerde aggregatie (UDA) met een hoppingvenster dat elke minuut verspringt. Het aanvullende groeperen op datum en de HAVING-component staan dit venster alleen toe voor accounts voor gebeurtenissen die van dezelfde dag deel uitmaken. Als u wilt dat een hoppingvenster in twee richtingen werkt, wordt met **GROUP BY**-datum, de groep gescheiden in een voor de vorige en een voor de huidige dag. De **HAVING**-component filtert de vensters die op de huidige dag eindigen eruit, maar doet dat bij groepen op de vorige dag.
+Nu we over de tradingsignalen beschikken, gaan we testen hoe effectief de tradingstrategie is zonder echt iets verhandelen. 
+
+We doen deze test met behulp van een UDA, met een hoppingvenster, waarbij elke minuut hopping plaatsvindt. Het aanvullende groeperen op datum en de HAVING-component staan dit venster alleen toe voor accounts voor gebeurtenissen die deel uitmaken van dezelfde dag. Als u wilt dat een hoppingvenster in twee richtingen werkt, wordt de groep met **GROUP BY**-datum gescheiden in een groep voor de vorige en een groep voor de huidige dag. Met de **HAVING**-component worden de vensters eruit gefilterd die op de huidige dag eindigen, maar doet dat bij groepen op de vorige dag.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ Zodra we over tradingsignalen beschikken, gaan we testen hoe effectief de tradin
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-De JavaScript-UDA initialiseert alle accumulators in de init-functie, berekent de statusovergang met elke gebeurtenis die aan het venster wordt toegevoegd en retourneert de simulatieresultaten aan het einde van het venster. De algemene handelsprocedure is om effecten te kopen als u een koopsignaal ontvangt en er geen effecten worden vastgehouden, en om aandelen te verkopen als u een verkoopsignaal ontvangt en er effecten worden vastgehouden, of short verhandelen als er geen effecten worden aangehouden. Als er zich een short-positie voordoet en er wordt een koopsignaal ontvangen, moet u kopen met het oog op dekking. We houden in deze simulatie nooit 10 aandelen van een bepaalde portfolio vast of verhandelen deze short, terwijl de transactiekosten in totaal € 8 bedragen.
+De JavaScript-UDA initialiseert alle accumulators in de `init`-functie, berekent de statusovergang met elke gebeurtenis die aan het venster wordt toegevoegd, en retourneert de simulatieresultaten aan het einde van het venster. Het algemene handelsproces verloopt als volgt:
+
+- Aandelen kopen wanneer er een koopsignaal wordt ontvangen en er geen aandelen zijn vastgezet.
+- Aandelen verkopen wanneer er een verkoopsignaal wordt ontvangen en er aandelen zijn vastgezet.
+- Short-gaan als er geen aandelen zijn vastgezet. 
+
+Als zich een short-positie voordoet en er wordt een koopsignaal ontvangen, kopen we met het oog op dekking. 10 aandelen in deze simulatie worden nooit vastgezet of geshort. De transactiekosten zijn $ 8.
 
 
     function main() {
@@ -411,7 +426,7 @@ De JavaScript-UDA initialiseert alle accumulators in de init-functie, berekent d
         }
     }
 
-En tot slot zenden we de uitvoer naar Power BI Dashboard ter visualisatie.
+En tot slot zenden we uitvoer naar het Power BI-dashboard ter visualisatie.
 
     SELECT * INTO tradeSignalDashboard FROM tradeSignal /* output tradeSignal to PBI */
     SELECT
@@ -432,6 +447,10 @@ En tot slot zenden we de uitvoer naar Power BI Dashboard ter visualisatie.
 
 
 ## <a name="summary"></a>Samenvatting
-Zoals u ziet, kan in Azure Stream Analytics een realistisch model voor high-frequency trading worden geïmplementeerd met een niet al te complexe query. Doordat een ingebouwde lineaire-regressiefunctie ontbreekt, moeten we het model vereenvoudigen door in plaats van vijf invoervariabelen twee invoervariabelen te gebruiken. Voor een vastberaden gebruiker kunnen algoritmen met meer dimensies en een grotere complexiteit mogelijk ook als JavaScript-UDA worden geïmplementeerd. Wat de moeite waard is om te weten is dat - anders van bij de JavaScript-UDA - het grootste deel van de query kan worden getest, en er met behulp van Visual Studio fouten kunnen worden opgespoord met het [Azure Stream Analytics-hulpprogramma voor Visual Studio](stream-analytics-tools-for-visual-studio.md). Nadat de eerste query was geschreven, had de auteur minder dan 30 minuten nodig om met Visual Studio de query te testen en fouten in de query op te sporen. Momenteel kunnen er met Visual Studio geen fouten in UDA worden opgespoord. We werken eraan om dit mogelijk te maken, en willen dan tevens de mogelijkheid toevoegen om stapsgewijs door JavaScript-code heen te lopen. Vergeet overigens niet dat velden die de UDA bereiken allemaal veldnamen hebben zonder hoofdletters. Dit werd niet als kenmerkend gedrag gezien tijdens het testen van query's. Met compatibiliteitsniveau 1.1 van Azure Stream Analytics, is het mogelijk om het hoofdlettergebruik van veldnamen te behouden, zodat het gedrag natuurlijker is.
+We kunnen in Azure Stream Analytics een realistisch model voor high-frequency trading implementeren met een niet al te complexe query. Doordat een ingebouwde lineaire-regressiefunctie ontbreekt, moeten we het model vereenvoudigen door in plaats van vijf invoervariabelen twee invoervariabelen te gebruiken. Voor een vastberaden gebruiker kunnen algoritmen met meer dimensies en een grotere complexiteit echter mogelijk ook als JavaScript-UDA worden geïmplementeerd. 
 
-Ik hoop dat dit artikel dient als inspiratie voor alle gebruikers van Azure Stream Analytics, die onze service onafgebroken gebruiken om geavanceerde analyses in nagenoeg realtime uit te voeren. Stuur ons uw feedback zodat we het implementeren van query’s voor scenario’s met geavanceerde analyses kunnen vereenvoudigen.
+Met uitzondering van de JavaScript-UDA kan het grootste deel van de query worden getest en in Visual Studio aan foutopsporing worden onderworpen via het [Azure Stream Analytics-hulpprogramma voor Visual Studio](stream-analytics-tools-for-visual-studio.md). Nadat de eerste query was geschreven, had de auteur minder dan 30 minuten nodig om met Visual Studio de query te testen en fouten in de query op te sporen. 
+
+Momenteel kunnen er met Visual Studio geen fouten in de UDA worden opgespoord. We werken eraan om dit mogelijk te maken, en willen dan tevens de mogelijkheid toevoegen om stapsgewijs door JavaScript-code heen te lopen. Houd er bovendien rekening mee dat de namen van de velden die de UDA bereiken, uit kleine letters bestaan. Dit werd niet als kenmerkend gedrag gezien tijdens het testen van query's. Maar met compatibiliteitsniveau 1.1 van Azure Stream Analytics blijft het hoofdlettergebruik van veldnamen behouden, zodat het gedrag natuurlijker is.
+
+Ik hoop dat dit artikel dient als inspiratie voor alle gebruikers van Azure Stream Analytics, die onze service onafgebroken gebruiken om geavanceerde analyses in nagenoeg realtime uit te voeren. Stuur ons uw feedback, zodat we het implementeren van query's voor scenario's met geavanceerde analyses kunnen vereenvoudigen.
