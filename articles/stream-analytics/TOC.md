@@ -57,7 +57,6 @@
 ### [Tabblad Resourcestatus](stream-analytics-resource-health.md)
 ### [Taakdiagram en metrische gegevens](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO-foutopsporing](stream-analytics-select-into.md)
-### [Verwerking gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
 ### [Overwegingen over gebeurtenisvolgordes](stream-analytics-out-of-order-and-late-events.md)
 ### [Limieten Event Hub-lezer](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostische logboeken](stream-analytics-job-diagnostic-logs.md)
