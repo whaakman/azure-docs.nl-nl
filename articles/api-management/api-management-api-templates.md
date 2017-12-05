@@ -3,8 +3,8 @@ title: API-sjablonen in Azure API Management | Microsoft Docs
 description: Informatie over het aanpassen van de inhoud van de API's in de ontwikkelaarsportal in Azure API Management.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9055c7fc0b562fa02aa2f2ec8425a4a41b69e600
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-sjablonen in Azure API Management
 Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
   
- De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarsportal aanpassen.  
+De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarsportal aanpassen.  
   
 -   [API-lijst](#APIList)  
 -   [Bewerking](#Product)  

@@ -3,22 +3,21 @@ title: Beveiligen van back-end-services met behulp van client certificaatverific
 description: Informatie over het beveiligen van back-end-services met behulp van verificatie van clientcertificaten in Azure API Management.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 196a91c21afb8c1596c9766f6a2a5d373b828f60
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Het beveiligen van back-end-services met behulp van client certificaatverificatie in Azure API Management
 API Management biedt de mogelijkheid voor het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten. Deze handleiding wordt beschreven hoe u voor het beheren van certificaten in de publicatieportal van API en het configureren van een API voor het gebruik van een certificaat voor toegang tot de back-end-service.
@@ -33,7 +32,7 @@ Als u aan de slag wilt gaan, klikt u op **Publicatieportal** in Azure Portal voo
 
 ![API-publicatieportal][api-management-management-console]
 
-> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
+> Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken][Create an API Management service instance].
 > 
 > 
 
@@ -91,7 +90,7 @@ Selecteer **clientcertificaten** van de **met referenties** vervolgkeuzelijst.
 
 Selecteer het gewenste certificaat van de **clientcertificaat** vervolgkeuzelijst. Als er meerdere certificaten kunt u het onderwerp of de laatste vier tekens van de vingerafdruk zoals aangegeven in de vorige sectie om te bepalen van het juiste certificaat kijken.
 
-![Selecteer het certificaat][api-management-select-certificate]
+![Certificaat selecteren][api-management-select-certificate]
 
 Klik op **opslaan** wijzigen van de configuratie opslaan in de API.
 
@@ -144,10 +143,10 @@ Zie voor meer informatie over andere manieren voor het beveiligen van uw back-en
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

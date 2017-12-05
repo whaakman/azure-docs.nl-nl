@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspectors ondersteund voor de preview van Azure Machine Learning gegevens voorbereiden
 Dit document bevat een overzicht van de reeks inspectors die beschikbaar in deze preview zijn.
@@ -34,7 +34,7 @@ Deze controle biedt voor numerieke kolommen tal van verschillende statistieken o
 - Mediaan
 - Bovenste kwartiel
 - Maximum
-- Gemiddelde
+- Gemiddeld
 - Standaarddeviatie
 
 
@@ -113,3 +113,18 @@ Een kaart met punten die worden getekend, ervan uitgaande dat de breedtegraad en
 Deze controle biedt ondersteuning voor filteren via de selectie op de kaart. Druk op de **Ctrl** sleutel, en klik en sleep met de muis naar het formulier een vierkant rond de punten. Zoals eerder beschreven filters vervolgens toepassen.
 
 U kunt snel het formaat van de kaart zodanig dat alleen de mogelijke punten door op de **E** aan de linkerkant van de kaart.
+
+
+## <a name="pattern-frequency"></a>Patroon frequentie 
+
+Deze controle wordt een lijst met patronen in de geselecteerde kolom in de tekenreeks. De patronen worden weergegeven met een reguliere expressie zoals syntaxis. Muiswijzer op het patroon, ziet u de voorbeelden van waarden die worden vertegenwoordigd door dit patroon. De geschatte coverages in termen van percentage wordt ook weergegeven samen met de patronen.
+
+![Afbeelding van het patroon inspector](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Opties
+- Aantal bovenste waarden
+- Aflopend
+- Halo weergeven
+
+### <a name="actions"></a>Acties
+Deze controle biedt ondersteuning voor filteren op basis van patronen weergegeven. Druk op de **Ctrl** sleutel en selecteer vervolgens de gevulde balken in patroon inspector. Zoals eerder beschreven filters vervolgens toepassen. Als gevolg van de acion gebruiker wordt een stap geavanceerde filter toegevoegd. U kunt zien en de gegenereerde Python-code wijzigen door het aanroepen van de optie voor het bewerken van de geavanceerde Filter-stap.

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden 
 In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden.
@@ -24,6 +24,25 @@ In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen
 De ondersteunde gegevensbronnen voor deze release zijn als volgt.
 
 ## <a name="types"></a>Typen 
+
+### <a name="sql-server"></a>SQL Server
+Lezen van on-premises SQL server of Azure SQL-database.
+
+#### <a name="options"></a>Opties
+- Serveradres
+- Servers (Even wanneer het certificaat op de server niet geldig is. Wees voorzichtig)
+- Verificatietype (Windows, Server)
+- Gebruikersnaam
+- Wachtwoord
+- Verbinding maken met database
+- SQL-Query
+
+#### <a name="notes"></a>Opmerkingen
+- SQL-variant-kolommen worden niet ondersteund
+- Time-kolom wordt geconverteerd naar datetime door toe te voegen tijd uit de database tot datum 1970/1/1
+- Uitgevoerd op Spark-cluster, alle gegevens van de bijbehorende kolommen (date, datetime, datetime2, datetimeoffset) onjuiste waarden voor datums vóór 1583 evalueren
+- Waarden in decimale kolommen mogelijk minder nauwkeurig vanwege conversie naar decimaal
+
 ### <a name="directory-vs-file"></a>Directory versus bestand
 Kies één bestand en het in het voorbereiden van gegevens gelezen. Het bestandstype wordt geparseerd om te bepalen van de standaardparameters voor de bestand-verbinding op het volgende scherm wordt weergegeven.
 
@@ -88,6 +107,9 @@ Uitvoering van de scale-out is afhankelijk van de Spark parketvloeren lezen van 
 ## <a name="locations"></a>Locaties
 ### <a name="local"></a>Lokaal
 Een lokale vaste schijf of een toegewezen netwerkstation opslaglocatie.
+
+### <a name="sql-server"></a>SQL Server
+On-premises SQL Server gebruikt, of Azure SQL-database.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob storage, een Azure-abonnement vereist.

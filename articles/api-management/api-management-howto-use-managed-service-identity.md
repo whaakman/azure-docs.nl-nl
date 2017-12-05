@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure beheerde Service-identiteit gebruiken in Azure API Management
 
@@ -118,9 +118,8 @@ Het volgende voorbeeld ziet hoe u een certificaat verkrijgen van Azure Sleutelkl
 3. Werk het exemplaar van API Management door in te stellen van een aangepaste domeinnaam via een certificaat van de Sleutelkluis-exemplaar.
 
 ### <a name="prerequisites"></a>Vereisten
-Voor het uitvoeren van de onderstaande arm-sjabloon moet de volgende 
-1. De Sleutelkluis met het pfx-certificaat in het hetzelfde abonnement en dezelfde resourcegroup als de Api Management-service. Dit is vereiste van arm-sjabloon. 
-2. Het type inhoud van het geheim moet *x-toepassing-pkcs12*. U kunt het volgende script gebruiken om het certificaat te uploaden
+1. De Sleutelkluis met het pfx-certificaat moet zich in dezelfde Azure-abonnement en dezelfde resourcegroep bevinden als de API Management-service. Dit is een vereiste van de Azure Resource Manager-sjabloon. 
+2. Het inhoudstype van het geheim moet *x-toepassing-pkcs12*. U kunt het volgende script gebruiken om het certificaat te uploaden:
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 

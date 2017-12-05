@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer probleemoplossingsgids
 
@@ -95,7 +95,7 @@ Als u niet wilt weergeven van de verificatiepagina als volgt te werk om dit prob
 
 - De developer-console weergeven door op de F12-toets te drukken. Bekijk de antwoorden van de developer-console en ontdek of voor u een aanwijzing Waarom vindt verificatie werkt niet.
 
-### <a name="cannot-remove-account"></a>Kan account niet verwijderen
+### <a name="cannot-remove-account"></a>Kan het account niet verwijderen
 
 Als u niet om een account te verwijderen, of als de koppeling opnieuw verifiëren heeft geen invloed, volg deze stappen om dit probleem oplossen:
 
@@ -172,6 +172,14 @@ Als u verbinding met een service met behulp van een SAS-URL en deze fout optreed
 - Controleer of de URL is niet verlopen.
 
 - Als de SAS-URL is gebaseerd op een toegangsbeleid, controleert u of het beleid voor toegang niet is ingetrokken.
+
+Als uw per ongeluk een ongeldige SAS-URL die is gekoppeld en kan niet loskoppelen, volg dan deze stappen:
+1.  Als u Opslagverkenner, drukt u op F12 om de hulpprogramma's voor ontwikkelaars venster te openen.
+2.  Klik op het tabblad toepassing en klik vervolgens op van de lokale opslag > file:// in de structuur aan de linkerkant.
+3.  Zoek de sleutel gekoppeld aan het type van de service van de problematisch SAS-URI. Bijvoorbeeld, als de onjuiste SAS-URI voor een blob-container, zoek naar de sleutel met de naam 'StorageExplorer_AddStorageServiceSAS_v1_blob'.
+4.  De waarde van de sleutel moet een JSON-matrix. Het object dat is gekoppeld met ongeldige URI niet vinden en verwijderen.
+5.  Druk op Ctrl + R om opnieuw te laden Opslagverkenner.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

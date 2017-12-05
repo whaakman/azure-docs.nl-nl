@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Beheren van VMware vCenter-Server in Azure Site Recovery
 Dit artikel worden de verschillende Site Recovery-bewerkingen die kunnen worden uitgevoerd op een VMware vCenter.
@@ -27,7 +27,7 @@ Dit artikel worden de verschillende Site Recovery-bewerkingen die kunnen worden 
 
 **Ondersteuning van VMware vCenter- en VMware vSphere ESX-Host** | **Details** |
 |--- | --- |
-|**On-premises VMware-servers** | Een of meer VMware vSphere servers, 6.0, 5.5, 5.1 uitgevoerd met de meest recente updates. Servers moeten zich bevinden in hetzelfde netwerk bevindt als de configuratieserver (of een afzonderlijk processerver).<br/><br/> U wordt aangeraden een vCenter-server voor het beheren van hosts, 6.0 of 5.5 uitgevoerd met de meest recente updates. Alleen de functies die beschikbaar in 5.5 zijn worden ondersteund bij het implementeren van versie 6.0 zijn.|
+|**On-premises VMware-servers** | Een of meer VMware vSphere servers, met 6.5,6.0, 5.5 met de meest recente updates. Servers moeten zich bevinden in hetzelfde netwerk bevindt als de configuratieserver (of een afzonderlijk processerver).<br/><br/> U wordt aangeraden een vCenter-server voor het beheren van hosts, met 6.5,6.0 of 5.5 met de meest recente updates. Alleen de functies die beschikbaar in 5.5 zijn worden ondersteund bij het implementeren van versie 6.0 zijn.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Voorbereiden van een account voor automatische detectie
 Site Recovery moet toegang tot VMware voor de processerver voor het automatisch detecteren van virtuele machines en voor failover en failback van virtuele machines.
