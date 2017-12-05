@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure kosten Management
 
@@ -92,20 +92,13 @@ Voor CSP's:
 
 Selecteer om extra CSP-accounts toe aan een entiteit **MSP toegang** in plaats van **Enterprise** wanneer u de nieuwe entiteit maken. Als uw account is geregistreerd als een Enterprise Agreement, en u wilt toevoegen, CSP-referenties, mogelijk Cloudyn ondersteunend personeel om de accountinstellingen van uw te wijzigen. Als u een betaald Azure-abonnee bent, kunt u een nieuw ondersteuningsverzoek maken in de Azure portal. Selecteer **Help + ondersteuning**, en selecteer vervolgens **nieuw ondersteuningsverzoek**.
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>Hoe kan ik het valutasymbool dat wordt gebruikt in Cloudyn wijzigen?
+## <a name="currency-symbols-in-cloudyn-reports"></a>Valutasymbolen in Cloudyn rapporten
 
-Wanneer alle Azure-accounts in één entiteit dezelfde valuta gebruikt, wordt de valuta waarmee u automatisch gedetecteerd. Echter, het valutasymbool ten onrechte wordt weergegeven als  **$**  voor een van de volgende valuta's:
+U mogelijk meerdere Azure-accounts met behulp van verschillende valuta's. Kostenrapporten in Cloudyn worden echter niet meer dan één Valutatype per rapport weergegeven.
 
-- Engelse = pond Verenigd Koninkrijk
-- EUR Europese euro =
-- INR Indiase roepia =
-- NOK Noors kroon =
+Als u meerdere abonnementen met verschillende valuta's hebt, een bovenliggende entiteit en de onderliggende entiteit valuta's worden weergegeven met de  **$**  symbool. Onze voorgestelde aanbevolen procedure is om te voorkomen dat met behulp van verschillende valuta's in de entiteitshiërarchie met dezelfde. Met andere woorden, moeten uw abonnementen die zijn ingedeeld in de structuur van een entiteit dezelfde valuta gebruiken.
 
-Hoewel het valutasymbool mogelijk weer  **$**  euro's, de waarden voor de kosten worden weergegeven in de juiste valuta. Als u al uw accounts euro's gebruiken binnen dezelfde entiteit, bijvoorbeeld de _waarden_ euro's weergegeven in Cloudyn ook al zijn de  **$**  symbool ten onrechte wordt weergegeven.
-
-Als u een Enterprise Agreement voor Azure-klant bent, kunnen uw valutasymbool weergegeven in Kostenrapporten van $ wijzigen in Cloudyn ondersteunend personeel. U kunt een nieuw ondersteuningsverzoek maken in de Azure portal. Selecteer **Help + ondersteuning**, en selecteer vervolgens **nieuw ondersteuningsverzoek**.
-
-Als u een CSP-klant bent, kunt u uw valutasymbool niet wijzigen. Cloudyn ondersteunt alleen tariefkaarten die gebruikmaken van de VS bedragen. Cloudyn onderzoekt de optie voor ondersteuning van tariefkaarten in verschillende valuta's.
+Cloudyn automatisch detecteert de Enterprise Agreement abonnementsvaluta en goed geeft in rapporten.  Echter, Cloudyn alleen wordt de  **$**  symbool voor de CSP en web-directe Azure-accounts.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Wat zijn de gegevens Cloudyn tijdlijnen vernieuwen?
 

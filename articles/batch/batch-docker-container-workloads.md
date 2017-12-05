@@ -1,6 +1,6 @@
 ---
-title: Docker-container werkbelastingen op Azure Batch | Microsoft Docs
-description: "Informatie over het uitvoeren van toepassingen van Docker container installatiekopieën op Azure Batch."
+title: Container werkbelastingen op Azure Batch | Microsoft Docs
+description: "Informatie over het uitvoeren van toepassingen van installatiekopieën van de container op Azure Batch."
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Docker containertoepassingen uitvoeren op Azure Batch
+# <a name="run-container-applications-on-azure-batch"></a>Containertoepassingen worden uitgevoerd op Azure Batch
 
 Azure Batch kunt u uitvoeren en schalen van zeer groot aantal computing taken op Azure batch. Tot op heden Batch-taken rechtstreeks op de virtuele machines (VM's) in een Batch-pool hebt uitgevoerd, maar u kunt nu een Batch-pool instellen om uit te voeren taken in Docker-containers.
 
@@ -112,12 +112,11 @@ Het proces pull (of prefetch) kunt u vooraf laden van installatiekopieën van de
 
 ### <a name="pool-without-prefetched-container-images"></a>Toepassingen zonder afbeeldingen tabelruimte container
 
-Voor het configureren van de groep zonder afbeeldingen tabelruimte container gebruiken een `ContainerConfiguration` zoals weergegeven in het volgende voorbeeld. Dit en de volgende voorbeelden wordt ervan uitgegaan dat u van een aangepaste installatiekopie van Ubuntu 16.04 TNS met Docker-Engine is geïnstalleerd gebruikmaakt.
+Voor het configureren van de groep zonder tabelruimte container afbeeldingen definiëren `ContainerConfiguration` en `VirtualMachineConfiguration` objecten, zoals wordt weergegeven in het volgende voorbeeld. Dit en de volgende voorbeelden wordt ervan uitgegaan dat u van een aangepaste installatiekopie van Ubuntu 16.04 TNS met Docker-Engine is geïnstalleerd gebruikmaakt.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>Prefetch-installatiekopieën voor de configuratie van de container
 
-Als u wilt prefetch installatiekopieën van de container voor de toepassingen, de lijst van installatiekopieën van de container toevoegen (`containerImageNames`) naar de container configuration en geven de installatiekopie van een naam lijst. Het volgende voorbeeld wordt ervan uitgegaan dat u gebruikmaakt van een aangepaste installatiekopie van Ubuntu 16.04 TNS, de installatiekopie van een TensorFlow van prefetch [Docker Hub](https://hub.docker.com), en TensorFlow in een begintaak te starten.
+Als u wilt prefetch installatiekopieën van de container voor de toepassingen, de lijst van installatiekopieën van de container toevoegen (`containerImageNames`) naar de `ContainerConfiguration`, en geef een naam op voor de lijst met afbeeldingen. Het volgende voorbeeld wordt ervan uitgegaan dat u gebruikmaakt van een aangepaste installatiekopie van Ubuntu 16.04 TNS, de installatiekopie van een TensorFlow van prefetch [Docker Hub](https://hub.docker.com), en TensorFlow in een begintaak te starten.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Prefetch installatiekopieën van een privé-container-register
 
-U kunt ook prefetch-installatiekopieën van de container door de verificatie bij een privé-container register-server. Het volgende voorbeeld wordt ervan uitgegaan dat u van een aangepaste Ubuntu 16.04 TNS installatiekopie gebruikmaakt en zijn veelgevraagde een persoonlijke TensorFlow afbeelding uit een container voor persoonlijke Azure-register.
+U kunt ook prefetch-installatiekopieën van de container door de verificatie bij een privé-container register-server. In het volgende voorbeeld wordt de `ContainerConfiguration` en `VirtualMachineConfiguration` objecten een aangepaste installatiekopie van het Ubuntu 16.04 TNS gebruiken en de installatiekopie van een persoonlijke TensorFlow prefetch uit een container voor persoonlijke Azure-register.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

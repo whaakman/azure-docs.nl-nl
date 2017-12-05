@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d4e3fc4f30d5c7b147fb460fb43367aef19118
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met Git
 > 
@@ -284,7 +284,7 @@ Zie voor informatie over andere manieren voor het beheren van uw service-exempla
   * [Naslaginformatie over PowerShell-cmdlets voor service-implementatie](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Service management PowerShell-cmdlet-verwijzing](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * Beheren van uw service-exemplaar in de publicatieportal
-  * [Uw eerste API beheren](api-management-get-started.md)
+  * [Uw eerste API beheren](import-and-publish.md)
 * Beheren van uw service-exemplaar met de REST API
   * [Naslaginformatie over API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

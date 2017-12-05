@@ -3,22 +3,21 @@ title: Beveiligen van een Web-API-back-end met Azure Active Directory en API Man
 description: Informatie over het beveiligen van een Web-API-back-end met Azure Active Directory en API Management.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3dd583c47fd2d9133c8a07e7bedcd49750ffdce4
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Het beveiligen van een Web-API-back-end met Azure Active Directory en API Management
 De volgende video ziet u hoe het bouwen van een Web-API-back-end en beveiligen met behulp van OAuth 2.0-protocol met Azure Active Directory en API Management.  Dit artikel bevat een overzicht en aanvullende informatie voor de stappen in de video. Deze 24 minuut video ziet u hoe aan:
@@ -378,21 +377,21 @@ De eerste stap bij het configureren van de portal voor ontwikkelaars om te verif
 
 Navigeer naar de Azure AD-tenant van de eerste stap in deze video in dit voorbeeld **APIMDemo** en navigeer naar de **toepassingen** tabblad.
 
-![nieuwe toepassing][api-management-aad-new-application-devportal]
+![Nieuwe toepassing][api-management-aad-new-application-devportal]
 
 Klik op de **toevoegen** klikken om een nieuwe Azure Active Directory-toepassing maken en kies **mijn organisatie ontwikkelt toepassing toevoegen**.
 
-![nieuwe toepassing][api-management-new-aad-application-menu]
+![Nieuwe toepassing][api-management-new-aad-application-menu]
 
 Kies **Web-toepassing en/of Web-API**, voer een naam in en klik op de pijl Volgende. In dit voorbeeld **APIMDeveloperPortal** wordt gebruikt.
 
-![nieuwe toepassing][api-management-aad-new-application-devportal-1]
+![Nieuwe toepassing][api-management-aad-new-application-devportal-1]
 
 Voor **aanmeldings-URL** Voer de URL van uw API Management-service en toevoeg- `/signin`. In dit voorbeeld `https://contoso5.portal.azure-api.net/signin` wordt gebruikt.
 
 Voor **App-Id-URL** Voer de URL van uw API Management-service en het toevoegen van enkele unieke tekens. Deze mag gewenste tekens lang zijn en in dit voorbeeld `https://contoso5.portal.azure-api.net/dp` wordt gebruikt. Wanneer de gewenste **App-eigenschappen** zijn geconfigureerd, klikt u op het vinkje om de toepassing te maken.
 
-![nieuwe toepassing][api-management-aad-new-application-devportal-2]
+![Nieuwe toepassing][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Een API Management OAuth 2.0-autorisatie-server configureren
 De volgende stap is het configureren van een OAuth 2.0-autorisatie-server in API Management. Deze stap wordt geïllustreerd in de video op 9:43 wordt gestart.
@@ -437,7 +436,7 @@ Ophalen van de **Client-Id**, gaat u naar de **configureren** tabblad van de AAD
 
 Ophalen van de **Clientgeheim** klikt u op de **Selecteer duur** omlaag in de **sleutels** sectie en geeft u een interval. In dit voorbeeld wordt 1 jaar gebruikt.
 
-![Client-ID][api-management-aad-client-id]
+![Client-id][api-management-aad-client-id]
 
 Klik op **opslaan** de configuratie op te slaan en de sleutel wordt weergegeven. 
 
@@ -561,5 +560,5 @@ Zie voor een andere demonstratie van configureren en gebruiken van dit beleid [C
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

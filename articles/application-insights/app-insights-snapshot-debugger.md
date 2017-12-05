@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
@@ -27,6 +27,16 @@ U kunt momentopnamen foutopsporing weergeven in de portal om te zien van de aanr
 Verzameling van de momentopname is beschikbaar voor:
 * .NET framework en ASP.NET-toepassingen met .NET Framework 4.5 of hoger.
 * .NET core 2.0 en ASP.NET Core 2.0-toepassingen worden uitgevoerd op Windows.
+
+De volgende omgevingen worden ondersteund:
+* Azure App Service.
+* Azure Cloud Service OS-familie met 4 of hoger.
+* Azure Service Fabric-services met Windows Server 2012 R2 of hoger.
+* Virtuele Machines in Azure waarop Windows Server 2012 R2 of hoger.
+* On-premises virtuele of fysieke machines met Windows Server 2012 R2 of hoger.
+
+> [!NOTE]
+> Client-toepassingen (bijvoorbeeld WPF, Windows Forms of UWP) worden niet ondersteund.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Momentopname verzamelen voor ASP.NET-toepassingen configureren
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>COMPUTE context opties voor R Server op HDInsight
 
@@ -33,12 +33,12 @@ Het edge-knooppunt van een cluster is een handige locatie verbinding maken met h
 ## <a name="compute-contexts-for-an-edge-node"></a>COMPUTE contexten voor een edge-knooppunt
 In het algemeen een R-script wordt uitgevoerd in R Server op de edge-knooppunt uitgevoerd binnen de R-interpreter op dat knooppunt. De uitzonderingen zijn de stappen die een ScaleR functie aanroept. Het aanroepen van de ScaleR uitgevoerd in een compute-omgeving die wordt bepaald door de manier waarop u de context van de compute ScaleR instelt.  Wanneer u uw R-script vanaf een edge-knooppunt uitvoeren, wordt de mogelijke waarden van de compute-context zijn:
 
-- lokale opeenvolgende (*'local'*)
-- lokale parallel (*'localpar'*)
+- lokale opeenvolgende (*lokale*)
+- lokale parallel (*localpar*)
 - Kaart verminderen
 - Spark
 
-De *'local'* en *'localpar'* opties verschillen alleen in het **rxExec** aanroepen uitgevoerd. Ze beide uitgevoerd andere rx-functieaanroepen op een parallelle manier over alle beschikbare kernen tenzij anders is aangegeven door het gebruik van de ScaleR **numCoresToUse** optie, bijvoorbeeld `rxOptions(numCoresToUse=6)`. Parallelle uitvoeringsopties bieden optimale prestaties.
+De *lokale* en *localpar* opties verschillen alleen in het **rxExec** aanroepen uitgevoerd. Ze beide uitgevoerd andere rx-functieaanroepen op een parallelle manier over alle beschikbare kernen tenzij anders is aangegeven door het gebruik van de ScaleR **numCoresToUse** optie, bijvoorbeeld `rxOptions(numCoresToUse=6)`. Parallelle uitvoeringsopties bieden optimale prestaties.
 
 De volgende tabel geeft een overzicht van de verschillende compute context opties in te stellen hoe aanroepen uitgevoerd:
 
@@ -62,8 +62,8 @@ Welke van de drie opties die u kiest die geparallelliseerde uitvoering bieden is
 Deze principes gezien, bieden de volgende secties een aantal algemene regels van miniatuur voor het selecteren van een compute-context.
 
 ### <a name="local"></a>Lokaal
-* Als de hoeveelheid gegevens te analyseren klein is en geen herhaalde analyse vereist, klikt u vervolgens stream deze rechtstreeks in de analysis routinematige via *'local'* of *'localpar'*.
-* Als de hoeveelheid gegevens te analyseren kleine of middelgrote en herhaalde analyse is vereist, klikt u vervolgens kopiëren naar het lokale bestandssysteem op XDF importeren en analyseren via *'local'* of *'localpar'*.
+* Als de hoeveelheid gegevens te analyseren klein is en geen herhaalde analyse vereist, klikt u vervolgens stream deze rechtstreeks in de analysis routinematige via *lokale* of *localpar*.
+* Als de hoeveelheid gegevens te analyseren kleine of middelgrote en herhaalde analyse is vereist, klikt u vervolgens kopiëren naar het lokale bestandssysteem op XDF importeren en analyseren via *lokale* of *localpar*.
 
 ### <a name="hadoop-spark"></a>Hadoop, Spark
 * Als de hoeveelheid gegevens te analyseren groot is, dan importeren naar een Spark-DataFrame met **RxHiveData** of **RxParquetData**, of XDF in HDFS (tenzij er een probleem is met de opslag), en analyseren met behulp van de compute Spark context.
@@ -76,7 +76,7 @@ Zie voor meer informatie over en voorbeelden van ScaleR compute contexten, de in
 
     > ?rxSetComputeContext
 
-U kunt ook verwijzen naar de '[ScaleR gedistribueerde Computing handleiding](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)' die beschikbaar is in de [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server op MSDN") bibliotheek.
+U kunt ook verwijzen naar de [ScaleR gedistribueerde Computing handleiding](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) die beschikbaar is in de [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) bibliotheek.
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd over de opties die beschikbaar zijn om op te geven of en hoe de uitvoering is geparallelliseerde over kernen van de edge-knooppunt of de HDInsight-cluster. Zie de volgende onderwerpen voor meer informatie over het gebruik van R Server met HDInsight-clusters:

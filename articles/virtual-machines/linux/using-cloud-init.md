@@ -1,9 +1,9 @@
 ---
-title: Cloud-init gebruiken voor het aanpassen van een Linux-VM | Microsoft Docs
-description: Het gebruik van cloud-init voor het aanpassen van een Linux-VM tijdens het maken van met de Azure CLI 2.0
+title: Overzicht van cloud-init-ondersteuning voor virtuele Linux-machines in Azure | Microsoft Docs
+description: Overzicht van cloud-init-mogelijkheden in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: rickstercdn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,171 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: iainfou
-ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: rclaus
+ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Cloud-init gebruiken voor het aanpassen van een Linux VM in Azure
-Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) om in te stellen de hostnaam, pakketten bijwerken en beheren van gebruikersaccounts op een virtuele machine (VM) in Azure. Deze cloud init-scripts uitgevoerd op opstarten als u een virtuele machine met de Azure CLI 2.0 maken. Zie voor een meer gedetailleerd overzicht over het installeren van toepassingen, schrijven configuratiebestanden en sleutels van de Sleutelkluis invoeren, [in deze zelfstudie](tutorial-automate-vm-deployment.md). U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](using-cloud-init-nodejs.md).
-
+Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) scale ingesteld voor het configureren van een virtuele machine (VM) of de virtuele machine (VMSS) bij het inrichten van de tijd in Azure. Deze cloud init-scripts worden uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure.  
 
 ## <a name="cloud-init-overview"></a>Cloud-init-overzicht
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Omdat cloud init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of de vereiste agents naar uw configuratie toe te passen.  Voor meer informatie over de juiste indeling uw `#cloud-config` bestanden, Zie de [documentatiesite voor cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`fiels zijn tekstbestanden gecodeerd in base64.
 
 Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
 
-We werken met onze partners ophalen van cloud-init opgenomen en in de afbeeldingen die ze naar Azure bieden werkt. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de cloud init op Azure-platform installatiekopieën:
+ Er wordt om beschikbare installatiekopieën van het cloud-init zijn ingeschakeld in de Azure marketplace gewerkt met onze aangebracht Linux distro partners. Deze installatiekopieën brengt uw cloud-init-implementaties en configuraties naadloos werken met virtuele machines en VM Scale Sets (VMSS). De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de installatiekopieën van cloud-init zijn ingeschakeld op de Azure-platform:
 
-| Alias | Uitgever | Aanbieding | SKU | Versie |
+| Uitgever | Aanbieding | SKU | Versie | cloud-init gereed
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 TNS |meest recente |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |meest recente |
-| CoreOS |CoreOS |CoreOS |Stabiel |meest recente |
+|Canonical |UbuntuServer |16.04 TNS |meest recente |ja | 
+|Canonical |UbuntuServer |14.04.5-LTS |meest recente |ja |
+|CoreOS |CoreOS |Stabiel |meest recente |ja |
+|OpenLogic |CentOS |7 CI |meest recente |preview |
+|RedHat |RHEL |7 ONBEWERKTE CI |meest recente |preview |
 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Wat is het verschil tussen cloud init- en Linux-Agent (WALA)?
+WALA is een Azure-platform-specifieke agent gebruikt voor het inrichten en verwerken van de Azure-extensies VM's configureren. We zijn verbeteren van de taak van de configuratie van virtuele machines voor het gebruik van cloud-init in plaats van de Linux-Agent om bestaande cloud init klanten om hun huidige cloud init-scripts te gebruiken.  Als u investeringen in de cloud init-scripts hebt voor het configureren van Linux-systemen, er zijn **geen aanvullende instellingen vereist** te maken. 
 
-## <a name="set-the-hostname-with-cloud-init"></a>De hostnaam met cloud-init instellen
-Cloud-init-bestanden zijn geschreven in [YAML](http://www.yaml.org). Een cloud-init-script uitvoeren bij het maken van een virtuele machine in Azure met [az vm maken](/cli/azure/vm#create), geeft u het cloud-init-bestand met de `--custom-data` overschakelen. Bekijk enkele voorbeelden van wat u met een cloud-init-bestand configureren kunt. Een veelvoorkomend scenario is het instellen van de hostnaam van een virtuele machine. De hostnaam is standaard hetzelfde zijn als de naam van de VM. 
+Als u de opdrachtregeloptie AzureCLI niet opneemt `--custom-data` op het inrichten van tijd WALA neemt de minimale VM-inrichting van de vereiste parameters voor het inrichten van de virtuele machine en de implementatie met de standaardinstellingen te voltooien.  Als u verwijst naar de cloud-init `--custom-data` switch, wat is opgenomen in uw aangepaste gegevens (afzonderlijke instellingen of volledige script) onderdrukt de standaardwaarden WALA gedefinieerd. 
 
-Maak eerst een resourcegroep met [az groep maken](/cli/azure/group#create). Het volgende voorbeeld wordt de resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+WALA configuraties van virtuele machines zijn beperkt tot samenwerken om binnen de maximale duur van de VM-inrichting tijd.  Cloud-init-configuraties die zijn toegepast op virtuele machines hebben geen tijdsbeperkingen en leidt niet tot een implementatie mislukt door een time-out optreedt. 
 
-```azurecli
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Virtuele Machine voor het implementeren van een cloud-init ingeschakeld
+Een cloud-init ingeschakeld virtuele machine implementeert is net zo eenvoudig als het verwijst naar een distributiepunt cloud-init ingeschakeld tijdens de implementatie.  Linux-distributie instaan hebben te kiezen voor het inschakelen en cloud-init integreren in hun gepubliceerde basisinstallatiekopieën in Azure. Zodra u hebt vastgesteld dat de installatiekopie die u wilt implementeren cloud-init ingeschakeld is, kunt u de AzureCLI kunt gebruiken om de installatiekopie. 
+
+De eerste stap bij het implementeren van deze installatiekopie is voor het maken van een resourcegroep met de [az groep maken](/cli/azure/group#create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-
-Maak een bestand met de naam in uw huidige shell *cloud_init_hostname.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer in de Cloud-Shell `sensible-editor cloud_init_hostname.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
-
-```yaml
-#cloud-config
-hostname: myhostname
-```
-
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create) en geef het cloud-init-bestand met `--custom-data cloud_init_hostname.txt` als volgt:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMHostname \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_hostname.txt
-```
-
-Zodra gemaakt, bevat de Azure CLI informatie over de virtuele machine. Gebruik de `publicIpAddress` naar SSH met uw virtuele machine. Voer uw eigen adres als volgt:
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Als de naam van de virtuele machine wilt weergeven, gebruikt de `hostname` opdracht als volgt:
-
-```bash
-hostname
-```
-
-De virtuele machine moet de hostnaam als deze waarde is ingesteld in de cloud init-bestand, zoals wordt weergegeven in de volgende voorbeelduitvoer report:
-
-```bash
-myhostname
-```
-
-## <a name="update-a-vm-with-cloud-init"></a>Bijwerken van een virtuele machine met cloud-init
-Om veiligheidsredenen wilt u mogelijk een VM voor het toepassen van de meest recente updates op de eerste keer opstarten configureren. Als u cloud-init voor verschillende Linux-distributies werkt, is niet nodig om op te geven `apt` of `yum` voor de package manager. In plaats daarvan u definiëren `package_upgrade` en laat het cloud-init-proces bepalen van het juiste mechanisme voor het distro in gebruik. Deze werkstroom kunt u de dezelfde cloud init-scripts gebruiken via distributies.
-
-Om het upgradeproces in actie zien, maakt u een cloud-init-bestand met de naam *cloud_init_upgrade.txt* en plak de volgende configuratie:
+De volgende stap is het maken van een bestand in uw huidige shell, met de naam *cloud init.txt* en plak de volgende configuratie. Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt een editor die u wilt gebruiken. Voer `sensible-editor cloud-init.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
 
 ```yaml
 #cloud-config
 package_upgrade: true
+packages:
+  -httpd
 ```
+Druk op `ctrl-X` om af te sluiten van het bestand, typ `y` om op te slaan van het bestand en druk op `enter` om te bevestigen dat de bestandsnaam bij afsluiten.
 
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create) en geef het cloud-init-bestand met `--custom-data cloud_init_upgrade.txt` als volgt:
+De laatste stap is het maken van een virtuele machine met de [az vm maken](/cli/azure/vm#az_vm_create) opdracht. 
 
-```azurecli
+Het volgende voorbeeld wordt een virtuele machine met de naam *centos74* en SSH-sleutels gemaakt als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  Gebruik de `--custom-data` parameter om door te geven in uw cloud-init-configuratiebestand. Geef het volledige pad naar de *cloud init.txt* config als u het bestand buiten uw werkmap aanwezig opgeslagen. Het volgende voorbeeld wordt een virtuele machine met de naam *centos74*:
+
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUpgrade \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_upgrade.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-SSH kunt uitvoeren naar het openbare IP-adres van uw virtuele machine wordt weergegeven in de uitvoer van de voorgaande opdracht. Voer uw eigen openbare IP-adres:
+Als de virtuele machine is gemaakt, de Azure CLI worden gegevens weergegeven specifiek zijn voor uw implementatie. Noteer het `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.  Het duurt enige tijd voor de virtuele machine moet worden gemaakt, de pakketten te installeren en de app te starten. Er zijn achtergrondtaken die uitvoeren blijven nadat de Azure CLI keert u terug naar de prompt. U kunt SSH in de virtuele machine en de stappen in de sectie probleemoplossing gebruiken om de cloud init-logboeken weer te geven. 
 
-```bash
-ssh azureuser@publicIpAddress
-```
+## <a name="troubleshooting-cloud-init"></a>Cloud-init probleemoplossing
+Zodra de virtuele machine is ingericht, Cloud init wordt uitgevoerd via alle modules en scripts die zijn gedefinieerd in `--custom-data` om te configureren van de virtuele machine.  Als u oplossen wilt, fouten of nalatig gedrag van de configuratie, moet u zoeken naar de naam van de module (`disk_setup` of `runcmd` bijvoorbeeld) in het logboek cloud init - bevindt zich in **/var/log/cloud-init.log**.
 
-De pakket-beheerprogramma en controleren op updates uitvoeren. Het volgende voorbeeld wordt `apt-get` op een Ubuntu-VM:
+> [!NOTE]
+> Niet elke-modulefout resulteert in een cloud-init fatale fout bij het algemene configuratie. Bijvoorbeeld, met behulp van de `runcmd` -module, als het script is mislukt, cloud init nog steeds rapporteert inrichten is voltooid omdat de module runcmd uitgevoerd.
 
-```bash
-sudo apt-get upgrade
-```
-
-Omdat cloud init gecontroleerd en updates geïnstalleerd op opstarten, zijn er geen updates toe te passen, zoals wordt weergegeven in de volgende voorbeelduitvoer:
-
-```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Een gebruiker toevoegen aan een virtuele machine met cloud-init
-Een van de eerste taken op een nieuwe Linux-VM is het toevoegen van een gebruiker voor uzelf om te voorkomen dat het gebruik van *hoofdmap*. SSH-sleutels zijn best practice voor beveiliging en gebruiksgemak. Sleutels worden toegevoegd aan de *~/.ssh/authorized_keys* bestand met dit script cloud init.
-
-Als u wilt een gebruiker toevoegt aan een Linux-VM, maak een cloud-init-bestand met de naam *cloud_init_add_user.txt* en plak de volgende configuratie. Uw eigen openbare sleutel opgeven (zoals de inhoud van *~/.ssh/id_rsa.pub*) voor *ssh-geautoriseerd-sleutels*:
-
-```yaml
-#cloud-config
-users:
-  - name: myadminuser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>
-```
-
-Maak nu een virtuele machine met [az vm maken](/cli/azure/vm#create) en geef het cloud-init-bestand met `--custom-data cloud_init_add_user.txt` als volgt:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUser \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_add_user.txt
-```
-
-SSH kunt uitvoeren naar het openbare IP-adres van uw virtuele machine wordt weergegeven in de uitvoer van de voorgaande opdracht. Voer uw eigen openbare IP-adres:
-
-```bash
-ssh myadminuser@publicIpAddress
-```
-
-De inhoud van bekijken om te bevestigen op de gebruiker is toegevoegd aan de virtuele machine en de opgegeven groepen, de */etc/groep* als volgt:
-
-```bash
-cat /etc/group
-```
-
-De volgende voorbeelduitvoer wordt weergegeven voor de gebruiker uit de *cloud_init_add_user.txt* bestand is toegevoegd aan de virtuele machine en de juiste groep:
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myadminuser
-<snip />
-myadminuser:x:1000:
-```
+Raadpleeg voor meer informatie over logboekregistratie van cloud-init de [cloud init-documentatie](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Volgende stappen
-Cloud-initialisatie is een van de standaard manieren om te wijzigen van uw virtuele Linux-machines op opstarten. In Azure, kunt u VM-extensies ook gebruiken om te wijzigen van uw Linux-VM op opstarten of wanneer deze wordt uitgevoerd. Bijvoorbeeld, kunt u de Azure VM-extensie voor een script uitvoeren op een actieve virtuele machine, niet alleen op eerst op te starten. Zie voor meer informatie over de VM-extensies [VM-extensies en functies](extensions-features.md), of Zie voor voorbeelden voor het gebruik van de extensie [gebruikers beheren, SSH, en controleer of het herstellen van schijven op Azure Linux VM's met behulp van de VMAccess-extensie](using-vmaccess-extension.md).
+Zie de volgende documenten voor cloud-init voorbeelden van wijzigingen in de configuratie:
+ 
+- [Een extra Linux-gebruiker toevoegen aan een virtuele machine](cloudinit-add-user.md)
+- [Voer een Pakketbeheer voor het bijwerken van bestaande pakketten op de eerste keer opstarten](cloudinit-update-vm.md)
+- [Wijzigen van de lokale hostnaam VM](cloudinit-update-vm-hostname.md) 
+- [Installeren van een toepassingspakket, het bijwerken van de configuratiebestanden en het invoeren van sleutels](tutorial-automate-vm-deployment.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst van IoT-Hub
 In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Hub.
@@ -35,9 +35,6 @@ De [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is een 
 
 ## <a name="azure-iot-device-sdks"></a>Apparaat met Azure IoT SDK 's
 Er zijn _apparaat-SKD's_ beschikbaar zijn voor meerdere talen die het mogelijk maken [apparaat-apps](#device-app) die communiceren met een IoT-hub. De zelfstudies IoT Hub laten zien hoe deze apparaat-SDK's gebruiken. U vindt de broncode en meer informatie over het apparaat-SDK's in deze GitHub [opslagplaats](https://github.com/Azure/azure-iot-sdks).
-
-## <a name="azure-iot-edge"></a>Azure IoT Edge
-Azure IoT-rand wordt verplaatst cloud analytics en aangepaste bedrijfsregels naar apparaten zodat uw organisatie zich op zakelijke inzichten in plaats van het beheer van gegevens concentreren kan. Schakel uw oplossing volledig schalen door het configureren van uw IoT-software, geïmplementeerd op apparaten via de standaard containers en toezicht vanuit de cloud. Aan de slag met een zelfstudie u hoe installeren en gebruiken van Azure IoT Edge ziet op een [Linux](../iot-edge/tutorial-simulate-device-linux.md) of [Windows](../iot-edge/tutorial-simulate-device-windows.md) apparaat.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT service SDK 's
 Er zijn _service-SDK's_ beschikbaar zijn voor meerdere talen die het mogelijk maken [back-end apps](#back-end-app) die communiceren met een IoT-hub. De zelfstudies IoT Hub laten zien hoe deze service-SDK's gebruiken. U vindt de broncode en meer informatie over de service-SDK's in deze GitHub [opslagplaats](https://github.com/Azure/azure-iot-sdks).
@@ -146,7 +143,7 @@ Een iothub toont meerdere [eindpunten](iot-hub-devguide-endpoints.md) die ervoor
 ## <a name="event-hubs-service"></a>Event Hubs-service
 [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is een uiterst schaalbare gegevens ingress-service die, miljoenen opnemen kan gebeurtenissen per seconde. De service kunt u om te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Zie voor een vergelijking met de service IoT Hub [vergelijking van Azure IoT Hub en Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
-## <a name="event-hub-compatible-endpoint"></a>Event Hub-compatibele eindpunt
+## <a name="event-hub-compatible-endpoint"></a>Event Hub-compatibel eindpunt
 Lezen [apparaat-naar-cloud](#device-to-cloud) berichten verzonden naar uw IoT-hub, kunt u verbinding maken met een eindpunt op uw hub en een Event Hub-compatibele TriggerSet-methode gebruiken om de berichten te lezen. Event Hub-compatibele methoden omvatten het gebruik van de [Event Hubs SDK's](../event-hubs/event-hubs-programming-guide.md) en [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Veldgateway
@@ -163,6 +160,49 @@ De [identiteitsregister](iot-hub-devguide-identity-registry.md) is het ingebouwd
 
 ## <a name="interactive-message"></a>Interactieve bericht
 Een interactieve bericht is een [cloud-naar-apparaat](#cloud-to-device) bericht dat een onmiddellijke actie in de back-end oplossing activeert. Een apparaat kan bijvoorbeeld een waarschuwing over een fout die moet worden automatisch aangemeld bij een CRM-systeem te verzenden.
+
+## <a name="iot-edge"></a>IoT Edge
+Azure IoT-rand kunt cloud gebaseerde implementatie van Azure-services en oplossings-specifieke code naar on-premises apparaten. IoT Edge-apparaten aggregeert gegevens van andere apparaten uit te voeren computing en analytics voordat de gegevens worden verzonden naar de cloud. Zie voor meer informatie [Azure IoT rand](https://docs.microsoft.com/en-us/azure/iot-edge/).
+
+## <a name="iot-edge-agent"></a>Rand van de IoT-agent
+Het gedeelte van de rand van de IoT-runtime verantwoordelijk voor het implementeren en bewaken van modules.
+
+## <a name="iot-edge-device"></a>IoT Edge-apparaat
+IoT Edge-apparaten hebben de rand van de IoT-runtime is geïnstalleerd en zijn gemarkeerd als 'IoT rand apparaat' in de details van het apparaat. Meer informatie over hoe [Azure IoT rand implementeren op een gesimuleerd apparaat in Linux - voorbeeld](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
+
+## <a name="iot-edge-deployment"></a>Rand van de IoT-implementatie
+De implementatie van een IoT-rand configureert u een doelset IoT randapparaten modules voor een set van IoT rand uitvoeren. Elke implementatie is continu zorgt ervoor dat alle apparaten die de doelvoorwaarden overeenkomen met de opgegeven reeks modules, zelfs wanneer nieuwe apparaten worden gemaakt of zijn gewijzigd zodat deze overeenkomen met de doel-voorwaarde. Elke IoT randapparaat wordt alleen de hoogste prioriteit implementatie waarvan het voldoet aan doelvoorwaarden ontvangt. Meer informatie over [IoT rand implementatie](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+
+## <a name="iot-edge-deployment-manifest"></a>IoT-rand deployment manifest
+Een Json-document met de gegevens wilt kopiëren op een of meer IoT randapparaten van de module twin(s) voor het implementeren van een reeks modules, routes en bijbehorende module gewenste eigenschappen.
+
+## <a name="iot-edge-gateway-device"></a>IoT gateway randapparaat
+Een IoT randapparaat met downstream-apparaat. Het downstream apparaat kan IoT rand of niet-Edge van de IoT-apparaat zijn.
+
+## <a name="iot-edge-hub"></a>Rand van de IoT hub
+Het deel van de rand van de IoT-runtime die verantwoordelijk is voor de module-module-communicatie (naar IoT Hub) upstream- en downstream (weg van IoT Hub) communicatie. 
+
+## <a name="iot-edge-leaf-device"></a>IoT leaf randapparaat
+Een IoT randapparaat met geen downstream-apparaat. 
+
+## <a name="iot-edge-module"></a>Rand van de IoT-module
+Een IoT-Edge-module is een Docker-container die u aan de rand van de IoT-apparaten kunt implementeren. Hiermee een specifieke taak, zoals het opnemen van een bericht van een apparaat, een bericht transformeren of een bericht verzenden naar een IoT-hub worden uitgevoerd. Deze communiceert met andere modules en verzendt gegevens naar de rand van de IoT-runtime. [Overzicht van de vereisten en hulpmiddelen voor het ontwikkelen van IoT rand modules](https://docs.microsoft.com/en-us/azure/iot-edge/module-development).
+
+## <a name="iot-edge-module-identity"></a>IoT-rand module identiteit
+Een record in het identiteitenregister van de IoT Hub-module met gedetailleerde informatie over de referenties bestaan en de beveiliging moet worden gebruikt door een module voor verificatie met een edge-hub of IoT Hub.
+
+## <a name="iot-edge-module-image"></a>Afbeelding van IoT Edge-module
+De docker-afbeelding die wordt gebruikt door de runtime IoT rand instantiëren van exemplaren van de module.
+
+## <a name="iot-edge-module-twin"></a>IoT-rand module twin
+Een Json-document permanent in de IoT-Hub waarmee de statusinformatie voor een exemplaar van de module worden opgeslagen. 
+
+## <a name="iot-edge-runtime"></a>IoT Edge-runtime
+IoT-rand runtime omvat alle informatie die Microsoft distribueert om te worden geïnstalleerd op een Edge van de IoT-apparaat. Het Edge-agent, Edge hub en rand CTL hulpprogramma opgenomen.
+
+## <a name="iot-edge-set-modules-to-a-single-device"></a>IoT-rand modules ingesteld op één apparaat
+Een bewerking die de inhoud van een manifest van de rand van IoT op één apparaat kopieert ' module twin. De onderliggende API is een algemeen 'configuratie toepassen', die nodig is gewoon een manifest IoT rand als invoer.
+s
 
 ## <a name="iot-hub"></a>IoT Hub
 IoT Hub is een volledig beheerde Azure-service die stabiele en veilige tweerichtingscommunicatie tussen miljoenen apparaten maakt en een back-end oplossing. Zie voor meer informatie [wat is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Met behulp van uw [Azure-abonnement](#subscription), kunt u IoT hubs voor het afhandelen van uw IoT messaging-werkbelastingen.
@@ -188,9 +228,6 @@ De back-end van uw oplossing kunt [taken](iot-hub-devguide-jobs.md) plannen en b
 ## <a name="jobs-rest-api"></a>Taken REST-API
 De [taken REST-API](https://docs.microsoft.com/rest/api/iothub/jobapi) kunt u beheren [taken](#job) uitgevoerd in uw IoT-hub.
 
-## <a name="module"></a>Module
-In [Azure IoT rand](../iot-edge/tutorial-simulate-device-linux.md), een [module](../iot-edge/iot-edge-modules.md) is een onderdeel dat een specifieke taak uitvoert. Taken kunnen omvatten het opnemen van een bericht van een apparaat, een bericht transformeren of een bericht verzenden naar een IoT-hub. Een broker is verantwoordelijk voor het doorsturen van berichten tussen modules. Azure IoT-rand bevat een set van voorbeeld-modules. U kunt ook uw eigen aangepaste modules maken.
-
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) is een van de messaging-protocollen die [IoT Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub ondersteunt [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
 
@@ -202,6 +239,9 @@ Een fysiek apparaat is een echte apparaat zoals een frambozen Pi die verbinding 
 
 ## <a name="primary-and-secondary-keys"></a>Primaire en secundaire sleutels
 Wanneer u verbinding met een apparaat gerichte of gerichte service-eindpunt op een IoT-hub maakt uw [verbindingsreeks](#connection-string) sleutel om u toegang kunt krijgen. Wanneer u een apparaat toevoegt aan de [identiteitsregister](#identity-registry) of Voeg een [gedeeld toegangsbeleid](#shared-access-policy) op uw hub, de service een primaire en secundaire sleutel gegenereerd. Twee sleutels, kunt u overschakelen van de ene sleutel naar een andere wanneer u een sleutel bijwerken zonder verlies van toegang met de iothub.
+
+## <a name="priority"></a>Prioriteit
+Wanneer twee implementaties van IoT rand gericht op hetzelfde apparaat, wordt de implementatie met een hogere prioriteit wordt toegepast. Als twee implementaties dezelfde prioriteit hebben, wordt de implementatie met de latere aanmaakdatum toegepast. Meer informatie over [prioriteit](#https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## <a name="protocol-gateway"></a>Protocolgateway
 Een protocolgateway wordt meestal geïmplementeerd in de cloud en protocol biedt services voor apparaten die verbinding maken met de vertaling [IoT Hub](#iot-hub). Zie voor meer informatie [wat is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
@@ -247,6 +287,9 @@ In de context van een [apparaat twin](iot-hub-devguide-device-twins.md), Systeem
 
 ## <a name="tags"></a>Tags
 In de context van een [apparaat twin](iot-hub-devguide-device-twins.md), labels, zijn de Apparaatmetagegevens van het opgeslagen en opgehaald door de back-end oplossing in de vorm van een JSON-document. Labels zijn niet zichtbaar voor apps op een apparaat.
+
+## <a name="target-condition"></a>Doelvoorwaarden
+In de implementatie van een IoT-rand doelvoorwaarden is een Boole-voorwaarde apparaat horende tags selecteren de doelapparaten van de implementatie, bijvoorbeeld ' tag.environment = prod '. De doelvoorwaarden wordt continu op te nemen van nieuwe apparaten die voldoen aan de vereisten of verwijderen van apparaten die niet langer geëvalueerd. Meer informatie over [voorwaarde zijn gericht](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>Telemetrie
 Apparaten telemetriegegevens, zoals o snelheid of temperatuur, verzamelen en gebruiken [gegevenspunt berichten](#data-point-messages) de telemetrie verzendt naar een IoT-hub.

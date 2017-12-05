@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure-Stack Development Kit release-opmerkingen
 
@@ -56,7 +56,7 @@ Deze releaseopmerkingen bevatten informatie over verbeteringen, correcties en be
    Om de problemen met de laatste twee omzeilen, kunt u de naam van het abonnement of resourcegroep (als u deze kent) typen of u kunt in plaats daarvan PowerShell gebruiken.
 
 - U ziet een **activering vereist** waarschuwingsmelding dat aangeeft dat het registreren van uw Azure-Stack Development Kit noodzakelijk. Dit is verwacht gedrag.
-- In de **activering vereist** waarschuwing Waarschuwingsdetails, niet op de koppeling naar de **AzureBridge** onderdeel. Als u dit doet, de **overzicht** blade zonder succes probeert te laden, en won't time-out.
+- Als de **onderdeel** koppeling wordt geklikt vanaf elke **infrastructuurrol** waarschuwing, wordt de resulterende **overzicht** blade probeert te laden en mislukt. Bovendien de ** overzicht ** blade biedt geen time-out.
 - Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
 - U bent geen kunnen machtigingen aan uw abonnement weergeven met behulp van de Azure-Stack-portals. Als tijdelijke oplossing kunt u machtigingen controleren met behulp van PowerShell.
  

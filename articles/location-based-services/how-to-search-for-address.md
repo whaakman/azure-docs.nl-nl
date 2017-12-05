@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Het zoeken van een adres met behulp van de zoekservice Azure locatie op basis van Services (preview)
 De Search-service is een RESTful reeks API's die zijn ontworpen voor ontwikkelaars om te zoeken naar adressen, locaties, punten van belang, lijsten van bedrijven en andere geografische informatie. Een breedtegraad/lengtegraad wijst de Search-Service naar een specifiek adres, cross straat, geografische functie of interessante (POI). Breedtegraad en lengtegraad waarden geretourneerd door de zoekservice API's kunnen worden gebruikt als parameters in andere Azure locatie op basis van Services zoals de verkeer stromen API's en Route.
@@ -62,12 +62,11 @@ De meeste zoekopdrachten standaard ingesteld op ' maxFuzzyLevel = 1' om toegang 
     
     De resultaten voor deze query, niet gekoppeld aan een bepaalde referentielocatie verspreid. U kunt de **countrySet** parameter om alleen de landen waarvoor uw toepassing dekking moet, zoals het standaardgedrag is om te zoeken van de hele wereld, mogelijk onnodige resultaten retourneren.
 
-5. De volgende waarde toevoegen aan de query en klik op **verzenden**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Zorg ervoor dat u door komma's-afzonderlijke de extra URI parameters in de queryreeks.
+5. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
+
+    | Sleutel | Waarde |
+    |------------------|-------------------------|
+    | countrySet | VS |
     
     De resultaten zijn nu begrensd door de landcode en retourneert de query in een restaurant pizza in de Verenigde Staten.
     
@@ -116,10 +115,11 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
         400 Broad, Seattle
     ```
 
-5. De volgende waarde toevoegen aan de query en klik op **verzenden**:
-    ```
-        ,typeahead
-    ```
+5. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
+
+    | Sleutel | Waarde |
+    |-----|------------|
+    | typeahead | waar |
 
     De **typeahead** vlag wordt de API-adres zoeken aan de query behandelen als een gedeeltelijke invoer en een matrix van voorspellende waarden retourneren.
 
@@ -150,37 +150,43 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     Het antwoord bevat de POI-vermelding voor Safeco Field poi categorie 'stadium'. 
     
-4. De volgende waarde toevoegen aan de query en klik op **verzenden**:
-    ```
-        ,number
-    ```
+4. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
+
+    | Sleutel | Waarde |
+    |-----|------------|
+    | nummer | waar |
+
     Als de [getal](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter met de aanvraag is verzonden, moet het antwoord eventueel de kant van de straat (links/rechts) en ook de positie van een offset voor dat nummer.
     
-5. De volgende waarde toevoegen aan de query en klik op **verzenden**:
-    ```
-        ,spatialKeys
-    ```
+5. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
+
+    | Sleutel | Waarde |
+    |-----|------------|
+    | spatialKeys | waar |
 
     Wanneer de [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord bevat eigen geo-ruimtelijke belangrijke informatie voor een opgegeven locatie.
 
-6. De volgende waarde toevoegen aan de query en klik op **verzenden**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
+
+    | Sleutel | Waarde |
+    |-----|------------|
+    | returnSpeedLimit | waar |
     
     Wanneer de [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, het antwoord geretourneerd van de geboekte limiet voor snelheid.
 
-7. De volgende waarde toevoegen aan de query en klik op **verzenden**:
-    ```
-        ,returnRoadUse
-    ```
+7. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
+
+    | Sleutel | Waarde |
+    |-----|------------|
+    | returnRoadUse | waar |
 
     Wanneer de [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord retourneert de weg gebruik matrix voor reversegeocodes op niveau van de straat.
 
-8. De volgende waarde toevoegen aan de query en klik op **verzenden**:
-    ```
-        ,roadUse
-    ```
+8. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
+
+    | Sleutel | Waarde |
+    |-----|------------|
+    | roadUse | waar |
 
     U kunt de omgekeerde geocode query beperken tot een specifiek type van het gebruik van weg gebruik de [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter.
     

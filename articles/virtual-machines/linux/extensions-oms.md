@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensie van de virtuele machine OMS voor Linux
 
@@ -41,6 +41,10 @@ De extensie OMS-Agent kan worden uitgevoerd op basis van deze Linux-distributies
 | Debian GNU/Linux | 6, 7 en 8 |
 | Ubuntu | 12.04 TNS, 14.04 TNS, 15.04, 15.10, 16.04 TNS |
 | SUSE Linux Enterprise Server | 11 en 12 |
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center wordt automatisch voorziet in de OMS-agent en is verbonden met de standaard log analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte en einde van de verbinding met Azure Security Center overschreven.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 

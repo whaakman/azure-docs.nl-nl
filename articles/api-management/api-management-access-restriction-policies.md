@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Beperking van API Management toegangsbeleid
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,17 +26,11 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ##  <a name="AccessRestrictionPolicies"></a>Softwarerestrictiebeleid toegang  
   
 -   [Controle van HTTP-header](api-management-access-restriction-policies.md#CheckHTTPHeader) -afdwingt bestaan en/of de waarde van een HTTP-Header.  
-  
 -   [Aanroepfrequentie per abonnement](api-management-access-restriction-policies.md#LimitCallRate) -API wordt voorkomen dat gebruik wordt bereikt door het beperken van de aanroepfrequentie per abonnement op basis van een.  
-  
 -   [Aanroepfrequentie per sleutel](#LimitCallRateByKey) -API wordt voorkomen dat gebruik wordt bereikt door het beperken van de aanroepfrequentie per sleutel op basis van een.  
-  
 -   [Aanroeper IP-adressen beperken](api-management-access-restriction-policies.md#RestrictCallerIPs) -Filters (kunt/weigert) aanroepen van bepaalde IP-adressen en/of -adresbereiken.  
-  
 -   [Gebruiksquotum per abonnement instellen](api-management-access-restriction-policies.md#SetUsageQuota) -Hiermee kunt u een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van per abonnement afdwingen.  
-  
 -   [Gebruiksquotum instellen door sleutel](#SetUsageQuotaByKey) -Hiermee kunt u een vernieuwd of levensduur aanroep volume en/of bandbreedte quotum, op basis van de sleutel per afdwingen.  
-  
 -   [Valideren van JWT](api-management-access-restriction-policies.md#ValidateJWT) -afdwingt bestaan en de geldigheid van een JWT opgehaald uit een opgegeven HTTP-koptekst of een opgegeven queryparameter.  
   
 ##  <a name="CheckHTTPHeader"></a>Controleer de HTTP-header  
@@ -127,7 +121,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |naam|De naam van de API voor de frequentielimiet wordt toegepast.|Ja|N.v.t.|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Ja|N.v.t.|  
+|oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Ja|N.v.t.|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
@@ -183,7 +177,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Ja|N.v.t.|  
+|oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Ja|N.v.t.|  
 |tegenpartij sleutel|De sleutel moet worden gebruikt voor het frequentielimietbeleid.|Ja|N.v.t.|  
 |verhoging voorwaarde|De Boole-expressie opgeven als de aanvraag moet worden geteld voor het quotum (`true`).|Nee|N.v.t.|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
@@ -235,7 +229,6 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
-  
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="SetUsageQuota"></a>Gebruiksquotum per abonnement instellen  
@@ -284,14 +277,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |----------|-----------------|--------------|-------------|  
 |naam|De naam van de API of de bewerking waarvoor het quotum van toepassing.|Ja|N.v.t.|  
 |Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
+|oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
-  
 -   **Beleid scopes:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a>Gebruiksquotum instellen door sleutel  
@@ -343,7 +335,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
-|aanroepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
+|oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N.v.t.|  
 |tegenpartij sleutel|De sleutel moet worden gebruikt voor het quotumbeleid.|Ja|N.v.t.|  
 |verhoging voorwaarde|De Boole-expressie opgeven als de aanvraag moet worden geteld voor het quotum (`true`)|Nee|N.v.t.|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N.v.t.|  
@@ -352,7 +344,6 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
-  
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ##  <a name="ValidateJWT"></a>JWT valideren  
@@ -511,20 +502,25 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |kan geen validatie httpcode|HTTP-statuscode te retourneren als de JWT niet gevalideerd worden.|Nee|401|  
 |header-naam|De naam van de HTTP-header van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N.v.t.|  
 |id|De `id` -kenmerk uit voor de `key` element kunt u opgeven van de tekenreeks die wordt vergeleken met `kid` claim in het token (indien aanwezig) om erachter te komen met de juiste sleutel moet worden gebruikt voor validatie van handtekening.|Nee|N.v.t.|  
-|Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all`-de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any`-ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|Alle|  
+|Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all`-de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any`-ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|all|  
 |query-paremeter-naam|De naam van de de queryparameter van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N.v.t.|  
-|vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in het token is vereist.|Nee|De waarde True|
+|vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in het token is vereist.|Nee|waar|
 |vereisen schema|De naam van het token schema, bijvoorbeeld 'Bearer'. Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N.v.t.|
-|vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist om te worden ondertekend.|Nee|De waarde True|  
+|vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist om te worden ondertekend.|Nee|waar|  
 |Scheidingsteken|De tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt voor een set waarden extraheren uit een claim meerdere waarden.|Nee|N.v.t.| 
-|URL|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N.v.t.|  
+|url|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
-  
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  
+
+Zie voor meer informatie, werken met beleid:
+
++ [Beleidsregels in API Management](api-management-howto-policies.md)
++ [Transformeren API 's](transform-api.md)
++ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Voorbeelden van beleid](policy-samples.md)   
