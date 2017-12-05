@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Fout tijdens verwerken van in API Management-beleidsregels
 Azure API Management kunnen publishers te reageren op fouten die optreden tijdens de verwerking van aanvragen naar de proxy door een `ProxyError` object. De `ProxyError` object kan worden geopend via de [context. LastError](api-management-policy-expressions.md#ContextVariables) eigenschap en kan worden gebruikt door het beleid in de `on-error` beleidssectie. Dit onderwerp bevat een verwijzing voor de fout verwerking mogelijkheden in Azure API Management.  
@@ -56,27 +56,16 @@ Azure API Management kunnen publishers te reageren op fouten die optreden tijden
  De volgende beleidsregels kunnen worden gebruikt in de `on-error` beleidssectie.  
   
 -   [Kies](api-management-advanced-policies.md#choose)  
-  
 -   [variabele instellen](api-management-advanced-policies.md#set-variable)  
-  
 -   [zoeken en vervangen](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [Return-antwoord](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set-methode](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [status instellen](api-management-advanced-policies.md#SetStatus)  
-  
 -   [aanvragen verzenden](api-management-advanced-policies.md#SendRequest)  
-  
 -   [een-manier-verzoek om te verzenden](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [logboek voor eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [JSON-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [XML-json-](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -128,4 +117,10 @@ Azure API Management kunnen publishers te reageren op fouten die optreden tijden
 |valideren jwt|Andere validatiefouten|JwtInvalid|< bericht van jwt-bibliotheek\>|
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  
+
+Zie voor meer informatie, werken met beleid:
+
++ [Beleidsregels in API Management](api-management-howto-policies.md)
++ [Transformeren API 's](transform-api.md)
++ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Voorbeelden van beleid](policy-samples.md)   

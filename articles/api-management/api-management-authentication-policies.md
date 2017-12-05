@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 2907c1e4e39f975b4dc4e9382d7258c5d56dbbdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d13d9dbea9da9db5bfe9a9af85fdbf9eab1ae84
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-authentication-policies"></a>API Management-beleidsregels voor verificatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AuthenticationPolicies"></a>Verificatiebeleid  
   
 -   [Verificatie met Basic](api-management-authentication-policies.md#Basic) -verificatie met een back-endservice basisverificatie wordt gebruikt.  
@@ -100,4 +100,9 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  
+Zie voor meer informatie, werken met beleid:
+
++ [Beleidsregels in API Management](api-management-howto-policies.md)
++ [Transformeren API 's](transform-api.md)
++ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Voorbeelden van beleid](policy-samples.md)   

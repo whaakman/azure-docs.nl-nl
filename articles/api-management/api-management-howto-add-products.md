@@ -3,151 +3,100 @@ title: Het maken en een product publiceren in Azure API Management
 description: Informatie over het maken en publiceren van producten in Azure API Management.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2016
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2cf905967f26de97613ff7d5fc495c9223e11390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Het maken en een product publiceren in Azure API Management
-In Azure API Management zijn een product bevat een of meer API's, evenals een gebruiksquotum en de gebruiksvoorwaarden. Zodra een product is gepubliceerd, kunnen ontwikkelaars abonneren op het product en begint met het gebruik van API's van het product. Het onderwerp bevat een handleiding voor het maken van een product, het toevoegen van een API en het publiceren van het voor ontwikkelaars.
+# <a name="create-and-publish-a-product"></a>Een product maken en publiceren  
 
-## <a name="create-product"></a>Een product maken
-Bewerkingen zijn toegevoegd en geconfigureerd voor een API in de publicatieportal. Voor toegang tot de publicatieportal bevindt, klikt u op **publicatieportal** in de Azure-Portal voor uw API Management-service.
+In Azure API Management zijn een product bevat een of meer API's, evenals een gebruiksquotum en de gebruiksvoorwaarden. Zodra een product is gepubliceerd, kunnen ontwikkelaars abonneren op het product en begint met het gebruik van API's van het product.  
 
-![Publicatieportal][api-management-management-console]
+In deze zelfstudie leert u het volgende:
 
-> Als u nog geen service-exemplaar van API Management hebt gemaakt, raadpleegt u [Service-exemplaar van API Management maken][Create an API Management service instance] in de zelfstudie [Aan de slag met Azure API Management][Get started with Azure API Management].
-> 
-> 
+> [!div class="checklist"]
+> * Een product maken en publiceren
+> * Een API toevoegen aan het product
 
-Klik op **producten** in het menu aan de linkerkant om weer te geven de **producten** pagina en klik op **Product toevoegen**.
+![product toegevoegd](media/api-management-howto-add-products/added-product.png)
 
-![Producten][api-management-products]
+## <a name="prerequisites"></a>Vereisten
 
-![Nieuw product][api-management-add-new-product]
++ Voltooi de volgende Snelstartgids: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Ook de volgende zelfstudie te voltooien: [importeren en publiceren van uw eerste API](import-and-publish.md).
 
-Voer een beschrijvende naam voor het product in de **naam** veld en een beschrijving van het product in de **beschrijving** veld.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Producten in API Management kunnen worden **Open** of **beveiligde**. Voor beveiligde producten is een abonnement nodig voordat ze kunnen worden gebruikt, terwijl open producten zonder abonnement kunnen worden gebruikt. Controleer **abonnement vereisen** voor het maken van een beveiligd product waarvoor een abonnement. Dit is de standaardinstelling.
+## <a name="create-and-publish-a-product"></a>Een product maken en publiceren
 
-Controleer **goedkeuring abonnement vereisen** als u wilt dat een beheerder om te bekijken en accepteren of weigeren abonnementspogingen voor dit product. Als het selectievakje uitgeschakeld is, worden abonnementspogingen automatisch goedgekeurd. Zie voor meer informatie over abonnementen [abonnees van een product weergeven][View subscribers to a product].
+1. Klik op **producten** in het menu aan de linkerkant om weer te geven de **producten** pagina.
+2. Klik op **+ Product**.
 
-Als u wilt toestaan dat ontwikkelaarsaccounts meerdere keren naar het product, Controleer de **meerdere abonnementen toestaan** selectievakje. Als dit selectievakje niet is ingeschakeld, kan elke ontwikkelaarsaccount slechts één keer aan het product abonneren.
+    ![product toegevoegd](media/api-management-howto-add-products/add-product.png)
 
-![Onbeperkte meerdere abonnementen][api-management-unlimited-multiple-subscriptions]
+    Wanneer u een product toevoegt, moet u de volgende informatie opgeven: 
 
-Beperk het aantal meerdere gelijktijdige abonnementen, Controleer de **beperken het aantal gelijktijdige abonnementen op** selectievakje en voert u de limiet voor het abonnement. Gelijktijdige abonnementen zijn in het volgende voorbeeld wordt beperkt tot vier keer per developer-account.
+    |Naam|Beschrijving|
+    |---|---|
+    |Weergavenaam|De naam op als u wilt dat deze worden weergegeven in de **ontwikkelaarsportal**.|
+    |Naam|Een beschrijvende naam van het product.|
+    |Beschrijving|De **beschrijving** veld kunt u gedetailleerde informatie over het product zoals het doel en de API's die u toegang tot krijgt andere nuttige informatie.|
+    |Status|Druk op **gepubliceerde** als u wilt publiceren van het product. Voordat de API's in een product kan worden aangeroepen, moet het product worden gepubliceerd. Standaard nieuwe producten zijn niet gepubliceerd en zijn alleen zichtbaar voor de **beheerders** groep.|
+    |Goedkeuring vereist|Controleer **goedkeuring abonnement vereisen** als u wilt dat een beheerder om te bekijken en accepteren of weigeren abonnementspogingen voor dit product. Als het selectievakje ingeschakeld is, worden abonnementspogingen automatisch goedgekeurd. |
+    |Limiet voor het aantal abonnement|Beperk het aantal meerdere gelijktijdige abonnementen, voer de limiet voor het abonnement. |
+    |Juridische voorwaarden|U kunt de gebruiksvoorwaarden voor het product welke abonnees accepteren moeten om te kunnen gebruiken van het product kunt opnemen.|
+    |API's|Producten zijn de koppelingen van een of meer API's. U kunt een aantal API's en ze bieden voor ontwikkelaars via de portal voor ontwikkelaars. <br/> U kunt een bestaande API toevoegen tijdens het maken van het product. U kunt een API toevoegen aan het product later vanuit de producten **instellingen** pagina of tijdens het maken van een API.|<br/>Ontwikkelaars zich eerst abonneren op een product ze toegang krijgen tot de API. Wanneer ze zich abonneert, krijgen ze een abonnementssleutel die geschikt is voor API in dat product.<br/> Als u de APIM exemplaar gemaakt, bent u een beheerder al, zodat u bent geabonneerd op elk product standaard.|
 
-![Vier meerdere abonnementen][api-management-four-multiple-subscriptions]
+3. Klik op **opslaan** voor het maken van het nieuwe product.
 
-Nadat alle productopties voor nieuw zijn geconfigureerd, klikt u op **opslaan** voor het maken van het nieuwe product.
+### <a name="add-more-configurations"></a>Voeg meer configuraties
 
-![Producten][api-management-products-page]
+U kunt doorgaan met het configureren van het product na het opslaan van het door het kiezen van de **instellingen** tabblad. 
 
-> Standaard nieuwe producten zijn niet gepubliceerd en zijn alleen zichtbaar voor de **beheerders** groep.
-> 
-> 
+Weergave/abonnees toevoegen aan het product van de **abonnementen** tabblad.
 
-Voor het configureren van een product, klikt u op de naam van het product in de **producten** tabblad.
+Stel in dat een zichtbaarheid van een product voor ontwikkelaars of Gast van de **toegangsbeheer** tabblad.
 
 ## <a name="add-apis"></a>API's toevoegen aan een product
-De **producten** pagina bevat vier koppelingen voor de configuratie: **samenvatting**, **instellingen**, **zichtbaarheid**, en **abonnees**. De **samenvatting** tabblad kunt u API's toevoegen en publiceren of ongedaan maken van een product is.
 
-![Samenvatting][api-management-new-product-summary]
+Producten zijn de koppelingen van een of meer API's. U kunt een aantal API's en ze bieden voor ontwikkelaars via de portal voor ontwikkelaars. U kunt een bestaande API toevoegen tijdens het maken van het product. U kunt een API toevoegen aan het product later vanuit de producten **instellingen** pagina of tijdens het maken van een API.
 
-Voordat het publiceren van uw product moet u een of meer API's toevoegen. Om dit te doen, klikt u op **API toevoegen aan product**.
+Ontwikkelaars zich eerst abonneren op een product ze toegang krijgen tot de API. Wanneer ze zich abonneert, krijgen ze een abonnementssleutel die geschikt is voor API in dat product. Als u de APIM exemplaar gemaakt, bent u een beheerder al, zodat u bent geabonneerd op elk product standaard.
 
-![API's toevoegen][api-management-add-apis-to-product]
+### <a name="add-an-api-to-an-existing-product"></a>Een API toevoegen aan een bestaand product
 
-Selecteer de gewenste API's en klik op **opslaan**.
+1. Selecteer een product.
+2. Selecteer het tabblad API's.
+3. Klik op **+ API**.
+4. Kies een API en klik op **maken**.
 
-## <a name="add-description"></a>Beschrijvende informatie toevoegen aan een product
-De **instellingen** tabblad kunt u gedetailleerde informatie over het product zoals het doel en de API's die u toegang tot krijgt andere nuttige informatie opgeven. De inhoud is gericht op de ontwikkelaars die aanroepen van de API en kunnen worden geschreven in tekst zonder opmaak of HTML-opmaak.
-
-![Productinstellingen][api-management-product-settings]
-
-Controleer **abonnement vereisen** voor het maken van een beveiligd product waarvoor een abonnement moet worden gebruikt of schakel het selectievakje uit om een open product die kan worden aangeroepen zonder een abonnement te maken.
-
-Selecteer **goedkeuring abonnement vereisen** desgewenst handmatig goedkeuren van alle aanvragen van de product-abonnement. Standaard worden alle product abonnementen automatisch verleend.
-
-Als u wilt toestaan dat ontwikkelaarsaccounts meerdere keren naar het product, Controleer de **meerdere abonnementen toestaan** selectievakje en geef optioneel een limiet. Als dit selectievakje niet is ingeschakeld, kan elke ontwikkelaarsaccount slechts één keer aan het product abonneren.
-
-Vul eventueel de **gebruiksvoorwaarden** veld met een beschrijving van de gebruiksvoorwaarden voor het product welke abonnees accepteren moeten om te kunnen gebruiken van het product.
-
-## <a name="publish-product"></a>Een product publiceren
-Voordat de API's in een product kan worden aangeroepen, moet het product worden gepubliceerd. Op de **samenvatting** voor het product en klik op **publiceren**, en klik vervolgens op **Ja, publiceren** om te bevestigen. Een eerder gepubliceerde product als privé wilt maken, klikt u op **publicatie ongedaan maken**.
-
-![Product publiceren][api-management-publish-product]
-
-## <a name="make-visible"></a>Een product zichtbaar maken voor ontwikkelaars
-De **zichtbaarheid** tabblad kunt u kiezen welke rollen kunnen zien van het product in de portal voor ontwikkelaars en zich abonneren op het product zijn.
-
-![Zichtbaarheid van het product][api-management-product-visiblity]
-
-Als u wilt in- of uitschakelen van de zichtbaarheid van een product voor de ontwikkelaars in een groep, schakel of schakel het selectievakje naast de groep en klik op **opslaan**.
-
-> Zie voor meer informatie [maken en groepen gebruiken voor het beheren van de ontwikkelaarsaccounts in Azure API Management][How to create and use groups to manage developer accounts in Azure API Management].
-> 
-> 
-
-## <a name="view-subscribers"></a>Abonnees van een product weergeven
-De **abonnees** tabblad bevat de ontwikkelaars die het product zijn geabonneerd. De details en de instellingen voor elke ontwikkelaar kunnen worden bekeken door te klikken op de naam van de ontwikkelaar. In dit voorbeeld hebt nog geen ontwikkelaars geabonneerd op het product.
-
-![Ontwikkelaars][api-management-developer-list]
-
-## <a name="next-steps"> </a>Volgende stappen
-Zodra de gewenste API's worden toegevoegd en het product gepubliceerd, kunnen ontwikkelaars abonneren op het product en begint met het aanroepen van de API's. Zie voor een zelfstudie leert u hoe wordt deze items, evenals een geavanceerde productconfiguratie [maken en configureren van geavanceerde productinstellingen in Azure API Management][How create and configure advanced product settings in Azure API Management].
-
-Zie voor meer informatie over het werken met producten in de volgende video.
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
 > 
 
-[Create a product]: #create-product
-[Add APIs to a product]: #add-apis
-[Add descriptive information to a product]: #add-description
-[Publish a product]: #publish-product
-[Make a product visible to developers]: #make-visible
-[View subscribers to a product]: #view-subscribers
-[Next steps]: #next-steps
+## <a name="next-steps"></a>Volgende stappen
 
-[api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
-[api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
-[api-management-add-new-product]: ./media/api-management-howto-add-products/api-management-add-new-product.png
-[api-management-unlimited-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-unlimited-multiple-subscriptions.png
-[api-management-four-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-four-multiple-subscriptions.png
-[api-management-products-page]: ./media/api-management-howto-add-products/api-management-products-page.png
-[api-management-new-product-summary]: ./media/api-management-howto-add-products/api-management-new-product-summary.png
-[api-management-add-apis-to-product]: ./media/api-management-howto-add-products/api-management-add-apis-to-product.png
-[api-management-product-settings]: ./media/api-management-howto-add-products/api-management-product-settings.png
-[api-management-publish-product]: ./media/api-management-howto-add-products/api-management-publish-product.png
-[api-management-product-visiblity]: ./media/api-management-howto-add-products/api-management-product-visibility.png
-[api-management-developer-list]: ./media/api-management-howto-add-products/api-management-developer-list.png
+In deze zelfstudie heeft u het volgende geleerd:
 
+> [!div class="checklist"]
+> * Een product maken en publiceren
+> * Een API toevoegen aan het product
 
+Ga naar de volgende zelfstudie:
 
-[api-management-products]: ./media/api-management-howto-add-products/api-management-products.png
-[api-management-]: ./media/api-management-howto-add-products/
-[api-management-]: ./media/api-management-howto-add-products/
-
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
-[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
-[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
+> [!div class="nextstepaction"]
+> [Lege API maken en model van de API-antwoorden](mock-api-responses.md)
