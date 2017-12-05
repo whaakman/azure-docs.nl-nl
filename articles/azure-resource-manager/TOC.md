@@ -67,26 +67,20 @@
 
 ## Problemen oplossen
 ### [Veelvoorkomende implementatiefouten](resource-manager-common-deployment-errors.md)
-### [Inzicht in implementatiefouten](resource-manager-troubleshoot-tips.md)
-### Fouten oplossen
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Linux-implementatieproblemen](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Problemen met inrichten en toewijzen voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Problemen met inrichten en toewijzen voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Fouten bij de implementatie van virtuele machines
-#### Linux
-##### [Implementatieproblemen](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Problemen met inrichten en toewijzen](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Veelvoorkomende foutberichten](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Implementatieproblemen](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Problemen met inrichten en toewijzen](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Veelvoorkomende foutberichten](../virtual-machines/windows/error-messages.md)
+#### [Windows-implementatieproblemen](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Inzicht in implementatiefouten](resource-manager-troubleshoot-tips.md)
 
 # Naslaginformatie
 ## [Sjabloonindeling](/azure/templates/)

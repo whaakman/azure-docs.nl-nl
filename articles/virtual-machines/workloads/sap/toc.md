@@ -11,8 +11,9 @@
 ### [HA met STONITH instellen](ha-setup-with-stonith.md)
 ### [Back-up van het besturingssysteem voor SKU's type II](os-backup-type-ii-skus.md)
 # SAP HANA in virtuele machines op Azure
-## [Enkel exemplaar van SAP HANA](hana-get-started.md)
+## [SAP HANA-installatie met enkel exemplaar](hana-get-started.md)
 ## [Implementatiehandleiding voor S/4 HANA of BW/4 HANA SAP CAL](cal-s4h.md)
+## [Bedieningsgids voor SAP HANA op Azure](hana-vm-operations.md)
 ## [SAP HANA met hoge beschikbaarheid in virtuele machines op Azure](sap-hana-high-availability.md)
 ## [Overzicht van back-ups van SAP HANA](sap-hana-backup-guide.md)
 ## [Back-ups maken van SAP HANA op bestandsniveau](sap-hana-backup-file-level.md)

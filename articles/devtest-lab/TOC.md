@@ -31,6 +31,7 @@
 ### [Marketplace-installatiekopieën configureren](devtest-lab-configure-marketplace-images.md)
 ### [Een gelicentieerde installatiekopie inschakelen](devtest-lab-enable-licensed-images.md)
 ### [Tags toevoegen aan een lab](devtest-lab-add-tag.md)
+### [Post-aankondiging in een lab](devtest-lab-announcements.md)
 
 ## [Een aangepaste installatiekopie of formule selecteren](devtest-lab-comparing-vm-base-image-types.md)
 

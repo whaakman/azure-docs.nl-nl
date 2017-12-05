@@ -6,7 +6,7 @@
       href: functions-overview.md
     - name: Serverloze vergelijking
       href: functions-compare-logic-apps-ms-flow-webjobs.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Functie maken - portal
@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: Concepten
   items:
-    - name: Vergelijking van hostingabonnementen
+    - name: Schaal en hosting
       href: functions-scale.md
     - name: Triggers en bindingen
       href: functions-triggers-bindings.md

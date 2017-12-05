@@ -133,6 +133,7 @@
 ## [Adviezen voor cyberbeveiliging](azure-security-cyber-services.md)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Aanbevelingen voor beveiliging van Azure Marketplace-installatiekopieën](security-recommendations-azure-marketplace-images.md)
+## [Een ondersteuningsticket voor een beveiligingsgebeurtenis maken](azure-security-event-support-ticket.md)
 ## Scenario's
 ### [Persoonlijke gegevens beheren in Azure](manage-personal-data-azure.md)
 ### [Persoonlijke gegevens detecteren, identificeren en classificeren in Azure](how-to-discover-classify-personal-data-azure.md)

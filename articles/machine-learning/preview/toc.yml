@@ -39,12 +39,14 @@
           href: how-to-use-tdsp-in-azure-ml.md
         - name: Roaming en samenwerking
           href: roaming-and-collaboration.md
-    - name: IDE-extensies
+    - name: IDE-extensies gebruiken
       items:
         - name: Visual Studio-hulpprogramma's voor AI gebruiken
           href: quickstart-visual-studio-tools.md
         - name: Visual Studio Code-hulpprogramma's voor AI gebruiken
           href: quickstart-visual-studio-code-tools.md
+    - name: Azure IoT Edge AI Toolkit gebruiken
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: Compute-omgeving configureren
       items:
         - name: Experimenten configureren
@@ -92,6 +94,8 @@
           href: how-to-scale-clusters.md
         - name: Een webservice implementeren
           href: model-management-service-deploy.md
+        - name: Implementeren naar een IoT Edge-apparaat
+          href: deploy-to-iot-edge-device.md
         - name: Een webservice gebruiken
           href: model-management-consumption.md
         - name: Modelgegevens verzamelen

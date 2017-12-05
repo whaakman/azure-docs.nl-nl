@@ -1,0 +1,113 @@
+- name: Documentatie over Site Recovery
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Site Recovery?
+      href: ../site-recovery-overview.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Een virtuele Azure-machine repliceren naar een secundaire regio
+      href: azure-to-azure-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: Herstel na noodgeval instellen
+      href: azure-to-azure-tutorial-enable-replication.md
+    - name: Noodherstelanalyse uitvoeren
+      href: azure-to-azure-tutorial-dr-drill.md
+    - name: Failover en failback uitvoeren
+      href: azure-to-azure-tutorial-failover-failback.md
+- name: Concepten
+  items:
+    - name: Azure naar Azure-architectuur
+      href: concepts-azure-to-azure-architecture.md
+    - name: Ondersteuningsmatrix voor Azure naar Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
+    - name: Op rollen gebaseerde machtigingen
+      href: ../site-recovery-role-based-linked-access-control.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Veelgestelde vragen
+      href: ../site-recovery-faq.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: Handleidingen
+  items:
+    - name: Netwerken
+      items:
+        - name: Netwerken instellen voor herstel na noodgevallen voor Azure-VM (preview)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Netwerktoewijzing instellen voor herstel na noodgevallen voor Azure-VM (preview)
+          href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Configureren
+      items:
+        - name: Replicatie tussen Azure-regio's inschakelen
+          href: site-recovery-replicate-azure-to-azure.md
+    - name: Failover en failback
+      items:
+        - name: Herstelplannen instellen
+          href: ../site-recovery-create-recovery-plans.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Azure-runbooks aan herstelplannen toevoegen
+          href: ../site-recovery-runbook-automation.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Machines opnieuw beveiligen na een failover
+          href: site-recovery-how-to-reprotect-azure-to-azure.md
+    - name: Migreren
+      items:
+        - name: Virtuele Azure-machines migreren naar een andere Azure-regio
+          href: ../site-recovery-migrate-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Gemigreerde machines naar een andere Azure-regio repliceren
+          href: ../site-recovery-azure-to-azure-after-migration.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Workloads
+      items:
+        - name: Active Directory en DNS
+          href: ../site-recovery-active-directory.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: SQL Server repliceren
+          href: ../site-recovery-sql.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: SharePoint
+          href: ../site-recovery-sharepoint.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Dynamics AX
+          href: ../site-recovery-dynamicsax.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: RDS
+          href: '../site-recovery-workload.md#protect-rds?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+        - name: Exchange
+          href: '../site-recovery-workload.md#protect-exchange?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+        - name: SAP
+          href: ../site-recovery-sap.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Bestandsserver
+          href: ../file-server-disaster-recovery.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Webtoepassingen op basis van IIS
+          href: ../site-recovery-iis.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Citrix XenApp en XenDesktop
+          href: ../site-recovery-citrix-xenapp-and-xendesktop.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Andere workloads
+          href: '../site-recovery-workload.md#workload-summary?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+    - name: Beheren
+      items:
+        - name: Servers verwijderen en beveiliging uitschakelen
+          href: ../site-recovery-manage-registration-and-protection.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.jsos
+        - name: Een kluis verwijderen
+          href: ../delete-vault.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Problemen oplossen
+      items:
+        - name: Problemen met Azure naar Azure-replicatie
+          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+- name: Naslaginformatie
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.siterecovery
+    - name: Azure PowerShell (klassiek)
+      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/mt750497'
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'http://azure.microsoft.com/blog/tag/azure-site-recovery/'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Leertraject
+      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=site-recovery'
