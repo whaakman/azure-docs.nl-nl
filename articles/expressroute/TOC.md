@@ -58,6 +58,7 @@
 
 ## Problemen oplossen
 ### [ExpressRoute-connectiviteit controleren](expressroute-troubleshooting-expressroute-overview.md)
+### [Een mislukt circuit opnieuw instellen](reset-circuit.md)
 ### [ARP-tabellen ophalen](expressroute-troubleshooting-arp-resource-manager.md)
 ### [ARP-tabellen ophalen (klassiek)](expressroute-troubleshooting-arp-classic.md)
 

@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Site Recovery - herstel na noodgevallen van Azure naar Azure
+metadata:
+  title: 'Documentatie voor Azure Site Recovery - zelfstudies, API-verwijzing | Microsoft Docs'
+  meta.description: Learn how to set up disaster recovery for Azure VMs
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: Met Azure Site Recovery kunt u herstel na noodgevallen indelen en beheren voor virtuele Azure-machines. Leer aan de hand van onze zelfstudies en snelstartgidsen hoe u kunt repliceren naar een secundaire regio en een failover en failback kunt uitvoeren.
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Snel herstel na noodgeval instellen voor een virtuele Azure-machine
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
+            text: Azure Portal
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Stapsgewijze zelfstudies
+    items:
+      - type: paragraph
+        text: 'Informatie over het instellen van herstel na noodgevallen, failover en failback van virtuele Azure-machines.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Herstel na noodgeval instellen</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Noodherstelanalyse uitvoeren</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Failover en failback uitvoeren</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Naslaginformatie over REST-API</a></p>

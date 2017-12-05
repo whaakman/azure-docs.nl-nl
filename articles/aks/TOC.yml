@@ -7,8 +7,10 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een AKS-cluster maken
+    - name: Een AKS-cluster maken - CLI
       href: kubernetes-walkthrough.md
+    - name: Een AKS-cluster maken - Portal
+      href: kubernetes-walkthrough-portal.md
 - name: Zelfstudies
   items:
     - name: 1 - Een toepassing voorbereiden voor AKS

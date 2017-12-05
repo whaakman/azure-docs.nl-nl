@@ -40,8 +40,6 @@
 - name: Beheerde service-identiteit
   href: msi-overview.md
   items:
-    - name: Aanmelden of een token verkrijgen
-      href: msi-how-to-get-access-token-using-msi.md
     - name: MSI configureren voor een Azure VM
       items:
         - name: Azure Portal gebruiken
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Azure CLI gebruiken
           href: msi-howto-assign-access-cli.md
+    - name: Een VM MSI gebruiken
+      items:
+        - name: Een toegangstoken verkrijgen
+          href: msi-how-to-use-vm-msi-token.md
+        - name: 'Aanmelden bij PowerShell, Azure CLI'
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Gebruiken met Azure SDK's
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Een VM MSI gebruiken voor toegang tot Azure Data Lake Store
       items:
         - name: Vanaf een Windows-VM

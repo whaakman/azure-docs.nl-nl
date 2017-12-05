@@ -21,8 +21,8 @@
 ## Beheren
 ### [Beheren met Azure PowerShell](cdn-manage-powershell.md)
 ### TTL (Time to Live) configureren
-#### [Web Apps/Cloud Services, ASP.NET of IIS-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Inhoud van de Storage-blobservice](cdn-manage-expiration-of-blob-content.md)
+#### [Azure-webinhoud](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 ### [Toegang beperken per land](cdn-restrict-access-by-country.md)
 ### [De prestaties verbeteren door bestanden te comprimeren](cdn-improve-performance.md)
 ### Cache-inhoud op queryreeks

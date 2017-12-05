@@ -6,7 +6,7 @@
       href: app-insights-overview.md
     - name: Overzicht van prestatiebewaking
       href: app-insights-detect-triage-diagnose.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: .NET
@@ -247,6 +247,8 @@
       items:
         - name: Geen gegevens voor .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Snapshot Debugger
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Analytische gegevens
           href: app-insights-analytics-troubleshooting.md
         - name: Java

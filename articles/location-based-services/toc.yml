@@ -4,7 +4,7 @@
   items:
     - name: Over Azure Location Based Services
       href: about-location-based-services.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Over Location Based Services
@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: Map Control gebruiken
       href: how-to-use-map-control.md
+    - name: Zoeken naar een adres
+      href: how-to-search-for-address.md
 - name: Naslaginformatie
   items:
     - name: Azure IoT-ontwikkelaarscentrum

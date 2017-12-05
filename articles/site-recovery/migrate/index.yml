@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Site Recovery
+metadata:
+  title: 'Documentatie voor Azure Site Recovery - zelfstudies, API-verwijzing | Microsoft Docs'
+  meta.description: Learn how to migrate to Azure with Azure Site Recovery
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Naast het organiseren van herstel na noodgevallen voor virtuele Azure-machines en on-premises machines, organiseert en beheert Azure Site Recovery de migratie van on-premises machines naar Azure en de migratie van virtuele Azure-machines tussen Azure-regio''s. Leer hoe u migratie kunt instellen met onze zelfstudies.'
+sections:
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: Leer hoe u on-premises virtuele machines kunt migreren.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Azure voorbereiden</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">On-premises machines migreren naar Azure</a>
+          - html: <a href="tutorial-migrate-aws-to-azure">AWS-exemplaren migreren naar Azure</a>
+  - title: Naslaginformatie
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Opdrachtregel
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Naslaginformatie over REST-API</a></p>

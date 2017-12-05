@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: Projectstructuur
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Projectplanning en -uitvoering
+- name: Projectplanning
+  href: team-data-science-process-project-templates.md
+- name: Projectuitvoering
   items:
-    - name: Projectplanning
-      href: team-data-science-process-project-templates.md
-    - name: Projectuitvoering
-      items:
-        - name: Wetenschappelijke gegevensprojecten
-          href: project-execution.md
+    - name: Flexibele ontwikkeling
+      href: agile-development.md
+    - name: Samenwerken aan code met Git
+      href: collaborative-coding-with-git.md
+    - name: Datatechnologietaken uitvoeren
+      href: execute-data-science-tasks.md
+    - name: Voortgang bijhouden
+      href: track-progress.md
 - name: Voorbeelden
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: Spark met PySpark en Scala
       href: walkthroughs-spark.md
       items:
-        - name: Gegevens verkennen
+        - name: Gegevens verkennen en modelleren
           href: spark-data-exploration-modeling.md
+        - name: Geavanceerde gegevensverkenning en -modellering
+          href: spark-advanced-data-exploration-modeling.md
         - name: Scoremodellen
           href: spark-model-consumption.md
-        - name: Geavanceerde gegevensverkenning
-          href: spark-advanced-data-exploration-modeling.md
     - name: Hive met HDInsight Hadoop
       href: walkthroughs-hdinsight-hadoop.md
     - name: U-SQL met Azure Data Lake
@@ -136,7 +140,8 @@
             - name: AzCopy gebruiken
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Python gebruiken
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: SSIS gebruiken
               href: move-data-to-azure-blob-using-ssis.md
             - name: Verplaatsen naar een virtuele machine
@@ -211,14 +216,8 @@
             - name: Overzichtskaart algoritmen
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: Modellen implementeren
-      items:
-        - name: Met een webservice
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: Een webservice gebruiken
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: Modellen in de productieomgeving implementeren
+      href: deploy-models-in-production.md
 - name: Verwant
   items:
     - name: Microsoft Cognitive Toolkit - CNTK

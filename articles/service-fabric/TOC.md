@@ -6,7 +6,9 @@
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
 ## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
 ## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
-## [Een Java-toepassing implementeren](service-fabric-quickstart-java.md)
+## Java-snelstartgidsen
+### [Een Spring Boot-toepassing implementeren](service-fabric-quickstart-java-spring-boot.md)
+### [Een betrouwbare servicetoepassing implementeren](service-fabric-quickstart-java-reliable-services.md)
 
 # Zelfstudies
 ## Een .NET-toepassing implementeren
@@ -29,7 +31,9 @@
 #### [1a: Een Windows-cluster maken](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b: Een Linux-cluster maken](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2: Het cluster schalen](service-fabric-tutorial-scale-cluster.md)
-### [3: API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+### [3: De cluster-runtime upgraden](service-fabric-tutorial-upgrade-cluster.md)
+### [4: API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Voorbeelden
