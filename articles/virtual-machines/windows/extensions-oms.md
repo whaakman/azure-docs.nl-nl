@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>OMS de extensie van de virtuele machine voor Windows
 
@@ -28,7 +28,12 @@ Operations Management Suite (OMS) biedt mogelijkheden voor bewaking, waarschuwin
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
+
 De extensie OMS-Agent versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016.
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center wordt automatisch voorziet in de OMS-agent en is verbonden met de standaard log analytics-werkruimte van de Azure-abonnement. Als u van Azure Security Center gebruikmaakt, niet uitgevoerd door de stappen in dit document. In dat geval worden de geconfigureerde werkruimte en einde van de verbinding met Azure Security Center overschreven.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 De extensie OMS-Agent voor Windows is vereist dat de virtuele doelmachine is verbonden met internet. 

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-caching-policies"></a>De cachebeleidsregels API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 -   Antwoord cachebeleidsregels  
   
     -   [Ophalen uit de cache](api-management-caching-policies.md#GetFromCache) -cache uitvoeren opzoeken en retourneren een geldige in cache opgeslagen reacties indien beschikbaar.  
-  
     -   [Store aan cache](api-management-caching-policies.md#StoreToCache) -antwoorden volgens de configuratie opgegeven cache opslaat in de cache.  
   
 -   Waarde cachebeleidsregels  
-  
-    -   [Waarde niet ophalen uit de cache](#GetFromCacheByKey) -ophalen van een item in de cache per sleutel.  
-  
-    -   [Waarde opslaan in cache](#StoreToCacheByKey) -opslaan van een item in de cache per sleutel.  
-  
+
+    -   [Waarde niet ophalen uit de cache](#GetFromCacheByKey) -ophalen van een item in de cache per sleutel. 
+    -   [Waarde opslaan in cache](#StoreToCacheByKey) -opslaan van een item in de cache per sleutel. 
     -   [Waarde verwijderen uit de cache](#RemoveCacheByKey) -verwijderen van een item in de cache per sleutel.  
   
 ##  <a name="GetFromCache"></a>Ophalen uit de cache  
@@ -116,17 +113,16 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|toestaan dat persoonlijke-antwoord-schrijfcache|Als de waarde `true`, kunt opslaan in cache van aanvragen met een autorisatie-header.|Nee|ONWAAR|  
-|downstream-caching-type|Dit kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -none - downstream opslaan in cache is niet toegestaan.<br />-persoonlijke - downstream persoonlijke opslaan in cache is toegestaan.<br />-openbaar: persoonlijke en gedeelde downstream cache is toegestaan.|Nee|Geen|  
-|must-revalidate|Wanneer downstream caching is ingeschakeld dit kenmerk schakelt in of uit de `must-revalidate` cache-control-instructie in de antwoorden van de gateway.|Nee|De waarde True|  
-|door ontwikkelaars variëren|Ingesteld op `true` aan reacties van cache per sleutel van de ontwikkelaar.|Nee|ONWAAR|  
-|variëren-in-developer-groepen|Ingesteld op `true` aan reacties van cache per gebruikersrol.|Nee|ONWAAR|  
+|toestaan dat persoonlijke-antwoord-schrijfcache|Als de waarde `true`, kunt opslaan in cache van aanvragen met een autorisatie-header.|Nee|onwaar|  
+|downstream-caching-type|Dit kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -none - downstream opslaan in cache is niet toegestaan.<br />-persoonlijke - downstream persoonlijke opslaan in cache is toegestaan.<br />-openbaar: persoonlijke en gedeelde downstream cache is toegestaan.|Nee|geen|  
+|must-revalidate|Wanneer downstream caching is ingeschakeld dit kenmerk schakelt in of uit de `must-revalidate` cache-control-instructie in de antwoorden van de gateway.|Nee|waar|  
+|door ontwikkelaars variëren|Ingesteld op `true` aan reacties van cache per sleutel van de ontwikkelaar.|Nee|onwaar|  
+|variëren-in-developer-groepen|Ingesteld op `true` aan reacties van cache per gebruikersrol.|Nee|onwaar|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
-  
 -   **Beleid scopes:** API, bewerking, product  
   
 ##  <a name="StoreToCache"></a>Aan het cachegeheugen opslaan  
@@ -198,8 +194,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Beleid secties:** uitgaand  
-  
+-   **Beleid secties:** uitgaand    
 -   **Beleid scopes:** API, bewerking, product  
   
 ##  <a name="GetFromCacheByKey"></a>Waarde niet ophalen uit de cache  
@@ -244,7 +239,6 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
-  
 -   **Beleid scopes:** algemeen API, bewerking, product  
   
 ##  <a name="StoreToCacheByKey"></a>Waarde opslaan in cache  
@@ -287,11 +281,10 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
-  
 -   **Beleid scopes:** algemeen API, bewerking, product  
   
 ###  <a name="RemoveCacheByKey"></a>Waarde uit cache verwijderen  
- De `cache-remove-value` een geïdentificeerd door de sleutel in de cache-item wordt verwijderd. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met.  
+De `cache-remove-value` een geïdentificeerd door de sleutel in de cache-item wordt verwijderd. De sleutel kan een willekeurige tekenreekswaarde en wordt meestal verzorgd door een beleidsexpressie met.  
   
 #### <a name="policy-statement"></a>Beleidsverklaring  
   
@@ -325,9 +318,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
-  
 -   **Beleid scopes:** algemeen API, bewerking, product  
-  
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  
+
+Zie voor meer informatie, werken met beleid:
+
++ [Beleidsregels in API Management](api-management-howto-policies.md)
++ [Transformeren API 's](transform-api.md)
++ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Voorbeelden van beleid](policy-samples.md)   

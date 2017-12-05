@@ -3,27 +3,26 @@ title: Azure API Management-paginabesturingselementen | Microsoft Docs
 description: Meer informatie over de paginabesturingselementen beschikbaar voor gebruik in developer portal sjablonen in Azure API Management.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management-paginabesturingselementen
 Azure API Management biedt de volgende besturingselementen voor gebruik in het developer portal sjablonen.  
   
- Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebruik van een besturingselement. Sommige besturingselementen, zoals de [acties voor app](#app-actions) bepalen, parameters hebben, zoals wordt weergegeven in het volgende voorbeeld.  
+Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebruik van een besturingselement. Sommige besturingselementen, zoals de [acties voor app](#app-actions) bepalen, parameters hebben, zoals wordt weergegeven in het volgende voorbeeld:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
 ## <a name="developer-portal-template-page-controls"></a>Paginabesturingselementen voor ontwikkelaars sjabloon  
   
 -   [App-acties](#app-actions)  
-  
 -   [Basic-aanmelding](#basic-signin)  
-  
 -   [besturingselement voor paginering](#paging-control)  
-  
 -   [providers](#providers)  
-  
 -   [besturingselement voor zoeken](#search-control)  
-  
 -   [aanmelden](#sign-up)  
-  
 -   [abonneren knop](#subscribe-button)  
-  
 -   [abonnement annuleren](#subscription-cancel)  
   
 ##  <a name="app-actions"></a>App-acties  
@@ -69,12 +61,12 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
 |AppId|De id van de toepassing.|  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `app-actions` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `app-actions` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [Toepassingen](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a>Basic-aanmelding  
- De `basic-signin` control biedt een besturingselement voor het verzamelen van de gebruiker aanmelden informatie in de aanmeldingspagina in de portal voor ontwikkelaars.  
+ De `basic-signin` control biedt een besturingselement voor het verzamelen van aanmelden gebruikersgegevens in de aanmeldingspagina in de portal voor ontwikkelaars.  
   
  ![Basic &#45; signin-besturingselement](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic signin-besturingselement")  
   
@@ -88,7 +80,7 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
  Geen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `basic-signin` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `basic-signin` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [Aanmelden](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
  Geen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `paging-control` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `paging-control` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [API-lijst](api-management-api-templates.md#APIList)  
   
@@ -116,7 +108,7 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
 -   [Lijst met producten](api-management-product-templates.md#ProductList)  
   
 ##  <a name="providers"></a>providers  
- De `providers` beheer biedt een controle voor selectie van verificatieproviders in de aanmeldingspagina in de portal voor ontwikkelaars.  
+ De `providers` beheer biedt een controle voor selectie van verificatieproviders op de pagina aanmelden in de portal voor ontwikkelaars.  
   
  ![providers besturingselement](./media/api-management-page-controls/APIM-providers-control.png "APIM providers besturingselement")  
   
@@ -130,7 +122,7 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
  Geen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `providers` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `providers` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [Aanmelden](api-management-page-templates.md#SignIn)  
   
@@ -149,14 +141,14 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
  Geen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `search-control` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `search-control` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [API-lijst](api-management-api-templates.md#APIList)  
   
 -   [Lijst met producten](api-management-product-templates.md#ProductList)  
   
 ##  <a name="sign-up"></a>aanmelden  
- De `sign-up` control biedt een besturingselement voor het verzamelen van informatie over gebruikersprofielen in de registratiepagina in de portal voor ontwikkelaars.  
+ De `sign-up` control biedt een besturingselement voor het verzamelen van informatie over gebruikersprofielen in de aanmeldingspagina in de portal voor ontwikkelaars.  
   
  ![aanmelding &#45; besturingselement up](./media/api-management-page-controls/APIM-sign-up-control.png "APIM aanmelding besturingselement")  
   
@@ -170,7 +162,7 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
  Geen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `sign-up` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `sign-up` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [Aanmelden](api-management-page-templates.md#SignUp)  
   
@@ -189,7 +181,7 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
  Geen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `subscribe-button` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `subscribe-button` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [Product](api-management-product-templates.md#Product)  
   
@@ -211,10 +203,10 @@ Azure API Management biedt de volgende besturingselementen voor gebruik in het d
 |Parameter|Beschrijving|  
 |---------------|-----------------|  
 |subscriptionId|De id van het abonnement te annuleren.|  
-|cancelUrl|De URL van abonnement annuleren.|  
+|cancelUrl|Het abonnement wordt geannuleerd URL.|  
   
 ### <a name="developer-portal-templates"></a>Developer portal-sjablonen  
- De `subscription-cancel` besturingselement kan worden gebruikt in de volgende sjablonen van de developer-portal.  
+ De `subscription-cancel` besturingselement kan worden gebruikt in de volgende developer portal-sjablonen:  
   
 -   [Product](api-management-product-templates.md#Product)
 

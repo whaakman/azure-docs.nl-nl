@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Server
 In deze zelfstudie helpt u bij het proces van het maken en implementeren van een machine learning-model met behulp van SQL Server en een openbare gegevensset--de [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard wetenschappelijke werkstroom: opnemen en Verken de gegevens, engineering-functies om te vergemakkelijken learning, en vervolgens te bouwen en implementeren van een model.
@@ -581,7 +581,6 @@ In deze oefening hebben we al verkend en engineering van de gegevens in SQL Serv
 3. Voer de naam van de DNS-database in de **databaseservernaam** veld. Indeling:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Voer de **databasenaam** in het bijbehorende veld.
 5. Voer de **SQL-gebruikersnaam** in de ** Server aqccount gebruikersnaam en het wachtwoord in de **Server het wachtwoord voor gebruikersaccount**.
-6. Controleer **accepteren servercertificaat** optie.
 7. In de **databasequery** bewerken van tekst, plakt u de query waarmee de benodigde databasevelden (inclusief eventuele berekende velden, zoals de labels) worden opgehaald en omlaag de gegevens naar de gewenste samplegrootte voorbeelden.
 
 Er is een voorbeeld van een binaire indeling experiment lezen van gegevens rechtstreeks vanuit de SQL Server-database in de afbeelding hieronder. Vergelijkbare experimenten kunnen worden samengesteld voor multiklassen classificatie en regressie problemen.

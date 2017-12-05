@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Gegevens kopiëren van/naar Dynamics 365 Dynamics CRM met Azure Data Factory
 
@@ -30,14 +30,20 @@ In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in A
 
 U kunt gegevens van Dynamics 365 Dynamics CRM kopiëren naar een ondersteunde sink-gegevensarchief of gegevens kopiëren van een ondersteunde brongegevensarchief naar Dynamics 365 Dynamics CRM. Zie voor een lijst met gegevensarchieven als bronnen/put wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-In het bijzonder ondersteunt deze connector Dynamics hieronder Dynamics versies en verificatietypen:
+Biedt ondersteuning voor deze connector Dynamics hieronder Dynamics versies en verificatietypen (*IFD wordt kort voor internetgerichte implementatie*):
 
 | Dynamics-versies | Verificatietypen | Voorbeelden van de gekoppelde service |
 |:--- |:--- |:--- |
 | Dynamics 365 online <br> Dynamics CRM online | Office365 | [Dynamics Online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 on-premises met IFD <br> Dynamics CRM-2016 met on-premises IFD <br> Dynamics CRM-2015 met on-premises IFD | IFD | [Dynamics On-premises met IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD is kort voor internetgerichte implementatie.*
+Voor de Dynamics 365 met name worden de volgende typen ondersteund:
+
+- Dynamics 365 voor verkoop
+- Dynamics 365 voor klantenservice
+- Dynamics 365 voor veld Service
+- Dynamics 365 voor Project Service Automation
+- Dynamics 365 voor Marketing
 
 > [!NOTE]
 > Gebruik Dynamics connector moet uw wachtwoord opslaan in Azure Sleutelkluis en laat ADF kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren. Informatie over het configureren van in [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
@@ -321,21 +327,21 @@ Configureren van het bijbehorende ADF-gegevenstype in de gegevenssetstructuur op
 | Het gegevenstype Dynamics | Data factory tussentijdse gegevenstype | Ondersteund als bron | Als sink ondersteund |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lang | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booleaanse waarde | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boole-waarde | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ |  |
-| AttributeType.DateTime | Datum/tijd | ✓ | ✓ |
+| AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
 | AttributeType.Decimal | Decimale | ✓ | ✓ |
 | AttributeType.Double | dubbele | ✓ | ✓ |
-| AttributeType.EntityName | Tekenreeks | ✓ | ✓ |
+| AttributeType.EntityName | Reeks | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ |  |
-| AttributeType.ManagedProperty | Booleaanse waarde | ✓ |  |
-| AttributeType.Memo | Tekenreeks | ✓ | ✓ |
+| AttributeType.ManagedProperty | Boole-waarde | ✓ |  |
+| AttributeType.Memo | Reeks | ✓ | ✓ |
 | AttributeType.Money | Decimale | ✓ |  |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | Tekenreeks | ✓ | ✓ |
+| AttributeType.String | Reeks | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ |  |
 | AttributeType.Status | Int32 | ✓ |  |
 

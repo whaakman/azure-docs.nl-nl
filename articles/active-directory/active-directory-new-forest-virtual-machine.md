@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk
-Dit onderwerp wordt beschreven hoe u een nieuwe Windows Server Active Directory-omgeving maakt op een virtuele Azure-netwerk op een virtuele machine (VM) op een [virtuele Azure-netwerk](../virtual-network/virtual-networks-overview.md). De virtuele Azure-netwerk is in dit geval niet verbonden met een on-premises netwerk.
+Dit artikel laat zien hoe u een nieuwe Windows Server Active Directory-omgeving op een virtuele machine (VM) maakt op een [virtuele Azure-netwerk](../virtual-network/virtual-networks-overview.md). De virtuele Azure-netwerk is in dit geval niet verbonden met een on-premises netwerk.
 
-U is mogelijk ook geïnteresseerd in de volgende Verwante onderwerpen:
+U is mogelijk ook geïnteresseerd in deze verwante artikelen:
 
 * Zie voor een video ziet u deze stappen [een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * U kunt eventueel [een site-naar-site-VPN configureren](../vpn-gateway/vpn-gateway-site-to-site-create.md) en vervolgens een nieuw forest installeert of uitbreiden van een lokale forest met een Azure virtual network. Zie voor deze stappen [een Replica Active Directory-domeincontroller installeren in een Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ Nadat de installatie van de domeincontroller is voltooid, verbinding maken met d
    3. Op de **doorstuurservers** tabblad op het IP-adres van de doorstuurserver en klik **bewerken**.  Selecteer het IP-adres en klik op **verwijderen**.
    4. Klik op **OK** sluit de editor en **Ok** opnieuw te sluiten van de eigenschappen van de DNS-server.
 2. De DNS-serverinstellingen voor het virtuele netwerk bijwerken.
-   1. Klik op **virtuele netwerken** > Dubbelklik op het virtuele netwerk dat u hebt gemaakt > **configureren** > **DNS-servers**, typ de naam en het DIP van een van de virtuele machines die wordt uitgevoerd de domeincontroller en DNS-serverfunctie en klik op **opslaan**.
+   1. Klik op **virtuele netwerken** > Dubbelklik op het virtuele netwerk dat u hebt gemaakt > **configureren** > **DNS-servers**, typ de naam en het IP-adres van een van de virtuele machines die wordt uitgevoerd de domeincontroller en DNS-serverfunctie en klik op **opslaan**.
    2. Selecteer de virtuele machine en klik op **opnieuw** voor het activeren van de virtuele machine voor het configureren van instellingen DNS-omzetter met het IP-adres van de nieuwe DNS-server.
 
 ## <a name="create-vms-for-domain-members"></a>Maken van virtuele machines voor leden van een domein

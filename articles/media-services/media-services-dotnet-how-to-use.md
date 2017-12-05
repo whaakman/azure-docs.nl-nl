@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: juliako
-ms.openlocfilehash: 024b4cbb13001d67e7c1f0b86a84dfb43478c49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="media-services-development-with-net"></a>Het ontwikkelen van Media Services met .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -66,8 +66,11 @@ U kunt ook de meest recente Media Services .NET SDK bits ophalen vanuit GitHub (
 
     Als u [gebruikersverificatie](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) uw configuratiebestand hebt waarschijnlijk waarden voor uw Azure AD-tenant-domein en de AMS REST API-eindpunt.
     
+    >[!Note]
+    >De meeste codevoorbeelden in de documentatie van Azure Media Services instellen, gebruikt u een gebruiker (interactief) type verificatie verbinding maken met de AMS-API. Deze verificatiemethode werkt goed voor beheer- of systeemeigen apps bewaking: mobiele apps, Windows-apps en toepassingen van de Console.
+    
     >[!Important]
-    >De meeste codevoorbeelden in de documentatie van Azure Media Services instellen, gebruikt u een gebruiker (interactief) type verificatie verbinding maken met de AMS-API. Deze verificatiemethode werkt goed voor beheer- of systeemeigen apps bewaking: mobiele apps, Windows-apps en toepassingen van de Console. Deze verificatiemethode is niet geschikt voor de server, webservices of type API's van toepassingen.  Zie voor meer informatie [toegang tot de AMS-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+    > **Interactieve** verificatiemethode is niet geschikt is voor de server, webservices, API's typen toepassingen. Gebruik voor deze typen toepassingen, **Service-principal** verificatiemethode. Zie voor meer informatie [toegang tot de AMS-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...

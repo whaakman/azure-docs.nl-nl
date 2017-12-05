@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management-beleid voor meerdere domeinen
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 ##  <a name="CrossDomainPolicies"></a>Cross-domeinbeleid  
   
 -   [Aanroepen tussen domeinen toestaan](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -de API van Adobe Flash en Microsoft Silverlight op browser gebaseerde clients toegankelijk maakt.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) -cross-origin-resource delen (CORS) ondersteuning voor een bewerking of een API om toe te staan tussen domeinen aanroepen van clients op basis van een browser wordt toegevoegd.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) -JSON wordt toegevoegd met ondersteuning voor een bewerking of een API om toe te staan tussen domeinen aanroepen vanuit JavaScript-browser gebaseerde clients opvulling (JSONP).  
   
 ##  <a name="AllowCrossDomainCalls"></a>Aanroepen tussen domeinen toestaan  
@@ -63,7 +61,6 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
-  
 -   **Beleid scopes:** globale  
   
 ##  <a name="CORS"></a>CORS  
@@ -129,7 +126,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |----------|-----------------|--------------|-------------|  
 |cors|Hoofdelement.|Ja|N.v.t.|  
 |toegestane oorsprongen|Bevat `origin` elementen die de toegestane oorsprongen voor aanvragen van andere domeinen beschrijven. `allowed-origins`kan bevatten één `origin` element waarmee wordt aangegeven `*` om toe te staan een oorsprong, of één of meer `origin` elementen die een URI bevatten.|Ja|N.v.t.|  
-|Oorsprong|De waarde kan zijn `*` toegestaan om alle oorsprongen of een URI die een enkele oorsprong aangeeft. De URI moet een schema, host en poort bevatten.|Ja|Als de poort in een URI wordt weggelaten, wordt poort 80 wordt gebruikt voor HTTP en poort 443 voor HTTPS wordt gebruikt.|  
+|oorsprong|De waarde kan zijn `*` toegestaan om alle oorsprongen of een URI die een enkele oorsprong aangeeft. De URI moet een schema, host en poort bevatten.|Ja|Als de poort in een URI wordt weggelaten, wordt poort 80 wordt gebruikt voor HTTP en poort 443 voor HTTPS wordt gebruikt.|  
 |toegestaan methoden|Dit element is vereist als methoden dan ophalen of POST zijn toegestaan. Bevat `method` elementen die opgeeft van de ondersteunde HTTP-termen.|Nee|Als u deze sectie is niet aanwezig is, worden GET en POST worden ondersteund.|  
 |Methode|Hiermee geeft u een HTTP-term.|Ten minste één `method` element is vereist als de `allowed-methods` sectie aanwezig is.|N.v.t.|  
 |toegestaan headers|Dit element bevat `header` elementen geven van namen van de headers die kunnen worden opgenomen in de aanvraag.|Nee|N.v.t.|  
@@ -140,14 +137,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|referenties toestaan|De `Access-Control-Allow-Credentials` header in het voorbereidende antwoord op de waarde van dit kenmerk worden ingesteld en van invloed zijn op de client de referenties in verschillende domeinen aanvragen indienen.|Nee|ONWAAR|  
+|referenties toestaan|De `Access-Control-Allow-Credentials` header in het voorbereidende antwoord op de waarde van dit kenmerk worden ingesteld en van invloed zijn op de client de referenties in verschillende domeinen aanvragen indienen.|Nee|onwaar|  
 |Preflight-resultaat--maximumleeftijd|De `Access-Control-Max-Age` header in het voorbereidende antwoord aan de waarde van dit kenmerk wordt ingesteld en van invloed zijn op de gebruikersagent cacheantwoord voorafgaan aan de vlucht.|Nee|0|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomende  
-  
 -   **Beleid scopes:** API, bewerking  
   
 ##  <a name="JSONP"></a>JSONP  
@@ -185,8 +181,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** uitgaand  
-  
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  
+
+Zie voor meer informatie, werken met beleid:
+
++ [Beleidsregels in API Management](api-management-howto-policies.md)
++ [Transformeren API 's](transform-api.md)
++ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Voorbeelden van beleid](policy-samples.md)   

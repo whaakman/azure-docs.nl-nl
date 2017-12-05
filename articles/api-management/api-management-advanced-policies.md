@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a>Geavanceerde beleidsregels  
   
 -   [Transportbesturing](api-management-advanced-policies.md#choose) - voorwaardelijk is van toepassing op basis van de resultaten van de evaluatie van Booleaanse waarde beleidsverklaringen [expressies](api-management-policy-expressions.md).  
-  
 -   [Doorsturen van aanvraag](#ForwardRequest) -stuurt de aanvraag naar de back-endservice.
-
 -   [Gelijktijdigheid beperken](#LimitConcurrency) -voorkomt u dat beleid uit door meer dan het opgegeven aantal aanvragen wordt uitgevoerd op een tijdstip ingesloten.
-  
 -   [Logboek naar Event Hub](#log-to-eventhub) -berichten in de opgegeven indeling verzendt naar een Event Hub gedefinieerd door een entiteit berichtenlogboek. 
-
 -   [Antwoord model](#mock-response) -pipeline-uitvoering wordt afgebroken en retourneert een mocked antwoord rechtstreeks aan de aanroeper.
-  
 -   [Probeer](#Retry) -uitvoering van de ingesloten beleidsverklaringen pogingen als en pas de voorwaarde wordt voldaan. Uitvoering wordt herhaald op de opgegeven tijdsintervallen en tot het opgegeven aantal nieuwe pogingen.  
-  
 -   [Antwoord retourneren](#ReturnResponse) -pipeline-uitvoering wordt afgebroken en retourneert het opgegeven antwoord rechtstreeks naar de aanroeper. 
-  
 -   [Eenzijdige aanvraag verzenden](#SendOneWayRequest) -verzendt een aanvraag naar de opgegeven URL zonder te wachten op reactie.  
-  
 -   [Aanvraag verzenden](#SendRequest) -verzendt een aanvraag naar de opgegeven URL.  
-
 -   [HTTP-proxy ingesteld](#SetHttpProxy) -kunt u de aanvragen van de route die zijn doorgestuurd via een HTTP-proxy.  
-
 -   [Stel aanvraagmethode](#SetRequestMethod) -kunt u de HTTP-methode voor een aanvraag wijzigen.  
-  
 -   [Statuscode ingesteld](#SetStatus) -wijzigingen van de HTTP-statuscode in de opgegeven waarde.  
-  
 -   [Variabele instellen](api-management-advanced-policies.md#set-variable) -zich blijft voordoen een waarde in een benoemde [context](api-management-policy-expressions.md#ContextVariables) variabele voor latere toegang.  
-
 -   [Tracering](#Trace) -voegt een tekenreeks in de [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) uitvoer.  
-  
 -   [Wacht](#Wait) -wacht voor ingesloten [Verzendaanvraag](api-management-advanced-policies.md#SendRequest), [waarde niet ophalen uit de cache](api-management-caching-policies.md#GetFromCacheByKey), of [transportbesturing](api-management-advanced-policies.md#choose) beleid om te voltooien voordat u doorgaat.  
   
 ##  <a name="choose"></a>Controlestroom  
@@ -264,7 +249,6 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** back-end  
-  
 -   **Beleid scopes:** alle scopes  
   
 ##  <a name="LimitConcurrency"></a>Limiet gelijktijdigheid van taken  
@@ -454,7 +438,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|Voorwaarde|Een boolean letterlijke waarde of [expressie](api-management-policy-expressions.md) opgeven als nieuwe pogingen moeten worden gestopt (`false`) of vervolg (`true`).|Ja|N.v.t.|  
+|voorwaarde|Een boolean letterlijke waarde of [expressie](api-management-policy-expressions.md) opgeven als nieuwe pogingen moeten worden gestopt (`false`) of vervolg (`true`).|Ja|N.v.t.|  
 |aantal|Een positief getal dat aangeeft het maximale aantal nieuwe pogingen om te proberen.|Ja|N.v.t.|  
 |interval|Een positief getal in seconden, geven de wachtinterval tussen het opnieuw probeert.|Ja|N.v.t.|  
 |Max-interval|Een positief getal in seconden voor het opgeven van de maximale wachttijd interval tussen de pogingen. Wordt gebruikt voor het implementeren van een algoritme exponentiële probeer het opnieuw.|Nee|N.v.t.|  
@@ -570,7 +554,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
 |een-manier-verzoek om te verzenden|Hoofdelement.|Ja|  
-|URL|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|url|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
 |hoofdtekst|De aanvraagtekst.|Nee|  
@@ -649,7 +633,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Beschrijving|Vereist|  
 |-------------|-----------------|--------------|  
 |aanvragen verzenden|Hoofdelement.|Ja|  
-|URL|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
+|url|De URL van de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |Methode|De HTTP-methode voor de aanvraag.|Er is geen als modus = kopiëren; anders Ja.|  
 |koptekst|Aanvraag-header. Meerdere headeronderdelen voor meerdere aanvraagheaders gebruiken.|Nee|  
 |hoofdtekst|De aanvraagtekst.|Nee|  
@@ -807,7 +791,6 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** uitgaand, back-end op fout  
-  
 -   **Beleid scopes:** alle scopes  
 
 ##  <a name="set-variable"></a>Variabele instellen  
@@ -843,72 +826,41 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end op fout  
-  
 -   **Beleid scopes:** alle scopes  
   
 ###  <a name="set-variableAllowedTypes"></a>Toegestane typen  
  Expressies in de `set-variable` beleid moet een van de volgende eenvoudige typen retourneren.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.DateTime  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a>Tracering  
@@ -1001,16 +953,19 @@ Let op het gebruik van [eigenschappen](api-management-howto-properties.md) als w
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|voor|Hiermee wordt bepaald of de `wait` beleid wacht tot alle directe onderliggende beleidsregels is voltooid of alleen bestaan. Toegestane waarden zijn:<br /><br /> -   `all`-Wacht totdat alle directe onderliggende beleidsregels om te voltooien<br />-een - wachten op een directe onderliggende beleid om te voltooien. Zodra het eerste directe onderliggende beleid is voltooid, de `wait` beleid is voltooid en de uitvoering van een ander beleid direct onderliggende is beëindigd.|Nee|alle|  
+|voor|Hiermee wordt bepaald of de `wait` beleid wacht tot alle directe onderliggende beleidsregels is voltooid of alleen bestaan. Toegestane waarden zijn:<br /><br /> -   `all`-Wacht totdat alle directe onderliggende beleidsregels om te voltooien<br />-een - wachten op een directe onderliggende beleid om te voltooien. Zodra het eerste directe onderliggende beleid is voltooid, de `wait` beleid is voltooid en de uitvoering van een ander beleid direct onderliggende is beëindigd.|Nee|all|  
   
 ### <a name="usage"></a>Gebruik  
- Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Beleid secties:** inkomend, uitgaand back-end  
-  
--   **Beleid scopes:**alle scopes  
+-   **Beleid scopes:** alle scopes  
   
 ## <a name="next-steps"></a>Volgende stappen
+
 Zie voor meer informatie, werken met beleid:
--   [Beleidsregels in API Management](api-management-howto-policies.md) 
--   [Beleidsexpressies](api-management-policy-expressions.md)
++ [Beleidsregels in API Management](api-management-howto-policies.md) 
++ [Beleidsexpressies](api-management-policy-expressions.md)
++ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Voorbeelden van beleid](policy-samples.md)   

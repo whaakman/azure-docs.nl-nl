@@ -1,6 +1,6 @@
 ---
 title: Azure API Management Veelgestelde vragen | Microsoft Docs
-description: Meer informatie over de antwoorden op veelgestelde vragen, patronen en aanbevolen procedures in Azure API Management.
+description: Meer informatie over de antwoorden op veelgestelde vragen (FAQ) patronen en aanbevolen procedures in Azure API Management.
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management-Veelgestelde vragen
 De antwoorden op veelgestelde vragen, patronen en aanbevolen procedures voor Azure API Management.
 
 ## <a name="contact-us"></a>Contact opnemen
 * [Hoe kan ik vraag het team van Microsoft Azure API Management?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 * [Wat betekent het als een functie in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ Wanneer een functie in preview is, betekent dit dat we op zoek bent actief naar 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Hoe kan ik de verbinding tussen de API Management-gateway en Mijn back-end-services beveiligen?
 U hebt verschillende mogelijkheden voor het beveiligen van de verbinding tussen de API Management-gateway en de back-end-services. U kunt:
 
-* Gebruik HTTP-basisverificatie. Zie voor meer informatie [instellingen voor de API configureren](api-management-howto-create-apis.md#configure-api-settings).
+* Gebruik HTTP-basisverificatie. Zie voor meer informatie [importeren en publiceren van uw eerste API](import-and-publish.md).
 * Gebruik van wederzijdse verificatie van SSL, zoals beschreven in [het beveiligen van back-end-services met behulp van client certificaatverificatie in Azure API Management](api-management-howto-mutual-certificates.md).
 * IP-whitelisting op uw back-end-service gebruiken. Als u een standaard of Premium-laag API Management-exemplaar hebt, het IP-adres van de gateway constant is gebleven. U kunt uw lijst met geaccepteerde toestaan dit IP-adres instellen. Op het Dashboard in de Azure portal kunt u het IP-adres van uw exemplaar van API Management ophalen.
 * Verbinding maken met uw API Management-exemplaar met een virtueel netwerk van Azure.
@@ -102,7 +101,7 @@ Als het beleid dat u wilt toevoegen wordt weergegeven, grijs of grijs weergegeve
 U hebt een aantal opties voor het gebruik van API-versies in API Management:
 
 * U kunt in API Management API's ter vertegenwoordiging van verschillende versies configureren. Bijvoorbeeld, wellicht u twee verschillende API's, MyAPIv1 en MyAPIv2. Een ontwikkelaar kan de versie kiezen die de ontwikkelaar wil gebruiken.
-* U kunt ook uw API configureren met een service-URL die een versiesegment, bijvoorbeeld https://my.api niet opgenomen. Configureer vervolgens een versiesegment op van elke bewerking [herschrijven van URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) sjabloon. U kunt bijvoorbeeld een bewerking met een [URL sjabloon](api-management-howto-add-operations.md#url-template) /resource aangeroepen en een [herschrijven van URL](api-management-howto-add-operations.md#rewrite-url-template) sjabloon aangeroepen/v1/Resource. U kunt de waarde van het segment versie afzonderlijk voor elke bewerking wijzigen.
+* U kunt ook uw API configureren met een service-URL die een versiesegment, bijvoorbeeld https://my.api niet opgenomen. Configureer vervolgens een versiesegment op van elke bewerking [herschrijven van URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) sjabloon. 
 * Als u wilt een segment 'standaard'-versie van de API-service-URL, op geselecteerde bewerkingen houden een beleid instellen dat gebruikmaakt van de [back-endservice ingesteld](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) beleid voor het wijzigen van het Aanvraagpad van de back-end-.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Hoe stel ik omgevingen met meerdere in één API

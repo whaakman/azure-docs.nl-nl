@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Schaalbare clouddatabases bouwen
 Databases uitbreiden kan gemakkelijk worden gedaan met behulp van schaalbare hulpprogramma's en functies voor Azure SQL Database. U kunt in het bijzonder de **clientbibliotheek voor elastische Database** maken en beheren van uitgebreide databases. Deze functie kunt u eenvoudig shard toepassingen ontwikkelen met honderden, of zelfs duizenden — van Azure SQL-databases. [Elastische taken](sql-database-elastic-jobs-powershell.md) kan vervolgens worden gebruikt voor het beheer te vereenvoudigen voor deze databases.
 
 Downloaden:
-* Zie de .NET-versie van de bibliotheek [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 * Zie de Java-versie van de bibliotheek [Maven centrale opslagplaats](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* Zie de .NET-versie van de bibliotheek [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Documentatie
 1. [Aan de slag met tools voor Elastic Database](sql-database-elastic-scale-get-started.md)
@@ -60,11 +60,11 @@ In het algemeen kunnen klanten die gebruikmaken van hulpprogramma's voor elastis
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Clientbibliotheek voor elastische Database ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - tot **downloaden** de bibliotheek.
+- Clientbibliotheek voor elastische Database ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - tot **downloaden** de bibliotheek.
 
 - [Aan de slag met hulpprogramma's voor elastische database](sql-database-elastic-scale-get-started.md) - om te proberen de **voorbeeldapp** die clientfuncties laat zien.
 
-- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)): als u wilt bijdragen aan de code te maken.
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.NET](https://github.com/Azure/elastic-db-tools)): als u wilt bijdragen aan de code te maken.
 - [Overzicht van Azure SQL Database elastische query](sql-database-elastic-query-overview.md) : gebruik elastische query's.
 
 - [Verplaatsen van gegevens tussen cloud uitgebreide databases](sql-database-elastic-scale-overview-split-and-merge.md) - voor instructies over het gebruik van de **gesplitste merge tool**.

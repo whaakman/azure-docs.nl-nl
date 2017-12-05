@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>De installatiekopie van de lucht classificatie
 
@@ -59,9 +59,14 @@ De volgende instructies leiden u door het proces voor het instellen van de uitvo
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Ga als volgt de [installeren en het maken van de Quick Start](quickstart-installation.md) voor het installeren van de Azure Machine Learning-Workbench en experimenteren en Model Management Accounts maken.
 - [Batch-AI](https://github.com/Azure/BatchAI) Python SDK en Azure CLI 2.0
-    - De Batch AI SDK en de Azure CLI 2.0 installeren door de instructies in de [sectie recepten vereisten](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - Op dit moment van schrijven gebruikt de Workbench van Azure Machine Learning een afzonderlijke fork van Azure CLI 2.0. Ter verduidelijking is de Workbench-versie van de CLI als 'een CLI van Azure Machine Learning Workbench gestart' en de algemene release-versie (waaronder Batch AI) 'Azure CLI 2.0'.
-    - Een Azure Active Directory-toepassing en service-principal maken door de volgende [deze instructies](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). De client-ID-record, geheim en tenant-ID.
+    - Voltooi de volgende secties in de [Batch AI recepten Leesmij](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - 'Vereisten'
+        - 'Maken en uw toepassing met Azure Active Directory (AAD)'
+        - 'Registreren BatchAI Resourceproviders' (onder ' uitvoeren met behulp van Azure CLI 2.0' recepten)
+        - "Azure Batch AI-Management-Client installeren"
+        - "Azure Python SDK installeren"
+    - De client-ID-record, geheim en tenant-ID van de Azure Active Directory-toepassing die wordt u omgeleid naar maken. U gebruikt deze referenties verderop in deze zelfstudie.
+    - Op dit moment van schrijven gebruik Azure Machine Learning Workbench en Azure Batch AI van afzonderlijke recoveryforks van de Azure CLI 2.0. Ter verduidelijking is de Workbench-versie van de CLI als 'een CLI van Azure Machine Learning Workbench gestart' en de algemene release-versie (waaronder Batch AI) 'Azure CLI 2.0'.
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), wordt er een gratis hulpprogramma voor het coördineren van bestandsoverdracht tussen Azure storage-accounts
     - Zorg ervoor dat de map met het AzCopy uitvoerbare bestand op uw systeem pad-omgevingsvariabele. (Instructies over het wijzigen van omgevingsvariabelen zijn beschikbaar [hier](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Een SSH-client. het is raadzaam [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ Uw Batch-AI-cluster heeft toegang tot uw trainingsgegevens op een netwerkserver.
 1. Geef de volgende opdracht voor het maken van een netwerkserver:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Controleer de status van de inrichting van uw netwerk-bestandsserver met de volgende opdracht:

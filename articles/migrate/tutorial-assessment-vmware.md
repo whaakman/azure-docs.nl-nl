@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detecteren en beoordelen van de lokale virtuele VMware-machines op de migratie naar Azure
 
@@ -37,10 +37,14 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **VMware**: U moet ten minste één VMware VM zich bevindt op een ESXi-host of cluster met versie 5.0 of hoger. De host of het cluster moet worden beheerd door een vCenter-server versie 5.5, 6.0 of 6.5 uitgevoerd.
-- **vCenter account**: U moet een alleen-lezen-account met beheerdersreferenties voor de vCenter-server. Azure migreren gebruikt deze account voor het detecteren van virtuele machines.
-- **Machtigingen**: op de vCenter-server, moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in. EICELLEN-indeling. 
-- **Instellingen voor statistieken**: de instellingen van de statistieken voor de vCenter-server moeten worden ingesteld op niveau 3 voordat u implementatie begint. Als u lager is dan 3 assessment niveau werkt zonder prestatiegegevens voor opslag en netwerk is niet verzameld.
+- **VMware**: de virtuele machines die u wilt migreren, moet worden beheerd door een vCenter-serverversie 5.5, 6.0 of 6.5. Bovendien moet u één ESXi-host actief versie 5.0 of hoger voor het implementeren van de VM-collector. 
+ 
+> [!NOTE]
+> Ondersteuning voor Hyper-V is in onze roadmap en snel worden ingeschakeld. 
+
+- **vCenter Server-account**: U moet een alleen-lezen-account voor toegang tot de vCenter-Server. Azure migreren gebruikt deze account voor het detecteren van de lokale virtuele machines.
+- **Machtigingen**: op de vCenter-Server, moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in. EICELLEN-indeling. 
+- **Instellingen voor statistieken**: de instellingen van de statistieken voor de vCenter-Server moeten worden ingesteld op niveau 3 voordat u implementatie begint. Indien deze lager is dan het niveau 3 beoordeling werkt, maar prestatiegegevens voor opslag en netwerk is niet verzameld. De grootte van de aanbevelingen in dit geval wordt uitgevoerd op basis van prestatiegegevens voor de CPU en geheugen en configuratie-gegevens voor de schijf en netwerkadapters. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -51,7 +55,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Zoeken naar **Azure migreren**, en selecteer de service (**Azure migreren (preview)** in de zoekresultaten. Klik vervolgens op **Maken**.
 3. Geef de naam van het project en de Azure-abonnement voor het project.
 4. Maak een nieuwe resourcegroep.
-5. Geef de regio waarin u wilt maken van het project en klik vervolgens op **maken**. Metagegevens die afkomstig zijn van lokale virtuele machines worden opgeslagen in deze regio. U kunt alleen een migreren van de Azure-project maken in de regio West-Centraal VS voor deze preview. Echter, kunt u virtuele machines beoordelen voor een andere locatie.
+5. Geef de regio waarin u wilt maken van het project en klik vervolgens op **maken**. Metagegevens die afkomstig zijn van lokale virtuele machines worden opgeslagen in deze regio. U kunt alleen een migreren van de Azure-project maken in de regio West-Centraal VS voor deze preview. U kunt echter nog steeds de migratie voor een doel-Azure-locatie plannen. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -93,7 +97,7 @@ Controleer of de. EICELLEN bestand is beveiligd voordat u deze implementeert.
 
 ## <a name="create-the-collector-vm"></a>De collector VM maken
 
-Het gedownloade bestand importeren in de vCenter-server.
+Het gedownloade bestand importeren in de vCenter-Server.
 
 1. Klik in de console van de Client vSphere **bestand** > **OVF-sjabloon implementeren**.
 
@@ -143,7 +147,7 @@ Detectie tijd is afhankelijk van hoeveel virtuele machines die u detectie. Norma
 Nadat de virtuele machines zijn gedetecteerd, kunt u ze te groeperen en maken van een beoordeling. 
 
 1. In het project **overzicht** pagina, klikt u op **+ maken assessment**.
-2. Klik op **weergeven van alle** om de evaluatie-instellingen te controleren.
+2. Klik op **weergeven van alle** om te controleren van de evaluatie-eigenschappen.
 3. De groep te maken en geef een groepsnaam.
 4. Selecteer de computers die u wilt toevoegen aan de groep.
 5. Klik op **Assessment maken**wilt maken van de groep en de evaluatie.
@@ -168,13 +172,16 @@ Deze weergave toont de gereedheidsstatus voor elke computer.
 
 #### <a name="monthly-cost-estimate"></a>Maandelijkse kosten schatting
 
-Deze weergave toont de kosten voor berekeningen en opslag voor elke computer. Maakt een schatting van kosten zijn berekend met behulp van de aanbevelingen op basis van prestaties grootte voor een machine en de schijven en de eigenschappen van de evaluatie.
+Deze weergave toont de totale berekenings- en opslagkosten van de virtuele machines in Azure samen met de details voor elke computer wordt uitgevoerd. Maakt een schatting van kosten zijn berekend met behulp van de aanbevelingen op basis van prestaties grootte voor een machine en de schijven en de eigenschappen van de evaluatie. 
 
-Geschatte maandelijkse kosten voor berekeningen en opslag worden samengevoegd voor alle virtuele machines in de groep. U kunt klikken op elke machine inzoomen voor meer informatie. 
+> [!NOTE]
+> De kosten schatting verstrekt door Azure migreren is voor het uitvoeren van de lokale virtuele machines als Azure-infrastructuur als een dienst (IaaS) virtuele machines. Het beschouwd niet als een Platform als een service (PaaS) of Software als een dienst (SaaS)-kosten. 
+
+Geschatte maandelijkse kosten voor berekeningen en opslag worden samengevoegd voor alle virtuele machines in de groep. 
 
 ![Assessment VM kosten](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-U kunt inzoomen op Zie kosten voor een specifieke computer.
+U kunt inzoomen op Zie details voor een specifieke computer.
 
 ![Assessment VM kosten](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

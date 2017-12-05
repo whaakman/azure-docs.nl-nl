@@ -1,4 +1,4 @@
-In de Cloud-Shell, maakt u een App Service-plan in de resourcegroep met de [az appservice-abonnement maken](/cli/azure/appservice/plan#create) opdracht.
+In de Cloud-Shell, maakt u een App Service-plan in de resourcegroep met de [az appservice-abonnement maken](/cli/azure/appservice/plan#az_appservice_plan_create) opdracht.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

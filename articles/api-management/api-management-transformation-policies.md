@@ -6,19 +6,18 @@ documentationcenter:
 author: miaojiang
 manager: erikre
 editor: 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -79,7 +78,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> conversie - altijd - altijd van toepassing.<br />convert-inhoud type-json - alleen als response Content-Type-header aanwezigheid van JSON aangeeft.|Ja|N.v.t.|  
-|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als JSON is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|De waarde True|  
+|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als JSON is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|waar|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -123,7 +122,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |----------|-----------------|--------------|-------------|  
 |type|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -javascript-vriendelijk - de geconverteerde JSON heeft een formulier beschrijvende voor ontwikkelaars van JavaScript.<br />de geconverteerde JSON weerspiegelt - direct - structuur van het oorspronkelijke XML-document.|Ja|N.v.t.|  
 |toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -altijd - altijd converteren.<br />convert - inhoud-type-xml - alleen als response Content-Type-header aanwezigheid van XML aangeeft.|Ja|N.v.t.|  
-|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als XML is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|De waarde True|  
+|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als XML is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|waar|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -157,7 +156,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|Van|De tekenreeks om naar te zoeken.|Ja|N.v.t.|  
+|uit|De tekenreeks om naar te zoeken.|Ja|N.v.t.|  
 |tot|De vervangende tekenreeks. Geef de vervangende tekenreekslengte van nul als u wilt verwijderen van de zoekreeks.|Ja|N.v.t.|  
   
 ### <a name="usage"></a>Gebruik  
@@ -629,7 +628,7 @@ OriginalUrl.
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
 |sjabloon|De werkelijke web service-URL met een queryreeks-parameters. Wanneer u expressies gebruikt, is het gehele getal moet een expressie.|Ja|N.v.t.|  
-|kopiëren niet-overeenkomende parameters|Hiermee geeft u op of de binnenkomende aanvraag niet aanwezig in de oorspronkelijke URL sjabloon queryparameters worden toegevoegd aan de URL die is gedefinieerd door de sjabloon opnieuw schrijven|Nee|De waarde True|  
+|kopiëren niet-overeenkomende parameters|Hiermee geeft u op of de binnenkomende aanvraag niet aanwezig in de oorspronkelijke URL sjabloon queryparameters worden toegevoegd aan de URL die is gedefinieerd door de sjabloon opnieuw schrijven|Nee|waar|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -703,4 +702,9 @@ OriginalUrl.
 -   **Beleid scopes:** wereldwijd, product, API, bewerking  
   
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie werken met beleid [-beleid in API Management](api-management-howto-policies.md).  
+
+Zie de volgende onderwerpen voor meer informatie:
+
++ [Beleidsregels in API Management](api-management-howto-policies.md)
++ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Voorbeelden van beleid](policy-samples.md)   
