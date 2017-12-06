@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentatie over de Azure IoT Hub Device Provisioning Service (preview)
+title: Documentatie over de Azure IoT Hub Device Provisioning Service
 metadata:
-  title: 'Documentatie over de Azure IoT Hub Device Provisioning Service (preview) - Zelfstudies, API-naslaginformatie'
+  title: 'Documentatie over de Azure IoT Hub Device Provisioning Service - Zelfstudies, API-naslaginformatie'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'De IoT Hub Device Provisioning Service (preview) is een helper-service voor IoT Hub die zero-touch, just-in-time inrichting naar de juiste IoT-hub biedt zonder menselijke tussenkomst, zodat gebruikers miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten. Leer hoe u apparaten naar uw IoT-hub(s) kunt inrichten met onze snelstartgidsen, zelfstudies en voorbeelden.'
+  description: 'De IoT Hub Device Provisioning Service is een helper-service voor IoT Hub die zero-touch, just-in-time inrichting naar de juiste IoT-hub biedt zonder menselijke tussenkomst, zodat gebruikers miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten. Leer hoe u apparaten naar uw IoT-hub(s) kunt inrichten met onze snelstartgidsen, zelfstudies en voorbeelden.'
 sections:
   - title: QuickStarts van vijf minuten
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Zelfstudies met stapsgewijze instructies
     items:
       - type: paragraph
-        text: Leer hoe u de IoT Hub Device Provisioning Service (preview) kunt gebruiken voor het automatisch inrichten van apparaten met ingeschakelde beveiliging naar één of meerdere IoT-hubs.
+        text: Leer hoe u de IoT Hub Device Provisioning Service kunt gebruiken voor het automatisch inrichten van apparaten met ingeschakelde beveiliging naar één of meerdere IoT-hubs.
       - type: list
         style: ordered
         items:

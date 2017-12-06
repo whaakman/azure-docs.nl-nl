@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Een virtuele machine taggen
           href: tag.md
-        - name: Cloud-init gebruiken
-          href: using-cloud-init.md
         - name: Scripts uitvoeren op een virtuele machine
           href: extensions-customscript.md
         - name: Extern bureaublad gebruiken
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Een volledige VM maken
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Overzicht van cloud-init
+              href: using-cloud-init.md
+            - name: VM-hostnaam configureren
+              href: cloudinit-update-vm-hostname.md
+            - name: Pakketten in een virtuele machine bijwerken
+              href: cloudinit-update-vm.md
+            - name: Een gebruiker toevoegen aan een virtuele machine
+              href: cloudinit-add-user.md
+            - name: Wisselbestand configureren
+              href: cloudinit-configure-swapfile.md
+            - name: Een bestaand bash-script uitvoeren
+              href: cloudinit-bash-script.md
+            - name: Een bestaande virtuele machine voorbereiden voor cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:
