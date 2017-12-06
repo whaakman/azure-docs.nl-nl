@@ -14,23 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 09d488a7600d85b6feab6a27cdd517240c95104b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Vervaldatum van Azure Blob storage in Azure Content Delivery Network beheren
 > [!div class="op_single_selector"]
-> * [Azure-web-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Azure-webinhoud](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
 De [Blob storage-service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is een van de verschillende Azure gebaseerde oorsprongen geïntegreerd met Azure Content Delivery Network (CDN). Kan een openbaar toegankelijke blob-inhoud in cache worden opgeslagen in Azure CDN totdat de time-to-live (TTL) is verstreken. De TTL-waarde wordt bepaald door de `Cache-Control` -header in het HTTP-antwoord op de bronserver. Dit artikel wordt beschreven op verschillende manieren die u kunt instellen de `Cache-Control` header op een blob in Azure Storage.
 
+U kunt de cache-instellingen van de Azure-portal ook beheren door in te stellen [CDN regels opslaan in cache](cdn-caching-rules.md). Als u slechts één of meer caching regels en hun gedrag ingesteld op **overschrijven** of **cache overslaan**, de geleverde oorsprong cache-instellingen in dit artikel wordt beschreven, worden genegeerd. Zie voor meer informatie over algemene concepten voor caching [werking van cacheopslag](cdn-how-caching-works.md).
+
 > [!TIP]
-> U kunt geen TTL instellen voor een blob. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen. Deze standaard TTL geldt alleen voor levering optimalisaties van algemene webtoepassingen. De standaard TTL-waarde is één dag voor optimalisatie van grote bestanden, en voor mediastreaming optimalisaties de standaard TTL-waarde is één jaar.
+> U kunt geen TTL instellen voor een blob. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen, tenzij u een cache van de regels in de Azure-portal hebt ingesteld. Deze standaard TTL geldt alleen voor levering optimalisaties van algemene webtoepassingen. De standaard TTL-waarde is één dag voor optimalisatie van grote bestanden, en voor mediastreaming optimalisaties de standaard TTL-waarde is één jaar.
 > 
 > Zie voor meer informatie over de werking van Azure CDN om sneller toegang tot blobs en andere bestanden [overzicht van het Azure Content Delivery Network](cdn-overview.md).
 > 
@@ -129,4 +131,5 @@ U kunt eenvoudig de TTL-instellingen van uw blobs controleren. Met uw browser [h
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Informatie over het beheren van de verlooptijd van Cloudservice-inhoud in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+* [Meer informatie over concepten opslaan in cache](cdn-how-caching-works.md)
 

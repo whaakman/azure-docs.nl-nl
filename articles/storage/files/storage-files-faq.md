@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies en functionaliteit, waaronder het gebruik van Azure File-synchronisatie met Azure-bestanden. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in groeiende volgorde):
 
 1. Het gedeelte met opmerkingen van dit artikel.
-2. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
+2. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft ondersteuning. Maken van een nieuw ondersteuningsverzoek in de Azure-portal op de **Help** tabblad de **Help + ondersteuning** knop en selecteer vervolgens **nieuw ondersteuningsverzoek**.
 
@@ -147,6 +147,9 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* <a id="afs-effective-vfs"></a>**Hoe wordt *vrije ruimte op volume* wanneer er meerdere server-eindpunten op een volume geïnterpreteerd?**  
+    Wanneer er meer dan één servereindpunt op een volume, is de drempelwaarde voor vrije ruimte van effectieve volume de grootste vrije ruimte op volume opgegeven via een willekeurig servereindpunt op dat volume. Bestanden worden tiers worden verdeeld volgens hun gebruikspatronen ongeacht welke servereindpunt waartoe ze behoren. Bijvoorbeeld, als er twee eindpunten van de server op een volume 1 en Endpoint2, waarbij 1 is een volume vrije ruimte drempel van 25% en Endpoint2 heeft de drempelwaarde van een volume vrije ruimte van 50% de drempelwaarde voor herstelpuntvolume vrije ruimte is voor beide eindpunten van de server worden 50%.
 
 * <a id="afs-files-excluded"></a>**Welke bestanden of mappen worden automatisch uitgesloten door Azure bestand synchronisatie?**  
     Standaard omvat Azure bestand synchronisatie niet de volgende bestanden:

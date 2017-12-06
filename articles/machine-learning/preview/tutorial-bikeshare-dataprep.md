@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Fiets-share-zelfstudie: gegevens voorbereiden met Azure Machine Learning Workbench geavanceerde
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end gegevenswetenschap en geavanceerde analyses oplossing voor professionals gegevenswetenschappers gegevens voorbereiden, experimenten te ontwikkelen en implementeren van modellen in de cloud.
@@ -201,7 +201,7 @@ Om terug te keren de __gegevensweergave__, selecteer __gegevens__ van de linkerb
    ![Afbeelding van het dialoogvenster filter](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM-15 is een type van meteorologische Terminal burgerluchtvaart routinematige weer rapport (METAR). De FM-15-rapporten worden langs de meest volledig, met de ontbrekende gegevens listtle waargenomen.
+   > FM-15 is een type van meteorologische Terminal burgerluchtvaart routinematige weer rapport (METAR). De rapporten FM 15 worden langs de meest voltooid, met weinig ontbrekende gegevens worden waargenomen.
 
 ## <a name="remove-a-column"></a>Een kolom verwijderen
 
@@ -287,7 +287,7 @@ Als u de gegevens in een voorspelling voor twee uur tijdblokken, moet u de voorw
 
    Type `Jan 01, 2015 12AM-2AM` als in het voorbeeld op basis van de eerste rij en druk op **Enter**.
 
-   De Workbench bepaalt de transformatie op basis van het voorbeeld dat u opgeeft. In dit voorbeeld wordt is het resultaat dat de datum-indeling is gewijzigd en samengevoegd met het venster twee uur.
+   De Workbench bepaalt de transformatie op basis van het voorbeeld dat u opgeeft. In dit voorbeeld wordt het resultaat is dat de datumnotatie is gewijzigd en samengevoegd met het venster twee uur.
 
    ![Afbeelding van het voorbeeld ' 01 januari 2015 12: 00 A.M. - 2 uur](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 

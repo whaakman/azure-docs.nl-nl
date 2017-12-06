@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Functie chaining in duurzame functies - Hallo sequence-voorbeeld
 
@@ -39,7 +39,7 @@ De volgende secties worden de configuratie en code die worden gebruikt voor het 
  
 ## <a name="functionjson-file"></a>Function.JSON bestand
 
-Als u de Azure-portal voor ontwikkeling gebruikt, hier is de inhoud van de *function.json* -bestand voor de orchestrator-functie. De meeste orchestrator *function.json* bestanden moeten uitzien bijna hetzelfde.
+Als u Visual Studio Code of de Azure-portal voor ontwikkeling gebruikt, hier is de inhoud van de *function.json* -bestand voor de orchestrator-functie. De meeste orchestrator *function.json* bestanden moeten uitzien bijna hetzelfde.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
@@ -48,7 +48,7 @@ Het belangrijkste is dat de `orchestrationTrigger` bindingstype. Alle orchestrat
 > [!WARNING]
 > Om door te gaan met de regel 'geen i/o-' van orchestrator-functies, niet gebruikmaken van een invoer of uitvoer bindingen bij gebruik van de `orchestrationTrigger` binding activeren.  Als andere invoer of uitvoer bindingen nodig zijn, ze in plaats daarvan moeten worden gebruikt in de context van `activityTrigger` functies die worden aangeroepen door de orchestrator.
 
-## <a name="c-script"></a>C#-script
+## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# script (Visual Studio Code en de Azure portal voorbeeldcode) 
 
 Dit is de broncode:
 

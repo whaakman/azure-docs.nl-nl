@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Aanbevolen procedures voor Automatisch schalen
 In dit artikel leert aanbevolen beveiligingsprocedures voor automatisch schalen in Azure. Monitor voor automatisch schalen die Azure is alleen bedoeld voor [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), en [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/). Andere Azure-services verschillende schalen methoden gebruiken.
@@ -30,8 +30,8 @@ In dit artikel leert aanbevolen beveiligingsprocedures voor automatisch schalen 
   Een instelling voor automatisch schalen heeft een maximale, minimale en standaardwaarde van exemplaren.
 * Een taak voor automatisch schalen leest altijd de bijbehorende metriek te schalen, controleren of het de geconfigureerde drempelwaarde voor scale-out of de schaal is gepasseerd. U kunt een lijst weergeven van metrische gegevens die automatisch schalen kunt schalen door op [Azure Monitor automatisch schalen algemene metrische gegevens](insights-autoscale-common-metrics.md).
 * Alle drempelwaarden zijn berekend op het niveau van een exemplaar. Bijvoorbeeld ' scale door 1 exemplaar wanneer gemiddelde CPU > 80% wanneer het aantal exemplaren is 2 ', scale-out betekent dat als de gemiddelde CPU in alle exemplaren groter dan 80 is %.
-* U ontvangt altijd fout meldingen via e-mail. De eigenaar, bijdrager en lezers van de doelbron in het bijzonder ontvangen e-mail. U ontvangt ook altijd een *herstel* Stuur een e-mail wanneer automatisch schalen vanuit een fout herstelt en begint met het normaal functioneert.
-* U kunt aanmelden voor het ontvangen van een geslaagde scale actie-melding via e-mail en webhooks.
+* Alle fouten voor automatisch schalen die zijn geregistreerd in het activiteitenlogboek. Vervolgens kunt u een [activiteit logboek waarschuwing](./monitoring-activity-log-alerts.md) zodat u kunt een melding via e-mail, SMS, webhook, enz. wanneer er een fout voor automatisch schalen.
+* Op deze manier worden alle geslaagde scale acties op het activiteitenlogboek geplaatst. U kunt een activiteit logboek waarschuwing vervolgens configureren zodat u kunt een melding via e-mail, SMS, webhooks, enz. wanneer er een geslaagde automatisch schalen in te grijpen. U kunt ook e-mailadres of webhook meldingen Blijf op de hoogte voor geslaagde scale acties via het tabblad meldingen van de instelling voor automatisch schalen configureren.
 
 ## <a name="autoscale-best-practices"></a>Aanbevolen procedures voor automatisch schalen
 Gebruik de volgende aanbevolen procedures als u automatisch schalen.
@@ -40,7 +40,7 @@ Gebruik de volgende aanbevolen procedures als u automatisch schalen.
 Als u een instelling van minimaal hebt = 2, maximale = 2 en het huidige aantal exemplaren is 2 en er is geen schaalactie kan optreden. Houd een voldoende marge tussen het aantal maximale en minimale instanties, die inclusief zijn. Automatisch schalen schaalt altijd tussen deze limieten.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Handmatig schalen wordt opnieuw ingesteld door automatisch schalen min en max
-Als u handmatig het aantal exemplaren op een waarde boven of onder de maximale bijwerkt, wordt de engine voor het automatisch schalen automatisch terug naar de minimale (indien hieronder) of het maximum (indien hierboven) aangepast. Bijvoorbeeld, instellen u het bereik tussen 3 en 6. Als u een actief exemplaar hebt, is de engine voor het automatisch schalen wordt aangepast aan 3 instanties op de volgende keer wordt uitgevoerd. Ook kan het zou schaal in back-exemplaren van 8 tot en met 6 op de volgende keer wordt uitgevoerd.  Handmatig schalen is zeer tijdelijk tenzij u ook de regels voor automatisch schalen opnieuw.
+Als u handmatig het aantal exemplaren op een waarde boven of onder de maximale bijwerkt, wordt de engine voor het automatisch schalen automatisch terug naar de minimale (indien hieronder) of het maximum (indien hierboven) aangepast. Bijvoorbeeld, instellen u het bereik tussen 3 en 6. Als u een actief exemplaar hebt, is de engine voor het automatisch schalen wordt aangepast aan 3 instanties op de volgende keer wordt uitgevoerd. Op dezelfde manier als u de schaal handmatig op 8 exemplaren instellen, wordt op de volgende uitvoeren voor automatisch schalen geschaald deze terug naar 6 instanties op de volgende keer wordt uitgevoerd.  Handmatig schalen is zeer tijdelijk tenzij u ook de regels voor automatisch schalen opnieuw.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Gebruik altijd een combinatie van scale-out en schaal in regel waarmee een verhogen en de afname
 Als u slechts één deel van de combinatie gebruikt, wordt automatisch schalen scale-dat in enkele uit of in, tot de maximum of minimum, bereikt.
@@ -143,14 +143,17 @@ Aan de andere kant als CPU 25% en geheugen 51% automatisch schalen biedt **niet*
 De standaardexemplaren is belangrijk voor automatisch schalen die uw service aan die telling wordt geschaald wanneer metrische gegevens niet beschikbaar zijn. Selecteer daarom een standaard-exemplaren die voor uw werkbelastingen veilig is.
 
 ### <a name="configure-autoscale-notifications"></a>Meldingen over automatisch schalen configureren
-Automatisch schalen verwittigt beheerders en medewerkers van de resource via e-mail als een van de volgende condities optreedt:
+Automatisch schalen wordt op het activiteitenlogboek publiceren als een van de volgende condities optreedt:
 
-* service voor automatisch schalen mislukt om een actie te ondernemen.
+* Problemen met een schaalaanpassing automatisch schalen
+* Automatisch schalen-service voltooid heeft een schaalactie
+* De service automatisch schalen mislukt een scale-actie te ondernemen.
 * Metrische gegevens zijn niet beschikbaar voor de service automatisch schalen om een scale-beslissing te nemen.
 * Metrische gegevens zijn beschikbaar (herstelserver) opnieuw te maken van een beslissing schaal.
-  Naast de bovenstaande voorwaarden kunt u e-mailadres of webhook meldingen Blijf op de hoogte voor geslaagde scale acties configureren.
-  
+
 U kunt ook een waarschuwing activiteitenlogboek gebruiken voor het bewaken van de status van de engine voor het automatisch schalen. Hier volgen voorbeelden aan [maken van een activiteit logboek-waarschuwing voor het bewaken van alle automatisch schalen engine bewerkingen voor uw abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) of [maken van een activiteit logboek-waarschuwing voor het bewaken van alle mislukte automatisch schalen schaal / uitschalen bewerkingen op uw abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Naast het gebruik van activiteit logboek waarschuwingen, kunt u ook e-mailadres of webhook meldingen Blijf op de hoogte voor geslaagde scale acties via het tabblad meldingen van de instelling voor automatisch schalen configureren.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Maak een activiteit logboek-waarschuwing voor het bewaken van alle automatisch schalen engine bewerkingen voor uw abonnement.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

@@ -1,26 +1,19 @@
 ---
-title: Groepen met DC/OS-agent voor Azure Container Service | Microsoft Docs
+title: Groepen met DC/OS-agent voor Azure Container Service
 description: De werking van de openbare en persoonlijke agent-adresgroepen met een Azure Container Service DC/OS-cluster
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Mesos, Azure
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: da4a196b1a73c78dfff7d8310edcc349b8d10665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Groepen met DC/OS-agent voor Azure Container Service
 DC/OS-clusters in Azure Container Service bevatten agent knooppunten in twee groepen, een openbare toepassingen en een persoonlijke toepassingen. Een toepassing kan worden geïmplementeerd aan de groep, toegankelijkheid tussen computers in uw containerservice beïnvloeden. De machines kunnen worden blootgesteld aan internet (openbaar) of interne (particuliere) bewaard. Dit artikel bevat een kort overzicht van waarom er groepen van openbare en persoonlijke zijn.

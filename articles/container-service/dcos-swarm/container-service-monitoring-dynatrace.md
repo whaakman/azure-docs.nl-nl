@@ -1,29 +1,22 @@
 ---
-title: Monitor Azure DC/OS-cluster - Dynatrace | Microsoft Docs
+title: Azure DC/OS-cluster - Dynatrace bewaken
 description: Een Azure Container Service DC/OS-cluster met Dynatrace bewaken. De Dynatrace OneAgent implementeren met behulp van de DC/OS-dashboard.
 services: container-service
-documentationcenter: 
 author: MartinGoodwell
-manager: 
-editor: 
-tags: acs, azure-container-service
-keywords: Containers, DC/OS, Azure
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 6fa23728680779e33eda7bb9aa8a01b9cad9a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52a8a05f050017f5062ff986bad7ec2e6a650aa5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Een Azure Container Service DC/OS-cluster met Dynatrace SaaS/beheerde bewaken
+
 In dit artikel wordt beschreven hoe u voor het implementeren van de [Dynatrace](https://www.dynatrace.com/) OneAgent voor het bewaken van de agent-knooppunten in uw Azure Container Service-cluster. Voor deze configuratie moet u een account met Dynatrace SaaS/beheerd. 
 
 ## <a name="dynatrace-saasmanaged"></a>SaaS Dynatrace/beheerd

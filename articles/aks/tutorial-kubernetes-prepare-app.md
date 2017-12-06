@@ -1,27 +1,19 @@
 ---
-title: Kubernetes op Azure zelfstudie - App voorbereiden | Microsoft Docs
+title: Kubernetes op Azure zelfstudie - App voorbereiden
 description: AKS zelfstudie - App voorbereiden
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0048f9ab21c09860397989c41920562ebab2f561
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ef0395a9c666732ba117822f46e8d2a7540aee14
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Voorbereiden van de toepassing Azure Container Service (AKS)
 
@@ -32,7 +24,7 @@ In deze zelfstudie, deel 1 van acht, is een toepassing met meerdere container kl
 > * Maken van een installatiekopie van een container van de toepassingsbron
 > * De toepassing testen in een lokale Docker-omgeving
 
-Zodra de voltooid, is de volgende toepassing toegankelijk zijn in uw lokale ontwikkelingsomgeving.
+Zodra de stappen zijn voltooid, is de volgende toepassing toegankelijk in uw lokale ontwikkelomgeving.
 
 ![Afbeelding van Kubernetes-cluster in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 

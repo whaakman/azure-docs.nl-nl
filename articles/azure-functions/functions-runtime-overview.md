@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: cb98d5f2aaa526555820c15ba5a32fb7e78ffc5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-functions-runtime-overview"></a>Overzicht van Azure Functions-Runtime
 
@@ -29,6 +29,7 @@ De Azure Functions-Runtime biedt een nieuwe manier om te profiteren van de eenvo
 De Azure Functions-Runtime biedt een manier om de ervaring van Azure Functions alvorens toe te wijzen aan de cloud. Op deze manier kunnen kunnen de code-elementen die u bouwt vervolgens worden uitgevoerd met u naar de cloud wanneer u migreert.  De runtime ook wordt geopend nieuwe opties voor u, zoals het gebruik van de ongebruikte rekencapaciteit van uw lokale computers batchprocessen 's nachts uitvoeren. U kunt ook apparaten binnen uw organisatie gebruiken voorwaardelijk om gegevens te verzenden met andere systemen, zowel on-premises en in de cloud.
 
 De Azure Functions-Runtime bestaat uit twee onderdelen:
+
 * Beheer van Azure Functions-Runtimerol
 * Azure Functions-Runtime-Werkrol
 
@@ -36,21 +37,21 @@ De Azure Functions-Runtime bestaat uit twee onderdelen:
 
 De Azure Functions rol biedt een host voor het beheer van uw functies on-premises. Deze rol voert de volgende taken:
 
-* Hosting van de Azure Functions-beheerportal, dit is de hetzelfde account dat u ziet in de [Azure-portal](https://portal.azure.com). Hiermee kunt u het ontwikkelen van uw functies op dezelfde manier als in de Azure-portal.
+* Hosting van de Azure Functions-beheerportal, die hetzelfde account dat u ziet in de [Azure-portal](https://portal.azure.com). De portal biedt een consistente ervaring waarmee u uw functies op dezelfde manier ontwikkelen, zoals u zou in de Azure portal doen.
 * Functies over meerdere functies werknemers verdeeld.
-* Levert een publishing eindpunt zodat u uw functies direct vanuit Microsoft Visual Studio kunt publiceren.
+* Levert een publishing eindpunt zodat u kunt uw functies direct vanuit Microsoft Visual Studio door te downloaden en importeren van het publicatieprofiel publiceren.
 
 ## <a name="azure-functions-worker-role"></a>Azure Functions-Werkrol
 
-De Azure Functions-werkrollen zijn geïmplementeerd in Windows-Containers en dit is waar uw functiecode wordt uitgevoerd.  U kunt meerdere werkrollen implementeren binnen uw organisatie en is een belangrijke manier waarin klanten kunnen maken gebruik van ongebruikte rekenkracht.
+De Azure Functions-werkrollen in de Windows-Containers zijn geïmplementeerd en zijn waarop uw functiecode wordt uitgevoerd.  U kunt meerdere werkrollen implementeren binnen uw organisatie en deze optie is een belangrijke manier waarin klanten kunnen maken gebruik van ongebruikte rekenkracht.  Een voorbeeld van waar spare compute in veel organisaties bestaat is machines voortdurend wordt ingeschakeld, maar niet wordt gebruikt voor grote perioden.
 
 ## <a name="minimum-requirements"></a>Minimale vereisten
 
-Aan de slag met de Azure Functions-Runtime moet u een machine met hebben **Windows Server 2016 of Windows 10 auteurs Update** met toegang tot een **SQL Server** exemplaar.
+U moet een machine met Windows Server 2016 of Windows 10 auteurs Update met toegang tot een exemplaar van SQL Server hebben om te beginnen met de Azure Functions-Runtime.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Installeer de [Azure Functions-Runtime-preview](https://aka.ms/azafr)
+Installeer de [Azure Functions-Runtime-preview](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

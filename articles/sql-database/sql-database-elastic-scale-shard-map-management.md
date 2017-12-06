@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: ddove
-ms.openlocfilehash: 18870b763546a9bccb77df85b01640cfd3c8b852
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 03e7a3612e1cfcfaee2084db0d2eadb72e8a5f9d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Databases met de shard-toewijzing manager uitbreiden
 Gebruik gemakkelijk als u wilt uitbreiden databases op SQL Azure, een manager shard-toewijzing. De shard-toewijzing manager is een speciale database waarin gegevens over alle shards (databases) in een set shard globale toewijzing worden bijgehouden. De metagegevens kan een toepassing verbinding maken met de juiste database op basis van de waarde van de **sharding sleutel**. Bovendien elke shard in de set bevat kaarten die bijhouden van de lokale shard-gegevens (ook wel **shardlets**). 
 
 ![Beheer van shard-kaart](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Begrijpen hoe deze toewijzingen worden opgebouwd is essentieel voor beheer van shard-toewijzing. Dit wordt gedaan met behulp van de klasse ShardMapManager ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)) vindt u in de [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md) voor het beheren van shard-kaarten.  
+Begrijpen hoe deze toewijzingen worden opgebouwd is essentieel voor beheer van shard-toewijzing. Dit wordt gedaan met behulp van de klasse ShardMapManager ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) vindt u in de [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md) voor het beheren van shard-kaarten.  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Shard-kaarten en shard-toewijzingen
 Voor elke shard, moet u het type van shard-toewijzing te maken. De keuze is afhankelijk van de database-architectuur: 
@@ -98,11 +98,28 @@ In de clientbibliotheek is de shard-toewijzing manager een verzameling van shard
 3. **Toepassingscache**: elke toepassing exemplaar toegang tot een **ShardMapManager** object onderhoudt een lokale cache in het geheugen van de toewijzingen. Routinggegevens die onlangs zijn opgehaald worden opgeslagen. 
 
 ## <a name="constructing-a-shardmapmanager"></a>Een ShardMapManager maken
-Een **ShardMapManager** -object is gemaakt met behulp van een fabriek ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory)) patroon. De **ShardMapManagerFactory.GetSqlShardMapManager** ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)) methode heeft referenties (inclusief de servernaam en databasenaam die de GSM) in de vorm van een **ConnectionString** en retourneert een exemplaar van een **ShardMapManager**.  
+Een **ShardMapManager** -object is gemaakt met behulp van een fabriek ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)) patroon. De **ShardMapManagerFactory.GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) methode heeft referenties (inclusief de servernaam en databasenaam die de GSM) in de vorm van een **ConnectionString** en retourneert een exemplaar van een **ShardMapManager**.  
 
 **Opmerking:** de **ShardMapManager** slechts één keer per app-domein, binnen de van de initialisatiecode voor een toepassing moet worden gemaakt. Maken van een extra exemplaren van ShardMapManager in hetzelfde toepassingsdomein resulteert in meer geheugen en CPU-gebruik van de toepassing. Een **ShardMapManager** mag een onbeperkt aantal shard-kaarten. Bij een enkele shard-toewijzing is mogelijk niet voldoende is voor veel toepassingen, zijn er keer wanneer verschillende sets van databases worden gebruikt voor verschillende schema of voor unieke doeleinden; in deze gevallen mogelijk meerdere shard-kaarten beter. 
 
-In deze code wordt een toepassing probeert te openen met een bestaande **ShardMapManager** met de TryGetSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)) methode.  Als objecten die een Global **ShardMapManager** (GSM) nog niet bestaat in de database, de clientbibliotheek maakt ze er met de CreateSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager), [Java ](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)) methode.
+In deze code wordt een toepassing probeert te openen met een bestaande **ShardMapManager** met de TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) methode.  Als objecten die een Global **ShardMapManager** (GSM) nog niet bestaat in de database, de clientbibliotheek maakt ze er met de CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) methode.
+
+```Java
+// Try to get a reference to the Shard Map Manager in the shardMapManager database.
+// If it doesn't already exist, then create it.
+ShardMapManager shardMapManager = null;
+boolean shardMapManagerExists = ShardMapManagerFactory.tryGetSqlShardMapManager(shardMapManagerConnectionString,ShardMapManagerLoadPolicy.Lazy, refShardMapManager);
+shardMapManager = refShardMapManager.argValue;
+
+if (shardMapManagerExists) {
+    ConsoleUtils.writeInfo("Shard Map %s already exists", shardMapManager);
+}
+else {
+    // The Shard Map Manager does not exist, so create it
+    shardMapManager = ShardMapManagerFactory.createSqlShardMapManager(shardMapManagerConnectionString);
+    ConsoleUtils.writeInfo("Created Shard Map %s", shardMapManager);
+}
+```
 
 ```csharp
 // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
@@ -131,50 +148,10 @@ else
 } 
 ```
 
-```Java
-// Try to get a reference to the Shard Map Manager in the shardMapManager database.
-// If it doesn't already exist, then create it.
-ShardMapManager shardMapManager = null;
-boolean shardMapManagerExists = ShardMapManagerFactory.tryGetSqlShardMapManager(shardMapManagerConnectionString,ShardMapManagerLoadPolicy.Lazy, refShardMapManager);
-shardMapManager = refShardMapManager.argValue;
-
-if (shardMapManagerExists) {
-    ConsoleUtils.writeInfo("Shard Map %s already exists", shardMapManager);
-}
-else {
-    // The Shard Map Manager does not exist, so create it
-    shardMapManager = ShardMapManagerFactory.createSqlShardMapManager(shardMapManagerConnectionString);
-    ConsoleUtils.writeInfo("Created Shard Map %s", shardMapManager);
-}
-```
-
-Voor de .NET-versie kunt u Powershell gebruiken voor het maken van een nieuwe Manager van de Shard-toewijzing. Een voorbeeld is beschikbaar [hier](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Voor de .NET-versie kunt u PowerShell gebruiken voor het maken van een nieuwe Manager van de Shard-toewijzing. Een voorbeeld is beschikbaar [hier](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>Een RangeShardMap of ListShardMap ophalen
-Na het maken van een shard kaart manager, kunt u de RangeShardMap krijgen ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) of ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) met behulp van de TryGetRangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)), de TryGetListShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)), of de GetShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)) methode.
-
-```csharp
-// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
-public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
-{
-    // Try to get a reference to the Shard Map.
-    RangeShardMap<T> shardMap;
-    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
-
-    if (shardMapExists)
-    {
-        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
-    }
-    else
-    {
-        // The Shard Map does not exist, so create it
-        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
-        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
-    }
-
-    return shardMap;
-} 
-```
+Na het maken van een shard kaart manager, kunt u de RangeShardMap krijgen ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) of ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx)) met behulp van de TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), de TryGetListShardMap ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), of de GetShardMap ([ Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) methode.
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -204,6 +181,29 @@ static <T> RangeShardMap<T> createOrGetRangeShardMap(ShardMapManager shardMapMan
 }
 ```
 
+```csharp
+// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
+{
+    // Try to get a reference to the Shard Map.
+    RangeShardMap<T> shardMap;
+    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+
+    if (shardMapExists)
+    {
+        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
+    }
+    else
+    {
+        // The Shard Map does not exist, so create it
+        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
+        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
+    }
+
+    return shardMap;
+} 
+```
+
 ### <a name="shard-map-administration-credentials"></a>Beheerdersrechten shard-kaart
 Toepassingen beheren en manipuleren van shard-kaarten wijken af van de implementaties die gebruikmaken van de shard-toewijzingen op route-verbindingen. 
 
@@ -226,19 +226,19 @@ Een shard-toewijzing kan op verschillende manieren worden gewijzigd. Alle van de
 
 Deze methoden samenwerken als de bouwstenen beschikbaar voor het wijzigen van de algemene distributie van gegevens in uw databaseomgeving shard.  
 
-* Toevoegen of verwijderen van shards: Gebruik **CreateShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard)) en **DeleteShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx), [ Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard)) van de Shardmap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map)) klasse. 
+* Toevoegen of verwijderen van shards: Gebruik **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)) en **DeleteShard** ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)) van de Shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx)) klasse. 
   
     De server en database voor de shard doel moeten al bestaan voor deze bewerkingen uit te voeren. Deze methoden geen invloed heeft op de databases zelf, alleen op metagegevens in de shard-toewijzing.
-* Maken of verwijderen van punten of bereiken die zijn toegewezen aan de shards: Gebruik **CreateRangeMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping)), **DeleteMapping** () [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping)) van de RangeShardMapping ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) klasse, en **CreatePointMapping**  ([.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping)) van de ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) klasse.
+* Maken of verwijderen van punten of bereiken die zijn toegewezen aan de shards: Gebruik **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping), [.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx)), **DeleteMapping** () [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx)) van de RangeShardMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) klasse, en **CreatePointMapping**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping), [.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx)) van de ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx)) klasse.
   
     Aan de dezelfde shard kunnen veel verschillende punten of bereiken worden toegewezen. Deze methoden zijn alleen van invloed op de metagegevens - ze hebben geen invloed op alle gegevens die al aanwezig in shards. Als gegevens moeten worden verwijderd uit de database om het in overeenstemming zijn met **DeleteMapping** -bewerkingen u deze bewerkingen uitvoeren, afzonderlijk, maar in combinatie met behulp van deze methoden.  
-* Bestaande bereiken splitsen in twee of aangrenzende bereiken samenvoegen: Gebruik **SplitMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping)) en **MergeMappings** () [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings)).  
+* Bestaande bereiken splitsen in twee of aangrenzende bereiken samenvoegen: Gebruik **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping), [.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx)) en **MergeMappings** () [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings), [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  
   
     Let op te splitsen en samenvoegen van bewerkingen **veranderen niet de shard waaraan sleutelwaarden die zijn toegewezen**. Een splitsing een bestaand bereik opgesplitst in twee delen, maar blijft beide zoals toegewezen aan de dezelfde shard. Een samenvoeging is van invloed op twee aangrenzende bereiken die al zijn toegewezen aan de dezelfde shard, ze samenvoegen tot een enkel bereik.  De verplaatsing van punten of adresbereiken zelf tussen shards moet worden gecoördineerd door middel van **UpdateMapping** in combinatie met de daadwerkelijke gegevensverplaatsing.  U kunt de **gesplitste/Merge** service die deel uitmaken van de elastische database-hulpprogramma's voor het coördineren van shard kaart wijzigingen met de verplaatsing van gegevens wanneer verkeer nodig is. 
-* Opnieuw toewijzen (of verplaatsen) afzonderlijke punten of bereiken die verschillende shards: Gebruik **UpdateMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824207.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.updatemapping)).  
+* Opnieuw toewijzen (of verplaatsen) afzonderlijke punten of bereiken die verschillende shards: Gebruik **UpdateMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.updatemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824207.aspx)).  
   
     Omdat gegevens worden verplaatst van één shard naar een andere moeten mogelijk om het in overeenstemming zijn met **UpdateMapping** bewerkingen, die u wilt uitvoeren die verkeer afzonderlijk, maar in combinatie met behulp van deze methoden.
-* Te ondernemen toewijzingen online als offline: Gebruik **MarkMappingOffline** ([.NET](https://msdn.microsoft.com/library/azure/dn824202.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline)) en **MarkMappingOnline** ([. NET](https://msdn.microsoft.com/library/azure/dn807225.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline)) voor het beheren van de online status van een toewijzing. 
+* Te ondernemen toewijzingen online als offline: Gebruik **MarkMappingOffline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline), [.NET](https://msdn.microsoft.com/library/azure/dn824202.aspx)) en **MarkMappingOnline** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline), [.NET](https://msdn.microsoft.com/library/azure/dn807225.aspx)) voor het beheren van de online status van een toewijzing. 
   
     Bepaalde bewerkingen op de shard-toewijzingen zijn alleen toegestaan als een toewijzing in een 'offline' staat, met inbegrip van **UpdateMapping** en **DeleteMapping**. Als een toewijzing offline is, wordt er een fout geretourneerd in een gegevens-afhankelijke aanvraag op basis van een sleutel die is opgenomen in de toewijzing. Bovendien wanneer een bereik is eerst offline gehaald, wordt alle verbindingen met de betrokken shard worden automatisch om te voorkomen dat inconsistente of onvolledige resultaten voor query's die zijn gericht tegen bereiken wordt gewijzigd afgebroken. 
 

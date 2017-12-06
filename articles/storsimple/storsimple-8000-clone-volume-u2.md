@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>De service Manager van StorSimple-apparaat in Azure-portal gebruiken voor het klonen van een volume
 
@@ -69,12 +69,7 @@ De volgende stappen voor het maken van een kloon van het volume van de back-upca
    
     ![Back-upset lijst](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Vouw in de back-upset om de gekoppelde volumes weer te geven. Deze volumes moeten op de host en het apparaat offline worden gezet voordat u ze kunt herstellen. Toegang krijgen tot de volumes op de **Volumes** blade van uw apparaat en volg de stappen in [offline zetten van een volume](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) offline te nemen ze.
-   
-   > [!IMPORTANT]
-   > Zorg ervoor dat u hebt ondernomen volumes offline op de host eerst voordat u de volumes offline op het apparaat nemen. Als u niet de volumes offline op de host nemen, kan dit leiden tot beschadiging van gegevens.
-   
-4. Ga terug naar de **back-upcatalogus** een volume te selecteren in een back-upset. Met de rechtermuisknop en selecteer vervolgens in het contextmenu **kloon**.
+3. Vouw in de back-upset weergeven van het gekoppelde volume en selecteert u een volume in een back-upset. Met de rechtermuisknop en selecteer vervolgens in het contextmenu **kloon**.
 
    ![Back-upset lijst](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

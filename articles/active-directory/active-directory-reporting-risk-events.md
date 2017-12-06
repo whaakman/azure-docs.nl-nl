@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -64,9 +64,9 @@ Dit type risico gebeurtenis identificeert gebruikers die zich heeft aangemeld va
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Onmogelijke reis naar ongewone locaties
 
-Dit type risico gebeurtenis identificeert twee aanmeldingen die afkomstig zijn van geografisch verafgelegen locaties, waarbij ten minste één van de locaties mogelijk ook ongebruikelijk is voor de gebruiker, krijgt het verleden gedrag. Daarnaast is de tijd tussen de twee aanmeldingen korter is dan de tijd die nodig zou hebben de gebruiker worden verzonden vanaf de eerste locatie naar de tweede, die aangeeft dat een andere gebruiker dezelfde referenties gebruikt. 
+Dit type risico gebeurtenis identificeert twee aanmeldingen die afkomstig zijn van geografisch verafgelegen locaties, waarbij ten minste één van de locaties mogelijk ook ongebruikelijk is voor de gebruiker, krijgt het verleden gedrag. Tussen verschillende andere factoren rekening deze machine learning-algoritme gehouden met de tijd tussen de twee aanmeldingen en de tijd die nodig zou hebben voor de gebruiker van de eerste locatie naar de tweede, die aangeeft dat een andere gebruiker is met behulp van dezelfde gaan de referenties.
 
-Deze machine learning-algoritme die wordt genegeerd voor de hand liggende '*valse positieven*' bijdragen aan de voorwaarde onmogelijke reis zoals VPN-verbindingen en de locaties die regelmatig worden gebruikt door andere gebruikers in de organisatie.  Het systeem heeft een initiële learning periode van 14 dagen gedurende welke aan een nieuwe gebruiker aanmelden gedrag leert.
+De algoritme wordt genegeerd voor de hand liggende 'valse positieven' bijdragen aan de voorwaarden onmogelijke reis, zoals VPN-verbindingen en de locaties die regelmatig worden gebruikt door andere gebruikers in de organisatie. Het systeem heeft een initiële learning periode van 14 dagen gedurende welke aan een nieuwe gebruiker aanmelden gedrag leert. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Aanmelden vanaf onbekende locaties
 
@@ -80,7 +80,7 @@ Dit type risico gebeurtenis identificeert aanmeldingen vanaf apparaten geïnfect
 Dit type risico gebeurtenis identificeert IP-adressen waaruit een groot aantal mislukte aanmeldingspogingen zijn gezien, bij verschillende gebruikersaccounts gedurende een korte periode. Dit komt overeen met verkeerspatronen van IP-adressen die door aanvallers worden gebruikt en een sterke indicator dat accounts al zijn, of moeten worden aangetast. Dit is een machine learning-algoritme dat wordt genegeerd voor de hand liggende '*false positieven*', zoals IP-adressen die regelmatig worden gebruikt door andere gebruikers in de organisatie.  Het systeem heeft een initiële learning periode van 14 dagen waar deze leert het gedrag aanmelden van een nieuwe gebruiker en de nieuwe tenant.
 
 
-## <a name="detection-type"></a>Detectie van type
+## <a name="detection-type"></a>Detectietype
 
 De eigenschap van het type detectie is een indicator (realtime of Offline) voor het tijdsbestek detectie van een risicogebeurtenis.  
 Op dit moment worden de meeste risicogebeurtenissen gedetecteerd offline in na verwerking bewerking nadat de risicogebeurtenis heeft plaatsgevonden.
@@ -90,19 +90,19 @@ De volgende tabel bevat de hoeveelheid tijd die nodig is voor een type detectie 
 | Detectie van Type | Reporting latentie |
 | --- | --- |
 | Realtime | 5 tot 10 minuten |
-| Off line | 2 tot 4 uur |
+| Offline | 2 tot 4 uur |
 
 
 Voor de gebeurtenis risico typen die Azure Active Directory wordt gedetecteerd, zijn de detectie-typen:
 
 | Gebeurtenistype risico | Detectie van Type |
 | :-- | --- | 
-| [Gebruikers met gelekte referenties](#leaked-credentials) | Off line |
+| [Gebruikers met gelekte referenties](#leaked-credentials) | Offline |
 | [Aanmeldingen vanaf anonieme IP-adressen](#sign-ins-from-anonymous-ip-addresses) | Realtime |
-| [Onmogelijke reis naar ongewone locaties](#impossible-travel-to-atypical-locations) | Off line |
+| [Onmogelijke reis naar ongewone locaties](#impossible-travel-to-atypical-locations) | Offline |
 | [Aanmeldingen vanaf onbekende locaties](#sign-in-from-unfamiliar-locations) | Realtime |
-| [Aanmeldingen vanaf geïnfecteerde apparaten](#sign-ins-from-infected-devices) | Off line |
-| [Aanmeldingen vanaf IP-adressen met verdachte activiteiten](#sign-ins-from-ip-addresses-with-suspicious-activity) | Off line|
+| [Aanmeldingen vanaf geïnfecteerde apparaten](#sign-ins-from-infected-devices) | Offline |
+| [Aanmeldingen vanaf IP-adressen met verdachte activiteiten](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
 
 ## <a name="risk-level"></a>Risiconiveau
@@ -165,12 +165,12 @@ Risico's vormen de basis voor het beveiligen van uw Azure AD-identiteiten. Azure
 
 | Gebeurtenistype risico | Risiconiveau | Detectie van Type |
 | :-- | --- | --- |
-| [Gebruikers met gelekte referenties](#leaked-credentials) | Hoog | Off line |
+| [Gebruikers met gelekte referenties](#leaked-credentials) | Hoog | Offline |
 | [Aanmeldingen vanaf anonieme IP-adressen](#sign-ins-from-anonymous-ip-addresses) | Middelgroot | Realtime |
-| [Onmogelijke reis naar ongewone locaties](#impossible-travel-to-atypical-locations) | Middelgroot | Off line |
+| [Onmogelijke reis naar ongewone locaties](#impossible-travel-to-atypical-locations) | Middelgroot | Offline |
 | [Aanmeldingen vanaf onbekende locaties](#sign-in-from-unfamiliar-locations) | Middelgroot | Realtime |
-| [Aanmeldingen vanaf geïnfecteerde apparaten](#sign-ins-from-infected-devices) | Laag | Off line |
-| [Aanmeldingen vanaf IP-adressen met verdachte activiteiten](#sign-ins-from-ip-addresses-with-suspicious-activity) | Middelgroot | Off line|
+| [Aanmeldingen vanaf geïnfecteerde apparaten](#sign-ins-from-infected-devices) | Laag | Offline |
+| [Aanmeldingen vanaf IP-adressen met verdachte activiteiten](#sign-ins-from-ip-addresses-with-suspicious-activity) | Middelgroot | Offline|
 
 Waar vind u de risicogebeurtenissen die in uw omgeving zijn gedetecteerd
 Er zijn twee plaatsen waar u gerapporteerde risicogebeurtenissen bekijken:

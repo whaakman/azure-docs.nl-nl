@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 42a0e7a3816e0f1d96951feac210e5770add4fe1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Azure File-synchronisatie (preview) implementeren
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -92,32 +92,48 @@ Nadat u zich aanmeldt, wordt u gevraagd om de volgende informatie:
 Nadat u de juiste gegevens hebt geselecteerd, selecteert u **registreren** om de inschrijving van de server te voltooien. Als onderdeel van het registratieproces wordt u gevraagd voor een extra aanmelden.
 
 ## <a name="create-a-sync-group"></a>Maken van een groep voor synchronisatie
-Een groep voor synchronisatie definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een groep voor synchronisatie zijn gesynchroniseerd met elkaar. Een groep voor synchronisatie moet ten minste één Cloudeindpunt dat vertegenwoordigt een Azure-bestandsshare, en één servereindpunt waarmee een pad op Windows Server bevatten. Maken van een groep voor synchronisatie in de [Azure-portal](https://portal.azure.com/), gaat u naar uw Storage-Sync-Service en selecteer vervolgens **+ groep voor synchronisatie**:
+Een groep voor synchronisatie definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een groep voor synchronisatie zijn gesynchroniseerd met elkaar. Een groep voor synchronisatie moet ten minste één cloudeindpunt dat vertegenwoordigt een Azure-bestandsshare, en één servereindpunt, waarmee een pad op Windows Server bevatten. Maken van een groep voor synchronisatie in de [Azure-portal](https://portal.azure.com/), gaat u naar uw Storage-Sync-Service en selecteer vervolgens **+ groep voor synchronisatie**:
 
 ![Maak een nieuwe synchronisatie-groep in de Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
-Voer de volgende informatie om u te maken van een groep voor synchronisatie met een Cloud-eindpunt in het deelvenster dat wordt geopend:
+Voer de volgende informatie om u te maken van een groep voor synchronisatie met een cloudeindpunt in het deelvenster dat wordt geopend:
 
-- **Groepsnaam synchroniseren**: de naam van de groep voor synchronisatie moet worden gemaakt. Deze naam moet uniek zijn binnen de synchronisatieservice opslag, maar mag de naam die logisch is voor u.
+- **Synchronisatie-groepsnaam**: de naam van de groep voor synchronisatie moet worden gemaakt. Deze naam moet uniek zijn binnen de synchronisatieservice opslag, maar mag de naam die logisch is voor u.
 - **Abonnement**: het abonnement waarbij u de Storage-Sync-Service in geïmplementeerd [implementeren van de synchronisatieservice opslag](#deploy-the-storage-sync-service).
 - **Storage-account**: als u selecteert **storage-account selecteren**, een ander venster weergegeven waarin u het opslagaccount met de Azure-bestandsshare die u synchroniseren wilt met kunt selecteren.
 - **Azure-bestandsshare**: de naam van de Azure-bestandsshare die u wilt synchroniseren.
 
-Een eindpunt van de Server toevoegen, gaat u naar de zojuist gemaakte groep voor synchronisatie en selecteer vervolgens **servereindpunt toevoegen**.
+Een servereindpunt toevoegen, gaat u naar de zojuist gemaakte sync-groep en selecteer vervolgens **servereindpunt toevoegen**.
 
-![Een nieuwe Server-eindpunt toevoegen in het deelvenster van de groep voor synchronisatie](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
+![Een nieuw servereindpunt in het deelvenster van de groep sync toevoegen](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
-In de **servereindpunt toevoegen** deelvenster, voer de volgende informatie om een eindpunt van de Server te maken:
+In de **servereindpunt toevoegen** deelvenster, voer de volgende informatie om een servereindpunt te maken:
 
-- **Server geregistreerd**: de naam van de server of cluster waar u wilt maken van de Server het eindpunt.
+- **Geregistreerde server**: de naam van de server of cluster waar u wilt maken van de server het eindpunt.
 - **Pad**: de Windows Server-pad moet worden gesynchroniseerd als onderdeel van de groep voor synchronisatie.
 - **Cloud Tiering**: overschakelen naar de in- of uitschakelen, cloud tiering. Met cloud tiering worden zelden gebruikt of de bestanden zijn geopend kunt tiers worden verdeeld aan Azure-bestanden.
-- **Vrije ruimte op volume**: de hoeveelheid vrije ruimte te reserveren op het volume waarop het eindpunt van de Server zich bevindt. Bijvoorbeeld als vrije ruimte op volume is ingesteld op 50% op een volume met één servereindpunt, is ongeveer de helft van de hoeveelheid gegevens gelaagd op Azure-bestanden. Ongeacht of cloud tiering is ingeschakeld, worden uw Azure-bestandsshare is altijd een volledige kopie van de gegevens in de groep voor synchronisatie.
+- **Vrije ruimte op volume**: de hoeveelheid vrije ruimte te reserveren op het volume waarop het servereindpunt zich bevindt. Bijvoorbeeld, als vrije ruimte op volume is ingesteld op 50% op een volume dat een eindpunt met één server is, is ongeveer de helft van de hoeveelheid gegevens gelaagd op Azure-bestanden. Ongeacht of cloud tiering is ingeschakeld, worden uw Azure-bestandsshare is altijd een volledige kopie van de gegevens in de groep voor synchronisatie.
 
-Selecteer om de Server het eindpunt toe **maken**. Uw bestanden worden nu gesynchroniseerd tussen uw Azure-bestandsshare en Windows Server. 
+Selecteer om de server het eindpunt toe **maken**. Uw bestanden worden nu gesynchroniseerd tussen uw Azure-bestandsshare en Windows Server. 
 
 > [!Important]  
-> U kunt wijzigingen aanbrengen in een Cloudeindpunt of het eindpunt van de Server in de groep voor synchronisatie en hebben de bestanden die zijn gesynchroniseerd met de andere eindpunten in de groep voor synchronisatie. Als u een wijziging van het eindpunt van de Cloud (Azure-bestandsshare) rechtstreeks, moeten wijzigingen eerst worden gedetecteerd door een Azure-bestand Sync-taak voor het detecteren van wijzigen. Een wijziging detectie-taak wordt gestart voor een Cloudeindpunt slechts eenmaal per 24 uur. Zie voor meer informatie [Veelgestelde vragen over Azure-bestanden](storage-files-faq.md#afs-change-detection).
+> U kunt wijzigingen aanbrengen in een cloudeindpunt of het servereindpunt in de groep voor synchronisatie en hebben de bestanden die zijn gesynchroniseerd met de andere eindpunten in de groep voor synchronisatie. Als u een wijziging van het eindpunt van de cloud (Azure-bestandsshare) rechtstreeks, moeten wijzigingen eerst worden gedetecteerd door een Azure-bestand Sync-taak voor het detecteren van wijzigen. Een wijziging detectie-taak wordt gestart voor een cloudeindpunt slechts eenmaal per 24 uur. Zie voor meer informatie [Veelgestelde vragen over Azure-bestanden](storage-files-faq.md#afs-change-detection).
+
+## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Een DFS-replicatie (DFS-R)-implementatie migreren naar Azure File-synchronisatie
+Een DFS-R-implementatie migreren naar Azure File-synchronisatie:
+
+1. Maak een synchronisatie-groep staat voor de DFS-R-topologie die u wilt vervangen.
+2. Start op de server met de volledige set gegevens in uw DFS-R-topologie te migreren. Azure File-synchronisatie installeren op die server.
+3. Registreren van die server en maak een servereindpunt voor de eerste server worden gemigreerd. Schakel geen cloud tiering.
+4. Alle het synchroniseren van gegevens naar uw Azure-bestandsshare (cloudeindpunt) laten.
+5. Installeren en registreren van de Azure-bestand Sync-agent op elk van de resterende DFS-R-servers.
+6. Uitschakelen van DFS-R. 
+7. Maak een servereindpunt op elk van de DFS-R-servers. Schakel geen cloud tiering.
+8. Zorg ervoor dat synchronisatie is voltooid en testen van uw topologie desgewenst.
+9. Buiten gebruik stellen van DFS-R.
+10. Cloud lagen kan nu worden ingeschakeld op een willekeurig servereindpunt naar wens.
+
+Zie voor meer informatie [Azure bestand Sync interop met Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Toevoegen of verwijderen van een servereindpunt van het Azure-synchronisatie](storage-sync-files-server-endpoint.md)

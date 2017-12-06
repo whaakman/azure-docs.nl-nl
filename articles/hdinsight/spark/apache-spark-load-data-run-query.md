@@ -14,102 +14,92 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: db8f0056fa3813e95c2c5bea583d7b66ac64260f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Interactieve query's uitvoeren op een HDInsight Spark-cluster
+# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Interactieve query's uitvoeren op Spark-clusters in HDInsight
 
-In dit artikel kunt u een Jupyter-notebook interactieve Spark SQL-query's uitvoeren op een Spark-cluster. Jupyter-notebook is een browsertoepassing die uitgebreider is dan de interactieve ervaring via de console op het Web. Zie voor meer informatie [de Jupyter-notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html).
+Informatie over het gebruik van Jupyter-notebook voor interactieve Spark SQL-query's uitvoeren op een Spark-cluster. 
 
-Voor deze zelfstudie maakt u de **PySpark** kernel in de Jupyter-notebook een interactieve Spark SQL-query uit te voeren. Jupyter-notebooks op HDInsight-clusters bieden ook ondersteuning voor twee andere kernels - **PySpark3** en **Spark**. Voor meer informatie over de kernels en de voordelen van het gebruik van **PySpark**, Zie [gebruik Jupyter-notebook kernels met Apache Spark-clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
+[Jupyter-notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is een browsertoepassing die uitgebreider is dan de interactieve ervaring via de console op het Web. Spark in HDInsight omvat ook [Zeppelin-Notebook](apache-spark-zeppelin-notebook.md). Jupyter-Notebook wordt in deze zelfstudie gebruikt.
+
+Ondersteuning voor Jupyter-notebooks op HDInsight-clusters drie kernels - **PySpark**, **PySpark3**, en **Spark**. De **PySpark** kernel in deze zelfstudie wordt gebruikt. Voor meer informatie over de kernels en de voordelen van het gebruik van **PySpark**, Zie [gebruik Jupyter-notebook kernels met Apache Spark-clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md). Zie voor het gebruik van de Notebook Zeppelin [gebruiken Zeppelin-notebooks met Apache Spark in Azure HDInsight-cluster](./apache-spark-zeppelin-notebook.md).
+
+In deze zelfstudie maakt u een query gegevens in een csv-bestand. Eerst moet u die gegevens laden in Spark als een dataframe. Vervolgens kunt u query's uitvoeren op de dataframe met Jupyter-Notebook. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure HDInsight Spark-cluster**. Zie voor instructies [een Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Een Jupyter-notebook met behulp van de PySpark**. Zie voor instructies [maken van een Jupyter-Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Maken van een Jupyter-notebook om interactieve query's uitvoeren
+## <a name="create-a-dataframe-from-a-csv-file"></a>Een dataframe uit een csv-bestand maken
 
-Uitvoeren van query's, gebruiken we voorbeeldgegevens die standaard beschikbaar in de opslag die is gekoppeld aan het cluster. U moet echter eerst die gegevens laden in Spark als een dataframe. Zodra u de dataframe hebt, kunt u query's uitvoeren op met behulp van de Jupyter-notebook. In dit artikel leert bekijkt u hoe u:
+Met een SQLContext maken toepassingen dataframes van een bestaande RDD, een Hive-tabel of gegevensbronnen. 
 
-* Een verzameling voorbeeldgegevens registreren als een Spark-dataframe.
-* Query's uitvoeren op de dataframe.
+**Een dataframe uit een csv-bestand maken**
 
-Aan de slag.
+1. Maak een Jupyter-notebook met PySpark als u niet hebt. Zie voor instructies [maken van een Jupyter-Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Open de [Azure Portal](https://portal.azure.com/). Als u ervoor hebt gekozen om het cluster vast te maken aan het dashboard, klikt u vanuit het dashboard op de clustertegel om de clusterblade te starten.
+2. Plak de volgende code in een lege cel van de notebook en druk vervolgens op **SHIFT + ENTER** de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
 
-    Als u het cluster niet hebt vastgemaakt aan het dashboard, klikt u in het linkerdeelvenster op **HDInsight clusters** en vervolgens op het cluster dat u hebt gemaakt.
+    ```PySpark
+    from pyspark.sql import *
+    from pyspark.sql.types import *
+    ```
+    Met behulp van de PySpark-kernel een laptop, de Spark maken en Hive-worden contexten automatisch voor u gemaakt tijdens het uitvoeren van de eerste codecel. U hoeft niet expliciet contexten te maken.
 
-3. Klik in **Snelkoppelingen** op **Clusterdashboards** en klik vervolgens op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
-
-   ![Jupyter-notebook openen om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Jupyter-notebook openen om de interactieve Spark SQL-query uit te voeren")
-
-   > [!NOTE]
-   > Mogelijk kunt u de Jupyter-notebook voor uw cluster ook openen door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Maak een notebook. Klik op **Nieuw** en klik vervolgens op **PySpark**.
-
-   ![Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren")
-
-   Er wordt een nieuwe notebook gemaakt en geopend met de naam Untitled (Untitled.pynb).
-
-4. Klik bovenaan op de naam van de notebook en wijzig deze desgewenst in een beschrijvende naam.
-
-    ![Een naam opgeven voor de Jupyter-notebook waarop de interactieve Spark-query wordt uitgevoerd](./media/apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "Een naam opgeven voor de Jupyter-notebook waarop de interactieve Spark-query wordt uitgevoerd")
-
-5. Plak de volgende code in een lege cel en druk op **Shift+Enter** om de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
-
-        from pyspark.sql import *
-        from pyspark.sql.types import *
-
-    Omdat u de notebook met behulp van de PySpark-kernel hebt gemaakt, hoeft u niet expliciet contexten te maken. De Spark- en Hive-contexten worden automatisch voor u gemaakt wanneer u de eerste codecel uitvoert.
+    Wanneer een interactieve query uitgevoerd in Jupyter, ziet u het bijschrift web browser venster of tabblad een **(bezet)** status samen met de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
 
     ![Status van interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status van interactieve Spark SQL-query")
 
-    Telkens wanneer u een interactieve query in Jupyter uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** samen met de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
+3. Voer de volgende code om een dataframe en een tijdelijke tabel te maken (**hvac**) door het uitvoeren van de volgende code: de code niet alle kolommen beschikbaar in het CSV-bestand extraheren. 
 
-6. Voordat u de gegevens laadt in een Spark-cluster, kunt u ons een momentopname van het zoeken. De voorbeeldgegevens gebruikt in deze zelfstudie is beschikbaar als een CSV-bestand op alle HDInsight Spark-clusters op **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. De gegevens worden vastgelegd variaties van de temperatuur van een gebouw. Hier vindt u de eerste paar rijen van de gegevens.
+    ```PySpark
+    # Create an RDD from sample data
+    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    
+    # Create a schema for our data
+    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+    
+    # Parse the data and create a schema
+    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+    
+    # Infer the schema and create a table       
+    hvacTable = sqlContext.createDataFrame(hvac)
+    hvacTable.registerTempTable('hvactemptable')
+    dfw = DataFrameWriter(hvacTable)
+    dfw.saveAsTable('hvac')
+    ```
+    De volgende schermafbeelding ziet een momentopname van het bestand HVAC.csv. Het csv-bestand wordt geleverd met alle HDInsigt Spark-clusters. De gegevens worden vastgelegd variaties van de temperatuur van een gebouw.
 
     ![Momentopname van gegevens voor interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "momentopname voor interactieve Spark SQL-query")
 
-6. Maak een dataframe en een tijdelijke tabel (**hvac**) door het uitvoeren van de volgende code. Voor deze zelfstudie Maak we niet alle beschikbare kolommen in het CSV-bestand. 
+## <a name="run-queries-on-the-dataframe"></a>Query's uitvoeren op de dataframe
 
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+Zodra de tabel is gemaakt, kunt u een interactieve query uitvoeren op de gegevens.
 
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+**Een query uit te voeren**
 
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-        
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
+1. Voer de volgende code in een lege cel van de notebook:
 
-7. Zodra de tabel is gemaakt, een interactieve query uitvoeren op de gegevens, moet u de volgende code gebruiken.
+    ```PySpark
+    %%sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-
-   Omdat u een PySpark-kernel gebruikt, kunt u nu rechtstreeks een interactieve SQL-query uitvoeren op de tijdelijke tabel **hvac**, die u hebt gemaakt met behulp van de `%%sql`-magic. Voor meer informatie over de `%%sql`-magic, en andere magics die voor de PySpark-kernel beschikbaar zijn, raadpleegt u [Beschikbare kernels op Jupyter-notebooks met HDInsight Spark-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Omdat de PySpark-kernel wordt gebruikt in de notebook, u kunt nu rechtstreeks een interactieve SQL query uitvoeren op de tijdelijke tabel **hvac** die u hebt gemaakt met behulp van de `%%sql` verwerkt Magic-pakket. Voor meer informatie over de `%%sql`-magic, en andere magics die voor de PySpark-kernel beschikbaar zijn, raadpleegt u [Beschikbare kernels op Jupyter-notebooks met HDInsight Spark-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    Standaard wordt de volgende tabelvormige uitvoer weergegeven.
 
      ![Tabeluitvoer van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabeluitvoer van resultaat van interactieve Spark-query")
 
-9. U kunt de resultaten ook in andere visualisaties bekijken. U ziet een gebiedsgrafiek voor dezelfde uitvoer, selecteer **gebied** Stel u andere waarden, zoals wordt weergegeven.
+3. U kunt de resultaten ook in andere visualisaties bekijken. U ziet een gebiedsgrafiek voor dezelfde uitvoer, selecteer **gebied** Stel u andere waarden, zoals wordt weergegeven.
 
     ![Gebiedsgrafiek van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Gebiedsgrafiek van resultaat van interactieve Spark-query")
 

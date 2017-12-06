@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 8c1816fa272386a9839d93423a8ae81d2cdc8567
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Zelfstudie: Azure Active Directory-integratie met Trello
 
@@ -25,9 +26,9 @@ In deze zelfstudie leert u hoe Trello integreren met Azure Active Directory (Azu
 
 Trello integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Trello heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Trello (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot Trello heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Trello (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ Voor het configureren van Azure AD-integratie met Trello, moet u de volgende ite
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -59,25 +60,22 @@ Voor het configureren van de integratie van Trello in Azure AD, moet u Trello ui
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-    ![Active Directory][1]
+    ![De Azure Active Directory-knop][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![De blade Enterprise-toepassingen][2]
     
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak **Trello**.
+4. Typ in het zoekvak **Trello**, selecteer **Trello** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-trello-tutorial/tutorial_trello_search.png)
+    ![Trello in de lijst met resultaten](./media/active-directory-saas-trello-tutorial/tutorial_trello_addfromgallery.png)
 
-5. Selecteer in het deelvenster resultaten **Trello**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-trello-tutorial/tutorial_trello_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Trello op basis van een testgebruiker 'Britta Simon' genoemd.
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Trello is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Trello tot stand worden gebracht.
@@ -86,45 +84,45 @@ Wijs in Trello, de waarde van de **gebruikersnaam** in Azure AD als de waarde va
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Trello, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Trello](#creating-a-trello-test-user)**  - Trello die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Trello](#create-a-trello-test-user)**  - Trello die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
 In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Trello.
 
 >[!NOTE]
-    >Deze krijgt u de  **\<enterprise\>**  slug van Trello. Als u de slug-waarde niet hebt, neem dan contact op met [Trello ondersteuningsteam](mailto:support@trello.com) de slug ophalen voor uw onderneming.
+>Deze krijgt u de  **\<enterprise\>**  slug van Trello. Als u de slug-waarde niet hebt, neem dan contact op met [Trello ondersteuningsteam](mailto:support@trello.com) ophalen van de slug voor u enterprise.
     > 
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Trello, moet u de volgende stappen uitvoeren:**
 
 1. In de Azure-portal op de **Trello** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
 
 3. Op de **Trello domein en de URL's** sectie als u wilt configureren van de toepassing in **IDP geïnitieerd modus**, voer de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
-
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://trello.com/auth/saml/consume/<enterprise>`
+    ![URL's en Trello domein eenmalige aanmelding informatie](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
+    
+    a. In de **id** textbox, typ de volgende URL:`https://trello.com/auth/saml/metadata`
+    
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://trello.com/auth/saml/consume/<enterprise>`
 
 4. Als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
 
-  ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+    ![URL's en Trello domein eenmalige aanmelding informatie](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
-    a. Klik op de **weergeven geavanceerde instellingen voor URL**.
+    a. Controleer **weergeven geavanceerde instellingen voor URL**.
 
-    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://trello.com/auth/saml/login/<enterprise>`
-
-  c. In de **id** textbox, typ de volgende URL:`https://trello.com/auth/saml/metadata`
+    b. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://trello.com/auth/saml/login/<enterprise>` 
 
 5. Trello toepassing verwacht de SAML-asserties naar specifieke kenmerken bevatten. Configureer de volgende kenmerken voor deze toepassing. U kunt de waarden van deze kenmerken van beheren de **'Gebruikerskenmerken'** van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze.
 
@@ -132,7 +130,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
 6. Op de **SAML-token kenmerken** dialoogvenster uitvoeren voor elke rij in de onderstaande tabel wordt weergegeven op de volgende stappen uit:
  
-    | Kenmerknaam | Kenmerkwaarde |
+    | Kenmerknaam | Waarde kenmerk |
     | --- | --- |
     | User.Email | User.mail |
     | User.FirstName | User.givenName |
@@ -142,72 +140,76 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_officespace_04.png)
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_officespace_05.png)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_attribute_05.png)
 
     b. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij. 
 
     c. Van de **waarde** typt u de waarde van het kenmerk wordt weergegeven voor die rij.
     
     d. Klik op **OK**. 
- 
-7. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_certificate.png) 
+7. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het bestand met metagegevens op uw computer.
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-trello-tutorial/tutorial_trello_certificate.png) 
 
 8. Klik op **opslaan** knop.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_general_400.png)
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-trello-tutorial/tutorial_general_400.png)
+    
+9. Op de **Trello configuratie** sectie, klikt u op **configureren Trello** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
-6. Op de **Trello configuratie** sectie, klikt u op **configureren Trello** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+    ![Trello configuratie](./media/active-directory-saas-trello-tutorial/tutorial_trello_configure.png) 
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_configure.png) 
-
-9. Eenmalige aanmelding voor uw toepassing is geconfigureerd, Ga naar [Trello SSO Ondernemingsconfiguratie](https://trello.com/sso-configuration) pagina verzenden [Trello ondersteuningsteam](mailto:support@trello.com) de **SAML Single Sign-On Service-URL** en Koppel de **certificaat (Base64)**.
+10. Eenmalige aanmelding configureren op **Trello** zijde, moet u gaat u naar de [Trello SSO Ondernemingsconfiguratie](https://trello.com/sso-configuration) pagina voor het verzenden van de gedownloade **certificaat (Base64)** en  **SAML Single Sign-On Service-URL** naar [Trello ondersteuningsteam](mailto:support@trello.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
-![Azure AD-gebruiker maken][100]
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-trello-tutorial/create_aaduser_01.png) 
+    ![De Azure Active Directory-knop](./media/active-directory-saas-trello-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-trello-tutorial/create_aaduser_02.png) 
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png) 
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-trello-tutorial/create_aaduser_02.png)
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png) 
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    ![De knop toevoegen](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png)
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png)
+
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-trello-test-user"></a>Een testgebruiker Trello maken
+### <a name="create-a-trello-test-user"></a>Een testgebruiker Trello maken
 
-In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Trello maken. In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Trello maken. Trello ondersteunt just-in-time-inrichting en een nieuw account is gemaakt de eerste keer dat u zich aanmeldt vanuit Azure AD.
+Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen in Trello. Trello ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Trello als deze nog niet bestaat.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+>[!Note]
+>Als u wilt een gebruiker handmatig maken, neem contact op met [Trello ondersteuningsteam](mailto:support@trello.com).
+
+
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Trello.
 
-![Gebruiker toewijzen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
 **Britta Simon om aan te wijzen Trello, moet u de volgende stappen uitvoeren:**
 
@@ -217,15 +219,15 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 2. Selecteer in de lijst met toepassingen **Trello**.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trello-tutorial/tutorial_trello_app.png) 
+    ![De koppeling Trello in de lijst met toepassingen](./media/active-directory-saas-trello-tutorial/tutorial_trello_app.png)  
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![De koppeling 'Gebruikers en groepen'][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Gebruiker toewijzen][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
 5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
@@ -233,11 +235,12 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behulp van het toegangsvenster.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Trello in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Trello.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 

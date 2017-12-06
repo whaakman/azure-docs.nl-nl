@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - Cloud back-voorbeeld
 
@@ -49,7 +49,7 @@ Dit artikel wordt uitgelegd dat de volgende functies in de voorbeeld-app:
 
 De volgende secties worden de configuratie en code die worden gebruikt voor het ontwikkelen van Azure portal. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
 
-## <a name="the-cloud-backup-orchestration"></a>De cloud back-orchestration
+## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>De cloud back-orchestration (Visual Studio Code en de Azure portal voorbeeldcode)
 
 De `E2_BackupSiteContent` functie maakt gebruik van de standaard *function.json* voor orchestrator-functies.
 

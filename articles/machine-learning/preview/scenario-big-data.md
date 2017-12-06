@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -71,7 +71,7 @@ DSVM IP-adres | xxx|
 
  Veldnaam| Waarde |  
  |------------|------|
- Naam van het opslagaccount| xxx|
+ Naam van opslagaccount| xxx|
  Toegangstoets  | xxx|
 
 
@@ -97,8 +97,8 @@ De totale gegevensgrootte is ongeveer 1 TB. Elk bestand is ongeveer 1-3 GB en CS
 
 Kolomnummer | Veldnaam| Type | Beschrijving |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datum/tijd |    Begintijd sessie
-2  |`SessionEnd`    | Datum/tijd | Eindtijd van sessie
+1  | `SessionStart` | Datum en tijd |    Begintijd sessie
+2  |`SessionEnd`    | Datum en tijd | Eindtijd van sessie
 3 |`ConcurrentConnectionCounts` | Geheel getal | Aantal gelijktijdige verbindingen
 4 | `MbytesTransferred` | dubbele | Genormaliseerde gegevens overgebracht in MB
 5 | `ServiceGrade` | Geheel getal |  Klasse van de service voor de sessie
@@ -111,8 +111,8 @@ Kolomnummer | Veldnaam| Type | Beschrijving |
 12 | `SubService_1_Load`| dubbele |      Subservice 5 laden
 13 |`SecureBytes_Load`  | dubbele | Beveiligde bytes laden
 14 |`TotalLoad` | dubbele | Totale belasting van server
-15 |`ClientIP` | Tekenreeks|    IP-clientadres
-16 |`ServerIP` | Tekenreeks|    Het IP-adres
+15 |`ClientIP` | Reeks|    IP-clientadres
+16 |`ServerIP` | Reeks|    Het IP-adres
 
 
 
@@ -182,11 +182,11 @@ Het eerste argument `configFilename`, is een lokale configuratiebestand waar u d
 
 | Veld | Type | Beschrijving |
 |-----------|------|-------------|
-| StorageAccount | Tekenreeks | Naam van een Azure Storage-account |
-| storageContainer | Tekenreeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
-| storageKey | Tekenreeks |Azure toegangssleutel voor Opslagaccount |
-| DataFile|Tekenreeks | Gegevensbronbestanden  |
-| Duur| Tekenreeks | duur van de gegevens in de bronbestanden van de gegevens|
+| StorageAccount | Reeks | Naam van een Azure Storage-account |
+| storageContainer | Reeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
+| storageKey | Reeks |Azure toegangssleutel voor Opslagaccount |
+| DataFile|Reeks | Gegevensbronbestanden  |
+| Duur| Reeks | duur van de gegevens in de bronbestanden van de gegevens|
 
 Wijzigen van beide `Config/storageconfig.json` en `Config/fulldata_storageconfig.json` voor het configureren van het opslagaccount, opslagsleutel en de blob-container voor het opslaan van de tussenliggende resultaten. De blob-container voor de één maand gegevens uitvoert is standaard `onemonthmodel`, en de blob-container voor een volledige gegevensset uitgevoerd is `fullmodel`. Zorg ervoor dat u deze twee containers maken in uw opslagaccount. De `dataFile` veld [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configureert welke gegevens worden geladen [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). De `duration` veld configureert u het bereik dat de gegevens bevatten. Als de duur is ingesteld op ONE_MONTH, moet de geladen gegevens slechts één CSV-bestand tussen de zeven bestanden van de gegevens voor juni 2016. Als de duur van de volledige is, wordt de volledige gegevensset (1 TB) is geladen. U hoeft niet te wijzigen `dataFile` en `duration` in deze configuratie met twee bestanden.
 
@@ -203,7 +203,7 @@ Het tweede argument is FOUTOPSPORING. Instellen op FILTER_IP, kunt een snellere 
 
 Starten van de opdrachtregel van Machine Learning-Workbench door te selecteren **bestand** > **opdrachtprompt openen**. Voer vervolgens: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 De volgende twee bestanden worden gemaakt in de map aml_config van uw project:
 
@@ -266,7 +266,7 @@ Wanneer u klaar bent met succes de experimenteren op de kleine hoeveelheden gege
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. De compute-doel in Machine Learning Workbench voor het HDInsight-cluster maken
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 De volgende twee bestanden worden gemaakt in de map aml_config:
     
@@ -382,7 +382,7 @@ Kies een unieke tekenreeks als de omgeving voor uitoefening. We gebruiken hier d
 
         az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py
 
-5. Maak een Docker-installatiekopie. 
+5. Een Docker-installatiekopie maken. 
 
         az ml image create -n [unique]image --manifest-id $manifestID
 

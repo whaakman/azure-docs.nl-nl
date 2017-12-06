@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Nieuwe uitgebreide versie van [Azure Site Recovery implementatie planner voor Hyper-V naar Azure](site-recovery-hyper-v-deployment-planner.md) is nu beschikbaar en het oude hulpprogramma vervangt. Het nieuwe hulpprogramma gebruiken voor het plannen van uw implementatie. Het hulpprogramma geeft volgende richtlijn:
+* VM in aanmerking komt, op basis van beoordeling aantal schijven, schijfgrootte IOP's, verloop en enkele VM-kenmerken.
+* Netwerkbandbreedte moet versus RPO assessment.
+* Vereisten voor Azure-infrastructuur.
+* On-premises infrastructuurvereisten.
+* Initiële replicatie batchverwerking richtlijnen.
+* Geschatte totaalkosten DR naar Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Plannen van capaciteit voor het beveiligen van Hyper-V-machines met Site Recovery
 
 Het hulpprogramma Azure Site Recovery Capacity Planner helpt u om te achterhalen van uw capaciteitsvereisten bij het repliceren van Hyper-V-machines met Azure Site Recovery.
 
-De Site Recovery Capacity Planner gebruiken voor het analyseren van uw bronomgeving en werkbelastingen, schatting bandbreedte behoeften en bronnen van de server u voor de bronlocatie moet en de resources (virtuele machines en opslag, enzovoort), die u nodig hebt in de doellocatie.
+De Site Recovery Capacity Planner gebruiken om te analyseren van uw bronomgeving en werkbelastingen, bandbreedte behoeften, en bronnen van de server u voor de bronlocatie moet en de resources (virtuele machines en opslag, enzovoort), die u nodig hebt in de doellocatie schatten .
 
 U kunt het hulpprogramma uitvoeren in een aantal modi:
 

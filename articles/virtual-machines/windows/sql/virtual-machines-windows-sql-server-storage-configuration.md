@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuratie van de opslag voor virtuele machines van SQL Server
 Wanneer u de installatiekopie van een SQL Server-virtuele machine in Azure configureert, kunt u de Portal de opslagconfiguratie automatiseren. Dit omvat het toevoegen van opslag aan de virtuele machine, zodat de opslag die toegankelijk is voor SQL Server en te configureren om te optimaliseren voor uw specifieke vereisten.
@@ -30,7 +30,7 @@ Dit onderwerp wordt uitgelegd hoe Azure configureert opslag voor uw VM's van SQL
 ## <a name="prerequisites"></a>Vereisten
 Voor het gebruik van de configuratie-instellingen voor automatische opslag, moet de virtuele machine de volgende kenmerken:
 
-* Ingericht met een [image in SQL Server-galerie](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Ingericht met een [image in SQL Server-galerie](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Maakt gebruik van de [Resource Manager-implementatiemodel](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Maakt gebruik van [Premium-opslag](../premium-storage.md).
 

@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Resources beheren voor Apache Spark-cluster in Azure HDInsight 
 
-In dit artikel leert u hoe voor toegang tot de interfaces, zoals Ambari UI, YARN-gebruikersinterface en de Server van de geschiedenis van Spark die zijn gekoppeld aan uw Spark-cluster. U leert ook over het afstemmen van de clusterconfiguratie voor optimale prestaties.
+Meer informatie over het openen van de interfaces, zoals Ambari UI, gebruikersinterface van YARN en de Spark geschiedenis Server gekoppeld aan uw Spark-cluster en het afstemmen van de clusterconfiguratie voor optimale prestaties.
 
 **Vereisten:**
 
-* Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Een Apache Spark-cluster in HDInsight. Zie voor instructies [maken Apache Spark-clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Hoe ik de Ambari-Webgebruikersinterface starten?
+## <a name="open-the-ambari-web-ui"></a>Open de Ambari-webgebruikersinterface
 1. Klik vanaf het Startboard in [Azure Portal](https://portal.azure.com/) op de tegel voor uw Spark-cluster (als u deze aan het Startboard hebt vastgemaakt). U kunt ook naar uw cluster navigeren onder **Bladeren** > **HDInsight-clusters**.
 2. Klik op voor uw Spark-cluster **Dashboard**. Wanneer u wordt gevraagd, voert u de beheerdersreferenties voor het Spark-cluster.
 
@@ -40,7 +39,7 @@ In dit artikel leert u hoe voor toegang tot de interfaces, zoals Ambari UI, YARN
 
     ![Ambari-webgebruikersinterface](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari-webgebruikersinterface")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Hoe ik de geschiedenis van Spark Server starten?
+## <a name="open-the-spark-history-server"></a>De geschiedenis van Spark Server openen
 1. Klik vanaf het Startboard in [Azure Portal](https://portal.azure.com/) op de tegel voor uw Spark-cluster (als u deze aan het Startboard hebt vastgemaakt).
 2. De cluster-blade onder **snelkoppelingen**, klikt u op **Cluster-Dashboard**. In de **Cluster-Dashboard** blade, klikt u op **Spark geschiedenis Server**.
 
@@ -48,7 +47,7 @@ In dit artikel leert u hoe voor toegang tot de interfaces, zoals Ambari UI, YARN
 
     Wanneer u wordt gevraagd, voert u de beheerdersreferenties voor het Spark-cluster.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Hoe ik de gebruikersinterface van Yarn starten?
+## <a name="open-the-yarn-ui"></a>De gebruikersinterface van Yarn openen
 U kunt de gebruikersinterface van YARN gebruiken voor het bewaken van toepassingen die momenteel worden uitgevoerd op het Spark-cluster.
 
 1. Klik in de cluster-blade op **Cluster-Dashboard**, en klik vervolgens op **YARN**.
@@ -60,7 +59,7 @@ U kunt de gebruikersinterface van YARN gebruiken voor het bewaken van toepassing
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Wat is de optimale clusterconfiguratie Spark-toepassingen uitvoeren?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>De optimale clusterconfiguratie Spark-toepassingen uitvoeren
 De drie belangrijkste parameters die kunnen worden gebruikt voor de configuratie van Spark, afhankelijk van de toepassingsvereisten zijn `spark.executor.instances`, `spark.executor.cores`, en `spark.executor.memory`. Een Executor is een proces gestart voor een Spark-toepassing. Deze wordt uitgevoerd op het werkrolknooppunt en is verantwoordelijk voor het uitvoeren van de taken voor de toepassing. Het standaardaantal Executor en de grootte van de executor voor elk cluster wordt berekend op basis van het aantal worker-knooppunten en de grootte van het worker-knooppunt. Deze informatie wordt opgeslagen in `spark-defaults.conf` over de hoofdknooppunten van het cluster.
 
 De drie configuratieparameters kunnen worden geconfigureerd op het clusterniveau van het (voor alle toepassingen die worden uitgevoerd op het cluster) of voor elke afzonderlijke toepassing ook worden opgegeven.

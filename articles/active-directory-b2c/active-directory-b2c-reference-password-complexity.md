@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 800199b3d1d91d700d26f988a4d49713028de1ce
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: b7103103201563c6878095cf31cfcdf2938a9c7f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Complexiteitsvereisten voor wachtwoorden configureren
 
 > [!NOTE]
-> **Deze functie is in preview.**  Neem contact op met [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) om uw testtenant met deze functie is ingeschakeld.
+> **Deze functie is in preview.**  Neem contact op met [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) om uw testtenant met deze functie is ingeschakeld.  Niet testen dit op productie tenants.
 
 Azure Active Directory B2C (Azure AD B2C) ondersteunt de complexiteitsvereisten voor wachtwoorden die worden geleverd door een eindgebruiker bij het maken van een account te wijzigen.  Azure AD B2C gebruikt standaard `Strong` wachtwoorden.  Azure AD B2C ondersteunt ook configuratieopties voor het beheren van de complexiteit van wachtwoorden die klanten kunnen gebruiken.
 
@@ -47,11 +47,11 @@ Hier zijn de soorten beleid waarop wachtwoordcomplexiteit kan worden geconfigure
 1. Open **wachtwoordcomplexiteit**.
 1. Wijzigen van de wachtwoordcomplexiteit voor dit beleid wilt **eenvoudige**, **sterke**, of **aangepaste**.
 
-### <a name="comparison-chart"></a>Vergelijkingstabel
+### <a name="comparison-chart"></a>Vergelijkingsdiagram
 
 | Complexiteit | Beschrijving |
 | --- | --- |
-| Eenvoudige | Een wachtwoord dat ten minste 8 tot 64 tekens. |
+| Simpel | Een wachtwoord dat ten minste 8 tot 64 tekens. |
 | Sterk | Een wachtwoord dat ten minste 8 tot 64 tekens. Hiervoor moeten 3 van 4 van kleine letters, hoofdletters, cijfers en symbolen. |
 | Aangepast telefoonnummer | Deze optie biedt de meeste controle over de regels voor wachtwoordcomplexiteit.  Kunt u een aangepaste lengte configureren.  Daarnaast kunt u wachtwoorden alleen-nummer (pincodes) worden geaccepteerd. |
 
@@ -64,7 +64,7 @@ Hiermee kunt u accepteert alleen cijfers (pincodes) of de volledige-tekenset.
 * **Alleen cijfers** kunt cijfers alleen (0-9) bij het invoeren van een wachtwoord.
 * **Alle** kunnen een letter, cijfer of symbool.
 
-### <a name="length"></a>lengte
+### <a name="length"></a>Lengte
 
 Kunt u de lengtevereisten van het wachtwoord bepalen.
 

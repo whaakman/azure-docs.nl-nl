@@ -1,22 +1,22 @@
 ---
-title: Overzicht van Azure IoT Hub apparaat inrichtingsservice (preview) | Microsoft Docs
+title: Overzicht van Azure IoT Hub apparaat-Service inricht | Microsoft Docs
 description: Beschrijving van mobiele apparaten inrichten in Azure met de inrichtingsservice apparaat en IoT-Hub
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Apparaten inrichten met Azure IoT Hub apparaat inrichtingsservice (preview)
 Microsoft Azure biedt een uitgebreide set geïntegreerde openbare cloud-services voor al uw IoT-oplossing. De inrichtingsservice van IoT Hub apparaat is een helper-service voor IoT-Hub die zonder tussenkomst, just in time inrichten met de juiste IoT-hub zonder menselijke tussenkomst, kunnen klanten om in te richten miljoenen apparaten op een veilige en schaalbare inschakelen manier.
@@ -59,7 +59,7 @@ Deze stap is alles wat er gebeurt op de regel voor productie. De rollen die zijn
 
 De Service voor het inrichten van apparaten wordt geen een nieuwe stap in het fabricageproces; in plaats daarvan koppelt in de bestaande stap waarmee het eerste software- en (in het ideale geval) de HSM worden geïnstalleerd op het apparaat. In plaats van een apparaat-ID in deze stap maakt, is het apparaat gewoon geprogrammeerd met de Inrichtingsgegevens service zodat deze de inrichting-service roept voor de verbinding info/IoT-oplossing toewijzing bij is ingeschakeld.
 
-In deze stap voorziet de fabrikant ook de apparaat-deployer/operator met belangrijke informatie te identificeren. Dit kan zijn net zo eenvoudig als het bevestigen van alle apparaten, hebben een X.509-certificaat dat is gegenereerd op basis van een basis-CA die door de operator/apparaat deployer, aan het openbare deel van een TPM-goedkeuringssleutel extraheren uit een TPM-apparaat. Deze services worden aangeboden door veel fabrikanten van silicon vandaag.
+In deze stap voorziet de fabrikant ook de apparaat-deployer/operator met belangrijke informatie te identificeren. Dit kan zijn net zo eenvoudig als het bevestigen van alle apparaten, hebben een X.509-certificaat dat is gegenereerd op basis van een ondertekend certificaat opgegeven door de operator/apparaat deployer, voor het openbare deel van een TPM-goedkeuringssleutel extraheren uit een TPM-apparaat. Deze services worden aangeboden door veel fabrikanten van silicon vandaag.
 
 ### <a name="cloud-setup-step"></a>Cloud-instellingsstap
 Deze stap is over het configureren van de cloud voor de juiste automatische inrichting. In het algemeen er zijn twee typen van gebruikers die zijn betrokken bij de stap van de setup cloud: iemand weet hoe apparaten moeten worden ingesteld (een operator apparaat) en iemand anders die kent hoe apparaten worden om te worden verdeeld tussen de IoT-hubs (een oplossing-operator).
@@ -84,19 +84,29 @@ De Service voor het inrichten van apparaten bevat veel functies die het ideaal v
 * **Meerdere beleidsregels voor brontoewijzing** om te bepalen hoe apparaten in de Service voor het inrichten van apparaten naar IoT hubs ter ondersteuning van uw scenario's worden toegewezen.
 * **Controle en diagnostische gegevens logboeken** om ervoor te zorgen dat alles goed werkt.
 * **Ondersteuning voor meerdere hub** waarmee de apparaat-inrichtingsservice apparaten toewijzen aan meer dan één IoT-hub. De Service voor het inrichten van apparaten kunt contact opnemen met hubs over meerdere Azure-abonnementen.
+* **Ondersteuning voor de regio-overschrijdende** waarmee de apparaat-inrichtingsservice apparaten toewijzen aan IoT hubs in andere regio's.
 
 U kunt meer informatie over de concepten en functies die zijn betrokken bij de mobiele apparaten inrichten [apparaat concepten](concepts-device.md), [service concepten](concepts-service.md), en [veiligheidsconcepten](concepts-security.md).
 
 ## <a name="cross-platform-support"></a>Ondersteuning voor meerdere platforms
-De apparaat-inrichtingsservice, zoals alle Azure IoT services werkt platformoverschrijdende met tal van besturingssystemen. De openbare preview biedt ondersteuning voor een beperkt aantal talen/protocollen die worden ondersteund, hoewel veel meer beschikbaar zijn als de Service voor het inrichten van apparaten in het algemeen beschikbaar is. Voor de openbare preview ondersteunt de Service voor het inrichten van apparaten alleen HTTPS-verbindingen voor apparaat en de service-bewerkingen. Het apparaat SDK is in de C, en de service die SDK is in C#.
+De apparaat-inrichtingsservice, zoals alle Azure IoT services werkt platformoverschrijdende met tal van besturingssystemen. Azure biedt bron SDK's openen in een veelheid aan [talen](https://github.com/Azure/azure-iot-sdks) ter bevordering van de apparaten verbinding laten maken en beheren van de service. De Service voor het inrichten van apparaten ondersteunt de volgende protocollen voor het verbinden van apparaten:
+
+* HTTPS
+* AMQP
+* AMQP via websockets
+* MQTT
+* MQTT via websockets
+
+De Service voor het inrichten van apparaten ondersteunt alleen HTTPS-verbindingen voor servicebewerkingen.
 
 ## <a name="regions"></a>Regio's
-De Service voor het inrichten van apparaten is beschikbaar in VS-Oost, West-Europa en Azië Zuidoost voor de openbare preview. Onderhouden we dat een bijgewerkte lijst met bestaande en nieuwe aangekondigd regio's voor alle services.
+De Service voor het inrichten van apparaten is beschikbaar in veel regio's. Onderhouden we een bijgewerkte lijst met bestaande en nieuwe aangekondigd regio's voor alle services op [Azure-gebieden](https://azure.microsoft.com/regions/). U kunt zien waar de Service voor het inrichten van apparaten is beschikbaar op de [Azure Status](https://azure.microsoft.com/status/) pagina.
 
-* [Azure-regio's](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> De Service voor het inrichten van apparaten is globale en is niet gebonden aan een locatie. U moet echter opgeven dat een regio waarin de metagegevens gekoppeld aan uw profiel inrichtingsservice apparaat blijven staan.
 
 ## <a name="availability"></a>Beschikbaarheid
-Tijdens de openbare preview onderhouden we best-effort beschikbaarheid van de service. Er is geen Service Level Agreement tijdens de openbare preview. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
+Onderhouden we een 99,9% serviceovereenkomst voor de Service voor het inrichten van apparaten, en u kunt [lezen van de SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
 
 ## <a name="quotas"></a>Quota
 Elk Azure-abonnement heeft standaard de quotalimieten dat kan invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet per abonnement op basis van een is 10 apparaat leveren van Services per abonnement.

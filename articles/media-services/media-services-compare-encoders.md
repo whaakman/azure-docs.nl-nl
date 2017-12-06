@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: juliako
-ms.openlocfilehash: 3bba48d5425ae47c72aca893af7c11fe270c2929
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: juliako;anilmur
+ms.openlocfilehash: 72b4a7b746d446e47b52cf34726a50dd52eaba97
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Vergelijking van Azure op aanvraag media coderingsprogramma 's
 
@@ -117,6 +117,7 @@ De volgende tabel vergelijkt de functionaliteit tussen Media Encoder Standard (M
 | Video-Codecs uitvoer | Media Encoder Standard | Media Encoder Premium Workflow |
 | --- | --- | --- |
 | AVC (H.264; 8-bits; niveau tot hoge profiel 5.2; 4 K Ultra HD; AVC Intra) |Alleen 8 bits 4:2:0 |Ja |
+| HEVC (H.265; 8-bits en 10-bits;)  |Nee |Ja |
 | Avid DNxHD (in MXF) |Nee |Ja |
 | MPEG-2 (maximaal 422 profiel en een hoog niveau, inclusief varianten zoals XDCAM, XDCAM HD, XDCAM IMX, CableLabs® en D10) |Nee |Ja |
 | MPEG-1 |Nee |Ja |

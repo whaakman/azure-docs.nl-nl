@@ -1,28 +1,22 @@
 ---
-title: Laden van saldo containers in Azure DC/OS-cluster | Microsoft Docs
+title: Load balance containers in Azure DC/OS-cluster
 description: Verdelen over meerdere containers in een Azure Container Service DC/OS-cluster.
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Containers, Micro-services, DC/OS, Azure
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8dfa99b609cf2c54d29c55d3f5ba748910f7513b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Load balance containers in een Azure Container Service DC/OS-cluster
+
 In dit artikel wordt besproken voor het maken van een interne load balancer in een DC/OS beheerd-Azure Containerservice met behulp van Marathon-Taakverdeling. Deze configuratie kunt u uw toepassingen horizontaal schalen. Ook kunt u profiteren van de openbare en persoonlijke agent clusters door het plaatsen van uw netwerktaakverdelers op het openbare als uw toepassingscontainers op het persoonlijke cluster. In deze zelfstudie hebt u:
 
 > [!div class="checklist"]

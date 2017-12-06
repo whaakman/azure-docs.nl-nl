@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight op Linux
+# <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
 Azure HDInsight-clusters bieden Hadoop op een vertrouwde Linux-omgeving worden uitgevoerd in de Azure-cloud. Voor de meeste zaken werkt deze moet exact als elke andere Hadoop op Linux-installatie. Dit document is illustreert van specifieke verschillen die u houden moet rekening.
 
@@ -91,6 +91,8 @@ Met deze opdracht retourneert een JSON-document met een beschrijving van de serv
     > [!NOTE]
     > U kunt alleen toegang tot de hoofdknooppunten van het cluster via SSH vanaf een clientcomputer. Eenmaal zijn verbonden, kunt u de worker-knooppunten met behulp van SSH uit een headnode benaderen.
 
+Zie voor meer informatie de [poorten die worden gebruikt door de services van Hadoop op HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
+
 ## <a name="file-locations"></a>Bestandslocaties
 
 Hadoop-bestanden kunnen u vinden op de clusterknooppunten op `/usr/hdp`. Deze map bevat de volgende submappen:
@@ -108,9 +110,6 @@ HDInsight gebruikt ofwel blobs in Azure Storage of Azure Data Lake Store als het
 
 * Goedkope langdurige opslag
 * Toegankelijkheid van externe services zoals websites, bestand uploaden/downloaden van hulpprogramma's, verschillende SDK's van taal en webbrowsers
-
-> [!WARNING]
-> HDInsight biedt alleen ondersteuning voor __algemeen__ Azure Storage-accounts. Het momenteel geen ondersteunt de __Blob storage__ accounttype.
 
 Een Azure Storage-account kan tot 4.75 TB bevatten, hoewel afzonderlijke blobs (of bestanden vanuit het perspectief van een HDInsight) alleen 195 GB kunnen gaan. Azure Data Lake Store kunnen dynamisch worden uitgebreid voor het opslaan van trillions van bestanden met afzonderlijke bestanden groter zijn dan een petabyte. Zie voor meer informatie [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -234,6 +233,8 @@ De verschillende clustertypen worden beïnvloed door de schaal als volgt:
 
         1. Open **https://CLUSTERNAME.azurehdinsight.NET/stormui** in uw webbrowser, waarbij CLUSTERNAME de naam van uw Storm-cluster is. Als u wordt gevraagd, voert u de HDInsight-cluster (admin) beheerdersnaam en het wachtwoord die u hebt opgegeven bij het maken van het cluster.
         2. Selecteer de topologie die u wilt opnieuw verdelen en selecteer vervolgens de **opnieuw verdelen** knop. Voer de wachttijd voordat de bewerking deel opnieuw wordt uitgevoerd.
+
+* **Kafka**: U moet partitie replica's opnieuw verdelen na het schalen van bewerkingen. Zie voor meer informatie de [hoge beschikbaarheid van gegevens met Kafka op HDInsight](./kafka/apache-kafka-high-availability.md) document.
 
 Zie voor specifieke informatie over het schalen van uw HDInsight-cluster:
 

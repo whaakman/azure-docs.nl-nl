@@ -1,41 +1,33 @@
 ---
-title: Azure Containerexemplaren - meerdere containergroep | Azure Docs
-description: Azure Containerexemplaren - groep met meerdere container
+title: Meerdere containergroepen in Azure Containerexemplaren implementeren
+description: Informatie over het implementeren van een containergroep met meerdere containers in Azure Containerexemplaren.
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Een containergroep implementeren
 
-Azure Containerexemplaren ondersteuning van de implementatie van meerdere containers naar één host met behulp van een *containergroep*. Dit is handig bij het bouwen van een toepassing ter voor logboekregistratie, bewaken of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft. 
+Azure Containerexemplaren ondersteuning van de implementatie van meerdere containers naar één host met behulp van een *containergroep*. Dit is handig bij het bouwen van een toepassing ter voor logboekregistratie, bewaken of een andere configuratie waarbij een tweede gekoppelde proces in een service nodig heeft.
 
 Dit document helpt bij het uitvoeren van een eenvoudige meerdere container ter-configuratie met een Azure Resource Manager-sjabloon.
 
 ## <a name="configure-the-template"></a>De sjabloon configureren
 
-Maak een bestand met de naam `azuredeploy.json` en kopieer de volgende json naar deze. 
+Maak een bestand met de naam `azuredeploy.json` en kopieer de volgende json naar deze.
 
-In dit voorbeeld wordt is een containergroep met twee containers en een openbare IP-adres gedefinieerd. De eerste container van de groep wordt een internettoepassing gerichte uitgevoerd. De tweede container, de ter maakt een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk. 
+In dit voorbeeld wordt is een containergroep met twee containers en een openbare IP-adres gedefinieerd. De eerste container van de groep wordt een internettoepassing gerichte uitgevoerd. De tweede container, de ter maakt een HTTP-aanvraag naar de belangrijkste webtoepassing via een van de groep lokale netwerk.
 
-In dit voorbeeld ter kan worden uitgebreid activeren van een waarschuwing als er een HTTP-antwoordcode dan 200 OK ontvangen. 
+In dit voorbeeld ter kan worden uitgebreid activeren van een waarschuwing als er een HTTP-antwoordcode dan 200 OK ontvangen.
 
 ```json
 {
@@ -46,7 +38,7 @@ In dit voorbeeld ter kan worden uitgebreid activeren van een waarschuwing als er
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Implementeren van de sjabloon met de [az implementatie maken](/cli/azure/group/d
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Binnen enkele seconden ontvangt u een eerste reactie van Azure. 
+Binnen enkele seconden ontvangt u een eerste reactie van Azure.
 
 ## <a name="view-deployment-state"></a>Implementatiestatus weergeven
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Logboeken bekijken   
+## <a name="view-logs"></a>Logboeken bekijken
 
-Weergave van de logboekuitvoer van een container met de `az container logs` opdracht. De `--container-name` argument Hiermee geeft u de container waarin voor het ophalen van Logboeken. In dit voorbeeld wordt is de eerste container opgegeven. 
+Weergave van de logboekuitvoer van een container met de `az container logs` opdracht. De `--container-name` argument Hiermee geeft u de container waarin voor het ophalen van Logboeken. In dit voorbeeld wordt is de eerste container opgegeven.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

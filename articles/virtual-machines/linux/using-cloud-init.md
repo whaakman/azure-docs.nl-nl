@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Cloud-init gebruiken voor het aanpassen van een Linux VM in Azure
-Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) scale ingesteld voor het configureren van een virtuele machine (VM) of de virtuele machine (VMSS) bij het inrichten van de tijd in Azure. Deze cloud init-scripts worden uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure.  
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-ondersteuning voor virtuele machines in Azure
+Dit artikel wordt uitgelegd voor de ondersteuning die bestaat voor [cloud init](https://cloudinit.readthedocs.io) scale ingesteld voor het configureren van een virtuele machine (VM) of de virtuele machine (VMSS) bij het inrichten van de tijd in Azure. Deze cloud init-scripts worden uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure.  
 
 ## <a name="cloud-init-overview"></a>Cloud-init-overzicht
-[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Omdat cloud init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of de vereiste agents naar uw configuratie toe te passen.  Voor meer informatie over de juiste indeling uw `#cloud-config` bestanden, Zie de [documentatiesite voor cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`fiels zijn tekstbestanden gecodeerd in base64.
+[Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Omdat cloud init wordt aangeroepen tijdens het opstartproces, zijn er geen extra stappen of de vereiste agents naar uw configuratie toe te passen.  Voor meer informatie over de juiste indeling uw `#cloud-config` bestanden, Zie de [documentatiesite voor cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`bestanden zijn tekstbestanden gecodeerd in base64.
 
 Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
 

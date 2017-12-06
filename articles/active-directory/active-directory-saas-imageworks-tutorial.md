@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c12fe2f01c35d70763910c41cb45859bce33aea
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9e152c43507cea7e6407a349be414c2a895cb5fc
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Zelfstudie: Azure Active Directory-integratie met INSTALLATIEKOPIE werkt
 
@@ -113,7 +113,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [INSTALLATIEKOPIE WORKS Client ondersteuningsteam](mailto:riki.satou@fujifilm.com) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [INSTALLATIEKOPIE WORKS Client ondersteuningsteam](mailto:iw-sd-support@fujifilm.com) ophalen van deze waarden. 
  
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
@@ -127,7 +127,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Configuratie van de INSTALLATIEKOPIE werkt](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
 
-7. Eenmalige aanmelding configureren op **INSTALLATIEKOPIE werkt** zijde, moet u de gedownloade verzenden **Certificate(Base64), Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** naar [INSTALLATIEKOPIE werkt ondersteuningsteam](mailto:riki.satou@fujifilm.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+7. Eenmalige aanmelding configureren op **INSTALLATIEKOPIE werkt** zijde, moet u de gedownloade verzenden **Certificate(Base64), Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** naar [INSTALLATIEKOPIE werkt ondersteuningsteam](mailto:iw-sd-support@fujifilm.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +167,7 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
  
 ### <a name="create-a-image-works-test-user"></a>Een INSTALLATIEKOPIE WORKS testgebruiker maken
 
-In deze sectie maakt u Britta Simon aangeroepen in werkt de INSTALLATIEKOPIE van een gebruiker. Werken met [INSTALLATIEKOPIE WORKS ondersteuningsteam](mailto:riki.satou@fujifilm.com) om toe te voegen de gebruikers van het platform INSTALLATIEKOPIE werkt. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+In deze sectie maakt u Britta Simon aangeroepen in werkt de INSTALLATIEKOPIE van een gebruiker. Werken met [INSTALLATIEKOPIE WORKS ondersteuningsteam](mailto:iw-sd-support@fujifilm.com) om toe te voegen de gebruikers van het platform INSTALLATIEKOPIE werkt. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
