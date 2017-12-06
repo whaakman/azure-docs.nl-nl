@@ -1,6 +1,6 @@
 ---
 title: 'Maak een verbinding tussen VNets: klassieke: Azure portal | Microsoft Docs'
-description: Klik hier voor meer informatie over het verbinden van virtuele netwerken in Azure maken met behulp van PowerShell en de klassieke Azure portal.
+description: Klik hier voor meer informatie over het verbinden van virtuele netwerken in Azure maken met behulp van PowerShell en de Azure-portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 12/05/2017
 ms.author: cherylmc
-ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Een VNet-naar-VNet-verbinding (klassiek) configureren
 
@@ -86,12 +86,12 @@ De volgende tabel toont een voorbeeld van hoe u uw vnet's definiëren. Gebruik d
 
 Maak twee virtuele netwerken in de [Azure-portal](https://portal.azure.com). Zie voor de stappen voor het klassieke virtuele netwerken maken, [een klassiek virtueel netwerk maken](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
 
-Wanneer u de portal een klassiek virtueel netwerk maken, moet u navigeren naar de blade virtueel netwerk met behulp van de volgende stappen, anders is de optie voor het maken van een klassiek virtueel netwerk niet wordt weergegeven:
+Wanneer u de portal een klassiek virtueel netwerk maken, moet u navigeren naar de pagina virtuele netwerk met behulp van de volgende stappen, anders is de optie voor het maken van een klassiek virtueel netwerk niet wordt weergegeven:
 
-1. Klik op '+' naar de blade 'New' te openen.
+1. Klik op '+' op de pagina 'New' te openen.
 2. Typ in het veld 'Search de marketplace', 'Virtueel netwerk'. Als u in plaats daarvan selecteert netwerk -> virtueel netwerk, krijgt u niet de optie voor het maken van een klassiek VNet.
-3. Zoek 'Virtueel netwerk' in de geretourneerde lijst en klikt u erop om de blade virtueel netwerk te openen. 
-4. Selecteer op de blade virtueel netwerk 'Classic' voor het maken van een klassiek VNet. 
+3. Zoek 'Virtueel netwerk' in de geretourneerde lijst en klikt u erop om het virtuele netwerk pagina te openen. 
+4. Selecteer op de pagina virtueel netwerk 'Classic' voor het maken van een klassiek VNet. 
 
 Als u van dit artikel wijze van oefening maakt gebruikmaakt, kunt u de volgende voorbeelden van waarden gebruiken:
 
@@ -144,14 +144,14 @@ De lokale site voor elk VNet is het andere VNet. De volgende voorbeelden van waa
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |VS - oost |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |VS - west |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-1. TestVNet1 niet vinden in de Azure-portal. In de **VPN-verbindingen** sectie van de blade, klikt u op **Gateway**.
+1. TestVNet1 niet vinden in de Azure-portal. In de **VPN-verbindingen** sectie van de pagina, klikt u op **Gateway**.
 
     ![Er is geen gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
 2. Op de **nieuwe VPN-verbinding** pagina **Site-naar-Site**.
 3. Klik op **lokale site** open de pagina van de lokale site en de instellingen configureren.
 4. Op de **lokale site** pagina en de naam van uw lokale site. In ons voorbeeld namen wij aan de lokale site 'VNet4Local'.
 5. Voor **IP-adres van VPN-gateway**, kunt u een IP-adres dat u wilt, zolang het is een ongeldige indeling. Normaal gesproken gebruikt u de werkelijke externe IP-adres voor een VPN-apparaat. Maar voor een klassiek VNet-naar-VNet-configuratie, gebruikt u het openbare IP-adres dat is toegewezen aan de gateway voor uw VNet. Gezien het feit dat u de virtuele netwerkgateway nog niet hebt gemaakt, kunt u een geldig openbaar IP-adres opgeven als een tijdelijke aanduiding.<br>Niet leeg laten - is niet optioneel is voor deze configuratie. In een latere stap, gaat u terug naar deze instellingen en configureert u deze met de bijbehorende IP-adressen voor virtueel netwerk gateway zodra dit Azure genereert.
-6. Voor **Client adresruimte**, gebruikt u de adresruimte van het andere VNet. Raadpleeg uw planning voorbeeld. Klik op **OK** uw instellingen opslaan en terugkeren naar de **nieuwe VPN-verbinding** blade.
+6. Voor **Client adresruimte**, gebruikt u de adresruimte van het andere VNet. Raadpleeg uw planning voorbeeld. Klik op **OK** uw instellingen opslaan en terugkeren naar de **nieuwe VPN-verbinding** pagina.
 
     ![lokale site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
 
@@ -159,13 +159,13 @@ De lokale site voor elk VNet is het andere VNet. De volgende voorbeelden van waa
 
 Elke virtuele netwerk moet een virtuele netwerkgateway hebben. De virtuele netwerkgateway routes en versleutelt verkeer.
 
-1. Selecteer op de blade **Nieuwe VPN-verbinding** het selectievakje **Gateway onmiddellijk maken**.
-2. Klik op **Subnet, grootte en routeringstype**. Op de **gatewayconfiguratie** blade, klikt u op **Subnet**.
+1. Schakel op de pagina **Nieuwe VPN-verbinding** het selectievakje **Gateway onmiddellijk maken** in.
+2. Klik op **Subnet, grootte en routeringstype**. Op de **gatewayconfiguratie** pagina, klikt u op **Subnet**.
 3. De naam van de gateway-subnet wordt automatisch ingevuld met de vereiste naam 'GatewaySubnet'. De **-adresbereik** bevat het IP-adressen die zijn toegewezen aan de VPN-gateway-services. Bepaalde configuraties een gatewaysubnet van slechts/29 toestaan, maar het is raadzaam een/28 of /27 gebruiken om toekomstige configuraties waarvoor meer IP-adressen voor de gatewayservices onder te brengen. In ons voorbeeldinstellingen gebruiken we 10.11.1.0/27. De adresruimte aanpassen en klik vervolgens op **OK**.
 4. Configureer de **Gateway grootte**. Deze instelling verwijst naar de [Gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 5. Configureer de **Routeringstype**. Voor deze configuratie moet de routering Typ **dynamische**. U kunt de routering type later niet wijzigen tenzij u de gateway verwijderen en een nieuwe maken.
 6. Klik op **OK**.
-7. Op de **nieuwe VPN-verbinding** blade, klikt u op **OK** om te beginnen met het maken van de virtuele netwerkgateway. Het maken van een gateway duurt vaak 45 minuten of langer, afhankelijk van de geselecteerde gateway-SKU.
+7. Op de **nieuwe VPN-verbinding** pagina, klikt u op **OK** om te beginnen met het maken van de virtuele netwerkgateway. Het maken van een gateway duurt vaak 45 minuten of langer, afhankelijk van de geselecteerde gateway-SKU.
 
 ## <a name="vnet4settings"></a>Stap 5: TestVNet4-instellingen configureren
 
@@ -183,7 +183,7 @@ Nadat de virtuele netwerkgateways voor beide vnet's zijn gemaakt, moet u de loka
 ### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>Deel 1: het virtuele netwerk gateway openbare IP-adres ophalen
 
 1. Het virtuele netwerk niet vinden in de Azure-portal.
-2. Klik voor het openen van het VNet **overzicht** blade. Op de blade in **VPN-verbindingen**, kunt u het IP-adres voor uw virtuele netwerkgateway weergeven.
+2. Klik voor het openen van het VNet **overzicht** pagina. Klik op de pagina in **VPN-verbindingen**, kunt u het IP-adres voor uw virtuele netwerkgateway weergeven.
 
   ![Openbare IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
 3. Kopieer het IP-adres. U gebruikt deze in de volgende sectie.
@@ -192,10 +192,10 @@ Nadat de virtuele netwerkgateways voor beide vnet's zijn gemaakt, moet u de loka
 ### <a name="part-2---modify-the-local-sites"></a>Deel 2: de lokale sites wijzigen
 
 1. Het virtuele netwerk niet vinden in de Azure-portal.
-2. Op het VNet **overzicht** blade, klikt u op de lokale site.
+2. Op het VNet **overzicht** pagina, klikt u op de lokale site.
 
   ![Lokale site gemaakt](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
-3. Op de **Site-naar-Site VPN-verbindingen** blade, klik op de naam van de lokale site die u wilt wijzigen.
+3. Op de **Site-naar-Site VPN-verbindingen** pagina, klikt u op de naam van de lokale site die u wilt wijzigen.
 
   ![Open lokale site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
 4. Klik op de **lokale site** die u wilt wijzigen.
@@ -204,7 +204,7 @@ Nadat de virtuele netwerkgateways voor beide vnet's zijn gemaakt, moet u de loka
 5. Update de **IP-adres van VPN-gateway** en klik op **OK** de instellingen op te slaan.
 
   ![gateway-IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
-6. Sluit de andere blades.
+6. Sluit de andere pagina's.
 7. Herhaal deze stappen voor TestVNet4.
 
 ## <a name="getvalues"></a>Stap 7: de waarden ophalen uit het configuratiebestand van het netwerk

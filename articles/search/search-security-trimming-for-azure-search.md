@@ -1,6 +1,6 @@
 ---
 title: Beveiliging bijsnijden met Azure Search
-description: Hoe worden ingekort met behulp van Azure Search filter implementeren.
+description: Implementeer beveiliging bijsnijden met Azure Search-filters.
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 28f400abbafcc3cff35bd4575b975c1e7150a6f0
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Beveiliging bijsnijden met Azure Search
 

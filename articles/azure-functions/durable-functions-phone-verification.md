@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Menselijke tussenkomst in duurzame functies - Phone verificatie voorbeeld
 
@@ -60,7 +60,7 @@ Dit artikel begeleidt u bij de volgende functies in de voorbeeld-app:
 
 De volgende secties worden de configuratie en code die worden gebruikt voor het ontwikkelen van Azure portal. De code voor het ontwikkelen van Visual Studio wordt weergegeven aan het einde van het artikel.
  
-## <a name="the-sms-verification-orchestration"></a>De SMS-verificatie orchestration
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>De SMS-verificatie orchestration (Visual Studio Code en de Azure portal voorbeeldcode) 
 
 De **E4_SmsPhoneVerification** functie maakt gebruik van de standaard *function.json* voor orchestrator-functies.
 

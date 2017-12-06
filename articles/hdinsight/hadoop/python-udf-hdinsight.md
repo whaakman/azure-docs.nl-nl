@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Gebruik Python gebruiker gedefinieerde functies (UDF) met Hive en Pig in HDInsight
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-In het voorbeeld Pig Latin gedefinieerd we de `LINE` ingevoerd als een chararray omdat er geen consistente schema voor de invoer is. Het Python-script transformeert de gegevens in een consistente schema voor uitvoer.
+In het voorbeeld Pig Latin de `LINE` invoer is gedefinieerd als een chararray omdat er geen consistente schema voor de invoer is. Het Python-script transformeert de gegevens in een consistente schema voor uitvoer.
 
 1. De `@outputSchema` instructie de indeling van de gegevens die wordt geretourneerd naar Pig definieert. In dit geval heeft een **gegevens eigenschappenverzameling**, namelijk een Pig-gegevenstype. De verzameling bevat de volgende velden, dit allemaal chararray (tekenreeksen zijn):
 
@@ -178,7 +178,7 @@ In het voorbeeld Pig Latin gedefinieerd we de `LINE` ingevoerd als een chararray
 
 2. Vervolgens moet de `def create_structure(input)` definieert de functie waarin Pig regel items die moeten worden doorgegeven.
 
-3. De voorbeeldgegevens, `sample.log`, voornamelijk voldoet aan de datum, tijd, classname, niveau, toegelicht en schema wilt retourneren. Het document bevat echter een paar regels die met beginnen `*java.lang.Exception*`. Deze regels moeten worden gewijzigd zodat deze overeenkomt met het schema. De `if` instructie die controleert en vervolgens de invoergegevens verplaatsen massages de `*java.lang.Exception*` tekenreeks aan het einde, de gegevens in-line met onze schema verwachte uitvoer te brengen.
+3. De voorbeeldgegevens, `sample.log`, voornamelijk voldoet aan de datum, tijd, classname, niveau, toegelicht en schema. Het document bevat echter een paar regels die met beginnen `*java.lang.Exception*`. Deze regels moeten worden gewijzigd zodat deze overeenkomt met het schema. De `if` instructie die controleert en vervolgens de invoergegevens verplaatsen massages de `*java.lang.Exception*` tekenreeks aan het einde, de gegevens in-line met het schema van de verwachte uitvoer te brengen.
 
 4. Vervolgens moet de `split` opdracht wordt gebruikt voor het splitsen van de gegevens op de eerste vier spaties. De uitvoer is toegewezen in `date`, `time`, `classname`, `level`, en `detail`.
 
@@ -291,7 +291,7 @@ Gebruik de volgende stappen de Hive en Pig-taken uitvoeren na het uploaden van d
     #from pig_util import outputSchema
     ```
 
-    Dit wijzigt werkt met C Python in plaats van Jython het Python-script. Zodra de wijziging is aangebracht, gebruikt u **Ctrl + X** naar de editor te sluiten. Selecteer **Y**, en vervolgens **Enter** de wijzigingen wilt opslaan.
+    Deze regel wordt het script Python werken met C Python in plaats van Jython gewijzigd. Zodra de wijziging is aangebracht, gebruikt u **Ctrl + X** naar de editor te sluiten. Selecteer **Y**, en vervolgens **Enter** de wijzigingen wilt opslaan.
 
 6. Gebruik de `pig` opdracht waarmee de shell opnieuw wordt gestart. Zodra u zich op de `grunt>` gevraagd, gebruikt u de volgende de Python-script met behulp van de C-Python-interpreter uit te voeren.
 

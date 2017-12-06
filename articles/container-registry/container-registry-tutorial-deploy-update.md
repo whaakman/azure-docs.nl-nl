@@ -2,22 +2,15 @@
 title: Zelfstudie voor Azure Container register - Push een bijgewerkte installatiekopie naar regionale implementaties
 description: "Een installatiekopie van het gewijzigde Docker push naar uw Azure geogerepliceerde register bevatten, en vervolgens de wijzigingen vervolgens automatisch geïmplementeerd in WebApps die worden uitgevoerd in meerdere regio's te zien. Deel 2 van een reeks drie delen."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: mmacy
-tags: acr, azure-container-registry, geo-replication
-keywords: Docker, Containers, register, Azure
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 00408c12836d814f2449dda6802cc342992a4014
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 359fdcabd579d277e40f02eba2d4603ebd9f5f1f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/05/2017

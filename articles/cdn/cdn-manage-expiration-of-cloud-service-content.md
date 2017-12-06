@@ -14,22 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Vervaldatum van webinhoud in Azure inhoud Delivery Network beheren
 > [!div class="op_single_selector"]
-> * [Azure-web-inhoud](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Azure-webinhoud](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-De bestanden van de webserver van elke openbaar toegankelijke oorsprong kunnen opslaan in de cache in Azure Content Delivery Network (CDN) totdat de time-to-live (TTL) is verstreken. De TTL-waarde wordt bepaald door de `Cache-Control` -header in het HTTP-antwoord op de bronserver. In dit artikel wordt beschreven hoe instelt `Cache-Control` headers voor de functie Web Apps van Microsoft Azure App Service, Azure Cloud Services, ASP.NET-toepassingen en Internet Information Services (IIS)-sites, die allemaal op dezelfde manier zijn geconfigureerd. U kunt instellen de `Cache-Control` header met behulp van de configuratiebestanden of programmatisch.
+De bestanden van de webserver van elke openbaar toegankelijke oorsprong kunnen opslaan in de cache in Azure Content Delivery Network (CDN) totdat de time-to-live (TTL) is verstreken. De TTL-waarde wordt bepaald door de `Cache-Control` -header in het HTTP-antwoord op de bronserver. In dit artikel wordt beschreven hoe instelt `Cache-Control` headers voor de functie Web Apps van Microsoft Azure App Service, Azure Cloud Services, ASP.NET-toepassingen en Internet Information Services (IIS)-sites, die allemaal op dezelfde manier zijn geconfigureerd. U kunt instellen de `Cache-Control` header met behulp van de configuratiebestanden of programmatisch. 
+
+U kunt de cache-instellingen van de Azure-portal ook beheren door in te stellen [CDN regels opslaan in cache](cdn-caching-rules.md). Als u slechts één of meer caching regels en hun gedrag ingesteld op **overschrijven** of **cache overslaan**, de geleverde oorsprong cache-instellingen in dit artikel wordt beschreven, worden genegeerd. Zie voor meer informatie over algemene concepten voor caching [werking van cacheopslag](cdn-how-caching-works.md).
 
 > [!TIP]
-> U kunt geen TTL ingesteld op een bestand. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen. Deze standaard TTL geldt alleen voor levering optimalisaties van algemene webtoepassingen. De standaard TTL-waarde is één dag voor optimalisatie van grote bestanden, en voor mediastreaming optimalisaties de standaard TTL-waarde is één jaar.
+> U kunt geen TTL ingesteld op een bestand. In dit geval past Azure CDN automatisch een standaard-TTL van zeven dagen, tenzij u een cache van de regels in de Azure-portal hebt ingesteld. Deze standaard TTL geldt alleen voor levering optimalisaties van algemene webtoepassingen. De standaard TTL-waarde is één dag voor optimalisatie van grote bestanden, en voor mediastreaming optimalisaties de standaard TTL-waarde is één jaar.
 > 
 > Zie voor meer informatie over de werking van Azure CDN om sneller toegang tot bestanden en andere bronnen [overzicht van het Azure Content Delivery Network](cdn-overview.md).
 > 
@@ -82,5 +84,5 @@ U kunt eenvoudig de TTL-instellingen van de inhoud van uw website controleren. M
 ## <a name="next-steps"></a>Volgende stappen
 * [Lees meer informatie over de **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Raadpleeg de documentatie van de **HttpResponse.Cache** eigenschap](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Raadpleeg de documentatie van de **HttpCachePolicy klasse**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Raadpleeg de documentatie van de **HttpCachePolicy-klasse**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Meer informatie over concepten opslaan in cache](cdn-how-caching-works.md)

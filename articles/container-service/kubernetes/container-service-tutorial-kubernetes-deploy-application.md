@@ -1,27 +1,19 @@
 ---
-title: Zelfstudie voor Azure Container Service - toepassing implementeren | Microsoft Docs
+title: Zelfstudie voor Azure Container Service - toepassing implementeren
 description: Zelfstudie voor Azure Container Service - toepassing implementeren
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c9563a38f0aedcb6f67fd44031a47a712088ddc
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 397bb22918d5b181692a42d0f4c2d87be086c534
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="run-applications-in-kubernetes"></a>Toepassingen uitvoeren in Kubernetes
 
@@ -31,7 +23,7 @@ In deze zelfstudie maakt deel uit van vier van zeven, een voorbeeld van een toep
 
 > [!div class="checklist"]
 > * Kubernetes manifestbestanden bijwerken
-> * Toepassing uitvoert in Kubernetes
+> * Toepassing uitvoeren in Kubernetes
 > * De toepassing testen
 
 In volgende zelfstudies deze toepassing is uitgebreid, bijgewerkt, en Operations Management Suite geconfigureerd voor het controleren van het cluster Kubernetes.

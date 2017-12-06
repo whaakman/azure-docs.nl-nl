@@ -1,29 +1,22 @@
 ---
-title: Beheren van Azure DC/OS-cluster met Marathon REST API | Microsoft Docs
+title: Azure DC/OS-cluster met Marathon REST API beheren
 description: Implementeer containers naar een Azure Container Service DC/OS-cluster met behulp van de Marathon REST API.
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Mesos, Azure
-ms.assetid: c7175446-4507-4a33-a7a2-63583e5996e3
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9322756c30011305ebe6f4f2fd38554f275a1b3
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS-containerbeheer via de Marathon REST API
+
 DC/OS biedt een omgeving voor het implementeren en schalen van geclusterde workloads terwijl de onderliggende hardware wordt onttrokken. Op de DC/OS ligt een framework dat de planning en uitvoering van rekenworkloads regelt. Er zijn frameworks beschikbaar voor veel populaire werkbelastingen, wordt er in dit document helpt u op weg maken en schalen van containerimplementaties met behulp van de Marathon REST API. 
 
 ## <a name="prerequisites"></a>Vereisten

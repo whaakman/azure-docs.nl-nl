@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Bijhouden van aangepaste bewerkingen met Application Insights-SDK voor .NET
 
@@ -33,7 +33,7 @@ Dit document biedt richtlijnen voor het bijhouden van aangepaste bewerkingen met
 ## <a name="overview"></a>Overzicht
 Een bewerking is een logische werk uitgevoerd door een toepassing. Een naam, de starttijd, duur, resultaat en een context van de uitvoering zoals gebruikersnaam, eigenschappen en resultaat heeft. Als een bewerking is gestart door de bewerking B, wordt bewerking B ingesteld als een bovenliggend element van A. Een bewerking kan slechts één bovenliggend hebben, maar er veel onderliggende bewerkingen. Zie voor meer informatie over bewerkingen en telemetrie correlatie [Azure Application Insights telemetrie correlatie](application-insights-correlation.md).
 
-De bewerking wordt in de Application Insights .NET SDK beschreven door de abstracte klasse [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) en afgeleiden [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) en [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+De bewerking wordt in de Application Insights .NET SDK beschreven door de abstracte klasse [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) en afgeleiden [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) en [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Binnenkomende operations bijhouden 
 De Application Insights web SDK verzamelt automatisch HTTP-aanvragen voor ASP.NET-toepassingen die worden uitgevoerd in een IIS-pijplijn en alle toepassingen die ASP.NET Core. Er zijn oplossingen voor andere platforms en frameworks community ondersteund. Echter, als de toepassing wordt niet ondersteund door een van de standaard of community ondersteund oplossingen, u kunt softwareontwikkelaars deze handmatig.

@@ -2,26 +2,18 @@
 title: Een Azure-bestanden volume in Azure Containerexemplaren koppelen
 description: Meer informatie over het koppelen van een Azure-bestanden volume om te blijven behouden status met exemplaren van Azure-Container
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/09/2017
+ms.date: 12/05/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b2e8e27cecb4d1225e378690063b42f5d5242868
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Koppelen van een Azure-bestandsshare met exemplaren van Azure-Container
 
@@ -32,7 +24,7 @@ Standaard zijn exemplaren van Azure-Container staatloze. Als de container vastlo
 Voordat u een Azure-bestandsshare met exemplaren van Azure-Container, moet u deze maken. Voer het volgende script voor het maken van een opslagaccount voor het hosten van de bestandsshare en de share zelf. De opslagaccountnaam moet globaal uniek zijn, zodat het script voegt een willekeurige waarde toe aan de basis-tekenreeks.
 
 ```azurecli-interactive
-# Change these four parameters
+# Change these four parameters as needed
 ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_RESOURCE_GROUP=myResourceGroup
 ACI_PERS_LOCATION=eastus
@@ -41,10 +33,11 @@ ACI_PERS_SHARE_NAME=acishare
 # Create the storage account with the parameters
 az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
 
-# Export the connection string as an environment variable, this is used when creating the Azure file share
+# Export the connection string as an environment variable. The following 'az storage share create' command
+# references this environment variable when creating the Azure file share.
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
 
-# Create the share
+# Create the file share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
@@ -59,147 +52,40 @@ STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GR
 echo $STORAGE_ACCOUNT
 ```
 
-Al bekend is de sharenaam (is *acishare* in het bovenstaande script), zodat alle dat u hoeft alleen nog de opslagaccountsleutel die kan worden gevonden met de volgende opdracht:
+Al bekend is de sharenaam (gedefinieerd als *acishare* in het bovenstaande script), zodat alle dat u hoeft alleen nog de opslagaccountsleutel die kan worden gevonden met de volgende opdracht:
 
 ```azurecli-interactive
 STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Storage-account toegangsgegevens met Azure Sleutelkluis opslaan
+## <a name="deploy-the-container-and-mount-the-volume"></a>De container geïmplementeerd en het volume koppelen
 
-Toegangscodes voor opslag beveiligen toegang tot uw gegevens, zodat we het beste opslaan in een Azure sleutelkluis.
-
-Een sleutelkluis maken met de Azure CLI:
+Geef de share- en volume koppelpunt bij het maken van de container met een Azure-bestandsshare koppelen als een volume in een container, [az container maken](/cli/azure/container#az_container_create). Als u de vorige stappen hebt gevolgd, kunt u de share die u eerder hebt gemaakt met behulp van de volgende opdracht voor het maken van een container koppelen:
 
 ```azurecli-interactive
-KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
+az container create \
+    --resource-group $ACI_PERS_RESOURCE_GROUP \
+    --name hellofiles \
+    --image seanmckenna/aci-hellofiles \
+    --ip-address Public \
+    --ports 80 \
+    --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
+    --azure-file-volume-account-key $STORAGE_KEY \
+    --azure-file-volume-share-name $ACI_PERS_SHARE_NAME \
+    --azure-file-volume-mount-path /aci/logs/
 ```
 
-De `enabled-for-template-deployment` switch kunt Azure Resource Manager pull geheimen van de sleutelkluis tijdens de implementatie.
+## <a name="manage-files-in-mounted-volume"></a>Bestanden in gekoppelde volume beheren
 
-De opslagaccountsleutel opslaan als een nieuwe geheim in de sleutelkluis:
-
-```azurecli-interactive
-KEYVAULT_SECRET_NAME=azurefilesstoragekey
-az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
-```
-
-## <a name="mount-the-volume"></a>Het volume koppelen
-
-Koppelen van een Azure-bestandsshare als een volume in een container is een proces. Eerst u de details van de share als onderdeel van het definiëren van de containergroep opgeeft, vervolgens u opgeven hoe u het volume dat is gekoppeld in een of meer van de containers in de groep wilt gebruiken.
-
-Om te definiëren van de volumes die u beschikbaar wilt maken voor het koppelen, Voeg een `volumes` matrix naar de definitie van de container in de Azure Resource Manager-sjabloon en klik vervolgens in de definitie van de afzonderlijke containers verwijzing.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageaccountname": {
-      "type": "string"
-    },
-    "storageaccountkey": {
-      "type": "securestring"
-    }
-  },
-  "resources":[{
-    "name": "hellofiles",
-    "type": "Microsoft.ContainerInstance/containerGroups",
-    "apiVersion": "2017-08-01-preview",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "containers": [{
-        "name": "hellofiles",
-        "properties": {
-          "image": "seanmckenna/aci-hellofiles",
-          "resources": {
-            "requests": {
-              "cpu": 1,
-              "memoryInGb": 1.5
-            }
-          },
-          "ports": [{
-            "port": 80
-          }],
-          "volumeMounts": [{
-            "name": "myvolume",
-            "mountPath": "/aci/logs/"
-          }]
-        }
-      }],
-      "osType": "Linux",
-      "ipAddress": {
-        "type": "Public",
-        "ports": [{
-          "protocol": "tcp",
-          "port": "80"
-        }]
-      },
-      "volumes": [{
-        "name": "myvolume",
-        "azureFile": {
-          "shareName": "acishare",
-          "storageAccountName": "[parameters('storageaccountname')]",
-          "storageAccountKey": "[parameters('storageaccountkey')]"
-        }
-      }]
-    }
-  }]
-}
-```
-
-De sjabloon bevat de naam van het opslagaccount en de sleutel als parameters die in een afzonderlijke parameterbestand kunnen worden opgegeven. Om te voorzien van het parameterbestand, moet u drie waarden: naam van het opslagaccount, de bron-ID van uw Azure sleutelkluis en de geheime naam van sleutelkluis die u hebt gebruikt voor het opslaan van de opslagsleutel. Als u de vorige stappen hebt gevolgd, kunt u deze waarden met het volgende script kunt krijgen:
-
-```azurecli-interactive
-echo $STORAGE_ACCOUNT
-echo $KEYVAULT_SECRET_NAME
-az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
-```
-
-Voeg de waarden in het parameterbestand:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageaccountname": {
-      "value": "<my_storage_account_name>"
-    },
-   "storageaccountkey": {
-      "reference": {
-        "keyVault": {
-          "id": "<my_keyvault_id>"
-        },
-        "secretName": "<my_storage_account_key_secret_name>"
-      }
-    }
-  }
-}
-```
-
-## <a name="deploy-the-container-and-manage-files"></a>De container implementeren en beheren van bestanden
-
-Met de sjabloon is gedefinieerd, kunt u de container maken en koppelen van het volume met de Azure CLI. Ervan uitgaande dat de naam van het sjabloonbestand *azuredeploy.json* en met de naam van het parameterbestand *azuredeploy.parameters.json*, dan is de opdrachtregel:
-
-```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
-```
-
-Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de **aci-seanmckenna-hellofiles** afbeelding voor het beheren van de bestanden in de Azure-bestandsshare op het opgegeven koppelpad. Het IP-adres voor de web-app met de [az container weergeven](/cli/azure/container#az_container_show) opdracht:
+Nadat de container wordt gestart, kunt u de eenvoudige web-app geïmplementeerd de [aci-seanmckenna-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) afbeelding voor het beheren van de bestanden in de Azure-bestandsshare op het opgegeven koppelpad. Het IP-adres voor de web-app met de [az container weergeven](/cli/azure/container#az_container_show) opdracht:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-U kunt een hulpprogramma zoals de [Microsoft Azure Storage Explorer](https://storageexplorer.com) op te halen en het controleren van het bestand is geschreven naar de bestandsshare.
-
->[!NOTE]
-> Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen, parameterbestanden en implementeren met de Azure CLI [implementeren van resources met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+U kunt de [Azure-portal](https://portal.azure.com) of een hulpprogramma zoals de [Microsoft Azure Storage Explorer](https://storageexplorer.com) op te halen en het controleren van het bestand is geschreven naar de bestandsshare.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Implementeren voor uw eerste container met de Azure-Container instanties [Quick Start](container-instances-quickstart.md)
-- Meer informatie over de [relatie tussen Azure Containerexemplaren en container orchestrators](container-instances-orchestrator-relationship.md)
+Meer informatie over de relatie tussen [exemplaren van Azure-Container en container orchestrators](container-instances-orchestrator-relationship.md).

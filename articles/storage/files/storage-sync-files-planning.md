@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 241b744f5c5e89f53addb4d41d732245d76ef9a3
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -28,34 +28,40 @@ Dit artikel bevat belangrijke aandachtspunten voor de implementatie van een Azur
 ## <a name="azure-file-sync-terminology"></a>Azure File-Sync-terminologie
 Voordat u in de details van de planning voor de implementatie van een Azure-bestand synchronisatie, is het belangrijk dat u de terminologie begrijpt.
 
-### <a name="storage-sync-service"></a>Opslag Sync-Service
-De Storage-Sync-Service is op het hoogste niveau Azure-resource voor Azure File-synchronisatie. De resource-opslag-Sync-Service is geen peer van de account opslagbronnen en kan op dezelfde manier worden geïmplementeerd op Azure-resourcegroepen. Een afzonderlijke op het hoogste niveau resource uit de bron van storage-account is nodig omdat de Storage-Sync-Service kan de synchronisatierelaties met meerdere opslagaccounts via meerdere synchronisatie-groepen maken kunt. Een abonnement kan meerdere synchronisatie opslagservice resources geïmplementeerd hebben.
+### <a name="storage-sync-service"></a>Opslagsynchronisatieservice
+De Storage-Sync-Service is op het hoogste niveau Azure-resource voor Azure File-synchronisatie. De resource-opslag-Sync-Service is geen peer van de account opslagbronnen en kan op dezelfde manier worden geïmplementeerd op Azure-resourcegroepen. Een afzonderlijke op het hoogste niveau resource uit de bron van storage-account is nodig omdat de Storage-Sync-Service kan de synchronisatierelaties met meerdere opslagaccounts via meerdere synchronisatiegroepen maken kunt. Een abonnement kan meerdere synchronisatie opslagservice resources geïmplementeerd hebben.
 
-### <a name="sync-group"></a>Groep voor synchronisatie
+### <a name="sync-group"></a>Synchronisatiegroep
 Een groep voor synchronisatie definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een groep voor synchronisatie zijn gesynchroniseerd met elkaar. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met het synchroniseren van Azure-bestand hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een opslag-Sync-Service kan zo veel synchronisatiegroepen behoefte hosten.  
 
-### <a name="registered-server"></a>Geregistreerde Server
-De Server geregistreerd-object vertegenwoordigt een vertrouwensrelatie tussen uw server (of een cluster) en de opslag-synchronisatieservice. U kunt zoveel servers naar een opslag-Sync-Service-exemplaar als u wilt registreren. Echter, een server (of een cluster) kan worden geregistreerd met slechts één opslag-synchronisatieservice tegelijk.
+### <a name="registered-server"></a>Geregistreerde server
+Het object geregistreerde server vertegenwoordigt een vertrouwensrelatie tussen uw server (of een cluster) en de opslag-synchronisatieservice. U kunt zoveel servers naar een opslag-Sync-Service-exemplaar als u wilt registreren. Echter, een server (of een cluster) kan worden geregistreerd met slechts één opslag-synchronisatieservice tegelijk.
 
 ### <a name="azure-file-sync-agent"></a>Azure File-Sync-agent
 De Azure-bestand Sync-agent is een downloadbare pakket waarmee Windows-Server moet worden gesynchroniseerd met een Azure-bestandsshare. De Azure-bestand Sync-agent heeft drie onderdelen: 
-- **FileSyncSvc.exe**: de achtergrond van de Windows-service die verantwoordelijk is voor het bewaken van de wijzigingen op de Server-eindpunten en voor het initiëren van sessies synchroniseren naar Azure.
+- **FileSyncSvc.exe**: de achtergrond van de Windows-service die verantwoordelijk is voor het bewaken van de wijzigingen op de server-eindpunten en voor het initiëren van sessies synchroniseren naar Azure.
 - **StorageSync.sys**: de Azure-bestand Sync bestandssysteemfilter, die verantwoordelijk is voor lagen bestanden naar de Azure-bestanden (wanneer cloud tiering is ingeschakeld).
 - **PowerShell-cmdlets voor beheer**: PowerShell-cmdlets die u gebruikt om te communiceren met de resourceprovider Microsoft.StorageSync Azure. U vindt deze op de volgende (standaard)-locaties:
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Servereindpunt
-Een eindpunt Server vertegenwoordigt een specifieke locatie op een Server is geregistreerd, bijvoorbeeld een map op een volume van de server of in de hoofdmap van het volume. Meerdere Server-eindpunten kunnen bevinden zich op hetzelfde volume als hun naamruimten (bijvoorbeeld F:\sync1 en F:\sync2) niet overlappen. U kunt lagen beleidsregels cloud afzonderlijk configureren voor elk eindpunt van de Server. Als u de locatie van een server met een bestaande set van bestanden als een eindpunt van de Server aan een groep voor synchronisatie toevoegt, worden deze bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
+Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde server, bijvoorbeeld een map op een volume van de server of in de hoofdmap van het volume. Meerdere server-eindpunten kunnen bevinden zich op hetzelfde volume als hun naamruimten (bijvoorbeeld F:\sync1 en F:\sync2) niet overlappen. U kunt de lagen beleid cloud afzonderlijk voor elk servereindpunt kunt configureren. Als u de locatie van een server met een bestaande set van bestanden als een servereindpunt aan een groep voor synchronisatie toevoegt, worden deze bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
+
+> [!Note]  
+> Een servereindpunt kan zich bevinden op het systeemvolume van Windows. Cloud tiering wordt niet ondersteund op het systeemvolume.
 
 ### <a name="cloud-endpoint"></a>Cloudeindpunt
-Een Cloud-eindpunt is een Azure-bestandsshare die deel uitmaakt van een groep voor synchronisatie. De synchronisatie van de share volledige Azure-bestand en een Azure-bestandsshare is lid van slechts één eindpunt van de Cloud. Een Azure-bestandsshare kan dus een lid van slechts één groep voor synchronisatie. Als u een Azure-bestandsshare met een bestaande set van bestanden als een Cloudeindpunt aan een groep voor synchronisatie toevoegt, worden de bestaande bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
+Een cloudeindpunt is een Azure-bestandsshare die deel uitmaakt van een groep voor synchronisatie. De synchronisatie van de share volledige Azure-bestand en een Azure-bestandsshare kan een lid van slechts één cloudeindpunt zijn. Een Azure-bestandsshare kan dus een lid van slechts één groep voor synchronisatie. Als u een Azure-bestandsshare met een bestaande set van bestanden als een cloudeindpunt aan een groep voor synchronisatie toevoegt, worden de bestaande bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
 
 > [!Important]  
-> Azure File-synchronisatie ondersteunt rechtstreeks aanbrengen van wijzigingen in de Azure-bestandsshare. Alle wijzigingen op de Azure-bestandsshare moeten echter eerst door een Azure bestand Sync-taak voor het detecteren van wijziging wordt gedetecteerd. Een wijziging detectie-taak wordt gestart voor een Cloudeindpunt slechts eenmaal per 24 uur. Zie voor meer informatie [Veelgestelde vragen over Azure-bestanden](storage-files-faq.md#afs-change-detection).
+> Azure File-synchronisatie ondersteunt rechtstreeks aanbrengen van wijzigingen in de Azure-bestandsshare. Alle wijzigingen op de Azure-bestandsshare moeten echter eerst door een Azure bestand Sync-taak voor het detecteren van wijziging wordt gedetecteerd. Een wijziging detectie-taak wordt gestart voor een cloudeindpunt slechts eenmaal per 24 uur. Zie voor meer informatie [Veelgestelde vragen over Azure-bestanden](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Cloudopslaglagen 
 Cloud tiering is een optionele functie van Azure bestand Sync waarin zelden gebruikt of gebruikte bestanden kunnen tiers worden verdeeld aan Azure-bestanden. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File-synchronisatie (StorageSync.sys) door het bestand lokaal een wijzer of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure-bestanden. Een gelaagde bestand heeft het 'offline' kenmerk is ingesteld in NTFS zodat toepassingen van derden gelaagde bestanden kunnen identificeren. Wanneer een gebruiker een gelaagde bestand opent, teruggehaald Azure bestand Sync bestandsgegevens uit Azure Files naadloos zonder dat de gebruiker hoeft te weten dat het bestand niet lokaal is opgeslagen op het systeem. Deze functionaliteit wordt ook wel hiërarchische opslag Management (HSM).
+
+> [!Important]  
+> Cloud tiering wordt niet ondersteund voor server-eindpunten op de volumes van Windows-systeem.
 
 ## <a name="azure-file-sync-interoperability"></a>Interoperabiliteit met Azure File-synchronisatie 
 Deze sectie bevat informatie over Azure bestand Sync interoperabiliteit met Windows Server-functies en functies en oplossingen van derden.
@@ -76,18 +82,18 @@ Toekomstige versies van Windows Server worden toegevoegd zodra ze worden vrijgeg
 ### <a name="file-system-features"></a>Functies
 | Functie | Ondersteuning voor status | Opmerkingen |
 |---------|----------------|-------|
-| Toegangsbeheerlijsten (ACL's) | Volledig ondersteund | Windows ACL's blijven behouden door Azure bestand synchronisatie en worden afgedwongen door de Windows Server op Server-eindpunten. Windows ACL's (nog niet) door de Azure-bestanden ondersteund als de bestanden rechtstreeks in de cloud worden geopend. |
+| Toegangsbeheerlijsten (ACL's) | Volledig ondersteund | Windows ACL's blijven behouden door Azure bestand synchronisatie en worden afgedwongen door de Windows Server op server-eindpunten. Windows ACL's (nog niet) door de Azure-bestanden ondersteund als de bestanden rechtstreeks in de cloud worden geopend. |
 | Vaste koppelingen | Overgeslagen | |
 | Symbolische koppelingen | Overgeslagen | |
-| Koppelpunten | Gedeeltelijk ondersteund | Koppelpunten mogelijk de hoofdmap van het eindpunt van een Server, maar ze worden overgeslagen als ze zijn opgenomen in de naamruimte van het eindpunt van een Server. |
-| Koppelingen | Overgeslagen | |
+| Koppelpunten | Gedeeltelijk ondersteund | Koppelpunten mogelijk de hoofdmap van het servereindpunt van een, maar ze worden overgeslagen als ze zijn opgenomen in de naamruimte van het servereindpunt van een. |
+| Koppelingen | Overgeslagen | Bijvoorbeeld, Distributed File System DfrsrPrivate en DFSRoots mappen. |
 | Reparsepunten | Overgeslagen | |
 | NTFS-compressie | Volledig ondersteund | |
 | Verspreide bestanden | Volledig ondersteund | Synchronisatie van verspreide bestanden (worden niet geblokkeerd), maar ze naar de cloud als een volledig bestand synchroniseert. Als de inhoud van het bestand wijzigen in de cloud (of op een andere server), is het bestand niet meer sparse wanneer de wijziging wordt gedownload. |
 | Alternatieve gegevensstreams (ADS) | Behouden, maar niet gesynchroniseerd | |
 
 > [!Note]  
-> NTFS-volumes worden ondersteund.
+> NTFS-volumes worden ondersteund. ReFS, FAT, FAT32 en andere bestandssystemen worden niet ondersteund.
 
 ### <a name="failover-clustering"></a>Failoverclustering
 Windows Server Failover Clustering wordt ondersteund door Azure bestand Sync voor de optie 'Bestandsserver voor algemeen gebruik'-implementatie. Failover Clustering wordt niet ondersteund op 'Scale-Out File Server for application data' (SOFS) of op geclusterde gedeelde Volumes (CSV's).
@@ -97,6 +103,24 @@ Windows Server Failover Clustering wordt ondersteund door Azure bestand Sync voo
 
 ### <a name="data-deduplication"></a>Gegevensontdubbeling
 Voor volumes waarvoor geen cloud tiering ingeschakeld, ondersteunt Azure bestand Sync Windows Server-Gegevensontdubbeling is ingeschakeld op het volume. Op dit moment wordt niet ondersteund interoperabiliteit tussen Azure bestand synchronisatie met cloud tiering ingeschakeld en Ontdubbeling van gegevens.
+
+### <a name="distributed-file-system-dfs"></a>Gedistribueerd bestandssysteem (DFS)
+Azure File-synchronisatie ondersteunt interop met DFS-naamruimten (DFS-N) en DFS-replicatie (DFS-R) vanaf [Azure bestand Sync-agent 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+
+**DFS-naamruimten (DFS-N)**: Azure File-synchronisatie wordt volledig ondersteund voor DFS-N-servers. U kunt de Azure-bestand Sync-agent installeren op een of meer leden DFS-N gegevens synchroniseren tussen de eindpunten van de server en het cloudeindpunt. Zie voor meer informatie [overzicht van DFS-naamruimten](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+ 
+**DFS-replicatie (DFS-R)**: aangezien DFS-R en Azure bestand Sync beide oplossingen replicatie in de meeste gevallen zijn, is het raadzaam het vervangen van DFS-R met het synchroniseren van Azure-bestand. Er zijn verschillende scenario's waarbij u zou willen DFS-R en Azure bestand Sync samen gebruiken:
+
+- U migreert vanaf een DFS-R-implementatie naar een Azure-bestand Sync-implementatie. Zie voor meer informatie [een DFS-replicatie (DFS-R)-implementatie migreren naar Azure bestand Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
+- Niet alle lokale server die een kopie van uw gegevens uit een bestand moet kan rechtstreeks met het internet worden verbonden.
+- Vertakking servers consolideren gegevens op één hubserver, waarvoor u wilt gebruiken van Azure File-synchronisatie.
+
+Voor Azure File-synchronisatie en DFS-R side-by-side werken:
+
+1. Azure File-synchronisatie cloud lagen moet worden uitgeschakeld op volumes met DFS-R gerepliceerde mappen.
+2. Server-eindpunten moeten niet worden geconfigureerd op de mappen voor DFS-R-replicatie alleen-lezen.
+
+Zie voor meer informatie [DFS-replicatie-overzicht](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="antivirus-solutions"></a>Anti-virussoftware
 Omdat antivirus werkt door te scannen bestanden voor bekende schadelijke code, kan een antivirusprogramma kan ertoe leiden dat het intrekken van gelaagde bestanden. Omdat gelaagde bestanden het kenmerk 'offline' is ingesteld hebben, wordt u aangeraden overleg met de softwareleverancier voor meer informatie over hoe de oplossing configureren voor het lezen van offlinebestanden overslaan. 

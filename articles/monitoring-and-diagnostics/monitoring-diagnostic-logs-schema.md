@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor Azure diagnostische logboeken
 
@@ -29,6 +29,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 
 | Service | Schema & Docs |
 | --- | --- |
+| Analysis Services | Het schema is niet beschikbaar. |
 | API Management | [Diagnostische logboeken van API Management](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Toepassingsgateways |[Logboekregistratie van diagnostische gegevens voor de toepassingsgateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics voor Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 | Logic Apps |[Aangepast Logic Apps B2B-volgschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Netwerkbeveiligingsgroepen |[Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS-beveiliging | Het schema is niet beschikbaar. |
-| Recovery Services | Het schema is niet beschikbaar.|
+| Recovery Services | [Het gegevensmodel voor Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Inschakelen en gebruiken van Search Traffic Analytics](../search/search-traffic-analytics.md) |
 | Server Management | Het schema is niet beschikbaar. |
 | Service Bus |[Diagnostische logboeken van Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 ## <a name="supported-log-categories-per-resource-type"></a>Logboek categorieën per resourcetype ondersteund
 |Resourcetype|Category|Weergavenaam van de categorie|
 |---|---|---|
+|Microsoft.aadiam/tenants|Aanmelden|Aanmelden|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logboeken die betrekking hebben op ApiManagement Gateway|
@@ -63,6 +65,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.Automation/automationAccounts|JobStreams|Taak stromen|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status van de DSC-knooppunt|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service-Logboeken|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee haalt u de metrische gegevens van het eindpunt, zoals bandbreedte, uitgaande, enzovoort.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|Activiteiten|Pipeline-activiteitenlogboek wordt uitgevoerd|
 |Microsoft.DataFactory/factories|PipelineRuns|Pijplijn uitgevoerd logboek|
@@ -90,7 +93,7 @@ Het schema voor resource diagnostische logboeken varieert, afhankelijk van de br
 |Microsoft.EventHub/namespaces|OperationalLogs|Operationele Logboeken|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logboeken voor automatisch schalen|
 |Microsoft.KeyVault/vaults|AuditEvent|Controlelogboeken|
-|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostische gebeurtenissen|
+|Microsoft.Logic/workflows|WorkflowRuntime|Diagnostische gebeurtenissen van de workflowruntime|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Houd gebeurtenissen bij integratie-Account|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Gebeurtenis van Netwerkbeveiligingsgroep|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regelteller van Netwerkbeveiligingsgroep|

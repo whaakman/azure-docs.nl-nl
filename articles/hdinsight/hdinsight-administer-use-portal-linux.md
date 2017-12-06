@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -36,14 +36,17 @@ Als u wilt de stappen in dit artikel, moet u een **Azure-abonnement**. Zie [Grat
 1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
 2. Nadat u de portal geopend, kunt u:
 
-   * Klik op **nieuw** in het menu links om een nieuw cluster te maken:
+   * Klik op **maken van een resource** in het menu links om een nieuw cluster te maken:
 
        ![knop Nieuw HDInsight-cluster](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+
+       Voer **HDInsight** in **zoeken van de Marketplace**, klikt u op **HDInsight**, en klik vervolgens op **maken**.
+
    * Klik op **HDInsight-Clusters** in het menu links voor een lijst met bestaande clusters:
 
        ![Knop Azure portal HDInsight-cluster](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       Als er geen de **HDInsight-clusters** klikken, klik op **meer services** aan de onderkant van de lijst en klik vervolgens op **HDInsight-clusters** onder de  **Intelligence en analyse** sectie.
+       Als er geen de **HDInsight-clusters** knop en klik vervolgens op **HDInsight-clusters** onder de **Intelligence en analyse** sectie.
 
 
 ## <a name="create-clusters"></a>Clusters maken
@@ -73,7 +76,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
 
 ## <a name="list-and-show-clusters"></a>Lijst en clusters weer te geven
 1. Aanmelden bij [https://portal.azure.com](https://portal.azure.com).
-2. Klik op **HDInsight-Clusters** in het menu links voor een lijst met bestaande clusters. Als er geen **HDInsight-Clusters**, klikt u op **meer services** eerste.
+2. Klik op **HDInsight-Clusters** in het menu links voor een lijst met bestaande clusters. Als er geen **HDInsight-Clusters**, klikt u op **alle services** eerste.
 3. Klik op de naam van het cluster. Als de clusterlijst te lang is, kunt u het filter boven aan de pagina.
 4. Klik op een cluster in de lijst om te zien van de overzichtspagina:
 
@@ -81,6 +84,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
     * **Dashboard**: Hiermee opent u het cluster-dashboard Ambari Web voor clusters op basis van Linux is.
     * **Secure Shell**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding.
     * **Cluster schalen**: Hiermee kunt u het aantal worker-knooppunten voor dit cluster wijzigen.
+    * **Verplaats**: het cluster verplaatsen naar uitgeslagen resourcegroep of abonnement.
     * **Verwijderen**: Hiermee verwijdert u het cluster.
 
     **Menu aan de linkerkant:**
@@ -92,17 +96,18 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
     * **Automatiseringsscript**: weergeven en exporteren van de Azure Resource Manager-sjabloon voor het cluster. Op dit moment kunt u alleen het afhankelijke Azure storage-account exporteren. Zie [maken Linux gebaseerde Hadoop-clusters in HDInsight met behulp van Azure Resource Manager-sjablonen](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
     * **Snel starten**: geeft informatie weer die u helpt aan de slag met HDInsight.
     * **Hulpprogramma's voor HDInsight**: Help-informatie voor HDInsight gerelateerde hulpprogramma's.
-    * **Aanmelding cluster**: de aanmeldingsgegevens cluster worden weergegeven.
     * **Abonnement Core gebruik**: de gebruikte en beschikbare kernen voor uw abonnement worden weergegeven.
     * **Cluster schalen**: verhogen en verklein het aantal worker-clusterknooppunten. Zie[schalen clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Secure Shell**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+    * **SSH + Cluster aanmelding**: ziet u de instructies voor het verbinden met het cluster via Secure Shell (SSH) verbinding. Zie voor meer informatie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md), en cluster aanmelding referentie opnieuw instellen.
     * **HDInsight-Partner**: de huidige HDInsight-Partner toevoegen of verwijderen.
     * **Met externe Metastores**: de metastores Hive en Oozie weergeven. De metastores kan alleen worden geconfigureerd tijdens het maken van het cluster. Zie [gebruik Hive/Oozie-metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Acties script**: Voer Bash-scripts op het cluster. Zie [aanpassen Linux gebaseerde HDInsight-clusters met behulp van de scriptactie](hdinsight-hadoop-customize-cluster-linux.md).
     * **Toepassingen**: toevoegen/verwijderen HDInsight-toepassingen.  Zie [aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
+    * **Bewaking**: het cluster in Azure Operations Management Suite en Azure-logboekanalyse bewaken.
     * **Eigenschappen**: Bekijk de clustereigenschappen.
     * **Storage-accounts**: de storage-accounts en de sleutels weergeven. De storage-accounts zijn geconfigureerd tijdens het maken van het cluster.
-    * **AAD-identiteit cluster**:
+    * **Data Lake Store toegang**: Data Lake slaat toegang configureren.  Zie [HDInsight-clusters maken met Data Lake Store met behulp van de Azure-portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Resourcestatus**: Zie [overzicht van Azure-resource health](../service-health/resource-health-overview.md).
     * **Nieuw ondersteuningsverzoek**: Hiermee kunt u een ondersteuningsticket maken met Microsoft ondersteuning.
     
 6. Klik op **eigenschappen**:
@@ -128,7 +133,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
 Verwijderen van een cluster wordt niet verwijderd en het standaardopslagaccount ook alle gekoppelde opslagaccounts weergegeven. U kunt het cluster opnieuw maken met behulp van de dezelfde storage-accounts en de dezelfde metastores. U kunt het beste een standaard Blob-container gebruikt wanneer u het cluster opnieuw maakt.
 
 1. Aanmelden bij de [Portal][azure-portal].
-2. Klik op **HDInsight-Clusters** in het menu links. Als er geen **HDInsight-Clusters**, klikt u op **meer services** eerste.
+2. Klik op **HDInsight-Clusters** in het menu links. Als er geen **HDInsight-Clusters**, klikt u op **alle services** eerste.
 3. Klik op het cluster dat u wilt verwijderen.
 4. Klik op **verwijderen** in het menu bovenaan en volg de instructies.
 

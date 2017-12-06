@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory v2.0-eindpunt | Microsoft Docs
-description: Een inleiding tot het bouwen van apps met zowel Microsoft-Account en Azure Active Directory aanmelden.
+description: Een inleiding tot het bouwen van toepassingen met zowel Microsoft-Account en Azure Active Directory aanmelden.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,42 +15,40 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd090450fad0be855240788c4cfa9dc58c1c4c6d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Meld u aan Microsoft-Account en Azure AD-gebruikers in een enkele app
-In het verleden is een app-ontwikkelaar die ondersteuning bieden voor beide persoonlijke Microsoft-accounts en -werkaccounts van Azure Active Directory wilt integreren met twee afzonderlijke systemen vereist.  De **Azure AD v2.0-eindpunt** introduceert een nieuwe authenticatie-API-versie waarmee u zich kunt aanmelden beide typen accounts met een eenvoudige integratie.  Apps die gebruikmaken van het v2.0-eindpunt kunnen ook gebruiken voor REST-API's van de [Microsoft Graph](https://graph.microsoft.io) met behulp van een type account.
+# <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Meld u aan Microsoft-Account en Azure Active Directory gebruikers in één toepassing
+In het verleden moest toepassingsontwikkelaars die ondersteuning bieden voor beide persoonlijke Microsoft-accounts en -werkaccounts van Azure Active Directory wilt integreren met twee afzonderlijke systemen. Het Azure Active Directory (Azure AD) v2.0-eindpunt introduceert een nieuwe authenticatie-API-versie waarmee dit proces wordt vereenvoudigd. Het Azure AD v2.0-eindpunt kunt aanmelden van beide typen accounts met behulp van een enkele integratie. Toepassingen die gebruikmaken van het Azure AD v2.0-eindpunt kunnen ook gebruiken voor de REST-API's van de [Microsoft Graph API](https://graph.microsoft.io) met behulp van een type account.
 
 ## <a name="getting-started"></a>Aan de slag
-Kies uw favoriete platform in de volgende lijst om een app met behulp van onze open-source bibliotheken en frameworks te bouwen.  U kunt ook kunt u onze documentatie OAuth 2.0 & OpenID Connect protocol verzend en ontvang protocolberichten rechtstreeks zonder met behulp van een auth-bibliotheek.
-
+Kies uw favoriete platform in de volgende lijst voor het bouwen van een toepassing met behulp van de Microsoft open source-bibliotheken en frameworks. U kunt ook de OAuth 2.0 en OpenID Connect-protocollen te verzenden en ontvangen protocolberichten rechtstreeks zonder met behulp van een verificatiebibliotheek.
 <br />
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="whats-new"></a>Wat is er nieuw
-De informatie hier erg nuttig zijn bij het begrijpen van wat is & Wat is niet mogelijk met het v2.0-eindpunt.
+## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Meer informatie over het Azure AD v2.0-eindpunt
+Meer informatie over wat u met de Azure AD v2.0-eindpunt doen kunt:
 
-* Meer informatie over de [typen apps kunt u met het v2.0-eindpunt](active-directory-v2-flows.md).
-* Inzicht in de [beperkingen, beperkingen en beperkingen](active-directory-v2-limitations.md) met het v2.0-eindpunt.
-* Bekijk deze video voor het v2.0-eindpunt overzicht:
+* Ontdek de [typen toepassingen die u met de Azure AD v2.0-eindpunt maken kunt](active-directory-v2-flows.md).
+* Inzicht in de [beperkingen, beperkingen en beperkingen](active-directory-v2-limitations.md) met de Azure AD v2.0-eindpunt.
+* Bekijk deze video voor een overzicht van het Azure AD v2.0-eindpunt:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="reference"></a>Naslaginformatie
-Deze koppelingen zijn handig voor het platform in de diepte verkennen:
+## <a name="additional-resources"></a>Aanvullende bronnen
+Bekijk de gedetailleerde informatie over de Azure AD v2.0-eindpunt-platform:
 
-* [naslaginformatie over v2.0-Protocol](active-directory-v2-protocols.md)
-* [v2.0 tokenverwijzing](active-directory-v2-tokens.md)
-* [naslaginformatie over v2.0-bibliotheek](active-directory-v2-libraries.md)
-* [Scopes en toestemming in het v2.0-eindpunt](active-directory-v2-scopes.md)
-* [Microsoft Graph](https://graph.microsoft.io)
+* [Azure AD v2.0 protocollen verwijzen naar](active-directory-v2-protocols.md)
+* [Azure AD v2.0 tokens verwijzing](active-directory-v2-tokens.md)
+* [Azure AD v2.0-verificatiebibliotheken verwijst naar](active-directory-v2-libraries.md)
+* [Scopes en toestemming in de Azure AD v2.0-eindpunt](active-directory-v2-scopes.md)
+* [Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Als u alleen hoeft aan te melden werk- en schoolaccounts accounts van Azure Active Directory, moet u beginnen met onze [ontwikkelaarshandleiding Azure AD](active-directory-developers-guide.md).  Het v2.0-eindpunt is bedoeld voor gebruik door ontwikkelaars die expliciet hoeft aan te melden in persoonlijke Microsoft-accounts.
+> Als u alleen hoeft aan te melden werk- en schoolaccounts accounts van Azure Active Directory, beginnen met de [ontwikkelaarshandleiding Azure AD](active-directory-developers-guide.md). Het Azure AD v2.0-eindpunt is bedoeld voor gebruik door ontwikkelaars die expliciet hoeft aan te melden in persoonlijke Microsoft-accounts.
 
-
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

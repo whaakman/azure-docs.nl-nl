@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Stateful singletons in duurzame functies - teller voorbeeld
 
@@ -45,13 +45,31 @@ Duurzame functies kunt u dit soort scenario trivial te implementeren, omdat de o
 
 Dit artikel begeleidt u bij de **E3_Counter** functie in de voorbeeld-app.
 
-De volgende secties worden de code die wordt gebruikt voor het ontwikkelen van Visual Studio. De code voor het ontwikkelen van Azure portal is vergelijkbaar.
+
 
 ## <a name="the-counter-orchestration"></a>De teller orchestration
+
+De volgende secties worden de code die wordt gebruikt voor het ontwikkelen van Visual Studio Code en Azure-Portal.
+
+### <a name="c-script"></a>C#-Script
+
+Het bestand function.json:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+Het bestand run.csx:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>Vooraf gecompileerde C# 
+
+De volgende secties worden de code die wordt gebruikt voor het ontwikkelen van Visual Studio.
 
 Dit is de code die de orchestrator-functie implementeert:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>Uitleg van de code
 
 Deze functie voor orchestrator in wezen doet het volgende:
 

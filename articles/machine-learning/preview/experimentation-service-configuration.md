@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning-experimenten Service configureren
 
@@ -198,7 +198,7 @@ Extern VM moet voldoen aan de volgende vereisten:
 De volgende opdracht kunt u zowel de compute-doel-definitie maken en uitvoeren van de configuratie voor externe op basis van Docker-uitvoeringen.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 Zodra u de compute-doel hebt geconfigureerd, kunt u de volgende opdracht om uit te voeren van uw script.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 Het proces van de constructie Docker voor externe VM's is precies hetzelfde als het proces voor het lokale Docker wordt uitgevoerd, zodat u een vergelijkbare ervaring voor de uitvoering hiervan mogen verwachten.
 
 >[!TIP]
->Als u liever om te voorkomen dat de latentie geïntroduceerd door het bouwen van de Docker-afbeelding voor de eerste keer uitvoert, kunt u de volgende opdracht voor het voorbereiden van het doel compute voordat het script wordt uitgevoerd. AZ ml experiment - c voorbereiden<remotedocker>
+>Als u liever om te voorkomen dat de latentie geïntroduceerd door het bouwen van de Docker-afbeelding voor de eerste keer uitvoert, kunt u de volgende opdracht voor het voorbereiden van het doel compute voordat het script wordt uitgevoerd. AZ ml experiment - c remotedocker voorbereiden
 
 
 _**Overzicht van externe vm-uitvoering voor een pythonscript:**_
@@ -221,12 +221,12 @@ _**Overzicht van externe vm-uitvoering voor een pythonscript:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Een script uitgevoerd op een HDInsight-cluster
 HDInsight is een populair platform voor big data-analyses Apache Spark ondersteunen. Workbench kunt experimenteren big Data met behulp van HDInsight Spark-clusters. 
 
->! [OPMERKING] Het HDInsight-cluster moet Azure Blob gebruiken als de primaire opslag. Met behulp van Azure Data Lake storage wordt nog niet ondersteund.
+>![OPMERKING] Het HDInsight-cluster moet Azure Blob als primaire opslag gebruiken. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
 
 U kunt een compute-doel maken en configuratie voor een HDInsight Spark-cluster met de volgende opdracht uitvoeren:
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Overzicht van HDInsight-kan worden uitgevoerd voor een PySpark-script**_
 ## <a name="running-a-script-on-gpu"></a>Een script uitgevoerd op GPU
 Uw scripts op GPU uitgevoerd, kunt u de instructies in dit artikel:[GPU gebruiken in Azure Machine Learning](how-to-use-gpu.md)
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Met behulp van verificatie op basis van de SSH-sleutel voor het maken en gebruiken van compute-doelen
+Azure Machine Learning Workbench kunt u maken en gebruiken van verificatie op basis van de SSH-sleutel naast het schema gebruikersnaam/wachtwoord gebaseerde compute-doelen. U kunt deze mogelijkheid gebruiken bij gebruik van remotedocker of het cluster als het doel-compute. Wanneer u dit schema gebruikt, wordt de Workbench maakt u een openbaar/persoonlijk sleutelpaar en rapporten weer de openbare sleutel. U toevoegen de openbare sleutel aan de ~/.ssh/authorized_keys-bestanden voor uw gebruikersnaam. Azure Machine Learning Workbench gebruikt vervolgens ssh verificatie op basis van een sleutel voor het gebruiken en op het doel van deze berekening wordt uitgevoerd. Omdat de persoonlijke sleutel voor de compute-doel wordt opgeslagen in de sleutelarchief voor de werkruimte, kunnen andere gebruikers van de werkruimte gebruiken de compute-doel dezelfde manier aan de hand van de gebruikersnaam die is opgegeven voor het maken van de compute-doel.  
+
+U Volg deze stappen als deze functionaliteit wilt gebruiken. 
+
+- Maak een compute-doelserver met behulp van een van de volgende opdrachten.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+of
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- De openbare sleutel die is gegenereerd door de Workbench naar het bestand ~/.ssh/authorized_keys op het gekoppelde compute-doel toevoegen. 
+
+[!IMPORTANT] U moet de compute-doelserver met behulp van de gebruikersnaam die u gebruikt voor het maken van de compute-doel aanmelden. 
+
+- U kunt nu voorbereiden en gebruiken van de compute-doelserver met behulp van SSH-verificatie op basis van sleutels.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Maak en installeer Azure Machine Learning](quickstart-installation.md)
