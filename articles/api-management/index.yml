@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie over API Management
+metadata:
+  title: 'Documentatie voor Azure API Management - zelfstudies, API-verwijzing | Microsoft Docs'
+  description: 'Leer hoe u API Management kunt gebruiken voor het veilig en op schaal publiceren van API''s naar externe, partner- en werknemerontwikkelaars. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken en beheren die overal ter wereld worden gehost.'
+  services: api-management
+  author: czeumault
+  manager: carolz
+  ms.service: api-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: carolz
+abstract:
+  description: 'Leer hoe u API Management kunt gebruiken voor het veilig en op schaal publiceren van API''s naar externe, partner- en werknemerontwikkelaars. Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u moderne API-gateways voor bestaande back-endservices kunt maken en beheren die overal ter wereld worden gehost.'
+sections:
+  - title: QuickStarts van vijf minuten
+    items:
+      - type: paragraph
+        text: Een API Management-exemplaar maken.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Een instantie maken - Portal
+            href: /azure/api-management/get-started-create-service-instance
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
+            text: Een instantie maken - PowerShell
+            href: /azure/api-management/powershell-create-service-instance
+  - title: Zelfstudies met stapsgewijze instructies
+    items:
+      - type: paragraph
+        text: Informatie over het beheren van API Management.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/api-management/import-and-publish">Uw eerste API importeren en publiceren</a>
+          - html: <a href="/azure/api-management/api-management-howto-add-products">Een product maken en publiceren</a>
+          - html: <a href="/azure/api-management/mock-api-responses">Voorbeeldantwoorden van een API</a>
+          - html: <a href="/azure/api-management/transform-api">Uw API's transformeren en beveiligen</a>
+          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Gepubliceerde API's bewaken</a>
+          - html: <a href="/azure/api-management/api-management-howto-api-inspector">Fouten opsporen in uw API's met behulp van de tracering van aanvragen</a>
+          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Revisies gebruiken om veilig kleine wijzigingen aan te brengen</a>
+          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Meerdere versies van uw API publiceren</a>
+          - html: <a href="/azure/api-management/api-management-customize-styles">De stijl van de pagina's van de ontwikkelaarsportal aanpassen</a>
+  - title: Voorbeelden
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/api-management/policy-samples">Beleid</a>
+          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

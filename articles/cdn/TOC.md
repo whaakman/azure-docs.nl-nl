@@ -20,16 +20,19 @@
  
 ## Beheren
 ### [Beheren met Azure PowerShell](cdn-manage-powershell.md)
+### [Toegang beperken per land](cdn-restrict-access-by-country.md)
+### [De prestaties verbeteren door bestanden te comprimeren](cdn-improve-performance.md)
+### Cachinggedrag beheren
+#### [Hoe caching werkt](cdn-how-caching-works.md)
+#### [Cachinggedrag beheren met caching-regels](cdn-caching-rules.md)
+#### Cache-inhoud op queryreeksen
+##### [Standaardlaag](cdn-query-string.md)
+##### [Premiumlaag](cdn-query-string-premium.md)
+#### [Assets in cache verwijderen](cdn-purge-endpoint.md)
+#### [Assets in cache vooraf laden](cdn-preload-endpoint.md)
 ### TTL (Time to Live) configureren
 #### [Azure-webinhoud](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
-### [Toegang beperken per land](cdn-restrict-access-by-country.md)
-### [De prestaties verbeteren door bestanden te comprimeren](cdn-improve-performance.md)
-### Cache-inhoud op queryreeks
-#### [Standaardlaag](cdn-query-string.md)
-#### [Premiumlaag](cdn-query-string-premium.md)
-### [Assets in cache verwijderen](cdn-purge-endpoint.md)
-### [Assets in cache vooraf laden](cdn-preload-endpoint.md)
 ### [Tokenverificatie](cdn-token-auth.md)
 ### [Resources bewaken](cdn-resource-health.md)
 ### [Gedrag overschrijven met regels](cdn-rules-engine.md)

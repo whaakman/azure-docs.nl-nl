@@ -33,6 +33,14 @@
       href: how-to-search-for-address.md
 - name: Naslaginformatie
   items:
+    - name: Functionele API - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+    - name: Management API - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+    - name: Map Control API - Javascript
+      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+- name: Resources
+  items:
     - name: Azure IoT-ontwikkelaarscentrum
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure-roadmap

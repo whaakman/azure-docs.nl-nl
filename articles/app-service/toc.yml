@@ -13,8 +13,10 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een .NET-app maken
+    - name: Een .NET Core-app maken
       href: app-service-web-get-started-dotnet.md
+    - name: Een .NET Framework-app maken
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Een Node.js-app maken
       href: app-service-web-get-started-nodejs.md
     - name: Een PHP-app maken

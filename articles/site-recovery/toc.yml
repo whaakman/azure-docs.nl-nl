@@ -4,7 +4,7 @@
   items:
     - name: Wat is Site Recovery?
       href: site-recovery-overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Een virtuele Azure-machine repliceren naar een secundaire regio
@@ -135,13 +135,29 @@
         - name: Capaciteitsplanning voor VMware-replicatie naar Azure
           href: site-recovery-plan-capacity-vmware.md
         - name: Tool voor implementatieplanning voor VMware-replicatie naar Azure
-          href: site-recovery-deployment-planner.md
-        - name: Capaciteitsplanning voor Hyper-V-replicatie naar Azure
-          href: site-recovery-capacity-planner.md
-        - name: Tool voor capaciteitsplanning voor Hyper-V-replicatie naar Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+          href: null
+          items:
+            - name: Overzicht en vereisten
+              href: site-recovery-deployment-planner.md
+            - name: De implementatieplanner uitvoeren
+              href: site-recovery-vmware-deployment-planner-run.md
+            - name: Het gegenereerde rapport analyseren
+              href: site-recovery-vmware-deployment-planner-analyze-report.md
+            - name: Het schattingsrapport voor de kosten van herstel na noodgevallen analyseren
+              href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Processervers voor VMware-replicatie uitschalen
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Implementatieplanning en tool voor Hyper-V-replicatie naar Azure
+          href: null
+          items:
+            - name: Overzicht en vereisten
+              href: site-recovery-hyper-v-deployment-planner.md
+            - name: De implementatieplanner uitvoeren
+              href: site-recovery-hyper-v-deployment-planner-run.md
+            - name: Het gegenereerde rapport analyseren
+              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+            - name: Het schattingsrapport voor de kosten van herstel na noodgevallen analyseren
+              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Prestatieschaal testen voor Hyper-V-replicatie tussen on-premises sites
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Configureren

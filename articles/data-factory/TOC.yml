@@ -34,7 +34,14 @@
     - name: 4 - Gegevens bulksgewijs kopiëren
       href: tutorial-bulk-copy.md
     - name: 5 - Gegevens stapsgewijs kopiëren
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1 - Een tabel kopiëren
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2 - Meerdere tabellen kopiëren
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3 - Functie voor bijhouden van wijzigingen gebruiken
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Gegevens in de cloud transformeren
       href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Gegevens in virtueel netwerk transformeren
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Azure-SSIS-integratie-runtime aan een VNet koppelen
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: SSIS-pakketten uitvoeren in Azure
+      items:
+        - name: Azure-SSIS-integratie-runtime maken
+          href: create-azure-ssis-integration-runtime.md
+        - name: Azure-SSIS-integratie-runtime aan een VNet koppelen
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure-SSIS-integratie-runtime beheren
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Prestaties van Azure-SSIS-integratie-runtime configureren
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: Naslaginformatie
   items:
     - name: .NET

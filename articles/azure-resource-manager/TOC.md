@@ -38,7 +38,7 @@
 #### [Resources implementeren](resource-group-template-deploy-portal.md)
 #### [Sjabloon exporteren](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Implementatie in meerdere resourcegroepen](resource-manager-cross-resource-group-deployment.md)
+### [Meerdere resourcegroepen of abonnementen](resource-manager-cross-resource-group-deployment.md)
 ### [Doorlopende integratie met Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md)
 
