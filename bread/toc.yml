@@ -30,6 +30,13 @@
     - name: API Management
       tocHref: /azure/api-management/
       topicHref: /azure/api-management/
+      items:
+        - name: Beleidsregels
+          tocHref: /azure/api-management/policies/
+          topicHref: /azure/api-management/policy-samples/
+        - name: Azure PowerShell
+          tocHref: /azure/api-management/scripts/
+          topicHref: /azure/api-management/powershell-samples/
     - name: App Service
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
@@ -67,7 +74,7 @@
     - name: Cost Management
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
-    - name: Functions
+    - name: Functies
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
     - name: Azure Government
