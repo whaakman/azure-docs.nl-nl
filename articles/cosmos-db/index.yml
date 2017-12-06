@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 11/29/2017
   ms.author: carolz
 abstract:
   description: 'Azure Cosmos DB is een wereldwijd gedistribueerde, multi-model databaseservice. Gebruik deze QuickStarts, zelfstudies en voorbeelden voor het ontwikkelen van document-, sleutelwaarde-, kolom- en grafiekdatabases met behulp van populaire API''s en programmeermodellen. Leer vervolgens hoe u uw gegevens kunt repliceren naar een willekeurig aantal Azure-regio''s en u uw doorvoer onafhankelijk van uw opslag kunt schalen, terwijl u profiteert van uitgebreide SLA''s.'
@@ -63,7 +63,7 @@ sections:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-graph-python
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: Tabel-API
             values:

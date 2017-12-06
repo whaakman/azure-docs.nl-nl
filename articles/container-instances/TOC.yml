@@ -4,7 +4,7 @@
   items:
     - name: Over Azure Container Instances
       href: container-instances-overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Container maken - CLI
@@ -49,6 +49,14 @@
       href: /rest/api/container-instances
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerinstances
+    - name: Python
+      href: /python/api/overview/azure/containerinstance
+    - name: Java
+      href: /java/api/overview/azure/containerinstance
+    - name: Node.js
+      href: /javascript/api/overview/azure/containerinstance
     - name: Resource Manager-sjabloon
       href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
