@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kaanan
-ms.openlocfilehash: 3dec7a7ae3f1fee633949b51365ca3e5d3fa19d7
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 2cf85e1405597c8fb2a0f0c80d3e8317fe6e76eb
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -100,7 +100,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **LG CNS** |Ondersteund |Ondersteund |Busan, Seoul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londen, Los Angeles, Melbourne, New York, Osaka, Parijs, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokio, Toronto, Washington DC |
 | **MTN** |Ondersteund |Ondersteund |Londen |
-| **[Neutrona Networks](http://www.neutrona.com/index.php/services#cloud-connect)** |Ondersteund |Ondersteund |Miami, Sao Paulo |
+| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Ondersteund |Ondersteund |Miami, Sao Paulo |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Ondersteund |Ondersteund |Newport (Wales) |
 | **NEXTDC** |Ondersteund |Ondersteund |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Ondersteund |Ondersteund |Londen, Los Angeles, Osaka, Singapore, Tokio, Washington DC |

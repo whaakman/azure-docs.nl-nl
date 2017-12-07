@@ -3,8 +3,8 @@ title: Aanbevolen procedures voor Azure SQL Data Warehouse | Microsoft Docs
 description: Aanbevelingen en aanbevolen procedures voor het ontwikkelen van oplossingen voor Azure SQL Data Warehouse. Deze helpen u goede resultaten te bereiken.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: ef6abba371d3a22d1cbaeb88dbd242f9f97b361c
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Aanbevolen procedures voor Azure SQL Data Warehouse
 Dit artikel bevat een verzameling van aanbevolen procedures waarmee u optimale resultaten kunt bereiken met Azure SQL Data Warehouse.  Sommige onderwerpen in dit artikel zijn eenvoudig uit te leggen, andere zijn geavanceerder, waardoor we alleen de basis hiervan kunnen behandelen.  Het doel van dit artikel is om u een aantal richtlijnen te geven en u te wijzen op belangrijke onderdelen bij het maken van een datawarehouse.  In elk gedeelte maakt u kennis met een onderwerp en wordt u gewezen op gedetailleerdere artikelen die dieper op het onderwerp ingaan.
@@ -84,7 +84,7 @@ Zie ook [Tijdelijke tabellen][Temporary tables], [CREATE TABLE][CREATE TABLE], [
 ## <a name="optimize-clustered-columnstore-tables"></a>Geclusterde columnstore-tabellen optimaliseren
 Geclusterde columnstore-indices vormen een van de meest efficiënte manieren om uw gegevens in SQL Data Warehouse te bewaren.  Tabellen worden in SQL Data Warehouse standaard als geclusterde columnstore gemaakt.  Een goede segmentkwaliteit is belangrijk om de beste resultaten te behalen voor query’s voor columnstore-tabellen.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  Segmentkwaliteit kan worden gemeten aan de hand van het aantal rijen in een gecomprimeerde rijengroep.  Zie [Oorzaken van slechte kwaliteit voor columnstore-indexen][Causes of poor columnstore index quality] in het artikel [Tabelindexen][Table indexes] voor stapsgewijze instructies voor het detecteren en verbeteren van segmentkwaliteit van geclusterde columnstore-tabellen.  Omdat het belangrijk is dat columnstore-segmenten van hoge kwaliteit zijn, is het een goed idee om gebruikers-id's te gebruiken uit een medium of grote resourceklasse voor het laden van gegevens. Door gebruik te maken van lagere [serviceniveaus](performance-tiers.md#service-levels) kunt u een grotere resourceklasse toewijzen aan de ladende gebruiker.
 
-Omdat columnstore-tabellen normaalgesproken gegevens niet naar een gecomprimeerd columnstore-segment doorzetten voordat er meer dan 1 miljoen rijen per tabel zijn en elke SQL Data Warehouse-tabel in 60 tabellen is gepartitioneerd, dragen columnstore-tabellen doorgaans niet bij aan een query tenzij de tabel meer dan 60 miljoen rijen heeft.  Voor tabellen met minder dan 60 miljoen rijen is het meestal niet nodig om een columnstore-index te hebben.  Het is misschien ook niet verkeerd.  Als u uw gegevens partitioneert, houd er dan ook rekening mee dat elke partitie 1 miljoen rijen nodig heeft om voordeel te halen uit een geclusterde columnstore-index.  Als een tabel 100 partities heeft, heeft deze ten minste 6 miljard rijen nodig om voordeel te halen uit een geclusterde columnstore (60 distributies * 100 partities * 1 miljoen rijen).  Als uw tabel in dit voorbeeld geen 6 miljoen rijen heeft, kunt u het aantal partities verminderen of overwegen een heap-tabel te gebruiken.  U kunt ook experimenteren om te zien of u de prestaties kunt verbeteren met een heap-tabel met secondaire sleutels in plaats van een columnstore-tabel.  Columnstore-tabellen ondersteunen secondaire sleutels nog niet.
+Omdat columnstore-tabellen normaalgesproken gegevens niet naar een gecomprimeerd columnstore-segment doorzetten voordat er meer dan 1 miljoen rijen per tabel zijn en elke SQL Data Warehouse-tabel in 60 tabellen is gepartitioneerd, dragen columnstore-tabellen doorgaans niet bij aan een query tenzij de tabel meer dan 60 miljoen rijen heeft.  Voor tabellen met minder dan 60 miljoen rijen is het meestal niet nodig om een columnstore-index te hebben.  Het is misschien ook niet verkeerd.  Als u uw gegevens partitioneert, houd er dan ook rekening mee dat elke partitie 1 miljoen rijen nodig heeft om voordeel te halen uit een geclusterde columnstore-index.  Als een tabel 100 partities heeft, heeft deze ten minste 6 miljard rijen nodig om voordeel te halen uit een geclusterde columnstore (60 distributies * 100 partities * 1 miljoen rijen).  Als uw tabel in dit voorbeeld geen 6 miljoen rijen heeft, kunt u het aantal partities verminderen of overwegen een heap-tabel te gebruiken.  U kunt ook experimenteren om te zien of u de prestaties kunt verbeteren met een heap-tabel met secondaire sleutels in plaats van een columnstore-tabel.
 
 Query’s worden sneller uitgevoerd voor een columnstore-tabel als u alleen de kolommen selecteert die u nodig hebt.  
 

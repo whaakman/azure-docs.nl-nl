@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een Azure-resourcegroep met de opdracht [az group create](/cli/azure/group#create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een Azure-resourcegroep met de opdracht [az group create](/cli/azure/group#az_group_create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 ```azurecli-interactive
 az group create \

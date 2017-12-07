@@ -41,7 +41,6 @@
 ### [Een cloudservice maken en implementeren in de portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Een lege cloudservicecontainer maken in PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Een aangepaste domeinnaam configureren](cloud-services-custom-domain-name-portal.md)
-### [Een cloudservice-implementatie klaarzetten (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Verbinding maken met een aangepaste domeincontroller](cloud-services-connect-to-custom-domain.md)
 
 ## Services beheren
