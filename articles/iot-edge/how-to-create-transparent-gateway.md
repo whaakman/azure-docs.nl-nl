@@ -6,82 +6,99 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: eaabf360eec48fad6bb1b8b889f30d746520eef0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Maken van een IoT-randapparaat die als een transparante gateway fungeert-preview
 
-De [hoe een Edge van IoT-apparaat kan worden gebruikt als een gateway] [ lnk-edge-as-gateway] artikel biedt een conceptuele overviwe van hoe een Edge van de IoT-apparaat kan worden gebruikt als een transparante gateway of protocol of identiteit vertaling uitvoeren. In dit artikel vindt u gedetailleerde instructies voor het gebruik van een IoT-randapparaat als een transparante gateway. Voor de rest van dit artikel, een *gateway aan de rand van de IoT* is een IoT-randapparaat als een transparante gateway gebruikt.
+In dit artikel vindt u gedetailleerde instructies voor het gebruik van een IoT-randapparaat als een transparante gateway. Voor de rest van dit artikel wordt de term *gateway aan de rand van de IoT* verwijst naar een IoT-randapparaat als een transparante gateway gebruikt. Voor meer informatie gedetailleerde, Zie [hoe een Edge van IoT-apparaat kan worden gebruikt als een gateway][lnk-edge-as-gateway], waardoor een conceptueel overzicht. 
 
 >[!NOTE]
 >Op dit moment:
-> * Downstream-apparaten kunnen niet verifiëren met de gateway als de gateway is losgekoppeld van de IoT Hub; en
+> * Als de gateway niet met IoT Hub verbonden is, worden aangesloten apparaten niet verifiëren met de gateway.
 > * IoT Edge-apparaten kunnen geen verbinding naar IoT-gateways.
 
-## <a name="use-the-azure-iot-device-sdk"></a>Het apparaat met Azure IoT SDK gebruiken
+## <a name="understand-the-azure-iot-device-sdk"></a>Het apparaat met Azure IoT SDK begrijpen
 
 
 De Edge-hub die is geïnstalleerd in alle IoT randapparaten toont de volgende primitieven op downstream-apparaten:
 
-* apparaat-naar-cloud- en cloud-naar-apparaat-berichten;
-* directe methoden; en
-* apparaat twin bewerkingen.
+* apparaat-naar-cloud- en cloud-naar-apparaat-berichten
+* Rechtstreekse methoden
+* bewerkingen voor apparaat-twin
 
->[!NOTE]
->Downstream apparaten zijn op dit moment niet uploaden bestand gebruiken om verbinding te maken via een gateway IoT rand.
+Downstream apparaten zijn op dit moment niet uploaden bestand gebruiken om verbinding te maken via een gateway IoT rand.
 
 Als u apparaten op een gateway aan de rand van de IoT aansluit-apparaat gebruikt de Azure IoT SDK, moet u naar:
 
 * Instellen van de downstream-apparaat met een verbindingsreeks verwijst naar de hostnaam van de gateway-apparaat; en
 * Zorg ervoor dat het certificaat te accepteren van de verbinding van het gateway-apparaat wordt vertrouwd door de downstream-apparaat.
 
-Wanneer u de Azure IoT rand runtime met het script besturingselement installeert, een certificaat voor de hub rand wordt gemaakt, zoals in de zelfstudie installeren IoT-Edge van een gesimuleerd apparaat op [Windows] [ lnk-tutorial1-win] en [Linux][lnk-tutorial1-lin]. Dit certificaat wordt gebruikt door de hub rand om binnenkomende TLS-verbindingen te accepteren en moet worden vertrouwd door de downstream-apparaat om verbinding te maken met het gatewayapparaat.
+Wanneer u de Azure IoT rand runtime met het script besturingselement installeert, een certificaat voor de Edge-hub is gemaakt, net als bij de zelfstudie [IoT rand installeren op een gesimuleerd apparaat op Windows] [ lnk-tutorial1-win] en [Linux][lnk-tutorial1-lin]. Dit certificaat wordt gebruikt door de hub rand om binnenkomende TLS-verbindingen te accepteren en moet worden vertrouwd door de downstream-apparaat om verbinding te maken met het gatewayapparaat.
 
-U kunt certificaatinfrastructuur waarmee de vertrouwensrelatie die vereist zijn voor de topologie van uw apparaat-gateway maken. In dit artikel gaan we ervan uit dezelfde certificaat instellingen die u gebruiken wilt om in te schakelen [x.509-CA-beveiliging] [ lnk-iothub-x509] in IoT-Hub die een x.509-CA-certificaat dat is gekoppeld aan een specifieke IoT-hub omvat het (de  *IoT hub eigenaar CA*), en een reeks certificaten die zijn ondertekend met deze CA, geïnstalleerd op de rand van de IoT-apparaten.
+U kunt certificaatinfrastructuur waarmee de vertrouwensrelatie die vereist zijn voor de topologie van uw apparaat-gateway maken. In dit artikel gaan we ervan uit dezelfde certificaat instellingen die u gebruiken wilt om in te schakelen [x.509-CA-beveiliging] [ lnk-iothub-x509] in IoT-Hub die een x.509-CA-certificaat dat is gekoppeld aan een specifieke IoT-hub omvat het (de *IoT hub eigenaar CA*), en een reeks certificaten die zijn ondertekend met deze CA, geïnstalleerd op de rand van de IoT-apparaten.
 
 >[!IMPORTANT]
 >Op dit moment IoT randapparaten en downstream-apparaten alleen kunt [SAS-tokens] [ lnk-iothub-tokens] voor verificatie met IoT Hub. De certificaten wordt alleen voor het valideren van de TLS-verbinding tussen het leaf en gateway-apparaat gebruikt.
 
-Maakt gebruik van onze configuratie **IoT hub eigenaar CA** als:
-* een handtekeningcertificaat voor het instellen van de rand van de IoT-runtime op alle IoT randapparaten en als
+Maakt gebruik van onze configuratie **IoT hub eigenaar CA** als beide:
+* Een handtekeningcertificaat voor het instellen van de rand van de IoT-runtime op alle apparaten van de rand van de IoT; en
 * een openbare-sleutelcertificaat in downstream apparaten geïnstalleerd.
 
-Dit leidt tot een oplossing waarmee alle apparaten een IoT-randapparaat als een gateway gebruiken als ze zijn verbonden met dezelfde iothub.
+Dit resulteert in een oplossing waarmee alle apparaten een IoT-randapparaat als een gateway gebruiken als ze zijn verbonden met dezelfde iothub.
 
-### <a name="create-the-certificates-for-test-scenarios"></a>Maken van de certificaten voor Testscenario 's
+## <a name="create-the-certificates-for-test-scenarios"></a>Maken van de certificaten voor Testscenario 's
 
 U kunt het Powershell-voorbeeld en Bash-scripts die worden beschreven [voorbeeld van het beheren van CA-certificaat] [ lnk-ca-scripts] voor het genereren van een zelfondertekend **IoT hub eigenaar CA** en certificaten voor apparaten ondertekend met het.
-
-1. Ga als volgt stap 1 van [voorbeeld van het beheren van CA-certificaat] [ lnk-ca-scripts] voor het installeren van de scripts. Zorg ervoor dat u het klonen van de `modules-preview` vertakking:
-                
-                git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
-2. Voer stap 2 voor het genereren van de **IoT hub eigenaar CA**, dit bestand wordt gebruikt door de downstream-apparaten voor het valideren van de verbinding.
-
-Gebruik de volgende instructies voor het genereren van een certificaat voor uw gatewayapparaat.
-
-#### <a name="bash"></a>Bash
-
-* Voer `./certGen.sh create_edge_device_certificate myGateway` voor het maken van het nieuwe apparaatcertificaat.  
-  Hiermee maakt u de bestanden.\certs\new-edge-device.* met de openbare sleutel en de PFX en het.\private\new-edge-device.key.pem dat de persoonlijke sleutel van het apparaat bevat.  
-* In de `certs` directory uitvoeren `cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem` ophalen van de volledige keten van de openbare sleutel voor het apparaat.
-* `./private/new-edge-device.cert.pem`bevat de persoonlijke sleutel van het apparaat.
-
-#### <a name="powershell"></a>PowerShell
-
-* Voer `New-CACertsEdgeDevice myGateway` voor het maken van het nieuwe apparaatcertificaat.
-  Hiermee maakt u bestanden myEdgeDevice * met de openbare sleutel, de persoonlijke sleutel en het PFX van dit certificaat.  Als u wordt gevraagd een wachtwoord moeten invoeren tijdens het ondertekeningsproces, voer '1234'.
-
 
 >[!IMPORTANT]
 >Dit voorbeeld is alleen voor testdoeleinden bedoeld. Raadpleeg voor productiescenario's [beveiligen van uw IoT-omgeving] [ lnk-iothub-secure-deployment] voor de Azure IoT-richtlijnen over het beveiligen van uw IoT-oplossing en uw certificaat dienovereenkomstig in te richten.
 
-### <a name="configure-an-iot-edge-device-as-a-gateway"></a>Een IoT-randapparaat als een gateway configureren
+
+1. [Microsoft Azure IoT SDK's en -bibliotheken voor C] klonen vanuit GitHub:
+
+   ```
+   git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
+   ```
+
+2. Volg de instructies in voor het installeren van de certificaat-scripts **stap 1: initiële installatie** van [voorbeeld van het beheren van CA-certificaat][lnk-ca-scripts]. 
+3. Voor het genereren van de **IoT hub eigenaar CA**, volg de instructies in **stap 2: maken van de certificaatketen**. Dit bestand wordt gebruikt door de downstream-apparaten voor het valideren van de verbinding.
+4. Gebruik de Bash of de PowerShell-instructies voor het genereren van een certificaat voor uw gatewayapparaat:
+
+### <a name="bash"></a>Bash
+
+Maak het nieuwe apparaatcertificaat:
+
+   ```
+   ./certGen.sh create_edge_device_certificate myGateway
+   ```
+
+Nieuwe bestanden worden gemaakt:.\certs\new-edge-device.* bevat de openbare sleutel en het pfx-bestand en.\private\new-edge-device.key.pem bevat de persoonlijke sleutel van het apparaat.
+ 
+In de `certs` map en voer de volgende opdracht om op te halen van de volledige keten van de openbare sleutel van apparaat:
+
+   ```
+   cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
+   ```
+
+### <a name="powershell"></a>PowerShell
+
+Maak het nieuwe apparaatcertificaat: 
+   ```
+   New-CACertsEdgeDevice myGateway
+   ```
+
+Nieuwe myEdgeDevice * bestanden worden gemaakt, die de openbare sleutel, de persoonlijke sleutel en het PFX van dit certificaat bevat. 
+
+Als u wordt gevraagd een wachtwoord moeten invoeren tijdens het ondertekeningsproces, voer '1234'.
+
+## <a name="configure-a-gateway-device"></a>Een gateway-apparaat configureren
 
 Om uw IoT-randapparaat configureren als een gateway u alleen hoeft te configureren voor het gebruik van het certificaat voor apparaten in de vorige sectie hebt gemaakt.
 
@@ -94,58 +111,71 @@ We ervan uitgaan dat de volgende bestandsnamen van de bovenstaande voorbeeldscri
 | Certificaatketen apparaat | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
 | IoT hub eigenaar CA | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
 
- Analogously op de installatie wordt beschreven in de Azure IoT-rand implementeren op een gesimuleerd apparaat in [Windows] [ lnk-tutorial1-win] of [Linux][lnk-tutorial1-lin], u Geef de bovenstaande gegevens naar de rand van de IoT-runtime. 
+Geef de gegevens van het apparaat en het certificaat aan de rand van de IoT-runtime. 
  
- In Linux:
+In Linux, met behulp van de Bash-uitvoer:
 
-        sudo iotedgectl setup --connection-string {device connection string}
-            --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-            --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
-            --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-            --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
-            --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
+   ```
+   sudo iotedgectl setup --connection-string {device connection string}
+        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
+        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
+        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
+        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
+        --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
+   ```
 
-In Windows:
+In Windows met behulp van de PowerShell-uitvoer:
 
-        iotedgectl setup --connection-string {device connection string}
-            --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-            --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
-            --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-            --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
-            --owner-ca-cert-file {full path}/RootCA.pem
+   ```
+   iotedgectl setup --connection-string {device connection string}
+        --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
+        --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
+        --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
+        --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
+        --owner-ca-cert-file {full path}/RootCA.pem
+   ```
 
 Standaard Stel de voorbeeldscripts een wachtwoordzin voor de persoonlijke sleutel van het apparaat. Als u een wachtwoordzin instelt, moet u de volgende parameter toevoegen:
 
-        --device-ca-passphrase {passphrase}
+   ```
+   --device-ca-passphrase {passphrase}
+   ```
 
-Het script wordt gevraagd een wachtwoordzin voor het certificaat van de Agent van de rand instellen.
-U moet opnieuw opstarten van de rand van de IoT-runtime na deze opdracht.
+Het script vraagt u een wachtwoordzin voor het certificaat van de Agent van de rand instellen. Start opnieuw op de rand van de IoT-runtime na deze opdracht:
 
-### <a name="configure-an-iot-hub-device-application-as-a-downstream-device"></a>Een IoT Hub apparaat-toepassing configureren als een downstream-apparaat
+   ```
+   iotedgectl restart
+   ```
+
+## <a name="configure-a-downstream-device"></a>Een downstream-apparaat configureren
 
 Een downstream-apparaat kan worden alle toepassingen met behulp van de [Azure IoT-device SDK][lnk-devicesdk], zoals een eenvoudige beschreven in [uw apparaat aansluit op uw IoT-hub met .NET] [ lnk-iothub-getstarted].
 
 Eerst een downstream-device-toepassing te vertrouwen heeft de **IoT hub eigenaar CA** certificaat om te valideren van de TLS-verbindingen met de gatewayapparaten. Deze stap kan doorgaans worden uitgevoerd op twee manieren: op het niveau van het besturingssysteem of (voor bepaalde talen) op het toepassingsniveau van de.
 
-Voor .NET-toepassingen, kunt u bijvoorbeeld het volgende fragment voor vertrouwen in een certificaat in PEM-indeling opgeslagen in pad toevoegen `certPath`. Als u de bovenstaande script gebruikt, het pad wordt verwezen naar `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) of `RootCA.pem` (Powershell).
+Voor .NET-toepassingen, kunt u bijvoorbeeld het volgende fragment voor vertrouwen in een certificaat in PEM-indeling opgeslagen in pad toevoegen `certPath`. Afhankelijk van welke versie van het script dat u hebt gebruikt, het pad verwijst naar een `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) of `RootCA.pem` (Powershell).
 
-        using System.Security.Cryptography.X509Certificates;
-        
-        ...
+   ```
+   using System.Security.Cryptography.X509Certificates;
+   
+   ...
 
-        X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
-        store.Open(OpenFlags.ReadWrite);
-        store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
-        store.Close();
+   X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
+   store.Open(OpenFlags.ReadWrite);
+   store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
+   store.Close();
+   ```
 
 Uitvoeren van deze stap op het niveau van het besturingssysteem verschilt tussen Windows en Linux-distributies.
 
 De tweede stap is het initialiseren van de IoT Hub apparaat-sdk met een verbindingsreeks verwijst naar de hostnaam van het gateway-apparaat.
 Dit wordt gedaan door toe te voegen de `GatewayHostName` eigenschap in op uw apparaat-verbindingsreeks. Hier is bijvoorbeeld een apparaat-verbindingsreeks voor het voorbeeld voor een apparaat, waaraan wij toegevoegd de `GatewayHostName` eigenschap:
 
-        HostName=yourHub.azure-devices-int.net;DeviceId=yourDevice;SharedAccessKey=2BUaYca45uBS/O1AsawsuQslH4GX+SPkrytydWNdFxc=;GatewayHostName=mygateway.contoso.com
+   ```
+   HostName=yourHub.azure-devices-int.net;DeviceId=yourDevice;SharedAccessKey=2BUaYca45uBS/O1AsawsuQslH4GX+SPkrytydWNdFxc=;GatewayHostName=mygateway.contoso.com
+   ```
 
-Deze twee stappen kunnen uw apparaattoepassing verbinding maken met het gatewayapparaat.
+Deze twee stappen inschakelen voor uw apparaattoepassing verbinding maken met het gatewayapparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Overzicht van de vereisten en hulpmiddelen voor het ontwikkelen van IoT rand modules][lnk-module-dev].

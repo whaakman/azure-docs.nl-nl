@@ -12,11 +12,11 @@ Virtuele machines uit de F-serie vormen een uitstekende keuze voor workloads die
 
 De Fs-serie biedt alle voordelen van de F-serie, plus Premium-opslag.
 
-## <a name="fsv2-series"></a>Fsv2-serie
+## <a name="fsv2-series"></a>Fsv2-reeks *
 
 ACU: 195-210
 
-| Grootte             | de vCPU | Geheugen: GiB | Lokale SSD: GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
+| Grootte             | de vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Gemiddeld                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Gemiddeld                                       |
@@ -25,7 +25,7 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Zeer hoge                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Zeer hoge                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Zeer hoge                                 |
-
+* Fsv2-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
 
 ## <a name="fs-series"></a>Fs-serie*
 

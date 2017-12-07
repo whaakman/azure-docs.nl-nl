@@ -1,4 +1,4 @@
-U moet een VNet en een gatewaysubnet eerst maken voordat u gaat werken op de volgende taken. Zie het artikel [configureren van een virtueel netwerk met de klassieke portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) voor meer informatie.
+U moet een VNet en een gatewaysubnet eerst maken voordat u gaat werken op de volgende taken.
 
 > [!NOTE]
 > Deze voorbeelden gelden niet voor S2S en ExpressRoute configuraties naast elkaar bestaan.
@@ -9,7 +9,7 @@ U moet een VNet en een gatewaysubnet eerst maken voordat u gaat werken op de vol
 Gebruik de onderstaande opdracht voor het maken van een gateway. Zorg ervoor dat vervangen door uw eigen waarden.
 
 ```powershell
-New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>Controleer of dat de gateway is gemaakt
@@ -17,7 +17,7 @@ New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" 
 Gebruik de onderstaande opdracht om te controleren of de gateway is aangemaakt. Met deze opdracht haalt ook de gateway-ID die u nodig hebt voor andere bewerkingen.
 
 ```powershell
-Get-AzureVirtualNetworkGateway
+Get-AzureVNetGateway
 ```
 
 ## <a name="resize-a-gateway"></a>Een gateway vergroten of verkleinen
@@ -30,7 +30,7 @@ Er zijn een aantal [Gateway-SKU's](../articles/expressroute/expressroute-about-v
 >
 
 ```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+Resize-AzureVNetGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>Een gateway verwijderen
@@ -38,5 +38,5 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 Gebruik de onderstaande opdracht om een gateway te verwijderen
 
 ```powershell
-Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+Remove-AzureVnetGateway -GatewayId <Gateway ID>
 ```

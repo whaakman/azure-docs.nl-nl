@@ -1,6 +1,6 @@
 ---
 title: Met de naam locaties in Azure Active Directory | Microsoft Docs
-description: Door te configureren met de naam locaties, kunt u voorkomen dat IP-adressen die eigendom zijn van uw organisatie genereren valse positieven voor de Impossible reis naar ongewone locaties risico gebeurtenistype.
+description: Meer informatie over wat met de naam locaties zijn en voor het configureren ervan.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Benoemde locaties in Azure Active Directory
 
-Met de functie benoemde locaties van Azure Active Directory kunt u een vertrouwde IP-adresbereiken in uw organisaties label. In uw omgeving, kunt u met de naam locaties in de context van de detectie van [bestaat de kans dat gebeurtenissen](active-directory-reporting-risk-events.md). De functie vermindert het aantal gerapporteerde fout-positieven voor de *Impossible op reis naar ongewone locaties* gebeurtenistype risico. 
+Met benoemde locaties, kunt u een vertrouwde IP-adresbereiken label in uw organisatie. Azure Active Directory maakt gebruik van benoemde locaties in de context van:
 
-## <a name="configuration"></a>Configuratie
+- De detectie van [bestaat de kans dat gebeurtenissen](active-directory-reporting-risk-events.md) het aantal gemelde fout-positieven te verminderen.  
 
-Voor het configureren van een benoemde locatie:
+- [Voorwaardelijke toegang op basis van locatie](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Dit artikel wordt uitgelegd, hoe u kunt configureren met de naam locaties in uw omgeving.
+
+
+## <a name="entry-points"></a>Toegangspunten
+
+U toegang hebt tot de configuratiepagina van de benoemde locatie in de **beveiliging** sectie van de pagina Azure Active Directory door te klikken op:
+
+![Toegangspunten](./media/active-directory-named-locations/34.png)
+
+- **Voorwaardelijke toegang:**
+
+    - In de **beheren** sectie, klikt u op **locaties met de naam**.
+    
+        ![De benoemde locaties-opdracht](./media/active-directory-named-locations/06.png)
+
+- **Riskant aanmeldingen:**
+
+    - Klik in de werkbalk bovenaan op **toevoegen bekende IP-adresbereiken**.
+
+       ![De benoemde locaties-opdracht](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Configuratievoorbeeld van de
+
+**Voor het configureren van een benoemde locatie:**
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als globale beheerder.
 
@@ -34,22 +62,22 @@ Voor het configureren van een benoemde locatie:
 
     ![De Azure Active Directory-koppeling in het linkerdeelvenster](./media/active-directory-named-locations/01.png)
 
-3. Op de **Azure Active Directory** blade in de **beveiliging** sectie, klikt u op **voorwaardelijke toegang**.
+3. Op de **Azure Active Directory** pagina in de **beveiliging** sectie, klikt u op **voorwaardelijke toegang**.
 
     ![De opdracht voorwaardelijke toegang](./media/active-directory-named-locations/05.png)
 
 
-4. Op de **voorwaardelijke toegang** blade in de **beheren** sectie, klikt u op **locaties met de naam**.
+4. Op de **voorwaardelijke toegang** pagina in de **beheren** sectie, klikt u op **locaties met de naam**.
 
     ![De benoemde locaties-opdracht](./media/active-directory-named-locations/06.png)
 
 
-5. Op de **locaties met de naam** blade, klikt u op **nieuwe locatie**.
+5. Op de **locaties met de naam** pagina, klikt u op **nieuwe locatie**.
 
     ![De nieuwe locatie-opdracht](./media/active-directory-named-locations/07.png)
 
 
-6. Op de **nieuw** blade het volgende doen:
+6. Op de **nieuw** pagina, de volgende handelingen uit:
 
     ![De nieuwe blade](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Voor het configureren van een benoemde locatie:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de risico's, [Azure Active Directory-risicogebeurtenissen](active-directory-reporting-risk-events.md).
+Voor meer informatie over:
 
+- **Het risico van gebeurtenissen**, Zie [Azure Active Directory-risicogebeurtenissen](active-directory-reporting-risk-events.md).
+
+- **Voorwaardelijke toegang**, Zie [voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Rapporten van riskante aanmeldingen**, Zie [riskant aanmeldingen rapport in de Azure Active Directory-portal](active-directory-reporting-security-risky-sign-ins.md).  

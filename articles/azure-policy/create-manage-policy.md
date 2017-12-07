@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van compatibiliteit maken en beheren
 
@@ -26,22 +26,6 @@ Informatie over het maken en beheren van beleid in Azure is belangrijk voor het 
 > * Een nieuw beleid binnen een organisatie implementeren
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-## <a name="opt-in-to-azure-policy"></a>U meldt zich aan Azure-beleid
-
-Beleid voor Azure is nu beschikbaar in de beperkte Preview, dus u hoeft te registreren bij aanvragen voor toegang.
-
-1. Ga naar de Azure-beleid op https://aka.ms/getpolicy en selecteer **aanmelden** in het linkerdeelvenster.
-
-   ![Zoeken naar beleid](media/assign-policy-definition/sign-up.png)
-
-2. Aanmelden voor Azure-beleid door het selecteren van de abonnementen in de **abonnement** u werken wilt met lijst. Selecteer vervolgens **registreren**.
-
-   De lijst met abonnementen omvat alle uw Azure-abonnementen.
-
-   ![Aanmelden voor Azure-beleid gebruiken](media/assign-policy-definition/preview-opt-in.png)
-
-   Afhankelijk van de vraag, kan deze duren een paar dagen voor ons uw registratieaanvraag accepteren. Wanneer uw aanvraag wordt geaccepteerd, u ontvangt een melding via e-mail dat u kunt beginnen met de service.
 
 ## <a name="assign-a-policy"></a>Geen beleid toewijzen
 
@@ -69,7 +53,7 @@ De eerste stap bij het afdwingen van compatibiliteit met beleid voor Azure is ee
 
    Er zijn twee prijscategorieën in Azure beleid – *vrije* en *standaard*. Met de gratis laag, kunt u alleen beleid afdwingen op toekomstige resources met de standaard, kunt u ook afdwingen ze op bestaande resources beter inzicht in uw compatibiliteitsstatus. Omdat we in de beperkte Preview, we nog niet is vrijgegeven prijsmodel gebruikt, zodat u ontvangt geen een factuur voor het selecteren van *standaard*. Voor meer informatie over prijzen, bekijk: [prijzen van Azure beleid](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Selecteer de **bereik** -abonnement (of de resourcegroep) u eerder hebt geregistreerd wanneer u mee aan het beleid van Azure. Een bereik bepaalt welke resources of groeperen van resources de toewijzing van beleid wordt afgedwongen op. Dit kan variëren van een abonnement aan resourcegroepen.
+8. Selecteer de **bereik** -abonnement (of de resourcegroep) u eerder hebt geregistreerd. Een bereik bepaalt welke resources of groeperen van resources de toewijzing van beleid wordt afgedwongen op. Dit kan variëren van een abonnement aan resourcegroepen.
 
    In dit voorbeeld gebruiken we dit abonnement - **Azure Analytics capaciteit Dev**. Uw abonnement zijn.
 
@@ -94,9 +78,9 @@ Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om
       - De regels/beleidsvoorwaarden, in dit geval – VM SKU-grootte die gelijk is aan G serie
       - Het beleid effect in dit geval – **weigeren**.
 
-   Dit is wat de json moet eruitzien als
+    Dit is wat de json moet eruitzien als
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Nu dat we de beleidsdefinitie hebt toegewezen, gaan we een nieuw beleid maken om
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Voor voorbeelden van json-code weergeven, kijkt u naar dit artikel - [sjablonen voor Azure-beleid](json-samples.md)
+    Als voorbeelden van json-code, lezen de [sjablonen voor Azure beleid](json-samples.md) artikel.
 
 4. Selecteer **Opslaan**.
 

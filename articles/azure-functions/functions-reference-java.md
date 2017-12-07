@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 > [!div class="op_single_selector"]
@@ -39,8 +39,8 @@ CosmosDB | N.v.t.
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | N.v.t.
 Notification Hubs | N.v.t.
-Storage-Blob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
-Storage-wachtrij | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Storage-Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Opslagwachtrij | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Table Storage | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
 Twilio | N.v.t.
@@ -213,7 +213,7 @@ De `@BindingName` aantekening accepteert een `String` eigenschap met de naam van
 
 Dus als u deze functie is aangeroepen, de nettolading van de HTTP-aanvraag een optionele doorgegeven `String` voor het argument `in` en een Azure-tabelopslag `MyObject` type doorgegeven naar argument `obj`. Gebruik de `Optional<T>` type voor het afhandelen van invoer in uw functies waarmee kunnen niet null zijn.
 
-## <a name="outputs"></a>uitvoer
+## <a name="outputs"></a>Uitvoer
 
 Uitvoer kunnen worden uitgedrukt in retourwaarde of output-parameters. Als er slechts één uitvoer, wordt u aangeraden om de retourwaarde. U hebt voor meerdere uitgangen output-parameters gebruiken.
 
@@ -270,7 +270,7 @@ waarvan de uitvoer-binding in moet definiëren `function.json`:
 
 Soms moet u een functie controle over in- en uitgangen hebt gedetailleerde. Specifieke typen in de `azure-functions-java-core` pakket vindt u aanvraaggegevens bewerken en aanpassen van de status van het resultaat van een HTTP-trigger:
 
-| Speciaal Type      |       doel        | Typische gebruiksscenario                  |
+| Speciaal Type      |       Doel        | Typische gebruiksscenario                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP-Trigger     | Methode, kopteksten of query's ophalen |
 | `HttpResponseMessage<T>` | HTTP-uitvoer Binding | Geretourneerde status dan 200   |

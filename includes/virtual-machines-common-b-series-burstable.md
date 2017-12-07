@@ -1,20 +1,11 @@
 
-> [!NOTE] 
-> Voorbeelden zijn beschikbaar gemaakt voor u op voorwaarde dat u akkoord met de gebruiksvoorwaarden gaat. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-> Dit voorbeeld is beperkt tot de volgende gebieden:
-> - VS - West 2
-> - VS - Oost
-> - Europa - West
-> - Azië en Stille Oceaan - zuidoostelijke
-
-
 De B-serie VM-familie kunt u kiezen welke VM-grootte biedt u de prestaties van de vereiste base-niveau voor uw workload met de mogelijkheid om het CPU-prestaties tot wel 100% van een Intel® Broadwell E5-2673 v4 burst 2.3 GHz of een Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
 De B-serie VM's zijn ideaal voor workloads die niet moet de volledige prestaties van de CPU continu, zoals webservers, kleine databases en ontwikkeling en testen van omgevingen. Deze werkbelastingen hebben doorgaans burstable prestatie-eisen. De B-reeks biedt u de mogelijkheid om aan te schaffen van een VM-grootte van de basislijn en de VM-instantie wordt opgebouwd tegoed bij het gebruik van minder dan de basislijn. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven de basislijn met maximaal 100% van de vCPU wanneer uw toepassing hoger CPU-prestaties vereist.
 
 De B-reeks wordt geleverd in de volgende zes VM-grootten:
 
-| Grootte          | de vCPU | Geheugen: GiB | Lokale SSD: GiB | Basis-CPU-prestaties van virtuele machine | Maximum aantal CPU-prestaties van virtuele machine | Tegoed gestort / uur | Maximale gestort tegoed |
+| Grootte          | de vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Basis-CPU-prestaties van virtuele machine | Maximum aantal CPU-prestaties van virtuele machine | Tegoed gestort / uur | Maximale gestort tegoed |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
@@ -26,16 +17,11 @@ De B-reeks wordt geleverd in de volgende zes VM-grootten:
 
 
 
-## <a name="q--a-about-this-preview"></a>Met Q & A over deze preview
-
-### <a name="q-how-can-i-participate-in-this-preview"></a>V: hoe kan ik deelnemen in deze preview?
-**Een**: aanvraag quotum voor de B-reeks in een van de ondersteunde regio's.  Nadat uw quotum is goedgekeurd kunt u de portal of de API's voor uw implementatie als u normaal zou. Zie voor meer informatie [kerngeheugenquotum voor Resource Manager verhogen aanvragen](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+## <a name="q--a"></a>Vragen en antwoorden 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>V: hoe krijgt u 135% basislijnprestaties van een virtuele machine?
 **Een**: de 135% wordt gedeeld tussen de 8 vCPU van waaruit de VM-grootte. Als uw toepassing maakt gebruik van 4 van de 8 kernen werkt batchverwerking en elk van deze 4 vCPU worden uitgevoerd op 30% gebruik zou de totale hoeveelheid VM CPU-prestaties 120% gelijk.  Dit betekent dat uw virtuele machine op basis van de delta 15% van de basislijnprestaties van uw tegoed-tijd zou bouwen.  Maar het betekent ook dat wanneer er tegoed beschikbaar waarmee dezelfde virtuele machine kunt 100% van alle 8 vCPU de geeft die VM een maximale CPU-prestaties van 800%.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>V: is er een korting op prijs tijdens de preview?
-**Een**: Ja, de preview-prijzen kunnen worden bekeken op onze [pagina met prijzen](http://aka.ms/vmsizes).
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>V: hoe kan ik mijn saldo en het verbruik van controleren
 **Een**: We 2 nieuwe metrische gegevens introductie in de komende weken de **tegoed** metrische gegevens kunt u om weer te geven hoeveel tegoed uw virtuele machine heeft gestort en de **ConsumedCredit** metriek wordt weergegeven hoeveel CPU-tegoed uw virtuele machine van de bank is verbruikt.    U mag deze metrische gegevens in het deelvenster metrische gegevens weergeven in de portal of programmatisch via de Azure-Monitor API's.
@@ -58,14 +44,7 @@ Als ik de 120 tegoed die ik behaald buiten piektijden nemen en het 96 tegoed die
 **Een**: Ja, alle B-serie grootten gegevensschijven Premium-opslag ondersteund.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>V: welke regio's heb ik toegang tot de preview van?
-**Een**: de B-serie preview is beschikbaar in de volgende gebieden:
-- VS - West 2
-- VS - Oost
-- Europa - West
-- Azië en Stille Oceaan - zuidoostelijke
 
-Na de preview brengen we de B-reeks voor alle overige gebieden.
     
 
     

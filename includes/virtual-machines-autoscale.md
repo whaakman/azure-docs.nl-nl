@@ -40,13 +40,13 @@ U kunt [activeerbare](../articles/monitoring-and-diagnostics/insights-autoscale-
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Handmatig schalen van virtuele machines in een schaalset
 
-### <a name="horizontal"></a>horizontale
+### <a name="horizontal"></a>Horizontaal
 
 U kunt toevoegen of verwijderen van virtuele machines door het wijzigen van de capaciteit van de schaal is ingesteld. In de Azure portal, u kunt vergroten of verkleinen het aantal virtuele machines (weergegeven als **exemplaar aantal**) in de schaal ingesteld door de onderdrukking voorwaarde-balk op het scherm schalen naar links of rechts schuiven.
 
-Met Azure PowerShell, moet u de schaal ingesteld object met [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Vervolgens stelt u de **sku.capacity** eigenschap aan het aantal virtuele machines die u wilt en werk de schaalset met [Update AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Met Azure CLI, u wijzigt de capaciteit met de **--nieuwe capaciteit** parameter voor de [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) opdracht.
+Met Azure PowerShell, moet u de schaal ingesteld object met [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Vervolgens stelt u de **sku.capacity** eigenschap aan het aantal virtuele machines die u wilt en werk de schaalset met [Update AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Met Azure CLI, u wijzigt de capaciteit met de **--nieuwe capaciteit** parameter voor de [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) opdracht.
 
-### <a name="vertical"></a>Verticale
+### <a name="vertical"></a>Verticaal
 
 U kunt de grootte van de virtuele machines in de Azure portal op het scherm grootte voor de schaalaanpassingsset handmatig wijzigen. U kunt Azure PowerShell gebruiken met Get-AzureRmVmss, de installatiekopie van het sku verwijzingseigenschap instellen en vervolgens via [Update AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) en [Update AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
 

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 12/06/2017
 ms.author: genli
-ms.openlocfilehash: e962016a96cbbdafabc512b055248900b2c68a69
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 7690dd6d830b104e6f4c20affbfcc2384abe5eab
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Het opnieuw instellen van de extern bureaublad-service of het aanmeldingswachtwoord in een Windows-VM
 Als u geen verbinding maken met een Windows virtuele machine (VM), kunt u het lokale administrator-wachtwoord opnieuw instellen of opnieuw instellen van de configuratie van de extern bureaublad-service. U kunt de Azure portal of de toegang van de VM-extensie in Azure PowerShell om het wachtwoord opnieuw in te gebruiken. Als u met behulp van PowerShell, controleert u of u hebt de [nieuwste PowerShell-module geïnstalleerd en geconfigureerd](/powershell/azure/overview) en u bent aangemeld bij uw Azure-abonnement. U kunt ook [deze stappen uitvoert voor virtuele machines die zijn gemaakt met het klassieke implementatiemodel](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/reset-rdp).
@@ -68,17 +68,14 @@ $cred=Get-Credential
 Het volgende voorbeeld wordt de virtuele machine met de naam bijgewerkt `myVM` in de resourcegroep met de naam `myResourceGroup` naar de opgegeven referenties.
 
 ```powershell
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" `
-    -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().Username `
-    -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
+Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -UserName $cred.GetNetworkCredential().UserName -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**De configuratie van extern bureaublad-service opnieuw instellen**
 Externe toegang opnieuw instellen met uw virtuele machine met de [Set AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell-cmdlet. Het volgende voorbeeld wordt de uitbreiding voor toegang met de naam `myVMAccess` op de virtuele machine met de naam `myVM` in de `myResourceGroup` resourcegroep:
 
 ```powershell
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" `
-    -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
+Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
 ```
 
 > [!TIP]

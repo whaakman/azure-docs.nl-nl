@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Gebruik een aangepaste Docker-afbeelding voor Web-App voor Containers
 
@@ -84,7 +84,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 
 De opdracht geeft de uitvoer ziet er als volgt:
 
-```bash
+```
 # The output from the commands in this article has been shortened for brevity.
 
 Sending build context to Docker daemon  5.558MB
@@ -130,7 +130,7 @@ Een register is een toepassing die als host fungeert voor installatiekopieën en
 
 Docker-Hub is een register voor de Docker-installatiekopieën waarmee u uw eigen opslagplaatsen, openbare of particuliere hosten. Voor het pushen van een aangepaste Docker-installatiekopie naar de openbare Docker-Hub, gebruiken de [docker push](https://docs.docker.com/engine/reference/commandline/push/) opdracht in en geef een naam van de volledige installatiekopie en de tag. Een naam voor de volledige installatiekopie en de tag lijkt op het volgende voorbeeld:
 
-```bash
+```
 <docker-id>/image-name:tag
 ```
 
@@ -143,12 +143,12 @@ docker login --username <docker-id> --password <docker-hub-password>
 Een bericht 'aanmelding geslaagd' wordt bevestigd dat u bent aangemeld. Nadat u bent aangemeld, kunt u de installatiekopie van het push naar met behulp van Docker-Hub het [docker push](https://docs.docker.com/engine/reference/commandline/push/) opdracht.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Controleer of dat de push-bewerking is voltooid door in de opdracht-uitvoer.
 
-```bash
+```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
 c33197c3f6d4: Pushed
 ccd2c850ee43: Pushed
@@ -314,7 +314,7 @@ top
 
 De `top` opdracht toont alle actieve processen in een container.
 
-```bash
+```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
  1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
 20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
@@ -343,7 +343,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 De opdracht wordt de uitvoer is vergelijkbaar met de volgende JSON-tekenreeks met wijzigen van de configuratie is voltooid:
 
-```bash
+```json
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -383,7 +383,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 Een container maken, wordt de volgende uitvoer:
 
-```bash
+```
  - Finished ..
 Create a new service principal and assign access:
   az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --password <password>
@@ -447,6 +447,12 @@ Bevestig dat de aanmelding is geslaagd.
 
 ### <a name="push-an-image-to-azure-container-registry"></a>Een installatiekopie van een Azure Container register push
 
+> [!NOTE]
+> Als u uw eigen installatiekopie, labelen u de afbeelding als volgt:
+> ```bash
+> docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
+> ```
+
 Push de installatiekopie met behulp van de `docker push` opdracht. De installatiekopie met de naam van het register, gevolgd door de installatiekopie met de naam en de tag-code.
 
 ```bash
@@ -505,7 +511,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 De opdracht wordt de uitvoer is vergelijkbaar met de volgende JSON-tekenreeks met wijzigen van de configuratie is voltooid:
 
-```bash
+```json
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",

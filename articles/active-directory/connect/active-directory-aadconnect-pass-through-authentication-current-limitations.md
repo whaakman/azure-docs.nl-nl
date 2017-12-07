@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory Pass-through-verificatie: Huidige beperkingen
 
@@ -47,7 +47,10 @@ De volgende scenario's zijn _niet_ ondersteund:
 - Detectie van gebruikers met [gelekte referenties](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Als een oplossing voor niet-ondersteunde scenario's _alleen_, synchronisatie van wachtwoordhash inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard. Synchronisatie van wachtwoordhash inschakelen biedt u eveneens de optie voor het failover-verificatie als uw on-premises infrastructuur wordt onderbroken. Deze failover van Pass through-verificatie voor synchronisatie van wachtwoordhash Active Directory is niet automatisch. Hiervoor hulp van Microsoft Support.
+>Als een oplossing voor niet-ondersteunde scenario's _alleen_, synchronisatie van wachtwoordhash inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard.
+
+>[!NOTE]
+Synchronisatie van wachtwoordhash inschakelen biedt u de optie voor het failover-verificatie als uw on-premises infrastructuur wordt onderbroken. Deze failover van Pass through-verificatie voor synchronisatie van wachtwoordhash Active Directory is niet automatisch. U moet handmatig met behulp van Azure AD Connect methode overschakelen. Als de Azure AD Connect-server uitvalt, hebt u hulp van Microsoft Support uitschakelen Pass through-verificatie vereisen.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md): leren werken met Azure AD Pass-through-verificatie.

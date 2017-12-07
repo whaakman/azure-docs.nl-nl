@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e8e07fa54aa10d34f0878042a5d9ac43f9a6704b
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory cmdlets voor het configureren van groepsinstellingen
 In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Azure AD), PowerShell-cmdlets voor groepen maken en bijwerken. Deze inhoud geldt alleen voor Office 365-groepen. 
@@ -28,7 +28,7 @@ In dit artikel bevat instructies voor het gebruik van Azure Active Directory (Az
 > [!IMPORTANT]
 > Sommige instellingen vereist een Azure Active Directory Premium P1-licentie. Zie voor meer informatie de [sjablooninstellingen](#template-settings) tabel.
 
-Voor meer informatie over het zodat gebruikers kunnen beveiligingsgroepen maken, stelt `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+Voor meer informatie over het voorkomen dat gebruikers niet-beheerders maken *beveiliging* groepen ingesteld `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` zoals beschreven in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Instellingen voor Office 365-groepen zijn geconfigureerd met een object-instellingen en een SettingsTemplate-object. In eerste instantie is er geen voor instellingenobjecten in uw directory omdat uw directory is geconfigureerd met de standaardinstellingen. Als u wilt de standaardinstellingen wilt wijzigen, moet u een nieuw object voor instellingen met een sjabloon voor instellingen. Instellingen voor sjablonen zijn gedefinieerd door Microsoft. Er zijn verschillende sjablonen met verschillende instellingen. Instellingen voor Office 365-groep voor uw directory configureren, moet u de sjabloon met de naam 'Group.Unified' gebruiken. Gebruik de sjabloon met de naam "Group.Unified.Guest" voor informatie over het configureren van instellingen voor Office 365-groep op één groep. Deze sjabloon wordt gebruikt voor het beheren van gasttoegang tot een Office 365-groep. 
 

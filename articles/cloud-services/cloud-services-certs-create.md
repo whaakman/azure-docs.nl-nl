@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificaten voor Azure Cloud Services-overzicht
-Certificaten worden gebruikt in Azure voor cloudservices ([service certificaten](#what-are-service-certificates)) en voor het verifiëren van de beheer-API ([beheercertificaten](#what-are-management-certificates) bij gebruik van de klassieke Azure portal en niet de klassieke Azure portal). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en [implementeren](#deploy) ze naar Azure.
+Certificaten worden gebruikt in Azure voor cloudservices ([service certificaten](#what-are-service-certificates)) en voor het verifiëren van de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en [implementeren](#deploy) ze naar Azure.
 
 Certificaten worden gebruikt in Azure worden x.509 v3-certificaten en kunnen worden ondertekend door een andere vertrouwd certificaat of deze kunnen zelfondertekend zijn. Een zelfondertekend certificaat is ondertekend door de maker van een eigen, dus niet vertrouwd standaard. De meeste browsers kunnen dit probleem negeren. Gebruik alleen zelfondertekende certificaten bij het ontwikkelen en testen van uw cloudservices. 
 
@@ -30,7 +30,7 @@ Certificaten die door Azure kunnen een persoonlijke of een openbare sleutel beva
 ## <a name="what-are-service-certificates"></a>Wat zijn servicecertificaten?
 Certificaten van de service zijn gekoppeld aan cloud services en inschakelen van beveiligde communicatie van en naar de service. Als u een Webrol hebt geïmplementeerd, wilt u een certificaat dat kan worden geverifieerd een blootgestelde HTTPS-eindpunt opgeven. Service-certificaten, gedefinieerd in de servicedefinitie van de, worden automatisch geïmplementeerd op de virtuele machine waarop een exemplaar van uw rol. 
 
-U kunt certificaten uploaden naar de klassieke Azure-portal met behulp van de klassieke Azure portal of met behulp van het klassieke implementatiemodel. Certificaten van de service zijn gekoppeld aan een specifieke cloud-service. Ze worden toegewezen aan een implementatie in het servicedefinitiebestand.
+U kunt certificaten uploaden naar Azure met behulp van de Azure-portal of met behulp van het klassieke implementatiemodel. Certificaten van de service zijn gekoppeld aan een specifieke cloud-service. Ze worden toegewezen aan een implementatie in het servicedefinitiebestand.
 
 Certificaten kunnen afzonderlijk worden beheerd vanaf uw services en kunnen worden beheerd door andere personen. Een ontwikkelaar kan bijvoorbeeld uploaden van een servicepakket dat verwijst naar een certificaat dat door een IT-beheerder eerder heeft geüpload naar Azure. Een IT-beheerder kan beheren en vernieuwen van dat certificaat (het wijzigen van de configuratie van de service) zonder dat u nodig hebt om een nieuwe servicepakket te uploaden. Bijwerken zonder een nieuw servicepakket is mogelijk omdat de logische naam, de naam van de store en de locatie van het certificaat in het servicedefinitiebestand en terwijl de vingerafdruk van het certificaat is opgegeven in het configuratiebestand van de service. Voor het bijwerken van het certificaat is alleen nodig voor het uploaden van een nieuw certificaat en de vingerafdrukwaarde in het configuratiebestand van de service wijzigen.
 
@@ -95,5 +95,5 @@ Er zijn meerdere pagina's op internet die betrekking hebben op hoe u dit doet me
 ## <a name="next-steps"></a>Volgende stappen
 [Uw servicecertificaat uploaden naar de Azure-portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Upload een [beheercertificaat API](../azure-api-management-certs.md) bij de klassieke Azure portal. De Azure-portal maakt geen gebruik van certificaten voor verificatie.
+Upload een [beheercertificaat API](../azure-api-management-certs.md) bij de Azure portal.
 

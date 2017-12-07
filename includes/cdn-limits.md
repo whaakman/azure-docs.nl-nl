@@ -1,7 +1,7 @@
 
 | Resource | Standaardlimiet | Maximumaantal | 
 | --- | --- | --- |
-| CDN-profielen |8 |25 |
+| CDN-profielen |25 |25 |
 | CDN-eindpunten per profiel |10 |25 |
 | Aangepaste domeinen per eindpunt |10 |25 |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Logboekregistratie van diagnostische gegevens van web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -60,7 +60,7 @@ Wanneer u het inschakelen van **application diagnostics**, u er ook voor kiezen 
 >
 >
 
-Voor **toepassingslogboeken**, kunt u de optie file system tijdelijk voor foutopsporing inschakelen. Deze optie schakelt automatisch op 12 uur. U kunt ook de optie te selecteren van een container blog schrijven logboeken naar blob inschakelen.
+Voor **toepassingslogboeken**, kunt u de optie file system tijdelijk voor foutopsporing inschakelen. Deze optie schakelt automatisch op 12 uur. U kunt ook de optie blob-opslag om te selecteren van een blobcontainer in Logboeken om te schrijven inschakelen.
 
 Voor **Web server-logboekregistratie**, kunt u **opslag** of **bestandssysteem**. Selecteren **opslag** kunt u een opslagaccount en een blob-container die de logboeken worden geschreven om te selecteren. 
 
@@ -214,7 +214,7 @@ Logboekregistratie naar het bestandssysteem biedt de meest elementaire informati
 
 Bij het aanmelden naar table storage, worden aanvullende eigenschappen gebruikt ter bevordering van de gegevens die zijn opgeslagen in de tabel evenals meer gedetailleerde informatie over de gebeurtenis te zoeken. De volgende eigenschappen (kolommen) worden gebruikt voor elke entiteit (rij) opgeslagen in de tabel.
 
-| De naam van eigenschap | Waarde/indeling |
+| Naam van eigenschap | Waarde/indeling |
 | --- | --- |
 | PartitionKey |Datum/tijd van de gebeurtenis in de indeling yyyyMMddHH |
 | RowKey |Een GUID-waarde die is uniek voor deze entiteit |
@@ -223,7 +223,7 @@ Bij het aanmelden naar table storage, worden aanvullende eigenschappen gebruikt 
 | ApplicationName |De naam van de web-app |
 | Niveau |Gebeurtenisniveau (bijvoorbeeld fout, waarschuwing, informatie) |
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
-| Exemplaar-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
+| Instantie-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
 | PID |Proces-id |
 | TID |De thread-ID van de thread die de gebeurtenis geproduceerd |
 | Bericht |Detail gebeurtenisbericht |
@@ -232,12 +232,12 @@ Bij het aanmelden naar table storage, worden aanvullende eigenschappen gebruikt 
 
 Tijdens de registratie naar de blob storage, kunnen gegevens worden opgeslagen in de indeling met door komma's gescheiden waarden (CSV). Vergelijkbare naar table storage aanvullende velden om meer gedetailleerde informatie over de gebeurtenis worden vastgelegd. De volgende eigenschappen worden voor elke rij in de CSV gebruikt:
 
-| De naam van eigenschap | Waarde/indeling |
+| Naam van eigenschap | Waarde/indeling |
 | --- | --- |
 | Date |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
 | Niveau |Gebeurtenisniveau (bijvoorbeeld fout, waarschuwing, informatie) |
 | ApplicationName |De naam van de web-app |
-| Exemplaar-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
+| Instantie-id |Exemplaar van de web-app die de gebeurtenis is opgetreden op |
 | EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (nauwkeuriger) |
 | Gebeurtenis-id |De gebeurtenis-ID van deze gebeurtenis<p><p>De standaardwaarde is 0 als er geen opgegeven |
 | PID |Proces-id |

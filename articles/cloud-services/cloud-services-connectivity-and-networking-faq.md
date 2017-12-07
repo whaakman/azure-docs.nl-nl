@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen met de netwerken en voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -48,8 +48,8 @@ U kunt ook een starten van de taak voor het selectief blokkeren enkele specifiek
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Wanneer ik wil voor RDP mijn cloud service-exemplaar, het bericht wordt weergegeven, "de gebruikersaccount is verlopen."
 Mogelijk dat u de foutmelding 'dit gebruikersaccount is verlopen' wanneer u de vervaldatum die is geconfigureerd in uw RDP-instellingen overslaan. U kunt de vervaldatum wijzigen via de portal met de volgende stappen:
-1. Aanmelden bij de Azure Management Console (https://manage.windowsazure.com), gaat u naar de cloudservice en selecteer de **configureren** tabblad.
-2. Selecteer **externe**.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com), gaat u naar de cloudservice en selecteer de **extern bureaublad** tabblad.
+2. Selecteer de **productie** of **fasering** implementatiesleuf.
 3. De datum 'Verloopt op' wijzigen en vervolgens de configuratie op te slaan.
 
 Nu moet u kunnen voor RDP naar uw computer.

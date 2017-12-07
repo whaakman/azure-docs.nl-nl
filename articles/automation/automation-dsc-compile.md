@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compileren van configuraties in Azure Automation DSC
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 Zie voor meer informatie over PSCredentials doorgeeft als parameters <a href="#credential-assets"> **Referentieassets** </a> hieronder.
+
+## <a name="composite-resources"></a>Samengestelde bronnen
+
+**Samengestelde bronnen** kunt u DSC-configuraties gebruiken als ingesloten resources binnen een configuratie.  Hiermee kunt u meerdere configuraties toepassen op één resource.  Zie [samengestelde bronnen: met een DSC-configuratie als een resource](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) voor meer informatie over **samengestelde bronnen**
+
+> [!NOTE]
+> Opdat **samengestelde bronnen** correct compileren, moet u eerst ervoor zorgen dat eventuele DSC-Resources die afhankelijk is van de samengestelde waarde eerst in de opslagplaats Azure Automation-Account-Modules zijn geïnstalleerd of deze niet correct worden geïmporteerd.
+
+Toevoegen van een DSC **samengestelde bron**, moet u de module resource toevoegen aan een archief (* .zip). Ga naar de opslagplaats Modules op uw Azure Automation-Account.  Klik vervolgens op de knop 'Add een Module'.
+
+![Module toevoegen](./media/automation-dsc-compile/add_module.png)
+
+Ga naar de map waar het archief zich bevindt.  Selecteer het archiefbestand, en klik op OK.
+
+![Selecteer de Module](./media/automation-dsc-compile/select_dscresource.png)
+
+Vervolgens gaat u terug naar de map modules, waar u met de status van controleren kunt uw **samengestelde bron** terwijl het uitgepakt en wordt geregistreerd bij Azure Automation.
+
+![Samengestelde bron importeren](./media/automation-dsc-compile/register_composite_resource.png)
+
+Wanneer de module is geregistreerd, u kunt vervolgens klikken om te valideren dat de **samengestelde bronnen** zijn nu beschikbaar moet worden gebruikt in een configuratie.
+
+![Samengestelde bron valideren](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Vervolgens u roept de **samengestelde bron** in uw configuratie als volgt te werk:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** kunt u afzonderlijke structurele configuratie uit een specifieke configuratie van de omgeving tijdens het gebruik van PowerShell DSC. Zie [scheiden 'Wat' op 'Waar' in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) voor meer informatie over **ConfigurationData**.
@@ -242,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Knooppuntconfiguraties importeren
 
-U kunt ook knooppunt configuratons (MOF-bestanden) die u hebt gecompileerd buiten Azure importeren. Een voordeel hiervan is dat confiturations knooppunt kan worden ondertekend.
+U kunt ook knooppunt configuratons (MOF-bestanden) die u hebt gecompileerd buiten Azure importeren. Een voordeel hiervan is dat de knooppuntconfiguraties kunnen worden ondertekend.
 Een ondertekende knooppuntconfiguratie is lokaal op een beheerde knooppunt gecontroleerd door de DSC-agent, waarbij u ervoor zorgt dat de configuratie die wordt toegepast op het knooppunt van een gemachtigde bron afkomstig is.
 
 > [!NOTE]

@@ -3,8 +3,8 @@ title: Indexeren van tabellen in SQL Data Warehouse | Microsoft Azure
 description: Aan de slag met de tabel in Azure SQL Data Warehouse te indexeren.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexeren van tabellen in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -174,14 +174,14 @@ Zodra u de query die u beginnen kunt met de gegevens kijken en analyseren van uw
 | [OPEN_rowgroup_rows_MAX] |Hierboven |
 | [OPEN_rowgroup_rows_AVG] |Hierboven |
 | [CLOSED_rowgroup_rows] |Bekijk de rijen van de groep gesloten rij als een controle. |
-| [CLOSED_rowgroup_count] |Het aantal gesloten Rijgroepen moet laag als een helemaal zijn zichtbaar zijn. Gesloten Rijgroepen kunnen worden geconverteerd naar gecomprimeerde rowg roups met de ALTER INDEX... REORGANISATIE opdracht. Dit is echter niet normaal gesproken vereist. Gesloten groepen worden automatisch geconverteerd naar columnstore Rijgroepen door het proces van achtergrond 'tuple mover'. |
+| [CLOSED_rowgroup_count] |Het aantal gesloten Rijgroepen moet laag als een helemaal zijn zichtbaar zijn. Gesloten Rijgroepen kunnen worden geconverteerd naar gecomprimeerde Rijgroepen met de ALTER INDEX... REORGANISATIE opdracht. Dit is echter niet normaal gesproken vereist. Gesloten groepen worden automatisch geconverteerd naar columnstore Rijgroepen door het proces van achtergrond 'tuple mover'. |
 | [CLOSED_rowgroup_rows_MIN] |Gesloten Rijgroepen moeten een zeer hoge opvulling snelheid hebben. Als de frequentie van de opvulling voor een rijgroep gesloten laag is, zijn verdere analyse van de columnstore is vereist. |
 | [CLOSED_rowgroup_rows_MAX] |Hierboven |
 | [CLOSED_rowgroup_rows_AVG] |Hierboven |
 | [Rebuild_Index_SQL] |SQL opnieuw samenstellen columnstore-index voor een tabel |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Oorzaken van slechte columnstore-index kwaliteit
-Als u tabellen hebt geïdentificeerd met slechte segment kwaliteit, wilt u de hoofdoorzaak te identificeren.  Hieronder vindt u enkele veelvoorkomende oorzaken van slechte segment quaility:
+Als u tabellen hebt geïdentificeerd met slechte segment kwaliteit, wilt u de hoofdoorzaak te identificeren.  Hieronder vindt u enkele veelvoorkomende oorzaken van slechte segment kwaliteit:
 
 1. Geheugendruk wanneer de index is samengesteld.
 2. Groot aantal DML-bewerkingen
@@ -191,7 +191,7 @@ Als u tabellen hebt geïdentificeerd met slechte segment kwaliteit, wilt u de ho
 Deze factoren kunnen leiden tot een columnstore-index hebben aanzienlijk kleiner is dan de optimale 1 miljoen rijen per rij.  Ze kunnen ook leiden tot rijen aan de groep van de rij delta in plaats van een rijgroep gecomprimeerde gaan. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Geheugendruk wanneer de index is samengesteld.
-Het aantal rijen per rijgroep gecomprimeerde rechtstreeks verband houden met de breedte van de rij en de hoeveelheid geheugen die beschikbaar is voor het verwerken van de rijgroep.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  Daarom is de aanbevolen procedure om te geven van de sessie die is schrijven naar de columnstore-index tabellen toegang tot zoveel mogelijk geheugen.  Omdat er een compromis tussen geheugen en gelijktijdigheid van taken, de instructies op de juiste geheugentoewijzing is afhankelijk van de gegevens in elke rij van de tabel, de hoeveelheid DWU die u hebt toegewezen aan uw systeem en de hoeveelheid gelijktijdigheid sleuven die u kunt geven tot de sessie die is schrijven van gegevens naar uw tabel.  Als een best practice is het raadzaam met xlargerc als u van DW300 gebruikmaakt of minder largerc starten als u DW400 DW600 en mediumrc als u van DW1000 gebruikmaakt en hoger.
+Het aantal rijen per rijgroep gecomprimeerde rechtstreeks verband houden met de breedte van de rij en de hoeveelheid geheugen die beschikbaar is voor het verwerken van de rijgroep.  Wanneer rijen naar columnstore-tabellen worden geschreven onder geheugendruk, kan dit ten koste gaan van de kwaliteit van columnstore-segmenten.  Daarom is de aanbevolen procedure om te geven van de sessie die is schrijven naar de columnstore-index tabellen toegang tot zoveel mogelijk geheugen.  Omdat er een compromis tussen het geheugen en een gelijktijdigheid van taken, de instructies op de juiste geheugentoewijzing is afhankelijk van de gegevens in elke rij van de tabel, de gegevens datawarehouse eenheden zijn toegewezen aan uw systeem en het aantal sleuven gelijktijdigheid van taken die u kunt geven tot de sessie die schrijven van gegevens naar de tabel is.  Als een best practice is het raadzaam met xlargerc als u van DW300 gebruikmaakt of minder largerc starten als u DW400 DW600 en mediumrc als u van DW1000 gebruikmaakt en hoger.
 
 ### <a name="high-volume-of-dml-operations"></a>Groot aantal DML-bewerkingen
 Een groot aantal DML-bewerkingen die bijwerken en verwijderen van rijen kunt inefficiëntie door in de columnstore introduceren. Dit is vooral van toepassing wanneer het merendeel van de rijen in de rijgroep van een zijn gewijzigd.
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Opnieuw opbouwen van een index in SQL Data Warehouse is een offline bewerking.  Voor meer informatie over het opnieuw opbouwen van indexen, Zie de sectie ALTER INDEX REBUILD in [Columnstore-indexen defragmentatie] [ Columnstore Indexes Defragmentation] en het onderwerp syntaxis [ALTER INDEX][ALTER INDEX].
+Opnieuw opbouwen van een index in SQL Data Warehouse is een offline bewerking.  Voor meer informatie over het opnieuw opbouwen van indexen, Zie de sectie ALTER INDEX REBUILD in [Columnstore-indexen defragmentatie][Columnstore Indexes Defragmentation], en [ALTER INDEX] [ ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Stap 3: Controleren of de kwaliteit van de geclusterde columnstore-segment is verbeterd
 Voer de query welke geïdentificeerde tabel met slecht segmenteren kwaliteit en controleer of segment kwaliteit is verbeterd.  Als het segment kwaliteit kon niet worden verbeterd, kan het zijn dat de rijen in de tabel extra breed zijn.  Overweeg het gebruik van een hogere bronklasse of DWU wanneer uw indexen opnieuw opbouwen.

@@ -109,6 +109,40 @@ Nee. U kunt de naameigenschap van de computer niet bijwerken. De nieuwe virtuele
 * [Lijst met sjablonen met schijven beheerd](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks 
+
+**Welke wijzigingen vereist zijn in een bestaande Azure Backup-service configuration vóór na migratie naar schijven beheerd?**
+
+Er zijn geen wijzigingen vereist. 
+
+**Mijn VM-back-ups gemaakt via de Azure Backup-service vóór de migratie blijven?**
+
+Ja, back-ups naadloos werken.
+
+**Welke wijzigingen vereist zijn in een bestaande Azure schijven Encryption configuratie vóór na migratie naar schijven beheerd?**
+
+Er zijn geen wijzigingen vereist. 
+
+**Is automatische migratie van een bestaande VM Scale Sets (VMSS) van niet-beheerde schijven aan beheerde schijven ondersteund?**
+
+Nee. U kunt een nieuwe VMSS maken met beheerde schijven met behulp van een installatiekopie van uw oude VMSS met niet-beheerde schijven. 
+
+**Kan ik een schijf beheerd maken van een momentopname van een pagina-blob genomen voordat u migreert naar schijven beheerd?**
+
+Nee. U kunt een momentopname van een pagina-blob exporteren als een pagina-blob en maak vervolgens een beheerde-schijf van de geëxporteerde pagina-blob. 
+
+**Kan ik mijn lokale computers beveiligd door Azure Site Recovery voor een virtuele machine met schijven beheerd failover?**
+
+Ja, kunt u failover naar een virtuele machine met schijven beheerd.
+
+**Is er invloed van de migratie op Azure Virtual machines beveiligd door Azure Site Recovery (ASR) via replicatie van Azure naar Azure?**
+
+Ja. ASR Azure-Azure-beveiliging wordt niet ondersteund voor virtuele machines met schijven beheerd. Deze gaat worden ondersteund door het einde van CY2018. 
+
+**Kan ik virtuele machines migreren met niet-beheerde schijven die zich bevinden op opslagaccounts die zijn of die eerder zijn versleuteld met beheerde schijven?**
+
+Ja
+
 ## <a name="managed-disks-and-storage-service-encryption"></a>Beheerd schijven en versleuteling van opslag-Service 
 
 **Is Azure Storage-Service: versleuteling standaard ingeschakeld wanneer ik een beheerde schijf maken?**

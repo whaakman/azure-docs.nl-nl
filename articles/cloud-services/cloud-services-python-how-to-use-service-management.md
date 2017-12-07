@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Het gebruik van Service Management met Python
-Deze handleiding wordt beschreven hoe u programmatisch algemene service-beheertaken uitvoeren met Python. De **ServiceManagementService** -klasse in de [Azure SDK voor Python](https://github.com/Azure/azure-sdk-for-python) ondersteunt programmatische toegang tot veel van de service management-gerelateerde functionaliteit die beschikbaar is in de [Azure klassieke portal] [ management-portal] (zoals **maken, bijwerken en verwijderen van cloud-services, implementaties, data management-services en virtuele machines**). Deze functie kan nuttig zijn bij het bouwen van toepassingen die programmatische toegang tot het servicebeheer van de moeten worden gemaakt.
+Deze handleiding wordt beschreven hoe u programmatisch algemene service-beheertaken uitvoeren met Python. De **ServiceManagementService** -klasse in de [Azure SDK voor Python](https://github.com/Azure/azure-sdk-for-python) ondersteunt programmatische toegang tot veel van de service management-gerelateerde functionaliteit die beschikbaar is in de [Azure Portal] [ management-portal] (zoals **maken, bijwerken en verwijderen van cloud-services, implementaties, data management-services en virtuele machines**). Deze functie kan nuttig zijn bij het bouwen van toepassingen die programmatische toegang tot het servicebeheer van de moeten worden gemaakt.
 
 ## <a name="WhatIs"></a>Wat is Service Management
-De Service Management API biedt programmatisch toegang tot veel van de service management-functionaliteit beschikbaar via de [klassieke Azure-portal][management-portal]. De Azure SDK voor Python kunt u uw cloudservices en storage-accounts te beheren.
+De Service Management API biedt programmatisch toegang tot veel van de service management-functionaliteit beschikbaar via de [Azure-portal][management-portal]. De Azure SDK voor Python kunt u uw cloudservices en storage-accounts te beheren.
 
 Voor het gebruik van de Service Management API, moet u [maken van een Azure-account](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ De Azure SDK voor Python loopt de [Azure Service Management API][svc-mgmt-rest-a
 Alle functies die worden beschreven in dit artikel zijn beschikbaar in de `azure-servicemanagement-legacy` pakket, die u kunt installeren met behulp van pip. Zie voor meer informatie over installatie (bijvoorbeeld als u niet bekend bent met Python) in dit artikel: [Python installeren en de Azure SDK](../python-how-to-install.md)
 
 ## <a name="Connect"></a>Hoe: verbinding maken met servicebeheer
-Voor verbinding met het beheer van Service-eindpunt, moet u uw Azure-abonnement-ID en een geldig beheercertificaat. Kunt u uw abonnements-ID via de [klassieke Azure-portal][management-portal].
+Voor verbinding met het beheer van Service-eindpunt, moet u uw Azure-abonnement-ID en een geldig beheercertificaat. Kunt u uw abonnements-ID via de [Azure-portal][management-portal].
 
 > [!NOTE]
 > Het is nu mogelijk gebruik van certificaten die zijn gemaakt met OpenSSL wanneer u gebruikmaakt van Windows.  Hiervoor Python punt 2.7.4 of hoger. U wordt aangeraden gebruikers OpenSSL gebruiken in plaats van pfx, aangezien de ondersteuning voor pfx-certificaten waarschijnlijk in de toekomst verwijderd.
@@ -53,7 +53,7 @@ Maken van de `.cer` certificaat, uitvoeren:
 
 Zie voor meer informatie over Azure certificaten [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md). Zie de documentatie op voor een volledige beschrijving van OpenSSL parameters [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Nadat u deze bestanden hebt gemaakt, moet u voor het uploaden van de `.cer` bestand naar Azure via de actie 'Uploaden' van het tabblad 'Instellingen' van de [klassieke Azure-portal][management-portal], en u moet Noteer waar u opgeslagen de `.pem` bestand.
+Nadat u deze bestanden hebt gemaakt, moet u voor het uploaden van de `.cer` bestand naar Azure via de actie 'Uploaden' van het tabblad 'Instellingen' van de [Azure-portal][management-portal], en u moet een opslaglocatie Noteer de `.pem` bestand.
 
 Wanneer u uw abonnements-ID hebt ontvangen, een certificaat gemaakt en geüpload de `.cer` bestand Azure, u verbinding kunt maken met het eindpunt van de Azure management door het doorgeven van de abonnements-id en het pad naar de `.pem` van het bestand in  **ServiceManagementService**:
 
@@ -74,7 +74,7 @@ U kunt een zelfondertekende beheercertificaat maken op uw machine met `makecert.
 
 De opdracht maakt u de `.cer` -bestand en installeert deze in de **persoonlijke** certificaatarchief. Zie voor meer informatie [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md).
 
-Nadat u het certificaat hebt gemaakt, moet u voor het uploaden van de `.cer` bestand naar Azure via de actie 'Uploaden' van het tabblad 'Instellingen' van de [klassieke Azure-portal][management-portal].
+Nadat u het certificaat hebt gemaakt, moet u voor het uploaden van de `.cer` bestand naar Azure via de actie 'Uploaden' van het tabblad 'Instellingen' van de [Azure-portal][management-portal].
 
 Wanneer u uw abonnements-ID hebt ontvangen, een certificaat gemaakt en geüpload de `.cer` bestand Azure, u verbinding kunt maken met het eindpunt van de Azure management door het doorgeven van de abonnements-id en de locatie van het certificaat in uw **persoonlijke**  certificaatarchief **ServiceManagementService** (opnieuw vervangen *AzureCertificate* met de naam van uw certificaat):
 
@@ -421,7 +421,7 @@ Raadpleeg het [Python Developer Center](/develop/python/) voor meer informatie.
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.com/
+[management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 

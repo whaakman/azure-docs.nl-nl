@@ -32,3 +32,9 @@
 | Australië - zuidoost | 2                       |
 |                     |                         |
 | Brazilië - zuid        | 2                       |
+|                     |                         |
+| VS (overheid) - Virginia     | 2                       |
+| VS (overheid) - Texas        | 2                       |
+| VS (overheid) - Arizona      | 2                       |
+| US DoD - centraal      | 2                       |
+| US DoD - oost         | 2                       |

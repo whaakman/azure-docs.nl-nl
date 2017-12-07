@@ -24,7 +24,7 @@ Als u verbinding met virtuele machines, moet u cryptografie met openbare sleutel
 
 ## <a name="policies"></a>Beleidsregels
 
-[Azure Resource Manager-beleid](../articles/azure-resource-manager/resource-manager-policy.md) kan worden gebruikt voor het definiëren van het gewenste gedrag voor uw organisatie [VM's van Windows](../articles/virtual-machines/windows/policy.md) en [virtuele Linux-machines](../articles/virtual-machines/linux/policy.md). Een organisatie kan met behulp van beleid afdwingen verschillende conventies en regels in de hele onderneming. Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens bijdragen aan het succes van de organisatie.
+[Azure beleid](../articles/azure-policy/azure-policy-introduction.md) kan worden gebruikt voor het definiëren van het gewenste gedrag voor uw organisatie [VM's van Windows](../articles/virtual-machines/windows/policy.md) en [virtuele Linux-machines](../articles/virtual-machines/linux/policy.md). Een organisatie kan met behulp van beleid afdwingen verschillende conventies en regels in de hele onderneming. Afdwinging van het gewenste gedrag kunt risico's te beperken tijdens bijdragen aan het succes van de organisatie.
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 

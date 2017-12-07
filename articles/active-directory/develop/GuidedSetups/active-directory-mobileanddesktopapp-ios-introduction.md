@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fcd78eaa0c5b09b70aa973466a34556fff56071
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>De Microsoft Graph-API aanroepen vanuit een iOS-app
 
@@ -45,9 +45,9 @@ API's zoals Microsoft Graph vereisen een toegangstoken waarmee toegang tot speci
 MSAL kunt opslaan in cache en vernieuwen toegangstokens voor u, zodat uw toepassing niet te hoeft beheren.
 
 
-### <a name="nuget-packages"></a>NuGet-pakketten
+### <a name="libraries"></a>Bibliotheken
 
-Deze handleiding bevat de volgende NuGet-pakketten:
+Deze handleiding bevat de volgende bibliotheek:
 
 |Bibliotheek|Beschrijving|
 |---|---|

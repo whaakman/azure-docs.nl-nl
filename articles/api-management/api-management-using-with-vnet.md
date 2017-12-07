@@ -6,19 +6,18 @@ documentationcenter:
 author: antonba
 manager: erikre
 editor: 
-ms.assetid: 64b58f7b-ca22-47dc-89c0-f6bb0af27a48
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -110,11 +109,11 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Communicatie van clients met API Management|Extern |
 | * / 3443 |Inkomend |TCP |INTERNET / VIRTUAL_NETWORK|Eindpunt voor Azure-portal en Powershell |Intern |
-| * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot Azure Storage-eindpunten** |Externe & interne |
+| * / 80, 443 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure Storage, Azure Service Bus en Azure Active Directory (indien van toepassing).|Externe & interne | 
 | * / 1433 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot Azure SQL-eindpunten** |Externe & interne |
 | * / 11000 - 11999 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot de V12 Azure SQL** |Externe & interne |
 | * / 14000 - 14999 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|**Toegang tot de V12 Azure SQL** |Externe & interne |
-| * / 5671 |Uitgaand |AMQP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek Event Hub-beleid en bewakingsagent |Externe & interne |
+| * / 5671, 5672 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid voor logboek Event Hub-beleid en bewakingsagent |Externe & interne |
 | * / 445 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Afhankelijkheid van Azure-bestandsshare voor GIT |Externe & interne |
 | * / 25028 |Uitgaand |TCP |VIRTUAL_NETWORK / INTERNET|Verbinding maken met de SMTP-Relay voor het verzenden van e-mailberichten |Externe & interne |
 | * / 6381 - 6383 |Binnenkomend en uitgaand |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Exemplaren van toegang tot Redis-Cache tussen RoleInstances |Externe & interne |
@@ -134,6 +133,8 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
  * Configuratie van de ExpressRoute kondigt 0.0.0.0/0 en standaard force alle uitgaande verkeer lokale tunnels.
  * De UDR toegepast op het subnet met de Azure API Management definieert 0.0.0.0/0 met een volgend hoptype van Internet.
  Het gecombineerde effect van deze stappen is dat subnetniveau UDR voorrang op de ExpressRoute geforceerde tunneling heeft, zodat uitgaande toegang tot Internet vanaf de Azure API Management.
+
+**Routering via virtuele netwerkapparaten**: configuraties waarmee een UDR met een standaardroute (0.0.0.0/0) internet bestemd verkeer vanuit het subnet van API Management routeren via een netwerkapparaat vitrual uitgevoerd in Azure kunnen volledige communicatie tussen de API Management en de vereiste services. Deze configuratie wordt niet ondersteund. 
 
 >[!WARNING]  
 >Azure API Management wordt niet ondersteund met ExpressRoute-configuraties die **onjuist cross-adverteert routes van het pad voor openbare peering naar het pad voor persoonlijke peering**. ExpressRoute-configuraties waarvoor openbare peering is geconfigureerd, ontvangen route-advertisements van Microsoft voor een groot aantal Microsoft Azure-IP-adresbereiken. Als deze adresbereiken onjuist cross aangekondigd op het pad voor persoonlijke peering, is het eindresultaat dat alle uitgaande pakketten van het Azure API Management-exemplaar subnet onjuist force via een tunnel naar een klant on-premises netwerk infrastructuur. Deze stroom van het netwerk verbreekt Azure API Management. De oplossing voor dit probleem is cross-adverteert routes van het pad voor openbare peering naar het pad voor persoonlijke peering stoppen.

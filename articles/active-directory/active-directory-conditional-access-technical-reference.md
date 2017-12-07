@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory voorwaardelijke toegang technische naslaginformatie
 
@@ -117,7 +117,7 @@ In uw beleid voor voorwaardelijke toegang, kunt u **Browsers** als client-app.
 
 ![Toegang beheren voor ondersteunde browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Deze instelling heeft gevolgen op toegangspogingen tot van de volgende browsers: 
+Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatbeleid, zoals een vereiste compatibel apparaat de volgende besturingssystemen en browsers worden ondersteund:
 
 
 | OS                     | Browsers                            | Ondersteuning     |
@@ -138,6 +138,9 @@ Deze instelling heeft gevolgen op toegangspogingen tot van de volgende browsers:
 > [!NOTE]
 > Voor ondersteuning van Chrome, moet u Windows 10 auteurs Update (versie 1703) of hoger.<br>
 > U kunt installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Deze browsers ondersteuning voor verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privé-modus. 
+
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Ondersteunde mobiele toepassingen en bureaublad-clients
 

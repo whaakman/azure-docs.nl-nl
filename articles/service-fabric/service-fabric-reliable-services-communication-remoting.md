@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Service voor externe toegang met Reliable Services
 Voor services die niet zijn gekoppeld aan een bepaalde communicatieprotocol of stack, zoals WebAPI, Windows Communication Foundation (WCF) of anderen, biedt het framework Reliable Services een mechanisme voor externe toegang voor het snel en eenvoudig instellen van externe procedureaanroep voor services.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-Het framework remoting uitzonderingen op de service naar de client wordt doorgegeven. Dus uitzonderingsverwerking logica op de client met behulp van `ServiceProxy` uitzonderingen die de service genereert rechtstreeks kan verwerken.
+Het framework remoting uitzonderingen worden veroorzaakt door de service naar de client wordt doorgegeven. Als gevolg hiervan, wanneer u `ServiceProxy`, de client is verantwoordelijk voor het verwerken van de uitzonderingen die door de service.
 
 ## <a name="service-proxy-lifetime"></a>Levensduur voor service-Proxy
-Het maken van ServiceProxy is een lichtgewicht bewerking, zodat gebruikers zo veel als ze nodig hebben kunnen maken. Proxy-service-exemplaren kunnen opnieuw worden gebruikt als gebruikers deze moeten. Als een remote procedure call er een uitzondering gegenereerd, kunnen gebruikers nog steeds opnieuw gebruiken hetzelfde exemplaar van de proxy. Elke ServiceProxy bevat een communicatie-client gebruikt om berichten te verzenden via de kabel. Tijdens het aanroepen van externe oproepen Controleer we intern of de client communicatie geldig is. Op basis van die resulteren, maken we opnieuw de client communicatie indien nodig. Daarom als een uitzondering optreedt, gebruikers hoeven niet opnieuw maken van serviceproxy maar is transparant gedaan.
+Het maken van ServiceProxy is een lichtgewicht bewerking, zodat gebruikers zo veel als ze nodig hebben kunnen maken. Proxy-service-exemplaren kunnen opnieuw worden gebruikt als gebruikers deze moeten. Als een remote procedure call er een uitzondering gegenereerd, kunnen gebruikers nog steeds opnieuw gebruiken hetzelfde exemplaar van de proxy. Elke ServiceProxy bevat een communicatie-client gebruikt om berichten te verzenden via de kabel. Tijdens het aanroepen van externe oproepen Controleer we intern of de client communicatie geldig is. Op basis van die resulteren, maken we opnieuw de client communicatie indien nodig. Dus als er een uitzondering optreedt, gebruikers hoeven niet opnieuw maken `ServiceProxy` omdat deze is gedaan transparant.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory levensduur
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is een factory die de proxy worden exemplaren voor externe communicatie van andere interfaces gemaakt. Als u de api gebruiken `ServiceProxy.Create` voor het maken van proxy het framework maakt u een singleton-ServiceProxy.
@@ -91,12 +91,13 @@ Maken van de factory is een dure bewerking. ServiceProxyFactory onderhoudt een i
 Aanbevolen procedure is het in de cache ServiceProxyFactory zo lang mogelijk.
 
 ## <a name="remoting-exception-handling"></a>Afhandeling van uitzonderingen voor externe toegang
-De externe uitzondering veroorzaakt door de API-service, worden verzonden naar de client als AggregateException. RemoteExceptions moet DataContract serialiseerbaar anders [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) verstuurd naar de proxy-API met de serialisatiefout in het.
+Alle externe uitzonderingen die door de API-service worden verzonden naar de client als AggregateException. RemoteExceptions moet DataContract serialiseerbaar; Als dat niet het geval is, de proxy API genereert [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) met de serialisatiefout in het.
 
-ServiceProxy wordt verwerkt alle failover-uitzondering voor de service-partitie dat deze wordt gemaakt. Deze opnieuw de eindpunten opgelost als er Failover Exceptions(Non-Transient Exceptions) en probeert om opnieuw de aanroep met het juiste eindpunt. Aantal nieuwe pogingen voor failover-uitzondering is oneindig.
-Als tijdelijke uitzonderingen optreedt, pogingen proxy de aanroep.
+ServiceProxy verwerkt alle failover-uitzonderingen voor de service-partitie dat deze wordt gemaakt. Het opnieuw de eindpunten wordt omgezet als er failover-uitzonderingen (tijdelijke uitzonderingen) en de aanroep met het juiste eindpunt opnieuw probeert. Het aantal nieuwe pogingen voor failover-uitzonderingen zijn onbepaalde.
+Als tijdelijke uitzonderingen optreden, probeert de proxy opnieuw de aanroep.
 
-Standaard opnieuw parameters worden opgegeven door [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) Gebruiker kan deze waarden door OperationRetrySettings object doorgeven aan de constructor ServiceProxyFactory configureren.
+Standaard opnieuw parameters worden opgegeven door [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Gebruiker kan deze waarden door OperationRetrySettings object doorgeven aan de constructor ServiceProxyFactory configureren.
 ## <a name="how-to-use-remoting-v2-stack"></a>Het gebruik van externe toegang-V2-stack
 Met 2,8 Remoting NuGet-pakket hebt u de optie voor het gebruiken van externe toegang-V2-stack. Externe communicatie V2-stack is meer zodat en biedt functies, zoals aangepaste serialiseerbaar en meer pluggable Api.
 Als u geen wijzigingen, standaard blijft deze Remoting V1-Stack gebruiken.

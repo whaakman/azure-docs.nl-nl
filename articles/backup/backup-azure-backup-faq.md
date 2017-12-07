@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -112,7 +112,6 @@ Azure Backup ondersteunt de volgende besturingssystemen voor het maken van back-
 | Windows Storage Server 2012 en de meest recente SP's |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 en de meest recente SP's |64 bits |Essential |
 | Windows Server 2008 R2 SP1 |64 bits |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64 bits |Standard, Enterprise, Datacenter, Foundation |
 
 **Back-up van virtuele Azure-machines:**
 

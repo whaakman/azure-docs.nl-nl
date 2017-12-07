@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Lussen, bereiken en debatching van logische apps
   
@@ -26,7 +26,7 @@ Logische Apps biedt een aantal manieren om te werken met matrices, verzamelingen
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach-lus en matrices
   
-Logic Apps kunt u een set gegevens doorlopen en een actie uitvoert voor elk item.  Dit is mogelijk via de `foreach` in te grijpen.  In de ontwerpfunctie, kunt u opgeven om toe te voegen een voor elke lus.  Na het selecteren van de matrix die u wilt doorlopen, kunt u beginnen acties toe te voegen.  U bent momenteel beperkt tot één actie per foreach lus, maar deze beperking wordt in de komende weken worden opgeheven.  Eenmaal binnen de lus kunt u beginnen om op te geven wat er moet gebeuren op elke waarde van de matrix.
+Logic Apps kunt u een set gegevens doorlopen en een actie uitvoert voor elk item.  Dit is mogelijk via de `foreach` in te grijpen.  In de ontwerpfunctie, kunt u opgeven om toe te voegen een voor elke lus.  Na het selecteren van de matrix die u wilt doorlopen, kunt u beginnen acties toe te voegen.  U kunt meerdere acties per foreach lus toevoegen.  Eenmaal binnen de lus kunt u beginnen om op te geven wat er moet gebeuren op elke waarde van de matrix.
 
 Als weergave code wordt gebruikt, kunt u een voor elke lus zoals hieronder.  Dit is een voorbeeld van een voor elke lus die voor elke e-mailadres dat 'microsoft.com' bevat een e-mailbericht verzendt:
 
@@ -137,7 +137,7 @@ SplitOn kan worden opgegeven in de weergave van de code als het volgende voorbee
 }
 ```
 
-## <a name="scopes"></a>Scopes
+## <a name="scopes"></a>Bereiken
 
 Het is mogelijk een reeks acties samen met een scope groeperen.  Dit is vooral handig voor het implementeren van afhandeling van uitzonderingen.  U kunt in de ontwerpfunctie voor toevoegen van een nieuwe scope en gaan alle acties daarbinnen toevoegen.  U kunt bereiken definiëren in de codeweergave als volgt:
 
