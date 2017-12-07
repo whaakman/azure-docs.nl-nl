@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 11/27/2017
-ms.openlocfilehash: c77ea674a1f8ad2b4c879f65a3fdb6758e3ddf63
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d462bb19b7a662f7d65529b5a2ec9f65be19d131
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Een Azure-database voor PostgreSQL maken met de Azure CLI
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze Quick Start laat zien hoe u een Azure-database voor PostgreSQL-server kunt maken in een [Azure resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) met de Azure CLI.
@@ -30,7 +30,7 @@ Als u de CLI lokaal uitvoert, moet u zich aanmelden bij uw account met behulp va
 az login
 ```
 
-Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer een specifiek abonnements-ID in uw account met de opdracht [az account set](/cli/azure/account#set).
+Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource moet worden gefactureerd. Selecteer een specifiek abonnements-ID in uw account met de opdracht [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -44,7 +44,7 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken
 
-Maak een [Azure-database voor PostgreSQL-server](overview.md) met behulp van de opdracht [az postgres server create](/cli/azure/postgres/server#create). Een server bevat een groep met databases die worden beheerd als groep. 
+Maak een [Azure-database voor PostgreSQL-server](overview.md) met behulp van de opdracht [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Een server bevat een groep met databases die worden beheerd als groep. 
 
 In het volgende voorbeeld wordt een server gemaakt met de naam `mypgserver-20170401` in uw resourcegroep `myresourcegroup` met aanmeldgegevens van de serverbeheerder `mylogin`. De naam van een server komt overeen met een DNS-naam en moet dus globaal uniek zijn in Azure. Vervang het `<server_admin_password>` door uw eigen waarde.
 ```azurecli-interactive
@@ -134,7 +134,7 @@ Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprog
 3.  In het dialoogvenster **Maken - Server**, tabblad **Algemeen**, voert u een unieke beschrijvende naam in voor de server. Bijvoorbeeld **Azure PostgreSQL Server**.
  ![pgAdmin-hulpprogramma - Maken - Server](./media/quickstart-create-server-database-azure-cli/1-pgadmin-create-server.png)
 4.  In het dialoogvenster **Maken - Server**, tabblad **Verbinding**:
-    - Geef de volledige gekwalificeerde servernaam op (bijvoorbeeld **mypgserver-20170401.postgres.database.azure.com**) in het vak **Hostnaam/-adres**. 
+    - Geef de volledige servernaam op (bijvoorbeeld **mypgserver-20170401.postgres.database.azure.com**) in het vak **Hostnaam/-adres**. 
     - Typ 5432 in het vak **Poort**. 
     - Typ de **Aanmeldgegevens voor de serverbeheerder (user@mypgserver)** die u eerder hebt verkregen in deze Quick Start en het wachtwoord dat u aanmaakte toen u de server maakte, in de respectieve vakken **Gebruikersnaam** en **Wachtwoord**.
     - Selecteer **SSL-modus** als **Vereist**. Standaard worden alle Azure PostgreSQL-servers gemaakt met de optie SSL afdwingen ingeschakeld. Zie [SSL afdwingen](./concepts-ssl-connection-security.md) als u het afdwingen van SSL wilt uitschakelen.
