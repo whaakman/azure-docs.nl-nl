@@ -8,15 +8,7 @@ VM-grootten voor algemeen gebruik bieden taakverdeling verhouding van de CPU voo
 
 - De basislaaggrootten zijn met name bedoeld voor ontwikkelworkloads en andere toepassingen waarvoor geen taakverdeling, automatische schaling of geheugenintensieve virtuele machines zijn vereist. Zie [Prijzen van virtuele machines](https://azure.microsoft.com/pricing/details/virtual-machines/) voor informatie over de VM-grootten die geschikter zijn voor productietoepassingen (grootten voor virtuele machines) [virtual-machines-size-specs.md] en voor informatie over prijzen van virtuele machines.
 
-## <a name="b-series-preview"></a>B-serie (Preview)
-
-> [!NOTE] 
-> Voorbeelden zijn beschikbaar gemaakt voor u op voorwaarde dat u akkoord met de gebruiksvoorwaarden gaat. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
-> Dit voorbeeld zijn beperkt tot de volgende gebieden:
-> - VS - West 2
-> - VS - Oost
-> - Europa - West
-> - Azië en Stille Oceaan - zuidoostelijke
+## <a name="b-series"></a>B-serie
 
 De B-serie burstable VM's zijn ideaal voor workloads die niet moet de volledige prestaties van de CPU continu, zoals webservers, kleine databases en ontwikkeling en testen van omgevingen. Deze werkbelastingen hebben doorgaans burstable prestatie-eisen. De B-reeks biedt deze klanten de mogelijkheid om aan te schaffen van een VM-grootte met een basislijn voor prijs morele waarmee de VM-instantie om op te bouwen tegoed bij kleiner zijn dan de algemene prestatiegegevens gebruik van de virtuele machine. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven de VM-basislijn met maximaal 100% CPU wanneer uw toepassing hoger CPU-prestaties vereist.
 
@@ -31,7 +23,7 @@ De B-serie burstable VM's zijn ideaal voor workloads die niet moet de volledige 
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3-serie
+## <a name="dsv3-series"></a>Dsv3-reeks *
 
 ACU: 160-190
 
@@ -46,9 +38,9 @@ Grootten uit de Dsv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8/hoog                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8 / zeer hoge                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / zeer hoge                                       |
+* Dsv3-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
 
-
-## <a name="dv3-series"></a>Dv3-serie
+## <a name="dv3-series"></a>Dv3-reeks * 
 
 ACU: 160-190
 
@@ -65,7 +57,7 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/hoog                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / zeer hoge                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / zeer hoge                     |
-
+* Dv3-serie van de virtuele machine zijn uitgerust met Intel® Hyper-Threading-technologie
 
 ## <a name="dsv2-series"></a>DSv2-serie
 
