@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 5cad44dc7bf415002b3c9872fffdcf0d54bb6ad6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e59528df6a66979c3fc2f596e3e94c1f51f0111
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory-cmdlets van versie 2 voor groepsbeheer
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Dit artikel bevat voorbeelden van hoe u PowerShell gebruikt voor het beheren van uw groepen in Azure Active Directory (Azure AD).  Deze ook wordt uitgelegd hoe u met de Azure AD PowerShell-module ophalen instellen. Eerst moet u [downloaden van de Azure AD PowerShell-module](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="installing-the-azure-ad-powershell-module"></a>De Azure AD PowerShell-module installeren
+## <a name="install-the-azure-ad-powershell-module"></a>Installeer de Azure AD PowerShell-module
 Gebruik de volgende opdrachten voor het installeren van de Azure AD PowerShell-module:
 
     PS C:\Windows\system32> install-module azuread
@@ -46,7 +46,7 @@ Controleer of de module is geïnstalleerd, moet u de volgende opdracht gebruiken
 
 U kunt nu starten met de cmdlets in de module. Voor een volledige beschrijving van de cmdlets in de Azure AD-module raadpleegt u de online documentatie bij [Azure Active Directory PowerShell versie 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="connecting-to-the-directory"></a>Verbinding maken met de map
+## <a name="connect-to-the-directory"></a>Verbinding maken met de directory
 Voordat u kunt het beheer van groepen met behulp van Azure AD PowerShell-cmdlets, moet u de PowerShell-sessie verbinding maken met de map die u wilt beheren. Gebruik de volgende opdracht:
 
     PS C:\Windows\system32> Connect-AzureAD
@@ -59,8 +59,10 @@ De cmdlet wordt u gevraagd om de referenties die u gebruiken wilt voor toegang t
 
 U kunt nu starten met de AzureAD-cmdlets voor het beheren van groepen in uw directory.
 
-## <a name="retrieving-groups"></a>Bij het ophalen van groepen
-U kunt de cmdlet Get-AzureADGroups gebruiken voor het ophalen van de bestaande groepen in uw directory. Gebruik de cmdlet zonder parameters voor het ophalen van alle groepen in de map:
+## <a name="retrieve-groups"></a>Groepen ophalen
+Voor het bestaande groepen ophalen uit de directory, gebruikt u de cmdlet Get-AzureADGroups. 
+
+Gebruik de cmdlet zonder parameters voor het ophalen van alle groepen in de map:
 
     PS C:\Windows\system32> get-azureadgroup
 
@@ -108,14 +110,14 @@ U kunt zoeken naar een specifieke groep met de - filterparameter. Deze parameter
     SecurityEnabled              : True
 
 > [!NOTE] 
-> De AzureAD PowerShell-cmdlets implementeren de OData-query-norm. Zie voor meer informatie **$filter** in [OData-query-opties voor systeem met behulp van de OData-eindpunt](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> De Azure AD PowerShell-cmdlets implementeren de OData-query-norm. Zie voor meer informatie **$filter** in [OData-query-opties voor systeem met behulp van de OData-eindpunt](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
-## <a name="creating-groups"></a>Groepen maken
+## <a name="create-groups"></a>Groepen maken
 Voor het maken van een nieuwe groep in uw directory, gebruikt u de cmdlet New-AzureADGroup. Deze cmdlet maakt een nieuwe beveiligingsgroep met de naam 'Marketing':
 
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 
-## <a name="updating-groups"></a>Bijwerken van groepen
+## <a name="update-groups"></a>Groepen bijwerken
 Gebruik de cmdlet Set-AzureADGroup voor het bijwerken van een bestaande groep. In dit voorbeeld wilt wordt de eigenschap DisplayName van de groep 'Intune-beheerders.' wijzigen Eerst we de groep met de cmdlet Get-AzureADGroup bent zoeken en filteren met het kenmerk DisplayName:
 
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -160,18 +162,20 @@ Nu als we de groep opnieuw vinden, ziet u dat de eigenschap Description is bijge
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="deleting-groups"></a>Groepen verwijderen
+## <a name="delete-groups"></a>Groepen verwijderen
 Als u wilt verwijderen van groepen van uw directory, gebruikt u de cmdlet Remove-AzureADGroup als volgt:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="managing-members-of-groups"></a>Leden van groepen beheren
-Als u moet nieuwe leden toevoegen aan een groep, gebruikt u de cmdlet Add-AzureADGroupMember. Een lid met deze opdracht toegevoegd aan de groep van de Intune-beheerders die hebben we in het vorige voorbeeld gebruikt:
+## <a name="manage-group-membership"></a>Groepslidmaatschap beheren 
+### <a name="add-members"></a>Leden toevoegen
+U kunt nieuwe leden toevoegen aan een groep door de cmdlet Add-AzureADGroupMember te gebruiken. Een lid met deze opdracht toegevoegd aan de groep van de Intune-beheerders die hebben we in het vorige voorbeeld gebruikt:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
 De parameter - object-id is de object-id van de groep waarop we willen geen lid toevoegen en de RefObjectId - id van de gebruiker wilt toevoegen als lid aan de groep is.
 
+### <a name="get-members"></a>Leden ophalen
 Als u de bestaande leden van een groep, gebruikt u de cmdlet Get-AzureADGroupMember, zoals in dit voorbeeld:
 
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -181,11 +185,13 @@ Als u de bestaande leden van een groep, gebruikt u de cmdlet Get-AzureADGroupMem
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
+### <a name="remove-members"></a>Leden verwijderen
 U kunt het lid dat we eerder zijn toegevoegd aan de groep verwijderen met de cmdlet Remove-AzureADGroupMember, zoals hier wordt weergegeven:
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-Om te controleren of de lidmaatschappen van de groep van een gebruiker, selecteer AzureADGroupIdsUserIsMemberOf cmdlet te gebruiken. Deze cmdlet heeft als de parameters de object-id van de gebruiker waarvoor u wilt controleren van de groepslidmaatschappen en een lijst met groepen waarvoor u de lidmaatschappen controleren. De lijst met groepen moet zijn opgegeven in de vorm van een complex variabele van type 'Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck', zodat we eerst moet een variabele met dit type maken:
+### <a name="verify-members"></a>Controleer of leden
+Om te controleren of de groepslidmaatschappen van een gebruiker, selecteer AzureADGroupIdsUserIsMemberOf cmdlet te gebruiken. Deze cmdlet heeft als de parameters de object-id van de gebruiker waarvoor u wilt controleren van de groepslidmaatschappen en een lijst met groepen waarvoor u de lidmaatschappen controleren. De lijst met groepen moet zijn opgegeven in de vorm van een complex variabele van type 'Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck', zodat we eerst moet een variabele met dit type maken:
 
     PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
 
@@ -204,7 +210,24 @@ Nu als we het groepslidmaatschap van een gebruiker met ObjectID 72cd4bbd-2594-40
 
 De geretourneerde waarde is een lijst met groepen waarvan deze gebruiker lid is. U kunt deze methode om te controleren, contactpersonen, groepen of Service-Principals lidmaatschap voor een opgegeven lijst met groepen met behulp van de Select-AzureADGroupIdsContactIsMemberOf, selecteer AzureADGroupIdsGroupIsMemberOf ook toepassen of Selecteer AzureADGroupIdsServicePrincipalIsMemberOf
 
-## <a name="managing-owners-of-groups"></a>Eigenaren van groepen beheren
+## <a name="disable-group-creation-by-your-users"></a>Groep maken door uw gebruikers uitschakelen
+U kunt voorkomen dat gebruikers zonder beheerdersrechten maken van beveiligingsgroepen. Het standaardgedrag in Microsoft Online Directory Services (MSODS) is niet-beheerders gebruikers groepen maken, kunnen al dan niet Self-service groepsbeheer (SSGM) ook is ingeschakeld. De instelling SSGM bepaalt gedrag alleen in het deelvenster Mijn Apps toegang. 
+
+Het maken van de groep voor niet-beheerders uitschakelen:
+
+1. Controleer of de niet-beheerders mogen om groepen te maken:
+   
+  ````
+  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+  ````
+  
+2. Als het resultaat `UsersPermissionToCreateGroupsEnabled : True`, en vervolgens gebruikers niet-beheerders kunnen groepen maken. Deze functie uitschakelen:
+  
+  ```` 
+  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+  ````
+  
+## <a name="manage-owners-of-groups"></a>Eigenaren van groepen beheren
 Als eigenaars toevoegen aan een groep, kunt u de cmdlet Add-AzureADGroupOwner:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -229,14 +252,14 @@ Als u een eigenaar verwijderen uit een groep wilt, gebruikt u de cmdlet Remove-A
 Wanneer een groep is gemaakt, bepaalde eindpunten toestaan dat de eindgebruiker een mailNickname of alias moet worden gebruikt als onderdeel van het e-mailadres van de groep opgeven. Groepen met de volgende bijzondere rechten e-aliassen kunnen alleen worden gemaakt door een globale beheerder van Azure AD. 
   
 * misbruik 
-* Beheerder 
+* beheerder 
 * Beheerder 
 * hostmaster 
 * majordomo 
 * postbeheerder 
 * hoofdmap 
 * Beveiligen 
-* Beveiliging 
+* security 
 * SSL-beheerder 
 * beheerder 
 

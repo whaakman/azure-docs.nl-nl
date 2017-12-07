@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: c2bd67afc0c289de94019497e57b57f97a759f3a
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 1a30b42e6e84edf9a7cef861aaf6a60e87c473d0
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Schakel foutopsporing op afstand in bij het gebruik van onafgebroken levering om te publiceren op Azure
 U kunt foutopsporing op afstand inschakelen in Azure, voor cloudservices of virtuele machines, wanneer u [continue levering](cloud-services-dotnet-continuous-delivery.md) publiceren naar Azure met de volgende stappen.
@@ -27,25 +27,28 @@ U kunt foutopsporing op afstand inschakelen in Azure, voor cloudservices of virt
 1. Op de agent build instellen van de eerste omgeving voor Azure zoals wordt beschreven in [Command-Line bouwen voor Azure](http://msdn.microsoft.com/library/hh535755.aspx).
 2. Omdat de foutopsporing op afstand-runtime (msvsmon.exe) vereist voor het pakket is, installeert de **externe hulpprogramma's voor Visual Studio**.
 
-    * [Externe hulpprogramma's voor Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
-    * [Externe hulpprogramma's voor Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
-    * [Externe hulpprogramma's voor Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
+   * [Externe hulpprogramma's voor Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
+   * [Externe hulpprogramma's voor Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
+   * [Externe hulpprogramma's voor Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    Als alternatief kunt kunt u de binaire bestanden voor foutopsporing op afstand kopiëren van een systeem met Visual Studio is geïnstalleerd.
+   Als alternatief kunt kunt u de binaire bestanden voor foutopsporing op afstand kopiëren van een systeem met Visual Studio is geïnstalleerd.
 
 3. Een certificaat te maken, zoals wordt beschreven in [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md). Houd de pfx en het RDP-certificaatvingerafdruk en upload het certificaat naar de doel-cloudservice.
 4. Gebruik de volgende opties op de opdrachtregel MSBuild te verpakken met foutopsporing op afstand is ingeschakeld. (Vervangen door feitelijke paden naar uw systeem- en bestanden voor de hoek tussen items.)
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```cmd
+   msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```
    
-    `VSX64RemoteDebuggerPath`het pad naar de map is waarin msvsmon.exe in de externe hulpprogramma's voor Visual Studio.
-    `RemoteDebuggerConnectorVersion`is de Azure SDK-versie in uw cloudservice. Het moet ook overeenkomen met de versie met Visual Studio is geïnstalleerd.
+   `VSX64RemoteDebuggerPath`het pad naar de map is waarin msvsmon.exe in de externe hulpprogramma's voor Visual Studio.
+   `RemoteDebuggerConnectorVersion`is de Azure SDK-versie in uw cloudservice. Het moet ook overeenkomen met de versie met Visual Studio is geïnstalleerd.
+
 5. Publiceren naar de doel-cloudservice met behulp van de pakket- en .cscfg-bestand gegenereerd in de vorige stap.
 6. Importeer het certificaat (.pfx-bestand) met de machine met Visual Studio met Azure SDK voor .NET is geïnstalleerd. Zorg ervoor dat voor het importeren naar de `CurrentUser\My` certificaatarchief, anders koppelen aan het foutopsporingsprogramma in Visual Studio zal mislukken.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Foutopsporing op afstand voor virtuele machines inschakelen
 1. Maak een virtuele machine van Azure. Zie [maken van een virtuele Machine met WindowsServer](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of [maken en beheren van virtuele Machines in Visual Studio in Azure](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. Op de [Azure classic portal-pagina](http://go.microsoft.com/fwlink/p/?LinkID=269851), dashboard van de virtuele machine om te zien van de virtuele machine weergeven **RDP CERTIFICAATVINGERAFDRUK**. Deze waarde wordt gebruikt voor de `ServerThumbprint` waarde in de configuratie voor de uitbreiding.
+2. Op de Azure portal] (http://go.microsoft.com/fwlink/p/?LinkID=269851), gaat u naar de virtuele machine van de virtuele machine **RDP CERTIFICAATVINGERAFDRUK**. Deze waarde wordt gebruikt voor de `ServerThumbprint` waarde in de configuratie voor de uitbreiding.
 3. Maken van een clientcertificaat, zoals wordt beschreven in [certificaten voor Azure Cloud Services-overzicht](cloud-services-certs-create.md) (Houd de pfx en het RDP-certificaatvingerafdruk).
 4. Azure Powershell installeren (versie 0.7.4 of hoger) zoals wordt beschreven in [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
 5. Voer het volgende script de RemoteDebug-uitbreiding in te schakelen. Vervang de paden en persoonlijke gegevens door uw eigen, zoals de naam van abonnement, servicenaam en vingerafdruk.

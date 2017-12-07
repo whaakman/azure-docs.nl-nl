@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Overzicht van de sjabloon voor Widevine-licentie
-## <a name="overview"></a>Overzicht
-Azure Media Services kunt u nu configureren en Widevine-licenties aanvragen. Wanneer de eindgebruiker speler probeert uw Widevine beveiligde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties voor het verkrijgen van een licentie. Als de licentieservice de aanvraag goedkeurt, moet deze de licentie die is verzonden naar de client en kan worden gebruikt om te ontsleutelen en de inhoud van de opgegeven spelen uitgeeft.
+Azure Media Services kunt u configureren en Widevine-licenties aanvragen. Wanneer de eindgebruiker speler probeert uw Widevine beveiligde inhoud af te spelen, wordt een aanvraag verzonden naar de service voor het leveren van licenties voor het verkrijgen van een licentie. Als de licentieservice de aanvraag goedkeurt, moet deze de licentie die is verzonden naar de client en kan worden gebruikt om te ontsleutelen en de inhoud van de opgegeven spelen uitgeeft.
 
 Widevine-licentie-aanvraag is opgemaakt als een JSON-bericht.  
 
@@ -72,7 +71,7 @@ Widevine-licentie-aanvraag is opgemaakt als een JSON-bericht.
 | session_init |JSON-structuur, Zie **initialisatie van de sessie** hieronder |Optionele gegevens doorgegeven aan een licentie. |
 | parse_only |Booleaanse waarde. waar of ONWAAR |De licentieaanvraag wordt geparseerd, maar er is geen licentie wordt verleend. De waarden echter formulier de licentieaanvraag zijn in het antwoord geretourneerd. |
 
-## <a name="content-key-specs"></a>Inhoudssleutel specificaties
+## <a name="content-key-specs"></a>Inhoud sleutel specificaties
 Als een bestaande beleid bestaat, hoeft niet op te geven van de waarden in de inhoud sleutel-specificaties.  Het bestaande beleid die zijn gekoppeld aan deze inhoud wordt gebruikt om te bepalen van de beveiliging van de uitvoer zoals HDCP en CGMS.  Als u een reeds bestaande beleid is niet geregistreerd bij de Server Widevine-licentie, kan de inhoudsprovider de waarden invoeren in de licentieaanvraag.   
 
 Elke content_key_specs moet worden opgegeven voor alle nummers, ongeacht de optie use_policy_overrides_exclusively. 
@@ -197,5 +196,5 @@ Het volgende voorbeeld laat zien hoe .NET API's gebruiken om te configureren van
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[PlayReady en/of Widevine Dynamic Common Encryption gebruiken](media-services-protect-with-drm.md)
+[PlayReady en/of Widevine Dynamic Common Encryption gebruiken](media-services-protect-with-playready-widevine.md)
 

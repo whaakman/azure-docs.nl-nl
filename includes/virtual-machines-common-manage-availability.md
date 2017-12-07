@@ -8,17 +8,17 @@ Er zijn drie scenario's die kunnen leiden tot een virtuele machine in Azure word
 
   Virtuele machines kunnen ook merken uitvaltijd in het onwaarschijnlijke geval van een stroomstoring of noodgeval die betrekking heeft op een hele datacenter of zelfs een hele regio. Voor deze scenario's, biedt Azure beveiligingsopties zoals [beschikbaarheid zones](../articles/availability-zones/az-overview.md) en [regio's gekoppeld](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-* **Gepland onderhoud** bestaat uit periodieke updates van het onderliggende Azure-platform die door Microsoft worden doorgevoerd ter verbetering van de algemene betrouwbaarheid, prestaties en beveiliging van de platform-infrastructuur waarop de virtuele machines worden uitgevoerd. Veel van deze updates worden uitgevoerd zonder dat dit van invloed is op uw virtuele machines of Cloud Services (zie [Onderhoud ter behoud van VM's](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance)). Wanneer mogelijk maakt het Azure-platform gebruik van Onderhoud ter behoud van VM's. In zeldzame gevallen kan het echter noodzakelijk zijn om de virtuele machine opnieuw op te starten om de vereiste updates toe te passen op de onderliggende infrastructuur. In dit geval kunt u gepland onderhoud van Azure gebruiken met de bewerking Onderhoud-Opnieuw implementeren door het onderhoud voor de betrokken VM's te initiëren in het geschikte tijdvenster. Zie [Gepland onderhoud voor virtuele machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/) voor meer informatie.
+* **Gepland onderhoud** bestaat uit periodieke updates van het onderliggende Azure-platform die door Microsoft worden doorgevoerd ter verbetering van de algemene betrouwbaarheid, prestaties en beveiliging van de platform-infrastructuur waarop de virtuele machines worden uitgevoerd. Veel van deze updates worden uitgevoerd zonder dat dit van invloed is op uw virtuele machines of Cloud Services (zie [Onderhoud ter behoud van VM's](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance)). Wanneer mogelijk maakt het Azure-platform gebruik van Onderhoud ter behoud van VM's. In zeldzame gevallen kan het echter noodzakelijk zijn om de virtuele machine opnieuw op te starten om de vereiste updates toe te passen op de onderliggende infrastructuur. In dit geval kunt u gepland onderhoud van Azure gebruiken met de bewerking Onderhoud-Opnieuw implementeren door het onderhoud voor de betrokken VM's te initiëren in het geschikte tijdvenster. Zie [Gepland onderhoud voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/) voor meer informatie.
 
 
 Om de gevolgen van downtime vanwege een of meer van deze gebeurtenissen te beperken, raden we aan voor uw virtuele machines de volgende aanbevolen procedures voor hoge beschikbaarheid te volgen:
 
 * [Configureer meerdere virtuele machines in een beschikbaarheidsset voor redundantie]
 * [Beheerde schijven voor virtuele machines in een beschikbaarheidsset gebruiken]
-* [Use Scheduled Events to proactively response to VM impacting events (Geplande gebeurtenissen gebruiken om proactief te reageren op gebeurtenissen die VM's beïnvloeden)] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Gebeurtenissen gepland om proactief een reactie op gebeurtenissen van invloed op de virtuele machine te gebruiken] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configureer elke toepassingslaag in afzonderlijke beschikbaarheidssets]
 * [Combineer het gebruik van een load balancer met beschikbaarheidssets]
-* [Beschikbaarheid zones gebruiken om u te beschermen tegen datacenter niveau fouten]
+* [Beschikbaarheid zones gebruiken om te beschermen tegen datacenter niveau fouten]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configureer meerdere virtuele machines in een beschikbaarheidsset voor redundantie
 U wordt aangeraden om twee of meer virtuele machines in een beschikbaarheidsset te groeperen, om uw toepassing van redundantie te voorzien. Deze configuratie in een datacenter zorgt ervoor dat ten minste één virtuele machine tijdens beide gepland of ongepland onderhoud, beschikbaar is en voldoet aan de 99,95% Azure SLA. Zie de [SLA voor virtuele machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) voor meer informatie.
@@ -81,3 +81,4 @@ Meer informatie over het implementeren van een [Windows](../articles/virtual-mac
 [Combineer het gebruik van een load balancer met beschikbaarheidssets]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Beheerde schijven voor virtuele machines in een beschikbaarheidsset gebruiken]: #use-managed-disks-for-vms-in-an-availability-set
+[Beschikbaarheid zones gebruiken om te beschermen tegen datacenter niveau fouten]: #use-availability-zones-to-protect-from-datacenter-level-failures

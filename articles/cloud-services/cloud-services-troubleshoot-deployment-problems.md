@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Problemen met cloud service-implementatie oplossen
 Wanneer u een cloud service application-pakket in Azure implementeert, kunt u informatie over de implementatie van de **eigenschappen** deelvenster in de Azure-portal. Kunt u de details in dit deelvenster om te helpen bij het oplossen van problemen met de cloudservice en geef deze informatie aan het Azure-ondersteuning bij het openen van een nieuwe ondersteuningsaanvraag.
@@ -27,7 +27,6 @@ Wanneer u een cloud service application-pakket in Azure implementeert, kunt u in
 U vindt de **eigenschappen** deelvenster als volgt:
 
 * Klik op de implementatie van uw cloudservice in de Azure portal, **alle instellingen**, en klik vervolgens op **eigenschappen**.
-* Klik op de implementatie van uw cloudservice in de klassieke Azure portal, **DASHBOARD**, dat zich bevindt in de rechterbenedenhoek van de pagina (onder **snelle weergave**). Let erop dat er geen label 'Eigenschappen' aanwezig op dit deelvenster is.
 
 > [!NOTE]
 > Kunt u de inhoud van de **eigenschappen** deelvenster naar het Klembord door te klikken op het pictogram in de rechterbovenhoek van het deelvenster.

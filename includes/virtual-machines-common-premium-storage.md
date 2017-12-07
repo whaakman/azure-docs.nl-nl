@@ -26,7 +26,7 @@ Aan de slag met Premium-opslag [uw gratis Azure-account maken](https://azure.mic
 Zie voor meer informatie over het migreren van uw bestaande virtuele machines naar Premium-opslag [een Windows VM van niet-beheerde schijven converteren naar beheerde schijven](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) of [een Linux-VM van niet-beheerde schijven converteren naar beheerde schijven](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Premium-opslag is beschikbaar in de meeste regio's. Voor de lijst met beschikbare regio's, in [Azure-services per regio](https://azure.microsoft.com/regions/#services), blik op de regio's waarin ondersteund Premium ondersteuning grootte-serie VMs (DS-serie, DSV2-serie GS-serie en virtuele machines Fs-serie) worden ondersteund.
+> Premium-opslag is beschikbaar in de meeste regio's. Voor een lijst met beschikbare regio's, raadpleegt u de rij voor **schijfopslag** in [Azure producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Functies

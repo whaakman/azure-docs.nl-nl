@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Beveiligen van uw inhoud met Apple FairPlay of Microsoft PlayReady HLS
 Azure Media Services kunt u uw inhoud HTTP Live Streaming (HLS) dynamisch versleutelen met behulp van de volgende indelingen:  
@@ -33,12 +33,12 @@ Azure Media Services kunt u uw inhoud HTTP Live Streaming (HLS) dynamisch versle
 
 De volgende afbeelding toont de **HLS + FairPlay of PlayReady dynamische versleuteling** werkstroom.
 
-![Diagram van de dynamische versleuteling werkstroom](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagram van de dynamische versleuteling werkstroom](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Dit onderwerp wordt beschreven hoe u Media Services gebruiken voor het dynamisch versleutelen van uw inhoud HLS met Apple FairPlay. U ziet ook hoe u met het Media Services-service voor het leveren van licenties FairPlay-licenties aan clients leveren.
+In dit artikel laat zien hoe Media Services gebruiken voor het dynamisch versleutelen van uw inhoud HLS met Apple FairPlay. U ziet ook hoe u met het Media Services-service voor het leveren van licenties FairPlay-licenties aan clients leveren.
 
 > [!NOTE]
-> Als u wilt er ook voor het versleutelen van uw inhoud HLS met PlayReady, moet u een algemene inhoudssleutel maken en deze koppelen aan uw asset. U moet ook configureren autorisatiebeleid voor de inhoudssleutel, zoals beschreven in [PlayReady met behulp van dynamische algemene versleuteling](media-services-protect-with-drm.md).
+> Als u wilt er ook voor het versleutelen van uw inhoud HLS met PlayReady, moet u een algemene inhoudssleutel maken en deze koppelen aan uw asset. U moet ook configureren autorisatiebeleid voor de inhoudssleutel, zoals beschreven in [PlayReady met behulp van dynamische algemene versleuteling](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,14 +65,14 @@ De volgende zaken moeten worden ingesteld op Media Services sleutellevering kant
         Ga naar de map waarin het certificaat FairPlay en andere bestanden die door Apple worden geleverd zijn.
     2. Voer de volgende opdracht uit via de opdrachtregel. Dit converteert het cer-bestand naar een .pem-bestand.
 
-        'C:\OpenSSL-Win32\bin\openssl.exe' x509-informeren der-in fairplay.cer-out fairplay out.pem
+        'C:\OpenSSL-Win32\bin\openssl.exe' x509-informeren der-in FairPlay.cer-out FairPlay out.pem
     3. Voer de volgende opdracht uit via de opdrachtregel. Dit converteert het .pem-bestand naar een pfx-bestand met de persoonlijke sleutel. Het wachtwoord voor het pfx-bestand wordt vervolgens door OpenSSL gevraagd.
 
-        'C:\OpenSSL-Win32\bin\openssl.exe' pkcs12-Exporteer - fairplay out.pfx-inkey privatekey.pem-in fairplay out.pem - passin file:privatekey-pem-pass.txt
+        'C:\OpenSSL-Win32\bin\openssl.exe' pkcs12-Exporteer - FairPlay out.pfx-inkey privatekey.pem-in FairPlay out.pem - passin file:privatekey-pem-pass.txt
   * **Certificaat van de App-wachtwoord**: het wachtwoord voor het maken van het pfx-bestand.
   * **App-Cert wachtwoord ID**: U moet het wachtwoord, vergelijkbaar met hoe ze andere Media Services-sleutels uploaden uploaden. Gebruik de **ContentKeyType.FairPlayPfxPassword** enum-waarde ophalen van de Media Services-ID. Dit is wat ze moeten binnen de beleidsoptie sleutellevering gebruiken.
   * **IV**: dit is een willekeurige waarde van 16 bytes. Deze moet overeenkomen met de iv in het leveringsbeleid voor Assets. U de iv genereren en plaatsen op beide plaatsen: het leveringsbeleid voor Assets en de optie voor het beleid van sleutel levering.
-  * **VRAAG**: deze sleutel wordt ontvangen bij het genereren van de certificeringsinstantie van Apple Developer portal. Elke ontwikkelteam ontvangt een unieke vraag. Sla een kopie van de vraag en sla deze op een veilige plaats. U moet de vraag als FairPlayAsk met Media Services later configureren.
+  * **VRAAG**: deze sleutel wordt ontvangen bij het genereren van de certificeringsinstantie van Apple Developer portal. Elke ontwikkelteam ontvangt een unieke vraag. Sla een kopie van de vraag en sla deze op een veilige plaats. U moet vraag als FairPlayAsk met Media Services later configureren.
   * **Vraag-ID**: deze ID wordt verkregen tijdens het uploaden van vraag in Media Services. U moet een vraag uploaden met behulp van de **ContentKeyType.FairPlayAsk** enum-waarde. Als het resultaat wordt geretourneerd met de ID van de Media Services en dit is wat moet worden gebruikt bij het instellen van de optie voor het beleid van sleutel levering.
 
 De volgende zaken moeten worden ingesteld door de client FPS:
@@ -125,11 +125,11 @@ U kunt player apps ontwikkelen met behulp van de iOS-SDK. U hebt om te kunnen Fa
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> FairPlay afspelen gebruiksklaar biedt geen ondersteuning voor Azure Media Player. Als u FairPlay afspelen op MAC OS X, Windows media player voorbeeld te verkrijgen uit het Apple developer-account.
+> Azure Media Player ondersteunt FairPlay afspelen. Zie [Azure Media Player documentatie](https://amp.azure.net/libs/amp/latest/docs/index.html) voor meer informatie.
 >
 >
 
-## <a name="streaming-urls"></a>Streaming-URL 's
+## <a name="streaming-urls"></a>Streaming-URL's
 Als uw asset is versleuteld met meer dan één DRM, moet u een tag versleuteling in de streaming-URL: (format = 'm3u8-aapl', versleuteling = 'xxx').
 
 Het volgende letten:
@@ -157,7 +157,7 @@ Het volgende voorbeeld demonstreert de mogelijkheid om Media Services gebruiken 
 Overschrijf de code in uw Program.cs-bestand met de code die wordt weergegeven in deze sectie.
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Zie voor meer informatie [dit](media-services-dotnet-manage-entities.md#limit-access-policies) artikel.
 
 Zorg ervoor dat variabelen zo worden bijgewerkt dat ze verwijzen naar de mappen waar uw invoerbestanden zich bevinden.
 

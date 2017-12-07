@@ -214,6 +214,6 @@ Als u wilt zoeken in volledige informatie over de REST-API-specificaties, Contro
     * [Linux-VM met beheerde-schijf](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [Volledige lijst met beheerde schijf-sjablonen](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * Ga naar de [overzicht van Azure schijven beheerd](../articles/virtual-machines/windows/managed-disks-overview.md) document voor meer informatie over beheerde schijven.
-* De sjabloon-naslagdocumentatie voor bronnen voor virtuele machines controleren in via de [Microsoft.Compute/virtualMachines sjabloonverwijzing](/templates/microsoft.compute/virtualmachines) document.
-* Bekijk de naslagdocumentatie over de sjabloon voor de schijfbronnen in via de [Microsoft.Compute/disks sjabloonverwijzing](/templates/microsoft.compute/disks) document.
+* De sjabloon-naslagdocumentatie voor bronnen voor virtuele machines controleren in via de [Microsoft.Compute/virtualMachines sjabloonverwijzing](/azure/templates/microsoft.compute/virtualmachines) document.
+* Bekijk de naslagdocumentatie over de sjabloon voor de schijfbronnen in via de [Microsoft.Compute/disks sjabloonverwijzing](/azure/templates/microsoft.compute/disks) document.
  

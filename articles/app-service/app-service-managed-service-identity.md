@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Het gebruik van Azure Managed Service-identiteit (openbare preview) in App Service en Azure Functions
 
@@ -45,6 +45,35 @@ Als u een beheerde service-identiteit in de portal instelt, u eerst een toepassi
 4. Switch **geregistreerd bij Azure Active Directory** naar **op**. Klik op **Opslaan**.
 
 ![Beheerde Service-identiteit in App Service](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Azure CLI gebruiken
+
+Als u een beheerde service-identiteit met de Azure CLI instelt, moet u gebruiken de `az webapp assign-identity` opdracht op basis van een bestaande toepassing. Hebt u drie opties voor het uitvoeren van de voorbeelden in deze sectie:
+
+- Gebruik [Azure Cloud Shell](../cloud-shell/overview.md) vanuit de Azure-portal.
+- Gebruik de ingesloten Azure Cloud Shell via de 'Deze probeer' knop, zich in de rechterbovenhoek van elk codeblok hieronder.
+- [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 of hoger) als u liever een lokale CLI-console te gebruiken. 
+
+De volgende stappen wordt beschreven hoe u een web-app maken en toewijzen van een identiteit met behulp van de CLI:
+
+1. Als u de Azure CLI in een lokale console, eerst aanmelden bij het gebruik van Azure [az aanmelding](/cli/azure/#login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waarmee u wilt de toepassing implementeren:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Maak een webtoepassing met behulp van de CLI. Zie voor meer voorbeelden van hoe de CLI gebruiken met App Service [App Service CLI voorbeelden](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Voer de `assign-identity` opdracht voor het maken van de identiteit voor deze toepassing:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Met behulp van een Azure Resource Manager-sjabloon
 
@@ -134,13 +163,13 @@ De **MSI_ENDPOINT** is een lokale URL waaruit uw app tokens kan aanvragen. Als u
 > |-----|-----|-----|
 > |Bron|Query’s uitvoeren|De AAD-bron-URI van de bron voor een token moet worden opgehaald.|
 > |API-versie|Query’s uitvoeren|De versie van de token API moet worden gebruikt. '2017-09-01' is momenteel de enige versie ondersteund.|
-> |Geheim|Koptekst|De waarde van de omgevingsvariabele MSI_SECRET.|
+> |geheim|Koptekst|De waarde van de omgevingsvariabele MSI_SECRET.|
 
 
 Een geslaagde 200 OK reactie bevat een JSON-hoofdtekst met de volgende eigenschappen:
 
 > [!div class="mx-tdBreakAll"]
-> |De naam van eigenschap|Beschrijving|
+> |Naam van eigenschap|Beschrijving|
 > |-------------|----------|
 > |access_token|Het aangevraagde toegangstoken. De webservice aanroepen kunt dit token voor verificatie aan de ontvangende webservice gebruiken.|
 > |expires_on|De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache.|

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Moet ik kiezen cloudservices of iets anders?
 Is Azure Cloud Services de keuze voor u? Azure biedt verschillende hosting modellen voor het uitvoeren van toepassingen. Elke biedt een andere set van services, zodat waarvoor u kiest een afhankelijk precies wat u probeert te doen.
@@ -50,7 +50,7 @@ Hoewel de toepassingen uitvoeren in virtuele machines, is het belangrijk te wete
 ## <a name="scaling-and-management"></a>Schaalbaarheid en beheer
 U kunt virtuele machines niet maken met Cloud-Services. In plaats daarvan het bieden van een configuratiebestand dat Azure aangeeft hoeveel van elk gewenst zoals **drie rolinstanties web** en **twee exemplaren van worker-rol**, en het platform maakt deze voor u.  U nog steeds kiezen [welke grootte](cloud-services-sizes-specs.md) die back-ups maken van virtuele machines moeten worden, maar u niet expliciet ze zelf maken. Als uw toepassing een grotere belasting te verwerken moet, kunt u vragen voor meer virtuele machines en Azure maakt die exemplaren. Als de belasting afneemt, kunt u die exemplaren afgesloten en betaalt voor hen stoppen.
 
-Een Cloud Services-servicetoepassing is doorgaans beschikbaar gesteld aan gebruikers via een proces in twee stappen. Een ontwikkelaar eerste [uploadt u de toepassing](cloud-services-how-to-create-deploy-portal.md) naar het faseringsgebied voor het platform. Wanneer de ontwikkelaar is gereed om te maken van de toepassing live, gebruiken ze de Azure-portal wisselen met productie voor fasering. Dit [schakelen tussen Faseren en productie](cloud-services-nodejs-stage-application.md) kan plaatsvinden zonder uitvaltijd, waarmee een actieve toepassing naar een nieuwe versie worden bijgewerkt zonder de gebruikers te verstoren.
+Een Cloud Services-servicetoepassing is doorgaans beschikbaar gesteld aan gebruikers via een proces in twee stappen. Een ontwikkelaar eerste [uploadt u de toepassing](cloud-services-how-to-create-deploy-portal.md) naar het faseringsgebied voor het platform. Wanneer de ontwikkelaar is gereed om te maken van de toepassing live, gebruiken ze de Azure-portal wisselen met productie voor fasering. Dit [schakelen tussen Faseren en productie](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) kan plaatsvinden zonder uitvaltijd, waarmee een actieve toepassing naar een nieuwe versie worden bijgewerkt zonder de gebruikers te verstoren.
 
 ## <a name="monitoring"></a>Bewaking
 Cloud-Services biedt ook de bewaking. Als Azure virtuele Machines die het detecteert een mislukte fysieke server en de virtuele machines die werden uitgevoerd op die server op een nieuwe machine opnieuw is opgestart. Maar Cloudservices detecteert ook mislukte VM's en toepassingen, niet alleen hardwarefouten. In tegenstelling tot virtuele Machines, heeft een agent binnen elke web- en werkrollen rol en het is daarom kunnen nieuwe VM's en exemplaren van een toepassing starten als er fouten optreden.

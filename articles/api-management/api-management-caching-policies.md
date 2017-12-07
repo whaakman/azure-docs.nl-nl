@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>De cachebeleidsregels API Management
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -51,7 +51,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -116,8 +116,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |toestaan dat persoonlijke-antwoord-schrijfcache|Als de waarde `true`, kunt opslaan in cache van aanvragen met een autorisatie-header.|Nee|onwaar|  
 |downstream-caching-type|Dit kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -none - downstream opslaan in cache is niet toegestaan.<br />-persoonlijke - downstream persoonlijke opslaan in cache is toegestaan.<br />-openbaar: persoonlijke en gedeelde downstream cache is toegestaan.|Nee|geen|  
 |must-revalidate|Wanneer downstream caching is ingeschakeld dit kenmerk schakelt in of uit de `must-revalidate` cache-control-instructie in de antwoorden van de gateway.|Nee|waar|  
-|door ontwikkelaars variëren|Ingesteld op `true` aan reacties van cache per sleutel van de ontwikkelaar.|Nee|onwaar|  
-|variëren-in-developer-groepen|Ingesteld op `true` aan reacties van cache per gebruikersrol.|Nee|onwaar|  
+|door ontwikkelaars variëren|Ingesteld op `true` aan reacties van cache per sleutel van de ontwikkelaar.|Ja||  
+|variëren-in-developer-groepen|Ingesteld op `true` aan reacties van cache per gebruikersrol.|Ja||  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

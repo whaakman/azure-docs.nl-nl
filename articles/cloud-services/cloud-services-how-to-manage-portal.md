@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Cloudservices beheren
-In de **Cloudservices (klassiek)** gebied van de Azure portal, kunt u de functie van een service of een implementatie bijwerken, een gefaseerde implementatie naar productie promoten, resources koppelen aan uw cloudservice zodat u de bronafhankelijkheden ziet en de resources samen schalen en verwijdert u een cloudservice of een implementatie.
+In de **Cloudservices** gebied van de Azure portal, kunt u de functie van een service of een implementatie bijwerken, een gefaseerde implementatie naar productie promoten, resources koppelen aan uw cloudservice, zodat u de bronafhankelijkheden en schaal ziet de resources samen en verwijderen van een cloud service of een implementatie.
 
 Meer informatie over het schalen van uw cloudservice is beschikbaar [hier](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Houd er rekening mee dat Gastbesturingssysteem updates en service operations her
 **Heeft een wisseling gevolgen voor de uitvaltijd voor de toepassing? Hoe moet ik verwerken?**
 
 Zoals beschreven in de laatste sectie, is een wisseling implementatie doorgaans snelle omdat het een configuratiewijziging in de Azure load balancer. In sommige gevallen kan echter kunt tien of meer seconden duren en leiden tot tijdelijke verbindingsfouten. Om te beperken van invloed op uw klanten, Overweeg de implementatie van [client Pogingslogica](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Procedure: een bron koppelen aan een cloudservice
-De Azure-portal niet is gekoppeld resources samen als de huidige klassieke Azure portal biedt. In plaats daarvan implementeert u aanvullende bronnen voor dezelfde resourcegroep wordt gebruikt door de Cloudservice.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Hoe: implementaties en een cloudservice verwijderen
 Voordat u een cloudservice verwijderen kunt, moet u elke bestaande implementatie verwijderen.

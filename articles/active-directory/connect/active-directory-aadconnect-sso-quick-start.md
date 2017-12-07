@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -127,7 +127,7 @@ De browser berekent standaard automatisch de juiste zone Internet- of intranetho
 
 ### <a name="browser-considerations"></a>Browser-overwegingen
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (alle platforms)
 
 Mozilla Firefox gebruik niet automatisch van Kerberos-verificatie. Elke gebruiker moet de Azure AD-URL's handmatig toevoegen aan hun Firefox-instellingen met behulp van de volgende stappen uit:
 1. Firefox uitvoeren en voer `about:config` in de adresbalk. Meldingen die u ziet worden genegeerd.
@@ -136,11 +136,15 @@ Mozilla Firefox gebruik niet automatisch van Kerberos-verificatie. Elke gebruike
 4. Voer https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net in het veld.
 5. Selecteer **OK** en de browser opnieuw te openen.
 
-#### <a name="safari-on-mac-os"></a>Safari op Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Zorg ervoor dat de machine met de Mac OS wordt gekoppeld aan Azure AD. Zie voor instructies voor deelname aan Azure AD, [Best Practices voor OS X integreren met Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome op Mac OS
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (alle platforms)
+
+Als u onderdrukt hebt de [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) of de [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) beleidsinstellingen in uw omgeving, zorg ervoor dat u toevoegt, URL's van Azure AD (https:// AutoLogon.microsoftazuread sso.com en https://aadg.windows.net.nsatc.net) naar deze ook.
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (alleen Mac OS)
 
 Raadpleeg voor Google Chrome op Mac OS en andere niet-Windows-platforms, [de lijst van het Project beleid chroom](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) voor meer informatie over geaccepteerde de Azure AD-URL's voor geïntegreerde verificatie.
 
@@ -149,9 +153,6 @@ Het gebruik van Active Directory-groepsbeleid-uitbreidingen van derden de Azure 
 #### <a name="known-browser-limitations"></a>Bekende browser beperkingen
 
 Naadloze eenmalige aanmelding werkt niet in de privémodus Browse Firefox en rand browsers. Deze ook werkt niet op Internet Explorer als de browser wordt uitgevoerd in de uitgebreide beveiligde modus.
-
->[!IMPORTANT]
->We onlangs teruggedraaid ondersteuning voor de rand om klanten gemelde problemen te onderzoeken.
 
 ## <a name="step-4-test-the-feature"></a>Stap 4: De functie testen
 

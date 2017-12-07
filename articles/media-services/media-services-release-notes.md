@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -96,7 +96,7 @@ Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen
 
 ## <a name="january-2017-release"></a>Januari 2017 Release
 
-In Microsoft Azure Media Services (AMS), een **Streaming-eindpunt** vertegenwoordigt een streaming-service die inhoud rechtstreeks naar een clienttoepassing player of naar een inhoud Delivery Network (CDN) voor verdere distributie leveren kunt. Media Services biedt ook naadloze integratie van Azure CDN. De uitgaande stroom van een service StreamingEndpoint mag een live stream, video op aanvraag of progressief downloaden van de activa in uw Media Services-account. Elke Azure Media Services-account bevat standaard StreamingEndpoint. Aanvullende streaming-eindpunten kunnen worden gemaakt onder het account. Er zijn twee versies van streaming-eindpunten, 1.0 en 2.0. Vanaf januari 10 2017, bevatten nieuwe accounts AMS versie 2.0 **standaard** StreamingEndpoint. Aanvullende streaming-eindpunten die u aan dit account toevoegt worden ook versie 2.0. Deze wijziging heeft geen invloed op de bestaande accounts; bestaande streaming-eindpunten versie 1.0 zijn en kunnen worden bijgewerkt naar versie 2.0. Met deze wijziging zal er wijzigingen in gedrag, facturering en functie (Zie voor meer informatie [dit](media-services-streaming-endpoints-overview.md) artikel).
+In Microsoft Azure Media Services (AMS), een **Streaming-eindpunt** vertegenwoordigt een streaming-service die inhoud rechtstreeks naar een clienttoepassing player of naar een inhoud Delivery Network (CDN) voor verdere distributie leveren kunt. Media Services biedt ook naadloze integratie van Azure CDN. De uitgaande stroom van een service StreamingEndpoint mag een live stream, video op aanvraag of progressief downloaden van de activa in uw Media Services-account. Elke Azure Media Services-account bevat standaard StreamingEndpoint. Aanvullende streaming-eindpunten kunnen worden gemaakt onder het account. Er zijn twee versies van streaming-eindpunten, 1.0 en 2.0. Beginnen met 10 januari 2017 eventuele nieuwe AMS omvatten accounts versie 2.0 **standaard** StreamingEndpoint. Aanvullende streaming-eindpunten die u aan dit account toevoegt worden ook versie 2.0. Deze wijziging heeft geen invloed op de bestaande accounts; bestaande streaming-eindpunten is versie 1.0 en kan worden bijgewerkt naar versie 2.0. Met deze wijziging zal er gedrag, facturering en functionele wijzigingen (Zie voor meer informatie [dit](media-services-streaming-endpoints-overview.md) artikel).
 
 Bovendien vanaf 2.15 versie, Azure Media Services toegevoegd de volgende eigenschappen voor de entiteit Streaming-eindpunt: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** , **StreamingEndpointVersion**. Zie voor een gedetailleerd overzicht van deze eigenschappen [dit](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
@@ -109,15 +109,15 @@ Azure Media Services kunt u nu toegang tot gegevens telemetrie/metrische gegeven
 Als een taak die voor codering wordt verzonden naar de Media Encoder Standard of Azure Media Encoder, de codering taak genereert een [streaming manifestbestand](media-services-deliver-content-overview.md) (* ISM) bestand in de uitvoer van de Asset. Met de meest recente versie van de service is de syntaxis van deze streaming manifestbestand bijgewerkt.
 
 > [!NOTE]
-> De syntaxis van het streaming-manifest (ISM)-bestand is gereserveerd voor intern gebruik en kan worden gewijzigd in toekomstige releases. Neem geen wijzigen of de inhoud van dit bestand bewerken.
+> De syntaxis van het streaming-manifest (ISM)-bestand is gereserveerd voor intern gebruik en kan worden gewijzigd in toekomstige releases. Niet te wijzigen of de inhoud van dit bestand bewerken.
 > 
 > 
 
 ### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Een nieuwe client-manifest (*. ISMC)-bestand is gegenereerd in de uitvoer Asset wanneer een taak die voor codering een of meer MP4-bestanden levert
-Beginnen met de meest recente versie van de service na de voltooiing van een taak die voor codering die een genereert meer MP4-bestanden, de uitvoer van de bevat Asset ook het bestand van een streaming client manifest (*.ismc). Het bestand .ismc verbetert de prestaties van dynamische streaming. 
+Beginnen met de meest recente versie van de service na de voltooiing van een taak die voor codering die een genereert meer MP4-bestand, de uitvoer van de bevat Asset ook het bestand van een streaming client manifest (*.ismc). Het bestand .ismc verbetert de prestaties van dynamische streaming. 
 
 > [!NOTE]
-> De syntaxis van het bestand van de client-manifest (.ismc) is gereserveerd voor intern gebruik en kan worden gewijzigd in toekomstige releases. Neem geen wijzigen of de inhoud van dit bestand bewerken.
+> De syntaxis van het bestand van de client-manifest (.ismc) is gereserveerd voor intern gebruik en kan worden gewijzigd in toekomstige releases. Niet te wijzigen of de inhoud van dit bestand bewerken.
 > 
 > 
 
@@ -131,7 +131,7 @@ Sommige clients kunnen worden geleverd via een probleem herhaaldelijk label in h
 Azure Media Services geïntroduceerd Azure Media Analytics voor krachtige video intelligence. Zie voor gedetailleerde informatie [overzicht van Azure Media Services Analytics](media-services-analytics-overview.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (Preview)
-Azure Media Services kunt u nu uw Live Streaming HLS (HTTP) inhoud met Apple FairPlay dynamisch versleutelen. U kunt ook AMS-licentieservice levering FairPlay-licenties aan clients leveren. Voor meer informatie gedetailleerde, Zie [gebruik Azure Media Services om te streamen uw HLS inhoud beveiligd met Apple FairPlay ](media-services-protect-hls-with-fairplay.md).
+Azure Media Services kunt u nu uw Live Streaming HLS (HTTP) inhoud met Apple FairPlay dynamisch versleutelen. U kunt ook AMS-licentieservice levering FairPlay-licenties aan clients leveren. Zie voor meer gedetailleerde informatie [Gebruik Azure Media Services om te streamen uw HLS inhoud beveiligd met Apple FairPlay.
 
 ## <a id="feb_changes16"></a>Februari 2016-Release
 De nieuwste versie van Azure Media Services SDK voor .NET (3.5.3) bevat een Widevine gerelateerde fout-oplossing. Het probleem is: AssetDeliveryPolicy kan niet opnieuw worden gebruikt voor meerdere activa versleuteld met Widevine. Als onderdeel van deze fout-oplossing de volgende eigenschap is toegevoegd aan de SDK: **WidevineBaseLicenseAcquisitionUrl**.
@@ -162,26 +162,26 @@ Zie voor meer informatie:
 * De [Microsoft Azure Media Services SDK voor PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blog.
 * De volgende [codevoorbeelden](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) om u te helpen u snel aan de slag:
   * **vodworkflow_aes.php**: dit is een PHP-bestand dat laat zien hoe u dynamische versleuteling AES-128 en Service voor het leveren van sleutel. Deze is gebaseerd op het .NET-voorbeeld uitgelegd in [dit](media-services-protect-with-aes128.md) artikel.
-  * **vodworkflow_aes.php**: dit is een PHP-bestand dat laat zien hoe u dynamische versleuteling PlayReady en Service voor het leveren van licenties. Deze is gebaseerd op het .NET-voorbeeld uitgelegd in [dit](media-services-protect-with-drm.md) artikel.
+  * **vodworkflow_aes.php**: dit is een PHP-bestand dat laat zien hoe u dynamische versleuteling PlayReady en Service voor het leveren van licenties. Deze is gebaseerd op het .NET-voorbeeld uitgelegd in [dit](media-services-protect-with-playready-widevine.md) artikel.
   * **scale_encoding_units.php**: dit is een PHP-bestand dat laat hoe zien schalen gereserveerde eenheid codering.
 
 ## <a id="nov_changes_15"></a>Release van november 2015
-Azure Media Services biedt nu Google Widevine-licentie delivery service in de cloud. Raadpleeg voor meer informatie [deze aankondiging blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Zie ook [in deze zelfstudie](media-services-protect-with-drm.md) en [GitHub-opslagplaats](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+Azure Media Services biedt nu Google Widevine-licentie delivery service in de cloud. Zie voor meer informatie [deze aankondiging blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Zie ook [in deze zelfstudie](media-services-protect-with-playready-widevine.md) en [GitHub-opslagplaats](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
-Houd er rekening mee dat Widevine-licentie levering van services geleverd door Azure Media Services wordt uitgevoerd in preview. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Widevine-licentie leveringsservices van Azure Media Services wordt uitgevoerd, zijn Preview-versie. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Release van oktober 2015
 Azure Media Services (AMS) is nu live in de volgende datacenters: Brazilië-Zuid, India-West, Zuid-India en India, midden. U kunt nu de Azure portal gebruiken om [Media Service-accounts maken](media-services-portal-create-account.md) en uitvoeren van verschillende taken die worden beschreven [hier](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding is echter niet ingeschakeld in deze datacenters. Bovendien zijn niet alle soorten gereserveerde coderingseenheden beschikbaar in deze datacenters.
 
 * Brazilië - zuid: alleen standaard en eenvoudige gereserveerde coderingseenheden zijn beschikbaar
-* India, westen; Zuid-India en India, midden: alleen eenvoudige gereserveerde coderingseenheden zijn beschikbaar
+* India, westen, Zuid-India en India, midden: alleen eenvoudige gereserveerde Coderingseenheden zijn beschikbaar
 
 ## <a id="september_changes_15"></a>Release van september 2015
 * AMS biedt nu de mogelijkheid om zowel Video-On-Demand (VOD) en Live gegevensstromen met Widevine modulaire DRM-technologie. U kunt de volgende levering van services partners Widevine-licenties te leveren: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
     U kunt [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (vanaf versie 3.5.1) of REST API gebruiken om AssetDeliveryConfiguration voor het gebruik van Widevine te configureren.  
 * AMS is ondersteuning toegevoegd voor Apple ProRes video's. U kunt nu uw QuickTime video's bronbestanden die gebruikmaken van Apple ProRes of andere codecs uploaden. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
-* U kunt nu gebruiken Media Encoder Standard subplan knipsel en live archief extractie doen. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+* U kunt nu gebruiken Media Encoder Standard subclipping en live archief extractie doen. Zie voor meer informatie [deze blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * De volgende filteren updates zijn aangebracht: 
   
   * Nu kunt u Apple HTTP Live Streaming (HLS)-indeling gebruiken met alleen audio-filter. Deze update kunt u alleen audio nummer wilt verwijderen, door te geven (alleen audio = false) in de URL.
@@ -193,7 +193,7 @@ Azure Media Services (AMS) is nu live in de volgende datacenters: Brazilië-Zuid
     Zie voor meer informatie [dit](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 ## <a id="august_changes_15"></a>Augustus 2015-Release
-* Azure Media Services SDK voor Java V0.8.0 release en de nieuwe samples zijn nu beschikbaar. Zie voor meer informatie:
+* Azure Media Services SDK voor Java V0.8.0 release en de nieuwe samples is nu beschikbaar. Zie voor meer informatie:
   
   * [Blogbericht](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [Java-voorbeelden opslagplaats](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -203,13 +203,13 @@ Azure Media Services (AMS) is nu live in de volgende datacenters: Brazilië-Zuid
 ## <a id="july_changes_15"></a>Release van juli 2015
 * De algemene beschikbaarheid van Media Encoder Standard aangekondigd. Zie voor meer informatie [dit blogbericht](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard maakt gebruik van standaardinstellingen die zijn beschreven in [dit](http://go.microsoft.com/fwlink/?LinkId=618336) sectie. Houd er rekening mee dat wanneer u een definitie voor 4k codeert, u krijgt de **Premium** eenheidstype gereserveerd. Zie voor meer informatie [How to Scale codering](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard maakt gebruik van standaardinstellingen die zijn beschreven in [dit](http://go.microsoft.com/fwlink/?LinkId=618336) sectie. Wanneer u een definitie voor 4k codeert, krijgt u de **Premium** eenheidstype gereserveerd. Zie voor meer informatie [How to Scale codering](media-services-scale-media-processing-overview.md).
 * Live realtime bijschriften met Azure Media Services en Player. Zie voor meer informatie [dit blogbericht](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-Updates
 Azure Media Services .NET SDK is nu versie 3.4.0.0. De volgende functionaliteit is in deze release toegevoegd:  
 
-* Geïmplementeerde ondersteuning voor live archivering. Houd er rekening mee dat u een asset die een live-archief bevat niet downloaden.
+* Geïmplementeerde ondersteuning voor live archivering. U kunt een asset die een live-archief bevat niet downloaden.
 * Geïmplementeerde ondersteuning voor dynamische filters.
 * Geïmplementeerde functionaliteit waarmee gebruikers kunnen de storage-container houden bij het verwijderen van de asset.
 * Oplossingen voor problemen gerelateerd aan het beleid in kanalen opnieuw.
@@ -222,7 +222,7 @@ Azure Media Services .NET SDK is nu versie 3.3.0.0. De volgende functionaliteit 
 * ondersteuning voor detectie van OpenId Connect-specificatie
 * ondersteuning voor het verwerken van sleutels rollover identiteit provider zijde. 
 
-Als u een id-provider waarmee OpenID Connect discovery-document (zoals de volgende providers: Azure Active Directory, Google, Salesforce), kunt u opdracht geven Azure Media Services handtekeningsleutels voor de validatie van JWT-token verkrijgen van OpenID verbinding maken met detectie-specificatie. 
+Als u een id-provider dat toegang biedt tot OpenID Connect discovery-document (zoals de volgende providers: Azure Active Directory, Google, Salesforce), kunt u opdracht geven Azure Media Services handtekeningsleutels voor de validatie van JWT-token verkrijgen van OpenID verbinding maken met detectie-specificatie. 
 
 Zie voor meer informatie [met behulp van Json Web sleutels van OpenID Connect detectie spec werken met JWT-token verificatie in Azure Media Services](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/).
 
@@ -291,13 +291,13 @@ Deze release zijn de standaardconstructor Microsoft.WindowsAzure.MediaServices.C
 * Toegevoegde relatieve verschuivingen voor BeginDate en ExpirationDate in de sjabloon PlayReady-licenties.
 
 ## <a id="november_changes_14"></a>Release van november 2014
-* Media Services kunt u nu voor het opnemen van een live Smooth Streaming (FMP4)-inhoud via een SSL-verbinding. Als u wilt opnemen via SSL, zorg voor het bijwerken van de URL voor opnemen naar HTTPS.  Houd er rekening mee dat op dit moment AMS biedt geen ondersteuning voor SSL met aangepaste domeinen.  Zie voor meer informatie over live streamen [werken met Azure Media Services Live Streaming].
+* Media Services kunt u nu voor het opnemen van een live Smooth Streaming (FMP4)-inhoud via een SSL-verbinding. Als u wilt opnemen via SSL, zorg voor het bijwerken van de URL voor opnemen naar HTTPS.  Op dit moment ondersteuning AMS geen voor SSL met aangepaste domeinen.  Zie voor meer informatie over live streamen [werken met Azure Media Services Live Streaming].
 * U kan niet op dit moment een live stream RTMP opnemen via een SSL-verbinding.
 * U kunt alleen streamen via SSL als het streaming-eindpunt van waaruit u uw inhoud wilt leveren na 10 September 2014 werd gemaakt. Als uw streaming-URL's zijn gebaseerd op het streaming-eindpunten na 10 September gemaakt, bevat de URL 'streaming.mediaservices.windows.net' (de nieuwe indeling). Streaming-URL's die 'origin.mediaservices.windows.net' (de oude indeling bevatten) bieden geen ondersteuning voor SSL. Als de URL in de oude indeling is en u wilt streamen via SSL, [maken van een nieuwe streaming-eindpunt](media-services-portal-manage-streaming-endpoints.md). URL's die zijn gemaakt op basis van het nieuwe streaming-eindpunt gebruiken de inhoud te streamen via SSL.
 
 ## <a id="october_changes_14"></a>Release van oktober 2014
 ### <a id="new_encoder_release"></a>Media Services-codering Release
-De nieuwe versie van Azure Media Encoder voor Media Services aankondigen. Met de meest recente Azure Media Encoder u alleen worden in rekening gebracht voor uitvoer in GB's, maar anders de nieuwe encoder functie compatibel met de vorige encoder is. Voor meer informatie [Media Services Pricing Details]).
+De nieuwe versie van Azure Media Encoder voor Media Services aankondigen. Met de meest recente Azure Media Encoder u worden alleen kosten in rekening gebracht voor uitvoer in GB's, maar anders de nieuwe encoder functie compatibel met de vorige encoder is. Voor meer informatie [Media Services Pricing Details]).
 
 ### <a id="oct_sdk"></a>Mediaservices .NET SDK
 Media Services SDK voor .NET-extensies is nu versie 2.0.0.3.
@@ -308,7 +308,7 @@ De volgende wijzigingen zijn aangebracht:
 
 * Refactoring in opnieuw beleid klassen.
 * Tekenreeks van de gebruikersagent wordt toegevoegd aan de http-aanvraagheaders.
-* Nuget terugzetten build stap wordt toegevoegd.
+* NuGet terugzetten build stap wordt toegevoegd.
 * Scenario-tests voor het gebruik van x509 is hersteld cert uit de opslagplaats.
 * Valideren van de instellingen bij het bijwerken van kanaal en streaming-end.
 
@@ -340,8 +340,8 @@ U hebt op dit moment wordt de volgende twee opties voor het oplossen van het pro
     Het volgende letten:
   
   * U moet het eigendom van de aangepaste domeinnaam hebben.
-  * Het eigendom van de domeinnaam moet worden gevalideerd door Azure Media Services. Voor het valideren van het domein, maakt u een CName dat is toegewezen <MediaServicesAccountId>.<parent domain> om te controleren of dns. < mediaservices DNS-zone >. 
-  * U moet een andere CName waarmee de aangepaste hostnaam (bijvoorbeeld sports.contoso.com) worden toegewezen aan uw Media Services-StreamingEndpont-hostnaam (bijvoorbeeld amstest.streaming.mediaservices.windows.net) maken.
+  * Het eigendom van de domeinnaam moet worden gevalideerd door Azure Media Services. Voor het valideren van het domein, maakt u een CName dat is toegewezen <MediaServicesAccountId> <parent domain> om te controleren of DNS. < mediaservices DNS-zone >. 
+  * U moet een andere CName waarmee de aangepaste hostnaam maken (bijvoorbeeld: sports.contoso.com) aan uw Media Services-StreamingEndpont-hostnaam (bijvoorbeeld: amstest.streaming.mediaservices.windows.net).
 
     Zie voor meer informatie de **CustomHostNames** eigenschap in de [StreamingEndpoint] artikel.
 
@@ -409,9 +409,9 @@ De volgende wijzigingen zijn aangebracht in 3.0.0.3:
 > 
 > 
 
-De nieuwste versie van de Media Services SDK is nu 3.0.0.0-prestatiemeters. U kunt de meest recente downloaden vanuit Nuget of ophalen van de bits van [GitHub].
+De nieuwste versie van de Media Services SDK is nu 3.0.0.0-prestatiemeters. U kunt de meest recente downloaden vanuit NuGet of ophalen van de bits van [GitHub].
 
-U kunt de tokens van Azure Active Directory Access Control Service (ACS) vanaf de Media Services SDK versie 3.0.0.0-prestatiemeters kunt hergebruiken. 
+Beginnen met het Media Services SDK versie 3.0.0.0-prestatiemeters, kunt u opnieuw gebruiken de [Azure Active Directory Access Control Service (ACS)] tokens. Zie voor meer informatie de sectie 'Hergebruiken Access Control Service Tokens' in de [verbinding met Media Services maken via de Media Services SDK voor .NET] artikel.
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK Extensions 2.0.0.0
 Azure Media Services .NET SDK Extensions is een set uitbreidingsmethoden en Help-functies die uw code vereenvoudigen en makkelijker te ontwikkelen met Azure Media Services. U kunt de meest recente bits van krijgen [Azure Media Services .NET SDK Extensions].
@@ -447,7 +447,7 @@ De wijzigingen die worden vermeld in deze sectie zijn opgenomen in de versies va
   
     Asset.StorageAccountName en Asset.StorageAccount
 * De mogelijkheid om bij te werken Job.Priority. 
-* Melding Verwante entiteiten en eigenschappen: 
+* Melding-gerelateerde entiteiten en eigenschappen: 
   
     JobNotificationSubscription
   
@@ -471,7 +471,7 @@ De volgende wijzigingen zijn opgenomen in juni 2013 Media Services SDK worden vr
     De eigenschap StorageAccountName.
   
     Zie voor meer informatie [Media Services-elementen beheren tussen meerdere Opslagaccounts].
-* Kennisgeving met betrekking API's. Vanaf versie 2.2.0.0 dat u hebt de mogelijkheid om te luisteren naar Azure Queue storage meldingen. Zie voor meer informatie, [afhandeling van Media Services taak meldingen].
+* Melding-gerelateerde API's. Vanaf versie 2.2.0.0 dat u hebt de mogelijkheid om te luisteren naar Azure Queue storage meldingen. Voor meer informatie ziet, [afhandeling van Media Services taak meldingen].
   
     De eigenschap Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions.
   
@@ -495,16 +495,16 @@ De volgende wijzigingen zijn opgenomen in juni 2013 Media Services SDK worden vr
 Oplossingen voor problemen die zijn gevonden in de November 2012 SDK:
 
 * IAsset.Locators.Count: Dit aantal is nu juist gerapporteerd op nieuwe IAsset interfaces nadat alle locators zijn verwijderd.
-* IAssetFile.ContentFileSize: Deze waarde wordt nu correct ingesteld na een upload door IAssetFile.Upload(filepath).
+* IAssetFile.ContentFileSize: Deze waarde wordt nu correct ingesteld na een upload door IAssetFile.Upload (bestandspad).
 * IAssetFile.ContentFileSize: Deze eigenschap kan nu worden ingesteld bij het maken van een assetbestand. Was eerder alleen-lezen.
-* IAssetFile.Upload(filepath): Een probleem waarbij deze Uploadmethode synchrone is ArgumentOutOfRangeException de volgende fout wanneer u meerdere bestanden aan de asset uploadt opgelost. De fout is 'Server verificatie van de aanvraag is mislukt. Zorg ervoor dat de waarde van de autorisatie-header correct met inbegrip van de handtekening is samengesteld."
-* IAssetFile.UploadAsync: Vaste een probleem waarbij niet meer dan 5 bestanden tegelijkertijd kunnen worden geüpload.
+* IAssetFile.Upload (bestandspad): een probleem opgelost waarbij deze Uploadmethode synchrone is ArgumentOutOfRangeException de volgende fout wanneer u meerdere bestanden uploaden naar de asset. De fout is 'Server verificatie van de aanvraag is mislukt. Zorg ervoor dat de waarde van de autorisatie-header correct met inbegrip van de handtekening is samengesteld."
+* IAssetFile.UploadAsync: Vaste een probleem waarbij niet meer dan vijf bestanden tegelijkertijd kunnen worden geüpload.
 * IAssetFile.UploadProgressChanged: Deze gebeurtenis is nu beschikbaar via de SDK.
 * IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): deze methode-overload is nu beschikbaar.
-* IAssetFile.DownloadAsync: Vaste een probleem waarbij niet meer dan 5 bestanden tegelijkertijd kunnen worden gedownload.
+* IAssetFile.DownloadAsync: Vaste een probleem waarbij niet meer dan vijf bestanden tegelijkertijd kunnen worden gedownload.
 * IAssetFile.Delete(): Een probleem waarbij aanroepen verwijderen kan Veroorzaak een exception als geen bestand is geüpload voor de IAssetFile opgelost.
 * Taken: Een probleem opgelost waarbij koppelen van een 'MP4 Smooth Streams taak' met een 'PlayReady beveiliging taak' met een taaksjabloon niet maakt alle taken helemaal.
-* EncryptionUtils.GetCertificateFromStore(): Deze methode niet langer een null-referentieuitzondering vanwege een mislukte vinden van het certificaat op basis van certificaat configuratieproblemen genereert.
+* EncryptionUtils.GetCertificateFromStore(): Deze methode niet langer een null-referentieuitzondering vanwege een fout bij zoeken van het certificaat op basis van certificaat configuratieproblemen genereert.
 
 ## <a id="november_changes_12"></a>November 2012 Release
 De wijzigingen die worden vermeld in deze sectie zijn updates die zijn opgenomen in de November 2012 (versie 2.0.0.0) SDK. Deze wijzigingen mogelijk code die zijn geschreven voor de preview van juni 2012 SDK om te worden gewijzigd of herschreven release.
@@ -513,7 +513,7 @@ De wijzigingen die worden vermeld in deze sectie zijn updates die zijn opgenomen
   
     IAsset.Create(assetName) is de functie alleen asset maken. IAsset.Create bestandsuploads bestanden niet meer als onderdeel van de methode-aanroep. IAssetFile gebruiken voor het uploaden.
   
-    De methode IAsset.Publish en de opsommingswaarde AssetState.Publish zijn verwijderd uit de SDK-Services. Code die is gebaseerd op deze waarde moet opnieuw worden geschreven.
+    De methode IAsset.Publish en de opsommingswaarde AssetState.Publish zijn verwijderd uit de SDK-Services. Code die is gebaseerd op deze waarde moet worden herschreven.
 * FileInfo
   
     Deze klasse is verwijderd en vervangen door IAssetFile.
@@ -535,7 +535,7 @@ De volgende functionaliteit is nieuw in de release van November van de SDK.
 
 * Entiteiten verwijderen
   
-    IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objecten zijn nu verwijderd op het objectniveau van het, dat wil zeggen IObject.Delete(), in plaats van een verwijdering in de verzameling die cloudMediaContext.ObjCollection.Delete(objInstance) vereisen.
+    IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objecten zijn nu verwijderd op het objectniveau van het, dat wil zeggen, IObject.Delete(), in plaats van een verwijdering in de verzameling die cloudMediaContext.ObjCollection.Delete(objInstance) vereisen.
 * Locators
   
     Locators moeten nu worden gemaakt met de methode CreateLocator en gebruik de LocatorType.SAS of LocatorType.OnDemandOrigin enum-waarden als een argument voor het specifieke type locator die u wilt maken.
@@ -581,7 +581,7 @@ De volgende functionaliteit is nieuw in de release van November van de SDK.
 [Video segmenten wilt]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [releases van Azure Media Services .NET SDK 3.0.0.1 en 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[verbinding met Media Services maken via de Media Services SDK voor .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK Extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

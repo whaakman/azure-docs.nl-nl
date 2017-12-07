@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-beveiliging en gegevensbescherming
 
@@ -157,7 +157,7 @@ De gegevensversleutelingssleutel van service is gegenereerd op alleen de eerste 
 > 
 > Als de gegevensversleutelingssleutel van de service verbroken wordt, kunt een ondersteuningsmedewerker van Microsoft u voor het ophalen van het opgegeven dat er ten minste één apparaat in een online status. U wordt aangeraden dat u de gegevensversleutelingssleutel van service wijzigt nadat deze is opgehaald. Voor instructies, gaat u naar [wijzigen van de gegevensversleutelingssleutel van service](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-U kunt de gegevensversleutelingssleutel van service en de bijbehorende gegevens versleutelingscertificaat wijzigen door de **wijziging service gegevensversleutelingssleutel** optie op het servicedashboard. Om ervoor te zorgen dat de beveiliging van gegevens niet is geknoeid, moet u een fysieke StorSimple-apparaat gebruiken om te wijzigen van de gegevensversleutelingssleutel van service. Wijzigen van de versleutelingssleutels vereist dat alle apparaten worden bijgewerkt met de nieuwe sleutel. Daarom raden we aan dat u de sleutel wijzigen wanneer alle apparaten online zijn. Als er apparaten zijn offline is, kunnen de sleutels op een andere tijd worden gewijzigd. De apparaten met verouderde sleutels worden nog steeds back-ups uitvoeren, maar ze niet mogelijk om gegevens te herstellen totdat de sleutel wordt bijgewerkt. Ga voor meer informatie naar [gebruik het servicedashboard Manager voor StorSimple-apparaat](storsimple-8000-service-dashboard.md).
+Als u wilt wijzigen van de gegevensversleutelingssleutel van service en de bijbehorende gegevens versleutelingscertificaat, volg de stappen in [wijzigen van de gegevensversleutelingssleutel van service voor uw StorSimple-apparaat Manager service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Wijzigen van de versleutelingssleutels vereist dat alle apparaten worden bijgewerkt met de nieuwe sleutel. Daarom raden we aan dat u de sleutel wijzigen wanneer alle apparaten online zijn. Als er apparaten zijn offline is, kunnen de sleutels op een andere tijd worden gewijzigd. De apparaten met verouderde sleutels worden nog steeds back-ups uitvoeren, maar ze niet mogelijk om gegevens te herstellen totdat de sleutel wordt bijgewerkt.
 
 De gegevensversleutelingssleutel van service en het certificaat voor de versleuteling verlopen niet. We raden echter aan dat u de gegevensversleutelingssleutel van service jaarlijks ter voorkoming van inbreuk op de sleutel wijzigt.
 
@@ -212,7 +212,7 @@ Hier volgen enkele vragen en antwoorden over de beveiliging en Microsoft Azure S
 
 **A:** u onmiddellijk de gegevensversleutelingssleutel van service en de opslagaccountsleutels voor het opslagaccount dat wordt gebruikt voor lagen gegevens moet wijzigen. Voor instructies gaat u naar:
 
-* [De gegevensversleutelingssleutel van service wijzigen](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [De gegevensversleutelingssleutel van service wijzigen](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Sleutel rotatie van de storage-accounts](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **V:** ik heb een nieuwe StorSimple-apparaat die om de serviceregistratiesleutel vraagt. Hoe krijg ik terug?
@@ -225,7 +225,7 @@ Hier volgen enkele vragen en antwoorden over de beveiliging en Microsoft Azure S
 
 **A:** contact op met Microsoft ondersteuning. Ze kunnen zich aanmelden met een ondersteuningssessie van het apparaat en het Help-informatie ophalen van de sleutel (op voorwaarde dat ten minste één apparaat is online). Onmiddellijk nadat u de gegevensversleutelingssleutel van service verkregen, moet u wijzigen om ervoor te zorgen dat de nieuwe sleutel voor u bekend is. Voor instructies gaat u naar:
 
-* [De gegevensversleutelingssleutel van service wijzigen](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [De gegevensversleutelingssleutel van service wijzigen](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **V:** gemachtigd een apparaat voor een service data encryption key wijziging, maar is het proces voor sleutel niet gestart. Wat moet ik doen?
 
@@ -240,7 +240,7 @@ Hier volgen enkele vragen en antwoorden over de beveiliging en Microsoft Azure S
 **A:** wijzigings- en opnieuw instellen van de wachtwoorden die toegang tot het StorSimple-apparaat en het wijzigen van de service-gegevensversleuteling sleutel om ervoor te zorgen dat de nieuwe informatie is niet bekend bij niet-geautoriseerde personeel. Voor instructies gaat u naar:
 
 * [De service StorSimple Apparaatbeheer gebruiken om uw storsimple-wachtwoorden wijzigen](storsimple-8000-change-passwords.md)
-* [De gegevensversleutelingssleutel van service wijzigen](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [De gegevensversleutelingssleutel van service wijzigen](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [CHAP configureren voor uw StorSimple-apparaat](storsimple-8000-configure-chap.md)
 
 **V:** ik wil geeft u het wachtwoord StorSimple Snapshot Manager naar een host die is verbonden met het StorSimple-apparaat, maar het wachtwoord is niet beschikbaar. Wat kan ik doen?

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory-Veelgestelde vragen over rapportage
 
@@ -119,5 +119,11 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 **V: hoe zijn de IP-adressen in de aanmeldingen en riskant aanmeldingen rapport berekend?**
 
 **A:** IP-adressen worden uitgegeven zodanig dat er is geen definitieve verbinding tussen een IP-adres en waar de computer met dit adres zich fysiek bevinden. Dit wordt bemoeilijkt door factoren, zoals mobiele providers en VPN-verbindingen uitgeven van IP-adressen uit de centrale pools vaak zeer ver van waar het clientapparaat daadwerkelijk wordt gebruikt. Gezien het bovenstaande, is het IP-adres converteren naar een fysieke locatie is een zo goed mogelijke poging op basis van traceringen, registergegevens, omgekeerde uiterlijk-ups en andere informatie. 
+
+---
+
+**V: wat betekent dat de risicogebeurtenis 'Aanmelden met extra risico gedetecteerd' geven?**
+
+**A:** zodat u een beter inzicht in alle riskant aanmeldingen in uw omgeving laten we zien de risicogebeurtenis 'Aanmelden met extra risico gedetecteerd' voor aanmeldingen beschouwd als riskant vanwege detecties exclusieve naar Azure AD Identity Protection abonnees.
 
 ---

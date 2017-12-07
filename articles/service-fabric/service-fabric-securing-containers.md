@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 3e41e293cc5340c0e32cf2cc6ef7ab7534330884
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c18c2b3b0d271f2dbe4f247c132850b49d8f1d9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="container-security"></a>Beveiliging van de container
 
@@ -36,13 +36,13 @@ U kunt uw containerservices beveiligen door te geven van een certificaat. Het ce
 
 Voor windows-clusters, wanneer de toepassing wordt gestart, wordt de runtime leest de certificaten en een PFX-bestand en het wachtwoord voor elk certificaat gegenereerd. Deze PFX-bestand en dit wachtwoord zijn toegankelijk in de container met de volgende omgevingsvariabelen: 
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
-* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificates_ServicePackageName_CodePackageName_CertName_Password**
 
 Voor Linux-clusters, de certificates(PEM) gewoon gekopieerd uit de store naar de container door X509StoreName is opgegeven. De bijbehorende omgevingsvariabelen op linux zijn:
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
-* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey**
 
 U kunt ook als u al hebt de certificaten in de vereiste vorm en gewoon willen zou toegang tot het in de container, u kunt een gegevenspakket in uw apppakket maken en geeft u de volgende binnen uw toepassingsmanifest:
 
@@ -54,8 +54,8 @@ U kunt ook als u al hebt de certificaten in de vereiste vorm en gewoon willen zo
 De containerservice of het proces is verantwoordelijk voor het importeren van het certificaatbestand in de container. Om het certificaat importeert, kunt u `setupentrypoint.sh` scripts of het uitvoeren van aangepaste code in het proces van de container. Hier volgt de voorbeeldcode in C# voor het importeren van het PFX-bestand:
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);

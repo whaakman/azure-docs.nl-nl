@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8722d7827aad10bcae3e8ec06b7014ebc64179d5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass-through-verificatie: Veelgestelde vragen
 
@@ -99,24 +99,20 @@ Ja. Omgevingen met meerdere forests worden ondersteund als er forestvertrouwensr
 
 Installatie van meerdere Pass through-verificatie Agents garandeert [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Maar biedt geen deterministische taakverdeling tussen de Agents verificatie.
 
-U kunt de piek- en gemiddelde belasting van de aanmeldingspagina aanvragen die u verwacht te zien op uw tenant. Als een benchmark kan één verificatie Agent 300.000-400.000 verificaties per seconde op een standard 4-core CPU, 16 GB RAM-geheugen server verwerken. Twee of drie verificatie Agents in totaal zijn voor de meeste klanten is voldoende voor hoge beschikbaarheid en capaciteit.
+U kunt de piek- en gemiddelde belasting van de aanmeldingspagina aanvragen die u verwacht te zien op uw tenant. Als een benchmark kan één verificatie Agent 300-400-verificaties per seconde op een standard 4-core CPU, 16 GB RAM-geheugen server verwerken.
 
-Dicht bij uw domeincontrollers naar de aanmeldingspagina latentie verbeteren, moet u verificatie Agents installeren.
+Gebruik de volgende richtlijn voor een schatting van netwerkverkeer:
+- Elke aanvraag heeft een grootte van de nettolading van (0.5K + 1 K * num_of_agents) bytes. dat wil zeggen, gegevens van Azure AD voor de verificatie-Agent. Hier geeft 'num_of_agents' aan dat het aantal Agents verificatie geregistreerd op uw tenant.
+- Elk antwoord heeft een grootte van de nettolading van 1K bytes. dat wil zeggen, gegevens uit de verificatie-Agent naar Azure AD.
+
+Twee of drie verificatie Agents in totaal zijn voor de meeste klanten is voldoende voor hoge beschikbaarheid en capaciteit. Dicht bij uw domeincontrollers naar de aanmeldingspagina latentie verbeteren, moet u verificatie Agents installeren.
+
+>[!NOTE]
+>Er is een limiet van 12 verificatie Agents per tenant.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Kan ik de eerste Pass through-verificatie-Agent installeren op een andere server dan die wordt uitgevoerd van Azure AD Connect
 
 Nee, dit scenario is _niet_ ondersteund.
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>Hoeveel Pass through-verificatie-Agents moet ik installeren?
-
-We raden aan dat:
-
-- U kunt twee of drie verificatie-Agents installeren in totaal. Deze configuratie is voldoende voor de meeste klanten.
-- U verificatie Agents installeren op uw domeincontrollers (of als in de buurt van deze mogelijk) voor het verbeteren van de aanmeldingspagina latentie.
-- U ervoor zorgen dat u toevoegt, de servers waarop u de verificatie-Agents geïnstalleerd aan hetzelfde Active Directory-forest als de gebruikers waarvan de wachtwoorden u wilt valideren.
-
->[!NOTE]
->Er is een limiet van 12 verificatie Agents per tenant.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Hoe kan ik Pass through-verificatie uitschakelen?
 

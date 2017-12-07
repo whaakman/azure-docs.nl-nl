@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Problemen met Cloud Service-functies die niet worden gestart
 Hier volgen enkele veelvoorkomende problemen en oplossingen die zijn gerelateerd aan Azure Cloud Services functies die niet worden gestart.
@@ -62,9 +62,8 @@ Wanneer de service is geïmplementeerd, ziet u een foutbericht met de naam van d
 U kunt Extern bureaublad gebruiken voor toegang tot de rol en gedetailleerde foutinformatie extern weergeven. Gebruik de volgende stappen om de fouten met behulp van extern bureaublad weer te geven:
 
 1. Zorg ervoor dat de Azure SDK 1.3 of hoger is geïnstalleerd.
-2. Tijdens de implementatie van de oplossing met behulp van Visual Studio, ervoor kiezen om 'Configureren extern-bureaubladverbindingen...'. Zie voor meer informatie over het configureren van de verbinding met extern bureaublad [met behulp van extern bureaublad met de Azure-rollen](../vs-azure-tools-remote-desktop-roles.md).
-3. In de Microsoft Azure klassieke portal, zodra het exemplaar de status van wordt **gereed**, klikt u op een van de rolinstanties.
-4. Klik op de **Connect** pictogram in de **RAS** gebied van het lint.
+2. Tijdens de implementatie van de oplossing met behulp van Visual Studio, ervoor kiezen om 'Configureren extern-bureaubladverbindingen'. Zie voor meer informatie over het configureren van de verbinding met extern bureaublad [met behulp van extern bureaublad met de Azure-rollen](../vs-azure-tools-remote-desktop-roles.md).
+3. In de Microsoft Azure-portal, zodra het exemplaar de status van wordt **gereed**afstand verbinding met het exemplaar. Zie voor meer informatie over het gebruik van de extern bureaublad met Cloudservices [afstand verbinding met de rolinstanties](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Meld u aan de virtuele machine met de referenties die zijn opgegeven tijdens de configuratie van extern bureaublad.
 6. Open een opdrachtvenster.
 7. Typ `IPconfig`.

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -36,7 +36,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 * [Vragen over de wachtwoord-rapporten](#password-management-reports)
 * [Vragen over Write-back van wachtwoord](#password-writeback)
 
-## <a name="password-reset-registration"></a>Registratie voor wachtwoord opnieuw instellen
+## <a name="password-reset-registration"></a>Registratie van het opnieuw ingestelde wachtwoord
 
 * **V: kunnen mijn gebruikers registreren hun eigen wachtwoord opnieuw instellen van gegevens?**
 
@@ -81,6 +81,19 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 
 ## <a name="password-reset"></a>Wachtwoord opnieuw instellen
 
+* **V: heb u te voorkomen dat gebruikers meerdere pogingen om een wachtwoord in een korte periode opnieuw instellen?**
+
+  > **A:** Ja, er zijn ingebouwd in het wachtwoord opnieuw instellen als u wilt beveiligen tegen misbruik beveiligingsfuncties. 
+  >
+  > Gebruikers kunnen proberen slechts vijf wachtwoord herstelpogingen binnen een periode van 24 uur voordat ze zijn vergrendeld voor 24 uur. 
+  >
+  > Gebruikers kunnen proberen te valideren, een telefoonnummer, een SMS-bericht verzenden of beveiligingsvragen en antwoorden slechts vijf keer valideren binnen een uur voordat ze zijn vergrendeld voor 24 uur. 
+  >
+  > Gebruikers kunnen een e-mailbericht verzenden maximaal 10 keer binnen een periode van tien minuten voordat ze zijn vergrendeld voor 24 uur.
+  >
+  > De items worden opnieuw ingesteld zodra een gebruiker hun wachtwoord opnieuw instellen.
+  >
+  >
 * **V: hoe lang moet ik wachten om te ontvangen van een e-mail, SMS of telefoongesprek van wachtwoord opnieuw instellen?**
 
   > **A:** e-mailberichten, SMS-berichten en telefoongesprekken moet binnenkomen minder dan een minuut. Het normale geval is 5-20 seconden.
@@ -163,11 +176,6 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 * **V: als een gebruiker meer dan het maximum aantal vragen dat vereist is om in te stellen is geregistreerd, hoe worden de beveiligingsvragen geselecteerd tijdens het opnieuw instellen?**
 
   > **A:** *N* aantal beveiligingsvragen zijn willekeurig geselecteerd buiten het totale aantal vragen dat een gebruiker is geregistreerd voor waar *N* is het bedrag dat is ingesteld voor de  **Aantal vragen dat vereist is om in te stellen** optie. Bijvoorbeeld, als een gebruiker vijf beveiligingsvragen is geregistreerd, maar slechts drie vereist zijn voor een wachtwoord opnieuw instellen, drie van de vijf vragen willekeurig geselecteerd en vindt u op opnieuw instellen. Om te voorkomen dat vraag hammering, als de gebruiker de antwoorden op de vragen ontvangt verkeerde het selectieproces begint.
-  >
-  >
-* **V: heb u te voorkomen dat gebruikers meerdere pogingen om een wachtwoord in een korte periode opnieuw instellen?**
-
-  > **A:** Ja, er zijn ingebouwd in het wachtwoord opnieuw instellen als u wilt beveiligen tegen misbruik beveiligingsfuncties. Gebruikers kunnen proberen slechts vijf wachtwoord herstelpogingen binnen een uur voordat ze zijn vergrendeld voor 24 uur. Gebruikers kunnen proberen een telefoonnummer slechts vijf keer valideren binnen een uur voordat ze zijn vergrendeld voor 24 uur. Gebruikers kunnen een één verificatiemethode slechts vijf keer proberen binnen een uur voordat ze zijn vergrendeld voor 24 uur.
   >
   >
 * **V: hoe lang zijn de e-mail en SMS eenmalige wachtwoordcodes geldig?**
@@ -275,7 +283,7 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 * [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](active-directory-passwords-best-practices.md)
 * [Uw wachtwoord opnieuw instellen of wijzigen](active-directory-passwords-update-your-own-password.md)
 * [Registreren voor de selfservice voor wachtwoordherstel](active-directory-passwords-reset-register.md)
-* [Hebt u een vraag licentieverlening?](active-directory-passwords-licensing.md)
+* [Hebt u een vraag over licenties?](active-directory-passwords-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](active-directory-passwords-data.md)
 * [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](active-directory-passwords-policy.md)

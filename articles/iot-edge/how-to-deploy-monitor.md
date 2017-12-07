@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementeren en bewaken van de rand van de IoT-modules op grote schaal - voorbeeld
 
@@ -42,19 +42,21 @@ Zie voor meer informatie over apparaat horende en labels [Understand and gebruik
 
 1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
 1. Selecteer **IoT rand (preview)**.
-1. Selecteer **rand implementatie maken**.
+1. Selecteer **IoT rand implementatie toevoegen**.
 
 Er zijn vijf stappen voor het maken van een implementatie. De volgende secties helpt bij elkaar. 
 
-### <a name="step-1-label-deployment"></a>Stap 1: Label implementatie
+### <a name="step-1-name-and-label"></a>Stap 1: Naam en een Label
 
-1. Geef uw implementatie een unieke ID. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
+1. Een unieke naam voor uw implementatie geven. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
 1. Labels voor het bijhouden van uw implementaties toevoegen. Labels zijn **naam**, **waarde** paren met een beschrijving van uw implementatie. Bijvoorbeeld: `HostPlatform, Linux` of `Version, 3.0.1`.
 1. Selecteer **volgende** verplaatsen naar stap 2. 
 
-### <a name="step-2-add-modules"></a>Stap 2: Modules toevoegen
+### <a name="step-2-add-modules-optional"></a>Stap 2: (Optioneel) Modules toevoegen
 
 Er zijn twee typen modules die u aan een implementatie toevoegen kunt. De eerste is een module die is gebaseerd op een Azure-service, zoals Storage-Account of Stream Analytics. De tweede is een module die is gebaseerd op uw eigen code. U kunt meerdere modules van beide typen toevoegen aan een implementatie. 
+
+Als u een implementatie met geen modules maakt, worden eventuele bestaande modules van de apparaten verwijderd. 
 
 >[!NOTE]
 >De implementatie van geautomatiseerde Azure-service nog ondersteund niet door Azure Machine Learning en Azure Functions. De aangepaste module-implementatie gebruiken die services handmatig toevoegen aan uw implementatie. 
@@ -83,7 +85,7 @@ Aangepaste code toevoegen als een module of een Azure-service-module handmatig t
 
 Zodra u de modules voor een implementatie die is geconfigureerd hebt, selecteer **volgende** verplaatsen naar stap 3.
 
-### <a name="step-3-specify-routes-optional"></a>Stap 3: Geef de routes (optioneel)
+### <a name="step-3-specify-routes-optional"></a>Stap 3: Geef de Routes (optioneel)
 
 Routes definiëren hoe modules met elkaar communiceren binnen een implementatie. Geef alle routes op voor uw implementatie en selecteer vervolgens **volgende** verplaatsen naar stap 4. 
 

@@ -139,7 +139,7 @@ Azure virtuele machines, virtuele-machineschaalsets Batch en verwante compute se
 * [Opslag van bestanden](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Gegevens en analyse
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) voor Hadoop-clusters op Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) voor Hadoop-clusters op Azure
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

@@ -3,8 +3,8 @@ title: Tabel selecteert (CTAS) in SQL Data Warehouse maken | Microsoft Docs
 description: Tips voor het coderen van met de tabel maken als de instructie select (CTAS) in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: queries
-ms.date: 01/30/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: a885ba4f455fecd158696faaee38c83c1e4ec0bf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Table As Select (CTAS) in SQL datawarehouse maken
 Maken van de tabel als selecteren of `CTAS` vindt u een van de belangrijkste functies van T-SQL. Het is een volledig parallelized bewerking die u een nieuwe tabel op basis van de uitvoer van een SELECT-instructie maakt. `CTAS`is de snelste en eenvoudigste manier om een kopie van een tabel te maken. Dit document bevat zowel voorbeelden en aanbevolen procedures voor `CTAS`.

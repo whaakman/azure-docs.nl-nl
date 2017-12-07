@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Configuratie-instellingen voor een zelfstandige Windows-cluster
-Dit artikel wordt beschreven hoe u een zelfstandige Azure Service Fabric-cluster configureren met behulp van het bestand ClusterConfig.JSON. U kunt dit bestand gebruiken om op te geven informatie zoals de Service Fabric-knooppunten en hun IP-adressen en de verschillende soorten knooppunten op het cluster. U kunt ook beveiligingsconfiguraties, evenals de netwerktopologie in termen van domeinen met fouten/upgrade voor uw zelfstandige cluster opgeven.
+Dit artikel wordt beschreven hoe u een zelfstandige Azure Service Fabric-cluster configureren met behulp van het bestand ClusterConfig.json. U kunt dit bestand informatie opgeven over de knooppunten van het cluster, beveiligingsconfiguraties, evenals de netwerktopologie in termen van fouttolerantie en upgrade-domeinen.
 
-Wanneer u [download het zelfstandige Service Fabric-pakket](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), een paar voorbeelden van het bestand ClusterConfig.JSON worden gedownload met uw werk-machine. De voorbeelden die DevCluster in hun naam hebben helpen u bij het maken van een cluster met alle drie knooppunten op dezelfde computer, zoals logische knooppunten. Buiten deze knooppunten moet ten minste één worden gemarkeerd als een primaire knooppunt. Dit cluster is handig voor een omgeving voor ontwikkeling of tests. Dit wordt niet ondersteund als een productiecluster. De voorbeelden die MultiMachine in hun naam hebben te maken van een cluster kwaliteit van de productie met elk knooppunt op een afzonderlijke computer. Het aantal primaire knooppunten voor deze clusters is gebaseerd op de [niveau van betrouwbaarheid](#reliability). In versie 5.7 API-versie 05-2017 verwijderd we de eigenschap van het niveau van betrouwbaarheid. Onze code berekent in plaats daarvan het meest geoptimaliseerde niveau van betrouwbaarheid voor uw cluster. Gebruik deze eigenschap niet in code 5.7 en latere versies.
+Wanneer u [download het zelfstandige Service Fabric-pakket](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json voorbeelden zijn ook opgenomen. De voorbeelden die 'DevCluster' in hun naam hebben maken een cluster met alle drie knooppunten op dezelfde computer, met behulp van de logische knooppunten. Buiten deze knooppunten moet ten minste één worden gemarkeerd als een primaire knooppunt. Dit type van het cluster is nuttig voor ontwikkeling of tests omgevingen. Dit wordt niet ondersteund als een productiecluster. De voorbeelden die 'MultiMachine' in hun naam hebben helpen productie hoogwaardige-clusters maken met elk knooppunt op een afzonderlijke computer. Het aantal primaire knooppunten voor deze clusters is gebaseerd op het cluster [niveau van betrouwbaarheid](#reliability). In versie 5.7, API-versie 05-2017 verwijderd we de eigenschap van het niveau van betrouwbaarheid. Onze code berekent in plaats daarvan het meest geoptimaliseerde niveau van betrouwbaarheid voor uw cluster. Probeer niet een waarde op voor deze eigenschap instellen in versies 5.7 of hoger.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON en ClusterConfig.Unsecure.MultiMachine.JSON ziet het maken van een niet-beveiligde testomgeving of een productiecluster, respectievelijk.
+* ClusterConfig.Unsecure.DevCluster.json en ClusterConfig.Unsecure.MultiMachine.json ziet het maken van een niet-beveiligde testomgeving of een productiecluster, respectievelijk.
 
-* ClusterConfig.Windows.DevCluster.JSON en ClusterConfig.Windows.MultiMachine.JSON laten zien hoe voor het maken van de test- of -clusters die zijn beveiligd met behulp van [Windows-beveiliging](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json en ClusterConfig.Windows.MultiMachine.json laten zien hoe voor het maken van de test- of -clusters die zijn beveiligd met behulp van [Windows-beveiliging](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON en ClusterConfig.X509.MultiMachine.JSON laten zien hoe voor het maken van de test- of -clusters die zijn beveiligd met behulp van [X509 beveiliging op basis van certificaat](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json en ClusterConfig.X509.MultiMachine.json laten zien hoe voor het maken van de test- of -clusters die zijn beveiligd met behulp van [X509 beveiliging op basis van certificaat](service-fabric-windows-cluster-x509-security.md).
 
-Nu we bekijken de verschillende secties van een bestand ClusterConfig.JSON.
+Nu we bekijken de verschillende secties van een bestand ClusterConfig.json.
 
 ## <a name="general-cluster-configurations"></a>Algemene clusterconfiguraties
 Algemene clusterconfiguraties betrekking hebben op de brede cluster-specifieke configuraties, zoals wordt weergegeven in de volgende JSON-fragment:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 U kunt een beschrijvende naam geven tot uw Service Fabric-cluster toewijzen aan de naamvariabele. De clusterConfigurationVersion is het versienummer van het cluster. Vergroot het telkens wanneer u een upgrade uitvoert van Service Fabric-cluster. Laat apiVersion ingesteld op de standaardwaarde.
 
+## <a name="nodes-on-the-cluster"></a>Knooppunten op het cluster
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Knooppunten op het cluster
 U kunt de knooppunten op uw Service Fabric-cluster configureren met behulp van de sectie knooppunten als het volgende codefragment bevat:
 
     "nodes": [{
@@ -79,12 +82,12 @@ Een Service Fabric-cluster moet ten minste drie knooppunten bevatten. U kunt mee
 | upgradeDomain |Upgradedomeinen beschrijven sets met knooppunten die Service Fabric-upgrades op rond dezelfde tijd worden afgesloten. U kunt welke knooppunten toewijzen aan welke upgradedomeinen omdat ze zijn niet door de fysieke vereisten beperkt. |
 
 ## <a name="cluster-properties"></a>Eigenschappen van cluster
-De sectie met eigenschappen in de ClusterConfig.JSON wordt gebruikt voor het configureren van het cluster, zoals wordt weergegeven:
-
-    <a id="reliability"></a>
+De sectie met eigenschappen in de ClusterConfig.json wordt gebruikt voor het configureren van het cluster, zoals wordt weergegeven:
 
 ### <a name="reliability"></a>Betrouwbaarheid
 Het concept van reliabilityLevel definieert het aantal replica's of exemplaren van de Service Fabric-systeemservices die kunnen worden uitgevoerd op de primaire knooppunten van het cluster. Het bepalen van de betrouwbaarheid van deze services en is daarom het cluster. De waarde wordt berekend door het systeem tijdens het cluster maken en de upgrade.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Diagnostiek
 U kunt de parameters voor het inschakelen van diagnostische gegevens en het oplossen van fouten in de knooppunt- of -cluster, zoals wordt weergegeven in het volgende fragment configureren in de sectie diagnosticsStore: 
@@ -119,9 +122,10 @@ De Beveiligingssectie is vereist voor een veilige zelfstandige Service Fabric-cl
 
 De metagegevens wordt een beschrijving van uw beveiligde cluster en volgens de instellingen kan worden ingesteld. De ClusterCredentialType en ServerCredentialType bepalen het type beveiliging die het cluster en de knooppunten implementeren. Ze kunnen worden ingesteld op *X509* voor een beveiliging op basis van certificaten of *Windows* voor beveiliging op basis van Azure Active Directory. De rest van de Beveiligingssectie is gebaseerd op het type beveiliging. Zie voor meer informatie over de om de rest van de Beveiligingssectie in te vullen [beveiliging op basis van certificaten in een zelfstandige cluster](service-fabric-windows-cluster-x509-security.md) of [Windows-beveiliging in een zelfstandige cluster](service-fabric-windows-cluster-windows-security.md).
 
+### <a name="node-types"></a>Knooppunttypen
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Knooppunttypen
 De sectie nodeTypes beschrijft het type van de knooppunten die fungeren als uw cluster heeft. Ten minste één knooppunttype moet worden opgegeven voor een cluster, zoals wordt weergegeven in het volgende fragment: 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Container als ondersteuning wilt inschakelen voor zowel Windows Server-container
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u een volledig ClusterConfig.JSON-bestand dat is geconfigureerd volgens de instellingen van uw zelfstandige cluster hebt, kunt u uw cluster kunt implementeren. Volg de stappen in [maken van een zelfstandige Service Fabric-cluster](service-fabric-cluster-creation-for-windows-server.md). Gaat u verder met [uw cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en volg de stappen.
+Nadat u een volledig ClusterConfig.json-bestand dat is geconfigureerd volgens de instellingen van uw zelfstandige cluster hebt, kunt u uw cluster kunt implementeren. Volg de stappen in [maken van een zelfstandige Service Fabric-cluster](service-fabric-cluster-creation-for-windows-server.md). Gaat u verder met [uw cluster visualiseren met Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en volg de stappen.
 

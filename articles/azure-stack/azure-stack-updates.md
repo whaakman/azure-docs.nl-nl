@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Beheren van updates in de Azure-Stack-overzicht
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
 
-Microsoft brengt updatepakketten voor systemen regelmatig een Azure-Stack geïntegreerd. Elke versie van Microsoft software-updates, wordt meegeleverd als één update-pakket. Als een Azure-Stack-operator, kunt u eenvoudig importeren, updatepakketten installeren en de voortgang van de installatie van deze monitor uit de beheerdersportal. 
+Microsoft brengt updatepakketten voor Azure-Stack geïntegreerd systemen een reguliere uitgebracht die doorgaans op de vierde dinsdag van elke maand vallen begint bij algemene beschikbaarheid. Vraag uw OEM over hun specifieke notification-proces om ervoor te zorgen update meldingen reach voor uw organisatie of schakel dit selectievakje onder Concepts\Release notes\Integrated systemen release-opmerkingen voor meer informatie over specifieke releases.
+
+Elke versie van Microsoft software-updates, wordt meegeleverd als één update-pakket. Als een Azure-Stack-operator, kunt u eenvoudig importeren, updatepakketten installeren en de voortgang van de installatie van deze monitor uit de beheerdersportal. 
 
 Uw oorspronkelijke leveranciers (OEM) hardwareleverancier brengt ook updates, zoals stuurprogramma en firmware-updates. Deze updates als afzonderlijke pakketten worden geleverd door de leverancier van de OEM-hardware, en worden afzonderlijk beheerd van Microsoft updates.
 

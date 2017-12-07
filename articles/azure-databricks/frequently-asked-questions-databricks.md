@@ -13,109 +13,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 6bb542537ec713be272f7e58e0b247763214ef4a
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="azure-databricks-preview-common-questions-and-help"></a>Azure Databricks Preview: Veelgestelde vragen en help
+# <a name="frequently-asked-questions-about-azure-databricks"></a>Veelgestelde vragen over Azure Databricks
 
-Dit artikel worden de bovenste query's die moet u wellicht hebben betrekking op Azure Databricks. Het bevat ook enkele veelvoorkomende problemen die u tegenkomen kunt tijdens het gebruik van Azure Databricks. Zie voor meer informatie over Azure Databricks [wat is Azure Databricks?](what-is-azure-databricks.md) 
+Dit artikel worden de bovenste query's die u mogelijk met betrekking tot Azure Databricks. Enkele veelvoorkomende problemen die u tijdens het gebruik van Databricks wellicht ook geeft. Zie voor meer informatie [wat is Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="common-questions"></a>Veelgestelde vragen
+## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Kan ik mijn eigen sleutels gebruiken voor lokale versleuteling? 
+In de huidige release wordt met behulp van uw eigen sleutels van Azure Sleutelkluis niet ondersteund. 
 
-Deze sectie vindt de algemene vragen met betrekking tot Azure Databricks.
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Kan ik virtuele netwerken in Azure met Databricks gebruiken?
+Een nieuw virtueel netwerk wordt gemaakt als onderdeel van het Databricks inrichten. In deze release kunt u uw eigen Azure virtual network niet gebruiken.
 
-### <a name="can-i-use-my-own-keys-for-local-encryption"></a>Kan ik mijn eigen sleutels gebruiken voor lokale versleuteling? 
-In de huidige release wordt met behulp van uw eigen sleutels van Azure Keyvault niet ondersteund. 
+## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Hoe krijg ik toegang tot Azure Data Lake Store van een laptop? 
 
-### <a name="can-i-use-azure-vnets-with-azure-databricks"></a>Kan ik Azure VNETs met Azure Databricks gebruiken?
-Een nieuw VNET wordt gemaakt als onderdeel van Azure Databricks inrichten. U kunt uw eigen Azure VNET niet gebruiken als onderdeel van deze release.
-
-### <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Hoe krijg ik toegang tot Azure Data Lake Store van een laptop? 
-
-1. Inrichten van een Service-Principal in Azure Active Directory, en noteer de sleutel.
-2. Benodigde machtigingen toewijzen aan de Service-Principal in Azure Data Lake Store.
-3. Voor toegang tot een bestand in Azure Data Lake Store, door de Service-Principal-referenties in de notebook te gebruiken.
+Volg deze stappen:
+1. Inrichten van een service-principal in Azure Active Directory (Azure AD), en noteer de sleutel.
+2. De vereiste machtigingen toewijzen aan de service-principal in Data Lake Store.
+3. Voor toegang tot een bestand in Data Lake Store, de referenties voor de service-principal in Notebook te gebruiken.
 
 Zie voor meer informatie [gebruik Data Lake Store met Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="fix-common-problems"></a>Veelvoorkomende problemen oplossen
 
-Deze sectie beschrijft het oplossen van veelvoorkomende problemen met Azure Databricks.
+Hier volgen enkele mogelijke problemen met Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Probleem: Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'
+### <a name="this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'
 
-**Foutbericht**
+#### <a name="error-message"></a>Foutbericht
 
-Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'. Zie https://aka.ms/rps-not-found voor het registreren van abonnementen. (Code: MissingSubscriptionRegistration)
+"Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'. Zie https://aka.ms/rps-not-found voor het registreren van abonnementen. (Code: MissingSubscriptionRegistration) '
 
-**Oplossing**
+#### <a name="solution"></a>Oplossing
 
-1. Ga naar [Azure-portal](https://portal.azure.com).
-2. Klik op **abonnementen**, het abonnement dat u gebruikt, en klik vervolgens op **resourceproviders**. 
-3. In de lijst met resourceproviders, tegen **Microsoft.Databricks**, klikt u op **registreren**. U moet de rol van inzender of eigenaar hebben op het abonnement op de registerbronprovider is.
+1. Ga naar de [Azure Portal](https://portal.azure.com).
+2. Selecteer **abonnementen**, het abonnement dat u gebruikt, en vervolgens **resourceproviders**. 
+3. In de lijst met resourceproviders, tegen **Microsoft.Databricks**, selecteer **registreren**. U moet de rol van inzender of eigenaar hebben op het abonnement op de resourceprovider registreren.
 
 
-### <a name="issue-your-account-email-does-not-have-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Probleem: Uw account {e} heeft geen eigenaar of bijdrager rol op de bron van de werkruimte Databricks in de Azure portal.
+### <a name="your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Uw account {e} heeft geen de eigenaar of bijdrager-rol op de bron van de werkruimte Databricks in de Azure portal
 
-**Foutbericht**
+#### <a name="error-message"></a>Foutbericht
 
-Uw account {e} heeft geen eigenaar of bijdrager rol op de bron van de werkruimte Databricks in de Azure portal. Deze fout kan ook optreden als u een gastgebruiker in de tenant. Vraag uw beheerder u toegang tot of u wilt toevoegen als een gebruiker rechtstreeks in de werkruimte Databricks toe te kennen. 
+'Uw account {e} heeft geen eigenaar of bijdrager rol op de bron van de werkruimte Databricks in de Azure portal. Deze fout kan ook optreden als u een gastgebruiker in de tenant. Vraag uw beheerder u toegang tot of u wilt toevoegen als een gebruiker rechtstreeks in de werkruimte Databricks toe te kennen." 
 
-**Oplossing**
+#### <a name="solution"></a>Oplossing
 
 Hier volgen een aantal oplossingen voor dit probleem:
 
-* Voor het initialiseren van de tenant, moet u zijn aangemeld als een gewone gebruiker van de tenant, niet een gastgebruiker. U moet ook de rol van inzender hebben op de bron van de werkruimte Databricks. U kunt een toegang gebruiker van de **toegangsbeheer (IAM)** tab binnen uw Azure-Databricks werkruimte in de Azure portal.
+* Voor het initialiseren van de tenant, moet u zijn aangemeld als een gewone gebruiker van de tenant, niet als een gastgebruiker. U moet ook de rol van inzender hebben op de bron van de werkruimte Databricks. U kunt een toegang gebruiker van de **toegangsbeheer (IAM)** tab binnen uw werkruimte Databricks in de Azure portal.
 
-* Deze fout kan ook optreden als de domeinnaam van uw e-mailbericht is toegewezen aan meerdere Active Directory's. Maak een nieuwe gebruiker in de Active Directory met het abonnement met uw werkruimte Databricks om dit probleem omzeilen.
+* Deze fout kan ook optreden als de domeinnaam van uw e-mailbericht is toegewezen aan meerdere mappen in Azure AD. Om dit probleem omzeilen door in de map die het abonnement met uw werkruimte Databricks bevat een nieuwe gebruiker te maken.
 
-    a. In de Azure portal, gaat u naar Azure Active Directory, klikt u op **gebruikers en groepen**, klikt u op **toevoegen van een gebruiker**.
+    a. In de Azure portal, gaat u naar Azure AD. Selecteer **gebruikers en groepen** > **toevoegen van een gebruiker**.
 
-    b. Een gebruiker toevoegen met een `@<tenant_name>.onmicrosoft.com` in plaats van een e-mail @< uw_domein > e-mail. U vindt de < tenant_name >. onmicrosoft.com die zijn gekoppeld aan uw Active Directory in de **aangepaste domeinen** onder Azure Active Directory in de Azure portal.
+    b. Een gebruiker toevoegen met een `@<tenant_name>.onmicrosoft.com` in plaats van een e-mail `@<your_domain>` e-mailbericht. U vindt dit in **aangepaste domeinen**, onder Azure AD in de Azure portal.
     
-    c. Deze nieuwe gebruiker verlenen **Inzender** -rol op de bron van de werkruimte Databricks.
+    c. Deze nieuwe gebruiker toestaan het **Inzender** -rol op de bron van de werkruimte Databricks.
     
-    d. Meld u aan bij de Azure-portal met de nieuwe gebruiker en de werkruimte Databricks vinden.
+    d. Aanmelden bij de Azure-portal met de nieuwe gebruiker en de werkruimte Databricks vinden.
     
     e. Start de Databricks werkruimte als deze gebruiker.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Probleem: Uw account {e} is niet geregistreerd in Databricks 
+### <a name="your-account-email-has-not-been-registered-in-databricks"></a>Uw account {e} is niet geregistreerd in Databricks 
 
-**Oplossing**
+#### <a name="solution"></a>Oplossing
 
-Als u de werkruimte niet hebt gemaakt en u wordt toegevoegd als een gebruiker van de werkruimte, neem dan contact op met de persoon die de werkruimte toe te voegen u met de Azure Databricks-beheerconsole hebt gemaakt. Zie voor instructies [toevoegen en het beheren van gebruikers](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Als u de werkruimte hebt gemaakt en nog steeds dat u deze fout, probeer 'Werkruimte initialiseren' nogmaals op via de Azure-portal.
+Als u de werkruimte niet hebt gemaakt en u wordt toegevoegd als een gebruiker, moet u contact op met de persoon die de werkruimte hebt gemaakt. Deze persoon u toevoegen met behulp van de beheerconsole van Azure Databricks hebben. Zie voor instructies [toevoegen en het beheren van gebruikers](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Als u de werkruimte hebt gemaakt en nog steeds u deze fout krijgt, probeert u **initialiseren werkruimte** opnieuw vanuit de Azure-portal.
 
-### <a name="issue-cloud-provider-launch-failure-publicipcountlimitreached-a-cloud-provider-error-was-encountered-while-setting-up-the-cluster"></a>Probleem: Cloud starten providerfout (PublicIPCountLimitReached): een cloud-providerfout opgetreden tijdens het instellen van het cluster
+### <a name="cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Fout bij het starten van de provider cloud tijdens het instellen van het cluster
 
-**Foutbericht**
+#### <a name="error-message"></a>Foutbericht
 
-Cloud Provider starten is mislukt: Er is een cloud provider-fout opgetreden tijdens het instellen van het cluster. Zie de handleiding Databricks voor meer informatie. Azure-foutcode: PublicIPCountLimitReached. Azure-foutbericht: kan meer dan 60 openbare IP-adressen voor dit abonnement niet maken in deze regio.
+"Fout bij het starten van de Provider cloud: een cloud-providerfout opgetreden tijdens het instellen van het cluster. Zie de handleiding Databricks voor meer informatie. Azure-foutcode: PublicIPCountLimitReached. Azure-foutbericht: kan meer dan 60 openbare IP-adressen voor dit abonnement niet maken in deze regio. "
 
-**Oplossing**
+#### <a name="solution"></a>Oplossing
 
-Azure Databricks clusters gebruiken één openbaar IP-adres per knooppunt. Als uw abonnement al voor het openbare IP's gebruikt is, moet u [aanvraag het quotum te verhogen](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Kies **quotum** als de **Type probleem**, **Networking: ARM** als de **Quotumtype**, en een toename van de quota voor openbaar IP-adres van aanvragen **Details**. Bijvoorbeeld als de limiet momenteel 60 is en u wilt maken van een cluster met 100 knooppunt, een hogere limiet aan 160 aanvragen.
+Databricks clusters gebruiken één openbaar IP-adres per knooppunt. Als uw abonnement al voor het openbare IP's gebruikt is, moet u [aanvraag het quotum te verhogen](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Kies **quotum** als de **probleemtype**, en **Networking: ARM** als de **Quotumtype**. In **Details**, een verhoging van de quota voor openbaar IP-adres aanvragen. Bijvoorbeeld als de limiet momenteel 60 is en u wilt maken van een cluster met 100-knooppunt, een hogere limiet aan 160 aanvragen.
 
-### <a name="issue-cloud-provider-launch-failure-missingsubscriptionregistration-a-cloud-provider-error-was-encountered-while-setting-up-the-cluster"></a>Probleem: Cloud starten providerfout (MissingSubscriptionRegistration): een cloud-providerfout opgetreden tijdens het instellen van het cluster
+### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Een tweede type cloud providerfout starten tijdens het instellen van het cluster
 
-**Foutbericht**
+#### <a name="error-message"></a>Foutbericht
 
-Cloud Provider starten is mislukt: Er is een cloud provider-fout opgetreden tijdens het instellen van het cluster. Zie de handleiding Databricks voor meer informatie.
-Azure-foutcode: MissingSubscriptionRegistration Azure-foutbericht: het abonnement is niet geregistreerd voor gebruik van de naamruimte 'Microsoft.Compute'. Zie https://aka.ms/rps-not-found voor het registreren van abonnementen
+"Fout bij het starten van de Provider cloud: een cloud-providerfout opgetreden tijdens het instellen van het cluster. Zie de handleiding Databricks voor meer informatie.
+Azure-foutcode: MissingSubscriptionRegistration Azure-foutbericht: het abonnement is niet geregistreerd voor gebruik van de naamruimte 'Microsoft.Compute'. Zie https://aka.ms/rps-not-found voor het registreren van abonnementen."
 
-**Oplossing**
+#### <a name="solution"></a>Oplossing
 
-1. Ga naar [Azure-portal](https://portal.azure.com).
-2. Klik op **abonnementen**, het abonnement dat u gebruikt, en klik vervolgens op **resourceproviders**. 
-3. In de lijst met resourceproviders, tegen **Microsoft.Compute**, klikt u op **registreren**. U moet de rol van inzender of eigenaar hebben op het abonnement op de registerbronprovider is.
+1. Ga naar de [Azure Portal](https://portal.azure.com).
+2. Selecteer **abonnementen**, het abonnement dat u gebruikt, en vervolgens **resourceproviders**. 
+3. In de lijst met resourceproviders, tegen **Microsoft.Compute**, selecteer **registreren**. U moet de rol van inzender of eigenaar hebben op het abonnement op de resourceprovider registreren.
 
-Zie [resourceproviders en typen](../azure-resource-manager/resource-manager-supported-services.md) voor instructies gedetailleerde.
+Zie voor meer instructies, [resourceproviders en typen](../azure-resource-manager/resource-manager-supported-services.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor stapsgewijze instructies voor het maken van een gegevensfactory versie 2 van de volgende zelfstudies:
 
 - [Snelstartgids: Aan de slag met Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Wat is Azure Databricks?](what-is-azure-databricks.md)

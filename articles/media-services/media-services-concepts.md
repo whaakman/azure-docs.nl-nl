@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten
 In dit onderwerp biedt een overzicht van de belangrijkste concepten van Media Services.
@@ -151,10 +151,9 @@ Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkinge
 Wanneer beleid voor het configureren van het token worden beperkt, moet u de verificatie van de primaire sleutel, de uitgever en de doelgroep parameters opgeven. De verificatie van de primaire sleutel bevat de sleutel die het token is ondertekend met, certificaatverlener is de secure token service die de token uitgeeft. De doelgroep (ook wel bereik genoemd) beschrijft de intentie van het token of de resource het token gemachtigd voor toegang tot. De Media Services-service sleutellevering valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
 Raadpleeg voor meer informatie de volgende artikelen:
-
-[Overzicht van de inhoud beveiligen](media-services-content-protection-overview.md)
-[beveiligen met AES-128](media-services-protect-with-aes128.md)
-[beveiligen met DRM](media-services-protect-with-drm.md)
+- [Overzicht van de inhoud beveiligen](media-services-content-protection-overview.md)
+- [Beveiligen met AES-128](media-services-protect-with-aes128.md)
+- [Beveiligen met PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Leveren
 ### <a id="dynamic_packaging"></a>Dynamische pakketten
@@ -191,7 +190,7 @@ U kunt gebruikers met URL's voor progressief downloaden, moet u eerst een OnDema
 
 http://amstest1.streaming.mediaservices.Windows.NET/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>Streaming-URL 's
+### <a name="streaming-urls"></a>Streaming-URL's
 Streaming uw inhoud aan clients. U kunt gebruikers met het streaming-URL's, moet u eerst een OnDemandOrigin-locator maken. De locator maakt, kunt u het basispad voor de activa die de inhoud die u wilt streamen bevat. Om deze inhoud te streamen moet u echter meer dit pad wijzigen. Kan een volledige URL van het manifestbestand van streaming, moet u de locator padwaarde en het manifest (filename.ism) samenvoegen bestandsnaam. /Manifest en (indien nodig) de juiste indeling vervolgens toevoegen aan het locator-pad.
 
 U kunt ook de inhoud streamen via een SSL-verbinding. Hiervoor moet dat de URL van uw streaming begint met HTTPS. Op dit moment ondersteuning AMS geen voor SSL met aangepaste domeinen.  
