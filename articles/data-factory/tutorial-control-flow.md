@@ -13,22 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: 8a51ba22c6fea7a866815c33d164d72af08db8f0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Deze zelfstudie
+In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, wilt u details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) verzenden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, wilt u details over de mislukte kopieerbewerking (zoals de foutmelding) verzenden in een e-mailbericht met een foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, wilt u details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) verzenden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, wilt u details over de mislukte kopieerbewerking (zoals de foutmelding) verzenden in een e-mailbericht met een foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
 
 Een overzicht van het scenario: ![overzicht](media/tutorial-control-flow/overview.png)
 
@@ -50,7 +45,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Azure Storage-account**. U gebruikt de blob-opslag als **bron**-gegevensopslag. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) om een account te maken.
+* **Een Azure Storage-account**. U gebruikt de blob-opslag als **bron**-gegevensopslag. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) om een account te maken.
 * **Azure SQL-database**. U gebruikt de database als **sink**-gegevensopslag. Als u geen Azure SQL-database hebt, raadpleegt u het artikel [Een Azure SQL-database maken](../sql-database/sql-database-get-started-portal.md) om een database te maken.
 * **Visual Studio** 2013, 2015, of 2017. De procedures in dit artikel zijn gebaseerd op Visual Studio 2017.
 * **Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
@@ -145,7 +140,7 @@ Maak met behulp van Visual Studio 2015/2017 een C# .NET-consoletoepassing.
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Een data factory maken
+## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 Maak een 'CreateOrUpdateDataFactory'-functie in het bestand Program.cs:
 
 ```csharp

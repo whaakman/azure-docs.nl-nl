@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="about-vpn-gateway"></a>Informatie over VPN-gateway
 
@@ -87,9 +87,6 @@ Met een point-to-site-VPN-gatewayverbinding (P2S) kunt u vanaf een afzonderlijke
 
 Bij P2S-verbindingen is er, in tegenstelling tot bij S2S-verbindingen, geen on-premises openbaar IP-adres en geen VPN-apparaat nodig. P2S-verbindingen kunnen worden gebruikt met S2S-verbindingen via dezelfde VPN-gateway, mits alle configuratievereisten voor beide verbindingen compatibel zijn. Voor meer informatie over point-to-site-verbindingen leest u [About Point-to-Site VPN](point-to-site-about.md) (Over point-to-site-VPN).
 
->[!NOTE]
->P2S-RADIUS-verificatie en IKEv2 zijn beide momenteel beschikbaar als preview.
->
 
 ![Voorbeeld van een punt-naar-site-verbinding met Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

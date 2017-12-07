@@ -1,6 +1,6 @@
-Maak in de Cloud Shell met de opdracht [az webapp create](/cli/azure/webapp#create) een [web-app](../articles/app-service/containers/app-service-linux-intro.md) in het App Service-plan `myAppServicePlan`. 
+Maak in de Cloud Shell met de opdracht [az webapp create](/cli/azure/webapp#az_webapp_create) een [web-app](../articles/app-service/containers/app-service-linux-intro.md) in het App Service-plan `myAppServicePlan`. 
 
-Vervang in het volgende voorbeeld wordt `<app_name>` met een globaal unieke app-naam (geldige tekens zijn `a-z`, `0-9`, en `-`). De runtime is ingesteld op `dotnetcore|1.1`. Als u wilt zien alle ondersteunde runtimes, [az webapp lijst-runtimes](/cli/azure/webapp#list-runtimes). 
+Vervang in het volgende voorbeeld wordt `<app_name>` met een globaal unieke app-naam (geldige tekens zijn `a-z`, `0-9`, en `-`). De runtime is ingesteld op `dotnetcore|1.1`. Als u wilt zien alle ondersteunde runtimes, [az webapp lijst-runtimes](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git

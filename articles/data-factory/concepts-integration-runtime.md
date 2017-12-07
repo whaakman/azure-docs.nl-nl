@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime in Azure Data Factory
 De Integratie Runtime (IR) is de rekeninfrastructuur die Azure Data Factory gebruikt om de volgende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen te bieden:
@@ -141,7 +141,7 @@ Verenigde Staten | VS - oost | VS - oost
 &nbsp; | Zuid-centraal VS | Zuid-centraal VS
 &nbsp; | West-centraal VS | West-centraal VS
 &nbsp; | VS - west | VS - west
-&nbsp; | VS - west 2 | VS - west
+&nbsp; | VS - west 2 | VS - west 2
 Canada | Canada - oost | Canada - midden
 &nbsp; | Canada - midden | Canada - midden
 Brazilië | Brazilië - zuid | Brazilië - zuid
