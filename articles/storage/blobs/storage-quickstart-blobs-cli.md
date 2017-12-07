@@ -1,9 +1,9 @@
 ---
-title: Azure Quickstart - objecten voor overdracht naar/van Azure Blob storage met de Azure CLI | Microsoft Docs
-description: Snel informatie over het overdragen van objecten uit Azure Blob storage met de Azure CLI
+title: Azure Quick Start - Objecten overdragen naar/van Azure Blob-opslag met Azure CLI | Microsoft Docs
+description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met Azure CLI
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
-ms.author: marsma
-ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Objecten voor overdracht naar/van Azure Blob storage met de Azure CLI
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Objecten overdragen naar/van Azure Blob-opslag met Azure CLI
 
-De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze Quick Start-gegevens met de Azure CLI om te uploaden en downloaden van gegevens naar en van Azure Blob-opslag.
+De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. In deze Quick Start wordt beschreven hoe u Azure CLI kunt gebruiken om gegevens naar en van Azure Blob-opslag te uploaden en downloaden.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -35,7 +35,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-container"></a>Een container maken
 
-BLOB's worden altijd geüpload naar een container. Containers kunnen u groepen blobs ordenen zoals voor het ordenen van de bestanden in mappen op uw computer.
+Blobs worden altijd naar een container geüpload. Met containers kunt u groepen blobs ordenen net zoals u bestanden in mappen op uw computer ordent.
 
 Gebruik de opdracht [az storage container create](/cli/azure/storage/container#create) om een container te maken voor het opslaan van blobs.
 
@@ -45,9 +45,9 @@ az storage container create --name mystoragecontainer
 
 ## <a name="upload-a-blob"></a>Een blob uploaden
 
-Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. De meeste bestanden die zijn opgeslagen in Blob storage worden opgeslagen als blok-blobs. Toevoeg-BLOB's worden gebruikt wanneer de gegevens moeten worden toegevoegd aan een bestaande blob zonder aanpassing van de bestaande inhoud, zoals logboekregistratie. Pagina-blobs ondersteunen de VHD-bestanden van virtuele IaaS-machines.
+Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. De meeste bestanden die zijn opgeslagen in Blob-opslag hebben de vorm van blok-blobs. Toevoeg-blobs worden gebruikt wanneer gegevens moeten worden toegevoegd aan een bestaande blob zonder de bestaande inhoud te wijzigen, zoals in het geval van logboekregistratie. Pagina-blobs ondersteunen de VHD-bestanden van virtuele IaaS-machines.
 
-In dit voorbeeld wordt een blob uploaden naar de container die we hebben gemaakt in de laatste stap met het [uploaden van blob storage az](/cli/azure/storage/blob#upload) opdracht.
+In dit voorbeeld wordt met de opdracht [az storage blob upload](/cli/azure/storage/blob#upload) een blob geüpload naar de container die we in de laatste stap hebben gemaakt.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +56,7 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als dat wel het geval is. Upload zoveel bestanden als u nodig hebt voordat u doorgaat.
+Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als dat wel het geval is. Upload zoveel bestanden als u nodig hebt, voordat u doorgaat.
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
@@ -70,7 +70,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Een blob downloaden
 
-Gebruik de [az storage blobs downloaden](/cli/azure/storage/blob#download) opdracht voor het downloaden van een blob die u eerder hebt geüpload.
+Gebruik de opdracht [az storage blobs downloaden](/cli/azure/storage/blob#download) om een blob te downloaden die u eerder hebt geüpload.
 
 ```azurecli-interactive
 az storage blob download \
@@ -81,9 +81,9 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>Gegevensoverdracht met AzCopy
 
-De [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) hulpprogramma is een andere optie voor hoge prestaties scriptbare gegevensoverdracht voor Azure Storage. U kunt AzCopy gebruiken om gegevens naar en van Blob-, bestands- en tabel opslag te brengen.
+Het hulpprogramma [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is een andere optie voor krachtige, scriptbare gegevensoverdracht voor Azure Storage. U kunt AzCopy gebruiken om gegevens over te brengen naar en van blob-, bestands- en tabelopslag.
 
-Als een voorbeeld van een snelle, hier wordt de AzCopy-opdracht voor het uploaden van een bestand genaamd *mijnbestand.txt* naar de *mystoragecontainer* container.
+Als een kort voorbeeld ziet u hier de AzCopy-opdracht voor het uploaden van een bestand met de naam *myfile.txt* naar de container *mystoragecontainer*.
 
 ```bash
 azcopy \
@@ -95,7 +95,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u niet langer de bronnen in de resourcegroep, met inbegrip van het opslagaccount dat u hebt gemaakt in deze snelstartgids verwijdert u de resourcegroep met de [az groep verwijderen](/cli/azure/group#delete) opdracht.
+Als u de resources van de resourcegroep niet meer nodig hebt, met inbegrip van het opslagaccount dat u hebt gemaakt in deze Quick Start, verwijdert u de resourcegroep met de opdracht [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -103,7 +103,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u bestanden overbrengen tussen lokale schijf en een container in Azure Blob-opslag. Voor meer informatie over het werken met blobs in Azure Storage, blijven de zelfstudie voor het werken met Azure Blob storage.
+In deze Quick Start hebt u geleerd hoe u bestanden kunt overbrengen tussen een lokale schijf en een container in Azure Blob Storage. Raadpleeg de zelfstudie voor het werken met Azure Blob Storage, voor meer informatie over het werken met blobs in Azure Storage.
 
 > [!div class="nextstepaction"]
-> [Procedure: Blob opslagbewerkingen met de Azure CLI](storage-how-to-use-blobs-cli.md)
+> [Procedure: Blob-opslagbewerkingen uitvoeren met Azure CLI](storage-how-to-use-blobs-cli.md)

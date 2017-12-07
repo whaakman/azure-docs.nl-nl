@@ -1,6 +1,6 @@
 ---
 title: Een Azure-database voor PostgreSQL maken met de Azure CLI | Microsoft-documenten
-description: Quick Start guide maken en beheren van Azure-Database voor PostgreSQL-server met Azure CLI (opdrachtregelinterface).
+description: Quick Start voor het maken en beheren van Azure Database voor PostgreSQL-server met behulp van Azure CLI (opdrachtregelinterface).
 services: postgresql
 author: sanagama
 ms.author: sanagama
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: a47e0c98593f92af6988795779700dc641f3011c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.date: 11/27/2017
+ms.openlocfilehash: c77ea674a1f8ad2b4c879f65a3fdb6758e3ddf63
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Een Azure-database voor PostgreSQL maken met de Azure CLI
 Azure Database voor PostgreSQL is een beheerde service waarmee u PostgreSQL-databases met hoge beschikbaarheid in de cloud kunt uitvoeren, beheren en schalen. De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze Quick Start laat zien hoe u een Azure-database voor PostgreSQL-server kunt maken in een [Azure resourcegroep](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) met de Azure CLI.
@@ -23,9 +23,9 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in dit artikel is vereist dat u de Azure CLI versie 2.0 of hoger worden uitgevoerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit artikel gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
-Als u de CLI lokaal uitvoert, moet u zich aanmelden bij uw account op met de [az aanmelding](/cli/azure/authenticate-azure-cli?view=interactive-log-in) opdracht.
+Als u de CLI lokaal uitvoert, moet u zich aanmelden bij uw account met behulp van de opdracht [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in).
 ```azurecli-interactive
 az login
 ```
@@ -37,7 +37,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myresourcegroup` gemaakt op de locatie `westus`.
+Maak een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#az_group_create). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en groepsgewijs worden beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam `myresourcegroup` gemaakt op de locatie `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -59,9 +59,9 @@ De database **postgres** wordt standaard gemaakt op uw server. De database [post
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Een serverfirewallregel configureren
 
-Maak een Azure PostgreSQL-firewallregel op serverniveau met de opdracht [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). Met een firewallregel op serverniveau kan een externe toepassing, zoals [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) of [PgAdmin](https://www.pgadmin.org/) verbinding maken met uw server via de firewall van de Azure PostgreSQL-service. 
+Maak een Azure PostgreSQL-firewallregel op serverniveau met de opdracht [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create). Met een firewallregel op serverniveau kan een externe toepassing, zoals [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) of [PgAdmin](https://www.pgadmin.org/) verbinding maken met uw server via de firewall van de Azure PostgreSQL-service. 
 
-U kunt een firewallregel voor een IP-bereik instellen, zodat u vanaf uw netwerk verbinding kunt maken. In het volgende voorbeeld wordt [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) gebruikt om een firewallregels te maken `AllowAllIps` voor een IP-adresbereik. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
+U kunt een firewallregel voor een IP-bereik instellen, zodat u vanaf uw netwerk verbinding kunt maken. In het volgende voorbeeld wordt [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) gebruikt om een firewallregels te maken `AllowAllIps` voor een IP-adresbereik. Als u alle IP-adressen wilt openen, gebruikt u 0.0.0.0 als beginadres en 255.255.255.255 als eindadres.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
@@ -134,7 +134,7 @@ Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprog
 3.  In het dialoogvenster **Maken - Server**, tabblad **Algemeen**, voert u een unieke beschrijvende naam in voor de server. Bijvoorbeeld **Azure PostgreSQL Server**.
  ![pgAdmin-hulpprogramma - Maken - Server](./media/quickstart-create-server-database-azure-cli/1-pgadmin-create-server.png)
 4.  In het dialoogvenster **Maken - Server**, tabblad **Verbinding**:
-    - Geef de volledige servernaam op (bijvoorbeeld **mypgserver-20170401.postgres.database.azure.com**) in het vak **Hostnaam/-adres**. 
+    - Geef de volledige gekwalificeerde servernaam op (bijvoorbeeld **mypgserver-20170401.postgres.database.azure.com**) in het vak **Hostnaam/-adres**. 
     - Typ 5432 in het vak **Poort**. 
     - Typ de **Aanmeldgegevens voor de serverbeheerder (user@mypgserver)** die u eerder hebt verkregen in deze Quick Start en het wachtwoord dat u aanmaakte toen u de server maakte, in de respectieve vakken **Gebruikersnaam** en **Wachtwoord**.
     - Selecteer **SSL-modus** als **Vereist**. Standaard worden alle Azure PostgreSQL-servers gemaakt met de optie SSL afdwingen ingeschakeld. Zie [SSL afdwingen](./concepts-ssl-connection-security.md) als u het afdwingen van SSL wilt uitschakelen.
@@ -155,13 +155,13 @@ Verbinding maken met een Azure PostgreSQL-server met behulp van het GUI-hulpprog
 Verwijder alle resources die u in deze Quick Start hebt gemaakt door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen.
 
 > [!TIP]
-> Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan werken met de volgende snelstartgidsen, geen clean up maakt van de resources in deze snelstartgids hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in de Azure CLI zijn gemaakt.
+> Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u door wilt gaan met andere Quick Starts, verwijdert u de resources die u in deze Quick Start hebt gemaakt, niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in de Azure CLI zijn gemaakt.
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-Als u zou net als een nieuwe server verwijderen, kunt u uitvoeren [az postgres server verwijderen](/cli/azure/postgres/server#delete) opdracht.
+Als u alleen de zojuist gemaakte server wilt verwijderen, kunt u de opdracht [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) uitvoeren.
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```

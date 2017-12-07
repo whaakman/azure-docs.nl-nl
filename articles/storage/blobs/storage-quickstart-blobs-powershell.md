@@ -1,9 +1,9 @@
 ---
-title: Azure Quickstart - objecten voor overdracht naar/van Azure Blob storage met PowerShell | Microsoft Docs
-description: Snel informatie over het overdragen van objecten uit Azure Blob storage met PowerShell
+title: Azure Quick Start - Objecten overdragen naar/van Azure Blob-opslag met PowerShell | Microsoft Docs
+description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met PowerShell
 services: storage
 documentationcenter: storage
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
-ms.author: robinsh
-ms.openlocfilehash: 1a9941b21b92c70dd0a46ce2e4c75142e1786650
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Objecten voor overdracht naar/van Azure Blob storage met Azure PowerShell
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Objecten overdragen naar/van Azure Blob-opslag met Azure PowerShell
 
-De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. Deze handleiding gegevens met behulp van PowerShell bestanden overbrengen tussen lokale schijf en Azure Blob-opslag.
+De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze handleiding staan de details over het gebruik van PowerShell om bestanden over te dragen tussen de lokale schijf en Azure Blob-opslag.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -33,22 +33,22 @@ Voor deze Quick Start is moduleversie 3.6 of hoger van Azure PowerShell vereist.
 
 ## <a name="create-a-container"></a>Een container maken
 
-BLOB's worden altijd geüpload naar een container. Hiermee kunt u groepen blobs ordenen zoals ordenen van uw bestanden op uw computer in mappen.
+Blobs worden altijd naar een container geüpload. Hierdoor kunt u groepen blobs ordenen net zoals u bestanden in mappen op de computer ordent.
 
-Stel de containernaam en maak de container met [nieuw AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), het instellen van machtigingen naar de blob voor openbare toegang van de bestanden. De containernaam van de in dit voorbeeld is *quickstartblobs*.
+Stel de containernaam in en maak vervolgens de container met behulp van [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), waarbij u de machtigingen instelt op de waarde Blob voor openbare toegang tot de bestanden. De containernaam in dit voorbeeld is *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
 New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 
-## <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
+## <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
-Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. VHD-bestanden gebruikt voor back-IaaS VM's zijn pagina-blobs. Toevoeg-BLOB's worden gebruikt voor logboekregistratie, zoals indien u wenst te schrijven naar een bestand en klik vervolgens houden meer gegevens toe te voegen. De meeste bestanden die zijn opgeslagen in Blob storage zijn blok-blobs. 
+Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. VHD-bestanden die worden gebruikt voor IaaS-VM's zijn pagina-blobs. Toevoeg-blobs worden gebruikt voor logboekregistratie, bijvoorbeeld wanneer u wilt schrijven naar een bestand en vervolgens meer gegevens wilt blijven toevoegen. De meeste bestanden die zijn opgeslagen in Blob-opslag, zijn blok-blobs. 
 
-Om een bestand naar een blok-blob uploaden, een containerverwijzing ophalen en vervolgens een verwijzing naar de blok-blob ophalen in de container. Zodra u de blobverwijzing hebt, kunt u gegevens uploaden naar deze met behulp van [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of deze wordt overschreven als deze al bestaat.
+Als u een bestand wilt uploaden naar een blok-blob, haalt u een containerverwijzing op en haalt u vervolgens een verwijzing op naar de blok-blob in deze container. Zodra u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
 
-De volgende voorbeelden upload Image001.jpg en Image002.png van de D:\\_TestImages map op de lokale schijf aan de container die u zojuist hebt gemaakt.
+In de volgende voorbeelden worden Image001.jpg en Image002.png uit de map D:\\_TestImages op de lokale schijf geüpload naar de container die u zojuist hebt gemaakt.
 
 ```powershell
 # upload a file
@@ -64,11 +64,11 @@ Set-AzureStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Context $ctx
 ```
 
-Upload zoveel bestanden als u nodig hebt voordat u doorgaat.
+Upload zoveel bestanden als u nodig hebt, voordat u doorgaat.
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Een lijst met blobs in de container met behulp [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob). Dit voorbeeld toont alleen de namen van de blobs geüpload.
+Haal een lijst met blobs in de container op met behulp van [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob). In dit voorbeeld worden alleen de namen van de geüploade blobs weergegeven.
 
 ```powershell
 Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name 
@@ -76,9 +76,9 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Blobs downloaden
 
-Download de blobs naar uw lokale vaste schijf. Voor elke blob worden gedownload, stelt u de naam en de aanroep [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) voor het downloaden van de blob.
+Download de blobs naar de lokale vaste schijf. Stel voor elke blob die moet worden gedownload, de naam in en roep [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) aan om de blob te downloaden.
 
-In dit voorbeeld de blobs downloadt naar D:\\_TestImages\Downloads op de lokale schijf. 
+In dit voorbeeld worden de blobs gedownload naar D:\\_TestImages\Downloads op de lokale schijf. 
 
 ```powershell
 # download first blob
@@ -96,9 +96,9 @@ Get-AzureStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Gegevensoverdracht met AzCopy
 
-De [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) hulpprogramma is een andere optie voor hoge prestaties scriptbare gegevensoverdracht voor Azure Storage. U kunt AzCopy gebruiken om gegevens naar en van Blob-, bestands- en tabel opslag te brengen.
+Het hulpprogramma [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is een andere optie voor krachtige, scriptbare gegevensoverdracht voor Azure Storage. U kunt AzCopy gebruiken om gegevens over te brengen naar en van blob-, bestands- en tabelopslag.
 
-Als een voorbeeld van een snelle, hier wordt de AzCopy-opdracht voor het uploaden van een bestand genaamd *mijnbestand.txt* naar de *mystoragecontainer* container uit in een PowerShell-venster.
+Als een kort voorbeeld ziet u hier de AzCopy-opdracht voor het uploaden van een bestand met de naam *myfile.txt* naar de container *mystoragecontainer* vanuit een PowerShell-venster.
 
 ```PowerShell
 ./AzCopy `
@@ -110,7 +110,7 @@ Als een voorbeeld van een snelle, hier wordt de AzCopy-opdracht voor het uploade
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Verwijder alle van de activa die u hebt gemaakt. De eenvoudigste manier om dit te doen is de resourcegroep verwijderen. Hiermee verwijdert u ook alle resources binnen de groep. In dit geval verwijdert deze de storage-account en de resourcegroep zelf.
+Verwijder alle activa die u hebt gemaakt. De eenvoudigste manier om dit te doen is door de resourcegroep te verwijderen. Hiermee verwijdert u ook alle resources binnen de groep. In dit geval worden het opslagaccount en de resourcegroep zelf verwijderd.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -118,13 +118,13 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snel starten, hebt u geleerd hoe u bestanden overbrengen tussen een lokale schijf en Azure Blob-opslag. Voor meer informatie over het werken met Blob storage, blijven de instructies van de Blob-opslag.
+In deze Quick Start hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
 
 > [!div class="nextstepaction"]
-> [Procedures voor de bewerkingen van de BLOB-opslag](storage-how-to-use-blobs-powershell.md)
+> [Instructies voor bewerkingen in Blob-opslag](storage-how-to-use-blobs-powershell.md)
 
-### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Naslaginformatie over opslag voor Microsoft Azure PowerShell-cmdlets
-* [PowerShell-cmdlets voor opslag](/powershell/module/azurerm.storage#storage)
+### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Naslaginformatie over Microsoft Azure PowerShell Storage-cmdlets
+* [PowerShell Storage-cmdlets](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.

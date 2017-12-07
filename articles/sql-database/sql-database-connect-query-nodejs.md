@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: carlrab
-ms.openlocfilehash: a0b716fa37b4f8071bc1b8260fa73e807e37f78d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: fc7bc80e332afeb284f9e71609d1d02b8193b6f7
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Node.js gebruiken om een query uit te voeren voor een Azure SQL-database
 
@@ -29,29 +29,18 @@ In deze beknopte zelfstudie wordt gedemonstreerd hoe u [Node.js](https://nodejs.
 
 Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te voltooien:
 
-- Een Azure SQL-database. In deze zelfstudie worden de resources gebruikt die u hebt gemaakt in een van deze Quick Starts: 
-
-   - [Database maken - Portal](sql-database-get-started-portal.md)
-   - [Database maken - CLI](sql-database-get-started-cli.md)
-   - [Database maken - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor het openbare IP-adres van de computer die u gebruikt voor deze beknopte zelfstudie.
-- U hebt Node.js en verwante software voor uw besturingssysteem geïnstalleerd.
+
+- U hebt Node.js en verwante software voor het besturingssysteem geïnstalleerd:
     - **MacOS**: installeer Homebrew en Node.js, en installeer vervolgens het ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
     - **Ubuntu**: installeer Node.js en installeer vervolgens het ODBC-stuurprogramma en SQLCMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
     - **Windows**: installeer Chocolatey en Node.js, en installeer vervolgens het ODBC-stuurprogramma en SQL CMD. Zie [Stap 1.2 en 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
-Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de volgende afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen. 
-
-   ![servernaam](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven en, indien nodig, het wachtwoord opnieuw in te stellen.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
 > U moet een firewallregel hebben ingesteld voor het openbare IP-adres van de computer waarop u deze zelfstudie uitvoert. Als u een andere computer gebruikt of een ander openbaar IP-adres hebt, maakt u een [firewallregel op serverniveau met behulp van Azure Portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
@@ -144,5 +133,4 @@ Open een opdrachtprompt en maak een map met de naam *sqltest*. Navigeer naar de 
 - Meer informatie over [Uw eerste Azure SQL-database ontwerpen met behulp van SSMS](sql-database-design-first-database.md) of [Uw eerste Azure SQL-database ontwerpen met behulp van .NET](sql-database-design-first-database-csharp.md).
 - Meer informatie over [Verbinding maken en query's uitvoeren met SSMS](sql-database-connect-query-ssms.md)
 - Meer informatie over [Verbinding maken en query's uitvoeren met Visual Studio Code](sql-database-connect-query-vscode.md).
-
 

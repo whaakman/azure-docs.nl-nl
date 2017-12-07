@@ -13,46 +13,37 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: 5fc50c78af7c88cc2d0c537456cb8323002f8696
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 913055fca46580d870dc2e015f442b431c9ff6e0
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>.NET (C#) met Visual Studio gebruiken om verbinding te maken en query's uit te voeren voor een Azure SQL-database
 
-In deze beknopte zelfstudie wordt gedemonstreerd hoe u het [.NET Framework](https://www.microsoft.com/net/) gebruikt om een C#-programma te maken met Visual Studio dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor gegevens.
+In deze beknopte zelfstudie wordt gedemonstreerd hoe u het [.NET Framework](https://www.microsoft.com/net/) gebruikt om een C#-programma te maken met Visual Studio dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om gegevens te doorzoeken.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te voltooien:
 
-- Een Azure SQL-database. In deze zelfstudie worden de resources gebruikt die u hebt gemaakt in een van deze Quick Starts: 
-
-   - [Database maken - Portal](sql-database-get-started-portal.md)
-   - [Database maken - CLI](sql-database-get-started-cli.md)
-   - [Database maken - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor het openbare IP-adres van de computer die u gebruikt voor deze beknopte zelfstudie.
+
 - Een installatie van [Visual Studio Community 2017, Visual Studio Professional 2017 of Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
-Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de volgende afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen. 
+#### <a name="for-adonet"></a>Voor ADO.NET
 
-   ![servernaam](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Ga verder door op **Databaseverbindingsreeksen tonen** te klikken.
 
-4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven. U kunt, indien nodig, het wachtwoord opnieuw instellen.
-
-5. Klik op **Databaseverbindingsreeksen tonen**.
-
-6. Bekijk de volledige **ADO.NET**-verbindingsreeks.
+2. Bekijk de volledige **ADO.NET**-verbindingsreeks.
 
     ![ADO.NET-verbindingsreeks](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
@@ -142,3 +133,10 @@ namespace sqltest
 - Meer informatie over [Aan de slag met .NET Core in Windows/Linux/macOS met behulp van de opdrachtregel](/dotnet/core/tutorials/using-with-xplat-cli).
 - Meer informatie over [Uw eerste Azure SQL-database ontwerpen met behulp van SSMS](sql-database-design-first-database.md) of [Uw eerste Azure SQL-database ontwerpen met behulp van .NET](sql-database-design-first-database-csharp.md).
 - Raadpleeg de [.NET-documentatie](https://docs.microsoft.com/dotnet/) voor meer informatie over .NET.
+- [Voorbeeld logica voor opnieuw proberen: flexibel verbinding maken met SQL via ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+

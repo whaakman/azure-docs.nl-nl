@@ -3,7 +3,7 @@ title: Uw eerste functie maken in Azure met behulp van Visual Studio | Microsoft
 description: Maak een eenvoudige HTTP-geactiveerde functie en publiceer deze op Azure met behulp van Azure Functions-hulpprogramma's voor Visual Studio.
 services: functions
 documentationcenter: na
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,22 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Uw eerste functie maken met Visual Studio
 
-Azure Functions, kunt u het uitvoeren van uw code in een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) omgeving zonder eerst een virtuele machine maken of een webtoepassing publiceren.
+Met Azure Functions kunt u uw code in een [serverloze](https://azure.microsoft.com/overview/serverless-computing/) omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren.
 
-In dit onderwerp leert u hoe u met de Visual Studio 2017 hulpprogramma's voor Azure Functions maken en testen van een functie 'Hallo wereld' lokaal. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017 versie 15.3 of een latere versie.
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
+
+In dit onderwerp leert u hoe u met de Visual Studio 2017-hulpprogramma’s voor Azure Functions lokaal een Hallo wereld-functie kunt maken en testen. Vervolgens publiceert u de functiecode op Azure. Deze hulpprogramma's zijn beschikbaar als onderdeel van de Azure-ontwikkelworkload in Visual Studio 2017 versie 15.3 of een latere versie.
 
 ![Azure-functiecode in een Visual Studio-project](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -35,7 +37,7 @@ In dit onderwerp leert u hoe u met de Visual Studio 2017 hulpprogramma's voor Az
 
 Voor deze zelfstudie installeert u het volgende:
 
-* [Visual Studio 2017 versie 15,4](https://www.visualstudio.com/vs/) of een latere versie, met inbegrip van de **ontwikkelen van Azure** werkbelasting.
+* [Visual Studio 2017 versie 15.4](https://www.visualstudio.com/vs/) of een latere versie, waaronder de **Azure-ontwikkelworkload**.
 
     ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
@@ -49,15 +51,15 @@ Nu u het project hebt gemaakt, kunt u uw eerste functie maken.
 
 ## <a name="create-the-function"></a>De functie maken
 
-1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer  > **Nieuw item****Toevoegen**. Selecteer **Azure-functie**, voer `HttpTriggerCSharp.cs` voor **naam**, en klik op **toevoegen**.
+1. Klik in **Solution Explorer** met de rechtermuisknop op het projectknooppunt en selecteer  > **Nieuw item****Toevoegen**. Selecteer **Azure-functie**, voer `HttpTriggerCSharp.cs` in als **Naam** in en klik op **Toevoegen**.
 
-2. Selecteer **HttpTrigger**, selecteer **anoniem** voor **toegangsrechten**, en klik op **OK**. De gemaakte functie wordt geopend door een HTTP-aanvraag vanaf een client. 
+2. Selecteer **HttpTrigger**, selecteer bij **Toegangsrechten** de optie **Anoniem** en klik op **OK**. De gemaakte functie wordt geopend door een HTTP-aanvraag vanaf een client. 
 
     ![Een nieuwe Azure-functie maken](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-    Een bestand met code wordt toegevoegd aan uw project met een klasse die de functiecode implementeert. Deze code is gebaseerd op een sjabloon waarmee u een naamwaarde en het gebruik weer ontvangt. De **functienaam** kenmerk stelt de naam van de functie. De **HttpTrigger** kenmerk geeft aan dat het bericht dat de functie activeert. 
+    Er wordt een codebestand toegevoegd aan het project met daarin een klasse waarmee de functiecode wordt geïmplementeerd. Deze code is gebaseerd op een sjabloon waarmee een naamwaarde wordt geretourneerd en teruggestuurd. Met het kenmerk **FunctionName** wordt de naam van de functie ingesteld. Met het kenmerk **HttpTrigger** wordt het bericht aangegeven dat de functie activeert. 
 
-    ![Functie codebestand](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+    ![Functiecodebestand](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
 Nu u een HTTP-geactiveerde-functie hebt gemaakt, kunt u deze testen op uw lokale computer.
 

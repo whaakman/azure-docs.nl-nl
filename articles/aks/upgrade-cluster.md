@@ -1,6 +1,6 @@
 ---
-title: Upgrade van een Azure Container Service (AKS)-cluster | Microsoft Docs
-description: Upgrade van een Azure Container Service (AKS)-cluster
+title: Een AKS-cluster (Azure Container Service) upgraden | Microsoft Docs
+description: Een AKS-cluster (Azure Container Service) upgraden
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -17,19 +17,19 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Upgrade van een Azure Container Service (AKS)-cluster
+# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) upgraden
 
-Azure Container Service (AKS) kunt gemakkelijk algemene beheertaken uitvoeren, waaronder Kubernetes clusters upgraden.
+Met AKS (Azure Container Service) kunt u eenvoudig algemene beheertaken uitvoeren, inclusief het upgraden van Kubernetes-clusters.
 
 ## <a name="upgrade-an-aks-cluster"></a>Een AKS-cluster upgraden
 
-Vóór de upgrade van een cluster, gebruikt u de `az aks get-versions` opdracht om te controleren die Kubernetes versies zijn beschikbaar voor de upgrade.
+Voordat u een cluster upgradet, gebruikt u de opdracht `az aks get-versions` om te controleren welke Kubernetes-releases beschikbaar zijn voor de upgrade.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -43,7 +43,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Er zijn drie versies beschikbaar voor de upgrade: 1.7.9, 1.8.1 en 1.8.2. Kunnen we gebruiken de `az aks upgrade` opdracht bijwerken naar de meest recente versie.  Tijdens het upgradeproces knooppunten zijn zorgvuldig [cordoned en geleegd](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) onderbreking van actieve toepassingen minimaliseren.
+Er zijn drie versies beschikbaar voor de upgrade: 1.7.9, 1.8.1 en 1.8.2. We kunnen de opdracht `az aks upgrade` gebruiken om te upgraden naar de meest recente beschikbare versie.  Tijdens het upgradeproces worden knooppunten zorgvuldig [afgebakend en geleegd](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) om onderbreking van actieve toepassingen te minimaliseren.  Voordat u begint met het upgraden van een cluster, moet u controleren of u genoeg compute-capaciteit heeft om de workload te verwerken wanneer klusterknooppunten worden toegevoegd en verwijderd.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -105,7 +105,7 @@ Uitvoer:
 }
 ```
 
-U kunt nu Bevestig de upgrade is geslaagd met de `az aks show` opdracht.
+U kunt nu bevestigen dat de upgrade is geslaagd met de opdracht `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -121,7 +121,7 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het implementeren en beheren van AKS met de zelfstudies AKS.
+U krijgt meer informatie over het implementeren en beheren van AKS in de AKS-zelfstudies.
 
 > [!div class="nextstepaction"]
 > [AKS-zelfstudie](./tutorial-kubernetes-prepare-app.md)

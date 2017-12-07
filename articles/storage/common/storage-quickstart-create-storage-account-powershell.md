@@ -1,9 +1,9 @@
 ---
-title: Azure Quickstart - Maak een opslagaccount met behulp van PowerShell | Microsoft Docs
-description: Snel informatie over het maken van een nieuw opslagaccount met PowerShell
+title: Azure Quick Start - Een opslagaccount maken met PowerShell | Microsoft Docs
+description: Leer snel hoe u een nieuw opslagaccount maakt met behulp van PowerShell
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.author: robinsh
-ms.openlocfilehash: c9175cce0cb93e73009fb8d751e54f631603d482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: b4b917adfb3644cca71b6696df005fbf9e295240
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="create-a-storage-account-using-powershell"></a>Maak een opslagaccount met behulp van PowerShell
+# <a name="create-a-storage-account-using-powershell"></a>Een opslagaccount maken met PowerShell
 
-De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. Deze handleiding gegevens met behulp van PowerShell om een Azure Storage-account te maken. 
+De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze Quick Start wordt beschreven hoe u met PowerShell een Azure Storage-account kunt maken. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -37,7 +37,7 @@ Meld u aan bij uw Azure-abonnement met de opdracht `Login-AzureRmAccount` en vol
 Login-AzureRmAccount
 ```
 
-Als u niet welke locatie die u wilt gebruiken weet, kunt u de beschikbare locaties weergeven. Nadat de lijst wordt weergegeven, vinden die u wilt gebruiken. Dit voorbeeld gebruiken **eastus**. Slaat u dit in een variabele en gebruik van de variabele, zodat u dit op één plek wijzigen kunt.
+Als u niet weet welke locatie u kunt gebruiken, kunt u een lijst met de beschikbare locaties weergeven. Selecteer de gewenste locatie in de lijst. In dit voorbeeld wordt **eastus** gebruikt. Sla deze locatie op in een variabele en gebruik de variabele zodat u de locatie op één plek kunt wijzigen.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -55,16 +55,16 @@ $resourceGroup = "contoso-storage-accounts"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## <a name="create-a-general-purpose-standard-storage-account"></a>Een algemeen standard-opslagaccount maken
+## <a name="create-a-general-purpose-standard-storage-account"></a>Een standaardopslagaccount voor algemeen gebruik maken
 
-Er zijn verschillende typen opslagaccounts, afhankelijk van hoe u deze wilt gebruiken, en voor welke service (blobs, bestanden, tabellen of wachtrijen). Deze tabel ziet de mogelijkheden.
+Er zijn verschillende typen opslagaccounts, afhankelijk van hoe u deze wilt gebruiken en voor welke service ze zijn bedoeld (blobs, bestanden, tabellen of wachtrijen). Deze tabel laat de verschillende mogelijkheden zien.
 
 |**Type opslagaccount**|**Algemeen Standard**|**Algemeen Premium**|**Blob-opslag, 'hot' en 'cool' toegangslagen**|
 |-----|-----|-----|-----|
-|**Ondersteunde services**| BLOB, bestand, tabel, Queue-services | Blob service | Blob service|
+|**Ondersteunde services**| Blob-, bestands-, tabel- en wachtrijservices | Blob-service | Blob-service|
 |**Typen ondersteunde blobs**|Blok-blobs, pagina-blobs, toevoeg-blobs | Pagina-blobs | Blok-blobs en toevoeg-blobs|
 
-Gebruik [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) voor het maken van een algemene standaard opslagaccount die u voor alle vier services gebruiken kunt. Naam van het opslagaccount *contosomvcstandard*, en configureer deze zodanig hebt lokaal redundante opslag en blob-versleuteling ingeschakeld.
+Gebruik [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) om een standaardopslagaccount voor algemeen gebruik te maken die u voor alle vier de services kunt gebruiken. Geef het opslagaccount de naam *contosomvcstandard* en configureer het account met lokaal redundante opslag en blob-versleuteling ingeschakeld.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -77,7 +77,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, kunt u de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) opdracht voor het verwijderen van de resourcegroep en alle bijbehorende resources. In dit geval wordt het opslagaccount verwijderd.
+U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt. In dit geval wordt het door u gemaakte opslagaccount verwijderd.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -85,6 +85,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een algemeen standaard opslagaccount hebt gemaakt in deze snel starten. Voor informatie over het uploaden en downloaden van BLOB storage-account, blijven de Blob storage-Quick Start.
+In deze Quick Start hebt u een standaardopslagaccount voor algemeen gebruik gemaakt. Voor informatie over het up- en downloaden van blobs voor uw opslagaccount gaat u verder met de Quick Start over Blob-opslag.
 > [!div class="nextstepaction"]
-> [Objecten voor overdracht naar/van Azure Blob storage met PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+> [Objecten overdragen naar/van Azure Blob-opslag met PowerShell](../blobs/storage-quickstart-blobs-powershell.md)

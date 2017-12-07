@@ -13,46 +13,37 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 6eb026b5f478769f680e3899a7c743546c2c9d88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>.NET Core (C#) gebruiken om een query uit te voeren voor een Azure SQL-database
 
-In deze beknopte zelfstudie wordt gedemonstreerd hoe u [.NET Core](https://www.microsoft.com/net/) gebruikt in Windows/Linux/macOS om een C#-programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor gegevens.
+In deze beknopte zelfstudie wordt gedemonstreerd hoe u [.NET Core](https://www.microsoft.com/net/) gebruikt in Windows/Linux/macOS om een C#-programma te maken dat verbinding maakt met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te voltooien:
 
-- Een Azure SQL-database. In deze zelfstudie worden de resources gebruikt die u hebt gemaakt in een van deze Quick Starts: 
-
-   - [Database maken - Portal](sql-database-get-started-portal.md)
-   - [Database maken - CLI](sql-database-get-started-cli.md)
-   - [Database maken - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor het openbare IP-adres van de computer die u gebruikt voor deze beknopte zelfstudie.
+
 - U hebt [.NET Core voor uw besturingssysteem](https://www.microsoft.com/net/core) geïnstalleerd. 
 
 ## <a name="sql-server-connection-information"></a>SQL Server-verbindingsgegevens
 
-Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azure SQL-database. U hebt de volledig gekwalificeerde servernaam, databasenaam en aanmeldingsgegevens in de volgende procedures nodig.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. Op de pagina **Overzicht** voor de database controleert u de volledig gekwalificeerde servernaam zoals in de volgende afbeelding wordt weergegeven. U kunt de cursor boven de servernaam houden om de optie **Klik om te kopiëren** naar boven te halen. 
+#### <a name="for-adonet"></a>Voor ADO.NET
 
-   ![servernaam](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Ga verder door op **Databaseverbindingsreeksen tonen** te klikken.
 
-4. Als u de aanmeldingsgegevens voor uw Azure SQL Database-server bent vergeten, gaat u naar de SQL Database-serverpagina om de beheerdersnaam voor de server weer te geven. U kunt, indien nodig, het wachtwoord opnieuw instellen.
-
-5. Klik op **Databaseverbindingsreeksen tonen**.
-
-6. Bekijk de volledige **ADO.NET**-verbindingsreeks.
+2. Bekijk de volledige **ADO.NET**-verbindingsreeks.
 
     ![ADO.NET-verbindingsreeks](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
