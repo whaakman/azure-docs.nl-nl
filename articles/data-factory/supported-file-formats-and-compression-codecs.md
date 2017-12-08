@@ -1,4 +1,4 @@
-﻿---
+---
 title: Ondersteunde bestandsindelingen in Azure Data Factory | Microsoft Docs
 description: Dit onderwerp worden de bestandsindelingen en de compressie-codes die worden ondersteund door de connectors op basis van bestanden in Azure Data Factory.
 author: linda33wj
