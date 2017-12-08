@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: e779aab97a1b96d4a0e327865e957ecd0d97a278
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -43,7 +43,7 @@ U kunt deze back-ups te gebruiken:
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Hoeveel back-upopslag is opgenomen kosteloos?
-SQL-Database biedt tot 200% van de maximale ingerichte databaseopslag als back-upopslag zonder extra kosten. Bijvoorbeeld, als er een Standard database-exemplaar met een ingerichte DB-grootte van 250 GB, hebt u 500 GB aan back-upopslag zonder extra kosten. Als uw database groter is dan de opgegeven back-upopslag, kunt u de bewaarperiode verkleinen contact opnemen met de ondersteuning van Azure. Een andere optie is om te betalen voor extra back-up die wordt gefactureerd op de standaard-geografisch redundante opslag met leestoegang (RA-GRS)-snelheid. 
+SQL-Database biedt tot 200% van de maximale ingerichte databaseopslag als back-upopslag zonder extra kosten. Bijvoorbeeld, als er een Standard database-exemplaar met een ingerichte DB-grootte van 250 GB, hebt u 500 GB aan back-upopslag zonder extra kosten. 
 
 ## <a name="how-often-do-backups-happen"></a>Hoe vaak gebeuren back-ups?
 Volledige databaseback-ups gebeuren wekelijks, differentiële back-ups in het algemeen gebeuren elk paar uur en transactielogboek back-ups in het algemeen gebeuren elke 5-10 minuten. De eerste volledige back-up is gepland onmiddellijk nadat een database wordt gemaakt. Meestal is voltooid binnen 30 minuten, maar het kan langer duren wanneer de database van een aanzienlijke grootte. De eerste back-up kan onder andere op een herstelde database of een databasekopie langer duren. Na de eerste volledige back-up, worden alle verdere back-ups automatisch gepland en achtergrond beheerd op de achtergrond. De precieze timing van alle databaseback-ups wordt bepaald door de service SQL Database als het een compromis tussen de werkbelasting van het algehele systeem. 
