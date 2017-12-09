@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2e0fb528b22c5696aa46a677199b95ff3fbd6a79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -31,9 +31,13 @@ Azure Active Directory detecteert op dit moment zes typen risicogebeurtenissen d
 - [Onmogelijke reis naar ongewone locaties](#impossible-travel-to-atypical-locations) 
 - [Aanmeldingen vanaf geïnfecteerde apparaten](#sign-ins-from-infected-devices) 
 - [Aanmeldingen vanaf IP-adressen met verdachte activiteiten](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Aanmeldingen vanaf onbekende locaties](#sign-in-from-unfamiliar-locations) (uitsluitend van toepassing op **Azure Active Directory Premium P2** edities)
+- [Aanmeldingen vanaf onbekende locaties](#sign-in-from-unfamiliar-locations) 
+
 
 ![Risicogebeurtenis](./media/active-directory-reporting-risk-events/91.png)
+
+Het voor een risicogebeurtenis gedetecteerde dat u inzicht is gekoppeld aan uw abonnement Azure AD. Als u hebt een Azure AD Premium P1-editie (opgenomen in EMS E3 aanbieding), detecties die niet wordt gedekt door uw licentie worden gerapporteerd als **aanmelden met extra risico gedetecteerd**. Met andere woorden, ziet u een risicogebeurtenis aanmelden met extra risico voor detecties exclusieve naar Azure AD Identity Protection abonnees gedetecteerd.
+
 
 In dit onderwerp biedt u een gedetailleerd overzicht van welke gebeurtenissen van de risico's zijn en hoe u ze kunt gebruiken om de identiteiten van uw Azure AD te beschermen.
 

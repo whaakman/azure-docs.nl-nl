@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server data wetenschappelijke scenario's met R, Python en T-SQL
 
@@ -39,12 +39,12 @@ De [Gebruik SQL Server R Services](https://msdn.microsoft.com/library/mt612857.a
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Voorspellen taxi tips R van T-SQL of opgeslagen procedures met SQL Server gebruiken
 
-De [gegevens wetenschappelijke walkthrough voor R en SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) biedt SQL programmeurs ervaring met het bouwen van een oplossing voor geavanceerde analyses met Transact-SQL met SQL Server R Services naar een oplossing R operationeel. 
+De [gegevens wetenschappelijke walkthrough voor R en SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) biedt SQL programmeurs ervaring met het bouwen van een oplossing voor geavanceerde analyses met Transact-SQL met SQL Server R Services naar een oplossing R operationeel. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Voorspellen taxi tips in SQL Server opgeslagen procedures met behulp van Python
 
-De [gebruik T-SQL met SQL Server-Services Python](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) stapsgewijze SQL programmeurs met ervaring met het bouwen van een machine learning-oplossing in SQL Server. Dit laat zien hoe Python opnemen in een toepassing met het Python-code toevoegen aan opgeslagen procedures.
+De [gebruik T-SQL met SQL Server-Services Python](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) stapsgewijze SQL programmeurs met ervaring met het bouwen van een machine learning-oplossing in SQL Server. Dit laat zien hoe Python opnemen in een toepassing met het Python-code toevoegen aan opgeslagen procedures.
 
 
 ## <a name="next-steps"></a>Volgende stappen

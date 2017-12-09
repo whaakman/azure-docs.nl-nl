@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 0bc00dd14977e7cf24f5bff6928d09ca67761d3b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>REST-API claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis integreren als gebruikersinvoer
 Met het Framework van de gebruikerservaring identiteit voltooiingscallback die Azure Active Directory B2C (Azure AD B2C), die u kunt integreren met een RESTful-API in het traject van een gebruiker. In dit scenario leert u hoe Azure AD B2C communiceert met .NET Framework RESTful-services (web-API).
@@ -215,7 +215,7 @@ In de web-API, een _controller_ is een object dat HTTP-aanvragen worden verwerkt
     De **Create App Service** venster wordt geopend. In dit maakt u alle benodigde Azure-resources voor het uitvoeren van de ASP.NET-web-app in Azure.
 
     > [!NOTE]
-    >Zie voor meer informatie over het publiceren [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Zie voor meer informatie over het publiceren [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. In de **Web-Appnaam** typt u een unieke app-naam (geldige tekens zijn a-z 0-9 en koppeltekens (-). De URL van de web-app is http://<app_name>.azurewebsites.NET, waarbij *app_naam* is de naam van uw web-app. U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
 

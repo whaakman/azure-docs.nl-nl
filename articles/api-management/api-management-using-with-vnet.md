@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -99,7 +99,7 @@ Hier volgt een lijst met veelvoorkomende configuratiefouten die optreden kunnen 
 * **Aangepaste DNS-server setup**: de API Management-service is afhankelijk van verschillende Azure-services. Wanneer API Management wordt gehost in een VNET met een aangepaste DNS-server, moet het omzetten van de hostnamen van deze Azure-services. Volg [dit](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) hulp bij het aangepaste DNS-instellingen. Zie de onderstaande tabel voor poorten en andere netwerkvereisten ter referentie.
 
 > [!IMPORTANT]
-> Het verdient aanbeveling dat, als u van een aangepaste DNS-server (s) voor het VNET gebruikmaakt, u dat instellen **voordat** een API Management-service implementeren in de App. Anders moet u de API Management-service bijwerken telkens wanneer u de DNS-Servers (s) met wijzigen de [netwerkbewerking configuratie toepassen](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Het verdient aanbeveling dat, als u van een aangepaste DNS-server (s) voor het VNET gebruikmaakt, u dat instellen **voordat** een API Management-service implementeren in de App. Anders moet u de API Management-service bijwerken telkens wanneer u de DNS-Servers (s) met wijzigen de [netwerkbewerking configuratie toepassen](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Vereiste poorten voor API Management**: binnenkomend en uitgaand verkeer in het Subnet waarin API Management wordt geïmplementeerd, kan worden beheerd met behulp van [Netwerkbeveiligingsgroep][Network Security Group]. Als een van deze poorten niet beschikbaar zijn, wordt API Management werkt mogelijk niet correct en kan ontoegankelijk worden. Met een of meer van deze poorten geblokkeerd is een andere veelvoorkomende onjuiste configuratie probleem wanneer u API Management met een VNET.
 
@@ -148,7 +148,7 @@ Wanneer een exemplaar van API Management-service wordt gehost in een VNET, worde
  > [!IMPORTANT]
  > Nadat u de connectiviteit hebt gevalideerd, zorg er dan voor dat alle resources die zijn geïmplementeerd in het subnet voor het implementeren van API Management in het subnet te verwijderen.
 
-* **Incrementele Updates**: wanneer u wijzigingen in uw netwerk, verwijst naar [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), om te controleren dat de API Management-service geen toegang tot de kritieke bronnen die dit is afhankelijk van is verbroken. De verbindingsstatus moet worden bijgewerkt om de 15 minuten.
+* **Incrementele Updates**: wanneer u wijzigingen in uw netwerk, verwijst naar [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), om te controleren dat de API Management-service geen toegang tot de kritieke bronnen die dit is afhankelijk van is verbroken. De verbindingsstatus moet worden bijgewerkt om de 15 minuten.
 
 * **Resourcenavigatiekoppelingen**: bij het implementeren in Resource Manager stijl vnet subnet, API Management het subnet zijn gereserveerd door het maken van een resource-navigatie koppeling. Als het subnet al een resource van een andere provider bevat, implementatie zal **mislukken**. Op dezelfde manier als u een API Management-service naar een ander subnet verplaatsen of verwijderen, wordt verwijderd die resource navigatie-koppeling. 
 

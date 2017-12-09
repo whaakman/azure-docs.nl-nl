@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 603efa917e1b74eca4742795b3f72cb426fcbb2a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory-Verificatiebibliotheken
 De Azure Active Directory Authentication Library (ADAL) kunnen toepassingsontwikkelaars voor verificatie van gebruikers in de cloud of on-premises Active Directory (AD), en voor het beveiligen van API-aanroepen-tokens verkrijgen. ADAL gemakkelijker verificatie voor ontwikkelaars via functies, zoals:
@@ -29,7 +29,7 @@ De Azure Active Directory Authentication Library (ADAL) kunnen toepassingsontwik
  - en meer
 
 > [!NOTE]
-> Zoekt u de Azure AD v2.0-bibliotheken (MSAL)? Bekijk de [MSAL bibliotheek handleiding](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> Zoekt u de Azure AD v2.0-bibliotheken (MSAL)? Bekijk de [MSAL bibliotheek handleiding](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries). 
 > 
 > 
 
@@ -59,7 +59,7 @@ De Azure Active Directory Authentication Library (ADAL) kunnen toepassingsontwik
 
 ### <a name="v20-client-libraries-msal"></a>v2.0-clientbibliotheken (MSAL)
 
-De [Azure AD v2.0-eindpunt](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) combineert Azure AD en Microsoft-Accounts achter één eindpunt. Als u dit eindpunt, ontwikkelaars kunnen gebruikmaken van de [productie ondersteund preview MSAL bibliotheken](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) in plaats van ADAL.
+De [Azure AD v2.0-eindpunt](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) combineert Azure AD en Microsoft-Accounts achter één eindpunt. Als u dit eindpunt, ontwikkelaars kunnen gebruikmaken van de [productie ondersteund preview MSAL bibliotheken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) in plaats van ADAL.
 
 | Platform | Bibliotheek | Downloaden | Broncode | Voorbeeld | Naslaginformatie
 | --- | --- | --- | --- | --- | --- |

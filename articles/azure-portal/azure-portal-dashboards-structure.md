@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ed43651c51eaba7112308d7550c2073ccfc5c5ee
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>De structuur van Azure Dashboards
 Dit document helpt bij de structuur van een Azure-dashboard met het volgende dashboard als een voorbeeld:
 
 ![voorbeelddashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Aangezien gedeeld [Azure dashboards zijn resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), kan dit dashboard worden weergegeven als JSON.  De volgende JSON vertegenwoordigt het dashboard hierboven weergegeven.
+Aangezien gedeeld [Azure dashboards zijn resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), kan dit dashboard worden weergegeven als JSON.  De volgende JSON vertegenwoordigt het dashboard hierboven weergegeven.
 
 ```json
 
@@ -294,7 +294,7 @@ Stel de relevante secties van de JSON uitgesplitst.  De eigenschappen van het ho
 
 ### <a name="the-id-property"></a>De eigenschap-id
 
-De Azure-resource-id, onderworpen aan de [naamgevingsregels van Azure-resources](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Wanneer de portal wordt een dashboard gemaakt in het algemeen gekozen een id in de vorm van een guid, maar u bent geldige naam kunt gebruiken wanneer u deze via een programma maakt. 
+De Azure-resource-id, onderworpen aan de [naamgevingsregels van Azure-resources](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Wanneer de portal wordt een dashboard gemaakt in het algemeen gekozen een id in de vorm van een guid, maar u bent geldige naam kunt gebruiken wanneer u deze via een programma maakt. 
 
 ### <a name="the-name-property"></a>De eigenschap name
 De naam is het segment van de resource-Id dat het abonnement, brontype of informatie over de resource niet omvat. In wezen, is het laatste segment van de resource-id.
@@ -303,7 +303,7 @@ De naam is het segment van de resource-Id dat het abonnement, brontype of inform
 Alle dashboards zijn van het type __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>De locatie-eigenschap
-In tegenstelling tot andere resources hebben geen dashboards een runtime-component.  Voor dashboards geeft de locatie van de primaire geografische locatie waar de JSON-weergave van het dashboard worden opgeslagen. De waarde moet een van de codes die kunnen worden opgehaald met behulp van de [locaties API op de resource abonnementen](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+In tegenstelling tot andere resources hebben geen dashboards een runtime-component.  Voor dashboards geeft de locatie van de primaire geografische locatie waar de JSON-weergave van het dashboard worden opgeslagen. De waarde moet een van de codes die kunnen worden opgehaald met behulp van de [locaties API op de resource abonnementen](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>De eigenschap labels
 Labels zijn een algemene functie van Azure-resources waarmee u uw resource door willekeurige naam-waardeparen te organiseren. Voor dashboards, er is een speciale tag aangeroepen __verborgen titel__. Als uw dashboard, deze eigenschap is ingevuld heeft, wordt deze gebruikt als de weergavenaam voor het dashboard in de portal. Azure resource-id kan niet worden gewijzigd, maar de labels kunnen. Deze tag biedt een manier om een u weergavenaam voor uw dashboard.

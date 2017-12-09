@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f5e8d6f1e6c08d01f91b30ef40be616db2a16fcc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten
 
@@ -123,7 +123,7 @@ Gebruikersaccounts aan Cerner centraal inricht, hebt u nodig voor een systeemacc
 
 Hiermee start u de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan de centrale Cerner in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de Azure AD-service inricht wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw app Cerner centraal beschrijven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 
@@ -133,4 +133,4 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Informatie over het bekijken van Logboeken en rapporten over het inrichten van de activiteit](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Informatie over het bekijken van Logboeken en rapporten over het inrichten van de activiteit](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

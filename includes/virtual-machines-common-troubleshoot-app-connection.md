@@ -115,7 +115,7 @@ Als u toegang hebt tot de toepassing, zorg ervoor dat uw randapparaat Internet t
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Stap 4 als u geen toegang de toepassing tot gebruikt IP-Controleer of de instellingen controleren. 
 
-Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
 [Problemen met extern bureaublad-verbindingen naar een op basis van Windows Azure virtuele Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

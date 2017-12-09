@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)
 
@@ -70,7 +70,7 @@ Een andere manier van verbinding maken met een Cosmos Azure DB is het gebruik va
 
     ![verbinding maken met Azure Cosmos DB met verbindingsreeks](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Kies de juiste **ervaring standaard** voor uw accounttype beide **DocumentDB** of **MongoDB**, plakken uw **verbindingsreeks**, en klik vervolgens op **OK** om te verbinden Azure DB die Cosmos-account. Zie voor informatie over het ophalen van de verbindingsreeks, [de verbindingsreeks ophalen](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Kies de juiste **ervaring standaard** voor uw accounttype beide **DocumentDB** of **MongoDB**, plakken uw **verbindingsreeks**, en klik vervolgens op **OK** om te verbinden Azure DB die Cosmos-account. Zie voor informatie over het ophalen van de verbindingsreeks, [de verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![verbindingsreeks](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -152,5 +152,5 @@ Het documentfilter bewerken door te voeren een [SQL-query](documentdb-sql-query.
 ## <a name="next-steps"></a>Volgende stappen
 
 * Bekijk de volgende video om te zien hoe u Azure Cosmos-database in Azure Storage Explorer gebruiken: [Azure Cosmos-database gebruiken in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Meer informatie over Opslagverkenner en verbinding maken met meer services in [aan de slag met Opslagverkenner (Preview)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Meer informatie over Opslagverkenner en verbinding maken met meer services in [aan de slag met Opslagverkenner (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 72f887b18daef27ff7e6ccea5bb30b55c86c7b98
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
-ms.translationtype: HT
+ms.openlocfilehash: d888824f72a1e2281dfebc5523f43515f049f39c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Zelfstudie: GoToMeeting configureren voor het automatisch gebruikers inrichten
 
@@ -90,6 +90,6 @@ De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Eenmalige aanmelding configureren](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [Eenmalige aanmelding configureren](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

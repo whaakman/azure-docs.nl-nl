@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Bladeren en storage-resources beheren met behulp van de Server Explorer
 
@@ -162,7 +162,7 @@ De volgende afbeelding ziet u een wachtrij met twee berichten:
 Zie voor meer informatie over opslag services wachtrijen, [aan de slag met Azure Queue storage met .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Zie voor informatie over de webservice voor storage services wachtrijen, [concepten van Queue-Service](http://go.microsoft.com/fwlink/?LinkId=264788). Zie voor meer informatie over het verzenden van berichten naar een wachtrij storage-services met behulp van Visual Studio [berichten verzenden naar een wachtrij Storage-Services](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> Storage services wachtrijen zijn verschillend van Azure Service Bus-wachtrijen. Zie voor meer informatie over Service Bus-wachtrijen [Service Bus-wachtrijen, onderwerpen en abonnementen](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> Storage services wachtrijen zijn verschillend van Azure Service Bus-wachtrijen. Zie voor meer informatie over Service Bus-wachtrijen [Service Bus-wachtrijen, onderwerpen en abonnementen](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Werken met resources van de tabel
 

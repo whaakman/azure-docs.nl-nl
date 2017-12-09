@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit voor Windows Server
 Voor klanten met Software Assurance kunt Azure hybride voordeel voor Windows Server u uw lokale Windows Server-licenties en voer Windows virtuele machines in Azure tegen lagere kosten. U kunt Azure hybride voordeel voor Windows Server gebruiken voor het implementeren van nieuwe virtuele machines vanaf elke Azure ondersteund platforminstallatiekopie voor Windows Server of Windows aangepaste installatiekopieën. In dit artikel gaat over de stappen voor het implementeren van nieuwe virtuele machines met Azure hybride voordeel voor Windows Server en hoe u kunt bijwerken bestaande VM's worden uitgevoerd. Zie voor meer informatie over Azure hybride voordeel voor Windows Server licentieverlening en kosten besparingen, de [Azure hybride voordeel voor Windows Server-licentieverlening pagina](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -58,10 +58,10 @@ U kunt deze installatiekopieën rechtstreeks vanuit de Azure portal kunt impleme
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-U kunt de stappen te volgen [virtuele Windows-machine maken met PowerShell](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) en LicenseType doorgeven = 'Windows_Server'. Deze optie kunt u uw bestaande Windows Server-licentie gebruiken in Azure.
+U kunt de stappen te volgen [virtuele Windows-machine maken met PowerShell](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) en LicenseType doorgeven = 'Windows_Server'. Deze optie kunt u uw bestaande Windows Server-licentie gebruiken in Azure.
 
 ### <a name="portal"></a>Portal
-U kunt de stappen te volgen [virtuele Windows-machine maken met de Azure portal](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) en selecteer de optie voor het gebruik van uw bestaande Windows Server-licentie.
+U kunt de stappen te volgen [virtuele Windows-machine maken met de Azure portal](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) en selecteer de optie voor het gebruik van uw bestaande Windows Server-licentie.
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Converteren van een bestaande virtuele machine met behulp van Azure hybride voordeel voor Windows Server
 Als u een bestaande virtuele machine die u converteren wilt om te profiteren van Azure hybride voordeel voor Windows Server hebt, kunt u uw VM licentietype als volgt bijwerken:
@@ -181,17 +181,17 @@ Binnen uw virtuele machine schaalset Resource Manager-sjablonen, een extra param
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-U kunt ook [maken en implementeren van een virtuele-machineschaalset](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) en stel de eigenschap LicenseType
+U kunt ook [maken en implementeren van een virtuele-machineschaalset](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) en stel de eigenschap LicenseType
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over [hoe u geld besparen en de schaalvoordelen van Azure hybride](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Meer informatie over [Azure hybride voordeel voor Windows Server-licentieverlening gedetailleerde richtlijnen](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
+Meer informatie over [Azure hybride voordeel voor Windows Server-licentieverlening gedetailleerde richtlijnen](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 
 Meer informatie over [met behulp van Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md)
 
 Meer informatie over [Azure hybride voordeel voor Windows Server en Azure Site Recovery toepassingen maken voor migratie naar Azure nog meer rendabele](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
-Meer informatie over [Windows 10 in Azure met Multitenant Hosting-rechts](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+Meer informatie over [Windows 10 in Azure met Multitenant Hosting-rechts](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Lees meer over [Veelgestelde vragen](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

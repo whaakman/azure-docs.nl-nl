@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a2c514e76cfdeb263f384db3fa7d7da1783b0c22
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Het wijzigen van de standaardinstellingen van de levensduur van token voor een toepassing ontwikkelde aangepaste
 
@@ -29,10 +29,10 @@ Azure AD Premium kunt app-ontwikkelaars en tenantbeheerders voor het configurere
 
  * Hier volgt een voorbeeldbeleid dat het vernieuwingstoken dat maximale leeftijd één factor ingesteld. Het beleid maken:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Bekijk de [configureren levensduur van token](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) document voor meer informatie over het maken van andere aangepaste.
+ * Bekijk de [configureren levensduur van token](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) document voor meer informatie over het maken van andere aangepaste.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Levensduur van Token configureren](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
+[Levensduur van Token configureren](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Verwijzing naar Azure AD-Token](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)
+[Verwijzing naar Azure AD-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

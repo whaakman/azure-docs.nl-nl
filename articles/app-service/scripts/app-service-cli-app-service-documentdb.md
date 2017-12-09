@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b581f8d5a4e924e0aa88bf614839c917345eb570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a59e0512308a85248a10a24c5951984040bedbcc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>Een WebApp verbinden met Cosmos-DB
 
@@ -49,8 +49,8 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep 
 | [AZ groep maken](https://docs.microsoft.com/cli/azure/group#az_group_create) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
 | [AZ appservice-abonnement maken](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Hiermee maakt u een App Service-abonnement. Dit is vergelijkbaar met een serverfarm voor uw Azure-web-app. |
 | [AZ webapp maken](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Hiermee maakt u een Azure-web-app. |
-| [AZ cosmosdb maken](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_create) | Maakt een Cosmos-DB-account. Dit is waar de gegevens worden opgeslagen. |
-| [AZ cosmosdb lijst-sleutels](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Geeft een lijst van de toegangssleutels voor het opgegeven Cosmos-DB-account. |
+| [AZ cosmosdb maken](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Maakt een Cosmos-DB-account. Dit is waar de gegevens worden opgeslagen. |
+| [AZ cosmosdb lijst-sleutels](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Geeft een lijst van de toegangssleutels voor het opgegeven Cosmos-DB-account. |
 | [AZ webapp config appsettings instellen](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Maken of bijwerken van een app-instelling voor een Azure-web-app. App-instellingen worden weergegeven als omgevingsvariabelen voor uw app. |
 
 ## <a name="next-steps"></a>Volgende stappen

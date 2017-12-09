@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Een Azure-abonnement of management-groep vinden
 
-Als u problemen bij het zoeken van een abonnement of de beheergroep in Azure ondervindt, kijkt u mogelijk in de verkeerde directory. Deze situatie kan optreden wanneer uw account in meerdere Azure Active Directory's bestaat. Elke [active directory is onafhankelijk](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) en toegang wordt niet overgenomen op mappen.      
+Als u problemen bij het zoeken van een abonnement of de beheergroep in Azure ondervindt, kijkt u mogelijk in de verkeerde directory. Deze situatie kan optreden wanneer uw account in meerdere Azure Active Directory's bestaat. Elke [active directory is onafhankelijk](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence) en toegang wordt niet overgenomen op mappen.      
 
 ![Switch Directory Menu](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ Als u een foutbericht ontvangt 'dit activum is niet beschikbaar' wanneer een abo
 ![Asset niet is gevonden](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Neem contact op met het beheren van het abonnement of management groepen om toegang te krijgen.  
-* Voor abonnementen, verwijzen naar [gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) document voor help waarop de rol is vereist.
+* Voor abonnementen, verwijzen naar [gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) document voor help waarop de rol is vereist.
 * Voor-beheergroepen RBAC toegang is niet beschikbaar en is binnenkort beschikbaar. Neem contact op met uw enterprise portal beheren voor toegang is toegewezen.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>Om uw ervaring te verbeteren met beheergroepen en abonnementen in dezelfde map 

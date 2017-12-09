@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Een toepassingsgateway maken met behulp van de Azure CLI 2.0
 
@@ -42,7 +42,7 @@ U kunt een toepassingsgateway maken met behulp van een van de volgende versies v
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Voorwaarde: Installeer de Azure CLI 2.0
 
-Als u wilt de stappen in dit artikel uitvoert, moet u [Azure CLI voor Mac OS-, Linux- en Windows installeren](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Als u wilt de stappen in dit artikel uitvoert, moet u [Azure CLI voor Mac OS-, Linux- en Windows installeren](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > U moet een Azure-account om een toepassingsgateway te maken. Als u niet hebt, zich aanmelden voor een [gratis proefversie](../active-directory/sign-up-organization.md).

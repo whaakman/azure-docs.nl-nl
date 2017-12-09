@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: ab609fe9e7b01d7087dd00c22c19e69a471f6599
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA op Azure-bedieningshandleiding
 Deze handleiding bevat richtlijnen voor SAP HANA besturingssystemen die zijn geïmplementeerd op Azure Virtual Machines. Dit document is niet bedoeld ter vervanging van een van de standaard SAP-documentatie. SAP-handleidingen en -opmerkingen vindt u op de volgende locaties:
@@ -93,7 +93,7 @@ Wanneer u de virtuele machines die moeten worden uitgevoerd HANA installeert, mo
 
 Een overzicht van de verschillende mogelijkheden om IP-adrestoewijzing vindt [hier](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-Door het verkeersroutering naar rechtstreeks naar het SAP HANA-exemplaar of de jumpbox wordt geleid [Netwerkbeveiligingsgroepen Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) die zijn gekoppeld aan het subnet HANA en het subnet Management.
+Door het verkeersroutering naar rechtstreeks naar het SAP HANA-exemplaar of de jumpbox wordt geleid [Netwerkbeveiligingsgroepen Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) die zijn gekoppeld aan het subnet HANA en het subnet Management.
 
 De algemene eruit als het schema ruwe implementatie:
 
@@ -112,7 +112,7 @@ De mogelijkheden van SAP HANA Backup and Restore worden beschreven in deze docum
 
 - [Back-up van SAP HANA-overzicht](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [Back-ups maken van SAP HANA op bestandsniveau](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [SAP HANA opslag momentopname benchmark](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [SAP HANA opslag momentopname benchmark](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
 
@@ -132,7 +132,7 @@ U moet SAPRouter installeren in een afzonderlijke virtuele machine en niet in uw
 Raadpleeg voor meer informatie over het instellen en onderhouden van ondersteuning voor externe verbindingen via SAPRouter dit [SAP bron](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Hoge beschikbaarheid met SAP HANA op virtuele machines in Azure systeemeigen
-SUSE Linux 12 SP1 wordt uitgevoerd en meer recente kunt u een cluster pacemaker heeft instellen met STONITH apparaten voor het instellen van een SAP HANA-configuratie die gebruikmaakt van synchrone replicatie met HANA System Replication en automatische failover. De procedure van setup wordt beschreven in het artikel [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+SUSE Linux 12 SP1 wordt uitgevoerd en meer recente kunt u een cluster pacemaker heeft instellen met STONITH apparaten voor het instellen van een SAP HANA-configuratie die gebruikmaakt van synchrone replicatie met HANA System Replication en automatische failover. De procedure van setup wordt beschreven in het artikel [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
  
 

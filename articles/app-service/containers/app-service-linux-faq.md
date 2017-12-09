@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Op Linux FAQ-Azure App Service
 
@@ -71,7 +71,7 @@ Als uw Linux-web-app niet Git-implementatie, kunt u de volgende alternatieve opt
 
 - Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Team Services Git-opslagplaats of GitHub-repo-continue levering van Azure gebruiken. Zie voor meer informatie [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u uw code te implementeren. Voer het volgende uit:
+- Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u uw code te implementeren. Voer het volgende uit:
 
    ```
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Het valideren van de VPN-doorvoer met een virtueel netwerk
 
@@ -53,7 +53,7 @@ Het volgende diagram toont de logische verbindingen van een on-premises netwerk 
 4.  Bepaal uw bandbreedte Internetproviderverbindingen (ISP).
 5.  Berekenen van de verwachte doorvoer - minimale bandbreedte van (ISP VM,-Gateway) * 0,8.
 
-Als uw berekende doorvoer voldoet niet aan de basisvereisten doorvoer van uw toepassing, moet u de bandbreedte van de resource die u hebt geïdentificeerd als het knelpunt vergroten. Als u een Azure VPN-Gateway, Zie [wijzigen van een gateway-SKU](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Als u een virtuele machine, Zie [vergroten of verkleinen van een virtuele machine](../virtual-machines/virtual-machines-windows-resize-vm.md). Als u niet de verwachte internetbandbreedte ondervindt nog, kunt u ook contact opnemen met uw Internetprovider.
+Als uw berekende doorvoer voldoet niet aan de basisvereisten doorvoer van uw toepassing, moet u de bandbreedte van de resource die u hebt geïdentificeerd als het knelpunt vergroten. Als u een Azure VPN-Gateway, Zie [wijzigen van een gateway-SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Als u een virtuele machine, Zie [vergroten of verkleinen van een virtuele machine](../virtual-machines/virtual-machines-windows-resize-vm.md). Als u niet de verwachte internetbandbreedte ondervindt nog, kunt u ook contact opnemen met uw Internetprovider.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Netwerkdoorvoer valideren met behulp van hulpprogramma's voor prestaties
 
