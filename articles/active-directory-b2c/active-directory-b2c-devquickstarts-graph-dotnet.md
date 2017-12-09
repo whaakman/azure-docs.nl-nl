@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 127159084fc99866881a93b16fd2b7faebeb3588
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Gebruik de Azure AD Graph API
 
@@ -71,7 +71,7 @@ U hebt nu een toepassing die gemachtigd om te maken is, lezen en bijwerken van g
 ## <a name="configure-delete-permissions-for-your-application"></a>Verwijdermachtigingen voor uw toepassing configureren
 Op dit moment wordt de *lezen en schrijven directorygegevens* machtiging heeft **niet** de mogelijkheid om eventuele verwijderingen zoals het verwijderen van gebruikers doen. Als u wilt dat uw toepassing bieden de mogelijkheid om gebruikers te verwijderen, moet u deze extra stappen uit te voeren die betrekking hebben op PowerShell, anders kunt u doorgaan met de volgende sectie.
 
-Als u niet al geïnstalleerd hebt, installeer eerst de [Azure AD PowerShell v1-module (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
+Als u niet al geïnstalleerd hebt, installeer eerst de [Azure AD PowerShell v1-module (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
 ```powershell
 Install-Module MSOnline

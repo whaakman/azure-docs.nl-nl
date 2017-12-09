@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: a91d676a4513e5e96f3ac8a224666f3eacec16f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Service voor externe toegang met Reliable Services
 Voor services die niet zijn gekoppeld aan een bepaalde communicatieprotocol of stack, zoals WebAPI, Windows Communication Foundation (WCF) of anderen, biedt het framework Reliable Services een mechanisme voor externe toegang voor het snel en eenvoudig instellen van externe procedureaanroep voor services.
@@ -85,18 +85,18 @@ Het framework remoting uitzonderingen worden veroorzaakt door de service naar de
 Het maken van ServiceProxy is een lichtgewicht bewerking, zodat gebruikers zo veel als ze nodig hebben kunnen maken. Proxy-service-exemplaren kunnen opnieuw worden gebruikt als gebruikers deze moeten. Als een remote procedure call er een uitzondering gegenereerd, kunnen gebruikers nog steeds opnieuw gebruiken hetzelfde exemplaar van de proxy. Elke ServiceProxy bevat een communicatie-client gebruikt om berichten te verzenden via de kabel. Tijdens het aanroepen van externe oproepen Controleer we intern of de client communicatie geldig is. Op basis van die resulteren, maken we opnieuw de client communicatie indien nodig. Dus als er een uitzondering optreedt, gebruikers hoeven niet opnieuw maken `ServiceProxy` omdat deze is gedaan transparant.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory levensduur
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is een factory die de proxy worden exemplaren voor externe communicatie van andere interfaces gemaakt. Als u de api gebruiken `ServiceProxy.Create` voor het maken van proxy het framework maakt u een singleton-ServiceProxy.
-Is het nuttig om een handmatig maken als u wilt onderdrukken [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) eigenschappen.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is een factory die de proxy worden exemplaren voor externe communicatie van andere interfaces gemaakt. Als u de api gebruiken `ServiceProxy.Create` voor het maken van proxy het framework maakt u een singleton-ServiceProxy.
+Is het nuttig om een handmatig maken als u wilt onderdrukken [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) eigenschappen.
 Maken van de factory is een dure bewerking. ServiceProxyFactory onderhoudt een interne cache van de client communicatie.
 Aanbevolen procedure is het in de cache ServiceProxyFactory zo lang mogelijk.
 
 ## <a name="remoting-exception-handling"></a>Afhandeling van uitzonderingen voor externe toegang
-Alle externe uitzonderingen die door de API-service worden verzonden naar de client als AggregateException. RemoteExceptions moet DataContract serialiseerbaar; Als dat niet het geval is, de proxy API genereert [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) met de serialisatiefout in het.
+Alle externe uitzonderingen die door de API-service worden verzonden naar de client als AggregateException. RemoteExceptions moet DataContract serialiseerbaar; Als dat niet het geval is, de proxy API genereert [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) met de serialisatiefout in het.
 
 ServiceProxy verwerkt alle failover-uitzonderingen voor de service-partitie dat deze wordt gemaakt. Het opnieuw de eindpunten wordt omgezet als er failover-uitzonderingen (tijdelijke uitzonderingen) en de aanroep met het juiste eindpunt opnieuw probeert. Het aantal nieuwe pogingen voor failover-uitzonderingen zijn onbepaalde.
 Als tijdelijke uitzonderingen optreden, probeert de proxy opnieuw de aanroep.
 
-Standaard opnieuw parameters worden opgegeven door [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Standaard opnieuw parameters worden opgegeven door [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 Gebruiker kan deze waarden door OperationRetrySettings object doorgeven aan de constructor ServiceProxyFactory configureren.
 ## <a name="how-to-use-remoting-v2-stack"></a>Het gebruik van externe toegang-V2-stack
 Met 2,8 Remoting NuGet-pakket hebt u de optie voor het gebruiken van externe toegang-V2-stack. Externe communicatie V2-stack is meer zodat en biedt functies, zoals aangepaste serialiseerbaar en meer pluggable Api.
@@ -146,7 +146,7 @@ Hier volgen de stappen te volgen.
   </Resources>
   ```
 
-2. Gebruik [Remoting V2Listener](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Resource van de Service-eindpunt standaardnaam die wordt gebruikt is 'ServiceEndpointV2' en moet worden gedefinieerd in Service Manifest.
+2. Gebruik [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Resource van de Service-eindpunt standaardnaam die wordt gebruikt is 'ServiceEndpointV2' en moet worden gedefinieerd in Service Manifest.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -162,7 +162,7 @@ Hier volgen de stappen te volgen.
     }
   ```
 
-3. Gebruik van V2 [Clientfabriek](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Gebruik van V2 [Clientfabriek](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {

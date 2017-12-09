@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/07/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters en dynamische manifesten
-Media Services kunt vanaf 2.11 versie, u filters definiëren voor de activa. Deze filters zijn server side regels die zorgen uw klanten dat ervoor te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of geef alleen een subset van audio en video vertoningen dat uw klant apparaat (in plaats daarvan kan verwerken met de vertoningen die zijn gekoppeld aan de asset). Via dit filteren van uw assets wordt gearchiveerd **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter.
+Media Services kunt vanaf 2,17 versie, u filters definiëren voor de activa. Deze filters zijn server side regels die zorgen uw klanten dat ervoor te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of geef alleen een subset van audio en video vertoningen dat uw klant apparaat (in plaats daarvan kan verwerken met de vertoningen die zijn gekoppeld aan de asset). Via dit filteren van uw assets wordt gearchiveerd **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter.
 
 In dit onderwerp wordt besproken algemene scenario's waarin zeer nuttig zijn om uw klanten en koppelingen naar onderwerpen die laten zien hoe u filters maken via een programma met filters zijn (op dit moment kunt u filters maken met de REST-API's alleen).
 
@@ -124,12 +124,12 @@ Uw assets kunnen meerdere audio talen zoals Engels, Spaans, Frans, enzovoort bev
 ![Taal houdt filteren][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Hoe worden ingekort begin van een asset
-Sommige tests voor de werkelijke gebeurtenis is in de meeste live streaming-gebeurtenissen, operators uitvoeren. Ze bevatten bijvoorbeeld een lei als volgt vóór het begin van de gebeurtenis: "Programma begint tijdelijk worden". Als het archiveren van het programma is de test en lei gegevens ook worden gearchiveerd en worden opgenomen in de presentatie. Deze informatie moet niet worden weergegeven op de clients. U kunt met dynamische Manifest maken van een tijdfilter start en de ongewenste gegevens verwijderen uit het manifest.
+Sommige tests voor de werkelijke gebeurtenis is in de meeste live streaming-gebeurtenissen, operators uitvoeren. Ze bevatten bijvoorbeeld een lei als volgt vóór het begin van de gebeurtenis: "Programma begint tijdelijk worden". Als het archiveren van het programma is zijn de test en lei gegevens ook gearchiveerd en opgenomen in de presentatie. Deze informatie moet niet worden weergegeven op de clients. U kunt met dynamische Manifest maken van een tijdfilter start en de ongewenste gegevens verwijderen uit het manifest.
 
 ![Hoe worden ingekort starten][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Maken van onderliggende illustraties (weergaven) van een live-archief
-Veel live gebeurtenissen zijn uitgevoerd en live archief meerdere gebeurtenissen kan bevatten. Na de live gebeurtenis ends omroeporganisaties mogelijk wilt onderverdelen in het archief live in logische programma starten en stoppen van reeksen. Vervolgens publiceren afzonderlijk deze virtuele programma's zonder na verwerking van het live archief en afzonderlijke elementen (die krijgt geen voordeel van de bestaande fragmenten in de cache in de CDN) niet maken. Voorbeelden van dergelijke virtuele programma's (onderliggende illustraties) zijn voor het kwartaal van een football of basketbalwedstrijd, de innings in baseball of afzonderlijke gebeurtenissen van een 's middags van Olympische programma.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Maken van subclips (weergaven) van een live-archief
+Veel live gebeurtenissen zijn uitgevoerd en live archief meerdere gebeurtenissen kan bevatten. Na afloop van de live gebeurtenis omroeporganisaties mogelijk wilt onderverdelen in het archief live in logische programma starten en stoppen van reeksen. Vervolgens deze virtuele-programma's publiceren afzonderlijk zonder na verwerking van het live archief en afzonderlijke elementen niet maken (dit heeft het voordeel van de bestaande in de cache fragmenten niet ophalen in de CDN). Voorbeelden van dergelijke virtuele programma's zijn het kwartaal van een football of basketbalwedstrijd, innings in baseball of afzonderlijke gebeurtenissen van een sport-programma.
 
 U kunt met dynamische Manifest keren beginnen of eindigen met filters maken en virtuele weergaven maken via de bovenkant van uw live-archief. 
 
@@ -140,24 +140,24 @@ Gefilterde Asset:
 ![Skiën][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Presentatievenster (DVR) aan te passen
-Azure Media Services biedt momenteel cirkelvormige archief waarin de duur tussen 5 minuten: 25 uur kan worden geconfigureerd. Manifest filteren kan geen rolling DVR-venster maken via de bovenkant van het archief zonder te verwijderen van de media worden gebruikt. Er zijn veel scenario's waar omroeporganisaties wilt bieden een beperkte DVR venster welke verplaatst met de live rand en tegelijkertijd een grotere archiveren venster houden. Een tv-station mogelijk wilt u gebruiken de gegevens die buiten het venster DVR illustraties markeren of he\she wilt bieden verschillende DVR vensters voor verschillende apparaten. De meeste van de mobiele apparaten verwerken niet zo groot DVR windows (u kunt een venster van de DVR 2 minuten voor mobiele apparaten en 1 uur voor bureaublad-clients hebt).
+Azure Media Services biedt momenteel cirkelvormige archief waarin de duur tussen 5 minuten: 25 uur kan worden geconfigureerd. Manifest filteren kan geen rolling DVR-venster maken via de bovenkant van het archief zonder te verwijderen van de media worden gebruikt. Er zijn veel scenario's waar omroeporganisaties wilt bieden een beperkte DVR-venster als u wilt gaan met de live rand en tegelijkertijd een grotere archiveren venster. Een tv-station mogelijk wilt u gebruiken de gegevens die buiten het venster DVR illustraties markeren of he\she wilt bieden verschillende DVR vensters voor verschillende apparaten. De meeste van de mobiele apparaten niet bijvoorbeeld grote DVR windows (u kunt een venster van de DVR 2 minuten voor mobiele apparaten en één uur voor bureaublad-clients hebt) worden verwerkt.
 
 ![DVR venster][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Het aanpassen van LiveBackoff (live positie)
-Manifest filteren kan enkele seconden verwijderen uit de live rand van een live programma worden gebruikt. Hierdoor omroeporganisaties bekijken van de presentatie op het punt van de publicatie preview en aankondiging maken invoegen punten voordat de afbeeldingsviewers de stroom ontvangen (meestal een back-uitgeschakeld met 30 seconden). Omroeporganisaties kunnen push deze advertenties naar hun frameworks client in de tijd te ontvangen en verwerken van gegevens voordat de gelegenheid aankondiging.
+Manifest filteren kan enkele seconden verwijderen uit de live rand van een live programma worden gebruikt. Filteren, kunt omroeporganisaties bekijken van de presentatie op het punt van de publicatie preview en aankondiging maken invoegen punten voordat de afbeeldingsviewers de stroom ontvangen (back-uitgeschakeld met 30 seconden). Omroeporganisaties kunnen push deze advertenties naar hun frameworks client in de tijd te ontvangen en verwerken van gegevens voordat de gelegenheid aankondiging.
 
-Naast de advertentie-ondersteuning kan LiveBackoff worden gebruikt voor het aanpassen van de client downloaden van live positie zodat wanneer clients nemen en klik op de rand live nog steeds krijgen fragmenten van server in plaats van het ophalen van 404 of 412 HTTP-fouten.
+Naast de advertentie-ondersteuning kan de instelling LiveBackoff worden gebruikt om de positie viewers zodanig aangepast dat wanneer clients nemen en klik op de rand live nog steeds krijgen fragmenten van server in plaats van het ophalen van een HTTP 404 of 412 fout.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Combineren van meerdere regels in een enkel filter
-U kunt meerdere regels voor filteren in één filter combineren. U kunt een regel bereik wilt lei verwijderen van een live-archief en ook filteren beschikbaar bitsnelheden definiëren als voorbeeld. Het eindresultaat is voor meerdere regels voor het filteren van de samenstelling (alleen snijpunt) van deze regels.
+U kunt meerdere regels voor filteren in één filter combineren. Als een voorbeeld kunt u een regel' bereik' slates verwijderen uit een live-archief en beschikbare bitsnelheden ook filteren. Wanneer u meerdere filterregels toepast, is het eindresultaat het snijpunt van alle regels.
 
 ![meerdere regels][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Programmatisch filters maken
-De volgende onderwerpen komen aan bod Media Services-entiteiten die zijn gerelateerd aan de filters. Het onderwerp wordt ook beschreven hoe programmatisch filters te maken.  
+Het volgende artikel behandelt Media Services-entiteiten die zijn gerelateerd aan de filters. Ook wordt uitgelegd hoe u programmatisch om filters te maken.  
 
 [Filters maken met de REST-API's](media-services-rest-dynamic-manifest.md).
 
@@ -166,15 +166,15 @@ U kunt ook meerdere filters in één URL van een combineren.
 
 De volgende scenario wordt uitgelegd waarom kunt u filters combineren:
 
-1. U moet uw video kenmerken voor mobiele apparaten, zoals Android of iPAD filteren (om te beperken video kenmerken). Als u wilt verwijderen van de ongewenste eigenschappen, maakt u een globaal filter die geschikt is voor de apparaatprofielen. Zoals eerder vermeld, kunnen de globale filters worden gebruikt voor alle activa onder dezelfde media services-account zonder verdere koppeling. 
+1. U moet uw video kenmerken voor mobiele apparaten, zoals Android of iPAD filteren (om te beperken video kenmerken). Als u wilt verwijderen van de ongewenste eigenschappen, maakt u een globaal filter geschikt is voor de apparaatprofielen. Zoals eerder in dit artikel wordt vermeld, kunnen de globale filters worden gebruikt voor alle activa onder dezelfde media services-account zonder verdere koppeling. 
 2. U wilt ook trim de begin- en -tijd van een asset. Om dit te bereiken, zou u een lokale filter maken en de begin-/ eindtijd niet instellen. 
-3. Wilt u beide filters (zonder combinatie moet u kwaliteit filteren toevoegen aan het filter Bijsnijden waardoor filter gebruik moeilijk) combineren.
+3. U wilt combineren van deze filters (zonder combinatie, moet u kwaliteit filteren om het filter Bijsnijden dit gebruik van filter moeilijker maakt toevoegen).
 
 Als u wilt combineren filters, moet u de filternamen ingesteld op de manifest/afspeellijst-URL met door puntkomma's gescheiden. Stel u hebt een filter met de naam *MyMobileDevice* die eigenschappen filters en hebt u een andere naam *MyStartTime* om in te stellen een bepaalde tijd starten. U kunt ze combineren als volgt:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-U kunt maximaal 3 filters combineren. 
+U kunt maximaal drie filters combineren. 
 
 Zie voor meer informatie [dit](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 

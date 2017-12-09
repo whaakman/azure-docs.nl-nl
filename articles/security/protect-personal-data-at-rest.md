@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure versleutelingstechnologieën: beveiligen van persoonlijke gegevens in rust met versleuteling
 
@@ -57,7 +57,7 @@ Azure-services bieden meerdere hulpprogramma's en technologieën voor het beveil
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Azure Sleutelkluis](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) biedt een veilige opslag voor de sleutels die worden gebruikt voor het versleutelen van gegevens in rust in de Azure-services en is de aanbevolen oplossing voor het opslaan en beheren van sleutels. Sleutelbeheer versleuteling is essentieel voor het beveiligen van opgeslagen gegevens.
+[Azure Sleutelkluis](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) biedt een veilige opslag voor de sleutels die worden gebruikt voor het versleutelen van gegevens in rust in de Azure-services en is de aanbevolen oplossing voor het opslaan en beheren van sleutels. Sleutelbeheer versleuteling is essentieel voor het beveiligen van opgeslagen gegevens.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Hoe gebruik ik Azure Key Vault voor het beveiligen sleutels die persoonlijke gegevens versleutelen
 
@@ -79,13 +79,13 @@ Azure Sleutelkluis een softwarematig beveiligde sleutel voor u kunt opgeven of u
 
 U kunt ook een sleutel in uw lokale HSM genereren en overdragen naar HSM's in de Sleutelkluis-service, zonder dat de sleutel de HSM-grens verlaat.
 
-Voor gedetailleerde instructies over het gebruik van Azure Sleutelkluis, volg de stappen in [aan de slag met Azure Sleutelkluis.](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+Voor gedetailleerde instructies over het gebruik van Azure Sleutelkluis, volg de stappen in [aan de slag met Azure Sleutelkluis.](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-Zie voor een lijst van PowerShell-Cmdlets gebruikt met Azure Key Vault [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Zie voor een lijst van PowerShell-Cmdlets gebruikt met Azure Key Vault [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Azure Disk Encryption voor Windows
 
-[Azure Disk Encryption for Windows en Linux IaaS VM's](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) beschermt persoonlijke gegevens in rust op Azure virtuele machines en kan worden geïntegreerd met Azure Sleutelkluis. Maakt gebruik van Azure Disk Encryption [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) in Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux voor het versleutelen van zowel het besturingssysteem en de gegevensschijven. Azure Disk Encryption wordt ondersteund op Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 en op Windows 8 en Windows 10-clients.
+[Azure Disk Encryption for Windows en Linux IaaS VM's](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) beschermt persoonlijke gegevens in rust op Azure virtuele machines en kan worden geïntegreerd met Azure Sleutelkluis. Maakt gebruik van Azure Disk Encryption [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) in Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux voor het versleutelen van zowel het besturingssysteem en de gegevensschijven. Azure Disk Encryption wordt ondersteund op Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 en op Windows 8 en Windows 10-clients.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Hoe gebruik ik Azure Disk Encryption persoonlijke gegevens te beveiligen?
 
@@ -103,11 +103,11 @@ Wanneer u de sleutelkluis ter ondersteuning van Azure Disk Encryption instelt, k
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Gedetailleerde instructies voor het specifieke implementatiescenario's beschreven en gebruikerservaringen zijn opgenomen in [Azure Disk Encryption for Windows en Linux IaaS VM's.](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+Gedetailleerde instructies voor het specifieke implementatiescenario's beschreven en gebruikerservaringen zijn opgenomen in [Azure Disk Encryption for Windows en Linux IaaS VM's.](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="azure-storage-service-encryption"></a>Azure Storage Service-versleuteling
 
-[Azure Storage Service versleuteling (SSE) voor gegevens in rust](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) helpt u beveiligt en bescherming van uw gegevens om te voldoen aan uw organisatie beveiliging en naleving verplichtingen. Azure Storage automatisch versleutelt uw gegevens met behulp van 256-bits AES-versleuteling vóór behouden blijven van opslag en ontsleuteld voordat ophalen. Deze service is beschikbaar voor Azure Blobs en bestanden.
+[Azure Storage Service versleuteling (SSE) voor gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption) helpt u beveiligt en bescherming van uw gegevens om te voldoen aan uw organisatie beveiliging en naleving verplichtingen. Azure Storage automatisch versleutelt uw gegevens met behulp van 256-bits AES-versleuteling vóór behouden blijven van opslag en ontsleuteld voordat ophalen. Deze service is beschikbaar voor Azure Blobs en bestanden.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Hoe gebruik versleuteling van de opslagruimte persoonlijke gegevens te beveiligen?
 
@@ -129,13 +129,13 @@ Nieuwe gegevens worden versleuteld. Gegevens in de bestaande bestanden in dit op
 
 Nadat de codering is ingeschakeld, moet u gegevens kopiëren naar het storage-account met behulp van een van de volgende methoden:
 
-1. Kopieer blobs of bestanden met de [AzCopy-opdrachtregelprogramma](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Kopieer blobs of bestanden met de [AzCopy-opdrachtregelprogramma](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Een gebruik van SMB-bestandsshare koppelen](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows) zodat u een hulpprogramma zoals Robocopy gebruiken kunt om bestanden te kopiëren.
+2. [Een gebruik van SMB-bestandsshare koppelen](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows) zodat u een hulpprogramma zoals Robocopy gebruiken kunt om bestanden te kopiëren.
 
-3. Blob of bestand gegevens kopiëren naar en van blob-opslag of tussen opslagaccounts met [Opslagclientbibliotheken zoals .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Blob of bestand gegevens kopiëren naar en van blob-opslag of tussen opslagaccounts met [Opslagclientbibliotheken zoals .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Gebruik een [Opslagverkenner](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) BLOB's uploaden naar uw storage-account met versleuteling ingeschakeld.
+4.  Gebruik een [Opslagverkenner](https://docs.microsoft.com/azure/storage/storage-explorers) BLOB's uploaden naar uw storage-account met versleuteling ingeschakeld.
 
 ### <a name="transparent-data-encryption"></a>Transparante gegevensversleuteling
 
@@ -159,7 +159,7 @@ U kunt met behulp van de REST-API of met behulp van PowerShell TDE configureren 
 
 ![Inschakelen van gegevensversleuteling](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Instructies over het inschakelen van TDE en informatie over het decoderen van TDE beveiligde databases en meer kunnen worden gevonden in het artikel [Transparent Data Encryption met Azure SQL Database.](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+Instructies over het inschakelen van TDE en informatie over het decoderen van TDE beveiligde databases en meer kunnen worden gevonden in het artikel [Transparent Data Encryption met Azure SQL Database.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 
 ## <a name="summary"></a>Samenvatting
 
@@ -169,10 +169,10 @@ Ter bescherming van de sleutels die worden gebruikt voor het versleutelen van ge
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Handleiding voor probleemoplossing voor Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Handleiding voor probleemoplossing voor Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Een virtuele Machine van Azure versleutelen](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Een virtuele Machine van Azure versleutelen](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Versleuteling van gegevens in Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Versleuteling van gegevens in Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Versleuteling van Azure DB Cosmos-database in rust](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Versleuteling van Azure DB Cosmos-database in rust](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

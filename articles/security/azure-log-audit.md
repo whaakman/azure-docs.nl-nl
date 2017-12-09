@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: d8d52b7e151d116678169dd4839f0380f63132d7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Azure logboekregistratie en controle
 ## <a name="introduction"></a>Inleiding
@@ -67,13 +67,13 @@ De volgende tabel lijsttype belangrijkste logboeken beschikbaar in Azure.
 
 | Logboek categorie | Logboektype | Sleutelgebruik | Integratie |
 | ------------ | -------- | ------ | ----------- |
-|[Activiteitenlogboeken](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Besturingselement vlak gebeurtenissen op Azure Resource Manager-resources| Bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.| Rest-API & [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
-|[Azure diagnostische logboeken](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|regelmatig gegevens over de werking van Azure Resource Manager-resources in abonnement|   Inzicht bieden in bewerkingen dat de bron zelf uitgevoerd| Azure Monitor [stroom](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
-|[AAD-rapportage](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Logboeken en rapporten|Gebruiker aanmelden activiteiten & systeem activiteit informatie over gebruikers- en groepsbeheer|[Graph API](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Virtuele Machine & Cloudservices](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows-gebeurtenislogboek & Linux Syslog|  Systeemgegevens van het en logboekregistratie op de virtuele machines vastgelegd en die gegevens overgebracht naar een opslagaccount van uw keuze.|   Met behulp van Windows [af](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (Windows Azure Diagnostics opslag)- en Linux in Azure monitor|
-|[Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Logboekregistratie voor opslag en metrische gegevens voor een opslagaccount biedt|Biedt inzicht in de trace-aanvragen trends in gebruik analyseren en onderzoeken van problemen met uw opslagaccount.|  REST-API of de [clientbibliotheek](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
-|[NSG (Netwerkbeveiligingsgroep) stroom-Logboeken](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling en ziet u per regel op basis van een binnenkomende en uitgaande stromen|Informatie weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep|[Netwerk-Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Toepassing inzicht](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnostische gegevens|  Application Performance (APM)-service voor webontwikkelaars op meerdere platforms.| REST-API [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|[Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Besturingselement vlak gebeurtenissen op Azure Resource Manager-resources|   Bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.| Rest-API & [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
+|[Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|regelmatig gegevens over de werking van Azure Resource Manager-resources in abonnement| Inzicht bieden in bewerkingen dat de bron zelf uitgevoerd| Azure Monitor [stroom](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
+|[AAD-rapportage](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logboeken en rapporten|Gebruiker aanmelden activiteiten & systeem activiteit informatie over gebruikers- en groepsbeheer|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
+|[Virtuele Machine & Cloudservices](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows-gebeurtenislogboek & Linux Syslog|    Systeemgegevens van het en logboekregistratie op de virtuele machines vastgelegd en die gegevens overgebracht naar een opslagaccount van uw keuze.|   Met behulp van Windows [af](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics opslag)- en Linux in Azure monitor|
+|[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Logboekregistratie voor opslag en metrische gegevens voor een opslagaccount biedt|Biedt inzicht in de trace-aanvragen trends in gebruik analyseren en onderzoeken van problemen met uw opslagaccount.|    REST-API of de [clientbibliotheek](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[NSG (Netwerkbeveiligingsgroep) stroom-Logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling en ziet u per regel op basis van een binnenkomende en uitgaande stromen|Informatie weergeven over inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep|[Netwerk-Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
+|[Toepassing inzicht](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnostische gegevens|    Application Performance (APM)-service voor webontwikkelaars op meerdere platforms.| REST-API [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
 |Gegevens verwerken / beveiligingswaarschuwing| Azure Security Center-waarschuwing, OMS-waarschuwing| Informatie over beveiliging en waarschuwingen.|   REST-API's, JSON|
 
 ### <a name="activity-log"></a>Activiteitenlogboek
@@ -121,29 +121,29 @@ Azure Diagnostics-logboeken bieden verschillende configuratieopties die, Azure p
 
 | Service | Schema & Docs | Resourcetype | Category |
 | ------- | ------------- | ------------- | -------- |
-|Load Balancer| [Log analytics voor Azure Load Balancer (Preview)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|  LoadBalancerAlertEvent|
+|Load Balancer| [Log analytics voor Azure Load Balancer (Preview)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
-|Netwerkbeveiligingsgroepen|[Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
+|Netwerkbeveiligingsgroepen|[Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
-|Toepassingsgateways|[Logboekregistratie van diagnostische gegevens voor de toepassingsgateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
+|Toepassingsgateways|[Logboekregistratie van diagnostische gegevens voor de toepassingsgateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
-|Key Vault|[Logboekregistratie van Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
-|Azure Search|[Inschakelen en gebruiken van Search Traffic Analytics](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
-|Data Lake Store|[Toegang tot diagnoselogboeken voor Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Controleren|
-|Data Lake Analytics|[Diagnostische logboeken openen voor Azure Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Controleren|
+|Key Vault|[Logboekregistratie van Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
+|Azure Search|[Inschakelen en gebruiken van Search Traffic Analytics](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
+|Data Lake Store|[Toegang tot diagnoselogboeken voor Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Controleren|
+|Data Lake Analytics|[Diagnostische logboeken openen voor Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Controleren|
 |||Microsoft.DataLakeAnalytics/accounts|Aanvragen|
 |||Microsoft.DataLakeStore/accounts|Aanvragen|
-|Logic Apps|[Aangepast Logic Apps B2B-volgschema](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
+|Logic Apps|[Aangepast Logic Apps B2B-volgschema](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
 |||Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|
-|Azure Batch|[Diagnostische logboekregistratie van Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure Automation|[Log analytics voor Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
+|Azure Batch|[Diagnostische logboekregistratie van Azure Batch](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
+|Azure Automation|[Log analytics voor Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
-|Event Hubs|[Diagnostische logboeken van Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|Event Hubs|[Diagnostische logboeken van Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
-|Stream Analytics|[Diagnostische logboeken van taak](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Uitvoering|
+|Stream Analytics|[Diagnostische logboeken van taak](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Uitvoering|
 |||Microsoft.StreamAnalytics/streamingjobs|Ontwerpen|
-|Service Bus|[Diagnostische logboeken van Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
+|Service Bus|[Diagnostische logboeken van Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Azure Active Directory-rapportage
 Azure Active Directory (Azure AD) bevat beveiligings-, activiteits- en controlerapporten voor uw directory. De [Azure Active Directory-controlerapport](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) klanten helpt bij het identificeren van bevoegde acties die is opgetreden in Azure Active Directory. Bevoegdheden omvatten wijzigingen van de uitbreiding van bevoegdheden (bijvoorbeeld het maken of opnieuw instellen van wachtwoorden), veranderende beleidsconfiguraties (bijvoorbeeld wachtwoordbeleid) of wijzigingen in de directoryconfiguratie (bijvoorbeeld wijzigingen in de federation-domeininstellingen).
@@ -300,17 +300,17 @@ Application Insights is bedoeld voor het ontwikkelingsteam en helpt u om te begr
 
 | Integratiescenario 's | Beschrijving |
 | --------------------- | :---------- |
-|[De toepassingstoewijzing vast](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-app-map)|Bekijk de onderdelen van uw app met belangrijke metrische gegevens en waarschuwingen.||
-|[Diagnostische gegevens doorzoeken bijvoorbeeld gegevens](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-diagnostic-search)| U kunt zoeken naar gebeurtenissen, zoals aanvragen, uitzonderingen, afhankelijkheidsaanroepen, logboektraceringen en paginaweergaven en deze gegevens ook filteren.||
-|[Metrics Explorer voor geaggregeerde gegevens](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-metrics-explorer)|Verken, filter en segmenteer cumulatieve gegevens, zoals aantallen aanvragen, fouten en uitzonderingen, reactietijden en paginalaadtijden.||
-|[Dashboards](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-dashboards#dashboards)|Combineer gegevens van meerdere resources tot een mash-up en deel deze met anderen. Ideaal voor toepassingen met meerdere onderdelen en om continu weer te geven in de teamkamer.||
-|[Metrische gegevens livestream](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream)|Wanneer u een nieuwe build implementeert, kunt u kijken naar deze 'near-realtime' prestatie-indicatoren om te controleren of dat alles naar verwachting werkt.||
-|[Analytische gegevens](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)|Beantwoord moeilijke vragen over de prestaties en het gebruik van uw app met behulp van deze krachtige querytaal.||
-|[Automatische en handmatige waarschuwingen](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-alerts)|De functie die automatische waarschuwingen genereert, kan normale telemetriepatronen van uw app herkennen en wordt geactiveerd wanneer er zich iets voordoet dat buiten het normale patroon valt. U kunt ook waarschuwingen instellen voor bepaalde niveaus van aangepaste functies of standaardfuncties voor het verzamelen van metrische gegevens.||
-|[Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-visual-studio)|Bekijk prestatiegegevens in de code. Ga naar de code vanuit stack-traces.||
-|[Power BI](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-power-bi)|Integreer metrische gegevens over het gebruik van de toepassing met andere business intelligence.||
+|[De toepassingstoewijzing vast](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Bekijk de onderdelen van uw app met belangrijke metrische gegevens en waarschuwingen.||
+|[Diagnostische gegevens doorzoeken bijvoorbeeld gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| U kunt zoeken naar gebeurtenissen, zoals aanvragen, uitzonderingen, afhankelijkheidsaanroepen, logboektraceringen en paginaweergaven en deze gegevens ook filteren.||
+|[Metrics Explorer voor geaggregeerde gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|Verken, filter en segmenteer cumulatieve gegevens, zoals aantallen aanvragen, fouten en uitzonderingen, reactietijden en paginalaadtijden.||
+|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combineer gegevens van meerdere resources tot een mash-up en deel deze met anderen. Ideaal voor toepassingen met meerdere onderdelen en om continu weer te geven in de teamkamer.||
+|[Metrische gegevens livestream](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|Wanneer u een nieuwe build implementeert, kunt u kijken naar deze 'near-realtime' prestatie-indicatoren om te controleren of dat alles naar verwachting werkt.||
+|[Analytische gegevens](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Beantwoord moeilijke vragen over de prestaties en het gebruik van uw app met behulp van deze krachtige querytaal.||
+|[Automatische en handmatige waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|De functie die automatische waarschuwingen genereert, kan normale telemetriepatronen van uw app herkennen en wordt geactiveerd wanneer er zich iets voordoet dat buiten het normale patroon valt. U kunt ook waarschuwingen instellen voor bepaalde niveaus van aangepaste functies of standaardfuncties voor het verzamelen van metrische gegevens.||
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Bekijk prestatiegegevens in de code. Ga naar de code vanuit stack-traces.||
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integreer metrische gegevens over het gebruik van de toepassing met andere business intelligence.||
 |[REST API](https://dev.applicationinsights.io/)|Schrijf code voor het uitvoeren van query's op uw functies voor het verzamelen van metrische gegevens en op onbewerkte gegevens.||
-|[Continue export](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry)|Het exporteren van de onbewerkte gegevens naar opslag bulksgewijs wanneer het wordt geleverd.||
+|[Continue export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Het exporteren van de onbewerkte gegevens naar opslag bulksgewijs wanneer het wordt geleverd.||
 
 ### <a name="azure-security-center-alerts"></a>Azure Security Center-waarschuwingen
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) automatisch verzamelt, analyseert en integreert logboekgegevens van uw Azure-resources, het netwerk- en verbonden partneroplossingen, zoals een firewall en endpoint protection-oplossingen, om werkelijke dreigingen te detecteren en fout-positieven te verminderen. In Security Center wordt een lijst met beveiligingswaarschuwingen met prioriteiten weergegeven samen met de informatie die u nodig hebt om snel onderzoek te doen naar het probleem en aanbevelingen voor het herstellen van een aanval.
@@ -354,25 +354,25 @@ Er zijn vier verschillende manieren van [verzamelen van Logboeken en metrische g
 
 | Service | Resourcetype | Logboeken | Metrische gegevens | Oplossing |
 | :------ | :------------ | :--- | :------ | :------- |
-|Toepassingsgateways|  Microsoft.Network/<br>applicationGateways|  Diagnostiek|Diagnostiek|    [Azure-toepassing](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Analytics Gateway](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Toepassingsgateways|  Microsoft.Network/<br>applicationGateways|  Diagnostiek|Diagnostiek|    [Azure-toepassing](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Analytics Gateway](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application insights||     Connector|  Connector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (evaluatie)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Automation-accounts|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostiek||       [Meer informatie](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Automation-accounts|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostiek||       [Meer informatie](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Batch-accounts|    Microsoft.Batch/<br>batchAccounts|  Diagnostiek|    Diagnostiek||
-|Klassieke cloudservices||       Storage||       [Meer informatie](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
+|Klassieke cloudservices||       Storage||       [Meer informatie](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|       Diagnostiek|||
 |Data Lake analytics|   Microsoft.DataLakeAnalytics/<br>accounts|   Diagnostiek|||
 |Data Lake store|   Microsoft.DataLakeStore/<br>accounts|   Diagnostiek|||
 |Event Hub-naamruimte|   Microsoft.EventHub/<br>Naamruimten|  Diagnostiek|    Diagnostiek||
-|IoT-Hubs|  Microsoft.Devices/<br>IotHubs||     Diagnostiek||
-|Key Vault| Microsoft.KeyVault/<br>Kluizen|  Diagnostiek  || [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
+|IoT Hubs|  Microsoft.Devices/<br>IotHubs||     Diagnostiek||
+|Key Vault| Microsoft.KeyVault/<br>Kluizen|  Diagnostiek  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Load Balancers|    Microsoft.Network/<br>loadBalancers|    Diagnostiek|||
 |Logic Apps|    Microsoft.Logic/<br>Werkstromen|  Diagnostiek|    Diagnostiek||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Netwerkbeveiligingsgroep Azure Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Netwerkbeveiligingsgroepen|   Microsoft.Network/<br>networksecuritygroups|Diagnostiek||   [Netwerkbeveiligingsgroep Azure Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Recovery kluizen|   Microsoft.RecoveryServices/<br>Kluizen|||[Azure Recovery Services-Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Services zoeken|   Microsoft.Search/<br>searchServices|    Diagnostiek|    Diagnostiek||
 |Service Bus-naamruimte| Microsoft.ServiceBus/<br>Naamruimten|    Diagnostiek|Diagnostiek|    [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       Storage||    [Service Fabric Analytics (Preview)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
+|Service Fabric||       Storage||    [Service Fabric Analytics (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servers /<br>databases||       Diagnostiek||
 ||Microsoft.Sql/<br>servers /<br>elasticPools||||
 |Storage|||         Script| [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|

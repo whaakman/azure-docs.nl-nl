@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure-beveiliging aanbevolen procedures en patronen
 Momenteel hebben we de volgende Azure-beveiliging aanbevolen procedures en patronen artikelen. Zorg ervoor dat deze site regelmatig om te zien van updates voor onze groeiende lijst met patronen met een Azure aanbevolen beveiligingsprocedures en gaat u naar:  
@@ -30,7 +30,7 @@ Momenteel hebben we de volgende Azure-beveiliging aanbevolen procedures en patro
 * [Azure IaaS Best Practices voor beveiliging] (azure-beveiliging-iaas.md)
 * [Aanbevolen beveiligingsprocedures voor Azure grens](../best-practices-network-security.md)
 * [Een beveiligde, hybride netwerkarchitectuur implementeren in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS-Best Practices] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Azure PaaS-Best Practices] (https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 Azure biedt een veilige platform waarop u uw oplossingen kunt bouwen. We bieden ook services en -technologieën uw oplossingen in Azure om veiliger te maken. Vanwege de veel opties voor u beschikbaar zijn, hebben veel van u uitgesproken geïnteresseerd zijn in wat Microsoft raadt u aan als best practices en patronen voor het verbeteren van de beveiliging.
 

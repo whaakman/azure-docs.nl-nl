@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: e1e858b19f9aed680f95ad2f5e84310200340bf9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
-Met Azure Active Directory (Azure AD), kunt u afzonderlijke beheerders verschillende functies vervullen aanwijzen. Beheerders kunnen hebben toegang tot verschillende functies in de Azure-portal of de klassieke Azure-portal en, afhankelijk van hun rol, maken of bewerken welke gebruikers beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden, Gebruikerslicenties beheren en domeinen naast andere beheren zaken. Een gebruiker aan wie een beheerdersrol is toegewezen, wordt dezelfde machtigingen hebben voor alle van de cloudservices die uw organisatie zich heeft aangemeld, ongeacht of u de rol in de Office 365-beheerportal of in de klassieke Azure portal of met behulp van de Azure AD-module voor Windows PowerShell kunt toewijzen.
+Met Azure Active Directory (Azure AD), kunt u afzonderlijke beheerders verschillende functies vervullen aanwijzen. Beheerders kunnen hebben toegang tot verschillende functies in de Azure portal en, afhankelijk van hun rol, maken of bewerken welke gebruikers, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden, Gebruikerslicenties beheren en domeinen, onder andere beheren. Een gebruiker aan wie een beheerdersrol is toegewezen wordt dezelfde machtigingen hebben voor alle van de cloud-services waarop uw organisatie is geabonneerd op, ongeacht of u de rol in de Office 365-beheerportal of in de Azure portal of met behulp van de Azure AD-module voor toewijzen Windows PowerShell.
 
 De volgende beheerdersrollen zijn beschikbaar:
 

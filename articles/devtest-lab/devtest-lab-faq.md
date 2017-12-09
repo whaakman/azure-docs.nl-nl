@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a5e686a7f60b15b55d8f4365b73c71de02c4bad
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -226,11 +226,11 @@ Een kans is dat de naam van uw virtuele netwerk punten bevat. Als dit het geval 
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Waarom krijg ik een 'Bovenliggende resource is niet gevonden'-Fout bij het inrichten van een virtuele machine vanuit PowerShell?
 Wanneer een bron een bovenliggend item naar een andere bron is, wordt de bovenliggende resource moet bestaan voordat u de onderliggende resource maken. Als de bovenliggende resource niet bestaat, ziet u een **ParentResourceNotFound** bericht. Als u een afhankelijkheid op de bovenliggende resource niet opgeeft, kan de onderliggende resource worden geïmplementeerd voordat u het bovenliggende item.
 
-Virtuele machines zijn onderliggende resources onder een lab in een resourcegroep. Wanneer u een Resource Manager-sjablonen gebruikt voor het implementeren van virtuele machines met behulp van PowerShell, moet de naam van de resourcegroep opgegeven in het PowerShell-script de naam van de resource van het testlab. Zie voor meer informatie [veelvoorkomende fouten van de Azure-implementatie oplossen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Virtuele machines zijn onderliggende resources onder een lab in een resourcegroep. Wanneer u een Resource Manager-sjablonen gebruikt voor het implementeren van virtuele machines met behulp van PowerShell, moet de naam van de resourcegroep opgegeven in het PowerShell-script de naam van de resource van het testlab. Zie voor meer informatie [veelvoorkomende fouten van de Azure-implementatie oplossen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Waar vind ik meer foutinformatie als de implementatie van een virtuele machine mislukt?
 VM-implementatiefouten worden vastgelegd in activiteitenlogboeken. U vindt lab VM activiteitenlogboeken onder **controlelogboeken** of **diagnostische gegevens van virtuele machine** in het menu van de resource op de testomgeving VM blade (de blade wordt weergegeven nadat u de virtuele machine van de **mijn virtuele machines** lijst).
 
-Soms is foutmelding de implementatie voordat VM-implementatie wordt gestart. Een voorbeeld is wanneer de limiet voor het abonnement voor een bron die is gemaakt met de virtuele machine wordt overschreden. In dit geval de details van fout vastgelegd in het lab-niveau activiteitenlogboeken. Activiteitenlogboeken bevinden zich op de onderkant van de **configuratie en het beleid** instellingen. Zie voor meer informatie over het gebruik van de activiteit geregistreerd in Azure, [activiteitenlogboeken wilt controleren acties op resources bekijken](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+Soms is foutmelding de implementatie voordat VM-implementatie wordt gestart. Een voorbeeld is wanneer de limiet voor het abonnement voor een bron die is gemaakt met de virtuele machine wordt overschreden. In dit geval de details van fout vastgelegd in het lab-niveau activiteitenlogboeken. Activiteitenlogboeken bevinden zich op de onderkant van de **configuratie en het beleid** instellingen. Zie voor meer informatie over het gebruik van de activiteit geregistreerd in Azure, [activiteitenlogboeken wilt controleren acties op resources bekijken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

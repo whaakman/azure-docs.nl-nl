@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption probleemoplossingsgids
 
@@ -36,7 +36,7 @@ Deze fout wordt waarschijnlijk gebeuren wanneer de OS-schijf-versleuteling wordt
 - De OS-schijf gebruikt het schema van een logische Volume Manager (LVM). Hoewel beperkte ondersteuning voor LVM gegevens schijf beschikbaar is, is een besturingssysteemschijf LVM niet.
 - Minimale geheugenvereisten wordt niet voldaan (7 GB wordt voorgesteld voor OS schijfversleuteling).
 - Schijven worden recursief gekoppeld onder de map /mnt/ of elkaar (bijvoorbeeld /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Andere Azure Disk Encryption [vereisten](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) voor Linux wordt niet voldaan.
+- Andere Azure Disk Encryption [vereisten](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) voor Linux wordt niet voldaan.
 
 ## <a name="unable-to-encrypt"></a>Kan niet worden versleuteld
 

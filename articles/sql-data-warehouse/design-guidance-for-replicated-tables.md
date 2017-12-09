@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Richtlijnen voor het gebruik van gerepliceerde tabellen in Azure SQL Data Warehouse ontwerpen
 Dit artikel bevat aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw SQL Data Warehouse-schema. Gebruik deze aanbevelingen voor het verbeteren van prestaties van query's door gegevens verplaatsing en query complexiteit te verminderen.
@@ -47,7 +47,7 @@ Gerepliceerde tabellen werk geschikt voor kleine dimensietabellen in een stersch
 
 Overweeg het gebruik van een gerepliceerde tabel wanneer:
 
-- De grootte van de tabel op schijf is minder dan 2 GB vereist, ongeacht het aantal rijen. Als u wilt de grootte van een tabel vinden, kunt u de [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) opdracht: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- De grootte van de tabel op schijf is minder dan 2 GB vereist, ongeacht het aantal rijen. Als u wilt de grootte van een tabel vinden, kunt u de [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) opdracht: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - De tabel wordt gebruikt in samenvoegingen die anders worden verplaatsing van gegevens moeten. Bijvoorbeeld vereist een join op tabellen hash gedistribueerd gegevensverplaatsing wanneer de kolommen die niet gelijk zijn aan dezelfde kolom van het distributiepunt. Als een van de tabellen hash gedistribueerd klein is, kunt u een gerepliceerde tabel. Een join op een round robin-tabel vereist de verplaatsing van gegevens. U kunt het beste gerepliceerde tabellen in plaats van round robin-tabellen in de meeste gevallen gebruikt. 
 
 

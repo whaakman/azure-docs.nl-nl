@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1d423859b299d27472dfa2eb4bbaa7d32d82f2a9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory-verificatiebibliotheken voor v2.0
-De [v2.0-eindpunt voor Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) ondersteunt de industriestandaard-protocollen voor OAuth 2.0 en OpenID Connect 1.0. U kunt verschillende bibliotheken van Microsoft en andere organisaties gebruiken met het v2.0-eindpunt.
+De [v2.0-eindpunt voor Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) ondersteunt de industriestandaard-protocollen voor OAuth 2.0 en OpenID Connect 1.0. U kunt verschillende bibliotheken van Microsoft en andere organisaties gebruiken met het v2.0-eindpunt.
 
 Wanneer u een toepassing die gebruikmaakt van het v2.0-eindpunt maakt, wordt aangeraden dat u bibliotheken die zijn geschreven door protocol domein experts die een methodologie Security Development Lifecycle (SDL) zoals volgen [de gevolgd door Microsoft][Microsoft-SDL]. Als u aan de hand-code-ondersteuning voor de protocollen besluit, wordt aangeraden SDL methodologie volgen en aandacht besteedt aan de beveiligingsoverwegingen in de specificaties standaarden voor elk protocol.
 
 > [!NOTE]
-> Zoekt u de Azure AD v1.0 libraries (ADAL)? Bekijk de [ADAL-bibliotheek handleiding](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> Zoekt u de Azure AD v1.0 libraries (ADAL)? Bekijk de [ADAL-bibliotheek handleiding](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
 > 
 > 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Overzicht van de beleidsregels voor beveiliging
 Dit artikel bevat een overzicht van beveiligingsbeleid in Security Center.
@@ -29,7 +29,7 @@ Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en h
 Beleidsregels van Security Center bevatten de volgende onderdelen:
 
 - **Gegevensverzameling**: bepaalt agent inrichting en [gegevensverzameling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) instellingen.
-- **Beveiligingsbeleid voor**: die bepaalt Security Center monitors en raadt bepaalt. U kunt bewerken de [beveiligingsbeleid](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) in Security Center. U kunt ook [Azure beleid](security-center-azure-policy.md) (in de beperkte preview) voor het maken van nieuwe definities extra beleidsregels definiëren en beleid binnen beheergroepen toe te wijzen.
+- **Beveiligingsbeleid voor**: die bepaalt Security Center monitors en raadt bepaalt. U kunt bewerken de [beveiligingsbeleid](https://docs.microsoft.com/azure/security-center/security-center-policies) in Security Center. U kunt ook [Azure beleid](security-center-azure-policy.md) (in de beperkte preview) voor het maken van nieuwe definities extra beleidsregels definiëren en beleid binnen beheergroepen toe te wijzen.
 - **E-mailmeldingen**: beveiliging contactpersonen, bepaalt en [e-mailmelding](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) instellingen.
 - **Prijscategorie**: gratis of standaard definieert [prijzen selectie](https://docs.microsoft.com/azure/security-center/security-center-pricing). De laag die u kiest, bepaalt welke Security Center-functies zijn beschikbaar voor resources binnen het bereik. U kunt een laag voor abonnementen en resourcegroepen werkruimten opgeven. 
 
@@ -46,11 +46,11 @@ In dit artikel hebt u geleerd over beveiligingsbeleid in Azure Security Center. 
 
 * [Beveiligingsbeleid instellen in Azure Security Center](security-center-policies.md): informatie over het beveiligingsbeleid voor uw Azure-abonnementen en resourcegroepen configureren.
 * [Aanbevelingen voor beveiliging in Azure Security Center beheren](security-center-recommendations.md): Leer hoe aanbevelingen Beveiligingscentrum u uw Azure-resources te beveiligen.
-* [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): informatie over het bewaken van de status van uw Azure-resources.
+* [Beveiligingsstatus controleren in Azure Security Center](security-center-monitoring.md): meer informatie over het controleren van de status van uw Azure-resources.
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md): ontdek hoe u beveiligingswaarschuwingen kunt beheren en erop kunt reageren.
 * [Partneroplossingen controleren met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt controleren.
 - [Beveiliging van gegevens van Azure Security Center](security-center-data-security.md): meer informatie over hoe Security Center beheert en beveiligt gegevens.
-* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): antwoorden op veelgestelde vragen over het gebruik van de service.
+* [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.
 * [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): Lees het laatste nieuws van de Azure-beveiliging en de informatie.
 
 

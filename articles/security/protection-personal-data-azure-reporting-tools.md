@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Beveiliging voor documenten van persoonlijke gegevens met Azure-hulpprogramma's voor rapportage
 
@@ -90,7 +90,7 @@ Ga naar de [Azure Active Directory-audit API-referentiemateriaal](https://docs.m
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Meld u Analytics](https://azure.microsoft.com/services/log-analytics/) kunt [verzamelen van gegevens van Azure Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) om het correleren met andere gegevens en bieden aanvullende analyse. Azure Monitor worden verzameld en analyseert bewakingsgegevens voor uw Azure-omgeving. 
+[Meld u Analytics](https://azure.microsoft.com/services/log-analytics/) kunt [verzamelen van gegevens van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) om het correleren met andere gegevens en bieden aanvullende analyse. Azure Monitor worden verzameld en analyseert bewakingsgegevens voor uw Azure-omgeving. 
 
 Analyseprogramma's in logboekanalyse zoals logboek zoekopdrachten, weergaven en oplossingen werken tegen alle verzamelde gegevens, zonder dat u gecentraliseerde analyse van uw hele omgeving. Log Analytics kunt aggregeren en analyseren van Windows-gebeurtenislogboeken, IIS-logboeken en Syslogs waarmee detecteren van mogelijke overtredingen van persoonlijke gegevens die persoonlijke gegevens voor onbevoegde gebruikers worden namelijk blootgesteld.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Overzicht App Service op Azure Stack
 
@@ -37,8 +37,8 @@ Hierna ziet u een paar belangrijke functies en mogelijkheden van App Service:
 
 App Service biedt verschillende typen Apps, die zijn bedoeld voor een specifieke werkbelasting:
 
-- [Web-Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) voor het hosten van websites en webtoepassingen.
-- [API-Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) voor het hosten van RESTful-API's.
+- [Web-Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) voor het hosten van websites en webtoepassingen.
+- [API-Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) voor het hosten van RESTful-API's.
 - Azure Functions voor het hosten van gebeurtenissen, zonder server werkbelastingen.
 
 De word-app verwijst naar de hostresources die specifiek zijn voor het uitvoeren van een werkbelasting. Neem bijvoorbeeld een 'web-app': u ziet een web-app waarschijnlijk als de rekenresources en toepassingscode die samen functionaliteit bieden aan een browser. Maar in App Service een web-app is de rekenresources die Azure-Stack biedt voor het hosten van uw toepassingscode.

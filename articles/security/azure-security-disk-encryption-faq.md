@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption Veelgestelde vragen
 
@@ -119,7 +119,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen (FAQ) over Azure Disk E
 * Versleutelen (kan duren meerdere uren of zelfs dagen afhankelijk van de vm-kenmerken en de grootte van alle schijven bijgesloten gegevens)
 * Aanpassen en software installeren op de installatiekopie van het naar behoefte.
 
-Als deze werkstroom niet mogelijk is, vertrouwen op [Opslagversleuteling Service](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) op de platform-opslag mogelijk account laag een alternatief voor het volledige schijfversleuteling dm-crypt met.
+Als deze werkstroom niet mogelijk is, vertrouwen op [Opslagversleuteling Service](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) op de platform-opslag mogelijk account laag een alternatief voor het volledige schijfversleuteling dm-crypt met.
 
 **V:** wat is de schijf 'Bek Volume' of '/ mnt/azure_bek_disk'?
 

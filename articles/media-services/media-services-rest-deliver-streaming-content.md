@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9bcd7c099bb46795f6f33c073261c0b949ff536a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Azure Media Services-inhoud met behulp van REST publiceren
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Overzicht
-Een adaptive bitrate MP4-set door een OnDemand-locator voor streaming maken en het bouwen van een streaming-URL kan worden gestreamd. De [een asset coderen](media-services-rest-encode-asset.md) onderwerp wordt beschreven hoe coderen in een adaptive bitrate MP4-set. Als uw inhoud is versleuteld, leveringsbeleid voor Assets configureren (zoals beschreven in [dit](media-services-rest-configure-asset-delivery-policy.md) onderwerp) voordat u een locator maakt. 
+Een adaptive bitrate MP4-set door een OnDemand-locator voor streaming maken en het bouwen van een streaming-URL kan worden gestreamd. De [een asset coderen](media-services-rest-encode-asset.md) artikel laat zien hoe coderen in een adaptive bitrate MP4-set. Als uw inhoud is versleuteld, leveringsbeleid voor Assets configureren (zoals beschreven in [dit](media-services-rest-configure-asset-delivery-policy.md) artikel) voordat u een locator maakt. 
 
 U kunt ook een OnDemand-streaminglocator gebruiken voor het bouwen van URL's die verwijzen naar MP4-bestanden progressief kunnen worden gedownload.  
 
-Dit onderwerp leest hoe u een OnDemand-streaminglocator als u uw asset publiceren en bouwen van een Smooth, MPEG DASH en streaming-URL voor HLS wilt maken. U ziet ook hot voor het bouwen van URL's voor progressief downloaden.
+In dit artikel laat zien hoe een OnDemand-streaminglocator als u uw asset publiceren en bouwen van een Smooth, MPEG DASH en streaming-URL voor HLS wilt maken. U ziet ook hot voor het bouwen van URL's voor progressief downloaden.
 
 De [volgende](#types) sectie ziet u de enum-typen waarvan de waarden worden gebruikt in de REST-aanroepen.   
 
@@ -57,12 +57,12 @@ Als u wilt de OnDemand-streaminglocator maken en URL's ophalen, moet u het volge
    
    Als u van plan bent progressief te downloaden, krijgt u de namen van MP4-bestanden in de asset. 
 4. URL's naar de manifestbestand of MP4-bestanden maken. 
-5. Merk op dat u een streaming-locator met behulp van een AccessPolicy die bevat geen maken schrijven of verwijderen van machtigingen.
+5. U kan maken van een streaming-locator met behulp van een AccessPolicy met schrijven of verwijderen van machtigingen.
 
 ### <a name="create-an-access-policy"></a>Een toegangsbeleid maken
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Gebruik dezelfde beleids-ID als u altijd dezelfde dagen werkt / toegangsmachtigingen, bijvoorbeeld: beleid voor locators die zijn bedoeld om te blijven aanwezig gedurende een lange periode (niet-upload policies). Zie voor meer informatie [dit](media-services-dotnet-manage-entities.md#limit-access-policies) artikel.
 
 Aanvraag:
 
@@ -73,7 +73,7 @@ Aanvraag:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
     Content-Length: 68
@@ -111,7 +111,7 @@ Aanvraag:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
     Content-Length: 181

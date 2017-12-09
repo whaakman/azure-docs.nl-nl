@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 <a id="preparemachines"></a>
 
@@ -161,7 +161,7 @@ Passed                     : True
 Deze configuratie testen module worden de beveiligingsconfiguratie momenteel niet gevalideerd, zodat dit heeft onafhankelijk worden uitgevoerd.  
 
 > [!NOTE]
-> We zijn voortdurend er verbeteringen aangebracht in deze module maken die krachtiger, dus als er een aanvraag defect of ontbrekend die u van mening bent is niet op dit moment zijn opgepikt door TestConfiguration, laat ons weten via onze [ondersteunen kanalen](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).   
+> We zijn voortdurend er verbeteringen aangebracht in deze module maken die krachtiger, dus als er een aanvraag defect of ontbrekend die u van mening bent is niet op dit moment zijn opgepikt door TestConfiguration, laat ons weten via onze [ondersteunen kanalen](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).   
 > 
 > 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Evaluatieprogramma voor Cortana Intelligence-oplossing
 ## <a name="overview"></a>Overzicht
@@ -46,7 +46,7 @@ Verbinding maken met uw Azure-abonnement en geef de resourcegroep met uw app.
 Zodra de resourcegroep zijn geladen, selecteer de resources die zijn opgenomen in uw oplossing en de toegankelijkheid van de resources van de gegevens als identificeren:
 - Opname
 - Verbruik
-- interne
+- Intern
 
 We gebruiken deze gegevens om beter te begrijpen hoe uw oplossing wordt gebruikt door verschillende onderdelen en om ervoor te zorgen gebruikersgerichte onderdelen consistent zijn met best practices.
 
@@ -61,7 +61,7 @@ Verbruik houdt in dat geval alle gegevenssets die worden gebruikt voor de push-g
 >[!NOTE]
 Als een specifieke bron wordt gebruikt voor zowel opname en het verbruik van, kies **verbruik**.
 
-### <a name="internal"></a>interne
+### <a name="internal"></a>Intern
 Interne voor resources die gegevens die worden gebruikt in de verwerking van de interne toepassing alleen gebruiken.
 
 Vervolgens wordt u gevraagd geldige referenties opgeven voor alle databases in de vorige stap hebt opgegeven:
@@ -95,17 +95,17 @@ Azure SQL- of Azure SQL DW bronnen in de sloution moeten worden ingeschakeld met
 
 | Voor meer informatie over | Raadpleeg dit artikel |
 | --- | --- |
-| AAD met SQL-Database en SQL datawarehouse | [Azure Active Directory-verificatie gebruiken voor verificatie met SQL-Database of SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
-| Configureren en beheren van AAD | [Configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
-| Azure WebApps-verificatie | [Verificatie en autorisatie in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| WebApps configureren met AAD | [Het configureren van uw App Service-toepassing voor het gebruik van Azure Active Directory-aanmelding](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
+| AAD met SQL-Database en SQL datawarehouse | [Azure Active Directory-verificatie gebruiken voor verificatie met SQL-Database of SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) |
+| Configureren en beheren van AAD | [Configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) |
+| Azure WebApps-verificatie | [Verificatie en autorisatie in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) |
+| WebApps configureren met AAD | [Het configureren van uw App Service-toepassing voor het gebruik van Azure Active Directory-aanmelding](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Gegevenssets die toegankelijk is voor eindgebruikers moeten kunnen ondersteunen op rollen gebaseerde toegangsbeheer
 Tijdens het uitvoeren van de evaluation tool, wordt u gevraagd om op te geven van een rapport of publiceren van bronnen. Ervan wordt uitgegaan dat deze informatie is bedoeld voor toegang door eindgebruikers, niet ontwikkelaars. Deze resources dient op rollen gebaseerde toegangsbeheer (RBAC) om ervoor te zorgen dat eindgebruikers alleen toegang tot geautoriseerde gegevens zijn.
 
 In het bijzonder een van de volgende Azure-resources kunnen worden geconfigureerd met RBAC en als geldig beschouwd:
-- Beveiligen van HDInsight, Zie [een inleiding tot Hadoop-beveiliging met HDInsight-clusters domein](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)
-- Azure SQL, Zie [AAD-verificatie met Azure SQL]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
+- Beveiligen van HDInsight, Zie [een inleiding tot Hadoop-beveiliging met HDInsight-clusters domein](https://docs.microsoft.com/azure/hdinsight/hdinsight-domain-joined-introduction)
+- Azure SQL, Zie [AAD-verificatie met Azure SQL]( https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
 - Azure Analysis Services, Zie [databaserollen en gebruikers beheren voor Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users)
 - Azure SQL Data Warehouse (zijn op de hoogte dat omdat SQL DW RBAC ondersteunt, het is niet raadzaam om direct door eindgebruikers toegang te krijgen.)
 
@@ -114,17 +114,17 @@ Als u een ander resourcetype die ondersteuning biedt voor RBAC gebruikt, geeft u
 ### <a name="azure-data-lake-store-should-use-at-rest-encryption"></a>Azure Data Lake Store moet met rest versleuteling gebruiken
 Azure Data Lake Store (ADLS) ondersteunt in rust codering standaard gebruik van coderingssleutels worden ADLS-beheerd. U kunt ook configureren met Azure Key Vault versleuteling.
 
-Voor informatie over het opgeven van instellingen voor codering ADLS [een Azure Data Lake Store-account maken](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
+Voor informatie over het opgeven van instellingen voor codering ADLS [een Azure Data Lake Store-account maken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
 
 ### <a name="azure-sql-and-azure-sql-data-warehouse-should-use-encryption"></a>Azure SQL en Azure SQL Data Warehouse moet codering gebruiken
 Azure SQL en Azure SQL DW ondersteund transparante gegevens codering (TDE), waarmee u realtime versleuteling en ontsleuteling van gegevens en de logboekbestanden.
 
 | Voor meer informatie over | Raadpleeg dit artikel |
 | --- | --- |
-| Transparante gegevensversleuteling (TDE) | [Transparante gegevensversleuteling](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
-| Azure SQL datawarehouse met TDE | [SQL Data Warehouse Encrption TDE TSQL](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
-| Azure SQL met TDE configureren | [Transparante gegevensversleuteling met Azure SQL Database](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
-| Configureer Azure SQL met altijd versleuteld. | [SQL-Database wordt altijd versleuteld Azure Sleutelkluis](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
+| Transparante gegevensversleuteling (TDE) | [Transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
+| Azure SQL datawarehouse met TDE | [SQL Data Warehouse Encrption TDE TSQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
+| Azure SQL met TDE configureren | [Transparante gegevensversleuteling met Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
+| Configureer Azure SQL met altijd versleuteld. | [SQL-Database wordt altijd versleuteld Azure Sleutelkluis](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
 
 Naast TDE, Azure SQL ondersteunt ook altijd versleuteld, een nieuwe data encryption technologie die ervoor zorgt dat gegevens worden versleuteld niet alleen in rust en tijdens het verkeer tussen client en server, maar ook tijdens van gegevens wordt gebruikt tijdens het uitvoeren van opdrachten op de server.
 
@@ -133,7 +133,7 @@ Als u wilt een consistente beveiligingsniveau bieden over AppSource, moet dat al
 
 Om te zoeken naar de huidige lijst van Azure Marketplace-installatiekopieën, Zie [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute).
 
-Zie voor meer informatie over het publiceren van de installatiekopie van een virtuele machine voor Azure Marketplace [handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
+Zie voor meer informatie over het publiceren van de installatiekopie van een virtuele machine voor Azure Marketplace [handleiding voor het maken van de installatiekopie van een virtuele machine voor Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
 ## <a name="scalability-evaluation-considerations"></a>Aandachtspunten voor schaalbaarheid evaluatie
 ### <a name="cortana-intelligence-solutions-should-include-a-scalable-big-data-platform"></a>Cortana Intelligence-oplossingen bevatten een schaalbare big data-platform
@@ -145,14 +145,14 @@ Als uw oplossing geen ondersteuning voor deze gegevensgroottes vereist of als u 
 ### <a name="cortana-intelligence-solutions-should-include-dedicated-ingestion-data-environments"></a>Cortana Intelligence-oplossingen bevatten speciale opname gegevens omgevingen
 Cortana Intelligence-oplossingen Vermijd gegevens rechtstreeks in relationele gegevensbronnen invoegen. In plaats daarvan moeten onbewerkte gegevens worden opgeslagen in een niet-gestructureerde-omgeving met idempotent inserts/updates in een relationele winkels met behulp van Azure Data Factory.
 
-Voor meer informatie over het kopiëren van gegevens met Azure Data Factory [zelfstudie: een pijplijn maken met de Kopieeractiviteit in Visual Studio](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
+Voor meer informatie over het kopiëren van gegevens met Azure Data Factory [zelfstudie: een pijplijn maken met de Kopieeractiviteit in Visual Studio](https://docs.microsoft.com/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
 
 ### <a name="azure-sql-data-warehouse-should-use-polybase-for-data-ingestion"></a>Azure SQL Data Warehouse PolyBase voor gegevensopname moet worden gebruikt
 Azure SQL DW ondersteunt PolyBase voor zeer schaalbaar, parallelle gegevensopname. PolyBase kunt u met Azure SQL DW probleem query's voor externe gegevenssets die zijn opgeslagen in Azure Blob Storage of Azure Data Lake Store. Dit biedt betere prestaties van alternatieve methoden voor bulksgewijze updates.
 
-Zie voor instructies over het aan de slag met PolyBase en Azure SQL DW, [gegevens laden met PolyBase in SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
+Zie voor instructies over het aan de slag met PolyBase en Azure SQL DW, [gegevens laden met PolyBase in SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
 
-Zie voor meer informatie over best practices met PolyBase en Azure SQL DW [handleiding voor het gebruik van PolyBase in SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
+Zie voor meer informatie over best practices met PolyBase en Azure SQL DW [handleiding voor het gebruik van PolyBase in SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
 
 ## <a name="availability-evaluation-considerations"></a>Overwegingen voor evaluatie van beschikbaarheid
 
@@ -161,38 +161,38 @@ Tijdens het uitvoeren van de evaluation tool, wordt u gevraagd om op te geven va
 
 Azure SQL Data Warehouse moet in het bijzonder niet de enige gegevensbron beschikbaar is voor eindgebruikers. Als Azure SQL DW is opgegeven als een resource voor Power Users, moet Azure Analysis Services beschikbaar worden gesteld voor typische gebruikers.
 
-Zie voor meer informatie over de Azure SQL DW gelijktijdigheid limieten [gelijktijdigheid van taken en de belasting van beheer in SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
+Zie voor meer informatie over de Azure SQL DW gelijktijdigheid limieten [gelijktijdigheid van taken en de belasting van beheer in SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
 
 Zie voor meer informatie over Azure Analysis Services [Analysis Services-overzicht](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview).
 
 ### <a name="azure-sql-resources-should-have-a-read-only-replica-for-failover"></a>Azure SQL-resources moet een replica is alleen-lezen voor failover
 Azure SQL-databases. ondersteunen geo-replicatie naar een secundaire exemplaar. Dit exemplaar kan vervolgens worden gebruikt als een failover-exemplaar waarmee toepassingen met hoge beschikbaarheid.
 
-Zie voor meer informatie over geo-replicatie voor Azure SQL-databases, [SQL Database GEO-replicatie-overzicht](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview).
+Zie voor meer informatie over geo-replicatie voor Azure SQL-databases, [SQL Database GEO-replicatie-overzicht](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 
-Zie voor instructies over het configureren van geo-replicatie voor Azure SQL [actieve geo-replicatie configureren voor Azure SQL Database met Transact-SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-transact-sql).
+Zie voor instructies over het configureren van geo-replicatie voor Azure SQL [actieve geo-replicatie configureren voor Azure SQL Database met Transact-SQL](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-transact-sql).
 
 ### <a name="azure-sql-data-warehouse-should-have-geo-redundant-backups-enabled"></a>Azure SQL Data Warehouse hebt geografisch redundante back-ups die zijn ingeschakeld
 Azure SQL DW biedt ondersteuning voor dagelijkse back-ups naar geografisch redundante opslag. Deze geo-replicatie zorgt ervoor dat u het datawarehouse zelfs in situaties waar u geen toegang momentopnamen die zijn opgeslagen in de primaire regio tot kunt herstellen. Deze functie is standaard ingeschakeld en moet niet uitschakelen voor de Cortana Intelligence-oplossingen.
 
-Zie hier voor meer informatie over Azure SQL DW-back-ups en herstellen, [back-ups van SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-backups).
+Zie hier voor meer informatie over Azure SQL DW-back-ups en herstellen, [back-ups van SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-backups).
 
 ### <a name="virtual-machines-should-be-configured-with-availability-sets"></a>Virtuele machines moet worden geconfigureerd met beschikbaarheidssets
 Virtuele machines in Azure moet worden geconfigureerd in beschikbaarheidssets om te beperken van het effect van geplande en ongeplande onderhoud gebeurtenissen.
 
-Zie voor meer informatie over de beschikbaarheid van de virtuele machine van Azure [de beschikbaarheid van Windows virtuele machines in Azure beheren](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability).
+Zie voor meer informatie over de beschikbaarheid van de virtuele machine van Azure [de beschikbaarheid van Windows virtuele machines in Azure beheren](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 ## <a name="other-evaluation-considerations"></a>Andere overwegingen evaluatie
 ### <a name="cortana-intelligence-apps-should-use-a-centralized-tool-for-data-orchestration"></a>Cortana Intelligence apps moeten een gecentraliseerde hulpprogramma gebruiken voor gegevens orchestration
-Met één hulpprogramma voor het beheren en plannen van de verplaatsing van gegevens en transformatie gezorgd voor consistentie rond essentiële gegevens. Het biedt een duidelijke logica rond Pogingslogica, Afhankelijkheidsbeheer, waarschuwing/logboekregistratie, enzovoort. We raden het gebruik van [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-introduction) voor beheer van de gegevens in Azure.
+Met één hulpprogramma voor het beheren en plannen van de verplaatsing van gegevens en transformatie gezorgd voor consistentie rond essentiële gegevens. Het biedt een duidelijke logica rond Pogingslogica, Afhankelijkheidsbeheer, waarschuwing/logboekregistratie, enzovoort. We raden het gebruik van [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-introduction) voor beheer van de gegevens in Azure.
 
 Als u van een hulpprogramma dan Azure Data Factory voor gegevens orchestration gebruikmaakt, beschrijf welke hulpprogramma of de hulpprogramma's.
 ### <a name="azure-machine-learning-models-should-be-retrained-using-azure-data-factory"></a>Azure Machine Learning-modellen moeten worden retrained met behulp van Azure Data Factory
 Azure Machine Learning (AzureML), biedt eenvoudig te gebruiken hulpprogramma's voor het maken en de implementatie van voorspellende modellen en machine learning-pijplijnen. Het is echter belangrijk dat productie-implementaties van deze modellen AzureML niet is gebaseerd op een enkele vaste gegevensset, maar in plaats daarvan wordt aangepast aan de verschuivende dynamiek van echte verschijnselen.
 
-Zie voor meer informatie over het maken van de retraining-webservices in AzureML [Retrain Machine Learning-modellen programmatisch](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
+Zie voor meer informatie over het maken van de retraining-webservices in AzureML [Retrain Machine Learning-modellen programmatisch](https://docs.microsoft.com/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
-Zie voor meer informatie over het automatiseren van het model trainen-proces gebruik van Azure Data Factory [bijwerken van Azure Machine Learning-modellen Update Resource activiteit](https://docs.microsoft.com/en-us/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
+Zie voor meer informatie over het automatiseren van het model trainen-proces gebruik van Azure Data Factory [bijwerken van Azure Machine Learning-modellen Update Resource activiteit](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Bestaande documentatie
 [Microsoft Azure is gecertificeerd voor uw bedrijf cloud uitbreiden](https://azure.microsoft.com/en-us/marketplace/programs/certified/)

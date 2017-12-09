@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Aanbevolen procedures voor Azure operationele beveiliging
 Azure bedrijfsbeveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure. Azure operationele beveiliging is gebaseerd op een framework dat de kennis die is opgedaan met verschillende mogelijkheden die uniek voor Microsoft zijn, waaronder Microsoft Security Development Lifecycle (SDL), de Microsoft Security Response Center-programma en grondige kennis van de threat cybersecurity liggend opgenomen.
@@ -156,7 +156,7 @@ Een end-to-end-netwerk in Azure opbouwen klanten door te organiseren en samenste
 Met Network Watcher bewaakt u uw netwerk en stelt u problemen vast, zonder u aan te hoeven melden op uw virtuele machines. Trigger [pakketopname](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) door waarschuwingen instellen en toegang krijgen tot informatie over realtime prestaties op het pakketniveau van het. Wanneer er een probleem wordt vastgesteld, kunt u dat uitgebreid onderzoeken voor een gedetailleerde diagnose.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Inzicht in uw netwerkverkeer met stroomlogboeken
-Maken van een beter begrip van uw netwerkverkeer patroon met [Netwerkbeveiligingsgroep stroom logboeken](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Informatie die door de stroom logboeken helpt u gegevens op naleving controleren en bewaken van uw netwerk beveiligingsprofiel verzamelen.
+Maken van een beter begrip van uw netwerkverkeer patroon met [Netwerkbeveiligingsgroep stroom logboeken](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Informatie die door de stroom logboeken helpt u gegevens op naleving controleren en bewaken van uw netwerk beveiligingsprofiel verzamelen.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>VPN-verbindingsproblemen vaststellen
 Netwerk-Watcher biedt u de mogelijkheid om [vaststellen van de meest voorkomende problemen met VPN-Gateway en verbindingen](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Zodat u niet alleen voor het vaststellen van het probleem, maar ook de gedetailleerde logboeken gemaakt om verder onderzoek te gebruiken.

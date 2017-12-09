@@ -1,6 +1,6 @@
 ---
-title: Migreren van Azure Access Control Service (ACS)
-description: Opties voor het verplaatsen van apps en services van Azure Access Control Service | Microsoft Azure
+title: Migreren van de service Azure Access Control | Microsoft Docs
+description: Opties voor het verplaatsen van apps en services van de Azure Access Control-service
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
@@ -14,78 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: e32cac7feda929a63c4a80fc0078b221117eb2b5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 8c719f4970303c3ff0dd7e80fbd700cb401d2cc5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="migrating-from-azure-access-control-service-acs"></a>Migreren van Azure Access Control Service (ACS)
+# <a name="migrate-from-the-azure-access-control-service"></a>Migreren van de Azure Access Control-service
 
-Microsoft Azure Active Directory-toegangsbeheer (ook wel bekend als Access Control Service of ACS) wordt buiten gebruik gesteld in November 2018.  Toepassingen en services die momenteel wordt gebruikt door ACS moeten volledig migreren naar een ander verificatiemechanisme voor deze datum. Dit document beschrijft de aanbevelingen voor het huidige klanten als ze willen hun gebruik van ACS als vervangen markeren. Als u ACS op dit moment niet worden gebruikt, hoeft u geen geen actie te ondernemen.
+Azure Access Control, een service van Azure Active Directory (Azure AD), wordt in November 2018 buiten gebruik worden gesteld. Toepassingen en services die momenteel gebruikmaken van toegangsbeheer moeten volledig zijn gemigreerd naar een ander verificatiemechanisme dan. Dit artikel bevat aanbevelingen voor het huidige klanten, als u van plan bent uw gebruik van toegangsbeheer als vervangen markeren. Als u toegangsbeheer momenteel niet gebruikt, moet u geen geen actie te ondernemen.
 
 
-## <a name="brief-acs-overview"></a>Beknopt overzicht van ACS
+## <a name="overview"></a>Overzicht
 
-ACS is verificatie met een cloudservice waarmee u een eenvoudige manier voor verificatie en autoriseren van gebruikers toegang te krijgen tot uw webtoepassingen en services terwijl veel functies van verificatie en autorisatie voor moet rekening worden gehouden van uw code. Dit wordt hoofdzakelijk gebruikt door ontwikkelaars en architecten van .NET-clients, ASP.NET-webtoepassingen en WCF-webservices.
+Toegangsbeheer is een cloudservice voor verificatie met biedt een eenvoudige manier om te verifiëren en autoriseren van gebruikers om toegang te krijgen tot uw webtoepassingen en services. Kunt u veel functies van verificatie en autorisatie voor moet rekening worden gehouden van uw code. Toegangsbeheer wordt voornamelijk gebruikt door ontwikkelaars en architecten van Microsoft .NET-clients, ASP.NET-webtoepassingen en webservices van Windows Communication Foundation (WCF).
 
-De gebruiksvoorbeelden voor ACS kunnen worden onderverdeeld in drie hoofdcategorieën:
+Gebruiksvoorbeelden voor toegangsbeheer kunnen worden onderverdeeld in drie hoofdcategorieën:
 
-- Verificatie van bepaalde Microsoft-cloudservices, zoals Azure Service Bus, Dynamics CRM en andere gebruikers. Clienttoepassingen kunnen tokens verkrijgen van ACS die kan worden gebruikt om deze services verschillende acties uitvoeren te verifiëren.
-- Verificatie toevoegen aan webtoepassingen, zowel van de verschillende maat gemaakte & van het vooraf verpakte RAS (zoals Sharepoint). ACS 'passieve' verificatie gebruikt, kunnen webtoepassingen Meld u aan met accounts van Google, Facebook, Yahoo, Microsoft-account (Live ID), Azure Active Directory en AD FS ondersteunen.
-- De beveiliging van aangepaste ingebouwde webservices met tokens die zijn uitgegeven door ACS. Met 'active'-verificatie, webservices kunnen ervoor zorgen dat ze alleen toegang toestaan van bekende clients die zijn geverifieerd met ACS.
+- Verificatie van bepaalde Microsoft-cloudservices, met inbegrip van Azure Service Bus en Dynamics CRM. Clienttoepassingen verkrijgen tokens bij toegangsbeheer te verifiëren bij deze services verschillende acties uit te voeren.
+- Verificatie toevoegen voor webtoepassingen, aangepaste en voorverpakte (zoals SharePoint). Met behulp van toegangsbeheer 'passieve' verificatie webtoepassingen aanmelden met een Microsoft-account (voorheen Live ID) en met accounts van Google, Facebook, Yahoo, Azure AD kunnen ondersteunen en Active Directory Federation Services (AD FS).
+- De beveiliging van aangepaste webservices met tokens die zijn uitgegeven door toegangsbeheer. Met behulp van 'active' verificatie kunnen webservices ervoor te zorgen dat ze alleen toegang tot bekende clients die zijn geverifieerd met toegangsbeheer toestaan.
 
-Elk van deze gebruiksvoorbeelden en hun aanbevolen strategieën in de volgende secties wordt besproken. In de meeste gevallen worden de aanzienlijke codewijzigingen nodig voor het migreren van bestaande apps en services naar nieuwere technologieën. Het is raadzaam dat u begint met plannen en uitvoeren van uw migratie onmiddellijk om te voorkomen dat eventuele voor uitval of uitvaltijd.
+Elk van deze aanvragen en hun aanbevolen migratie strategieën worden beschreven in de volgende secties gebruiken. 
 
 > [!WARNING]
-> In de meeste gevallen worden de aanzienlijke codewijzigingen nodig voor het migreren van bestaande apps en services naar nieuwere technologieën. Het is raadzaam dat u begint met plannen en uitvoeren van uw migratie onmiddellijk om te voorkomen dat eventuele voor uitval of uitvaltijd.
+> In de meeste gevallen worden de aanzienlijke codewijzigingen nodig voor het migreren van bestaande apps en services naar nieuwere technologieën. Het is raadzaam dat u meteen beginnen met het plannen en uitvoeren van de migratie om te voorkomen dat alle mogelijke storingen of uitvaltijd.
 
-Qua architectuur is ACS volledig bestaat uit de volgende onderdelen:
+Toegangsbeheer heeft de volgende onderdelen:
 
-- Een beveiligde beveiligingstokenservice (STS) die verificatieaanvragen ontvangt & beveiligingstokens in.
-- De klassieke Azure portal, dat wordt gebruikt voor het maken, verwijderen en in-/ uitschakelen ACS-naamruimten.
-- Een afzonderlijke ACS management portal, dat wordt gebruikt voor het aanpassen en het gedrag van een ACS-naamruimte configureren.
-- Een management-service, die kan worden gebruikt voor het automatiseren van de functies van de portals.
-- Een token transformatie regel engine, die kan worden gebruikt voor het definiëren van complexe logica voor het bewerken van de indeling van de uitvoer van tokens die zijn uitgegeven door ACS.
+- Een beveiligde token service (STS), waarmee verificatieaanvragen en verstrekt beveiligingstokens in.
+- De klassieke Azure portal, waarin u maken, verwijderen, en inschakelen en uitschakelen van toegangsbeheer naamruimten.
+- Een afzonderlijke Access Control-beheerportal, waar u aanpassen en Access Control-naamruimten te configureren.
+- Een management-service, die u gebruiken kunt voor het automatiseren van de functies van de portals.
+- Een token transformatie regel engine, die u gebruiken kunt voor het definiëren van complexe logica voor het bewerken van de indeling van de uitvoer van tokens die toegangsbeheer uitgeeft.
 
-Voor het gebruik van deze onderdelen moet u een of meer ACS **naamruimten**. Een naamruimte is een toegewezen exemplaar van ACS die uw toepassingen en services met communiceren; het is geïsoleerd van alle andere ACS klanten die hun eigen naamruimten gebruiken. Een ACS-naamruimte heeft een specifieke URL, zoals:
+Voor het gebruik van deze onderdelen moet u een of meer Access Control-naamruimten. Een *naamruimte* is een toegewezen exemplaar van toegangsbeheer die uw toepassingen en services met communiceren. Een naamruimte is geïsoleerd van alle andere Access Control-klanten. Andere klanten toegangsbeheer gebruiken hun eigen naamruimten. Een Access Control-naamruimte heeft een toegewezen URL die er als volgt uit:
 
 ```HTTP
-https://mynamespace.accesscontrol.windows.net
+https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Alle communicatie met de STS- en beheerbewerkingen zijn gedaan bij deze URL, met verschillende paden voor verschillende doeleinden. Monitor om te bepalen als uw toepassingen of services ACS gebruikt, al het verkeer naar `https://{namespace}.accesscontrol.windows.net`.  Al het verkeer naar deze URL wordt verkeer dat wordt verwerkt door ACS en moet worden stopgezet.  De enige uitzondering hierop is al het verkeer naar `https://accounts.accesscontrol.windows.net` -verkeer naar deze URL al wordt verwerkt door een andere service en wordt niet beïnvloed door ACS afschaffing.  Ook moet u ervoor dat u aanmelden bij de klassieke Azure-portal en Controleer voor elke ACS-naamruimten in de abonnementen waarvan u eigenaar.  ACS-naamruimten worden vermeld in de **Active Directory** service onder de **Access Control-naamruimten** tabblad.
+Alle communicatie met de STS- en beheerbewerkingen zijn gedaan bij deze URL. U kunt verschillende paden gebruiken voor verschillende doeleinden. Monitor om te bepalen of uw toepassingen of services toegangsbeheer gebruiken, al het verkeer naar https://\<naamruimte\>. accesscontrol.windows.net. Al het verkeer naar deze URL wordt verwerkt door de Access Control en moet worden stopgezet. 
 
-Zie voor meer informatie over ACS [dit documentatie op MSDN gearchiveerd](https://msdn.microsoft.com/library/hh147631.aspx).
+De uitzondering hierop is al het verkeer naar https://accounts.accesscontrol.windows.net. Het verkeer naar deze URL al wordt verwerkt door een andere service en wordt niet beïnvloed door de afschaffing van toegangsbeheer. 
+
+U moet ook aanmelden bij de klassieke Azure-portal en Controleer voor elke Access Control-naamruimten in de abonnementen waarvan u eigenaar. Access Control-naamruimten worden vermeld op de **Access Control-naamruimten** tabblad onder de **Active Directory** service.
+
+Zie voor meer informatie over toegangsbeheer [Access Control Service 2.0 (gearchiveerd)](https://msdn.microsoft.com/library/hh147631.aspx).
 
 ## <a name="retirement-schedule"></a>De planning buiten gebruik stellen
 
-Vanaf November 2017, worden alle ACS-onderdelen zijn volledig ondersteunde & operationele. De enige beperking is dat [nieuwe ACS naamruimten kan niet worden gemaakt via de klassieke Azure-portal](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
+Vanaf November 2017 zijn alle Access Control-onderdelen volledig ondersteunde en operationeel. De enige beperking is dat u [kan geen nieuwe toegangsbeheer naamruimten via de klassieke Azure portal maken](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
 
-De tijdlijn voor de afschaffing van deze onderdelen volgens deze planning:
+Hier wordt het schema voor bestandstypen Access Control-onderdelen:
 
-- **November 2017**: de Azure AD-beheerder problemen in de klassieke Azure portal [is buiten gebruik gesteld](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Op dit moment naamruimte management voor ACS beschikbaar op deze nieuwe zijn, toegewezen URL: `http://manage.windowsazure.com?restoreClassic=true`. Dit is kunt u uw bestaande naamruimten weergeven, in-of uitschakelen ze en verwijder deze volledig indien gewenst.
-- **2018 april**: beheer van de ACS-naamruimte is niet langer beschikbaar is op deze URL toegewezen. Op dit moment, kan u niet inschakelen/uitschakelen, verwijderen of uw naamruimten ACS inventariseren. De ACS-beheerportal, is echter volledig functioneel is en zich op `https://{namespace}.accesscontrol.windows.net`. Alle andere onderdelen van ACS blijven werken doorgaans ook.
-- **November 2018**: alle ACS-onderdelen permanent zijn afgesloten. Dit omvat de ACS-beheerportal, de beheerservice STS en regel-token transformatie-engine. Op dit moment geen verzoeken verzonden naar ACS (te vinden op `{namespace}.accesscontrol.windows.net`) mislukken. U moet hebt gemigreerd alle bestaande apps en services voor andere technologieën, voordat deze periode.
+- **November 2017**: de Azure AD-beheerder optreden in de klassieke Azure portal [is buiten gebruik gesteld](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Op dit moment naamruimte management voor toegangsbeheer is beschikbaar op een nieuwe, toegewezen URL: http://manage.windowsazure.com?restoreClassic=true. Gebruik deze URl weergeven van uw bestaande naamruimten, inschakelen en uitschakelen van naamruimten en verwijderen van naamruimten, als u wilt.
+- **2018 april**: beheer van de Access Control-naamruimte is niet meer beschikbaar op de URL http://manage.windowsazure.com?restoreClassic=true toegewezen. U kan niet op dit moment uitschakelen of inschakelen, verwijderen of uw naamruimten toegangsbeheer inventariseren. De Access Control-beheerportal zijn echter volledig functionele en zich op https://\<naamruimte\>. accesscontrol.windows.net. Alle andere onderdelen van toegangsbeheer blijven werken normaal.
+- **November 2018**: alle Access Control-onderdelen, permanent worden afgesloten. Dit omvat de Access Control-beheerportal, de beheerservice, STS en de token transformatie-engine voor regel. Op dit moment geen verzoeken verzonden naar de Access Control (te vinden op \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services voor andere technologieën voor deze tijd ook.
 
 
 ## <a name="migration-strategies"></a>Strategieën voor migratie
 
-De volgende secties beschrijven hoog niveau aanbevelingen voor het migreren van ACS naar andere Microsoft-technologieën.
+De volgende secties worden op hoog niveau aanbevelingen voor het migreren van toegangsbeheer voor andere Microsoft-technologieën.
 
 ### <a name="clients-of-microsoft-cloud-services"></a>Clients van Microsoft-cloudservices
 
-Elk van de Microsoft cloud-services die nu door ACS uitgegeven tokens accepteert ondersteunt ten minste één andere vorm van verificatie. Het juiste verificatiemechanisme varieert voor elke service, zodat het is raadzaam verwijst naar de specifieke documentatie van elke service voor de officiële. Elke reeks documentatie is voor het gemak hier opgegeven:
+Ten minste één andere vorm van verificatie biedt ondersteuning voor elke cloudservice van Microsoft die tokens die zijn uitgegeven door toegangsbeheer nu accepteert. Het juiste verificatiemechanisme varieert voor elke service. Het is raadzaam dat u de specifieke documentatie bij elke service voor de officiële verwijzen. Elke reeks documentatie is voor het gemak hier opgegeven:
 
 | Service | Richtlijnen |
 | ------- | -------- |
 | Azure Service Bus | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure Relay | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Cache | [Migreren naar Azure Redis-cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure Data markt | [Migreren naar de cognitieve Services-API 's](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Migreren naar Azure Logic Apps](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Service Bus Relay | [Migreren naar handtekeningen voor gedeelde toegang](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Azure Redis-cache | [Migreren naar Azure Redis-cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Migreren naar de cognitieve Services-API 's](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| BizTalk Services | [Migreren naar de functie Logic Apps van Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Migreren naar Azure AD-verificatie](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Upgrade de Azure Backup-Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Azure Backup | [Upgrade de Azure Backup agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -95,66 +99,74 @@ Elk van de Microsoft cloud-services die nu door ACS uitgegeven tokens accepteert
 <!-- Azure SiteRecovery: TODO -->
 
 
-### <a name="web-applications-using-passive-authentication"></a>Webtoepassingen die gebruikmaken van de passieve verificatie
+### <a name="web-applications-that-use-passive-authentication"></a>Webtoepassingen die passieve verificatie gebruiken
 
-Webtoepassingen met ACS voor gebruikersverificatie, ACS opgegeven voor de volgende functies en mogelijkheden voor ontwikkelaars en architecten van webtoepassingen:
+Voor webtoepassingen die toegangsbeheer voor gebruikersverificatie gebruiken, biedt toegangsbeheer op de volgende functies en mogelijkheden voor ontwikkelaars van webtoepassingen en -architecten:
 
 - Diepe integratie met Windows Identity Foundation (WIF).
-- Federatie met Google, Facebook, Yahoo, Microsoft-account (Live ID), Azure Active Directory en AD FS.
-- Ondersteuning voor de volgende verificatieprotocollen voor: OAuth 2.0-concept 13 en Ws-Trust, Ws-Federation.
-- Ondersteuning voor de volgende indelingen token: JSON web token (JWT), SAML 1.1 SAML 2.0 en eenvoudige web-token (SWT).
-- Een ervaring home realm discovery geïntegreerd in WIF dat gebruikers om op te halen van het type account die ze gebruiken voor het aanmelden is toegestaan. Deze ervaring is gehost door de webtoepassing en volledig worden aangepast.
-- Token transformatie die toegestaan uitgebreide aanpassing van de claims die zijn ontvangen door de webtoepassing van ACS, met inbegrip van:
-    - claims van de id-providers te doorlopen
-    - aanvullende aangepaste claims toe te voegen
-    - eenvoudige als dan logica voor het verlenen van claims onder bepaalde omstandigheden
+- Federatie met Google, Facebook, Yahoo, Azure Active Directory en AD FS-accounts en Microsoft-accounts.
+- Ondersteuning voor de volgende verificatieprotocollen voor: OAuth 2.0-concept 13, WS-Trust en Web Services Federation (WS-Federation).
+- Ondersteuning voor de volgende indelingen token: JSON Web Token (JWT), SAML 1.1 SAML 2.0 en eenvoudige Web Token (SWT).
+- Een thuis realm detectie ervaring, geïntegreerd in WIF, waarmee gebruikers om op te halen van het type account die ze gebruiken voor aanmelden. Deze ervaring wordt gehost door de webtoepassing en geheel worden aangepast.
+- Token transformatie waarmee uitgebreide aanpassing van de claims die zijn ontvangen door de webtoepassing van toegangsbeheer, met inbegrip van:
+    - Claims van id-providers doorgeven.
+    - Toevoegen van aanvullende aangepaste claims.
+    - Eenvoudige als dan logica voor het verlenen van claims onder bepaalde omstandigheden.
 
-Er is helaas niet één service waarmee al deze mogelijkheden equivalent.  Moet u evalueren welke mogelijkheden van ACS u nodig hebt en kies vervolgens tussen het gebruik van [ **Azure Active Directory** ](https://azure.microsoft.com/develop/identity/signin/) (Azure AD), [ **Azure AD B2C** ](https://azure.microsoft.com/services/active-directory-b2c/), of een andere cloudservice voor verificatie.
+Helaas niet één service biedt al deze mogelijkheden equivalent. Moet u evalueren welke mogelijkheden van toegangsbeheer u nodig hebt en kies vervolgens tussen het gebruik van [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/), [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) (Azure AD B2C) of een andere cloud-verificatie de service.
 
-#### <a name="migrating-to-azure-active-directory"></a>Migreren naar Azure Active Directory
+#### <a name="migrate-to-azure-active-directory"></a>Migreren naar Azure Active Directory
 
-Een pad in overweging moet nemen is uw apps en services integreren rechtstreeks met Azure Active Directory. Azure AD is de cloud-gebaseerde id-provider voor Microsoft werken & schoolaccounts - is de id-provider voor Office 365, Azure en nog veel meer. Het biedt vergelijkbare federated authentication-mogelijkheden voor ACS, maar biedt geen ondersteuning voor alle ACS-functies. Het primaire voorbeeld is de Federatie met sociale id-providers, zoals Facebook, Google en Yahoo. Uw gebruikers zich aanmelden met deze typen referenties, is Azure AD niet als u. Tevens voert het niet per se de exacte dezelfde als ACS - tijdens zowel ACS verificatieprotocollen-ondersteuning en Azure AD-ondersteuning OAuth, er zijn bijvoorbeeld subtiele verschillen tussen elke implementatie waarvoor u code wijzigen als onderdeel van de migratie.
+Een pad in overweging moet nemen is uw apps en services integreren rechtstreeks met Azure AD. Azure AD is de cloud-gebaseerde id-provider voor Microsoft werk of school accounts. Azure AD is de id-provider voor Office 365, Azure en nog veel meer. Het biedt vergelijkbare federated authentication-mogelijkheden voor toegangsbeheer, maar biedt geen ondersteuning voor alle functies voor toegangsbeheer. 
 
-Azure AD biedt echter verschillende mogelijke voordelen voor klanten van ACS. Deze systeemeigen ondersteunt Microsoft werken & schoolaccounts gehost in de cloud, die vaak worden gebruikt door de ACS-klanten.  Een Azure AD-tenant kan ook federatieve op een of meer exemplaren van on-premises Active Directory via AD FS, zodat uw app om te verifiëren voor zowel cloud-gebaseerde gebruikers als gebruikers on-premises worden gehost.  Het ondersteunt ook het protocol Ws-Federation, waardoor het betrekkelijk eenvoudig te integreren met een webtoepassing met behulp van Windows Identity Foundation (WIF).
+Het primaire voorbeeld is de Federatie met sociale id-providers, zoals Facebook, Google en Yahoo. Uw gebruikers zich aanmelden met deze typen referenties, is Azure AD niet als de oplossing voor u. 
 
-De volgende tabel vergelijkt de functies van ACS relevant zijn voor webtoepassingen die in Azure AD. Op een hoog niveau **Azure Active Directory is waarschijnlijk de juiste keuze voor uw migratie als u toestaat dat alleen gebruikers aanmelden met hun werk Microsoft & schoolaccounts**.
+Azure AD ondersteunt niet noodzakelijkerwijs de exacte dezelfde verificatieprotocollen als toegangsbeheer. Bijvoorbeeld: Hoewel zowel toegangsbeheer en Azure AD OAuth ondersteunen, er zijn subtiele verschillen tussen elke implementatie. Verschillende implementaties moeten u code wijzigen als onderdeel van een migratie.
 
-| Mogelijkheid | ACS-ondersteuning | Ondersteuning van Azure AD |
+Azure AD biedt echter verschillende mogelijke voordelen voor toegangsbeheer klanten. Deze systeemeigen ondersteunt Microsoft werk- of schoolaccounts gehost in de cloud, die vaak worden gebruikt door de Access Control-klanten. 
+
+Een Azure AD-tenant kan ook op een of meer exemplaren van de lokale Active Directory via AD FS worden gefedereerd. Op deze manier uw app kunt cloud-gebaseerde gebruikers verifiëren en gebruikers die lokale gehost. Het ondersteunt ook het protocol WS-Federation, waardoor het betrekkelijk eenvoudig te integreren met een webtoepassing met behulp van WIF.
+
+De volgende tabel vergelijkt de functies van toegangsbeheer die relevant zijn voor webtoepassingen met de functies die beschikbaar in Azure AD zijn. 
+
+Op een hoog niveau *Azure Active Directory is waarschijnlijk de beste keuze voor uw migratie als u toestaat dat gebruikers zich aanmelden in alleen met hun Microsoft werk- of schoolaccounts*.
+
+| Mogelijkheid | Access Control-ondersteuning | Ondersteuning van Azure AD |
 | ---------- | ----------- | ---------------- |
-| **Typen Accounts** | | |
-| Microsoft werkt & schoolaccounts | Ondersteund | Ondersteund |
-| Accounts van Windows Server Active Directory en AD FS | Ondersteund via federatie met Azure AD-tenant <br /> Ondersteund via directe Federatie met AD FS | Alleen ondersteund via federatie met Azure AD-tenant | 
-| Accounts van andere bedrijfssystemen, identity management | Mogelijk via federatie met Azure AD-tenant <br />Ondersteund via directe federation | Mogelijk via federatie met Azure AD-tenant |
-| Microsoft-accounts voor persoonlijk gebruik (Windows Live ID) | Ondersteund | Ondersteund via Azure AD v2.0 OAuth-protocol, maar niet via alle andere protocollen. | 
-| Facebook, Google, Yahoo accounts | Ondersteund | Niet ondersteund dan ook. |
+| **Typen accounts** | | |
+| Microsoft werk- of schoolaccounts | Ondersteund | Ondersteund |
+| Accounts van Windows Server Active Directory en AD FS |-Ondersteund via federatie met Azure AD-tenant <br />-Ondersteund via directe Federatie met AD FS | Alleen ondersteund via federatie met Azure AD-tenant | 
+| Accounts van andere bedrijfssystemen, identity management |-Mogelijke via federatie met Azure AD-tenant <br />-Ondersteund via directe federation | Mogelijk via federatie met Azure AD-tenant |
+| Microsoft-accounts voor persoonlijk gebruik | Ondersteund | Ondersteund via de Azure AD v2.0 OAuth-protocol, maar niet via alle andere protocollen | 
+| Facebook, Google, Yahoo accounts | Ondersteund | Dan ook ondersteund niet |
 | **Protocollen en SDK compatibiliteit** | | |
-| Windows Identity Foundation (WIF) | Ondersteund | Ondersteund, maar beperkt instructies beschikbaar. |
+| WIF | Ondersteund | Ondersteunde, maar in beperkte instructies zijn beschikbaar |
 | WS-Federation | Ondersteund | Ondersteund |
-| OAuth 2.0 | Ondersteuning voor concept 13 | Ondersteuning voor RFC 6749, de meeste moderne-specificatie. |
+| OAuth 2.0 | Ondersteuning voor concept 13 | Ondersteuning voor RFC 6749, de meeste moderne specificatie |
 | WS-Trust | Ondersteund | Niet ondersteund |
 | **Token indelingen** | | |
-| JSON Web Tokens (JWTs) | Ondersteund In Beta | Ondersteund |
-| 1.1 SAML-tokens | Ondersteund | Ondersteund |
-| De tokens SAML 2.0 | Ondersteund | Ondersteund |
-| Eenvoudige Webtokens (SWT) | Ondersteund | Niet ondersteund |
+| JWT | Ondersteund In Beta | Ondersteund |
+| SAML 1.1 | Ondersteund | Ondersteund |
+| SAML 2.0 | Ondersteund | Ondersteund |
+| SWT | Ondersteund | Niet ondersteund |
 | **Aanpassingen** | | |
-| Aanpasbare thuisrealm detectieaccount/UI verzamelen | Downloadbare code die kan worden opgenomen in apps | Niet ondersteund |
-| Aangepaste handtekeningcertificaten-token uploaden | Ondersteund | Ondersteund |
-| Claims in tokens aanpassen | Passthrough invoerclaims van id-providers<br />Haal het toegangstoken van de identiteitsprovider als claim<br />Uitvoer claims op basis van waarden van invoerbestand claims uitgeven<br />Uitvoer claims uitgeven aan constante waarden | Kan geen claims van federatieve identiteitsproviders passthrough<br />Kan geen toegangstoken ophalen uit de id-provider als een claim<br />Kan geen uitvoer claims op basis van waarden van invoerbestand claims uitgeven<br />Uitvoer claims met constante waarden kunnen worden verleend.<br />Uitvoer claims op basis van eigenschappen van de gebruikers gesynchroniseerd naar Azure AD kan verlenen |
+| Aanpasbare thuisrealm gebruikersinterface van de account-detectie-verzamelen | Downloadbare code die kan worden opgenomen in apps | Niet ondersteund |
+| Aangepaste certificaten voor token-ondertekening uploaden | Ondersteund | Ondersteund |
+| Claims in tokens aanpassen |-Doorgeven invoerclaims van id-providers<br />-Toegangstoken ophalen uit de identiteitsprovider als claim<br />-Uitvoer-claims op basis van waarden van invoerbestand claims uitgeven<br />-Uitvoer claims uitgeven aan constante waarden |-Claims van federatieve identiteitsproviders kan niet doorgeven<br />-Kan geen toegangstoken ophalen uit de identiteitsprovider als claim<br />-Kan geen uitvoer claims op basis van waarden van invoerbestand claims uitgeven<br />-Kan uitvoer claims uitgeven aan constante waarden<br />-Uitvoer claims op basis van eigenschappen van de gebruikers gesynchroniseerd naar Azure AD kunnen worden verleend. |
 | **Automatisering** | | |
-| Configuratiebeheer/taken automatiseren | Ondersteund via ACS-Management-Service | Ondersteund via Microsoft Graph & Azure AD Graph API. |
+| Configureren en beheren van taken automatiseren | Ondersteund via Access Control-Management-Service | Ondersteund via Microsoft Graph en Azure AD Graph API |
 
-Als u besluit dat Azure AD het juiste pad doorsturen voor uw toepassingen en services is, moet u zich bewust van twee methoden voor het integreren van uw app met Azure AD.
+Als u besluit dat Azure AD het beste migratiepad voor uw toepassingen en services is, moet u zich bewust van twee methoden voor het integreren van uw app met Azure AD.
 
-Als u Ws-Federation/WIF wilt integreren met Azure AD, wordt aangeraden volgende [beschreven procedure in dit artikel](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Het artikel verwijst naar Azure AD voor op basis van SAML eenmalige aanmelding, maar werkt voor het configureren van Ws-Federation ook configureren. Na deze benadering is een Azure AD Premium-licentie vereist, maar heeft twee voordelen:
+Als u WS-Federation of WIF wilt integreren met Azure AD, wordt aangeraden hieronder beschreven procedure in [configureren federatieve eenmalige aanmelding voor een toepassing niet galerie](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Het artikel verwijst naar Azure AD voor op basis van SAML eenmalige aanmelding te configureren, maar werkt ook voor het configureren van WS-Federation. Deze aanpak volgt, is een Azure AD Premium-licentie vereist. Deze methode biedt twee voordelen:
 
-- Krijgt u de volledige flexibiliteit van Azure AD-token aanpassen. Hiermee kunt u voor het aanpassen van de claims die overeenkomen met die zijn uitgegeven door ACS, met name met inbegrip van de gebruiker-ID of naam-id claim uitgegeven door Azure AD. Moet u ervoor te zorgen dat de gebruikers-id uitgegeven door Azure AD overeenkomen met die zijn uitgegeven door ACS, zodat u nog steeds consistent gebruiker-id's voor uw gebruikers ontvangen zelfs na het wijzigen van de technologieën.
-- U kunt een token-ondertekening van certificaten die specifiek zijn voor uw toepassing configureren waarvan u bepaalt levensduur.
+- Krijgt u de volledige flexibiliteit van Azure AD-token aanpassen. U kunt de claims die zijn uitgegeven door Azure AD overeenkomen met de claims die zijn uitgegeven door toegangsbeheer aanpassen. Dit omvat met name de gebruiker-ID of id van de naam van de claim. Zorg ervoor dat de gebruikers-id door Azure AD overeenkomen met die zijn uitgegeven door toegangsbeheer uitgegeven om door te gaan consistent gebruiker-id's voor uw gebruikers ontvangen nadat u technologieën wijzigen.
+- U kunt een certificaat voor token-ondertekening die specifiek is voor uw toepassing, en met een levensduur dat u beheert.
 
 <!--
 
-Possible nameIdentifiers from ACS (via AAD or ADFS):
-- ADFS - Whatever ADFS is configured to send (email, UPN, employeeID, what have you)
+Possible nameIdentifiers from Access Control (via AAD or AD FS):
+- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
 - Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
 - Default from AAD using Custom apps nowadays: UPN
 - Kusto can't tell us distribution, it's redacted
@@ -162,48 +174,52 @@ Possible nameIdentifiers from ACS (via AAD or ADFS):
 -->
 
 > [!NOTE]
-> Gaat met deze methode is een Azure AD Premium-licentie vereist. Als u een ACS-klant bent en u een premium-licentie nodig voor het instellen van eenmalige aanmelding voor een toepassing, aan ons bereiken zodat we graag bieden developer-licenties voor het gebruik.
+> Deze aanpak is een Azure AD Premium-licentie vereist. Als u een Access Control-klant bent en u een premium-licentie nodig voor het instellen van eenmalige aanmelding voor een toepassing, contact met ons opnemen. We zult graag bieden developer-licenties moet worden gebruikt.
 
-Een alternatieve methode is het volgen van [dit codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), waardoor enigszins andere instructies over het instellen van Ws-Federation. Dit voorbeeld gebruikt geen WIF, maar in plaats daarvan de middleware ASP.NET 4.5 OWIN. Echter, de instructies voor het app-registratie zijn geldig voor apps met behulp van WIF en hoeven niet een Azure AD Premium-licentie.  Als u deze benadering, heneed om te begrijpen [sleutelrollover in Azure AD-ondertekening](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Deze methode maakt gebruik van de Azure AD globaal ondertekeningssleutel voor het probleem van tokens. Standaard geeft WIF handtekeningsleutels niet automatisch vernieuwd. Wanneer u Azure AD de globale handtekeningsleutels draait, moet uw implementatie WIF worden voorbereid om de wijzigingen te accepteren.
+Een alternatieve methode is het volgen van [dit codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), waardoor een iets andere instructies voor het instellen van WS-Federation. Dit voorbeeld gebruikt geen WIF, maar in plaats daarvan de middleware ASP.NET 4.5 OWIN. Echter de instructies voor het app-registratie zijn geldig voor apps met behulp van WIF en een Azure AD Premium-licentie niet nodig. 
 
-Als u zich kunt integreren met Azure AD via het OpenID Connect of OAuth-protocol, raden wij doet.  We hebben uitgebreide documentatie en richtlijnen voor het Azure AD integreren in uw webtoepassing beschikbaar in onze [Ontwikkelaarshandleiding voor Azure AD](http://aka.ms/aaddev).
+Als u deze benadering kiest, moet u begrijpen [sleutelrollover in Azure AD-ondertekening](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Deze methode maakt gebruik van de Azure AD globaal ondertekeningssleutel voor het probleem van tokens. Standaard geeft WIF handtekeningsleutels niet automatisch vernieuwd. Wanneer u Azure AD de globale handtekeningsleutels draait, moet uw implementatie WIF worden voorbereid om de wijzigingen te accepteren.
+
+Als u met Azure AD via het OpenID Connect of OAuth-protocol integreren kunt, raden wij doet. We hebben uitgebreide documentatie en richtlijnen over het Azure AD integreren in uw webtoepassing beschikbaar in onze [Ontwikkelaarshandleiding voor Azure AD](http://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
-#### <a name="migrating-to-azure-ad-b2c"></a>Migreren naar Azure AD B2C
+#### <a name="migrate-to-azure-active-directory-b2c"></a>Migreren naar Azure Active Directory B2C
 
-De andere migratiepad in overweging moet nemen is Azure AD B2C.  B2C is een cloud-verificatie service die vergelijkbaar is met ACS, kunnen ontwikkelaars hun management logica voor authenticatie en identiteit op een cloudservice uitbesteden.  Dit is een betaalde service (met vrije & premium lagen) die zijn bestemd voor consumer geconfronteerd met toepassingen die miljoenen actieve gebruikers kunnen hebben.
+De andere migratiepad in overweging moet nemen is Azure AD B2C. Azure AD B2C wordt verificatie met een cloudservice waarmee, zoals Access Control ontwikkelaars uitbesteden hun management logica voor authenticatie en identiteit op een cloudservice. Dit is een betaalde service (met gratis en premium niveaus) die is ontworpen voor consumententoepassingen die mogelijk miljoenen actieve gebruikers.
 
-ACS, een van de meest aantrekkelijk B2C-functies is die is biedt ondersteuning voor verschillende soorten accounts. Met B2C, u kunt aanmelden gebruikers met hun Facebook, Google, Microsoft, LinkedIn, GitHub, Yahoo-accounts en meer. B2C ondersteunt ook 'lokale accounts' of gebruikersnaam en wachtwoorden op dat gebruikers maken specifiek voor uw toepassing. Azure AD B2C biedt ook uitgebreide uitbreidbaarheid die u gebruiken kunt voor het aanpassen van uw aanmelding stromen. Het ondersteunt echter niet, de breedte van de verificatieprotocollen & token indelingen waardoor ACS klanten mogelijk. Deze ook niet worden gebruikt voor aanvullende informatie over de gebruiker van de id-provider, Microsoft opvragen & ophalen van tokens of anderszins.
+Zoals toegangsbeheer, een van de meest aantrekkelijk functies van Azure AD B2C, is dat deze ondersteuning veel verschillende typen accounts biedt. Met Azure AD B2C, kunt u gebruikers aanmelden met hun Microsoft-account of Facebook, Google, LinkedIn, GitHub of Yahoo accounts en meer. Azure AD B2C ondersteunt ook 'lokale accounts', of de gebruikersnaam en wachtwoorden op dat gebruikers maken specifiek voor uw toepassing. Azure AD B2C biedt ook uitgebreide uitbreidbaarheid die u gebruiken kunt voor het aanpassen van uw stromen aanmelden. 
 
-De volgende tabel vergelijkt de functies van ACS relevant zijn voor webtoepassingen die beschikbaar zijn in Azure AD B2C. Op een hoog niveau **Azure AD B2C is waarschijnlijk de juiste keuze voor uw migratie als uw toepassing consumer geconfronteerd, of als er veel verschillende typen accounts ondersteunt.**
+Echter, de breedte van de verificatieprotocollen biedt geen ondersteuning voor Azure AD B2C en token dat klanten mogelijk toegangsbeheer geformatteerd. U kan geen Azure AD B2C ook gebruiken om het ophalen van tokens en de query voor meer informatie over de gebruiker van de id-provider, Microsoft of anderszins.
 
-| Mogelijkheid | ACS-ondersteuning | Azure AD B2C-ondersteuning |
+De volgende tabel vergelijkt de functies van toegangsbeheer die relevant zijn voor webtoepassingen met degenen die beschikbaar in Azure AD B2C zijn. Op een hoog niveau *Azure AD B2C is waarschijnlijk de juiste keuze voor uw migratie als uw toepassing consumer geconfronteerd, of als er veel verschillende typen accounts ondersteunt.*
+
+| Mogelijkheid | Access Control-ondersteuning | Ondersteuning van Azure AD B2C |
 | ---------- | ----------- | ---------------- |
-| **Typen Accounts** | | |
-| Microsoft werkt & schoolaccounts | Ondersteund | Ondersteund via een aangepast beleid  |
-| Accounts van Windows Server Active Directory en AD FS | Ondersteund via directe Federatie met AD FS | Ondersteund via SAML-federation gebruik van aangepast beleid |
-| Accounts van andere bedrijfssystemen, identity management | Ondersteund via directe federation via Ws-Federation | Ondersteund via SAML-federation gebruik van aangepast beleid |
-| Microsoft-accounts voor persoonlijk gebruik (Windows Live ID) | Ondersteund | Ondersteund | 
-| Facebook, Google, Yahoo accounts | Ondersteund | Facebook & Google ondersteund standaard, Yahoo ondersteund via OpenID Connect federation gebruik van aangepast beleid |
+| **Typen accounts** | | |
+| Microsoft werk- of schoolaccounts | Ondersteund | Ondersteund via een aangepast beleid  |
+| Accounts van Windows Server Active Directory en AD FS | Ondersteund via directe Federatie met AD FS | Ondersteund via SAML-federation met behulp van aangepaste beleid |
+| Accounts van andere bedrijfssystemen, identity management | Ondersteund via directe federation via WS-Federation | Ondersteund via SAML-federation met behulp van aangepaste beleid |
+| Microsoft-accounts voor persoonlijk gebruik | Ondersteund | Ondersteund | 
+| Facebook, Google, Yahoo accounts | Ondersteund | Facebook en Google ondersteund standaard, Yahoo ondersteund via OpenID Connect federation met behulp van aangepaste beleid |
 | **Protocollen en SDK compatibiliteit** | | |
-| Windows Identity Foundation (WIF) | Ondersteund | Niet ondersteund. |
-| WS-Federation | Ondersteund | Niet ondersteund. |
-| OAuth 2.0 | Ondersteuning voor concept 13 | Ondersteuning voor RFC 6749, de meeste moderne-specificatie. |
-| WS-Trust | Ondersteund | Niet ondersteund. |
+| Windows Identity Foundation (WIF) | Ondersteund | Niet ondersteund |
+| WS-Federation | Ondersteund | Niet ondersteund |
+| OAuth 2.0 | Ondersteuning voor concept 13 | Ondersteuning voor RFC 6749, de meeste moderne specificatie |
+| WS-Trust | Ondersteund | Niet ondersteund |
 | **Token indelingen** | | |
-| JSON Web Tokens (JWTs) | Ondersteund In Beta | Ondersteund |
-| 1.1 SAML-tokens | Ondersteund | Niet ondersteund |
-| De tokens SAML 2.0 | Ondersteund | Niet ondersteund |
-| Eenvoudige Webtokens (SWT) | Ondersteund | Niet ondersteund |
+| JWT | Ondersteund In Beta | Ondersteund |
+| SAML 1.1 | Ondersteund | Niet ondersteund |
+| SAML 2.0 | Ondersteund | Niet ondersteund |
+| SWT | Ondersteund | Niet ondersteund |
 | **Aanpassingen** | | |
-| Aanpasbare thuisrealm detectieaccount/UI verzamelen | Downloadbare code die kan worden opgenomen in apps | Volledig aanpasbare UI via aangepaste CSS. |
-| Aangepaste handtekeningcertificaten-token uploaden | Ondersteund | Aangepaste handtekeningsleutels, certificaten, ondersteund via een aangepast beleid. |
-| Claims in tokens aanpassen | Passthrough invoerclaims van id-providers<br />Haal het toegangstoken van de identiteitsprovider als claim<br />Uitvoer claims op basis van waarden van invoerbestand claims uitgeven<br />Uitvoer claims uitgeven aan constante waarden | Kan passthrough claims van de id-providers. Aangepast beleid dat is vereist voor sommige claims.<br />Kan geen toegangstoken ophalen uit de id-provider als een claim<br />Kunnen uitvoer claims op basis van waarden van invoerclaims via aangepaste beleidsregels voor uitgeven<br />Uitvoer claims met constante waarden via aangepaste beleidsregels kunnen worden verleend. |
+| Aanpasbare thuisrealm gebruikersinterface van de account-detectie-verzamelen | Downloadbare code die kan worden opgenomen in apps | Volledig aanpasbare UI via aangepaste CSS |
+| Aangepaste certificaten voor token-ondertekening uploaden | Ondersteund | Aangepaste handtekeningsleutels, certificaten, ondersteund via een aangepast beleid |
+| Claims in tokens aanpassen |-Doorgeven invoerclaims van id-providers<br />-Toegangstoken ophalen uit de identiteitsprovider als claim<br />-Uitvoer-claims op basis van waarden van invoerbestand claims uitgeven<br />-Uitvoer claims uitgeven aan constante waarden |-Claims van id-providers; kunt doorgeven aangepaste beleidsregels die zijn vereist voor sommige claims<br />-Kan geen toegangstoken ophalen uit de identiteitsprovider als claim<br />-Kunnen uitvoer claims op basis van waarden van invoerclaims via aangepaste beleidsregels voor uitgeven<br />-Kan uitvoer claims uitgeven aan constante waarden via aangepaste beleidsregels |
 | **Automatisering** | | |
-| Configuratiebeheer/taken automatiseren | Ondersteund via ACS-Management-Service | Het maken van gebruikers toegestaan via Azure AD Graph API. Kan niet maken B2C-tenants, toepassingen of beleid via een programma. |
+| Configureren en beheren van taken automatiseren | Ondersteund via Access Control-Management-Service |-Het maken van gebruikers toegestaan via Azure AD Graph API<br />-Kan geen maken B2C-tenants, toepassingen of beleidsregels programmatisch |
 
-Als u besluit dat Azure AD B2C het juiste pad doorsturen voor uw toepassingen en services is, moet u beginnen met de volgende bronnen:
+Als u besluit dat Azure AD B2C het beste migratiepad voor uw toepassingen en services is, kunt u beginnen met de volgende bronnen:
 
 - [Azure AD B2C-documentatie](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
 - [Azure AD B2C aangepast beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
@@ -212,25 +228,25 @@ Als u besluit dat Azure AD B2C het juiste pad doorsturen voor uw toepassingen en
 
 #### <a name="other-migration-options"></a>Andere opties voor de migratie
 
-Als geen van beide Azure AD of Azure AD B2C voldoet aan de behoeften van uw webtoepassing, kunt contact met ons en je kunt het beste pad doorsturen identificeren.
+Als Azure AD en Azure AD B2C niet voldoen aan de behoeften van uw webtoepassing, contact met ons opnemen. Je kunt het beste migratiepad identificeren.
 
 <!--
 
-#### Migrating to Ping Identity or Auth0
+#### Migrate to Ping Identity or Auth0
 
-In some cases, you may find that neither Azure AD nor Azure AD B2C is sufficient to replace ACS in your web applications without making major code changes.  Some common examples might include:
+In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
 
-- web applications using WIF and/or WS-Federation for sign-in with social identity providers such as Google or Facebook.
-- web applications performing direct federation to an enterprise IDP over the Ws-Federation protocol.
-- web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by ACS.
-- web applications with complex token transformation rules that Azure AD or Azure AD B2C cannot reproduce.
+- Web applications that use WIF or WS-Federation for sign-in with social identity providers such as Google or Facebook.
+- Web applications that perform direct federation to an enterprise identify provider over the WS-Federation protocol.
+- Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
+- Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
 
-In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
-- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
+- Enterprise customers also should consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
 
-Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
+Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 
 -->
 
@@ -238,68 +254,70 @@ Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customer
 
 ## Sharepoint 2010, 2013, 2016
 
-TODO: AAD only, use AAD SAML 1.1 tokens, when we bring it back online.
+TODO: Azure AD only, use Azure AD SAML 1.1 tokens, when we bring it back online.
 Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 
 -->
 
-### <a name="web-services-using-active-authentication"></a>Webservices met behulp van active-verificatie
+### <a name="web-services-that-use-active-authentication"></a>Webservices die gebruikmaken van active-verificatie
 
-ACS beschikbaar voor web-services die zijn beveiligd met tokens die zijn uitgegeven door ACS, de volgende functies en mogelijkheden:
+Voor de webservices die zijn beveiligd met tokens die zijn uitgegeven door toegangsbeheer, biedt Access Control de volgende functies en mogelijkheden:
 
-- Mogelijkheid om te registreren voor een of meer **service-identiteiten** in uw ACS-naamruimte die kan worden gebruikt voor het aanvragen van tokens.
-- Ondersteuning voor de OAuth-TERUGLOPEN & OAuth 2.0-concept 13 protocollen voor het aanvragen van tokens, met behulp van de volgende typen referenties:
-    - Een eenvoudig wachtwoord voor de service-identiteit gemaakt
-    - Een SWT met een symmetrische sleutel of X509 ondertekend certificaat
+- Mogelijkheid om te registreren voor een of meer *service-identiteiten* in uw Access Control-naamruimte. Service-identiteiten kunnen worden gebruikt voor het aanvragen van tokens.
+- Ondersteuning voor de OAuth-INPAKKEN en OAuth 2.0-concept 13 protocollen voor het aanvragen van tokens, met behulp van de volgende typen referenties:
+    - Een eenvoudig wachtwoord dat gemaakt voor de service-identiteit
+    - Een SWT met behulp van een symmetrische sleutel of X509 ondertekend certificaat
     - Een SAML-token dat is uitgegeven door een vertrouwde identiteitsprovider (meestal een exemplaar van AD FS)
-- Ondersteuning voor de volgende indelingen token: JSON web token (JWT), SAML 1.1 SAML 2.0 en eenvoudige web-token (SWT).
-- Eenvoudige token transformatie-regels
+- Ondersteuning voor de volgende indelingen token: JWT, SAML 1.1 SAML 2.0 en SWT.
+- Eenvoudige token transformatie-regels.
 
-Service-identiteiten in ACS worden meestal gebruikt voor het implementeren van server-naar-server (S2S) zoals verificatie.  
+Service-identiteiten in de Access Control worden meestal gebruikt voor het implementeren van server naar server-verificatie.  
 
-#### <a name="migrating-to-azure-active-directory"></a>Migreren naar Azure Active Directory
+#### <a name="migrate-to-azure-active-directory"></a>Migreren naar Azure Active Directory
 
-De aanbeveling voor dit type authenticatiestroom is om te migreren naar [ **Azure Active Directory** ](https://azure.microsoft.com/develop/identity/signin/) (Azure AD). Azure AD is de cloud-gebaseerde id-provider voor Microsoft werken & schoolaccounts - is de id-provider voor Office 365, Azure en nog veel meer. Maar kan ook worden gebruikt voor de server naar server-verificatie met Azure AD-implementatie van de OAuth-client referenties verlenen.  De volgende tabel vergelijkt de mogelijkheden van ACS in server naar server-verificatie met de beschikbare in Azure AD.
+De aanbeveling voor dit type authenticatiestroom is om te migreren naar [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is de cloud-gebaseerde id-provider voor Microsoft werk of school accounts. Azure AD is de id-provider voor Office 365, Azure en nog veel meer. 
 
-| Mogelijkheid | ACS-ondersteuning | Ondersteuning van Azure AD |
+U kunt ook Azure AD gebruiken voor verificatie van de server naar server met behulp van de Azure AD-implementatie van de OAuth-client referenties verlenen. De volgende tabel vergelijkt de mogelijkheden van toegangsbeheer in server-naar-server-verificatie met degenen die beschikbaar in Azure AD zijn.
+
+| Mogelijkheid | Access Control-ondersteuning | Ondersteuning van Azure AD |
 | ---------- | ----------- | ---------------- |
-| Het registreren van een webservice | Maak een relying party in de ACS-beheerportal. | Een Azure AD-webtoepassing maken in de Azure portal. |
-| Het registreren van een client | Maak een service-identiteit in ACS-beheerportal. | Een andere Azure AD-webtoepassing maken in de Azure portal. |
-| Protocol dat wordt gebruikt | Protocol OAuth INPAKKEN<br />OAuth 2.0-concept 13 clientreferenties verlenen | OAuth 2.0-clientreferenties verlenen |
-| Methoden voor clientverificatie | Eenvoudig wachtwoord<br />Ondertekende SWT<br />SAML-token van federatieve IDP | Eenvoudig wachtwoord<br />Ondertekende JWT |
-| Token indelingen | JWT<br />SAML 1.1<br />SAML 2.0<br />SWT<br /> | Alleen JWT |
-| Token transformatie | Aangepaste claims toe te voegen<br />Eenvoudige als dan claimuitgifte logica | Aangepaste claims toe te voegen | 
-| Configuratiebeheer/taken automatiseren | Ondersteund via ACS-Management-Service | Ondersteund via Microsoft Graph & Azure AD Graph API. |
+| Het registreren van een webservice | Maken van een relying party in de Access Control-beheerportal | Een Azure AD-webtoepassing maken in de Azure portal |
+| Het registreren van een client | Maken van een service-identiteit in de Access Control-beheerportal | Een andere Azure AD-webtoepassing maken in de Azure portal |
+| Protocol dat wordt gebruikt |-OAuth WRAP protocol<br />-De referenties van de client OAuth 2.0-concept 13 verlenen | OAuth 2.0-clientreferenties verlenen |
+| Methoden voor clientverificatie |-Eenvoudig wachtwoord<br />-Ondertekende SWT<br />-SAML-token van een federatieve identiteiten-provider |-Eenvoudig wachtwoord<br />-Ondertekende JWT |
+| Token indelingen |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Alleen JWT |
+| Token transformatie |-Aangepaste claims toevoegen<br />-Eenvoudig als dan claimuitgifte logica | Aangepaste claims toe te voegen | 
+| Configureren en beheren van taken automatiseren | Ondersteund via Access Control-Management-Service | Ondersteund via Microsoft Graph en Azure AD Graph API |
 
-Raadpleeg de volgende bronnen voor richtlijnen op uitvoering server naar server-scenario's:
+Zie de volgende bronnen voor richtlijnen over scenario's voor server-naar-server geïmplementeerd:
 
-- [Service to Service-sectie van de Azure AD-handleiding voor ontwikkelaars](https://aka.ms/aaddev).
+- Service to Service-sectie van de [Ontwikkelaarshandleiding voor Azure AD](https://aka.ms/aaddev)
 - [Voorbeeld van code daemon met behulp van de referenties van de client eenvoudig wachtwoord](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Voorbeeld van code daemon met behulp van de referenties van de certificaat-client](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### <a name="other-migration-options"></a>Andere opties voor de migratie
 
-Als Azure AD voldoet niet aan de behoeften van uw web-service, laat een opmerking en je kunt het beste plan voor uw specifieke aanvraag identificeren.
+Als u Azure AD niet voldoet aan de behoeften van uw web-service, laat u een opmerking. Je kunt het beste plan voor uw specifieke aanvraag identificeren.
 
 <!--
 
-#### Migrating to Ping Identity or Auth0
+#### Migrate to Ping Identity or Auth0
 
-In some cases, you may find that neither Azure AD's client credentials OAuth grant implementation is not sufficient to replace ACS in your architecture without major code changes.  Some common examples might include:
+In some cases, you might find that the Azure AD client credentials and the OAuth grant implementation aren't sufficient to replace Access Control in your architecture without major code changes. Some common examples might include:
 
-- server-to-server authentication using token formats other than JWTs.
-- server-to-server authentication using an input token provided by an external identity provider.
-- server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
+- Server-to-server authentication using token formats other than JWTs.
+- Server-to-server authentication using an input token provided by an external identity provider.
+- Server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
 
-In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
-- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
+- Enterprise customers should also consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
 
-Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
+Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 
 -->
 
-## <a name="questions-concerns--feedback"></a>Vragen, problemen en Feedback
+## <a name="questions-concerns-and-feedback"></a>Vragen, problemen en feedback
 
-We begrijpen dat veel ACS-klanten een duidelijk migratiepad niet vinden wordt na het lezen van dit artikel en moet mogelijk bepaalde hulp en richtlijnen bij het bepalen van het juiste abonnement. Als u uw migratiescenario's & vragen behandeld wilt, laat u een opmerking op deze pagina.
+We begrijpen dat veel klanten voor toegangsbeheer een duidelijk migratiepad niet vinden na het lezen van dit artikel. Mogelijk moet u enkele hulp en richtlijnen bij het bepalen van het juiste abonnement. Als u uw migratiescenario's en vragen behandeld wilt, laat u een opmerking op deze pagina.

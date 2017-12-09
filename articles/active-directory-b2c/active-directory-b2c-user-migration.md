@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 131e475a7f313d5844bb93332da183053f8e604c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migratie gebruiker
 Wanneer u uw identiteitsprovider migreert naar Azure Active Directory B2C (Azure AD B2C), moet u mogelijk ook het migreren van het gebruikersaccount. In dit artikel wordt uitgelegd hoe u bestaande gebruikersaccounts migreert van een identiteitsprovider naar Azure AD B2C. Het artikel is niet bedoeld als richtlijnen, maar in plaats daarvan deze twee verschillende manieren worden beschreven. De ontwikkelaar is verantwoordelijk voor de geschiktheid van elke methode.
 
 ## <a name="user-migration-flows"></a>Gebruiker migratiestromen
-Met Azure AD B2C, kunt u gebruikers via migreren [Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Het migratieproces van de gebruiker worden onderverdeeld in twee stromen:
+Met Azure AD B2C, kunt u gebruikers via migreren [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Het migratieproces van de gebruiker worden onderverdeeld in twee stromen:
 
 * **Vóór de migratie**: deze stroom is van toepassing wanneer u ofwel wissen toegang tot de referenties van een gebruiker (gebruikersnaam en wachtwoord hebben) of de referenties zijn versleuteld, maar u kunt ze ontsleutelen. Het proces vóór de migratie omvat het lezen van de gebruikers van de oude id-provider en het maken van nieuwe accounts in de Azure AD B2C-directory.
 
@@ -100,7 +100,7 @@ Lezen en schrijven van gegevens mapmachtigingen doen *niet* omvatten het recht o
 > Moet u een B2C-tenant administrator-account dat is *lokale* aan de B2C-tenant. De syntaxis van de naam van account is  *admin@contosob2c.onmicrosoft.com* .
 
 >[!NOTE]
-> De volgende PowerShell-script vereist [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> De volgende PowerShell-script vereist [Azure Active Directory PowerShell versie 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 In deze PowerShell-script wordt het volgende doen:
 1. Verbinding maken met uw online service. Voer hiertoe de `Connect-AzureAD` cmdlet achter de Windows PowerShell opdrachtprompt en geef uw referenties. 
@@ -148,7 +148,7 @@ Het JSON-bestand bewerken, opent u de `AADB2C.UserMigration.sln` Visual Studio-o
 ![Gegevensbestand van de gebruiker](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Zoals u ziet, is het bestand bevat een lijst van entiteiten van de gebruiker. Elke gebruikersentiteit heeft de volgende eigenschappen:
-* E-mail
+* e-mailen
 * Weergavenaam
 * Voornaam
 * Achternaam
@@ -278,7 +278,7 @@ Om te wijzigen van het wachtwoord houden, moet u een Azure-tabel gebruiken. Wann
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Stap 4.2: Uw webtoepassing in Azure App Service implementeren
-Uw API-service publiceren in Azure App Service. Zie voor meer informatie [uw app implementeren in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Uw API-service publiceren in Azure App Service. Zie voor meer informatie [uw app implementeren in Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>4.3 stap: Een profiel voor technische en technische profiel validatie toevoegen aan uw beleid 
 1. Open in uw werkmap, de *TrustFrameworkExtensions.xml* extensiebestand beleid. 
@@ -384,7 +384,7 @@ U kunt weergeven en logboekinformatie in near-realtime controleren.
 
 6. Controleer de uitvoer van de RESTful-API.
 
-Zie voor meer informatie [Streaming-logboeken en de console](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Zie voor meer informatie [Streaming-logboeken en de console](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Gebruik de logboeken met diagnostische gegevens alleen tijdens het ontwikkelen en testen. De uitvoer van de RESTful-API kan vertrouwelijke gegevens bevatten die niet in de productieomgeving worden blootgesteld.

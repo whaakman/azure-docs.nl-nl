@@ -17,20 +17,20 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 6ea6d94453583c6b5ed680f96ebc43d33d0262a0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Fouten opsporen in Spark scala-toepassingen lokaal of extern op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH
 
 Dit artikel bevat stapsgewijze instructies over het gebruik van HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ opsporen toepassingen op afstand op een HDInsight-cluster. Als u wilt opsporen in uw project, u kunt ook bekijken de [fouten opsporen in HDInsight Spark-toepassingen met Azure Toolkit voor IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
 
 **Vereisten**
-* **HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ**. Dit hulpprogramma maakt deel uit van Azure Toolkit voor IntelliJ. Zie voor meer informatie [Azure Toolkit installeren voor IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). En **Azure Toolkit voor IntelliJ**. Gebruik deze toolkit Spark om toepassingen te maken voor een HDInsight-cluster. Voor meer informatie, volg de instructies in [gebruik Azure Toolkit voor IntelliJ Spark om toepassingen te maken voor een HDInsight-cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ**. Dit hulpprogramma maakt deel uit van Azure Toolkit voor IntelliJ. Zie voor meer informatie [Azure Toolkit installeren voor IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). En **Azure Toolkit voor IntelliJ**. Gebruik deze toolkit Spark om toepassingen te maken voor een HDInsight-cluster. Voor meer informatie, volg de instructies in [gebruik Azure Toolkit voor IntelliJ Spark om toepassingen te maken voor een HDInsight-cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **HDInsight SSH-service met gebruikersnaam en wachtwoord management**. Zie voor meer informatie [verbinding maken met HDInsight (Hadoop) met behulp van SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [SSH gebruiken voor toegang tot de Ambari-tunneling web-UI, JobHistory, NameNode, Oozie en andere web-UI](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **HDInsight SSH-service met gebruikersnaam en wachtwoord management**. Zie voor meer informatie [verbinding maken met HDInsight (Hadoop) met behulp van SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [SSH gebruiken voor toegang tot de Ambari-tunneling web-UI, JobHistory, NameNode, Oozie en andere web-UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>Meer informatie over het uitvoeren van lokale uitvoeren en foutopsporing
 ### <a name="scenario-1-create-a-spark-scala-application"></a>Scenario 1: Een Spark Scala-toepassing maken 

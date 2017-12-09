@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Vereisten voor de implementatie van Azure Stack
 
@@ -176,7 +176,7 @@ Zie voor het configureren van SQL Server-telemetrie [het configureren van SQL Se
 
 Via inschrijving, is Azure Stack ook geconfigureerd voor informatie over het gebruik van doorsturen naar Azure. Gebruiksrapportage wordt onafhankelijk van elkaar bepaald van telemetrie. U kunt gebruiksrapportage wanneer uitschakelen [registreren](azure-stack-register.md) met behulp van het script op Github. Stelt u de **$reportUsage** -parameter voor **$false**.
 
-Gebruiksgegevens is geformatteerd als beschreven in de [rapport Azure Stack gebruiksgegevens naar Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure-Stack Development Kit gebruikers zijn niet daadwerkelijk in rekening gebracht. Deze functionaliteit is opgenomen in de development kit, zodat u testen kunt om te zien hoe gebruiksrapportage werkt. 
+Gebruiksgegevens is geformatteerd als beschreven in de [rapport Azure Stack gebruiksgegevens naar Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Azure-Stack Development Kit gebruikers zijn niet daadwerkelijk in rekening gebracht. Deze functionaliteit is opgenomen in de development kit, zodat u testen kunt om te zien hoe gebruiksrapportage werkt. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database herstelt via automatische databaseback-ups
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups in lange bewaartermijn](sql-database-long-term-retention.md). U kunt herstellen met een databaseback-up naar:
@@ -70,7 +70,7 @@ Er is geen ingebouwde functionaliteit bulksgewijs terugzetten. De [Azure SQL Dat
 
 ## <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 
-U kunt een bestaande database naar een eerder tijdstip herstellen als een nieuwe database op dezelfde logische server met de Azure portal [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST-API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+U kunt een bestaande database naar een eerder tijdstip herstellen als een nieuwe database op dezelfde logische server met de Azure portal [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST-API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!TIP]
 > Zie voor een PowerShell-voorbeeldscript waarin wordt getoond hoe u een punt in tijd herstel uitvoeren van een database, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -90,7 +90,7 @@ Als u wilt herstellen naar een punt in tijd met de Azure portal, open de pagina 
 ![punt in tijd terugzetten](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Herstellen van verwijderde database
-U kunt een verwijderde database herstellen naar de tijd voor het verwijderen van een verwijderde database op dezelfde logische server met de Azure portal [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST (createMode = herstellen)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+U kunt een verwijderde database herstellen naar de tijd voor het verwijderen van een verwijderde database op dezelfde logische server met de Azure portal [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), of de [REST (createMode = herstellen)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!TIP]
 > Zie voor een PowerShell-voorbeeldscript waarin wordt beschreven hoe u een verwijderde database te herstellen, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).

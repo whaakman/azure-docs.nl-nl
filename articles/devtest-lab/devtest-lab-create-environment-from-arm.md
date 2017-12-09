@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Meerdere VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
-De [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kunt u eenvoudig [maken en een virtuele machine toevoegen aan een lab](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Dit werkt goed bij het maken van een virtuele machine tegelijk. Als de omgeving meerdere virtuele machines bevat, heeft elke VM echter afzonderlijk worden gemaakt. Voor scenario's zoals een meerlaagse Web-app of een SharePoint-farm is een mechanisme om toe te staan voor het maken van meerdere virtuele machines in één stap nodig. Met behulp van Azure Resource Manager-sjablonen, kunt u nu de infrastructuur en configuratie van uw Azure-oplossing definiëren en herhaaldelijk implementeren die meerdere virtuele machines in een consistente status. Deze functie biedt de volgende voordelen:
+De [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kunt u eenvoudig [maken en een virtuele machine toevoegen aan een lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Dit werkt goed bij het maken van een virtuele machine tegelijk. Als de omgeving meerdere virtuele machines bevat, heeft elke VM echter afzonderlijk worden gemaakt. Voor scenario's zoals een meerlaagse Web-app of een SharePoint-farm is een mechanisme om toe te staan voor het maken van meerdere virtuele machines in één stap nodig. Met behulp van Azure Resource Manager-sjablonen, kunt u nu de infrastructuur en configuratie van uw Azure-oplossing definiëren en herhaaldelijk implementeren die meerdere virtuele machines in een consistente status. Deze functie biedt de volgende voordelen:
 
 - Azure Resource Manager-sjablonen zijn geladen rechtstreeks vanuit uw resourcebeheerbibliotheek (GitHub of Team Services Git).
 - Na de configuratie, uw gebruikers een omgeving maken door het verzamelen van een Azure Resource Manager-sjabloon uit de Azure portal als wat ze met andere typen doen kunnen [VM basissen](./devtest-lab-comparing-vm-base-image-types.md).

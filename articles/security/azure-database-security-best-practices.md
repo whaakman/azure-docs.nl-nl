@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-database
 
@@ -137,7 +137,7 @@ Als u met Azure Storage via de Azure-Portal communiceert, worden alle transactie
 
 Organisaties die niet voldoen aan het beveiligen van gegevens die onderweg zijn vatbaar voor [man-in-the-middle-aanvallen](https://technet.microsoft.com/library/gg195821.aspx), [afgeluisterd](https://technet.microsoft.com/library/gg195641.aspx) en sessiehijacking. Deze aanvallen kunnen worden de eerste stap bij het toegang krijgen tot vertrouwelijke gegevens.
 
-Voor meer informatie over Azure VPN-optie door te lezen van het artikel [Planning en ontwerp voor VPN-Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Voor meer informatie over Azure VPN-optie door te lezen van het artikel [Planning en ontwerp voor VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Databasecontrole inschakelen
 Controle van een exemplaar van SQL Server Database Engine of een individuele database omvat het vastleggen van gebeurtenissen die op de Database-Engine plaatsvinden en bij te houden. SQL Server audit maakt u server audits die server audit specificaties voor niveau gebeurtenissen van de server en database audit specificaties voor database niveau gebeurtenissen kunnen bevatten. Controlegebeurtenissen kunnen worden geschreven naar de gebeurtenislogboeken of bestanden controleren.

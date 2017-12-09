@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup-fout oplossen: problemen met de agent en/of extensie
 
@@ -34,6 +34,7 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>3 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>4 oorzaak: [de status van de momentopname kan niet worden opgehaald of een momentopname kan niet worden gemaakt.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>5 oorzaak: [de Backup-extensie niet bijwerken of laden](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>6 oorzaak: [Azure Classic VM's mogelijk extra stap om inschrijving te voltooien](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Momentopname-bewerking is mislukt, omdat er geen verbinding met het netwerk op de virtuele machine
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan verhinderen dat de momentopname wordt geactiveerd, wat op zijn beurt tot het mislukken van de back-up leiden kan. Volg onderstaande stappen in de gegeven volgorde voor probleemoplossing en probeer de bewerking opnieuw.
@@ -115,7 +116,7 @@ De VM-Agent is beschadigd of de service is gestopt. De VM-agent opnieuw te insta
 6. Vervolgens moet u kunnen Windows Guest Agent-services in services weergeven
 7. Voer een op-verzoek/ad-hoc back-up door te klikken op 'Nu back-up' in de portal.
 
-Controleer ook de virtuele Machine is  **[.NET 4.5 geïnstalleerd in het systeem](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Het is vereist voor de VM-agent te communiceren met de service
+Controleer ook de virtuele Machine is  **[.NET 4.5 geïnstalleerd in het systeem](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Het is vereist voor de VM-agent te communiceren met de service
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>De agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)
 
@@ -183,4 +184,23 @@ Wilt u de uitbreiding verwijderen, het volgende doen:
 6. Klik op **verwijderen**.
 
 Deze procedure zorgt ervoor dat de extensie opnieuw worden geïnstalleerd tijdens de volgende back-up.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure Classic VM's mogelijk extra stap om inschrijving te voltooien
+De agent in Azure classic VM's moet worden geregistreerd voor het verbinding maken met de Backup-service en start de back-up
+
+#### <a name="solution"></a>Oplossing
+
+Na de installatie van de VM-gastagent start Azure PowerShell <br>
+1. Aanmelding in voor het gebruik van Azure-Account <br>
+       `Login-AzureAsAccount`<br>
+2. Controleren als van de virtuele machine ProvisionGuestAgent eigenschap is ingesteld op True, wordt door de volgende opdrachten <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Als de eigenschap is ingesteld op FALSE, volgt u onderstaande opdrachten worden ingesteld op TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Voer de volgende opdracht om de virtuele machine bijwerken <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Probeer de back-up te starten. <br>
+
 

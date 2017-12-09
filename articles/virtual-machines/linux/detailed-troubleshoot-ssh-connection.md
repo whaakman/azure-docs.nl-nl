@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet bereiken van de SSH-service op de virtuele machine. Als u hebt gevolgd door de meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder op te lossen. In dit artikel begeleidt u bij de gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en het probleem te verhelpen.
@@ -113,7 +113,7 @@ Het eindpunt als bron van het probleem te voorkomen, verwijder het eindpunt van 
 Netwerkbeveiligingsgroepen kunnen u meer gedetailleerde controle over de toegestane binnenkomend en uitgaand verkeer. U kunt regels die subnetten omvatten en cloudservices in een Azure-netwerk maken. Controleer uw netwerkbeveiligingsgroepen om ervoor te zorgen dat SSH verkeer van en naar Internet is toegestaan.
 Zie voor meer informatie [over netwerkbeveiligingsgroepen](../../virtual-network/virtual-networks-nsg.md).
 
-U kunt IP-controleren ook gebruiken om het NSG-configuratie te valideren. Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+U kunt IP-controleren ook gebruiken om het NSG-configuratie te valideren. Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Bron 5: Op basis van Linux virtuele machine van Azure
 De laatste bron van mogelijke problemen met is de virtuele machine van Azure zelf.

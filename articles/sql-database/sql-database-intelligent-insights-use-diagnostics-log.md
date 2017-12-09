@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>De Intelligent Insights Azure SQL Database prestaties diagnostische logboeken gebruikt
 
@@ -89,7 +89,7 @@ Afhankelijk van het prestatieprobleem gedetecteerd, de details in de diagnostisc
 | Verbeterde MAXDOP | <li>Query-hashes</li><li>Wachttijden CXP</li><li>Wachttijden</li> |
 | Pagelatch conflicten | <li>Query-hashes van query's veroorzaken conflicten</li> |
 | Ontbrekende Index | <li>Query-hashes</li> |
-| Nieuwe Query | <li>Query-hash van de nieuwe query 's</li> |
+| Nieuwe query | <li>Query-hash van de nieuwe query 's</li> |
 | Ongebruikelijke wacht statistiek | <li>Ongebruikelijke wacht typen</li><li>Query-hashes</li><li>Wachttijden query</li> |
 | TempDB conflicten | <li>Query-hashes van query's veroorzaken conflicten</li><li>Toekenning van de query voor de algehele database pagelatch conflicten wachttijd [%]</li> |
 | DTU tekort aan resources van elastische groep | <li>Elastische pool</li><li>Bovenste DTU verbruikende database</li><li>Percentage van de groep van toepassingen die worden gebruikt door de bovenste consument DTU</li> |
@@ -139,13 +139,13 @@ Het laatste deel van het logboek van de prestaties Intelligent Insights is voor 
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-U kunt het logboek van de prestaties Intelligent Insights met [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapportagemogelijkheden.
+U kunt het logboek van de prestaties Intelligent Insights met [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapportagemogelijkheden.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Intelligent Insights](sql-database-intelligent-insights.md) concepten.
 - Meer informatie over hoe [oplossen van prestatieproblemen Azure SQL Database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Meer informatie over hoe [Azure SQL Database bewaken met behulp van Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Meer informatie over hoe [verzamelen en gebruiken van de logboekgegevens van uw Azure-resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Meer informatie over hoe [Azure SQL Database bewaken met behulp van Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Meer informatie over hoe [verzamelen en gebruiken van de logboekgegevens van uw Azure-resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

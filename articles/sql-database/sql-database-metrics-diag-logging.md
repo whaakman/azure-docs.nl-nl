@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens 
 Azure SQL Database kunt verzenden metrische gegevens en diagnostische logboeken voor het bewaken van eenvoudiger. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -184,7 +184,7 @@ Bewaking van een wagenpark SQL-Database is heel eenvoudig met logboekanalyse. Er
 
 2. Selecteer **bewaking + Management**.
 
-3. Selecteer **Meld Analytics**.
+3. Selecteer **Log Analytics**.
 
 4. Vul het formulier logboekanalyse met de aanvullende informatie die is vereist: werkruimtenaam, abonnement, resourcegroep, locatie en prijscategorie.
 
@@ -266,7 +266,7 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 |**Resource**|**Metrische gegevens**|
 |---|---|
 |Database|DTU-percentage DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, mislukt-geslaagd/geblokkeerd door de firewall-verbindingen, sessies percentage, werknemers percentage, opslag, opslagpercentage, XTP-opslagpercentage, en impassen |
-|Elastische groep|percentage van de eDTU, eDTU gebruikt, eDTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, werknemers percentage, opslag, opslagpercentage, opslaglimiet bereikt, XTP-opslagpercentage |
+|Elastische pool|percentage van de eDTU, eDTU gebruikt, eDTU limiet, CPU-percentage, fysieke gegevens gelezen percentage, logboek schrijven percentage, sessies percentage, werknemers percentage, opslag, opslagpercentage, opslaglimiet bereikt, XTP-opslagpercentage |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
@@ -318,7 +318,7 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 |query_id_d|ID van de query in Query Store.|
 |plan_id_d|ID van het plan in Query Store.|
 
-Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Query Store wacht statistieken
 
@@ -356,7 +356,7 @@ Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.mi
 |query_id_d|ID van de query in Query Store.|
 |plan_id_d|ID van het plan in Query Store.|
 
-Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>De dataset fouten
 
@@ -414,7 +414,7 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/en-us
 |delta_wait_time_ms_d|Totale wachttijd in de periode.|
 |delta_waiting_tasks_count_d|Het aantal taken dat wachten.|
 
-Meer informatie over [wacht statistieken van de database](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Meer informatie over [wacht statistieken van de database](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Time-outs gegevensset
 

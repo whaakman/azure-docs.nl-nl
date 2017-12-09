@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Overzicht van Azure Service Fabric-beveiliging
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) is een platform voor gedistribueerde systemen waarmee u gemakkelijk verpakken, implementeren en beheren van schaalbare en betrouwbare microservices. Service Fabric heeft betrekking op de aanzienlijke uitdagingen bij het ontwikkelen en beheren van cloudtoepassingen. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn.
@@ -50,7 +50,7 @@ Clusters die worden uitgevoerd op Azure of zelfstandige clusters die worden uitg
 
 Service Fabric maakt gebruik van x.509-certificaten die u opgeeft wanneer u een cluster maakt. Zie voor een snel overzicht van wat deze certificaten zijn en hoe u kunt verkrijgen of ze maken [werken met certificaten](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-U kunt Certificaatbeveiliging configureren wanneer u het cluster, hetzij via de Azure-portal, Azure Resource Manager-sjablonen of een zelfstandige JSON-sjabloon maakt. U kunt een primaire certificaat en een optionele secundaire certificaat dat wordt gebruikt voor het certificaat rollovers opgeven. De primaire en secundaire certificaten die u opgeeft moet anders zijn dan de Beheerclient en alleen-lezen-clientcertificaten die u opgeeft voor [clientknooppunt beveiliging](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+U kunt Certificaatbeveiliging configureren wanneer u het cluster, hetzij via de Azure-portal, Azure Resource Manager-sjablonen of een zelfstandige JSON-sjabloon maakt. U kunt een primaire certificaat en een optionele secundaire certificaat dat wordt gebruikt voor het certificaat rollovers opgeven. De primaire en secundaire certificaten die u opgeeft moet anders zijn dan de Beheerclient en alleen-lezen-clientcertificaten die u opgeeft voor [clientknooppunt beveiliging](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Beveiliging van de client-naar-knooppunt
 U configureren clientknooppunt beveiliging met behulp van identiteiten van de client. Als u wilt een vertrouwensrelatie tussen een client en een cluster, moet u het cluster om te weten welke client identiteiten die kunnen worden vertrouwd. Dit kan op twee verschillende manieren doen:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: terrylan
-ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Ondersteunde platforms in Azure Security Center
 Status beveiligingsbewaking en aanbevelingen zijn beschikbaar voor virtuele machines (VM's) gemaakt met behulp van zowel het klassieke als Resource Manager-implementatiemodel.
@@ -59,6 +59,6 @@ Virtuele machines die worden uitgevoerd in een cloudservice worden ook ondersteu
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Azure Security Center Planning- en Bedieningsgids](security-center-planning-and-operations-guide.md) : informatie over het plannen en de ontwerpoverwegingen vast te stellen van Azure Security Center begrijpen
-- [Beveiligingswaarschuwingen op typen in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) : meer informatie over de virtuele machine gedragsanalyse en crashes dump geheugenanalyse in Security Center
+- [Beveiligingswaarschuwingen op typen in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) : meer informatie over de virtuele machine gedragsanalyse en crashes dump geheugenanalyse in Security Center
 - [Veelgestelde vragen over Azure Security Center](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service
 - [Azure-Beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/) : Lees blogberichten over Azure-beveiliging en naleving

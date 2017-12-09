@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c0a102cac9b5b7bd284de6f5f51b75386c2581fe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementeren en bewaken van de rand van de IoT-modules op grote schaal - voorbeeld
 
@@ -40,7 +40,7 @@ Zie voor meer informatie over apparaat horende en labels [Understand and gebruik
 
 ## <a name="create-a-deployment"></a>Een implementatie maken
 
-1. Aanmelden bij de [Azure-portal] [ lnk-portal] en navigeer naar uw IoT-hub. 
+1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
 1. Selecteer **IoT rand (preview)**.
 1. Selecteer **IoT rand implementatie toevoegen**.
 
@@ -61,26 +61,25 @@ Als u een implementatie met geen modules maakt, worden eventuele bestaande modul
 >[!NOTE]
 >De implementatie van geautomatiseerde Azure-service nog ondersteund niet door Azure Machine Learning en Azure Functions. De aangepaste module-implementatie gebruiken die services handmatig toevoegen aan uw implementatie. 
 
-Als u wilt toevoegen van een module van een Azure service als volgt:
-1. Selecteer **toevoegen Azure IoT rand servicemodule**.
+Als u wilt een module van Azure Stream Analytics toevoegt, de volgende stappen uit:
+1. Selecteer **module importeren Azure Stream Analytics IoT rand**.
 1. Gebruik de vervolgkeuzemenu's te selecteren van de Azure-service-exemplaren die u wilt implementeren.
-1. Selecteer **opslaan** uw modules toevoegen aan de implementatie. 
+1. Selecteer **opslaan** uw module toevoegen aan de implementatie. 
 
 Aangepaste code toevoegen als een module of een Azure-service-module handmatig toevoegen Volg deze stappen:
-1. Selecteer **toevoegen aangepaste IoT rand module**.
+1. Selecteer **toevoegen IoT rand module**.
 1. Geef uw module een **naam**.
-1. Voor de **installatiekopie** veld, voert u de installatiekopie van het Docker-container voor deze module: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Gebruik de vervolgkeuzelijsten onder **OS** en **architectuur** voor het identificeren van de eigenschappen van de Docker-container die in deze module vertegenwoordigt. 
-1. Geef een **opties maken** die moet worden doorgegeven aan de container. Zie voor meer informatie [docker maken][lnk-docker-create].
+1. Voor de **installatiekopie URI** veld, voert u de installatiekopie van het Docker-container voor uw module. 
+1. Geef een **Container maken opties** die moet worden doorgegeven aan de container. Zie voor meer informatie [docker maken][lnk-docker-create].
 1. Gebruik de vervolgkeuzelijst om te selecteren een **beleid opnieuw opstarten**. Kies uit de volgende opties: 
    * **Altijd** -de module wordt altijd opnieuw opgestart als deze wordt afgesloten om een bepaalde reden.
    * **Nooit** -de module wordt nooit opnieuw opgestart als deze wordt afgesloten om een bepaalde reden.
    * **Bij niet** -de module wordt opnieuw opgestart als deze is vastgelopen, maar niet als het afsluiten foutloos. 
    * **Op de onjuiste** -de module wordt opnieuw opgestart als deze is vastgelopen of een slechte status geretourneerd. Het is aan elke module voor het implementeren van de functie voor health-status. 
-1. Gebruik de vervolgkeuzelijst om te selecteren van het opstarten van de **Status** voor de module. Kies uit de volgende opties:
+1. Gebruik de vervolgkeuzelijst om te selecteren de **gewenst Status** voor de module. Kies uit de volgende opties:
    * **Met** -dit is de standaardoptie. De module wordt gestart onmiddellijk na de implementatie wordt uitgevoerd.
    * **Gestopt** -na de implementatie, de module wordt inactief totdat opgeroepen door u of een andere module op te starten.
-1. Selecteer **bewerken module twin** als u wilt deze tags of het gewenste eigenschappen toevoegen aan de module. 
+1. Selecteer **inschakelen** als u wilt deze tags of het gewenste eigenschappen toevoegen aan de module-twin. 
 1. Selecteer **opslaan** uw module toevoegen aan de implementatie. 
 
 Zodra u de modules voor een implementatie die is geconfigureerd hebt, selecteer **volgende** verplaatsen naar stap 3.
@@ -172,7 +171,7 @@ Wanneer u een implementatie hebt verwijderd, krijgen alle apparaten hun volgende
 Meer informatie over [modules implementeren op apparaten van de rand][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

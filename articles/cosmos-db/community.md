@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09b59630d9aa8d1adf2f56cde6f8039d6bfe6718
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="community-portal"></a>Community-portal
 ## <a name="community-spotlight"></a>Community-spotlight
@@ -98,7 +98,7 @@ U kunt de hoogte blijven van Azure DB die Cosmos nieuws en functies door de volg
 
 ## <a name="events-and-recordings"></a>Gebeurtenissen en opnamen
 ### <a name="recent-and-upcoming-events"></a>Recente en toekomstige gebeurtenissen
-| De naam van gebeurtenis | Spreker | Locatie | Date | Hashtag |
+| Naam van de gebeurtenis | Spreker | Locatie | Date | Hashtag |
 | --- | --- | --- | --- | --- |
 |[Zuid Florida Codecamp: NoSQL voor .NET-ontwikkelaars onder 10 minuten met Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, UT|11 maart 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: NoSQL voor .NET-ontwikkelaars onder 10 minuten met Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, UT|8 april 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
@@ -108,7 +108,7 @@ U kunt de hoogte blijven van Azure DB die Cosmos nieuws en functies door de volg
 *Weet u spreken op of die als host fungeert voor een gebeurtenis? [Laat ons weten](mailto:askcosmosdb@microsoft.com) hoe kunnen we helpen!*
 
 ### <a name="previous-events-and-recordings"></a>Eerdere gebeurtenissen en opnamen
-| De naam van gebeurtenis | Spreker | Locatie | Date | Vastleggen |
+| Naam van de gebeurtenis | Spreker | Locatie | Date | Vastleggen |
 | --- | --- | --- | --- | --- |
 |[Ignite Australië: Hallo DocumentDB: Azure de razendsnelle snelle wereld scale NoSQL-database](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australië|Woensdag 15 februari 2017|Binnenkort|
 |[Ignite Australië: Dieper met Azure DocumentDB: partitioneren, modellering van gegevens en Geo-replicatie](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Australië|16 februari 2017|Binnenkort|
@@ -167,6 +167,7 @@ U kunt de hoogte blijven van Azure DB die Cosmos nieuws en functies door de volg
 ### <a name="videos-and-podcasts"></a>Video's en Podcasts
 | Weergeven | Spreker | Date | Aflevering |
 | --- | --- | --- | --- |
+| De Podcast NoSQL-Database | Kirill Gavrylyuk | 16 mei 2017 | [Microsoft DocumentDB voor NoSQL in de Cloud](http://nosql.libsyn.com/ndp018-microsoft-documentdb-for-nosql-in-the-cloud) |
 | Azure Friday |Kirill Gavrylyuk |31 oktober 2016 |[Wat is nieuw in Azure DocumentDB?](https://channel9.msdn.com/Shows/Azure-Friday/AzureFridayNewinDocumentDB) |
 | Channel 9: De Microsoft + Open-Source |Jose Miguel Parrella |14 april 2016 |[GEMIDDELDE naar DEAN in Azure met Bitnami, VM-Schaalsets en DocumentDB van](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar |Sai Sankar Kunnathukuzhiyil |9 maart 2016 |[Ontwikkelen met Azure DocumentDB-oplossingen](https://www.youtube.com/watch?v=xKttEwXv_bs) |

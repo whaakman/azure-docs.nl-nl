@@ -101,7 +101,6 @@
 
 ## Toepassingen beheren
 ### [Overzicht](service-fabric-application-lifecycle.md)
-### [De instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Toepassingsupgrade
 #### [Overzicht](service-fabric-application-upgrade.md)
 #### [Configuratie](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Gegevensserialisatie in toepassingsupgrades](service-fabric-application-upgrade-data-serialization.md)
 #### [Toepassingsupgrade: geavanceerde onderwerpen](service-fabric-application-upgrade-advanced.md)
 ### [Overzicht foutanalyse](service-fabric-testability-overview.md)
+### [De instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
 ## Clusters maken en beheren
 ### [Overzicht](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Beperking](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integreren met API Management](service-fabric-api-management-overview.md)
-
 ## Bewaken en diagnoses uitvoeren
 ### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
 ### Gebeurtenissen genereren
@@ -164,13 +162,14 @@
 #### [Gebeurtenissen analyseren met OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integreren met API Management](service-fabric-api-management-overview.md)
+
 # Handleidingen
 ## De ontwikkelomgeving instellen
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [De Service Fabric-CLI instellen](service-fabric-cli.md)
+### [De Service Fabric-CLI instellen](service-fabric-cli.md)
 
 ## Een toepassing bouwen
 ### [Uw eerste C#-app in Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)

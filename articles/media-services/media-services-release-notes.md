@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 0b10132f1a6be3a237ffa386f45233e3494d10eb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -58,7 +58,7 @@ Zie voor meer informatie over de REST-API voor Media Services-versiegeschiedenis
 2.  Als er bronvideo die is gecodeerd met H.265(HEVC) video codec, zoals video vastgelegd met behulp van iOS11 of GoPro Hero 6, kunt u nu de Premium-Encoder of de codering-standaard gebruiken voor het coderen van video's. Raadpleeg de [Online Services-voorwaarden](https://azure.microsoft.com/support/legal/) voor belangrijke opmerking over patent licentie (s).
 3.  Als u inhoud hebt die meerdere taal audio houdt vervolgens bevat als de taal waarden correct zijn gelabeld volgens de bijbehorende bestandsindelingspecificatie (bijvoorbeeld ISO MP4), kunt klikt u vervolgens u de codering-standaard voor het coderen van die inhoud voor streaming. De resulterende streaming-locator wordt een lijst beschikbare audio talen.
 4.  Codering-standaard ondersteunt nu twee nieuwe alleen audio systeemwaarden, 'AAC Audio' en 'AAC goede kwaliteit audioapparaten'. Beide produceren aansluiting AAC uitvoer, volgens de tarieven voor bits van 128 kbps en 192 kbps respectievelijk.
-5.  De Premium-codering biedt nu ondersteuning voor bestandsindelingen QuickTime/MOV als invoer, zolang de video-codec een van is de [Apple ProRes versies hier vermeld](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), en de audio AAC of PCM.
+5.  De Premium-codering biedt nu ondersteuning voor bestandsindelingen QuickTime/MOV als invoer, zolang de video-codec een van is de [Apple ProRes versies hier vermeld](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), en de audio AAC of PCM.
 
 > [!NOTE]
 > De Premium-codering ondersteunt niet, bijvoorbeeld DVC/DVCPro video ingepakt in QuickTime/MOV-bestanden als invoer.  Codering-standaard biedt echter ondersteuning voor deze video codecs.

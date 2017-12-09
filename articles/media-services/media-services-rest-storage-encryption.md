@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Versleutelen van uw inhoud met versleuteling van opslag
 
-Het is raadzaam voor het versleutelen van uw inhoud lokaal met AES-256-bitsversleuteling en vervolgens uploaden naar Azure Storage waar deze wordt opgeslagen in rust versleuteld.
+Het is raadzaam voor het versleutelen van uw inhoud lokaal met AES-256-bitsversleuteling en vervolgens uploaden naar Azure Storage wordt bewaard in rust versleuteld.
 
 Dit artikel geeft een overzicht van de versleuteling van opslag AMS en ziet u hoe de inhoud versleuteld opslag te uploaden:
 
@@ -31,7 +31,7 @@ Dit artikel geeft een overzicht van de versleuteling van opslag AMS en ziet u ho
   
      Versleutelde activa moeten worden gekoppeld aan inhoud sleutels.
 * De inhoudssleutel koppelen aan de asset.  
-* Instellen dat versleuteling alleen de gerelateerde parameters voor de AssetFile-entiteiten.
+* De parameters versleutelingsgerelateerde instellen op de AssetFile-entiteiten.
 
 ## <a name="considerations"></a>Overwegingen 
 
@@ -43,24 +43,21 @@ Bij het openen van entiteiten in Media Services, moet u specifieke header-velden
 
 Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI.
-
 ## <a name="storage-encryption-overview"></a>Overzicht van de Storage-versleuteling
-De versleuteling van het AMS-opslag is van toepassing **AES CTR** modus versleuteling op het hele bestand.  AES-CTR modus is een blokcodering versleutelen van willekeurige lengtegegevens zonder dat nodig is voor de opvulling. Dit werkt door het versleutelen van een blok van de teller met de AES-algoritme en XOR-ing de uitvoer van AES met de gegevens te versleutelen of ontsleutelen.  Het item dat wordt gebruikt door de waarde van de InitializationVector kopiëren naar bytes 0 tot en met 7 van de waarde van het prestatiemeteritem is samengesteld en bytes 8 tot en met 15 van de waarde worden ingesteld op nul. Van het blok van de teller 16 bytes bytes 8 tot 15 (dat wil zeggen de minst significante bytes) gebruikt als een eenvoudige 64-bits geheel getal zonder teken die wordt verhoogd met één voor elke volgende blok gegevens verwerkt en wordt opgeslagen in de bytevolgorde netwerk. Houd er rekening mee dat als dit geheel getal de maximumwaarde (0xFFFFFFFFFFFFFFFF), oplopende vervolgens opnieuw instellen van de teller blok nul (bytes 8 tot en met 15) bereikt zonder dat de 64 bits van de teller (dat wil zeggen bytes 0 tot en met 7).   Om de beveiliging van de versleuteling van de modus AES CTR behouden, de InitializationVector-waarde voor een opgegeven sleutel-id voor elke inhoudssleutel moet uniek zijn voor elk bestand en bestanden moet minder zijn dan 2 ^ 64 blokken in lengte.  Dit is om ervoor te zorgen dat een itemwaarde nooit met een opgegeven sleutel wordt opnieuw gebruikt. Zie voor meer informatie over de modus CTR [deze wikipagina](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (het wiki-artikel wordt de term 'Nonce' in plaats van 'InitializationVector' gebruikt).
+De versleuteling van het AMS-opslag is van toepassing **AES CTR** modus versleuteling op het hele bestand.  AES-CTR modus is een blokcodering versleutelen van willekeurige lengtegegevens zonder dat nodig is voor de opvulling. Dit werkt door het versleutelen van een blok van de teller met de AES-algoritme en XOR-ing de uitvoer van AES met de gegevens te versleutelen of ontsleutelen.  Het item dat wordt gebruikt door de waarde van de InitializationVector kopiëren naar bytes 0 tot en met 7 van de waarde van het prestatiemeteritem is samengesteld en bytes 8 tot en met 15 van de waarde worden ingesteld op nul. Van het blok 16 bytes teller bytes 8 tot 15 (dat wil zeggen, de minst significante bytes) gebruikt als een eenvoudige 64-bits geheel getal zonder teken die wordt verhoogd met één voor elke volgende blok gegevens verwerkt en wordt opgeslagen in de bytevolgorde netwerk. Als dit geheel getal de maximumwaarde (0xFFFFFFFFFFFFFFFF bereikt) vervolgens en oplopend in stappen wordt de teller blok nul (in bytes 8 tot en met 15) Hiermee stelt u zonder de 64 bits van de teller (dat wil zeggen bytes 0 tot en met 7).   Om de beveiliging van de versleuteling van de modus AES CTR behouden, de InitializationVector-waarde voor een opgegeven sleutel-id voor elke inhoudssleutel moet uniek zijn voor elk bestand en bestanden moet minder zijn dan 2 ^ 64 blokken in lengte.  Dit is om ervoor te zorgen dat een itemwaarde nooit met een opgegeven sleutel wordt opnieuw gebruikt. Zie voor meer informatie over de modus CTR [deze wikipagina](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (het wiki-artikel wordt de term 'Nonce' in plaats van 'InitializationVector' gebruikt).
 
-Gebruik **Opslagversleuteling** voor het versleutelen van uw versleutelde inhoud lokaal via AES-256-bits codering en uploaden naar Azure Storage wordt bewaard in rust versleuteld. Beveiligd met storage encryption activa zijn automatisch niet-versleuteld geplaatst in een versleuteld bestandssysteem voordat ze worden gecodeerd en eventueel opnieuw worden versleuteld voordat geüpload als een nieuwe uitvoerasset. Het primaire gebruiksvoorbeeld storage Encryption is wanneer u wilt beveiligen van uw invoer media van hoge kwaliteit bestanden met een sterke codering in rust op schijf.
+Gebruik **Opslagversleuteling** voor het versleutelen van uw versleutelde inhoud lokaal via AES-256-bits codering en uploaden naar Azure Storage wordt bewaard in rust versleuteld. Beveiligd met storage encryption activa zijn automatisch niet-versleuteld geplaatst in een versleuteld bestandssysteem voordat ze worden gecodeerd en eventueel opnieuw worden versleuteld voordat geüpload als een nieuwe uitvoerasset. Het primaire gebruiksvoorbeeld storage Encryption is wanneer u wilt uw invoer van hoge kwaliteit mediabestanden beveiligen met sterke codering in rust op schijf.
 
 Voor het leveren van een gecodeerde asset opslag, moet u beleid voor de levering van de asset configureren zodat Media Services weet hoe u wilt uw inhoud leveren. Voordat uw asset kan worden gestreamd, wordt de streaming-server verwijdert u de versleuteling van opslag en streams van uw inhoud met behulp van het opgegeven leveringsbeleid (bijvoorbeeld, AES, common encryption of er wordt geen versleuteling).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>ContentKeys gebruikt voor versleuteling maken
 Versleutelde activa moeten worden gekoppeld aan de versleutelingssleutel voor opslag. U moet de inhoudssleutel moet worden gebruikt voor versleuteling voordat u de assetbestanden maken. Deze sectie beschrijft het maken van een inhoudssleutel.
 
-Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u wilt koppelen aan de activa die u wilt worden versleuteld. 
+Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u koppelen aan de activa die u wilt worden versleuteld. 
 
 1. Storage Encryption willekeurig een 32-byte AES-sleutel genereren. 
    
-    Dit is de inhoudssleutel voor uw asset, wat betekent dat alle bestanden die zijn gekoppeld aan dat actief moet dezelfde inhoud sleutel gebruiken tijdens het ontsleutelen. 
+    Dit is de inhoudssleutel voor uw asset, wat betekent dat alle bestanden die zijn gekoppeld aan die asset moeten dezelfde inhoud sleutel gebruiken tijdens het ontsleutelen. 
 2. Roep de [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden voor het ophalen van het juiste X.509-certificaat dat moet worden gebruikt om uw inhoud sleutel te versleutelen.
 3. Codeer uw inhoud sleutel met de openbare sleutel van het X.509-certificaat. 
    
@@ -101,7 +98,7 @@ Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u 
     ---|---
     Id | De ContentKey-Id die we onszelf genereren met behulp van de volgende indeling hebben: ' nb:kid:UUID:<NEW GUID>'.
     ContentKeyType | Dit is het inhoudstype key als een geheel getal voor deze inhoud sleutel. De waarde 1 voor versleuteling van opslag doorgegeven.
-    EncryptedContentKey | We maken een nieuwe inhoud sleutelwaarde die een (32 byte) 256-bits waarde. De sleutel is versleuteld met behulp van de opslag versleuteling X.509-certificaat dat we uit Microsoft Azure Media Services ophalen door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden. Zie de volgende .NET-code als een voorbeeld: de **EncryptSymmetricKeyData** methode gedefinieerd [hier](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | We maken een nieuwe inhoud sleutelwaarde die de waarde van een 256-bits (32 bytes). De sleutel is versleuteld met behulp van het X.509-certificaat voor opslag versleuteling we uit Microsoft Azure Media Services ophalen door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden. Zie de volgende .NET-code als een voorbeeld: de **EncryptSymmetricKeyData** methode gedefinieerd [hier](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Dit is de key protection-id voor de opslag versleuteling X.509-certificaat dat is gebruikt voor het versleutelen van onze inhoudssleutel.
     ProtectionKeyType | Dit is het versleutelingstype voor de beveiliging sleutel die is gebruikt voor het versleutelen van de inhoudssleutel. Deze waarde is StorageEncryption(1) in ons voorbeeld.
     Controlesom |De controlesom voor berekende MD5 voor de inhoudssleutel. Deze wordt berekend door de inhoud-Id met de inhoudssleutel te versleutelen. De voorbeeldcode laat zien hoe de controlesom berekenen.
@@ -118,7 +115,7 @@ Aanvraag:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Antwoord:
@@ -149,7 +146,7 @@ Aanvraag:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -189,7 +186,7 @@ Aanvraag
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -238,7 +235,7 @@ Het volgende voorbeeld laat zien hoe een asset te maken.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
@@ -285,7 +282,7 @@ Aanvraag:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -299,7 +296,7 @@ De [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) e
 
 Houd er rekening mee dat de **AssetFile** exemplaar en de werkelijke mediabestand zijn twee verschillende objecten. Het exemplaar AssetFile bevat metagegevens over het mediabestand terwijl het mediabestand de werkelijke media-inhoud bevat.
 
-Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de **samenvoegen** HTTP-aanvraag voor de AssetFile bijgewerkt met gegevens over uw mediabestand (niet weergegeven in dit onderwerp). 
+Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de **samenvoegen** HTTP-aanvraag voor de AssetFile bijgewerkt met gegevens over uw mediabestand (niet weergegeven in dit artikel). 
 
 **HTTP-aanvraag**
 
@@ -310,7 +307,7 @@ Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 

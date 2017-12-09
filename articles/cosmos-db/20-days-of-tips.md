@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 39fd3e0df9a9d86272fb94afc9397ff61dd049f0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dagen van Azure DB die Cosmos tips
 
@@ -103,7 +103,7 @@ Tip 10: U kunt uw MongoDB om gegevens te kopiëren naar Azure Cosmos DB met Stud
 
 Tip 11: Een hero bijhouden app bouwen met reageren, Node.js en Azure Cosmos DB.
 
-Artikel: [een MongoDB-app maken met reageren en Azure Cosmos-DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Artikel: [een MongoDB-app maken met reageren en Azure Cosmos-DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweet op twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![-Share op LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Tip 12: Ga zonder server met Azure #CosmosDB en @AzureFunctions! Documenten op v
 
 Tip 13: van nul tot hero met @John_Papa en Azure Cosmos DB. Informatie over het bouwen van een gemiddelde app maken
 
-Artikel: [een MongoDB-app maken met Cosmos Hoekvormige en Azure DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Artikel: [een MongoDB-app maken met Cosmos Hoekvormige en Azure DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retweet op twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![-Share op LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 

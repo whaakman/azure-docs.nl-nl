@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Azure Sleutelkluis in een webtoepassing gebruiken
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Momenteel is de nieuwe MSI-functie (beheerde service-identiteit) de eenvoudigste manier om te verifiëren. Klik op de volgende koppeling naar het voorbeeld met [Key Vault met MSI in een toepassing in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de gerelateerde [zelfstudie voor MSI met App Service en Functions](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity) voor meer informatie. 
+>* Momenteel is de nieuwe MSI-functie (beheerde service-identiteit) de eenvoudigste manier om te verifiëren. Klik op de volgende koppeling naar het voorbeeld met [Key Vault met MSI in een toepassing in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de gerelateerde [zelfstudie voor MSI met App Service en Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) voor meer informatie. 
 >* Client-ID en Clientgeheim is een andere manier om te verifiëren van een Azure AD-toepassing. En u deze in uw webtoepassing kunt u een scheiding van taken en meer controle over uw Sleutelbeheer. Maar deze maakt gebruik van de Client-Secret als in uw configuratie-instellingen die voor bepaalde als riskant als het plaatsen van het geheim dat u wilt beveiligen in uw configuratie-instellingen kunnen worden. Zie de volgende voor informatie over het gebruik van een Client-ID en het certificaat in plaats van de Client-ID en Clientgeheim om te verifiëren van de Azure AD-toepassing.
 
 ## <a id="appstart"></a>Ophalen van het geheim op toepassing starten

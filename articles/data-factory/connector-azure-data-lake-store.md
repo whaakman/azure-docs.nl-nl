@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 69707931402de597c9d6a329da349723da2a782a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 8ca11d92cd147b18b7b4fa629c0eaf84703a69ab
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Data Lake Store met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -232,7 +232,7 @@ Om gegevens te kopiëren van Azure Data Lake Store, stelt u het brontype in de k
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store als sink
 
-Om gegevens te kopiëren naar Azure Blob, stelt u het sink-type in de kopieerbewerking naar **AzureDataLakeStoreSink**. De volgende eigenschappen worden ondersteund in de **sink** sectie:
+Om gegevens te kopiëren naar Azure Data Lake Store, kunt u het sink-type instellen in de kopieeractiviteit om te **AzureDataLakeStoreSink**. De volgende eigenschappen worden ondersteund in de **sink** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |

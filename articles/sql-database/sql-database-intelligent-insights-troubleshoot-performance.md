@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Azure SQL Database prestatieproblemen met Intelligent Insights oplossen
 
@@ -52,7 +52,7 @@ Intelligent Insights detecteert automatisch prestatieproblemen met SQL-Database 
 | [Laag Downgrade prijzen](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Een prijscategorie laag downgrade actie verlaagd beschikbare bronnen die van invloed op prestaties van de SQL-Database. |
 
 > [!TIP]
-> Inschakelen voor de optimalisatie van de continue prestaties van SQL-Database, [automatische afstemming van Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). Deze unieke functie van de SQL-Database ingebouwde intelligentie continu bewaakt uw SQL-database, automatisch verbetert de prestatie indexen en query uitvoering plan correcties van toepassing is.
+> Inschakelen voor de optimalisatie van de continue prestaties van SQL-Database, [automatische afstemming van Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Deze unieke functie van de SQL-Database ingebouwde intelligentie continu bewaakt uw SQL-database, automatisch verbetert de prestatie indexen en query uitvoering plan correcties van toepassing is.
 >
 
 De volgende sectie beschrijft de eerder vermelde waarneembaar prestatiepatronen in meer detail.
@@ -63,7 +63,7 @@ De volgende sectie beschrijft de eerder vermelde waarneembaar prestatiepatronen 
 
 Dit patroon waarneembaar prestaties combineert prestatieproblemen die gerelateerd zijn aan de beschikbare resource limieten, worker limieten en sessielimieten is bereikt. Nadat u dit probleem wordt gedetecteerd, een beschrijvingsveld van het logboek diagnostics geeft aan of het prestatieprobleem betrekking heeft op de resource, worker of sessielimieten.
 
-Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Ze bestaan uit een gecombineerde meting van CPU- en i/o-resources voor (gegevens en transactie logboekregistratie i/o). Het patroon van limieten bereiken wanneer gedetecteerd wordt herkend verslechtering van de query-prestaties wordt veroorzaakt door een van de gemeten limieten bereiken.
+Bronnen op de SQL-Database worden gewoonlijk aangeduid als [DTU-bronnen](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Ze bestaan uit een gecombineerde meting van CPU- en i/o-resources voor (gegevens en transactie logboekregistratie i/o). Het patroon van limieten bereiken wanneer gedetecteerd wordt herkend verslechtering van de query-prestaties wordt veroorzaakt door een van de gemeten limieten bereiken.
 
 De sessie limieten-resource geeft aan dat het aantal beschikbare gelijktijdige aanmeldingen bij de SQL-database. Dit patroon prestaties wordt herkend als het aantal beschikbare gelijktijdige aanmeldingen bij de database hebt bereikt door toepassingen die zijn verbonden met de SQL-databases. Als toepassingen probeert te gebruiken meer sessies dan beschikbaar zijn op een database, wordt de prestaties van query's beïnvloed.
 
@@ -75,7 +75,7 @@ Het logboek voor diagnostische gegevens levert query-hashes van query's die van 
 
 Als u de beschikbare sessiecontext limieten zijn bereikt, kunt u uw toepassingen optimaliseren door het aantal aanmeldingen die zijn aangebracht in de database te verminderen. Als je je niet Verminder het aantal aanmeldingen van uw toepassingen aan de database, kunt u de prijscategorie van uw database te verhogen. Of u kunt splitsen en uw database verplaatsen naar meerdere databases voor een meer evenwichtige Werkbelastingsverdeling.
 
-Zie voor meer suggesties over het oplossen van sessielimieten [omgaan met de grenzen van de SQL-Database maximale aanmeldingen](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Zie voor meer informatie over de beschikbare resource limieten voor de laag van uw abonnement, [limieten voor SQL-Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Zie voor meer suggesties over het oplossen van sessielimieten [omgaan met de grenzen van de SQL-Database maximale aanmeldingen](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Zie voor meer informatie over de beschikbare resource limieten voor de laag van uw abonnement, [limieten voor SQL-Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Toename van de werkbelasting
 
@@ -145,7 +145,7 @@ De MAXDOP serverconfiguratieoptie op SQL-Database wordt gebruikt om te bepalen h
 
 Het logboek voor diagnostische gegevens levert query-hashes die betrekking hebben op query's waarvoor de duur van de uitvoering van verhoogd omdat ze zijn meer dan ze had moeten zijn geparallelliseerde. Het logboek wordt ook de wachttijden CXP uitvoer. Deze tijd geeft de tijd die een enkele organisator/coordinator thread (thread 0) tot andere threads wacht worden voltooid voordat het samenvoegen van de resultaten en de feitelijke. Het logboek diagnostische uitvoer bovendien de wachttijden die slecht presterende query's bij het uitvoeren van algemene stond. U kunt deze informatie gebruiken als basis voor het oplossen van problemen.
 
-Eerst optimaliseren of complexe query's vereenvoudigen. Het wordt aangeraden om op te lang batchtaken in kleinere delen. Bovendien kunt u ervoor dat u indexen ter ondersteuning van uw query's gemaakt. U kunt ook handmatig de maximale mate van parallelle uitvoering (MAXDOP) afdwingen voor een query die is gemarkeerd als slechte uitvoeren. Zie voor meer informatie over het configureren van deze bewerking via de T-SQL [configureren van de serverconfiguratieoptie MAXDOP](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Eerst optimaliseren of complexe query's vereenvoudigen. Het wordt aangeraden om op te lang batchtaken in kleinere delen. Bovendien kunt u ervoor dat u indexen ter ondersteuning van uw query's gemaakt. U kunt ook handmatig de maximale mate van parallelle uitvoering (MAXDOP) afdwingen voor een query die is gemarkeerd als slechte uitvoeren. Zie voor meer informatie over het configureren van deze bewerking via de T-SQL [configureren van de serverconfiguratieoptie MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Het instellen van de server MAXDOP configuratieoptie op nul (0) als een standaardwaarde geeft aan dat SQL-Database alle beschikbare logische CPU-kernen parallelize threads kunt voor het uitvoeren van één query. Instelling MAXDOP op één (1) geeft aan dat slechts één core kan worden gebruikt voor een enkele queryuitvoering. Dit betekent dat de parallelle uitvoering is uitgeschakeld in de praktijk. Afhankelijk van de basis per geval beschikbaar kernen aan de database en diagnostische gegevens vastleggen, kunt u de optie MAXDOP voor het aantal kernen gebruikt voor parallelle queryuitvoering die mogelijk los het probleem in uw geval afstemmen.
 
@@ -191,7 +191,7 @@ Het logboek voor diagnostische gegevens levert query hashes voor de query's die 
 > Voor de optimalisatie van de continue prestaties van SQL-Database, het is raadzaam dat u inschakelt [automatische afstemming van SQL-Database](sql-database-automatic-tuning.md). Deze unieke functie van de SQL-Database ingebouwde intelligentie continu bewaakt de SQL-database en automatisch verbetert de prestatie en maakt indexen voor uw databases.
 >
 
-## <a name="new-query"></a>Nieuwe Query
+## <a name="new-query"></a>Nieuwe query
 
 ### <a name="what-is-happening"></a>Wat gebeurt er
 
@@ -231,7 +231,7 @@ Dit patroon waarneembaar prestaties geeft aan dat een database prestatieniveau w
 
 Het logboek diagnostische uitvoer tempDB belemmering vormt voor meer informatie. Gebruik de informatie als startpunt voor het oplossen van problemen. Er zijn twee dingen die u voor het verlichten van dit soort conflicten en verhoogt de doorvoer van de algehele werkbelasting kunt oefenen: U kunt stoppen met behulp van de tijdelijke tabellen. U kunt ook tabellen geoptimaliseerd voor geheugen gebruiken. 
 
-Zie voor meer informatie [Inleiding tot tabellen geoptimaliseerd voor geheugen](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Zie voor meer informatie [Inleiding tot tabellen geoptimaliseerd voor geheugen](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>DTU tekort aan resources van elastische groep
 
@@ -328,10 +328,10 @@ Intelligent Insights toegang via de Azure portal door te gaan met Azure SQL Anal
 > [!TIP]
 > Selecteer het stroomdiagram voor het downloaden van een PDF-versie.
 
-Intelligent inzicht moeten gewoonlijk één uur van de tijd voor de analyse van de hoofdmap oorzaak van het prestatieprobleem. Als u uw probleem in Intelligent Insights vinden kunt en het is essentieel voor u, gebruikt u het Queryarchief handmatig identificeren de hoofdoorzaak van het prestatieprobleem. (Deze problemen zijn meestal minder dan een uur oud.) Zie voor meer informatie [prestaties bewaken met behulp van de queryopslag](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent inzicht moeten gewoonlijk één uur van de tijd voor de analyse van de hoofdmap oorzaak van het prestatieprobleem. Als u uw probleem in Intelligent Insights vinden kunt en het is essentieel voor u, gebruikt u het Queryarchief handmatig identificeren de hoofdoorzaak van het prestatieprobleem. (Deze problemen zijn meestal minder dan een uur oud.) Zie voor meer informatie [prestaties bewaken met behulp van de queryopslag](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Intelligent Insights](sql-database-intelligent-insights.md) concepten.
 - Gebruik de [Intelligent Insights Azure SQL Database diagnostics prestatielogboek](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Monitor [Azure SQL Database met behulp van Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Monitor [Azure SQL Database met behulp van Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Informatie over het [verzamelen en gebruiken van de logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

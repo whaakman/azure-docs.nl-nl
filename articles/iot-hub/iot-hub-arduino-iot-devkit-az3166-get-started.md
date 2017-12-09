@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Verbinding maken met IoT DevKit AZ3166 Azure IoT Hub in de cloud
 
@@ -186,7 +186,7 @@ Het ZIP-bestand dat u hebt gedownload bevat alle benodigde hulpprogramma's en pa
 Het ZIP-bestand bevat de volgende hulpprogramma's en pakketten. Als u al een aantal onderdelen geïnstalleerd, wordt het script detecteren en ze overslaan.
 
 * Node.js en Yarn: Runtime voor de setup-script en geautomatiseerde taken.
-* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): platformoverschrijdende opdrachtregel ervaring voor het beheren van Azure-resources.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): platformoverschrijdende opdrachtregel ervaring voor het beheren van Azure-resources.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS-Code): Lightweight code-editor voor DevKit-ontwikkeling.
 * [Visual Studio Code-uitbreiding voor Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): extensie waarmee Arduino-ontwikkeling in Visual Studio Code.
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): hulpprogramma dat afhankelijk is van de extensie voor Arduino.

@@ -1,5 +1,5 @@
 ---
-title: Cassandra met Linux uitvoeren in Azure | Microsoft Docs
+title: Uitvoeren van een cluster Cassandra op Linux in Azure met Node.js
 description: Uitvoeren van een cluster Cassandra op Linux in Azure Virtual Machines vanaf een Node.js-app
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Cassandra op Azure uitvoeren met Linux en vanaf Node.js openen
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uitvoeren van een cluster Cassandra op Linux in Azure met behulp van Node.js
+
 > [!IMPORTANT] 
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie Resource Manager-sjablonen voor [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) en [Spark-cluster en Cassandra op CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
@@ -157,7 +158,7 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #2:
 <tr><td> CLOUDSERVICE    </td><td> Maak een nieuwe cloudservice    </td><td>Cloudservice is een container compute-bronnen zoals virtuele machines</td></tr>
 <tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>Ubuntu template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
 <tr><td> REGIO/AFFINITEITSGROEP/VIRTUEEL NETWERK </td><td>    VS - west    </td><td> Selecteer een regio van waaruit de toegang tot het cluster Cassandra van uw webtoepassingen</td></tr>
-<tr><td>STORAGE-ACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
+<tr><td>OPSLAGACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
 <tr><td>BESCHIKBAARHEIDSSET </td><td>    Geen </td><td>    Laat dit veld leeg</td></tr>
 <tr><td>EINDPUNTEN    </td><td>Standaardinstelling gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
 </table>
@@ -308,7 +309,7 @@ Dit duurt een paar seconden en de installatiekopie moet beschikbaar zijn in de s
 <tr><th>De naam van de VM-kenmerk</th><th>Waarde</th><th>Opmerkingen</th></tr>
 <tr><td>Naam</td><td>vnet-cass-west-ons</td><td></td></tr>
 <tr><td>Regio</td><td>VS - west</td><td></td></tr>
-<tr><td>DNS-Servers</td><td>Geen</td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
+<tr><td>DNS-servers</td><td>Geen</td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
 <tr><td>Adresruimte</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP-beginadres</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -318,8 +319,8 @@ Voeg de volgende subnetten:
 
 <table>
 <tr><th>Naam</th><th>IP-beginadres</th><th>CIDR</th><th>Opmerkingen</th></tr>
-<tr><td>Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Subnet voor de webfarm</td></tr>
-<tr><td>Gegevens</td><td>10.1.2.0</td><td>/24 (251)</td><td>Subnet voor de databaseknooppunten</td></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Subnet voor de webfarm</td></tr>
+<tr><td>gegevens</td><td>10.1.2.0</td><td>/24 (251)</td><td>Subnet voor de databaseknooppunten</td></tr>
 </table>
 
 Gegevens en Web subnetten kunnen worden beveiligd via netwerkbeveiligingsgroepen de dekking van die buiten het bereik van dit artikel is.  
@@ -328,16 +329,16 @@ Gegevens en Web subnetten kunnen worden beveiligd via netwerkbeveiligingsgroepen
 
 <table>
 <tr><th>Machinenaam    </th><th>Subnet    </th><th>IP-adres    </th><th>Beschikbaarheidsset</th><th>DC/Rack</th><th>Seed?</th></tr>
-<tr><td>HK-c1-west-ons    </td><td>Gegevens    </td><td>10.1.2.4    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 = </td><td>Ja</td></tr>
-<tr><td>HK-c2-west-ons    </td><td>Gegevens    </td><td>10.1.2.5    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 =    </td><td>Nee </td></tr>
-<tr><td>HK-c3-west-ons    </td><td>Gegevens    </td><td>10.1.2.6    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Ja</td></tr>
-<tr><td>HK-c4-west-ons    </td><td>Gegevens    </td><td>10.1.2.7    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Nee </td></tr>
-<tr><td>HK-c5-west-ons    </td><td>Gegevens    </td><td>10.1.2.8    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Ja</td></tr>
-<tr><td>HK-c6-west-ons    </td><td>Gegevens    </td><td>10.1.2.9    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Nee </td></tr>
-<tr><td>HK-c7-west-ons    </td><td>Gegevens    </td><td>10.1.2.10    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Ja</td></tr>
-<tr><td>HK-c8-west-ons    </td><td>Gegevens    </td><td>10.1.2.11    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Nee </td></tr>
-<tr><td>HK-w1-west-ons    </td><td>Web    </td><td>10.1.1.4    </td><td>HK-w-uit-1    </td><td>                       </td><td>N.v.t.</td></tr>
-<tr><td>HK-w2-west-ons    </td><td>Web    </td><td>10.1.1.5    </td><td>HK-w-uit-1    </td><td>                       </td><td>N.v.t.</td></tr>
+<tr><td>HK-c1-west-ons    </td><td>gegevens    </td><td>10.1.2.4    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 = </td><td>Ja</td></tr>
+<tr><td>HK-c2-west-ons    </td><td>gegevens    </td><td>10.1.2.5    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack1 =    </td><td>Nee </td></tr>
+<tr><td>HK-c3-west-ons    </td><td>gegevens    </td><td>10.1.2.6    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Ja</td></tr>
+<tr><td>HK-c4-west-ons    </td><td>gegevens    </td><td>10.1.2.7    </td><td>HK-c-uit-1    </td><td>DC = WESTUS rack rack2 =    </td><td>Nee </td></tr>
+<tr><td>HK-c5-west-ons    </td><td>gegevens    </td><td>10.1.2.8    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Ja</td></tr>
+<tr><td>HK-c6-west-ons    </td><td>gegevens    </td><td>10.1.2.9    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Nee </td></tr>
+<tr><td>HK-c7-west-ons    </td><td>gegevens    </td><td>10.1.2.10    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Ja</td></tr>
+<tr><td>HK-c8-west-ons    </td><td>gegevens    </td><td>10.1.2.11    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Nee </td></tr>
+<tr><td>HK-w1-west-ons    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-uit-1    </td><td>                       </td><td>N.v.t.</td></tr>
+<tr><td>HK-w2-west-ons    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-uit-1    </td><td>                       </td><td>N.v.t.</td></tr>
 </table>
 
 Maken van de bovenstaande lijst met virtuele machines moeten het volgende proces:
@@ -464,10 +465,10 @@ Zal gebruikmaken van de implementatie van één regio is voltooid en hetzelfde p
 Meld u aan bij de klassieke Azure portal en een virtueel netwerk maken met de kenmerken weergeven in de tabel. Zie [Cloud-Only virtueel netwerk configureren in de klassieke Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor gedetailleerde stappen van het proces.      
 
 <table>
-<tr><th>Naam kenmerk    </th><th>Waarde    </th><th>Opmerkingen</th></tr>
+<tr><th>Kenmerknaam    </th><th>Waarde    </th><th>Opmerkingen</th></tr>
 <tr><td>Naam    </td><td>vnet-cass-Oost-ons</td><td></td></tr>
 <tr><td>Regio    </td><td>VS - oost</td><td></td></tr>
-<tr><td>DNS-Servers        </td><td></td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
+<tr><td>DNS-servers        </td><td></td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
 <tr><td>Een punt-naar-site-VPN configureren</td><td></td><td>        Negeer deze melding</td></tr>
 <tr><td>Configureer een site-to-site VPN</td><td></td><td>        Negeer deze melding</td></tr>
 <tr><td>Adresruimte    </td><td>10.2.0.0/16</td><td></td></tr>
@@ -479,8 +480,8 @@ Voeg de volgende subnetten:
 
 <table>
 <tr><th>Naam    </th><th>IP-beginadres    </th><th>CIDR    </th><th>Opmerkingen</th></tr>
-<tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Subnet voor de webfarm</td></tr>
-<tr><td>Gegevens    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Subnet voor de databaseknooppunten</td></tr>
+<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Subnet voor de webfarm</td></tr>
+<tr><td>gegevens    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Subnet voor de databaseknooppunten</td></tr>
 </table>
 
 
@@ -525,15 +526,15 @@ De installatiekopie Ubuntu maken zoals beschreven in de regio #1 implementatie d
 
 | Machinenaam | Subnet | IP-adres | Beschikbaarheidsset | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Oost-ons |Gegevens |10.2.2.4 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Ja |
-| HK-c2-Oost-ons |Gegevens |10.2.2.5 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Nee |
-| HK-c3-Oost-ons |Gegevens |10.2.2.6 |HK-c-uit-1 |DC = EASTUS rack rack2 = |Ja |
-| HK-c5-Oost-ons |Gegevens |10.2.2.8 |HK-c-uit-2 |DC = EASTUS rack rack3 = |Ja |
-| HK-c6-Oost-ons |Gegevens |10.2.2.9 |HK-c-uit-2 |DC = EASTUS rack rack3 = |Nee |
-| HK-c7-Oost-ons |Gegevens |10.2.2.10 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Ja |
-| HK-c8-Oost-ons |Gegevens |10.2.2.11 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Nee |
-| HK-w1-Oost-ons |Web |10.2.1.4 |HK-w-uit-1 |N.v.t. |N.v.t. |
-| HK-w2-Oost-ons |Web |10.2.1.5 |HK-w-uit-1 |N.v.t. |N.v.t. |
+| HK-c1-Oost-ons |gegevens |10.2.2.4 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Ja |
+| HK-c2-Oost-ons |gegevens |10.2.2.5 |HK-c-uit-1 |DC = EASTUS rack rack1 = |Nee |
+| HK-c3-Oost-ons |gegevens |10.2.2.6 |HK-c-uit-1 |DC = EASTUS rack rack2 = |Ja |
+| HK-c5-Oost-ons |gegevens |10.2.2.8 |HK-c-uit-2 |DC = EASTUS rack rack3 = |Ja |
+| HK-c6-Oost-ons |gegevens |10.2.2.9 |HK-c-uit-2 |DC = EASTUS rack rack3 = |Nee |
+| HK-c7-Oost-ons |gegevens |10.2.2.10 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Ja |
+| HK-c8-Oost-ons |gegevens |10.2.2.11 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Nee |
+| HK-w1-Oost-ons |web |10.2.1.4 |HK-w-uit-1 |N.v.t. |N.v.t. |
+| HK-w2-Oost-ons |web |10.2.1.5 |HK-w-uit-1 |N.v.t. |N.v.t. |
 
 Volg de instructies van regio #1, maar gebruik 10.2.xxx.xxx adresruimte.
 

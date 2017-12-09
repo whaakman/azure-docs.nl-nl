@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 8ba153cf2775fe76c824e142ed9a181d0e956392
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Beveiligen van uw RESTful-service met behulp van clientcertificaten
 In een verwant artikel u [maken een RESTful-service](active-directory-b2c-custom-rest-api-netfw.md) die communiceert met Azure Active Directory B2C (Azure AD B2C).
@@ -41,7 +41,7 @@ Details van deze procedure:
 Voor het instellen van **Azure App Service** clientcertificaten vereist, stelt u de web-app `clientCertEnabled` site-instelling *true*. Om deze wijziging aanbrengt, moet u de REST-API. De instelling is beschikbaar via de beheerervaring in de Azure portal. Het vinden van de instelling op van de toepassing van de RESTful **instellingen** menu onder **ontwikkelingsprogramma's**, selecteer **Resource Explorer**.
 
 >[!NOTE]
->Zorg ervoor dat uw Azure App Service-abonnement Standard of hoger is. Zie voor meer informatie [gedetailleerd overzicht van Azure App Service-plannen](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Zorg ervoor dat uw Azure App Service-abonnement Standard of hoger is. Zie voor meer informatie [gedetailleerd overzicht van Azure App Service-plannen](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Gebruik [Azure Resourceverkenner (Preview)](https://resources.azure.com) om in te stellen de **clientCertEnabled** eigenschap *true*, zoals wordt weergegeven in de volgende afbeelding:
@@ -49,7 +49,7 @@ Gebruik [Azure Resourceverkenner (Preview)](https://resources.azure.com) om in t
 ![Instelling clientCertEnabled via Azure Resource Explorer](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Voor meer informatie over het instellen de **clientCertEnabled** eigenschap, Zie [wederzijdse verificatie TLS configureren voor web-apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Voor meer informatie over het instellen de **clientCertEnabled** eigenschap, Zie [wederzijdse verificatie TLS configureren voor web-apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >U kunt ook eenvoudiger worden opgesteld van de REST-API-aanroep, kunt u de [ARMClient](https://github.com/projectkudu/ARMClient) hulpprogramma.
@@ -165,7 +165,7 @@ Het clientcertificaat dat Azure AD B2C naar uw RESTful-service verzendt heeft ge
 In deze sectie voegt u ASP.NET voorbeeldcode die de eigenschappen voor certificaat voor verificatie valideert.
 
 > [!NOTE]
->Zie voor meer informatie over het configureren van Azure App Service voor verificatie van clientcertificaten [wederzijdse verificatie TLS configureren voor web-apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Zie voor meer informatie over het configureren van Azure App Service voor verificatie van clientcertificaten [wederzijdse verificatie TLS configureren voor web-apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 toepassingsinstellingen toevoegen aan uw project web.config-bestand
 In de Visual Studio-project dat u eerder hebt gemaakt, voegt u de volgende toepassingsinstellingen op de *web.config* bestand na de `appSettings` element:

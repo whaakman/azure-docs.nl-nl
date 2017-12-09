@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7a051e0f35b2dd943f3569391d7ca0f206a9ef02
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning
 
@@ -42,7 +42,7 @@ Er zijn vier hoofdstappen downloaden werken op HDInsight.
 3. De vereiste bibliotheken voor alle worker-knooppunten distribueren
 4. Een model Caffe opstellen en voer deze in een gedistribueerde manier.
 
-Aangezien HDInsight een PaaS-oplossing is, biedt uitstekende platformfuncties - zodat u gemakkelijk een aantal taken uit te voeren. Een van de functies die we veel in dit blogbericht gebruiken heet [scriptactie](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), waarmee u de shell-opdrachten voor het aanpassen van de clusterknooppunten (hoofdknooppunt, werkrolknooppunt of edge-knooppunt) kunt uitvoeren.
+Aangezien HDInsight een PaaS-oplossing is, biedt uitstekende platformfuncties - zodat u gemakkelijk een aantal taken uit te voeren. Een van de functies die we veel in dit blogbericht gebruiken heet [scriptactie](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), waarmee u de shell-opdrachten voor het aanpassen van de clusterknooppunten (hoofdknooppunt, werkrolknooppunt of edge-knooppunt) kunt uitvoeren.
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Stap 1: De vereiste afhankelijkheden installeren op alle knooppunten
 
@@ -71,14 +71,14 @@ Er zijn twee stappen in de scriptactie. De eerste stap is het de vereiste biblio
 
 De tweede stap is het downloaden en protobuf 2.5.0 voor Caffe installeren tijdens de runtime worden gecompileerd. Protobuf 2.5.0 [is vereist](https://github.com/yahoo/CaffeOnSpark/issues/87), maar deze versie niet beschikbaar als een pakket op Ubuntu 16, is dus moeten we er tijdens het compileren van de broncode. Er zijn ook een aantal bronnen op het Internet voor het eerst compileren. Zie voor meer informatie [hier](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Om te beginnen, kunt u net uitvoeren met deze scriptactie op basis van uw cluster voor alle worker-knooppunten en hoofdknooppunten (voor HDInsight 3.5). U kunt de scriptacties uitvoeren op een bestaand cluster, of gebruik scriptacties tijdens het maken van het cluster. Zie de documentatie voor meer informatie over de scriptacties [hier](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Om te beginnen, kunt u net uitvoeren met deze scriptactie op basis van uw cluster voor alle worker-knooppunten en hoofdknooppunten (voor HDInsight 3.5). U kunt de scriptacties uitvoeren op een bestaand cluster, of gebruik scriptacties tijdens het maken van het cluster. Zie de documentatie voor meer informatie over de scriptacties [hier](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
 ![Scriptacties afhankelijkheden installeren](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
 ## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>Stap 2: Caffe op Spark voor HDInsight voor het hoofdknooppunt bouwen
 
-De tweede stap is het bouwen van Caffe op de headnode, en distribueert u vervolgens de gecompileerde bibliotheken voor alle worker-knooppunten. In deze stap moet u [ssh in uw headnode](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Daarna kunt u moet volgen de [CaffeOnSpark buildproces](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Hieronder ziet u het script dat kunt u CaffeOnSpark bij het maken van een aantal extra stappen. 
+De tweede stap is het bouwen van Caffe op de headnode, en distribueert u vervolgens de gecompileerde bibliotheken voor alle worker-knooppunten. In deze stap moet u [ssh in uw headnode](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Daarna kunt u moet volgen de [CaffeOnSpark buildproces](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Hieronder ziet u het script dat kunt u CaffeOnSpark bij het maken van een aantal extra stappen. 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive

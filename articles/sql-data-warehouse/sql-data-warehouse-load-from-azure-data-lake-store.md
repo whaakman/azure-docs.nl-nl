@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Gegevens uit Azure Data Lake Store laden in SQL Data Warehouse
 Dit document biedt u alle stappen die u moet uw eigen gegevens van Azure Data Lake Store (ADLS) in SQL Data Warehouse laden met PolyBase.
@@ -56,7 +56,7 @@ PolyBase gebruikt externe T-SQL-objecten voor het definiëren van de locatie en 
 ###  <a name="create-a-credential"></a>Een referentie maken
 Voor toegang tot uw Azure Data Lake Store, moet u een databasehoofdsleutel nodig voor het versleutelen van uw geheime referentie is gebruikt in de volgende stap maakt.
 Vervolgens maakt u een databasereferentie binnen het bereik van, die de service principal referenties instellen in AAD opslaat. Noteer de credential-syntaxis verschilt voor mensen die PolyBase verbinding maken met Windows Azure Storage-Blobs hebt gebruikt.
-Als u wilt verbinding maken met Azure Data Lake Store, moet u **eerste** een Azure Active Directory-toepassing maken, maakt u een toegangssleutel en de App toegang verlenen tot de Azure Data Lake-resource. Instructies voor het uitvoeren van deze stappen bevinden [hier](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Als u wilt verbinding maken met Azure Data Lake Store, moet u **eerste** een Azure Active Directory-toepassing maken, maakt u een toegangssleutel en de App toegang verlenen tot de Azure Data Lake-resource. Instructies voor het uitvoeren van deze stappen bevinden [hier](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.

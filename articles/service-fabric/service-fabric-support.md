@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 0e4a2aa0ed7327a8ed19e9a716b0bd97abc71d5c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Opties voor Azure Service Fabric-ondersteuning
 
@@ -81,7 +81,7 @@ Hier vindt u de lijst met de Service Fabric-versies die worden ondersteund en de
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric-Preview versies - wordt niet ondersteund voor gebruik in productieomgevingen.
 Van tijd tot tijd brengen we versies die we feedback willen, belangrijke functies die worden uitgebracht als voorbeelden hebben. Deze preview-versies mag alleen worden gebruikt voor testdoeleinden. Uw productiecluster moet altijd een ondersteunde, stabiele, Service Fabric-versie worden uitgevoerd. Een preview-versie begint altijd met een primaire en secundaire versienummer van 255. Bijvoorbeeld, als er een Service Fabric versie 255.255.5703.949, die versie alleen moet worden gebruikt in testclusters en is Preview-versie. Deze preview-versies worden ook vermeld in de [Service Fabric-teamblog](https://blogs.msdn.microsoft.com/azureservicefabric) en details hebben op de functies die worden.
 
-Er is geen ondersteuningsoptie betaalde voor deze preview-versies. Gebruik een van de opties die worden vermeld onder [rapport Azure Service Fabric problemen](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) vragen of feedback geven.
+Er is geen ondersteuningsoptie betaalde voor deze preview-versies. Gebruik een van de opties die worden vermeld onder [rapport Azure Service Fabric problemen](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) vragen of feedback geven.
 
 ## <a name="next-steps"></a>Volgende stappen
 

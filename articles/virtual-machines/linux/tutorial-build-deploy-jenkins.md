@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Uw app implementeren op Linux VM's met behulp van Jenkins en Team Services
 
@@ -40,7 +40,7 @@ U gaat het volgende doen:
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-* U moet toegang tot een Jenkins-server. Als u een server Jenkins nog geen hebt gemaakt, raadpleegt u [maken van een model Jenkins op een virtuele machine van Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* U moet toegang tot een Jenkins-server. Als u een server Jenkins nog geen hebt gemaakt, raadpleegt u [maken van een model Jenkins op een virtuele machine van Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Aanmelden bij uw Team Services-account (**https://{youraccount}.visualstudio.com**). 
   U krijgt een [gratis account Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ U gaat het volgende doen:
   > [!NOTE]
   > Zie voor meer informatie [verbinding maken met het Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  U moet een virtuele Linux-machine voor het implementatiedoel van een.  Zie voor meer informatie [maken en beheren van virtuele Linux-machines met de Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  U moet een virtuele Linux-machine voor het implementatiedoel van een.  Zie voor meer informatie [maken en beheren van virtuele Linux-machines met de Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie voor meer informatie [netwerkbeveiligingsgroepen met de Azure portal maken](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie voor meer informatie [netwerkbeveiligingsgroepen met de Azure portal maken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>De voorbeeldapp downloaden
 
@@ -132,7 +132,7 @@ U moet een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts
    > In de volgende procedure moet u voor het installeren van de vereisten en *het script niet uitvoeren met sudo-machtigingen.*
 
 1. Open de **Releases** tabblad van de **bouwen &amp; Release** hub, open **implementatiegroepen**, en selecteer **+ nieuw**.
-2. Voer een naam voor de implementatiegroep en een optionele beschrijving. Selecteer vervolgens **maken**.
+2. Voer een naam voor de implementatiegroep en een optionele beschrijving. Selecteer vervolgens **Maken**.
 3. Kies het besturingssysteem voor de virtuele doelmachine van uw implementatie. Selecteer bijvoorbeeld **Ubuntu 16.04 +**.
 4. Selecteer **gebruiken een persoonlijk toegangstoken in het script voor verificatie**.
 5. Selecteer de **systeemvereisten** koppeling. De vereisten voor het besturingssysteem installeren.
@@ -169,7 +169,7 @@ De definitie van de release in Team Services maken:
 5. Open de URL van een van de servers die u hebt toegevoegd aan de implementatiegroep van uw in uw browser. Voer bijvoorbeeld **http://{your-server-ip-address}**.
 6. Ga naar de bron Git-opslagplaats en wijzigen van de inhoud van de **h1** in de kop van het bestand app/views/index.jade met gewijzigde tekst.
 7. Uw wijzigingen worden doorgevoerd.
-8. Na een paar minuten ziet u een nieuwe release gemaakt op de **Releases** pagina van het Team Services of Team Foundation Server. Open de release voor de implementatie plaatsvinden. Gefeliciteerd!
+8. Na een paar minuten ziet u een nieuwe release gemaakt op de **Releases** pagina van het Team Services of Team Foundation Server. Open de release voor de implementatie plaatsvinden. Gefeliciteerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

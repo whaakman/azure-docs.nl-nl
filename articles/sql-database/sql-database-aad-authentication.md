@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 3493ac89775bfccc0139c5cbefc046e9fef35bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Azure Active Directory-verificatie gebruiken voor verificatie met SQL-Database of SQL Data Warehouse
 Azure Active Directory-verificatie is een mechanisme van verbinding maken met Microsoft Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). Azure AD-verificatie, kunt u de identiteit van gebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt er één plaats is voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen. Voordelen zijn onder andere:
@@ -100,7 +100,7 @@ Azure Active Directory-verificatie ondersteunt de volgende methoden van verbindi
 * [Microsoft JDBC-stuurprogramma 6.0 voor SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) ondersteunt Azure AD-verificatie. Zie ook [instellen van de verbindingseigenschappen](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase kan niet verifiëren met behulp van Azure AD-verificatie.   
 * Azure AD-verificatie voor SQL-Database wordt ondersteund door de Azure-portal **Database importeren** en **Database exporteren** blades. Importeren en exporteren met behulp van Azure AD-verificatie wordt ook ondersteund van de PowerShell-opdracht.   
-* Azure AD-verificatie wordt ondersteund voor SQL-Database en SQL Data Warehouse door gebruik CLI. Zie voor meer informatie [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md) en [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
+* Azure AD-verificatie wordt ondersteund voor SQL-Database en SQL Data Warehouse door gebruik CLI. Zie voor meer informatie [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md) en [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor informatie over het maken en Azure AD te vullen en vervolgens Azure AD configureren met Azure SQL Database- of Azure SQL Data Warehouse, [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md).

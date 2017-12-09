@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux-extensie voor diagnostische gebruiken om te controleren van Logboeken en metrische gegevens
 
@@ -52,7 +52,7 @@ De configuratie van de downloadbare is slechts een voorbeeld; aanpassen aan uw e
 
 ### <a name="prerequisites"></a>Vereisten
 
-* **Azure Linux Agent versie 2.2.0 of hoger**. De meeste Azure VM Linux galerie met installatiekopieën zijn inclusief versie 2.2.7 of hoger. Voer `/usr/sbin/waagent -version` om te bevestigen dat de versie is geïnstalleerd op de virtuele machine. Als de virtuele machine is een oudere versie van de guest-agent uitgevoerd, voert u de [deze instructies](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) bij te werken.
+* **Azure Linux Agent versie 2.2.0 of hoger**. De meeste Azure VM Linux galerie met installatiekopieën zijn inclusief versie 2.2.7 of hoger. Voer `/usr/sbin/waagent -version` om te bevestigen dat de versie is geïnstalleerd op de virtuele machine. Als de virtuele machine is een oudere versie van de guest-agent uitgevoerd, voert u de [deze instructies](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) bij te werken.
 * **Azure CLI**. [Instellen van de Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) omgeving op uw computer.
 * De opdracht wget, als u dit nog niet hebt: Voer `sudo apt-get install wget`.
 * Een bestaande Azure-abonnement en een bestaand opslagaccount in het opslaan van de gegevens.
@@ -227,7 +227,7 @@ Deze structuur bevat verschillende blokken van instellingen voor de door de uitb
 
 Element | Waarde
 ------- | -----
-StorageAccount | De naam van het opslagaccount waarin gegevens worden geschreven door de extensie. Moet dezelfde naam als is opgegeven in de [beveiligde instellingen](#protected-settings).
+Opslagaccount | De naam van het opslagaccount waarin gegevens worden geschreven door de extensie. Moet dezelfde naam als is opgegeven in de [beveiligde instellingen](#protected-settings).
 mdsdHttpProxy | (optioneel) Hetzelfde als in de [beveiligde instellingen](#protected-settings). De openbare waarde wordt overschreven door de waarde voor de persoonlijke, als ingesteld. Proxy-instellingen met een geheim, zoals een wachtwoord, in plaats de [beveiligde instellingen](#protected-settings).
 
 De overige elementen worden beschreven in de volgende secties.
@@ -300,8 +300,8 @@ Voorbeelden van de metrische gegevens opgegeven in de sectie performanceCounters
 Deze optionele sectie bepaalt de verzameling van metrische gegevens. Onbewerkte voorbeelden worden samengevoegd voor elk [scheduledTransferPeriod](#metrics) voor het produceren van deze waarden:
 
 * gemiddelde
-* minimale
-* Maximum
+* minimum
+* maximum
 * laatste verzameld waarde
 * telling van onbewerkte voorbeelden om te berekenen van de statistische functie
 
@@ -309,10 +309,10 @@ Element | Waarde
 ------- | -----
 Put | (optioneel) Een door komma's gescheiden lijst met namen van Put aan welke LAD verzendt metrische resultaten geaggregeerd. Alle samengevoegde metrische gegevens worden gepubliceerd op elke vermelde sink. Zie [sinksConfig](#sinksconfig). Voorbeeld: `"EHsink1, myjsonsink"`.
 type | Geeft de werkelijke provider van de metrische gegevens.
-Klasse | Samen met 'teller', identificeert de specifieke metrische gegevens in de naamruimte van de provider.
+klasse | Samen met 'teller', identificeert de specifieke metrische gegevens in de naamruimte van de provider.
 Prestatiemeteritems | Samen met 'class', identificeert de specifieke metrische gegevens in de naamruimte van de provider.
 counterSpecifier | Identificeert de specifieke metrische gegevens in de naamruimte Azure metrische gegevens.
-Voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waarop de metriek is van toepassing of selecteert de aggregatie in alle exemplaren van dat object. Zie voor meer informatie de [ `builtin` metrische definities](#metrics-supported-by-builtin).
+voorwaarde | (optioneel) Hiermee selecteert u een specifiek exemplaar van het object waarop de metriek is van toepassing of selecteert de aggregatie in alle exemplaren van dat object. Zie voor meer informatie de [ `builtin` metrische definities](#metrics-supported-by-builtin).
 sampleRate | IS 8601-interval die bepaalt de snelheid waarmee onbewerkte voorbeelden voor deze metrische gegevens worden verzameld. Als niet is ingesteld, het interval voor gegevensverzameling is ingesteld door de waarde van [sampleRateInSeconds](#ladcfg). De kortste ondersteunde samplefrequentie is 15 seconden (PT15S).
 eenheid | Moet een van deze tekenreeksen: 'Count', 'Bytes', 'Seconden', 'Percentage', 'CountPerSecond', 'BytesPerSecond', 'Milliseconde'. Hiermee definieert u de eenheid voor de metriek. Gebruikers van de verzamelde gegevens verwacht de waarden van de verzamelde gegevens overeenkomen met deze eenheid. LAD negeert dit veld.
 Weergavenaam | Het label (in de taal die is opgegeven door de bijbehorende landinstelling) moet worden gekoppeld aan deze gegevens in Azure metrische gegevens. LAD negeert dit veld.
@@ -384,7 +384,7 @@ Element | Waarde
 ------- | -----
 naamruimte | (optioneel) De OMI-naamruimte waarbinnen de query moet worden uitgevoerd. Als u niets opgeeft, de standaardwaarde is "root/scx', geïmplementeerd door de [System Center platformoverschrijdende Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | De OMI-query moet worden uitgevoerd.
-Tabel | (optioneel) De tabel Azure-opslag in het opgegeven opslagaccount (Zie [beveiligde instellingen](#protected-settings)).
+tabel | (optioneel) De tabel Azure-opslag in het opgegeven opslagaccount (Zie [beveiligde instellingen](#protected-settings)).
 frequency | (optioneel) Het aantal seconden tussen het uitvoeren van de query. Standaardwaarde is 300 (5 minuten); minimumwaarde is 15 seconden.
 Put | (optioneel) Een door komma's gescheiden lijst met namen van aanvullende put waarnaar onbewerkte metrische voorbeeldresultaten moeten worden gepubliceerd. Er is geen aggregatie van deze voorbeelden onbewerkte wordt berekend door de uitbreiding of Azure metrische gegevens.
 
@@ -406,8 +406,8 @@ Hiermee bepaalt u het vastleggen van logboekbestanden. LAD nieuwe tekstregels va
 
 Element | Waarde
 ------- | -----
-Bestand | De volledige padnaam van het logbestand moeten worden gecontroleerd en vastgelegd. De padnaam moet één bestand; de naam Deze kan niet de naam van een map of jokertekens bevatten.
-Tabel | (optioneel) De Azure-opslag-tabel in het opgegeven opslagaccount (zoals opgegeven in de configuratie van beveiligde), waarin u nieuwe regels van de 'staart' van het bestand worden geschreven.
+bestand | De volledige padnaam van het logbestand moeten worden gecontroleerd en vastgelegd. De padnaam moet één bestand; de naam Deze kan niet de naam van een map of jokertekens bevatten.
+tabel | (optioneel) De Azure-opslag-tabel in het opgegeven opslagaccount (zoals opgegeven in de configuratie van beveiligde), waarin u nieuwe regels van de 'staart' van het bestand worden geschreven.
 Put | (optioneel) Een door komma's gescheiden lijst met namen van aanvullende put aan welke regels logboek is verzonden.
 
 Een 'tabel' of 'sinks', of beide moeten worden opgegeven.

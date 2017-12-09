@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 900447ab931f15e4d27aedd525eba7881ba813b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store voor prestaties afstemmen
 
@@ -46,13 +46,13 @@ Het knelpunt kan soms worden door de netwerkverbinding tussen de brongegevens en
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Gegevensopname hulpprogramma's voor maximale garandeert configureren
 
-Nadat u de bron-hardware hebt opgelost en network connectivity knelpunten hierboven, bent u klaar voor het configureren van de opname-hulpprogramma's. De volgende tabel bevat een overzicht van de instellingen voor de sleutel voor verschillende hulpprogramma's van populaire opname en biedt uitgebreide prestaties artikelen voor hen afstemmen.  Voor meer informatie over het hulpprogramma dat moet worden gebruikt voor uw scenario, gaat u naar dit [artikel](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios).
+Nadat u de bron-hardware hebt opgelost en network connectivity knelpunten hierboven, bent u klaar voor het configureren van de opname-hulpprogramma's. De volgende tabel bevat een overzicht van de instellingen voor de sleutel voor verschillende hulpprogramma's van populaire opname en biedt uitgebreide prestaties artikelen voor hen afstemmen.  Voor meer informatie over het hulpprogramma dat moet worden gebruikt voor uw scenario, gaat u naar dit [artikel](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
 | Hulpprogramma               | Instellingen     | Meer informatie                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Koppeling](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)   |
-| AdlCopy    | Azure Data Lake Analytics-eenheden  |   [Koppeling](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (toewijzen)   | [Koppeling](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Koppeling](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| AdlCopy    | Azure Data Lake Analytics-eenheden  |   [Koppeling](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (toewijzen)   | [Koppeling](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Koppeling](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | FS.Azure.Block.Size, -m (toewijzen)    |   [Koppeling](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 

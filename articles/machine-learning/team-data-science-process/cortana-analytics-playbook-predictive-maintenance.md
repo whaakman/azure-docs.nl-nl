@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor voorspeld onderhoud in ruimtevaart en andere bedrijven
 ## <a name="executive-summary"></a>Samenvatting
@@ -97,7 +97,7 @@ Vliegtuigmotoren zijn zeer gevoelige en dure stukjes apparatuur en engine onderd
 ##### <a name="business-value-of-the-predictive-model"></a>Zakelijke voordelen van het voorspellende model
 Een model met meerdere klasse-classificatie is die de kans op een fout als gevolg van een bepaald onderdeel in de volgende maand voorspelt gemaakt. Met behulp van deze oplossingen airlines onderdeel reparatiekosten te verlagen, verbeter de beschikbaarheid van onderdeel voorraad, vermindert de inventaris niveaus van gerelateerde elementen en verbeteren onderhoud plannen.
 
-### <a name="utilities"></a>Hulpprogramma 's
+### <a name="utilities"></a>Nutsbedrijven
 #### <a name="use-case-1-atm-cash-dispense-failure"></a>Gebruiksvoorbeeld 1: ATM geld afgezien is mislukt
 ##### <a name="business-problem-and-data-sources"></a>*Zakelijke probleem en gegevensbronnen*
 Leidinggevenden in asset intensieve branches vaak status dat primaire operationele risico voor hun bedrijf onverwachte fouten van hun activa is. Mislukte van machines zoals ATM's in de branche banking is bijvoorbeeld een zeer gangbaar probleem dat zich regelmatig voordoet. Dit soort problemen zorg voorspeld onderhoud oplossingen zeer wenselijk voor operators van deze machine. In deze gebruiksvoorbeeld is voorspelling probleem de kans dat een ATM-geld intrekking transactie wordt onderbroken vanwege een fout in de dispenser geld zoals een papierstoring of een fout met onderdeel wilt berekenen. Belangrijke gegevensbronnen voor deze aanvraag zijn sensormetingen waarmee metingen verzameld terwijl geld opmerkingen zijn wordt aangeboden en ook onderhoudsrecords verzameld gedurende een bepaalde periode. Sensorgegevens opgenomen sensormetingen per elke transactie is voltooid en ook sensormetingen per elke opmerking vrijgesteld. De metingen van de opgegeven metingen sensor zoals onderbrekingen tussen de opmerkingen, de dikte, houd er rekening mee aankomst afstand enzovoort. Onderhoud gegevens opgenomen foutcodes en herstelgegevens. Deze zijn gebruikt voor het identificeren van mislukte aanvragen.
@@ -165,7 +165,7 @@ Het is mogelijk en meestal het geval dat de geschiedenis van de fout is opgenome
 
 Enkele voorbeelden van hierboven gegevenselementen van gebruiksvoorbeelden zijn:
 
-Geschiedenis van de fout: bestrijden vertraging datums, vliegtuig onderdeel fout datums en typen, ATM geld intrekking transactie fouten, train/lift deur fouten, bedient schijf vervanging volgorde datums, o turbine fout datums en Circuitonderbreker opdracht fouten.
+Geschiedenis van de fout: Flight vertraging datums, vliegtuig onderdeel fout datums en typen, ATM geld intrekking transactie fouten, train/lift deur fouten, bedient schijf vervanging volgorde datums, o turbine fout datums en Circuitonderbreker opdracht fouten.
 
 Geschiedenis van onderhoudsmodus: vlucht foutenlogboeken, ATM-transactielogboeken fout trainen onderhoudsrecords waaronder type onderhoud, korte beschrijving enz. en Circuitonderbreker onderhoudsrecords.
 
@@ -230,7 +230,7 @@ Tijdens het genereren van de functie moeten een aantal belangrijke stappen zoals
 
 De laatste functietabel nadat functie engineering stappen besproken in de vorige sectie zien als het schema van de volgende voorbeeld eruit wanneer tijdseenheid per dag:
 
-| Asset-ID | Time | Kolommen van de functie | Label |
+| Activa-id | Time | Kolommen van de functie | Label |
 | --- | --- | --- | --- |
 | 1 |1 dag | | |
 | 1 |Dag 2 | | |

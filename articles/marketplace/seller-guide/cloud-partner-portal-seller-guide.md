@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Verkopershandleiding voor Azure Marketplace
 
 Welkom bij de Azure Marketplace verkoper guide. Deze handleiding is ontworpen voor zakelijke gebruikers en productmanagers op onafhankelijke softwareleveranciers (ISV's) die geïnteresseerd zijn in hun installatiekopieën van virtuele machines Azure gecertificeerd en beheerde toepassingen voor IT-professionals en ontwikkelaars verkopen. Met Azure-klanten over de hele wereld, [Azure Marketplace](https://azuremarketplace.microsoft.com/) geweldige reach en blootstelling voor uw producten kunnen bieden.
 
 > [!NOTE]
-> Als u geïnteresseerd in verkopen bent uw [beheerde toepassing](https://docs.microsoft.com/en-us/azure/managed-applications/overview), u moet de instructies om deze in Azure Marketplace [hier](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Als u geïnteresseerd in verkopen bent uw [beheerde toepassing](https://docs.microsoft.com/azure/managed-applications/overview), u moet de instructies om deze in Azure Marketplace [hier](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Als u geïnteresseerd bent in uw klaar software as a (SaaS)-serviceproducten te verkopen _IT-professionals en ontwikkelaars_, u kunt bereiken saas-on-amp@microsoft.com voor meer informatie over uw opties.
@@ -100,7 +100,7 @@ Afbeelding 1: Proces voor het gebruiken van Azure Marketplace
 Afhankelijk van de werkbelasting (virtuele machine of beheerde toepassing) die u wilt publiceren, wordt u een ander proces voor het publiceren van uw aanbieding volgen. De volgende inhoud is gericht op de publicatie _aanbiedingen van de virtuele machine_.
 
 > [!NOTE]
-> Als u geïnteresseerd in verkopen bent uw [beheerde toepassing](https://docs.microsoft.com/en-us/azure/managed-applications/overview), u moet de instructies om deze in Azure Marketplace [hier](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Als u geïnteresseerd in verkopen bent uw [beheerde toepassing](https://docs.microsoft.com/azure/managed-applications/overview), u moet de instructies om deze in Azure Marketplace [hier](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Als u geïnteresseerd bent in uw klaar software as a (SaaS)-serviceproducten te verkopen _IT-professionals en ontwikkelaars_, u kunt bereiken saas-on-amp@microsoft.com voor meer informatie over uw opties.
@@ -238,7 +238,7 @@ Gedetailleerde rapporten weergeven klantgegevens, zoals de bedrijfsnaam en geogr
 - E-mail
 - Bedrijfsnaam
 - TransactionDate
-- SubscriptionName
+- Abonnementsnaam
 - AzureSubscriptionId (alleen Omslagstelsel klanten)
 - CloudInstanceName
 - OrderCount

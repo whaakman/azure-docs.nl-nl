@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Beveiliging bijsnijden met Azure Search
 
@@ -108,13 +108,13 @@ Als u bijwerken van een bestaand document met de lijst met groepen wilt, kunt u 
 }
 ```
 
-Voor volledige informatie over het toevoegen of bijwerken van documenten, kunt u lezen [bewerken van documenten](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Voor volledige informatie over het toevoegen of bijwerken van documenten, kunt u lezen [bewerken van documenten](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Het beveiligingsfilter toepassen
 
 Om documenten op basis van trim `group_ids` toegang, moet u een zoekopdracht met de opdracht een `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, waarbij 'group_id1 group_id2...' zijn de groepen waartoe de verlener van de aanvraag zoeken behoort.
 Dit filter komt overeen met alle documenten waarvoor de `group_ids` veld bevat een van de opgegeven id's.
-Voor volledige informatie over het zoeken naar documenten met behulp van Azure Search kunt u lezen [documenten zoeken](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Voor volledige informatie over het zoeken naar documenten met behulp van Azure Search kunt u lezen [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Houd er rekening mee dat dit voorbeeld ziet u hoe u documenten met behulp van een POST-aanvraag zoeken.
 
 Probleem met de HTTP POST-aanvraag:

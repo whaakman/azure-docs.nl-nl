@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>Offline FairPlay Streaming
 Microsoft Azure Media Services biedt een goed ontworpen set [inhoud beveiligingsservices](https://azure.microsoft.com/services/media-services/content-protection/), bestrating:
@@ -189,7 +189,7 @@ Enkele veelgestelde vragen voor probleemoplossing:
 - **Wat de laatste parameter staan in de volgende API voor de offlinemodus FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-De documentatie voor deze API vindt [hier](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). De parameter geeft de duur van offline verhuur met uur als eenheid.
+De documentatie voor deze API vindt [hier](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). De parameter geeft de duur van offline verhuur met uur als eenheid.
 - **Wat is de gedownload of offline bestandsstructuur op iOS-apparaten?** De structuur van het gedownloade bestand op een iOS-apparaat ziet eruit als hieronder (schermopname). `_keys`map winkels FPS licenties, één archief-bestand voor elke host van de service licentie hebt gedownload. `.movpkg`map slaat audio en video-inhoud. De eerste map met de naam die eindigt met een streepje gevolgd door een numerieke bevat video-inhoud. De numerieke waarde is 'PeakBandwidth' van de video vertoningen. De tweede map met de naam die eindigt met een streepje gevolgd door 0 bevat audio-inhoud. De derde map "Gegevens" genoemd, bevat de master afspeellijst FPS inhoud. Boot.XML biedt een volledige beschrijving van `.movpkg` map inhoud (Zie hieronder voor een voorbeeld van een boot.xml-bestand).
 
 ![Offline FairPlay iOS bestandsstructuur voorbeeld-App](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

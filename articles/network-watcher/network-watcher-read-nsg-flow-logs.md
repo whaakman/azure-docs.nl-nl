@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 1eea88827733e44bd0ebd88ab5179f4d3a7b6b04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: daf4e70767d59a602d7ff1a2099af904b314c5f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="read-nsg-flow-logs"></a>NSG lezen stroom Logboeken
 
@@ -35,7 +35,7 @@ Voordat u begint, kunt u Network Security groep stromen-logboekregistratie is in
 
 ## <a name="retrieve-the-block-list"></a>De lijst met geblokkeerde ophalen
 
-De volgende PowerShell stelt u de variabelen die nodig zijn de NSG stroom logboek blob opvragen en weergeven van de blokken binnen de [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok-blob. Het script bevat geldige waarden voor uw omgeving bijwerken.
+De volgende PowerShell stelt u de variabelen die nodig zijn de NSG stroom logboek blob opvragen en weergeven van de blokken binnen de [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok-blob. Het script bevat geldige waarden voor uw omgeving bijwerken.
 
 ```powershell
 # The SubscriptionID to use

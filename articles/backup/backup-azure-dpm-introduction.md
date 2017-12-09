@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Met DPM voorbereiden op het maken van back-ups van workloads in Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Dit artikel bevat een inleiding tot Microsoft Azure Backup gebruiken om uw Syste
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) back-ups van gegevens van bestands- en toepassingsgegevens. Meer informatie over ondersteunde werkbelastingen vindt [hier](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). Gegevensback-ups naar DPM worden opgeslagen op tape op schijf of een back-up naar Azure met Microsoft Azure Backup. DPM communiceert met Azure Backup als volgt:
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) back-ups van gegevens van bestands- en toepassingsgegevens. Meer informatie over ondersteunde werkbelastingen vindt [hier](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Gegevensback-ups naar DPM worden opgeslagen op tape op schijf of een back-up naar Azure met Microsoft Azure Backup. DPM communiceert met Azure Backup als volgt:
 
 * **DPM geïmplementeerd als een fysieke server of on-premises virtuele machine** — als DPM wordt geïmplementeerd als een fysieke server of als een lokale Hyper-V virtuele machine, u kunt back-ups naar een Recovery Services-kluis naast de schijf en tape back-up.
 * **DPM geïmplementeerd als een virtuele machine van Azure** : van System Center 2012 R2 met Update 3, kan DPM worden geïmplementeerd als een virtuele machine van Azure. Als DPM wordt geïmplementeerd als een Azure virtuele machine die u kunt back-ups naar Azure-schijven gekoppeld aan de DPM Azure virtuele machine of u de opslag van gegevens kan offloaden door een back-up naar een Recovery Services-kluis.
@@ -66,7 +66,7 @@ Hier volgen enkele belangrijke definities voor back-up naar Azure voor DPM:
 
 1. **Referentie-kluis** : Kluisreferenties nodig zijn om te verifiëren van de machine voor het verzenden van back-upgegevens naar een geïdentificeerde kluis in de Azure Backup-service. Het kan worden gedownload uit de kluis en is geldig voor 48hrs.
 2. **Wachtwoordzin** : wachtwoordzin wordt gebruikt voor het versleutelen van de back-ups in de cloud. Sla het bestand op een veilige locatie als dit nodig tijdens een herstelbewerking wordt uitgevoerd is.
-3. **Beveiliging PINCODE** : als u hebt ingeschakeld de [beveiligingsinstellingen](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) van de kluis BEVEILIGINGSCODE is vereist voor het uitvoeren van kritieke back-upbewerkingen. Deze meervoudige verificatie wordt nog een beveiligingslaag toegevoegd. 
+3. **Beveiliging PINCODE** : als u hebt ingeschakeld de [beveiligingsinstellingen](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) van de kluis BEVEILIGINGSCODE is vereist voor het uitvoeren van kritieke back-upbewerkingen. Deze meervoudige verificatie wordt nog een beveiligingslaag toegevoegd. 
 4. **Herstelmap** , is de wachtwoordzin op te geven die de back-ups van cloud tijdelijk naar cloud herstelbewerkingen zijn gedownload. De grootte moet ongeveer gelijk aan de grootte van de back-items die u wilt herstellen parallel.
 
 
