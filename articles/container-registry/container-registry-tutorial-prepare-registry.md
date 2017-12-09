@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 9503dc4a1fa8bc7773677de1673fed3abe1c1b51
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Een Azure container geogerepliceerde register voorbereiden
 
@@ -93,7 +93,7 @@ Wanneer de replicatie voltooid is, duidt op de portal *gereed* voor beide regio'
 
 Nu dat u geo-replicatie hebt geconfigureerd, de installatiekopie van een container maken en dit doorgeven aan het register. U moet eerst aanmelden bij uw ACR-exemplaar voordat u installatiekopieën aan. Met [Basic, Standard en Premium-SKU's](container-registry-skus.md), kunt u met behulp van uw Azure identiteit verifiëren.
 
-Gebruik de [az acr aanmelding](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) opdracht om te verifiëren en de referenties voor het register in de cache. Vervang `<acrName>` met de naam van het register die u in de vorige stappen hebt gemaakt.
+Gebruik de [az acr aanmelding](https://docs.microsoft.com/cli/azure/acr#az_acr_login) opdracht om te verifiëren en de referenties voor het register in de cache. Vervang `<acrName>` met de naam van het register die u in de vorige stappen hebt gemaakt.
 
 ```azurecli
 az acr login --name <acrName>

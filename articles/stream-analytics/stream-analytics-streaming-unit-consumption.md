@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
@@ -27,7 +27,7 @@ Azure Stream Analytics maakt een aggregatie van de prestaties 'gewicht' van een 
 
 Om te kunnen bereiken lage latentie streaming verwerking, wordt in Azure Stream Analytics-taken alle bewerkingen uitvoeren in het geheugen. Als u onvoldoende geheugen, mislukt de streaming-taak. Als gevolg hiervan voor een productietaak is het belangrijk om te controleren van het Resourcegebruik van een streaming-taak en zorg ervoor dat er onvoldoende bronnen om te voorkomen dat de 24/7-taken zijn toegewezen.
 
-De meetwaarde is een getal van 0% percentage tot 100%. De meetwaarde SU % gebruik is voor een streaming-taak met minimale footprint meestal tussen 10 tot 20%. Het is raadzaam de metriek hieronder 80% om incidentele pieken rekening te houden.  U kunt een waarschuwing instellen voor de metriek (Zie [hier metrische waarschuwingen instellen](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+De meetwaarde is een getal van 0% percentage tot 100%. De meetwaarde SU % gebruik is voor een streaming-taak met minimale footprint meestal tussen 10 tot 20%. Het is raadzaam de metriek hieronder 80% om incidentele pieken rekening te houden.  U kunt een waarschuwing instellen voor de metriek (Zie [hier metrische waarschuwingen instellen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ Om de problemen veroorzaakt door hoge kardinaliteit in de vorige query ameliorat
 
 Wanneer de query is gepartitioneerd, wordt deze verspreid over verschillende knooppunten. Hierdoor het aantal clusterid binnenkort in elk knooppunt beperkt waardoor de kardinaliteit van de groep met operator. 
 
-Event Hub partities moeten worden gepartitioneerd door de groeperingssleutel om te voorkomen dat de noodzaak van een verkleiningsstap. Aanvullende gegevens worden behandeld [hier](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Event Hub partities moeten worden gepartitioneerd door de groeperingssleutel om te voorkomen dat de noodzaak van een verkleiningsstap. Aanvullende gegevens worden behandeld [hier](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Tijdelijke join
 De grootte van de status van een tijdelijke join is evenredig met het aantal gebeurtenissen in de tijdelijke Verjaardag ruimte van de join, invoer snelheid van gebeurtenissen vermenigvuldigen met de grootte van de verjaardag kamer is. 
 

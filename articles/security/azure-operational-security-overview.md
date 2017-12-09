@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 Azure bedrijfsbeveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure. [Azure bedrijfsbeveiliging](https://docs.microsoft.com/azure/security/azure-operational-security) is een framework waarin de kennis die is opgedaan met tal van mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), de Microsoft Security Response Programma Center en grondige kennis van de cyberbeveiliging beveiliging threat Liggend.
@@ -158,5 +158,5 @@ Professionals in volwassen DevOps vast aantal van de volgende procedures. Deze p
 Zie voor meer informatie over OMS beveiligings- en Audit-oplossing, de volgende artikelen:
 
 - [Operations Management Suite | Beveiliging en naleving](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Bewaking en Responding to Security Alerts in de beveiliging van Operations Management Suite en Audit oplossing](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Bewaking van Resources in de beveiliging van Operations Management Suite en Audit oplossing](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Bewaking en Responding to Security Alerts in de beveiliging van Operations Management Suite en Audit oplossing](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Bewaking van Resources in de beveiliging van Operations Management Suite en Audit oplossing](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

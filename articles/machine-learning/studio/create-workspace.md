@@ -1,24 +1,22 @@
 ---
-title: Een Machine Learning-werkruimte maken | Microsoft Docs
+title: Een Machine Learning Studio-werkruimte maken | Microsoft Docs
 description: Het maken van een werkruimte voor Azure Machine Learning Studio
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte maken en delen
 Dit menukoppelingen naar onderwerpen waarin wordt beschreven hoe u de verschillende gegevens wetenschappelijke omgevingen gebruikt door de Cortana Analytics proces (CAP's).
@@ -39,16 +37,16 @@ U moet een Machine Learning-werkruimte hebt voor het gebruik van Azure Machine L
 
 2. Klik op **+ nieuw**
 
-3. Selecteer **Intelligence en analyse**, klikt u op **Machine Learning-werkruimte**, klikt u vervolgens op **maken**
+3. Typ in het zoekvak **Machine Learning Studio-werkruimte** en selecteer het overeenkomende item. Selecteer Klik **maken** aan de onderkant van de pagina.
 
-4. Voer uw werkruimtegegevens
+4. Voer de werkruimtegegevens van uw:
 
     - De *Werkruimtenaam* mogelijk maximaal 260 tekens lang zijn, niet eindigen met een spatie. De naam kan niet deze tekens niet bevatten:`< > * % & : \ ? + /`
     - De *web service-abonnement* u kiest (of maken), samen met de bijbehorende *prijscategorie* u selecteert, wordt gebruikt als u web-services uit deze werkruimte implementeert.
 
     ![Maak een nieuwe werkruimte](./media/create-workspace/create-new-workspace.png)
 
-5. Klik op **Maken**.
+5. Klik op **Create**.
 
 Zodra de werkruimte is geïmplementeerd, kunt u deze kunt openen in Machine Learning Studio.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Uw abonnement op Azure betalen naar gebruik voor een andere aanbieding wijzigen
 
@@ -29,7 +29,7 @@ Als een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/)
 
 ## <a name="whats-supported"></a>Wat wordt ondersteund:
 
-| Van | Handeling |
+| Vanaf | Handeling |
 | --- | --- |
 | Betalen per gebruik |[Betalen naar gebruik ontwikkelen en testen](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Betalen per gebruik |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
@@ -63,7 +63,7 @@ Als een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/)
 1. U kunt de naam van uw abonnement kunt wijzigen. Standaard wordt deze instellen op de nieuwe aanbiedingsnaam. Klik op **Switch bieden** om het proces te voltooien.
 
    ![Klik op de groene knop](./media/billing-how-to-switch-azure-offer/confirmpage.png)
-1. Success! Uw abonnement wordt nu overgeschakeld naar de nieuwe aanbieding.
+1. Voltooid Uw abonnement wordt nu overgeschakeld naar de nieuwe aanbieding.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -105,7 +105,7 @@ Op de dag dat u wilt overschakelen, wordt een factuur gegenereerd voor alle open
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kan ik migreren van betalen naar gebruik voor [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) of [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Als u wilt migreren naar de CSP, Zie [Azure Pa's-als-u-Go Abonnementmigratie met CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Als u wilt migreren naar de CSP, Zie [Azure Pa's-als-u-Go Abonnementmigratie met CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Als u wilt migreren naar EA, hebt u uw registratie-beheerder uw account toevoegen aan de EA. Volg de instructies in de uitnodiging e-mail voor uw abonnementen verplaatst onder EA inschrijving hebt. Zie voor meer informatie, [koppelen van een bestaand Account](https://ea.azure.com/helpdocs/associateExistingAccount) in de portal EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Kan ik gegevens en services migreren naar een nieuw abonnement?

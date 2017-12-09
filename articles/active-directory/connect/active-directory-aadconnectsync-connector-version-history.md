@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 6699f19f0dbd20ca4bafba16b16b006bb03ec405
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connector-version-release-history"></a>Releasegeschiedenis van connectorversie
 De Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
@@ -44,7 +44,7 @@ Verwante koppelingen:
 
 * Lotus Notes:
   * Aangepaste certifiers filteroptie
-  * Importeren van de klasse ImportOperations werd de definitie van welke bewerkingen kunnen worden uitgevoerd in de modus 'Weergaven' en die in de zoekmodus opgelost.
+  * Importeren van de klasse ImportOperations vast de definitie van welke bewerkingen kunnen worden uitgevoerd in de modus 'Weergaven' en die in de zoekmodus.
 * Algemene LDAP:
   * DN-naam OpenLDAP Directory gebruikt als anker in plaats van entryUUI. Nieuwe opties GLDAP-connector waarmee anker wijzigen
 * Algemene SQL:

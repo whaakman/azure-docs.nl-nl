@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Controlelijst voor de Azure operationele beveiliging
 Een toepassing in Azure implementeren is snel, eenvoudig en rendabele. Voordat u implementeert cloudtoepassing in productie nuttig om te hebben van een controlelijst om te helpen bij het evalueren van uw toepassing op basis van een lijst van operationele beveiliging van essentiële en aanbevolen acties voor u te overwegen.
@@ -52,6 +52,6 @@ Veel organisaties hebt geïmplementeerd en hun cloud-toepassingen in Azure een b
 ## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u kennis gemaakt met de oplossing Beveiliging en controle van OMS. Raadpleeg de volgende artikelen voor meer informatie over OMS Beveiliging:
 
-- [Overzicht van operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview).
+- [Overzicht van operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Ontwerp- en operationele veiligheid](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Azure Security Center plannen en bewerkingen](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

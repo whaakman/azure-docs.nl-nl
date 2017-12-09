@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Storm oplossen met behulp van Azure HDInsight
 
@@ -91,7 +91,7 @@ Er zijn een storm-binaire bestanden voor de huidige HDP-stack in /usr/hdp/curren
  
 Er is mogelijk meerdere binaire bestanden voor specifieke HDP versies in /usr/hdp (bijvoorbeeld /usr/hdp/2.5.0.1233/storm). De map /usr/hdp/current/storm-client is symlinked naar de nieuwste versie die wordt uitgevoerd op het cluster.
 
-Zie voor meer informatie [verbinding maken met een HDInsight-cluster via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [Storm](http://storm.apache.org/).
+Zie voor meer informatie [verbinding maken met een HDInsight-cluster via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) en [Storm](http://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Hoe bepaal ik de implementatietopologie van een Storm-cluster
 Bepaal eerst alle onderdelen die zijn geïnstalleerd met HDInsight Storm. Een Storm-cluster bestaat uit vier categorieën van knooppunt:
@@ -127,10 +127,10 @@ Storm worker-knooppunten uitvoeren van de volgende services:
 Zie de volgende bronnen voor meer informatie over het gebruik van Storm event hub spout JAR-bestanden met uw topologie.
  
 ### <a name="java-based-topology"></a>Op basis van Java-topologie
-[Procesgebeurtenissen van Azure Event Hubs met Storm op HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology) (Gebeurtenissen uit Azure Event Hubs verwerken met Storm op HDInsight (Java))
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-topologie (Mono op HDInsight 3.4 + Linux Storm-clusters) gebaseerd
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology) (Gebeurtenissen uit Azure Event Hubs verwerken met Storm op HDInsight (C#))
+[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology) (Gebeurtenissen uit Azure Event Hubs verwerken met Storm op HDInsight (C#))
  
 ### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Meest recente Storm event hub spout binaire bestanden voor HDInsight 3.5 + Linux Storm-clusters
 Zie voor meer informatie over het gebruik van de meest recente Storm event hub spout die geschikt is voor HDInsight 3.5 + Linux Storm-clusters, de mvn-opslagplaats [Leesmij-bestand](https://github.com/hdinsight/mvn-repo/blob/master/README.md).

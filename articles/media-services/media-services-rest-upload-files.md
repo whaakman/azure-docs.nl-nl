@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 955356ffe6fc524c1528364add7e2c2a336137b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f198de0bf212f4ae566193954a319bece1e421f6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Bestanden uploaden naar een Media Services-account met behulp van REST
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ In Media Services uploadt u de digitale bestanden naar (of neemt u deze op in) e
 > 
 > * Media Services gebruikt de waarde van de eigenschap IAssetFile.Name tijdens het bouwen van URL's voor de streaming-inhoud (bijvoorbeeld http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Om deze reden is procent codering niet toegestaan. De waarde van de **naam** eigenschap kan niet een van de volgende hebben [procent-encoding-gereserveerde tekens](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] '. Bovendien kunnen alleen er een '.' voor de bestandsnaamextensie.
 > * De lengte van de naam mag niet groter zijn dan 260 tekens zijn.
-> * Er is een limiet voor de maximale bestandsgrootte die wordt ondersteund voor verwerking in Media Services. Raadpleeg [dit onderwerp](media-services-quotas-and-limitations.md) voor meer informatie over de maximale bestandsgrootte.
+> * Er is een limiet voor de maximale bestandsgrootte die wordt ondersteund voor verwerking in Media Services. Zie [dit](media-services-quotas-and-limitations.md) voor meer informatie over de beperking voor de bestandsgrootte.
 > 
 
 De algemene werkstroom voor het uploaden van de activa is onderverdeeld in de volgende secties:
@@ -54,9 +54,6 @@ AMS kunt u activa in bulk uploaden. Zie [deze](media-services-rest-upload-files.
 
 Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI.
-
 ## <a name="upload-assets"></a>Uploaden van activa
 
 ### <a name="create-an-asset"></a>Maak een asset
@@ -65,16 +62,16 @@ Een actief is een container voor meerdere typen of sets van objecten in Media Se
 
 Een van de eigenschappen die u kunt opgeven wanneer het maken van een asset is **opties**. **Opties** is een opsommingswaarde die de versleutelingsopties dat een Asset kan worden gemaakt met beschrijft. Een geldige waarde is een van de waarden uit de lijst hieronder niet een combinatie van waarden. 
 
-* **Geen** = **0**: er wordt geen versleuteling wordt gebruikt. Dit is de standaardwaarde. Houd er rekening mee dat wanneer u deze optie uw inhoud wordt niet beveiligd tijdens de overdracht of in rust in de opslag.
+* **Geen** = **0**: er wordt geen versleuteling wordt gebruikt. Dit is de standaardwaarde. Wanneer u deze optie wordt de inhoud is niet beveiligd de overdracht of in rust in de opslag.
     Als u een MP4-bestand wilt leveren via progressief downloaden, gebruikt u deze optie. 
 * **StorageEncrypted** = **1**: Geef op of u voor uw bestanden moeten worden versleuteld met AES-256-bits codering voor uploaden en opslag.
   
     Als uw asset opslag versleuteld is, moet u het leveringsbeleid voor Assets configureren. Zie voor meer informatie [leveringsbeleid voor Assets configureren](media-services-rest-configure-asset-delivery-policy.md).
 * **CommonEncryptionProtected** = **2**: als u van bestanden die zijn beveiligd met een gemeenschappelijke coderingsmethode (zoals PlayReady uploaden) opgeven. 
-* **EnvelopeEncryptionProtected** = **4**: opgeven als u HLS versleuteld met AES-bestanden wilt uploaden. Houd er rekening mee dat de bestanden moeten zijn gecodeerd en versleuteld door Transform Manager.
+* **EnvelopeEncryptionProtected** = **4**: opgeven als u HLS versleuteld met AES-bestanden wilt uploaden. De bestanden zijn moeten gecodeerd en versleuteld door Transform Manager.
 
 > [!NOTE]
-> Als uw asset kan versleuteling gebruiken wilt, moet u een **ContentKey** en koppel deze aan uw asset zoals beschreven in het volgende onderwerp:[het maken van een ContentKey](media-services-rest-create-contentkey.md). Nadat u de bestanden in de asset uploadt, moet u de eigenschappen van de versleuteling bijwerken op de **AssetFile** entiteit met de waarden die u hebt verkregen tijdens de **Asset** versleuteling. Dit doen met behulp van de **samenvoegen** HTTP-aanvraag. 
+> Als uw asset versleuteling gebruikt, moet u een **ContentKey** en koppel deze aan uw asset zoals beschreven in het volgende artikel: [het maken van een ContentKey](media-services-rest-create-contentkey.md). Nadat u de bestanden in de asset uploadt, moet u de eigenschappen van de versleuteling bijwerken op de **AssetFile** entiteit met de waarden die u hebt verkregen tijdens de **Asset** versleuteling. Dit doen met behulp van de **samenvoegen** HTTP-aanvraag. 
 > 
 > 
 
@@ -89,7 +86,7 @@ Het volgende voorbeeld laat zien hoe een asset te maken.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
@@ -127,9 +124,9 @@ Als dit lukt, wordt het volgende geretourneerd:
 ### <a name="create-an-assetfile"></a>Een AssetFile maken
 De [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entiteit vertegenwoordigt een video of audio-bestand dat is opgeslagen in een blob-container. Een assetbestand is altijd gekoppeld aan een asset en een asset kan een of meer assetbestanden bevatten. De taak Media Services-Encoder mislukt als een object van het bestand asset niet gekoppeld aan een digitaal bestand in een blob-container is.
 
-Houd er rekening mee dat de **AssetFile** exemplaar en de werkelijke mediabestand zijn twee verschillende objecten. Het exemplaar AssetFile bevat metagegevens over het mediabestand terwijl het mediabestand de werkelijke media-inhoud bevat.
+De **AssetFile** exemplaar en de werkelijke mediabestand zijn twee verschillende objecten. Het exemplaar AssetFile bevat metagegevens over het mediabestand terwijl het mediabestand de werkelijke media-inhoud bevat.
 
-Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de **samenvoegen** HTTP-aanvraag voor de AssetFile bijgewerkt met gegevens over uw mediabestand (zoals later in het onderwerp). 
+Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de **samenvoegen** HTTP-aanvraag voor de AssetFile bijgewerkt met gegevens over uw mediabestand (zoals later in dit artikel). 
 
 **HTTP-aanvraag**
 
@@ -140,7 +137,7 @@ Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 
@@ -189,9 +186,9 @@ Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Het AccessPolicy maken met de machtiging schrijven.
 
 >[!NOTE]
->Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit](media-services-dotnet-manage-entities.md#limit-access-policies) onderwerp voor meer informatie.
+>Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Zie voor meer informatie [dit](media-services-dotnet-manage-entities.md#limit-access-policies) artikel.
 
-Voordat u bestanden uploadt naar blobopslag, de toegang beleid rechten instellen voor het schrijven naar een asset. POST een HTTP-aanvraag naar de entiteitset AccessPolicies daarvoor. Een waarde DurationInMinutes tijdens het maken van definiëren of ontvangt u een 500 Interne Server foutbericht terug in het antwoord. Zie voor meer informatie over AccessPolicies [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Voordat u bestanden uploadt naar blobopslag, de toegang beleid rechten instellen voor het schrijven naar een asset. POST een HTTP-aanvraag naar de entiteitset AccessPolicies daarvoor. Een waarde DurationInMinutes tijdens het maken van definiëren of foutbericht een 500 Interne Server terug in het antwoord. Zie voor meer informatie over AccessPolicies [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 Het volgende voorbeeld ziet u hoe een AccessPolicy maken:
 
@@ -204,7 +201,7 @@ Het volgende voorbeeld ziet u hoe een AccessPolicy maken:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -237,7 +234,7 @@ Het volgende voorbeeld ziet u hoe een AccessPolicy maken:
     }
 
 ### <a name="get-the-upload-url"></a>De Upload-URL ophalen
-Voor het ontvangen van de werkelijke upload-URL, een SAS-Locator te maken. Locators definiëren de begintijd en het type van het verbindingseindpunt voor clients die toegang tot bestanden in een Asset wilt. U kunt meerdere Locator-entiteiten voor een bepaalde combinatie van AccessPolicy en Asset voor de afhandeling van aanvragen van andere clients en maken. Elk van deze Locators de waarde StartTime plus de DurationInMinutes-waarde van het AccessPolicy gebruiken om te bepalen hoe lang een URL kan worden gebruikt. Zie voor meer informatie [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+Voor het ontvangen van de werkelijke upload-URL, een SAS-Locator te maken. Locators definiëren de begintijd en het type van het verbindingseindpunt voor clients die toegang tot bestanden in een Asset wilt. U kunt meerdere Locator-entiteiten voor een bepaalde combinatie van AccessPolicy en Asset voor de afhandeling van aanvragen van andere clients en maken. Elk van deze Locators de waarde StartTime plus de DurationInMinutes-waarde van het AccessPolicy gebruikt om te bepalen hoe lang die een URL kan worden gebruikt. Zie voor meer informatie [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
 
 Een SAS-URL heeft de volgende indeling:
 
@@ -260,7 +257,7 @@ Het volgende voorbeeld ziet het maken van een SAS-URL-Locator, zoals gedefinieer
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {  
        "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -321,7 +318,7 @@ Nu dat u het bestand hebt geüpload, moet u de informatie FileAsset grootte (en 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {  
@@ -346,7 +343,7 @@ Als geslaagd, het volgende is geretourneerd: HTTP/1.1 204 geen inhoud
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **HTTP-antwoord**
@@ -364,7 +361,7 @@ Als dit lukt, wordt het volgende geretourneerd:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **HTTP-antwoord**
@@ -385,7 +382,7 @@ De IngestManifest is een container voor een set van assets, assetbestanden en st
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 36
@@ -403,7 +400,7 @@ Voordat u de IngestManifestAsset maakt, moet u de Asset die wordt voltooid met h
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 55
@@ -421,7 +418,7 @@ IngestManifestAssets vertegenwoordigen activa in een IngestManifest die worden g
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 152
@@ -430,7 +427,7 @@ IngestManifestAssets vertegenwoordigen activa in een IngestManifest die worden g
 
 
 ### <a name="create-the-ingestmanifestfiles-for-each-asset"></a>De IngestManifestFiles voor elk activum maken
-Een IngestManifestFile vertegenwoordigt een werkelijke video of audio blob-object dat wordt geüpload als onderdeel van het opnemen van grote hoeveelheden voor een asset. Versleuteling gerelateerd eigenschappen zijn niet vereist tenzij een versleutelingsoptie wordt gebruikt door de asset. Het voorbeeld dat is gebruikt in deze sectie bevat StorageEncryption maken van een IngestManifestFile die worden gebruikt voor de Asset die eerder hebt gemaakt.
+Een IngestManifestFile vertegenwoordigt een werkelijke video of audio blob-object dat is geüpload als onderdeel van het opnemen van grote hoeveelheden voor een asset. Versleutelingsgerelateerde eigenschappen zijn niet vereist tenzij een versleutelingsoptie wordt gebruikt door de asset. Het voorbeeld dat is gebruikt in deze sectie bevat StorageEncryption maken van een IngestManifestFile die worden gebruikt voor de Asset die eerder hebt gemaakt.
 
 **HTTP-antwoord**
 
@@ -439,7 +436,7 @@ Een IngestManifestFile vertegenwoordigt een werkelijke video of audio blob-objec
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 367
@@ -448,19 +445,19 @@ Een IngestManifestFile vertegenwoordigt een werkelijke video of audio blob-objec
     { "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
 
 ### <a name="upload-the-files-to-blob-storage"></a>De bestanden uploaden naar Blob Storage
-U kunt een clienttoepassing hoge snelheid kunnen de assetbestanden uploaden naar de Uri die is opgegeven door de eigenschap BlobStorageUriForUpload van de IngestManifest blob storage-container gebruiken. Een opmerkelijke hoge snelheid uploaden service [Aspera On Demand voor Azure-toepassing](http://go.microsoft.com/fwlink/?LinkId=272001).
+U kunt een snelle clienttoepassing die geschikt is voor de assetbestanden uploaden naar de blob storage-container Uri door de eigenschap BlobStorageUriForUpload van de IngestManifest opgegeven gebruiken. Service met één opmerkelijke snelle upload is [Aspera On Demand voor Azure-toepassing](http://go.microsoft.com/fwlink/?LinkId=272001).
 
 ### <a name="monitor-bulk-ingest-progress"></a>Monitor bulksgewijs voortgang opnemen
 U kunt de voortgang van Bulksgewijze bewerkingen voor een IngestManifest opnemen door de eigenschap statistieken van de IngestManifest. Of eigenschap een complex type is [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). Indienen om te controleren van de eigenschap statistieken, een HTTP GET-aanvraag doorgeven van de IngestManifest Id.
 
 ## <a name="create-contentkeys-used-for-encryption"></a>ContentKeys gebruikt voor versleuteling maken
-Als uw asset kan versleuteling gebruiken wilt, moet u de ContentKey moet worden gebruikt voor versleuteling voordat u de assetbestanden maken. Voor de versleuteling van opslag, moeten de volgende eigenschappen worden opgenomen in de aanvraagtekst.
+Als uw asset versleuteling gebruikt, moet u de ContentKey moet worden gebruikt voor versleuteling voordat u de assetbestanden maken. Voor de versleuteling van opslag, moeten de volgende eigenschappen worden opgenomen in de aanvraagtekst.
 
 | De eigenschap body aanvraag | Beschrijving |
 | --- | --- |
-| Id |De ContentKey-Id die we onszelf genereren met behulp van de volgende indeling hebben: ' nb:kid:UUID:<NEW GUID>'. |
+| Id |De Id van de ContentKey er gegenereerd onszelf met behulp van de volgende indeling hebben: ' nb:kid:UUID:<NEW GUID>'. |
 | ContentKeyType |Dit is het inhoudstype key als een geheel getal voor deze inhoud sleutel. De waarde 1 voor versleuteling van opslag doorgegeven. |
-| EncryptedContentKey |We maken een nieuwe inhoud sleutelwaarde die een (32 byte) 256-bits waarde. De sleutel is versleuteld met behulp van de opslag versleuteling X.509-certificaat dat we uit Microsoft Azure Media Services ophalen door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden. |
+| EncryptedContentKey |We maken een nieuwe inhoud sleutelwaarde die de waarde van een 256-bits (32 bytes). De sleutel is versleuteld met behulp van het X.509-certificaat voor opslag versleuteling we uit Microsoft Azure Media Services ophalen door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden. |
 | ProtectionKeyId |Dit is de key protection-id voor de opslag versleuteling X.509-certificaat dat is gebruikt voor het versleutelen van onze inhoudssleutel. |
 | ProtectionKeyType |Dit is het versleutelingstype voor de beveiliging sleutel die is gebruikt voor het versleutelen van de inhoudssleutel. Deze waarde is StorageEncryption(1) in ons voorbeeld. |
 | Controlesom |De controlesom voor berekende MD5 voor de inhoudssleutel. Deze wordt berekend door de inhoud-Id met de inhoudssleutel te versleutelen. De voorbeeldcode laat zien hoe de controlesom berekenen. |
@@ -472,7 +469,7 @@ Als uw asset kan versleuteling gebruiken wilt, moet u de ContentKey moet worden 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 572
@@ -490,7 +487,7 @@ De ContentKey is gekoppeld aan een of meer activa door een HTTP POST-aanvraag te
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 113
@@ -505,7 +502,7 @@ De ContentKey is gekoppeld aan een of meer activa door een HTTP POST-aanvraag te
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 

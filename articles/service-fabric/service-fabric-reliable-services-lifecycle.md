@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a0a4558da0b308799a153b300b098891e933712b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Overzicht van de levenscyclus van betrouwbare Services
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Service Fabric Hiermee wijzigt u de primaire van een stateful service voor een a
 
 Services die door deze annulering niet correct verwerken, kunnen enkele problemen optreden. Deze bewerkingen zijn trage omdat Service Fabric wacht tot de services te stoppen zonder problemen. Uiteindelijk kan dit leiden tot mislukte upgrades die time-out en terug te draaien. Imbalanced clusters kan ook worden veroorzaakt door niet voldoen aan het token voor annulering. Clusters worden niet in balans omdat knooppunten hot ophalen, maar de services kunnen niet worden uitgevoerd omdat het te lang duurt voordat ze op een andere locatie verplaatsen. 
 
-Omdat de services stateful, is het ook waarschijnlijk dat ze gebruiken de [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md). In Service Fabric wanneer een primaire wordt gedegradeerd, is een van de eerste dingen die plaatsvindt of schrijftoegang tot de status van de onderliggende is ingetrokken. Dit leidt tot een tweede set van problemen met de levenscyclus van de service. De verzamelingen return uitzonderingen op basis van de timing en of de replica wordt verplaatst of afsluiten. Deze uitzonderingen moeten correct worden verwerkt. Uitzonderingen in Service Fabric vallen in de permanente [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) en tijdelijke [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) categorieën. Permanente uitzonderingen moeten worden geregistreerd en opgetreden tijdens de tijdelijke uitzonderingen kunnen opnieuw worden geprobeerd op basis van bepaalde Pogingslogica.
+Omdat de services stateful, is het ook waarschijnlijk dat ze gebruiken de [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md). In Service Fabric wanneer een primaire wordt gedegradeerd, is een van de eerste dingen die plaatsvindt of schrijftoegang tot de status van de onderliggende is ingetrokken. Dit leidt tot een tweede set van problemen met de levenscyclus van de service. De verzamelingen return uitzonderingen op basis van de timing en of de replica wordt verplaatst of afsluiten. Deze uitzonderingen moeten correct worden verwerkt. Uitzonderingen in Service Fabric vallen in de permanente [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) en tijdelijke [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) categorieën. Permanente uitzonderingen moeten worden geregistreerd en opgetreden tijdens de tijdelijke uitzonderingen kunnen opnieuw worden geprobeerd op basis van bepaalde Pogingslogica.
 
 Afhandeling van de uitzonderingen die afkomstig van het gebruik van zijn de `ReliableCollections` in combinatie met gebeurtenissen van de levenscyclus van de service is een belangrijk onderdeel van de testen en valideren van een betrouwbare Service. Het is raadzaam dat u uw service wordt belast altijd worden uitgevoerd tijdens het uitvoeren van upgrades en [chaos testen](service-fabric-controlled-chaos.md) voordat u implementeert naar productie. Deze eenvoudige stappen kunt u ervoor te zorgen dat uw service correct is geïmplementeerd en de levenscyclus van gebeurtenissen correct worden verwerkt.
 

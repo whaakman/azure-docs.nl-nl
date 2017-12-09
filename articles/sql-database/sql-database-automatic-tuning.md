@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatische afstemming in Azure SQL Database
 
@@ -48,7 +48,7 @@ Mechanismen voor automatische afstemmen zijn volwassen en hebben is rechtsgevolg
 
 ![Hoe werkt automatische afstemmen](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database automatische afstemming, wordt de corelogica delen met de automatische afstemmen engine van SQL Server. Zie voor aanvullende technische informatie over de ingebouwde intelligentie wijze [automatische afstemming van SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database automatische afstemming, wordt de corelogica delen met de automatische afstemmen engine van SQL Server. Zie voor aanvullende technische informatie over de ingebouwde intelligentie wijze [automatische afstemming van SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## <a name="use-automatic-tuning"></a>Gebruik automatische afstemming
 
@@ -80,4 +80,4 @@ Automatische afstemming van opties kan worden afzonderlijk ingeschakeld of uitge
 - Zie inschakelen van automatische afstemming in Azure SQL Database voor het beheren van uw werkbelasting [inschakelen automatische afstemming](sql-database-automatic-tuning-enable.md).
 - Handmatig wilt bekijken en toepassen van automatische afstemming van aanbevelingen, Zie [zoeken en toepassen van aanbevelingen voor prestaties](sql-database-advisor-portal.md).
 - Zie voor meer informatie over ingebouwde intelligentie die worden gebruikt in automatische afstemming, [kunstmatige Intelligence verbetert de prestatie Azure SQL-Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- Zie voor meer informatie over hoe automatische afstemmen werkt in Azure SQL Database en SQL server 2017 [automatische afstemming van SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+- Zie voor meer informatie over hoe automatische afstemmen werkt in Azure SQL Database en SQL server 2017 [automatische afstemming van SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

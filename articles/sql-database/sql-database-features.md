@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/25/2017
 ms.author: carlrab
-ms.openlocfilehash: dd78b1a8703f2e6aaa7854a7b3cb774d014e7270
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: a15c23683a3334328720e8ae4369b2495f9613de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database-functies
 
@@ -69,7 +69,7 @@ De volgende tabel bevat de belangrijkste functies van SQL Server en bevat inform
 | [DDL-triggers](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Alleen de database |
 | [Gedistribueerde transacties - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Niet - Zie [elastische transacties](sql-database-elastic-transactions-overview.md) |
 | [DML-instructies](https://docs.microsoft.com/sql/t-sql/queries/queries) | Ja |
-| [DML-triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | De meeste - Zie afzonderlijke instructies | 
+| [DML-triggers](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | De meeste - Zie afzonderlijke instructies | 
 | [DMV's](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Sommige - Zie afzonderlijke DMV 's |
 |[Dynamische gegevensmaskering](/sql/relational-databases/security/dynamic-data-masking)|[Ja](sql-database-dynamic-data-masking-get-started.md)|
 | [Gebeurtenismeldingen](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Niet - Zie [waarschuwingen](sql-database-insights-alerts-portal.md) |

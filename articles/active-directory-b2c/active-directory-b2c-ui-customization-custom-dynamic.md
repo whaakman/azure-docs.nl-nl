@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 1e8b8359efb75246e40103ee8cbc2a786bfa6b46
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Het configureren van de gebruikersinterface met dynamische inhoud met behulp van aangepast beleid
 Met behulp van Azure Active Directory B2C (Azure AD B2C) aangepast beleid, kunt u een parameter in een queryreeks verzenden. Door de parameter wordt doorgegeven aan uw HTML-eindpunt, kunt u de pagina-inhoud dynamisch wijzigen. U kunt bijvoorbeeld de achtergrondafbeelding op de Azure AD B2C registreren of aanmelden pagina op basis van een parameter die u van uw web- of mobiele toepassing doorgeeft wijzigen. 
@@ -155,7 +155,7 @@ Zoek de `<img>` element met de `ID` waarde *background_background_image*, en ver
     De **Create App Service** venster wordt geopend. In dit kunt u beginnen met het maken van alle benodigde Azure-resources voor het uitvoeren van de ASP.NET-web-app in Azure.
 
     > [!NOTE]
-    > Zie voor meer informatie over publiceren [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Zie voor meer informatie over publiceren [een ASP.NET-web-app maken in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. In de **Web-Appnaam** typt u een unieke app-naam (geldige tekens zijn a-z, A-Z, 0-9 en het koppelteken (-). De URL van de web-app is `http://<app_name>.azurewebsites.NET`, waarbij `<app_name>` de naam van uw web-app is. U kunt de automatisch gegenereerde naam accepteren, die uiteraard uniek is.
 

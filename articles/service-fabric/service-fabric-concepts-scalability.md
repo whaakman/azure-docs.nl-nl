@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Schalen in Service Fabric
 Azure Service Fabric kunt eenvoudig schaalbare toepassingen bouwen door het beheer van de services, partities en replica's op de knooppunten van een cluster. Veel werkbelastingen op dezelfde hardware uitgevoerd kunt maximale Resourcegebruik, maar ook biedt flexibiliteit in termen van hoe u kiest voor het schalen van uw werkbelastingen. 
@@ -69,7 +69,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Schalen door te maken of verwijderen van nieuwe services met de naam
 Een benoemd exemplaar van een specifiek exemplaar van een servicetype is (Zie [levenscyclus van de Service Fabric-toepassing](service-fabric-application-lifecycle.md)) binnen een aantal benoemde exemplaar in het cluster. 
 
-Nieuwe benoemde service-exemplaren kunnen worden gemaakt (of verwijderd) als services komen meer of minder bezet. Dit kan aanvragen worden verdeeld over meer service-exemplaren, meestal waardoor de belasting van bestaande services te verlagen. Bij het maken van services, plaatst de resourcebeheer voor Service Fabric-Cluster de services in het cluster in een gedistribueerde wijze. De exacte beslissingen worden bepaald door de [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md) in het cluster en andere plaatsingsregels. Services kunnen op verschillende manieren worden gemaakt, maar de meest voorkomende zijn via beheeracties als iemand het aanroepen van [ `New-ServiceFabricService` ](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), of door code aanroepen [ `CreateServiceAsync` ](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`kan zelfs worden aangeroepen vanuit binnen andere services die worden uitgevoerd in het cluster.
+Nieuwe benoemde service-exemplaren kunnen worden gemaakt (of verwijderd) als services komen meer of minder bezet. Dit kan aanvragen worden verdeeld over meer service-exemplaren, meestal waardoor de belasting van bestaande services te verlagen. Bij het maken van services, plaatst de resourcebeheer voor Service Fabric-Cluster de services in het cluster in een gedistribueerde wijze. De exacte beslissingen worden bepaald door de [metrische gegevens](service-fabric-cluster-resource-manager-metrics.md) in het cluster en andere plaatsingsregels. Services kunnen op verschillende manieren worden gemaakt, maar de meest voorkomende zijn via beheeracties als iemand het aanroepen van [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), of door code aanroepen [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`kan zelfs worden aangeroepen vanuit binnen andere services die worden uitgevoerd in het cluster.
 
 Maken van services dynamisch kunnen worden gebruikt in allerlei scenario's en is een algemene patroon. Neem bijvoorbeeld een stateful service die staat voor een bepaalde workflow. Aanroepen werk die gaat worden weergegeven bij deze service en deze service wilt uitvoeren van de stappen voor die voortgang van de werkstroom en registreren. 
 

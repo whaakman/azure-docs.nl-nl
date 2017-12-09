@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Overwegingen voor het Azure-Stack-netwerken
 
@@ -34,7 +34,7 @@ Dit artikel bevat een overzicht van de unieke aandachtspunten voor netwerken en 
 | |DNS-recordsets per zone|5000 (standaard)<br>Op aanvraag kunnen worden verhoogd.|5000|
 ||Naamservers voor zoneoverdracht|Azure bieden vier naamservers voor elke gebruiker (tenant)-zone die is gemaakt.|Azure Stack biedt twee naamservers voor elke gebruiker (tenant)-zone die is gemaakt.|
 | Virtueel netwerk|Peering op virtueel netwerk|Twee virtuele netwerken in dezelfde regio verbinden via het Azure-backbone-netwerk.|Nog niet ondersteund|
-| |IPv6-adressen|U kunt een IPv6-adres toewijzen als onderdeel van de [configuratie netwerkinterfaces](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Alleen IPv4 wordt ondersteund.|
+| |IPv6-adressen|U kunt een IPv6-adres toewijzen als onderdeel van de [configuratie netwerkinterfaces](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Alleen IPv4 wordt ondersteund.|
 |VPN-gateways|Punt-naar-Site VPN-Gateway|Ondersteund|Nog niet ondersteund|
 | |Vnet-naar-Vnet-Gateway|Ondersteund|Nog niet ondersteund|
 | |VPN-Gateway-SKU 's|Ondersteuning voor Basic, GW1, GW2, GW3, standaard hoge prestaties, zeer hoge prestaties. |Ondersteuning voor Basic, Standard en hoog-presterende SKU's.|

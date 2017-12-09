@@ -10,17 +10,17 @@ ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.openlocfilehash: 3ad9da6e990fbb2a099bd83627eb36cd5e8f94c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="password-writeback-overview"></a>Overzicht van de Write-back van wachtwoord
 
@@ -160,7 +160,6 @@ Wachtwoorden worden teruggeschreven in de volgende situaties:
   * Een beheerder selfservice vrijwillige bewerking wachtwoord wijzigen
   * Een beheerder selfservice force wachtwoord bewerking, bijvoorbeeld verlopen van wachtwoorden wijzigen
   * Een beheerder selfservice voor wachtwoordherstel dat afkomstig van is de [portal voor wachtwoordherstel](https://passwordreset.microsoftonline.com)
-  * Een beheerder worden geïnitieerd door eindgebruikers wachtwoord opnieuw instellen van de [klassieke Azure-portal](https://manage.windowsazure.com)
   * Een beheerder worden geïnitieerd door eindgebruikers wachtwoord opnieuw instellen van de [Azure-portal](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Gebruikers- en admin bewerkingen die worden niet ondersteund voor write-back van wachtwoord

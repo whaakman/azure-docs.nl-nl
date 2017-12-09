@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure data factory's visueel te bewaken
 Azure Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee u gegevensgestuurde werkstromen kunt maken in de cloud. Op deze manier kunt u de verplaatsing en transformatie van gegevens indelen en automatiseren. Met Azure Data Factory kunt u gegevensgestuurde werkstromen (ook wel pijplijnen) maken en plannen die gegevens uit verschillende gegevensarchieven kunnen opnemen en de gegevens kunnen verwerken/transformeren met behulp van rekenservices zoals Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics en Azure Machine Learning. Daarnaast kunt u de uitvoergegevens publiceren naar gegevensarchieven zoals Azure SQL Data Warehouse, zodat BI-toepassingen (business intelligence) ze kunnen gebruiken.
@@ -49,7 +49,7 @@ Weergave van de lijst met elke pijplijn uitgevoerd voor de data factory-pijplijn
 | Status | Is mislukt, is voltooid, wordt uitgevoerd |
 | Parameters | Pijplijn parameters (naam, waarde-paren) uitvoeren |
 | Fout | Pipeline-fout (indien/van toepassing) uitvoeren |
-| ID uitvoeren | Id van de pijplijn uitvoeren |
+| Run-id | Id van de pijplijn uitvoeren |
 
 ![De pijplijn bewaken wordt uitgevoerd](media/monitor-visually/pipeline-runs.png)
 
@@ -58,7 +58,7 @@ Lijst weergeven met de activiteit wordt uitgevoerd die overeenkomen met elke pij
 
 | **Kolomnaam** | **Beschrijving** |
 | --- | --- |
-| Activiteitsnaam | De naam van de activiteit in de pijplijn. |
+| Naam activiteit | De naam van de activiteit in de pijplijn. |
 | Activiteitstype | Type van de activiteit dat wil zeggen kopiëren, HDInsightSpark, HDInsightHive enzovoort. |
 | Begin uitvoeren | Activiteit die wordt uitgevoerd, start datum / tijd (MM/DD/JJJJ uu: mm: SS AM/PM) |
 | Duur | Uitvoeren van de duur (: mm: SS) |
@@ -97,10 +97,10 @@ Klik met de rechtermuisknop op de koptekst van de weergave lijst en kies kolomme
 #### <a name="reorder-column-widths-in-list-view"></a>De kolombreedte in de lijstweergave rangschikken
 Verhogen en de kolombreedte in de lijstweergave verlagen door de gewoon muiswijzer op de kolomkop
 
-#### <a name="select-data-factory"></a>Selecteer gegevensfactory
+#### <a name="select-data-factory"></a>Data factory selecteren
 Beweeg de muisaanwijzer op het pictogram 'Data Factory' linksboven op. Klik op het pictogram 'Pijl' voor een overzicht van azure-abonnementen en gegevens factory's die u kunt bewaken.
 
-![Selecteer gegevensfactory](media/monitor-visually/select-datafactory.png)
+![Data factory selecteren](media/monitor-visually/select-datafactory.png)
 
 #### <a name="guided-tours"></a>Rondleidingen
 Klik op het 'informatiepictogram' linksonder in en klik op 'Excursies' voor stapsgewijze instructies over het bewaken van de pijplijn en activiteiten wordt uitgevoerd.
@@ -114,4 +114,4 @@ Klik op het pictogram 'Feedback' Geef ons feedback over de verschillende functie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [bewaken en beheren van pijplijnen programmatisch](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) artikel voor meer informatie over het controleren en beheren van pijplijnen
+Zie [bewaken en beheren van pijplijnen programmatisch](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artikel voor meer informatie over het controleren en beheren van pijplijnen

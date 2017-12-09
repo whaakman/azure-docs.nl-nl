@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Overzicht van metrische gegevens in Microsoft Azure
 Dit artikel wordt beschreven wat metrische gegevens zijn in Microsoft Azure, hun voordelen en het gebruik ervan.  
@@ -89,11 +89,11 @@ Monitor voor Azure heeft ook een nieuwe metrische gegevens voor grafieken ervari
 ## <a name="access-metrics-via-the-rest-api"></a>Toegang tot metrische gegevens via de REST-API
 Azure metrische gegevens zijn toegankelijk via de Azure-Monitor API's. Er zijn twee API's die u helpen detecteren en toegang tot metrische gegevens:
 
-* Gebruik de [Azure Monitor metriek definities REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) voor toegang tot de lijst met metrische gegevens en dimensies, die beschikbaar zijn voor een service.
-* Gebruik de [REST API voor de metrische gegevens van de Monitor van de Azure](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) segmenteren, filteren en toegang tot de werkelijke metrische gegevens.
+* Gebruik de [Azure Monitor metriek definities REST-API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) voor toegang tot de lijst met metrische gegevens en dimensies, die beschikbaar zijn voor een service.
+* Gebruik de [REST API voor de metrische gegevens van de Monitor van de Azure](https://docs.microsoft.com/rest/api/monitor/metrics) segmenteren, filteren en toegang tot de werkelijke metrische gegevens.
 
 > [!NOTE]
-> In dit artikel bevat informatie over de metrische gegevens via de [nieuwe API voor metrieken](https://docs.microsoft.com/en-us/rest/api/monitor/) voor Azure-resources. De API-versie voor de nieuwe metrische definities en metrische gegevens API's is 2017-05-01-preview. De verouderde metrische definities en metrische gegevens kunnen worden geopend met de API-versie 2014-04-01.
+> In dit artikel bevat informatie over de metrische gegevens via de [nieuwe API voor metrieken](https://docs.microsoft.com/rest/api/monitor/) voor Azure-resources. De API-versie voor de nieuwe metrische definities en metrische gegevens API's is 2017-05-01-preview. De verouderde metrische definities en metrische gegevens kunnen worden geopend met de API-versie 2014-04-01.
 >
 >
 

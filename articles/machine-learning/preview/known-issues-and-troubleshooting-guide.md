@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 1d3ba76336701221484d2879f4b28285936aa656
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -198,9 +198,9 @@ Een snelle oplossing is het verwijderen van alle Docker-installatiekopieën die 
 $ docker system prune -a
 ```
 
-U kunt ook een gegevensschijf toevoegen en configureren van Docker-engine voor het gebruik van de gegevensschijf voor het opslaan van afbeeldingen. Hier volgt [het toevoegen van een gegevensschijf](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). U kunt vervolgens [wijzigen waar de installatiekopieën worden opgeslagen in Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+U kunt ook een gegevensschijf toevoegen en configureren van Docker-engine voor het gebruik van de gegevensschijf voor het opslaan van afbeeldingen. Hier volgt [het toevoegen van een gegevensschijf](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). U kunt vervolgens [wijzigen waar de installatiekopieën worden opgeslagen in Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Of u de schijf met het besturingssysteem kunt uitbreiden en u hoeft te touch configuratie van de Docker-engine. Hier volgt [hoe u de schijf met het besturingssysteem kunt uitbreiden](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Of u de schijf met het besturingssysteem kunt uitbreiden en u hoeft te touch configuratie van de Docker-engine. Hier volgt [hoe u de schijf met het besturingssysteem kunt uitbreiden](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ## <a name="sharing-c-drive-on-windows"></a>Delen van station C op Windows
 Als u in een lokale Docker-container in Windows worden uitgevoerd, `sharedVolumes` naar `true` in de `docker.compute` bestand onder `aml_config` uitvoering prestaties kan verbeteren. Dit vereist echter delen van C-schijf in de _Docker voor Windows-hulpprogramma_. Als u niet C-station kunt delen bent, probeert u de volgende tips:

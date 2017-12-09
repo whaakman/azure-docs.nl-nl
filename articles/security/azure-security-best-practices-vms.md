@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Aanbevolen procedures voor beveiliging van de virtuele machine in Azure
 
-In de meeste infrastructuur als een dienst (IaaS)-scenario's [virtuele Azure-machines (VM's)](https://docs.microsoft.com/en-us/azure/virtual-machines/) zijn de belangrijkste werkbelasting voor organisaties die gebruikmaken van de cloud computing. Dit is vooral duidelijk in [hybride scenario's](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) organisaties waar langzaam migreren van werkbelastingen naar de cloud. In dergelijke scenario's, voert u de [algemene beveiligingsoverwegingen voor IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), en aanbevolen procedures voor beveiliging toepassen op alle virtuele machines.
+In de meeste infrastructuur als een dienst (IaaS)-scenario's [virtuele Azure-machines (VM's)](https://docs.microsoft.com/azure/virtual-machines/) zijn de belangrijkste werkbelasting voor organisaties die gebruikmaken van de cloud computing. Dit is vooral duidelijk in [hybride scenario's](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) organisaties waar langzaam migreren van werkbelastingen naar de cloud. In dergelijke scenario's, voert u de [algemene beveiligingsoverwegingen voor IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), en aanbevolen procedures voor beveiliging toepassen op alle virtuele machines.
 
 Dit artikel worden de verschillende VM best practices voor beveiliging, elk afgeleid van onze klanten en ons eigen direct ervaringen met virtuele machines.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 57f9dae1b353b873fdc0ec5903018d160cfe384f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Instellen van een Linux-Service Fabric-cluster op uw Windows-machine voor ontwikkelaars
 
@@ -37,7 +37,7 @@ Service Fabric-clusters op basis van Linux niet standaard uitgevoerd in Windows.
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Een lokale container maken en Service Fabric configureren
-Als u wilt instellen op een lokale Docker-container en een service fabric-cluster uitgevoerd, moet u de volgende stappen uitvoeren:
+Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cluster wilt uitvoeren, voert u de volgende stappen uit:
 
 1. Haal de installatiekopie op uit de opslagplaats op de Docker-hub:
 
@@ -45,7 +45,7 @@ Als u wilt instellen op een lokale Docker-container en een service fabric-cluste
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. De configuratie van de Docker-daemon op uw host bijwerken met de volgende opties en de Docker-daemon starten: 
+2. Werk de configuratie van de Docker-daemon op uw host bij met het volgende en start de Docker-daemon opnieuw op: 
 
     ```json
     {
@@ -62,9 +62,9 @@ Als u wilt instellen op een lokale Docker-container en een service fabric-cluste
     ```
     >[!TIP]
     > * Door een naam op te geven voor uw instantie van de container, kunt u deze op een beter leesbare manier verwerken. 
-    > * Als uw toepassing op bepaalde poorten luistert, moet worden opgegeven met andere -p-labels. Bijvoorbeeld: als uw toepassing luistert op poort 8080, voer docker uitvoeren - itd -p 19080:19080 -p 8080:8080--naam sfonebox servicefabricoss/service-fabric-onebox
+    > * Als uw toepassing op bepaalde poorten luistert, moeten deze worden opgegeven met extra -p-tags. Bijvoorbeeld: als uw toepassing luistert op poort 8080, voert u deze opdracht uit: docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
 
-4. Meld u aan bij de Docker-container in interactieve ssh modus:
+4. Meld u aan bij de Docker-container in interactieve ssh-modus:
 
     ```powershell
     docker exec -it sfonebox bash
@@ -80,10 +80,10 @@ Als u wilt instellen op een lokale Docker-container en een service fabric-cluste
 6. Nadat u stap 5 is voltooid, gaat u naar ``http://localhost:19080`` van uw Windows- en u zou kunnen zien van de Service Fabric explorer. U kunt op dit moment verbinding maken met dit cluster met behulp van hulpprogramma's van uw Windows-computer voor ontwikkelaars en implementeren van toepassingen die zijn gericht voor Linux Service Fabric-clusters. 
 
     > [!NOTE]
-    > De Eclipse-invoegtoepassing is momenteel niet ondersteund in Windows. 
+    > De Eclipse-invoegtoepassing wordt momenteel niet ondersteund in Windows. 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Aan de slag met [Eclipse](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse)
+* Aan de slag met [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Bekijk andere [Java-voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

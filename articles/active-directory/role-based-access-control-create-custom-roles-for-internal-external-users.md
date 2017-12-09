@@ -1,24 +1,26 @@
 ---
-title: Aangepaste functies voor toegangsbeheer op basis van rollen maken en toewijzen aan de interne en externe gebruikers in Azure | Microsoft Docs
+title: Aangepaste op rollen gebaseerde toegang besturingselement functies maken en toewijzen aan de interne en externe gebruikers in Azure | Microsoft Docs
 description: Aangepaste RBAC-rollen gemaakt met behulp van PowerShell en CLI voor interne en externe gebruikers toewijzen
 services: active-directory
 documentationcenter: 
 author: andreicradu
 manager: catadinu
-editor: kgremban
+editor: 
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: 595d9de5c3a6e9943f158ae1f21c57ea6e1e81e1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Inleiding op rollen gebaseerd toegangsbeheer
 
@@ -35,7 +37,7 @@ Het gebruik van RBAC in de Azure-omgeving vereist:
 * Zorg ervoor dat u hebt de volgende Resource Providers geregistreerd voor het abonnement van de gebruiker: **Microsoft.Authorization**. Zie voor meer informatie over het registreren van de resourceproviders [Resource Manager-providers, regio's, API-versies en schema's](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Abonnementen voor Office 365 of Azure Active Directory-licenties (bijvoorbeeld: toegang tot Azure Active Directory) vanaf de portal niet in aanmerking komen voor het gebruik van RBAC O365 wordt ingericht.
+> Abonnementen voor Office 365 of Azure Active Directory-licenties (bijvoorbeeld: toegang tot Azure Active Directory) vanaf de Office 365 Admin center niet in aanmerking komen voor het gebruik van RBAC wordt ingericht.
 
 ## <a name="how-can-rbac-be-used"></a>Hoe RBAC kan worden gebruikt
 RBAC kan worden toegepast op drie verschillende bereiken in Azure. Van het hoogste bereik met de laagste zijn ze als volgt:
@@ -102,7 +104,7 @@ Alleen buiten de organisatie, heeft de nieuwe gebruiker geen bestaande kenmerken
 
 ![e-mailbericht uitnodiging voor RBAC-rol](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-De externe gebruiker wordt weergegeven in de Azure Active Directory-tenant op als de externe gebruiker en deze kunnen worden weergegeven in de Azure-portal en in de klassieke portal.
+De externe gebruiker wordt weergegeven in de Azure Active Directory-tenant op als de externe gebruiker en deze kunnen worden weergegeven in de Azure portal.
 
 
 
@@ -112,14 +114,7 @@ De externe gebruiker wordt weergegeven in de Azure Active Directory-tenant op al
 
 
 
-
-
-![gebruikers blade azure active directory klassieke Azure-portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-In de **gebruikers** weergave in beide portals de externe gebruikers kunnen worden herkend door:
-
-* Het type ander pictogram in de Azure portal
-* Het andere sourcing punt in de klassieke portal
+In de **gebruikers** weergave voor de externe gebruikers kunnen worden herkend door het type ander pictogram in de Azure-portal.
 
 Echter verlenen **eigenaar** of **Inzender** toegang tot een externe gebruiker op de **abonnement** bereik, staat niet toe dat de toegang tot de admin gebruikerslijst, tenzij de **globale beheerder** is toegestaan. In de eigenschappen van de gebruiker, de **gebruikerstype** die heeft twee algemene parameters, **lid** en **Gast** kunnen worden geïdentificeerd. Een lid is van een gebruiker die is geregistreerd in de map terwijl een gast een gebruiker uitgenodigd voor de map van een externe bron is. Zie voor meer informatie [hoe Azure Active Directory-beheerders Voeg B2B-samenwerking gebruikers](active-directory-b2b-admin-add-users.md).
 
@@ -145,9 +140,6 @@ Toewijzen van de ingebouwde RBAC-rol van **Virtual Machine Contributor** op abon
 * Andere brontypen weergeven in het abonnement niet
 * Kan niet worden uitgevoerd vanuit het oogpunt van facturering van wijzigingen
 
-> [!NOTE]
-> RBAC wordt een enige functie van Azure portal, verlenen geen toegang tot de klassieke portal.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Een ingebouwde RBAC-rol toewijzen aan een externe gebruiker
 Voor een ander scenario in deze test de externe gebruiker "alflanigan@gmail.com' wordt toegevoegd als een **Virtual Machine Contributor**.
 
@@ -156,9 +148,7 @@ Voor een ander scenario in deze test de externe gebruiker "alflanigan@gmail.com'
 
 ![virtuele machine ingebouwde rol van Inzender](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Het normale gedrag voor deze externe gebruiker met deze ingebouwde functie is om te zien en beheren van alleen virtuele machines en hun aangrenzende Resource Manager alleen bronnen nodig zijn tijdens de implementatie. Standaard bieden deze rollen beperkt alleen toegang tot hun bijbehorende resources in de Azure-portal hebt gemaakt, ongeacht sommige kunnen nog steeds worden geïmplementeerd in de klassieke portal ook (bijvoorbeeld: virtuele machines).
-
-
+Het normale gedrag voor deze externe gebruiker met deze ingebouwde functie is om te zien en beheren van alleen virtuele machines en hun aangrenzende Resource Manager alleen bronnen nodig zijn tijdens de implementatie. Deze beperkte rollen bieden standaard alleen toegang tot hun bijbehorende resources in de Azure portal gemaakt.
 
 
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: a6895f7a145c7b925703e4deb32411d51e7a3cab
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 89a5ee969cf4337dbc0521027f36f80e357c54e5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Multi-factor authentication voor SQL Server Management Studio en Azure AD configureren
 
@@ -67,7 +67,7 @@ Als verificatie voltooid is, verbindt SSMS normaal vermoeden geldige referenties
 - Zie voor een overzicht van Azure SQL Database multi-factor authentication, Universal verificatie met [SQL-Database en SQL Data Warehouse (SSMS ondersteuning voor MFA)](sql-database-ssms-mfa-authentication.md).  
 - Andere gebruikers toegang verlenen tot de database: [SQL Database-verificatie en autorisatie: toegang verlenen](sql-database-manage-logins.md)  
 - Zorg ervoor dat anderen verbinding kunnen maken via de firewall: [een Azure SQL Database serverniveau firewallregel met de Azure portal configureren](sql-database-configure-firewall-settings.md)  
-- Wanneer u **Active Directory - universele met MFA** verificatie, ADAL tracering is beschikbaar vanaf [SSMS 17,3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Uit standaard, u kunt ADAL kunt tracering inschakelen met behulp van de **extra**, **opties** menu onder **Azure Services**, **Azure-Cloud**,  **ADAL-venster uitvoer het traceringsniveau**, gevolgd door het inschakelen van **uitvoer** in de **weergave** menu. De traceringen zijn beschikbaar in het uitvoervenster weergegeven bij het selecteren van **Azure Active Directory-optie**.   
+- Wanneer u **Active Directory - universele met MFA** verificatie, ADAL tracering is beschikbaar vanaf [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Uit standaard, u kunt ADAL kunt tracering inschakelen met behulp van de **extra**, **opties** menu onder **Azure Services**, **Azure-Cloud**,  **ADAL-venster uitvoer het traceringsniveau**, gevolgd door het inschakelen van **uitvoer** in de **weergave** menu. De traceringen zijn beschikbaar in het uitvoervenster weergegeven bij het selecteren van **Azure Active Directory-optie**.   
 
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Apparaten inrichten met Azure IoT Hub apparaat inrichtingsservice (preview)
 Microsoft Azure biedt een uitgebreide set geïntegreerde openbare cloud-services voor al uw IoT-oplossing. De inrichtingsservice van IoT Hub apparaat is een helper-service voor IoT-Hub die zonder tussenkomst, just in time inrichten met de juiste IoT-hub zonder menselijke tussenkomst, kunnen klanten om in te richten miljoenen apparaten op een veilige en schaalbare inschakelen manier.
@@ -116,7 +116,7 @@ Voor meer informatie over de quotalimieten voor:
 * [Servicelimieten voor Azure-abonnement](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
-De Service voor het inrichten van apparaten automatiseert apparaten inrichten met Azure IoT Hub. Meer informatie over [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/).
+De Service voor het inrichten van apparaten automatiseert apparaten inrichten met Azure IoT Hub. Meer informatie over [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
 ## <a name="next-steps"></a>Volgende stappen
 U hebt nu een overzicht van de inrichting van IoT-apparaten in Azure. De volgende stap is een end-to-end-IoT-scenario uitproberen.

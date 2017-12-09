@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server-databasemigratie naar SQL Database in de cloud
 In dit artikel leest u over de twee primaire methoden voor het migreren van een SQL Server 2005 of latere database naar Azure SQL Database. De eerste methode is eenvoudiger, maar leidt wel tot enige uitvaltijd tijdens de migratie. In bepaalde gevallen kan deze uitvaltijd aanzienlijk zijn. De tweede methode is complexer, maar veroorzaakt tijdens de migratie veel minder uitvaltijd.
@@ -39,11 +39,11 @@ De volgende lijst bevat de algemene werkstroom voor de migratie van een SQL Serv
 
   ![Diagram van VSSSDT-migratie](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Beoordelen](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) de database voor compatibiliteit met behulp van de nieuwste versie van de [gegevens migratie-assistent (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Beoordelen](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) de database voor compatibiliteit met behulp van de nieuwste versie van de [gegevens migratie-assistent (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Bereid alle benodigde fixes voor als Transact-SQL-scripts.
 3. Maak een transactioneel consistent kopie van de brondatabase wordt gemigreerd - en zorg ervoor dat er geen verdere wijzigingen worden aangebracht voor de database (of kunt u deze wijzigingen handmatig toepassen nadat de migratie is voltooid). Er zijn veel methoden om een database stil te leggen, van het uitschakelen van de clientconnectiviteit tot het maken van een [databasemomentopname](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implementeer de Transact-SQL-scripts om de fixes toe te passen op de databasekopie.
-5. [Migreren](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) het database-exemplaar naar een nieuwe Azure SQL Database met behulp van de gegevens migratie-assistent.
+5. [Migreren](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) het database-exemplaar naar een nieuwe Azure SQL Database met behulp van de gegevens migratie-assistent.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>De prestaties van de gegevensoverdracht tijdens de migratie optimaliseren 
 

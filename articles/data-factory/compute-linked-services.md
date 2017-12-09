@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.openlocfilehash: a530b08c276596ddbffafc21e6cffdd9e0e9e3fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE omgevingen wordt ondersteund door Azure Data Factory
 Dit artikel wordt uitgelegd verschillende berekeningsomgevingen waarmee u kunt gegevens verwerken of transformatie. Het bevat ook informatie over verschillende configuraties (op aanvraag versus bring uw eigen) die door Data Factory worden ondersteund bij het configureren van de gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -106,7 +106,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 | clusterResourceGroup         | Het HDInsight-cluster wordt gemaakt in deze resourcegroep. | Ja      |
 | TimeToLive                   | De toegestane niet-actieve tijd voor het HDInsight-cluster op aanvraag. Hiermee geeft u op hoelang het HDInsight-cluster op aanvraag na voltooiing van een activiteit die wordt uitgevoerd als er geen actieve taken in het cluster actief blijft. De minimaal toegestane waarde is 5 minuten (00: 05:00).<br/><br/>Bijvoorbeeld, als het uitvoeren van een activiteit 6 minuten duurt en timetolive is ingesteld op 5 minuten, blijft het cluster actief gedurende vijf minuten nadat de 6 minuten van de verwerking van de activiteit is uitgevoerd. Als een andere activiteit die wordt uitgevoerd met het venster 6 minuten wordt uitgevoerd, wordt het verwerkt door hetzelfde cluster.<br/><br/>Maken van een HDInsight-cluster op aanvraag is een dure bewerking (kan even duren) in dat geval gebruik deze instelling als die nodig zijn voor de prestaties van een gegevensfactory verbeteren door een HDInsight-cluster op aanvraag opnieuw te gebruiken.<br/><br/>Als u timetolive-waarde op 0 instelt, wordt het cluster wordt verwijderd zodra de uitvoering van de activiteit is voltooid. Dat, als u een hoge waarde instelt, het cluster niet actief is voor u zich aanmelden voor het probleem oplossen kan blijven doel, maar dit kan leiden tot hoge kosten. Het is daarom belangrijk dat u de juiste waarde op basis van uw behoeften.<br/><br/>Als de waarde van de eigenschap timetolive op de juiste wijze is ingesteld, kunnen meerdere pijplijnen het exemplaar van het HDInsight-cluster op aanvraag delen. | Ja      |
 | clusterType                  | Het type van het HDInsight-cluster moet worden gemaakt. Toegestane waarden zijn 'hadoop' en 'spark'. Als niet wordt opgegeven, wordt de standaardwaarde hadoop. | Nee       |
-| Versie                      | Versie van het HDInsight-cluster. Als niet wordt opgegeven, wordt deze met behulp van de huidige versie van de HDInsight-gedefinieerde standaard. | Nee       |
+| versie                      | Versie van het HDInsight-cluster. Als niet wordt opgegeven, wordt deze met behulp van de huidige versie van de HDInsight-gedefinieerde standaard. | Nee       |
 | hostSubscriptionId           | De Azure-abonnement-ID die wordt gebruikt voor het maken van HDInsight-cluster. Als niet wordt opgegeven, wordt de abonnements-ID van de context van uw Azure-aanmelding. | Nee       |
 | clusterNamePrefix           | Het voorvoegsel van de naam in de HDI-cluster, een tijdstempel wordt automatisch toegevoegd aan het einde van de naam van het cluster| Nee       |
 | sparkVersion                 | De versie van spark als het clustertype is 'Spark' | Nee       |
@@ -136,7 +136,7 @@ De volgende JSON definieert een service op aanvraag een gekoppelde HDInsight op 
 
 ### <a name="service-principal-authentication"></a>Verificatie van service-principal
 
-De gekoppelde On-Demand HDInsight-service vereist een service principal verificatie HDInsight-clusters maken namens jou. Service-principal-verificatie gebruiken, het registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) en het geven de **Inzender** rol van het abonnement of de resourcegroep waarin het HDInsight-cluster is gemaakt. Zie voor gedetailleerde stappen [portal gebruik maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
+De gekoppelde On-Demand HDInsight-service vereist een service principal verificatie HDInsight-clusters maken namens jou. Service-principal-verificatie gebruiken, het registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) en het geven de **Inzender** rol van het abonnement of de resourcegroep waarin het HDInsight-cluster is gemaakt. Zie voor gedetailleerde stappen [portal gebruik maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Noteer de volgende waarden die u gebruikt voor het definiëren van de gekoppelde service:
 
 - Toepassings-id
 - Sleutel van toepassing 

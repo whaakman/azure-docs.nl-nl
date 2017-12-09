@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset bijwerken
 Dit artikel wordt beschreven hoe kunt u een update OS uitrolt naar een virtuele machine van Azure schaal instellen zonder uitvaltijd. In deze context is omvat een update OS het wijzigen van de versie of SKU van het besturingssysteem en het wijzigen van de URI van een aangepaste installatiekopie. Zonder uitvaltijd bijwerken van virtuele machines één op een tijdstip of in groepen (zoals een foutdomein op een tijdstip) in plaats van in één keer wordt bijgewerkt. Op deze manier kunnen alle virtuele machines die niet wordt bijgewerkt blijven uitvoeren.
@@ -31,7 +31,7 @@ Om te voorkomen dubbelzinnigheid, gaan we onderscheiden vier typen OS-update die
 * Het wijzigen van de verwijzing naar afbeelding van een scale-set die is gemaakt met beheerde Azure-schijven.
 * Het besturingssysteem van een virtuele machine patchen (voorbeelden hiervan zijn een beveiligingspatch installeren en uitvoeren van Windows Update). Dit scenario wordt ondersteund, maar niet behandeld in dit artikel.
 
-Virtuele-machineschaalsets die zijn geïmplementeerd als onderdeel van een [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster niet hier worden besproken. Zie [Patch Windows-besturingssysteem in uw Service Fabric-cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) voor meer informatie over Service Fabric-patching.
+Virtuele-machineschaalsets die zijn geïmplementeerd als onderdeel van een [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster niet hier worden besproken. Zie [Patch Windows-besturingssysteem in uw Service Fabric-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) voor meer informatie over Service Fabric-patching.
 
 De volgorde van de basis voor het wijzigen van de OS-versie/SKU van een platforminstallatiekopie van het of de URI van een aangepaste installatiekopie ziet er als volgt uit:
 

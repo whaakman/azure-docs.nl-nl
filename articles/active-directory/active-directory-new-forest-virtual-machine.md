@@ -1,6 +1,6 @@
 ---
 title: Een Active Directory-forest installeren op een virtuele Azure-netwerk | Microsoft Docs
-description: Een zelfstudie waarin wordt uitgelegd hoe u een nieuw Active Directory-forest maken op een virtuele machine (VM) op een Azure Virtual Network.
+description: Een zelfstudie waarin wordt uitgelegd hoe u een nieuw Active Directory-forest maken op een virtuele machine (VM) op een virtuele Azure-netwerk.
 services: active-directory, virtual-network
 keywords: 'Active directory virtuele machine van de active directory-forest installeren, azure active directory-video ''s '
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 96020eb305b0a027a2128cdd3e3c8acf998c8e54
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk
 Dit artikel laat zien hoe u een nieuwe Windows Server Active Directory-omgeving op een virtuele machine (VM) maakt op een [virtuele Azure-netwerk](../virtual-network/virtual-networks-overview.md). De virtuele Azure-netwerk is in dit geval niet verbonden met een on-premises netwerk.
@@ -45,7 +45,7 @@ Er is niet het verschil tussen een domeincontroller installeren in Azure tegenov
 | **Active Directory-database-opslag** |Wijzig eventueel de standaardopslaglocatie van C:\ |U moet standaardopslaglocatie van C:\ wijzigen |
 
 ## <a name="create-an-azure-virtual-network"></a>Een Azure-netwerk maken
-1. Meld u aan bij de klassieke Azure-portal.
+1. Meld u aan bij Azure Portal.
 2. Maak een virtueel netwerk. Klik op **netwerken** > **een virtueel netwerk maken**. Gebruik de waarden in de volgende tabel om de wizard te voltooien.
 
    | Op deze wizardpagina... | Deze waarden opgeven |
@@ -59,7 +59,7 @@ Herhaal de volgende stappen voor het maken van virtuele machines als host voor d
 
 Zie voor informatie over het maken van de virtuele machines met Windows PowerShell in plaats van de gebruikersinterface [gebruik Azure PowerShell om te maken en vooraf configureren van virtuele Machines op basis van Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. Klik in de klassieke portal **nieuw** > **Compute** > **virtuele Machine** > **uit galerie**. De volgende waarden gebruiken om de wizard te voltooien. Accepteer de standaardwaarde voor een instelling tenzij een andere waarde wordt voorgesteld of vereist.
+1. Selecteer in de Azure-portal **nieuw** > **Compute**, en selecteer vervolgens een virtuele machine. De volgende waarden gebruiken om de wizard te voltooien. Accepteer de standaardwaarde voor een instelling tenzij een andere waarde wordt voorgesteld of vereist.
 
    | Op deze wizardpagina... | Deze waarden opgeven |
    | --- | --- |

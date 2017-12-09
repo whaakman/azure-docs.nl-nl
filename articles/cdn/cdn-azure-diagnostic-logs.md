@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -162,7 +162,7 @@ Voordat u de core analytische gegevens vanaf de Azure Storage-Account openen kun
 |Resource |Naam van de naam van de resourcegroep waartoe het CDN-resources behoren.|
 |Profielnaam |Naam van het CDN-profiel|
 |Naam van het eindpunt |Naam van het CDN-eindpunt|
-|jaar|  4-cijferige representatie van het jaar, bijvoorbeeld 2017|
+|Jaar|  4-cijferige representatie van het jaar, bijvoorbeeld 2017|
 |Maand| 2 cijfers weergave van het nummer van de maand. 01 januari =... 12 December =|
 |Dag|   2 cijfers weergave van de dag van de maand|
 |PT1H.JSON| Werkelijke JSON-bestand waarin de analytische gegevens is opgeslagen|
@@ -261,7 +261,7 @@ Volg deze stappen voor het toevoegen van een oplossing voor:
 
 ### <a name="offers-and-pricing-tiers"></a>Aanbiedingen en Prijscategorieën
 
-U kunt zien aanbiedingen en Prijscategorieën voor OMS-beheeroplossingen voor [hier](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+U kunt zien aanbiedingen en Prijscategorieën voor OMS-beheeroplossingen voor [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Weergaven aanpassen
 
@@ -410,8 +410,8 @@ Van de Voorbeeldeigenschappen:
 
 * [Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Basisanalyse via de aanvullende portal Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [OMS Azure Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [Azure-logboekanalyse REST-API](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [OMS Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure-logboekanalyse REST-API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

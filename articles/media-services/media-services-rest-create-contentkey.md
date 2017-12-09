@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 7e4cd0b455ab39db01d50943d15f7e138bbd5e4e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Inhoud sleutels met REST maken
 > [!div class="op_single_selector"]
@@ -35,18 +35,18 @@ Als u activa aan uw clients leveren, kunt u [configureren voor bedrijfsmiddelen 
 
 Versleutelde activa hebben moeten worden gekoppeld aan **ContentKey**s. In dit artikel wordt beschreven hoe een inhoudssleutel maken.
 
-Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u wilt koppelen aan de activa die u wilt worden versleuteld. 
+Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u koppelen aan de activa die u wilt worden versleuteld. 
 
 1. Willekeurig genereren een 16 bytes AES-sleutel (voor algemene en envelop versleuteling) of een 32-byte-AES-sleutel (voor versleuteling van opslag). 
    
-    Dit is de inhoudssleutel voor uw asset, wat betekent dat alle bestanden die zijn gekoppeld aan dat actief moet dezelfde inhoud sleutel gebruiken tijdens het ontsleutelen. 
+    Dit is de inhoudssleutel voor uw asset, wat betekent dat alle bestanden die zijn gekoppeld aan die asset moeten dezelfde inhoud sleutel gebruiken tijdens het ontsleutelen. 
 2. Roep de [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden voor het ophalen van het juiste X.509-certificaat dat moet worden gebruikt om uw inhoud sleutel te versleutelen.
 3. Codeer uw inhoud sleutel met de openbare sleutel van het X.509-certificaat. 
    
    Media Services .NET SDK gebruikmaakt van RSA met OAEP bij het uitvoeren van de codering.  U ziet een voorbeeld in de [EncryptSymmetricKeyData functie](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Een controlesomwaarde (op basis van het algoritme PlayReady AES-sleutel controlesom) berekend met behulp van de sleutel-id en een inhoudssleutel maken. Zie voor meer informatie de sectie 'PlayReady AES controlesom sleutelalgoritme' van het Object van de Header PlayReady document zich [hier](http://www.microsoft.com/playready/documents/).
    
-   Hier volgt een voorbeeld van een .NET waarmee de controlesom met de GUID-deel van de sleutel-id en de wissen inhoudssleutel wordt berekend.
+   Het volgende voorbeeld met .NET berekent de controlesom met de GUID-deel van de sleutel-id en de inhoudssleutel wissen.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +68,7 @@ Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u 
 5. Maak de inhoudssleutel met de **EncryptedContentKey** (geconverteerd naar base64-gecodeerde tekenreeks), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, en **controlesom** waarden die u in de vorige stappen hebt ontvangen.
 6. Koppel de **ContentKey** entiteit met uw **Asset** entiteit via de $links-bewerking.
 
-Houd er rekening mee dat in dit onderwerp wordt het AES-sleutel genereren, het versleutelen van de sleutel en het berekenen van de controlesom niet weergegeven. 
+In dit artikel wordt het AES-sleutel genereren, het versleutelen van de sleutel en het berekenen van de controlesom niet weergegeven. 
 
 >[!NOTE]
 
@@ -92,7 +92,7 @@ Aanvraag:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +124,7 @@ Aanvraag:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +152,7 @@ Antwoord:
 ## <a name="create-the-contentkey"></a>De ContentKey maken
 Nadat u hebt opgehaald van het X.509-certificaat en de openbare sleutel voor het versleutelen van uw inhoud sleutel gebruikt, maakt u een **ContentKey** entiteit en stel de eigenschap dienovereenkomstig waarden.
 
-Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van het type. Kies een van de volgende waarden.
+Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van het type. Kies een van de volgende waarden:
 
     public enum ContentKeyType
     {
@@ -179,7 +179,7 @@ Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van h
     }
 
 
-Het volgende voorbeeld ziet u het maken van een **ContentKey** met een **ContentKeyType** ingesteld voor de versleuteling van opslag ('1') en de **ProtectionKeyType** ingesteld op '0' om aan te geven dat de sleutel beveiliging Id de vingerafdruk van het X.509-certificaat.  
+Het volgende voorbeeld ziet u het maken van een **ContentKey** met een **ContentKeyType** ingesteld voor de versleuteling van opslag ('1') en de **ProtectionKeyType** ingesteld op '0' om aan te geven de key protection-ID is de vingerafdruk van het X.509-certificaat.  
 
 Aanvraag
 
@@ -191,7 +191,7 @@ Aanvraag
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +241,7 @@ Aanvraag:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

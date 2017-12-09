@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: 9bd92e48440ad4edf2261221446ce66718ffea17
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met Azure Data Factory
 
@@ -36,7 +36,7 @@ U kunt gegevens kopiëren van Azure DB die Cosmos naar een ondersteunde sink-geg
 
 In het bijzonder ondersteunt deze Azure DB die Cosmos-connector:
 
-- Cosmos DB [DocumentDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [DocumentDB API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - JSON-documenten als importeren/exporteren-is of kopiëren van gegevens van/naar tabular gegevensset bijvoorbeeld SQL-database, CSV-bestanden, enzovoort.
 
 Documenten kopiëren als-is naar/van de JSON-bestanden of een andere verzameling van de Cosmos-DB, Zie [voor importeren/exporteren JSON-documenten](#importexport-json-documents).

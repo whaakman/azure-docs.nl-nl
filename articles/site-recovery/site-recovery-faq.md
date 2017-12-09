@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -88,7 +88,7 @@ Site Recovery is ISO 27001: 2013, 27018, HIPAA-, DPA gecertificeerd en is bezig 
 Ja. Wanneer u een Site Recovery-kluis in een regio maakt, zorgt u ervoor dat alle metagegevens die we moet inschakelen en organisatie van replicatie en failover blijft binnen die regio's geografische grens.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Wordt replicatie met Site Recovery versleuteld?
-Voor virtuele machines en fysieke servers wordt repliceren tussen lokale sites van versleuteling in doorvoer ondersteund. Voor virtuele machines en fysieke servers repliceren naar Azure, zowel versleuteling in de doorvoer en [versleuteling in rust (in Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) worden ondersteund.
+Voor virtuele machines en fysieke servers wordt repliceren tussen lokale sites van versleuteling in doorvoer ondersteund. Voor virtuele machines en fysieke servers repliceren naar Azure, zowel versleuteling in de doorvoer en [versleuteling in rust (in Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) worden ondersteund.
 
 ## <a name="replication"></a>Replicatie
 

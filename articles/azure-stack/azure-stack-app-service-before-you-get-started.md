@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: d6962bf2ffbf731a4aa301e663c7c7d3428080d4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App-Service op Azure-Stack
 
@@ -250,7 +250,7 @@ Voor de Azure App Service voor het hosten van de Azure-Stack en softwarelicentie
 
 Voor gebruik met de Azure-Stack Development Kit, kunt u SQL Express 2014 SP2 of hoger.
 
-Voor productie en maximale beschikbaarheid dient u moet een volledige versie van SQL 2014 SP2 of hoger, verificatie in gemengde modus inschakelen en implementeren in een [maximaal beschikbare configuratie](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+Voor productie en maximale beschikbaarheid dient u moet een volledige versie van SQL 2014 SP2 of hoger, verificatie in gemengde modus inschakelen en implementeren in een [maximaal beschikbare configuratie](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
 De Azure App Service op Azure Stack SQL Server moet toegankelijk is vanaf alle functies van de App Service. SQL Server kan worden geïmplementeerd in de Provider standaard abonnement in Azure-Stack. Of u kunt het gebruik van de bestaande infrastructuur binnen uw organisatie (zo lang er is verbinding met Azure-Stack). Als u van een Azure Marketplace-installatiekopie gebruikmaakt, moet de firewall dienovereenkomstig configureren. 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>YARN oplossen met behulp van Azure HDInsight
 
@@ -35,7 +35,7 @@ Gebruik de volgende stappen in de Ambari een nieuwe YARN-wachtrij maken en vervo
 In dit voorbeeld twee bestaande wachtrijen (**standaard** en **thriftsvr**) beide zijn gewijzigd van 50% capaciteit 25% capaciteit, waardoor de nieuwe wachtrij (spark) 50% capaciteit.
 | Wachtrij | Capaciteit | Maximale capaciteit |
 | --- | --- | --- | --- |
-| Standaard | 25% | 50% |
+| standaardinstelling | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |
 
@@ -139,7 +139,7 @@ Deze wijzigingen zijn onmiddellijk voor de gebruikersinterface van YARN Schedule
 
 ### <a name="additional-reading-2"></a>Aanvullende bronnen
 
-- [Verbinding maken met HDInsight (Hadoop) via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Verbinding maken met HDInsight (Hadoop) via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN-concepten en toepassingen](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

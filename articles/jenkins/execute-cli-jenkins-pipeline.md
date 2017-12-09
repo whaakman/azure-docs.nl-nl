@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementeren in Azure App Service met Jenkins en de Azure CLI
 Als u wilt een Java-web-app implementeren in Azure, kunt u Azure CLI in [Jenkins pijplijn](https://jenkins.io/doc/book/pipeline/). In deze zelfstudie maakt u een pijplijn CI/CD maken op een virtuele machine in Azure met inbegrip van hoe:
@@ -56,7 +56,7 @@ sudo apt-get install -y maven
 Een Azure-referentie is nodig voor het uitvoeren van Azure CLI.
 
 * Klik in het dashboard Jenkins op **referenties -> systeem ->**. Klik op **globale credentials(unrestricted)**.
-* Klik op **toevoegen referenties** om toe te voegen een [Microsoft Azure service-principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) door het invullen van de abonnements-ID, de Client-ID, het Clientgeheim en de OAuth 2.0-Tokeneindpunt. Geef een ID voor gebruik in de volgende stap.
+* Klik op **toevoegen referenties** om toe te voegen een [Microsoft Azure service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) door het invullen van de abonnements-ID, de Client-ID, het Clientgeheim en de OAuth 2.0-Tokeneindpunt. Geef een ID voor gebruik in de volgende stap.
 
 ![Referenties toevoegen](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 

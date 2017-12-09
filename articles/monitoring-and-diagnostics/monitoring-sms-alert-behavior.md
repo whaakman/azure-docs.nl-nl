@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>SMS gedrag in Actiegroepen waarschuwing
 ## <a name="overview"></a>Overzicht ##
@@ -37,15 +37,15 @@ Een SMS-ontvanger die is geconfigureerd als onderdeel van een actiegroep, ontvan
 - Titel van de waarschuwing
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Afmelden bij de SMS-berichten voor een actiegroep
-Een gebruiker kan zich afmeldt SMS voor waarschuwingen voor de groep één actie door te reageren op de Stuur 20873 met de sleutelwoorden: "uitschakelen &lt;korte naam van actiegroep&gt;'.
+Een gebruiker kan zich afmeldt SMS voor waarschuwingen voor de groep één actie door te reageren op de korte code 29873 met de sleutelwoorden: "uitschakelen &lt;korte naam van actiegroep&gt;'.
 
-Bijvoorbeeld De willen afmelden bij meldingen voor een actiegroep met de korte naam 'Azure' van een gebruiker zou een SMS-bericht verzenden naar het nummer 20873 met de tekst 'Uitschakelen Azure'
+Bijvoorbeeld Gebruikers willen afmelden bij meldingen voor een actiegroep met de korte naam 'Azure' zou een SMS-bericht verzenden naar de korte code 29873 die vertelt 'Uitschakelen Azure'
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Afmelden bij de SMS-berichten voor alle actiegroepen
-Een gebruiker de SMS-berichten worden voor alle actiegroepen kunt afmelden reageert op de Stuur 20873 met een van de volgende sleutelwoorden:
+Een gebruiker de SMS-berichten worden voor alle actiegroepen kunt afmelden reageert op de korte code 29873 met een van de volgende sleutelwoorden:
 * STOPPEN
 
-Bijvoorbeeld Gebruikers willen afmelden bij alle SMS-berichten voor alle actiegroepen, zou een SMS-bericht verzenden naar het nummer 20873 met de tekst 'STOP'
+Bijvoorbeeld Gebruikers willen afmelden bij alle SMS-berichten voor alle actiegroepen zou een SMS-bericht verzenden naar de korte code 29873 die zegt 'STOP'
 
 >[!NOTE]
 >Als een gebruiker heeft zich afgemeld SMS gewaarschuwd, maar wordt vervolgens toegevoegd aan een nieuwe actiegroep; ze worden ontvangen van de SMS-berichten voor de nieuwe groep in te grijpen, maar blijven afgemeld alle vorige Actiegroepen.
@@ -53,19 +53,19 @@ Bijvoorbeeld Gebruikers willen afmelden bij alle SMS-berichten voor alle actiegr
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Resubscribing voor SMS-berichten voor een actiegroep
-Een gebruiker kan opnieuw abonneren op SMS voor waarschuwingen voor de groep één actie door te reageren op de Stuur 20873 met de sleutelwoorden: "inschakelen &lt;korte naam van actiegroep&gt;'.
+Een gebruiker kan opnieuw abonneren op SMS voor waarschuwingen voor de groep één actie door te reageren op de korte code 29873 met de sleutelwoorden: "inschakelen &lt;korte naam van actiegroep&gt;'.
 
-Bijvoorbeeld Gebruikers willen opnieuw abonneren op meldingen voor een actiegroep met de korte naam 'Azure', zou een SMS-bericht verzenden naar het nummer 20873 met de tekst 'Azure inschakelen'
+Bijvoorbeeld Gebruikers willen opnieuw abonneren op meldingen voor een actiegroep met de korte naam 'Azure', zou een SMS-bericht verzenden naar de korte code 29873 die zegt 'Azure inschakelen'
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Resubscribing voor SMS-berichten voor alle actiegroepen
-Een gebruiker kan opnieuw abonneren op alle SMS voor waarschuwingen voor alle actiegroepen door te reageren op de Stuur 20873 met een van de volgende sleutelwoorden:
+Een gebruiker kan opnieuw abonneren op alle SMS voor waarschuwingen voor alle actiegroepen door te reageren op de korte code 29873 met een van de volgende sleutelwoorden:
 
 * START
 
-Bijvoorbeeld Gebruikers willen afmelden bij alle SMS-berichten voor alle actiegroepen, zou een SMS-bericht verzenden naar het nummer 20873 met de tekst 'START'
+Bijvoorbeeld Gebruikers willen afmelden bij alle SMS-berichten voor alle actiegroepen, zou een SMS-bericht verzenden naar de korte code 29873 die zegt 'START'
 
 ### <a name="requesting-help-via-sms"></a>Hulp via SMS aanvragen
-Een gebruiker kan vragen voor meer informatie over de SMS ze door te reageren op de Stuur 20873 met een van de volgende sleutelwoorden hebben ontvangen:
+Een gebruiker kan vragen voor meer informatie over de SMS ze door te reageren op de korte code 29873 met een van de volgende sleutelwoorden hebben ontvangen:
 * HELP
 
 Een antwoord wordt verzonden naar de gebruiker met een koppeling naar dit artikel.

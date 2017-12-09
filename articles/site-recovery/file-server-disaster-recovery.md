@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Een bestandsserver met Azure Site Recovery beveiligen 
 
@@ -145,7 +145,7 @@ De voorgestelde benadering van de integratie van Azure File-synchronisatie met A
 
 De onderstaande stappen detail controleren met behulp van Azure bestand Sync-service:
 
-1. [Een opslagaccount maken in Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u hebt gekozen geografisch redundante opslag met leestoegang (RA-GRS) voor uw storage-accounts (aanbevolen), hebt u leestoegang tot uw gegevens van de secundaire regio als er een ramp optreedt. Raadpleeg de [Azure File share disaster recovery strategieën](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie.
+1. [Een opslagaccount maken in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Als u hebt gekozen geografisch redundante opslag met leestoegang (RA-GRS) voor uw storage-accounts (aanbevolen), hebt u leestoegang tot uw gegevens van de secundaire regio als er een ramp optreedt. Raadpleeg de [Azure File share disaster recovery strategieën](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) voor meer informatie.
 2. [Een bestandsshare maken](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Azure File-synchronisatie implementeren](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) in uw lokale bestandsserver.
 4. Maken van een groep voor synchronisatie: eindpunten in een groep voor synchronisatie synchroon met elkaar worden behouden. Een groep voor synchronisatie moet ten minste één Cloudeindpunt dat vertegenwoordigt een Azure-bestandsshare, en één servereindpunt waarmee een pad op de lokale Windows-Server bevatten.

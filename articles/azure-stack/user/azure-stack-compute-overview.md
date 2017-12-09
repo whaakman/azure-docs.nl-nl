@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Inleiding tot Azure-Stack virtuele machines
 
@@ -121,8 +121,8 @@ De volgende tabel ziet u een aantal manieren waarop die u informatie over een vi
 |Methode|Beschrijving|
 |---------|---------|
 |Azure Stack-portal|Klik op de virtuele Machines in het hubmenu en selecteer vervolgens de virtuele machine in de lijst. Op de pagina voor de virtuele machine hebt u toegang tot informatie waarden instellen en controle van metrische gegevens.|
-|Azure PowerShell|Het beheren van virtuele machines lijkt in Azure en Azure-Stack. Zie de volgende Azure onderwerp voor meer informatie over het gebruik van PowerShell:<br>[Maken en beheren van Windows virtuele machines met de Azure PowerShell-module](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Client-SDK 's|Met C# voor het beheren van virtuele machines lijkt in Azure en Azure-Stack. Zie de volgende Azure onderwerp voor meer informatie:<br>[Maken en beheren van Windows-machines in Azure met C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Het beheren van virtuele machines lijkt in Azure en Azure-Stack. Zie de volgende Azure onderwerp voor meer informatie over het gebruik van PowerShell:<br>[Maken en beheren van Windows virtuele machines met de Azure PowerShell-module](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Client-SDK 's|Met C# voor het beheren van virtuele machines lijkt in Azure en Azure-Stack. Zie de volgende Azure onderwerp voor meer informatie:<br>[Maken en beheren van Windows-machines in Azure met C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>Verbinding maken met de virtuele machine
 

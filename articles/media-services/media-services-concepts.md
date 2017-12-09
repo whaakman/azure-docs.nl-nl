@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten
 In dit onderwerp biedt een overzicht van de belangrijkste concepten van Media Services.
@@ -83,7 +83,7 @@ Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, gebruik
 Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Een Media Service-account kunt koppelen aan een of meer opslagaccounts. Een account kan een onbeperkt aantal containers bevatten, zolang de totale grootte onder 500TB per storage-account is.  Media Services biedt SDK niveau tooling zodat u meerdere opslagaccounts beheren en taakverdeling van de distributie van uw assets tijdens het uploaden naar deze accounts op basis van metrische gegevens of willekeurige distributie. Voor meer informatie raadpleegt u Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Jobs en taken
-Een [taak](https://docs.microsoft.com/en-us/rest/api/media/operations/job) wordt meestal gebruikt om te verwerken (bijvoorbeeld index of coderen) een audio/video-presentatie. Als u meerdere video's verwerkt, maakt u een taak voor elke video om te worden gecodeerd.
+Een [taak](https://docs.microsoft.com/rest/api/media/operations/job) wordt meestal gebruikt om te verwerken (bijvoorbeeld index of coderen) een audio/video-presentatie. Als u meerdere video's verwerkt, maakt u een taak voor elke video om te worden gecodeerd.
 
 Een taak bevat metagegevens over de verwerking moet worden uitgevoerd. Elke taak bevat een of meer [taak](https://docs.microsoft.com/rest/api/media/operations/task)s die een atomic verwerkingstaak in de invoer activa, geef uitvoer activa, een Mediaprocessor en de bijbehorende instellingen. Taken in een job kunnen keten worden samengesteld, waarbij de uitvoerasset van een taak wordt gegeven als de invoer asset met de volgende taak. Op deze manier kan één taak bevatten alle van de verwerking nodig is voor een presentatie media.
 
@@ -190,7 +190,7 @@ U kunt gebruikers met URL's voor progressief downloaden, moet u eerst een OnDema
 
 http://amstest1.streaming.mediaservices.Windows.NET/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>Streaming-URL's
+### <a name="streaming-urls"></a>Streaming-URL 's
 Streaming uw inhoud aan clients. U kunt gebruikers met het streaming-URL's, moet u eerst een OnDemandOrigin-locator maken. De locator maakt, kunt u het basispad voor de activa die de inhoud die u wilt streamen bevat. Om deze inhoud te streamen moet u echter meer dit pad wijzigen. Kan een volledige URL van het manifestbestand van streaming, moet u de locator padwaarde en het manifest (filename.ism) samenvoegen bestandsnaam. /Manifest en (indien nodig) de juiste indeling vervolgens toevoegen aan het locator-pad.
 
 U kunt ook de inhoud streamen via een SSL-verbinding. Hiervoor moet dat de URL van uw streaming begint met HTTPS. Op dit moment ondersteuning AMS geen voor SSL met aangepaste domeinen.  

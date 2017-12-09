@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Koppelen of ontkoppelen van een gegevensschijf aan een virtuele machine in Azure DevTest Labs
-[Azure-beheerde schijven](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) beheert de storage-accounts die zijn gekoppeld aan de gegevensschijven van de virtuele machine. Een gebruiker wordt een nieuwe gegevens schijf aan een VM, geeft u het type en de grootte van de schijf die nodig is en Azure maakt en beheert de schijf automatisch. De gegevensschijf kan vervolgens worden losgekoppeld van de virtuele machine en een vervolgens opnieuw later dezelfde virtuele machine, of zijn gekoppeld aan een andere virtuele machine die tot dezelfde gebruiker behoort.
+[Azure-beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) beheert de storage-accounts die zijn gekoppeld aan de gegevensschijven van de virtuele machine. Een gebruiker wordt een nieuwe gegevens schijf aan een VM, geeft u het type en de grootte van de schijf die nodig is en Azure maakt en beheert de schijf automatisch. De gegevensschijf kan vervolgens worden losgekoppeld van de virtuele machine en een vervolgens opnieuw later dezelfde virtuele machine, of zijn gekoppeld aan een andere virtuele machine die tot dezelfde gebruiker behoort.
 
 Deze functionaliteit is handig voor het beheren van opslag- of software buiten elke afzonderlijke virtuele machine. Als de software of de opslag al in een gegevensschijf bestaat, kan deze worden eenvoudig gekoppeld, losgekoppeld en opnieuw worden gekoppeld aan een VM dat eigendom is van de gebruiker die eigenaar is van die gegevensschijf.
 
 ## <a name="attach-a-data-disk"></a>Een gegevensschijf koppelen
 Voordat u een gegevensschijf aan een VM koppelen, controleert u de volgende tips:
 
-- De omvang van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie [grootten voor virtuele machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- De omvang van de virtuele machine bepaalt hoeveel gegevensschijven die u kunt koppelen. Zie voor meer informatie [grootten voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - U kunt alleen een gegevensschijf koppelen aan een virtuele machine die wordt uitgevoerd. Zorg ervoor dat de VM wordt uitgevoerd voordat u probeert een gegevensschijf koppelen.
 
 ### <a name="attach-a-new-disk"></a>Een nieuwe schijf koppelen

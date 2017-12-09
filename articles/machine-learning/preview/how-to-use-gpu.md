@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: ca4066396f71865626f4034e490bb069a5f7ddf6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Het gebruik van GPU in Azure Machine Learning
 Grafische verwerken Unit (GPU) wordt veel gebruikt voor het verwerken van rekenkracht taken die doorgaans kunnen ontstaan bij het trainen van bepaalde diepe neural network-modellen. Met behulp van GPU's, kunt u de trainingstijd van de modellen aanzienlijk verkorten. In dit document, u informatie over het configureren van Azure ML-Workbench om te gebruiken [DSVM (gegevens wetenschappelijke virtuele Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) uitgerust met GPU's als doel kan worden uitgevoerd. 
@@ -67,7 +67,7 @@ Azure ML-Workbench bieden ook ondersteuning voor uitvoering in Docker in een Azu
 Als u de locatie voor uw virtuele machine, houd er rekening mee dat GPU VM's alleen beschikbaar in bepaalde Azure-regio's, bijvoorbeeld zijn **Zuid-centraal VS**. Zie [producten die beschikbaar zijn in elke regio compute](https://azure.microsoft.com/en-us/regions/services/).
 Klik op OK om op te slaan de **basisbeginselen** informatie.
 
-6. Kies de grootte van de virtuele machine. Selecteer een van de grootte met NC voorafgegaan VM's die zijn uitgerust met chips NVidia GPU.  Klik op **Alles weergeven** om te zien van de volledige lijst indien nodig. Meer informatie over [GPU uitgerust Azure Virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+6. Kies de grootte van de virtuele machine. Selecteer een van de grootte met NC voorafgegaan VM's die zijn uitgerust met chips NVidia GPU.  Klik op **Alles weergeven** om te zien van de volledige lijst indien nodig. Meer informatie over [GPU uitgerust Azure Virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 7. De overige instellingen voltooien en de aankoopgegevens controleren. Klik op inkoop voor het maken van de virtuele machine. Let op het IP-adres dat is toegewezen aan de virtuele machine. 
 
@@ -119,7 +119,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-U kunt ook de 1 bits SGD-versie van de Microsoft cognitieve Toolkit waarmee prestatieverbeteringen op meerdere GPU virtuele machines gebruiken. Houd er rekening mee [de licentievereiste voor 1-bits-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+U kunt ook de 1 bits SGD-versie van de Microsoft cognitieve Toolkit waarmee prestatieverbeteringen op meerdere GPU virtuele machines gebruiken. Houd er rekening mee [de licentievereiste voor 1-bits-SGD](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment

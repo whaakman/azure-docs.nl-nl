@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric best practices voor beveiliging
 Een toepassing in Azure implementeren is snel, eenvoudig en rendabele. Voordat u uw cloudtoepassing in productie implementeert, controleert u onze lijst met essentiële en aanbevolen procedures voor het implementeren van beveiligde clusters in uw toepassing.
@@ -64,7 +64,7 @@ Uw clusters, moeten worden beveiligd om te voorkomen dat onbevoegde gebruikers v
 Er zijn drie [scenario's](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) voor het implementeren van clusterbeveiliging met behulp van verschillende technologieën:
 
 -   Knooppunt naar beveiliging: dit scenario communicatie tussen de virtuele machines en de computers in het cluster beveiligt. Deze vorm van beveiliging zorgt ervoor dat alleen de computers die gemachtigd zijn om te worden toegevoegd aan het cluster toepassingen en services in het cluster hosten kunnen.
-In dit scenario, de clusters die worden uitgevoerd op Azure of zelfstandige clusters die worden uitgevoerd op Windows, gebruikt een [beveiliging van het certificaat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) of [Windows-beveiliging](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) voor Windows Server-machines.
+In dit scenario, de clusters die worden uitgevoerd op Azure of zelfstandige clusters die worden uitgevoerd op Windows, gebruikt een [beveiliging van het certificaat](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) of [Windows-beveiliging](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) voor Windows Server-machines.
 -   Beveiliging van de client-naar-knooppunt: in dit scenario communicatie tussen een Service Fabric-client en de afzonderlijke knooppunten in het cluster beveiligt.
 -   Op rollen gebaseerde toegangsbeheer (RBAC): in dit scenario gebruikt afzonderlijke identiteiten (certificaten, Azure AD, enzovoort) voor elke beheerder en client-gebruikersrol die toegang heeft tot het cluster. U kunt de identiteiten van de rol opgeven bij het maken van het cluster.
 
@@ -125,7 +125,7 @@ Elke actor wordt gedefinieerd als een exemplaar van een actortype identiek is aa
 Replicator configuraties configureren de replicator die verantwoordelijk is voor het maken van de status van de Actor State-Provider uiterst betrouwbaar.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>SSL configureren voor Azure Service Fabric
-Het verificatieproces server [verifieert](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) management eindpunten van het cluster naar een management-client. De management-client vervolgens herkent dat deze met het echte cluster communiceert. Dit certificaat biedt ook een [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) voor de HTTPS-API en voor Service Fabric Explorer via HTTPS.
+Het verificatieproces server [verifieert](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) management eindpunten van het cluster naar een management-client. De management-client vervolgens herkent dat deze met het echte cluster communiceert. Dit certificaat biedt ook een [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) voor de HTTPS-API en voor Service Fabric Explorer via HTTPS.
 U moet een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
 
 SSL configureren voor een toepassing, moet u eerst een SSL-certificaat dat is ondertekend door een Certificeringsinstantie verkrijgen. De CA is een vertrouwde derde partij die om veiligheidsredenen SSL-certificaten verleent. Als u een SSL-certificaat nog geen hebt, moet u aanvragen bij een bedrijf dat SSL-certificaten verkoopt.

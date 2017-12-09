@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fdbe3c3f2ac7bd6ccb98ef5c1346444ca34e5ac3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure-Dashboards via een programma maken
 
@@ -27,7 +27,7 @@ Dit document begeleidt bij het proces van het programmatisch maken en publiceren
 
 ## <a name="overview"></a>Overzicht
 
-Dashboards in Azure worden gedeeld [resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom deze kunnen worden beheerd via een programma de [Azure Resource Manager REST API's](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), wordt de [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview), [Azure PowerShell-opdrachten](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0), en veel [ Azure-portal](https://portal.azure.com) functies Voortborduren deze API's voor het beheren van bronnen eenvoudiger.  
+Dashboards in Azure worden gedeeld [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) net als bij virtuele machines en opslagaccounts.  Daarom deze kunnen worden beheerd via een programma de [Azure Resource Manager REST API's](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell-opdrachten](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), en veel [ Azure-portal](https://portal.azure.com) functies Voortborduren deze API's voor het beheren van bronnen eenvoudiger.  
 
 Elk van deze API's en hulpprogramma's voor biedt manieren om te maken, weergeven, ophalen, wijzigen en verwijderen van bronnen.  Aangezien dashboards bronnen, kunt u Kies uw favoriete API-hulpprogramma om te gebruiken.
 
@@ -55,7 +55,7 @@ Nadat u hebt het dashboard naar wens die de volgende stappen uit om te publicere
 
 ![opdracht share](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Klikken op de Share-opdracht, ziet u een dialoogvenster waarin u wordt gevraagd u kiezen welke groep abonnement en de resource om naar te publiceren. Houd rekening met het [u moet schrijftoegang hebben](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) aan het abonnement en de resource-groep die u kiest.
+Klikken op de Share-opdracht, ziet u een dialoogvenster waarin u wordt gevraagd u kiezen welke groep abonnement en de resource om naar te publiceren. Houd rekening met het [u moet schrijftoegang hebben](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) aan het abonnement en de resource-groep die u kiest.
 
 ![delen en toegang](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Het is niet nodig zijn voor een volledig begrip van de JSON-structuur dashboard 
 
 Voor het publiceren van dit dashboard voor elke virtuele machine moet in de toekomst u elke instantie van deze tekenreeks in de JSON voorzien. 
 
-Er zijn twee versies van API's die het maken van resources in Azure. [Imperatieve API's](https://docs.microsoft.com/en-us/rest/api/resources/resources) die één resource tegelijk, maken en een [implementatie op basis van sjabloon](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) systeem die u kunt het maken van het indelen van meerdere afhankelijke resources, met één API-aanroep. De laatste ondersteunt parameterisering en templating zodat we deze voor het voorbeeld gebruiken.
+Er zijn twee versies van API's die het maken van resources in Azure. [Imperatieve API's](https://docs.microsoft.com/rest/api/resources/resources) die één resource tegelijk, maken en een [implementatie op basis van sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) systeem die u kunt het maken van het indelen van meerdere afhankelijke resources, met één API-aanroep. De laatste ondersteunt parameterisering en templating zodat we deze voor het voorbeeld gebruiken.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Een dashboard programmatisch van uw sjabloon met de sjabloonimplementatie van een maken
 
-Azure biedt de mogelijkheid voor het indelen van de implementatie van meerdere resources. U maakt een implementatiesjabloon waarin de set met resources die u implementeert en hun onderlinge relaties.  De JSON-indeling van elke resource is hetzelfde als wanneer u ze één voor één zijn gemaakt. Het verschil is dat de [sjabloontaal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) worden enkele concepten zoals variabelen, parameters en elementaire functies toegevoegd. Dit uitgebreide-syntaxis wordt alleen ondersteund in de context van de sjabloonimplementatie van een en werkt niet als gebruikt voor de imperatieve API's die eerder is besproken.
+Azure biedt de mogelijkheid voor het indelen van de implementatie van meerdere resources. U maakt een implementatiesjabloon waarin de set met resources die u implementeert en hun onderlinge relaties.  De JSON-indeling van elke resource is hetzelfde als wanneer u ze één voor één zijn gemaakt. Het verschil is dat de [sjabloontaal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) worden enkele concepten zoals variabelen, parameters en elementaire functies toegevoegd. Dit uitgebreide-syntaxis wordt alleen ondersteund in de context van de sjabloonimplementatie van een en werkt niet als gebruikt voor de imperatieve API's die eerder is besproken.
 
 Als u deze route gaat, wordt parameterisering moet worden gedaan met behulp van de syntaxis van de sjabloon.  U Vervang alle exemplaren van de resource-id we eerder zagen zoals hier wordt weergegeven.
 
@@ -119,7 +119,7 @@ U moet ook declareren van bepaalde vereiste sjabloon metagegevens en de paramete
 
 __Hier ziet u de volledige sjabloon werken aan het einde van dit document.__
 
-Zodra u de sjabloon hebt ontworpen u kunt implementeren met behulp van de [REST-API's](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), wordt de [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create), of de [sjabloonpagina voor implementatie van de portal ](https://portal.azure.com/#create/Microsoft.Template).
+Zodra u de sjabloon hebt ontworpen u kunt implementeren met behulp van de [REST-API's](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), wordt de [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), of de [sjabloonpagina voor implementatie van de portal ](https://portal.azure.com/#create/Microsoft.Template).
 
 Hier vindt u twee versies van onze voorbeeld dashboard JSON. De eerste is de versie die wordt geëxporteerd vanuit de portal die al is gebonden aan een resource. De tweede is de sjabloonversie die via een programma kan worden gebonden aan een virtuele machine en geïmplementeerd met Azure Resource Manager.
 

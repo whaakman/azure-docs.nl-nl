@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Geheime toepassingsinstellingen voor een webtoepassing veilig opslaan
 
@@ -32,7 +32,7 @@ Om er zeker van te zijn ontwikkelingsproces is beveiligd, tooling en framework b
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET en .NET core-toepassingen
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Geheime instellingen opslaan in archief geheim van de gebruiker die buiten het besturingselement bronmap
-Als u een snelle prototype uitvoert of u geen toegang tot internet hebt, kunt u beginnen met het verplaatsen van de instellingen van uw geheime buiten de bronmap van het besturingselement naar gebruiker geheim store. Geheime archief van de gebruiker is een bestand opgeslagen onder de map van de profiler gebruiker, zodat geheimen niet met resourcebeheer ingecheckt zijn. Het volgende diagram laat zien hoe [gebruiker geheim](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) werkt.
+Als u een snelle prototype uitvoert of u geen toegang tot internet hebt, kunt u beginnen met het verplaatsen van de instellingen van uw geheime buiten de bronmap van het besturingselement naar gebruiker geheim store. Geheime archief van de gebruiker is een bestand opgeslagen onder de map van de profiler gebruiker, zodat geheimen niet met resourcebeheer ingecheckt zijn. Het volgende diagram laat zien hoe [gebruiker geheim](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) werkt.
 
 ![Gebruiker geheim houdt geheime-instellingen buiten bronbeheer](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Als u een teamproject ontwikkelt en moet broncode veilig delen, gebruikt u [Azur
 
     ![Maken van Azure Sleutelkluis](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. U en uw team leden toegang verlenen aan de Sleutelkluis. Als u een grote team hebt, kunt u een [Azure Active Directory-groep](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) en voeg die beveiliging groepstoegang toe aan de Sleutelkluis. In de *geheim machtigingen* vervolgkeuzelijst selectievakje *ophalen* en *lijst* onder *geheim beheerbewerkingen*.
+2. U en uw team leden toegang verlenen aan de Sleutelkluis. Als u een grote team hebt, kunt u een [Azure Active Directory-groep](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) en voeg die beveiliging groepstoegang toe aan de Sleutelkluis. In de *geheim machtigingen* vervolgkeuzelijst selectievakje *ophalen* en *lijst* onder *geheim beheerbewerkingen*.
 
     ![Sleutelkluis-beleid toevoegen](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

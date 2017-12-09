@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 2687eb022bce0b71c217f0be611c8fabdfb66040
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 5a5893df8b734acc2d16f149505ed65c288c9306
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Real-world scenario voor voorspeld onderhoud.
 
@@ -30,7 +30,7 @@ Hieronder vindt u de koppeling naar de openbare GitHub-opslagplaats: [https://gi
 
 ## <a name="use-case-overview"></a>Gebruik van de case-overzicht
 
-Een groot probleem managementoverhead voor ondernemingen in asset zware branches is de aanzienlijke kosten die gekoppeld aan vertragingen mechanische problemen zijn. De meeste bedrijven zijn geïnteresseerd in voorspellen wanneer deze zich problemen voordoen om proactief te voorkomen dat ze voordat ze optreden. Het doel is de kosten te verlagen door de uitvaltijd beperken en het eventueel verhogen veiligheid. Raadpleeg de [playbook voor voorspeld onderhoud](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) gebruiken voor een gedetailleerde uitleg van algemene gevallen, evenals de modellering benadering voor voorspeld onderhoud gebruikt.
+Een groot probleem managementoverhead voor ondernemingen in asset zware branches is de aanzienlijke kosten die gekoppeld aan vertragingen mechanische problemen zijn. De meeste bedrijven zijn geïnteresseerd in voorspellen wanneer deze zich problemen voordoen om proactief te voorkomen dat ze voordat ze optreden. Het doel is de kosten te verlagen door de uitvaltijd beperken en het eventueel verhogen veiligheid. Raadpleeg de [playbook voor voorspeld onderhoud](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) gebruiken voor een gedetailleerde uitleg van algemene gevallen, evenals de modellering benadering voor voorspeld onderhoud gebruikt.
 
 Dit scenario maakt gebruik van de ideeën die tijdens de playbook met als doel van het bieden van de stappen voor het implementeren van een Voorspellend model voor een scenario dat is gebaseerd op een synthese van meerdere echte zakelijke problemen. In dit voorbeeld samenbrengt gebruiksvoorbeelden voor algemene gegevenselementen waargenomen tussen veel voorspeld onderhoud.
 
@@ -40,7 +40,7 @@ Het zakelijke probleem voor deze gesimuleerde gegevens is om te voorspellen prob
 
 * Een [Azure-account](https://azure.microsoft.com/en-us/free/) (gratis proefversies beschikbaar zijn).
 * Een geïnstalleerde kopie van [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) volgende de [installatie snelstartgids](./quickstart-installation.md) het programma te installeren en het maken van een werkruimte.
-* Azure Machine Learning uitoefening vereist een lokale implementatieomgeving en een [model-account van beheerserver](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning uitoefening vereist een lokale implementatieomgeving en een [model-account van beheerserver](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
 
 In dit voorbeeld kan worden uitgevoerd op elke AML Workbench compute-context. Het wordt echter aanbevolen uit te voeren met ten minste 16 GB geheugen. Dit scenario is gebouwd en getest op een Windows 10-computer met een externe DS4_V2 standaard [gegevens wetenschappelijke virtuele Machine voor Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
@@ -112,7 +112,7 @@ Dit scenario overzicht de lezer een van het bouwen van een oplossing voor voorsp
 
 Deze gebruiksvoorbeeld is eerder ontwikkeld op meerdere platforms:
 
-* [Oplossingssjabloon voorspeld onderhoud](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Oplossingssjabloon voorspeld onderhoud](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Handleiding voor het modelleren van voorspeld onderhoud](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Voorspeld onderhoud Modeling Guide met SQL-R-Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Voorspeld onderhoud Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)

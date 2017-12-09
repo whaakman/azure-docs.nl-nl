@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling van opslag-Service met behulp van de klant beheerde sleutels in Azure Sleutelkluis
 
@@ -50,7 +50,7 @@ U kunt de SSE inschakelen voor de storage-account met de [Azure-portal](https://
 ![De optie versleuteling Portal schermopname](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*SSE voor Blob-Service inschakelen*
 
-Als u programmatisch wilt inschakelen of uitschakelen van de Storage-Service: versleuteling op een storage-account, kunt u de [REST API van Azure Storage Resource Provider](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), wordt de [Storage Resource Provider-clientbibliotheek voor .NET](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), of de [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Als u programmatisch wilt inschakelen of uitschakelen van de Storage-Service: versleuteling op een storage-account, kunt u de [REST API van Azure Storage Resource Provider](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), wordt de [Storage Resource Provider-clientbibliotheek voor .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), of de [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 In dit scherm als u het selectievakje 'gebruiken your own key' niet ziet zijn u niet goedgekeurd voor de preview. Een e-mail verzenden naar [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) en goedkeuring aanvragen.
 
@@ -71,10 +71,10 @@ Als het storage-account geen toegang tot de Sleutelkluis heeft, kunt u de volgen
 U kunt ook toegang via de Azure-portal door te gaan naar de Azure Sleutelkluis in Azure portal en het verlenen van toegang tot het opslagaccount.
 
 ## <a name="step-4-copy-data-to-storage-account"></a>Stap 4: Gegevens kopiëren naar de storage-account
-Als u gegevens overdragen naar uw nieuwe opslagaccount wilt zodat ze zijn versleuteld, raadpleegt u [stap 3 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+Als u gegevens overdragen naar uw nieuwe opslagaccount wilt zodat ze zijn versleuteld, raadpleegt u [stap 3 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Stap 5: De status van de versleutelde gegevens opvragen
-Als u wilt de status van de versleutelde gegevens opvragen, verwijzen naar [stap 4 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Als u wilt de status van de versleutelde gegevens opvragen, verwijzen naar [stap 4 van aan de slag in Service-versleuteling van opslag voor gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Veelgestelde vragen over Service-versleuteling van opslag voor gegevens in rust
 **V: ik gebruik Premium-opslag; kan ik SSE gebruiken met sleutels van de klant beheerd?**
@@ -91,7 +91,7 @@ A: Er is een waarde die is gekoppeld voor het gebruik van Azure Sleutelkluis. Vo
 
 **V: kan ik de toegang tot de versleutelingssleutels intrekken?**
 
-A: Ja, kunt u de toegang intrekken op elk gewenst moment. Er zijn verschillende manieren toegang tot uw sleutels in te trekken. Raadpleeg [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) en [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) voor meer informatie. Toegang intrekken wordt toegang tot alle blobs in de storage-account effectief geblokkeerd omdat de versleutelingssleutel van de Account niet toegankelijk door Azure Storage is.
+A: Ja, kunt u de toegang intrekken op elk gewenst moment. Er zijn verschillende manieren toegang tot uw sleutels in te trekken. Raadpleeg [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) en [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) voor meer informatie. Toegang intrekken wordt toegang tot alle blobs in de storage-account effectief geblokkeerd omdat de versleutelingssleutel van de Account niet toegankelijk door Azure Storage is.
 
 **V: kan ik een opslagaccount en de sleutel in andere regio maken?**
 
@@ -123,6 +123,6 @@ A: Neem contact op met [ ssediscussions@microsoft.com ](mailto:ssediscussions@mi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-*   Voor meer informatie over de uitgebreide set van beveiliging mogelijkheden die ontwikkelaars helpen bij het ontwikkelen van beveiligde toepassingen, Zie de [opslag beveiligingshandleiding](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*   Zie voor informatie over Azure Sleutelkluis [wat is Azure Sleutelkluis](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
+*   Voor meer informatie over de uitgebreide set van beveiliging mogelijkheden die ontwikkelaars helpen bij het ontwikkelen van beveiligde toepassingen, Zie de [opslag beveiligingshandleiding](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   Zie voor informatie over Azure Sleutelkluis [wat is Azure Sleutelkluis](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 *   Zie voor aan de slag op Azure Sleutelkluis, [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4bb6becd0b664b9287a1973d5221cff46dca57da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Op basis van Azure Resource Manager SDK-scripts gebruiken voor het beheren van StorSimple-apparaten
 
@@ -61,10 +61,10 @@ In deze sectie wordt een voorbeeldscript en gegevens van de verschillende stappe
 Zorg ervoor dat u hebt voordat u begint:
 
 *   Azure PowerShell is geïnstalleerd. Azure PowerShell-modules installeren:
-    * In een Windows-omgeving, volg de stappen in [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). U kunt Azure PowerShell installeren op uw Windows Server-host voor uw StorSimple als een.
-    * In een Linux- of Mac OS-omgeving, volg de stappen in [installeren en configureren van Azure PowerShell op Mac OS- of Linux](https://docs.microsoft.com/en-us/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * In een Windows-omgeving, volg de stappen in [installeren en configureren van Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). U kunt Azure PowerShell installeren op uw Windows Server-host voor uw StorSimple als een.
+    * In een Linux- of Mac OS-omgeving, volg de stappen in [installeren en configureren van Azure PowerShell op Mac OS- of Linux](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
 
-Voor meer informatie over het gebruik van Azure PowerShell, gaat u naar [aan de slag met behulp van Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+Voor meer informatie over het gebruik van Azure PowerShell, gaat u naar [aan de slag met behulp van Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
 ### <a name="run-azure-powershell-script"></a>Azure PowerShell-script uitvoeren
 

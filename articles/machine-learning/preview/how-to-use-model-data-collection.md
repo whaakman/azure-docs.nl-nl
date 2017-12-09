@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Modelgegevens verzamelen met behulp van gegevensverzameling
 
@@ -98,9 +98,9 @@ Gegevens uit Azure blobs kunnen worden gebruikt in tal van manieren via Microsof
 - Azure Machine Learning-Workbench: Open het CSV-bestand in Azure Machine Learning-Workbench door het CSV-bestand toe te voegen als een gegevensbron.
 - Excel: Open de dagelijkse CSV-bestanden als een werkblad.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): grafieken maken met gegevens uit CSV-gegevens in BLOB's opgehaald.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): een gegevensframe maken met een groot gedeelte van CSV-gegevens.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): een gegevensframe maken met een groot gedeelte van CSV-gegevens.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): CSV-gegevens laden in een component table en uitvoeren van SQL-query's rechtstreeks met de blob.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): CSV-gegevens laden in een component table en uitvoeren van SQL-query's rechtstreeks met de blob.
 

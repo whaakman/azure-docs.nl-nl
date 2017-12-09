@@ -18,11 +18,11 @@ ms.dyn365.ops.version:
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: mcollier
-ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST-API-overzicht
 In dit artikel wordt beschreven hoe u verificatie uitvoeren zodat uw code kunt u de [Microsoft Azure Monitor REST API-verwijzing](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -93,7 +93,7 @@ Als de verificatie is gelukt, worden query's vervolgens met de REST-API van Azur
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Metrische definities (Multi-dimensionale API) ophalen
 
-Gebruik de [Azure Monitor metriek definities REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) voor toegang tot de lijst met metrische gegevens die beschikbaar voor een service zijn.
+Gebruik de [Azure Monitor metriek definities REST-API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) voor toegang tot de lijst met metrische gegevens die beschikbaar voor een service zijn.
 
 **Methode**: ophalen
 

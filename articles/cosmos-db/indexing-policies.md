@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.openlocfilehash: c079e9c02041cbc1b61f135038fba634a45c574d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe biedt Azure Cosmos DB indexgegevens?
 
@@ -229,7 +229,7 @@ U kunt kiezen of u wilt dat de verzameling automatisch alle documenten te indexe
 
 Met automatische indexeren uitgeschakeld, kunt u nog steeds selectief alleen bepaalde documenten toevoegen aan de index. U kunt daarentegen laat automatische indexering op en selectief wilt uitsluiten van alleen specifieke documenten. Indexeren aan/uit-configuraties zijn nuttig wanneer u hebt alleen een subset van documenten die moeten worden opgevraagd.
 
-Het volgende voorbeeld ziet u bijvoorbeeld het opnemen van een document expliciet met behulp van de [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
+Het volgende voorbeeld ziet u bijvoorbeeld het opnemen van een document expliciet met behulp van de [DocumentDB API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

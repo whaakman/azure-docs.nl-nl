@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric en containers
 > [!NOTE]
@@ -61,7 +61,7 @@ De volgende afbeelding ziet de verschillende typen van netwerkvirtualisatie en -
 ## <a name="scenarios-for-using-containers"></a>Scenario's voor het gebruik van containers
 Hier volgen typische voorbeelden waar een container een goede keuze is:
 
-* **IIS lift- en verschuiven**: als u bestaande hebt [ASP.NET MVC](https://www.asp.net/mvc) apps die u wilt blijven gebruiken, plaatst u deze in een container in plaats van het migreren van ze naar ASP.NET Core. Deze apps ASP.NET MVC afhankelijk zijn van op Internet Information Services (IIS). U kunt deze toepassingen in de container installatiekopieën vanaf de precreated IIS-installatiekopie van het pakket en implementeren met Service Fabric. Zie [Container afbeeldingen op Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) voor meer informatie over Windows containers.
+* **IIS lift- en verschuiven**: als u bestaande hebt [ASP.NET MVC](https://www.asp.net/mvc) apps die u wilt blijven gebruiken, plaatst u deze in een container in plaats van het migreren van ze naar ASP.NET Core. Deze apps ASP.NET MVC afhankelijk zijn van op Internet Information Services (IIS). U kunt deze toepassingen in de container installatiekopieën vanaf de precreated IIS-installatiekopie van het pakket en implementeren met Service Fabric. Zie [Container afbeeldingen op Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) voor meer informatie over Windows containers.
 * **Meng containers en Service Fabric microservices**: een installatiekopie van een bestaande container gebruiken voor een deel van uw toepassing. U kunt bijvoorbeeld de [NGINX-container](https://hub.docker.com/_/nginx/) voor de webfront-end van uw toepassing en stateful services voor de intensievere back-end-berekeningen.
 * **De gevolgen van de 'ruis neighbors' services**: U kunt de mogelijkheid van de resource governance van containers gebruiken voor het beperken van de resources die gebruikmaakt van een service op een host. Als services mogelijk veel resources in beslag nemen en van invloed zijn op de prestaties van andere gebruikers (zoals een langlopende, query-achtige-bewerking), kunt u deze services in de containers die resource governance stellen.
 
@@ -90,6 +90,6 @@ In dit artikel hebt u geleerd over containers dat Service Fabric is een containe
 
 [Uw eerste Service Fabric-container-toepassing maken op Linux](service-fabric-get-started-containers-linux.md)
 
-[Meer informatie over Windows-Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Meer informatie over Windows-Containers](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

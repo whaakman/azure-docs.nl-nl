@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: bf661e8970011aeb3b810056a11659d57258dde9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -254,7 +254,7 @@ U ziet een van de volgende statussen van de taak afhankelijk van waar de schijf 
 | Overdragen | Nadat ten minste één station is begonnen verwerking, wordt de taakstatus worden ingesteld op de overdragen. Zie de sectie station statussen hieronder voor meer informatie. |
 | Verpakking | Nadat alle stations verwerking is voltooid, wordt de taak in de status van de verpakking geplaatst totdat de stations worden verzonden naar u terug. |
 | Voltooid | Nadat alle stations zijn verzonden naar de klant, als de taak is voltooid zonder fouten, wordt de taak ingesteld op de status voltooid. De taak worden, automatisch verwijderd na 90 dagen in de status voltooid. |
-| gesloten | Nadat alle stations zijn verzonden naar de klant, als er fouten tijdens het verwerken van de taak zijn, wordt de taak ingesteld op de status Closed. De taak worden, automatisch verwijderd na 90 dagen in de status Closed. |
+| Gesloten | Nadat alle stations zijn verzonden naar de klant, als er fouten tijdens het verwerken van de taak zijn, wordt de taak ingesteld op de status Closed. De taak worden, automatisch verwijderd na 90 dagen in de status Closed. |
 
 De volgende tabel bevat de levenscyclus van een afzonderlijke schijf als deze door middel van een taak worden geïmporteerd of geëxporteerd overgezet. De huidige status van elke schijf in een taak is nu zichtbaar zijn vanaf de Azure-portal.
 De volgende tabel beschrijft elke status die elk station in een taak kan doorgeven.
@@ -493,7 +493,7 @@ Nee. U moet worden geleverd stations voor beide importeren en exporteren van tak
 
 ** Hoe kan ik toegang tot gegevens die zijn geïmporteerd door deze service **
 
-De gegevens onder uw Azure storage-account toegankelijk zijn via Azure Portal of met behulp van een zelfstandige tool Opslagverkenner wordt aangeroepen. https://docs.Microsoft.com/en-us/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+De gegevens onder uw Azure storage-account toegankelijk zijn via Azure Portal of met behulp van een zelfstandige tool Opslagverkenner wordt aangeroepen. https://docs.Microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
 
 **Nadat de import-taak is voltooid, hoe worden mijn gegevens eruit in de storage-account? Mijn directory-hiërarchie worden bewaard?**
 

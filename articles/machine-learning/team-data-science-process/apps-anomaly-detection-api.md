@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning eigen Afwijkingsdetectie API
 ## <a name="overview"></a>Overzicht
@@ -44,13 +44,13 @@ De aanbieding Afwijkingsdetectie wordt geleverd met nuttige hulpprogramma's om u
 >
 
 ## <a name="api-deployment"></a>API-implementatie
-Om de API gebruiken, moet u deze implementeren op uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dit implementeert twee AzureML-webservices (en hun verwante resources) naar uw Azure-abonnement - één voor afwijkingsdetectie seizoensgebonden opsporen en één zonder seizoensgebonden detectie.  Zodra de implementatie is voltooid, is het mogelijk voor het beheren van uw API's van de [AzureML-webservices](https://services.azureml.net/webservices/) pagina.  Op deze pagina kunt u zich kunt vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor de API aanroept.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+Om de API gebruiken, moet u deze implementeren op uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dit implementeert twee AzureML-webservices (en hun verwante resources) naar uw Azure-abonnement - één voor afwijkingsdetectie seizoensgebonden opsporen en één zonder seizoensgebonden detectie.  Zodra de implementatie is voltooid, is het mogelijk voor het beheren van uw API's van de [AzureML-webservices](https://services.azureml.net/webservices/) pagina.  Op deze pagina kunt u zich kunt vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor de API aanroept.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>De API schalen
 Uw implementatie hebben standaard een gratis Dev/Test-abonnement waaronder 1000 transacties/en 2 compute uren/maand.  U kunt upgraden naar een ander plan volgens uw behoeften.  Informatie over de prijzen van verschillende abonnementen beschikbaar zijn [hier](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) onder 'Productie-Web-API prijzen'.
 
 ## <a name="managing-aml-plans"></a>Het beheren van AML plannen 
-U kunt uw abonnement beheren [hier](https://services.azureml.net/plans/).  Naam van het abonnement wordt gebaseerd op de Resourcegroepnaam die u hebt gekozen bij het implementeren van de API, plus een tekenreeks die uniek is voor uw abonnement.  Instructies voor het upgraden van uw abonnement zijn beschikbaar [hier](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) onder de sectie 'Facturering abonnementen beheren'.
+U kunt uw abonnement beheren [hier](https://services.azureml.net/plans/).  Naam van het abonnement wordt gebaseerd op de Resourcegroepnaam die u hebt gekozen bij het implementeren van de API, plus een tekenreeks die uniek is voor uw abonnement.  Instructies voor het upgraden van uw abonnement zijn beschikbaar [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) onder de sectie 'Facturering abonnementen beheren'.
 
 ## <a name="api-definition"></a>API-definitie
 De webservice biedt een op basis van REST-API die kan worden gebruikt op verschillende manieren een web- of mobiele toepassingen, R, Python, Excel, inclusief via HTTPS enzovoort.  U uw tijd reeksgegevens verzenden naar deze service via een REST-API-aanroep en het uitvoeren van een combinatie van de drie afwijkingsdetectie typen die hieronder worden beschreven.
@@ -108,7 +108,7 @@ De Score-API wordt gebruikt voor het uitvoeren van de afwijkingsdetectie op niet
 ### <a name="detectors"></a>Detectoren
 De afwijkingsdetectie API ondersteunt detectoren in 3 hoofdcategorieën. In de volgende tabel vindt meer informatie over specifieke invoerparameters en outputs voor elke detectie.
 
-| Detectie-categorie | Detectie | Beschrijving | Invoerparameters | uitvoer |
+| Detectie-categorie | Detectie | Beschrijving | Invoerparameters | Uitvoer |
 | --- | --- | --- | --- | --- |
 | De detectoren piek |TSpike detectie |Pieken en dips op basis van veel van de waarden afkomstig zijn van de eerste en derde kwartielen detecteren |*tspikedetector.Sensitivity:* duurt geheel getal in het bereik 1-10-standaard: 3; Hogere waarden wordt onderschept meer extreme waarden, waardoor er minder gevoelig |TSpike: binaire waarden: '1' als een piek/dip wordt gedetecteerd, '0' anders |
 | De detectoren piek | ZSpike detectie |Pieken en dips op basis van hoe ver de datapoints van hun gemiddelde zijn detecteren |*zspikedetector.Sensitivity:* nemen geheel getal in het bereik 1-10-standaard: 3; Hogere waarden wordt onderschept meer extreme waarden, zodat u minder gevoelig |ZSpike: binaire waarden: '1' als een piek/dip wordt gedetecteerd, '0' anders | |
@@ -131,7 +131,7 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op de tijd reeksgegevens en retourneert afwijkingsdetectie scores en binaire piek indicatoren voor elk punt in tijd. De volgende tabel bevat de uitvoer van de API. 
 
-| uitvoer | Beschrijving |
+| Uitvoer | Beschrijving |
 | --- | --- |
 | Time |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbreekt begrip van de gegevens wordt toegepast |
 | Gegevens |Waarden van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbreekt begrip van de gegevens wordt toegepast |
@@ -166,7 +166,7 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 | negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
 | tspikedetector.Sensitivity |Gevoeligheid voor TSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | zspikedetector.Sensitivity |Gevoeligheid voor ZSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
-| seasonality.Enable |Hiermee wordt aangegeven of seizoensgebonden analyse wordt uitgevoerd |De waarde True |Booleaanse waarde |True, false |Afhankelijk van de tijdreeks |
+| seasonality.Enable |Hiermee wordt aangegeven of seizoensgebonden analyse wordt uitgevoerd |waar |Booleaanse waarde |True, false |Afhankelijk van de tijdreeks |
 | seasonality.numSeasonality |Maximum aantal periodieke cycli worden gedetecteerd |1 |geheel getal |1, 2 |1-2 |
 | seasonality.transform |Of seizoensgebonden (en) trend onderdelen moeten worden verwijderd voordat u afwijkingsdetectie |deseason |opgesomd |None, deseason, deseasontrend |N.v.t. |
 | postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten in resultaten |N.v.t. |
@@ -174,7 +174,7 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 ### <a name="output"></a>Uitvoer
 De API wordt alle detectoren uitgevoerd op de tijd reeksgegevens en retourneert afwijkingsdetectie scores en binaire piek indicatoren voor elk punt in tijd. De volgende tabel bevat de uitvoer van de API. 
 
-| uitvoer | Beschrijving |
+| Uitvoer | Beschrijving |
 | --- | --- |
 | Time |Tijdstempels van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbreekt begrip van de gegevens wordt toegepast |
 | OriginalData |Waarden van onbewerkte gegevens, of geaggregeerde (en/of) impliciete gegevens als aggregatie (en/of) ontbreekt begrip van de gegevens wordt toegepast |

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Een HDInsight-toepassing publiceren in Azure Marketplace
 U kunt een Azure HDInsight-toepassing installeren op een Linux gebaseerde HDInsight-cluster. Informatie over het publiceren van een HDInsight-toepassing in Azure Marketplace in dit artikel. Raadpleeg voor algemene informatie over publiceren in Azure Marketplace [een aanbieding publiceren in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -46,8 +46,7 @@ Twee stappen betrokken zijn bij het publiceren van toepassingen in de Marketplac
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -55,7 +54,6 @@ Twee stappen betrokken zijn bij het publiceren van toepassingen in de Marketplac
 | Veld | Beschrijving | Mogelijke waarden |
 | --- | --- | --- |
 | typen |De clustertypen waarmee de toepassing compatibel is. |Hadoop, HBase, Storm, Spark (of een combinatie hiervan) |
-| lagen |De clusterlagen waarmee de toepassing compatibel is. |Standaard, Premium (of beide) |
 | versies |De HDInsight-clustertypen waarmee de toepassing compatibel is. |3.4 |
 
 ## <a name="application-installation-script"></a>Het installatiescript toepassing

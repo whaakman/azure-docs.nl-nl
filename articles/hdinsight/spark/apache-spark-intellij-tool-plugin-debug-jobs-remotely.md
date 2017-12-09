@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4a87f1c6ba82edc0a762d9e02542a7756383ed82
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure-Toolkit voor IntelliJ gebruiken om op te sporen Spark scala-toepassingen op afstand in HDInsight via VPN-verbinding
 
-Het is raadzaam om foutopsporing op afstand via SSH Spark scala-toepassingen. Zie voor instructies [op afstand fouten opsporen in Spark scala-toepassingen op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Het is raadzaam om foutopsporing op afstand via SSH Spark scala-toepassingen. Zie voor instructies [op afstand fouten opsporen in Spark scala-toepassingen op een HDInsight-cluster in Azure werkset voor IntelliJ via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 Dit artikel bevat stapsgewijze instructies voor het HDInsight-hulpprogramma's in Azure Toolkit voor IntelliJ gebruiken voor het verzenden van een Spark-taak op een HDInsight Spark-cluster en op afstand debug vanaf uw computer. Om deze taken hebt voltooid, moet u de volgende geavanceerde stappen uitvoeren:
 

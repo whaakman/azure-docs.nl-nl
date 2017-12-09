@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 014dbb38d0f47d926db192a6117f7acd06b41a20
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Het zoeken van een adres met behulp van de zoekservice Azure locatie op basis van Services (preview)
 De Search-service is een RESTful reeks API's die zijn ontworpen voor ontwikkelaars om te zoeken naar adressen, locaties, punten van belang, lijsten van bedrijven en andere geografische informatie. Een breedtegraad/lengtegraad wijst de Search-Service naar een specifiek adres, cross straat, geografische functie of interessante (POI). Breedtegraad en lengtegraad waarden geretourneerd door de zoekservice API's kunnen worden gebruikt als parameters in andere Azure locatie op basis van Services zoals de verkeer stromen API's en Route.
@@ -40,11 +40,11 @@ De meeste zoekopdrachten standaard ingesteld op ' maxFuzzyLevel = 1' om toegang 
 
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/fuzzy/JSON? |
     | Autorisatie | Er is geen verificatie |
 
-    De **json** kenmerk in het URL-pad bepaalt de indeling van het antwoord. U gebruikt json in dit artikel voor gebruiksgemak en leesbaarheid. U vindt de notaties beschikbaar antwoord in de **zoeken bij benadering ophalen** definitie van de [locatie op basis van Services functionele API reference] (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    De **json** kenmerk in het URL-pad bepaalt de indeling van het antwoord. U gebruikt json in dit artikel voor gebruiksgemak en leesbaarheid. U vindt de notaties beschikbaar antwoord in de **zoeken bij benadering ophalen** definitie van de [locatie op basis van Services functionele API reference] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Klik op **Params**, en voer de volgende sleutel en waarde om te gebruiken als de query of pad parameters in de aanvraag-URL:
 
@@ -92,7 +92,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/JSON? |
     | Autorisatie | Er is geen verificatie |
 
@@ -132,7 +132,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/reverse/JSON? |
     | Autorisatie | Er is geen verificatie |
     
@@ -156,7 +156,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     |-----|------------|
     | nummer | waar |
 
-    Als de [getal](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter met de aanvraag is verzonden, moet het antwoord eventueel de kant van de straat (links/rechts) en ook de positie van een offset voor dat nummer.
+    Als de [getal](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter met de aanvraag is verzonden, moet het antwoord eventueel de kant van de straat (links/rechts) en ook de positie van een offset voor dat nummer.
     
 5. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
 
@@ -164,7 +164,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     |-----|------------|
     | spatialKeys | waar |
 
-    Wanneer de [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord bevat eigen geo-ruimtelijke belangrijke informatie voor een opgegeven locatie.
+    Wanneer de [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord bevat eigen geo-ruimtelijke belangrijke informatie voor een opgegeven locatie.
 
 6. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
 
@@ -172,7 +172,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     |-----|------------|
     | returnSpeedLimit | waar |
     
-    Wanneer de [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, het antwoord geretourneerd van de geboekte limiet voor snelheid.
+    Wanneer de [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, het antwoord geretourneerd van de geboekte limiet voor snelheid.
 
 7. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
 
@@ -180,7 +180,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     |-----|------------|
     | returnRoadUse | waar |
 
-    Wanneer de [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord retourneert de weg gebruik matrix voor reversegeocodes op niveau van de straat.
+    Wanneer de [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord retourneert de weg gebruik matrix voor reversegeocodes op niveau van de straat.
 
 8. Toevoegen van de volgende sleutel / waarde-paar voor de **Params** sectie en klik op **verzenden**:
 
@@ -188,7 +188,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     |-----|------------|
     | roadUse | waar |
 
-    U kunt de omgekeerde geocode query beperken tot een specifiek type van het gebruik van weg gebruik de [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter.
+    U kunt de omgekeerde geocode query beperken tot een specifiek type van het gebruik van weg gebruik de [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter.
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Zoeken naar de cross straat Reverse adres Cross straat zoekactie
 
@@ -200,7 +200,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | GET |
+    | HTTP-methode | TOEVOEGEN |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/reverse/crossstreet/JSON? |
     | Autorisatie | Er is geen verificatie |
     
@@ -215,4 +215,4 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
 4. Klik op **verzenden** en bekijk de antwoordtekst. 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Verken de [Azure locatie op basis van Serices Search-service](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) API-documentatie 
+- Verken de [Azure locatie op basis van Serices Search-service](https://docs.microsoft.com/rest/api/location-based-services/search) API-documentatie 

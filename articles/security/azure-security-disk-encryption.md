@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -199,7 +199,7 @@ Voordat u Azure Disk Encryption op Azure IaaS VM's inschakelen voor de ondersteu
   > [!NOTE]
   > Als het beveiligingsbeleid van uw Azure VM's toegang heeft tot Internet beperkt, kunt u de voorgaande URI oplossen en configureren van een specifieke regel voor het toestaan van uitgaande verbinding met de IP-adressen.
   >
-  >Om te configureren en toegang tot Azure Key Vault achter een firewall (https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
+  >Om te configureren en toegang tot Azure Key Vault achter een firewall (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Gebruik de nieuwste versie van Azure PowerShell SDK-versie van Azure Disk Encryption te configureren. Download de nieuwste versie van [Azure PowerShell-versie](https://github.com/Azure/azure-powershell/releases)
 
@@ -218,9 +218,9 @@ Voordat u Azure Disk Encryption op Azure IaaS VM's inschakelen voor de ondersteu
 * BitLocker-Groepsbeleid op virtuele machines die lid van domein voor de aangepaste vergezeld gaan van de volgende instelling: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` Azure Disk Encryption mislukken wanneer aangepaste groepsbeleidsinstellingen voor Bitlocker niet compatibel zijn. Op computers die niet het juiste beleid instelling, het nieuwe beleid wordt toegepast, waardoor het nieuwe beleid om bij te werken (gpupdate.exe/Force) en vervolgens opnieuw te starten mogelijk zijn vereist.  
 * Een Azure AD-toepassing maken, een sleutelkluis maken of een bestaande sleutelkluis instellen en versleuteling inschakelen, raadpleegt de [vereiste PowerShell-script voor Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Als u wilt configureren met de Azure CLI-schijfversleuteling-vereisten, Zie [dit script Bash](https://github.com/ejarvi/ade-cli-getting-started).
-* Als u de Azure Backup-service wilt back-up en herstel van versleutelde virtuele machines, als versleuteling is ingeschakeld met Azure Disk Encryption, uw virtuele machines te versleutelen met behulp van de configuratie van de Azure Disk Encryption. De Backup-service biedt ondersteuning voor virtuele machines die zijn versleuteld met Nee KEK of KEK-configuraties. Zie [back-up en herstellen versleuteld virtuele machines met Azure Backup-versleuteling](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* Als u de Azure Backup-service wilt back-up en herstel van versleutelde virtuele machines, als versleuteling is ingeschakeld met Azure Disk Encryption, uw virtuele machines te versleutelen met behulp van de configuratie van de Azure Disk Encryption. De Backup-service biedt ondersteuning voor virtuele machines die zijn versleuteld met Nee KEK of KEK-configuraties. Zie [back-up en herstellen versleuteld virtuele machines met Azure Backup-versleuteling](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Bij het versleutelen van een volume met het Linux-besturingssysteem, houd er rekening mee dat VM moet worden opgestart op dat moment aan het einde van het proces. Dit kan worden gedaan via de portal, powershell of CLI.   Om de voortgang van versleuteling volgen, het statusbericht dat is geretourneerd door Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus periodiek te pollen.  Zodra de codering is voltooid, de het statusbericht dat is geretourneerd door deze opdracht wordt dit aangegeven.  Bijvoorbeeld ' ProgressMessage: besturingssysteemschijf is versleuteld, start u de virtuele machine ' op dit moment de virtuele machine kan worden gestart en gebruikt.  
+* Bij het versleutelen van een volume met het Linux-besturingssysteem, houd er rekening mee dat VM moet worden opgestart op dat moment aan het einde van het proces. Dit kan worden gedaan via de portal, powershell of CLI.   Om de voortgang van versleuteling volgen, het statusbericht dat is geretourneerd door Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus periodiek te pollen.  Zodra de codering is voltooid, de het statusbericht dat is geretourneerd door deze opdracht wordt dit aangegeven.  Bijvoorbeeld ' ProgressMessage: besturingssysteemschijf is versleuteld, start u de virtuele machine ' op dit moment de virtuele machine kan worden gestart en gebruikt.  
 
 * Azure Disk Encryption voor Linux gegevensschijven bevatten een gekoppeld bestandssysteem Linux vóór versleuteling is vereist
 
@@ -396,7 +396,7 @@ Als u wilt een sleutelkluis maken, gebruikt u een van de volgende opties:
 * [Resource Manager-sjabloon '101-sleutel-kluis-maken'](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell-cmdlets voor sleutelkluis](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure Resource Manager
-* Hoe [beveiligen van uw sleutelkluis](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
+* Hoe [beveiligen van uw sleutelkluis](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
 > Als u hebt al een sleutelkluis ingesteld voor uw abonnement, gaat u naar de volgende sectie.

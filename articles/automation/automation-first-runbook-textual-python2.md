@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.openlocfilehash: 3ab858f98077149983ca12e97a621dac18bb580c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="my-first-python-runbook"></a>Mijn eerste Python-runbook
 
@@ -213,5 +213,5 @@ Klik op **OK** om het runbook te starten. Het runbook wordt uitgevoerd en start 
 * Zie [Mijn eerste grafische runbook](automation-first-runbook-graphical.md) om aan de slag te gaan met grafische runbooks
 * Zie [Mijn eerste PowerShell Workflow-runbook](automation-first-runbook-textual.md) om aan de slag te gaan met PowerShell Workflow-runbooks
 * Zie [Azure Automation-runbooktypen](automation-runbook-types.md) voor meer informatie over runbooktypen, hun voordelen en beperkingen
-* Zie voor meer informatie over het ontwikkelen voor Azure met Python, [Azure voor Python-ontwikkelaars](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Python-2-voorbeeldrunbooks, Zie de [Azure Automation GitHub](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Zie voor meer informatie over het ontwikkelen voor Azure met Python, [Azure voor Python-ontwikkelaars](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Python-2-voorbeeldrunbooks, Zie de [Azure Automation GitHub](https://docs.microsoft.com/python/azure/?view=azure-python).

@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9c35410ee1bb67c8ee96eeea6e51601bc29f39aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implementeren van Azure-functie als een module van de rand van de IoT - voorbeeld
 U kunt Azure Functions gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks aan de rand van de IoT-apparaten implementeert. In deze zelfstudie wordt u begeleid bij het maken en implementeren van een Azure-functie waarmee sensorgegevens op het gesimuleerde rand van de IoT-apparaat dat u hebt gemaakt in de implementatie van Azure IoT-Edge van een gesimuleerd apparaat op gefilterd [Windows] [ lnk-tutorial1-win]of [Linux] [ lnk-tutorial1-lin] zelfstudies. In deze zelfstudie leert u het volgende:     
@@ -42,7 +42,7 @@ In deze zelfstudie maakt u de extensie Azure IoT rand voor VS Code gebruiken voo
 
 Voor deze zelfstudie kunt u een register Docker-compatibel. Twee populaire Docker Registerservices beschikbaar in de cloud zijn **Azure Container register** en **Docker Hub**:
 
-- [Azure Container register](https://docs.microsoft.com/en-us/azure/container-registry/) is beschikbaar met een [betaald abonnement](https://azure.microsoft.com/en-us/pricing/details/container-registry/). Voor deze zelfstudie de **Basic** abonnement is voldoende. 
+- [Azure Container register](https://docs.microsoft.com/azure/container-registry/) is beschikbaar met een [betaald abonnement](https://azure.microsoft.com/en-us/pricing/details/container-registry/). Voor deze zelfstudie de **Basic** abonnement is voldoende. 
 
 - [Docker-Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) biedt een gratis persoonlijke opslagplaats als u zich aanmeldt voor een (gratis) Docker-ID. 
     1. Als u wilt aanmelden voor een Docker-ID, volg de instructies in [registreren voor een Docker-ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) op de Docker-site. 

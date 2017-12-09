@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: fa672fd7811e68368c311ef6a3f57eac4b240a4a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Een Windows Server VHD maken en uploaden naar Azure
 In dit artikel laat zien hoe uw eigen algemene VM-installatiekopie uploaden als een virtuele harde schijf (VHD), zodat u deze gebruiken kunt om virtuele machines te maken. Zie voor meer informatie over schijven en VHD's in Microsoft Azure [over schijven en virtuele harde schijven voor virtuele Machines](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -88,7 +88,7 @@ U moet een opslagaccount in Azure, zodat u een plaats voor het uploaden van het 
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>Stap 3: Het VHD-bestand uploaden
-Gebruik de [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) om de VHD te uploaden.
+Gebruik de [Add-AzureVhd](https://docs.microsoft.com/powershell/module/azure/add-azurevhd) om de VHD te uploaden.
 
 Vanuit de Azure PowerShell-venster u in de vorige stap hebt gebruikt, typt u de volgende opdracht en vervangt de variabelen in &lsaquo; haken &rsaquo; met uw eigen gegevens.
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>Stap 4: De installatiekopie toevoegen aan de lijst met aangepaste installatiekopieën
-Gebruik de [toevoegen AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) cmdlet om de installatiekopie toevoegen aan de lijst met aangepaste installatiekopieën.
+Gebruik de [toevoegen AzureVMImage](https://docs.microsoft.com/powershell/module/azure/add-azurevmimage) cmdlet om de installatiekopie toevoegen aan de lijst met aangepaste installatiekopieën.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

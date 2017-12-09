@@ -16,11 +16,11 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b84fe16f533db71207effa58b2b596600b4bcd27
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Systeem voor het identiteitsbeheer van verschillende domeinen gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory voor toepassingen
 
@@ -87,7 +87,7 @@ Toepassingen die ondersteuning bieden voor het profiel SCIM is beschreven in dit
 13. Klik op **opslaan** starten van de Azure AD-service inricht. 
 14. Als gebruikers en groepen (aanbevolen) synchronisatie alleen worden toegewezen, moet u selecteren de **gebruikers en groepen** tabblad en toewijzen van gebruikers en/of groepen die u wilt synchroniseren.
 
-Nadat de initiële synchronisatie is gestart, kunt u de **controlelogboeken** tabblad aan de vooruitgang van de monitor, waarin alle acties die worden uitgevoerd door de inrichting van uw app-service. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Nadat de initiële synchronisatie is gestart, kunt u de **controlelogboeken** tabblad aan de vooruitgang van de monitor, waarin alle acties die worden uitgevoerd door de inrichting van uw app-service. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer 20 minuten optreden als de service wordt uitgevoerd. 
@@ -159,7 +159,7 @@ De eenvoudigste manier voor het implementeren van een SCIM-eindpunt dat inrichti
 13. Klik op **opslaan** starten van de Azure AD-service inricht. 
 14. Als gebruikers en groepen (aanbevolen) synchronisatie alleen worden toegewezen, moet u selecteren de **gebruikers en groepen** tabblad en toewijzen van gebruikers en/of groepen die u wilt synchroniseren.
 
-Nadat de initiële synchronisatie is gestart, kunt u de **controlelogboeken** tabblad aan de vooruitgang van de monitor, waarin alle acties die worden uitgevoerd door de inrichting van uw app-service. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Nadat de initiële synchronisatie is gestart, kunt u de **controlelogboeken** tabblad aan de vooruitgang van de monitor, waarin alle acties die worden uitgevoerd door de inrichting van uw app-service. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 De laatste stap bij het controleren van het voorbeeld is de TargetFile.csv-bestand te openen in de map \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug op uw Windows-computer. Zodra het inrichtingsproces wordt uitgevoerd, wordt dit bestand bevat de details van alle toegewezen en ingericht gebruikers en groepen.
 
@@ -359,7 +359,7 @@ Groep resources worden geïdentificeerd door de schema-id en http://schemas.micr
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabel 1: Standaard Gebruikerskoppeling kenmerk
 | Azure Active Directory-gebruiker | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
-| IsSoftDeleted |Actieve |
+| IsSoftDeleted |actief |
 | Weergavenaam |Weergavenaam |
 | Fax TelephoneNumber |phoneNumbers type eq 'fax'.value |
 | Voornaam |name.givenName |
@@ -383,7 +383,7 @@ Groep resources worden geïdentificeerd door de schema-id en http://schemas.micr
 | Weergavenaam |externalId |
 | E-mail |e-mailberichten type eq 'werk'.value |
 | mailNickname |Weergavenaam |
-| Leden |Leden |
+| leden |leden |
 | object-id |id |
 | proxyAddresses |e-mailberichten [Geef eq 'andere']. Waarde |
 

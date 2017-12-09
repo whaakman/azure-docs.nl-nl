@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager Resource Provider-bewerkingen
 
-Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovider van Microsoft Azure Resource Manager. Deze kunnen worden gebruikt in aangepaste rollen gedetailleerde op rollen gebaseerde toegangsbeheer (RBAC) machtigingen opgeven voor resources in Azure. Houd er rekening mee dat niet een uitgebreide lijst en bewerkingen kunnen worden toegevoegd of verwijderd als elke provider wordt bijgewerkt. Voer de bewerking tekenreeksen de indeling van `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Gebruik voor een lijst met uitgebreide en huidige `Get-AzureRmProviderOperation` (in PowerShell) of `azure provider operations show` (in de Azure CLI) aan de bewerkingen na opvragen van de Azure-resourceproviders.
+Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovider van Microsoft Azure Resource Manager. Deze kunnen worden gebruikt in aangepaste rollen gedetailleerde op rollen gebaseerde toegangsbeheer (RBAC) machtigingen opgeven voor resources in Azure. Houd er rekening mee dat niet een uitgebreide lijst en bewerkingen kunnen worden toegevoegd of verwijderd als elke provider wordt bijgewerkt. Voer de bewerking tekenreeksen de indeling van `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Gebruik voor een lijst met uitgebreide en huidige `Get-AzureRmProviderOperation` (in PowerShell) of `az provider operation list` (in de Azure CLI-v2) voor de bewerkingen na opvragen van de Azure-resourceproviders.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -188,7 +191,7 @@ Dit document vindt u de bewerkingen die beschikbaar zijn voor elke resourceprovi
 |/roleDefinitions/DELETE|De opgegeven aangepaste roldefinitie verwijderen.|
 |/providerOperations/Read|Bewerkingen ophalen voor alle resourceproviders die kunnen worden gebruikt in roldefinities.|
 |/policyDefinitions/Read|Informatie ophalen over een beleidsdefinitie.|
-|policyDefinitions/schrijven|De definitie van een aangepast beleid maken.|
+|policyDefinitions/schrijven|Een aangepaste beleidsdefinitie maken.|
 |/policyDefinitions/DELETE|Een beleidsdefinitie verwijderen.|
 |/roleAssignments/Read|Informatie ophalen over een roltoewijzing.|
 |roleAssignments/schrijven|Een roltoewijzing bij het opgegeven bereik maken.|
@@ -296,7 +299,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |---|---|
 |/ mapApis/lezen|Leesbewerking|
 |/ mapApis/schrijven|Schrijfbewerking|
-|/ mapApis/verwijderen|Het verwijderen|
+|/ mapApis/verwijderen|Verwijderbewerking|
 |/mapApis/regenerateKey/Action|De sleutel opnieuw genereren|
 |/mapApis/listSecrets/Action|Lijst met geheimen weergeven|
 |/mapApis/listSingleSignOnToken/Action|Verificatietoken voor eenmalige aanmelding voor de resource lezen|
@@ -357,184 +360,184 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 
 | Bewerking | Beschrijving |
 |---|---|
-|registratie-/ actie|Registreren bij klassieke berekening|
-|/ checkDomainNameAvailability/actie|Hiermee wordt gecontroleerd of een bepaald domeinnaam beschikbaar is.|
+|registratie-/ actie|Registreren bij de klassieke Compute|
+|/ checkDomainNameAvailability/actie|Controleert de beschikbaarheid van een bepaald domeinnaam.|
 |/ moveSubscriptionResources/actie|Verplaats alle klassieke resources naar een ander abonnement.|
-|/ validateSubscriptionMoveAvailability/actie|De beschikbaarheid van het abonnement voor de klassieke verplaatsingsbewerking valideren.|
+|/ validateSubscriptionMoveAvailability/actie|Valideer de beschikbaarheid van het abonnement voor klassieke move-bewerking.|
 |/operatingSystemFamilies/Read|Geeft een lijst van de Gast besturingssystemen beschikbaar is in Microsoft Azure en vermeldt tevens de besturingssysteemversies beschikbaar voor elke f
-|/Capabilities/Read|Hiermee worden de mogelijkheden weergegeven|
-|/operatingSystems/Read|Hiermee wordt een lijst van de versies van gastbesturingssystemen gemaakt die momenteel beschikbaar zijn in Microsoft Azure.|
-|/resourceTypes/skus/Read|Haalt de SKU-lijst op voor ondersteunde resourcetypen.|
+|/Capabilities/Read|Geeft de mogelijkheden|
+|/operatingSystems/Read|Geeft de versies van het gastbesturingssysteem die momenteel beschikbaar in Microsoft Azure zijn.|
+|/resourceTypes/skus/Read|Hiermee wordt de Sku-lijst voor de volgende resourcetypen ondersteund.|
 |/domainNames/Read|De domeinnamen voor resources retourneren.|
-|domainNames/schrijven|Hiermee worden de domeinnamen voor resources toegevoegd of gewijzigd.|
+|domainNames/schrijven|Toevoegen of wijzigen van de domeinnamen voor resources.|
 |/domainNames/DELETE|De domeinnamen voor resources verwijderen.|
-|/domainNames/swap/Action|Hiermee wordt de faseringssleuf gewisseld naar de productiesleuf.|
-|/domainNames/serviceCertificates/Read|Hiermee worden de gebruikte servicecertificaten geretourneerd.|
-|/domainNames/serviceCertificates/Write|Hiermee worden de gebruikte servicecertificaten toegevoegd of gewijzigd.|
+|/domainNames/swap/Action|Hiermee wordt de staging-site gewisseld naar de productiesite.|
+|/domainNames/serviceCertificates/Read|De gebruikte servicecertificaten geretourneerd.|
+|/domainNames/serviceCertificates/Write|Toevoegen of wijzigen van de gebruikte servicecertificaten.|
 |/domainNames/serviceCertificates/DELETE|De gebruikte servicecertificaten verwijderen.|
-|/domainNames/serviceCertificates/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de servicecertificaten van domeinnamen gelezen.|
-|/domainNames/Capabilities/Read|Geeft de mogelijkheden voor domeinnaamgeving weer|
-|/domainNames/Extensions/Read|Hiermee kunt u de domeinnaamextensies retourneren.|
+|/domainNames/serviceCertificates/operationStatuses/Read|Hiermee wordt de status van de bewerking voor het domein servicecertificaten van domeinnamen gelezen.|
+|/domainNames/Capabilities/Read|Bevat de mogelijkheden voor domeinnaamgeving weer|
+|/domainNames/Extensions/Read|Retourneert het domein bestandsnaamextensies.|
 |/domainNames/Extensions/Write|De domeinnaamextensies toevoegen.|
 |/domainNames/Extensions/DELETE|De domeinnaamextensies verwijderen.|
-|/domainNames/Extensions/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de domeinnaamextensies gelezen.|
-|/domainNames/Active/Write|Hiermee wordt de naam ingesteld van het actieve domein.|
-|/domainNames/slots/Read|Hiermee worden de implementatiesleuven weergegeven.|
-|/domainNames/slots/Write|Hiermee wordt de implementatie gemaakt of bijgewerkt.|
-|/domainNames/slots/DELETE|Hiermee wordt een bepaald implementatiesleuf verwijderd.|
-|/domainNames/slots/start/Action|Hiermee wordt een implementatiesleuf gestart.|
-|/domainNames/slots/Stop/Action|Hiermee wordt de implementatiesleuf tijdelijk stopgezet.|
-|/domainNames/slots/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de domeinnaamsleuven gelezen.|
-|/domainNames/slots/roles/Read|Hiermee wordt de rol van de implementatiesleuf opgehaald.|
-|/domainNames/slots/roles/extensionReferences/Read|Hiermee kunt u de extensieverwijzing voor de implementatiesiterol retourneren.|
-|/domainNames/slots/roles/extensionReferences/Write|Hiermee kunt u de extensieverwijzing voor de implementatiesiterol toevoegen of aanpassen.|
-|/domainNames/slots/roles/extensionReferences/DELETE|De extensieverwijzing voor de implementatiesite verwijderen.|
-|/domainNames/slots/roles/extensionReferences/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de extensieverwijzing van de rollen voor domeinnaamsleuven gelezen.|
-|/domainNames/slots/roles/roleInstances/Read|Hiermee wordt het rolexemplaar opgehaald.|
+|/domainNames/Extensions/operationStatuses/Read|Hiermee wordt de status van de bewerking voor het domein domeinnaamextensies gelezen.|
+|/domainNames/Active/Write|Hiermee stelt u de actieve domeinnaam.|
+|/domainNames/slots/Read|Toont de implementatiesites.|
+|/domainNames/slots/Write|Maken of bijwerken van de implementatie.|
+|/domainNames/slots/DELETE|Hiermee verwijdert u een opgegeven implementatiesleuf.|
+|/domainNames/slots/start/Action|Start een implementatiesleuf.|
+|/domainNames/slots/Stop/Action|De implementatiesleuf onderbreekt.|
+|/domainNames/slots/operationStatuses/Read|Hiermee wordt de status van de bewerking voor het domein domeinnaamsleuven gelezen.|
+|/domainNames/slots/roles/Read|De functie voor de implementatiesleuf opgehaald.|
+|/domainNames/slots/roles/extensionReferences/Read|Retourneert de extensieverwijzing voor de implementatiesiterol.|
+|/domainNames/slots/roles/extensionReferences/Write|Toevoegen of wijzigen van de extensieverwijzing voor de implementatiesiterol.|
+|/domainNames/slots/roles/extensionReferences/DELETE|Verwijder de extensieverwijzing voor de implementatiesiterol.|
+|/domainNames/slots/roles/extensionReferences/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de extensieverwijzing van domein namen sleuven rollen gelezen.|
+|/domainNames/slots/roles/roleInstances/Read|De rolinstantie ophalen.|
 |/domainNames/slots/roles/roleInstances/restart/Action|Rolinstanties opnieuw is opgestart.|
-|/domainNames/slots/roles/roleInstances/reimage/Action|Hiermee wordt de installatiekopie van het rolexemplaar opnieuw toegepast.|
-|/domainNames/slots/roles/roleInstances/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van rolinstanties van rollen voor domeinnaamsleuven gelezen.|
-|/domainNames/slots/State/start/Write|Hiermee wordt de status van de implementatiesleuf gewijzigd naar Gestopt.|
-|/domainNames/slots/State/Stop/Write|Hiermee wordt de status van de implementatiesleuf gewijzigd naar Gestart.|
-|/domainNames/slots/upgradeDomain/Write|Hiermee wordt stap voor stap een domeinupgrade uitgevoerd.|
-|/domainNames/internalLoadBalancers/Read|De interne load balancers worden opgehaald.|
-|/domainNames/internalLoadBalancers/Write|Hiermee wordt een nieuwe interne taakverdeling gemaakt.|
+|/domainNames/slots/roles/roleInstances/reimage/Action|De rolinstantie reimages.|
+|/domainNames/slots/roles/roleInstances/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van rolinstanties van domein namen sleuven rollen gelezen.|
+|/domainNames/slots/State/start/Write|Wijzigt de status van de implementatiesleuf gestopt.|
+|/domainNames/slots/State/Stop/Write|Wijzigt de status van de implementatiesleuf gestart.|
+|/domainNames/slots/upgradeDomain/Write|Walk upgrade van het domein.|
+|/domainNames/internalLoadBalancers/Read|Hiermee haalt u de interne load balancers.|
+|/domainNames/internalLoadBalancers/Write|Maakt een nieuwe interne taakverdeling.|
 |/domainNames/internalLoadBalancers/DELETE|Een nieuwe interne taakverdeling verwijderen.|
-|/domainNames/internalLoadBalancers/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de interne load balancers van domeinnamen gelezen.|
-|/domainNames/loadBalancedEndpointSets/Read|Hiermee worden de eindpuntsets van de taakverdeling weergegeven|
-|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de eindpuntsets voor de taakverdeling van de domeinnamen gelezen.|
-|/domainNames/availabilitySets/Read|De beschikbaarheidsset voor de resource wordt weergegeven.|
-|/Quotas/Read|Hiermee worden de quota voor het abonnement opgehaald.|
-|/virtualMachines/Read|Hiermee wordt een lijst met virtuele machines opgehaald.|
-|virtuele machines/schrijven|Hiermee worden virtuele machines toegevoegd of gewijzigd.|
+|/domainNames/internalLoadBalancers/operationStatuses/Read|Hiermee wordt de bewerkingsstatus voor de interne load balancers van domeinnamen gelezen.|
+|/domainNames/loadBalancedEndpointSets/Read|Toont de eindpuntsets van taakverdeling|
+|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Leest de bewerkingsstatus voor de domeinnamen eindpuntsets van taakverdeling.|
+|/domainNames/availabilitySets/Read|De beschikbaarheidsset voor de resource weergeven.|
+|/Quotas/Read|Het quotum voor het abonnement niet ophalen.|
+|/virtualMachines/Read|Lijst met virtuele machines opgehaald.|
+|virtuele machines/schrijven|Toevoegen of wijzigen van virtuele machines.|
 |/virtualMachines/DELETE|Hiermee verwijdert u virtuele machines.|
-|/virtualMachines/start/Action|Hiermee wordt de virtuele machine gestart.|
+|/virtualMachines/start/Action|Start de virtuele machine.|
 |/virtualMachines/redeploy/Action|De virtuele machine redeploys.|
 |/virtualMachines/restart/Action|Virtuele machines opnieuw is opgestart.|
-|/virtualMachines/Stop/Action|Hiermee wordt de virtuele machine gestopt.|
-|/virtualMachines/Shutdown/Action|Hiermee wordt de virtuele machine afgesloten.|
-|/virtualMachines/attachDisk/Action|Hiermee wordt een gegevensschijf gekoppeld aan een virtuele machine.|
-|/virtualMachines/detachDisk/Action|Hiermee wordt een gegevensschijf losgekoppeld van een virtuele machine.|
-|/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Hiermee wordt het RDP-bestand voor de virtuele machine gedownload.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups leestijd|Hiermee wordt de netwerkbeveiligingsgroep opgehaald die aan de netwerkinterface is gekoppeld.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/schrijven|Hiermee wordt een netwerkbeveiligingsgroep toegevoegd die aan de netwerkinterface is gekoppeld.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/verwijderen|Hiermee wordt de netwerkbeveiligingsgroep verwijderd die aan de netwerkinterface is gekoppeld.|
-|/virtualMachines/networkInterfaces /<br>operationStatuses associatedNetworkSecurityGroups leestijd|Hiermee wordt de bewerkingsstatus van virtuele machines die zijn gekoppeld aan netwerkbeveiligingsgroepen gelezen.|
-|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de metrische definities opgehaald.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee worden de diagnostische instellingen opgehaald.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee worden diagnostische instellingen toegevoegd of gewijzigd.|
-|/virtualMachines/metrics/Read|Hiermee worden de metrische gegevens opgehaald.|
-|/virtualMachines/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van virtuele machines gelezen.|
-|/virtualMachines/Extensions/Read|Hiermee wordt de extensie van de virtuele machine opgehaald.|
-|/virtualMachines/Extensions/Write|Hiermee wordt de extensie voor de virtuele machine ingesteld.|
-|/virtualMachines/Extensions/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van extensies van virtuele machines gelezen.|
-|/virtualMachines/asyncOperations/Read|Hiermee worden de mogelijk asynchrone bewerkingen opgehaald|
-|/virtualMachines/Disks/Read|Hiermee wordt een lijst met gegevensschijven opgehaald|
-|/virtualMachines/associatedNetworkSecurityGroups/Read|Hiermee wordt de netwerkbeveiligingsgroep opgehaald die aan de virtuele machine is gekoppeld.|
-|/virtualMachines/associatedNetworkSecurityGroups/Write|Hiermee wordt een netwerkbeveiligingsgroep toegevoegd die aan de virtuele machine is gekoppeld.|
-|/virtualMachines/associatedNetworkSecurityGroups/DELETE|Hiermee wordt de netwerkbeveiligingsgroep verwijderd die aan de virtuele machine is gekoppeld.|
-|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van virtuele machines die zijn gekoppeld aan netwerkbeveiligingsgroepen gelezen.|
+|/virtualMachines/Stop/Action|Hiermee stopt de virtuele machine.|
+|/virtualMachines/Shutdown/Action|Schakel de virtuele machine.|
+|/virtualMachines/attachDisk/Action|Een gegevensschijf gekoppeld aan een virtuele machine.|
+|/virtualMachines/detachDisk/Action|Hiermee wordt een gegevensschijf van de virtuele machine.|
+|/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Downloadt het RDP-bestand voor de virtuele machine.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups leestijd|Hiermee haalt u de netwerkbeveiligingsgroep die aan de netwerkinterface is gekoppeld.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/schrijven|Voegt een netwerkbeveiligingsgroep die aan de netwerkinterface is gekoppeld.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/verwijderen|Hiermee verwijdert u de netwerkbeveiligingsgroep die aan de netwerkinterface is gekoppeld.|
+|/virtualMachines/networkInterfaces /<br>operationStatuses associatedNetworkSecurityGroups leestijd|Hiermee wordt de bewerkingsstatus van de virtuele machines die zijn gekoppeld netwerkbeveiligingsgroepen gelezen.|
+|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee haalt u de definities van de metrische gegevens.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|De instellingen voor diagnostische gegevens ophalen.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Write|Toevoegen of wijzigen van de diagnostische instellingen.|
+|/virtualMachines/metrics/Read|Hiermee haalt u de metrische gegevens.|
+|/virtualMachines/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de virtuele machines gelezen.|
+|/virtualMachines/Extensions/Read|Hiermee haalt u de extensie van de virtuele machine.|
+|/virtualMachines/Extensions/Write|De extensie van de virtuele machine wordt geplaatst.|
+|/virtualMachines/Extensions/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de extensies van virtuele machines gelezen.|
+|/virtualMachines/asyncOperations/Read|De mogelijk asynchrone bewerkingen opgehaald|
+|/virtualMachines/Disks/Read|Hiermee wordt een lijst met gegevensschijven|
+|/virtualMachines/associatedNetworkSecurityGroups/Read|Hiermee wordt de netwerkbeveiligingsgroep die zijn gekoppeld aan de virtuele machine opgehaald.|
+|/virtualMachines/associatedNetworkSecurityGroups/Write|Voegt een netwerkbeveiligingsgroep die aan de virtuele machine is gekoppeld.|
+|/virtualMachines/associatedNetworkSecurityGroups/DELETE|Hiermee verwijdert u de netwerkbeveiligingsgroep die aan de virtuele machine is gekoppeld.|
+|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de virtuele machines die zijn gekoppeld netwerkbeveiligingsgroepen gelezen.|
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 | Bewerking | Beschrijving |
 |---|---|
-|registratie-/ actie|Registreren bij klassiek netwerk|
-|/gatewaySupportedDevices/Read|De lijst met ondersteunde apparaten wordt opgehaald.|
-|/reservedIps/Read|Hiermee worden de gereserveerde IP's opgehaald.|
-|reservedip/schrijven|Een nieuw gereserveerd IP toevoegen|
-|/reservedIps/DELETE|Hiermee wordt een gereserveerd IP verwijderd.|
-|/reservedIps/link/Action|Een gereserveerde IP koppelen|
-|/reservedIps/join/Action|Deelnemen aan een gereserveerde IP|
+|registratie-/ actie|Registreren bij de klassieke netwerk|
+|/gatewaySupportedDevices/Read|Haalt de lijst met ondersteunde apparaten.|
+|/reservedIps/Read|De gereserveerde IP-adressen opgehaald|
+|reservedip/schrijven|Een nieuwe gereserveerde IP-adres toevoegen|
+|/reservedIps/DELETE|Een gereserveerd IP-adres verwijderen.|
+|/reservedIps/link/Action|Koppelen van een gereserveerd IP-adres|
+|/reservedIps/join/Action|Lid worden van een gereserveerd IP-adres|
 |/reservedIps/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de gereserveerde IP's gelezen.|
-|/virtualNetworks/Read|Het virtuele netwerk wordt opgehaald.|
-|virtualNetworks/schrijven|Een nieuw virtueel netwerk wordt toegevoegd.|
-|/virtualNetworks/DELETE|Hiermee wordt het virtuele netwerk verwijderd.|
-|/virtualNetworks/peer/Action|Hiermee wordt een virtueel netwerk via peercommunicatie gebruikt met een ander virtueel netwerk.|
-|/virtualNetworks/join/Action|Hiermee wordt de deelname aan het virtuele netwerk uitgevoerd.|
-|/virtualNetworks/checkIPAddressAvailability/Action|Hiermee wordt de beschikbaarheid van een bepaald IP-adres in een virtueel netwerk gecontroleerd.|
-|/virtualNetworks/Capabilities/Read|Hiermee worden de mogelijkheden weergegeven|
-|/virtualNetworks/subnetten /<br>associatedNetworkSecurityGroups leestijd|Hiermee wordt de netwerkbeveiligingsgroep opgehaald die aan het subnet is gekoppeld.|
-|/virtualNetworks/subnetten /<br>associatedNetworkSecurityGroups/schrijven|Hiermee wordt een netwerkbeveiligingsgroep toegevoegd die aan het subnet is gekoppeld.|
-|/virtualNetworks/subnetten /<br>associatedNetworkSecurityGroups/verwijderen|Hiermee wordt de netwerkbeveiligingsgroep verwijderd die aan het subnet is gekoppeld.|
-|/virtualNetworks/subnetten /<br>operationStatuses associatedNetworkSecurityGroups leestijd|Hiermee wordt de bewerkingsstatus van de netwerkbeveiligingsgroep die aan het subnet van het virtueel netwerk is gekoppeld gelezen.|
+|/virtualNetworks/Read|Ophalen van het virtuele netwerk.|
+|virtualNetworks/schrijven|Voeg een nieuw virtueel netwerk.|
+|/virtualNetworks/DELETE|Hiermee verwijdert u het virtuele netwerk.|
+|/virtualNetworks/peer/Action|Een virtueel netwerk met een ander virtueel netwerk samenwerkt.|
+|/virtualNetworks/join/Action|Lid wordt van het virtuele netwerk.|
+|/virtualNetworks/checkIPAddressAvailability/Action|Controleert de beschikbaarheid van een opgegeven IP-adres in een virtueel netwerk.|
+|/virtualNetworks/Capabilities/Read|Geeft de mogelijkheden|
+|/virtualNetworks/subnetten /<br>associatedNetworkSecurityGroups leestijd|Hiermee haalt u de netwerkbeveiligingsgroep die aan het subnet zijn gekoppeld.|
+|/virtualNetworks/subnetten /<br>associatedNetworkSecurityGroups/schrijven|Voegt een netwerkbeveiligingsgroep die aan het subnet zijn gekoppeld.|
+|/virtualNetworks/subnetten /<br>associatedNetworkSecurityGroups/verwijderen|Hiermee verwijdert u de netwerkbeveiligingsgroep die aan het subnet zijn gekoppeld.|
+|/virtualNetworks/subnetten /<br>operationStatuses associatedNetworkSecurityGroups leestijd|Leest de bewerkingsstatus van de virtuele subnet-netwerkbeveiligingsgroep.|
 |/virtualNetworks/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de virtuele netwerken gelezen.|
-|/virtualNetworks/gateways/Read|De gateways voor het virtuele netwerk worden opgehaald.|
-|/virtualNetworks/gateways/Write|Een gateway voor het virtuele netwerk wordt toegevoegd.|
-|/virtualNetworks/gateways/DELETE|De gateway van het virtuele netwerk wordt verwijderd.|
-|/virtualNetworks/gateways/startDiagnostics/Action|Hiermee wordt de diagnostische test voor de gateway van het virtuele netwerk gestart.|
-|/virtualNetworks/gateways/stopDiagnostics/Action|Hiermee wordt de diagnostische test voor de gateway van het virtuele netwerk gestopt.|
-|/virtualNetworks/gateways/downloadDiagnostics/Action|Hiermee worden de diagnotische gegevens van de gateway gedownload.|
+|/virtualNetworks/gateways/Read|Hiermee haalt u de virtuele netwerkgateways.|
+|/virtualNetworks/gateways/Write|Hiermee wordt een virtuele netwerkgateway toegevoegd.|
+|/virtualNetworks/gateways/DELETE|Hiermee verwijdert u de virtuele netwerkgateway.|
+|/virtualNetworks/gateways/startDiagnostics/Action|Start de diagnostische test voor de virtuele netwerkgateway.|
+|/virtualNetworks/gateways/stopDiagnostics/Action|Hiermee stopt de diagnostische test voor de virtuele netwerkgateway.|
+|/virtualNetworks/gateways/downloadDiagnostics/Action|Downloadt de gateway diagnostische gegevens.|
 |/virtualNetworks/gateways/listCircuitServiceKey/Action|Hiermee wordt de circuitservicesleutel opgehaald.|
-|/virtualNetworks/gateways/downloadDeviceConfigurationScript/Action|Het configuratiescript voor het apparaat wordt gedownload.|
-|/virtualNetworks/gateways/listPackage/Action|Het gatewaypakket voor het virtuele netwerk wordt weergegeven.|
+|/virtualNetworks/gateways/downloadDeviceConfigurationScript/Action|Downloadt het apparaatconfiguratiescript.|
+|/virtualNetworks/gateways/listPackage/Action|Het gatewaypakket voor het virtuele netwerk bevat.|
 |/virtualNetworks/gateways/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de virtuele netwerkgateways gelezen.|
-|/virtualNetworks/gateways/Packages/Read|Het gatewaypakket voor het virtuele netwerk wordt opgehaald.|
-|/virtualNetworks/gateways/Connections/Read|Hiermee wordt de lijst met verbindingen opgehaald.|
-|/virtualNetworks/gateways/Connections/Connect/Action|Hiermee wordt een gatewayverbinding tussen sites ingesteld.|
-|/virtualNetworks/gateways/Connections/Disconnect/Action|Hiermee wordt een gatewayverbinding tussen sites verbroken.|
-|/virtualNetworks/gateways/Connections/test/Action|Hiermee wordt een gatewayverbinding tussen sites getest.|
+|/virtualNetworks/gateways/Packages/Read|Hiermee haalt u de gatewaypakket voor het virtuele netwerk.|
+|/virtualNetworks/gateways/Connections/Read|De lijst met verbindingen opgehaald.|
+|/virtualNetworks/gateways/Connections/Connect/Action|Een gatewayverbinding van site naar site verbindt.|
+|/virtualNetworks/gateways/Connections/Disconnect/Action|Een site-naar-site gatewayverbinding verbroken.|
+|/virtualNetworks/gateways/Connections/test/Action|Test de verbinding van een site-naar-site gateway.|
 |/virtualNetworks/gateways/clientRevokedCertificates/Read|De ingetrokken clientcertificaten lezen.|
-|/virtualNetworks/gateways/clientRevokedCertificates/Write|Hiermee wordt een clientcertificaat ingetrokken.|
-|/virtualNetworks/gateways/clientRevokedCertificates/DELETE|Hiermee wordt de intrekking van een clientcertificaat ongedaan gemaakt.|
-|/virtualNetworks/gateways/clientRootCertificates/Read|Clienthoofdcertificaten zoeken.|
-|/virtualNetworks/gateways/clientRootCertificates/Write|Hiermee wordt een nieuw clienthoofdcertificaat geüpload.|
-|/virtualNetworks/gateways/clientRootCertificates/DELETE|Hiermee wordt het clientcertificaat voor de gateway van het virtuele netwerk verwijderd.|
-|/virtualNetworks/gateways/clientRootCertificates/Download/Action|Hiermee wordt een certificaat gedownload op basis van miniatuur.|
-|/virtualNetworks/gateways/clientRootCertificates/listPackage/Action|Het certificaatpakket van de virtuele netwerkgateway wordt weergegeven.|
+|/virtualNetworks/gateways/clientRevokedCertificates/Write|Hiermee wordt een certificaat ingetrokken.|
+|/virtualNetworks/gateways/clientRevokedCertificates/DELETE|Een clientcertificaat unrevokes.|
+|/virtualNetworks/gateways/clientRootCertificates/Read|De client basiscertificaten vinden.|
+|/virtualNetworks/gateways/clientRootCertificates/Write|Een nieuw clienthoofdcertificaat geüpload.|
+|/virtualNetworks/gateways/clientRootCertificates/DELETE|Hiermee verwijdert u het clientcertificaat voor gateway van virtueel netwerk.|
+|/virtualNetworks/gateways/clientRootCertificates/Download/Action|Certificaat met vingerafdruk downloadt.|
+|/virtualNetworks/gateways/clientRootCertificates/listPackage/Action|Geeft een lijst certificaat gatewaypakket voor het virtuele netwerk.|
 |/networkSecurityGroups/Read|Hiermee wordt de netwerkbeveiligingsgroep opgehaald.|
-|networkSecurityGroups/schrijven|Hiermee wordt een nieuwe netwerkbeveiligingsgroep toegevoegd.|
+|networkSecurityGroups/schrijven|Voegt een nieuwe netwerkbeveiligingsgroep.|
 |/networkSecurityGroups/DELETE|Hiermee wordt de netwerkbeveiligingsgroep verwijderd.|
-|/networkSecurityGroups/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de netwerkbeveiligingsgroep gelezen.|
-|/networkSecurityGroups/securityRules/Read|Hiermee wordt de beveiligingsregel opgehaald.|
-|/networkSecurityGroups/securityRules/Write|Hiermee wordt een beveiligingsregel toegevoegd of bijgewerkt.|
-|/networkSecurityGroups/securityRules/DELETE|Hiermee wordt de beveiligingsregel verwijderd.|
-|/networkSecurityGroups/securityRules/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de beveiligingsregels voor de netwerkbeveiligingsgroep gelezen.|
-|/Quotas/Read|Hiermee worden de quota voor het abonnement opgehaald.|
+|/networkSecurityGroups/operationStatuses/Read|Hiermee wordt de bewerkingsstatus voor de netwerkbeveiligingsgroep gelezen.|
+|/networkSecurityGroups/securityRules/Read|Hiermee haalt u de beveiligingsregel.|
+|/networkSecurityGroups/securityRules/Write|Wordt toegevoegd of een beveiligingsregel bijwerken.|
+|/networkSecurityGroups/securityRules/DELETE|Hiermee verwijdert u de beveiligingsregel.|
+|/networkSecurityGroups/securityRules/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de beveiliging van de netwerkbeveiligingsgroepen gelezen.|
+|/Quotas/Read|Het quotum voor het abonnement niet ophalen.|
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 | Bewerking | Beschrijving |
 |---|---|
-|registratie-/ actie|Registreren bij klassieke opslag|
-|/ checkStorageAccountAvailability/actie|Hiermee wordt gecontroleerd of een opslagaccount beschikbaar is.|
-|/Capabilities/Read|Hiermee worden de mogelijkheden weergegeven|
-|/publicImages/Read|Hiermee wordt de openbare installatiekopie voor de virtuele machine opgehaald.|
-|/images/Read|Hiermee wordt de afbeelding geretourneerd.|
-|/storageAccounts/Read|Opslagaccount met het opgegeven account wordt geretourneerd.|
-|storageAccounts/schrijven|Hiermee wordt een nieuw opslagaccount toegevoegd.|
-|/storageAccounts/DELETE|Hiermee wordt het opslagaccount verwijderd.|
-|/storageAccounts/listKeys/Action|Hiermee worden de toegangssleutels voor de opslagaccounts weergegeven.|
-|/storageAccounts/regenerateKey/Action|De bestaande toegangssleutels voor het opslagaccount worden geregenereerd.|
-|/storageAccounts/operationStatuses/Read|Hiermee wordt de bewerkingsstatus voor de resource ingelezen.|
-|/storageAccounts/images/Read|Hiermme wordt de installatiekopie van het opslagaccount hersteld.|
-|/storageAccounts/images/DELETE|Hiermee wordt de betreffende installatiekopie van het opslagaccount verwijderd.|
-|/storageAccounts/Disks/Read|Hiermee wordt de opslagaccountschijf geretourneerd.|
-|/storageAccounts/Disks/Write|Hiermee wordt een opslagaccountschijf toegevoegd.|
-|/storageAccounts/Disks/DELETE|Hiermee wordt een opgegeven opslagaccountschijf verwijderd.|
-|/storageAccounts/Disks/operationStatuses/Read|Hiermee wordt de bewerkingsstatus voor de resource ingelezen.|
-|/storageAccounts/osImages/Read|Hiermee wordt de installatiekopie van het besturingssysteem van een opslagaccount hersteld.|
-|/storageAccounts/osImages/DELETE|Hiermee wordt de betreffende installatiekopie van het besturingssysteem van een opslagaccount verwijderd.|
-|/storageAccounts/Services/Read|De beschikbare services ophalen.|
-|/storageAccounts/Services/metricDefinitions/Read|Hiermee worden de metrische definities opgehaald.|
-|/storageAccounts/Services/metrics/Read|Hiermee worden de metrische gegevens opgehaald.|
-|/storageAccounts/Services/diagnosticSettings/Read|Hiermee worden de diagnostische instellingen opgehaald.|
-|/storageAccounts/Services/diagnosticSettings/Write|Hiermee worden diagnostische instellingen toegevoegd of gewijzigd.|
-|/Disks/Read|Hiermee wordt de opslagaccountschijf geretourneerd.|
-|/osImages/Read|De installatiekopie van het besturingssysteem herstellen.|
-|/Quotas/Read|Hiermee worden de quota voor het abonnement opgehaald.|
+|registratie-/ actie|Registreren bij de klassieke opslag|
+|/ checkStorageAccountAvailability/actie|Controleert de beschikbaarheid van een opslagaccount.|
+|/Capabilities/Read|Geeft de mogelijkheden|
+|/publicImages/Read|Hiermee haalt u de installatiekopie van de openbare virtuele machine.|
+|/images/Read|Retourneert de installatiekopie.|
+|/storageAccounts/Read|Het opslagaccount met het opgegeven account retourneren.|
+|storageAccounts/schrijven|Voegt een nieuw opslagaccount.|
+|/storageAccounts/DELETE|Het opslagaccount verwijderen.|
+|/storageAccounts/listKeys/Action|Hier worden de sneltoetsen voor de storage-accounts.|
+|/storageAccounts/regenerateKey/Action|Genereert de bestaande sneltoetsen voor het opslagaccount.|
+|/storageAccounts/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de resource gelezen.|
+|/storageAccounts/images/Read|Retourneert de installatiekopie van het opslagaccount.|
+|/storageAccounts/images/DELETE|Hiermee verwijdert u een installatiekopie van het opgegeven opslagaccount.|
+|/storageAccounts/Disks/Read|Retourneert de opslagschijf voor de account.|
+|/storageAccounts/Disks/Write|Voegt een opslagschijf voor de account.|
+|/storageAccounts/Disks/DELETE|Hiermee verwijdert u een bepaalde opslagschijf voor de account.|
+|/storageAccounts/Disks/operationStatuses/Read|Hiermee wordt de bewerkingsstatus van de resource gelezen.|
+|/storageAccounts/osImages/Read|Retourneert de storage-account-besturingssysteeminstallatiekopie.|
+|/storageAccounts/osImages/DELETE|Hiermee verwijdert u een installatiekopie voor besturingssysteem account opgegeven opslag.|
+|/storageAccounts/Services/Read|Ophalen van de beschikbare services.|
+|/storageAccounts/Services/metricDefinitions/Read|Hiermee haalt u de definities van de metrische gegevens.|
+|/storageAccounts/Services/metrics/Read|Hiermee haalt u de metrische gegevens.|
+|/storageAccounts/Services/diagnosticSettings/Read|De instellingen voor diagnostische gegevens ophalen.|
+|/storageAccounts/Services/diagnosticSettings/Write|Toevoegen of wijzigen van de diagnostische instellingen.|
+|/Disks/Read|Retourneert de opslagschijf voor de account.|
+|/osImages/Read|Retourneert de installatiekopie van het besturingssysteem.|
+|/Quotas/Read|Het quotum voor het abonnement niet ophalen.|
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 | Bewerking | Beschrijving |
 |---|---|
-|/Accounts/read|API-accounts worden gelezen.|
-|accounts/schrijven|Schrijft API-Accounts.|
-|/accounts/DELETE|Hiermee verwijdert u de API-accounts|
-|/accounts/listKeys/Action|Lijst met sleutels|
+|/Accounts/read|Hiermee worden API-accounts gelezen.|
+|accounts/schrijven|Hiermee worden API-accounts geschreven.|
+|/accounts/DELETE|API-accounts verwijderen|
+|/accounts/listKeys/Action|Een lijst met sleutels maken|
 |/accounts/regenerateKey/Action|Sleutel opnieuw genereren|
-|/accounts/skus/Read|Beschikbare SKU's voor een bestaande resource leest.|
-|/accounts/usages/Read|Het gebruik van de quota voor een bestaande resource niet ophalen.|
+|/accounts/skus/Read|Hiermee worden beschikbare SKU's voor een bestaande resource gelezen.|
+|/accounts/usages/Read|Het quotumgebruik voor een bestaande resource ophalen.|
 |Bewerkingen/leestijd|Beschrijving van de bewerking.|
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
@@ -595,7 +598,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/virtualMachines/DELETE|Hiermee wordt de virtuele machine verwijderd|
 |/virtualMachines/start/Action|Hiermee wordt de virtuele machine gestart|
 |/virtualMachines/powerOff/Action|Hiermee wordt de virtuele machine uitgeschakeld. Houd er rekening mee dat de virtuele machine wordt nog wel gefactureerd.|
-|/virtualMachines/redeploy/Action|Virtuele machine redeploys|
+|/virtualMachines/redeploy/Action|Hiermee wordt de virtuele machine opnieuw geïmplementeerd|
 |/virtualMachines/restart/Action|Hiermee wordt de virtuele machine opnieuw gestart|
 |/virtualMachines/deallocate/Action|Hiermee wordt de virtuele machine uitgeschakeld en worden de rekenresources vrijgegeven|
 |/virtualMachines/generalize/Action|Hiermee wordt de status van de virtuele machine ingesteld op Gegeneraliseerd en wordt de virtuele machine voorbereid voor vastleggen|
@@ -641,8 +644,8 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/Applications/Read|Leesbewerking|
 |/ applications/schrijven|Schrijfbewerking|
 |/ applications/schrijven|Schrijfbewerking|
-|/Applications/DELETE|Het verwijderen|
-|/Applications/listSecrets/Action|Lijst met geheimen|
+|/Applications/DELETE|Verwijderbewerking|
+|/Applications/listSecrets/Action|Geheimen vermelden|
 |/Applications/listSingleSignOnToken/Action|Eenmalige aanmelding Tokens lezen|
 |/Operations/Read|leesbewerkingen|
 
@@ -654,8 +657,8 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |hubs/schrijven|Maken of bijwerken van een Azure klant Insights Hub|
 |/hubs/DELETE|Verwijderen van een Azure klant Insights Hub|
 |/hubs/providers/Microsoft.Insights/metricDefinitions/Read|Hiermee worden de beschikbare metrische gegevens voor de resource opgehaald|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|De diagnostische instelling voor de resource opgehaald|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Maken of bijwerken van de diagnostische instelling voor de resource|
 |/hubs/providers/Microsoft.Insights/logDefinitions/Read|De beschikbare logboeken opgehaald voor resource|
 |/hubs/authorizationPolicies/Read|Geen inzichten Azure klant gedeeld toegangsbeleid handtekening lezen|
 |/hubs/authorizationPolicies/Write|Een Azure klant Insights Shared Access Signature beleid maken of bijwerken|
@@ -767,8 +770,8 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/iotHubs/eventHubEndpoints/consumerGroups/DELETE|EventHub Consumer-groep verwijderen|
 |/iotHubs/Routing/routes/$ MATLAB/actie|Een bericht met alle bestaande Routes testen|
 |/iotHubs/Routing/routes/$ testnew/actie|Een bericht met een opgegeven test Route testen|
-|IotHubs/diagnosticSettings/leestijd|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/ IotHubs/diagnosticSettings/schrijven|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|IotHubs/diagnosticSettings/leestijd|De diagnostische instelling voor de resource opgehaald|
+|/ IotHubs/diagnosticSettings/schrijven|Maken of bijwerken van de diagnostische instelling voor de resource|
 |/iotHubs/skus/Read|Geldige IotHub Skus ophalen|
 |/iotHubs/Jobs/Read|Details van ingediend op gegeven IotHub taken ophalen|
 |/iotHubs/routingEndpointsHealth/Read|Hiermee wordt de status van alle routering eindpunten voor een IotHub|
@@ -832,7 +835,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/Labs/policySets/Policies/Write|Toevoegen of wijzigen van beleid.|
 |/Labs/virtualMachines/DELETE|Verwijder de virtuele machines.|
 |/Labs/virtualMachines/Read|Virtuele machines gelezen.|
-|/Labs/virtualMachines/Write|Hiermee worden virtuele machines toegevoegd of gewijzigd.|
+|/Labs/virtualMachines/Write|Toevoegen of wijzigen van virtuele machines.|
 |/Labs/virtualMachines/start/Action|Een virtuele machine start.|
 |/Labs/virtualMachines/Stop/Action|Een virtuele machine stoppen|
 |/Labs/virtualMachines/ApplyArtifacts/Action|Artefacten van toepassing op virtuele machine.|
@@ -909,11 +912,11 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 
 | Bewerking | Beschrijving |
 |---|---|
-|/ checkNameAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd.|
+|/ checkNameAvailability/actie|Beschikbaarheid van de controles van naamruimte onder het betreffende abonnement.|
 |registratie-/ actie|Hiermee wordt het abonnement voor de EventHub-resourceprovider geregistreerd en wordt het maken van EventHub-resources mogelijk|
 |naamruimten/schrijven|Een Namespace-Resource maken en bijwerken van de eigenschappen ervan. Tags en status van de Namespace zijn de eigenschappen die kunnen worden bijgewerkt.|
 |/Namespaces/Read|De lijst met beschrijvingen van resources van naamruimten ophalen|
-|/ naamruimten/verwijderen|Namespace-bron verwijderen|
+|/ naamruimten/verwijderen|De resource van een naamruimte verwijderen|
 |/Namespaces/metricDefinitions/Read|Lijst met Namespace metrische Resource beschrijvingen|
 |/Namespaces/authorizationRules/Read|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
 |/Namespaces/authorizationRules/Write|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
@@ -939,9 +942,9 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 
 | Bewerking | Beschrijving |
 |---|---|
-|/providers/Features/Read|Hiermee kunt u de functie van een abonnement voor een opgegeven resourceprovider ophalen.|
-|/providers/Features/register/Action|Hiermee kunt u de functie van een abonnement voor een opgegeven resourceprovider registreren.|
-|/Features/Read|Hiermee kunt u de functies van een abonnement ophalen.|
+|/providers/Features/Read|Hiermee haalt de functie van een abonnement in een opgegeven resourceprovider ophalen.|
+|/providers/Features/register/Action|Registreert de functie voor een abonnement in een opgegeven resourceprovider ophalen.|
+|/Features/Read|Hiermee haalt u de functies van een abonnement.|
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -955,7 +958,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/clusters/Configurations/Read|HDInsight-Cluster configuraties ophalen|
 |/clusters/roles/Resize/Action|Een HDInsight-Cluster vergroten of verkleinen|
 |/Locations/Capabilities/Read|Ophalen van abonnement mogelijkheden|
-|/Locations/checkNameAvailability/Read|Controleer de naam van de beschikbaarheid|
+|/Locations/checkNameAvailability/Read|Beschikbaarheid van de naam controleren|
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -978,12 +981,12 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |AlertRules/leestijd|Configuratie van een waarschuwingsregel lezen|
 |/ AlertRules/geactiveerd/actie|Waarschuwingsregel geactiveerd|
 |/ AlertRules/opgelost/actie|Waarschuwingsregel opgelost|
-|/ AlertRules/beperkt/actie|Waarschuwingsregel is beperkt|
+|/ AlertRules/beperkt/actie|De waarschuwingsregel wordt beperkt|
 |AlertRules/incidenten/leestijd|Incidentconfiguratie van een waarschuwingsregel lezen|
 |MetricDefinitions/leestijd|Metrische definities lezen|
 |/EventTypes/Values/Read|Waarden beheergebeurtenistype lezen|
 |/EventTypes/digestevents/Read|Samenvatting beheergebeurtenistype lezen|
-|Metrische gegevens/leestijd|Metrische gegevens lezen|
+|Metrische gegevens/leestijd|De metrische gegevens lezen|
 |/ LogProfiles/schrijven|Schrijven naar een logboek-profielconfiguratie|
 |/ LogProfiles/verwijderen|Logboek profielen configuratie verwijderen|
 |LogProfiles/leestijd|Profielen voor lees-logboek|
@@ -991,11 +994,11 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/ AutoscaleSettings/verwijderen|Configuratie-instelling voor automatisch schalen verwijderen|
 |AutoscaleSettings/leestijd|Configuratie-instelling voor automatisch schalen lezen|
 |/ AutoscaleSettings/Scaleup/actie|Bewerking Omhoog schalen via automatisch schalen|
-|/ AutoscaleSettings/Scaledown/actie|Schaal omlaag bewerking automatisch schalen|
+|/ AutoscaleSettings/Scaledown/actie|Bewerking Omlaag schalen via automatisch schalen|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Metrische definities lezen|
 |/ ActivityLogAlerts/geactiveerd/actie|De activiteit logboek waarschuwing is geactiveerd|
 |/ DiagnosticSettings/schrijven|Schrijven naar de configuratie voor de diagnostische instellingen|
-|/ DiagnosticSettings/verwijderen|Verwijderen van configuratie van diagnostische instellingen|
+|/ DiagnosticSettings/verwijderen|Configuratie voor de diagnostische gegevens verwijderen|
 |DiagnosticSettings/leestijd|Een configuratie voor de diagnostische instellingen lezen|
 |LogDefinitions/leestijd|Logboekdefinities lezen|
 |/ ExtendedDiagnosticSettings/schrijven|Schrijven naar de uitgebreide diagnostische instellingen voor configuratie|
@@ -1007,14 +1010,14 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 | Bewerking | Beschrijving |
 |---|---|
 |registratie-/ actie|Registreert een abonnement|
-|/checkNameAvailability/Read|Hiermee wordt gecontroleerd of de opgegeven sleutelkluisnaam geldig is en niet wordt gebruikt|
+|/checkNameAvailability/Read|Controleert of de naam van een sleutelkluis geldig is en niet gebruikt wordt|
 |/vaults/Read|De eigenschappen van een sleutelkluis weergeven|
-|kluizen/schrijven|Een nieuwe sleutelkluis maken of de eigenschappen van een bestaande sleutelkluis bijwerken|
+|kluizen/schrijven|Een nieuwe sleutelkluis maken of bijwerken van de eigenschappen van een bestaande sleutelkluis|
 |/vaults/DELETE|Een sleutelkluis verwijderen|
 |/vaults/Deploy/Action|Geeft toegang tot geheimen in een sleutelkluis bij het implementeren van Azure-resources|
-|/vaults/secrets/Read|De eigenschappen van een geheim weergeven, maar niet de waarde|
-|/vaults/secrets/Write|Een nieuw geheim maken of de waarde van een bestaand geheim bijwerken|
-|/vaults/accessPolicies/Write|Een bestaand toegangsbeleid bijwerken door samenvoegen of vervangen, of een nieuw toegangsbeleid toevoegen aan een kluis.|
+|/vaults/secrets/Read|De eigenschappen van een geheim, maar niet de waarde ervan weergeven|
+|/vaults/secrets/Write|Een nieuwe geheim maken of bijwerken van de waarde van een bestaande geheim|
+|/vaults/accessPolicies/Write|Bijwerken van een bestaand toegangsbeleid door samenvoegen of vervangen of een nieuw toegangsbeleid toevoegen aan een kluis.|
 |/deletedVaults/Read|De eigenschappen van voorlopig verwijderde sleutelkluizen weergeven|
 |/Locations/operationResults/Read|Controleer het resultaat van een bewerking voor de lange termijn|
 |/Locations/deletedVaults/Read|De eigenschappen van een voorlopig verwijderde sleutelkluis weergeven|
@@ -1264,7 +1267,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/ CheckNamespaceAvailability/actie|Hiermee wordt gecontroleerd of de resourcenaam voor de naamruimte beschikbaar is binnen de NotificationHub-service.|
 |Naamruimten/schrijftijd|Een Namespace-Resource maken en bijwerken van de eigenschappen ervan. Tags en status van de Namespace zijn de eigenschappen die kunnen worden bijgewerkt.|
 |Naamruimten/leestijd|De lijst met beschrijvingen van resources van naamruimten ophalen|
-|Naamruimten, verwijderen|Namespace-bron verwijderen|
+|Naamruimten, verwijderen|De resource van een naamruimte verwijderen|
 |/ Naamruimten/authorizationRules/actie|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
 |/ Naamruimten/CheckNotificationHubAvailability/actie|Hiermee wordt gecontroleerd of de NotificationHub-naam beschikbaar is binnen een naamruimte.|
 |Naamruimten/authorizationRules/schrijftijd|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
@@ -1274,7 +1277,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/ Naamruimten/authorizationRules/regenerateKeys/actie|De verificatieregel voor een naamruimte De primaire/secundaire sleutel opnieuw genereren, De sleutel opgeven die opnieuw moet worden gegenereerd|
 |Naamruimten/NotificationHubs/schrijftijd|Een Notification Hub maken en bijwerken van de eigenschappen ervan. De eigenschappen zijn hoofdzakelijk PNS-referenties. Autorisatieregels en TTL|
 |Naamruimten/NotificationHubs/leestijd|De lijst met beschrijvingen van resources voor Notification Hub ophalen|
-|Naamruimten, NotificationHubs/verwijderen|Notification Hub-bron verwijderen|
+|Naamruimten, NotificationHubs/verwijderen|De resource voor Notification Hub verwijderen|
 |/ Naamruimten/NotificationHubs/authorizationRules/actie|De lijst met verificatieregels voor Notification Hub ophalen|
 |/ Naamruimten/NotificationHubs/pnsCredentials/actie|Alle Notification Hub PNS referenties ophalen. Dit omvat, WNS, MPNS, APNS, GCM en Baidu-referenties|
 |/ Naamruimten/NotificationHubs/debugSend/actie|Een testpushmelding verzenden.|
@@ -1350,7 +1353,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/vaults/replicationFabrics/renewcertificate/Action||
 |/vaults/replicationFabrics/deployProcessServerImage/Action|Proces serverinstallatiekopie te implementeren|
 |/vaults/replicationFabrics/reassociateGateway/Action|Gateway opnieuw koppelen|
-|kluizen/replicationFabrics/replicationRecoveryServicesProviders /<br>Lezen|Een Recovery Services-Providers lezen|
+|kluizen/replicationFabrics/replicationRecoveryServicesProviders /<br>lezen|Een Recovery Services-Providers lezen|
 |kluizen/replicationFabrics/replicationRecoveryServicesProviders /<br>verwijderen/actie|Recovery Services-Provider verwijderen|
 |kluizen/replicationFabrics/replicationRecoveryServicesProviders /<br>verwijderen|Verwijderen van een Recovery Services-Providers|
 |kluizen/replicationFabrics/replicationRecoveryServicesProviders /<br>refreshProvider/actie|Vernieuw de Provider|
@@ -1365,7 +1368,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |kluizen/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings leestijd|Alle Netwerktoewijzingen lezen|
 |kluizen/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/schrijven|Maken of bijwerken van eventuele Netwerktoewijzingen|
 |kluizen/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/verwijderen|Eventuele Netwerktoewijzingen verwijderen|
-|kluizen/replicationFabrics/replicationProtectionContainers /<br>Lezen|Beveiliging-Containers gelezen|
+|kluizen/replicationFabrics/replicationProtectionContainers /<br>lezen|Beveiliging-Containers gelezen|
 |kluizen/replicationFabrics/replicationProtectionContainers /<br>discoverProtectableItem/actie|Beveiligbare Item detecteren|
 |kluizen/replicationFabrics/replicationProtectionContainers /<br>schrijven|Maken of bijwerken van alle Containers beveiliging|
 |kluizen/replicationFabrics/replicationProtectionContainers /<br>verwijderen/actie|De Beveiligingscontainer verwijderen|
@@ -1457,11 +1460,11 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 
 | Bewerking | Beschrijving |
 |---|---|
-|/ checkNamespaceAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd.|
+|/ checkNamespaceAvailability/actie|Beschikbaarheid van de controles van naamruimte onder het betreffende abonnement.|
 |registratie-/ actie|Hiermee wordt het abonnement voor de Relay-resourceprovider geregistreerd en wordt het maken van Relay-resources mogelijk|
 |naamruimten/schrijven|Een Namespace-Resource maken en bijwerken van de eigenschappen ervan. Tags en status van de Namespace zijn de eigenschappen die kunnen worden bijgewerkt.|
 |/Namespaces/Read|De lijst met beschrijvingen van resources van naamruimten ophalen|
-|/ naamruimten/verwijderen|Namespace-bron verwijderen|
+|/ naamruimten/verwijderen|De resource van een naamruimte verwijderen|
 |/Namespaces/authorizationRules/Write|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
 |/Namespaces/authorizationRules/DELETE|Namespace autorisatieregel verwijderen. De standaardregel Namespace autorisatie kan niet worden verwijderd. |
 |/Namespaces/authorizationRules/listkeys/Action|De verbindingstekenreeks naar de naamruimte ophalen|
@@ -1489,40 +1492,40 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 
 | Bewerking | Beschrijving |
 |---|---|
-|/ checkResourceName/actie|Controleer of de resourcenaam geldig is.|
+|/ checkResourceName/actie|Controleer de resourcenaam geldig.|
 |/providers/Read|De lijst met providers ophalen.|
-|/Subscriptions/Read|Hiermee kunt u de lijst met abonnementen ophalen.|
-|/Subscriptions/operationresults/Read|Hiermee worden de resultaten van de abonnementsbewerking opgehaald.|
-|/Subscriptions/providers/Read|Hiermee kunt u de resourceproviders ophalen of opnemen in een lijst.|
-|/Subscriptions/tagNames/Read|Hiermee kunt u abonnementslabels ophalen of opnemen in een lijst.|
-|/Subscriptions/tagNames/Write|Hiermee kunt u een abonnementslabel toevoegen.|
-|/Subscriptions/tagNames/DELETE|Hiermee kunt u een abonnementslabel verwijderen.|
-|/Subscriptions/tagNames/tagValues/Read|Hiermee kunt u abonnementslabelwaarden ophalen of opnemen in een lijst.|
-|/Subscriptions/tagNames/tagValues/Write|Hiermee kunt u een abonnementslabelwaarde toevoegen.|
-|/Subscriptions/tagNames/tagValues/DELETE|Hiermee kunt een abonnementslabelwaarde verwijderen.|
-|/subscriptions/resources/Read|Hiermee kunt u de resources van een abonnement ophalen.|
-|/Subscriptions/resourceGroups/Read|Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst.|
-|/Subscriptions/resourceGroups/Write|Hiermee kunt u een resourcegroep maken of bijwerken.|
-|/Subscriptions/resourceGroups/DELETE|Hiermee kunt u een resourcegroep en de bijhorende resources verwijderen.|
-|/Subscriptions/resourceGroups/moveResources/Action|Hiermee kunt u resources van een resourcegroep naar een andere resourcegroep verplaatsen.|
-|/Subscriptions/resourceGroups/validateMoveResources/Action|Hiermee wordt de verplaatsing van resources van de ene naar de andere resourcegroep gevalideerd.|
-|/Subscriptions/ResourceGroups/resources/Read|Hiermee worden de resources voor de resourcegroep opgehaald.|
-|/Subscriptions/ResourceGroups/Deployments/Read|Hiermee kunt u implementaties ophalen of opnemen in een lijst.|
-|/Subscriptions/ResourceGroups/Deployments/Write|Hiermee kunt u een implementatie maken of bijwerken.|
+|/Subscriptions/Read|Hiermee wordt de lijst met abonnementen opgehaald.|
+|/Subscriptions/operationresults/Read|Resultaat van de bewerking voor het abonnement ophalen.|
+|/Subscriptions/providers/Read|Hiermee kunt u of resourceproviders.|
+|/Subscriptions/tagNames/Read|Hiermee kunt u of abonnementslabels.|
+|/Subscriptions/tagNames/Write|Wordt de code van een abonnement toegevoegd.|
+|/Subscriptions/tagNames/DELETE|Hiermee verwijdert u een label van het abonnement.|
+|/Subscriptions/tagNames/tagValues/Read|Hiermee kunt u of abonnementslabelwaarden.|
+|/Subscriptions/tagNames/tagValues/Write|Een waarde van de tag abonnement toevoegen|
+|/Subscriptions/tagNames/tagValues/DELETE|Hiermee verwijdert u een abonnement tagwaarde.|
+|/subscriptions/resources/Read|Hiermee haalt u resources van een abonnement.|
+|/Subscriptions/resourceGroups/Read|Hiermee kunt u of resourcegroepen.|
+|/Subscriptions/resourceGroups/Write|Maken of bijwerken van een resourcegroep.|
+|/Subscriptions/resourceGroups/DELETE|Hiermee verwijdert u een resourcegroep en alle bijbehorende resources.|
+|/Subscriptions/resourceGroups/moveResources/Action|Verplaatst bronnen van een resourcegroep naar een andere.|
+|/Subscriptions/resourceGroups/validateMoveResources/Action|Valideer de verplaatsing van resources van een resourcegroep naar een andere.|
+|/Subscriptions/ResourceGroups/resources/Read|Hiermee haalt de resources voor de resourcegroep.|
+|/Subscriptions/ResourceGroups/Deployments/Read|Hiermee kunt u of implementaties.|
+|/Subscriptions/ResourceGroups/Deployments/Write|Maken of bijwerken van een implementatie.|
 |/Subscriptions/ResourceGroups/Deployments/operationstatuses/Read|Hiermee kunt u of implementatie bewerking statussen.|
-|/Subscriptions/ResourceGroups/Deployments/Operations/Read|Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst.|
-|/Subscriptions/Locations/Read|Hiermee kunt u de lijst met ondersteunde locaties ophalen.|
-|/links/Read|Hiermee kunt u resourcekoppelingen ophalen of opnemen in een lijst.|
-|koppelingen/schrijven|Hiermee kunt u een resourcekoppeling maken of bijwerken.|
-|/links/DELETE|Hiermee kunt u een resourcekoppeling verwijderen.|
-|/tenants/Read|Hiermee kunt u de lijst met tenants ophalen.|
-|/resources/Read|Hiermee wordt de lijst met resources op basis van filters opgehaald.|
-|/Deployments/Read|Hiermee kunt u implementaties ophalen of opnemen in een lijst.|
-|implementaties van/schrijven|Hiermee kunt u een implementatie maken of bijwerken.|
-|/Deployments/DELETE|Hiermee kunt u een implementatie verwijderen.|
-|/Deployments/Cancel/Action|Hiermee kunt u een implementatie annuleren.|
-|/Deployments/Validate/Action|Hiermee kunt u een implementatie valideren.|
-|/Deployments/Operations/Read|Hiermee kunt u implementatiebewerkingen ophalen of opnemen in een lijst.|
+|/Subscriptions/ResourceGroups/Deployments/Operations/Read|Hiermee kunt u of implementatiebewerkingen.|
+|/Subscriptions/Locations/Read|De lijst met ondersteunde locaties ophalen.|
+|/links/Read|Hiermee kunt u of koppelingen naar hulpbronnen.|
+|koppelingen/schrijven|Maken of bijwerken van een resourcekoppeling.|
+|/links/DELETE|Hiermee verwijdert u de resourcekoppeling van een.|
+|/tenants/Read|De lijst met tenants ophalen.|
+|/resources/Read|De lijst met resources op basis van filters opgehaald.|
+|/Deployments/Read|Hiermee kunt u of implementaties.|
+|implementaties van/schrijven|Maken of bijwerken van een implementatie.|
+|/Deployments/DELETE|Hiermee verwijdert u een implementatie.|
+|/Deployments/Cancel/Action|Een implementatie annuleert.|
+|/Deployments/Validate/Action|Valideert een implementatie.|
+|/Deployments/Operations/Read|Hiermee kunt u of implementatiebewerkingen.|
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
@@ -1531,14 +1534,14 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/jobcollections/Read|Taakverzameling ophalen|
 |taakverzamelingen/schrijven|Hiermee maakt u een taakverzameling of werkt u er een bij.|
 |/jobcollections/DELETE|Hiermee verwijdert u de taakverzameling.|
-|/jobcollections/Enable/Action|Kan taakverzameling.|
-|/jobcollections/Disable/Action|Taakverzameling wordt uitgeschakeld.|
-|/jobcollections/Jobs/Read|Taak opgehaald.|
+|/jobcollections/Enable/Action|Hiermee schakelt u de taakverzameling in.|
+|/jobcollections/Disable/Action|Hiermee schakelt u de taakverzameling uit.|
+|/jobcollections/Jobs/Read|Hiermee haalt u een taak op.|
 |/jobcollections/Jobs/Write|Hiermee maakt u een taak of werkt u er een bij.|
 |/jobcollections/Jobs/DELETE|Hiermee verwijdert u een taak.|
 |/jobcollections/Jobs/Run/Action|De taak wordt uitgevoerd.|
 |/jobcollections/Jobs/generateLogicAppDefinition/Action|Hiermee wordt een definitie voor een logische app gegenereerd op basis van een Scheduler-taak.|
-|/jobcollections/Jobs/jobhistories/Read|Taakgeschiedenis opgehaald.|
+|/jobcollections/Jobs/jobhistories/Read|Hiermee haalt u de taakgeschiedenis op.|
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1601,11 +1604,11 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 
 | Bewerking | Beschrijving |
 |---|---|
-|/ checkNameAvailability/actie|Hiermee wordt de beschikbaarheid van de naamruimte in een bepaald abonnement gecontroleerd.|
+|/ checkNameAvailability/actie|Beschikbaarheid van de controles van naamruimte onder het betreffende abonnement.|
 |registratie-/ actie|Hiermee wordt het abonnement voor de Service Bus-resourceprovider geregistreerd en wordt het maken van Service Bus-resources mogelijk|
 |naamruimten/schrijven|Een Namespace-Resource maken en bijwerken van de eigenschappen ervan. Tags en status van de Namespace zijn de eigenschappen die kunnen worden bijgewerkt.|
 |/Namespaces/Read|De lijst met beschrijvingen van resources van naamruimten ophalen|
-|/ naamruimten/verwijderen|Namespace-bron verwijderen|
+|/ naamruimten/verwijderen|De resource van een naamruimte verwijderen|
 |/Namespaces/metricDefinitions/Read|Lijst met Namespace metrische Resource beschrijvingen|
 |/Namespaces/authorizationRules/Write|Een Namespace niveau autorisatieregels maken en bijwerken van de eigenschappen ervan. De toegangsrechten voor het autorisatie-regels, de primaire en secundaire sleutels kunnen worden bijgewerkt.|
 |/Namespaces/authorizationRules/Read|De lijst met beschrijvingen van verificatieregels voor naamruimten ophalen.|
@@ -1670,8 +1673,8 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/servers/elasticPools/DELETE|Verwijderen van bestaande pool voor elastische database|
 |/servers/elasticPools/operationResults/Read|Ophalen van gegevens op een bewerking van de groep van toepassingen opgegeven elastische database|
 |/servers/elasticPools/providers/Microsoft.Insights/<br>metricDefinitions leestijd|Retourtypen van metrische gegevens die beschikbaar voor pools voor elastische databases zijn|
-|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings leestijd|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/schrijven|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings leestijd|De diagnostische instelling voor de resource opgehaald|
+|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/schrijven|Maken of bijwerken van de diagnostische instelling voor de resource|
 |/servers/elasticPools/metrics/Read|Gebruik van metrische gegevens voor elastische database groep resources retourneren|
 |/servers/elasticPools/elasticPoolDatabaseActivity/Read|Ophalen van activiteiten en meer informatie over een bepaalde database die deel uitmaakt van een pool voor elastische database|
 |/servers/elasticPools/Advisors/Read|Retourneert de lijst met adviseurs die beschikbaar zijn voor de elastische groep|
@@ -1718,8 +1721,8 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/servers/databases/securityAlertPolicies/Read|Ophalen van gegevens van de threat beleid geconfigureerd op een bepaalde database|
 |/servers/databases/securityAlertPolicies/Write|Het beleid van de detectie van bedreigingen voor een bepaalde database wijzigen|
 |/servers/databases/providers/Microsoft.Insights/<br>metricDefinitions leestijd|Retourtypen van metrische gegevens die beschikbaar voor databases zijn|
-|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings leestijd|Hiermee wordt de diagnostische instelling voor de resource opgehaald|
-|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/schrijven|Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt|
+|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings leestijd|De diagnostische instelling voor de resource opgehaald|
+|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/schrijven|Maken of bijwerken van de diagnostische instelling voor de resource|
 |/servers/databases/providers/Microsoft.Insights/<br>logDefinitions leestijd|De beschikbare logboeken opgehaald voor databases|
 |/servers/databases/topQueries/Read|Retourneert geaggregeerd runtime-statistieken voor de geselecteerde query in de geselecteerde tijdsperiode|
 |/servers/databases/topQueries/queryText/Read|Retourneert de Transact-SQL-tekst voor de geselecteerde query-ID|
@@ -1764,13 +1767,13 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/storageAccounts/listkeys/Action|Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount.|
 |/storageAccounts/regeneratekey/Action|Hiermee genereert u de toegangssleutels voor het opgegeven opslagaccount opnieuw.|
 |/storageAccounts/Read|Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount.|
-|/storageAccounts/listAccountSas/Action|Retourneert de Account-SAS-token voor het opgegeven opslagaccount.|
-|/storageAccounts/listServiceSas/Action|Storage-Service-SAS-Token|
+|/storageAccounts/listAccountSas/Action|Hiermee wordt het SAS-token van het account geretourneerd voor het opgegeven opslagaccount.|
+|/storageAccounts/listServiceSas/Action|SAS-token van de opslagservice|
 |/storageAccounts/Services/diagnosticSettings/Write|Diagnostische instellingen voor storage-account maken of bijwerken.|
 |/skus/Read|Geeft een lijst van de SKU's wordt ondersteund door Microsoft.Storage.|
 |/usages/Read|Retourneert de limiet en het huidige gebruik voor resources in het opgegeven abonnement|
 |/Operations/Read|Hiermee wordt de status van een asynchrone bewerking gepeild.|
-|/Locations/deleteVirtualNetworkOrSubnets/Action|Microsoft.Storage waarschuwt dat virtuele netwerk of subnet wordt verwijderd|
+|/Locations/deleteVirtualNetworkOrSubnets/Action|Hiermee wordt aan Microsoft.Storage doorgegeven dat het virtuele netwerk of subnet wordt verwijderd|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
@@ -1824,7 +1827,7 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 |/managers/Devices/listFailoverSets/Action|Hiermee stelt u de failover voor een bestaand apparaat een lijst.|
 |/managers/Devices/listFailoverTargets/Action|Doelen voor de failover van de apparaten|
 |/managers/Devices/publicEncryptionKey/Action|Openbare versleutelingssleutel lijst van Apparaatbeheer|
-|managers/apparaten/hardwareComponentGroups /<br>Lezen|Lijst van de Hardware-onderdeelgroepen|
+|managers/apparaten/hardwareComponentGroups /<br>lezen|Lijst van de Hardware-onderdeelgroepen|
 |managers/apparaten/hardwareComponentGroups /<br>changeControllerPowerState/actie|Controller voedingsstatus van hardware-onderdeelgroepen wijzigen|
 |/managers/Devices/metrics/Read|Geeft een lijst of opgehaald van de metrische gegevens|
 |/managers/Devices/chapSettings/Write|De Chap-instellingen maken of bijwerken|
@@ -2194,7 +2197,6 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over hoe [maakt u een aangepaste rol](role-based-access-control-custom-roles.md).
-
 - Controleer de [ingebouwde RBAC-rollen](role-based-access-built-in-roles.md).
-
 - Informatie over het beheren van toegangstoewijzingen [door gebruiker](role-based-access-control-manage-assignments.md) of [door resource](role-based-access-control-configure.md) 
+- Meer informatie over hoe [activiteitenlogboeken wilt controleren acties op resources bekijken](~/articles/azure-resource-manager/resource-group-audit.md)

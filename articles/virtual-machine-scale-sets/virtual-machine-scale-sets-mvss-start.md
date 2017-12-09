@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1672474e22411e7f7fca4082ce83146e40ebfbc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Meer informatie over de sjablonen voor virtuele machines scale set
 [Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) zijn bijzonder handig om groepen gerelateerde resources te implementeren. Deze zelfstudie reeks ziet u hoe u een minimale levensvatbaar scale set-sjabloon maken en het wijzigen van deze sjabloon aanpassen aan verschillende scenario's. Alle voorbeelden afkomstig zijn van dit [GitHub-opslagplaats](https://github.com/gatneil/mvss). 
@@ -123,7 +123,7 @@ In dit geval is slechts één element in de lijst, het virtuele netwerk van het 
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Scale seteigenschappen opgeven
--Schaalsets hebben veel eigenschappen voor het aanpassen van de virtuele machines in de schaalset. Zie voor een volledige lijst van deze eigenschappen de [REST API-documentatie-schaalset](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set). Er wordt slechts enkele veelgebruikte eigenschappen ingesteld voor deze zelfstudie.
+-Schaalsets hebben veel eigenschappen voor het aanpassen van de virtuele machines in de schaalset. Zie voor een volledige lijst van deze eigenschappen de [REST API-documentatie-schaalset](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Er wordt slechts enkele veelgebruikte eigenschappen ingesteld voor deze zelfstudie.
 ### <a name="supply-vm-size-and-capacity"></a>VM-grootte en capaciteit op te geven
 De schaal moeten weten welke grootte van virtuele machine te maken ('sku-naam') instellen en hoeveel dergelijke virtuele machines maken ('sku-capaciteit'). Als u wilt zien welke VM-grootten beschikbaar zijn, Zie de [VM-grootten documentatie](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

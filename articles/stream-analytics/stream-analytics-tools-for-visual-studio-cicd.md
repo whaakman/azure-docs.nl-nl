@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 13fe5e37424704bd5b948d3a6629c28b320025c4
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 0fdc7bd1a98e147bf6c7f7c290f03a878c83a1a9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Stream Analytics Visual Studio-hulpprogramma's gebruiken voor het instellen van een continu proces voor de integratie en implementatie
 In deze zelfstudie leert u hoe u de Azure Stream Analytics Visual Studio-hulpprogramma's voor het instellen van een continue integratie en implementatieproces.
 
-De meest recente versie (2.3.0000.0 of hoger) van [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio) voegt ondersteuning toe voor MSBuild.
+De meest recente versie (2.3.0000.0 of hoger) van [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) voegt ondersteuning toe voor MSBuild.
 
 Er is ook een nieuw uitgebrachte NuGet-pakket [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Het biedt de MSBuild, lokale uitvoering en implementatiehulpmiddelen die ondersteuning bieden voor het continue proces voor de integratie en implementatie van Stream Analytics Visual Studio-projecten. 
 > [!NOTE] 
 Het NuGet-pakket kan alleen met de 2.3.0000.0 of hoger dan de versie van Stream Analytics-hulpprogramma's voor Visual Studio worden gebruikt. Als u gemaakt in eerdere versies van Visual Studio tools projecten hebt, alleen openen met de 2.3.0000.0 of hoger dan versie en opslaan. Vervolgens wordt de nieuwe mogelijkheden zijn ingeschakeld. 
 
-Meer informatie over het gebruik van de [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Meer informatie over het gebruik van de [Stream Analytics-tools voor Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Als de standaard Visual Studio MSBuild-ervaring als u wilt maken van een project hebt u twee opties. U kunt met de rechtermuisknop op het project en kies vervolgens **bouwen**. U kunt ook gebruiken **MSBuild** in het NuGet-pakket vanaf de opdrachtregel.
@@ -59,7 +59,7 @@ De referenties voor de standaardwaarden zijn ingesteld op null. U bent *vereist*
       "value": null
     },
 ```
-Meer informatie over het [implementeren met een Resource Manager-sjabloonbestand en Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy). Meer informatie over het [gebruik van een object als parameter voor Resource Manager-sjabloon](https://docs.microsoft.com/en-us/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Meer informatie over het [implementeren met een Resource Manager-sjabloonbestand en Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Meer informatie over het [gebruik van een object als parameter voor Resource Manager-sjabloon](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 
 ## <a name="command-line-tool"></a>Opdrachtregelprogramma

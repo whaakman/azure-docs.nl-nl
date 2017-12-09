@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-the-azure-cli-on-windows"></a>De Azure CLI gebruiken in Windows
 
 De Azure-opdrachtregelinterface (CLI) biedt een opdrachtregel en scriptomgeving op servers voor het maken en beheren van Azure-resources. De Azure CLI is beschikbaar voor Mac OS-, Linux- en Windows-besturingssystemen. In deze besturingssystemen zijn de CLI-opdrachten identiek, maar de specifieke scriptsyntaxis besturingssysteem kan verschillen.
 
-In dit document worden de manieren dat de Azure CLI kan worden geïnstalleerd en uitgevoerd op Windows en details syntactische overwegingen voor elke. Zie in de gedetailleerde Azure CLI-documentatie voor [documentatie van Azure CLI]( https://docs.microsoft.com/en-us/cli/azure/overview).
+In dit document worden de manieren dat de Azure CLI kan worden geïnstalleerd en uitgevoerd op Windows en details syntactische overwegingen voor elke. Zie in de gedetailleerde Azure CLI-documentatie voor [documentatie van Azure CLI]( https://docs.microsoft.com/cli/azure/overview).
 
 ## <a name="windows-subsystem-for-linux"></a>Windows-subsysteem voor Linux
 
@@ -36,13 +36,13 @@ Als u de Azure CLI in WSL, voert u de volgende.
 |Taak | Instructies |
 |---|---|
 | WSL inschakelen | [WSL documentatie installeren](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
-| Azure-CLI installeren |[De CLI installeren op WSL/Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu)|
+| Azure-CLI installeren |[De CLI installeren op WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell
 
 De Azure CLI kunt systeemeigen in Windows worden uitgevoerd. In deze configuratie is de Azure CLI-pakket is geïnstalleerd op de Windows-besturingssysteem en opdrachten kunnen worden uitgevoerd vanuit PowerShell. In deze configuratie, kunnen Azure CLI-opdrachten en scripts worden uitgevoerd op een ondersteunde versie van Windows, maar de specifieke scriptsyntaxis platform vereist is. Als gevolg hiervan kunnen geen scripts altijd worden gedeeld tussen Mac OS-, Linux- en Windows zonder aanpassingen.
 
-Installeer het pakket deze instructies voor het gebruik van de Azure CLI in Windows, [CLI installeren op Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows).
+Installeer het pakket deze instructies voor het gebruik van de Azure CLI in Windows, [CLI installeren op Windows](https://docs.microsoft.com/cli/azure/install-az-cli2#windows).
 
 ## <a name="docker-image"></a>Docker-afbeelding
 

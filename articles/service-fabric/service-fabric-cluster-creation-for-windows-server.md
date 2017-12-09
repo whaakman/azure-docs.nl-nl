@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster met Windows Server maken
 U kunt Azure Service Fabric gebruiken voor het maken van Service Fabric-clusters op alle virtuele machines of de computers waarop Windows Server wordt uitgevoerd. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of bij een cloudprovider. Service Fabric bevat een installatiepakket voor het maken van Service Fabric-clusters die het zelfstandige pakket met Windows Server genoemd.
@@ -36,7 +36,7 @@ Dit artikel begeleidt u bij de stappen voor het maken van een zelfstandige Servi
 * De community vragen over de zelfstandige Service Fabric-pakket voor Windows-Server in de [Azure Service Fabric-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Open een serviceticket voor [Professional-ondersteuning voor Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Meer informatie over ondersteuning van Microsoft-professionals [hier](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * U kunt ook ondersteuning voor dit pakket als onderdeel van [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* Zie voor meer informatie [opties voor ondersteuning van Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Zie voor meer informatie [opties voor ondersteuning van Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Uitvoeren voor het verzamelen van Logboeken ter ondersteuning van de [Service Fabric zelfstandige logboekverzamelaar](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>

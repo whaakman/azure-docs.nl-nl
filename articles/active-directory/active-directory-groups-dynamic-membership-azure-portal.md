@@ -4,23 +4,23 @@ description: Het maken van geavanceerde regels voor dynamische groepslidmaatscha
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 4b3ef48fbec734d3aea1e04dc77b2ad329f637fe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
 In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten.
@@ -28,13 +28,13 @@ In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schake
 Wanneer alle kenmerken van een gebruiker of apparaat wijzigt, evalueert het systeem alle dynamische groep regels in een map om te controleren of de wijziging zou een groep toevoegt of verwijdert. Als een gebruiker of apparaat voldoet aan een regel voor een groep, worden ze toegevoegd als een lid van die groep. Als u niet langer voldoen aan de regel, worden ze verwijderd.
 
 > [!NOTE]
-> - U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
+> U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
 >
-> - Dit onderdeel vereist een Azure AD Premium P1-licentie voor elk lid van de gebruiker toegevoegd aan ten minste één dynamische groep. Dit is niet verplicht daadwerkelijk licenties toewijzen aan gebruikers voor deze leden in dynamische groepen, maar hoeft u het minimum aantal licenties in de tenant omvatten alle dergelijke gebruikers hebben. Bijvoorbeeld: als er een totaal van 1000 unieke gebruikers in alle dynamische groepen in uw tenant, moet u ten minste 1000 licenties voor Azure AD Premium-P1 of hoger, om te voldoen aan de licentievereiste hebt.
+> Dit onderdeel vereist een Azure AD Premium P1-licentie voor elk lid van de gebruiker toegevoegd aan ten minste één dynamische groep. Dit is niet verplicht daadwerkelijk licenties toewijzen aan gebruikers voor deze leden in dynamische groepen, maar hoeft u het minimum aantal licenties in de tenant omvatten alle dergelijke gebruikers hebben. Bijvoorbeeld: als er een totaal van 1000 unieke gebruikers in alle dynamische groepen in uw tenant, moet u ten minste 1000 licenties voor Azure AD Premium-P1 of hoger, om te voldoen aan de licentievereiste hebt.
 >
-> - U kunt een dynamische groep voor apparaten of gebruikers maken, maar u een regel waarmee zowel gebruikersclaims als apparaatobjecten bevat kan niet maken.
-
-> - Op dit moment is het niet mogelijk te maken van een groep apparaten op basis van die eigenaar is van de kenmerken van de gebruiker. Apparaat lidmaatschapsregels kunnen alleen verwijzen naar het onmiddellijke kenmerken van apparaatobjecten in de map.
+> U kunt een dynamische groep voor apparaten of gebruikers maken, maar u een regel waarmee zowel gebruikersclaims als apparaatobjecten bevat kan niet maken.
+> 
+> Op dit moment is het niet mogelijk te maken van een groep apparaten op basis van kenmerken van de eigenaar van de gebruiker. Apparaat lidmaatschapsregels kunnen alleen verwijzen naar het onmiddellijke kenmerken van apparaatobjecten in de map.
 
 ## <a name="to-create-an-advanced-rule"></a>Geavanceerde regels maken
 1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat is een globale beheerder of de beheerder van een gebruiker.
@@ -45,7 +45,7 @@ Wanneer alle kenmerken van een gebruiker of apparaat wijzigt, evalueert het syst
 
 4. Op de **groep** blade, voer een naam en beschrijving voor de nieuwe groep. Selecteer een **lidmaatschapstype** van een van beide **dynamische gebruiker** of **dynamische apparaat**, afhankelijk van of u wilt een regel maken voor gebruikers of apparaten en selecteer vervolgens **dynamische query toevoegen**. U kunt de opbouwfunctie voor de regel voor het bouwen van een eenvoudige regel gebruiken of zelf een geavanceerde regel schrijven. Dit artikel bevat meer informatie over beschikbare kenmerken voor gebruikers en apparaten, evenals enkele voorbeelden van geavanceerde regels.
 
-   ![Van dynamische lidmaatschapsregel toevoegen](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+   ![Regel voor dynamisch lidmaatschap toevoegen](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
 5. Na het maken van de regel, selecteer **toevoegen query** onderaan de blade.
 6. Selecteer **maken** op de **groep** blade om de groep te maken.
@@ -182,7 +182,7 @@ Toegestane operators
 | Achternaam |Een tekenreekswaarde of *null* |(user.surname - eq '' waarde '') |
 | telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber - eq '' waarde '') |
 | usageLocation |Twee letters landcode |(user.usageLocation - eq "VS") |
-| UserPrincipalName |Waarde van een tekenreeks |(user.userPrincipalName - eq "alias@domain") |
+| userPrincipalName |Waarde van een tekenreeks |(user.userPrincipalName - eq "alias@domain") |
 | UserType |lid Gast *null* |(user.userType - eq 'Lid') |
 
 ### <a name="properties-of-type-string-collection"></a>Eigenschappen van het type tekenreeks-verzameling
@@ -293,7 +293,7 @@ U kunt ook een regel die u apparaatobjecten voor lidmaatschap in een groep selec
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Dynamisch lidmaatschap wijzigen in een statisch, en omgekeerd
 Het is mogelijk om te wijzigen hoe lidmaatschap wordt beheerd in een groep. Dit is handig als u de naam en de ID in het systeem behouden wilt, zodat alle bestaande verwijzingen naar de groep nog steeds geldig zijn zijn. maken van een nieuwe groep zou moeten worden bijgewerkt die verwijzingen.
 
-We zijn bezig het bijwerken van de Azure-portal om deze functionaliteit. In de tussentijd kunt u de [klassieke Azure-portal](https://manage.windowsazure.com) (Volg de instructies [hier](active-directory-groups-dynamic-membership-azure-portal.md)) of PowerShell-cmdlets te gebruiken, zoals hieronder wordt weergegeven.
+We zijn bezig het bijwerken van de Azure-portal om deze functionaliteit. In de tussentijd kunt u PowerShell-cmdlets zoals hieronder wordt weergegeven.
 
 > [!WARNING]
 > Wanneer u een bestaande statische groep naar een dynamische groep, worden alle bestaande leden wordt verwijderd uit de groep en vervolgens de lidmaatschapsregel om toe te voegen nieuwe leden wordt verwerkt. Als de groep wordt gebruikt voor het beheren van toegang tot apps of resources, kunnen de oorspronkelijke leden toegang verliezen totdat de lidmaatschapsregel volledig is verwerkt.
@@ -303,7 +303,7 @@ We zijn bezig het bijwerken van de Azure-portal om deze functionaliteit. In de t
 **Met behulp van PowerShell Lidmaatschapsbeheer voor een groep wijzigen**
 
 > [!NOTE]
-> Dynamische groepseigenschappen die u wilt gebruiken van cmdlets uit wijzigen **preview-versie van** [Azure AD PowerShell-versie 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). U kunt de evaluatieversie van installeren [hier](https://www.powershellgallery.com/packages/AzureADPreview).
+> Dynamische groepseigenschappen die u wilt gebruiken van cmdlets uit wijzigen **preview-versie van** [Azure AD PowerShell-versie 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). U kunt de evaluatieversie van installeren [hier](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Hier volgt een voorbeeld van de functies die Lidmaatschapsbeheer op een bestaande groep overschakelen. Houd er rekening mee nauwkeurig worden correct manipuleren van de eigenschap GroupTypes en behouden van alle waarden die daar bestaat mogelijk geen verband houdt met dynamisch lidmaatschap.
 

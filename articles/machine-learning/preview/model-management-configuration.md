@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -27,7 +27,7 @@ Aan het einde van dit document moet u het volgende kunnen uw model beheeromgevin
 
 ## <a name="what-you-need-to-get-started"></a>Wat u moet aan de slag
 Als u optimaal gebruik van deze handleiding, moet u eigenaar toegang hebt tot een Azure-abonnement dat u uw modellen kunt implementeren.
-De CLI is voorgeïnstalleerd op de Workbench van Azure Machine Learning en klik op [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+De CLI is voorgeïnstalleerd op de Workbench van Azure Machine Learning en klik op [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Met behulp van de CLI
 Met de opdrachtregelinterfaces (CLIs) van de Workbench, klikt u op **bestand** -] **Open CommandLine Interface**. 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Cloud-Service, virtuele Machine of Service Fabric diagnostische gegevens verzenden naar Application Insights
 De extensie Azure Diagnostics-cloudservices, virtuele Machines, virtuele-Machineschaalsets en Service Fabric alle gebruiken om gegevens te verzamelen.  Azure diagnostics verzendt gegevens naar Azure Storage-tabellen.  U kunt echter ook alle pipe of een subset van de gegevens naar andere locaties met de extensie Azure Diagnostics 1.5 of hoger.
@@ -72,11 +72,11 @@ Van de voorbeeldconfiguratie van een sink voor Application Insights:
 - De **kanalen** element bevat een of meer **kanaal** elementen.
     - De *naam* kenmerk unieke verwijst naar dat kanaal.
     - De *loglevel* kenmerk kunt u het logboekniveau waarmee het kanaal opgeven. De beschikbare logboekniveaus in volgorde van meest naar minst informatie zijn:
-        - Uitgebreide
+        - Uitgebreid
         - Informatie
         - Waarschuwing
         - Fout
-        - Kritieke
+        - Kritiek
 
 Een kanaal dat fungeert als een filter, en kunt u specifieke logboekniveaus verzenden naar de doel-sink selecteren. U kan bijvoorbeeld uitgebreide logboeken verzamelen en ze verzenden naar de opslag, maar alleen fouten verzenden naar de sink.
 
@@ -220,6 +220,6 @@ In de vorige configuratie hebben de volgende regels in de volgende betekenis:
 - **U kunt geen blob-gegevens verzameld door de extensie voor Azure diagnostische gegevens naar Application Insights verzenden.** Bijvoorbeeld, iets opgegeven onder het *mappen* knooppunt. Voor crashdumps de crashdump werkelijke is verzonden naar de blob storage en alleen een melding dat de crashdump is gegenereerd naar Application Insights wordt verzonden.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over hoe [uw Azure diagnostics-gegevens weergeven](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) in Application Insights.
+* Meer informatie over hoe [uw Azure diagnostics-gegevens weergeven](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) in Application Insights.
 * Gebruik [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) de extensie Azure diagnostics voor uw toepassing inschakelen.
 * Gebruik [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) de extensie Azure diagnostics voor uw toepassing inschakelen
