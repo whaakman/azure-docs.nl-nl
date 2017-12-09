@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: c079e9c02041cbc1b61f135038fba634a45c574d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/08/2017
 ---
@@ -68,7 +68,7 @@ Azure Cosmos DB ondersteunt drie indexering modi die kunnen worden geconfigureer
 
 **Consistente**: als beleid voor een Azure DB die Cosmos-gegevensverzameling is aangewezen als 'consistent', de query's op een bepaalde verzameling van Azure DB die Cosmos hetzelfde consistentieniveau als opgegeven voor de punt-leesbewerkingen volgen (dat wil zeggen sterk, gebonden-verouderd, sessie of uiteindelijke). De index is synchroon als onderdeel van de update van het document (dat wil zeggen invoegen, vervangen, bijwerken en verwijderen van een document in een verzameling Azure Cosmos DB) bijgewerkt.  Consistente indexeren biedt ondersteuning voor consistente query's koste mogelijke vermindering in doorvoer van schrijfbewerkingen. Deze verlaging is een functie van de unieke paden die moeten worden geïndexeerd en het consistentieniveau' '. Consistente indexering modus is ontworpen voor werkbelastingen 'snel query schrijven onmiddellijk'.
 
-**Vertraagde**: de index asynchroon wordt bijgewerkt wanneer een verzameling Azure Cosmos DB quiescent dat wil zeggen de doorvoercapaciteit van de verzameling is niet volledig worden gebruikt is voor gebruikersaanvragen. 'Opnemen nu query later' werkbelastingen vereisen document opname zijn 'vertraagde' indexering modus afgestemd. Houd er rekening mee dat u inconsistente resultaten krijgt mogelijk als gegevens opgehaald geconsumeerd en langzaam geïndexeerd. Dit betekent dat het aantal query's of specifieke query resultaten zijn niet gegarandeerd juiste of repeatable tot gegevens is geïndexeerd. Index wordt doorgaans in catch opstartmodus. WRT vertraagde indexing - TTL wijzigen resultaten bij het ophalen van de index verwijderd en opnieuw gemaakt, zodat deze activiteit kan leiden tot onverwachte resultaten. Het merendeel van de klanten gebruik consistente indexeren.
+**Vertraagde**: In dit geval de index wordt bijgewerkt asynchroon wanneer een verzameling Azure Cosmos DB quiescent, dat wil zeggen, wanneer de doorvoercapaciteit van de verzameling is niet volledig worden gebruikt voor gebruikersaanvragen. Voor 'opnemen nu query later' werkbelastingen document opname vereisen, zijn de 'vertraagde' indexering modus afgestemd. Houd er rekening mee dat u inconsistente resultaten krijgt mogelijk als gegevens opgehaald geconsumeerd en langzaam geïndexeerd. Dit betekent dat uw aantal query's of een specifieke query resultaten mogelijk geen consistente of repeatable op elk moment. De index wordt doorgaans in catch opstartmodus met opgenomen gegevens. Tijd voor live (TTL) wijzigingen ten opzichte van vertraagde indexeren resultaat in de index ophalen verwijderd en opnieuw gemaakt, waardoor het aantal en de query-resultaten inconsistent is voor een bepaalde periode. Daarom moet een meerderheid van Azure DB die Cosmos-accounts gebruiken consistent te indexeren.
 
 **Geen**: een verzameling die is gemarkeerd met Indexmodus van 'None' heeft geen index die is gekoppeld. Dit wordt vaak gebruikt als Azure Cosmos DB die wordt gebruikt als een sleutel / waarde-opslag en documenten zijn alleen toegankelijk met de ID-eigenschap. 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management Geavanceerde beleidsregels
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -242,7 +242,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Kenmerk|Beschrijving|Vereist|Standaard|  
 |---------------|-----------------|--------------|-------------|  
-|time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt.|Nee|Geen time-out|  
+|time-out = 'integer'|De time-outinterval in seconden voordat de aanroep naar de back endservice is mislukt.|Nee|300 seconden|  
 |Volg omleidingen = "true &#124; False"|Hiermee geeft u op of omleidingen vanaf de back-endservice worden gevolgd door de gateway of geretourneerd naar de aanroeper.|Nee|onwaar|  
   
 ### <a name="usage"></a>Gebruik  

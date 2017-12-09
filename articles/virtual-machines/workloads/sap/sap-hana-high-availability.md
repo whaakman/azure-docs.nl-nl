@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's)
 
@@ -85,12 +85,12 @@ Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SA
 1. Maak een Load Balancer (intern)  
    Selecteer VNET van de bovenstaande stap
 1. Virtuele Machine 1 maken  
-   https://Portal.Azure.com/#Create/SUSE-byos.SLES-for-SAP-byos12-SP1  
+   Ten minste SLES4SAP 12 SP1, in dit voorbeeld gebruiken we de installatiekopie SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES voor SAP toepassingen 12 SP1 (BYOS)  
    Selecteer de Storage-Account 1  
    Beschikbaarheidsset selecteren  
 1. Virtuele Machine 2 maken  
-   https://Portal.Azure.com/#Create/SUSE-byos.SLES-for-SAP-byos12-SP1  
+   Ten minste SLES4SAP 12 SP1, in dit voorbeeld gebruiken we de installatiekopie SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES voor SAP toepassingen 12 SP1 (BYOS)  
    Selecteer Opslagaccount 2   
    Beschikbaarheidsset selecteren  
@@ -99,7 +99,7 @@ Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SA
     1. Een frontend-IP-adresgroep maken
         1. Openen van de load balancer, selecteer frontend-IP-adresgroep en klik op toevoegen
         1. Voer de naam van de nieuwe frontend IP-adresgroep (bijvoorbeeld hana-frontend)
-       1. Klik op OK
+        1. Klik op OK
         1. Nadat de nieuwe frontend-IP-adresgroep is gemaakt, noteert u het IP-adres
     1. Een back endpool maken
         1. Openen van de load balancer, back-endpools selecteren en klik op toevoegen
@@ -109,7 +109,7 @@ Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SA
         1. Selecteer de virtuele machines van het SAP HANA-cluster
         1. Klik op OK
     1. Een health test maken
-       1. Openen van de load balancer, statuscontroles selecteren en klik op toevoegen
+        1. Openen van de load balancer, statuscontroles selecteren en klik op toevoegen
         1. Voer de naam van de nieuwe health test (bijvoorbeeld hana-hp)
         1. Selecteer TCP als protocol, poort 625**03**, houd Interval 5 en de drempelwaarde voor onjuiste status 2
         1. Klik op OK
@@ -119,17 +119,17 @@ Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SA
         1. Selecteer de frontend-IP-adres, back-endpool en health test u eerder hebt gemaakt (bijvoorbeeld hana-frontend)
         1. Protocol TCP houden, voert u poort 3**03**15
         1. Verhoog de time-out voor inactiviteit tot 30 minuten
-       1. **Zorg ervoor dat u kunt zwevend IP inschakelen**
+        1. **Zorg ervoor dat u kunt zwevend IP inschakelen**
         1. Klik op OK
         1. Herhaal de stappen hierboven voor poort 3**03**17
 
 ### <a name="deploy-with-template"></a>Implementeren met sjabloon
-U kunt een van de snel starten-sjablonen op github gebruiken voor het implementeren van alle vereiste bronnen. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
+U kunt een van de Quick Start-sjablonen op github gebruiken voor het implementeren van alle vereiste resources. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
 
-1. Open de [databasesjabloon] [ template-multisid-db] of de [geconvergeerde sjabloon] [ template-converged] in de Azure Portal maakt de databasesjabloon alleen de regels voor taakverdeling voor een database terwijl de geconvergeerde sjabloon ook de regels voor taakverdeling voor een ASC's / SCS en Ebruikers (alleen voor Linux)-exemplaar maakt. Als u van plan bent een SAP NetWeaver gebaseerd systeem installeren en u ook wilt voor het exemplaar ASC's / SCS installeren op de dezelfde machines, gebruikt u de [geconvergeerde sjabloon][template-converged].
+1. Open de [databasesjabloon] [ template-multisid-db] of de [geconvergeerde sjabloon] [ template-converged] in de Azure portal-sjabloon voor de database alleen maakt de taakverdeling regels voor een database terwijl de geconvergeerde sjabloon ook de regels voor taakverdeling voor een ASC's / SCS en Ebruikers (alleen voor Linux)-exemplaar maakt. Als u van plan bent een SAP NetWeaver gebaseerd systeem installeren en u ook wilt voor het exemplaar ASC's / SCS installeren op de dezelfde machines, gebruikt u de [geconvergeerde sjabloon][template-converged].
 1. Voer de volgende parameters
-    1. SAP-systeem-Id  
-       Voer het SAP-systeem Id van het SAP-systeem die u wilt installeren. De Id zal worden gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
+    1. SAP-systeem-ID  
+       Voer de SAP-systeem-ID van het SAP-systeem die u wilt installeren. De ID zal worden gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
     1. Stack-Type (alleen van toepassing als u de sjabloon geconvergeerde gebruikt)  
        Selecteer het type van de stack SAP NetWeaver
     1. Type besturingssysteem  
@@ -144,8 +144,8 @@ U kunt een van de snel starten-sjablonen op github gebruiken voor het implemente
        Een nieuwe gebruiker wordt gemaakt die kunnen worden gebruikt voor aanmelding bij de computer.
     1. Nieuwe of bestaande Subnet  
        Bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet moet worden gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u de bestaande.
-    1. Subnet-Id  
-    De ID van het subnet waarmee de virtuele machines moet worden verbonden. Selecteer het subnet van het VPN- of Express Route virtuele netwerk verbinding maken met de virtuele machine van uw on-premises netwerk. De ID meestal ziet eruit als /subscriptions/`<subscription id`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    1. Subnet-ID  
+    De ID van het subnet waarmee de virtuele machines moet worden verbonden. Selecteer het subnet van het VPN- of Express Route virtuele netwerk verbinding maken met de virtuele machine van uw on-premises netwerk. De ID meestal ziet eruit als /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Instellen van Linux HA
 
@@ -229,7 +229,7 @@ De volgende items worden voorafgegaan door [A] - van toepassing op alle knooppun
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Fstab-vermeldingen voor de drie logische volumes maken
@@ -252,7 +252,7 @@ De volgende items worden voorafgegaan door [A] - van toepassing op alle knooppun
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # <a name="write-down-the-id-of-devsdc1"></a>Noteer de id van /dev/sdc1
+    # <a name="write-down-the-id-of-devsdc1"></a>Noteer de ID van /dev/sdc1
     sudo/sbin/blkid sudo vi/etc/fstab-fouten
     ```
 
@@ -450,7 +450,7 @@ Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseer
 
 1. Ga naar <https://portal.azure.com>
 1. Open de blade van Azure Active Directory  
-   Ga naar eigenschappen en noteer de id van de Directory. Dit is de **tenant-id**.
+   Ga naar eigenschappen en noteer de Directory-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
 1. Klik op Add.
 1. Voer een naam, selecteer toepassingstype 'Web-app /-API, een aanmeldings-URL (bijvoorbeeld http://localhost) en klik op maken
@@ -458,7 +458,7 @@ Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseer
 1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
 1. Voer een beschrijving voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
 1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
-1. Noteer de toepassings-id. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-id** in de onderstaande stappen) van de Service-Principal
+1. Noteer de aanvraag-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
 
 De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. U moet de Service-Principal machtigingen geven om te starten en stoppen (ongedaan gemaakt) alle virtuele machines van het cluster.
 
@@ -476,13 +476,13 @@ Nadat u de machtigingen voor de virtuele machines hebt bewerkt, kunt u de appara
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm load update crm-fencing.txt configureren
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm load update crm-saphanatop.txt configureren
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -622,16 +622,16 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-De migratie maakt locatie beperkingen moeten opnieuw worden verwijderd.
+De migratie maakt Locatiebeperkingen moeten opnieuw worden verwijderd.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-U moet ook opruimen van de status van de bron van het secundaire knooppunt
+U moet ook de status van de bron van het secundaire knooppunt opschonen
 
 <pre><code>
 # switch back to root and cleanup the failed state

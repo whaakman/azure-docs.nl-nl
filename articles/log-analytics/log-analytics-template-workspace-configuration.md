@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met behulp van sjablonen uitvoeren kunt zijn:
@@ -40,7 +40,7 @@ In dit artikel biedt een sjabloon steekproeven illustratie van enkele van de con
 ## <a name="api-versions"></a>API-versies
 Het voorbeeld in dit artikel is voor een [werkruimte voor logboekanalyse bijgewerkt](log-analytics-log-search-upgrade.md).  Een verouderde om werkruimte te gebruiken, moet u de syntaxis van de query's op de oudere taal wijzigen en wijzigen van de API-versie voor elke resource.  De volgende tabel bevat de API-versie voor de resources in dit voorbeeld gebruikt.
 
-| Resource | Brontype | Verouderde API-versie | Bijgewerkte API-versie |
+| Resource | Resourcetype | Verouderde API-versie | Bijgewerkte API-versie |
 |:---|:---|:---|:---|
 | Werkruimte   | Werkruimten    | 2015-11-01-preview | 2017-03-15-preview |
 | Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
@@ -141,7 +141,7 @@ De volgende sjabloon voorbeeld ziet u hoe:
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retention": "[parameters('dataRetention')]"
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {

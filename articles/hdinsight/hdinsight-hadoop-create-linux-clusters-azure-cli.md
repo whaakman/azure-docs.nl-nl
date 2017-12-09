@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 25dc37c10435e45bc56fd48488f9f238922ed6e3
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 330e3691307d0b52ed63da3560390beef154f779
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Maken van HDInsight-clusters met de Azure CLI
 
@@ -45,7 +45,7 @@ De stappen in dit document procedure voor het maken van een 3.5 HDInsight-cluste
 
 ## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
 
-Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](../xplat-cli-connect.md) en maak verbinding met uw abonnement met behulp van de methode **login**.
+Volg de stappen die zijn beschreven in [Verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](/cli/azure/authenticate-azure-cli) en maak verbinding met uw abonnement met behulp van de methode **login**.
 
 ## <a name="create-a-cluster"></a>Een cluster maken
 

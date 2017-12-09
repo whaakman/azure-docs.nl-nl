@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/07/2017
 ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 6fc52bc779dcb58d4f7e6aa90e25c9d8e8ec6011
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Virtuele machine van Azure-schaalset automatische upgrades voor het besturingssysteem
 
@@ -39,10 +39,10 @@ Automatisch bijwerken van het besturingssysteem heeft de volgende kenmerken:
 ## <a name="preview-notes"></a>Opmerkingen bij de Preview 
 In de preview van toepassen de volgende beperkingen en -beperkingen:
 
-- Automatische OS alleen ondersteuning voor upgrades [drie OS-SKU's](#supported-os-images). Er is geen SLA of garanties. U wordt aangeraden dat u gebruik geen automatische upgrades voor productie kritieke werkbelastingen tijdens de preview.
+- Automatische OS alleen ondersteuning voor upgrades [vier OS-SKU's](#supported-os-images). Er is geen SLA of garanties. U wordt aangeraden dat u gebruik geen automatische upgrades voor productie kritieke werkbelastingen tijdens de preview.
 - Ondersteuning voor scale sets in een Service Fabric-clusters is binnenkort beschikbaar.
 - De schijf van Azure-versleuteling (momenteel in preview) is **niet** momenteel ondersteund bij virtuele machine scale set automatisch bijwerken van het besturingssysteem.
-- Portal-ervaring binnenkort beschikbaar.
+- Een ervaring portal is binnenkort beschikbaar.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registreren voor het gebruik van automatische OS Upgrade
@@ -78,9 +78,11 @@ De volgende SKU's die momenteel worden ondersteund (meer worden toegevoegd):
     
 | Uitgever               | Aanbieding         |  Sku               | Versie  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04 TNS          | meest recente   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | meest recente   |
 | MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | meest recente   |
-| Canonical               | UbuntuServer  | 16.04 TNS          | meest recente   |
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-2016-Smalldisk | meest recente   |
+
 
 
 ## <a name="application-health"></a>Toepassingsstatus
@@ -90,6 +92,15 @@ Een schaalset kan eventueel worden geconfigureerd met de toepassing statuscontro
 
 Als de schaalaanpassingsset is geconfigureerd voor het gebruik van meerdere groepen voor plaatsing, tests met behulp van een [standaard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) moet worden gebruikt.
 
+### <a name="important-keep-credentials-up-to-date"></a>Belangrijk: Referenties up-to-date te houden
+Als uw scale set referenties gebruikt voor toegang tot externe bronnen, bijvoorbeeld als een VM-extensie is geconfigureerd dat gebruikmaakt van een SAS-token voor storage-account, moet u om ervoor te zorgen dat de referenties actueel worden gehouden. Als er geen referenties, met inbegrip van certificaten en tokens verlopen zijn, mislukt de upgrade en wordt de eerste batch van virtuele machines in een foutstatus achtergelaten.
+
+De aanbevolen stappen voor het herstellen van virtuele machines en schakelt u automatisch bijwerken van het besturingssysteem als er een verificatiefout resource zijn:
+
+* Het token (of andere referenties) aan uw extensie (s doorgegeven) opnieuw genereren.
+* Zorg ervoor dat geen referenties gebruikt van in de virtuele machine om te communiceren met externe entiteiten up-to-date te houden.
+* Extensie (s) in het model van de set schaal bijwerken met een nieuwe tokens.
+* Implementeer de bijgewerkte scale ingesteld die alle VM-instanties, waaronder mislukte die wordt bijgewerkt. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Stel een aangepaste Load Balancer-test als de toepassing Health test op schaal configureren
 Als een best practice, maakt u een load balancer-test expliciet voor health-schaalset. Hetzelfde eindpunt voor een bestaande HTTP-test of de TCP-controle kan worden gebruikt, maar een health test mogelijk verschillend gedrag van een traditionele load balancer-test. Zo kan een traditionele load balancer-test slecht als de belasting van het exemplaar te hoog is, is terwijl die niet altijd geschikt voor het bepalen van de status van het exemplaar bij een automatische OS upgrade retourneren. Configureer de test met een hoge Zoek frequentie van minder dan twee minuten.

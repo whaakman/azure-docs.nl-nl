@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de integratiefunctie van Azure App Service virtueel netwerk en ziet u hoe u met apps in instelt [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Als u niet bekend bent met Azure Virtual Networks (vnet's), is dit een functie waarmee u veel van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met een aantal VPN-technologieën. Voor meer informatie over Azure Virtual Networks, beginnen met de informatie hier: [Azure Virtual Network-overzicht][VNETOverview]. 
@@ -39,7 +39,7 @@ De functie VNet integratie:
 * vereist een standaard, Premium of geïsoleerd prijzen plannen 
 * werkt met de klassieke weergave of Resource Manager VNet 
 * biedt ondersteuning voor TCP en UDP
-* werkt met mobiele, Web en API apps
+* werkt met Web, mobiel, API-apps en apps van de functie
 * Hiermee kan een app tegelijk verbinding maken met slechts 1 VNet
 * Hiermee kunt maximaal vijf VNets worden geïntegreerd met in een App Service-Plan 
 * Hiermee kunt u hetzelfde VNet moet worden gebruikt door meerdere apps in een App Service-Plan
@@ -93,7 +93,7 @@ Als uw VNet geen een gateway heeft noch punt naar Site heeft, hebt u die eerst w
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Wijs Site in een Resource Manager VNet inschakelen
-Als u wilt een Resource Manager VNet met een gateway en verwijs naar de Site configureert, kunt u beide PowerShell zoals beschreven hier [configureren van een punt-naar-Site-verbinding met een virtueel netwerk met behulp van PowerShell] [ V2VNETP2S] of de Azure-portal zoals beschreven hier gebruiken [een punt-naar-Site-verbinding met een VNet met de Azure portal configureren][V2VNETPortal]. De gebruikersinterface voor het uitvoeren van deze mogelijkheid is nog niet beschikbaar. Houd er rekening mee dat u wilt maken van certificaten voor het punt aan Site-configuratie. Dit wordt automatisch geconfigureerd wanneer u uw Web-App met het VNet verbinden. 
+Als u wilt een Resource Manager VNet met een gateway en verwijs naar de Site configureert, kunt u beide PowerShell zoals beschreven hier [configureren van een punt-naar-Site-verbinding met een virtueel netwerk met behulp van PowerShell] [ V2VNETP2S] of de Azure-portal zoals beschreven hier gebruiken [een punt-naar-Site-verbinding met een VNet met de Azure portal configureren][V2VNETPortal]. De gebruikersinterface voor het uitvoeren van deze mogelijkheid is nog niet beschikbaar. Houd er rekening mee dat u hoeft niet te maken van certificaten voor het punt aan Site-configuratie. Dit wordt automatisch geconfigureerd wanneer u uw Web-App met het VNet verbinden. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Maken van een vooraf geconfigureerde VNet
 Als u wilt maken van een nieuw VNet dat is geconfigureerd met een gateway en punt-naar-Site, heeft de mogelijkheid om u te doen maar alleen voor een Resource Manager VNet met de netwerken van UI-App Service. Als u maken van een klassiek VNet met een gateway en punt-naar-Site wilt, moet u dit handmatig doen via de gebruikersinterface van netwerken. 
@@ -102,10 +102,10 @@ Voor het maken van een Resource Manager VNet via de gebruikersinterface van de i
 
 * Virtuele-netwerknaam
 * Virtueel netwerkadresblok
-* De subnetnaam van het
-* Adresblok van gatewaysubnet
+* Subnetnaam
+* Subnetadresblok
 * Gateway-Adresblok
-* Punt-naar-Site-Adresblok
+* Punt-naar-site-adresblok
 
 Als u dit VNet verbinding maken met andere netwerken wilt, moet u vervolgens niet verzamelen van IP-adresruimte met deze netwerken overlapt. 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Vastleggen van een virtuele Linux-machine uitgevoerd op Azure
 Volg de stappen in dit artikel generaliseren en vastleggen van uw Azure Linux virtuele machine (VM) in het Resource Manager-implementatiemodel. Wanneer u de virtuele machine generalize, kunt u persoonlijke gegevens te verwijderen en voorbereiden van de virtuele machine moet worden gebruikt als een afbeelding. U vervolgens een installatiekopie van een gegeneraliseerde virtuele harde schijf (VHD) voor het besturingssysteem, virtuele harde schijven voor bijgesloten gegevensschijven, vastleggen en een [Resource Manager-sjabloon](../../azure-resource-manager/resource-group-overview.md) voor nieuwe VM-implementaties. Dit artikel wordt uitgelegd hoe u een VM-installatiekopie met de Azure CLI 1.0 vastleggen voor een virtuele machine met niet-beheerde schijven. U kunt ook [vastleggen van een VM die gebruikmaakt van Azure beheerd schijven met de Azure CLI 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Beheerde schijven worden verwerkt door de Azure-platform en hoeven niet de voorbereidings- of locatie om op te slaan. Zie [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Overzicht van Azure Managed Disks) voor meer informatie. 
@@ -61,7 +61,7 @@ Voer eerst de **waagent** opdracht met de **deprovision** parameter voor de Linu
 ## <a name="step-2-capture-the-vm"></a>Stap 2: De virtuele machine vastleggen
 Gebruik de Azure CLI generaliseren en vastleggen van de virtuele machine. In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter **myResourceGroup**, **myVnet**, en **myVM**.
 
-1. Open in uw lokale computer, de Azure CLI en [Meld u aan bij uw Azure-abonnement](../../xplat-cli-connect.md). 
+1. Open in uw lokale computer, de Azure CLI en [Meld u aan bij uw Azure-abonnement](/cli/azure/authenticate-azure-cli). 
 2. Zorg ervoor dat u in de modus Resource Manager.
    
     ```azurecli

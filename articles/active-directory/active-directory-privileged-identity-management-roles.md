@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: ebc6b758221d61793dbbd21ca02050d8402dbe71
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Andere administratieve rol in Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/14/2017
 U kunt gebruikers in uw organisatie voor verschillende beheerdersrechten rollen in Azure AD. Deze roltoewijzingen bepalen welke taken, zoals het toevoegen of verwijderen van gebruikers of wijzigen van service-instellingen, de gebruikers kunnen uitvoeren op Azure AD, Office 365 en andere Microsoft Online Services en verbonden toepassingen.  
 
 > [!IMPORTANT]
-> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen.
+> Microsoft raadt u aan die u met Azure AD beheert de [Azure AD-beheercentrum](https://aad.portal.azure.com) in de Azure portal.
 
-Een globale beheerder kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD, met behulp van PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`, of via de klassieke portal zoals beschreven in [ beheerdersrollen toewijzen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Een globale beheerder kunt bijwerken die gebruikers **permanent** toegewezen aan rollen in Azure AD, met behulp van PowerShell-cmdlets, zoals `Add-MsolRoleMember` en `Remove-MsolRoleMember`, of via de portal, zoals beschreven in [toewijzen beheerdersrollen in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) beheert de beleidsregels voor bevoorrechte toegang voor gebruikers in Azure AD. PIM wijst gebruikers toe aan een of meer rollen in Azure AD en u iemand permanent in de rol, of in aanmerking komen voor de rol kunt toewijzen. Wanneer een gebruiker permanent wordt toegewezen aan een functie of een in aanmerking komende roltoewijzing activeert vervolgens zij Azure Active Directory, Office 365 en andere toepassingen met de machtigingen worden toegewezen aan hun rollen beheren kunnen.
 
@@ -75,15 +75,14 @@ Azure-abonnementen en resourcegroepen worden ook niet weergegeven in Azure AD. Z
 ## <a name="user-roles-and-signing-in"></a>Gebruikersrollen en aanmelden
 Voor sommige Microsoft-services en toepassingen, een gebruiker toewijzen aan een rol mogelijk niet voldoende zijn voor die gebruiker moet een beheerder.
 
-Toegang tot de klassieke Azure portal moet de gebruiker een servicebeheerder of medebeheerder van een Azure-abonnement, zelfs als de gebruiker niet hoeft voor het beheren van de Azure-abonnementen.  Voor het beheren van configuratie-instellingen voor Azure AD in de klassieke portal, moet een gebruiker bijvoorbeeld niet zowel een globale beheerder in Azure AD als de medebeheerder voor een abonnement op een Azure-abonnement.  Zie voor meer informatie over hoe u gebruikers toevoegen aan Azure-abonnementen, [toevoegen of wijzigen van de Azure-beheerdersrollen](../billing/billing-add-change-azure-subscription-administrator.md).
+Toegang tot de Azure-portal moet de gebruiker een servicebeheerder of medebeheerder van een Azure-abonnement, zelfs als de gebruiker niet hoeft voor het beheren van de Azure-abonnementen.  Voor het beheren van configuratie-instellingen voor Azure AD, moet een gebruiker bijvoorbeeld niet zowel een globale beheerder in Azure AD als de medebeheerder voor een abonnement op een Azure-abonnement.  Zie voor meer informatie over hoe u gebruikers toevoegen aan Azure-abonnementen, [toevoegen of wijzigen van de Azure-beheerdersrollen](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Toegang tot Microsoft Online Services moet mogelijk de gebruiker ook een licentie worden toegewezen voordat ze kunnen de service portal opent of beheertaken uit te voeren.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Een licentie toewijzen aan een gebruiker in Azure AD
-1. Aanmelden bij de [klassieke Azure-portal](http://manage.windowsazure.com) met een globale beheerdersaccount of een collega administrator-account.
-2. Selecteer **alle Items** vanuit het hoofdmenu.
-3. Selecteer de map die u werken wilt met en met licenties die zijn gekoppeld.
-4. Selecteer **licenties**. De lijst met beschikbare licenties wordt weergegeven.
+1. Aanmelden bij de [Azure-portal](http://portal.azure.com) met een globale beheerdersaccount of een collega administrator-account.
+3. Azure AD selecteren en de map die u werken met en die wilt heeft licenties die zijn gekoppeld.
+4. Selecteer **licenties** aan de linkerkant. De lijst met beschikbare licenties wordt weergegeven.
 5. Selecteer het licentieabonnement waarin de licenties die u wilt distribueren.
 6. Selecteer **gebruikers toewijzen**.
 7. Selecteer de gebruiker die u wilt een licentie toewijzen.

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Rand van de IoT-implementaties voor één apparaten of op grote schaal begrijpen - voorbeeld
 
@@ -57,7 +57,23 @@ De metagegevens van de configuratie voor elke module omvat:
 
 ### <a name="target-condition"></a>Doelvoorwaarden
 
-Doelitems voorwaarden opgeven of een IoT-randapparaat opgenomen in het bereik van een implementatie worden moet. Doelitems voorwaarden zijn gebaseerd op het apparaat twin labels. 
+De doelvoorwaarden wordt continu op te nemen van nieuwe apparaten die voldoen aan de vereisten of verwijderen van apparaten die niet langer via de levensduur van de implementatie geëvalueerd. De implementatie wordt opnieuw worden geactiveerd als de service wordt gedetecteerd door elke wijziging van de doel-voorwaarde. Bijvoorbeeld, u een implementatie met een doel voorwaarde tags.environment A hebt = de prod'. Wanneer u ere van de implementatie, zijn er 10 prod-apparaten. De modules zijn geïnstalleerd in deze 10-apparaten. De Agent-Status van de IoT-rand wordt weergegeven als totaal aantal apparaten 10, 10 is antwoorden, 0 mislukte reacties en 0 in behandeling antwoorden. Nu u 5 meer apparaten met tags.environment toevoegen = de prod'. Detecteert de wijziging van de service en de Agent-Status van de IoT-rand wordt 15 totaal aantal apparaten, 10 is antwoorden, 0 mislukte reacties en 5 in behandeling antwoorden bij een poging te implementeren op de vijf nieuwe apparaten.
+
+Gebruik een Boole-voorwaarde op apparaat horende tags of de apparaat-id selecteren de doelapparaten. Als u voorwaarde gebruiken met labels wilt, moet u toevoegen 'labels' :{} sectie in de apparaat-twin onder hetzelfde niveau als eigenschappen. [Meer informatie over labels in de apparaat-twin](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Voorbeelden van de doel-voorwaarden:
+* apparaat-id ='linuxprod1
+* tags.Environment = de prod'
+* tags.Environment = prod en tags.location = 'westus'
+* tags.Environment = prod OR tags.location = 'westus'
+* tags.operator = 'Jan' en tags.environment = prod geen apparaat-id = 'linuxprod1'
+
+Hier volgen enkele beperkingen wanneer u een doel-voorwaarde maken:
+
+* In de apparaat-twin, kunt u alleen een doelvoorwaarden met tags of de apparaat-id maken.
+* Dubbele aanhalingstekens zijn niet toegestaan in een gedeelte van de doel-voorwaarde. Gebruik tussen enkele aanhalingstekens.
+* Enkele aanhalingstekens vertegenwoordigen de waarden van de doel-voorwaarde. Daarom moet u de enkel aanhalingsteken met een andere enkel aanhalingsteken escape als deze deel uitmaakt van de naam van het apparaat. Bijvoorbeeld, de voorwaarde voor doel: operator'sDevice zou moeten worden geschreven als de apparaat-id ='operator '' sDevice'.
+* Cijfers, letters en de volgende tekens zijn toegestaan in de doel-voorwaarde values:-:.+%_#*? (),=@;$
 
 ### <a name="priority"></a>Prioriteit
 

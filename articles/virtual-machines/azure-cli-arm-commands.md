@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-opdrachten in de modus Resource Manager
 Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opdrachten die u meestal gebruikt maken en beheren van Azure-resources in het Azure Resource Manager-implementatiemodel. U toegang tot deze opdrachten door de CLI in de modus Resource Manager (arm). Dit is niet een volledig overzicht en uw versie van de CLI kan enigszins verschillen opdrachten of parameters weergeven. Zie voor een algemeen overzicht van Azure-resources en resourcegroepen [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -29,7 +29,7 @@ Dit artikel bevat syntaxis en opties voor Azure-opdrachtregelinterface (CLI)-opd
 >Meer informatie over de [oude en nieuwe Azure CLIs](/cli/azure/old-and-new-clis).
 >
 
-Aan de slag eerst [Azure CLI installeren](../cli-install-nodejs.md) en [verbinding maken met uw Azure-abonnement](../xplat-cli-connect.md).
+Aan de slag eerst [Azure CLI installeren](../cli-install-nodejs.md) en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli).
 
 Typ voor de huidige opdrachtsyntaxis en -opties op de opdrachtregel in de modus Resource Manager `azure help` of help weergeven voor een specifieke opdracht `azure help [command]`. CLI-voorbeelden in de documentatie ook vinden voor het maken en beheren van specifieke Azure-services.
 

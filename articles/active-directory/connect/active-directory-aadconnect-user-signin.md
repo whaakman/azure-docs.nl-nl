@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7901d6d5668f62a8df7783d6fb1dfe9fc02ebed3
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect gebruiker aanmeldingsopties
 Verbinden met Azure Active Directory (Azure AD) kan uw gebruikers zich aanmelden bij zowel cloud als on-premises resources met dezelfde wachtwoorden. In dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
@@ -28,6 +28,10 @@ Als u al bekend met het Azure AD identity-model bent en voor meer informatie ove
 * [Synchronisatie van wachtwoordhash](#password-synchronization) met [naadloze eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
 * [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) met [naadloze eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
 * [Federatieve eenmalige aanmelding (met Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> Het is belangrijk te weten dat door de Federatie voor Azure AD configureren, u vertrouwensrelatie tussen uw Azure AD-tenant en uw federatieve domeinen een. Met deze federatieve vertrouwensrelatie-domein hebben gebruikers toegang tot Azure AD cloudbronnen binnen de tenant.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>De gebruiker aanmelden methode voor uw organisatie te kiezen
 Voor de meeste organisaties die willen inschakelen gebruiker aanmelden bij Office 365, SaaS-toepassingen en andere Azure AD gebaseerde-resources, wordt aangeraden de standaardoptie wachtwoord-hash synchronisatie. Sommige organisaties hebben echter een bepaalde reden is dat ze gebruikmaken van deze optie niet. Ze kunnen beide een federatieve aanmelding opties, zoals AD FS of Pass through-verificatie kiezen. U kunt de volgende tabel kunt u de juiste keuze.
@@ -52,7 +56,7 @@ Bovendien kunt u inschakelen [naadloze eenmalige aanmelding](active-directory-aa
 
 Zie voor meer informatie de [synchronisatie van wachtwoordhash](active-directory-aadconnectsync-implement-password-synchronization.md) artikel.
 
-### <a name="pass-through-authentication"></a>Pass through-verificatie
+### <a name="pass-through-authentication"></a>Pass Through-verificatie
 Met Pass through-verificatie, is het wachtwoord van de gebruiker gevalideerd met de lokale Active Directory-domeincontroller. Het wachtwoord hoeft niet aanwezig zijn in Azure AD in een formulier. Hierdoor lokale beleidsregels, zoals de beperkingen van het uur aanmelden, moet worden geëvalueerd tijdens de verificatie naar de cloud-services.
 
 Pass through-verificatie gebruikt een eenvoudige-agent op een Windows Server 2012 R2 domein machine in de on-premises omgeving. Deze agent luistert naar aanvragen voor wachtwoord-validatie. Poorten voor inkomend verkeer te worden gebruikt met het Internet nodig niet is.

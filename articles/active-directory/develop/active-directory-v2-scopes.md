@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1488e8d2a70f7317c97275b83db3b9f05e9deb4b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scopes, machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 Apps die zijn geïntegreerd met Azure Active Directory (Azure AD) voert u een autorisatie-model waarmee gebruikers controle over hoe een app toegang krijgen hun gegevens tot. Het v2.0-implementatie van het model van de autorisatie is bijgewerkt en verandert hoe een app moet communiceren met Azure AD. In dit artikel bevat informatie over de basisconcepten van deze autorisatie-model, inclusief scopes, machtigingen en toestemming.
@@ -46,8 +46,8 @@ De resource heeft met het definiëren van deze typen machtigingen, fijnmazig con
 
 In Azure AD en OAuth, deze typen machtigingen worden genoemd *scopes*. Ze soms ook worden aangeduid als *oAuth2Permissions*. Een scope wordt weergegeven in Azure AD als een string-waarde. U kunt doorgaan met het Microsoft Graph-voorbeeld, is de waarde scope voor elke machtiging:
 
-* Lezen van een gebruiker kalender met`Calendar.Read`
-* Schrijven naar de kalender van een gebruiker met behulp van`Mail.ReadWrite`
+* Lezen van een gebruiker kalender met`Calendars.Read`
+* Schrijven naar de kalender van een gebruiker met behulp van`Calendars.ReadWrite`
 * E-mail verzenden namens een gebruiker met door`Mail.Send`
 
 Een app kunt u deze machtigingen aanvragen door op te geven van de bereiken in hun aanvragen aan het v2.0-eindpunt.
@@ -58,10 +58,10 @@ Het v2.0-implementatie van OpenID Connect, is enkele goed gedefinieerde bereiken
 ### <a name="openid"></a>openid
 Als een app aanmelden met behulp van uitvoert [OpenID Connect](active-directory-v2-protocols.md), verzoekt zij de `openid` bereik. De `openid` bereik ziet op de pagina werken account toestemming als de machtiging 'Aanmelden' en op persoonlijke Microsoft-account toestemming pagina als de machtiging 'Uw profiel weergeven en verbinding maken met apps en services met behulp van uw Microsoft-account'. Met deze machtiging een app een unieke id voor de gebruiker kan ontvangen in de vorm van de `sub` claim. Het biedt ook de apptoegang naar het eindpunt van gebruikersgegevens. De `openid` bereik kan worden gebruikt bij het v2.0-eindpunt voor het token ID-tokens kunnen worden gebruikt voor het beveiligen van HTTP-aanroepen tussen de verschillende onderdelen van een app te verkrijgen.
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>e-mailen
 De `email` bereik kan worden gebruikt met de `openid` bereik en alle andere. Dit geeft de apptoegang tot de primaire e-mailadres van de gebruiker in de vorm van de `email` claim. De `email` claim is opgenomen in een token alleen als een e-mailadres gekoppeld aan het gebruikersaccount is, is het niet altijd het geval is. Als deze gebruikmaakt van de `email` bereik, uw app moet worden voorbereid voor het afhandelen van een aanvraag waarin de `email` claim bestaat niet in het token.
 
-### <a name="profile"></a>Profiel
+### <a name="profile"></a>profiel
 De `profile` bereik kan worden gebruikt met de `openid` bereik en alle andere. Dit geeft de apptoegang tot een aanzienlijke hoeveelheid informatie over de gebruiker. De toegang tot gegevens bevat, maar is niet beperkt tot de opgegeven naam van de gebruiker, achternaam, voorkeur gebruikersnaam en object-ID. Zie voor een volledige lijst van het profiel claims die beschikbaar zijn in de parameter id_tokens voor een specifieke gebruiker, de [v2.0 tokens verwijzing](active-directory-v2-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

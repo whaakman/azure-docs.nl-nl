@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 76a13467fff23ad62a857a53e0e31865b1a9fe81
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in Azure multi-factor Authentication
 
@@ -36,22 +36,20 @@ Azure multi-factor Authentication bevat verschillende rapporten die kunnen worde
 
 ## <a name="view-reports"></a>Rapporten weergeven
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer links Active Directory.
-3. Ga als volgt op een van deze twee opties, afhankelijk van of u Auth-Providers gebruiken:
-   * **Optie 1**: klik op het tabblad multi-factor Auth-Providers. Selecteer de MFA-provider en klik op de **beheren** knop onderaan.
-   * **Optie 2**: Selecteer uw directory en Ga naar de **configureren** tabblad. Selecteer in de sectie Multi-Factor Authentication de optie **Service-instellingen beheren**. Klik op de naar de portal-koppeling onder aan de pagina MFA-Service-instellingen.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers** > **multi-factor Verificatie**.
+3. Onder **multi-factorauthenticatie**, selecteer **service-instellingen**. Onderaan onder **beheren geavanceerde instellingen en rapporten weergeven**, selecteer **gaat u naar de portal**.
 4. Selecteer het type van het gewenste rapport in de Azure multi-factor Authentication-beheerportal, de **een rapport weergeven** sectie in het linkernavigatievenster.
 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 ## <a name="powershell-reporting"></a>Melden van PowerShell
 
-Gebruikers die zich hebben geregistreerd voor MFA met behulp van de volgende Powershell identificeren.
+Gebruikers die zich hebben geregistreerd voor MFA met behulp van de volgende PowerShell identificeren.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Gebruikers identificeren die nog niet geregistreerd voor MFA met behulp van de volgende Powershell.
+Gebruikers identificeren die nog niet geregistreerd voor MFA met behulp van de volgende PowerShell.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Het opnieuw instellen van een Linux-VM wachtwoord of SSH-sleutel, los van de SSH-configuratie en consistentie van de schijf met behulp van de VMAccess-extensie controleren
 Als u geen verbinding met een virtuele Linux-machine in Azure vanwege een vergeten wachtwoord, een onjuiste Secure Shell (SSH)-sleutel, of een probleem met de SSH-configuratie gebruiken de VMAccessForLinux-extensie met de Azure CLI opnieuw instellen van het wachtwoord of SSH-sleutel, los van de SSH-configuratie en controleren van de consistentie van de schijf. 
@@ -44,7 +44,7 @@ Met de Azure CLI kunt u de volgende taken uitvoeren:
 ## <a name="prerequisites"></a>Vereisten
 U moet het volgende doen:
 
-* U moet [Azure CLI installeren](../../../cli-install-nodejs.md) en [verbinding maken met uw abonnement](../../../xplat-cli-connect.md) Azure resources die zijn gekoppeld aan uw account te gebruiken.
+* U moet [Azure CLI installeren](../../../cli-install-nodejs.md) en [verbinding maken met uw abonnement](/cli/azure/authenticate-azure-cli) Azure resources die zijn gekoppeld aan uw account te gebruiken.
 * Stel de juiste modus voor het klassieke implementatiemodel door de volgende opdracht bij de opdrachtprompt te typen:
     ``` 
         azure config mode asm

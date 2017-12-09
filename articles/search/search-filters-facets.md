@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Het bouwen van een filter facet in Azure Search 
 
@@ -48,7 +48,7 @@ Alle [veldtype](https://docs.microsoft.com/rest/api/searchservice/supported-data
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (Zie [hoe facet complexe gegevenstypen](#facet-complex-fields) verderop in dit artikel.)
++ Edm.Collections
 + Numerieke veldtypen: Edm.Int32, Edm.Int64, Edm.Double
 
 U kunt Edm.GeographyPoint niet gebruiken in meervoudige navigatie. Facetten zijn samengesteld uit menselijke leesbare tekst of cijfers. Als zodanig worden facetten niet ondersteund voor de geo-coördinaten. U moet een veld of regio aan facet per locatie.

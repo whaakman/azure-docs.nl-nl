@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's op SUSE Linux Enterprise Server voor SAP-toepassingen
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 [sap-hana-ha]:sap-hana-high-availability.md
 
 In dit artikel wordt beschreven hoe de virtuele machines te implementeren, configureren van de virtuele machines, installeer het framework van het cluster en een maximaal beschikbare SAP NetWeaver 7,50 systeem installeren.
-In de voorbeeldconfiguraties installatieopdrachten enzovoort. ASC's exemplaarnummer 00, Ebruikers exemplaarnummer 02 en SAP-systeem kan NWS-ID wordt gebruikt. De namen van de resources (bijvoorbeeld virtuele machines, virtuele netwerken) in het voorbeeld wordt ervan uitgegaan dat u hebt gebruikt de [geconvergeerde sjabloon] [ template-converged] met SAP-systeem kan NWS-ID om de resources te maken.
+In de voorbeeldconfiguraties installatieopdrachten enzovoort. ASC's exemplaarnummer 00 Ebruikers instantie nummer 02 en SAP-systeem kan NWS-ID wordt gebruikt. De namen van de resources (bijvoorbeeld virtuele machines, virtuele netwerken) in het voorbeeld wordt ervan uitgegaan dat u hebt gebruikt de [geconvergeerde sjabloon] [ template-converged] met SAP-systeem kan NWS-ID om de resources te maken.
 
 Lees eerst de volgende opmerkingen bij de SAP en documenten
 
@@ -84,7 +84,7 @@ SAP NetWeaver vereist om te zorgen voor hoge beschikbaarheid, een NFS-server. De
 
 ![SAP NetWeaver hoge beschikbaarheid-overzicht](./media/high-availability-guide-suse/img_001.png)
 
-De NFS-server, SAP NetWeaver ASC's, SAP NetWeaver SCS, SAP NetWeaver Ebruikers en de SAP HANA-database gebruiken virtuele hostnaam en virtuele IP-adressen. In Azure, is een load balancer vereist voor het gebruik van een virtueel IP-adres. De volgende lijst ziet u de configuratie van de load balancer.
+De NFS-server, SAP NetWeaver ASC's SAP NetWeaver SCS, SAP NetWeaver Ebruikers en de SAP HANA-database gebruiken virtuele hostnaam en virtuele IP-adressen. In Azure, is een load balancer vereist voor het gebruik van een virtueel IP-adres. De volgende lijst ziet u de configuratie van de load balancer.
 
 ### <a name="nfs-server"></a>NFS-Server
 * Frontend configuratie
@@ -142,7 +142,7 @@ De NFS-server, SAP NetWeaver ASC's, SAP NetWeaver SCS, SAP NetWeaver Ebruikers e
 ### <a name="deploying-linux"></a>Linux implementeren
 
 Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SAP-toepassingen 12 die u gebruiken kunt om nieuwe virtuele machines te implementeren.
-U kunt een van de snel starten-sjablonen op github gebruiken voor het implementeren van alle vereiste bronnen. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
+U kunt een van de Quick Start-sjablonen op github gebruiken voor het implementeren van alle vereiste resources. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
 
 1. Open de [SAP-server de sjabloon] [ template-file-server] in de Azure portal   
 1. Voer de volgende parameters
@@ -152,8 +152,8 @@ U kunt een van de snel starten-sjablonen op github gebruiken voor het implemente
       Selecteer een van de Linux-distributies. Selecteer voor dit voorbeeld SLES 12
    3. Gebruikersnaam van de beheerder en het wachtwoord van beheerder  
       Een nieuwe gebruiker wordt gemaakt die kunnen worden gebruikt voor aanmelding bij de computer.
-   4. Subnet-Id  
-      De ID van het subnet waarmee de virtuele machines moet worden verbonden. Laat leeg als u wilt een nieuw virtueel netwerk maken of selecteren van het subnet van het VPN- of Express Route virtuele netwerk verbinding maken met de virtuele machine van uw on-premises netwerk. De ID meestal ziet eruit als /subscriptions/**&lt;abonnements-id&gt;**/resourceGroups/**&lt;Resourcegroepnaam&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtuele-netwerknaam&gt;**/subnets/**&lt;subnetnaam&gt;**
+   4. Subnet-ID  
+      De ID van het subnet waarmee de virtuele machines moet worden verbonden. Laat leeg als u wilt een nieuw virtueel netwerk maken of selecteren van het subnet van het VPN- of Express Route virtuele netwerk verbinding maken met de virtuele machine van uw on-premises netwerk. De ID meestal ziet eruit als /subscriptions/**&lt;abonnements-ID&gt;**/resourceGroups/**&lt;Resourcegroepnaam&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuele-netwerknaam&gt;**/subnets/**&lt;subnetnaam&gt;**
 
 ### <a name="installation"></a>Installeren
 
@@ -475,7 +475,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseer
 
 1. Ga naar <https://portal.azure.com>
 1. Open de blade van Azure Active Directory  
-   Ga naar eigenschappen en noteer de id van de Directory. Dit is de **tenant-id**.
+   Ga naar eigenschappen en noteer de Directory-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
 1. Klik op Add.
 1. Voer een naam, selecteer toepassingstype 'Web-app /-API, een aanmeldings-URL (bijvoorbeeld http://localhost) en klik op maken
@@ -503,7 +503,7 @@ Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseer
 1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
 1. Voer een beschrijving voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
 1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
-1. Noteer de toepassings-id. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-id** in de onderstaande stappen) van de Service-Principal
+1. Noteer de aanvraag-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
 
 De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. U moet de Service-Principal machtigingen geven om te starten en stoppen (ongedaan gemaakt) alle virtuele machines van het cluster.
 
@@ -523,13 +523,13 @@ Nadat u de machtigingen voor de virtuele machines hebt bewerkt, kunt u de appara
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,14 +549,14 @@ sudo crm configure property stonith-enabled=true
 
 Azure Marketplace bevat een afbeelding voor SUSE Linux Enterprise Server voor SAP-toepassingen 12 die u gebruiken kunt om nieuwe virtuele machines te implementeren. De marketplace-installatiekopie bevat de resource-agent voor SAP NetWeaver.
 
-U kunt een van de snel starten-sjablonen op github gebruiken voor het implementeren van alle vereiste bronnen. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
+U kunt een van de Quick Start-sjablonen op github gebruiken voor het implementeren van alle vereiste resources. De sjabloon wordt geïmplementeerd voor de virtuele machines, de load balancer, beschikbaarheidsset enzovoort. Volg deze stappen voor het implementeren van de sjabloon:
 
 1. Open de [ASC's / SCS Multi SID sjabloon] [ template-multisid-xscs] of de [geconvergeerde sjabloon] [ template-converged] op de Azure portal de ASC's / SCS sjabloon alleen maakt u de regels voor taakverdeling voor de SAP NetWeaver ASC's / SCS en exemplaren Ebruikers (alleen voor Linux) terwijl de geconvergeerde sjabloon ook de regels voor taakverdeling voor een database (bijvoorbeeld Microsoft SQL Server of SAP HANA maakt). Als u van plan bent een SAP NetWeaver gebaseerd systeem installeren en u ook wilt voor de installatie van de database op de dezelfde machines, gebruikt u de [geconvergeerde sjabloon][template-converged].
 1. Voer de volgende parameters
    1. Resource-voorvoegsel (alleen ASC's / SCS Multi SID-sjabloon)  
       Geef het voorvoegsel op dat u wilt gebruiken. De waarde wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
-   3. SAP systeem-Id (alleen geconvergeerde sjabloon)  
-      Voer het SAP-systeem Id van het SAP-systeem die u wilt installeren. De Id wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
+   3. SAP systeem-ID (alleen geconvergeerde sjabloon)  
+      Voer de SAP-systeem-ID van het SAP-systeem die u wilt installeren. De ID wordt gebruikt als een voorvoegsel voor de resources die zijn geïmplementeerd.
    4. Stack-Type  
       Selecteer het type van de stack SAP NetWeaver
    5. Type besturingssysteem  
@@ -564,13 +564,13 @@ U kunt een van de snel starten-sjablonen op github gebruiken voor het implemente
    6. DB-Type  
       Selecteer HANA
    7. Grootte van het SAP  
-      De hoeveelheid SAP's het nieuwe systeem biedt. Als u niet zeker weet hoeveel SAP's het systeem vereist is, vraag uw SAP-technologie Partner of System Integrator
+      De hoeveelheid SAP's het nieuwe systeem biedt. Als u niet zeker weet hoeveel SAP's het systeem vereist is, vraagt u uw SAP-technologie Partner of System Integrator
    8. Beschikbaarheid van het systeem  
       Selecteer HA
    9. Gebruikersnaam van de beheerder en het wachtwoord van beheerder  
       Een nieuwe gebruiker wordt gemaakt die kunnen worden gebruikt voor aanmelding bij de computer.
-   10. Subnet-Id  
-   De ID van het subnet waarmee de virtuele machines moet worden verbonden.  Laat leeg als u wilt maken van een nieuw virtueel netwerk of Selecteer hetzelfde subnet die u gebruikt of gemaakt als onderdeel van de implementatie van de NFS-server. De ID meestal ziet eruit als /subscriptions/**&lt;abonnements-id&gt;**/resourceGroups/**&lt;Resourcegroepnaam&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtuele-netwerknaam&gt;**/subnets/**&lt;subnetnaam&gt;**
+   10. Subnet-ID  
+   De ID van het subnet waarmee de virtuele machines moet worden verbonden.  Laat leeg als u wilt maken van een nieuw virtueel netwerk of Selecteer hetzelfde subnet die u gebruikt of gemaakt als onderdeel van de implementatie van de NFS-server. De ID meestal ziet eruit als /subscriptions/**&lt;abonnements-ID&gt;**/resourceGroups/**&lt;Resourcegroepnaam&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuele-netwerknaam&gt;**/subnets/**&lt;subnetnaam&gt;**
 
 ### <a name="installation"></a>Installeren
 
@@ -967,7 +967,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1008,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
 
 1. **[1]**  SAP NetWeaver ASC's installeren  
 
-   SAP NetWeaver ASC's installeren als hoofdmap op het eerste knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de ASC's bijvoorbeeld <b>nws-ASC's</b>, <b>10.0.0.10</b> en het exemplaarnummer dat u voor de test van de load balancer bijvoorbeeld gebruikt <b>00</b>.
+   SAP NetWeaver ASC's installeren als hoofdmap op het eerste knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de ASC's, bijvoorbeeld <b>nws-ASC's</b>, <b>10.0.0.10</b> en de exemplaar nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>00</b>.
 
    De parameter sapinst SAPINST_REMOTE_ACCESS_USER kunt u een niet-hoofdgebruiker verbinding maken met sapinst toestaan.
 
@@ -1041,7 +1041,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1092,7 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
 
 1. **[2]**  SAP NetWeaver Ebruikers installeren  
 
-   SAP NetWeaver Ebruikers installeren als de hoofdmap van het tweede knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de gebruikers bijvoorbeeld <b>nws ebruikers</b>, <b>10.0.0.11</b> en het exemplaarnummer dat u voor de test van de load balancer bijvoorbeeld gebruikt <b>02</b>.
+   SAP NetWeaver Ebruikers installeren als de hoofdmap van het tweede knooppunt met behulp van een virtuele hostnaam die is toegewezen aan het IP-adres van de load balancer frontend-configuratie voor de gebruikers bijvoorbeeld <b>nws ebruikers</b>, <b>10.0.0.11</b> en de exemplaar nummer dat u voor de test van de load balancer, bijvoorbeeld gebruikt <b>02</b>.
 
    De parameter sapinst SAPINST_REMOTE_ACCESS_USER kunt u een niet-hoofdgebruiker verbinding maken met sapinst toestaan.
 
@@ -1228,7 +1228,7 @@ Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseer
 
 1. Ga naar <https://portal.azure.com>
 1. Open de blade van Azure Active Directory  
-   Ga naar eigenschappen en noteer de id van de Directory. Dit is de **tenant-id**.
+   Ga naar eigenschappen en noteer de Directory-ID. Dit is de **tenant-ID**.
 1. Klik op App-registraties
 1. Klik op Add.
 1. Voer een naam, selecteer toepassingstype 'Web-app /-API, een aanmeldings-URL (bijvoorbeeld http://localhost) en klik op maken
@@ -1236,7 +1236,7 @@ Het apparaat STONITH maakt gebruik van een Service-Principal worden geautoriseer
 1. Selecteer de nieuwe App en sleutels op in het tabblad instellingen
 1. Voer een beschrijving voor een nieuwe sleutel, selecteer 'Verloopt nooit' en klik op Opslaan
 1. Noteer de waarde in. Deze wordt gebruikt als de **wachtwoord** voor de Service-Principal
-1. Noteer de toepassings-id. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-id** in de onderstaande stappen) van de Service-Principal
+1. Noteer de aanvraag-ID. Deze wordt gebruikt als de gebruikersnaam (**aanmeldings-ID** in de onderstaande stappen) van de Service-Principal
 
 De Service-Principal heeft geen machtigingen voor toegang tot uw Azure-resources standaard. U moet de Service-Principal machtigingen geven om te starten en stoppen (ongedaan gemaakt) alle virtuele machines van het cluster.
 
@@ -1256,13 +1256,13 @@ Nadat u de machtigingen voor de virtuele machines hebt bewerkt, kunt u de appara
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Installeren van de database
 
-In dit voorbeeld is een SAP HANA System Replication geïnstalleerd en geconfigureerd. SAP HANA wordt uitgevoerd in hetzelfde cluster als de SAP NetWeaver ASC's / SCS en gebruikers. U kunt ook een SAP HANA installeren op een cluster toegewezen. Zie [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)] [ sap-hana-ha] voor meer informatie.
+In dit voorbeeld is een SAP HANA System Replication geïnstalleerd en geconfigureerd. SAP HANA wordt uitgevoerd in hetzelfde cluster als de SAP NetWeaver ASC's / SCS en gebruikers. U kunt ook een SAP HANA installeren op een cluster toegewezen. Zie voor meer informatie [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines (VM's)][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Voorbereiden voor SAP HANA-installatie
 
@@ -1326,7 +1326,7 @@ In het algemeen wordt aangeraden met LVM voor volumes die bij het opslaan van ge
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ De volgende stappen zijn gebaseerd op hoofdstuk 4 van de [SAP HANA SR prestaties
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ De volgende stappen zijn gebaseerd op hoofdstuk 4 van de [SAP HANA SR prestaties
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

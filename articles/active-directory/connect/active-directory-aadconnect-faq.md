@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: be940b694ba95529b5f5a84acfd789240354dae2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -35,6 +35,11 @@ Met de opbouw van februari 2016, wordt dit ondersteund.
 Ja. Nadat de agent is geïnstalleerd, kunt u het registratieproces met de volgende PowerShell-cmdlet uitvoeren: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**V: AADConnect ondersteunt synchroniseren van de twee domeinen naar op Azure AD?**</br>
+Ja, dit wordt ondersteund. Raadpleeg [meerdere domeinen](active-directory-aadconnect-multiple-domains.md)
+ 
+**V: bieden we ondersteuning voor meerdere connectors voor hetzelfde Active Directory-domein in Azure AD connect met?**</br> Nee, dit wordt niet ondersteund 
 
 ## <a name="network"></a>Netwerk
 **V: ik heb een firewall, netwerkapparaat of iets anders dat de maximale tijd verbindingen beperkt geopend op mijn netwerk kunt blijven. Hoe lang mijn client side time-out drempelwaarde moet bij gebruik van Azure AD Connect?**  
@@ -78,8 +83,6 @@ Nee, dit wordt momenteel niet ondersteund.
 **V: is het handmatig instellen ondersteund onveranderbare id genoemd-kenmerk op bestaande Azure AD-groep/Contact objecten hard overeenkomen met het lokale AD-groep/Contact objecten?**  
 Nee, dit wordt momenteel niet ondersteund.
 
-
-
 ## <a name="custom-configuration"></a>Aangepaste configuratie
 **V: waar zijn de PowerShell-cmdlets voor Azure AD Connect beschreven?**  
 Met uitzondering van de cmdlets beschreven op deze site, worden andere gevonden in Azure AD Connect PowerShell-cmdlets worden niet ondersteund voor gebruik van de klant.
@@ -95,8 +98,6 @@ Wordt momenteel niet ondersteund voor het wijzigen van de HTML-kenmerken van de 
 
 **V: is er een manier om te voorkomen dat gelijktijdige sessies?**</br>
 Nee.
-
-
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 **V: hoe vind ik meer informatie over Azure AD Connect?**

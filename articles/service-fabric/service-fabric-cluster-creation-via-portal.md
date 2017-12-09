@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Maken van een Service Fabric-cluster in Azure met Azure portal
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ Dit is een stapsgewijze handleiding die u bij de stappen helpt voor het instelle
 
 Een beveiligde cluster is een cluster dat voorkomt onbevoegde toegang tot beheertaken uit te voeren, waaronder implementeren, bijwerken en verwijderen van toepassingen, services en de gegevens die ze bevatten. Een niet-beveiligde cluster is een cluster iedereen kan verbinding maken met op elk gewenst moment en beheerbewerkingen uitvoeren. Hoewel het is mogelijk om een niet-beveiligde cluster te maken, is het **ten zeerste aangeraden om een beveiligde cluster te maken**. Een niet-beveiligde cluster **later niet kan worden beveiligd** -een nieuw cluster moet worden gemaakt.
 
-De concepten zijn hetzelfde voor het maken van beveiligde clusters, ongeacht of de clusters Linux-clusters of Windows-clusters. Zie voor meer informatie en helper scripts voor het maken van beveiligde Linux-clusters, [maken van beveiligde clusters onder Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). De parameters die zijn verkregen door het Help-script dat kunnen worden invoer rechtstreeks in de portal, zoals beschreven in de sectie [een cluster maken in de Azure portal](#create-cluster-portal).
+De concepten zijn hetzelfde voor het maken van beveiligde clusters, ongeacht of de clusters Linux-clusters of Windows-clusters. Zie voor meer informatie en helper scripts voor het maken van beveiligde Linux-clusters, [maken van beveiligde clusters](service-fabric-cluster-creation-via-arm.md). De parameters die zijn verkregen door het Help-script dat kunnen worden invoer rechtstreeks in de portal, zoals beschreven in de sectie [een cluster maken in de Azure portal](#create-cluster-portal).
 
-## <a name="configure-key-vault"></a>Sleutelkluis configureren 
+## <a name="configure-key-vault"></a>Key Vault configureren 
 ### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 Maakt gebruik van deze handleiding [Azure PowerShell][azure-powershell]. Bij het starten van een nieuwe PowerShell-sessie aanmelden bij uw Azure-account en selecteer uw abonnement voordat u Azure opdrachten uitvoert.
 
@@ -84,7 +84,7 @@ De eerste stap is het maken van een nieuwe resourcegroep specifiek voor Sleutelk
 
 ```
 
-#### <a name="create-key-vault"></a>Sleutelkluis maken
+#### <a name="create-key-vault"></a>Key Vault maken
 Een Sleutelkluis maken in de nieuwe resourcegroep. De Sleutelkluis **moet zijn ingeschakeld voor de implementatie van** om toe te staan van de Service Fabric-resourceprovider certificaten van het verkrijgen en installeren op clusterknooppunten:
 
 ```powershell
@@ -228,7 +228,7 @@ In de blade grondbeginselen moet u de algemene informatie opgeven voor uw cluste
    > 
 5. Selecteer de **regio** in waarop u wilt maken van het cluster. U moet dezelfde regio als uw Sleutelkluis is in.
 
-#### <a name="2-cluster-configuration"></a>2. Configuratie van het cluster
+#### <a name="2-cluster-configuration"></a>2. Clusterconfiguratie
 ![Een knooppunttype maken][CreateNodeType]
 
 Configureer de clusterknooppunten. Knooppunttypen definiëren de VM-grootten, het aantal virtuele machines en hun eigenschappen. Het cluster kan meer dan één knooppunttype hebben moet, maar het primaire knooppunttype (de eerste optie die u in de portal definieert) ten minste vijf virtuele machines, omdat dit het knooppunttype waar de Service Fabric-systeemservices worden geplaatst. Configureer geen **plaatsingseigenschappen** omdat een standaardeigenschap van de plaatsing van 'NodeTypeName' wordt automatisch toegevoegd.

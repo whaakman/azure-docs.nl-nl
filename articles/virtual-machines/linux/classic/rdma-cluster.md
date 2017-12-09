@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Een Linux RDMA-cluster instellen voor het uitvoeren van MPI-toepassingen
 Meer informatie over het instellen van een Linux RDMA-cluster in Azure met [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Dit artikel bevat stappen voor het voorbereiden van een installatiekopie Linux HPC Intel MPI uitvoeren op een cluster. Nadat de voorbereiding, moet u een cluster van virtuele machines met behulp van deze installatiekopie en een van de RDMA-compatibele Azure VM-grootten (H16mr momenteel H16r A8 of A9) implementeert. De cluster gebruiken voor het uitvoeren van MPI-toepassingen die efficiënt via een lage latentie, een hoge gegevensdoorvoer netwerk op basis van remote direct memory access (RDMA)-technologie communiceren.
@@ -47,7 +47,7 @@ De volgende stappen laten zien hoe de Azure CLI gebruiken een SUSE Linux Enterpr
 * **Azure-abonnement**: als u geen een abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) binnen een paar minuten. Voor grotere clusters kunt u een abonnement op gebruiksbasis of andere Aankoopopties.
 * **Beschikbaarheid van de VM-grootte**: de volgende exemplaar grootten zijn RDMA-compatibele: H16r, H16mr A8 en A9. Controleer [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/regions/services/) voor beschikbaarheid in een Azure-regio's.
 * **Quotum voor kernen**: mogelijk moet u het quotum van kernen voor het implementeren van een cluster van virtuele machines rekenintensieve verhogen. Bijvoorbeeld, moet u ten minste 128 kernen als u implementeren 8 A9-VM's wilt, zoals in dit artikel. Uw abonnement mogelijk ook beperken het aantal kernen dat u in de grootte van families van bepaalde VM, waaronder de H-reeks kunt implementeren. Om aan te vragen een verhoging van het quotum [opent u een ondersteuningsaanvraag online klant](../../../azure-supportability/how-to-create-azure-support-request.md) zonder kosten.
-* **Azure CLI**: [installeren](../../../cli-install-nodejs.md) de Azure CLI en [verbinding maken met uw Azure-abonnement](../../../xplat-cli-connect.md) vanaf de clientcomputer.
+* **Azure CLI**: [installeren](../../../cli-install-nodejs.md) de Azure CLI en [verbinding maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli) vanaf de clientcomputer.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Een VM SLES 12 SP1 HPC inrichten
 Na het aanmelden bij Azure met Azure CLI, voert `azure config list` om te bevestigen dat de uitvoer ziet u Service Management-modus. Als dit niet het geval is, stelt u de modus met deze opdracht:

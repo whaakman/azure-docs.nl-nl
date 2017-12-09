@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Een zelfstandige cluster op Windows beveiligen met behulp van X.509-certificaten
 In dit artikel wordt beschreven hoe een beveiligde communicatie tussen de verschillende knooppunten van uw zelfstandige Windows-cluster. Ook wordt beschreven hoe u verificatie van clients die verbinding met dit cluster maken met behulp van X.509-certificaten. Verificatie zorgt ervoor dat alleen geautoriseerde gebruikers kunnen toegang krijgen het cluster en de geïmplementeerde toepassingen tot en beheertaken uitvoeren. Certificaatbeveiliging moet worden ingeschakeld op het cluster als het cluster is gemaakt.  
@@ -255,7 +255,7 @@ Nu u het certificaat exporteren naar een pfx-bestand met een wachtwoord beveilig
    Write-Host $cert.ToString($true)
    ```
 
-U kunt ook als u een Azure-abonnement hebt, de stappen in de sectie [certificaten toevoegen aan de sleutelkluis](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
+U kunt ook als u een Azure-abonnement hebt, volg de stappen in [Service Fabric-cluster maken met behulp van Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Installeer de certificaten
 Nadat u certificaten hebt, kunt u deze installeren op de clusterknooppunten. Uw knooppunten moeten hebben de nieuwste Windows PowerShell 3.x daarop geïnstalleerd. Herhaal deze stappen op elk knooppunt voor het cluster en de servercertificaten en eventuele secundaire certificaten.

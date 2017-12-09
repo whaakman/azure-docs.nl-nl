@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 11/17/2017
-ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>SQL-Server migreren naar Azure SQL Database
 De Service Azure Database migratie kunt u de databases van een lokale SQL Server-instantie migreren naar Azure SQL Database. In deze zelfstudie maakt u de migratie de **Adventureworks2012** database teruggezet naar een lokaal exemplaar van SQL Server 2016 (of hoger) naar een Azure SQL Database met behulp van de Service Azure Database migratie.
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 ## <a name="prerequisites"></a>Vereisten
 Voor deze zelfstudie hebt voltooid, moet u:
 
-- De download- en instanll [SQL Server 2016 of hoger](https://www.microsoft.com/sql-server/sql-server-downloads) (alle versies).
+- Download en installeer [SQL Server 2016 of hoger](https://www.microsoft.com/sql-server/sql-server-downloads) (alle versies).
 - Inschakelen van het TCP/IP-protocol is standaard uitgeschakeld tijdens de installatie van SQL Server Express door de instructies in het artikel [in- of uitschakelen van een Server netwerkprotocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Configureer uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Geen exemplaar maken van Azure SQL Database-instantie die u doen door de details in het artikel [maken van een Azure SQL database in de Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
@@ -108,7 +108,7 @@ Voor het migreren van de **AdventureWorks2012** schema met Azure SQL Database, d
  
    ![Portal abonnementen weergeven](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
        
-2. Selecteer het abonnement waarin u wilt maken van het exemplaar van de Azure-Service voor het migreren van Database en selecteer vervolgens **resourceproviders**.
+2. Selecteer het abonnement waarin u het Azure Database Migration Service-exemplaar wilt maken en selecteer vervolgens **Resourceproviders**.
  
     ![resourceproviders weergeven](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
 3.  Zoekcriteria voor de migratie en rechts van **Microsoft.DataMigration**, selecteer **registreren**.

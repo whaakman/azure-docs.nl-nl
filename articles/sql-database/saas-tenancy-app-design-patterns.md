@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-database tenancymodus patronen
 
@@ -165,7 +165,7 @@ In het hybride-model hebben alle databases die de tenant-id in hun schema.  De d
 
 U kunt op elk gewenst moment een bepaalde tenant verplaatsen naar een eigen multitenant-database.  En op elk gewenst moment kunt u van gedachten verandert en de tenant verplaatst naar een database met meerdere tenants.  U kunt ook een huurder toewijzen aan nieuwe database voor één tenant wanneer u de nieuwe database inricht.
 
-Het model hybride dat wat als er grote verschillen tussen de resourcebehoeften van persoonsgegevens groepen van tenants.  Stel bijvoorbeeld dat tenants die deel uitmaken van een gratis proefversie zijn niet gegarandeerd hetzelfde hoog niveau van de prestaties die geabonneerde tenants.  Het beleid mogelijk voor tenants in de gratis proefperiode moeten worden opgeslagen in een multitenant-database die wordt gedeeld door de gratis proefversie tenants.  Wanneer u een gratis proefversie van uw tenant is lid van het algemene serviceniveau, kan de tenant worden verplaatst naar een andere database voor meerdere tenants die mogelijk minder tenants.  Een abonnee voor het serviceniveau premium betaalt kan worden verplaatst naar de gewonnen nieuwe database voor één tenant.
+Het model hybride dat wat als er grote verschillen tussen de resourcebehoeften van persoonsgegevens groepen van tenants.  Stel bijvoorbeeld dat tenants die deel uitmaken van een gratis proefversie zijn niet gegarandeerd hetzelfde hoog niveau van de prestaties die geabonneerde tenants.  Het beleid mogelijk voor tenants in de gratis proefperiode moeten worden opgeslagen in een multitenant-database die wordt gedeeld door de gratis proefversie tenants.  Wanneer u een gratis proefversie van uw tenant is lid van het algemene serviceniveau, kan de tenant worden verplaatst naar een andere database voor meerdere tenants die mogelijk minder tenants.  Een abonnee voor het serviceniveau premium betaalt kan worden verplaatst naar een eigen nieuwe database voor één tenant.
 
 #### <a name="pools"></a>Pools
 

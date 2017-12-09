@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f6e8410eae619977c0ce3779df2e725bd3be5393
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 5984a7707552b2740b48e3c9da40a5e96a3a279b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="back-up-a-web-app"></a>Back-up van een web-app
 
@@ -48,7 +48,7 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 | [Nieuwe AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
 | [Nieuwe AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Maakt een opslagaccount. |
 | [Nieuwe AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) | Hiermee maakt u een Azure storage-container. |
-| [Nieuwe AzureStorageContainerSASToken](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
+| [Nieuwe AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Genereert een SAS-token voor een Azure storage-container.  |
 | [Nieuwe AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Hiermee maakt u een App Service-abonnement. |
 | [Nieuwe AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Hiermee maakt u een web-app. |
 | [Nieuwe AzureRmWebAppBackup](/powershell/module/azurerm.websites/new-azurermwebappbackup) | Maakt een back-up voor een web-app. |

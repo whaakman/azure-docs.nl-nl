@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Hulpprogramma voor gegevensmigratie
 
@@ -29,7 +29,7 @@ Deze zelfstudie bevat instructies over het gebruik van het hulpprogramma Azure C
 Welke API u gaat gebruiken met Azure Cosmos DB? 
 * **[DocumentDB-API](documentdb-introduction.md)**  -kunt u een van de bronopties in het hulpprogramma voor migratie van gegevens om gegevens te importeren.
 * **[Tabel API](table-introduction.md)**  -u kunt het hulpprogramma voor gegevensmigratie of AzCopy gebruiken om gegevens te importeren. Zie [importeren van gegevens voor gebruik met de Azure-API voor tabel Cosmos DB](table-import.md) voor meer informatie.
-* **[MongoDB API](mongodb-introduction.md)**  -hulpprogramma voor migratie van de gegevens gegevens MongoDB databases exporteren naar Azure Cosmos DB voor gebruik met de DocumentDB-API. Maar als u wilt doorgaan met het gebruik van MongoDB APIs, u zult willen gebruiken de MongoDB-API van Azure Cosmos DB en mongoimport.exe of mongorestore.exe moet gebruiken om gegevens te importeren. Zie [Azure Cosmos DB: het migreren van gegevens voor de MongoDB-API?](mongodb-migrate.md), voor meer informatie.
+* **[MongoDB API](mongodb-introduction.md)**  -hulpprogramma voor migratie van de gegevens van ondersteunt momenteel geen Azure Cosmos DB MongoDB-API als een bron of als een doelserver. Als u migreren van de gegevens in of buiten het MongoDB-API-verzamelingen in Azure Cosmos DB wilt, raadpleegt u [Azure Cosmos DB: het migreren van gegevens voor de MongoDB-API](mongodb-migrate.md) voor instructies. U kunt het hulpprogramma voor migratie van gegevens nog steeds gegevens van MongoDB exporteren naar Azure Cosmos DB SQL-API-verzamelingen voor gebruik met de SQL-API. 
 * **[Graph API](graph-introduction.md)**  -hulpprogramma voor migratie van de gegevens is niet een ondersteunde import-hulpprogramma voor Graph API accounts op dit moment. 
 
 Deze zelfstudie bevat de volgende taken:

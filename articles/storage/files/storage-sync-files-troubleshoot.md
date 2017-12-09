@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1b8010876a46999d9cfcefc8c3bf537c7a1deb4e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -102,10 +102,8 @@ Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft
     * **Roltoewijzing** moet **lezen** en **schrijven** machtigingen.
     * **Roldefinitie** moet **lezen** en **schrijven** machtigingen.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Cloud-eindpunt verwijderen is mislukt, vanwege de volgende fout: "MgmtInternalError"**  
-Dit probleem kan optreden als de Azure file share of storage-account is verwijderd voordat u het cloudeindpunt verwijderen. Dit probleem wordt opgelost in een toekomstige update. Op dat moment wordt zich u een cloudeindpunt te verwijderen nadat u de Azure file share of storage-account verwijderen.
-
-Ondertussen om te voorkomen dat dit probleem optreedt, het cloudeindpunt verwijderen voordat u het Azure storage of share account verwijderen.
+<a id="server-endpoint-deletejobexpired"></a>**Server-eindpunt verwijderen is mislukt, vanwege de volgende fout: "MgmtServerJobExpired"**                
+Dit probleem treedt op als de server offline is of geen verbinding met het netwerk. Als de server niet langer beschikbaar is, hef de registratie van de server in de portal die de server-eindpunten wordt verwijderd. Volg de stappen die worden beschreven in voor het verwijderen van de server-eindpunten [Hef de registratie van een server met het synchroniseren van Azure bestand](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Als ik een bestand rechtstreeks in mijn Azure-bestandsshare via SMB of via de portal gemaakt, hoe lang duurt het voor het bestand om te synchroniseren op de servers in de groep voor synchronisatie?**  

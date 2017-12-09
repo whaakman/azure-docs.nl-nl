@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions bewaken
 
@@ -78,7 +78,7 @@ In [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md),
 
 Op de [fouten](../application-insights/app-insights-asp-net-exceptions.md) tabblad kunt u diagrammen maken en waarschuwingen op basis van functie fouten en server uitzonderingen. De **bewerkingsnaam** is de naam van de functie. Fouten in de afhankelijkheden worden niet weergegeven, tenzij u implementeert [aangepaste telemetrie](#custom-telemetry-in-c-functions) voor afhankelijkheden.
 
-![fouten](media/functions-monitoring/failures.png)
+![Fouten](media/functions-monitoring/failures.png)
 
 Op de [prestaties](../application-insights/app-insights-performance-counters.md) tabblad kunt u prestatieproblemen analyseren.
 
@@ -486,7 +486,7 @@ U kunt logboekbestanden op een opdrachtregel-sessie op een lokaal werkstation me
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>De functie app-logboekbestanden met de Azure CLI 1.0 bewaken
 
-Aan de slag [installeren van de Azure CLI 1.0](../cli-install-nodejs.md) en [aanmelden bij Azure](../xplat-cli-connect.md).
+Aan de slag [installeren van de Azure CLI 1.0](../cli-install-nodejs.md) en [aanmelden bij Azure](/cli/azure/authenticate-azure-cli).
 
 Gebruik de volgende opdrachten klassieke Service Management-modus inschakelen, kiest u uw abonnement en stream logboekbestanden:
 

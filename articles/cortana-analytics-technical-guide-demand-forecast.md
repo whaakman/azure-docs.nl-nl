@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Technische handleiding voor de sjabloon Cortana Intelligence-oplossing voor vraag prognose in energie
 ## <a name="overview"></a>**Overzicht**
@@ -82,7 +82,7 @@ Voor het voorspellen van de vraag voor oplossingssjabloon energieverbruik bestaa
 
 De [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) query kan worden gevonden door:
 
-* Aanmelden bij de [Azure-portal](https://manage.windowsazure.com/)
+* Aanmelden bij de [Azure-portal](https://portal.azure.com/)
 * Zoeken naar de stream analytics-taken ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) die zijn gegenereerd tijdens de oplossing is geïmplementeerd. Een is om de gegevens worden gepusht naar blob storage (bijvoorbeeld mytest1streaming432822asablob) en een andere voor Power BI (bijvoorbeeld mytest1streaming432822asapbi) gegevens worden gepusht.
 * Selecteren
 
