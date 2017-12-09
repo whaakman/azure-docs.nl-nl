@@ -3,7 +3,7 @@ title: Een nieuwe Azure Machine Learning-webservice met PowerShell Retrain | Mic
 description: Informatie over het programmatisch opnieuw trainen van een model en het bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning met Machine Learning Management PowerShell-cmdlets.
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 77bc78e7ed27f1566e5e5f6a3539c93c9aa73e2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630e9958d5083300fdf7910c5fdd47989b0376ad
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Een nieuwe Resource Manager gebaseerde webservice met Machine Learning Management PowerShell-cmdlets opnieuw trainen
 Wanneer u een nieuwe webservice opnieuw trainen, kunt u de voorspellende webservicedefinitie om te verwijzen naar het nieuwe getrainde model bijwerken.  

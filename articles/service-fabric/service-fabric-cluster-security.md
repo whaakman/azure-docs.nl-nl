@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenario's voor beveiliging van service Fabric-cluster
-Een Azure Service Fabric-cluster is een resource waarvan u eigenaar. U moet uw clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze beveiligen. Een beveiligde cluster is vooral belangrijk wanneer u productieworkloads op het cluster worden uitgevoerd. Hoewel het mogelijk te maken van een niet-beveiligde cluster als het cluster eindpunten voor beheer met het openbare internet beschrijft, anonieme gebruikers verbinding mee kunnen maken. 
+Een Azure Service Fabric-cluster is een resource waarvan u eigenaar. Het is uw verantwoordelijkheid voor het beveiligen van clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze. Een beveiligde cluster is vooral belangrijk wanneer u productieworkloads op het cluster worden uitgevoerd. Hoewel het mogelijk te maken van een niet-beveiligde cluster als het cluster eindpunten voor beheer met het openbare internet beschrijft, anonieme gebruikers verbinding mee kunnen maken. Niet-beveiligde clusters worden niet ondersteund voor productieworkloads. 
 
 Dit artikel is een overzicht van scenario's voor beveiliging voor Azure-clusters en zelfstandige clusters en de verschillende technologieën die u gebruiken kunt voor het implementeren ervan:
 
@@ -58,7 +58,7 @@ Clusters met op Azure en zelfstandige cluster waarop Windows beide gebruikt een 
 ### <a name="client-to-node-certificate-security"></a>De beveiliging van client-naar-node certificate
 Certificaatbeveiliging van de client tot knooppunt instellen wanneer u het cluster in de Azure-portal met behulp van een Resource Manager-sjabloon of met behulp van een zelfstandige JSON-sjabloon maakt. Geef een clientcertificaat voor de beheerder of een clientcertificaat voor gebruikers voor het maken van het certificaat. Als een best practice, de client en de gebruiker beheerclientcertificaten u opgeeft moet verschillen van de primaire en secundaire certificaten die u opgeeft voor [knooppunt naar beveiliging](#node-to-node-security). Standaard worden de clustercertificaten voor knooppunt naar beveiliging toegevoegd aan de lijst met toegestane client admin certificaten.
 
-Clients die verbinding met het cluster met behulp van de admin-certificaat hebben volledige toegang tot de beheerfuncties. Clients die verbinding met het cluster met behulp van het clientcertificaat voor de gebruiker alleen-lezen hebben alleen leestoegang tot de beheerfuncties. Deze certificaten worden gebruikt voor het RBAC die we verderop in dit artikel wordt beschreven.
+Clients die verbinding met het cluster met behulp van de admin-certificaat hebben volledige toegang tot de beheerfuncties. Clients die verbinding met het cluster met behulp van het clientcertificaat voor de gebruiker alleen-lezen hebben alleen leestoegang tot de beheerfuncties. Deze certificaten worden gebruikt voor het RBAC die verderop in dit artikel wordt beschreven.
 
 Zie voor meer informatie over het instellen van Certificaatbeveiliging in een cluster voor Azure, [een cluster met behulp van een Azure Resource Manager-sjabloon instellen](service-fabric-cluster-creation-via-arm.md).
 

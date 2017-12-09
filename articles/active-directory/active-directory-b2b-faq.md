@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 9f0ee9174c925f9338dc69bc5560255d66b30493
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -115,7 +115,7 @@ Het is raadzaam dat u één gebruiker van de partnerorganisatie lid worden van d
 Als de partner een Azure AD-tenant die aan de on-premises verificatie-infrastructuur is gefedereerd heeft, lokale eenmalige aanmelding (SSO) automatisch bereikt. Als de partner geen Azure AD-tenant, wordt een Azure AD-account gemaakt voor nieuwe gebruikers. 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Ik Azure AD B2B niet geaccepteerd door de gmail.com en outlook.com e-mailadressen en dat B2C is gebruikt voor deze typen accounts beschouwd?
-De verschillen tussen B2B- en business naar bedrijf (B2C) samenwerking in termen van welke identiteiten worden ondersteund worden verwijderd. De identiteit die wordt gebruikt, is niet een goede reden B2B gebruiken of B2C kiezen. Zie voor meer informatie over het kiezen van de optie voor samenwerking [vergelijken B2B-samenwerking en B2C in Azure Active Directory](active-directory-b2b-compare-b2c.md).
+De verschillen tussen B2B- en business-to-consumer (B2C) samenwerking in termen van welke identiteiten worden ondersteund worden verwijderd. De identiteit die wordt gebruikt, is niet een goede reden B2B gebruiken of B2C kiezen. Zie voor meer informatie over het kiezen van de optie voor samenwerking [vergelijken B2B-samenwerking en B2C in Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Welke toepassingen en services ondersteuning voor Azure B2B gastgebruikers?
 Alle Azure AD-geïntegreerde toepassingen ondersteuning bieden voor Azure B2B gastgebruikers. 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: f060ddc958a7b266464bd28cee774f6ce065088d
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapportage latenties
 
@@ -37,10 +37,10 @@ Er zijn twee gebieden van de activiteit reporting:
 
 De volgende tabel bevat de latentie-informatie voor activiteitsrapporten.
 
-| Rapport | Minimum | Gemiddelde | Maximum |
+| Rapport | Minimum | Gemiddeld | Maximum |
 | :-- | --- | --- | --- |
-| Controlelogboeken             | 30 minuten  | 45 minuten | 1 uur     |
-| Aanmeldingen               | 15 minuten  | 15 minuten | 2 uur *   |
+| Controlelogboeken             | 30 minuten  | 1 uur | 2 uur     |
+| Aanmeldingen               | 15 minuten  | 2 uur * | 24 uur  |
 
 >[!NOTE]
 > Als de aanmeldactiviteitgegevens afkomstig zijn van verouderde Office-toepassingen, kan het tot acht uur duren voor de rapportagegegevens worden weergegeven. 
@@ -55,18 +55,18 @@ Er zijn twee soorten beveiliging reporting:
 
 De volgende tabel bevat de latentie-informatie voor beveiligingsrapporten.
 
-| Rapport | Minimum | Gemiddelde | Maximum |
+| Rapport | Minimum | Gemiddeld | Maximum |
 | :-- | --- | --- | --- |
 | Gebruikers die risico lopen          | 5 minuten   | 15 minuten  | 2 uur  |
 | Riskant aanmeldingen         | 5 minuten   | 15 minuten  | 2 uur  |
 
-## <a name="risk-events"></a>Risico 's
+## <a name="risk-events"></a>Risicogebeurtenissen
 
 Azure Active Directory maakt gebruik van geavanceerde machine learning-algoritmen en methodiek voor het detecteren van verdachte acties die zijn gekoppeld aan uw gebruikersaccounts. Elke verdachte actie wordt opgeslagen in een gebeurtenis vastleggen genoemd risico gedetecteerd.
 
 De volgende tabel bevat de latentie-informatie voor risico's.
 
-| Rapport | Minimum | Gemiddelde | Maximum |
+| Rapport | Minimum | Gemiddeld | Maximum |
 | :-- | --- | --- | --- |
 | Aanmeldingen vanaf anonieme IP-adressen |5 minuten |15 minuten |2 uur |
 | Aanmeldingen vanaf onbekende locaties |5 minuten |15 minuten |2 uur |

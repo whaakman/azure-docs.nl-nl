@@ -3,7 +3,7 @@ title: 'Azure Machine Learning-webservices: De implementatie en het verbruik | M
 description: Bronnen voor het implementeren en gebruiken van web-services.
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: b0afbd54ddad4cc4be2b35c85d81abe90c717692
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning-webservices: implementatie en verbruik
 U kunt Azure Machine Learning gebruiken machine learning werkstromen en modellen als webservices te implementeren. Deze webservices kunnen vervolgens worden gebruikt voor het aanroepen van de machine learning-modellen van toepassingen via Internet te doen voorspellingen in realtime of in de batchmodus. Omdat de webservices RESTful, kunt u ze aanroepen uit verschillende programmeertalen en platforms, zoals .NET en Java, en toepassingen, zoals Excel.

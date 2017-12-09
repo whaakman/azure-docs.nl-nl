@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Overzicht van hoge beschikbaarheid-poorten
 
@@ -74,7 +74,7 @@ Als u wilt deelnemen aan de evaluatieversie van de functie van de HA-poorten in 
 
 Hier volgen de ondersteunde configuraties of uitzonderingen voor de functie HA-poorten:
 
-- Een IP-configuratie voor één front-kan een enkele DSR load balancer-regel met HA-poorten, of deze een enkele niet DSR load balancer-regel met HA poorten kan hebben. Er kan niet beide.
+- Een IP-configuratie voor één front-kan een enkele Direct Server Return (DSR - zwevend IP in Azure) load balancer-regel met HA-poorten, of deze een enkele niet DSR load balancer-regel met HA poorten kan hebben. Er kan niet beide.
 - Een netwerk met één interface IP-configuratie kan slechts één niet-DSR load balancer-regel met HA poorten hebben. U kunt nog andere regels voor deze ipconfig niet configureren.
 - Een netwerk met één interface IP-configuratie kan een of meer DSR load-balancerregels met HA-poorten zijn opgegeven alle hun respectieve front-end-IP-configuraties uniek zijn.
 - Als alle van de load-balancingregels HA-poorten (alleen DSR), worden twee (of meer) Load Balancer-regels die verwijst naar de dezelfde back-end-pool kunnen naast elkaar bestaan. Hetzelfde geldt als alle regels niet zijn-HA-poorten (DSR en niet-DSR). Naast elkaar als er een combinatie van de HA-poorten en poorten niet HA regels, echter twee dergelijke regels voor taakverdeling kunnen niet bestaan.

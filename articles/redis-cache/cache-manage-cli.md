@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Het maken en beheren van Azure Redis-Cache met behulp van de Azure-opdrachtregelinterface (Azure CLI)
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Als u wilt maken en beheren van Azure Redis-Cache-exemplaren die gebruikmaken va
 
 * U moet een Azure-account hebben. Als u niet hebt, kunt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) in slechts enkele ogenblikken.
 * [Installeer de Azure CLI](../cli-install-nodejs.md).
-* Verbinding maken met de Azure CLI-installatie met een persoonlijke Azure-account of met een werk of school Azure-account en zich aanmelden vanaf de Azure CLI met behulp van de `azure login` opdracht. Als u wilt weten over de verschillen en ervoor kiest, Zie [verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](../xplat-cli-connect.md).
+* Verbinding maken met de Azure CLI-installatie met een persoonlijke Azure-account of met een werk of school Azure-account en zich aanmelden vanaf de Azure CLI met behulp van de `azure login` opdracht. Als u wilt weten over de verschillen en ervoor kiest, Zie [verbinding maken met een Azure-abonnement met de Azure-opdrachtregelinterface (Azure CLI)](/cli/azure/authenticate-azure-cli).
 * Voordat u een van de volgende opdrachten, schakelt u de Azure CLI in de modus Resource Manager door het uitvoeren van de `azure config mode arm` opdracht. Zie voor meer informatie [de Azure CLI gebruiken voor het beheren van Azure-resources en resourcegroepen](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Redis-Cache-eigenschappen
@@ -50,7 +50,7 @@ De volgende eigenschappen worden gebruikt bij het maken en bijwerken van Redis-C
 | naam |-n,--naam |Naam van de Redis-Cache. |
 | resourcegroep |-g,--resourcegroep |Naam van de resourcegroep. |
 | location |-l,--locatie |Locatie voor het maken van de cache. |
-| Grootte |-z,--grootte |Grootte van de Redis-Cache. Geldige waarden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| grootte |-z,--grootte |Grootte van de Redis-Cache. Geldige waarden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | SKU |-x--sku |Redis SKU. Moet een van: [Basic, Standard, Premium] |
 | EnableNonSslPort |-e,--enable-niet-ssl-poort |EnableNonSslPort-eigenschap van de Redis-Cache. Deze vlag toevoegen als u wilt de niet-SSL-poort voor uw cache inschakelen |
 | Configuratie van redis |-c,--redis-configuratie |Redis-configuratie. Geef een string in JSON-indeling van de van configuratiesleutels en waarden die hier. Indeling: ' {' ': "","": ""} " |

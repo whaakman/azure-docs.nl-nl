@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigatie en Dashboards in de Application Insights-portal
 Nadat u hebt [Application Insights instellen op uw project](app-insights-overview.md), telemetriegegevens over de prestaties en het gebruik van uw app wordt weergegeven in Application Insights-resource voor uw project in de [Azure-portal](https://portal.azure.com).
@@ -97,6 +97,9 @@ Wanneer u een dashboard hebt gemaakt, kunt u het delen met andere gebruikers.
 ![Klik in de header dashboard delen](./media/app-insights-dashboards/41.png)
 
 Meer informatie over [functies en toegangsbeheer](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Programmatisch dashboards maken
+U kunt automatiseren dashboard maken met behulp van [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) en een eenvoudige JSON-editor.
 
 ## <a name="app-navigation"></a>App-navigatie
 De overzichtsblade is de gateway naar meer informatie over uw app.

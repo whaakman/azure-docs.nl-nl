@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Onverwachte kosten met Azure-facturering en kostenbeheer voorkomen
 
@@ -28,6 +28,8 @@ Wanneer u zich voor Azure aanmelden, zijn er verschillende dingen die u doen kun
 - Als uw abonnement is een Enterprise Agreement (EA), is de openbare preview als u wilt zien van uw kosten in de Azure-portal beschikbaar. Als uw abonnement via de Cloud Solution Provider (CSP) of Azure betrokkenheid, kunnen sommige van de volgende functies niet geldt voor u. Zie [aanvullende bronnen voor EA CSP en managers](#other-offers) voor meer informatie.
 
 - Als uw abonnement een gratis proefversie is [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO) of BizSpark, uw abonnement wordt automatisch uitgeschakeld wanneer alle uw tegoed is gebruikt. Meer informatie over [bestedingslimieten](#spending-limit) om te voorkomen dat uw abonnement unexpectantly uitgeschakeld.
+
+- Als u zich hebt geregistreerd voor [gratis Azure-account](https://azure.microsoft.com/en-us/free/), [kunt u enkele van de meest populaire Azure-services voor het vrije gedurende 12 maanden](billing-create-free-services-included-free-account.md). Samen met de onderstaande aanbevelingen, Zie [voorkomen ophalen in rekening gebracht gratis account](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Geschatte kosten ophalen voordat u Azure-services
 

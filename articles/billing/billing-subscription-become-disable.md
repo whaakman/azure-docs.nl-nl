@@ -16,24 +16,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: f0fb408557f58ddf434cbebb8978dc81342c87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3c6b190c3ddc8e474175693229d2e043196eac92
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Waarom wordt mijn Azure-abonnement uitgeschakeld en hoe ik het opnieuw activeren?
 
-U mogelijk hebt u uw Azure-abonnement uitgeschakeld omdat u uw bestedingslimiet hebt bereikt, hebben een achterstallige factuur, heeft de limiet van uw creditcard of omdat het abonnement is geannuleerd door de accountbeheerder. Zie welk probleem geldt voor u en volg de stappen in dit artikel om op te halen van uw abonnement opnieuw geactiveerd.
+Moet u wellicht uw Azure-abonnement uitgeschakeld omdat uw tegoed is verlopen, u uw bestedingslimiet hebt bereikt, hebben een achterstallige factuur, heeft de limiet van uw creditcard of omdat het abonnement is geannuleerd door de accountbeheerder. Zie welk probleem geldt voor u en volg de stappen in dit artikel om op te halen van uw abonnement opnieuw geactiveerd.
+
+## <a name="your-credit-is-expired"></a>Uw tegoed is verlopen
+
+Als u zich voor een gratis Azure-account aanmelden, krijgt u een gratis proefabonnement, waardoor u $200 in Azure-krediet voor 30 dagen en gratis services twaalf maanden. Aan het einde van 30 dagen, wordt uw abonnement met Azure uitgeschakeld. Uw abonnement is uitgeschakeld om te voorkomen dat u per ongeluk steeds kosten voor gebruik buiten de creditcard en de beschikbare services in uw abonnement. Om door te gaan met Azure-services, moet u [uw abonnement bijwerken naar een abonnement met betalen naar gebruik](billing-upgrade-azure-subscription.md). Nadat u een upgrade uitvoert, heeft uw abonnement nog steeds toegang tot services gedurende 12 maanden gratis. U alleen ophalen in rekening gebracht voor gebruik buiten de gratis services en aantallen.
 
 ## <a name="you-reached-your-spending-limit"></a>U uw bestedingslimiet bereikt
 
-Bij het gebruik van uw leidt tot uitputting van de maandelijkse bedragen die deel uitmaakt van uw abonnement, wordt uw service voor de rest van deze factureringsperiode uitgeschakeld. De service is om te voorkomen dat u per ongeluk steeds kosten voor gebruik buiten de gebruikshoeveelheid voor uw abonnement uitgeschakeld. Verwijdert u uw bestedingslimiet [de bestedingslimiet verwijderen in Accountcentrum](billing-spending-limit.md#remove).
+Azure-abonnementen met creditcard zoals de gratis proefversie en Visual Studio Enterprise hebben bestedingslimieten erop. Dit betekent dat u kunt alleen services tot het krediet opgenomen. Als uw gebruik van de bestedingslimiet is bereikt, wordt uw abonnement voor de rest van deze factureringsperiode uitgeschakeld in Azure. Uw abonnement is uitgeschakeld om te voorkomen dat u per ongeluk steeds kosten voor gebruik buiten de tegoed bij uw abonnement. Verwijdert u uw bestedingslimiet [de bestedingslimiet verwijderen in Accountcentrum](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Als u een gratis proefversie-abonnement hebt en u de bestedingslimiet verwijderen, wordt uw abonnement converteert naar betalen per gebruik aan het einde van de gratis proefversie.
+> Als u een gratis proefversie-abonnement hebt en u de bestedingslimiet verwijderen, wordt uw abonnement converteert naar betalen per gebruik aan het einde van de gratis proefversie. U uw resterende tegoed voor de volledige 30 dagen nadat u het abonnement hebt gemaakt. U hebt ook toegang tot services gedurende 12 maanden gratis.
 
 Als u wilt bewaken en beheren van facturerings activiteit voor Azure, Zie [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md) en [waarschuwingen voor uw Microsoft Azure-abonnementen facturering instellen](billing-set-up-alerts.md).
+
 
 ## <a name="your-bill-is-past-due"></a>Uw factuur is vervallen
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Installeer de Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Snel het Azure-opdrachtregelinterface (Azure CLI 1.0) voor het gebruik van een s
 
 Zie voor meer opties en achtergrond, de project-opslagplaats op [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Nadat de Azure CLI 1.0 is geïnstalleerd, [verbinding te maken met uw Azure-abonnement](xplat-cli-connect.md) en voer de **azure** opdrachten uit vanaf de opdrachtregelinterface (Bash, Terminal, opdrachtprompt, enzovoort) om te werken met uw Azure-resources.
+Nadat de Azure CLI 1.0 is geïnstalleerd, [verbinding te maken met uw Azure-abonnement](/cli/azure/authenticate-azure-cli) en voer de **azure** opdrachten uit vanaf de opdrachtregelinterface (Bash, Terminal, opdrachtprompt, enzovoort) om te werken met uw Azure-resources.
 
 ## <a name="option-1-install-an-npm-package"></a>Optie 1: Een npm-pakket installeren
 Als u wilt de CLI installeren vanaf een pakket npm, Controleer of u hebt gedownload en geïnstalleerd de [nieuwste Node.js en npm](https://nodejs.org/en/download/package-manager/). Voer **npm installeren** om de azure cli-pakket te installeren:
@@ -99,7 +99,7 @@ Overzicht van de versie van de Azure CLI 1.0 die u hebt geïnstalleerd, typ het 
 azure --version
 ```
 
-U bent nu klaar! Voor toegang tot de CLI-opdrachten voor het werken met uw eigen resources [verbinding maken met uw Azure-abonnement vanuit de Azure CLI](xplat-cli-connect.md).
+U bent nu klaar! Voor toegang tot de CLI-opdrachten voor het werken met uw eigen resources [verbinding maken met uw Azure-abonnement vanuit de Azure CLI](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > Als u Azure CLI voor het eerst gebruikt, ziet u een bericht waarin wordt gevraagd of u toestaan dat Microsoft wilt voor het verzamelen van informatie over het gebruik. Deelname is niet verplicht. Als u ervoor kiest om deel te nemen, kunt u stoppen op elk gewenst moment door het uitvoeren van `azure telemetry --disable`. Inschakelen van deelname op elk gewenst moment `azure telemetry --enable`.
@@ -129,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Verbinding maken met CLI met uw Azure-abonnement](xplat-cli-connect.md) maken en beheren van Azure-resources.
+* [Verbinding maken met CLI met uw Azure-abonnement](/cli/azure/authenticate-azure-cli) maken en beheren van Azure-resources.
 * Als u meer informatie over de Azure CLI, broncode downloaden, problemen melden, of bijdragen aan het project, gaat u naar de [GitHub-opslagplaats voor de Azure CLI](https://github.com/azure/azure-xplat-cli).
 * Als u vragen over het gebruik van de Azure CLI of Azure hebt, gaat u naar de [Azure-Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 

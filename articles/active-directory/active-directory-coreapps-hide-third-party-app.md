@@ -1,6 +1,6 @@
 ---
-title: Een toepassing van derden van de gebruikerservaring in Azure Active Directory verbergen | Microsoft Docs
-description: Hoe kan ik een toepassing van derden van de gebruikerservaring in Azure Active Directory verbergen
+title: Een toepassing van de gebruikerservaring in Azure Active Directory verbergen | Microsoft Docs
+description: Hoe kan ik een toepassing van de gebruikerservaring in Azure Active Directory verbergen
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 58e3dd23805ada39e77194ddb4ebf507c24fd1f2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Een toepassing van derden van de gebruikerservaring in Azure Active Directory verbergen
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Een toepassing van de gebruikerservaring in Azure Active Directory verbergen
 
-Als u een toepassing van derden (een app gepubliceerd door anderen dan Microsoft) hebt dat u niet weergeven op de gebruikers toegang deelvensters of Office 365 voor ruimtevaartuigen wilt, er is een optie voor het verbergen van deze tegel app. Door te verbergen de app gebruikers nog steeds machtigingen voor de app, maar ze worden weergegeven op de app voor ruimtevaartuigen niet zien. U moet de juiste machtigingen voor het beheren van de app voor de onderneming hebben en u moet een globale beheerder voor de map.
+Als u een toepassing die u niet wilt weergeven op de toegang panelen of Office 365 voor ruimtevaartuigen gebruikers hebt, is er een optie voor het verbergen van deze tegel app. Deze optie is alleen beschikbaar voor toepassingen van derden (apps die niet zijn gepubliceerd door Microsoft). Door te verbergen de app gebruikers nog steeds machtigingen voor de app, maar ze worden weergegeven op de app voor ruimtevaartuigen niet zien. U moet de juiste machtigingen voor het beheren van de app voor de onderneming hebben en u moet een globale beheerder voor de map. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Een app van derden van een eindgebruiker verbergen
-Gebruik de volgende stappen voor het verbergen van een derde partij app van een gebruiker toegangspaneel en Office 365-app voor ruimtevaartuigen
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Een toepassing van de eindgebruiker van gebruikerservaringen verbergen
+Gebruik de volgende stappen voor het verbergen van de toepassing in het deelvenster toegang en de Office 365-app voor ruimtevaartuigen van een gebruiker
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Hoe kan ik een app van derden uit van de gebruiker toegangspaneel en O365-app voor ruimtevaartuigen verbergen?
 

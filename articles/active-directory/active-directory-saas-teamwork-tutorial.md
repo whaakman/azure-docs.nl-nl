@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 190a47a25ba971038c4b4c9fb54d35c22e4804bf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Zelfstudie: Azure Active Directory-integratie met Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Zelfstudie: Azure Active Directory-integratie met [Teamwork.com](https://www.teamwork.com/projects)
 
 In deze zelfstudie leert u hoe Teamwork.com integreren met Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD 
 Voor het configureren van Azure AD-integratie met Teamwork.com, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Teamwork.com eenmalige aanmelding ingeschakeld abonnement
+- Een [Teamwork.com](https://www.teamwork.com/projects) abonnement op het plan Pro of hoger
 
 > [!NOTE]
 > Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.

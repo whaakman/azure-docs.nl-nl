@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *Van toepassing op: Azure stapelen Development Kit*
 
@@ -28,7 +28,7 @@ Na [implementeren van de Azure-Stack Development Kit](azure-stack-run-powershell
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Een Azure-Stack tenant-account maken met de Azure-portal
 U moet de Azure portal gebruiken een Azure-abonnement hebben.
 
-1. Meld u aan bij [Azure](http://manage.windowsazure.com).
+1. Meld u aan bij [Azure](https://portal.azure.com).
 2. Klik in Microsoft Azure linkernavigatiebalk op **Active Directory**.
 3. Klik op de map die u wilt gebruiken voor Azure-Stack in de lijst directory of maak een nieuwe.
 4. Klik op deze directorypagina **gebruikers**.

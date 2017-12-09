@@ -14,18 +14,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 336c8b3b607c9a6ba7a2fe9686ab835f015c1adf
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configureren van instellingen voor Azure multi-factor Authentication - Public preview
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
 Dit artikel helpt u bij het beheren van Azure multi-factor Authentication nu dat u actief zijn.  Deze heeft verschillende onderwerpen die u helpen bij het Maak optimaal gebruik van Azure multi-factor Authentication.  Niet al deze functies zijn beschikbaar in elke [versie van Azure multi-factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
-
->[!NOTE]
->Deze instellingen zijn in de openbare preview in de Azure portal. Zie voor documentatie over het beheren van Azure multi-factor Authentication-instellingen in de portal pfweb [Azure multi-factor Authentication configureren instellingen](multi-factor-authentication-whats-next-pfweb.md).
 
 | Functie | Beschrijving | 
 |:--- |:--- |

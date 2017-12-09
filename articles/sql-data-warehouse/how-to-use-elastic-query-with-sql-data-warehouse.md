@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Het gebruik van elastische Query met SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Zie voor meer informatie over elastische Query met SQL database, de [overzicht v
 
 ### <a name="elastic-querying"></a>Elastische opvragen
 
-- De externe tabel en interally in de cache tabel bestaan als verschillende objecten met het exemplaar van SQL-database. U kunt een weergave maakt via de bovenkant van het in de cache-gedeelte van de tabel en de externe tabel welke samenvoegingen zowel tabellen en filters worden toegepast op het punt grens van elke tabel.
+- In veel gevallen kan een wilt voor het beheren van een type van de gespreide tabel, waarbij een deel van de tabel in de SQL-Database de gegevens in de cache voor de prestaties met de rest van de gegevens die zijn opgeslagen in SQL Data Warehouse is. U moet twee objecten in SQL-Database hebt: een externe tabel in SQL-Database die verwijst naar de basistabel in SQL Data Warehouse en het gedeelte 'in de cache' van de tabel in de SQL-Database. U kunt een weergave maakt via de bovenkant van het in de cache-gedeelte van de tabel en de externe tabel welke samenvoegingen zowel tabellen en filters die scheiden van gegevens in SQL-Database en SQL Data Warehouse-gegevens toegankelijk zijn via externe tabellen gematerialiseerd toegepast.
 
   Stel, dat we willen graag het meest recente jaar van de gegevens in een SQL database-exemplaar behouden. Er zijn twee tabellen **toest. Orders**, tabellen, die verwijst naar het datawarehouse orders en **dbo. Orders** die staat voor de meest recente jaren aan gegevens in de SQL database-instantie. In plaats van gebruikers vragen om te beslissen of u één tabel of een andere query, maken we een weergave boven in beide tabellen op het punt partitie van het meest recente jaar.
 
@@ -135,13 +135,17 @@ Zie voor meer informatie over elastische Query met SQL database, de [overzicht v
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-V: kan ik databases binnen een pool voor elastische Database met elastische query gebruiken?
+V: kan ik databases in een elastische groep met elastische Query gebruiken?
 
-A: Ja. SQL-Databases in een elastische pool kunt elastische query gebruiken. 
+A: Ja. SQL-Databases in een elastische Pool kunt elastische Query gebruiken. 
 
-V: is er een limiet voor het aantal databases kan ik voor elastische query?
+V: is er een limiet voor het aantal databases kan ik voor elastische Query?
 
-A: logische servers beschikken over DTU-limieten om te voorkomen dat klanten onbedoeld overspending. Als u verschillende databases voor elastische query samen met een exemplaar van SQL Data Warehouse inschakelen wilt, kunt u het kapje onverwacht bereikt. Als dit het geval is, moet u een aanvraag om de limiet DTU op uw logische server te verhogen indienen. U kunt uw quotum door verhogen [een ondersteuningsticket maken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) en te selecteren *quotum* als het aanvraagtype
+A: Er is geen vaste limiet voor het hoeveel databases kunnen worden gebruikt voor de elastische Query. Elke elastische Query (query's die SQL Data Warehouse bereikt) wordt echter meetellen voor normale gelijktijdigheid limieten.
+
+V: zijn er DTU-limieten die zijn betrokken bij elastische Query?
+
+A: DTU-limieten zijn niet alle anders met elastische Query die zijn opgelegd. Het standaardbeleid is zodanig dat logische servers beschikken over DTU-limieten om te voorkomen dat klanten onbedoeld overspending. Als u verschillende databases voor elastische query samen met een exemplaar van SQL Data Warehouse inschakelen wilt, kunt u het kapje onverwacht bereikt. Als dit het geval is, moet u een aanvraag om de limiet DTU op uw logische server te verhogen indienen. U kunt uw quotum door verhogen [een ondersteuningsticket maken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) en te selecteren *quotum* als het aanvraagtype
 
 V: kan ik gebruiken rij niveau beveiliging/dynamische gegevens maskeren met elastische Query?
 

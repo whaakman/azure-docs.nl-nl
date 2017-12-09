@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Pen testen
 Een van de voordelen van het gebruik van Azure voor de implementatie en het testen van toepassingen is dat u snel omgevingen gemaakt kunt krijgen.  U hoeft te hoeven maken over aanschaf, ophalen, en ' bekabeld en stapelen ' uw eigen lokale hardware.
@@ -29,11 +29,12 @@ Kent u mogelijk al die Microsoft uitvoert [binnendringen testen van ons Azure-om
 
 We niet pen testen van uw toepassing, maar we begrijpen dat u wilt en moet pen testen op uw eigen toepassingen uitvoeren. Dat is goed, omdat het als u de beveiliging van uw toepassingen verbeteren, u helpen bij het beter beveiligen van de volledige Azure-ecosysteem.
 
-Wanneer u pen test uw toepassingen, kan deze een aanval eruitzien aan ons. We [continu bewaken](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) voor aanvalspatronen en initieert een respons op incidenten proces als worden moet. Dit niet helpt u en deze niet ons als we een respons op incidenten als gevolg van uw eigen vanwege toewijding inzetten pen tests activeert.
-
 Hoe pakt u dit aan?
 
-Wanneer u klaar bent om pen uw Azure gehoste toepassingen te testen, hebt u een optie voor het [laat ons weten](https://portal.msrc.microsoft.com/en-us/engage/pentest). Kennisgeving van wordt Microsoft niet per ongeluk sluit u (zoals het IP-adres dat u test worden geblokkeerd). Uw tests moeten voldoen aan de Azure pen testen voorwaarden en voorwaarden die worden beschreven [Microsoft Cloud Unified binnendringen testen regels van Engagement](https://technet.microsoft.com/en-us/mt784683).
+Op 15 juni 2017 Microsoft niet langer vooraf is goedkeuring vereist voor het uitvoeren van een binnendringen tests met Azure-resources. Klanten die willen formeel document toekomstige binnendringen testen betrokkenheid tegen Microsoft Azure, wordt aangeraden om in te vullen de [formulier Azure Service binnendringen testen aanmelding](https://portal.msrc.microsoft.com/engage/pentest). Dit proces alleen betrekking heeft op Microsoft Azure en niet van toepassing op een andere Microsoft-Cloudservice. 
+
+>[!IMPORTANT] 
+>Tijdens het verwittigen van Microsoft van pen activiteiten testen is niet langer vereist klanten nog steeds moeten voldoen aan de [Microsoft Cloud Unified binnendringen testen regels van Engagement](https://technet.microsoft.com/en-us/mt784683). 
 
 Standaard tests uit die u kunt uitvoeren, zijn onder andere:
 

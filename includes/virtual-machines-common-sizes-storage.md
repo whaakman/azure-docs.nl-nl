@@ -11,10 +11,10 @@ ACU: 180-240
 | Standard_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 10.000 / 250        | 2 / 4,000  | 
 | Standard_L8s   | 8    | 64   | 1388 | 32   | 40,000 / 400   | 20.000 / 500       | 4 / 8,000  | 
 | Standard_L16s  | 16   | 128  | 2807 | 64   | 80,000 / 800   | 40.000 / 1,000       | 8 / 6,000 - 16,000 &#8224; | 
-| Standard_L32s* | 32   | 256  | 5630 | 64   | 160,000 / 1,600   | 80.000 / 2000     | 8 / 20,000 | 
+| Standard_L32s <sup>1</sup> | 32   | 256  | 5630 | 64   | 160,000 / 1,600   | 80.000 / 2000     | 8 / 20,000 | 
  
 
 De maximale schijfdoorvoer die mogelijk is met VM's uit de Ls-serie, kan worden beperkt door het aantal, de grootte en de striping van de gekoppelde schijven. Zie [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: opslag met hoge prestaties voor Azure VM-workloads) voor meer informatie. 
 
-*Exemplaar is geïsoleerd voor hardware, speciaal voor één klant.
+<sup>1</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant.
 

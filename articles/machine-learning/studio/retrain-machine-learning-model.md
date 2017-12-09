@@ -3,7 +3,7 @@ title: Opnieuw een Machine Learning-Model te trainen | Microsoft Docs
 description: Informatie over het opnieuw een model te trainen en bijwerken van de webservice voor het gebruik van het zojuist getrainde model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 0270a43f79202d102a8cdfe9cba7011a882e8117
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54655c33336ff3fef261024984947108d6f1df9c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-machine-learning-model"></a>Opnieuw een Machine Learning-Model te trainen
 Het model is getraind en opgeslagen als onderdeel van het proces van uitoefening van machine learning-modellen in Azure Machine Learning. U vervolgens worden gebruikt voor het maken van een predicative webservice. De webservice kan vervolgens worden gebruikt in websites, dashboards en mobiele apps. 

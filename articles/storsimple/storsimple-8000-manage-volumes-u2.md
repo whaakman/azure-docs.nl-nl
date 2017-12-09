@@ -4,7 +4,7 @@ description: Legt uit hoe toevoegen, wijzigen, bewaken en StorSimple-volumes ver
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>De service Manager voor StorSimple-apparaat gebruiken voor het beheren van volumes (Update 3 of hoger)
 
@@ -119,11 +119,7 @@ U [gemaakt van een volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-c
       
        Als u een lokaal vastgemaakt volume van 8,5 TB (maximaal toegestane grootte) op uw 8100-apparaat inricht, hebt u de lokale ruimte die beschikbaar is op het apparaat volledig gebruikt. Vanaf dat moment kunt u geen gelaagd volume maken, omdat er geen lokale ruimte op het apparaat is voor het hosten van de werkset van het gelaagde volume. Bestaande gelaagde volumes zijn ook van invloed op de beschikbare ruimte. Als u bijvoorbeeld een 8100-apparaat hebt met reeds gelaagde volumes van circa 106 TB, is er nog maar 4 TB ruimte beschikbaar voor lokaal vastgemaakte volumes.
 
-    6. Klik in het veld **Verbonden hosts** op de pijl. 
-
-        ![Verbonden hosts](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. In de **verbonden hosts** blade, kiest u een bestaande ACR of Voeg een nieuwe ACR. Als u een nieuwe ACR kiest, geeft vervolgens een **naam** voor uw ACR bieden de **iSCSI Qualified Name** (IQN) van uw Windows-host. Als u het IQN niet hebt, gaat u naar [Het IQN van een Windows Server-host ophalen](#get-the-iqn-of-a-windows-server-host). Klik op **Create**. Er wordt een volume gemaakt met de opgegeven instellingen.
+    6. Klik in het veld **Verbonden hosts** op de pijl. In de **verbonden hosts** blade, kiest u een bestaande ACR of Voeg een nieuwe ACR. Als u een nieuwe ACR kiest, geeft vervolgens een **naam** voor uw ACR bieden de **iSCSI Qualified Name** (IQN) van uw Windows-host. Als u het IQN niet hebt, gaat u naar [Het IQN van een Windows Server-host ophalen](#get-the-iqn-of-a-windows-server-host). Klik op **Create**. Er wordt een volume gemaakt met de opgegeven instellingen.
 
         ![Klik op Maken](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

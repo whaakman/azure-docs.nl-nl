@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificatie van de installatiekopie met behulp van Azure Machine Learning Workbench
 
@@ -51,7 +51,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 3. Een Windows-machine. Windows-besturingssysteem is nodig omdat de Workbench alleen Windows- en Mac OS tijdens cognitieve Toolkit van Microsoft ondersteunt (die we gebruiken als grondige learning bibliotheek) biedt alleen ondersteuning voor Windows en Linux.
 4. Een speciale GPU is niet vereist voor het uitvoeren van de training SVM in deel 1, maar dit is nodig voor het verfijnen van de DNN beschreven in deel 2. Als u niet over een sterke GPU, wilt trainen op meerdere GPU's of hebben geen Windows-computer, klikt u vervolgens Overweeg het gebruik van Azure grondige Learning virtuele Machine met Windows-besturingssysteem. Zie [hier](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) voor een 1 Klik-Implementatiehandleiding. Zodra geïmplementeerd, verbinding maken met de virtuele machine via een verbinding met extern bureaublad, Workbench er installeren en de code lokaal uitvoeren van de virtuele machine.
 5. Verschillende Python-bibliotheken zoals OpenCV moeten worden geïnstalleerd. Klik op *opdrachtprompt openen* van de *bestand* menu in de Workbench en voer de volgende opdrachten voor het installeren van deze afhankelijkheden:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`na het downloaden van het muiswiel OpenCV van http://www.lfd.uci.edu/~gohlke/pythonlibs/ (de exacte bestandsnaam en de versie kunnen wijzigen)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +61,11 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 ### <a name="troubleshooting--known-bugs"></a>Voor probleemoplossing / bekende fouten
 - Een GPU die nodig is voor deel 2 en anders de fout 'Batch normalisatie training van CPU is nog niet geïmplementeerd' wordt gegenereerd wanneer u probeert om de DNN te verfijnen.
 - Fouten tijdens de training DNN-geheugen kunnen worden vermeden door minibatch verkleinen (variabele `cntk_mb_size` in `PARAMETERS.py`).
-- De code is getest met CNTK 2.0 en 2.1 en moet de wijzigingen ook uitvoeren op nieuwere versies zonder (of alleen secundaire).
+- De code is getest met CNTK 2.2 en moet ook uitvoeren op oudere (tot v2.0) en nieuwere versies zonder of alleen kleine wijzigingen.
 - Op het moment van schrijven had de Workbench van Azure Machine Learning problemen met notitieblokken groter is dan 5 MB. Notitieblokken van deze grote omvang kunnen gebeuren als de laptop is opgeslagen met alle cellen uitvoer weergegeven. Als u deze fout optreedt en vervolgens de opdrachtprompt vanuit het menu bestand in de Workbench openen, uitvoermachtigingen `jupyter notebook`, opent u de notebook Wis alle uitvoer en opslaan van de notebook. Na deze stappen uitvoert, wordt de notebook correct in de Azure Machine Learning-Workbench opnieuw openen.
+- Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving. Alle notitieblokken moeten worden uitgevoerd met kernel ingesteld op de kernel lokaal project met de naam '<projectname> lokale ' (bijvoorbeeld ' myImgClassUsingCNTK lokaal').
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>Maak een nieuw project in de workbench
 
 Een nieuw project in dit voorbeeld gebruiken als een sjabloon maken:
@@ -91,7 +92,7 @@ Deze stappen uitvoert, maakt de projectstructuur die hieronder wordt weergegeven
 
 Deze zelfstudie wordt gebruikt als voorbeeld met een hogere hoofdtekst kleding patroon gegevensset die bestaan uit maximaal 428 installatiekopieën. Elke installatiekopie is voorzien van een van drie verschillende structuren (decimale, striped, leopard). We het aantal images kleine opgeslagen zodat deze zelfstudie kan snel worden uitgevoerd. De code is echter goed geteste en werkt met tienduizenden installatiekopieën of meer. Alle installatiekopieën zijn geslijmd met zoeken naar Bing-afbeelding en hand aangetekend zoals is beschreven in [deel 3](#using-a-custom-dataset). De installatiekopie van URL's met hun respectieve kenmerken worden vermeld in de */resources/fashionTextureUrls.tsv* bestand.
 
-Het script `0_downloadData.py` downloadt alle installatiekopieën naar de *installatiekopieën-DATA_DIR/fashionTexture/* directory. Sommige van de 428 URL's zijn waarschijnlijk verbroken. Dit is geen probleem en houdt in dat we iets minder afbeeldingen hebben voor trainings- en testdoeleinden.
+Het script `0_downloadData.py` downloadt alle installatiekopieën naar de *installatiekopieën-DATA_DIR/fashionTexture/* directory. Sommige van de 428 URL's zijn waarschijnlijk verbroken. Dit is geen probleem en houdt in dat we iets minder afbeeldingen hebben voor trainings- en testdoeleinden. Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving.
 
 De volgende afbeelding ziet u voorbeelden van de kenmerken (links) scheidingspunten striped (midden) en leopard (rechts). Aantekeningen zijn uitgevoerd volgens het bovenste hoofdtekst kleding item.
 
@@ -114,7 +115,7 @@ Alle belangrijke parameters zijn opgegeven en een korte uitleg hebt opgegeven, o
 ### <a name="step-1-data-preparation"></a>Stap 1: Gegevens voorbereiden
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-De notebook `showImages.ipynb` kunnen worden gebruikt voor het visualiseren van de installatiekopieën en corrigeren van de aantekening indien nodig. Voor het uitvoeren van de notebook, opent u het in Azure Machine Learning Workbench, klik op 'Start-Notebook Server' als deze optie wordt weergegeven en vervolgens alle cellen in de notebook wordt uitgevoerd. Zie de sectie Probleemoplossing in dit document als u een fout klagen krijgt dat de laptop is te groot om te worden weergegeven.
+De notebook `showImages.ipynb` kunnen worden gebruikt voor het visualiseren van de installatiekopieën en corrigeren van de aantekening indien nodig. Voor het uitvoeren van de notebook, opent u het in Azure Machine Learning Workbench, klik op 'Start-Notebook Server' als deze optie wordt weergegeven, in de kernel lokaal project met de naam wijzigen '<projectname> lokale ' (bijvoorbeeld de ' myImgClassUsingCNTK-lokaal'), en voer vervolgens alle cellen in de laptop. Zie de sectie Probleemoplossing in dit document als u een fout klagen krijgt dat de laptop is te groot om te worden weergegeven.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +179,7 @@ Naast de nauwkeurigheid, wordt de ROC-curve getekend met respectieve gebied-onde
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën van de test schuift en hun respectieve classificatie scores visualiseren:
+Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën van de test schuift en hun respectieve classificatie scores visualiseren. Zoals wordt beschreven in stap 1, elke laptop in dit voorbeeld moet de lokale project kernel gebruiken met de naam '<projectname> lokale ':
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +191,7 @@ Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën
 ### <a name="step-6-deployment"></a>Stap 6: implementatie
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van de functionaliteit in de Azure Machine Learning-Workbench. Zie ook de Implementatiesectie uitstekende van de [IRIS zelfstudie](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van de functionaliteit in de Azure Machine Learning-Workbench (Vergeet niet in te stellen als kernel de kernel lokaal project met de naam '<projectname> lokale '). Zie ook de Implementatiesectie uitstekende van de [IRIS zelfstudie](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) voor de implementatie van meer gerelateerde informatie.
 
 Zodra geïmplementeerd, de webservice kan worden aangeroepen met het script `6_callWebservice.py`. Houd er rekening mee dat het IP-adres (lokaal of in de cloud) van de webservice moet eerst worden ingesteld in het script. De notebook `deploy.ipynb` wordt uitgelegd hoe u deze IP-adres vinden.
 

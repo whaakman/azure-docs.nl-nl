@@ -11,9 +11,9 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/08/2017
 ---
@@ -36,7 +36,7 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 * Een webtoepassing. We worden de stappen voor een ASP.NET MVC-toepassing geïmplementeerd in Azure als een Web-App weergegeven.
 
 >[!IMPORTANT]
->* Dit voorbeeld is afhankelijk van een oudere manier voor het leveren van AAD-identiteiten handmatig. Er is momenteel een nieuwe functie in preview aangeroepen [beheerde Service identiteit (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), die automatisch AAD identiteiten kunt inrichten. Raadpleeg het volgende voorbeeld over [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) voor meer informatie.
+>* Dit voorbeeld is afhankelijk van een oudere manier voor het leveren van AAD-identiteiten handmatig. Er is momenteel een nieuwe functie in preview aangeroepen [beheerde Service identiteit (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), die automatisch AAD identiteiten kunt inrichten. Raadpleeg het volgende voorbeeld over [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) voor meer informatie.
 
 > [!NOTE]
 >* Het is essentieel dat u de stappen in hebt voltooid [aan de slag met Azure Key Vault](key-vault-get-started.md) voor deze zelfstudie zodat u de URI moet een geheim en de Client-ID en Clientgeheim voor een webtoepassing hebt.
@@ -46,7 +46,7 @@ De webtoepassing die toegang krijgen de Sleutelkluis tot is het adres dat is ger
 
 Deze zelfstudie is ontworpen voor webontwikkelaars die de basisbeginselen van het maken van webtoepassingen in Azure. Zie voor meer informatie over Azure Web Apps [overzicht van Web-Apps](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Nuget-pakketten toevoegen
+## <a id="packages"></a>NuGet-pakketten toevoegen
 
 Er zijn twee pakketten die u moet uw webtoepassing hebt geïnstalleerd.
 
@@ -147,11 +147,11 @@ Er is een andere manier om te verifiëren van een Azure AD-toepassing met behulp
 Voor onze toepassing maken we een testcertificaat. Hier volgen een aantal opdrachten die u in een opdrachtprompt voor ontwikkelaars kunt gebruiken om een certificaat te maken. Wijzig de directory aan waar u het certificaat dat bestanden die zijn gemaakt.  Gebruik ook, voor het begin- en einddatum van het certificaat, de huidige datum plus 1 jaar.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Noteer de einddatum en het wachtwoord voor de .pfx (in dit voorbeeld: 31-07-2016 en test123). U moet ze hieronder.
+Noteer de einddatum en het wachtwoord voor de .pfx (in dit voorbeeld: 07/31/2017 en test123). U moet ze hieronder.
 
 Zie voor meer informatie over het maken van een testcertificaat [hoe: uw eigen testen certificaat maken](https://msdn.microsoft.com/library/ff699202.aspx)
 

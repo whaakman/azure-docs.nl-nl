@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>De Azure CLI 1.0 gebruiken met Azure Storage
 
@@ -95,7 +95,7 @@ Nadat het script wordt uitgevoerd, moet u een lokale doelmap met het gedownloade
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>Storage-accounts met de Azure CLI beheren
 ### <a name="connect-to-your-azure-subscription"></a>Verbinding maken met uw Azure-abonnement
-Hoewel de meeste van de opdrachten opslag zonder een Azure-abonnement werkt, wordt aangeraden u verbinding maken met uw abonnement met Azure CLI. Volg de stappen in de Azure CLI werkt met uw abonnement configureren [verbinding maken met een Azure-abonnement met de Azure CLI](../../xplat-cli-connect.md).
+Hoewel de meeste van de opdrachten opslag zonder een Azure-abonnement werkt, wordt aangeraden u verbinding maken met uw abonnement met Azure CLI. Volg de stappen in de Azure CLI werkt met uw abonnement configureren [verbinding maken met een Azure-abonnement met de Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ### <a name="create-a-new-storage-account"></a>Een nieuw opslagaccount maken
 Voor het gebruik van Azure-opslag, moet u een opslagaccount. Nadat u uw computer verbinding maken met uw abonnement hebt geconfigureerd, kunt u een nieuwe Azure storage-account maken.

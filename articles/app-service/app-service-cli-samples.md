@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
 
@@ -45,6 +45,10 @@ De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behul
 | [Een web-app verbinden met een opslagaccount](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Hiermee maakt u een Azure-web-app en een opslagaccount en vervolgens voegt u de verbindingsreeks voor opslag toe aan de app-instellingen. |
 | [Een WebApp verbinden met een redis-cache](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee maakt u een Azure-web-app en een redis-cache en vervolgens voegt u de details van de redis-verbinding toe aan de app-instellingen.) |
 | [Een WebApp verbinden met Cosmos-DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee maakt u een Azure-web-app en een Cosmos-database en vervolgens voegt u de details van de Cosmos-DB-verbinding toe aan de app-instellingen. |
+|**Back-up en herstellen van app**||
+| [Back-up van een web-app](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Een Azure-web-app maakt en maakt een eenmalige back-up voor. |
+| [Een geplande back-up voor een web-app maken](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Een Azure-web-app maakt en maakt een geplande back-up voor. |
+| [Een web-app herstelt vanuit een back-up](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Hiermee zet een Azure-web-app uit een back-up. |
 |**App controleren**||
 | [Een web-app bewaken met webserverlogboeken](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Een Azure-web-app maakt, schakelt logboekregistratie voor het en downloadt de logboeken naar uw lokale computer. |
 | | |

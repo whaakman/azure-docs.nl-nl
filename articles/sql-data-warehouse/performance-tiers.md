@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL Data Warehouse prestatielagen (Preview)
 SQL Data Warehouse biedt twee prestatielagen die zijn geoptimaliseerd voor analytische workloads. Dit artikel wordt uitgelegd van de concepten van prestatielagen bij het kiezen van de meest geschikte prestatielaag voor uw workload. 
 
-
 ## <a name="what-is-a-performance-tier"></a>Wat is een prestatielaag?
 Een prestatielaag is een optie die de configuratie van uw datawarehouse bepaalt. Deze optie is een van de eerste keuzes die u bij het maken van een datawarehouse.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - In de prestatielaag **Geoptimaliseerd voor elasticiteit** worden de reken- en opslaglaag in de architectuur gescheiden. Deze optie werkt uitstekend bij werkbelastingen die optimaal profiteren van de scheiding tussen berekening en opslag, door regelmatig te schalen ter ondersteuning van korte perioden van piekactiviteit. Deze rekenlaag heeft de laagste toegangspuntprijs en kan worden geschaald ter ondersteuning van het merendeel van de klantwerkbelastingen.
 
@@ -55,7 +56,7 @@ WITH
 ## <a name="memory-maximums"></a>Maximumwaarden geheugen
 De prestatielagen hebben verschillende geheugen profielen omgezet in een andere hoeveelheid geheugen per query. De optimaliseren voor de prestatielaag Compute biedt 2,5 x meer geheugen per query dan de optimaliseren voor de prestatielaag elasticiteit. Deze extra geheugen helpt de optimaliseren voor de prestatielaag Compute zijn razendsnel snelle prestaties leveren. Extra geheugen per query ook kunt u meer query's uitvoeren gelijktijdig omdat query's kunnen gebruiken lagere [resource klassen](resource-classes-for-workload-management.md). 
 
-### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor Elasticity
+### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor flexibiliteit
 
 Het niveau van de service voor het optimaliseren voor elasticiteit prestaties laag tussen DW100 en DW6000. 
 
@@ -74,7 +75,7 @@ Het niveau van de service voor het optimaliseren voor elasticiteit prestaties la
 | DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
 | DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
-### <a name="optimized-for-compute"></a>Geoptimaliseerd voor Compute
+### <a name="optimized-for-compute"></a>Geoptimaliseerd voor rekenen
 
 Het niveau van de service voor het optimaliseren voor Compute prestaties laag bereik van DW1000c tot DW30000c. 
 
@@ -112,11 +113,11 @@ Elke query verbruiken nul, een of meer gelijktijdigheid sleuven. Verbruikt sleuv
  
 Alleen resource geregeld query verbruiken gelijktijdigheid sleuven. Het exacte aantal gelijktijdigheid sleuven verbruikt wordt bepaald door de query [bronklasse](resource-classes-for-workload-management.md).
 
-### <a name="optimized-for-compute"></a>Geoptimaliseerd voor Compute
+### <a name="optimized-for-compute"></a>Geoptimaliseerd voor rekenen
 De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [dynamische bronklasse](resource-classes-for-workload-management.md).  Deze gelden voor het optimaliseren voor de prestatielaag Compute.
 
 **Dynamische Bronklassen**
-| Serviceniveau | Maximum aantal gelijktijdige query 's | Gelijktijdigheid sleuven beschikbaar | Gebruikt door smallrc sleuven | Gebruikt door mediumrc sleuven | Gebruikt door largerc sleuven | Gebruikt door xlargerc sleuven |
+| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheid sleuven beschikbaar | Gebruikt door smallrc sleuven | Gebruikt door mediumrc sleuven | Gebruikt door largerc sleuven | Gebruikt door xlargerc sleuven |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  8                     |  16                   |  32                    |
 | DW1500c       | 32                         |   60                        | 1                     |  8                     |  16                   |  32                    |
@@ -134,7 +135,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 
 De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [statische bronklasse](resource-classes-for-workload-management.md).  
 
-| Serviceniveau | Maximum aantal gelijktijdige query 's | Gelijktijdigheid sleuven beschikbaar |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Servicelaag | Maximum aantal gelijktijdige query 's | Gelijktijdigheid sleuven beschikbaar |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -148,7 +149,7 @@ De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdi
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor Elasticity
+### <a name="optimized-for-elasticity"></a>Geoptimaliseerd voor flexibiliteit
 De volgende tabel ziet u het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven voor elk [dynamische bronklasse](resource-classes-for-workload-management.md).  Deze gelden voor het optimaliseren voor de prestatielaag elasticiteit.
 
 **Dynamische Bronklassen**

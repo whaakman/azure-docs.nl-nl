@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise scaffold - prescriptieve abonnement governance
 Ondernemingen zijn steeds meer gebruik nemen van de openbare cloud voor de wendbaarheid en flexibiliteit. Ze met behulp van de sterkte van de cloud inkomsten te genereren of resources voor het bedrijf optimaliseren. Microsoft Azure biedt een groot aantal services dat ondernemingen zoals bouwstenen voor het oplossen van een breed scala aan werkbelastingen en toepassingen kunnen samenstellen. 
@@ -168,7 +168,7 @@ Zie voor meer voorbeelden van labels [aanbevolen naamgevingsregels voor Azure-re
 ## <a name="resource-group"></a>Resourcegroep
 Resource Manager kunt u resources in zinvolle groepen voor beheer, facturerings- of natuurlijke affiniteit plaatsen. Zoals eerder vermeld, wordt Azure heeft twee implementatiemodellen. In de eerdere klassieke model is de basiseenheid voor beheer van het abonnement. Was het moeilijk om op te splitsen resources binnen een abonnement, wat geleid tot het maken van een groot aantal abonnementen heeft. Met het Resource Manager-model hebt gezien de introductie van resourcegroepen. Resourcegroepen zijn containers voor resources die een gemeenschappelijk levenscyclus hebben of delen van een kenmerk zoals 'alle SQL servers' of 'Application A'.
 
-Resourcegroepen kunnen niet worden opgenomen in elkaar en resources kunnen alleen deel uitmaken van een resourcegroep. U kunt bepaalde acties toepassen op alle bronnen in een resourcegroep. Bijvoorbeeld, verwijdert een resourcegroep alle bronnen binnen de resourcegroep. Normaal gesproken schakelt u een volledige toepassings- of verwante in dezelfde resourcegroep. Een toepassing met drie lagen Contoso-webtoepassing aangeroepen zou bijvoorbeeld bevatten de webserver, de toepassingsserver en de SQL server in dezelfde resourcegroep.
+Resourcegroepen kunnen niet worden opgenomen in elkaar en resources kunnen alleen deel uitmaken van een resourcegroep. U kunt bepaalde acties toepassen op alle bronnen in een resourcegroep. Bijvoorbeeld, verwijdert een resourcegroep alle bronnen binnen de resourcegroep. Normaal gesproken schakelt u een volledige toepassings- of verwante in dezelfde resourcegroep. Een toepassing in drie lagen Contoso-webtoepassing aangeroepen zou bijvoorbeeld bevatten de webserver, de toepassingsserver en de SQL server in dezelfde resourcegroep.
 
 > [!TIP]
 > Hoe het ordenen van uw resourcegroepen kan afwijken van werkbelastingen 'Traditionele IT' aan 'Flexibele IT' werkbelastingen:

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van Azure naar Azure
 
@@ -94,7 +94,7 @@ De onderstaande ondersteuning is van toepassing op elke workload uitgevoerd op d
 
 >[!NOTE]
 >
-> Ubuntu-servers met wachtwoord gebaseerde verificatie en aanmelding en met het cloud-init-pakket voor het configureren van virtuele machines van cloud, kan hebben op basis van wachtwoorden aanmelding uitgeschakeld bij failover (afhankelijk van de configuratie cloudinit.) Wachtwoord-aanmelding opnieuw worden ingeschakeld op de virtuele machine kan worden door het wachtwoord in het menu instellingen opnieuw instellen (onder de ondersteuning en probleemoplossing punt) van de mislukte via de virtuele machine op de Azure-portal.
+> Ubuntu-servers met verificatie op basis van wachtwoorden en meld u aan, en het cloud-init-pakket voor het configureren van virtuele machines van cloud, heeft misschien op basis van wachtwoorden aanmelding uitgeschakeld bij failover (afhankelijk van de configuratie cloudinit.) Aanmelding op basis van wachtwoorden opnieuw worden ingeschakeld op de virtuele machine kan worden door het wachtwoord in het menu instellingen opnieuw instellen (onder de ondersteuning en probleemoplossing punt) van de mislukte via de virtuele machine op de Azure-portal.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ondersteunde versies van Ubuntu kernel voor Azure virtual machines
 
@@ -122,10 +122,13 @@ Amerika | Canada-Oost, Canada centraal, Zuid-centraal VS, West-Centraal VS, VS-O
 Europa | VK West, VK Zuid Noord-Europa, West-Europa
 Azië | India Zuid, India centraal, Zuidoost-Azië Oost-Azië, Japan-Oost, Japan-West, Korea-midden, Zuid-Korea
 Australië   | Australië-Oost, Australië-Zuidoost
+Azure Government    | VS GOV Virginia, VS GOV Iowa, VS GOV Arizona, VS GOV Texas, VS DOD Oost, VS DOD-centraal
+Duitsland | Duitsland centraal, Duitsland noordoosten
+China | China Oost, China Noord
 
 >[!NOTE]
 >
-> Brazilië-Zuid regio kunt u alleen repliceren en failover naar een van de Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noordelijk Centraal, VS-regio's en failback.
+> Voor de regio Brazilië-Zuid, kunt u alleen repliceren en failover naar een van de Zuid-centraal VS, West-Centraal VS, VS-Oost, VS-Oost 2, VS-West, VS-West 2 en Noordelijk Centraal, VS-regio's en failback.
 
 
 ## <a name="support-for-compute-configuration"></a>Ondersteuning voor Compute-configuratie

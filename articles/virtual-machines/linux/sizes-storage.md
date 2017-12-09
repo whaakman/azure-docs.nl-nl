@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: 0d972e8b9ffb8bfe158ec394baf237ef65333026
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 1a2107f0f813c39ec3e9676ec952803f6be2ebf9
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Opslag geoptimaliseerd grootten van virtuele machines
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 12/01/2017
 
 
 ## <a name="other-sizes"></a>Andere grootten
-- [Algemeen doel](../windows/sizes-general.md)
-- [Geoptimaliseerde rekenkracht](../windows/sizes-compute.md)
-- [Geoptimaliseerd geheugen](../windows/sizes-memory.md)
-- [GPU](../windows/sizes-gpu.md)
-- [Krachtig rekenvermogen](../windows/sizes-hpc.md)
+- [Algemeen doel](sizes-general.md)
+- [Geoptimaliseerde rekenkracht](sizes-compute.md)
+- [Geoptimaliseerd geheugen](sizes-memory.md)
+- [GPU](sizes-gpu.md)
+- [Krachtig rekenvermogen](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [Azure compute-eenheden (ACU)](../windows/acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.
+Meer informatie over het [Azure compute-eenheden (ACU)](acu.md) kunt u de prestaties van Azure-SKU's met elkaar vergelijken.

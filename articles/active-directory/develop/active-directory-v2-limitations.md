@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
+ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 Wanneer u toepassingen die zijn geïntegreerd met Azure Active Directory maakt, moet u bepalen of het v2.0-eindpunt en verificatieprotocollen aan uw behoeften voldoet. Oorspronkelijke Azure Active Directory-eindpunt wordt nog steeds volledig ondersteund en is in sommige opzichten meer uitgebreide functionaliteit dan versie 2.0. Echter, het v2.0-eindpunt [introduceert aanzienlijke voordelen](active-directory-v2-compare.md) voor ontwikkelaars.
@@ -110,7 +110,7 @@ Het v2.0-eindpunt biedt geen ondersteuning voor SAML- of WS-Federation; onderste
 * Het v2.0-eindpunt biedt geen ondersteuning voor claims van verlenende functie of groep in de ID-tokens.
 * De [OAuth 2.0 Resource eigenaar wachtwoord referenties Grant](https://tools.ietf.org/html/rfc6749#section-4.3) wordt niet ondersteund door het v2.0-eindpunt.
 
-Daarnaast ondersteuning het v2.0-eindpunt geen voor elke vorm van het SAML of WS-Federation-protocol.
+Het v2.0-eindpunt biedt bovendien geen ondersteuning voor elke vorm van het SAML of WS-Federation-protocol.
 
 Lees voor meer informatie over het bereik van het protocol functionaliteit ondersteund in het v2.0-eindpunt, onze [OpenID Connect en OAuth 2.0-protocol verwijzing](active-directory-v2-protocols.md).
 

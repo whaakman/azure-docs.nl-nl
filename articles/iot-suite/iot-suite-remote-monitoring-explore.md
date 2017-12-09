@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle
 
@@ -43,7 +43,7 @@ Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u 
 U kunt de implementatie van Contoso voorbeeld IoT basisscenario's begrijpen de externe bewakingsoplossing biedt out-of-the-box. Deze scenario's zijn gebaseerd op de praktijk IoT-implementaties. Waarschijnlijk, kiest u voor het aanpassen van de oplossing voor externe controle om te voldoen aan uw specifieke vereisten, maar de Contoso-voorbeeld kunt u de basisprincipes uitgelegd.
 
 > [!NOTE]
-> Als u de CLI gebruikt voor het implementeren van de vooraf geconfigureerde oplossing voor het bestand `deployment-{your deployment name}-output.json` bevat informatie over de implementatie, zoals de URL van het geïmplementeerde voorbeeld accss.
+> Als u de CLI gebruikt voor het implementeren van de vooraf geconfigureerde oplossing voor het bestand `deployment-{your deployment name}-output.json` bevat informatie over de implementatie, zoals de URL om de geïmplementeerde voorbeeld te openen.
 
 Het Contoso-voorbeeld levert een set regels om te reageren op deze en gesimuleerde apparaten. Zodra u de standaardscenario begrijpt, kunt u blijven verkennen meer van de functies van de oplossing in [geavanceerde bewaking met behulp van de oplossing voor externe controle uitvoeren](iot-suite-remote-monitoring-monitor.md).
 
@@ -75,8 +75,8 @@ Operators bij Contoso weten de drempelwaarden die bepalen of een apparaat goed w
 
 | Regelnaam | Beschrijving | Drempelwaarde | Ernst | Beïnvloede apparaten |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Koelunit druk te hoog | Waarschuwingen als chillers hoger dan de normale druk niveaus bereiken   |P > 250 psi       | Kritieke | Chillers            |
-| Maken van een prototype apparaat temp te hoog  | Als het maken van een prototype-apparaten naar hoger dan de normale temperatuurniveaus van waarschuwingen  |T > 80&deg; F |Kritieke | Maken van een prototype-apparaten |
+| Koelunit druk te hoog | Waarschuwingen als chillers hoger dan de normale druk niveaus bereiken   |P > 250 psi       | Kritiek | Chillers            |
+| Maken van een prototype apparaat temp te hoog  | Als het maken van een prototype-apparaten naar hoger dan de normale temperatuurniveaus van waarschuwingen  |T > 80&deg; F |Kritiek | Maken van een prototype-apparaten |
 | Engine vervangen leeg  | Waarschuwingen als brandstoftank engine leeg gaat                     | F < 5 gallon | Info     | Engines             |
 | Hoger is dan de normale lading temperatuur | Als de vrachtwagen lading temperatuur hoger dan normaal is waarschuwingen                 | T < 45&deg; F |Waarschuwing  | Vrachtwagens              |
 | Lift-trillingen gestopt      | Waarschuwingen als lift volledig stopt (op basis van trillingen niveau)                     | V < 0,1 mm |Waarschuwing  | Liften           |

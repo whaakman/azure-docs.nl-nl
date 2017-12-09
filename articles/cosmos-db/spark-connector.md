@@ -13,17 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: denlee
-ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 1a551615d0ffbbc036d3052cc552fbf4c1098ff7
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Versnellen realtime big data-analyses met de Spark op Azure DB die Cosmos-connector
 
 De Spark op Azure DB die Cosmos-connector kunt Azure Cosmos DB om te fungeren als een invoerbron of uitvoerlocatie voor Apache Spark-taken. Verbinding maken met [Spark](http://spark.apache.org/) naar [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) versnelt de mogelijkheid voor het oplossen van problemen snel bewegende wetenschappelijke waarin u Azure Cosmos DB kunt gebruiken om snel te behouden en gegevens opvragen. De Spark op Azure DB die Cosmos-connector maakt efficiënt gebruik van de systeemeigen Azure Cosmos DB beheerd-indexen. De indexen in te schakelen bij te werken kolommen wanneer u analyses uitvoeren en gegevens die van het Internet der dingen (IoT variëren) push-down-predicaat is voor het filteren op basis van snel veranderende globaal gedistribueerd naar gegevensscenario wetenschappelijke en analyses.
+
+Meer informatie in deze video met Azure Cosmos DB Principal Program Manager Denny Lee. 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 Zie voor het werken met Spark GraphX en de Gremlin graph API's van Azure Cosmos DB, [grafiek analyses met behulp van Spark en Apache TinkerPop Gremlin uitvoeren](spark-connector-graph.md).
 

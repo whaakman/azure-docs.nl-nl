@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Azure virtuele machines repliceren naar een andere Azure-regio
 
@@ -76,19 +76,19 @@ Onder de sectie instellingen kunt u doel voor site-eigenschappen configureren
     > [!TIP]
     > Het verdient aanbeveling dat doellocatie dezelfde vanaf uw recovery services-kluis.
 
-2. **Doelresourcegroep:** is de resourcegroep waarin alle uw gerepliceerde virtuele machines behoort. Standaard maakt Azure Site Recovery een nieuwe resourcegroep in de doelregio met naam 'asr' achtervoegsel heeft. Als resourcegroep gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt. U kunt ook aanpassen zoals weergegeven in de onderstaande sectie.    
-3. **Virtuele doelnetwerk:** standaard Azure Site Recovery maakt een nieuw virtueel netwerk in de doelregio met naam 'asr' achtervoegsel heeft. Dit worden toegewezen aan de bron-netwerk en wordt gebruikt voor alle toekomstige beveiliging.
+2. **Doelresourcegroep:** is de resourcegroep waarin alle uw gerepliceerde virtuele machines behoren. Azure Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio met naam 'asr' achtervoegsel heeft. Als resourcegroep gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt. U kunt ook aanpassen zoals weergegeven in de onderstaande sectie.    
+3. **Virtuele doelnetwerk:** Azure Site Recovery maakt standaard een nieuw virtueel netwerk in de doelregio met naam 'asr' achtervoegsel heeft. Dit worden toegewezen aan de bron-netwerk en wordt gebruikt voor alle toekomstige beveiliging.
 
     > [!NOTE]
     > [Controleer de gegevens van de netwerken](site-recovery-network-mapping-azure-to-azure.md) voor meer informatie over de netwerktoewijzing.
 
-4. **Storage-accounts als doel:** standaard Azure Site Recovery de nieuwe doelaccount opslag mimicking de opslagconfiguratie van de bron-VM wordt gemaakt. Als storage-account gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt.
+4. **Storage-accounts als doel:** Azure Site Recovery maakt standaard een nieuw doelopslagaccount mimicking de opslagconfiguratie van de bron-VM. Als storage-account gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt.
 
 5. **Storage-accounts in de cache:** Azure Site Recovery moet extra opslagruimte account met de naam van cache-opslag in de regio van de bron. Alle wijzigingen die plaatsvinden op de bron-VM's worden bijgehouden en verzonden naar de cache storage-account voordat deze naar de doellocatie te repliceren.
 
-6. **Beschikbaarheidsset:** Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset voor de doelregio met naam 'asr' achtervoegsel heeft. Als beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt opnieuw gebruikt.
+6. **Beschikbaarheidsset:** Azure Site Recovery maakt standaard een nieuwe beschikbaarheidsset voor de doelregio met naam 'asr' achtervoegsel heeft. Als beschikbaarheidsset gemaakt door Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt.
 
-7.  **Beleid voor wachtwoordreplicatie:** definieert de instellingen voor herstelpunt bewaren geschiedenis en app consistent de frequentie van momentopnamen. Standaard maakt Azure Site Recovery een nieuw replicatiebeleid voor met de standaardinstellingen van 24 uur voor herstel bewaarperiode en "60 minuten voor de frequentie van app-consistente momentopname te maken.
+7.  **Beleid voor wachtwoordreplicatie:** definieert de instellingen voor herstelpunt bewaren geschiedenis en app consistent de frequentie van momentopnamen. Azure Site Recovery maakt standaard een nieuw replicatiebeleid voor met de standaardinstellingen van 24 uur voor herstel bewaarperiode en "60 minuten voor de frequentie van app-consistente momentopname te maken.
 
     ![Replicatie inschakelen](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -109,7 +109,7 @@ Als u wijzigen van de standaardwaarden worden gebruikt door Azure Site Recovery 
 ![Replicatie inschakelen](./media/site-recovery-replicate-azure-to-azure/customize.PNG) klikt u op **doelbron maken** en replicatie inschakelen
 
 
-Wanneer virtuele machines zijn beveiligd kunt u de status van de status van de virtuele machines onder controleren **gerepliceerde items**
+Wanneer virtuele machines worden beschermd, kunt u de status van de status van de virtuele machines onder controleren **gerepliceerde items**
 
 >[!NOTE]
 >Tijdens de periode van de initiële replicatie kan er een kans dat status kost tijd om te vernieuwen en er geen uitgevoerd gedurende een bepaalde periode. U kunt klikken op de knop Vernieuwen boven aan de blade om op te halen van de meest recente status.

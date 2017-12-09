@@ -15,15 +15,15 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: cca2434a7af381eaa8ee7bc803a102a7781c7639
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>Een geplande back-up voor een web-app maken
 
-Dit voorbeeldscript wordt een web-app in App Service gemaakt met de bijbehorende resources en vervolgens maakt een eenmalige back-up voor. 
+Dit voorbeeldscript wordt een web-app in App Service gemaakt met de bijbehorende resources en maakt vervolgens een geplande back-up voor. 
 
 Installeer zo nodig de Azure PowerShell met de instructie gevonden in de [Azure PowerShell handleiding](/powershell/azure/overview), en voer vervolgens `Login-AzureRmAccount` geen verbinding maken met Azure. 
 
@@ -48,7 +48,7 @@ Dit script maakt gebruik van de volgende opdrachten. Elke opdracht in de tabel i
 | [Nieuwe AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
 | [Nieuwe AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Maakt een opslagaccount. |
 | [Nieuwe AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) | Hiermee maakt u een Azure storage-container. |
-| [Nieuwe AzureStorageContainerSASToken](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Maakt een resourcegroep waarin alle resources worden opgeslagen. |
+| [Nieuwe AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Genereert een SAS-token voor een Azure storage-container. |
 | [Nieuwe AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Hiermee maakt u een App Service-abonnement. |
 | [Nieuwe AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Hiermee maakt u een web-app. |
 | [Bewerken AzureRmWebAppBackupConfiguration](/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | Hiermee bewerkt de back-upconfiguratie voor web-app. |

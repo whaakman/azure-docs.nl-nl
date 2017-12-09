@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -46,9 +46,11 @@ In dit scenario u zich richten op werkbelasting voorspelling voor elke computer 
 De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 
 * Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies beschikbaar zijn).
-* Een geïnstalleerde kopie van [Machine Learning Workbench](./overview-what-is-azure-ml.md). Om het programma te installeren en een werkruimte maken, Zie de [Quick Start-installatiehandleiding](./quickstart-installation.md).
+* Een geïnstalleerde kopie van [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Om het programma te installeren en een werkruimte maken, Zie de [Quick Start-installatiehandleiding](./quickstart-installation.md). Als u meerdere abonnementen hebt, kunt u [ingesteld van het gewenste abonnement op het huidige actieve abonnement worden](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (de instructies in dit voorbeeld zijn in het algemeen hetzelfde voor Mac OS-systemen).
-* Een Data wetenschappelijke virtuele Machine (DSVM) voor Linux (Ubuntu). U kunt een Ubuntu DSVM inrichten door [deze instructies](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). U ziet ook [deze snelstartgids](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). U wordt aangeraden een virtuele machine gebruiken met ten minste 8 kernen en 32 GB geheugen. U moet de DSVM IP-adres, de gebruikersnaam en het wachtwoord voor het uitproberen van dit voorbeeld. Opslaan in de volgende tabel met de DSVM-gegevens voor de volgende stappen:
+* Een Data wetenschappelijke virtuele Machine (DSVM) voor Linux (Ubuntu), bij voorkeur in VS-Oost-regio waar de gegevens zoekt. U kunt een Ubuntu DSVM inrichten door [deze instructies](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). U ziet ook [deze snelstartgids](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). U wordt aangeraden een virtuele machine gebruiken met ten minste 8 kernen en 32 GB geheugen. 
+
+Ga als volgt de [instructie](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) wachtwoordloze sudoer toegang op de virtuele machine inschakelen voor AML Workbench.  U kunt gebruiken [SSH verificatie op basis van een sleutel voor het maken en het gebruik van de virtuele machine in de Workbench AML](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In dit voorbeeld gebruiken we wachtwoord voor toegang tot de virtuele machine.  Opslaan in de volgende tabel met de DSVM-gegevens voor de volgende stappen:
 
  Veldnaam| Waarde |  
  |------------|------|
@@ -56,9 +58,10 @@ DSVM IP-adres | xxx|
  Gebruikersnaam  | xxx|
  Wachtwoord   | xxx|
 
+
  U kunt gebruiken met een virtuele machine [Docker-Engine](https://docs.docker.com/engine/) geïnstalleerd.
 
-* Een HDInsight Spark-Cluster met Hortonworks Data Platform 3.6 en Spark versie 2.1.x. Ga naar [een Apache Spark-cluster maken in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) voor meer informatie over het maken van HDInsight-clusters. Het is raadzaam om gebruik van een cluster drie worker met elke werknemer 16 kernen en 112 GB aan geheugen hebben. Of u kunt alleen VM type `D12 V2` voor hoofdknooppunt, en `D14 V2` voor het werkrolknooppunt. De implementatie van het cluster duurt ongeveer 20 minuten. U moet de clusternaam, het SSH-gebruikersnaam en het wachtwoord voor het uitproberen van dit voorbeeld. Opslaan in de volgende tabel met de gegevens van de Azure HDInsight-cluster voor de volgende stappen:
+* Een HDInsight Spark-Cluster met Hortonworks Data Platform 3.6 en Spark versie 2.1.x, bij voorkeur in VS-Oost-regio waar de gegevens zoekt. Ga naar [een Apache Spark-cluster maken in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) voor meer informatie over het maken van HDInsight-clusters. Het is raadzaam om gebruik van een cluster drie worker met elke werknemer 16 kernen en 112 GB aan geheugen hebben. Of u kunt alleen VM type `D12 V2` voor hoofdknooppunt, en `D14 V2` voor het werkrolknooppunt. De implementatie van het cluster duurt ongeveer 20 minuten. U moet de clusternaam, het SSH-gebruikersnaam en het wachtwoord voor het uitproberen van dit voorbeeld. Opslaan in de volgende tabel met de gegevens van de Azure HDInsight-cluster voor de volgende stappen:
 
  Veldnaam| Waarde |  
  |------------|------|
@@ -91,14 +94,14 @@ Voer `git status` om te controleren van de status van de bestanden voor versie b
 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
-De gegevens die worden gebruikt in dit voorbeeld is server gesyntheseerde Werkbelastinggegevens. Deze wordt gehost in een Azure Blob storage-account dat openbaar toegankelijk is. De accountgegevens voor specifieke opslag kunt u vinden in de `dataFile` veld [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). U kunt de gegevens rechtstreeks vanuit de Blob-opslag gebruiken. Als de opslag wordt gebruikt door veel gebruikers tegelijk, kunt u [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) voor het downloaden van de gegevens in de eigen opslag. 
+De gegevens die worden gebruikt in dit voorbeeld is server gesyntheseerde Werkbelastinggegevens. Deze wordt gehost in een Azure Blob storage-account die openbaar toegankelijk is in de regio VS-Oost. De accountgegevens voor specifieke opslag kunt u vinden in de `dataFile` veld [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) in de notatie ' wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>'. U kunt de gegevens rechtstreeks vanuit de Blob-opslag gebruiken. Als de opslag wordt gebruikt door veel gebruikers tegelijk, kunt u [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) voor het downloaden van de gegevens in uw eigen opslag voor een betere ervaring met experimenteren. 
 
 De totale gegevensgrootte is ongeveer 1 TB. Elk bestand is ongeveer 1-3 GB en CSV-bestandsindeling, zonder koptekst. Elke rij gegevens vertegenwoordigt de belasting van een transactie op een bepaalde server. De gedetailleerde informatie van het schema van de is als volgt:
 
 Kolomnummer | Veldnaam| Type | Beschrijving |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datum en tijd |    Begintijd sessie
-2  |`SessionEnd`    | Datum en tijd | Eindtijd van sessie
+1  | `SessionStart` | Datum/tijd |    Begintijd sessie
+2  |`SessionEnd`    | Datum/tijd | Eindtijd van sessie
 3 |`ConcurrentConnectionCounts` | Geheel getal | Aantal gelijktijdige verbindingen
 4 | `MbytesTransferred` | dubbele | Genormaliseerde gegevens overgebracht in MB
 5 | `ServiceGrade` | Geheel getal |  Klasse van de service voor de sessie
@@ -111,8 +114,8 @@ Kolomnummer | Veldnaam| Type | Beschrijving |
 12 | `SubService_1_Load`| dubbele |      Subservice 5 laden
 13 |`SecureBytes_Load`  | dubbele | Beveiligde bytes laden
 14 |`TotalLoad` | dubbele | Totale belasting van server
-15 |`ClientIP` | Reeks|    IP-clientadres
-16 |`ServerIP` | Reeks|    Het IP-adres
+15 |`ClientIP` | Tekenreeks|    IP-clientadres
+16 |`ServerIP` | Tekenreeks|    Het IP-adres
 
 
 
@@ -182,11 +185,11 @@ Het eerste argument `configFilename`, is een lokale configuratiebestand waar u d
 
 | Veld | Type | Beschrijving |
 |-----------|------|-------------|
-| StorageAccount | Reeks | Naam van een Azure Storage-account |
-| storageContainer | Reeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
-| storageKey | Reeks |Azure toegangssleutel voor Opslagaccount |
-| DataFile|Reeks | Gegevensbronbestanden  |
-| Duur| Reeks | duur van de gegevens in de bronbestanden van de gegevens|
+| StorageAccount | Tekenreeks | Naam van een Azure Storage-account |
+| storageContainer | Tekenreeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
+| storageKey | Tekenreeks |Azure toegangssleutel voor Opslagaccount |
+| DataFile|Tekenreeks | Gegevensbronbestanden  |
+| Duur| Tekenreeks | duur van de gegevens in de bronbestanden van de gegevens|
 
 Wijzigen van beide `Config/storageconfig.json` en `Config/fulldata_storageconfig.json` voor het configureren van het opslagaccount, opslagsleutel en de blob-container voor het opslaan van de tussenliggende resultaten. De blob-container voor de één maand gegevens uitvoert is standaard `onemonthmodel`, en de blob-container voor een volledige gegevensset uitgevoerd is `fullmodel`. Zorg ervoor dat u deze twee containers maken in uw opslagaccount. De `dataFile` veld [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configureert welke gegevens worden geladen [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). De `duration` veld configureert u het bereik dat de gegevens bevatten. Als de duur is ingesteld op ONE_MONTH, moet de geladen gegevens slechts één CSV-bestand tussen de zeven bestanden van de gegevens voor juni 2016. Als de duur van de volledige is, wordt de volledige gegevensset (1 TB) is geladen. U hoeft niet te wijzigen `dataFile` en `duration` in deze configuratie met twee bestanden.
 
@@ -270,7 +273,7 @@ Wanneer u klaar bent met succes de experimenteren op de kleine hoeveelheden gege
 
 De volgende twee bestanden worden gemaakt in de map aml_config:
     
--  myhdo.COMPUTE: dit bestand bevat informatie over verbinding en configuratie voor een doel voor uitvoering op afstand.
+-  myhdi.COMPUTE: dit bestand bevat informatie over verbinding en configuratie voor een doel voor uitvoering op afstand.
 -  myhdi.runconfig: dit bestand is een set uitvoeren opties die worden gebruikt in de Workbench-toepassing.
 
 
