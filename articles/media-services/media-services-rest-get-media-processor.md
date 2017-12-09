@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Het ophalen van een exemplaar van de Media-Processor
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Overzicht
-In Media Services die een Mediaprocessor een component die verantwoordelijk is voor een specifieke verwerkingstaak is, zoals de codering, versleutelen of ontsleutelen van media-inhoud-conversie-indeling. U doorgaans maken een Mediaprocessor tijdens het maken van een taak voor het coderen, versleutelen of de indeling van media-inhoud te converteren.
+Media-Processors zijn een component die verantwoordelijk is voor een specifieke video of audio verwerkingstaak, zoals de codering, versleutelen of ontsleutelen media-inhoud Indelingsconversie. Alle taken die worden verzonden naar de Media Services moet een Mediaprocessor coderen, versleutelen of de video of audio-inhoud te converteren. 
 
 ## <a name="azure-media-processors"></a>Azure media-processors 
 
@@ -44,8 +44,6 @@ Het volgende onderwerp bevat een lijst met media processors:
 
 Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI.
 
 ## <a name="get-a-media-processor"></a>Ophalen van een Mediaprocessor
 
@@ -60,7 +58,7 @@ Aanvraag:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Antwoord:
@@ -89,5 +87,5 @@ Antwoord:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hoe een exemplaar van de processor media ophalen weet, gaat u naar de [hoe een Asset coderen](media-services-rest-get-started.md) onderwerp dat wordt beschreven hoe u met Media Encoder Standard een asset coderen.
+Nu dat u hoe een exemplaar van de processor media ophalen weet, gaat u naar de [hoe een Asset coderen](media-services-rest-get-started.md) artikel die laat zien hoe u de Media Encoder Standard een asset coderen.
 

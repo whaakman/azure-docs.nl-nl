@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6ebf9f70abc6fbf880d7183ca0f5533a24d59451
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Azure CDN POP-locaties
 In dit onderwerp worden de huidige POP-locaties voor **Azure CDN van Verizon** en **Azure CDN van Akamai**.
@@ -44,5 +44,5 @@ In dit onderwerp worden de huidige POP-locaties voor **Azure CDN van Verizon** e
 | Australië en Nieuw-Zeeland | Melbourne, Australië<br />Sydney, Australië<br />Auckland, Nieuw-Zeeland | Australië<br />Nieuw-Zeeland |
 
 ## <a name="see-also"></a>Zie ook
-* [Azure CDN rand knooppunten API laatste IP-adressen voor whitelisting ophalen](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
+* [Azure CDN rand knooppunten API laatste IP-adressen voor whitelisting ophalen](https://docs.microsoft.com/rest/api/cdn/edgenodes)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 43c930c18c284a8e6c71174bcf905904001dcde2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -37,7 +37,7 @@ In een Azure AD B2C-tenant wilt dat de meeste apps door de gebruiker zich aanmel
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Welke sociale identiteitsproviders ondersteund nu? Welke u wilt u in de toekomst ondersteunen?
 Wordt ondersteund Facebook, Google + LinkedIn, Amazon, Twitter (preview), WeChat (preview), Weibo (preview) en q (Preview). Er wordt ondersteuning toevoegen voor andere populaire social identiteitsproviders op basis van vraag van klanten.
 
-Azure AD B2C is ook ondersteuning toegevoegd voor [aangepast beleid](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Deze [aangepast beleid](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) toestaan dat een ontwikkelaar hun eigen om beleid te maken die met een id-provider die ondersteuning biedt voor [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) of SAML. 
+Azure AD B2C is ook ondersteuning toegevoegd voor [aangepast beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Deze [aangepast beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) toestaan dat een ontwikkelaar hun eigen om beleid te maken die met een id-provider die ondersteuning biedt voor [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) of SAML. 
 
 Aan de slag met aangepast beleid door het uitchecken van onze [aangepast beleid starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -87,7 +87,7 @@ Nee, Azure AD Connect is niet ontworpen voor gebruik met Azure AD B2C. Overweeg 
 Nee, uit veiligheidsoverwegingen Azure AD B2C-pagina's niet openen binnen een iFrame.  Onze service communiceert met de browser om te voorkomen dat iFrames.  De beveiligingscommunity in het algemeen en de specificatie OAUTH2 u wordt aangeraden met iFrames voor identiteitservaringen vanwege het risico van steunpunten voor van klikken.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Werkt Azure AD B2C met zoals Microsoft Dynamics CRM-systemen?
-Integratie met Microsoft Dynamics 365 Portal is beschikbaar.  Zie [Dynamics 365-Portal configureren voor Azure AD B2C verificatie](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integratie met Microsoft Dynamics 365 Portal is beschikbaar.  Zie [Dynamics 365-Portal configureren voor Azure AD B2C verificatie](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C komt met SharePoint on-premises 2016 werk- of eerdere?
 Azure AD B2C is niet bedoeld voor het SharePoint externe partner delen scenario; Zie [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) in plaats daarvan.

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Enterprise kosten weergaven oplossen 
 
-Er zijn meerdere instellingen waardoor gebruikers binnen de inschrijving niet om te kunnen kosten weergeven in de enterprise-inschrijvingen.  Deze instellingen worden beheerd door de beheerder van de inschrijving of door de partner als de registratie is niet rechtstreeks met Microsoft hebt aangeschaft.  In dit artikel helpt u begrijpen wat de instellingen zijn en hoe ze invloed hebben op de inschrijving. Deze instellingen zijn onafhankelijk van de [Azure RBAC-rollen](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+Er zijn meerdere instellingen waardoor gebruikers binnen de inschrijving niet om te kunnen kosten weergeven in de enterprise-inschrijvingen.  Deze instellingen worden beheerd door de beheerder van de inschrijving of door de partner als de registratie is niet rechtstreeks met Microsoft hebt aangeschaft.  In dit artikel helpt u begrijpen wat de instellingen zijn en hoe ze invloed hebben op de inschrijving. Deze instellingen zijn onafhankelijk van de [Azure RBAC-rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 > [!Note]
 > Deze functie is momenteel in een private preview. [Hier aanmelden](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) uw inschrijving voor het koppelen van de Preview-versie hebben.     
@@ -46,5 +46,5 @@ Als u een foutbericht ontvangt 'dit activum is niet beschikbaar' wanneer een abo
 ![Asset niet is gevonden](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Neem contact op met het beheren van het abonnement of management groepen om toegang te krijgen.  
-* Voor abonnementen, verwijzen naar [gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) document voor help waarop de rol is vereist.
+* Voor abonnementen, verwijzen naar [gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) document voor help waarop de rol is vereist.
 * Voor-beheergroepen RBAC toegang is niet beschikbaar en is binnenkort beschikbaar. Neem contact op met uw enterprise portal beheren voor toegang is toegewezen.   

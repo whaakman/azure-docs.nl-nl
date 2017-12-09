@@ -4,7 +4,7 @@ description: Kerberos-beperkte overdracht op beheerde domeinen voor Azure Active
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory-ds
@@ -12,35 +12,35 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 0235944ef89cab7af152664651711edd5e80e632
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
-ms.translationtype: HT
+ms.openlocfilehash: f5ecb8b2afc0c05fb8b2cb3850adcd2510ca29d2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Kerberos-beperkte delegatie (KCD) configureren op een beheerd domein
 Veel toepassingen moeten toegang tot bronnen in de context van de gebruiker. Active Directory ondersteunt een mechanisme voor Kerberos-overdracht, waardoor deze gebruiksvoorbeeld. U kunt bovendien delegering beperken zodat alleen bepaalde resources kunnen worden geopend in de context van de gebruiker. Azure AD Domain Services beheerde domeinen zijn anders dan traditionele Active Directory-domeinen, omdat ze veiliger zijn vergrendeld.
 
-In dit artikel leest u hoe kerberos-beperkte overdracht configureren op een beheerd domein van Azure AD Domain Services.
+In dit artikel leest u hoe Kerberos-beperkte overdracht configureren op een beheerd domein van Azure AD Domain Services.
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos-beperkte delegatie (KCD)
 Kerberos-overdracht kunt een account aan een andere beveiligings-principal (zoals een gebruiker) toegang tot bronnen te imiteren. U kunt een webtoepassing die toegang heeft tot een back-end-web-API in de context van een gebruiker. In dit voorbeeld wordt in de webtoepassing (uitgevoerd in de context van een serviceaccount of een computer/computeraccount) de gebruiker imiteert bij toegang tot de bron (back-end web-API). Kerberos-overdracht is niet veilig omdat deze wordt niet beperkt de imitatie account in de context van de gebruiker toegang heeft tot resources.
 
 Kerberos-beperkte delegatie (KCD) Hiermee beperkt u de services/resources waartoe de opgegeven server namens een gebruiker kan fungeren. Traditionele KCD vereist bevoegdheden voor het configureren van een domeinaccount voor een service van een domeinadministrator en het het account op één domein beperkt.
 
-Traditionele KCD heeft ook een aantal aspecten die zijn gekoppeld. In eerdere besturingssystemen, als beheerder van het domein geconfigureerd account gebaseerd KCD voor de service, de servicebeheerder had geen handige manier achterhalen welke front-end-services overgedragen aan de bronservices die of zij eigenaar was. En elke front-endservice die kon worden overgedragen naar een bronservice vertegenwoordigd een potentiële aanvallen met zich mee. Als een server die als host van een front-end-service is geknoeid en deze is geconfigureerd voor het overgedragen aan bronservices, kunnen ook de bronservices gevaar.
+Traditionele KCD heeft ook een aantal aspecten die zijn gekoppeld. Als de domeinbeheerder geconfigureerd KCD op basis van een account voor de service, had de servicebeheerder in eerdere besturingssystemen, geen handige manier achterhalen welke front-end-services overgedragen aan de bronservices die of zij eigenaar was. En elke front-endservice die kon worden overgedragen naar een bronservice vertegenwoordigd een potentiële aanvallen met zich mee. Als een server die als host van een front-end-service is geknoeid en deze is geconfigureerd voor het overgedragen aan bronservices, kunnen ook de bronservices gevaar.
 
 > [!NOTE]
 > Op een beheerd domein van Azure AD Domain Services er geen domeinadministratorrechten. Daarom **traditionele KCD kan niet worden geconfigureerd op een beheerd domein**. Gebruik KCD op basis van bronnen zoals beschreven in dit artikel. Dit mechanisme is ook veiliger.
 >
 >
 
-## <a name="resource-based-kerberos-constrained-delegation"></a>Op basis van bronnen kerberos-beperkte overdracht
-Windows Server 2012 en hoger krijgen servicebeheerders de mogelijkheid voor het configureren van beperkte delegering voor de service. In dit model kan de back-end-servicebeheerder toestaan of weigeren van specifieke front-end-services KCD te gebruiken. Dit model wordt ook wel **resources gebaseerde kerberos-beperkte overdracht**.
+## <a name="resource-based-kcd"></a>KCD op basis van bronnen
+Windows Server 2012 en hoger krijgen servicebeheerders de mogelijkheid voor het configureren van beperkte delegering voor de service. In dit model kan de back-end-servicebeheerder toestaan of weigeren van specifieke front-end-services KCD te gebruiken. Dit model wordt ook wel **KCD resources gebaseerde**.
 
-KCD op basis van een bron is geconfigureerd met behulp van PowerShell. U de Set-ADComputer of Set-ADUser-cmdlets, afhankelijk van de imitatie account een computeraccount of de account-/ serviceaccount voor een gebruiker.
+KCD op basis van een bron is geconfigureerd met behulp van PowerShell. U gebruikt de `Set-ADComputer` of `Set-ADUser` cmdlets, afhankelijk van of het account voor imitatie een computeraccount of de account-/ serviceaccount voor een gebruiker is.
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>KCD op basis van bronnen voor een computeraccount configureren op een beheerd domein
 Wordt ervan uitgegaan dat u hebt een web-app uitgevoerd op de computer ' contoso100-webapp.contoso100.com'. Deze toegang nodig heeft tot de resource (een web-API uit te voeren op ' contoso100-api.contoso100.com') in de context van Domeingebruikers. Dit is hoe u resources gebaseerde KCD voor dit scenario zou ingesteld.

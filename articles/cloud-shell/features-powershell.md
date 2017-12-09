@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Functies en hulpprogramma's voor PowerShell in Azure Cloud-Shell (Preview)
 
@@ -47,7 +47,7 @@ Omdat elke aanvraag voor Cloud-Shell is een tijdelijke machine toewijzen buiten 
 
 PowerShell in de Cloud-Shell (Preview) begint u in Azure station (`Azure:`).
 Azure-station kunt u eenvoudig detectie en navigatie van Azure-resources zoals Compute, netwerk, opslag enzovoort vergelijkbaar met het bestandssysteem navigatie.
-U kunt blijven gebruiken van de vertrouwde [Azure PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azure) om deze resources te beheren.
+U kunt blijven gebruiken van de vertrouwde [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure) om deze resources te beheren.
 Wijzigingen in de Azure-resources, hetzij rechtstreeks in Azure-portal of via Azure PowerShell-cmdlets zijn onmiddellijk worden deze weergegeven in het Azure-station.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ Deze opdrachten zijn gebouwd op PowerShell voor externe toegang en PowerShell ve
 
 |**Categorie**    |**Naam**                                 |
 |----------------|-----------------------------------------|
-|Azure-hulpprogramma 's     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Azure-hulpprogramma 's     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Teksteditors    |VIM<br> nano                             |
 |Pakketbeheer |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Resourcebeheer  |GIT                                      |

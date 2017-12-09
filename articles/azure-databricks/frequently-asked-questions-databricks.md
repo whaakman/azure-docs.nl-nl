@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Veelgestelde vragen over Azure Databricks
 
@@ -44,7 +44,7 @@ Hier volgen enkele mogelijke problemen met Databricks.
 
 ### <a name="this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'
 
-#### <a name="error-message"></a>Foutbericht
+#### <a name="error-message"></a>Bericht invoeren
 
 "Dit abonnement is niet geregistreerd voor het gebruik van de naamruimte 'Microsoft.Databricks'. Zie https://aka.ms/rps-not-found voor het registreren van abonnementen. (Code: MissingSubscriptionRegistration) '
 
@@ -57,7 +57,7 @@ Hier volgen enkele mogelijke problemen met Databricks.
 
 ### <a name="your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Uw account {e} heeft geen de eigenaar of bijdrager-rol op de bron van de werkruimte Databricks in de Azure portal
 
-#### <a name="error-message"></a>Foutbericht
+#### <a name="error-message"></a>Bericht invoeren
 
 'Uw account {e} heeft geen eigenaar of bijdrager rol op de bron van de werkruimte Databricks in de Azure portal. Deze fout kan ook optreden als u een gastgebruiker in de tenant. Vraag uw beheerder u toegang tot of u wilt toevoegen als een gebruiker rechtstreeks in de werkruimte Databricks toe te kennen." 
 
@@ -88,17 +88,17 @@ Als u de werkruimte niet hebt gemaakt en u wordt toegevoegd als een gebruiker, m
 
 ### <a name="cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Fout bij het starten van de provider cloud tijdens het instellen van het cluster
 
-#### <a name="error-message"></a>Foutbericht
+#### <a name="error-message"></a>Bericht invoeren
 
 "Fout bij het starten van de Provider cloud: een cloud-providerfout opgetreden tijdens het instellen van het cluster. Zie de handleiding Databricks voor meer informatie. Azure-foutcode: PublicIPCountLimitReached. Azure-foutbericht: kan meer dan 60 openbare IP-adressen voor dit abonnement niet maken in deze regio. "
 
 #### <a name="solution"></a>Oplossing
 
-Databricks clusters gebruiken één openbaar IP-adres per knooppunt. Als uw abonnement al voor het openbare IP's gebruikt is, moet u [aanvraag het quotum te verhogen](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Kies **quotum** als de **probleemtype**, en **Networking: ARM** als de **Quotumtype**. In **Details**, een verhoging van de quota voor openbaar IP-adres aanvragen. Bijvoorbeeld als de limiet momenteel 60 is en u wilt maken van een cluster met 100-knooppunt, een hogere limiet aan 160 aanvragen.
+Databricks clusters gebruiken één openbaar IP-adres per knooppunt. Als uw abonnement al voor het openbare IP's gebruikt is, moet u [aanvraag het quotum te verhogen](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Kies **quotum** als de **probleemtype**, en **Networking: ARM** als de **Quotumtype**. In **Details**, een verhoging van de quota voor openbaar IP-adres aanvragen. Bijvoorbeeld als de limiet momenteel 60 is en u wilt maken van een cluster met 100-knooppunt, een hogere limiet aan 160 aanvragen.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Een tweede type cloud providerfout starten tijdens het instellen van het cluster
 
-#### <a name="error-message"></a>Foutbericht
+#### <a name="error-message"></a>Bericht invoeren
 
 "Fout bij het starten van de Provider cloud: een cloud-providerfout opgetreden tijdens het instellen van het cluster. Zie de handleiding Databricks voor meer informatie.
 Azure-foutcode: MissingSubscriptionRegistration Azure-foutbericht: het abonnement is niet geregistreerd voor gebruik van de naamruimte 'Microsoft.Compute'. Zie https://aka.ms/rps-not-found voor het registreren van abonnementen."

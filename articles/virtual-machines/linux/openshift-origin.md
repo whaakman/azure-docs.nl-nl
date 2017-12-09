@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>OpenShift oorsprong in Azure implementeren
 
@@ -98,7 +98,7 @@ Het volgende voorbeeld maakt een parameterbestand met de naam azuredeploy.parame
 
 
 > [!NOTE] 
-> De volgende opdracht vereist Azure CLI 2.0.8 of hoger. U kunt controleren of de versie van de CLI met de `az --version` opdracht. Zie voor het bijwerken van de versie van de CLI [2.0 voor Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> De volgende opdracht vereist Azure CLI 2.0.8 of hoger. U kunt controleren of de versie van de CLI met de `az --version` opdracht. Zie voor het bijwerken van de versie van de CLI [2.0 voor Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Het volgende voorbeeld wordt het cluster OpenShift en alle bijbehorende resources geïmplementeerd in een resourcegroep met de naam myResourceGroup, met de implementatienaam van een van myOpenShiftCluster. De sjabloon wordt verwezen rechtstreeks uit de GitHub-opslagplaats met behulp van een lokale parameterbestand met de naam azuredeploy.parameters.json.
 

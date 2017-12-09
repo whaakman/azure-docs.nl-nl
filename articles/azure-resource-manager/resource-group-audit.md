@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Activiteitenlogboeken bekijken om te controleren van de acties op resources
 Via activiteitenlogboeken, kunt u bepalen:
@@ -38,10 +38,10 @@ U kunt informatie ophalen uit de activiteitenlogboeken van de via de portal, Pow
    
     ![Selecteer activiteitenlogboeken](./media/resource-group-audit/select-monitor.png)
 
-   Of selecteer automatisch filter het logboek voor een bepaalde bron of de resourcegroep: **activiteitenlogboek** van die resourceblade. U ziet dat het activiteitenlogboek automatisch wordt gefilterd op de geselecteerde bron.
+   Of selecteer automatisch filter het logboek voor een bepaalde bron of de resourcegroep: **activiteitenlogboek**. U ziet dat het activiteitenlogboek automatisch wordt gefilterd op de geselecteerde bron.
    
     ![filteren op resource](./media/resource-group-audit/filtered-by-resource.png)
-2. In de **activiteitenlogboek** blade ziet u een overzicht van recente bewerkingen.
+2. In de **activiteitenlogboek**, ziet u een overzicht van recente bewerkingen.
    
     ![acties weergeven](./media/resource-group-audit/audit-summary.png)
 3. Als u wilt beperken het aantal bewerkingen die worden weergegeven, selecteer andere voorwaarden. Bijvoorbeeld de volgende afbeelding toont de **Timespan** en **gebeurtenis wordt gestart door** velden gewijzigd om de acties die door een bepaalde gebruiker of toepassing voor de afgelopen maand weer te geven. Selecteer **toepassen** de resultaten van uw query wilt weergeven.
@@ -147,4 +147,5 @@ De REST-bewerkingen voor het werken met het activiteitenlogboek deel uitmaken va
 * Zie voor meer informatie over het instellen van beveiligingsbeleid [toegangsbeheer op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md).
 * Zie voor meer informatie over de opdrachten voor het weergeven van implementatiebewerkingen, [implementatiebewerkingen weergeven](resource-manager-deployment-operations.md).
 * Zie voor informatie over het voorkomen van een resource voor alle gebruikers zijn verwijderd, [resources met Azure Resource Manager vergrendelen](resource-group-lock-resources.md).
+* Zie de lijst met bewerkingen weergegeven die beschikbaar zijn voor elke provider van Microsoft Azure Resource Manager [Resourceprovider van Azure Resource Manager-bewerkingen](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Sleutelkluis beschikbaarheid en redundantie
 Azure Sleutelkluis is uitgerust met meerdere lagen van redundantie om ervoor te zorgen dat uw sleutels en geheimen beschikbaar voor uw toepassing blijven zelfs als afzonderlijke onderdelen van de service is mislukt.
 
-De inhoud van de sleutelkluis worden gerepliceerd binnen de regio en een secundaire regio ten minste 150 mijl verwijderd, maar binnen de dezelfde Geografie. Dit onderhoudt gebied van duurzaamheid van uw sleutels en geheimen. Zie de [Azure regio's gekoppeld](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) document voor meer informatie over specifieke regio-paren.
+De inhoud van de sleutelkluis worden gerepliceerd binnen de regio en een secundaire regio ten minste 150 mijl verwijderd, maar binnen de dezelfde Geografie. Dit onderhoudt gebied van duurzaamheid van uw sleutels en geheimen. Zie de [Azure regio's gekoppeld](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) document voor meer informatie over specifieke regio-paren.
 
 Als afzonderlijke onderdelen in de sleutelkluis-service is mislukt, stap alternatieve componenten binnen de regio in voor het uitvoeren van uw aanvraag om ervoor te zorgen dat er zonder enige vermindering van de functionaliteit is. U hoeft niet te doen dit activeren. Dit gebeurt automatisch en transparant voor u.
 
@@ -44,7 +44,7 @@ Er zijn enkele aanvullende opmerkingen voor Let op:
   * Tekstterugloop
   * Uitpakken
   * Verifiëren
-  * Aanmelding
+  * Ondertekenen
   * Back-up
 * Na een failover terug mislukte is, alle aanvraagtypen (inclusief lezen *en* schrijfaanvragen) beschikbaar zijn.
 

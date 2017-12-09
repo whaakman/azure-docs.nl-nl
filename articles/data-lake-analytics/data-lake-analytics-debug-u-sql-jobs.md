@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Foutopsporing van de gebruiker gedefinieerde C#-code voor mislukte U-SQL-taken
 
-U-SQL biedt een model van uitbreidbaarheid met C#. In de U-SQL-scripts is het eenvoudig C#-functies aanroepen en analytische functies uitvoeren die biedt geen ondersteuning voor SQL-achtige declaratieve taal. Zie voor meer informatie voor de U-SQL-uitbreidbaarheid, [U-SQL programmeerbaarheid handleiding](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL biedt een model van uitbreidbaarheid met C#. In de U-SQL-scripts is het eenvoudig C#-functies aanroepen en analytische functies uitvoeren die biedt geen ondersteuning voor SQL-achtige declaratieve taal. Zie voor meer informatie voor de U-SQL-uitbreidbaarheid, [U-SQL programmeerbaarheid handleiding](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 In de praktijk code wellicht foutopsporing, maar het is moeilijk fouten opsporen in een gedistribueerde taak met aangepaste code in de cloud met beperkte logboekbestanden. [Azure Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs) biedt een functie **hoekpunt foutopsporing kan niet**, waarmee u gemakkelijker fouten opsporen in de fouten die optreden in uw aangepaste code. Wanneer U-SQL-taak is mislukt, de service blijft de foutstatus en het hulpprogramma helpt u bij het downloaden van de cloudomgeving fout naar de lokale computer voor foutopsporing. Het downloaden van de lokale bevat de volledige in de cloud-omgeving, inclusief eventuele invoergegevens en gebruikerscode.
 

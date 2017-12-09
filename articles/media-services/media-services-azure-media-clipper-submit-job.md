@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Verzenden van taken paginaknipsel van Azure Media openen
 Azure Media openen vereist een **submitSubclipCallback** methode voor het verwerken van de verzending van de taak paginaknipsel worden geïmplementeerd. Deze functie is voor het implementeren van een HTTP POST van de uitvoer openen met een webservice. Deze webservice is waar u de coderingstaak kunt verzenden. De uitvoer van de openen is ofwel een Media Encoder Standard codering voorinstelling voor gerenderde taken of de nettolading van de REST-API voor dynamische manifest filter aanroepen. Dit Pass Through-model is nodig omdat media services-accountreferenties niet beveiligd in de clientbrowser zijn.
@@ -151,7 +151,7 @@ Het contract van de taak uitvoer voor gerenderde paginaknipsel is een JSON-objec
 }
 ```
 
-Uitvoeren van de coderingstaak verzenden Media Encoder Standard coderingstaak met de bijbehorende vooraf ingesteld. Zie dit artikel voor meer informatie over het verzenden van codering taken met behulp van de [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) of [REST-API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+Uitvoeren van de coderingstaak verzenden Media Encoder Standard coderingstaak met de bijbehorende vooraf ingesteld. Zie dit artikel voor meer informatie over het verzenden van codering taken met behulp van de [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) of [REST-API](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>Snel maakt videoclips zonder codering
 Alternatief voor het maken van een codeertaak, kunt u Azure Media openen om dynamische manifest filters te maken. Filters vereisen geen codering en snel kunnen worden gemaakt als een nieuwe asset is niet gemaakt. Het contract uitvoer voor een filter knipsel is een JSON-object met de volgende eigenschappen:
@@ -227,4 +227,4 @@ Alternatief voor het maken van een codeertaak, kunt u Azure Media openen om dyna
 }
 ```
 
-Als u de REST-aanroep om dynamische manifest filter te maken, indienen de bijbehorende filter nettolading met de [REST-API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+Als u de REST-aanroep om dynamische manifest filter te maken, indienen de bijbehorende filter nettolading met de [REST-API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).

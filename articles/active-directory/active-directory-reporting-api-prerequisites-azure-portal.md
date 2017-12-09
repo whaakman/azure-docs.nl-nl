@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 5377512732efdb37b5c7a22a395b091fda6e5af7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Vereisten voor toegang tot de Azure AD rapportage-API
 
@@ -37,10 +37,10 @@ Als u toegang tot de rapportagegegevens via de API, moet u een van de volgende r
 Als u met het voorbereiden van uw toegang tot de rapportage-API, moet u het volgende doen:
 
 1. Een toepassing registreren 
-2. Machtigingen verlenen 
+2. Machtigingen toekennen 
 3. Verzamelen van configuratie-instellingen 
 
-Voor vragen, problemen of feedback, neemt u [een ondersteuningsticket bestand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+Voor vragen, problemen of feedback, neemt u [een ondersteuningsticket bestand](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="register-an-azure-active-directory-application"></a>Een Azure Active Directory-toepassing registreren
 
@@ -80,7 +80,7 @@ Voor het configureren van uw directory voor toegang tot de Azure AD rapportage-A
     d. Klik op **Create**. 
 
 
-## <a name="grant-permissions"></a>Machtigingen verlenen 
+## <a name="grant-permissions"></a>Machtigingen toekennen 
 
 Het doel van deze stap is het verlenen van uw toepassing **mapgegevens lezen** machtigingen voor de **Windows Azure Active Directory** API.
 

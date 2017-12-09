@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8e2df8fcbd342012e5e76730a68d9c72ce3264d8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Doorsturen van Azure Automation DSC rapportagegegevens met OMS Log Analytics
 
@@ -43,7 +43,7 @@ Als u wilt beginnen met het verzenden van uw Automation DSC-rapporten met Log An
 
 Om te beginnen met het importeren van gegevens uit Azure Automation DSC in Log Analytics, moet u de volgende stappen uitvoeren:
 
-1. Aanmelden bij uw Azure-account in PowerShell. Zie [aanmelden met Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Aanmelden bij uw Azure-account in PowerShell. Zie [aanmelden met Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Ophalen van de _ResourceId_ van uw automation-account met de volgende PowerShell-opdracht: (als u meer dan een automation-account hebt, kiest u de _ResourceID_ voor het account dat u wilt configureren).
 
   ```powershell

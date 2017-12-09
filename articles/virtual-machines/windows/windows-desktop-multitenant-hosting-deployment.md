@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 8/20/2017
 ms.author: xujing
-ms.openlocfilehash: e3209abd17c7ba3e39a67f834be69f113c27a021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Het implementeren van Windows 10 op Azure met Multitenant-rechten die als host fungeert 
 Voor klanten met Windows 10 Enterprise E3/E5 per gebruiker of Windows virtuele bureaublad toegang per gebruiker (abonnement gebruikerslicenties of abonnement voor extra gebruikerslicenties) kunt u uw Windows 10-licenties in de cloud met Multitenant Hosting-rechten voor Windows 10 en Windows 10 virtuele Machines in Azure uitvoeren zonder te betalen voor een andere licentie. Zie voor meer informatie [Multitenant die als host fungeert voor Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -108,7 +108,7 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [VDA configureren voor Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation)
+- Meer informatie over [VDA configureren voor Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
 - Meer informatie over [Multitenant die als host fungeert voor Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 

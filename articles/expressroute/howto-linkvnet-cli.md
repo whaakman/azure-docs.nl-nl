@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met CLI
 
@@ -35,13 +35,13 @@ In dit artikel helpt u bij virtuele netwerken (vnet's) koppelen aan Azure Expres
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
 
-* U moet de meest recente versie van de opdrachtregelinterface (CLI). Zie voor meer informatie [2.0 voor Azure CLI installeren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* U moet de meest recente versie van de opdrachtregelinterface (CLI). Zie voor meer informatie [2.0 voor Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * U moet controleren de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
 * U moet een actief ExpressRoute-circuit hebben. 
   * Volg de instructies voor [maken van een ExpressRoute-circuit](howto-circuit-cli.md) en laat het circuit inschakelen door de connectiviteitsprovider. 
   * Zorg ervoor dat u persoonlijke Azure-peering voor uw circuit is geconfigureerd. Zie de [routering configureren](howto-routing-cli.md) artikel voor routering instructies. 
   * Zorg ervoor dat de persoonlijke Azure-peering is geconfigureerd. De BGP-peer tussen uw netwerk en Microsoft moet, zodat u kunt end-to-end-connectiviteit inschakelen.
-  * Zorg ervoor dat u hebt een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Volg de instructies voor [configureren van een virtuele netwerkgateway voor ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Zorg ervoor dat u `--gateway-type ExpressRoute`.
+  * Zorg ervoor dat u hebt een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Volg de instructies voor [configureren van een virtuele netwerkgateway voor ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Zorg ervoor dat u `--gateway-type ExpressRoute`.
 
 * U kunt maximaal 10 virtuele netwerken koppelen aan een standaard ExpressRoute-circuit. Alle virtuele netwerken moet in dezelfde geopolitieke regio bij gebruik van een standaard ExpressRoute-circuit. 
 

@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 33fd86ce92043e1de5b3d72c9fe4bb7b428b4b03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Uw RESTful-services beveiligen met behulp van HTTP-basisverificatie
 In een [bijbehorende Azure AD B2C-artikel](active-directory-b2c-custom-rest-api-netfw.md), hebt u een RESTful-service (web-API) die kan worden geïntegreerd met Azure Active Directory B2C (Azure AD B2C) gebruiker trajecten zonder verificatie. 
 
 In dit artikel u HTTP basic verificatie toevoegen aan uw RESTful-service zodanig dat alleen geverifieerd gebruikers, met inbegrip van B2C, hebben toegang tot uw API. Met HTTP-basisverificatie stelt u de referenties van de gebruiker (app-ID en app-geheim) in het aangepaste beleid. 
 
-Zie voor meer informatie [basisverificatie in ASP.NET web-API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+Zie voor meer informatie [basisverificatie in ASP.NET web-API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Vereisten
 Voer de stappen in de [REST-API integreren claims kunnen worden uitgewisseld in uw Azure AD B2C gebruiker reis](active-directory-b2c-custom-rest-api-netfw.md) artikel.

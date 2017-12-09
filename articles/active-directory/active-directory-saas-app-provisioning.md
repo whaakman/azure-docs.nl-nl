@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0fdb1605487cca7ba3dc7f13fe8cbe3d1be78d44
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -64,7 +64,7 @@ De **Azure AD-inrichtingsservice** gebruikers SaaS-apps en andere systemen, bepa
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Welke toepassingen en systemen kan ik met Azure AD automatisch gebruikers inrichten gebruiken?
 
-Azure AD-functies vooraf geïntegreerde ondersteuning voor een groot aantal populaire SaaS-apps en human resources-systemen, evenals algemene ondersteuning voor apps met specifieke onderdelen van de [SCIM 2.0 standaard](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+Azure AD-functies vooraf geïntegreerde ondersteuning voor een groot aantal populaire SaaS-apps en human resources-systemen, evenals algemene ondersteuning voor apps met specifieke onderdelen van de [SCIM 2.0 standaard](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
 
 Alle apps 'Aanbevolen' in de Azure AD-toepassingsgalerie ondersteuning voor geautomatiseerde gebruikersinrichting. [De lijst met aanbevolen apps kan hier worden weergegeven.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

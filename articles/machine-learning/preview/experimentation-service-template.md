@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configureren van de Service Azure Machine Learning-experimenten
 
 ## <a name="overview"></a>Overzicht
-Azure Machine Learning-experimenten Service-account, werkruimte en project zijn Azure-Resources. Als zodanig kunnen ze worden geïmplementeerd met behulp van sjablonen Resources Manager. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
+Azure Machine Learning-experimenten Service-account, werkruimte en project zijn Azure-Resources. Als zodanig kunnen ze worden geïmplementeerd met behulp van sjablonen Resources Manager. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
 
 ## <a name="deploy-a-template"></a>Een sjabloon implementeren
 Implementeren van een sjabloon vereist een aantal stappen in de Azure-opdrachtregelinterface of in de Azure portal.
@@ -137,7 +137,7 @@ Maak een bestand met de onderstaande inhoud en sla deze op als < parameters.json
 Er zijn drie waarden die u kunt wijzigen. 
 * AccountName: De naam van het account experimenteren.
 * Locatie: Een van de ondersteunde Azure-regio's.
-* SKU-Opslagaccount: De Azure ML ondersteunt alleen de standard-opslag, niet premium. Zie voor meer informatie over opslag [opslag inleiding](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* SKU-Opslagaccount: De Azure ML ondersteunt alleen de standard-opslag, niet premium. Zie voor meer informatie over opslag [opslag inleiding](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

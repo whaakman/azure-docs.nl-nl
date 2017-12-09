@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: ae62638fd1d325822b15b7de998861d4df67bd8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="api-management-policy-samples"></a>Voorbeelden van API Management-beleid
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/04/2017
 |[Mogelijkheden toevoegen aan een back-endservice en de reactie in cache](./policies/cache-response.md?toc=api-management/toc.json) |Laat zien hoe mogelijkheden toevoegen aan een back-endservice. Bijvoorbeeld, een naam van de locatie in plaats van de breedtegraad en lengtegraad in een prognose weer API accepteren.|
 |[Op basis van claims JWT toegang verlenen](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |Laat zien hoe u toegang verlenen aan specifieke HTTP-methoden op een op basis van claims van JWT-API.|
 |[Toestaan van toegang met behulp van Google-OAuth-token](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Laat zien hoe u toegang verlenen aan uw eindpunten voor Google als een provider van OAuth-token.|
-|[Shared Access Signature en doorsturen van aanvraag naar Azure storage genereren](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Laat zien hoe genereren [Shared Access Signature](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) expressies gebruiken en de aanvraag doorsturen naar Azure storage met herschrijven-uri-beleid. |
+|[Shared Access Signature en doorsturen van aanvraag naar Azure storage genereren](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Laat zien hoe genereren [Shared Access Signature](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) expressies gebruiken en de aanvraag doorsturen naar Azure storage met herschrijven-uri-beleid. |
 |[OAuth2 toegangstoken ophalen uit AAD en deze doorsturen naar de back-end](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Biedt en voorbeeld van het gebruik van OAuth2 voor autorisatie tussen de gateway en een back-end. Er wordt weergegeven hoe verkrijgen van een toegangstoken van AAD en deze doorsturen naar de back-end.|
 |[X-CSRF ophalen van het token uit SAP-gateway met behulp van beleid voor verbindingsaanvragen verzenden](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Laat zien hoe X CSRF patroon dat wordt gebruikt door veel API's implementeren. In dit voorbeeld is specifiek voor SAP-Gateway. |
 |[De aanvraag op basis van de grootte van de hoofdtekst routeren](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Demonstreert hoe u aanvragen op basis van de grootte van hun instanties.|

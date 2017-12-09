@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Meer informatie over uw factuur voor Microsoft Azure
 Voor inzicht in uw Azure-factuur, Vergelijk uw factuur met de gedetailleerde dagelijks gebruik-bestand en de kosten-rapporten in de Azure portal.
@@ -31,7 +31,7 @@ Als u een PDF-bestand van uw factuur en een kopie van het gedetailleerde dagelij
 
 Zie voor gedetailleerde voorwaarden en beschrijvingen van uw factuur en gedetailleerde dagelijks gebruik bestand [begrijpen voorwaarden op uw Microsoft Azure-factuur](billing-understand-your-invoice.md) en [Understand termen in uw Microsoft Azure gedetailleerde informatie over het gebruik](billing-understand-your-usage.md). 
 
-Zie voor meer informatie over de kosten-rapporten, [Azure-portal kostenbeheer](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+Zie voor meer informatie over de kosten-rapporten, [Azure-portal kostenbeheer](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Hoe maak ik ervoor dat de kosten in mijn factuur correct zijn?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Als er een kosten op uw factuur die u op meer informatie wilt, moet u er een aan
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Optie 1: Uw factuur en het gebruik en de kosten te vergelijken met het CSV-bestand voor gedetailleerde informatie over het gebruik
 
-Het gebruik van gedetailleerde CSV-bestand bevat uw kosten per factureringsperiode en het dagelijks gebruik. Als u uw CSV-bestand voor gedetailleerde informatie over het gebruik, Zie [ophalen van uw Azure facturering facturen en dagelijks gebruiksgegevens](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+Het gebruik van gedetailleerde CSV-bestand bevat uw kosten per factureringsperiode en het dagelijks gebruik. Als u uw CSV-bestand voor gedetailleerde informatie over het gebruik, Zie [ophalen van uw Azure facturering facturen en dagelijks gebruiksgegevens](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Uw gebruikskosten worden weergegeven op het niveau van de meter. De volgende termen betekenis dezelfde in zowel de factuur als het bestand voor gedetailleerde informatie over het gebruik. Bijvoorbeeld, is de factureringscyclus op de factuur gelijk aan de factureringsperiode die wordt weergegeven in het bestand voor gedetailleerde informatie over het gebruik.
 

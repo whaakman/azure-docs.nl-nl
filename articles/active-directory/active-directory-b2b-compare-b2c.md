@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 33990e58ffed271b4d6e968b92a5ce16e8bbd287
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Vergelijk B2B-samenwerking en B2C in Azure Active Directory
 
@@ -35,7 +35,7 @@ Eenmalige aanmelding (SSO) naar alle Azure AD verbonden apps wordt ondersteund. 
 De levenscyclus van de partner: beheerd door de host/uitgenodigd organisatie.  | De levenscyclus van de klant: eigen beheer of beheerd door de toepassing.
 Beveiligingsbeleid en naleving: beheerd door de host/uitgenodigd organisatie.  | Beveiligingsbeleid en naleving: beheerd door de toepassing.
 De huisstijl: Merk van Host/uitgenodigd organisatie wordt gebruikt.  |    De huisstijl: Beheerd door de toepassing. Doorgaans is doorgaans product huisstijl met de organisatie geleidelijk in de achtergrond.
-Meer informatie: [blogbericht](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentatie](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Meer informatie: [productpagina](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [documentatie](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+Meer informatie: [blogbericht](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Meer informatie: [productpagina](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [documentatie](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>Volgende stappen

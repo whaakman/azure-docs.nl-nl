@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: gwallace
-ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 988f6ff5158eb754cbedeb58a45fcc31f0026f03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Het beheren van DNS-Zones in Azure DNS met de Azure CLI 2.0
 
@@ -49,7 +49,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
 
-* Installeer de nieuwste versie van de Azure CLI 2.0, beschikbaar voor Windows, Linux of MAC. Ga naar [Azure-CLI 2.0 installeren](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2) voor meer informatie.
+* Installeer de nieuwste versie van de Azure CLI 2.0, beschikbaar voor Windows, Linux of MAC. Ga naar [Azure-CLI 2.0 installeren](https://docs.microsoft.com/cli/azure/install-az-cli2) voor meer informatie.
 
 ### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 

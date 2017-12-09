@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compileren van configuraties in Azure Automation DSC
 
@@ -131,7 +131,7 @@ Zie voor meer informatie over PSCredentials doorgeeft als parameters <a href="#c
 
 ## <a name="composite-resources"></a>Samengestelde bronnen
 
-**Samengestelde bronnen** kunt u DSC-configuraties gebruiken als ingesloten resources binnen een configuratie.  Hiermee kunt u meerdere configuraties toepassen op één resource.  Zie [samengestelde bronnen: met een DSC-configuratie als een resource](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) voor meer informatie over **samengestelde bronnen**
+**Samengestelde bronnen** kunt u DSC-configuraties gebruiken als ingesloten resources binnen een configuratie.  Hiermee kunt u meerdere configuraties toepassen op één resource.  Zie [samengestelde bronnen: met een DSC-configuratie als een resource](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) voor meer informatie over **samengestelde bronnen**
 
 > [!NOTE]
 > Opdat **samengestelde bronnen** correct compileren, moet u eerst ervoor zorgen dat eventuele DSC-Resources die afhankelijk is van de samengestelde waarde eerst in de opslagplaats Azure Automation-Account-Modules zijn geïnstalleerd of deze niet correct worden geïmporteerd.

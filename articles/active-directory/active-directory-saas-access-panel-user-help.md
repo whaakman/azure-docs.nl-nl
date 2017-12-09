@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: d5aa5cb5331b8b0e714156982ed162e873428be0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Moet u helpen bij de portal voor mijn Apps?
 
@@ -35,7 +35,7 @@ Algemene problemen om te controleren:
 
 - Zorg ervoor dat uw wachtwoord niet is verlopen of is vergeten. Controleer [hier](active-directory-passwords-update-your-own-password.md) voor meer informatie over hoe u uw wachtwoord bij te werken.
 
-- Controleer of uw contactgegevens bij verificatie is up-to-date is en de toegang niet blokkeert. Controleer [hier](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) voor meer informatie over het instellen van de verificatie voor je account.
+- Controleer of uw contactgegevens bij verificatie is up-to-date is en de toegang niet blokkeert. Controleer [hier](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) voor meer informatie over het instellen van de verificatie voor je account.
 
 - Cookies van uw browser te wissen en probeer het vervolgens opnieuw aan te melden.
 

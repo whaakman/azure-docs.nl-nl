@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Filters maken met Azure Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Media Services kunt vanaf 2.11 versie, u filters definiëren voor de activa. Deze filters zijn server side regels die zorgen uw klanten dat ervoor te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of geef alleen een subset van audio en video vertoningen dat uw klant apparaat (in plaats daarvan kan verwerken met de vertoningen die zijn gekoppeld aan de asset). Dit filteren van uw assets wordt bereikt door **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter.
+Media Services kunt vanaf 2,17 versie, u filters definiëren voor de activa. Deze filters zijn serverzijde regels waarmee uw klanten te kiezen voor handelingen zoals: afspelen alleen een gedeelte van een video (in plaats van de hele video afspelen), of geef alleen een subset van audio en video vertoningen dat uw klant apparaat (in plaats van kan verwerken alle de vertoningen die gekoppeld aan de asset zijn). Dit filteren van uw assets wordt bereikt door **dynamische Manifest**s die zijn gemaakt op verzoek om te streamen van een video van uw klant op basis van opgegeven filter.
 
 Zie voor meer informatie over filters en dynamische Manifest, [dynamische manifesten overzicht](media-services-dynamic-manifest-overview.md).
 
-Dit onderwerp leest hoe u met Media Services .NET SDK maken, bijwerken en verwijderen van de filters. 
+Dit artikel laat zien hoe u met Media Services .NET SDK maken, bijwerken en verwijderen van de filters. 
 
-Houd er rekening mee dat als u een filter bijwerkt, het kan maximaal 2 minuten duren voordat streaming-eindpunt om te vernieuwen van de regels. Als de inhoud is uitgevoerd met dit filter (en in het cachegeheugen van proxy's en CDN caches), kan het bijwerken van dit filter leiden tot player-fouten. Het is raadzaam om de cache wissen na het bijwerken van het filter. Als deze optie niet mogelijk is, kunt u overwegen een ander filter. 
+Houd er rekening mee dat als u een filter bijwerkt, het kan maximaal twee minuten duren voordat streaming-eindpunt om te vernieuwen van de regels. Als de inhoud is uitgevoerd met dit filter (en in het cachegeheugen van proxy's en CDN caches), kan het bijwerken van dit filter leiden tot player-fouten. Wis de cache altijd na het bijwerken van het filter. Als deze optie niet mogelijk is, kunt u overwegen een ander filter. 
 
 ## <a name="types-used-to-create-filters"></a>Typen die worden gebruikt om filters te maken
 De volgende typen worden gebruikt wanneer u filters maken: 

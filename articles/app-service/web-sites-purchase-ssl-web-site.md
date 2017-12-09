@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
-Deze zelfstudie leert u hoe u uw web-app beveiligen door het aanschaffen van een SSL-certificaat voor uw  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, veilig opslaan in [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis), en koppelen aan een aangepast domein.
+Deze zelfstudie leert u hoe u uw web-app beveiligen door het aanschaffen van een SSL-certificaat voor uw  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, veilig opslaan in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), en koppelen aan een aangepast domein.
 
 ## <a name="step-1---log-in-to-azure"></a>Stap 1 - logboek in naar Azure
 
@@ -49,7 +49,7 @@ Selecteer uw **abonnement**, **resourcegroep**, en **SKU van het certificaat**
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Stap 3: het certificaat wordt opgeslagen in Azure Sleutelkluis
 
 > [!NOTE]
-> [Sleutelkluis](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) is een Azure-service die helpt bij het beschermen van de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services.
+> [Sleutelkluis](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) is een Azure-service die helpt bij het beschermen van de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services.
 >
 
 Zodra de aankoop van het SSL-certificaat voltooid is, moet u opent de [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina.

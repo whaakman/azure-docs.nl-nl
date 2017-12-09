@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 6fede727a36b0f3243975bf23df2ef53baf1b15c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="sprint-2---december-2017"></a>Sprint 2 - December 2017 
+# <a name="sprint-2---december-2017"></a>Sprint 2 - december 2017 
 
 #### <a name="version-number-01171115263"></a>Versienummer: 0.1.1711.15263
 
->Dit is hoe u kunt [Zoek het versienummer](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>Dit is hoe u kunt [Zoek het versienummer](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
 
 Welkom bij de derde update van Azure Machine Learning-Workbench. Deze update bevat verbeteringen in de workbench-app, de opdrachtregelinterface (CLI) en de back-end-services. Hartelijk dank voor het verzenden van Messenger en frowns. Veel van de volgende updates worden gedaan als directe resultaten van uw feedback. 
 
 ## <a name="notable-new-features"></a>Belangrijke nieuwe functies
-- [Ondersteuning voor SQL Server en Azure SQL-database als een gegevensbron](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Ondersteuning voor SQL Server en Azure SQL-database als een gegevensbron](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 - [Grondige kennis op Spark met MMLSpark met GPU-ondersteuning](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Alle AML containers zijn compatibel met Azure IoT randapparaten wanneer geïmplementeerd (geen extra stappen vereist)](http://aka.ms/aml-iot-edge-blog)
 - Geregistreerd model lijst en details weergaven beschikbaar Azure-portal
@@ -56,7 +56,7 @@ Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azu
 
 - Verbeterde prestaties bij het aanbevelen van rand aanvragen om te bekijken in de transformatie 'kolom afgeleid door voorbeeld'
 
-- [Ondersteuning voor SQL Server en Azure SQL-database als een gegevensbron](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Ondersteuning voor SQL Server en Azure SQL-database als een gegevensbron](https://docs.microsoft.com/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 
 ![Afbeelding van het maken van een nieuwe SQL server-gegevensbron](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ U kunt nu maken en toegang tot een remotedocker of cluster compute-doel SSH-sleu
 
 - U kunt dit doel compute voorbereiden en deze gebruiken voor uitvoering en Azure ML-Workbench gebruikt deze sleutel voor verificatie.  
 
-Zie voor meer informatie over het maken van de compute-doelen [configureren van Azure Machine Learning experimenteren Service](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration)
+Zie voor meer informatie over het maken van de compute-doelen [configureren van Azure Machine Learning experimenteren Service](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration)
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools voor AI
 - Ondersteuning toegevoegd voor [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 

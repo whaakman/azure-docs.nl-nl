@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 5feaaa64a130e86f2016bcb6c1d01853a9a406a7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Aan de slag met de Azure Active Directory rapportage-API
 
@@ -28,7 +28,7 @@ Azure Active Directory beschikt u over tal van rapporten. De gegevens van deze r
 In dit artikel biedt u de informatie die u moet aan de slag met Azure AD rapportage-API's.
 In de volgende sectie stelt u meer informatie over het gebruik van de audit en meld u API's. 
 
-Veelgestelde vragen Lees onze [Veelgestelde vragen over](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). Voer de gegevens voor problemen [een ondersteuningsticket bestand](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
+Veelgestelde vragen Lees onze [Veelgestelde vragen over](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq). Voer de gegevens voor problemen [een ondersteuningsticket bestand](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 ## <a name="learning-map"></a>Leertraject
 1. **Voorbereiden** -voordat u uw API-voorbeelden testen kunt, u moet voltooien de [vereisten voor toegang tot de Azure AD rapportage-API](active-directory-reporting-api-prerequisites-azure-portal.md).

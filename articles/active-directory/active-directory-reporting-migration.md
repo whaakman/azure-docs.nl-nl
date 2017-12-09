@@ -1,37 +1,36 @@
 ---
-title: Activiteitsrapporten vinden in de Azure portal | Microsoft Docs
-description: Informatie over het vinden van rapporten voor Azure Active Directory-activiteiten in de Azure portal.
+title: Activiteitsrapporten voor Azure Active Directory-gebruiker niet vinden in Azure portal | Microsoft Docs
+description: Meer informatie over waar de activiteitsrapporten van de Azure Active Directory-gebruiker zich bevindt in de Azure-portal.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: michael.tillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 732a3c376f6e99f6a5b5c3043ef8cb4884a4d468
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Activiteitsrapporten niet vinden in de Azure-portal
 
-Als u van de klassieke Azure portal naar de Azure portal verplaatst, krijgt u een nieuwe kijken activiteitenlogboeken Azure Active Directory (Azure AD). In een recente [blogbericht](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), we uitleggen hoe u kunt zien activiteit geregistreerd in de context van de resource die u in de Azure-portal op werkt. In dit artikel wordt beschreven hoe rapporten die u gebruikt vinden in de klassieke Azure portal in de Azure portal.
+In dit artikel worden beschreven Activiteitsrapporten voor Azure Active Directory-gebruiker zoeken in de Azure portal.
 
 ## <a name="whats-new"></a>Nieuwe functies
 
 Rapporten in de klassieke Azure portal zijn ingedeeld in categorieën:
-
-1.  Beveiligingsrapporten
-2.  Activiteitsrapporten
-3.  Geïntegreerde app-rapporten
+* Beveiligingsrapporten
+* Activiteitsrapporten
+* Geïntegreerde app-rapporten
 
 ### <a name="activity-and-integrated-app-reports"></a>Activiteit en geïntegreerde app-rapporten
 
@@ -43,14 +42,14 @@ Voor deze weergave over de **Azure Active Directory** blade onder **activiteit**
 
 De volgende rapporten worden geconsolideerd in deze weergave:
 
--   Controlerapport
--   Activiteit voor wachtwoord opnieuw instellen
--   Registratie-activiteit wachtwoord opnieuw instellen
--   In activiteit
--   Wijzigingen in de groep Office365 naam
--   Inrichten van de activiteit van een account
--   Overschakeling van de status van het wachtwoord
--   Fouten bij het inrichten van een account
+* Controlerapport
+* Activiteit voor wachtwoord opnieuw instellen
+* Registratie-activiteit wachtwoord opnieuw instellen
+* In activiteit
+* Wijzigingen in de groep Office365 naam
+* Inrichten van de activiteit van een account
+* Overschakeling van de status van het wachtwoord
+* Fouten bij het inrichten van een account
 
 
 Het gebruiksrapport van toepassing is uitgebreid en is opgenomen in de **aanmeldingen** weergeven. Voor deze weergave over de **Azure Active Directory** blade onder **activiteit**, selecteer **aanmeldingen**.

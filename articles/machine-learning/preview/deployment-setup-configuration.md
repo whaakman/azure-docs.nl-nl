@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -25,8 +25,8 @@ Met behulp van Azure ML-model management, kunt u efficiënt implementeren en beh
 Aan het einde van dit document moet u het volgende kunnen uw model beheeromgeving ingesteld en klaar voor het implementeren van uw machine learning-modellen.
 
 ## <a name="what-you-need-to-get-started"></a>Wat u moet aan de slag
-Als u optimaal gebruik van deze handleiding, moet u eigenaar toegang hebt tot een Azure-abonnement dat u uw modellen kunt implementeren.
-De CLI is voorgeïnstalleerd op de Workbench van Azure Machine Learning en klik op [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Als u de meest buiten deze handleiding, hebt u eigenaarsrechten toegang tot een Azure-abonnement of resourcegroep die u kunt uw modellen te implementeren.
+De CLI is voorgeïnstalleerd op de Workbench van Azure Machine Learning en klik op [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Met behulp van de CLI
 Met de opdrachtregelinterfaces (CLIs) van de Workbench, klikt u op **bestand** -> **opdrachtprompt openen**. 
@@ -128,7 +128,7 @@ De installatieopdracht van de cluster-omgeving maakt de volgende bronnen in uw a
 - Een Application insights-account
 
 >[!IMPORTANT]
-> Om te kunnen maken met succes een clusteromgeving, moet u een eigenaar op het Azure-abonnement en hebt ook de mogelijkheid te maken van een Service-Principal. Als u wilt controleren of u voldoende rechten hebt, volgt u de instructies op deze pagina: [maken van een Service-Principal in Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Om te kunnen maken met succes een clusteromgeving, moet u bijdrager toegang op de Azure-abonnement of de resourcegroep worden hebben.
 
 De resourcegroep, een opslagaccount en een ACR worden snel gemaakt. De ACS-implementatie kan maximaal 20 minuten duren. 
 

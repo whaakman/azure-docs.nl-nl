@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
-ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9f293c7c96633cd0116dc3c19189085d24048b4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Maken of wijzigen van labs automatisch met Azure Resource Manager-sjablonen en PowerShell
 
@@ -30,7 +30,7 @@ In dit artikel begeleidt u bij het proces van het gebruik van deze sjablonen en 
 U kunt vinden en-klare [Azure Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) en [PowerShell-scripts](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) op onze openbare [Github-opslagplaats](https://github.com/Azure/azure-devtestlab). Gebruik deze als-is, of pas ze aan uw behoeften en op te slaan in uw eigen [persoonlijke Git-opslagplaats](devtest-lab-add-artifact-repo.md). 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Stap 2: Uw Azure Resource Manager-sjabloon wijzigen
-U kunt de stappen op [maken van uw eerste Azure Resource Manager-sjabloon](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template) als u een sjabloon voordat nooit hebt gemaakt.
+U kunt de stappen op [maken van uw eerste Azure Resource Manager-sjabloon](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) als u een sjabloon voordat nooit hebt gemaakt.
 
 Bovendien [aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) biedt veel richtlijnen en suggesties voor het maken van Azure Resource Manager-sjablonen die zijn betrouwbaar en eenvoudig te gebruiken. U wordt normaal gesproken gebruik een variant van een van de wijze van aanpak of voorbeelden en wijzigen van de sjabloon voor uw behoeften.
 

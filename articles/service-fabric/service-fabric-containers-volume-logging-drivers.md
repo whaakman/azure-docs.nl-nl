@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Docker volume-invoegtoepassingen en stuurprogramma's voor logboekregistratie in de container gebruiken
 Azure Service Fabric ondersteunt het opgeven van [Docker volume invoegtoepassingen](https://docs.docker.com/engine/extend/plugins_volume/) en [Docker-logboekregistratie stuurprogramma's](https://docs.docker.com/engine/admin/logging/overview/) voor uw containerservice. U kunt deze persistent maken uw gegevens in [Azure Files](https://azure.microsoft.com/services/storage/files/) wanneer uw container wordt verplaatst of opnieuw gestart op een andere host.
@@ -28,7 +28,7 @@ Volume stuurprogramma's voor Linux-containers worden momenteel ondersteund. Als 
 
 ## <a name="install-the-docker-volumelogging-driver"></a>Installeer het stuurprogramma voor de Docker-volume/logboekregistratie
 
-Als het volume/logboekregistratie Docker stuurprogramma is niet geïnstalleerd op de machine, kunt u deze handmatig installeren met behulp van de RDP/SSH-protocollen. U kunt de installatie met deze protocollen via uitvoeren een [virtuele-machineschaalset opstarten script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) of een [entrypoint script](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Als het volume/logboekregistratie Docker stuurprogramma is niet geïnstalleerd op de machine, kunt u deze handmatig installeren met behulp van de RDP/SSH-protocollen. U kunt de installatie met deze protocollen via uitvoeren een [virtuele-machineschaalset opstarten script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) of een [entrypoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Een voorbeeld van het script voor het installeren van de [Docker volume stuurprogramma voor Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is als volgt:
 

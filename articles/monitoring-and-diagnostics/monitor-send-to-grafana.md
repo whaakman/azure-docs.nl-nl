@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Uw Azure-services in Grafana bewaken
 U kunt nu ook bewaken Azure-services en toepassingen van [Grafana](https://grafana.com/) met behulp van de [Azure Monitor gegevensbron invoegtoepassing](https://grafana.com/plugins/grafana-azure-monitor-datasource). De invoegtoepassing verzamelt prestatiegegevens van toepassingen die door de Application Insights-SDK worden verzameld, evenals infrastructuur gegevens die zijn verstrekt door Azure bewaken. U kunt vervolgens deze gegevens op uw dashboard Grafana weergeven.
@@ -62,7 +62,7 @@ Grafana maakt gebruik van een Azure Active Directory-service-principal verbindin
 
 1. Zie [deze instructies](../azure-resource-manager/resource-group-create-service-principal-portal.md) voor het maken van een service-principal. Kopiëren en opslaan van uw tenant-ID, client-ID en een clientgeheim.
 
-2. Zie [toepassing toewijzen aan rol](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) met de lezersrol toewijzen aan de Azure Active Directory-toepassing.   
+2. Zie [toepassing toewijzen aan rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) met de lezersrol toewijzen aan de Azure Active Directory-toepassing.     
 
 3. Als u Application Insights gebruikt, kunt u ook uw Application Insights-API en de toepassings-ID voor het verzamelen van Application Insights op basis van metrische gegevens opnemen. Zie voor meer informatie [ophalen van uw API-sleutel en de toepassings-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 

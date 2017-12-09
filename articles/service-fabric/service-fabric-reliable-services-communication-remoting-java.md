@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Service voor externe toegang met Reliable Services
 > [!div class="op_single_selector"]
@@ -90,8 +90,8 @@ Het framework remoting uitzonderingen op de service naar de client wordt doorgeg
 Het maken van ServiceProxy is een lichtgewicht bewerking, zodat gebruikers zo veel naar behoefte kunt maken. Proxy-service kan opnieuw worden gebruikt zolang de gebruiker nodig. Gebruiker kan dezelfde proxy in geval van een uitzondering opnieuw gebruiken. Elke ServiceProxy bevat communicatie-client gebruikt om berichten te verzenden via de kabel. Tijdens het aanroepen van API, hebben we interne controleert u of de client wordt communicatie gebruikt geldig is. Op basis van die resulteren, maken wordt de client communicatie opnieuw. Gebruiker hoeft dus niet opnieuw maken van serviceproxy in geval van een uitzondering.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory levensduur
-[FabricServiceProxyFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) is een factory die de proxy voor externe communicatie van andere interfaces maakt. Als u API gebruikt `ServiceProxyBase.create` voor het maken van proxy framework maakt vervolgens een `FabricServiceProxyFactory`.
-Is het nuttig om een handmatig maken als u wilt onderdrukken [ServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) eigenschappen.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) is een factory die de proxy voor externe communicatie van andere interfaces maakt. Als u API gebruikt `ServiceProxyBase.create` voor het maken van proxy framework maakt vervolgens een `FabricServiceProxyFactory`.
+Is het nuttig om een handmatig maken als u wilt onderdrukken [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) eigenschappen.
 Factory is een dure bewerking. `FabricServiceProxyFactory`houdt de cache van clients voor communicatie.
 Aanbevolen procedure is aan het cachegeheugen `FabricServiceProxyFactory` voor zo lang mogelijk.
 
@@ -101,7 +101,7 @@ De externe uitzondering veroorzaakt door de API-service, worden als RuntimeExcep
 ServiceProxy wordt verwerkt alle failover-uitzondering voor de service-partitie dat deze wordt gemaakt. Deze opnieuw de eindpunten opgelost als er Failover Exceptions(Non-Transient Exceptions) en probeert om opnieuw de aanroep met het juiste eindpunt. Aantal nieuwe pogingen voor failover-uitzondering is oneindig.
 In geval van een TransientExceptions, het alleen opnieuw probeert de aanroep.
 
-Standaard opnieuw parameters worden opgegeven door [OperationRetrySettings]. (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Gebruiker kan deze waarden door OperationRetrySettings object doorgeven aan de constructor ServiceProxyFactory configureren.
+Standaard opnieuw parameters worden opgegeven door [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Gebruiker kan deze waarden door OperationRetrySettings object doorgeven aan de constructor ServiceProxyFactory configureren.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Beveiligen van communicatie voor Reliable Services](service-fabric-reliable-services-secure-communication.md)
