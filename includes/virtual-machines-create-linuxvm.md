@@ -1,5 +1,5 @@
 
-1. Meld u aan bij uw Azure-abonnement met behulp van de stappen in [Connect to Azure from the Azure CLI 1.0](../articles/xplat-cli-connect.md) (Verbinding maken met Azure via de Azure CLI 1.0).
+1. Meld u aan bij uw Azure-abonnement met behulp van de stappen in [Connect to Azure from the Azure CLI 1.0](/cli/azure/authenticate-azure-cli) (Verbinding maken met Azure via de Azure CLI 1.0).
 
 2. Zorg er als volgt voor dat u zich in de klassieke implementatiemodus bevindt:
 

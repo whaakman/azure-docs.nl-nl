@@ -18,14 +18,14 @@
 | Aangepast domein [SSL-ondersteuning](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Onbeperkte SNI-SSL-verbindingen |Onbeperkte SNI SSL en 1 opgenomen IP SSL-verbindingen |Onbeperkte SNI SSL en 1 opgenomen IP SSL-verbindingen |
 | Geïntegreerde belastingverdeler | |X |X |X |X |
 | [AlwaysOn](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Geplande back-ups](../articles/app-service/web-sites-backup.md) | | | |12 per dag |Om de 5 minuten<sup>8</sup> |
+| [Geplande back-ups](../articles/app-service/web-sites-backup.md) | | | | Geplande back-ups elke 2 uur, maximaal 12 back-ups per dag (handmatige + geplande) | Geplande back-ups elk uur een maximum van 50 back-ups per dag (handmatige + geplande) |
 | [Automatisch schalen](../articles/app-service/web-sites-scale.md) | | | |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
+| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) ondersteunen | |X |X |X |X |
 | [Eindpuntbewaking](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Faseringssleuven](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Aangepaste domeinen per app</a> | |500 |500 |500 |500 |
-| SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
+| SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>9</sup> |
 
 <sup>1</sup>apps en opslagquota zijn per App Service-abonnement tenzij anders vermeld wordt.  
 <sup>2</sup>het werkelijke aantal apps die u op deze machines hosten kunt is afhankelijk van de activiteit van de apps, de grootte van de machine-exemplaren en de bijbehorende bronnen beter worden benut.  
@@ -34,7 +34,6 @@
 <sup>5</sup>de opslaglimiet is de totale grootte van de inhoud voor alle apps in hetzelfde App Service-plan. Meer opties voor opslag zijn beschikbaar in [App Service-omgeving](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>deze resources worden beperkt door fysieke resources op de specifieke exemplaren (de exemplaargrootte en het aantal exemplaren van).  
 <sup>7</sup>als u een app in de basisstaffel naar twee exemplaren schalen, hebt u 350 gelijktijdige verbindingen voor elk van de twee exemplaren.  
-<sup>8</sup>premium-laag kunt back-intervallen omlaag tot elke 5 minuten bij gebruik van App Service-omgevingen en 50 keer per dag anders.  
-<sup>9</sup>aangepaste uitvoerbare bestanden en/of scripts uitvoeren op aanvraag volgens een schema of continu als achtergrondtaak binnen uw App Service-exemplaar. Altijd beschikbaar is vereist voor de continue uitvoering van WebJobs. Azure Scheduler Gratis of Standaard is vereist voor geplande WebJobs. Er is geen vooraf gedefinieerde limiet voor het aantal WebJobs die kunnen worden uitgevoerd in een App Service-exemplaar, maar er zijn praktische grenzen die afhankelijk zijn van wat de toepassingscode probeert te doen.   
-<sup>10</sup>SLA van 99,95% die zijn opgegeven voor implementaties met meerdere exemplaren met Azure Traffic Manager is geconfigureerd voor failover.  
+<sup>8</sup>aangepaste uitvoerbare bestanden en/of scripts uitvoeren op aanvraag volgens een schema of continu als achtergrondtaak binnen uw App Service-exemplaar. Altijd beschikbaar is vereist voor de continue uitvoering van WebJobs. Azure Scheduler Gratis of Standaard is vereist voor geplande WebJobs. Er is geen vooraf gedefinieerde limiet voor het aantal WebJobs die kunnen worden uitgevoerd in een App Service-exemplaar, maar er zijn praktische grenzen die afhankelijk zijn van wat de toepassingscode probeert te doen.   
+<sup>9</sup>SLA van 99,95% die zijn opgegeven voor implementaties met meerdere exemplaren met Azure Traffic Manager is geconfigureerd voor failover.  
 
