@@ -6,7 +6,7 @@ Wanneer u een gegevensschijf die is gekoppeld aan een virtuele machine (VM) niet
 ## <a name="find-the-disk"></a>De schijf vinden
 Voordat u een schijf van een virtuele machine kunt loskoppelen, moet u achter het LUN komen. Dit is een id voor de schijf die u wilt loskoppelen. Voer hiervoor de volgende stappen uit:
 
-1. Open Azure CLI en [maak verbinding met uw Azure-abonnement](../articles/xplat-cli-connect.md). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
+1. Open Azure CLI en [maak verbinding met uw Azure-abonnement](/cli/azure/authenticate-azure-cli). Zorg ervoor dat u zich in de modus voor Azure-servicebeheer (`azure config mode asm`) bevindt.
 2. Achterhaal welke schijven zijn gekoppeld aan uw virtuele machine. In het volgende voorbeeld worden schijven weergegeven voor de virtuele machine met de naam `myVM`:
 
     ```azurecli
