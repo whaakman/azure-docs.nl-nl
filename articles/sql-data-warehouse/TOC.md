@@ -2,7 +2,7 @@
 
 ## [Over SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 
-# Snelstartgidsen
+# QuickStarts
 
 ## [Maken en koppelen - portal](create-data-warehouse-portal.md)
 
@@ -38,6 +38,7 @@
 
 ## Integreren
 ### [Overzicht](sql-data-warehouse-overview-integrate.md)
+### [Elastische SQL Database-query](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Bewaken en afstemmen
@@ -100,9 +101,8 @@
 
 
 ## Integreren
-###  [Een elastische query in SQL Database configureren](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Een elastische SQL Database-query configureren](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Een Azure Stream Analytics-taak toevoegen](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Een elastische query configureren](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Machine Learning gebruiken](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Visualiseren met Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

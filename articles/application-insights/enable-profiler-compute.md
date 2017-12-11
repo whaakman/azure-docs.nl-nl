@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 66ea24cfe9dd03ed62c06daa76ee043886ad7bcc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Inschakelen van Application Insights Profiler voor virtuele machines in Azure, Service Fabric en Cloud Services
 
 In dit artikel laat zien hoe Azure Application Insights Profiler inschakelen op een ASP.NET-toepassing die wordt gehost door een Azure compute-resource. 
 
-De voorbeelden in dit artikel zijn ondersteuning voor Azure Virtual Machines, virtuele-machineschaalsets, Azure Service Fabric en Azure Cloud Services. De voorbeelden zijn afhankelijk van de sjablonen die ondersteuning bieden voor de [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) implementatiemodel.  
+De voorbeelden in dit artikel zijn ondersteuning voor Azure Virtual Machines, virtuele-machineschaalsets, Azure Service Fabric en Azure Cloud Services. De voorbeelden zijn afhankelijk van de sjablonen die ondersteuning bieden voor de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) implementatiemodel.  
 
 
 ## <a name="overview"></a>Overzicht
@@ -47,14 +47,14 @@ In de Azure portal maken of Ga naar de Application Insights-instantie die u wilt
 Dit exemplaar moet hetzelfde zijn als uw toepassing. Deze geconfigureerd voor het verzenden van telemetriegegevens naar bij elke aanvraag.
 Profiler resultaten ook zijn beschikbaar in dit exemplaar.  
 
-In de Azure portal, de stappen die worden beschreven in [inschakelen van de profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler) voor het voltooien van de Application Insights-exemplaar in te stellen voor de profiler. U hoeft niet te koppelen van web-apps voor het voorbeeld in dit artikel. NET ervoor te zorgen dat de profiler is ingeschakeld in de portal.
+In de Azure portal, de stappen die worden beschreven in [inschakelen van de profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) voor het voltooien van de Application Insights-exemplaar in te stellen voor de profiler. U hoeft niet te koppelen van web-apps voor het voorbeeld in dit artikel. NET ervoor te zorgen dat de profiler is ingeschakeld in de portal.
 
 
 ## <a name="set-up-the-application-source-code"></a>De broncode van de toepassing instellen
 
 Instellen van uw toepassing telemetriegegevens te verzenden naar een Application Insights-exemplaar op elk `Request` bewerking:  
 
-1. Voeg de [Application Insights-SDK](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview#get-started) aan uw toepassingsproject. Zorg ervoor dat de NuGet-pakket-versies als volgt zijn:  
+1. Voeg de [Application Insights-SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) aan uw toepassingsproject. Zorg ervoor dat de NuGet-pakket-versies als volgt zijn:  
   - Voor ASP.NET-toepassingen: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 of hoger.
   - Voor ASP.NET Core toepassingen: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 of hoger.
   - Voor andere toepassingen .NET en .NET Core (bijvoorbeeld een stateless Service Fabric-service of een werkrol Cloud Services): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) of [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 of hoger.  
@@ -138,9 +138,9 @@ Volledige voorbeelden:
   * [Virtuele-machineschaalset](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
   * [Service Fabric-cluster](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
-1. Om ervoor te zorgen dat [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger is in gebruik is, het is voldoende om te bevestigen dat het geïmplementeerde besturingssysteem `Windows Server 2012 R2` of hoger.
+1. Om ervoor te zorgen dat [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger is in gebruik is, het is voldoende om te bevestigen dat het geïmplementeerde besturingssysteem `Windows Server 2012 R2` of hoger.
 
-2. Zoek de [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) extensie in de sjabloon voor de implementatie-bestand en voeg vervolgens de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`. Vervang de `ApplicationInsightsProfiler` eigenschapswaarde met uw eigen Application Insights-instrumentatiesleutel:  
+2. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) extensie in de sjabloon voor de implementatie-bestand en voeg vervolgens de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`. Vervang de `ApplicationInsightsProfiler` eigenschapswaarde met uw eigen Application Insights-instrumentatiesleutel:  
   ```json
   "SinksConfig": {
     "Sink": [
@@ -152,16 +152,16 @@ Volledige voorbeelden:
   }
   ```
 
-  Zie voor meer informatie over het toevoegen van de extensie voor diagnostische gegevens naar uw implementatiesjabloon [Gebruik controle en diagnostische gegevens met een virtuele machine van Windows en Azure Resource Manager-sjablonen](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  Zie voor meer informatie over het toevoegen van de extensie voor diagnostische gegevens naar uw implementatiesjabloon [Gebruik controle en diagnostische gegevens met een virtuele machine van Windows en Azure Resource Manager-sjablonen](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 ### <a name="cloud-services"></a>Cloud Services
 
-1. Om ervoor te zorgen dat [.NET Framework 4.6.1](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger is in gebruik is, het is voldoende om te bevestigen dat serviceconfiguration zijn.\*. cscfg-bestanden hebben een `osFamily` waarde van **'5'** of hoger.
+1. Om ervoor te zorgen dat [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger is in gebruik is, het is voldoende om te bevestigen dat serviceconfiguration zijn.\*. cscfg-bestanden hebben een `osFamily` waarde van **'5'** of hoger.
 
-2. Zoek de [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx-bestand voor de toepassingsrol van uw:  
+2. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx-bestand voor de toepassingsrol van uw:  
   ![Locatie van het configuratiebestand van de diagnostische gegevens](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
-  Als u het bestand niet vinden, voor meer informatie over het inschakelen van de extensie voor diagnostische gegevens in uw Cloud Services-project, raadpleegt u [diagnostics instellen voor Azure Cloud Services en virtuele machines](https://docs.microsoft.com/en-us/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
+  Als u het bestand niet vinden, voor meer informatie over het inschakelen van de extensie voor diagnostische gegevens in uw Cloud Services-project, raadpleegt u [diagnostics instellen voor Azure Cloud Services en virtuele machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
 3. Voeg de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`:  
   ```xml
@@ -205,11 +205,11 @@ Volledige voorbeelden:
 
 2. Als de gewenste toepassing wordt uitgevoerd via [IIS](https://www.microsoft.com/web/platform/server.aspx), schakel de `IIS Http Tracing` Windows-functie:  
   
-  1. Externe toegang tot de omgeving tot stand brengen en gebruik vervolgens de [Windows-onderdelen toevoegen]( https://docs.microsoft.com/en-us/iis/configuration/system.webserver/tracing/) venster uit of Voer de volgende opdracht uit in PowerShell (als administrator):  
+  1. Externe toegang tot de omgeving tot stand brengen en gebruik vervolgens de [Windows-onderdelen toevoegen]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) venster uit of Voer de volgende opdracht uit in PowerShell (als administrator):  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-  2. Als het tot stand brengen van externe toegang is een probleem, kunt u [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli) de volgende opdracht uitvoeren:  
+  2. Als het tot stand brengen van externe toegang is een probleem, kunt u [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) de volgende opdracht uitvoeren:  
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
@@ -223,7 +223,7 @@ We hebben geen plan officiële ondersteuning voor de profiler voor on-premises s
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Genereren van het verkeer naar uw toepassing (bijvoorbeeld starten een [beschikbaarheidstest](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-monitor-web-app-availability)). Wacht 10 tot 15 minuten aan traceringen worden verzonden naar de Application Insights-exemplaar gestart.
-- Zie [Profiler traceringen](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler) in de Azure portal.
+- Genereren van het verkeer naar uw toepassing (bijvoorbeeld starten een [beschikbaarheidstest](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Wacht 10 tot 15 minuten aan traceringen worden verzonden naar de Application Insights-exemplaar gestart.
+- Zie [Profiler traceringen](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) in de Azure portal.
 - Hulp bij het oplossen van problemen in profiler [Profiler probleemoplossing](app-insights-profiler.md#troubleshooting).
 - Meer informatie over de profiler in [Application Insights Profiler](app-insights-profiler.md).

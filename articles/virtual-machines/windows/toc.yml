@@ -4,7 +4,7 @@
   items:
     - name: Informatie over virtuele machines
       href: overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Virtuele machine maken - Portal
@@ -66,6 +66,9 @@
         - name: Geoptimaliseerde rekenkracht
           href: sizes-compute.md
         - name: Geoptimaliseerd geheugen
+          items:
+            - name: Beperkte vCPU's
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Geoptimaliseerde opslag
           href: sizes-storage.md
@@ -164,6 +167,8 @@
       items:
         - name: Vooruitbetalen voor virtuele machines - gereserveerde instanties
           href: prepay-reserved-vm-instances.md
+        - name: VM-gebruik
+          href: vm-usage.md
         - name: Algemene PowerShell-taken
           href: ps-common-ref.md
         - name: Een virtuele machine verplaatsen
