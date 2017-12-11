@@ -135,6 +135,8 @@
       items:
         - name: Doorlopende implementatie
           href: functions-continuous-deployment.md
+        - name: Zip-push implementeren
+          href: deployment-zip-push.md
         - name: Resource-implementatie automatiseren
           href: functions-infrastructure-as-code.md
         - name: On-premises functies

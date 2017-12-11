@@ -50,6 +50,7 @@
 ### [XML valideren](logic-apps-enterprise-integration-xml-validation.md)
 ### [Schema's voor XML-validatie toevoegen](logic-apps-enterprise-integration-schemas.md)
 ### [XML transformeren](logic-apps-enterprise-integration-transform.md)
+### [JSON transformeren](logic-apps-enterprise-integration-liquid-transform.md)
 ### [Toewijzingen voor XML-transformatie toevoegen](logic-apps-enterprise-integration-maps.md)
 ### [Certificaten voor B2B-beveiliging toevoegen](logic-apps-enterprise-integration-certificates.md)
 ### [Metagegevens voor artefacten opslaan](logic-apps-enterprise-integration-metadata.md)

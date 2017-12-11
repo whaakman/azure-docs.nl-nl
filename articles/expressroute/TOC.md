@@ -28,10 +28,11 @@
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
+## [Een site-naar-site-VPN configureren via Microsoft-peering](site-to-site-vpn-over-microsoft-peering.md)
 ## Een virtuele netwerkgateway configureren voor ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-## [Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren](expressroute-howto-coexist-resource-manager.md)
+## [Gelijktijdige ExpressRoute- en site-naar-site-verbindingen configureren](expressroute-howto-coexist-resource-manager.md)
 ## Routefilters voor Microsoft-peering configureren
 ### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)

@@ -11,6 +11,9 @@
   items:
     - name: Een Kafka-cluster maken
       href: apache-kafka-get-started.md
+    - name: HDInsight-apps installeren
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Capaciteitsplanning
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -50,20 +53,11 @@
         - name: Clusters aanpassen met Script Action
           href: ../hdinsight-hadoop-customize-cluster-linux.md
           maintainContext: true
-        - name: HDInsight verbinden met uw on-premises netwerk
-          href: ../connect-on-premises-network.md
-          maintainContext: true
         - name: Scriptacties ontwikkelen
           href: ../hdinsight-hadoop-script-actions-linux.md
           maintainContext: true
-        - name: Virtual Network gebruiken
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: HDInsight-toepassingen bouwen
           items:
-            - name: HDInsight-apps installeren
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Aangepaste apps installeren
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -145,20 +139,6 @@
         - name: OS-patches voor HDInsight-cluster
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Bewaken
-      items:
-        - name: Azure Log Analytics gebruiken
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Cluster-specifieke dashboards
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Queries gebruiken met Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Cluster-prestaties bewaken
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Problemen oplossen
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -183,6 +163,33 @@
             - name: Heapdumps voor Hadoop-services inschakelen
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
               maintainContext: true
+- name: Gereedheid voor bedrijven
+  items:
+    - name: Gegevens beveiligen
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Netwerktoegang
+      items:
+        - name: HDInsight in Azure VNet
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: HDInsight verbinden met een on-premises netwerk
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: Bewaking met OMS
+      items:
+        - name: Azure Log Analytics gebruiken
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Cluster-specifieke dashboards
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Queries gebruiken met Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Cluster-prestaties bewaken
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Naslaginformatie
   items:
     - name: Codevoorbeelden
