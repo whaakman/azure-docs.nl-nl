@@ -5,46 +5,51 @@ metadata:
   title: Documentatie voor Azure Machine Learning (preview)
   meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
-  author: czeumault
-  manager: carolz
+  author: garyericson
+  manager: jhubbard
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/06/2017
-  ms.author: carolz
+  ms.author: garye
+  ms.openlocfilehash: c5873c1a9f5a73f700a07fe1050180750bf59cd4
+  ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 12/09/2017
 abstract:
-  description: 'Ontdek met onze snelstartgidsen en zelfstudies hoe u gegevens voorbereid, en modellen bouwt en implementeert. De preview-functies van Azure Machine Learning maken het mogelijk om ML- en AI-modellen te bouwen, implementeren en beheren met behulp van hulpprogramma''s en bibliotheken van Python. U kunt een groot aantal verschillende gegevens en compute-services in Azure gebruiken om uw gegevens op te slaan en te verwerken.'
+  description: Ontdek met onze snelstartgidsen en zelfstudies hoe u gegevens voorbereid, en modellen bouwt en implementeert. De preview-functies van Azure Machine Learning maken het mogelijk om ML- en AI-modellen te bouwen, implementeren en beheren met behulp van hulpprogramma's en bibliotheken van Python. U kunt een groot aantal verschillende gegevens en compute-services in Azure gebruiken om uw gegevens op te slaan en te verwerken.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Uw eerste Machine Learning-project maken
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Uw eerste Machine Learning-project maken
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/machine-learning/media/index/i_machine-learning.svg
-            text: Installeren en maken
-            href: quickstart-installation
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      text: Installeren en maken
+      href: quickstart-installation
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Meer informatie over hoe u uw gegevens voorbereidt, een experiment instelt en uw modellen operationeel maakt
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Meer informatie over hoe u uw gegevens voorbereidt, een experiment instelt en uw modellen operationeel maakt'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-classifying-iris-part-1">Doorloop de basisprincipes van Machine Learning-services (preview)</a>
-          - html: <a href="tutorial-classifying-iris-part-2">Machine Learning Workbench gebruiken om een model te bouwen met de Iris-gegevensset</a>
-          - html: <a href="tutorial-classifying-iris-part-3">Meer informatie over het implementeren van een Machine Learning-model</a>
-          - html: <a href="tutorial-bikeshare-dataprep">Azure Machine Learning Workbench gebruiken voor geavanceerde voorbereiding van gegevens</a>
-  - title: Naslaginformatie
+    - html: <a href="tutorial-classifying-iris-part-1">Doorloop de basisprincipes van Machine Learning-services (preview)</a>
+    - html: <a href="tutorial-classifying-iris-part-2">Machine Learning Workbench gebruiken om een model te bouwen met de Iris-gegevensset</a>
+    - html: <a href="tutorial-classifying-iris-part-3">Meer informatie over het implementeren van een Machine Learning-model</a>
+    - html: <a href="tutorial-bikeshare-dataprep">Azure Machine Learning Workbench gebruiken voor geavanceerde voorbereiding van gegevens</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Talen
-            html: '<p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-          - title: REST
-            html: <p><a href="model-management-api-reference">REST API voor modelbeheer</a></p>
+    - title: Talen
+      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: <p><a href="model-management-api-reference">REST API voor modelbeheer</a></p>
