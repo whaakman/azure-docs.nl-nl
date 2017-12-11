@@ -7,7 +7,7 @@
       href: overview-what-is-azure-ml.md
     - name: Overzicht van modelbeheer
       href: model-management-overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   items:
     - name: Installeren en maken
       href: quickstart-installation.md
@@ -128,6 +128,8 @@
           href: scenario-tdsp-classifying-us-incomes.md
         - name: Afbeeldingsclassificatie met behulp van CNTK
           href: scenario-image-classification-using-cntk.md
+        - name: Deep Learning voor predictief onderhoud
+          href: scenario-deep-learning-for-predictive-maintenance.md
 - name: Naslaginformatie
   items:
     - name: Gegevensvoorbereiding

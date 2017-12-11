@@ -2,106 +2,115 @@
 documentType: LandingData
 title: Documentatie voor Azure Service Fabric
 metadata:
-  title: 'Documentatie voor Azure Service Fabric - zelfstudies, API-verwijzing | Microsoft Docs'
-  meta.description: 'Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.'
+  title: Documentatie voor Azure Service Fabric - zelfstudies, API-verwijzing | Microsoft Docs
+  meta.description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
   services: service-fabric
-  author: null
+  author: 
   manager: carolz
   layout: LandingPage
-  ms.assetid: null
+  ms.assetid: 
   ms.service: service-fabric
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
+  ms.openlocfilehash: d50c30ccb4fe6d5d6c56edb2a53d4822796af6d4
+  ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 12/08/2017
 abstract:
-  description: 'Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u gemakkelijk schaalbare en betrouwbare microservices en containers verpakt, implementeert en beheert. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Service Fabric gebruikt.'
+  description: Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u gemakkelijk schaalbare en betrouwbare microservices en containers verpakt, implementeert en beheert. Ontwikkelaars en beheerders kunnen complexe infrastructuurproblemen voorkomen en zich concentreren op het implementeren van bedrijfsspecifieke, veeleisende werkbelastingen die schaalbaar, betrouwbaar en beheerbaar zijn. Ontdek met onze QuickStarts, zelfstudies en voorbeelden hoe u Azure Service Fabric gebruikt.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Ontdek hoe u uw eerste Service Fabric-toepassing in de cloud implementeert:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Ontdek hoe u uw eerste Service Fabric-toepassing in de cloud implementeert:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_net.svg'
-            text: .NET
-            href: service-fabric-quickstart-dotnet
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Java.svg'
-            text: Java
-            href: service-fabric-quickstart-java
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Linux-containers
-            href: service-fabric-quickstart-containers-linux
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: Windows-containers
-            href: service-fabric-quickstart-containers
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_net.svg
+      text: .NET
+      href: service-fabric-quickstart-dotnet
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Java.svg
+      text: Java (Reliable Services)
+      href: service-fabric-quickstart-java-reliable-services
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Java.svg
+      text: Java (Spring Boot)
+      href: service-fabric-quickstart-java-spring-boot
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: Linux-containers
+      href: service-fabric-quickstart-containers-linux
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
+      text: Windows-containers
+      href: service-fabric-quickstart-containers
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Ontdek hoe u in Azure beveiligde web-apps implementeert, beheert en bewaakt
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Ontdek hoe u in Azure beveiligde web-apps implementeert, beheert en bewaakt'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="service-fabric-tutorial-create-dotnet-app">Een .NET-toepassing implementeren</a>
-          - html: <a href="service-fabric-host-app-in-a-container">Een bestaande .NET-app in een container plaatsen</a>
-          - html: <a href="service-fabric-tutorial-create-container-images">Een Linux-containertoepassing maken</a>
-          - html: Een cluster maken en beheren in <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> of <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
-  - title: Gratis Pluralsight-videotraining
+    - html: <a href="service-fabric-tutorial-create-dotnet-app">Een .NET-toepassing implementeren</a>
+    - html: <a href="service-fabric-host-app-in-a-container">Een bestaande .NET-app in een container plaatsen</a>
+    - html: <a href="service-fabric-tutorial-create-container-images">Een Linux-containertoepassing maken</a>
+    - html: Een cluster maken en beheren in <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> of <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
+- title: Gratis Pluralsight-videotraining
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Ontwikkelen met .NET
-            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-          - title: Cloudpatronen en -architectuur
-            href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
-  - title: Concepten
+    - title: Ontwikkelen met .NET
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+    - title: Cloudpatronen en -architectuur
+      href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+- title: Concepten
+  items:
+  - type: list
+    style: unordered
     items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="service-fabric-overview-microservices">Uitleg over microservices</a>
-          - html: <a href="service-fabric-content-roadmap">Het totaalbeeld</a>
-          - html: <a href="service-fabric-application-scenarios">Toepassingsscenario's</a>
-          - html: <a href="service-fabric-patterns-and-scenarios">Patronen en scenario's</a>
-          - html: <a href="service-fabric-architecture">Architectuur</a>
-          - html: <a href="service-fabric-technical-overview">Terminologie</a>
-  - title: Voorbeelden
+    - html: <a href="service-fabric-overview-microservices">Uitleg over microservices</a>
+    - html: <a href="service-fabric-content-roadmap">Het totaalbeeld</a>
+    - html: <a href="service-fabric-application-scenarios">Toepassingsscenario's</a>
+    - html: <a href="service-fabric-patterns-and-scenarios">Patronen en scenario's</a>
+    - html: <a href="service-fabric-architecture">Architectuur</a>
+    - html: <a href="service-fabric-technical-overview">Terminologie</a>
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: 'Scripts voor veelvoorkomende beheertaken zoeken:'
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: paragraph
-        text: 'Scripts voor veelvoorkomende beheertaken zoeken:'
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Scriptvoorbeelden
-            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Service Fabric-CLI</a></p>
-          - title: .NET
-            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Aan de slag</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Stemmen</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Webverwijzing</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>'
-          - title: Java
-            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Aan de slag</a></p>'
-  - title: Naslaginformatie
+    - title: Scriptvoorbeelden
+      html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Service Fabric-CLI</a></p>
+    - title: .NET
+      html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Aan de slag</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Stemmen</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Webverwijzing</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>
+    - title: Java
+      html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Aan de slag</a></p>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: '<p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric-CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
-          - title: Talen
-            html: <p><a href="/java/api/overview/azure/servicefabric">Java-API</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">XML-schema van servicemodel</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/servicefabric">Naslaginformatie over REST-API</a></p>
+    - title: Opdrachtregel
+      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric-CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+    - title: Talen
+      html: <p><a href="/java/api/overview/azure/servicefabric">Java-API</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">XML-schema van servicemodel</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/servicefabric">Naslaginformatie over REST-API</a></p>

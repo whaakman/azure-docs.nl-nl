@@ -1,29 +1,53 @@
 - name: Documentatie voor Azure HDInsight
   href: /azure/hdinsight
-- name: Enterprise Security in HDInsight
+- name: Beveiliging voor bedrijven
   items:
     - name: Overzicht
       href: apache-domain-joined-introduction.md
-    - name: Aan domein gekoppelde HDInsight-implementatie plannen
+    - name: Plan voor bedrijfsbeveiliging
       href: apache-domain-joined-architecture.md
-    - name: Versiebeheer onderdeel
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-- name: Aan de slag
-  items:
-    - name: Aan domein gekoppelde HDInsight-implementatie configureren
+    - name: Bedrijfsbeveiliging configureren in HDInsight
       href: apache-domain-joined-configure.md
-    - name: Aan domein gekoppelde HDInsight-implementatie configureren met behulp van Azure AD DS
+    - name: Bedrijfsbeveiliging configureren in HDInsight met behulp van Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Hive-beleid configureren
       href: apache-domain-joined-run-hive.md
     - name: Capaciteitsplanning
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Procedures
-  items:
-    - name: Clusters beheren
+    - name: Clusters met bedrijfsbeveiliging beheren
       href: apache-domain-joined-manage.md
+- name: Gegevens beveiligen
+  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  maintainContext: true
+- name: Netwerktoegang
+  items:
+    - name: HDInsight in Azure VNet
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: HDInsight verbinden met een on-premises netwerk
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: Een HBase-cluster maken in Azure VNet
+      href: ../hbase/apache-hbase-provision-vnet.md
+      maintainContext: true
+    - name: Replicatie van HBase-cluster in Azure VNet
+      href: ../hbase/apache-hbase-replication.md
+      maintainContext: true
+- name: Bewaking met OMS
+  items:
+    - name: Azure Log Analytics gebruiken
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Cluster-specifieke dashboards
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: Queries gebruiken met Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Cluster-prestaties bewaken
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: Naslaginformatie
   items:
     - name: Codevoorbeelden

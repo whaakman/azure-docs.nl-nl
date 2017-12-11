@@ -2,11 +2,11 @@
 # Overzicht
 ## [Wat is Service Fabric?](service-fabric-overview.md)
 
-# Snelstartgidsen
+# QuickStarts
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
 ## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
 ## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
-## Java-snelstartgidsen
+## Java-QuickStarts
 ### [Een Spring Boot-toepassing implementeren](service-fabric-quickstart-java-spring-boot.md)
 ### [Een betrouwbare servicetoepassing implementeren](service-fabric-quickstart-java-reliable-services.md)
 
@@ -50,14 +50,11 @@
 ## [Terminologie](service-fabric-technical-overview.md)
 
 ## Toepassingen en services bouwen
-### Ondersteunde programmeermodellen
-#### [Overzicht](service-fabric-choose-framework.md)
-#### Containers
-##### [Overzicht](service-fabric-containers-overview.md)
+### [Ondersteunde programmeermodellen](service-fabric-choose-framework.md)
+#### [Containers](service-fabric-containers-overview.md)
 ##### [Docker Compose (preview)](service-fabric-docker-compose.md)
 ##### [Resourcebeheer](service-fabric-resource-governance.md)
-#### Reliable Services
-##### [Overzicht](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services](service-fabric-reliable-services-introduction.md)
 ##### [Levenscyclus van Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Levenscyclus van Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Beheer van betrouwbare status en interne werking van betrouwbare verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [Geavanceerd gebruik](service-fabric-reliable-services-advanced-usage.md)
 
-#### Reliable Actors
-##### [Overzicht](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [Architectuur](service-fabric-reliable-actors-platform.md)
 ##### [Levenscyclus en garbagecollection](service-fabric-reliable-actors-lifecycle.md)
 ##### [Statusbeheer](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [Servicestatus](service-fabric-concepts-state.md)
 #### [Service partitioneren](service-fabric-concepts-partitioning.md)
 #### [Beschikbaarheid van services](service-fabric-availability-services.md)
-#### [Replica's en exemplaren](service-fabric-concepts-replica-lifecycle.md)
+#### [Levenscyclus van replica's en instanties](service-fabric-concepts-replica-lifecycle.md)
 #### [Herconfiguratie](service-fabric-concepts-reconfiguration.md)
-#### Servicecommunicatie
-##### [Overzicht](service-fabric-connect-and-communicate-with-services.md)
+#### [Servicecommunicatie](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS-service](service-fabric-dnsservice.md)
 ##### [Omgekeerde proxy](service-fabric-reverseproxy.md)
 ##### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,10 +94,8 @@
 
 ### [Capaciteit van een toepassing plannen](service-fabric-capacity-planning.md)
 
-## Toepassingen beheren
-### [Overzicht](service-fabric-application-lifecycle.md)
-### Toepassingsupgrade
-#### [Overzicht](service-fabric-application-upgrade.md)
+## [Toepassingen beheren](service-fabric-application-lifecycle.md)
+### [Toepassingsupgrade](service-fabric-application-upgrade.md)
 #### [Configuratie](service-fabric-visualstudio-configure-upgrade.md)
 #### [Parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md)
 #### [Gegevensserialisatie in toepassingsupgrades](service-fabric-application-upgrade-data-serialization.md)
@@ -110,8 +103,7 @@
 ### [Overzicht foutanalyse](service-fabric-testability-overview.md)
 ### [De instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## Clusters maken en beheren
-### [Overzicht](service-fabric-deploy-anywhere.md)
+## [Clusters maken en beheren](service-fabric-deploy-anywhere.md)
 ### Plannen en voorbereiden
 #### [Capaciteitsplanning](service-fabric-cluster-capacity.md)
 #### [Herstel na noodgevallen](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Clusters op Azure
 #### [Knooppunttypen en VM-schaalsets](service-fabric-cluster-nodetypes.md)
 #### [Clusternetwerkpatronen](service-fabric-patterns-networking.md)
-### Cluster Resource Manager
-#### [Overzicht](service-fabric-cluster-resource-manager-introduction.md)
+### [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 #### [Architectuur](service-fabric-cluster-resource-manager-architecture.md)
 #### [Een cluster beschrijven](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Overzicht toepassingsgroepen](service-fabric-cluster-resource-manager-application-groups.md)
@@ -230,7 +221,7 @@
 #### [Toepassingsgeheimen beheren](service-fabric-application-secret-management.md)  
 #### [Beveiligingsbeleid configureren voor uw toepassing](service-fabric-application-runas-security.md)
 
-## Werken in een Windows-ontwikkelomgeving
+## Werken in een Windows-/VS-ontwikkelomgeving
 ### [Toepassingen beheren in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Beveiligde verbindingen configureren in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Uw toepassing configureren voor meerdere omgevingen](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -239,7 +230,7 @@
 ### [Lokaal bewaken en diagnoses uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Een Linux-cluster instellen in Windows](service-fabric-local-linux-cluster-windows.md)
 
-## Werken in een Linux-ontwikkelomgeving
+## Werken in een Linux-/Eclipse-ontwikkelomgeving
 ### [Aan de slag met Eclipse-invoegtoepassing voor Java-ontwikkeling](service-fabric-get-started-eclipse.md)
 ### [Fouten opsporen in een Java-service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Lokaal bewaken en diagnoses uitvoeren](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

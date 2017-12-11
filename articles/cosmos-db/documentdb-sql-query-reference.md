@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: 6fc96dae8c7c6983b1d062c22438344278d478e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure DB Cosmos DocumentDB API: Verwijzing naar SQL
 
@@ -677,7 +677,7 @@ ORDER BY <sort_specification>
     |"symbool"|Letterlijke symbool die deel uitmaakt van de syntaxis.|  
     |&#124; (verticale balk)|Alternatieven voor de syntaxis van de items. U kunt slechts één van de items die zijn opgegeven.|  
     |[] /(brackets)|Vierkante haken plaatst u een of meer optionele items.|  
-    |[,...n]|Hiermee geeft u het vorige item kunt herhaalde n het aantal keren. De exemplaren worden gescheiden door komma's.|  
+    |[,.. .n]|Hiermee geeft u het vorige item kunt herhaalde n het aantal keren. De exemplaren worden gescheiden door komma's.|  
     |[.. .n]|Hiermee geeft u het vorige item kunt herhaalde n het aantal keren. De exemplaren worden gescheiden door spaties.|  
   
 ##  <a name="bk_built_in_functions"></a>Ingebouwde functies  
@@ -2791,6 +2791,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Volgende stappen  
  [SQL-syntaxis en SQL-query voor Azure Cosmos-DB](documentdb-sql-query.md)   
- [Azure DB Cosmos-documentatie](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
+ [Azure DB Cosmos-documentatie](https://docs.microsoft.com/azure/cosmos-db/)  
   
   
