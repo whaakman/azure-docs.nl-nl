@@ -41,6 +41,8 @@
       href: kubernetes-draft.md
     - name: Gegevens behouden met Azure Files
       href: azure-files.md
+    - name: Integreren met Azure met behulp van OSBA
+      href: integrate-azure.md
     - name: Kubernetes-dashboard gebruiken
       href: kubernetes-dashboard.md
     - name: Een service-principal maken

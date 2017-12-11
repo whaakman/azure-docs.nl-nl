@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
-#### De klassieke portal gebruiken
-##### [Connectors downloaden](application-proxy-enable-classic-portal.md)
-##### [Apps publiceren](active-directory-application-proxy-publish.md)
-##### [Connectors gebruiken](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Voorwaardelijke toegang](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Enterprise-apps beheren
 #### [Gebruikers toewijzen](active-directory-coreapps-assign-user-azure-portal.md)
