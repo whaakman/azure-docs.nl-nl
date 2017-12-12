@@ -12,28 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1d857f3d062d8d1b15c64fa4b8c3e27ad6c2247e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configureren van telemetrie van Azure Media Services met .NET
 
-Dit onderwerp beschrijft de algemene stappen die u bij het configureren van de Azure Media Services (AMS) telemetrie met .NET SDK kan duren. 
+Dit artikel worden de algemene stappen die u bij het configureren van de Azure Media Services (AMS) telemetrie met .NET SDK kan duren. 
 
 >[!NOTE]
->Voor de gedetailleerde uitleg van wat is AMS Telemetrie en hoe deze wordt gebruikt, Zie de [overzicht](media-services-telemetry-overview.md) onderwerp.
+>Voor de gedetailleerde uitleg van wat is AMS Telemetrie en hoe deze wordt gebruikt, Zie de [overzicht](media-services-telemetry-overview.md) artikel.
 
 U kunt telemetrische gegevens in een van de volgende manieren gebruiken:
 
-- Gegevens lezen rechtstreeks vanuit Azure Table Storage (bijvoorbeeld met de opslag-SDK). Zie voor de beschrijving van telemetrie storage-tabellen, de **verbruikt telemetrie informatie** in [dit](https://msdn.microsoft.com/library/mt742089.aspx) onderwerp.
+- Gegevens lezen rechtstreeks vanuit Azure Table Storage (bijvoorbeeld met behulp van de opslag-SDK). Zie voor de beschrijving van telemetrie storage-tabellen, de **verbruikt telemetrie informatie** in [dit](https://msdn.microsoft.com/library/mt742089.aspx) artikel.
 
 of
 
-- De ondersteuning voor het lezen van gegevens in de opslag in de Media Services .NET SDK gebruiken. Dit onderwerp leest het inschakelen van telemetrie voor de opgegeven AMS-account en de metrische gegevens met Azure Media Services .NET SDK een query.  
+- De ondersteuning voor het lezen van gegevens in de opslag in de Media Services .NET SDK gebruiken. Dit artikel laat zien hoe telemetrie voor de opgegeven AMS-account inschakelen en de metrische gegevens met Azure Media Services .NET SDK een query.  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>Telemetrie voor een Media Services-account configureren
 
@@ -47,7 +47,7 @@ De volgende stappen zijn nodig om telemetrie inschakelen:
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 
-- Maak een controle configuratie-instellingen voor de services die u wilt bewaken. Niet meer dan één configuratie-instellingen voor bewaking is toegestaan. 
+- Maak een controleconfiguratie instellen voor de services die u wilt bewaken. Bewaking niet meer dan één configuratie-instelling is toegestaan. 
   
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
@@ -58,7 +58,7 @@ De volgende stappen zijn nodig om telemetrie inschakelen:
 
 ## <a name="consuming-telemetry-information"></a>Telemetrie-informatie gebruiken
 
-Zie voor informatie over consumerende telemetrie [dit](media-services-telemetry-overview.md) onderwerp.
+Zie voor informatie over consumerende telemetrie [dit](media-services-telemetry-overview.md) artikel.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
@@ -72,20 +72,25 @@ Zie voor informatie over consumerende telemetrie [dit](media-services-telemetry-
     
 Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS-account en de metrische gegevens met Azure Media Services .NET SDK een query.  
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
 
-    namespace AMSMetrics
+namespace AMSMetrics
+{
+    class Program
     {
-        class Program
-        {
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly string _mediaServicesStorageAccountName =
             ConfigurationManager.AppSettings["StorageAccountName"];
@@ -98,7 +103,11 @@ Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -112,21 +121,21 @@ Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS
             // No more than one monitoring configuration settings is allowed.
             if (monitoringConfigurations.ToArray().Length != 0)
             {
-            monitoringConfiguration = _context.MonitoringConfigurations.FirstOrDefault();
+                monitoringConfiguration = _context.MonitoringConfigurations.FirstOrDefault();
             }
             else
             {
-            INotificationEndPoint notificationEndPoint =
-                      _context.NotificationEndPoints.Create("monitoring",
-                      NotificationEndPointType.AzureTable, GetTableEndPoint());
+                INotificationEndPoint notificationEndPoint =
+                          _context.NotificationEndPoints.Create("monitoring",
+                          NotificationEndPointType.AzureTable, GetTableEndPoint());
 
-            monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
-                new List<ComponentMonitoringSetting>()
-                {
+                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
+                    new List<ComponentMonitoringSetting>()
+                    {
                     new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                     new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
 
-                });
+                    });
             }
 
             //Print metrics for a Streaming Endpoint.
@@ -156,19 +165,19 @@ Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS
 
             foreach (var log in res)
             {
-            Console.WriteLine("AccountId: {0}", log.AccountId);
-            Console.WriteLine("BytesSent: {0}", log.BytesSent);
-            Console.WriteLine("EndToEndLatency: {0}", log.EndToEndLatency);
-            Console.WriteLine("HostName: {0}", log.HostName);
-            Console.WriteLine("ObservedTime: {0}", log.ObservedTime);
-            Console.WriteLine("PartitionKey: {0}", log.PartitionKey);
-            Console.WriteLine("RequestCount: {0}", log.RequestCount);
-            Console.WriteLine("ResultCode: {0}", log.ResultCode);
-            Console.WriteLine("RowKey: {0}", log.RowKey);
-            Console.WriteLine("ServerLatency: {0}", log.ServerLatency);
-            Console.WriteLine("StatusCode: {0}", log.StatusCode);
-            Console.WriteLine("StreamingEndpointId: {0}", log.StreamingEndpointId);
-            Console.WriteLine();
+                Console.WriteLine("AccountId: {0}", log.AccountId);
+                Console.WriteLine("BytesSent: {0}", log.BytesSent);
+                Console.WriteLine("EndToEndLatency: {0}", log.EndToEndLatency);
+                Console.WriteLine("HostName: {0}", log.HostName);
+                Console.WriteLine("ObservedTime: {0}", log.ObservedTime);
+                Console.WriteLine("PartitionKey: {0}", log.PartitionKey);
+                Console.WriteLine("RequestCount: {0}", log.RequestCount);
+                Console.WriteLine("ResultCode: {0}", log.ResultCode);
+                Console.WriteLine("RowKey: {0}", log.RowKey);
+                Console.WriteLine("ServerLatency: {0}", log.ServerLatency);
+                Console.WriteLine("StatusCode: {0}", log.StatusCode);
+                Console.WriteLine("StreamingEndpointId: {0}", log.StreamingEndpointId);
+                Console.WriteLine();
             }
 
             Console.WriteLine();
@@ -178,13 +187,13 @@ Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS
         {
             if (_channel == null)
             {
-            Console.WriteLine("There are no channels in this AMS account");
-            return;
+                Console.WriteLine("There are no channels in this AMS account");
+                return;
             }
 
             Console.WriteLine(string.Format("Telemetry for channel '{0}'", _channel.Name));
 
-            DateTime timerangeEnd = DateTime.UtcNow; 
+            DateTime timerangeEnd = DateTime.UtcNow;
             DateTime timerangeStart = DateTime.UtcNow.AddHours(-5);
 
             // Get some channel metrics.
@@ -197,18 +206,18 @@ Het volgende voorbeeld ziet het inschakelen van telemetrie voor de opgegeven AMS
 
             foreach (var channelHeartbeat in channelMetrics.OrderBy(x => x.ObservedTime))
             {
-            Console.WriteLine(
-                "    Observed time: {0}, Last timestamp: {1}, Incoming bitrate: {2}",
-                channelHeartbeat.ObservedTime,
-                channelHeartbeat.LastTimestamp,
-                channelHeartbeat.IncomingBitrate);
+                Console.WriteLine(
+                    "    Observed time: {0}, Last timestamp: {1}, Incoming bitrate: {2}",
+                    channelHeartbeat.ObservedTime,
+                    channelHeartbeat.LastTimestamp,
+                    channelHeartbeat.IncomingBitrate);
             }
 
             Console.WriteLine();
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

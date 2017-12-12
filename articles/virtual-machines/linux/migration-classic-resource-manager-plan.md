@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migratie van IaaS-middelen van klassiek naar Azure Resource Manager plannen
 Hoewel Azure Resource Manager veel mogelijkheden biedt, is het essentieel dat u van plan bent om uw migratie reis naar zeker dat u besturingssysteemupgrades soepel verlopen. Tijd besteedt over het plannen, zorgt u ervoor dat u geen problemen ondervindt tijdens het uitvoeren van de migratieactiviteiten worden bewaakt. 
@@ -96,7 +96,7 @@ De volgende zijn problemen ontdekt in veel van de grotere migraties. Dit is geen
 - **VM-extensies** -extensies van virtuele Machine worden mogelijk een van de grootste problemen te migreren actieve virtuele machines. Herstel van de VM-extensies kan al 1-2 dagen duren, dus plan dienovereenkomstig.  Een werkende Azure-agent is vereist voor het rapporteren van VM-extensie-status van actieve virtuele machines. Als de status weer wordt als beschadigd voor een actieve virtuele machine, is deze migratie wordt gestopt. De agent zelf niet hoeft te worden in staat om in te schakelen migratie, maar als uitbreidingen op de virtuele machine bestaat, vervolgens zowel een agent werkt en uitgaande internetverbinding (met DNS) vereist voor de migratie om te gaan.
   - Als de verbinding met een DNS-server verbroken tijdens de migratie alle VM-extensies behalve BGInfo v1 wordt. \* moet eerst worden verwijderd uit elke VM voordat voorbereiden voor migratie en weer opnieuw vervolgens toegevoegd aan de virtuele machine na de migratie van Azure Resource Manager.  **Dit is alleen voor virtuele machines die worden uitgevoerd.**  Als de virtuele machines zijn gestopt toewijzing ongedaan is gemaakt, hoeft VM-extensies niet worden verwijderd. **Opmerking:** veel extensies zoals Azure diagnostics en security center controle zal zichzelf opnieuw installeren na de migratie, dus te verwijderen is geen probleem.
   - Bovendien moet ervoor Netwerkbeveiligingsgroepen niet uitgaande toegang tot internet beperken. Dit kan gebeuren bij sommige configuraties Netwerkbeveiligingsgroepen. Uitgaande toegang tot internet (en DNS) is nodig voor VM-extensies voor Azure Resource Manager worden gemigreerd. 
-  - Er zijn twee versies van de BGInfo-extensie: v1- en v2.  Als de virtuele machine is gemaakt met de klassieke portal of PowerShell, wordt de virtuele machine waarschijnlijk de v1-extensie hebben erop. Deze extensie niet hoeft te worden verwijderd en wordt overgeslagen (niet gemigreerd) door de API van de migratie. Echter, als de klassieke virtuele machine is gemaakt met de nieuwe Azure portal, waarschijnlijk wel de JSON-gebaseerde v2-versie van BGInfo die kan worden gemigreerd in Azure Resource Manager de agent werkt en uitgaande toegang tot internet (en DNS) is opgegeven. 
+  - Er zijn twee versies van de BGInfo-extensie: v1- en v2.  Als de virtuele machine is gemaakt met de Azure-portal of PowerShell, wordt de virtuele machine waarschijnlijk de v1-extensie hebben erop. Deze extensie niet hoeft te worden verwijderd en wordt overgeslagen (niet gemigreerd) door de API van de migratie. Echter, als de klassieke virtuele machine is gemaakt met de nieuwe Azure portal, waarschijnlijk wel de JSON-gebaseerde v2-versie van BGInfo die kan worden gemigreerd in Azure Resource Manager de agent werkt en uitgaande toegang tot internet (en DNS) is opgegeven. 
   - **Herstel optie 1**. Als u weet dat uw virtuele machines geen uitgaande internet toegang tot een werkende DNS-service, en werkt de Azure-agents op de virtuele machines, verwijdert u alle VM-extensies als onderdeel van de migratie voordat voorbereiden, opnieuw installeren van de VM-extensies na de migratie. 
   - **Herstel optie 2**. VM-extensies te groot is van een drempel, een andere optie is als shutdown/toewijzing alle VM's vóór de migratie. De toewijzing ongedaan is gemaakt virtuele machines migreert en vervolgens opnieuw aan de kant van de Azure Resource Manager. Hier het voordeel is dat de VM-extensies worden gemigreerd. Het nadeel is dat alle openbare geconfronteerd met virtuele IP's verloren gaan (kan dit een niet-starter), en natuurlijk de virtuele machines wordt afgesloten waardoor een veel grotere invloed op toepassingen werken.
 
@@ -114,7 +114,7 @@ De volgende zijn problemen ontdekt in veel van de grotere migraties. Dit is geen
     >
 
     - Netwerkinterfaces
-    - Taakverdelers
+    - Load Balancers
     - Openbare IP-adressen
     - Statische openbare IP-adressen
     - Cores

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Een database in SQL Data Warehouse beveiligen
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Er zijn manieren om verder te beperken wat een gebruiker met Azure SQL Database 
 * [Databaserollen] [ Database roles] andere dan db_datareader en db_datawriter kunnen worden gebruikt om krachtigere gebruikersaccounts van de toepassing of minder krachtige de accounts te maken. De ingebouwde vaste databaserollen bieden een eenvoudige manier om machtigingen te verlenen, maar kunnen ertoe leiden dat meer machtigingen worden dan nodig zijn.
 * [Opgeslagen procedures] [ Stored procedures] kan worden gebruikt om de acties die kunnen worden uitgevoerd op de database te beperken.
 
-Het beheren van databases en logische servers via de klassieke Azure Portal of met behulp van de Azure Resource Manager-API wordt bepaald door de roltoewijzingen van uw portalgebruikersaccount. Zie voor meer informatie over dit onderwerp [toegangsbeheer op basis van rollen in Azure Portal][Role-based access control in Azure Portal].
+Databases en logische servers beheren vanaf de Azure-portal of met behulp van de Azure Resource Manager-API wordt bepaald door uw portal gebruikersaccount roltoewijzingen. Zie voor meer informatie over dit onderwerp [toegangsbeheer op basis van rollen in Azure Portal][Role-based access control in Azure Portal].
 
 ## <a name="encryption"></a>Versleuteling
 Azure SQL Data Warehouse transparante gegevens codering (TDE) beschermt tegen de dreiging van schadelijke activiteiten door realtime versleuteling en ontsleuteling van uw gegevens in rust in te voeren.  Bij het versleutelen van uw database, worden gekoppelde back-ups en transactielogboekbestanden versleuteld zonder wijzigingen aan uw toepassingen. TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel. In SQL-Database is de databaseversleutelingssleutel beveiligd door een ingebouwde servercertificaat. Het ingebouwde servercertificaat is uniek voor elke SQL-Database-server. Microsoft draait automatisch deze certificaten ten minste om de 90 dagen. De versleutelingsalgoritme die wordt gebruikt door SQL Data Warehouse is AES-256. Zie voor een algemene beschrijving van TDE [Transparent Data Encryption][Transparent Data Encryption].

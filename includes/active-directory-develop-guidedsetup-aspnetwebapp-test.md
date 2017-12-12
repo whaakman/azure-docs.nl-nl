@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testen van uw code
 
 Testen van uw toepassing in Visual Studio, drukt u op **F5** aan uw project uitvoeren. De browser geopend met de http://<span></span>localhost: {poort} locatie en u ziet de **aanmelden met Microsoft** knop. Selecteer de knop om het proces aanmelden te starten.

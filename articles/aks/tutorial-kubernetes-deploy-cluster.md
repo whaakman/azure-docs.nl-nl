@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a03bbfbdedd418216c26379e9d8dbd780fa89fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Een Azure Container Service (AKS)-cluster implementeren
 
@@ -28,7 +28,7 @@ In volgende zelfstudies leert de stem van de Azure-toepassing is geïmplementeer
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In vorige zelfstudies is een installatiekopie van een container gemaakt en geüpload naar een Azure Container register-exemplaar. Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken](./tutorial-kubernetes-prepare-app.md).
+In vorige zelfstudies is een installatiekopie van een container gemaakt en geüpload naar een Azure Container register-exemplaar. Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>AKS preview voor uw Azure-abonnement inschakelen
 Terwijl AKS preview wordt, moet voor het maken van nieuwe clusters een functie-vlag op uw abonnement. U kunt deze functie voor een willekeurig aantal abonnementen die u wilt gebruiken kan aanvragen. Gebruik de `az provider register` opdracht voor het registreren van de provider AKS:
@@ -41,7 +41,7 @@ Na de registratie, bent u nu klaar voor het maken van een cluster Kubernetes met
 
 ## <a name="create-kubernetes-cluster"></a>Een Kubernetes-cluster maken
 
-Het volgende voorbeeld wordt een cluster met de naam `myK8sCluster` in een resourcegroep met de naam `myResourceGroup`. Deze resourcegroep is gemaakt in de [vorige zelfstudie](./tutorial-kubernetes-prepare-acr.md).
+Het volgende voorbeeld wordt een cluster met de naam `myK8sCluster` in een resourcegroep met de naam `myResourceGroup`. Deze resourcegroep is gemaakt in de [vorige zelfstudie][aks-tutorial-prepare-acr].
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
@@ -51,7 +51,7 @@ De implementatie is voltooid na een paar minuten en json retourneert informatie 
 
 ## <a name="install-the-kubectl-cli"></a>De kubectl CLI installeren
 
-Gebruiken voor verbinding met het cluster Kubernetes vanaf de clientcomputer, [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), de opdrachtregel Kubernetes-client.
+Gebruiken voor verbinding met het cluster Kubernetes vanaf de clientcomputer, [kubectl][kubectl], de opdrachtregel Kubernetes-client.
 
 Als u Azure CloudShell gebruikt, is kubectl al geïnstalleerd. Als u lokaal installeren wilt, voert u de volgende opdracht:
 
@@ -67,7 +67,7 @@ Voer de volgende opdracht voor het configureren van kubectl verbinding maken met
 az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Om te controleren of de verbinding met uw cluster, voer de [kubectl ophalen knooppunten](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) opdracht.
+Om te controleren of de verbinding met uw cluster, voer de [kubectl ophalen knooppunten] [ kubectl-get] opdracht.
 
 ```azurecli
 kubectl get nodes
@@ -94,4 +94,13 @@ In deze zelfstudie is een cluster Kubernetes geïmplementeerd in AKS. De volgend
 Ga naar de volgende zelfstudie voor meer informatie over het uitvoeren van toepassing op het cluster.
 
 > [!div class="nextstepaction"]
-> [De toepassing in Kubernetes implementeren](./tutorial-kubernetes-deploy-application.md)
+> [De toepassing in Kubernetes implementeren][aks-tutorial-deploy-app]
+
+<!-- LINKS - external -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

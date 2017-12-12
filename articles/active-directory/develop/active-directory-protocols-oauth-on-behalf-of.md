@@ -4,7 +4,7 @@ description: In dit artikel wordt beschreven hoe het gebruik van HTTP-berichten 
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service naar serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-namens-stroom
 De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -80,7 +80,7 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service 
 | Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
 | client_id |Vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
 | client_secret |Vereist | De sleutel wordt geregistreerd voor de service aanroepen in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Resource |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
+| Bron |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
 | Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
@@ -113,7 +113,7 @@ Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volg
 | client_id |Vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
 | client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing.  Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
-| Resource |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
+| Bron |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
 | Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
@@ -148,7 +148,7 @@ Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 | Bereik |Het bereik van toegang verleend in het token. |
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Resource |De App ID URI van de ontvangende service (beveiligde resource). |
+| Bron |De App ID URI van de ontvangende service (beveiligde resource). |
 | access_token |Het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om de ontvangende service te verifiëren. |
 | id_token |De aangevraagde id-token. De service aanroepen kunt deze gebruiken om te controleren van de identiteit van de gebruiker en beginnen met een sessie met de gebruiker. |
 | refresh_token |Het vernieuwingstoken voor het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |

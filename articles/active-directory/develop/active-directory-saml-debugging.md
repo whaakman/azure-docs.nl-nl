@@ -4,7 +4,7 @@ description: 'Meer informatie over fouten opsporen in op basis van SAML eenmalig
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 246709effcff1c38d14db3848fe2fad836ad90da
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7aa7ca90f9098f30565524470ca23783e97195e0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory
 Wanneer een toepassing op basis van SAML-integratie foutopsporing, is het vaak nuttig zijn voor het gebruik van een hulpprogramma zoals [Fiddler](http://www.telerik.com/fiddler) om te zien van de SAML-aanvraag, de SAML-reactie en de werkelijke SAML-token dat is uitgegeven aan de toepassing. Door in het SAML-token, kunt u ervoor zorgen dat alle vereiste kenmerken, de gebruikersnaam in het SAML-onderwerp en de URI van de verlener afkomstig via zoals verwacht.

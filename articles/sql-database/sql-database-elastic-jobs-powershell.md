@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Maken en beheren van de SQL-Database van de elastische taken met behulp van PowerShell (preview)
 
@@ -203,7 +203,7 @@ Open een verbinding met de elastische Database taken:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Versleutelde referenties binnen de taken voor elastische Database
 Databasereferenties kunnen worden ingevoegd in de taken *beheer database* met het wachtwoord dat is versleuteld. Het is nodig voor het opslaan van referenties in voor het inschakelen van de taken worden uitgevoerd op een later tijdstip (met behulp van de taakschema's).
 
-Versleuteling werkt via een certificaat gemaakt als onderdeel van het script voor installatie. Het installatiescript maakt en uploadt het certificaat in de Azure-Cloudservice voor het ontsleutelen van de opgeslagen gecodeerde wachtwoorden. De Azure Cloud Service later slaat de openbare sleutel in de taken *beheer database* waardoor de interface PowerShell API of de klassieke Azure-Portal voor het versleutelen van een opgegeven wachtwoord zonder het certificaat moet lokaal zijn geïnstalleerd.
+Versleuteling werkt via een certificaat gemaakt als onderdeel van het script voor installatie. Het installatiescript maakt en uploadt het certificaat in de Azure-Cloudservice voor het ontsleutelen van de opgeslagen gecodeerde wachtwoorden. De Azure Cloud Service later slaat de openbare sleutel in de taken *beheer database* waarmee de API met PowerShell of Azure portal-interface voor het versleutelen van een opgegeven wachtwoord zonder het certificaat moet lokaal zijn geïnstalleerd .
 
 De referentie-wachtwoorden zijn versleuteld en beveiligd van gebruikers met alleen-lezentoegang voor elastische Database taken objecten. Maar het is mogelijk dat een kwaadwillende gebruiker met lees-/ schrijftoegang tot elastische Database taken objecten om op te halen van een wachtwoord. Referenties zijn ontworpen om opnieuw worden gebruikt voor uitvoering. Referenties worden doorgegeven aan de doeldatabases bij het tot stand brengen van verbindingen. Er zijn momenteel geen beperkingen op de doeldatabases die worden gebruikt voor elke referentie, kwaadwillende gebruiker kan een database-doel voor een database onder het beheer van de kwaadwillende gebruiker toevoegen. De gebruiker kan vervolgens een taak die gericht is op deze database voor het verkrijgen van de referentie-wachtwoord starten.
 

@@ -4,7 +4,7 @@ description: In dit artikel wordt beschreven hoe Microsoft Lotus Domino-Connecto
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Technische naslaginformatie voor Lotus Domino-Connector
 In dit artikel beschrijft de Lotus Domino-Connector. Het artikel is van toepassing op de volgende producten:
@@ -71,18 +71,18 @@ Bewerkingen gaat ofwel u rechtstreeks naar de map Domino of door het proces Admi
 
 | Object | Maken | Update | Verwijderen |
 | --- | --- | --- | --- |
-| Persoon |AdminP |Directe |AdminP |
-| Groep |AdminP |Directe |AdminP |
-| MailInDB |Directe |Directe |Directe |
-| Resource |AdminP |Directe |AdminP |
+| Persoon |AdminP |Rechtstreeks |AdminP |
+| Groep |AdminP |Rechtstreeks |AdminP |
+| MailInDB |Rechtstreeks |Rechtstreeks |Rechtstreeks |
+| Resource |AdminP |Rechtstreeks |AdminP |
 
 **Secundaire adresboek**
 
 | Object | Maken | Update | Verwijderen |
 | --- | --- | --- | --- |
-| Persoon |N.v.t. |Directe |Directe |
-| Groep |Directe |Directe |Directe |
-| MailInDB |Directe |Directe |Directe |
+| Persoon |N.v.t. |Rechtstreeks |Rechtstreeks |
+| Groep |Rechtstreeks |Rechtstreeks |Rechtstreeks |
+| MailInDB |Rechtstreeks |Rechtstreeks |Rechtstreeks |
 | Resource |N.v.t. |N.v.t. |N.v.t. |
 
 Wanneer een resource is gemaakt, wordt een Notes-document gemaakt. Wanneer een resource wordt verwijderd, wordt ook het document opmerkingen verwijderd.
@@ -186,7 +186,7 @@ Deze objecten hebben VC =\_contactpersoon toegevoegd aan hun DN-naam.
 
 In een grote Domino-implementatie is het mogelijk dat meerdere objecten de dezelfde DN vanwege problemen met replicatie hebben. In dergelijke gevallen ziet de connector twee objecten met verschillende UniversalIDs maar dezelfde DN-naam. Dit conflict zou leiden tot een tijdelijk object wordt gemaakt in het connectorgebied overgebracht. De Connector kunt de objecten die zijn geselecteerd in Domino als slachtoffer replicatie negeren. De aanbeveling is dit selectievakje geselecteerd houden.
 
-#### <a name="export-settings"></a>Instellingen exporteren
+#### <a name="export-settings"></a>Exportinstellingen
 Als de optie **AdminP gebruiken voor het bijwerken van verwijzingen** niet is geselecteerd, en vervolgens de uitvoer van de referentie-kenmerken, zoals lid, is een directe aanroep en gebruikt het proces AdminP niet. Gebruik deze optie alleen als AdminP is niet geconfigureerd referentiële integriteit te handhaven.
 
 #### <a name="routing-information"></a>Informatie over routering

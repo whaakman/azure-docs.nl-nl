@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementeren van meerdere exemplaren van een resource of eigenschap in Azure Resource Manager-sjablonen
-Dit onderwerp leest u hoe u in uw Azure Resource Manager-sjabloon voor het maken van meerdere exemplaren van een resource of meerdere exemplaren van een eigenschap van een resource.
+In dit artikel leest u het implementeren van voorwaardelijk een resource, en hoe u in uw Azure Resource Manager-sjabloon maken van meerdere exemplaren van een resource.
 
-Als u Voeg logica toe aan de sjabloon waarmee u wilt kunt opgeven of een resource wordt geïmplementeerd, Zie [voorwaardelijk implementeren resource](#conditionally-deploy-resource).
+## <a name="conditionally-deploy-resource"></a>Voorwaardelijk resource implementeren
 
-Zie voor een voorbeeld van het maken van meerdere elementen in een matrixvariabele [variabelen](resource-group-authoring-templates.md#variables).
+Wanneer u bepalen tijdens de implementatie van moet één exemplaar of er zijn geen exemplaren van een resource te maken, gebruiken de `condition` element. De waarde voor dit element wordt omgezet in true of false. Wanneer de waarde true is, wordt de bron wordt geïmplementeerd. Wanneer de waarde false is, wordt de resource wordt niet geïmplementeerd. Bijvoorbeeld: als u wilt opgeven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruiken:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>Resource herhaling
-Voor het maken van meerdere exemplaren van een brontype toevoegen een `copy` element aan het brontype. In het element kopiëren, moet u het aantal iteraties en een naam op voor deze lus opgeven. De waarde van count moet een positief geheel getal zijn en mag niet meer dan 800. Resource Manager maakt de resources parallel. De volgorde waarin ze zijn gemaakt kan daarom niet worden gegarandeerd. Zie voor informatie over het maken van resources herhaald in de reeks [seriële kopiëren](#serial-copy). 
+Wanneer u bepalen tijdens de implementatie van moet een of meer exemplaren van een resource maken, voegt een `copy` element aan het brontype. In het element kopiëren, moet u het aantal iteraties en een naam op voor deze lus opgeven. De waarde van count moet een positief geheel getal zijn en mag niet meer dan 800. 
 
 De bron voor het maken van meerdere keren wordt gebruikt in de volgende indeling:
 
@@ -112,151 +127,40 @@ Deze namen maakt:
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>Seriële kopiëren
+Resource Manager maakt standaard de resources parallel. De volgorde waarin ze zijn gemaakt kan daarom niet worden gegarandeerd. Daarom is het raadzaam om op te geven dat de resources in volgorde worden geïmplementeerd. Bijvoorbeeld bij het bijwerken van een productieomgeving, u kunt dus spreiden van de updates alleen een bepaald aantal op elk gewenst moment worden bijgewerkt.
 
-Wanneer u het element kopiëren gebruikt voor het maken van meerdere exemplaren van een resourcetype Resource Manager worden standaard implementeert de instanties parallel. Daarom is het raadzaam om op te geven dat de resources in volgorde worden geïmplementeerd. Bijvoorbeeld bij het bijwerken van een productieomgeving, u kunt dus spreiden van de updates alleen een bepaald aantal op elk gewenst moment worden bijgewerkt.
+Als u wilt implementeren opeenvolgend meerdere exemplaren van een resource, instellen `mode` naar **seriële** en `batchSize` aan het aantal exemplaren moeten worden geïmplementeerd op een tijdstip. Seriële modus maakt Resource Manager met een afhankelijkheid voor eerdere exemplaren in de lus, zodat dit niet één batch gestart totdat de vorige batch is voltooid.
 
-Resource Manager biedt de eigenschappen voor het kopiëren-element waarmee u kunt meerdere exemplaren opeenvolgend te implementeren. Stel in het element kopiëren `mode` naar **seriële** en `batchSize` aan het aantal exemplaren moeten worden geïmplementeerd op een tijdstip. Seriële modus maakt Resource Manager met een afhankelijkheid voor eerdere exemplaren in de lus, zodat dit niet één batch gestart totdat de vorige batch is voltooid.
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-De eigenschap mode accepteert ook **parallelle**, dit is de standaardwaarde.
-
-Als u wilt testen seriële kopiëren zonder dat er feitelijke webbronnen, moet u de volgende sjabloon die wordt geïmplementeerd leeg geneste sjablonen gebruikt:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-U ziet dat de geneste implementaties in volgorde worden verwerkt in de geschiedenis van de implementatie.
-
-![seriële implementatie](./media/resource-group-create-multiple/serial-copy.png)
-
-Voor een meer realistische scenario is implementeert het volgende voorbeeld twee instanties op een tijdstip van een Linux-VM uit een geneste sjabloon:
+Bijvoorbeeld: als u wilt implementeren opeenvolgend opslagaccounts twee tegelijk, gebruiken:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+De eigenschap mode accepteert ook **parallelle**, dit is de standaardwaarde.
 
 ## <a name="property-iteration"></a>Eigenschap herhaling
 
@@ -352,50 +256,56 @@ U kunt resource en de eigenschap iteratie samen gebruiken. Verwijzing naar de he
 }
 ```
 
-U kunt alleen één exemplaar element opnemen in de eigenschappen voor elke resource. Als u een lus herhaling voor meer dan één eigenschap, meerdere objecten definiëren die in de matrix kopiëren. Elk object wordt afzonderlijk herhaald. Om bijvoorbeeld te maken van meerdere exemplaren van zowel de `frontendIPConfigurations` eigenschap en de `loadBalancingRules` eigenschap op een load balancer beide objecten definiëren die in een element met één exemplaar: 
+## <a name="variable-iteration"></a>Variabele herhaling
+
+Gebruik voor het maken van meerdere exemplaren van een variabele de `copy` element in het gedeelte variabelen. U kunt meerdere exemplaren van objecten met de bijbehorende waarden maken en vervolgens deze waarden toewijzen aan exemplaren van de resource. U kunt kopiëren van een object te maken met een matrixeigenschap van een of een matrix. Beide benaderingen worden weergegeven in het volgende voorbeeld:
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ U opgeven dat een resource na een andere resource wordt geïmplementeerd met beh
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>Meerdere exemplaren van een onderliggende resource maken
+## <a name="iteration-for-a-child-resource"></a>Herhaling voor een onderliggende resource
 U kunt een lus kopie niet gebruiken voor een onderliggende resource. Voor het maken van meerdere exemplaren van een resource die u normaal gesproken als genest in een andere resource definiëren, moet u in plaats daarvan die resource maken als een resource op het hoogste niveau. U definieert de relatie met de bovenliggende resource via de eigenschappen van het type en de naam.
 
 Stel bijvoorbeeld dat u doorgaans een gegevensset definiëren als een onderliggende bron binnen een gegevensfactory.
@@ -485,28 +395,140 @@ Het volgende voorbeeld ziet u de implementatie:
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>Voorwaardelijk resource implementeren
+## <a name="deploy-example-templates"></a>Voorbeeld sjablonen implementeren
 
-Als u wilt opgeven of een resource wordt geïmplementeerd, gebruiken de `condition` element. De waarde voor dit element wordt omgezet in true of false. Wanneer de waarde true is, wordt de bron wordt geïmplementeerd. Wanneer de waarde false is, wordt de resource wordt niet geïmplementeerd. Bijvoorbeeld: als u wilt opgeven of een nieuw opslagaccount wordt geïmplementeerd of een bestaand opslagaccount wordt gebruikt, gebruiken:
+### <a name="resource-iteration"></a>Resource herhaling
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+De [storage kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) meerdere opslagaccounts met indexnummer in de naam van de sjabloon wordt geïmplementeerd.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
 ```
 
-Zie voor een voorbeeld van het gebruik van een nieuwe of bestaande resourcegroep [nieuwe of bestaande voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+Gebruik voor Azure CLI:
 
-Zie voor een voorbeeld van het gebruik van een wachtwoord of SSH-sleutel voor het implementeren van virtuele machine [gebruikersnaam of SSH voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
+```
+
+### <a name="serial-resource-iteration"></a>Seriële resource herhaling
+
+De [opslagruimte voor de seriële](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) sjabloon meerdere opslagaccounts één gelijktijdig implementeert. De naam bevat het indexnummer.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+### <a name="resource-iteration-from-array"></a>Resource herhaling van een matrix
+
+De [opslag met een matrix kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) sjabloon implementeert meerdere opslagaccounts. De naam bevat een waarde van een matrix.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+### <a name="conditionally-deploy-resources"></a>Voorwaardelijk resources implementeren
+
+De [VM met een nieuwe of bestaande virtuele netwerk-, opslag- en openbare IP-adres](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) sjabloon nieuwe of bestaande resources met een virtuele machine wordt geïmplementeerd.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+### <a name="property-iteration"></a>Eigenschap herhaling
+
+De [implementaties van virtuele machines met een variabele aantal gegevensschijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) sjabloon meerdere gegevensschijven met een virtuele machine wordt geïmplementeerd.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+### <a name="variable-iteration"></a>Variabele herhaling
+
+De [variabelen kopiëren](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) sjabloon toont de verschillende manieren van het doorlopen van variabelen.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+### <a name="variable-iteration-to-create-resources"></a>Variabele herhaling om resources te maken
+
+De [meerdere beveiligingsregels](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) sjabloon implementeert meerdere beveiligingsregels voor verbindingen naar een netwerkbeveiligingsgroep. Dit vormt de beveiligingsregels voor verbindingen van een parameter.
+
+Gebruik voor PowerShell:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * Als u wilt voor meer informatie over de secties van een sjabloon, Zie [Azure Resource Manager-sjablonen ontwerpen](resource-group-authoring-templates.md).

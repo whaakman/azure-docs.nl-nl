@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 32b72577002962f049f446d6f3c2353189867e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens verplaatsen en naar Azure Cosmos DB met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [Azure DB die Cosmos-connector in V2](../connector-azure-cosmos-db.md).
 
-In dit artikel wordt uitgelegd hoe u met de Kopieeractiviteit in Azure Data Factory te verplaatsen van gegevens uit Azure Cosmos-DB (DocumentDB-API). Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont. 
+In dit artikel wordt uitgelegd hoe u met de Kopieeractiviteit in Azure Data Factory te verplaatsen van gegevens uit Azure Cosmos-DB (SQL-API). Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel, hetgeen een algemeen overzicht van de verplaatsing van gegevens met de kopieeractiviteit toont. 
 
 U kunt gegevens kopiëren vanuit een ondersteunde brongegevensarchief bij Azure Cosmos DB of vanuit Azure Cosmos-database moet een ondersteunde sink-gegevensarchief. Zie voor een lijst met gegevensarchieven als bronnen of PUT wordt ondersteund door de kopieeractiviteit, de [ondersteunde gegevensarchieven](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabel. 
 
 > [!IMPORTANT]
-> DocumentDB-API wordt alleen ondersteund door Azure DB Cosmos-connector.
+> Azure DB Cosmos-connector ondersteunt alleen de SQL-API.
 
 Gegevens kopiëren-is naar/van de JSON-bestanden of een andere verzameling van de Cosmos-DB, Zie [voor importeren/exporteren JSON-documenten](#importexport-json-documents).
 

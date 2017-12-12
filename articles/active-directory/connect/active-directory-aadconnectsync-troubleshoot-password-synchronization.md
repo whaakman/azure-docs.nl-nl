@@ -4,7 +4,7 @@ description: In dit artikel bevat informatie over het oplossen van problemen met
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie oplossen
 Dit onderwerp bevat stappen voor het oplossen van problemen met synchronisatie van wachtwoorden. Als wachtwoorden zijn niet zoals verwacht wordt gesynchroniseerd, kan het zijn voor een subset van gebruikers of voor alle gebruikers.

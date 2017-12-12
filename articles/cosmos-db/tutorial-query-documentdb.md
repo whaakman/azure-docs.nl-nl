@@ -1,6 +1,6 @@
 ---
 title: Hoe query SQL in Azure Cosmos DB? | Microsoft Docs
-description: Informatie over query's uitvoeren met gegevens van de DocumentDB SQL in Azure Cosmos-DB
+description: Informatie over query's uitvoeren met SQL in Azure Cosmos-DB
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 61a2516ec9f51df4ac88beaf55108208c7b8c6bc
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6e159ba7988801b274feb0d7c15a292b3b3b3126
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Hoe kan ik query uitvoert met behulp van SQL?
 
-De Azure DB die Cosmos [DocumentDB API](documentdb-introduction.md) ondersteunt het uitvoeren van query's documenten met behulp van SQL. Dit artikel bevat een voorbeelddocument en twee voorbeeld SQL-query's en resultaten.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+De Azure DB die Cosmos [SQL-API](documentdb-introduction.md) ondersteunt het uitvoeren van query's documenten met behulp van SQL. Dit artikel bevat een voorbeelddocument en twee voorbeeld SQL-query's en resultaten.
 
 In dit artikel bevat informatie over de volgende taken: 
 

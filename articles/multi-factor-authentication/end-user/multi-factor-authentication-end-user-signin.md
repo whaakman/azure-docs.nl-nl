@@ -5,7 +5,7 @@ keywords: verificatie van gebruikers, -aanmeldingservaring aanpast, aanmelden me
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c47356b7b84e38a1db9259304c2a975958b1977c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>De ervaring aanmelden met Azure multi-factor Authentication
 > [!NOTE]
@@ -70,7 +70,7 @@ Als u de Microsoft Authenticator-app om op te halen verificatiecodes gebruikt, v
 1. Aanmelden bij een toepassing of service zoals Office 365 met uw gebruikersnaam en wachtwoord.
 2. Microsoft vraagt u om een verificatiecode.
 
-  ![Voer de verificatiecode in](./media/multi-factor-authentication-end-user-signin/verify3.png)
+  ![Verificatiecode invoeren](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Open de Microsoft Authenticator-app op uw telefoon en voer de code in het vak waar u zich aanmeldt.
 

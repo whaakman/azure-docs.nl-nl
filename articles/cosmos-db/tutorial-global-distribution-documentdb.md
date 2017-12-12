@@ -1,8 +1,8 @@
 ---
-title: Azure DB Cosmos globale distributie-zelfstudie voor DocumentDB-API | Microsoft Docs
-description: Informatie over het instellen van Azure DB die Cosmos globale distributie op basis van de DocumentDB-API.
+title: Zelfstudie voor Azure DB Cosmos globale distributiepunt voor de SQL-API | Microsoft Docs
+description: Informatie over het instellen van Azure DB die Cosmos globale distributie op basis van de SQL-API.
 services: cosmos-db
-keywords: globale distributie, documentdb
+keywords: Globale distributie
 documentationcenter: 
 author: mimig1
 manager: jhubbard
@@ -16,31 +16,33 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: c3d0d46ac12faa6b1e28edbeadd97c1a987bed1e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 11b6edb811c6e88941db63cb22f1d2308dd31f66
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de DocumentDB-API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de SQL-API
 
-In dit artikel, laten we zien hoe de Azure portal instellen van Azure DB die Cosmos globale distributie en vervolgens verbinding met de DocumentDB-API gebruiken.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+In dit artikel, laten we zien hoe de Azure portal instellen van Azure DB die Cosmos globale distributie en vervolgens verbinding met de SQL-API gebruiken.
 
 In dit artikel bevat informatie over de volgende taken: 
 
 > [!div class="checklist"]
 > * Globale distributie op basis van de Azure-portal configureren
-> * Configureren globale distributie met behulp van de [DocumentDB APIs](documentdb-introduction.md)
+> * Configureren globale distributie met behulp van de [SQL-API's](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>Verbinding maken met een voorkeursregio met de DocumentDB-API
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Verbinding maken met een voorkeursregio met behulp van de SQL-API
 
-Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van het verbindingsbeleid voor de. Op basis van de Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en de voorkeur lijst is opgegeven, wordt het meest optimale eindpunt door de DocumentDB SDK schrijven uitvoeren en leesbewerkingen gekozen.
+Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van het verbindingsbeleid voor de. Op basis van de Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en de voorkeur lijst is opgegeven, wordt het meest optimale eindpunt door de SQL-SDK schrijven uitvoeren en leesbewerkingen gekozen.
 
-Deze lijst voorkeur is opgegeven bij het initialiseren van een verbinding met de DocumentDB SDK's. De SDK's accepteren een optionele parameter 'PreferredLocations' is een geordende lijst met Azure-regio's.
+Deze lijst voorkeur is opgegeven bij het initialiseren van een verbinding met de SQL-SDK's. De SDK's accepteren een optionele parameter 'PreferredLocations' is een geordende lijst met Azure-regio's.
 
 Alle schrijfbewerkingen naar de huidige schrijven regio worden automatisch verzonden door de SDK.
 
@@ -169,7 +171,7 @@ In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
 > * Globale distributie op basis van de Azure-portal configureren
-> * Globale distributie op basis van de DocumentDB APIs configureren
+> * Globale distributie op basis van de SQL-API's configureren
 
 U kunt nu doorgaan met de volgende zelfstudie voor meer informatie over het ontwikkelen van lokaal via de lokale Azure DB die Cosmos-emulator.
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -60,7 +60,7 @@ Er is momenteel geen portal ervaring voor het wijzigen van antwoorden. Zie voor 
 
 ## <a name="using-variables"></a>Variabelen gebruiken
 
-De configuratie voor een proxy hoeft niet statisch. U kunt het gebruik van variabelen in de oorspronkelijke aanvraag, back-end antwoord of toepassingsinstellingen voorwaarde.
+De configuratie voor een proxy hoeft niet statisch. U kunt het gebruik van variabelen in de aanvraag van de oorspronkelijke client, de back-end antwoord of toepassingsinstellingen voorwaarde.
 
 ### <a name="request-parameters"></a>Aanvraagparameters verwijzing
 
@@ -93,7 +93,7 @@ U kunt ook verwijzen naar [toepassingsinstellingen gedefinieerd voor de functie-
 Bijvoorbeeld, een back-end-URL van *https://%ORDER_PROCESSING_HOST%/api/orders* "% ORDER_PROCESSING_HOST %" vervangen door de waarde van de instelling ORDER_PROCESSING_HOST zou hebben.
 
 > [!TIP] 
-> Toepassingsinstellingen voor back-end-hosts gebruiken wanneer u meerdere implementaties of testomgeving. Op die manier kunt u ervoor zorgen dat u altijd communiceren met de juiste back-end voor deze omgeving communiceren.
+> Toepassingsinstellingen voor back-end-hosts gebruiken wanneer u meerdere implementaties of testomgeving. Op die manier kunt u ervoor zorgen dat u altijd met de juiste back-end voor deze omgeving praten zijn.
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 

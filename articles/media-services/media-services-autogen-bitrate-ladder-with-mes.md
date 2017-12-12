@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Azure Media Encoder Standard gebruiken om een ladder bitrate automatisch te genereren
 
 ## <a name="overview"></a>Overzicht
 
-Dit onderwerp wordt beschreven hoe Media Encoder Standard (MES) gebruiken om een bitrate ladder (bitrate resolutie paren) op basis van de invoer resolutie en bitrate automatisch te genereren. De automatisch gegenereerde voorinstelling zijn nooit overschrijden de invoer resolutie en de bitsnelheid. Bijvoorbeeld, als de invoer is 720p op 3 Mbps, uitvoer wordt met de beste 720p blijven en wordt gestart volgens de tarieven voor lager is dan 3 Mbps.
+In dit artikel laat zien hoe Media Encoder Standard (MES) gebruiken om een bitrate ladder (bitrate resolutie paren) op basis van de invoer resolutie en bitrate automatisch te genereren. De automatisch gegenereerde voorinstelling zijn nooit overschrijden de invoer resolutie en de bitsnelheid. Bijvoorbeeld, als de invoer 720p met 3 Mbps is, uitvoer blijft 720p met de beste en volgens de tarieven voor lager is dan 3 Mbps wordt gestart.
 
 ### <a name="encoding-for-streaming-only"></a>Voor Streaming alleen codering
 
-Als uw bedoeling is om de bronvideo alleen voor streaming coderen, gebruikt u moeten de 'adaptief streamen' vooraf ingesteld bij het maken van een taak die voor codering. Wanneer u de **adaptief streamen** definitie het coderingsprogramma MES wordt op intelligente wijze cap een ladder bitrate. Echter, u pas weer om te bepalen de codering kosten, omdat de service bepaalt hoeveel lagen als u wilt gebruiken en met welke resolutie. Ziet u voorbeelden van lagen van uitvoer geproduceerd door MES als gevolg van codering met de **adaptief streamen** voorinstelling aan het einde van dit onderwerp. De uitvoer van de Asset MP4-bestanden bevat waar audio en video interleaved niet.
+Als het uw bedoeling is om de bronvideo alleen voor streaming coderen, moet vervolgens u de 'adaptief streamen' vooraf ingesteld bij het maken van een taak die voor codering. Wanneer u de **adaptief streamen** definitie het coderingsprogramma MES wordt op intelligente wijze cap een ladder bitrate. Echter, u pas weer om te bepalen de codering kosten, omdat de service bepaalt hoeveel lagen als u wilt gebruiken en met welke resolutie. Ziet u voorbeelden van lagen van uitvoer geproduceerd door MES als gevolg van codering met de **adaptief streamen** voorinstelling aan het einde van dit artikel. De Asset MP4-bestanden bevat waar audio en video-uitvoer is niet interleaved.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Codering in voor streamen en progressief downloaden
 
-Als uw bedoeling is voor het coderen van de bronvideo voor streaming, evenals voor het produceren MP4-bestanden progressief downloaden, gebruikt u moeten de 'inhoud adaptieve meerdere Bitrate MP4' vooraf ingesteld bij het maken van een taak die voor codering. Wanneer u de **inhoud adaptieve meerdere Bitrate MP4** definitie toepassen het coderingsprogramma MES dezelfde codering logica als hierboven, maar nu de uitvoerasset bevat MP4-bestanden waar audio en video interleaved. U kunt een van deze MP4-bestanden (bijvoorbeeld de hoogste versie bitrate) gebruiken als een bestand progressief downloaden.
+Als het uw bedoeling is voor het coderen van de bronvideo voor streaming, evenals voor het produceren MP4-bestanden progressief downloaden, moet u de 'inhoud adaptieve meerdere Bitrate MP4' vooraf ingesteld bij het maken van een taak die voor codering gebruiken. Wanneer u de **inhoud adaptieve meerdere Bitrate MP4** definitie het coderingsprogramma MES geldt dezelfde codering logica zoals hierboven, maar nu de uitvoerasset bevat MP4-bestanden waar audio en video interleaved is. U kunt een van deze MP4-bestanden (bijvoorbeeld de hoogste versie bitrate) gebruiken als een bestand progressief downloaden.
 
 ## <a id="encoding_with_dotnet"></a>Codering met mediaservices .NET SDK
 
@@ -51,28 +50,37 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Uitvoer
 

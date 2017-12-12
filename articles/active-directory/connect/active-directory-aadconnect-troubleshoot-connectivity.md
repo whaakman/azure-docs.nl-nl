@@ -4,7 +4,7 @@ description: Legt uit hoe u problemen met verbindingen met Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Oplossen van problemen met de netwerkverbinding met Azure AD Connect
 Dit artikel wordt uitgelegd hoe de verbinding tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn waarschijnlijk kunnen worden bekeken in een omgeving met een proxyserver.
@@ -148,7 +148,7 @@ Hier volgt een dump uit een werkelijke proxy-logboek en op de pagina van de wiza
 Deze sectie bevat informatie over fouten die kunnen worden geretourneerd van ADAL (de verificatiebibliotheek voor Azure AD Connect gebruikt) en PowerShell. De fout uitgelegd kunt u in de volgende stappen te begrijpen.
 
 ### <a name="invalid-grant"></a>Ongeldige verlenen
-De gebruikersnaam of het wachtwoord is ongeldig. Zie voor meer informatie [het wachtwoord kan niet worden geverifieerd](#the-password-cannot-be-verified).
+Ongeldige gebruikersnaam of wachtwoord. Zie voor meer informatie [het wachtwoord kan niet worden geverifieerd](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Onbekende gebruikerstype
 Uw Azure AD-directory kan niet worden gevonden of opgelost. U probeert mogelijk aanmelden met een gebruikersnaam in een niet-geverifieerd domein?

@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Een rekenintensieve taak uitvoeren in Java op een virtuele machine
 > [!IMPORTANT] 
@@ -30,7 +30,7 @@ Met Azure, kunt u een virtuele machine voor het afhandelen van rekenintensieve t
 
 Deze zelfstudie wordt ervan uitgegaan dat u weet van het maken van Java-consoletoepassingen, bibliotheken kunt importeren naar uw Java-toepassing en een Java-archief (JAR) kunt genereren. Er is geen kennis van Microsoft Azure wordt verondersteld.
 
-U leert het volgende:
+U leert:
 
 * Het maken van een virtuele machine met een Java Development Kit (JDK) al is geïnstalleerd.
 * Het op afstand aan te melden bij uw virtuele machine.
@@ -51,7 +51,7 @@ Hier volgt een voorbeeld van de bewaking van de taak rekenintensieve Java-toepas
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Een virtuele machine maken
-1. Meld u aan bij de [klassieke Azure Portal](https://manage.windowsazure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **nieuw**, klikt u op **Compute**, klikt u op **virtuele machine**, en klik vervolgens op **uit galerie**.
 3. In de **virtuele machine-installatiekopie selecteert** dialoogvenster, **JDK 7 Windows Server 2012**.
    Houd er rekening mee dat **JDK 6 Windows Server 2012** beschikbaar is voor het geval u oudere toepassingen die nog niet klaar om te worden uitgevoerd in JDK 7 hebt.
@@ -74,7 +74,7 @@ Hier volgt een voorbeeld van de bewaking van de taak rekenintensieve Java-toepas
    2. Klik op **Voltooien**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Op afstand aan te melden bij uw virtuele machine
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **virtuele machines**.
 3. Klik op de naam van de virtuele machine die u aanmelden wilt bij.
 4. Klik op **Verbinden**.
@@ -87,15 +87,15 @@ Als u Service Bus-wachtrijen in Azure wilt gebruiken, moet u eerst een servicena
 
 Een servicenaamruimte maken:
 
-1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Klik in de linkerbenedenhoek navigatievenster van de klassieke Azure portal op **Service Bus, Access Control & opslaan in cache**.
-3. Klik in het deelvenster van de linkerbovenhoek van de klassieke Azure portal, de **Service Bus** knooppunt en klik vervolgens op de **nieuw** knop.  
+1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+2. Klik in de linkerbenedenhoek navigatievenster van de Azure-portal op **Service Bus, Access Control & opslaan in cache**.
+3. Klik in het deelvenster van de linkerbovenhoek van de Azure-portal, de **Service Bus** knooppunt en klik vervolgens op de **nieuw** knop.  
    ![Schermafbeelding van de service Bus-knooppunt][svc_bus_node]
 4. In de **maken van een nieuwe Service-Namespace** dialoogvenster Voer een **Namespace**, en om er zeker van te zijn dat deze uniek is, klikt u op de **beschikbaarheid controleren** knop.  
    ![Maak een nieuwe Namespace-schermafbeelding][create_namespace]
 5. Nadat u ervoor zorgt dat de naam van de naamruimte beschikbaar is, kiest u het land of regio waarin uw naamruimte moet worden gehost, en klik vervolgens op de **Namespace maken** knop.  
    
-   De naamruimte die u hebt gemaakt, wordt vervolgens weergegeven in de klassieke Azure portal en duurt even om te activeren. Wacht totdat de status **Active** voordat u doorgaat met de volgende stap.
+   De naamruimte die u hebt gemaakt, wordt vervolgens weergegeven in de Azure portal en duurt even om te activeren. Wacht totdat de status **Active** voordat u doorgaat met de volgende stap.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>De standaard Standaardbeheerreferenties voor de naamruimte ophalen
 U moet beheerreferenties voor de naamruimte beheerbewerkingen, zoals het maken van een wachtrij op de nieuwe naamruimte wilt uitvoeren.

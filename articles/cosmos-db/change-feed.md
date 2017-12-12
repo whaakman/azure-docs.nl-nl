@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de ondersteuning in Azure Cosmos DB feed wijziging
 
@@ -34,7 +34,7 @@ De **wijziging feed ondersteuning** in Azure Cosmos DB kunt u efficiënter en sc
 ![Power realtime analyses en gebeurtenisafhankelijke scenario's met computers met behulp van Azure DB die Cosmos wijziging feed](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Wijziging feed ondersteuning is beschikbaar voor alle gegevensmodellen en containers in Azure Cosmos DB. Echter de feed wijzigen met behulp van de DocumentDB-client wordt gelezen en serialiseert items in de JSON-indeling. Vanwege de JSON opmaak, clients krijgen MongoDB geformatteerd een discrepantie tussen BSON geformatteerd documenten en de JSON feed wijzigen. 
+> Wijziging feed ondersteuning is beschikbaar voor alle gegevensmodellen en containers in Azure Cosmos DB. Echter de feed wijzigen met behulp van de SQL-client wordt gelezen en serialiseert items in de JSON-indeling. Vanwege de JSON opmaak, clients krijgen MongoDB geformatteerd een discrepantie tussen BSON geformatteerd documenten en de JSON feed wijzigen. 
 
 ## <a name="how-does-change-feed-work"></a>Hoe wijziging feed werk?
 
@@ -90,9 +90,9 @@ Triggers kunnen worden gemaakt in de Azure Functions-portal in de Azure DB die C
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Met behulp van de SDK
 
-De [DocumentDB SDK](documentdb-sdk-dotnet.md) voor Azure Cosmos DB biedt u de bevoegdheid om te lezen en beheren van een wijziging in de feed. Maar met geweldige power te veel verantwoordelijkheden geleverd. Als u wilt beheren van controlepunten, behandelt document volgnummers en hebben gedetailleerde controle over partitiesleutels, klik met de SDK mogelijk de juiste aanpak.
+De [SQL SDK](documentdb-sdk-dotnet.md) voor Azure Cosmos DB biedt u de bevoegdheid om te lezen en beheren van een wijziging in de feed. Maar met geweldige power te veel verantwoordelijkheden geleverd. Als u wilt beheren van controlepunten, behandelt document volgnummers en hebben gedetailleerde controle over partitiesleutels, klik met de SDK mogelijk de juiste aanpak.
 
-Deze sectie wordt uitgelegd hoe de DocumentDB SDK gebruiken om te werken met een wijziging in de feed.
+Deze sectie wordt uitgelegd hoe u de SQL-SDK gebruiken om te werken met een wijziging in de feed.
 
 1. Lezen van de volgende bronnen van appconfig starten. Instructies voor het ophalen van de endpoint- en autorisatie-sleutel zijn beschikbaar in [bijwerken van de verbindingsreeks](create-documentdb-dotnet.md#update-your-connection-string).
 

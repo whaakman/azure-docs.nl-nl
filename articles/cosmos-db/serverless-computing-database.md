@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Zonder Server database computing met behulp van Azure Functions
 
@@ -44,7 +44,7 @@ De Azure DB die Cosmos trigger, binding invoer en uitvoer binding kunnen worden 
 * Een invoer-binding aan een Azure DB die Cosmos-container kan worden gebruikt in dezelfde functie uit als een Azure DB die Cosmos-trigger en kan worden gebruikt met of zonder binding ook uitvoer. U kunt deze combinatie up-to-date valuta exchange-gegevens (opgehaald met een invoer-binding aan een exchange-container) toepassen op de feed wijziging van de nieuwe orders in uw winkelwagen winkelwagen-service. De winkelwagen winkelwagen Totaal bijgewerkt, kan met de huidige valutaconversie toegepast, worden geschreven naar een derde container met een uitvoer-binding.
 
 > [!NOTE]
-> Op dit moment werkt de trigger Azure Cosmos DB, bindingen invoer en uitvoer bindingen met DocumentDB, Table en Graph API-accounts.
+> Op dit moment worden de Azure DB die Cosmos trigger bindingen invoer en uitvoer bindingen met SQL, Table en Graph API-accounts werken.
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Besturingselement Azure Content Delivery Network cachegedrag met queryreeksen
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ Drie beschikbare modi voor query-tekenreeks zijn beschikbaar:
    
    ![CDN-profiel-eindpunten](./media/cdn-query-string/cdn-endpoints.png)
    
-2. Klik op instellingen **Cache**.
+2. Klik in het linkerdeelvenster onder instellingen op **regels opslaan in cache**.
    
-    ![Knop voor CDN-profiel-Cache](./media/cdn-query-string/cdn-cache-btn.png)
+    ![Knop regels CDN opslaan in cache](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. In de **queryreeks cachegedrag** lijst, selecteert u een query-tekenreeks-modus en klik op **opslaan**.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![CDN-queryreeks cacheopties](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > Omdat het duurt om de registratie te geven in CDN, wijzigingen in de cache tekenreeks mogelijk niet meteen zichtbaar. Profielen van **Azure CDN van Akamai** worden doorgaans binnen één minuut doorgegeven. Profielen van **Azure CDN van Verizon** worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.

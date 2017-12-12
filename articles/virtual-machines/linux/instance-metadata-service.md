@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -76,7 +76,7 @@ De volgende tabel bevat een verwijzing naar andere indelingen met de die API 's 
 API | Standaardindeling voor gegevens | Andere indelingen
 --------|---------------------|--------------
 /Instance | JSON | Tekst
-/scheduledevents | JSON | Geen
+/scheduledevents | JSON | geen
 
 Geef de vereiste indeling als een parameter van de querytekenreeks worden opgegeven in de aanvraag voor toegang tot een niet-standaard antwoordindeling moet. Bijvoorbeeld:
 
@@ -283,10 +283,10 @@ Gegevens | Beschrijving | Versie geïntroduceerd
 -----|-------------|-----------------------
 location | Azure-regio de virtuele machine wordt uitgevoerd in de | 2017-04-02 
 naam | Naam van de virtuele machine | 2017-04-02
-Aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd. | 2017-04-02
+aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd. | 2017-04-02
 Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
 SKU | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
-Versie | Versie van de VM-afbeelding | 2017-04-02
+versie | Versie van de VM-afbeelding | 2017-04-02
 besturingssysteemtype | Linux- of Windows | 2017-04-02
 platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 platformFaultDomain | [Foutdomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
@@ -391,7 +391,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
    * De Service-exemplaar voor metagegevens is vereist voor de header `Metadata: true` in de aanvraag moet worden doorgegeven. Deze header wordt doorgegeven in de REST-aanroep staat toegang tot de Service-exemplaar voor metagegevens. 
 2. Waarom niet krijg ik compute-informatie voor mijn VM?
    * De Service-exemplaar voor metagegevens ondersteunt momenteel alleen exemplaren gemaakt met Azure Resource Manager. In de toekomst kunnen we ondersteuning voor virtuele machines van Cloud Service toevoegen.
-3. Ik heb mijn virtuele Machine via Azure Resource Manager een tijd terug gemaakt. Waarom kan ik geen Zie compute-metagegevens?
+3. Ik heb mijn virtuele Machine via Azure Resource Manager een tijd terug gemaakt. Waarom kan ik niet zien compute-metagegevens?
    * Voor alle virtuele machines na Sep 2016 is gemaakt, voegt u een [Tag](../../azure-resource-manager/resource-group-using-tags.md) om te beginnen te zien compute metagegevens. Voor oudere virtuele machines (gemaakt vóór Sep-2016), software-extensies of gegevens schijven aan de virtuele machine vernieuwen-metagegevens.
 4. Ik zie niet alle gegevens voor de nieuwe versie van 2017-08-01 gevuld
    * Voor alle virtuele machines na Sep 2016 is gemaakt, voegt u een [Tag](../../azure-resource-manager/resource-group-using-tags.md) om te beginnen te zien compute metagegevens. Voor oudere virtuele machines (gemaakt vóór Sep-2016), software-extensies of gegevens schijven aan de virtuele machine vernieuwen-metagegevens.
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
 7. Dit werkt voor virtuele Machine Scale ingesteld exemplaar, zou?
    * Ja is metagegevens-service beschikbaar voor Scale-exemplaren instellen. 
 8. Hoe krijg ik ondersteuning voor de service
-   * Als u ondersteuning voor de service, een ondersteuning probleem maken in Azure-portal voor de virtuele machine waar u ze niet ophalen van metagegevens antwoord na lang pogingen 
+   * Maak voor ondersteuning voor de service een ondersteuningsaanvraag in Azure-portal voor de virtuele machine waar u ze niet ophalen van metagegevens antwoord na lang pogingen 
 
    ![Ondersteuning voor Instance Metagegevens](./media/instance-metadata-service/InstanceMetadata-support.png)
     

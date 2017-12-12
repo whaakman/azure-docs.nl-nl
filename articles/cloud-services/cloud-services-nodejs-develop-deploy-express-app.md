@@ -1,6 +1,6 @@
 ---
-title: Web-App snelle (Node.js) | Microsoft Docs
-description: Een zelfstudie die is gebaseerd op de cloud service-zelfstudie en laat zien hoe u de Express-module.
+title: Bouwen en implementeren van een Node.js Express-app met Azure Cloud-Services
+description: Bouwen en implementeren van een toepassing Express.js in Node.js voor Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Een Node.js-webtoepassing met een snelle op een Azure Cloud Service bouwen
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bouw en implementeer een Node.js-webtoepassing met een snelle op een Azure-Cloud-Services
+
 Node.js bevat een minimale set van de functionaliteit in de runtime core.
-Ontwikkelaars gebruiken vaak 3e partij modules aanvullende functionaliteit kan bieden bij het ontwikkelen van een Node.js-toepassing. In deze zelfstudie maakt u een nieuwe toepassing met de [Express] [ Express] module waarmee een MVC-framework biedt voor het maken van Node.js-webtoepassingen.
+Ontwikkelaars gebruiken vaak 3e partij modules aanvullende functionaliteit kan bieden bij het ontwikkelen van een Node.js-toepassing. In deze zelfstudie maakt u een nieuwe toepassing met de [Express](https://github.com/expressjs/express) module waarmee een MVC-framework biedt voor het maken van Node.js-webtoepassingen.
 
 Een schermopname van de voltooide toepassing lager is dan:
 

@@ -24,7 +24,7 @@
 
 # Naslaginformatie
 ## API's
-### [REST API's voor Azure Resource Management](/rest/api/powerbiembedded/)
+### [REST API's voor Azure Resource Management](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [REST API's](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## SDK's
 ### [.NET-SDK downloaden](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

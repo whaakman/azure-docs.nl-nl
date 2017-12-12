@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: DocumentDB API artikelen | Microsoft Docs'
-description: Een lijst met alle artikelen die specifiek zijn voor het maken van databases document met de DocumentDB-API in Azure Cosmos DB.
+title: 'Azure Cosmos DB: SQL-API artikelen | Microsoft Docs'
+description: Een lijst met alle artikelen die specifiek zijn voor het document databases maken met de SQL-API in Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,23 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: b036c52d4b06d95f701e655308d011cb92aa8780
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API-documentatie
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL-API-documentatie
 
-In dit artikel bevat koppelingen naar alle Azure Cosmos DB inhoud die specifiek is voor de DocumentDB-API.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+In dit artikel bevat koppelingen naar alle Azure Cosmos DB inhoud die specifiek is voor de SQL-API.
 
 Deze artikelen zijn niet van toepassing op de Graph API, tabel-API of MongoDB-API. 
 
 ## <a name="introduction-and-concepts"></a>Inleiding en -concepten
 
-Dit moet zijn gelezen onderwerpen en resources voor meer informatie over de DocumentDB-API voor Azure Cosmos DB.
+Dit moet zijn gelezen onderwerpen en resources voor meer informatie over de SQL-API voor Azure Cosmos DB.
 
-- [DocumentDB-API Inleiding](documentdb-introduction.md)
+- [Inleiding voor SQL-API](documentdb-introduction.md)
 - [Database-resourcemodel](documentdb-resources.md)
 - Website: [Query playground](https://www.documentdb.com/sql/demo)
 - Blad cheats: [SQL-grammatica](documentdb-sql-query-cheat-sheet.md)
@@ -109,7 +111,7 @@ Azure Cosmos DB biedt een aantal SDK's om de ontwikkeling van toepassingen aan c
 
 ## <a name="samples"></a>Voorbeelden
 
-Deze voorbeeld-pagina's bevatten koppelingen naar de voorbeeldcode en API verwijst naar inhoud voor de meest algemene taken voor DocumentDB-API.
+Deze voorbeeld-pagina's bevatten koppelingen naar de voorbeeldcode en API verwijst naar inhoud voor de meest algemene taken voor SQL-API.
 
 - [.NET](documentdb-dotnet-samples.md)
 - [Node.js](documentdb-nodejs-samples.md)

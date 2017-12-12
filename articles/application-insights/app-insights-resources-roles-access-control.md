@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: e3aa1d432cf2c510c09b13d4f07833edcb1e9b53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resources, rollen en toegangsbeheer in Application Insights
 U kunt bepalen wie heeft lezen en bijwerken van toegang tot uw gegevens in Azure [Application Insights][start], met behulp van [toegangsbeheer op basis van rollen in Microsoft Azure](../active-directory/role-based-access-control-configure.md).
@@ -42,7 +42,7 @@ Eerste, sommige definities:
 
     ![Kies Bladeren, resourcegroepen, en vervolgens kiest u een groep](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Abonnement** ](https://manage.windowsazure.com) - met Application Insights of andere Azure-resources, u zich aanmeldt bij een Azure-abonnement. Elke resourcegroep behoort tot één Azure-abonnement, waar u kiest uw pakket prijs en, als het een organisatie-abonnement, kiest u leden en hun machtigingen voor toegang.
+* [**Abonnement** ](https://portal.azure.com) - met Application Insights of andere Azure-resources, u zich aanmeldt bij een Azure-abonnement. Elke resourcegroep behoort tot één Azure-abonnement, waar u kiest uw pakket prijs en, als het een organisatie-abonnement, kiest u leden en hun machtigingen voor toegang.
 * [**Microsoft-account** ] [ account] -de gebruikersnaam en het wachtwoord dat u aan te melden bij Microsoft Azure-abonnementen, XBox Live, Outlook.com en andere Microsoft-services.
 
 ## <a name="access"></a>Toegang beheren in de resourcegroep
@@ -63,7 +63,7 @@ De gebruiker moet beschikken over een [Microsoft-Account][account], of de toegan
 #### <a name="navigate-to-the-resource-group"></a>Navigeer naar de resourcegroep
 De gebruiker er toevoegen.
 
-![In de resourceblade van uw toepassing, Essentials openen, opent u de resourcegroep en er instellingen/gebruikers te selecteren. Klik op Add.](./media/app-insights-resources-roles-access-control/01-add-user.png)
+![In de resourceblade van uw toepassing, Essentials openen, opent u de resourcegroep en er instellingen/gebruikers te selecteren. Klik op Toevoegen.](./media/app-insights-resources-roles-access-control/01-add-user.png)
 
 Of u kan hoofdmap en de gebruiker toevoegen aan het abonnement.
 

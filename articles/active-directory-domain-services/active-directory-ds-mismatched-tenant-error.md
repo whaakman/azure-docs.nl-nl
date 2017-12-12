@@ -4,7 +4,7 @@ description: Begrijpen en oplossen van fouten van niet-overeenkomende directory 
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Los de fouten niet-overeenkomende directory voor bestaande beheerde domeinen van Azure AD Domain Services
-U hebt een bestaand beheerde domein dat is ingeschakeld met behulp van de klassieke Azure portal. Wanneer u gaat u naar de nieuwe Azure portal en het beheerde domein, ziet u het volgende foutbericht weergegeven:
+U hebt een bestaande Azure AD Domain Services beheerd domein. Wanneer u gaat u naar de Azure-portal en het beheerde domein, ziet u het volgende foutbericht weergegeven:
 
 ![Fout tijdens het niet-overeenkomende directory](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -33,7 +33,7 @@ Deze fout wordt veroorzaakt als uw beheerde domein en het virtuele netwerk is in
 
 De nieuwe Azure portal (en specifiek de extensie Azure AD Domain Services) is gebouwd op Azure Resource Manager. In de moderne Azure Resource Manager-omgeving, worden bepaalde beperkingen afgedwongen voor het leveren betere beveiliging en voor toegang op basis van rollen (RBAC) tot resources beheren. Inschakelen van Azure AD Domain Services voor een Azure AD-tenant is een gevoelige bewerking omdat het ervoor zorgt referentie-hashes dat kunnen worden gesynchroniseerd met het beheerde domein. Deze bewerking moet u een beheerder tenant voor de map. Bovendien moet u beheerdersrechten hebben via het virtuele netwerk waarin u het beheerde domein inschakelen. Het beheerde domein en het virtuele netwerk voor RBAC controleert het consistent worden gewerkt, moeten behoren tot dezelfde Azure AD-tenant.
 
-Kortom, kan u een beheerd domein inschakelen voor een Azure AD-tenant 'contoso.com' in een virtueel netwerk die horen bij een Azure-abonnement die eigendom zijn van een andere Azure AD-tenant 'fabrikam.com'. De klassieke Azure portal niet is ingebouwd in het Resource Manager-platform en worden niet afgedwongen door deze beperkingen.
+Kortom, kan u een beheerd domein inschakelen voor een Azure AD-tenant 'contoso.com' in een virtueel netwerk die horen bij een Azure-abonnement die eigendom zijn van een andere Azure AD-tenant 'fabrikam.com'. 
 
 **Geldige configuratie**: In dit implementatiescenario het beheerde domein van Contoso is ingeschakeld voor de Contoso Azure AD-tenant. Het beheerde domein komt tot uiting in een virtueel netwerk die horen bij een Azure-abonnement die eigendom zijn van de Contoso Azure AD-tenant. Daarom behoren zowel het beheerde domein als het virtuele netwerk tot dezelfde Azure AD-tenant. Deze configuratie is ongeldig en volledig wordt ondersteund.
 

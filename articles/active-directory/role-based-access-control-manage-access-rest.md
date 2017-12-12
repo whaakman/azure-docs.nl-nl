@@ -4,7 +4,7 @@ description: Op rollen gebaseerde toegangsbeheer met de REST-API beheren
 services: active-directory
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Op rollen gebaseerde toegangsbeheer met de REST-API beheren
 > [!div class="op_single_selector"]
@@ -153,8 +153,8 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| roleDefinitionId |Ja |Tekenreeks |De id van de rol. De indeling van de id is:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Ja |Tekenreeks |object-id van de Azure AD-principal waaraan de rol is toegewezen (gebruiker, groep of service-principal). |
+| roleDefinitionId |Ja |Reeks |De id van de rol. De indeling van de id is:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |Ja |Reeks |object-id van de Azure AD-principal waaraan de rol is toegewezen (gebruiker, groep of service-principal). |
 
 ### <a name="response"></a>Antwoord
 Statuscode: 201
@@ -436,10 +436,10 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
-| properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol. Maximale grootte 128 tekens. |
-| Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol. Maximale grootte 1024 tekens. |
-| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
+| naam |Ja |Reeks |GUID-id van de aangepaste rol. |
+| properties.roleName |Ja |Reeks |Weergavenaam van de aangepaste rol. Maximale grootte 128 tekens. |
+| Properties.Description |Nee |Reeks |Beschrijving van de aangepaste rol. Maximale grootte 1024 tekens. |
+| Properties.type |Ja |Reeks |Ingesteld op 'CustomRole'. |
 | Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen die zijn verleend door de aangepaste rol. |
 | properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die zijn verleend door de aangepaste rol. |
 | properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de aangepaste rol kan worden gebruikt. |
@@ -539,10 +539,10 @@ Geef de waarden in de volgende notatie voor de hoofdtekst van de aanvraag:
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | --- | --- | --- | --- |
-| naam |Ja |Tekenreeks |GUID-id van de aangepaste rol. |
-| properties.roleName |Ja |Tekenreeks |Weergavenaam van de aangepaste rol die is bijgewerkt. |
-| Properties.Description |Nee |Tekenreeks |Beschrijving van de aangepaste rol die is bijgewerkt. |
-| Properties.type |Ja |Tekenreeks |Ingesteld op 'CustomRole'. |
+| naam |Ja |Reeks |GUID-id van de aangepaste rol. |
+| properties.roleName |Ja |Reeks |Weergavenaam van de aangepaste rol die is bijgewerkt. |
+| Properties.Description |Nee |Reeks |Beschrijving van de aangepaste rol die is bijgewerkt. |
+| Properties.type |Ja |Reeks |Ingesteld op 'CustomRole'. |
 | Properties.permissions.Actions |Ja |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen waarvoor de bijgewerkte aangepaste rol die toegang verleent. |
 | properties.permissions.notActions |Nee |String] |Een matrix van tekenreeksen voor actie geven de bewerkingen moeten worden uitgesloten van de bewerkingen die de bijgewerkte aangepaste rol toekent. |
 | properties.assignableScopes |Ja |String] |Een matrix van bereiken waarin de bijgewerkte aangepaste rol kan worden gebruikt. |

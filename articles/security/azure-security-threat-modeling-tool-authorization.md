@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Beveiliging Frame: Autorisatie | Oplossingen 
 | Product/Service | Artikel |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Database** | <ul><li>[Zorg ervoor dat de minst bevoegde accounts worden gebruikt voor het verbinding maken met Database-server](#privileged-server)</li><li>[Rij Level Security-RLS om te voorkomen dat tenants toegang tot elkaars gegevens implementeren](#rls-tenants)</li><li>[De rol sysadmin mag alleen geldige nodig gebruikers hebben.](#sysadmin-users)</li></ul> |
 | **IoT-Cloudgateway** | <ul><li>[Verbinding maken met de Cloudgateway minder rechten tokens gebruiken](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Een verzenden alleen-lezen machtigingen SAS-sleutel gebruiken voor het genereren van apparaattokens](#sendonly-sas)</li><li>[Toegangstokens die directe toegang tot de Event Hub verlenen niet gebruiken](#access-tokens-hub)</li><li>[Verbinding maken met Event Hub met SAS-sleutels die de vereiste minimale machtigingen](#sas-minimum-permissions)</li></ul> |
-| **Azure Documentdb** | <ul><li>[Resource-tokens gebruiken voor verbinding met DocumentDB indien mogelijk](#resource-docdb)</li></ul> |
+| **Azure Documentdb** | <ul><li>[Resource-tokens gebruiken voor verbinding met Azure Cosmos DB indien mogelijk](#resource-docdb)</li></ul> |
 | **Vertrouwensgrenzen van Azure** | <ul><li>[Geavanceerd toegangsbeheer voor Azure-abonnement met RBAC inschakelen](#grained-rbac)</li></ul> |
 | **Service Fabric-Vertrouwensgrenzen** | <ul><li>[Van de client toegang tot de bewerkingen voor een cluster met RBAC beperken](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Veld beveiligingsniveau en beveiliging modellering uitgevoerd indien vereist](#modeling-field)</li></ul> |
@@ -224,7 +224,7 @@ Houd er rekening mee dat RLS als een out-of-the-box databasefunctie is alleen va
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
 | **Verwijzingen**              | N.v.t.  |
-| **Stappen** | Een resource-token is gekoppeld aan een resource van de machtiging DocumentDB en vastlegt van de relatie tussen de gebruiker van een database en de machtiging die de gebruiker heeft voor een specifieke bron DocumentDB-toepassing (bijvoorbeeld verzameling en het document). Gebruik altijd het token van een resource voor toegang tot de DocumentDB als de client niet kan vertrouwd worden met de verwerking van sleutels in master of alleen-lezen - als een eindgebruikerstoepassing zoals een mobiele of bureaubladtoepassingen client. Gebruik hoofdsleutel of alleen-lezen sleutels van de back-end-toepassingen die deze sleutels veilig kunnen opslaan.|
+| **Stappen** | Een resource-token is gekoppeld aan een resource van de machtiging Azure Cosmos DB en vastlegt de relatie tussen de gebruiker van een database en de machtiging die de gebruiker heeft voor een specifieke bron Azure DB die Cosmos-toepassing (bijvoorbeeld verzameling en het document). Gebruik altijd het token van een resource voor toegang tot de database van de Cosmos Azure als de client niet kan vertrouwd worden met de verwerking van sleutels in master of alleen-lezen - als een eindgebruikerstoepassing zoals een mobiele of bureaubladtoepassingen client. Gebruik hoofdsleutel of alleen-lezen sleutels van de back-end-toepassingen die deze sleutels veilig kunnen opslaan.|
 
 ## <a id="grained-rbac"></a>Geavanceerd toegangsbeheer voor Azure-abonnement met RBAC inschakelen
 

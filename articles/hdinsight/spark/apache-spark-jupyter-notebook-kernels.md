@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac45408dab31566be3089cbf2cd7d31d54b1655
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels voor Jupyter-notebook in Spark-clusters in Azure HDInsight 
 
@@ -82,10 +82,10 @@ Hier volgen enkele voordelen van het gebruik van de nieuwe kernels op Jupyter-no
 
    | Verwerkt Magic-pakket | Voorbeeld | Beschrijving |
    | --- | --- | --- |
-   | Help |`%%help` |Genereert een lijst met alle beschikbare magics met voorbeeld en beschrijving |
+   | help |`%%help` |Genereert een lijst met alle beschikbare magics met voorbeeld en beschrijving |
    | Info |`%%info` |Sessie-informatie voor het huidige Livy eindpunt uitvoer |
-   | Configureren |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Hiermee configureert u de parameters voor het maken van een sessie. De vlag (-f) is verplicht als een sessie al is gemaakt, die zorgt ervoor dat de sessie wordt verwijderd en opnieuw gemaakt. Bekijk [van Livy POST /sessions aanvraagtekst](https://github.com/cloudera/livy#request-body) voor een lijst met geldige parameters op. Parameters moeten worden doorgegeven als een JSON-tekenreeks en moeten op de volgende regel na de magic, zoals wordt weergegeven in de voorbeeldkolom. |
-   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Een Hive-query op de sqlContext worden uitgevoerd. Als de `-o` parameter is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een [Pandas](http://pandas.pydata.org/) dataframe. |
+   | configureren |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Hiermee configureert u de parameters voor het maken van een sessie. De vlag (-f) is verplicht als een sessie al is gemaakt, die zorgt ervoor dat de sessie wordt verwijderd en opnieuw gemaakt. Bekijk [van Livy POST /sessions aanvraagtekst](https://github.com/cloudera/livy#request-body) voor een lijst met geldige parameters op. Parameters moeten worden doorgegeven als een JSON-tekenreeks en moeten op de volgende regel na de magic, zoals wordt weergegeven in de voorbeeldkolom. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Een Hive-query op de sqlContext worden uitgevoerd. Als de `-o` parameter is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een [Pandas](http://pandas.pydata.org/) dataframe. |
    | lokale |`%%local`<br>`a=1` |De code in de volgende regels wordt lokaal uitgevoerd. De sitecode moet geldige Python2 code zelfs ongeacht de kernel dat u gebruikt. Zo is, zelfs als u **PySpark3** of **Spark** kernels tijdens het maken van de notebook als u de `%%local` magische in een cel, die cel moet alleen code bevatten, geldige Python2... |
    | logboeken |`%%logs` |De logboeken levert voor de huidige sessie van Livy. |
    | verwijderen |`%%delete -f -s <session number>` |Hiermee verwijdert u een bepaalde sessie van het huidige Livy-eindpunt. Houd er rekening mee dat u de sessie die is gestart voor de kernel zichzelf niet verwijderen. |

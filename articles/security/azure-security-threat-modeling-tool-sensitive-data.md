@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Beveiliging Frame: Gevoelige gegevens | Oplossingen 
 | Product/Service | Artikel |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Webtoepassing** | <ul><li>[Zorg ervoor dat gevoelige inhoud niet in cache in de browser opgeslagen is](#cache-browser)</li><li>[Secties van Web-App-configuratiebestanden met gevoelige gegevens versleutelen](#encrypt-data)</li><li>[Het HTML-kenmerk voor automatisch aanvullen in gevoelige formulieren en invoer expliciet uitschakelen](#autocomplete-input)</li><li>[Zorg ervoor dat gevoelige gegevens die worden weergegeven op het scherm van de gebruiker wordt gemaskeerd](#data-mask)</li></ul> | 
 | **Database** | <ul><li>[Dynamische-gegevensmaskering om te voorkomen dat gevoelige gegevens niet blootstelling bevoegde gebruikers implementeren](#dynamic-users)</li><li>[Zorg ervoor dat de wachtwoorden worden opgeslagen in gezouten hash-indeling](#salted-hash)</li><li>[Zorg ervoor dat gevoelige gegevens in de databasekolommen worden versleuteld](#db-encrypted)</li><li>[Zorg ervoor dat versleuteling databaseniveau (TDE) is ingeschakeld](#tde-enabled)</li><li>[Ervoor zorgen dat databaseback-ups worden gecodeerd](#backup)</li></ul> | 
 | **Web-API** | <ul><li>[Zorg ervoor dat gevoelige gegevens met betrekking tot de Web-API niet zijn opgeslagen in de opslag van de browser](#api-browser)</li></ul> | 
-| Azure Documentdb | <ul><li>[Versleutelen van gevoelige gegevens die zijn opgeslagen in DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure Documentdb | <ul><li>[Versleutelen van gevoelige gegevens die zijn opgeslagen in Azure Cosmos-DB](#encrypt-docdb)</li></ul> | 
 | **Vertrouwensgrenzen van Azure IaaS VM** | <ul><li>[Azure Disk Encryption gebruiken voor het versleutelen van schijven die worden gebruikt door virtuele Machines](#disk-vm)</li></ul> | 
 | **Service Fabric-Vertrouwensgrenzen** | <ul><li>[Versleutelen van geheimen in Service Fabric-toepassingen](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Beveiliging modellering uitvoeren en zakelijke eenheden/Teams gebruiken indien vereist](#modeling-teams)</li><li>[Beperken van toegang tot het onderdeel op Kritiek entiteiten delen](#entities)</li><li>[Gebruikers op de risico's die zijn gekoppeld aan de Dynamics CRM-Share-functie en de juiste beveiligingsprocedures trainen](#good-practices)</li><li>[Een ontwikkeling standaarden regel met config details in Uitzonderingsbeheer proscribing opnemen](#exception-mgmt)</li></ul> | 

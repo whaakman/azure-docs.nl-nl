@@ -4,7 +4,7 @@ description: Informatie over het gebruik van expressie toewijzingen kenmerkwaard
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 2811b4d57f69425ef119c88f80b32d24c6c32195
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 0752864e5074782e6c447b938f69b4502d37fb8b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory
 Wanneer u configureert het inrichten van een SaaS-toepassing, is een van de soorten kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Hiervoor moet u een script-achtige expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -48,8 +48,8 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject |
-| **achtervoegsel** |Vereist |Tekenreeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
+| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **achtervoegsel** |Vereist |Reeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
 - - -
 ### <a name="formatdatetime"></a>formatDateTime
@@ -61,9 +61,9 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
-| **inputFormat** |Vereist |Tekenreeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Vereist |Tekenreeks |Indeling van de uitvoerdatum. |
+| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
+| **inputFormat** |Vereist |Reeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Vereist |Reeks |Indeling van de uitvoerdatum. |
 
 - - -
 ### <a name="join"></a>Koppelen
@@ -77,8 +77,8 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **scheidingsteken** |Vereist |Tekenreeks |De tekenreeks die wordt gebruikt voor het scheiden van bronwaarden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
-| ** bron1... bronN ** |Vereiste, variabele-aantal keren |Tekenreeks |Tekenreekswaarden samen worden toegevoegd. |
+| **scheidingsteken** |Vereist |Reeks |De tekenreeks die wordt gebruikt voor het scheiden van bronwaarden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
+| ** bron1... bronN ** |Vereiste, variabele-aantal keren |Reeks |Tekenreekswaarden samen worden toegevoegd. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -90,7 +90,7 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk. |
+| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk. |
 | **start** |Vereist |geheel getal |Index in de **bron** tekenreeks waar subtekenreeks moet beginnen. Eerste teken in de tekenreeks heeft de index van 1, tweede teken wordt index 2 hebben, enzovoort. |
 | **lengte** |Vereist |geheel getal |Lengte van de subtekenreeks. Als de lengte buiten eindigt de **bron** tekenreeks, functie substring van resultaat **start** index tot het einde van **bron** tekenreeks. |
 
@@ -131,13 +131,13 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
-| **oldValue** |Optioneel |Tekenreeks |Waarde moet worden vervangen **bron** of **sjabloon**. |
-| **regexPattern** |Optioneel |Tekenreeks |Regex-patroon voor de waarde moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon Haal de waarde van eigenschap vervanging. |
-| **regexGroupName** |Optioneel |Tekenreeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt er Haal de waarde van deze groep als vervangende waarde van eigenschap vervanging. |
-| **vervangende waarde** |Optioneel |Tekenreeks |Nieuwe waarde ter vervanging van oude met. |
-| **replacementAttributeName** |Optioneel |Tekenreeks |De naam van het kenmerk moet worden gebruikt voor de vervangende waarde wanneer de bron heeft geen waarde. |
-| **sjabloon** |Optioneel |Tekenreeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
+| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
+| **oldValue** |Optioneel |Reeks |Waarde moet worden vervangen **bron** of **sjabloon**. |
+| **regexPattern** |Optioneel |Reeks |Regex-patroon voor de waarde moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon Haal de waarde van eigenschap vervanging. |
+| **regexGroupName** |Optioneel |Reeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt er Haal de waarde van deze groep als vervangende waarde van eigenschap vervanging. |
+| **vervangende waarde** |Optioneel |Reeks |Nieuwe waarde ter vervanging van oude met. |
+| **replacementAttributeName** |Optioneel |Reeks |De naam van het kenmerk moet worden gebruikt voor de vervangende waarde wanneer de bron heeft geen waarde. |
+| **sjabloon** |Optioneel |Reeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -149,7 +149,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |**bron** waarde om te werken. |
+| **bron** |Vereist |Reeks |**bron** waarde om te werken. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -161,10 +161,10 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Tekenreeks |**Bron** waarde om te werken. |
-| **Standaardwaarde** |Optioneel |Tekenreeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
-| **sleutel** |Vereist |Tekenreeks |**Sleutel** vergelijken **bron** waarde met. |
-| **waarde** |Vereist |Tekenreeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
+| **bron** |Vereist |Reeks |**Bron** waarde om te werken. |
+| **Standaardwaarde** |Optioneel |Reeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
+| **sleutel** |Vereist |Reeks |**Sleutel** vergelijken **bron** waarde met. |
+| **waarde** |Vereist |Reeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
 
 ## <a name="examples"></a>Voorbeelden
 ### <a name="strip-known-domain-name"></a>Strook bekende domeinnaam

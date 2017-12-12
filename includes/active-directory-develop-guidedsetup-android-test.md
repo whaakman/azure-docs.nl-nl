@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testen van uw code
 
 1. Implementeer uw code op uw apparaat/emulator.

@@ -4,7 +4,7 @@ description: "Dit artikel wordt beschreven voor het één Sign-Out SAML-Protocol
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 45e4705f53d80b5fe852c484b5e64d18a8e24f09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77bf15d69a4c7749567f53df96c91a1d329a466
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-out-saml-protocol"></a>Één afmelden SAML-Protocol
 Azure Active Directory (Azure AD) ondersteunt het SAML 2.0 web browser-profiel op één afmelding plaatsvindt. Voor één afmeldingen via correcte werking moet de **LogoutURL** voor de toepassing moet expliciet worden geregistreerd bij Azure AD tijdens de toepassingsregistratie. Azure AD gebruikt de LogoutURL om gebruikers te leiden nadat ze zich afgemeld.
@@ -45,7 +45,7 @@ De `LogoutRequest` element verzonden naar Azure AD vereist de volgende kenmerken
 * `Version`: Stel de waarde van dit element kunt **2.0**. Deze waarde is verplicht.
 * `IssueInstant`: Dit is een `DateTime` tekenreeks met een waarde coördineren Universal Time (UTC) en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar worden niet afgedwongen.
 
-### <a name="issuer"></a>certificaatverlener
+### <a name="issuer"></a>Certificaatverlener
 De `Issuer` -element in een `LogoutRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Normaal gesproken deze is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
 ### <a name="nameid"></a>NameID
@@ -66,7 +66,7 @@ Azure AD-verzendt een `LogoutResponse` in reactie op een `LogoutRequest` element
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD-stelt de `ID`, `Version` en `IssueInstant` waarden in de `LogoutResponse` element. Stelt ook de `InResponseTo` element met de waarde van de `ID` kenmerk van de `LogoutRequest` die opgewekt door het antwoord.
 
-### <a name="issuer"></a>certificaatverlener
+### <a name="issuer"></a>Certificaatverlener
 Azure AD wordt deze waarde ingesteld op `https://login.microsoftonline.com/<TenantIdGUID>/` waar <TenantIdGUID> is de tenant-ID van de Azure AD-tenant.
 
 Evalueren van de waarde van de `Issuer` element, gebruik de waarde van de **App ID URI** opgegeven tijdens de toepassingsregistratie.

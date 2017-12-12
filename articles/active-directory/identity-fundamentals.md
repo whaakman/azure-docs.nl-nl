@@ -3,7 +3,7 @@ title: De grondbeginselen van Azure identiteitsbeheer | Microsoft Docs
 description: Cloud-gebaseerde identiteiten zijn nu de beste manier om de controle behouden en inzicht in hoe en wanneer gebruikers toegang krijgen tot zakelijke toepassingen en gegevens.
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grondbeginselen van Azure identity management
 Meer digitale bedrijfsbronnen Live buiten het bedrijfsnetwerk in de cloud en op apparaten, wordt een geweldige cloud-gebaseerde identiteit en toegang beheeroplossing noodzakelijk. Cloud-gebaseerde identiteiten zijn nu de beste manier om de controle behouden en inzicht in hoe en wanneer gebruikers toegang krijgen tot zakelijke toepassingen en gegevens.

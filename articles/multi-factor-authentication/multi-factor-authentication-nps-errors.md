@@ -4,7 +4,7 @@ description: Hulp bij het oplossen van problemen met de NPS-extensie voor Azure 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 5f27bac7f2de0411dacd5b981a09a93c80084af9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
 
@@ -27,7 +27,7 @@ Als u fouten met de extensie NPS voor Azure multi-factor Authentication optreden
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Probleemoplossing voor veelvoorkomende fouten
 
-| Foutcode | Stappen voor probleemoplossing |
+| Foutcode | Stappen voor het oplossen van problemen |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Neem contact op met ondersteuning](#contact-microsoft-support), en vermeld in de lijst met stappen voor het verzamelen van Logboeken. Geef zoveel mogelijk gegevens over wat er gebeurd voordat de fout is, met inbegrip van tenant-id en de UPN (user Principal name). |
 | **CLIENT_CERT_INSTALL_ERROR** | Mogelijk zijn er een probleem met het certificaat van de client is geïnstalleerd of die zijn gekoppeld aan uw tenant. Volg de instructies in [probleemoplossing van de extensie MFA NPS](multi-factor-authentication-nps-extension.md#troubleshooting) om client cert problemen te onderzoeken. |
@@ -44,7 +44,7 @@ Als u fouten met de extensie NPS voor Azure multi-factor Authentication optreden
 
 ### <a name="alternate-login-id-errors"></a>Alternatieve aanmeldings-ID-fouten
 
-| Foutcode | Foutbericht | Stappen voor probleemoplossing |
+| Foutcode | Bericht invoeren | Stappen voor het oplossen van problemen |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fout: userObjectSid opzoeken is mislukt | Controleer of de gebruiker bestaat in uw lokale Active Directory-exemplaar. Als u de vertrouwensrelaties tussen forests, [contact op met ondersteuning](#contact-microsoft-support) voor verdere assistentie. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Fout: Er is een alternatieve LoginId lookup mislukt | Controleren of LDAP_ALTERNATE_LOGINID_ATTRIBUTE is ingesteld op een [geldig active directory-kenmerk](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Als LDAP_FORCE_GLOBAL_CATALOG is ingesteld op True of LDAP_LOOKUP_FORESTS is geconfigureerd met een niet-lege waarde, controleert u of dat u een globale catalogus hebt geconfigureerd en dat het kenmerk AlternateLoginId hieraan toegevoegd. <br><br> Als LDAP_LOOKUP_FORESTS is geconfigureerd met een niet-lege waarde, moet u controleren of de waarde juist is. Als er meer dan één naam van het forest, moeten de namen worden gescheiden met puntkomma's, geen spaties. <br><br> Als deze stappen het probleem niet oplost [contact op met ondersteuning](#contact-microsoft-support) voor meer informatie. |
@@ -53,7 +53,7 @@ Als u fouten met de extensie NPS voor Azure multi-factor Authentication optreden
 
 ## <a name="errors-your-users-may-encounter"></a>Uw gebruikers kunnen ondervinden fouten
 
-| Foutcode | Foutbericht | Stappen voor probleemoplossing |
+| Foutcode | Bericht invoeren | Stappen voor het oplossen van problemen |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Tenant van de aanroeper heeft geen machtigingen voor toegang tot Authentication uitvoeren voor de gebruiker | Controleer of de tenant en het domein van de UPN (user Principal name) hetzelfde zijn. Bijvoorbeeld, zorg ervoor dat user@contoso.com is proberen te verifiëren bij de Contoso-tenant. De UPN vertegenwoordigt een geldige gebruiker voor de tenant in Azure. |
 | **AuthenticationMethodNotConfigured** | De opgegeven verificatiemethode is niet geconfigureerd voor de gebruiker | Een gebruiker toevoegen of controleren van hun verificatiemethoden volgens de instructies in [beheren van uw instellingen voor verificatie in twee stappen](./end-user/multi-factor-authentication-end-user-manage-settings.md). |
@@ -72,7 +72,7 @@ Als u fouten met de extensie NPS voor Azure multi-factor Authentication optreden
 
 Uw gebruikers kunnen soms berichten ophalen van multi-factor Authentication omdat hun authenticatie-aanvraag is mislukt. Deze fouten in het product van de configuratie niet, maar zijn opzettelijk waarschuwingen waarin wordt uitgelegd waarom een verificatieaanvraag is geweigerd.
 
-| Foutcode | Foutbericht | Aanbevolen stappen | 
+| Foutcode | Bericht invoeren | Aanbevolen stappen | 
 | ---------- | ------------- | ----------------- |
 | **OathCodeIncorrect** | Onjuiste code entered\OATH Code is onjuist | Niet door een fout gebruiker heeft onjuiste code ingevoerd. | De gebruiker heeft onjuiste code ingevoerd. Hebben ze opnieuw proberen door een nieuwe code aanvragen of meldt u zich opnieuw. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximale toegestane code opnieuw proberen is bereikt | De gebruiker is het lastig voor de verificatie te vaak mislukt. Afhankelijk van uw instellingen, kunnen ze moeten naar nu door een beheerder worden gedeblokkeerd.  |
@@ -82,7 +82,7 @@ Uw gebruikers kunnen soms berichten ophalen van multi-factor Authentication omda
 
 Als u een van deze fouten optreden, raden we u [contact op met ondersteuning](#contact-microsoft-support) voor diagnostische informatie. Er is geen standaard ingesteld van de stappen die deze fouten kunt oplossen. Wanneer u Neem contact op met ondersteuning, zorg er dan voor dat opnemen als veel mogelijke informatie over de stappen die hebben geleid tot een fout en uw tenant.
 
-| Foutcode | Foutbericht |
+| Foutcode | Bericht invoeren |
 | ---------- | ------------- |
 | **InvalidParameter** | Aanvraag mag niet null zijn |
 | **InvalidParameter** | Object-id mag geen null of leeg zijn voor ReplicationScope: {0} |

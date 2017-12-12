@@ -1,7 +1,7 @@
 ---
 title: Een Apache Spark-cluster maken in Azure HDInsight | Microsoft Docs
-description: HDInsight Spark-snelstartgids over het maken van een Apache Spark-cluster in HDInsight.
-keywords: spark-snelstartgids,interactieve spark,interactieve query,hdinsight spark,azure spark
+description: HDInsight Spark-QuickStart over het maken van een Apache Spark-cluster in HDInsight.
+keywords: spark-QuickStart,interactieve spark,interactieve query,hdinsight spark,azure spark
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -15,27 +15,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 20952702ee9dbe9880c80dddc0d75f39e53b6659
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 516c48424ef5d1256296240541fb544c1e5d9205
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Een Apache Spark-cluster maken in Azure HDInsight
 
-In dit artikel leert u hoe u een Apache Spark-cluster maakt in Azure HDInsight en vervolgens een Spark SQL-query uitvoert op een Hive-tabel. Zie [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md) voor informatie over Spark in HDInsight.
-
-   ![Snelstartdiagram waarin de stappen worden beschreven voor het maken van een Apache Spark-cluster in Azure HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark-snelstartgids met behulp van Apache Spark in HDInsight. Geïllustreerde stappen: maken van een cluster; interactieve Spark-query uitvoeren")
+Informatie over het maken van een Apache Spark-cluster in Azure HDInsight en het uitvoeren van Spark SQL-query's op basis van Hive-tabellen. Zie [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md) voor informatie over Spark in HDInsight.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Azure-abonnement**. Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Maak vandaag nog uw gratis Azure-account](https://azure.microsoft.com/free).
+* **Een Azure-abonnement**. Voordat u met deze zelfstudie begint, moet u een Azure-abonnement hebben. Zie [Create your free Azure account](https://azure.microsoft.com/free) (Maak uw gratis Azure-account).
 
 ## <a name="create-hdinsight-spark-cluster"></a>HDInsight Spark-cluster maken
 
-In deze sectie maakt u een HDInsight Spark-cluster met behulp van een [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
+U maakt een HDInsight Spark-cluster met behulp van een [Azure Resource Manager-sjabloon](../hdinsight-hadoop-create-linux-clusters-arm-templates.md). U vindt de sjabloon in [github](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md) voor andere methoden voor het maken van clusters.
 
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen.         
 
@@ -45,15 +43,12 @@ In deze sectie maakt u een HDInsight Spark-cluster met behulp van een [Azure Res
 
     ![HDInsight Spark-cluster maken met behulp van een Azure Resource Manager-sjabloon](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Spark-cluster maken in HDInsight met behulp van een Azure Resource Manager-sjabloon")
 
-    * **Abonnement**: selecteer uw Azure-abonnement voor dit cluster.
+    * **Abonnement**: selecteer het Azure-abonnement dat u hebt gebruikt om dit cluster te maken.
     * **Resourcegroep**: maak een nieuwe resourcegroep of selecteer een bestaande. Deze resourcegroep wordt gebruikt om Azure-resources voor uw projecten te beheren.
     * **Locatie**: selecteer een locatie voor de resourcegroep. De sjabloon gebruikt deze locatie voor het maken van het cluster en als standaardclusteropslag.
     * **Clusternaam**: geef een naam op voor het HDInsight-cluster dat u wilt maken.
-    * **Spark-versie**: selecteer **2.0** als Spark-versie die u in het cluster wilt installeren.
     * **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin.
     * **SSH-aanmeldgegevens**.
-
-   Noteer deze waarden.  U hebt ze later in de zelfstudie nodig.
 
 3. Selecteer **Ik ga akkoord met de bovenstaande voorwaarden**, selecteer **Vastmaken aan dashboard** en klik op **Kopen**. U ziet een nieuwe tegel met de titel Implementatie indienen voor Sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster te maken.
 
@@ -64,63 +59,66 @@ Als u een probleem ondervindt met het maken van HDInsight-clusters, beschikt u m
 >
 >
 
-## <a name="run-spark-sql-statements-on-a-hive-table"></a>Spark SQL-instructies uitvoeren op een Hive-tabel
+## <a name="create-a-jupyter-notebook"></a>Een Jupyter-notebook maken
 
-SQL (Structured Query Language) is de meest voorkomende en gebruikte taal voor het uitvoeren van query's en het definiëren van gegevens. De grondleggers van Spark wilden deze kennis gebruiken en de bekende taal voor het opvragen van gegevens beschikbaar maken voor een breder publiek van analisten die willen werken met gegevens die zich in HDFS (Hadoop Distributed File System) bevinden. Spark SQL biedt dit. Het fungeert als een uitbreiding van Apache Spark voor het verwerken van gestructureerde gegevens, met behulp van de bekende SQL-syntaxis.
+[Jupyter Notebook](http://jupyter.org) is een interactieve omgeving voor notebooks waarin verschillende programmeertalen worden ondersteund, en waar u met uw gegevens kunt werken, code met Markdown-tekst kunt combineren en eenvoudige visualisaties kunt uitvoeren. Apache Spark in HDInsight bevat tevens [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook wordt in deze zelfstudie gebruikt.
 
-Spark SQL ondersteunt zowel SQL als HiveQL als querytalen. De mogelijkheden omvatten binding in Python, Scala en Java. U kunt er query’s mee uitvoeren op gegevens die zijn opgeslagen op vele locaties, zoals externe databases, gestructureerde gegevensbestanden (voorbeeld: JSON) en Hive-tabellen.
-
-### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Spark SQL uitvoeren op een HDInsight-cluster
-
-Als u een Jupyter-notebook gebruikt dat is geconfigureerd voor uw HDInsight Spark-cluster, krijgt u een vooraf ingestelde `sqlContext` waarmee u Hive-query's kunt uitvoeren met behulp van Spark SQL. In deze sectie leert u hoe een Jupyter-notebook start en vervolgens een eenvoudige Spark SQL-query uitvoert op een bestaande Hive-tabel (**hivesampletable**) die beschikbaar is op alle HDInsight-clusters.
+**Een Jupyter-notebook maken**
 
 1. Open de [Azure Portal](https://portal.azure.com/).
 
-2. Als u ervoor hebt gekozen om het cluster vast te maken aan het dashboard, klikt u vanuit het dashboard op de clustertegel om de clusterblade te starten.
-
-    Als u het cluster niet hebt vastgemaakt aan het dashboard, klikt u in het linkerdeelvenster op **HDInsight clusters** en vervolgens op het cluster dat u hebt gemaakt.
+2. Open de Apache Spark-cluster die u hebt gemaakt. Zie [Clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters) voor instructies.
 
 3. Klik in **Snelkoppelingen** op **Clusterdashboards** en klik vervolgens op **Jupyter Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
 
-   ![Jupyter-notebook openen om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter-notebook openen om de interactieve Spark SQL-query uit te voeren")
+   ![Jupyter Notebook openen om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook openen om de interactieve Apache Spark SQL-query uit te voeren")
 
    > [!NOTE]
-   > Mogelijk kunt u de Jupyter-notebook voor uw cluster ook openen door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
+   > U kunt Jupyter Notebook voor uw cluster ook openen door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Maak een notebook. Klik op **Nieuw** en klik vervolgens op **PySpark**.
+3. Klik op **Nieuw** en vervolgens op **PySpark** om een notebook te maken. In Jupyter-notebooks in HDInsight-clusters worden drie kernels ondersteund: **PySpark**, **PySpark3** en **Spark**. In deze zelfstudie wordt de **PySpark**-kernel gebruikt. Zie [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md) (Jupyter-notebookkernels gebruiken met Apache Spark-clusters in HDInsight) voor meer informatie over de kernels en de voordelen van het gebruik van **PySpark**.
 
-   ![Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter-notebook maken om de interactieve Spark SQL-query uit te voeren")
+   ![Jupyter Notebook maken om de interactieve Spark SQL-query uit te voeren](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Notebook maken om de interactieve Apache Spark SQL-query uit te voeren")
 
    Er wordt een nieuwe notebook gemaakt en geopend met de naam Untitled (Untitled.pynb).
 
 4. Klik bovenaan op de naam van de notebook en wijzig deze desgewenst in een beschrijvende naam.
 
-    ![Een naam opgeven voor de Jupyter-notebook waarop de interactieve Spark-query wordt uitgevoerd](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Een naam opgeven voor de Jupyter-notebook waarop de interactieve Spark-query wordt uitgevoerd")
+    ![Een naam opgeven voor de Jupyter Notebook waarop de interactieve Spark-query wordt uitgevoerd](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Een naam opgeven voor de Jupyter Notebook waarop de interactieve Apache Spark-query wordt uitgevoerd")
 
-5.  Plak de volgende code in een lege cel en druk op **Shift+Enter** om de code uit te voeren. In de onderstaande code `%%sql` ('sql magic' genoemd) wordt de Jupyter-notebook geïnstrueerd om de vooraf ingestelde `sqlContext` te gebruiken voor het uitvoeren van de Hive-query. De query haalt de bovenste 10 rijen op van een Hive-tabel (**hivesampletable**) die standaard beschikbaar is in alle HDInsight-clusters.
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Spark SQL-instructies uitvoeren op een Hive-tabel
 
-        %%sql
-        SELECT * FROM hivesampletable LIMIT 10
+SQL (Structured Query Language) is de meest voorkomende en gebruikte taal voor het uitvoeren van query's en het definiëren van gegevens. Spark SQL fungeert als een uitbreiding van Apache Spark voor het verwerken van gestructureerde gegevens, met behulp van de bekende SQL-syntaxis.
+
+Spark SQL ondersteunt zowel SQL als HiveQL als querytalen. De mogelijkheden omvatten binding in Python, Scala en Java. U kunt er query’s mee uitvoeren op gegevens die zijn opgeslagen op vele locaties, zoals externe databases, gestructureerde gegevensbestanden (voorbeeld: JSON) en Hive-tabellen.
+
+Zie [Interactieve query's uitvoeren op Apache Spark-clusters in HDInsight](apache-spark-load-data-run-query.md) voor een voorbeeld van het lezen van gegevens vanaf een CSV-bestand in plaats van een Hive-tabel.
+
+**Apache Spark SQL uitvoeren**
+
+1.  Plak de volgende code uit de notebook in een lege cel en druk op **Shift+Enter** om de code uit te voeren. 
+
+    ```PySpark
+    %%sql
+    SELECT * FROM hivesampletable LIMIT 10
+    ```
 
     ![Hive-query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive-query in HDInsight Spark")
 
-    Voor meer informatie over de context van de '`%%sql` magic' en de vooraf ingestelde waarden raadpleegt u [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md) (Voor een HDInsight-cluster beschikbare Jupyter-kernels).
+    Als u een Jupyter Notebook gebruikt dat is geconfigureerd voor uw HDInsight Spark-cluster, krijgt u een vooraf ingestelde `sqlContext` waarmee u Hive-query's kunt uitvoeren met behulp van Apache Spark SQL. `%%sql` instrueert Jupyter Notebook gebruik te maken van de vooraf ingestelde `sqlContext` om de Hive-query uit te voeren. De query haalt de bovenste tien rijen op uit een Hive-tabel (**hivesampletable**) die standaard worden meegeleverd met alle HDInsight-clusters. Voor meer informatie over de context van de '`%%sql` magic' en de vooraf ingestelde waarden raadpleegt u [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md) (Voor een HDInsight-cluster beschikbare Jupyter-kernels).
 
-    > [!NOTE]
-    > Telkens wanneer u in Jupyter een query uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** en de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
-    >
-    >
+    Telkens wanneer u in Jupyter een query uitvoert, toont de venstertitel van uw webbrowser de status **(Bezet)** en de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
     
-6. Het scherm moet worden vernieuwd om de query-uitvoer weer te geven.
+    Het scherm wordt vernieuwd om de query-uitvoer weer te geven.
 
     ![Uitvoer van Hive-query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Uitvoer van Hive-query in HDInsight Spark")
 
-7. Sluit de notebook af om de clusterresources vrij te geven nadat u de toepassing hebt uitgevoerd. Dit doet u door in het menu **Bestand** in de notebook te klikken op **Sluiten en stoppen**.
+2. Klik in het menu **Bestand** in de notebook op **Sluiten en stoppen**. Als de notebook wordt afgesloten, komen de clusterbronnen vrij.
 
-8. Als u van plan bent de volgende stappen op een later tijdstip uit te voeren, zorg er dan voor dat u het HDInsight-cluster dat u in dit artikel hebt gemaakt, verwijdert. 
+3. Als u van plan bent de volgende stappen op een later tijdstip uit te voeren, zorg er dan voor dat u het HDInsight-cluster dat u in dit artikel hebt gemaakt, verwijdert. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

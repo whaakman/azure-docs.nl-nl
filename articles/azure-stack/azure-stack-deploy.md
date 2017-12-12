@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Vereisten voor de implementatie van Azure Stack
 
@@ -121,62 +121,6 @@ Zorg ervoor dat er een DHCP-server beschikbaar is op het netwerk waarmee de NIC 
 
 ### <a name="internet-access"></a>Toegang tot het internet
 Stack Azure vereist toegang tot het Internet, rechtstreeks of via een transparentproxy. Azure-Stack biedt geen ondersteuning voor de configuratie van een webproxy waarmee toegang tot Internet. Zowel het host-IP- en het nieuwe IP-adres toegewezen aan de MAS-BGPNAT01 (door DHCP of statische IP-) moet mogelijk toegang tot Internet. Poorten 80 en 443 worden onder de graph.windows.net en login.microsoftonline.com domeinen gebruikt.
-
-## <a name="telemetry"></a>Telemetrie
-
-Telemetrie helpt ons de vorm van toekomstige versies van Azure-Stack. Deze kan we snel reageren op feedback, nieuwe functies en kwaliteit te verbeteren. Microsoft Azure-Stack omvat Windows Server 2016 en SQL Server 2014. Geen van deze producten van standaardinstellingen zijn gewijzigd en beide worden beschreven in de privacyverklaring van Microsoft Enterprise. Azure Stack bevat ook open-sourcesoftware die is niet gewijzigd telemetrie naar Microsoft te verzenden. Hier volgen enkele voorbeelden van Azure-Stack telemetrische gegevens:
-
-- informatie over de registratie van de implementatie
-- Wanneer een waarschuwing wordt geopend en gesloten
-- het aantal netwerkbronnen
-
-Ter ondersteuning van de gegevensstroom telemetrie moet poort 443 (HTTPS) openen in uw netwerk. Het eindpunt van de client is https://vortex-win.data.microsoft.com.
-
-Als u niet dat telemetrie bieden voor Azure-Stack wilt, kunt u deze uitschakelen op de host van de kit ontwikkeling en de infrastructuur voor virtuele machines zoals hieronder wordt uitgelegd.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Telemetrie op de host van development kit (optioneel) uitschakelen
-
->[!NOTE]
-Als u telemetrie uitschakelen voor de development kit host wilt, moet u dit doen voordat u het script voor implementatie uitvoert.
-
-Voordat u [uitvoeren van het script asdk installer.ps1]() voor het implementeren van de host van development kit starten in de CloudBuilder.vhdx en voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Instelling **AllowTelemetry** naar 0 schakelt telemetrie uitschakelen voor Windows- en Azure Stack-implementatie. Alleen kritieke beveiligingsgebeurtenissen van het besturingssysteem worden verzonden. De instelling bepaalt Windows telemetrie voor alle hosts en virtuele machines-infrastructuur en is opnieuw toegepast op nieuwe knooppunten VM's wanneer scale-out-bewerkingen plaatsvinden.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Telemetrie over de infrastructuur voor virtuele machines (optioneel) uitschakelen
-
-Na de implementatie is geslaagd, voer het volgende script in een PowerShell-venster met verhoogde bevoegdheid (als de gebruiker AzureStack\AzureStackAdmin) op de host van de kit ontwikkeling:
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Zie voor het configureren van SQL Server-telemetrie [het configureren van SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Rapportage over het gebruik
-
-Via inschrijving, is Azure Stack ook geconfigureerd voor informatie over het gebruik van doorsturen naar Azure. Gebruiksrapportage wordt onafhankelijk van elkaar bepaald van telemetrie. U kunt gebruiksrapportage wanneer uitschakelen [registreren](azure-stack-register.md) met behulp van het script op Github. Stelt u de **$reportUsage** -parameter voor **$false**.
-
-Gebruiksgegevens is geformatteerd als beschreven in de [rapport Azure Stack gebruiksgegevens naar Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Azure-Stack Development Kit gebruikers zijn niet daadwerkelijk in rekening gebracht. Deze functionaliteit is opgenomen in de development kit, zodat u testen kunt om te zien hoe gebruiksrapportage werkt. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

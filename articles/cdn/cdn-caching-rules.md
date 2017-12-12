@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Besturingselement Azure Content Delivery Network cachegedrag met caching van regels
 
@@ -40,13 +40,19 @@ Zie voor meer informatie over standaard cachegedrag en caching richtlijn headers
 Het instellen van CDN regels opslaan in cache:
 
 1. De Azure portal openen, selecteer een CDN-profiel en selecteer vervolgens een eindpunt.
-2. Klik in het linkerdeelvenster onder instellingen op **Cache**.
-3. Hiermee maakt u een globale cacheregel als volgt:
+2. Klik in het linkerdeelvenster onder instellingen op **regels opslaan in cache**.
+
+   ![Knop regels CDN opslaan in cache](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Hiermee maakt u een globale cacheregel als volgt:
    1. Onder **Global caching regels**stelt **queryreeks cachegedrag** naar **querytekenreeksen negeren**.
    2. Stel **cachegedrag** naar **ingesteld indien deze ontbreken**.
+       
    3. Voor **duur voor het verlopen in de Cache**, voert u 10 in de **dagen** veld.
 
        De globale cacheregel is van invloed op alle aanvragen voor het eindpunt. Deze regel zich houdt aan de headers van de instructie cache oorsprong als deze bestaan (`Cache-Control` of `Expires`); anders als ze niet zijn opgegeven, wordt de cache ingesteld op 10 dagen. 
+
+     ![Algemene regels voor opslaan in cache](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Maak een aangepaste regel in de cache als volgt:
     1. Onder **aangepaste regels opslaan in cache**stelt **overeenkomen met de voorwaarde** naar **pad** en **overeenkomen met waarde** naar `/images/*.jpg`.
@@ -54,7 +60,7 @@ Het instellen van CDN regels opslaan in cache:
        
        Deze aangepaste cacheregel een Cacheduur van 30 dagen ingesteld op een `.jpg` afbeeldingsbestanden in de `/images` map van uw eindpunt. Deze voorrang op een `Cache-Control` of `Expires` HTTP-headers zijn verzonden door de bronserver.
 
-  ![In het cachegeheugen regels dialoogvenster](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Aangepaste regels voor opslaan in cache](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Bestanden die in de cache voordat de wijziging van een regel opgeslagen behouden hun duur van de oorsprong cache-instelling. Als u de duur van de cache herstellen, moet u [opschonen van het bestand](cdn-purge-endpoint.md). Voor **Azure CDN van Verizon** eindpunten, het kan tot 90 minuten duren voordat voor het opslaan van regels te laten treden.

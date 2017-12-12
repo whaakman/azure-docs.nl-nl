@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Azure Storage-oplossingen voor op HDInsight R Server
 
@@ -43,19 +43,25 @@ Zie voor instructies over het selecteren van de meest geschikte opslagoptie gebr
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Azure Blob storage-accounts gebruiken met R Server
 
-Indien nodig, kunt u meerdere Azure storage-accounts of containers openen met uw HDI-cluster. Om dit te doen, moet u de extra opslagaccounts in de gebruikersinterface opgeven wanneer u het cluster maakt en vervolgens als volgt te werk als u wilt gebruiken met R Server.
+Als u meer dan één opslagaccount hebt opgegeven bij het maken van uw R Server-cluster, heeft de volgende instructies wordt uitgelegd hoe u een secundaire account gebruiken voor toegang tot gegevens en bewerkingen op R Server worden weergegeven. De volgende storage-accounts en container: **storage1** en standaardcontainer aangeroepen **container1**, en **storage2**.
 
 > [!WARNING]
 > Voor de doeleinden van prestaties, wordt het HDInsight-cluster gemaakt in hetzelfde Datacenter als het primaire opslagaccount die u opgeeft. Met behulp van een opslagaccount in een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
-1. Een HDInsight-cluster maken met de naam van een opslagaccount van **storage1** en standaardcontainer aangeroepen **container1**.
-2. Geef een account op extra opslagruimte aangeroepen **storage2**.  
-3. Kopieer het bestand mycsv.csv naar de map/share en analyse van de op dat bestand.  
+1. Met behulp van een SSH-client verbinding maken met het edge-knooppunt van het cluster als remoteuser.  
+
+  + In Azure portal > servicepagina HDI-cluster > overzicht, klikt u op **Secure Shell (SSH)**.
+  + Selecteer in de hostnaam, het edge-knooppunt (het omvat *ed-ssh.azurehdinsight.net* in de naam).
+  + Kopieer de hostnaam.
+  + Open een SSH-client, zoals PutTY of SmartTY en voer de hostnaam.
+  + Voer remoteuser voor de gebruikersnaam, gevolgd door het wachtwoord van het cluster.
+  
+2. Kopieer het bestand mycsv.csv naar de map/share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. In de R-code, stelt u de naam van knooppunt op **standaard** en stel uw directory en het bestand om te verwerken.  
+3. Ga naar R Studio of een andere R-console en R code schrijven voor het knooppunt naam ingesteld op **standaard** en de locatie van het bestand dat u wilt openen.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ Indien nodig, kunt u meerdere Azure storage-accounts of containers openen met uw
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

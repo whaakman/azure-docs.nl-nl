@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 645f037f40893112e01117e7541322a3a547140a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 6e486b8fb5924c8a021a781742478e9082ca668c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>Een gesimuleerd apparaat maken en inrichten met IoT Hub Device Provisioning Service (preview)
+# <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-services"></a>Een gesimuleerd apparaat maken en inrichten met IoT Hub Device Provisioning Service
 > [!div class="op_single_selector"]
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
@@ -105,7 +105,7 @@ Voltooi de stappen in [IoT Hub Device Provisioning Service instellen](./quick-se
 
     ![Apparaat wordt geregistreerd voor de IoT-hub](./media/quick-create-simulated-device/hub-registration.png) 
 
-    Als u de standaardwaarde van de *initiële status van de apparaatdubbel* hebt gewijzigd in de inschrijvingsvermelding voor uw apparaat, kan de gewenste status van de dubbel uit de hub worden gehaald en er dienovereenkomstig naar worden gehandeld. Zie [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Apparaatdubbels begrijpen en gebruiken in IoT Hub) voor meer informatie
+    Als u de standaardwaarde van de *initiële status van de apparaatdubbel* hebt gewijzigd in de inschrijvingsvermelding voor uw apparaat, kan de gewenste status van de dubbel uit de hub worden gehaald en er dienovereenkomstig naar worden gehandeld. Zie [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Apparaatdubbelen begrijpen en gebruiken in IoT Hub) voor meer informatie
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen voor Batch-service met Active Directory
 
@@ -314,9 +314,11 @@ public static async Task PerformBatchOperations()
 
 Zie voor meer informatie over Azure AD, de [Azure Active Directory-documentatie](https://docs.microsoft.com/azure/active-directory/). Gedetailleerde voorbeelden ziet u het gebruik van ADAL zijn beschikbaar in de [Azure codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory) bibliotheek.
 
-Zie voor meer informatie over service-principals, [toepassing en service-principal objecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Zie het maken van een service-principal met de Azure portal [portal gebruik maken van Active Directory-toepassing en service-principal die toegang bronnen tot](../resource-group-create-service-principal-portal.md). U kunt ook een service-principal maken met PowerShell of Azure CLI. 
+Zie voor meer informatie over service-principals, [toepassing en service-principal objecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Zie het maken van een service-principal met de Azure portal [portal gebruik maken van Active Directory-toepassing en service-principal die toegang bronnen tot](../resource-group-create-service-principal-portal.md). U kunt ook een service-principal maken met PowerShell of Azure CLI.
 
-Om te verifiëren met behulp van Azure AD Batch beheertoepassingen, Zie [oplossingen voor het beheer van Batch verifiëren met Active Directory](batch-aad-auth-management.md). 
+Om te verifiëren met behulp van Azure AD Batch beheertoepassingen, Zie [oplossingen voor het beheer van Batch verifiëren met Active Directory](batch-aad-auth-management.md).
+
+Zie voor een voorbeeld van een Python van het maken van een batchclient geverifieerd met behulp van een Azure AD-token, de [Azure Active Directory-verificatie](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) voorbeeld in de Azure SDK voor Python-documentatie.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Wat is Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

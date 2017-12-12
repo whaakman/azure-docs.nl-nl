@@ -1,5 +1,5 @@
 ---
-title: SQL-query's voor Azure Cosmos DB DocumentDB API | Microsoft Docs
+title: SQL-query's voor Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over SQL-syntaxis, database-concepten en SQL-query's voor Azure Cosmos DB. SQL kan worden gebruikt als een JSON-querytaal in Azure Cosmos DB.
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f620e7eac0bd0c9d3e5047b52bcc149aa11c5644
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>SQL-query's voor Azure Cosmos DB DocumentDB API
-Microsoft Azure Cosmos DB biedt ondersteuning voor documentquery's die gebruikmaken van SQL (Structured Query Language) als een JSON-querytaal. Cosmos DB is volledig zonder schema. Doordat het gebied van de JSON-gegevensmodel rechtstreeks in de database-engine biedt deze automatische indexering van JSON-documenten zonder expliciet schema of het maken van secundaire indexen. 
+# <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos-DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Microsoft Azure Cosmos DB ondersteunt documentquery's die gebruikmaken van SQL (Structured Query Language) als een JSON-querytaal op SQL-API-accounts. Azure Cosmos DB is volledig zonder schema. Doordat het gebied van de JSON-gegevensmodel rechtstreeks in de database-engine biedt deze automatische indexering van JSON-documenten zonder expliciet schema of het maken van secundaire indexen.
 
 Tijdens het ontwerpen van de query language voor Cosmos DB, zijn twee drie doelen voor ogen:
 
 * We wilden in plaats van een nieuwe JSON-querytaal vruchtbare, ter ondersteuning van SQL. SQL is een van de bekend en meest populaire querytalen. Cosmos DB SQL biedt een formele programmeermodel voor uitgebreide query's via JSON-documenten.
-* We wilden van JavaScript-programmeermodel gebruikt als basis voor de querytaal als een JSON-document-database kan worden uitgevoerd van JavaScript rechtstreeks in de database-engine. De API DocumentDB SQL verankerd ligt in de JavaScript-typesysteem, evaluatie van expressies en functieaanroep. Deze beurt biedt een natuurlijke programmeermodel voor projecties relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroep van de gebruiker gedefinieerde functies (UDF's) geschreven volledig in JavaScript, onder andere functies. 
+* We wilden van JavaScript-programmeermodel gebruikt als basis voor de querytaal als een JSON-document-database kan worden uitgevoerd van JavaScript rechtstreeks in de database-engine. De SQL-API is in de JavaScript-typesysteem, evaluatie van expressies en functieaanroep geroot. Deze beurt biedt een natuurlijke programmeermodel voor projecties relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroep van de gebruiker gedefinieerde functies (UDF's) geschreven volledig in JavaScript, onder andere functies. 
 
 We zijn ervan overtuigd dat deze mogelijkheden essentieel zijn voor het reduceren van de wrijving tussen de toepassing en de database en essentieel voor de productiviteit van ontwikkelaars zijn.
 
@@ -99,7 +102,7 @@ Hier volgt een tweede document een subtiele verschil – `givenName` en `familyN
 }
 ```
 
-Nu gaan we enkele query's op deze gegevens om een idee van de belangrijkste aspecten van DocumentDB API SQL te proberen. De volgende query retourneert bijvoorbeeld de documenten waarbij het veld id overeenkomt met `AndersenFamily`. Omdat het een `SELECT *`, de uitvoer van de query is de volledige JSON-document:
+Nu gaan we enkele query's op deze gegevens om een idee van de belangrijkste aspecten van de SQL-querytaal Azure Cosmos DB te proberen. De volgende query retourneert bijvoorbeeld de documenten waarbij het veld id overeenkomt met `AndersenFamily`. Omdat het een `SELECT *`, de uitvoer van de query is de volledige JSON-document:
 
 **Query**
 
@@ -166,13 +169,13 @@ De volgende query retourneert de opgegeven namen van onderliggende items in de f
 
 Wij willen graag aandacht te vestigen op enkele opmerkelijk aspecten van de Cosmos-DB-querytaal via de voorbeelden die we tot nu toe hebt gezien:  
 
-* Aangezien DocumentDB API SQL op JSON-waarden werkt, behandelt structuur in de vorm van entiteiten in plaats van rijen en kolommen. De taal kunt u knooppunten van de structuur op elke willekeurige diepte zoals Raadpleeg daarom `Node1.Node2.Node3…..Nodem`, vergelijkbaar met relationele SQL verwijst naar de twee onderdeelverwijzing van `<table>.<column>`.   
+* Omdat SQL-API op JSON-waarden werkt, behandelt structuur in de vorm van entiteiten in plaats van rijen en kolommen. De taal kunt u knooppunten van de structuur op elke willekeurige diepte zoals Raadpleeg daarom `Node1.Node2.Node3…..Nodem`, vergelijkbaar met relationele SQL verwijst naar de twee onderdeelverwijzing van `<table>.<column>`.   
 * De structured query language werkt met schema minder gegevens. Daarom moet het typesysteem dynamisch worden gebonden. Verschillende typen op verschillende documenten kan resulteert in dezelfde expressie. Het resultaat van een query is een geldige JSON-waarde, maar van een vast schema kan niet worden gegarandeerd.  
 * Cosmos DB ondersteunt alleen strikte JSON-documenten. Dit betekent dat de systeem- en expressies zijn beperkt tot alleen met JSON-typen zijn getroffen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
 * Een Cosmos-DB-verzameling is een container zonder schema van JSON-documenten. De relaties in gegevensentiteiten binnen en tussen documenten in een verzameling worden impliciet door containment en niet door de primaire sleutel en refererende sleutels relaties vastgelegd. Dit is een belangrijk aspect waard wijzen op in het licht de intra-document wordt besproken verderop in dit artikel.
 
 ## <a id="Indexing"></a>Cosmos DB indexeren
-Voordat we in de DocumentDB API SQL-syntaxis ophalen, is het waard het ontwerp van de indexering in Cosmos-database. 
+Voordat we in de SQL-syntaxis ophalen, is het waard het ontwerp van de indexering in Azure Cosmos DB. 
 
 Het doel van de indexen van de database is voor het uitvoeren van query's in hun diverse vormen en vormen met minimale brongebruik (zoals CPU en input/output) en tegelijkertijd goede doorvoer en lage latentie. Vaak is de keuze van de juiste index voor query's in een database vereist veel planning en experimenteren. Deze aanpak vormt een uitdaging voor schema-minder databases waarin de gegevens voldoen niet aan een strikte schema en snel ontwikkeld. 
 
@@ -280,7 +283,7 @@ De volgende query aanvragen documenten met een eigenschap name waarvan de waarde
     }]
 
 
-Het vorige voorbeeld blijkt een eenvoudige gelijkheid-query. DocumentDB-API SQL ondersteunt ook een groot aantal scalaire expressies. De meest gebruikte zijn binaire bestanden en unaire expressies. Eigenschap verwijzingen van de bron JSON-object zijn ook geldig expressies. 
+Het vorige voorbeeld blijkt een eenvoudige gelijkheid-query. De SQL-API ondersteunt ook een groot aantal scalaire expressies. De meest gebruikte zijn binaire bestanden en unaire expressies. Eigenschap verwijzingen van de bron JSON-object zijn ook geldig expressies. 
 
 De volgende binaire operators worden momenteel ondersteund en kunnen worden gebruikt in query's, zoals wordt weergegeven in de volgende voorbeelden:  
 
@@ -302,7 +305,7 @@ De volgende binaire operators worden momenteel ondersteund en kunnen worden gebr
 <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
 </tr>
 <tr>
-<td>Tekenreeks</td>    
+<td>Reeks</td>    
 <td>|| (samenvoegen)</td>
 </tr>
 </table>  
@@ -338,7 +341,7 @@ De unaire operators +,-, ~ worden ook ondersteund, en niet kan worden gebruikt i
 Naast de binaire bestanden en unaire operators, zijn ook verwijzingen van de eigenschap toegestaan. Bijvoorbeeld: `SELECT * FROM Families f WHERE f.isRegistered` retourneert het JSON-document met de eigenschap `isRegistered` waarvoor de eigenschap waarde gelijk is aan de JSON `true` waarde. Alle overige waarden (false, null, niet-gedefinieerde, `<number>`, `<string>`, `<object>`, `<array>`, enzovoort) leidt tot het brondocument wordt uitgesloten van het resultaat. 
 
 ### <a name="equality-and-comparison-operators"></a>Gelijkheid en het vergelijkingstype operators
-De volgende tabel ziet het resultaat van de gelijkheid vergelijkingen in DocumentDB API SQL tussen twee typen die JSON.
+De volgende tabel geeft het resultaat van de gelijkheid vergelijkingen in de SQL-API tussen twee typen die JSON.
 
 <table style = "width:300px">
    <tbody>
@@ -373,136 +376,136 @@ De volgende tabel ziet het resultaat van de gelijkheid vergelijkingen in Documen
             <strong>Niet-gedefinieerd<strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Null<strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Booleaanse waarde<strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Aantal<strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Tekenreeks<strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Object<strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Matrix<strong>
          </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
-Niet-gedefinieerd </td>
+Niet gedefinieerd </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
@@ -533,28 +536,28 @@ In tegenstelling tot in de ANSI-SQL kun je de BETWEEN-component in de component 
 
 Houd er rekening mee voor snellere tijden in uitvoering, voor het maken van een indexeringsbeleid die gebruikmaakt van een type bereik index op basis van een numerieke eigenschappen/paden die in de component BETWEEN zijn gefilterd. 
 
-Het belangrijkste verschil tussen het gebruik van BETWEEN in DocumentDB-API en ANSI SQL is dat u kunt snelle bereik een query uitgevoerd naar eigenschappen van gemengde gegevenstypen: bijvoorbeeld wellicht 'hoogwaardige' is geen getal (5) in een aantal documenten en tekenreeksen in andere gevallen ('grade4'). In dergelijke gevallen, wordt zoals in JavaScript, een vergelijking tussen twee verschillende typen resulteert in een 'niet-gedefinieerde' en het document overgeslagen.
+Het belangrijkste verschil tussen het gebruik van BETWEEN in de SQL-API en de ANSI SQL is dat u kunt snelle bereik een query uitgevoerd naar eigenschappen van gemengde gegevenstypen: bijvoorbeeld wellicht 'hoogwaardige' is geen getal (5) in een aantal documenten en tekenreeksen in andere gevallen ('grade4'). In dergelijke gevallen, wordt zoals in JavaScript, een vergelijking tussen twee verschillende typen resulteert in een 'niet-gedefinieerde' en het document overgeslagen.
 
 ### <a name="logical-and-or-and-not-operators"></a>Logische (AND, OR en NOT) operators
 Logische operators bewerken Boole-waarden. De logische waarheid tabellen voor deze operators worden weergegeven in de volgende tabellen.
 
-| OF | True | False | Niet-gedefinieerd |
+| OF | True | False | Niet gedefinieerd |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Niet-gedefinieerd |
-| Niet-gedefinieerd |True |Niet-gedefinieerd |Niet-gedefinieerd |
+| False |True |False |Niet gedefinieerd |
+| Niet gedefinieerd |True |Niet gedefinieerd |Niet gedefinieerd |
 
-| EN | True | False | Niet-gedefinieerd |
+| EN | True | False | Niet gedefinieerd |
 | --- | --- | --- | --- |
-| True |True |False |Niet-gedefinieerd |
+| True |True |False |Niet gedefinieerd |
 | False |False |False |False |
-| Niet-gedefinieerd |Niet-gedefinieerd |False |Niet-gedefinieerd |
+| Niet gedefinieerd |Niet gedefinieerd |False |Niet gedefinieerd |
 
 | NIET |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Niet-gedefinieerd |Niet-gedefinieerd |
+| Niet gedefinieerd |Niet gedefinieerd |
 
 ### <a name="in-keyword"></a>TREFWOORD
 Het sleutelwoord kan worden gebruikt om te controleren of een opgegeven waarde komt overeen met elke waarde in een lijst. Deze query retourneert bijvoorbeeld alle familie documenten waar de id van 'WakefieldFamily' of 'AndersenFamily' is. 
@@ -750,7 +753,7 @@ In het volgende voorbeeld is het resultaat van de scalaire expressie die een Boo
 
 
 ### <a name="object-and-array-creation"></a>Maken van het object en array
-Een andere belangrijke functie van DocumentDB API SQL is array-object maken. In het vorige voorbeeld, houd er rekening mee dat er een nieuwe JSON-object gemaakt. Op deze manier kan een ook matrices samenstellen zoals weergegeven in de volgende voorbeelden:
+Een andere belangrijke functie van de SQL-API is array-object maken. In het vorige voorbeeld, houd er rekening mee dat er een nieuwe JSON-object gemaakt. Op deze manier kan een ook matrices samenstellen zoals weergegeven in de volgende voorbeelden:
 
 **Query**
 
@@ -921,14 +924,14 @@ U kunt ook statistische functies uitvoeren in combinatie met filters. De volgend
 
     [ 1 ]
 
-De volgende tabel bevat de lijst met ondersteunde statistische functies in DocumentDB-API. `SUM`en `AVG` via numerieke waarden worden uitgevoerd terwijl `COUNT`, `MIN`, en `MAX` via getallen, tekenreeksen, Booleaanse waarden en null-waarden kunnen worden uitgevoerd. 
+De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQL-API. `SUM`en `AVG` via numerieke waarden worden uitgevoerd terwijl `COUNT`, `MIN`, en `MAX` via getallen, tekenreeksen, Booleaanse waarden en null-waarden kunnen worden uitgevoerd. 
 
 | Gebruik | Beschrijving |
 |-------|-------------|
 | AANTAL | Retourneert het aantal items in de expressie. |
 | SOM   | Retourneert de som van alle waarden in de expressie. |
 | MIN   | Retourneert de minimale waarde in de expressie. |
-| MAXIMUM AANTAL   | Retourneert de maximumwaarde in de expressie. |
+| MAX   | Retourneert de maximumwaarde in de expressie. |
 | GEM.   | Retourneert het gemiddelde van de waarden in de expressie. |
 
 Statistische functies kunnen ook worden uitgevoerd via de resultaten van een matrix herhaling. Zie voor meer informatie [herhaling van de matrix in query's](#Iteration).
@@ -987,7 +990,7 @@ En een query waarmee opgehaald families in volgorde van de aanmaakdatum, die wor
 ## <a id="Advanced"></a>Concepten van geavanceerde database en SQL-query 's
 
 ### <a id="Iteration"></a>Herhaling
-Een nieuwe constructie is toegevoegd de **IN** -sleutelwoord in DocumentDB API SQL ter ondersteuning van iteratie van JSON-matrices. De FROM-bron biedt ondersteuning voor herhaling. Laten we beginnen met het volgende voorbeeld:
+Een nieuwe constructie is toegevoegd de **IN** -sleutelwoord in de SQL-API om ondersteuning te bieden met iteratie van JSON-matrices. De FROM-bron biedt ondersteuning voor herhaling. Laten we beginnen met het volgende voorbeeld:
 
 **Query**
 
@@ -1081,7 +1084,7 @@ U kunt ook aggregatie uitvoeren via het resultaat van de matrix herhaling. Bijvo
     ]
 
 ### <a id="Joins"></a>Joins
-In een relationele database is de noodzaak om toe te voegen tussen de tabellen belangrijk. Het is het gevolg van logische ontwerpen genormaliseerde schema's. In tegenstelling tot dit omgaat DocumentDB API met het gedenormaliseerd gegevensmodel zonder schema documenten. Dit is het logische equivalent van een 'self-join'.
+In een relationele database is de noodzaak om toe te voegen tussen de tabellen belangrijk. Het is het gevolg van logische ontwerpen genormaliseerde schema's. De SQL-API behandelt het gedenormaliseerd gegevensmodel zonder schema documenten met dit. Dit is het logische equivalent van een 'self-join'.
 
 De syntaxis die ondersteuning biedt voor de taal is < from_source1 > JOIN < from_source2 > JOIN... JOIN < from_sourceN >. Over het algemeen dit retourneert een reeks **N**- tuples (tuple met **N** waarden). Elke tuple heeft geproduceerd door alle verzameling aliassen iteratie van hun respectieve sets waarden. Dit is met andere woorden, een volledige vectorproduct van de sets die deel uitmaken van de join.
 
@@ -1236,9 +1239,9 @@ Azure Cosmos DB biedt een programmeermodel voor het uitvoeren op basis van JavaS
 * Een natuurlijke modellering van Controlestroom, variabele scopes en -toewijzing en integratie van primitieven met databasetransacties afhandeling van uitzonderingen. Raadpleeg de JavaScript-serverzijde programmeerbaarheid-documentatie voor meer informatie over Azure DB die Cosmos-ondersteuning voor integratie van JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>Gebruiker gedefinieerde functies (UDF's)
-Samen met de typen die al is gedefinieerd in dit artikel biedt DocumentDB API SQL ondersteuning voor gebruiker gedefinieerde functies (UDF). In het bijzonder wordt scalaire UDF's waar de ontwikkelaars kunnen doorgeven in nul of meerdere argumenten en terug één argument resultaat geretourneerd ondersteund. Elk van deze argumenten wordt voor geldige JSON-waarden worden gecontroleerd.  
+De SQL-API biedt samen met de typen is al gedefinieerd in dit artikel, ondersteuning voor gebruiker gedefinieerde functies (UDF). In het bijzonder wordt scalaire UDF's waar de ontwikkelaars kunnen doorgeven in nul of meerdere argumenten en terug één argument resultaat geretourneerd ondersteund. Elk van deze argumenten wordt voor geldige JSON-waarden worden gecontroleerd.  
 
-De DocumentDB API SQL-syntaxis wordt uitgebreid ter ondersteuning van aangepaste toepassingslogica gebruik van deze door de gebruiker gedefinieerde functies. UDF's kunnen worden geregistreerd met DocumentDB-API en vervolgens naar worden verwezen als onderdeel van een SQL-query. De UDF's zijn in feite exquisitely ontworpen om te worden aangeroepen door query's. Als gevolg van deze keuze hebt UDF's geen toegang tot het contextobject met de andere JavaScript typen (opgeslagen procedures en triggers). Omdat de query's worden uitgevoerd als alleen-lezen, kunnen ze worden uitgevoerd op de primaire of op secundaire replica's. Daarom zijn UDF's ontworpen om uit te voeren op secundaire replica's in tegenstelling tot andere typen JavaScript.
+De SQL-syntaxis wordt uitgebreid ter ondersteuning van aangepaste toepassingslogica gebruik van deze door de gebruiker gedefinieerde functies. UDF's kunnen worden geregistreerd met de SQL-API en vervolgens naar worden verwezen als onderdeel van een SQL-query. De UDF's zijn in feite exquisitely ontworpen om te worden aangeroepen door query's. Als gevolg van deze keuze hebt UDF's geen toegang tot het contextobject met de andere JavaScript typen (opgeslagen procedures en triggers). Omdat de query's worden uitgevoerd als alleen-lezen, kunnen ze worden uitgevoerd op de primaire of op secundaire replica's. Daarom zijn UDF's ontworpen om uit te voeren op secundaire replica's in tegenstelling tot andere typen JavaScript.
 
 Hieronder volgt een voorbeeld van hoe een UDF kan worden geregistreerd bij de database Cosmos DB specifiek onder een documentverzameling.
 
@@ -1341,18 +1344,18 @@ Hieronder volgt een voorbeeld waarin de UDF oefeningen.
     ]
 
 
-Als de voorgaande voorbeelden presenteren, UDF's de kracht van JavaScript-taal geïntegreerd met de API DocumentDB SQL biedt een uitgebreide programmeerbare interface hiervoor complexe procedurele, heeft voorwaardelijke logica met behulp van de ingebouwde mogelijkheden voor JavaScript-runtime.
+Als de voorgaande voorbeelden presenteren, UDF's de kracht van JavaScript-taal geïntegreerd met de SQL-API biedt een uitgebreide programmeerbare interface hiervoor complexe procedurele, heeft voorwaardelijke logica met behulp van de ingebouwde mogelijkheden voor JavaScript-runtime.
 
-DocumentDB-API SQL biedt de argumenten voor de UDF's voor elk document in de bron in het huidige stadium (WHERE-component of SELECT-component) van de verwerking van de UDF. Het resultaat is opgenomen in de algehele pijplijn naadloos. Als de eigenschappen waarnaar wordt verwezen door de UDF parameters zijn niet beschikbaar in de JSON-waarde, de parameter wordt beschouwd als niet-gedefinieerde en daarom de UDF-aanroep voor het volledig is overgeslagen. Op dezelfde manier als het resultaat van de UDF gedefinieerd is, het niet opgenomen in het resultaat. 
+De SQL-API biedt de argumenten voor de UDF's voor elk document in de bron in het huidige stadium (WHERE-component of SELECT-component) van de verwerking van de UDF. Het resultaat is opgenomen in de algehele pijplijn naadloos. Als de eigenschappen waarnaar wordt verwezen door de UDF parameters zijn niet beschikbaar in de JSON-waarde, de parameter wordt beschouwd als niet-gedefinieerde en daarom de UDF-aanroep voor het volledig is overgeslagen. Op dezelfde manier als het resultaat van de UDF gedefinieerd is, het niet opgenomen in het resultaat. 
 
 Kortom zijn UDF's geweldige tools complexe bedrijfslogica doen als onderdeel van de query.
 
 ### <a name="operator-evaluation"></a>Evaluatie van operator
 Cosmos DB, tekent werkt hetzelfde als met JavaScript-operators en de evaluatie-semantiek ingevolge is een JSON-database. Terwijl Cosmos DB probeert te behouden JavaScript-semantiek in termen van JSON-ondersteuning, wordt de evaluatie van de bewerking in sommige gevallen afwijkt.
 
-In DocumentDB API SQL, zijn in tegenstelling tot in traditionele SQL de typen van waarden vaak niet bekend totdat de waarden uit de database zijn opgehaald. Om efficiënt query's worden uitgevoerd, wordt in de meeste van de operators strikt type vereisten hebben. 
+In de SQL-API zijn in tegenstelling tot traditionele SQL de typen van waarden vaak niet bekend totdat de waarden uit de database zijn opgehaald. Om efficiënt query's worden uitgevoerd, wordt in de meeste van de operators strikt type vereisten hebben. 
 
-DocumentDB-API SQL biedt geen impliciete conversies, in tegenstelling tot JavaScript uitvoeren. Een query voor het exemplaar, zoals `SELECT * FROM Person p WHERE p.Age = 21` overeenkomt met de documenten met een eigenschap Age waarvan de waarde 21 is. Een ander document waarvan de eigenschap leeftijd overeenkomt met de tekenreeks '21' of andere mogelijk oneindige variaties, zoals '021', '21,0', '0021', '00021', enzovoort worden niet overeen. Zo wordt daarentegen JavaScript waar de tekenreekswaarden impliciet omgezet naar het getallen worden (op basis van de operator ex: ==). Deze keuze is van cruciaal belang voor efficiënte index zoeken in DocumentDB API SQL. 
+De SQL-API biedt geen impliciete conversies, in tegenstelling tot JavaScript uitvoeren. Een query voor het exemplaar, zoals `SELECT * FROM Person p WHERE p.Age = 21` overeenkomt met de documenten met een eigenschap Age waarvan de waarde 21 is. Een ander document waarvan de eigenschap leeftijd overeenkomt met de tekenreeks '21' of andere mogelijk oneindige variaties, zoals '021', '21,0', '0021', '00021', enzovoort worden niet overeen. Zo wordt daarentegen JavaScript waar de tekenreekswaarden impliciet omgezet naar het getallen worden (op basis van de operator ex: ==). Deze keuze is van cruciaal belang voor efficiënte index die overeenkomen met in de SQL-API. 
 
 ## <a name="parameterized-sql-queries"></a>SQL-query's met parameters
 Cosmos DB ondersteunt query's met parameters worden uitgedrukt met de vertrouwde @ notatie. Geparameteriseerde SQL biedt robuuste verwerken en de aanhalingstekens van gebruikersinvoer, onbedoeld blootstelling van gegevens via SQL-injectie voorkomen. 
@@ -1665,12 +1668,12 @@ Ruimtelijke functies kunnen worden gebruikt om uit te voeren nabijheid query's o
 
 Zie voor meer informatie over ondersteuning voor Cosmos DB georuimtelijke [werken met gegevens in Azure Cosmos DB georuimtelijke](geospatial.md). Die loopt van ruimtelijke functies en de SQL-syntaxis voor Cosmos-DB. Nu eens kijken hoe LINQ-query werkt en hoe deze samenwerkt met de syntaxis we hebt gezien tot nu toe.
 
-## <a id="Linq"></a>LINQ to SQL voor DocumentDB-API
+## <a id="Linq"></a>LINQ naar SQL-API
 LINQ is een .NET-programmeermodel waarin berekeningen query's voor stromen van objecten. Cosmos DB biedt een client-side '-bibliotheek voor LINQ-interface doordat een conversie tussen JSON en .NET-objecten en een toewijzing van een subset van LINQ-query's aan Cosmos-DB-query's. 
 
 De volgende afbeelding toont de architectuur van LINQ-query's met behulp van de Cosmos-DB ondersteunen.  Met behulp van de Cosmos-DB-client kunnen ontwikkelaars maken een **IQueryable** object waarmee een query rechtstreeks op de Cosmos-DB-provider opvragen, die vervolgens de LINQ-query in een Cosmos-DB-query zet. De query wordt vervolgens doorgegeven aan de Cosmos-databaseserver voor het ophalen van een set resultaten in JSON-indeling. De geretourneerde resultaten worden in een stream met .NET-objecten aan de clientzijde gedeserialiseerd.
 
-![Architectuur van de LINQ-query's met DocumentDB-API - SQL-syntaxis, JSON-querytaal concepten van de database en SQL-query's ondersteunen][1]
+![Architectuur van de LINQ-query's met behulp van de SQL-API - SQL-syntaxis, JSON-querytaal concepten van de database en SQL-query's ondersteunen][1]
 
 ### <a name="net-and-json-mapping"></a>.NET- en JSON-toewijzing
 De toewijzing tussen .NET-objecten en JSON-documenten is natuurlijk - elk veld gegevens lid is toegewezen aan een JSON-object, waarbij de veldnaam is toegewezen aan het gedeelte 'sleutel' van het object en het onderdeel '' waarde '' recursief toegewezen aan de waarde van het object. Bekijk het volgende voorbeeld: de familie-object gemaakt is toegewezen aan het JSON-document, zoals hieronder wordt weergegeven. En omgekeerd, het JSON-document is toegewezen aan een .NET-object.
@@ -1775,7 +1778,7 @@ Voor het typesysteem ondersteunen we eerst alle JSON primitieve typen – numeri
      nieuwe int [] {3, child.grade, 5};
 
 ### <a id="SupportedLinqOperators"></a>Lijst met ondersteunde LINQ-operators
-Hier volgt een lijst met ondersteunde LINQ-operators in de LINQ-provider die deel uitmaakt van de DocumentDB .NET SDK.
+Hier volgt een lijst met ondersteunde LINQ-operators in de LINQ-provider opgenomen met de SQL .NET SDK.
 
 * **Selecteer**: projecties vertalen naar de SQL SELECT-objectconstructie inclusief
 * **Waar**: Filters vertalen naar SQL WHERE en ondersteuning voor de conversie van & &, || en! aan de SQL-operators
@@ -1992,7 +1995,7 @@ Cosmos DB biedt een open RESTful-programmeermodel via HTTP. Database-accounts ku
 
 Het model basic interactie met deze resources is via de HTTP-woorden GET, PUT, POST en DELETE met hun standaard interpretatie. De POST-bewerking wordt gebruikt voor het maken van een nieuwe resource, voor het uitvoeren van een opgeslagen procedure of voor het uitgeven van een Cosmos-DB-query. Query's zijn altijd alleen-lezen bewerkingen met geen bijwerkingen.
 
-De volgende voorbeelden ziet een POST voor een DocumentDB-API-query ten opzichte van een verzameling met de twee voorbeelddocumenten dat we tot nu toe hebt bekeken. De query heeft een eenvoudige filter op de naameigenschap JSON. Let op het gebruik van de `x-ms-documentdb-isquery` en Content-Type: `application/query+json` headers om aan te geven dat de bewerking een query wordt.
+De volgende voorbeelden ziet een POST voor een SQL-API-query ten opzichte van een verzameling met de twee voorbeelddocumenten dat we tot nu toe hebt bekeken. De query heeft een eenvoudige filter op de naameigenschap JSON. Let op het gebruik van de `x-ms-documentdb-isquery` en Content-Type: `application/query+json` headers om aan te geven dat de bewerking een query wordt.
 
 **Aanvraag**
 
@@ -2120,7 +2123,7 @@ Gebruik het beleid voor de consistentie van gegevens voor query's beheren de `x-
 
 Als de opgegeven query kan niet worden ondersteund door het geconfigureerde indexeringsbeleid voor de verzameling, retourneert de server Azure Cosmos DB 400 'onjuiste aanvraag'. Dit wordt geretourneerd voor bereik query's op paden die zijn geconfigureerd voor lookups op hash (gelijkheid) en voor paden expliciet is uitgesloten van het indexeren. De `x-ms-documentdb-query-enable-scan` header kan worden opgegeven waarmee de query voor een scan uitvoeren als een index niet beschikbaar is.
 
-U kunt gedetailleerde metrische gegevens over de uitvoering van de query opvragen door in te stellen `x-ms-documentdb-populatequerymetrics` koptekst tot `True`. Zie voor meer informatie [SQL query metrische gegevens voor Azure Cosmos DB DocumentDB API](documentdb-sql-query-metrics.md).
+U kunt gedetailleerde metrische gegevens over de uitvoering van de query opvragen door in te stellen `x-ms-documentdb-populatequerymetrics` koptekst tot `True`. Zie voor meer informatie [SQL query metrische gegevens voor Azure Cosmos DB](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 De .NET SDK biedt ondersteuning voor LINQ- en SQL uitvoeren van query's. Het volgende voorbeeld ziet hoe u de eenvoudige filterquery geïntroduceerd eerder in dit document uitvoert.

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management met Service Fabric implementeren
 Deze zelfstudie is een vierde deel van een reeks.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u nodig hebt voor het publiceren van API's met een groot aantal routeringsregels voor uw back-end Service Fabric-services. Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. Een gateway kan alle stateless services die zijn bestemd voor inkomend verkeer zoals een APP.NET Core toepassing, Event Hubs, IoT-Hub of Azure API Management zijn in Service Fabric. 

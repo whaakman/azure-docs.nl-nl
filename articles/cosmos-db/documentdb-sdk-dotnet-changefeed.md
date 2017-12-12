@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB .NET SDK-Feed Processor & Resources wijzigen | Microsoft Docs
-description: Meer informatie over de wijziging Feed Processor API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Feed Processor SDK voor DocumentDB .NET wijzigen.
+title: 'Azure Cosmos DB: .NET wijziging Feed Processor API, SDK en resources | Microsoft Docs'
+description: Meer informatie over de wijziging Feed Processor API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Feed Processor SDK voor .NET wijzigen.
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 495d69ffc485cc0df148cff9898e9c1f734c296a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>DocumentDB .NET wijziging Feed Processor SDK: Downloaden en release-opmerkingen
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET wijziging Feed Processor SDK: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET-Feed van wijzigen](documentdb-sdk-dotnet-changefeed.md)
@@ -32,31 +32,33 @@ ms.lasthandoff: 11/01/2017
 > * [REST-resourceprovider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 |   |   |
 |---|---|
 |**SDK downloaden**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API-documentatie**|[API-naslagdocumentatie voor Processor Feed bibliotheek wijzigen](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Aan de slag**|[Aan de slag met de DocumentDB wijziging Feed Processor .NET SDK](change-feed.md)|
+|**Aan de slag**|[Aan de slag met de .NET SDK wijziging Feed-Processor](change-feed.md)|
 |**Huidige ondersteunde framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Voegt ondersteuning toe voor .NET Standard 2.0. Het pakket biedt nu ondersteuning voor `netstandard2.0` en `net451` framework monikers.
-* Compatibel met [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 1.17.0 versies en hoger.
-* Compatibel met [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md) 1.5.1 versies en hoger.
+* Compatibel met [SQL .NET SDK](documentdb-sdk-dotnet.md) 1.17.0 versies en hoger.
+* Compatibel met [SQL .NET Core SDK](documentdb-sdk-dotnet-core.md) 1.5.1 versies en hoger.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Corrigeert een probleem met de berekening van de schatting van de resterende hoeveelheid werk wanneer de wijziging Feed leeg is of geen werk in behandeling was.
-* Compatibel met [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 1.13.2 versies en hoger.
+* Compatibel met [SQL .NET SDK](documentdb-sdk-dotnet.md) 1.13.2 versies en hoger.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Een methode voor het verkrijgen van een schatting van de resterende hoeveelheid werk moeten worden verwerkt in de wijziging Feed toegevoegd.
-* Compatibel met [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 1.13.2 versies en hoger.
+* Compatibel met [SQL .NET SDK](documentdb-sdk-dotnet.md) 1.13.2 versies en hoger.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
-* Compatibel met [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) versies 1.14.1 en lager.
+* Compatibel met [SQL .NET SDK](documentdb-sdk-dotnet.md) versies 1.14.1 en lager.
 
 ## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
 Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.

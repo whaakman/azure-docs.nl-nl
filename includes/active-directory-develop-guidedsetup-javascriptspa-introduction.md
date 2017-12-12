@@ -1,4 +1,3 @@
-
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Microsoft Graph API aanroepen vanuit een JavaScript-één pagina toepassing (SPA)
 
 Deze handleiding wordt uitgelegd hoe een JavaScript één pagina toepassing (SPA) persoonlijk, werk kunt aanmelden en schoolaccounts, een toegangstoken ophalen en roept u de Microsoft Graph API of andere API's waarvoor toegangstokens van het Azure Active Directory-v2-eindpunt.

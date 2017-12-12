@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: ce7cfdfa4695283c588bc5c73791b1c04cd2f772
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Connectiviteit bibliotheken en frameworks voor Microsoft SQL Server
+# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Connectiviteit bibliotheken en frameworks voor SQL Server
 
-Bekijk onze [gestart zelfstudies ophalen](http://aka.ms/sqldev) snel aan de slag met programmeertalen zoals C#, Java, Node.js, PHP en Python en bouwen van een app met behulp van SQL Server voor Linux- of Windows- of Docker op Mac OS.
+Bekijk onze [ophalen zelfstudies gestart](http://aka.ms/sqldev) snel aan de slag met programmeertalen zoals C#, Java, Node.js, PHP en Python. Vervolgens maken een app met behulp van SQL Server voor Linux- of Windows- of Docker op Mac OS.
 
-De volgende tabel bevat de bibliotheken voor databaseconnectiviteit of *stuurprogramma's* die clienttoepassingen van tal van talen verbinding maken met en gebruik van Microsoft SQL Server lokaal wordt uitgevoerd of in de cloud, op Linux-, Windows- of Docker en ook voor kunnen gebruiken Azure SQL Database en Azure SQL datawarehouse. 
+De volgende tabel bevat de bibliotheken voor databaseconnectiviteit of *stuurprogramma's* die clienttoepassingen van tal van talen verbinding maken met en gebruik van SQL Server lokaal wordt uitgevoerd of in de cloud kunnen gebruiken. U kunt deze gebruiken op Linux-, Windows- of Docker en gebruiken ze verbinding maken met Azure SQL Database en Azure SQL Data Warehouse. 
 
 | Taal | Platform | Aanvullende bronnen | Downloaden | Aan de slag |
 | :-- | :-- | :-- | :-- | :-- |
@@ -35,9 +35,9 @@ De volgende tabel bevat de bibliotheken voor databaseconnectiviteit of *stuurpro
 | Node.js | Windows, Linux, Mac OS | [Node.js-stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installeren](https://msdn.microsoft.com/library/mt652094.aspx) |  [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, Mac OS | [Python-SQL-stuurprogramma](http://msdn.microsoft.com/library/mt652092.aspx) | Installeer keuzes: <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, Mac OS | [Ruby stuurprogramma voor SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installeren](https://msdn.microsoft.com/library/mt711041.aspx) | [Aan de slag](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, Mac OS | [Microsoft ODBC-stuurprogramma voor SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Downloaden](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+| C++ | Windows, Linux, Mac OS | [ODBC-stuurprogramma voor SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Downloaden](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-De volgende tabel bevat enkele voorbeelden van Object relationele toewijzing (ORM) frameworks en web-frameworks die clienttoepassingen gebruiken kunnen met Microsoft SQL Server lokaal wordt uitgevoerd of in de cloud, op Linux-, Windows- of Docker en naar Azure SQL Database en Azure SQL datawarehouse. 
+De volgende tabel bevat voorbeelden van object-relationele gegevens (ORM) frameworks en web-frameworks die clienttoepassingen gebruiken kunnen met SQL Server lokaal wordt uitgevoerd of in de cloud. U kunt de frameworks gebruiken op Linux-, Windows- of Docker en ze verbinding maken met SQL-Database en SQL Data Warehouse te gebruiken. 
 
 | Taal | Platform | ORM(s) |
 | :-- | :-- | :-- |
@@ -50,7 +50,7 @@ De volgende tabel bevat enkele voorbeelden van Object relationele toewijzing (OR
 ||||
 
 ## <a name="related-links"></a>Verwante koppelingen
-- [SQL Server-stuurprogramma's](http://msdn.microsoft.com/library/mt654049.aspx) om verbinding te maken van clienttoepassingen
+- [SQL Server-stuurprogramma](http://msdn.microsoft.com/library/mt654049.aspx) die worden gebruikt voor het verbinding maken vanaf de client-toepassingen
 - Verbinding maken met SQL-Database:
     - [Verbinding maken met SQL Database met behulp van .NET (C#)](sql-database-connect-query-dotnet.md)
     - [Verbinding maken met SQL Database met behulp van PHP](sql-database-connect-query-php.md)

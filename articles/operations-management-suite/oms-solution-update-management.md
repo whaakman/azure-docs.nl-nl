@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>De oplossing voor updatebeheer in OMS
 
@@ -57,7 +57,7 @@ U kunt software-updates implementeren en installeren op computers die updates ve
 Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de datum en tijd die zijn opgegeven in de update-implementatie.  Er wordt eerst een scan uitgevoerd om te controleren of de updates nog steeds vereist zijn. Vervolgens worden ze geïnstalleerd.  Houd voor ogen dat de update-implementatie voor WSUS-clientcomputers mislukt als de updates niet zijn goedgekeurd in WSUS.  De resultaten van de toegepaste updates worden doorgestuurd naar OMS. Hier worden ze verwerkt en vervolgens wordt er een overzicht van weergegeven in de dashboards. U kunt er ook meer informatie over raadplegen door de gebeurtenissen te doorzoeken.     
 
 ## <a name="prerequisites"></a>Vereisten
-* De oplossing biedt ondersteuning voor updatebeoordelingen op Windows Server 2008 en hoger en update-implementaties op Windows Server 2008 R2 SP1 en hoger.  Server Core- en nanoserverinstallatieopties worden niet ondersteund.
+* De oplossing biedt ondersteuning voor updatebeoordelingen op Windows Server 2008 en hoger en update-implementaties op Windows Server 2008 R2 SP1 en hoger.  Nano Server wordt niet ondersteund.
 
     > [!NOTE]
     > Ondersteuning voor het implementeren van updates voor Windows Server 2008 R2 SP1 vereist .NET Framework 4.5 en WMF 5.0 of hoger.
@@ -156,7 +156,7 @@ Het kan dertig minuten tot zes uur duren voordat er in het dashboard bijgewerkte
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 Wanneer u de oplossing Updatebeheer toevoegt aan uw OMS-werkruimte wordt de tegel **Updatebeheer** toegevoegd aan uw OMS-dashboard. Deze tegel toont het aantal computers in uw omgeving, evenals een grafische voorstelling hiervan, en de bijbehorende updatenaleving.<br><br>
-![Tegel overzicht updatebeheer](media/oms-solution-update-management/update-management-summary-tile.png)  
+![Tegel overzicht Updatebeheer](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
 ## <a name="viewing-update-assessments"></a>Update-evaluaties weergeven

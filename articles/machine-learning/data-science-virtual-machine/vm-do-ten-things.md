@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 9aafd6300bebbb5505aa4ed707cac9716c8e6aa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 622bb5971a6ad774e770f00d2d9f44999b844d12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Tien dingen die u kunt doen in de virtuele wetenschapsgegevensmachine
 
@@ -803,14 +803,14 @@ Azure Cosmos-database is een NoSQL-database in de cloud. Dit kunt u werken met d
 
 U moet de volgende stappen per vereisten voor toegang tot Azure Cosmos DB via de DSVM uitvoeren.
 
-1. DocumentDB Python SDK installeren (uitvoeren ```pip install pydocumentdb``` vanaf een opdrachtprompt)
+1. Installeer de Azure-SDK voor Python Cosmos DB (uitvoeren ```pip install pydocumentdb``` vanaf een opdrachtprompt)
 2. Maak een Azure DB die Cosmos-account en een database van [Azure-portal](https://portal.azure.com)
 3. 'Azure Cosmos DB hulpprogramma voor migratie' downloaden van [hier](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) en uitpakken naar een map van uw keuze
 4. Importeren van JSON-gegevens (Vulkaan gegevens) opgeslagen op een [openbare blob](https://cahandson.blob.core.windows.net/samples/volcano.json) naar Cosmos DB met de volgende opdrachtparameters naar het migratiehulpprogramma voor (dtui.exe uit de map waar u het hulpprogramma voor migratie DB Cosmos geïnstalleerd). Geef de bron en doel-locatie met de volgende parameters:
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/; AccountKey = [[sleutel]; Database = Vulkaan /t.Collection:volcano1
 
-Zodra u de gegevens importeert, kunt u gaat u naar Jupyter en opent u de notebook met de titel *DocumentDBSample* die python-code voor toegang tot DocumentDB en voer enkele eenvoudige query bevat. U meer informatie over Cosmos DB via de service [documentatiepagina](https://docs.microsoft.com/azure/cosmos-db/).
+Zodra u de gegevens importeert, kunt u gaat u naar Jupyter en opent u de notebook met de titel *DocumentDBSample* die python-code voor toegang tot Azure Cosmos DB en voer enkele eenvoudige query bevat. U meer informatie over Cosmos DB via de service [documentatiepagina](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Maak rapporten en een dashboard met Power BI Desktop
 Laat het ons visualiseren het Vulkaan JSON-bestand dat we eerder in het voorgaande voorbeeld Cosmos DB in Power BI om visual inzicht in de gegevens te krijgen. Gedetailleerde stappen zijn beschikbaar in de [Power BI-artikel](../../cosmos-db/powerbi-visualize.md). Hier volgen de hoofdstappen:

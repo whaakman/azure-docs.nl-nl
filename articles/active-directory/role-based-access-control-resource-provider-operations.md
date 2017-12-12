@@ -4,7 +4,7 @@ description: Details van de bewerkingen die beschikbaar zijn op de Microsoft Azu
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager Resource Provider-bewerkingen
 
@@ -975,31 +975,31 @@ Deze provider is niet een volledige ARM-provider en biedt geen bewerkingen ARM.
 
 | Bewerking | Beschrijving |
 |---|---|
-|/ Registreren/actie|De Microsoft Insights-provider registeren|
-|/ AlertRules/schrijven|Naar de configuratie van een waarschuwingsregel schrijven|
-|/ AlertRules/verwijderen|Configuratie van een waarschuwingsregel verwijderen|
-|AlertRules/leestijd|Configuratie van een waarschuwingsregel lezen|
+|/ Registreren/actie|Registreer de provider van microsoft insights|
+|/ AlertRules/schrijven|Schrijven naar een waarschuwingsregel-configuratie|
+|/ AlertRules/verwijderen|De configuratie van een waarschuwingsregel verwijderd|
+|AlertRules/leestijd|Lezen van de configuratie van een waarschuwingsregel|
 |/ AlertRules/geactiveerd/actie|Waarschuwingsregel geactiveerd|
 |/ AlertRules/opgelost/actie|Waarschuwingsregel opgelost|
-|/ AlertRules/beperkt/actie|De waarschuwingsregel wordt beperkt|
-|AlertRules/incidenten/leestijd|Incidentconfiguratie van een waarschuwingsregel lezen|
+|/ AlertRules/beperkt/actie|Waarschuwingsregel is beperkt|
+|AlertRules/incidenten/leestijd|Lezen van een incident waarschuwingsregel-configuratie|
 |MetricDefinitions/leestijd|Metrische definities lezen|
-|/EventTypes/Values/Read|Waarden beheergebeurtenistype lezen|
-|/EventTypes/digestevents/Read|Samenvatting beheergebeurtenistype lezen|
-|Metrische gegevens/leestijd|De metrische gegevens lezen|
+|/EventTypes/Values/Read|Lees beheer gebeurtenis typewaarden|
+|/EventTypes/digestevents/Read|Lees management gebeurtenis type Verificatiesamenvatting|
+|Metrische gegevens/leestijd|Metrische gegevens lezen|
 |/ LogProfiles/schrijven|Schrijven naar een logboek-profielconfiguratie|
 |/ LogProfiles/verwijderen|Logboek profielen configuratie verwijderen|
 |LogProfiles/leestijd|Profielen voor lees-logboek|
-|/ AutoscaleSettings/schrijven|Naar een configuratie-instelling voor automatisch schalen schrijven|
-|/ AutoscaleSettings/verwijderen|Configuratie-instelling voor automatisch schalen verwijderen|
-|AutoscaleSettings/leestijd|Configuratie-instelling voor automatisch schalen lezen|
-|/ AutoscaleSettings/Scaleup/actie|Bewerking Omhoog schalen via automatisch schalen|
-|/ AutoscaleSettings/Scaledown/actie|Bewerking Omlaag schalen via automatisch schalen|
+|/ AutoscaleSettings/schrijven|Schrijven naar een configuratie van de instelling voor automatisch schalen|
+|/ AutoscaleSettings/verwijderen|Verwijderen van een configuratie van de instelling voor automatisch schalen|
+|AutoscaleSettings/leestijd|Lezen van een configuratie van de instelling voor automatisch schalen|
+|/ AutoscaleSettings/Scaleup/actie|Automatisch schalen opschaling van de bewerking|
+|/ AutoscaleSettings/Scaledown/actie|Schaal omlaag bewerking automatisch schalen|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Metrische definities lezen|
 |/ ActivityLogAlerts/geactiveerd/actie|De activiteit logboek waarschuwing is geactiveerd|
-|/ DiagnosticSettings/schrijven|Schrijven naar de configuratie voor de diagnostische instellingen|
-|/ DiagnosticSettings/verwijderen|Configuratie voor de diagnostische gegevens verwijderen|
-|DiagnosticSettings/leestijd|Een configuratie voor de diagnostische instellingen lezen|
+|/ DiagnosticSettings/schrijven|Schrijven naar de configuratie van diagnostische instellingen|
+|/ DiagnosticSettings/verwijderen|Verwijderen van configuratie van diagnostische instellingen|
+|DiagnosticSettings/leestijd|Een configuratie van diagnostische instellingen lezen|
 |LogDefinitions/leestijd|Logboekdefinities lezen|
 |/ ExtendedDiagnosticSettings/schrijven|Schrijven naar de uitgebreide diagnostische instellingen voor configuratie|
 |/ ExtendedDiagnosticSettings/verwijderen|Configuratie van diagnostische instellingen voor uitgebreide verwijderd|

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: f9854172e08785676a7804433d9a559e623a7b05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics gebeurtenis volgorde overweging
 
@@ -78,7 +78,7 @@ Om de volgorde van gebeurtenissen ontvangen binnen 'volgorde tolerantieperiode',
    * Gebeurtenis 4 _toepassing tijd_ = 00:09:00 _aankomsttijd_ = 00:10:03 _System.Timestamp_ 00:09:00, met oorspronkelijke tijdstempel geaccepteerd, omdat de tijd van de toepassing binnen de out = volgorde tolerantie.
    * Gebeurtenis 5 _toepassing tijd_ = 00:06:00 _aankomsttijd_ = 00:10:04 _System.Timestamp_ 00:07:00 aangepast omdat het tijdstip van de toepassing is ouder dan de volgorde = tolerantie.
 
-## <a name="practical-considerations"></a>Praktische overwegingen
+### <a name="practical-considerations"></a>Praktische overwegingen
 Zoals eerder vermeld, *late ontvangst tolerantie* is het maximale verschil tussen de tijd van de toepassing en aankomsttijd.
 Ook wanneer verwerking door toepassing tijd, gebeurtenissen die hoger zijn dan de geconfigureerde *late ontvangst tolerantie* worden aangepast voordat de *volgorde tolerantie* instelling wordt toegepast. Met ingang van volgorde is dus het minimum voor late ontvangst tolerantie en de volgorde tolerantie.
 
@@ -94,22 +94,33 @@ Tijdens het configureren van *late ontvangst tolerantie* en *volgorde tolerantie
 
 Hier volgen enkele voorbeelden
 
-### <a name="example-1"></a>Voorbeeld 1: 
+#### <a name="example-1"></a>Voorbeeld 1: 
 Query 'Partitie door PartitionId'-component bevat en binnen een enkele partitie, gebeurtenissen worden verzonden met behulp van methoden synchrone verzenden. Synchrone verzenden methoden blokkeren totdat de gebeurtenissen worden verzonden.
 In dit geval volgorde is nul omdat gebeurtenissen worden in volgorde met expliciete bevestiging voordat het verzenden van de volgende gebeurtenis verzonden. Late ontvangst is een maximale vertraging tussen het genereren van de gebeurtenis en het verzenden van de gebeurtenis + maximale latentie tussen de afzender en de invoerbron
 
-### <a name="example-2"></a>Voorbeeld 2:
+#### <a name="example-2"></a>Voorbeeld 2:
 Query 'Partitie door PartitionId' component heeft en binnen een enkele partitie, gebeurtenissen worden verzonden via de methode asynchrone verzending. Verzenden van asynchrone methoden kunnen meerdere verzendt op hetzelfde moment, wat leiden gebeurtenissen in andere volgorde tot kan worden geïnitieerd.
 In dit geval zijn de volgorde en late ontvangst ten minste maximale vertraging tussen het genereren van de gebeurtenis en het verzenden van de gebeurtenis + maximale latentie tussen de afzender en de invoerbron.
 
-### <a name="example-3"></a>Voorbeeld 3:
+#### <a name="example-3"></a>Voorbeeld 3:
 Query heeft geen 'Partitie door PartitionId' en er zijn ten minste twee partities.
 Configuratie is hetzelfde als voorbeeld 2. Gebrek aan gegevens in een van de partities kan echter de uitvoer uitstellen door een extra * late ontvangst tolerantie ' venster.
+
+## <a name="handling-event-producers-with-differing-timelines"></a>Afhandeling van gebeurtenis producenten met verschillende tijdlijnen
+Een stream met één invoer gebeurtenis bevatten vaak gebeurtenissen die afkomstig zijn van meerdere gebeurtenis producenten (zoals afzonderlijke apparaten).  Deze gebeurtenissen mogelijk een verkeerde volgorde de eerder besproken oorzaken binnenkomen. In deze scenario's, terwijl de verslechterde tussen producenten gebeurtenis mogelijk groot is, de verslechterde binnen de gebeurtenissen van een enkele producent niet kleine (of zelfs niet-bestaand).
+Hoewel Azure Stream Analytics biedt algemene mechanismen voor het omgaan met out volgorde gebeurtenissen, wordt deze mechanismen resultaat in beide vertragingen verwerking (tijdens het wachten op voor de straggling gebeurtenissen te bereiken van het systeem), verwijderd of aangepast gebeurtenissen of beide.
+Nog in veel scenario's, wordt de gewenste query verwerkt gebeurtenissen van verschillende gebeurtenis producenten onafhankelijk.  Bijvoorbeeld: deze kan worden aggregeren van gebeurtenissen per venster per-apparaat.  In dergelijke gevallen hoeft niet uit te stellen van de uitvoer die overeenkomt met een gebeurtenis producent tijdens het wachten op de andere gebeurtenis producenten te lopen.  Met andere woorden, hoeft niet te bekommeren om de tijd tussen producenten scheeftrekken en kan eenvoudig worden genegeerd.
+Natuurlijk dit betekent dat de uitvoergebeurtenissen zelf out volgorde ten opzichte van de tijdstempels; de downstream consument moet kunnen maken met dit gedrag.  Maar alle gebeurtenissen in de uitvoer juist zijn.
+
+Azure Stream Analytics implementeert deze functionaliteit met de [TIMESTAMP-door via](https://msdn.microsoft.com/library/azure/mt573293.aspx) component.
+
+
 
 ## <a name="to-summarize"></a>Samenvatten
 * Late ontvangst tolerantie en volgorde venster moeten worden geconfigureerd op basis van de juistheid, latentie is vereist en moeten ook rekening houden hoe de gebeurtenissen worden verzonden.
 * Het is raadzaam dat volgorde tolerantie kleiner dan late ontvangst tolerantie is.
 * Bij het combineren van meerdere tijdlijnen, kan de uitvoer door een extra tolerantieperiode voor late gebrek aan gegevens in een van de bronnen of partities worden vertraagd.
+* Wanneer de volgorde is alleen van belang zijn binnen de gebeurtenis producent tijdlijn, is de TIMESTAMP BY over-component gebruiken voor het verwerken van elke producent gebeurtenis als een onafhankelijke substroomtype.
 
 ## <a name="get-help"></a>Help opvragen
 Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

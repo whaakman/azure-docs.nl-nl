@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een Edge van C#-IoT-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -219,7 +219,7 @@ De volgende stappen laten zien u hoe u een IoT-Edge-module maken die is gebaseer
         
    Gebruik de gebruikersnaam, wachtwoord en login-server die u hebt gekopieerd uit uw Azure-container register wanneer u het hebt gemaakt.
 
-3. De installatiekopie naar uw opslagplaats Docker forceren. Selecteer **weergave** > **opdracht palet** en zoek naar de **rand: Push IoT rand module Docker installatiekopie** menuopdracht. Voer de naam van de afbeelding in het pop-tekst boven aan het venster VS-Code. Gebruik dezelfde naam van de installatiekopie u in stap gebruikt 1.d.
+3. De installatiekopie naar uw opslagplaats Docker forceren. Selecteer **weergave** > **opdracht palet** en zoek naar de **rand: Push IoT rand module Docker installatiekopie** menuopdracht. Voer de naam van de afbeelding in het pop-tekst boven aan het venster VS-Code. Gebruik dezelfde naam van de installatiekopie die u in stap 4 wordt gebruikt.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Register-referenties aan de rand runtime toevoegen
 De referenties voor uw register toevoegen aan de rand runtime op de computer waarop u het apparaat aan de rand worden uitgevoerd. Deze referenties geven de runtime toegang tot het ophalen van de container. 

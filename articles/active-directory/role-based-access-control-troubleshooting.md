@@ -4,7 +4,7 @@ description: Hulp bij problemen of vragen hebt over op rollen gebaseerd toegangs
 services: azure-portal
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 407c030ea159915d4d7ac21760a3d17ec2204372
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Probleemoplossing voor toegangsbeheer op basis van rollen
 
@@ -41,7 +41,7 @@ Als u een gebruiker alleen-lezen toegang tot een enkel web-app verlenen, worden 
 * Configuratie van diagnostische logboeken
 * Console (opdrachtprompt)
 * Actieve en recente implementaties (voor lokale git-continue implementatie)
-* Geschatte besteden
+* Geschatte besteding
 * Webtests
 * Virtueel netwerk (alleen zichtbaar voor een lezer als eerder een virtueel netwerk is geconfigureerd door een gebruiker met toegang voor schrijven).
 
@@ -63,7 +63,7 @@ Deze items vereisen **schrijven** toegang tot de **App Service-abonnement** die 
 Deze items vereisen **schrijven** toegang tot het gehele **resourcegroep** die uw website bevat:  
 
 * SSL-certificaten en bindingen (SSL-certificaten kunnen worden gedeeld tussen sites in dezelfde resourcegroep en de geografische locatie)  
-* Regels voor waarschuwingen  
+* Waarschuwingsregels  
 * instellingen voor automatisch schalen  
 * Application insights-onderdelen  
 * Webtests  
@@ -84,7 +84,7 @@ Hiervoor is vereist **schrijven** toegang tot zowel de **virtuele machine**, en 
 
 * Beschikbaarheidsset  
 * Laden van de set met gelijke taakverdeling  
-* Regels voor waarschuwingen  
+* Waarschuwingsregels  
 
 Als u geen toegang deze tegels tot, vraag uw beheerder voor Inzender toegang tot de resourcegroep.
 

@@ -4,7 +4,7 @@ description: Hierin wordt beschreven hoe de kenmerken van werken in Azure AD Con
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 0b6a7f22d744480a40a878c979986cdd7667109c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00488391c496f06cfcad12e67f5a874313c57e08
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-service de kenmerken
 De meeste kenmerken worden dezelfde manier weergegeven in Azure AD omdat ze in uw lokale Active Directory. Maar bepaalde kenmerken sommige speciale verwerking hebben en de waarde van het kenmerk in Azure AD is mogelijk anders dan wat Azure AD Connect synchroniseert.
@@ -32,7 +32,7 @@ Bekijk voor meer informatie over het gedrag, in dit voorbeeld van Fabrikam:
 ![Domeinen](./media/active-directory-aadconnectsyncservice-shadow-attributes/domains.png)  
 Ze hebben meerdere UPN-achtervoegsels in hun lokale Active Directory, maar ze deze alleen hebt gecontroleerd.
 
-### <a name="userprincipalname"></a>UserPrincipalName
+### <a name="userprincipalname"></a>userPrincipalName
 Een gebruiker heeft de volgende kenmerkwaarden in een niet-geverifieerd domein:
 
 | Kenmerk | Waarde |

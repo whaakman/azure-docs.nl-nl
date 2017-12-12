@@ -15,25 +15,32 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Meld u aan bij de [Azure-portal](https://portal.azure.com/) op http://portal.azure.com/.
-2. Klik in het linkerdeelvenster vaandel **door alles bladeren**. De **Bladeren** blade wordt weergegeven.
-3. Schuif en klik op **SQL-servers**. De **SQL-servers** blade wordt weergegeven.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+2. Selecteer in de lijst aan de linkerkant **Bladeren**. 
+
+3. Blader en selecteer **SQL-servers**. 
    
     ![Uw Azure SQL Database-server niet vinden in de portal][b21-FindServerInPortal]
-4. Klik op het besturingselement minimaliseren in de eerdere voor het gemak **Bladeren** blade.
+4. Voor het gemak minimaliseren de **Bladeren** blade.
+
 5. Typ de naam van uw server in het filtertekstvak. De rij wordt weergegeven.
-6. Klik op de rij voor uw server. Een blade voor uw server wordt weergegeven.
-7. Klik op de blade van uw server **instellingen**. De **instellingen** blade wordt weergegeven.
-8. Klik op **Firewall**. De **firewallinstellingen** blade wordt weergegeven.
+
+6. Selecteer de rij voor uw server. Een blade voor uw server wordt weergegeven.
+
+7. Selecteer op de blade van uw server **instellingen**. 
+
+8. Selecteer **Firewall**. 
    
-    ![Klik op Instellingen > Firewall][b31-SettingsFirewallNavig]
-9. Klik op **-Client toevoegen IP**. Typ een naam voor de nieuwe regel in het eerste tekstvak.
+    ![Selecteer instellingen > Firewall][b31-SettingsFirewallNavig]
+9. Selecteer **-Client toevoegen IP**. Typ een naam voor de nieuwe regel in het tekstvak eerste.
+
 10. Typ in de lage en hoge IP-adreswaarden voor het bereik dat u wilt inschakelen.
     
-    * Het kan zijn bij de hand hebt om het einde van de lage waarde met **.0** en de hoge met **.255**.
+    * Het kan zijn bij de hand hebt om het einde van de lage waarde met **.0** en de hoogste waarde eindigen met **.255**.
     
     ![Toevoegen van een IP-adresbereik om toe te staan][b41-AddRange]
-11. Klik op **Opslaan**.
+11. Selecteer **Opslaan**.
 
 <!-- Image references. -->
 

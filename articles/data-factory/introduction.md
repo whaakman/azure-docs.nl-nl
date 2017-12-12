@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Nadat de onbewerkte gegevens zijn omgezet in gebruiksklare bedrijfsgegevens, laa
 ### <a name="monitor"></a>Bewaken
 Nadat u uw pijplijn voor gegevensintegratie hebt gemaakt en geïmplementeerd, en op die manier toegevoegde waarde biedt met getransformeerde gegevens, controleert u hoe vaak de geplande activiteiten en pijplijnen slagen en mislukken. Azure Data Factory heeft ingebouwde ondersteuning voor pijplijnbewaking via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite en statusvensters in Azure Portal.
 
-## <a name="whats-different-in-version-2"></a>Wat is er anders in versie 2?
-Versie 2 van Azure Data Factory is gebaseerd op de oorspronkelijke gegevensverplaatsings- en transformatieservice Azure Data Factory. De service is uitgebreid tot een bredere set van scenario's voor gegevensintegratie in de cloud. Azure Data Factory versie 2 heeft de volgende mogelijkheden:
-
-- Controlestroom en schalen
-- SQL Server Integration Services-pakketten (SSIS) implementeren en uitvoeren in Azure
-
-Na de release van versie 1 merkten we dat de klanten complexe hybride gegevensintegratiescenario's moesten ontwerpen waarbij verplaatsing van gegevens en verwerking ervan in de cloud, on-premises en in VM's in de cloud nodig waren. Door deze vereisten ontstond de behoefte aan beveiligde virtuele netwerkomgevingen om gegevens in te verzenden en verwerken, en aan de mogelijkheid om op te schalen met verwerkingskracht op aanvraag.
-
-We hebben gezien dat er een flexibele planning nodig is voor de ondersteuning van het laden van incrementele gegevens en door gebeurtenis geactiveerde uitvoeringen, zodra gegevenspijplijnen een belangrijk onderdeel van een strategie voor business analytics worden. Ten slotte is het, omdat deze bewerkingen steeds complexer worden, des te belangrijker dat de service de algemene werkstroomparadigma's zoals vertakkingen, lussen en voorwaardelijke verwerking kan ondersteunen.
-
-Met versie 2 kunt u ook bestaande SSIS-pakketten naar de cloud migreren. U kunt SSIS inzetten als een Azure-service die wordt beheerd in ADF, met behulp van de nieuwe functie 'Integration Runtimes' (IR). Door de SSIS-IR in versie 2 beschikt u over de mogelijkheid om SSIS-pakketten in de cloud uit te voeren, te beheren, te controleren en te bouwen.
-
-### <a name="control-flow-and-scale"></a>Controlestroom en schalen 
-Data Factory heeft een nieuw flexibel gegevenspijplijnmodel dat niet langer is gekoppeld aan tijdseriegegevens ter ondersteuning van de diverse integratiestromen en -patronen in het moderne datawarehouse. Met deze versie kunt u modellen maken voor voorwaarden, vertakkingen maken in de controlestroom van een pijplijn en expliciet parameters doorgeven binnen en tussen deze stromen.
-
-U hebt nu de vrijheid om modellen te maken voor alle stroomstijlen die vereist zijn voor de integratie van gegevens. Deze kunnen op aanvraag of herhaaldelijk op basis van een klokplanning worden verzonden. Dit zijn enkele veelvoorkomende stromen die nu mogelijk zijn geworden:   
-
-- Controlestroom:
-    - Activiteiten in een volgorde binnen een pijplijn koppelen
-    - Activiteiten vertakken binnen een pijplijn
-    - Parameters
-        - Parameters kunnen worden gedefinieerd op pijplijnniveau en de argumenten kunnen worden doorgegeven tijdens het aanroepen van de pijplijn op aanvraag of vanuit een trigger.
-        - Activiteiten kunnen de argumenten die zijn doorgegeven aan de pijplijn gebruiken.
-    - Aangepaste status doorgeven
-        - Activiteituitvoer zoals de status kan worden gebruikt door een volgende activiteit in de pijplijn.
-    - Herhalende containers
-        - For-each 
-- Op triggers gebaseerde stromen
-    - Pijplijnen kunnen op aanvraag of volgens wandklokplanningen worden geactiveerd.
-- Deltastromen
-    - Gebruik parameters en geef de bovengrens op voor deltakopieerbewerkingen tijdens het verplaatsen van dimensie of verwijzingstabellen in een relationele opslagplaats, on-premises of in de cloud, om gegevens in het meer te laden. 
-
-Zie [Activiteiten vertakken en koppelen in een Data Factory-pijplijn](tutorial-control-flow.md) voor meer informatie.
-
-### <a name="deploy-ssis-packages-to-azure"></a>SSIS-pakketten implementeren in Azure 
-Als u uw SSIS-werkbelastingen wilt verplaatsen, kunt u een data factory in versie 2 maken en een Azure-SSIS Integration Runtime (IR) inrichten. Azure-SSIS IR is een volledig beheerd cluster met virtuele Azure-machines (knooppunten) die uw SSIS-pakketten uitvoeren in de cloud. Zie de zelfstudie [Pakketten van SQL Server Integration Services implementeren in Azure](tutorial-deploy-ssis-packages-azure.md) voor stapsgewijze instructies. 
- 
-
-### <a name="sdks"></a>SDK's
-Als u een ervaren gebruiker bent en op zoek bent naar een programma-interface, dan is versie 2 ideaal voor u. Deze versie biedt een uitgebreide set SDK's die kunnen worden gebruikt voor het ontwerpen, beheren en controleren van pijplijnen met behulp van uw favoriete IDE.
-
-- *.NET SDK*: de .NET SDK is bijgewerkt voor versie 2. 
-- *PowerShell*: de PowerShell-cmdlets zijn bijgewerkt voor versie 2. De cmdlets voor versie 2 hebben **DataFactoryV2** in de naam. Bijvoorbeeld: Get-AzureRmDataFactoryV2. 
-- *Python SDK*: deze SDK is nieuw in versie 2.
-- *REST API*: de REST-API is bijgewerkt voor versie 2.  
-
-De SDK's die zijn bijgewerkt voor versie 2 zijn niet achterwaarts compatibel met versie 1-clients. 
-
-### <a name="monitoring"></a>Bewaking
-In versie 2 kunnen data factory's momenteel alleen worden bewaakt met behulp van SDK's. De portal biedt nog geen ondersteuning voor bewaking van data factory's versie 2. 
-
-## <a name="load-the-data-into-a-lake"></a>De gegevens in een meer laden
-Data Factory heeft 30+ connectors waarmee u gegevens kunt laden vanuit hybride en heterogene omgevingen naar Azure. Zie [Prestatie- en afstemmingshandleiding](copy-activity-performance.md) voor de meest recente prestatieresultaten van interne testen en suggesties voor het afstemmen. 
-
-Daarnaast hebben we onlangs hoge beschikbaarheid en schaalbaarheid ingeschakeld voor de zelfgehoste Integration Runtime die u in een particuliere netwerkomgeving installeert. Hiermee wordt voldaan aan de vereisten van zakelijke klanten van laag 1 voor betere beschikbaarheid en schaalbaarheid.
-
-## <a name="top-level-concepts-in-version-2"></a>Concepten op het hoogste niveau concepten in versie 2
+## <a name="top-level-concepts"></a>Concepten van het hoogste niveau
 Een Azure-abonnement kan een of meer Azure Data Factory-exemplaren (ofwel 'data factory's') hebben. Azure Data Factory bestaat uit vier hoofdonderdelen. Deze onderdelen werken samen om een platform te bieden waarop u gegevensgestuurde werkstromen kunt maken met stappen voor de verplaatsing en transformatie van gegevens.
 
 ### <a name="pipeline"></a>Pijplijn
@@ -147,8 +91,7 @@ Gekoppelde services worden voor twee doeleinden gebruikt in een Data Factory:
 - Ter vertegenwoordiging van een **rekenresource** die de uitvoering van een activiteit kan hosten. De activiteit HDInsightHive wordt bijvoorbeeld uitgevoerd in een HDInsight Hadoop-cluster. Zie het artikel [Gegevens transformeren](transform-data.md) voor een lijst met transformatieactiviteiten en ondersteunde rekenomgevingen.
 
 ### <a name="triggers"></a>Triggers
-Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Er zijn verschillende soorten triggers voor verschillende soorten gebeurtenissen. Voor de preview ondersteunen wij de trigger voor de kloktijd. 
-
+Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Er zijn verschillende soorten triggers voor verschillende soorten gebeurtenissen. Als preview ondersteunt Data Factory de klok-scheduler-trigger. 
 
 ### <a name="pipeline-runs"></a>Pijplijnuitvoeringen
 Een pijplijnuitvoering is een exemplaar van de uitvoering van de pijplijn. Pijplijnuitvoeringen worden doorgaans geïnstantieerd doordat argumenten worden doorgegeven aan de parameters die zijn gedefinieerd in pijplijnen. De argumenten kunnen handmatig of in de triggerdefinitie worden doorgegeven.
@@ -179,6 +122,9 @@ Azure Data Factory zelf slaat geen gegevens op. U kunt er gegevensgestuurde werk
 Hoewel Data Factory alleen beschikbaar is in VS - oost, VS - oost 2 en West-Europa, is de service die gegevensverplaatsing in Data Factory mogelijk maakt, wereldwijd beschikbaar in meerdere regio's. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een gegevensbeheergateway die is geïnstalleerd in uw on-premises omgeving.
 
 Voorbeeld: uw berekeningsomgevingen, zoals een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een Azure Data Factory-exemplaar maken en gebruiken in Noord-Europa en dit gebruiken om taken te plannen in uw berekeningsomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
+
+## <a name="compare-with-version-2"></a>Vergelijken met versie 2
+Zie [Compare with version 1](compare-versions.md) (Vergelijken met versie 1) voor een lijst met verschillen tussen versie 1 en versie 2 van de Data Factory-service. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In de volgende QuickStarts vindt u informatie over het maken van een data factory door het volgen van stapsgewijze instructies: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) en Azure Portal. 

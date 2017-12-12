@@ -3,26 +3,26 @@ title: Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving 
 description: Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving
 
-U kunt uw Azure-Stack Development Kit PowerShell-omgeving configureren als een gebruiker met Azure-Stack. Nadat u hebt geconfigureerd, kunt u PowerShell gebruiken voor het beheren van Azure-Stack resources zoals op aanbiedingen abonneren maken van virtuele machines, het implementeren van Azure Resource Manager-sjablonen, enzovoort. In dit onderwerp als bereik voor het gebruik van de gebruiker omgevingen alleen, als u wilt PowerShell instellen voor de operator cloudomgeving naar verwijzen de [configureren van de Azure-Stack-operator PowerShell-omgeving](../azure-stack-powershell-configure-admin.md) onderwerp. 
+U kunt uw Azure-Stack Development Kit PowerShell-omgeving configureren als een gebruiker met Azure-Stack. Nadat u hebt geconfigureerd, kunt u PowerShell gebruiken voor het beheren van Azure-Stack resources zoals op aanbiedingen abonneren maken van virtuele machines, het implementeren van Azure Resource Manager-sjablonen, enzovoort. In dit onderwerp als bereik voor het gebruik van de gebruiker omgevingen alleen, als u wilt PowerShell instellen voor de operator cloudomgeving naar verwijzen de [configureren van de Azure-Stack-operator PowerShell-omgeving](../azure-stack-powershell-configure-admin.md) artikel. 
 
 ## <a name="prerequisites"></a>Vereisten 
 
@@ -33,7 +33,7 @@ Voer de volgende vereisten een van de [development kit](azure-stack-connect-azur
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Configureer de gebruikersomgeving en aanmelden bij Azure Stack
 
-Op basis van het type implementatie (Azure AD of AD FS), voer een van het volgende script voor het configureren van PowerShell voor Azure-Stack (Zorg ervoor dat ter vervanging van de AAD-tenantName, GraphAudience eindpunt en -waarden ArmEndpoint volgens de configuratie van uw omgeving):
+Op basis van het type implementatie (Azure AD of AD FS), voer een van de volgende scripts voor het configureren van PowerShell voor Azure-Stack (Zorg ervoor dat u de AAD-tenantName, GraphAudience eindpunt en ArmEndpoint waarden volgens de configuratie van uw omgeving):
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Implementaties op basis van Azure Active Directory (AAD)
        
@@ -118,7 +118,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>De connectiviteit testen
 
-Nu dat we hebben een alles instellen, gaan we PowerShell gebruiken om resources in Azure stapel te maken. U kunt bijvoorbeeld een resourcegroep voor een toepassing maken en toevoegen van een virtuele machine. Gebruik de volgende opdracht om een resourcegroep met de naam 'MyResourceGroup' te maken:
+Nu dat we hebben een alles constateert we PowerShell gebruiken om resources in Azure stapel te maken. U kunt bijvoorbeeld een resourcegroep voor een toepassing maken en toevoegen van een virtuele machine. Gebruik de volgende opdracht om een resourcegroep met de naam 'MyResourceGroup' te maken:
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

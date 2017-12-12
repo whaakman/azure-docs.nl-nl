@@ -1,5 +1,5 @@
 ---
-title: "Stapsgewijs gegevens kopiëren met behulp van Azure Data Factory | Microsoft Docs"
+title: "Stapsgewijs een tabel kopiëren met behulp van Azure Data Factory | Microsoft Docs"
 description: In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee gegevens uit een Azure Blob-opslag stapsgewijs worden gekopieerd naar een Azure SQL-database.
 services: data-factory
 documentationcenter: 
@@ -13,24 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Stapsgewijs gegevens uit Azure SQL Database laden in Azure Blob Storage
+In deze zelfstudie maakt u een Azure Data Factory-pijplijn waarmee wijzigingsgegevens uit een tabel in een Azure SQL-database naar een Azure Blob-opslag worden gekopieerd. 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Deze zelfstudie
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt, die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Tijdens de integratie van de gegevens is een van de meest gebruikte scenario's om gegevens periodiek stapsgewijs te laden om bijgewerkte analyseresultaten te vernieuwen na het initiële laden en analyseren van de gegevens. In deze zelfstudie richt u zich alleen op het laden van nieuwe of bijgewerkte records uit de gegevensbronnen in gegevenssinks. Dit verloopt efficiënter vergeleken bij volledig laden, met name bij grote gegevenssets.    
-
-U kunt Data Factory gebruiken om bovengrensoplossingen te maken voor het stapsgewijs laden van gegevens met behulp van de activiteiten Opzoeken, Kopiëren en Opgeslagen procedure in een pijplijn.  
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -46,7 +41,7 @@ In deze zelfstudie voert u de volgende stappen uit:
 ## <a name="overview"></a>Overzicht
 De diagramoplossing op hoog niveau is: 
 
-![Stapsgewijs gegevens laden](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![Stapsgewijs gegevens laden](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 Dit zijn de belangrijke stappen bij het maken van deze oplossing: 
 
@@ -71,7 +66,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 * **Azure PowerShell**. Volg de instructies in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Azure PowerShell installeren en configureren).
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Een gegevensbrontabel maken in de Azure SQL-database
-1. Open **SQL Server Management Studio** in **Server Explorer**, klik met de rechtermuisknop op de database en kies de **Nieuwe query**.
+1. Open **SQL Server Management Studio**. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
 2. Voer de volgende SQL-opdracht uit voor de Azure SQL-database om een tabel met de naam `data_source_table` te maken als gegevensbronopslag.  
     
     ```sql
@@ -150,41 +145,48 @@ WHERE [TableName] = @TableName
 END
 ```
 
-## <a name="create-a-data-factory"></a>Een data factory maken
-
-1. Start **PowerShell**. Houd Azure PowerShell open tot het einde van deze zelfstudie. Als u het programma sluit en opnieuw opent, moet u de opdrachten opnieuw uitvoeren.
-
-    Voer de volgende opdracht uit en geef de gebruikersnaam en het wachtwoord op waarmee u zich aanmeldt bij Azure Portal:
-        
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-    Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-    Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **SubscriptionId** door de id van uw Azure-abonnement:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
-2. Voer de cmdlet **Set AzureRmDataFactoryV2** uit om een data factory te maken. Vervang voordat u de opdracht uitvoert de tijdelijke aanduidingen door uw eigen waarden.
-
-    ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+## <a name="create-a-data-factory"></a>Een gegevensfactory maken
+1. Definieer een variabele voor de naam van de resourcegroep die u later gaat gebruiken in PowerShell-opdrachten. Kopieer de tekst van de volgende opdracht naar PowerShell, geef tussen dubbele aanhalingstekens een naam op voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en voer de opdracht uit. Bijvoorbeeld: `"adfrg"`. 
+   
+     ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    Houd rekening met de volgende punten:
+    Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit.
+2. Definieer een variabele voor de locatie van de data factory: 
 
-    * De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als de volgende fout zich voordoet, wijzigt u de naam en probeert u het opnieuw.
+    ```powershell
+    $location = "East US"
+    ```
+3. Voer de volgende opdracht uit om de resourcegroep te maken: 
 
-        ```
-        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
-        ```
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Als de resourcegroep al bestaat, wilt u waarschijnlijk niet dat deze wordt overschreven. Wijs een andere waarde toe aan de `$resourceGroupName`-variabele en voer de opdracht opnieuw uit. 
+3. Definieer een variabele voor de naam van de data factory. 
 
-    * Als u Data Factory-exemplaren wilt maken, moet u bijdrager of beheerder zijn van het Azure-abonnement.
-    * Momenteel kunt u in Data Factory V2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+    > [!IMPORTANT]
+    >  Werk de naam van de data factory zodanig bij dat deze uniek is. Bijvoorbeeld: ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFIncCopyTutorialFactory";
+    ```
+5. Voer de volgende cmdlet **Set AzureRmDataFactoryV2** uit om de data factory te maken: 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    ```
+
+Houd rekening met de volgende punten:
+
+* De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als de volgende fout zich voordoet, wijzigt u de naam en probeert u het opnieuw.
+
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
+* Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen **Inzender** of **Eigenaar**, of moet dit een **beheerder** van het Azure-abonnement zijn.
+* Momenteel kunt u met Data Factory versie 2 alleen data factory's maken in de regio's VS - oost, VS - oost 2 en West-Europa. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
 
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
@@ -224,7 +226,7 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Maak een gekoppelde Azure SQL Database-service.
-1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADF** met de volgende inhoud: (maak de map ADF als deze nog niet bestaat.) Vervang voordat u het bestand opslaat **&lt;server&gt; en &lt;user id&gt;, en &lt;password&gt;** door de naam van uw Azure SQL-server, gebruikers-id en wachtwoord. 
+1. Maak een JSON-bestand met de naam **AzureSQLDatabaseLinkedService.json** in de map **C:\ADF** met de volgende inhoud: (maak de map ADF als deze nog niet bestaat.) Vervang voordat u het bestand opslaat **&lt;server&gt; &lt;database&gt;, &lt;user id&gt; en &lt;password&gt;** door de naam van uw Azure SQL-server, database, gebruikers-id en wachtwoord. 
 
     ```json
     {
@@ -233,15 +235,15 @@ U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en co
             "type": "AzureSqlDatabase",
             "typeProperties": {
                 "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
                     "type": "SecureString"
                 }
             }
         }
     }
     ```
-2. Schakel in **Azure PowerShell** over naar de map **ADF**.
-3. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureSQLDatabaseLinkedService** te maken. 
+1. Schakel in **Azure PowerShell** over naar de map **ADF**.
+2. Voer de cmdlet **Set-AzureRmDataFactoryV2LinkedService** uit om de gekoppelde service **AzureSQLDatabaseLinkedService** te maken. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -280,7 +282,7 @@ In deze stap maakt u gegevenssets om de bron- en sinkgegevens te vertegenwoordig
     }
    
     ```
-    In deze zelfstudie gebruiken we de tabelnaam: **data_source_table**. Vervang deze naam als u een tabel gebruikt met een andere naam. 
+    In deze zelfstudie wordt de tabelnaam: **data_source_table** gebruikt. Vervang deze naam als u een tabel gebruikt met een andere naam. 
 2.  Voer de cmdlet Set-AzureRmDataFactoryV2Dataset uit om de gegevensset te maken: SourceDataset
     
     ```powershell
@@ -379,7 +381,7 @@ In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde.
 In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopieeractiviteit en één opgeslagen procedureactiviteit als keten in één pijplijn. 
 
 
-1. Maak een JSON-bestand: IncrementalCopyPipeline.json in dezelfde map met de volgende inhoud. 
+1. Maak een JSON-bestand: IncrementalCopyPipeline.json in dezelfde map met de volgende inhoud: 
 
     ```json
     {
@@ -512,9 +514,9 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 1. Voer de pijplijn **IncrementalCopyPipeline** uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en gegevensfactory.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Controleer de status van de pijplijn door de cmdlet Get-AzureRmDataFactoryV2ActivityRun uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters RunStartedAfter en RunStartedBefore.  In deze zelfstudie gebruiken we -RunStartedAfter 2017/09/14 -RunStartedBefore 2017/09/15
+2. Controleer de status van de pijplijn door de cmdlet Get-AzureRmDataFactoryV2ActivityRun uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters RunStartedAfter en RunStartedBefore.  In deze zelfstudie gaat u -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15" gebruiken.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -616,7 +618,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    De bijgewerkte gegevens in de Azure SQL-database zijn als volgt:
+    De bijgewerkte gegevens in de Azure SQL-database zijn:
 
     ```
     PersonID | Name | LastModifytime
@@ -632,9 +634,9 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 2. Voer de pijplijn **IncrementalCopyPipeline** opnieuw uit met behulp van de cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Vervang tijdelijke aanduidingen door de namen van uw eigen resourcegroep en gegevensfactory.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Controleer de status van de pijplijn door de cmdlet **Get-AzureRmDataFactoryV2ActivityRun** uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters RunStartedAfter en RunStartedBefore.  In deze zelfstudie gebruiken we -RunStartedAfter 2017/09/14 -RunStartedBefore 2017/09/15
+3. Controleer de status van de pijplijn door de cmdlet **Get-AzureRmDataFactoryV2ActivityRun** uit te voeren totdat alle activiteiten worden uitgevoerd. Vervang tijdelijke aanduidingen door uw eigen juiste tijd voor de parameters RunStartedAfter en RunStartedBefore.  In deze zelfstudie gaat u -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15" gebruiken.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -723,12 +725,12 @@ In deze zelfstudie hebt u de volgende stappen uitgevoerd:
 > * Maak bron- en sinkgegevenssets.
 > * Maak een pijplijn.
 > * Voer de pijplijn uit.
-> * Controleer de pijplijnuitvoering. 
+> * De pijplijnuitvoering controleert. 
 
-Ga naar de volgende zelfstudie voor meer informatie over het transformeren van gegevens met behulp van een Spark-cluster in Azure:
+In deze zelfstudie heeft de pijplijn gegevens uit **één tabel** in een Azure SQL-database naar een Azure-blobopslag gekopieerd. Ga door naar de volgende zelfstudie voor meer informatie over het kopiëren van gegevens uit **meerdere tabellen** in een on-premises SQL Server-database naar een Azure SQL-database. 
 
 > [!div class="nextstepaction"]
->[Gegevens transformeren met behulp van een Spark-cluster in de cloud](tutorial-transform-data-spark-powershell.md)
+>[Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL Database kopiëren](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 

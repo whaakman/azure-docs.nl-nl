@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: ce7faa985f3616cee42a22ad7a240b1f0a674060
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Een Python Flask-webtoepassing bouwen met Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,6 +30,8 @@ ms.lasthandoff: 12/01/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Deze zelfstudie leert u hoe u Azure Cosmos-database gebruiken voor het opslaan van en toegang tot gegevens uit een Python Flask-webtoepassing gehost op Azure App Service. Deze zelfstudie wordt ervan uitgegaan dat u hebt enige ervaring met behulp van Python en Azure websites.
 
@@ -213,10 +215,10 @@ def vote():
         db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
 
         # Read collections and take first since id should not be duplicated.
-        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.COSMOSDB_COLLECTION))
 
         # Read documents and take first since id should not be duplicated.
-        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.COSMOSDB_DOCUMENT))
 
         # Take the data from the deploy_preference and increment our database
         doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
@@ -315,21 +317,21 @@ def vote():
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Een configuratiebestand toevoegen en de \_\_init\_\_.py wijzigen
 1. Klik in Solution Explorer met de rechtermuisknop op het project **tutorial** en klik op **Toevoegen** en **Nieuw item**, selecteer **het lege Python-bestand** en noem het bestand **config.py**. Dit configuratiebestand is nodig voor de formulieren in Flask. U kunt dit bestand ook gebruiken om een geheime sleutel te verstrekken. Deze sleutel is echter niet nodig voor deze zelfstudie.
-2. Voeg de volgende code toe aan het bestand config.py. In de volgende stap moet u de waarden wijzigen voor **DOCUMENTDB\_HOST** en **DOCUMENTDB\_KEY**.
+2. Voeg de volgende code toe aan het bestand config.py, moet u de waarden van alter **COSMOSDB\_HOST** en **COSMOSDB\_sleutel** in de volgende stap.
    
     ```python
     CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
    
-    DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
-    DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
+    COSMOSDB_HOST = 'https://YOUR_COSMOSDB_NAME.documents.azure.com:443/'
+    COSMOSDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
    
-    DOCUMENTDB_DATABASE = 'voting database'
-    DOCUMENTDB_COLLECTION = 'voting collection'
-    DOCUMENTDB_DOCUMENT = 'voting document'
+    COSMOSDB_DATABASE = 'voting database'
+    COSMOSDB_COLLECTION = 'voting collection'
+    COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. In de [Azure-portal](https://portal.azure.com/), gaat u naar de **sleutels** pagina door te klikken op **Bladeren**, **Azure Cosmos DB Accounts**, dubbelklikt u op de naam van de account als u wilt gebruiken en klik vervolgens op de **sleutels** knop in de **Essentials** gebied. Op de **sleutels** pagina, Kopieer de **URI** waarde en plak deze in de **config.py** bestand als de waarde voor de **DOCUMENTDB\_HOST**eigenschap. 
-4. De Azure-portal weer op de **sleutels** pagina, Kopieer de waarde van de **primaire sleutel** of de **secundaire sleutel**, en plak deze in de **config.py**bestand als de waarde voor de **DOCUMENTDB\_sleutel** eigenschap.
+3. In de [Azure-portal](https://portal.azure.com/), gaat u naar de **sleutels** pagina door te klikken op **Bladeren**, **Azure Cosmos DB Accounts**, dubbelklikt u op de naam van de account als u wilt gebruiken en klik vervolgens op de **sleutels** knop in de **Essentials** gebied. Op de **sleutels** pagina, Kopieer de **URI** waarde en plak deze in de **config.py** bestand als de waarde voor de **COSMOSDB\_HOST**eigenschap. 
+4. De Azure-portal weer op de **sleutels** pagina, Kopieer de waarde van de **primaire sleutel** of de **secundaire sleutel**, en plak deze in de **config.py**bestand als de waarde voor de **COSMOSDB\_sleutel** eigenschap.
 5. In de  **\_ \_init\_\_.py** bestand, voeg de volgende regel: 
    
         app.config.from_object('config')

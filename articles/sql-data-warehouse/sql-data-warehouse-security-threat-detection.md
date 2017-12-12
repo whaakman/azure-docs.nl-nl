@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Aan de slag met detectie van dreigingen
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Detectie van dreigingen detecteert bijvoorbeeld bepaalde afwijkende databaseacti
    Het e-mailadres bevatten informatie over de verdachte-gebeurtenis met inbegrip van de aard van de afwijkende activiteiten, databasenaam, de servernaam van de en de tijd van de gebeurtenis. Bovendien bevatten informatie over mogelijke oorzaken en aanbevolen acties te onderzoeken en de mogelijke bedreiging voor de database te verminderen.<br/>
    
     ![Navigatiedeelvenster][4]
-2. Klik in de e-mail op de **Azure SQL-controle logboek** koppeling waarmee u de klassieke Azure Portal te starten en de relevante records controle rond de tijd van de verdachte gebeurtenis wilt weergeven.
+2. Klik in de e-mail op de **Azure SQL-controle logboek** koppelt, wordt die de Azure-portal te starten en de relevante records controle rond de tijd van de verdachte gebeurtenis wilt weergeven.
    
     ![Navigatiedeelvenster][5]
 3. Klik op de controlerecords naar meer details weergeven over de op verdachte databaseactiviteiten zoals SQL-instructie is mislukt reden en client-IP.

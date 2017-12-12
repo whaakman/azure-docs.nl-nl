@@ -2,18 +2,17 @@
 title: Verzameling analyse - Azure-document | Microsoft Docs
 description: Het samenvatten en analyseren van een grote verzameling van documenten, met inbegrip van technieken zoals woordgroep learning onderwerp modelleren en onderwerp model analyse met behulp van Azure ML-Workbench.
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="document-collection-analysis"></a>Document verzameling analyse
 
@@ -72,7 +71,7 @@ Maak een nieuw project in dit voorbeeld als sjabloon gebruiken:
 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
-De gegevensset die in dit scenario bevat overzichten van de tekst en gekoppelde metagegevens voor elke wettelijke actie duurt door het congres ons. De gegevens worden verzameld van [GovTrack.us](https://www.govtrack.us/), die de activiteiten van de Verenigde Staten bijgehouden en helpt Americans deelnemen aan hun nationale wettelijke proces. De bulksgewijs gegevens kunnen worden gedownload [deze koppeling](https://www.govtrack.us/data/congress/) met een handmatige script, dat niet is opgenomen in dit scenario. De details van het downloaden van de gegevens kunnen worden gevonden in de [GovTrack API-documentatie](https://www.govtrack.us/developers/api).
+De gegevensset die in dit scenario bevat overzichten van de tekst en gekoppelde metagegevens voor elke wettelijke actie op die door het congres ons. De gegevens worden verzameld van [GovTrack.us](https://www.govtrack.us/), die de activiteiten van de Verenigde Staten bijgehouden en helpt Americans deelnemen aan hun nationale wettelijke proces. De bulksgewijs gegevens kunnen worden gedownload [deze koppeling](https://www.govtrack.us/data/congress/) met een handmatige script, dat niet is opgenomen in dit scenario. De details van het downloaden van de gegevens kunnen worden gevonden in de [GovTrack API-documentatie](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Gegevensbron
 
@@ -84,15 +83,15 @@ Er zijn negen velden in het gegevensbestand. De veldnamen en de beschrijvingen w
 
 | Veldnaam | Type | Beschrijving | Ontbrekende waarde bevatten |
 |------------|------|-------------|---------------|
-| `ID` | Tekenreeks | De ID van de factuur/resolutie. De indeling van dit veld is [bill_type] [aantal]-[congress]. Bijvoorbeeld 'hconres1-93' betekent dat het factuurtype 'hconres' (staat House gelijktijdige resolutie verwijzen naar [dit document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), het aantal factuur is ' 1 'en het aantal congress is 93'. | Nee |
-| `Text` | Tekenreeks | De inhoud van de factuur/resolutie. | Nee |
-| `Date` | Tekenreeks | De datum van de factuur/resolutie in eerste instantie voorgesteld. In de indeling van 'jjjj-mm-dd'. | Nee |
-| `SponsorName` | Tekenreeks | De naam van de primaire sponsor die de factuur/oplossing wordt voorgesteld. | Ja |
-| `Type` | Tekenreeks | Het type van de titel van de primaire sponsor 'rep' (medewerker) of 'afzen' (senator). | Ja |
-| `State` | Tekenreeks | De status van de primaire sponsor. | Ja |
+| `ID` | Reeks | De ID van de factuur/resolutie. De indeling van dit veld is [bill_type] [aantal]-[congress]. Bijvoorbeeld 'hconres1-93' betekent dat het factuurtype 'hconres' (staat House gelijktijdige resolutie verwijzen naar [dit document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), het aantal factuur is ' 1 'en het aantal congress is 93'. | Nee |
+| `Text` | Reeks | De inhoud van de factuur/resolutie. | Nee |
+| `Date` | Reeks | De datum van de factuur/resolutie in eerste instantie voorgesteld. In de indeling van 'jjjj-mm-dd'. | Nee |
+| `SponsorName` | Reeks | De naam van de primaire sponsor die de factuur/oplossing wordt voorgesteld. | Ja |
+| `Type` | Reeks | Het type van de titel van de primaire sponsor 'rep' (medewerker) of 'afzen' (senator). | Ja |
+| `State` | Reeks | De status van de primaire sponsor. | Ja |
 | `District` | Geheel getal | Het aantal regionale van de primaire sponsor als de titel van de sponsor een representatief is. | Ja |
-| `Party` | Tekenreeks | De partij van de primaire sponsor. | Ja |
-| `Subjects` | Tekenreeks | De certificaathouder voorwaarden cumulatief door de Library of Congress aan de factuur toegevoegd. De voorwaarden worden samengevoegd door komma's. Deze voorwaarden zijn geschreven door een persoon in de bibliotheek of Congress en zijn niet meestal aanwezig wanneer informatie over de factuur voor het eerst wordt gepubliceerd. Ze kunnen op elk gewenst moment worden toegevoegd. Dus aan het einde van de levensduur van een factuur sommige onderwerp mogelijk niet relevant zijn meer. | Ja |
+| `Party` | Reeks | De partij van de primaire sponsor. | Ja |
+| `Subjects` | Reeks | De certificaathouder voorwaarden cumulatief door de Library of Congress aan de factuur toegevoegd. De voorwaarden worden samengevoegd door komma's. Deze voorwaarden zijn geschreven door een persoon in de bibliotheek of Congress en zijn niet meestal aanwezig wanneer informatie over de factuur voor het eerst wordt gepubliceerd. Ze kunnen op elk gewenst moment worden toegevoegd. Dus aan het einde van de levensduur van een factuur sommige onderwerp mogelijk niet relevant zijn meer. | Ja |
 
 ## <a name="scenario-structure"></a>Scenario-structuur
 

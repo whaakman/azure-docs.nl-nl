@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Voer een Apache Hive, Pig of Hadoop met behulp van Azure DB die Cosmos en HDInsight
 Deze zelfstudie leert u hoe u uitvoert [Apache Hive][apache-hive], [Apache Pig][apache-pig], en [Apache Hadoop] [ apache-hadoop] MapReduce-taken in Azure HDInsight met Hadoop-connector Cosmos-database. Hadoop-connector cosmos-database kunt Cosmos DB om te fungeren als een bron- en sink voor Hive, Pig en MapReduce-taken. Deze zelfstudie gaat Cosmos DB gebruiken als de gegevensbron en de bestemming voor Hadoop-taken.
@@ -86,7 +86,7 @@ Deze zelfstudie wordt scriptactie vanuit de Azure Portal voor het aanpassen van 
         <tr><td>Clusternaam</td><td>De naam van het cluster.<br/>
 DNS-naam moet beginnen en eindigen met een teken alfanumerieke en streepjes kan bevatten.<br/>
 Het veld moet een tekenreeks tussen 3 en 63 tekens lang zijn.</td></tr>
-        <tr><td>De naam van abonnement</td>
+        <tr><td>Abonnementsnaam</td>
             <td>Als u meer dan één Azure-abonnement hebt, selecteert u het abonnement dat als voor uw HDInsight-cluster host fungeert. </td></tr>
     </table>
 5.Klik op **clustertype Selecteer** en de volgende eigenschappen instellen op de opgegeven waarden.
@@ -178,7 +178,7 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
         $clusterName = "<HDInsightClusterName>"
 2. <p>Laten we beginnen construeren van de queryreeks. We moet een Hive-query die wordt het systeem gegenereerde tijdstempels (_ts) en de unieke id's (_rid) uit een verzameling Azure Cosmos DB alle documenten, telt alle documenten per minuut en slaat vervolgens de resultaten weer in een nieuwe Azure DB die Cosmos-verzameling schrijven.</p>
 
-    <p>Eerst gaan we een Hive-tabel maken van onze Azure DB die Cosmos-verzameling. Het volgende codefragment toevoegen aan het deelvenster met PowerShell-Script <strong>nadat</strong> het codefragment van #1. Zorg ervoor dat u de beperkende optionele DocumentDB.query parameter t onze documenten kunnen alleen _ts en _rid.</p>
+    <p>Eerst gaan we een Hive-tabel maken van onze Azure DB die Cosmos-verzameling. Het volgende codefragment toevoegen aan het deelvenster met PowerShell-Script <strong>nadat</strong> het codefragment van #1. Zorg ervoor dat u de optionele queryparameter om documenten kunnen alleen _ts trim en _rid.</p>
 
    > [!NOTE]
    > **Naamgeving van DocumentDB.inputCollections is niet een fout.** Ja, kunnen we meerdere verzamelingen als invoer toe te voegen: </br>
@@ -276,7 +276,7 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Laten we beginnen construeren van de queryreeks. We moet een Pig-query die wordt het systeem gegenereerde tijdstempels (_ts) en de unieke id's (_rid) uit een verzameling Azure Cosmos DB alle documenten, telt alle documenten per minuut en slaat vervolgens de resultaten weer in een nieuwe Azure DB die Cosmos-verzameling schrijven.</p>
-    <p>Documenten van de Cosmos-database eerst laden in HDInsight. Het volgende codefragment toevoegen aan het deelvenster met PowerShell-Script <strong>nadat</strong> het codefragment van #1. Zorg ervoor dat u een DocumentDB-query toevoegen aan de optionele parameter van de query DocumentDB om onze documenten kunnen alleen _ts trim en _rid.</p>
+    <p>Documenten van de Cosmos-database eerst laden in HDInsight. Het volgende codefragment toevoegen aan het deelvenster met PowerShell-Script <strong>nadat</strong> het codefragment van #1. Zorg ervoor dat u een query toevoegen aan de optionele parameter van de query DocumentDB om onze documenten kunnen alleen _ts trim en _rid.</p>
 
    > [!NOTE]
    > Ja, kunnen we meerdere verzamelingen als invoer toe te voegen: </br>

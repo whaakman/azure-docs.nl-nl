@@ -3,8 +3,8 @@ title: Toepassingen kunnen ophalen van geheimen Azure Stack Sleutelkluis | Micro
 description: Een voorbeeld-app gebruiken om te werken met Azure Sleutelkluis voor Stack
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
-ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Voorbeeldtoepassing die gebruikmaakt van sleutels en geheimen die zijn opgeslagen in een sleutelkluis
 
@@ -132,7 +132,7 @@ Noteer de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** door het vorig
 
 ## <a name="download-and-run-the-sample-application"></a>Downloaden en uitvoeren van de voorbeeldtoepassing
 
-De sleutelkluis-voorbeeld downloaden van de Azure [Sleutelkluis client voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=45343) pagina. Pak de inhoud van het ZIP-bestand op uw ontwikkelwerkstation. Er zijn twee voorbeelden in de map met voorbeelden. We gebruiken de steekproef HellpKeyVault in dit onderwerp. Blader naar de **Microsoft.Azure.KeyVault.Samples** > **voorbeelden** > **HelloKeyVault** map en open de toepassing HelloKeyVault in Visual Studio. 
+De sleutelkluis-voorbeeld downloaden van de Azure [Sleutelkluis client voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=45343) pagina. Pak de inhoud van het ZIP-bestand op uw ontwikkelwerkstation. Er zijn twee voorbeelden in de map met voorbeelden. We het voorbeeld HellpKeyVault in dit artikel gebruiken. Blader naar de **Microsoft.Azure.KeyVault.Samples** > **voorbeelden** > **HelloKeyVault** map en open de toepassing HelloKeyVault in Visual Studio. 
 
 Open het bestand HelloKeyVault\App.config en vervang de waarden van de <appSettings> element met de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** waarden door het vorige script geretourneerd. Houd er rekening mee dat de App.config bevat standaard een tijdelijke aanduiding voor *AuthCertThumbprint*, maar gebruiken *AuthClientSecret* in plaats daarvan. Nadat u de instellingen vervangt, opnieuw opbouwen van de oplossing en de toepassing niet starten.
 

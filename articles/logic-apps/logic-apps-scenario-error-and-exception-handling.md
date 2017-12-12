@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Afhandeling van uitzonderingen en foutenregistratie voor logic apps
 
@@ -45,7 +45,7 @@ Het project heeft twee belangrijke vereisten:
 
 ## <a name="how-we-solved-the-problem"></a>Hoe we het probleem opgelost
 
-We hebben gekozen [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") als een opslagplaats voor de logboek- en fout-records (Cosmos DB verwijst naar de records als documenten). Omdat Azure Logic Apps een standaardsjabloon voor alle antwoorden heeft, moeten we dan niet voor het maken van een aangepast schema. We kunnen een API-app maken **invoegen** en **Query** voor zowel de fout en logboekvermelding records. Er kan ook een schema definiëren voor elke binnen de API-app.  
+We hebben gekozen [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") als een opslagplaats voor de logboek- en fout-records (Cosmos DB verwijst naar de records als documenten). Omdat Azure Logic Apps een standaardsjabloon voor alle antwoorden heeft, moeten we dan niet voor het maken van een aangepast schema. We kunnen een API-app maken **invoegen** en **Query** voor zowel de fout en logboekvermelding records. Er kan ook een schema definiëren voor elke binnen de API-app.  
 
 Er is een andere vereiste om op te schonen records na een bepaalde datum. Cosmos DB heeft een eigenschap genaamd [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL) dat is toegestaan ons om in te stellen een **Time to Live** waarde op voor elke record of een verzameling. Deze mogelijkheid was het niet nodig handmatig verwijderen van records in Cosmos-database.
 
@@ -58,7 +58,7 @@ De eerste stap is de logische app maken en open de app in Logic App-ontwerper. I
 
 Omdat we gaan de logboekrecord afkomstig zijn uit Dynamics CRM Online, laten we beginnen aan de bovenkant. We gebruiken moet een **aanvragen** trigger omdat het bovenliggende logische app getriggerd dit kind.
 
-### <a name="logic-app-trigger"></a>Logica voor app trigger
+### <a name="logic-app-trigger"></a>Activering voor een logische app
 
 We gebruiken een **aanvragen** activeren, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -107,7 +107,7 @@ Er moet zich aanmelden van de bron (aanvraag) van de patiënt record vanuit de D
    De trigger die afkomstig zijn van CRM, kunnen we met de **CRM PatentId**, **recordtype**, **nieuw of bijgewerkt Record** (nieuwe of bijwerken van Booleaanse waarde), en **SalesforceId**. De **SalesforceId** kan niet null zijn omdat deze alleen voor een update gebruikt wordt.
    Krijgen we de CRM-record met behulp van de CRM **PatientID** en de **recordtype**.
 
-2. Vervolgens moeten we onze DocumentDB API-app toevoegen **InsertLogEntry** bewerking als volgt te werk in Logic App-ontwerper.
+2. Vervolgens moeten we onze Azure Cosmos DB SQL-API-app toevoegen **InsertLogEntry** bewerking als volgt te werk in Logic App-ontwerper.
 
    **Logboekvermelding invoegen**
 
@@ -400,7 +400,7 @@ Nadat u het antwoord krijgt, kunt u het antwoord terug naar de bovenliggende log
 
 ## <a name="cosmos-db-repository-and-portal"></a>Cosmos DB opslagplaats en -portal
 
-Mogelijkheden met toegevoegd aan de oplossing [Cosmos DB](https://azure.microsoft.com/services/documentdb).
+Mogelijkheden met toegevoegd aan de oplossing [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Fout-beheerportal
 
@@ -430,14 +430,14 @@ Als u wilt weergeven in de logboeken, hebben we ook een MVC-web-app gemaakt. Hie
 
 Onze open source Azure Logic Apps uitzondering management API-app biedt functionaliteit, zoals hier wordt beschreven: Er zijn twee domeincontrollers:
 
-* **ErrorController** voegt een foutrecord (document) in een DocumentDB-verzameling.
-* **LogController** voegt een logboekrecord (document) in een DocumentDB-verzameling.
+* **ErrorController** voegt een foutrecord (document) in een verzameling Azure Cosmos DB.
+* **LogController** voegt een logboekrecord (document) in een verzameling Azure Cosmos DB.
 
 > [!TIP]
-> Beide controllers gebruiken `async Task<dynamic>` bewerkingen, waardoor bewerkingen omzetten tijdens runtime, zodat we het DocumentDB-schema in de hoofdtekst van de bewerking kunt maken. 
+> Beide controllers gebruiken `async Task<dynamic>` bewerkingen, waardoor bewerkingen omzetten tijdens runtime, zodat we het Azure DB die Cosmos-schema in de hoofdtekst van de bewerking kunt maken. 
 > 
 
-Alle documenten in DocumentDB moet een unieke id hebben. We gebruiken `PatientId` en het toevoegen van een tijdstempel dat wordt geconverteerd naar een Unix-tijdstempelwaarde (double). We afkappen de waarde voor het verwijderen van de decimale waarde.
+Elk document in Azure Cosmos DB moet een unieke id hebben. We gebruiken `PatientId` en het toevoegen van een tijdstempel dat wordt geconverteerd naar een Unix-tijdstempelwaarde (double). We afkappen de waarde voor het verwijderen van de decimale waarde.
 
 U kunt de broncode van de fout controller API weergeven [vanuit GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ De expressie in het voorgaande voorbeeld controleert u de *Create_NewPatientReco
 ## <a name="summary"></a>Samenvatting
 
 * U kunt eenvoudig logboekregistratie en foutafhandeling in een logische app implementeren.
-* U kunt DocumentDB gebruiken als de opslagplaats voor logboek- en fout-records (documenten).
+* U kunt Azure Cosmos DB gebruiken als de opslagplaats voor logboek- en fout-records (documenten).
 * U kunt MVC gebruiken voor het maken van een portal om records in logboek en de fout weer te geven.
 
 ### <a name="source-code"></a>Broncode

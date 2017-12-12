@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Status van resourcetypen en controleert in Azure resourcestatus
 Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resourcestatus door resourcetypen.
@@ -73,7 +73,7 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Uitgevoerde controles|
 |---|
-|<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege een DocumentDB-service niet beschikbaar zijn?</li><li>Er zijn aanvragen-document niet worden geleverd vanwege een DocumentDB-service niet beschikbaar zijn?</li></ul>|
+|<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li><li>Er zijn aanvragen-document niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Uitgevoerde controles|

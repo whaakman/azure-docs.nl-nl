@@ -4,7 +4,7 @@
   items:
     - name: Wat is Azure Backup?
       href: backup-introduction-to-azure-backup.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Back-up maken van een VM - Portal
@@ -47,7 +47,7 @@
       href: backup-azure-security-feature.md
     - name: Offline back-ups configureren
       href: backup-azure-backup-import-export.md
-    - name: Vervang uw tapewisselaar
+    - name: Uw tapewisselaar vervangen
       href: backup-azure-backup-cloud-as-tape.md
 - name: Procedures
   items:
@@ -209,6 +209,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Problemen met Azure Backup Server oplossen
           href: backup-azure-mabs-troubleshoot.md
+        - name: Problemen met Azure Backup Agent oplossen
+          href: backup-azure-mars-troubleshoot.md
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell

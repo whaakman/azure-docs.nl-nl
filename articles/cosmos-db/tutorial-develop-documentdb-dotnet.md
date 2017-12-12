@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Ontwikkelen met de DocumentDB-API in .NET | Microsoft Docs'
-description: Meer informatie over het ontwikkelen met Azure Cosmos DB DocumentDB API met .NET
+title: 'Azure Cosmos DB: Ontwikkelen met de SQL-API in .NET | Microsoft Docs'
+description: Meer informatie over het ontwikkelen met Azure Cosmos DB SQL-API met .NET
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,19 +16,21 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f019ae72e380f1c8e5b1ec67bd5177144ce1b345
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB: Ontwikkelen met de DocumentDB-API in .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Ontwikkelen met de SQL-API in .NET
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze zelfstudie laat zien hoe u een Azure DB die Cosmos-account maken met de Azure-portal en maak vervolgens een documentdatabase en verzameling met een [partitiesleutel](documentdb-partition-data.md#partition-keys) met behulp van de [DocumentDB .NET API](documentdb-introduction.md). Een partitiesleutel definiëren wanneer u een verzameling maakt, wordt uw toepassing voorbereid moeiteloos schalen als uw gegevens groeit. 
+Deze zelfstudie laat zien hoe u een Azure DB die Cosmos-account maken met de Azure-portal en maak vervolgens een documentdatabase en verzameling met een [partitiesleutel](documentdb-partition-data.md#partition-keys) met behulp van de [SQL .NET API](documentdb-introduction.md). Een partitiesleutel definiëren wanneer u een verzameling maakt, wordt uw toepassing voorbereid moeiteloos schalen als uw gegevens groeit. 
 
-Deze zelfstudie bevat de volgende taken met behulp van de [DocumentDB .NET API](documentdb-sdk-dotnet.md):
+Deze zelfstudie bevat de volgende taken met behulp van de [SQL .NET API](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Maak een Azure Cosmos DB-account
@@ -79,7 +81,7 @@ Begint met het maken van een Azure DB die Cosmos-account in de Azure portal.
     Als u een bericht ontvangt over het controleren van wijzigingen in de oplossing, klikt u op **OK**. Als u een bericht ontvangt over het accepteren van de licentie, klikt u op **Accepteren**.
 
 ## <a id="Connect"></a>Verwijzingen naar uw project toevoegen
-De overige stappen in deze zelfstudie bieden de DocumentDB-API-codefragmenten die is vereist voor het maken en bijwerken van Azure DB die Cosmos-resources in uw project.
+De overige stappen in deze zelfstudie bieden de SQL-API-codefragmenten die is vereist voor het maken en bijwerken van Azure DB die Cosmos-resources in uw project.
 
 Voeg eerst deze verwijzingen naar uw toepassing.
 <!---These aren't added by default when you install the pkg?--->
@@ -119,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Een database maken
 
-Maak vervolgens een Cosmos Azure DB [database](documentdb-resources.md#databases) met behulp van de [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) methode of [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) methode van de **DocumentClient** klasse van de [DocumentDB .NET SDK](documentdb-sdk-dotnet.md). Een database is een logische container voor een JSON-documentopslag, gepartitioneerd in verzamelingen.
+Maak vervolgens een Cosmos Azure DB [database](documentdb-resources.md#databases) met behulp van de [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) methode of [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) methode van de  **DocumentClient** klasse van de [SQL .NET SDK](documentdb-sdk-dotnet.md). Een database is een logische container voor een JSON-documentopslag, gepartitioneerd in verzamelingen.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -259,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Parallelle queryuitvoering
-De Azure Cosmos DB DocumentDB SDK's 1.9.0 en hoger ondersteuning parallelle uitvoering queryopties, waarmee u kunt uitvoeren lage latentie query's voor gepartitioneerde verzamelingen, zelfs als ze nodig hebben om een groot aantal partities touch. De volgende query is bijvoorbeeld geconfigureerd voor meerdere partities parallel worden uitgevoerd.
+De Azure Cosmos DB SQL SDK's 1.9.0 en hoger ondersteuning parallelle uitvoering queryopties, waarmee u kunt uitvoeren lage latentie query's voor gepartitioneerde verzamelingen, zelfs als ze nodig hebben om een groot aantal partities touch. De volgende query is bijvoorbeeld geconfigureerd voor meerdere partities parallel worden uitgevoerd.
 
 ```csharp
 // Cross-partition Order By queries
@@ -275,7 +277,7 @@ U kunt parallelle queryuitvoering beheren door het afstemmen van de volgende par
 * Door in te stellen `MaxDegreeOfParallelism`, u kunt de mate van parallelle uitvoering, dat wil zeggen, het maximum aantal gelijktijdige netwerkverbindingen op de verzameling partities beheren. Als u deze instelt op-1, de mate van parallelle uitvoering wordt beheerd door de SDK. Als de `MaxDegreeOfParallelism` is niet opgegeven of is ingesteld op 0, wat de standaardwaarde is, zal er een netwerk met één verbinding met de verzameling partities.
 * Door in te stellen `MaxBufferedItemCount`, kunt u handelt uit query latentie en client-side geheugengebruik. Als u deze parameter of stel deze optie in op-1, het aantal items in de buffer opgeslagen tijdens parallelle queryuitvoering wordt beheerd door de SDK.
 
-Gezien de dezelfde status van de verzameling, retourneert een parallelle query resultaten in dezelfde volgorde als in seriële uitvoering. Bij het uitvoeren van een query voor cross-partitie met sorteren (ORDER BY en/of boven), geeft de query parallel meerdere partities uit de DocumentDB SDK en gedeeltelijk gesorteerde resulteert in de clientzijde levert geen resultaten globaal geordende worden samengevoegd.
+Gezien de dezelfde status van de verzameling, retourneert een parallelle query resultaten in dezelfde volgorde als in seriële uitvoering. Bij het uitvoeren van een query voor cross-partitie met sorteren (ORDER BY en/of boven), wordt de SQL-SDK problemen met de query parallel meerdere partities en gedeeltelijk gesorteerde resulteert in de clientzijde levert geen resultaten globaal geordende worden samengevoegd.
 
 ## <a name="execute-stored-procedures"></a>Opgeslagen procedures worden uitgevoerd
 Ten slotte kunt u atomische transacties tegen documenten met dezelfde apparaat-ID, zoals uitvoeren als u onderhoudt statistische functies of de meest recente toestand van een apparaat in één document door de volgende code toe te voegen aan uw project.

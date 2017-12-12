@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 85157f3f0bcf86ae049c0bec76afb0ca33797b11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unieke sleutels in Azure Cosmos-DB
 
 Unieke sleutels kunnen ontwikkelaars de mogelijkheid een laag van de integriteit van gegevens toevoegen aan de database. Door het maken van een unieke sleutel beleid wanneer een container is gemaakt, zorgt u ervoor de uniekheid van een of meer waarden per [partitiesleutel](partition-data.md). Als een container is gemaakt met een unieke sleutel beleid, voorkomt u dat het maken van alle nieuwe of bijgewerkte items met waarden dat er dubbele waarden die zijn opgegeven door de unique key-beperking.   
 
 > [!NOTE]
-> Unieke sleutels worden ondersteund door de nieuwste versies van de [.NET](documentdb-sdk-dotnet.md) en [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB SQL-SDK's, en de [MongoDB API](mongodb-feature-support.md#unique-indexes). De tabel-API en een Graph API bieden geen ondersteuning voor unieke sleutels op dit moment. 
+> Unieke sleutels worden ondersteund door de nieuwste versies van de [.NET](documentdb-sdk-dotnet.md) en [.NET Core](documentdb-sdk-dotnet-core.md) SQL SDK's, en de [MongoDB API](mongodb-feature-support.md#unique-indexes). De tabel-API en een Graph API bieden geen ondersteuning voor unieke sleutels op dit moment. 
 > 
 >
 
@@ -54,7 +54,7 @@ Unieke sleutels moeten worden gedefinieerd als de container wordt gemaakt en de 
 
 Bestaande containers kunnen niet worden bijgewerkt voor het gebruik van unieke sleutels.
 
-Zodra een container is gemaakt met een unieke sleutel beleid, wordt het beleid niet wijzigen tenzij u de container opnieuw maken. Als u bestaande gegevens die u implementeren unieke sleutels wilt op hebt, de nieuwe container maken en vervolgens de juiste hulpprogramma voor gegevensmigratie gebruiken de gegevens worden verplaatst naar de nieuwe container. Voor DocumentDB SQL-containers, gebruikt u de [hulpprogramma voor gegevensmigratie](import-data.md). Gebruik voor MongoDB-containers [mongoimport.exe of mongorestore.exe](mongodb-migrate.md).
+Zodra een container is gemaakt met een unieke sleutel beleid, wordt het beleid niet wijzigen tenzij u de container opnieuw maken. Als u bestaande gegevens die u implementeren unieke sleutels wilt op hebt, de nieuwe container maken en vervolgens de juiste hulpprogramma voor gegevensmigratie gebruiken de gegevens worden verplaatst naar de nieuwe container. Voor de SQL-containers, gebruikt u de [hulpprogramma voor gegevensmigratie](import-data.md). Gebruik voor MongoDB-containers [mongoimport.exe of mongorestore.exe](mongodb-migrate.md).
 
 Maximaal 16 pad waarden (bijvoorbeeld /firstName, /lastName, /address/zipCode, enz.) kan worden opgenomen in elke unieke sleutel. 
 
@@ -64,9 +64,9 @@ Aanvraag eenheid kosten voor het maken, bijwerken en verwijderen van een item zi
 
 Sparse unieke sleutels worden niet ondersteund. Als er waarden voor sommige unieke paden ontbreken, worden deze behandeld als een speciale null-waarde deel aan de beperking voor uniekheid neemt.
 
-## <a name="documentdb-sql-api-sample"></a>Voorbeeld van de DocumentDB SQL-API
+## <a name="sql-api-sample"></a>SQL-API-voorbeeld
 
-De volgende voorbeeldcode laat zien hoe een nieuwe DocumentDB SQL-container maken met twee unique key-beperkingen. De eerste beperking is de firstName, lastName, e-beperking die wordt beschreven in het vorige voorbeeld. De beperking van de tweede is het adres gebruikers/postcode. Een voorbeeld JSON-bestand dat gebruikmaakt van de paden in dit beleid voor unieke sleutels volgt het codevoorbeeld. 
+De volgende voorbeeldcode laat zien hoe een nieuwe SQL-container maken met twee unique key-beperkingen. De eerste beperking is de firstName, lastName, e-beperking die wordt beschreven in het vorige voorbeeld. De beperking van de tweede is het adres gebruikers/postcode. Een voorbeeld JSON-bestand dat gebruikmaakt van de paden in dit beleid voor unieke sleutels volgt het codevoorbeeld. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

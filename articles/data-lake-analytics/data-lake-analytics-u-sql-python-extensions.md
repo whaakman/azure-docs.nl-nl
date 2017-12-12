@@ -14,13 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: 51c0bac3cd03965d002b3fe87804a0d7ea6cf63e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Zelfstudie: Aan de slag met het uitbreiden van U-SQL met behulp van Python
+
+## <a name="prerequisites"></a>Vereisten
+
+Voordat u begint, zorg ervoor dat de Python-serverextensies zijn geïnstalleerd in uw Azure Data Lake Analytics-account.
+
+* Navigeer naar u Data Lake Analytics-Account in de Azure portal
+* In het menu links onder **aan de slag** klikt u op **voorbeeldscripts**
+* Klik op **U-SQL-uitbreidingen installeren** vervolgens **OK**
+
+## <a name="overview"></a>Overzicht 
 
 Python-uitbreidingen voor de U-SQL kunnen ontwikkelaars massively parallelle uitvoering van Python-code uitvoeren. Het volgende voorbeeld ziet u de eenvoudige stappen:
 

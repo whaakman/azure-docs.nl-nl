@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>Elastische Query configureren met SQL datawarehouse
 
@@ -39,9 +39,9 @@ Voordat u de zelfstudie begint, hebt u de volgende vereisten:
 
 2. Maak een gebruikersnaam en een gebruiker die de SQL-database naar datawarehouse verbinding vertegenwoordigt.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. Met behulp van SSMS of een andere query-client, opent u een nieuwe query voor de **exemplaar van SQL datawarehouse** op uw logische server.
 
@@ -75,14 +75,14 @@ Voordat u de zelfstudie begint, hebt u de volgende vereisten:
 
 9. Maak een externe gegevensbron die naar het exemplaar van het datawarehouse verwijst.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. U kunt nu externe tabellen die verwijzen naar deze externe gegevensbron maken. Query's op basis van die tabellen worden verzonden naar het exemplaar van datawarehouse moet worden verwerkt en verzonden naar de database-instantie.
 

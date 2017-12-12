@@ -5,7 +5,7 @@ services: active-directory
 keywords: cloud app discovery, het beheren van toepassingen
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a3593611c7a2467de1c1639f8b5c6b0eb6f1ecbf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Cloud App Discovery instellen in Azure AD
 
@@ -65,7 +65,7 @@ Cloud App Discovery gebruikt de gegevens in uw verkeerslogboeken. Meer details d
 * Hoeveelheid geüpload of waarin deze gedownloade gegevens om inzicht te krijgen over patronen van app-cloudgebruik
 * Actie op die (toegestaan/geblokkeerd)
 
-Cloud App Discovery kan weergeven of kenmerken die niet zijn opgenomen in de logboeken te analyseren. Bijvoorbeeld: **Cisco ASA-Firewall** standaard logboekindeling bevat niet de **hoeveelheid geüploade bytes per transactie**, **gebruikersnaam**, of **doel-URL ** , maar alleen het IP-doeladres. Daarom moet u wellicht minder inzicht in de cloud-apps van deze gegevensbron. Voor Cisco ASA firewalls, moet u de informatie-niveau instellen op 6.1.
+Cloud App Discovery kan weergeven of kenmerken die niet zijn opgenomen in de logboeken te analyseren. Bijvoorbeeld: **Cisco ASA-Firewall** standaard logboekindeling bevat niet de **hoeveelheid geüploade bytes per transactie**, **gebruikersnaam**, of **doel-URL**  , maar alleen het IP-doeladres. Daarom moet u wellicht minder inzicht in de cloud-apps van deze gegevensbron. Voor Cisco ASA firewalls, moet u de informatie-niveau instellen op 6.1.
 
 Om een Cloud App Discovery-rapport is gegenereerd, moeten uw verkeerslogboeken voldoen aan de volgende voorwaarden:
 
@@ -106,7 +106,7 @@ Als uw logboek niet wordt ondersteund, schakelt u **andere** als de **gegevensbr
 
 ## <a name="data-attributes-according-to-vendor-documentation"></a>Gegevenskenmerken (volgens de documentatie van de leverancier)
 
-| Gegevensbron         | Bepaalde App-URL | Bepaalde App IP-adres | Gebruikersnaam | IP-adres van bron | Totale aantal verkeer | Geüploade bytes |
+| Gegevensbron         | Bepaalde App-URL | Bepaalde App IP-adres | Gebruikersnaam | IP-adres van bron | Totale verkeer | Geüploade bytes |
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
 | Barracuda                               | **Ja**        | **Ja**       | **Ja**  | **Ja**   | Nee            | Nee             |
 | Blue Coat                               | **Ja**        | Nee            | **Ja**  | **Ja**   | **Ja**       | **Ja**        |

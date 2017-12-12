@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
@@ -77,7 +77,7 @@ Zie [HDInsight releaseopmerkingen](hdinsight-release-notes.md) voor extra releas
 De volgende tabel geeft de versies van HDInsight die momenteel beschikbaar op de Azure-portal zijn. De HDP-versies die met elke versie HDInsight overeenkomen worden samen met de release product datums weergegeven. De datums voor verlopen en buiten gebruik stellen worden ook gegeven wanneer deze zijn bepaald.
 
 > [!NOTE]
-> Na de ondersteuning voor een versie is verlopen, wordt mogelijk niet beschikbaar via de klassieke portal voor Microsoft Azure. Clusterversies blijven echter zijn beschikbaar via de `Version` parameter in de Windows PowerShell [nieuw AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) opdracht en de .NET SDK totdat de einddatum van de versie.
+> Na de ondersteuning voor een versie is verlopen, deze mogelijk niet beschikbaar is via de Microsoft Azure portal. Clusterversies blijven echter zijn beschikbaar via de `Version` parameter in de Windows PowerShell [nieuw AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) opdracht en de .NET SDK totdat de einddatum van de versie.
 > 
 > Maximaal beschikbare clusters met twee hoofdknooppunten worden standaard voor HDInsight versie 2.1 en hoger geïmplementeerd. Ze zijn niet beschikbaar voor HDInsight versie 1.6-clusters.
 
@@ -186,7 +186,7 @@ De volgende tabel bevat de clustertypen die worden ondersteund in HDInsight Prem
 | HBase |Ja |Nee |
 | Storm |Ja |Nee |
 | R Server |Ja |Nee |
-| Interactieve Query |Ja |Nee |
+| Interactive Query |Ja |Nee |
 | Kafka (Preview) |Ja |Nee | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Ondersteuning voor Azure Data Lake Store in HDInsight Premium

@@ -1,6 +1,6 @@
 ---
-title: 'Azure DB Cosmos DocumentDB API: SQL-syntaxis voor | Microsoft Docs'
-description: Documentatie voor de taal van Azure Cosmos DB DocumentDB API SQL-query.
+title: 'Azure Cosmos DB: Naslaginformatie SQL-syntaxis query | Microsoft Docs'
+description: Documentatie voor de taal van Azure Cosmos DB SQL-query.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 6fc96dae8c7c6983b1d062c22438344278d478e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 73d20826f24d233653fcf4a2c16e3d14486d9eb2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure DB Cosmos DocumentDB API: Verwijzing naar SQL
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Naslaginformatie over Azure Cosmos DB SQL-syntaxis
 
-De Azure-API voor DocumentDB Cosmos DB ondersteunt documentquery's die gebruikmaken van een bekende SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder expliciet schema of het maken van secundaire indexen. Dit onderwerp vindt u documentatie voor de DocumentDB API SQL query language reference.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Zie voor een overzicht van de DocumentDB API SQL-querytaal [SQL-query's voor Azure Cosmos DB DocumentDB API](documentdb-sql-query.md).  
+Azure DB Cosmos ondersteunt het uitvoeren van query's documenten met een bekende SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder expliciet schema of het maken van secundaire indexen. Dit onderwerp vindt u documentatie voor de SQL-querytaal compatibel met SQL-API-accounts is.
+
+Zie voor een overzicht van de SQL-querytaal [SQL-query's voor Azure Cosmos DB](documentdb-sql-query.md).  
   
 We nodigen ook u gaat u naar de [Query Playground](http://www.documentdb.com/sql/demo) kunt u proberen Azure Cosmos DB en SQL-query's uitvoeren op onze gegevensset.  
   
@@ -663,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Syntaxis conventies**  
   
-     De volgende tabel beschrijft de conventies gebruikt om te beschrijven syntaxis in de Quertytaal van de API-verwijzing.  
+     De volgende tabel beschrijft de conventies gebruikt om te beschrijven syntaxis in de volgende SQL-verwijzing.  
   
     |**Conventies**|**Gebruikt voor**|  
     |-|-|    

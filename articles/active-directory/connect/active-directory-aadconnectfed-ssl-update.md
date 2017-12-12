@@ -4,7 +4,7 @@ description: De Documentdetails van dit van de stappen voor het bijwerken van he
 services: active-directory
 keywords: Azure ad connect, AD FS ssl-update, adfs-certificaat updates, AD FS-certificaat wijzigen, nieuwe AD FS-certificaat, AD FS-certificaat, update AD FS ssl-certificaat en update ssl-certificaat adfs AD FS ssl-certificaat, AD FS, ssl, certificaat, AD FS-service configureren certificaat voor serviceberichten, update-federation, federatie configureren, aad connect
 authors: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Bijwerken van het SSL-certificaat voor een farm met Active Directory Federation Services (AD FS)
 

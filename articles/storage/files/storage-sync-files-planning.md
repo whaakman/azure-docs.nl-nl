@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: cba1dd7e5f7c9f30db5d1dccd41a3262af668bce
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b5a3537355bef593cc7796af041a53a5eca76b23
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -46,10 +46,12 @@ De Azure-bestand Sync-agent is een downloadbare pakket waarmee Windows-Server mo
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Servereindpunt
-Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde server, zoals een map op een volume van de server.  Opmerking: op dit moment de specifieke locatie kan niet de hoofdmap van een volume (bijvoorbeeld f:\) Hoewel dit in een toekomstige preview-update worden ondersteund. Meerdere server-eindpunten kunnen bevinden zich op hetzelfde volume als hun naamruimten (bijvoorbeeld F:\sync1 en F:\sync2) niet overlappen. U kunt de lagen beleid cloud afzonderlijk voor elk servereindpunt kunt configureren. Als u de locatie van een server met een bestaande set van bestanden als een servereindpunt aan een groep voor synchronisatie toevoegt, worden deze bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
+Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde server, zoals een map op een volume van de server. Meerdere server-eindpunten kunnen bestaan op hetzelfde volume als hun naamruimten elkaar niet overlappen (bijvoorbeeld `F:\sync1` en `F:\sync2`). U kunt de lagen beleid cloud afzonderlijk voor elk servereindpunt kunt configureren. Het is momenteel niet mogelijk om een servereindpunt voor de hoofdmap van een volume te maken (bijvoorbeeld `F:\` of `C:\myvolume`, als een volume is gekoppeld als een koppelpunt).
 
 > [!Note]  
 > Een servereindpunt kan zich bevinden op het systeemvolume van Windows. Cloud tiering wordt niet ondersteund op het systeemvolume.
+
+Als u de locatie van een server met een bestaande set van bestanden als een servereindpunt aan een groep voor synchronisatie toevoegt, worden deze bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
 
 ### <a name="cloud-endpoint"></a>Cloudeindpunt
 Een cloudeindpunt is een Azure-bestandsshare die deel uitmaakt van een groep voor synchronisatie. De synchronisatie van de share volledige Azure-bestand en een Azure-bestandsshare kan een lid van slechts één cloudeindpunt zijn. Een Azure-bestandsshare kan dus een lid van slechts één groep voor synchronisatie. Als u een Azure-bestandsshare met een bestaande set van bestanden als een cloudeindpunt aan een groep voor synchronisatie toevoegt, worden de bestaande bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -56,10 +56,8 @@ Sommige van de volgende resources (accounts, rekenknooppunten, pools, jobs en ta
 * [Rekenknooppunt](#compute-node)
 * [Pool](#pool)
 * [Job](#job)
-
   * [Jobplanningen](#scheduled-jobs)
 * [Taak](#task)
-
   * [Begintaak](#start-task)
   * [Jobbeheertaak](#job-manager-task)
   * [Jobvoorbereidingstaken en jobvrijgevingstaken](#job-preparation-and-release-tasks)
@@ -264,6 +262,9 @@ Wanneer u een taak maakt, kunt u het volgende opgeven:
 * **Toepassingspakketten** voor het implementeren in het rekenknooppunt waarop de taak staat gepland voor uitvoering. [Toepassingspakketten](#application-packages) bieden vereenvoudigde implementatie en versies van de toepassingen die de taken uitvoeren. Toepassingspakketten op taakniveau zijn met name nuttig in omgevingen met gedeelde groepen. Verschillende jobs worden uitgevoerd op één groep en de groep wordt niet verwijderd wanneer een job is voltooid. Als de job minder taken dan knooppunten in de groep heeft, kunnen toepassingspakketten van taken gegevensoverdracht minimaliseren omdat uw toepassing alleen wordt geïmplementeerd op de knooppunten die taken uitvoeren.
 * Een verwijzing naar een **containerinstallatiekopie** in Docker Hub of een persoonlijk register en extra instellingen voor het maken van een Docker-container waarin de taak wordt uitgevoerd op het knooppunt. U geeft deze informatie alleen op als de pool is ingesteld met een containerconfiguratie.
 
+> [!NOTE]
+> De maximale levensduur van een taak, van het toevoegen aan de job tot de voltooiing, bedraagt zeven dagen. Voltooide taken blijven voor onbepaalde tijd bestaan; gegevens voor taken die niet binnen de maximale levensduur zijn voltooid, zijn niet toegankelijk.
+
 Naast de taken die u definieert om een berekening op een knooppunt uit te voeren, stelt de Batch-service ook de volgende speciale taken beschikbaar:
 
 * [Begintaak](#start-task)
@@ -273,9 +274,9 @@ Naast de taken die u definieert om een berekening op een knooppunt uit te voeren
 * [Taakafhankelijkheden](#task-dependencies)
 
 ### <a name="start-task"></a>Begintaak
-Door een **begintaak** aan een pool te koppelen, kunt u de besturingsomgeving van de knooppunten ervan voorbereiden. U kunt bijvoorbeeld acties uitvoeren zoals het installeren van de toepassingen die de taken uitvoeren en het starten van achtergrondprocessen. Zolang deze in de pool blijft, wordt de begintaak uitgevoerd telkens wanneer een knooppunt wordt gestart, ook wanneer het knooppunt voor het eerst aan de pool wordt toegevoegd en wanneer deze opnieuw wordt opgestart of er een installatiekopie wordt hersteld.
+Door een **begintaak** aan een pool te koppelen, kunt u de besturingsomgeving van de knooppunten ervan voorbereiden. U kunt bijvoorbeeld acties uitvoeren als het installeren van de toepassingen die de taken uitvoeren en het starten van achtergrondprocessen. Zolang deze in de pool blijft, wordt de begintaak uitgevoerd telkens wanneer een knooppunt wordt gestart, ook wanneer het knooppunt voor het eerst aan de pool wordt toegevoegd en wanneer deze opnieuw wordt opgestart of er een installatiekopie wordt hersteld.
 
-Een groot voordeel van de begintaak is dat deze alle informatie kan bevatten die nodig is voor het configureren van een rekenknooppunt en het installeren van de toepassingen die nodig zijn voor taakuitvoering. Het verhogen van het aantal knooppunten in een pool is daarom net zo eenvoudig als het opgeven van een nieuw aantal doelknooppunten. De begintaak biedt de Batch-service de informatie die nodig is om nieuwe knooppunten te configureren en om ze voor te bereiden op het accepteren van taken.
+Een belangrijk voordeel van de begintaak is dat deze alle informatie bevat die nodig is voor het configureren van een rekenknooppunt en het installeren van de toepassingen die vereist zijn voor het uitvoeren van de taak. Het verhogen van het aantal knooppunten in een pool is daarom net zo eenvoudig als het opgeven van een nieuw aantal doelknooppunten. De begintaak biedt de Batch-service de informatie die nodig is om nieuwe knooppunten te configureren en deze voor te bereiden op het accepteren van taken.
 
 Net als bij elke andere Azure Batch-taak kunt u een lijst met **resourcebestanden** in [Azure Storage][azure_storage] opgeven, naast een uit te voeren **opdrachtregel**. De Batch-service kopieert eerst de resourcebestanden naar het knooppunt vanuit Azure Storage en voert vervolgens de opdrachtregel uit. Voor een pool-begintaak bevat de lijst met bestanden meestal de taaktoepassing en de bijbehorende afhankelijkheden.
 

@@ -1,4 +1,3 @@
-
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Opvragen van de Microsoft Graph-API van uw iOS-toepassing testen
 
 Als u wilt de code in de simulator uitvoert, drukt u op **opdracht** + **R**.

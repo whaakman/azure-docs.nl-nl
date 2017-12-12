@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uitvoeren van een cluster Cassandra op Linux in Azure met behulp van Node.js
 
@@ -134,7 +134,7 @@ In deze stap van het proces wordt we Ubuntu installatiekopie maken met de vereis
 Azure heeft een openbare sleutel die is PEM of DER-gecodeerd tijdens het inrichtingsproces X509 nodig. Een van de instructies die zich bevindt op het SSH gebruiken met Linux op Azure openbaar/persoonlijk sleutelpaar genereren. Als u van plan bent te gebruiken putty.exe als SSH-client op Windows of Linux, hebt u de gecodeerde PEM converteren RSA persoonlijke sleutel voor het PPK-indeling met behulp van puttygen.exe; de instructies hiervoor vindt u in de bovenstaande webpagina.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>STAP 2: Ubuntu sjabloon VM maken
-De VM-sjabloon maken, meld u aan bij de klassieke Azure portal en gebruik de volgende volgorde: klik op Nieuw, COMPUTE, virtuele MACHINE, FROM GALERIE, UBUNTU, Ubuntu Server 14.04 TNS, en klik vervolgens op de pijl naar rechts. Zie voor een zelfstudie waarin wordt beschreven hoe u een Linux-VM's te maken, maak een virtuele Machine uitgevoerd op Linux.
+De VM-sjabloon maken, meld u aan bij de Azure-portal en gebruik de volgende volgorde: klik op Nieuw, COMPUTE, virtuele MACHINE, FROM GALERIE, UBUNTU, Ubuntu Server 14.04 TNS, en klik vervolgens op de pijl naar rechts. Zie voor een zelfstudie waarin wordt beschreven hoe u een Linux-VM's te maken, maak een virtuele Machine uitgevoerd op Linux.
 
 Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #1:
 

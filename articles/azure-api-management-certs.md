@@ -1,6 +1,6 @@
 ---
 title: Een Azure Management API-certificaat uploaden | Microsoft Docs
-description: Informatie over het uploaden van athe API Management-certificaat voor de klassieke Azure Portal.
+description: Informatie over het uploaden van het Management-API-certificaat voor de Azure-portal.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: 89c08f2d1e0e244503e3fc4355cad0b4391618e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upload-an-azure-management-api-management-certificate"></a>Een Azure Management API Management-certificaat uploaden
 Van beheercertificaten kunnen u verifiëren met het klassieke implementatiemodel verstrekt door Azure. Veel programma's en hulpprogramma's (zoals Visual Studio of de Azure SDK) gebruik van deze certificaten in configuratie en implementatie van verschillende Azure-services te automatiseren. 
 
 > [!WARNING]
-> Wees voorzichtig! Deze typen certificaten dat alle gebruikers worden geverifieerd met hen voor het beheren van het abonnement dat ze zijn gekoppeld.
+> Pas op! Deze typen certificaten dat alle gebruikers worden geverifieerd met hen voor het beheren van het abonnement dat ze zijn gekoppeld.
 >
 >
 

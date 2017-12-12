@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d7148d34978a2da53cc5a51460e0b33c38760e33
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de Azure-portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -64,7 +64,7 @@ De Azure-portal beschrijft de meeste van de eigenschappen van het cluster. Azure
         * **Besturingssysteem**: selecteer **Linux**.
         
         * **Versie**: gebruik de standaardversie als u niet weet wat u moet kiezen. Zie [HDInsight-clusterversies](hdinsight-component-versioning.md) voor meer informatie.
-        * **Clusterlaag**: Azure HDInsight heeft twee categorieën producten voor big data-clouds: de Standard-laag en de Premium-laag. Zie [Clusterlagen](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers) voor meer informatie.
+        
 
     * Voor **clusteraanmeldgegevens** en **Cluster aanmeldingswachtwoord**, gebruikersnaam en wachtwoord opgeven voor de beheerder.
 

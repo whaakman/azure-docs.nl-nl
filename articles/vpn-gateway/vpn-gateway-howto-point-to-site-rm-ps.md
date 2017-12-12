@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: PowerShell
 
@@ -36,7 +36,7 @@ Met een punt-naar-site-VPN-gateway (P2S) kunt u vanaf een afzonderlijke clientco
 
 Clients die verbinding maken, kunnen de volgende verificatiemethoden gebruiken:
 
-* RADIUS-server - momenteel als preview
+* RADIUS-server
 * Systeemeigen Azure-certificaatverificatie van VPN Gateway
 
 Dit artikel helpt u bij het configureren van een P2S-configuratie met verificatie met behulp van de systeemeigen Azure-certificaatverificatie. Zie [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (P2S met behulp van RADIUS-verificatie) als u RADIUS wilt gebruiken om gebruikers die verbinding maken, te verifiëren.
@@ -45,13 +45,9 @@ Dit artikel helpt u bij het configureren van een P2S-configuratie met verificati
 
 Punt-naar-site-verbindingen hebben geen VPN-apparaat of openbaar IP-adres nodig. P2S maakt de VPN-verbinding via SSTP (Secure Socket Tunneling Protocol) of IKEv2.
 
-* SSTP is een op SSL gebaseerde VPN-tunnel die alleen wordt ondersteund op Windows-clientplatforms. Omdat met SSTP firewalls kunnen worden gepasseerd, is dit een ideale optie om vanaf elke locatie verbinding te maken met Azure. Wij ondersteunen SSTP versies 1.0, 1.1 en 1.2 aan de serverzijde. De client besluit welke versie moet worden gebruikt. Voor Windows 8.1 en hoger, gebruikt SSTP standaard 1.2.
+* SSTP is een op SSL gebaseerde VPN-tunnel die alleen wordt ondersteund op Windows-clientplatforms. Omdat met SSTP firewalls kunnen worden gepasseerd, is dit een ideale optie om vanaf elke locatie verbinding te maken met Azure. De SSTP-versies 1.0, 1.1 en 1.2 aan de serverzijde worden ondersteund. De client besluit welke versie moet worden gebruikt. Voor Windows 8.1 en hoger, gebruikt SSTP standaard 1.2.
 
-* IKEv2 VPN, een op standaarden gebaseerde IPsec VPN-oplossing. IKEv2 VPN kan worden gebruikt om verbinding te maken vanaf Mac-apparaten (OSX-versie 10.11 en hoger). IKEv2 is momenteel beschikbaar als preview-product.
-
->[!NOTE]
->IKEv2 voor P2S is momenteel beschikbaar als preview-product.
->
+* IKEv2 VPN, een op standaarden gebaseerde IPsec VPN-oplossing. IKEv2 VPN kan worden gebruikt om verbinding te maken vanaf Mac-apparaten (OSX-versie 10.11 en hoger).
 
 Voor point-to-site-verbindingen met systeemeigen Azure-certificaatverificatie is het volgende vereist:
 
@@ -72,7 +68,7 @@ Voor meer informatie over point-to-site-verbindingen leest u [About Point-to-Sit
 U kunt de volgende voorbeeldwaarden gebruiken om een testomgeving te maken of ze raadplegen om meer inzicht te krijgen in de voorbeelden in dit artikel. De variabelen worden ingesteld in sectie [1](#declare) van dit artikel. U kunt de stappen gebruiken als een overzicht en de waarden ongewijzigd gebruiken, of u kunt ze wijzigen zodat ze overeenkomen met uw omgeving.
 
 * **Naam: VNet1**
-* **Adresruimte: 192.168.0.0/16** en **10.254.0.0/16**<br>Voor dit voorbeeld gebruiken we meer dan één adresruimte om te verduidelijken dat deze configuratie met meerdere adresruimten werkt. Meerdere adresruimten zijn echter niet vereist voor deze configuratie.
+* **Adresruimte: 192.168.0.0/16** en **10.254.0.0/16**<br>In dit voorbeeld wordt meer dan één adresruimte gebruikt om te laten zien dat deze configuratie met meerdere adresruimten werkt. Meerdere adresruimten zijn echter niet vereist voor deze configuratie.
 * **Subnetnaam: FrontEnd**
   * **Subnetadresbereik: 192.168.1.0/24**
 * **Subnetnaam: BackEnd**
@@ -143,7 +139,7 @@ In deze sectie meldt u zich aan en declareert u de waarden die voor deze configu
   ```
 3. Maak het virtuele netwerk.
 
-  In dit voorbeeld is de serverparameter-DnsServer optioneel. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server die de namen kan omzetten voor de resources waarmee u verbinding maakt vanuit uw VNet. Voor dit voorbeeld hebben we een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt. De waarde die u opgeeft, wordt gebruikt door de bronnen die u in het VNet implementeert, niet door de P2S-verbinding of de VPN-client.
+  In dit voorbeeld is de serverparameter-DnsServer optioneel. Het opgeven van een waarde betekent niet dat er een nieuwe DNS-server wordt gemaakt. Het IP-adres van de DNS-server dat u opgeeft, moet het adres zijn van een DNS-server die de namen kan omzetten voor de resources waarmee u verbinding maakt vanuit uw VNet. In dit voorbeeld wordt een privé-IP-adres gebruikt, maar het is zeer onwaarschijnlijk dat dit het IP-adres van uw DNS-server is. Zorg ervoor dat u uw eigen waarden gebruikt. De waarde die u opgeeft, wordt gebruikt door de bronnen die u in het VNet implementeert, niet door de P2S-verbinding of de VPN-client.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -167,14 +163,14 @@ In deze sectie meldt u zich aan en declareert u de waarden die voor deze configu
 
 Configureer en maak de virtuele netwerkgateway voor uw VNet.
 
-* De *-GatewayType* moet **Vpn** zijn en het *-VpnType* moet **RouteBased** zijn.
-* -VpnClientProtocols wordt gebruikt om de soorten tunnels op te geven die u wilt inschakelen. De twee tunnelopties zijn **SSTP** en **IKEv2**. U kunt een van beide of beide inschakelen. Als u ze beide wilt inschakelen, geeft u beide namen op, gescheiden door een komma. De Strongswan-client op Android en Linux en de systeemeigen IKEv2 VPN-client op iOS en OS x gebruiken alleen de IKEv2-tunnel om verbinding te maken. Windows-clients proberen eerst IKEv2. Als daarmee geen verbinding kan worden gemaakt, vallen ze terug op SSTP.
-* Een VPN-gateway wordt binnen maximaal 45 minuten voltooid. De daadwerkelijke instelduur hangt af van de [gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md) die u selecteert. In dit voorbeeld gebruiken we IKEv2, dat momenteel beschikbaar is als preview-product.
+* -GatewayType moet **Vpn** zijn en -VpnType moet **RouteBased** zijn.
+* -VpnClientProtocol wordt gebruikt om de soorten tunnels op te geven die u wilt inschakelen. De twee tunnelopties zijn **SSTP** en **IKEv2**. U kunt een van beide of beide inschakelen. Als u ze beide wilt inschakelen, geeft u beide namen op, gescheiden door een komma. De Strongswan-client op Android en Linux en de systeemeigen IKEv2 VPN-client op iOS en OS x gebruiken alleen de IKEv2-tunnel om verbinding te maken. Windows-clients proberen eerst IKEv2. Als daarmee geen verbinding kan worden gemaakt, vallen ze terug op SSTP.
+* Een VPN-gateway wordt binnen maximaal 45 minuten voltooid. De daadwerkelijke instelduur hangt af van de [gateway-SKU](vpn-gateway-about-vpn-gateway-settings.md) die u selecteert. In dit voorbeeld wordt IKEv2 gebruikt, dat momenteel beschikbaar is als preview.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4. De VPN-clientadrespool toevoegen
@@ -319,7 +315,7 @@ Dit is de meest efficiënte methode voor het uploaden van een basiscertificaat.
 
 #### <a name="certmethod2"></a>Methode 2
 
-Deze methode heeft meer stappen dan methode 1, maar heeft hetzelfde resultaat. Gebruik deze methode als u de gegevens van het certificaat wilt weergeven.
+Deze methode heeft meer stappen dan methode 1, maar levert hetzelfde resultaat. Gebruik deze methode als u de gegevens van het certificaat wilt weergeven.
 
 1. Maak en bereid het nieuwe basiscertificaat voor dat u aan Azure gaat toevoegen. Exporteer de openbare sleutel als een met Base-64 gecodeerd X.509-certificaat (.CER) en open het bestand met een teksteditor. Kopieer de waarden, zoals weergegeven in het volgende voorbeeld:
 

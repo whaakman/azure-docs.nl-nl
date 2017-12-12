@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Het aantal en de beschikbaarheid van rekenknooppunten in een HPC Pack-cluster in Azure beheren
 Als u een HPC Pack 2012 R2-cluster in Azure VM's hebt gemaakt, kunt u manieren eenvoudig toevoegen, verwijderen, (ingericht) starten of stoppen (deprovision) sommige compute knooppunt VM's in het cluster. Hiertoe deze taken, Azure PowerShell-scripts die zijn geïnstalleerd op het hoofdknooppunt VM worden uitgevoerd. Deze scripts kunnen u bepalen het aantal en de beschikbaarheid van uw clusterbronnen HPC Pack zodat u de kosten kunt bepalen.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Parameters
 * **ServiceName**: naam van de cloudservice die nieuwe berekening knooppunt virtuele machines worden toegevoegd aan.
-* **ImageName**: Azure VM-installatiekopienaam, die kan worden verkregen via de klassieke Azure-portal of Azure PowerShell-cmdlet **Get-AzureVMImage**. De afbeelding moet voldoen aan de volgende vereisten:
+* **ImageName**: Azure VM-installatiekopienaam, die kan worden verkregen via de Azure portal of Azure PowerShell-cmdlet **Get-AzureVMImage**. De afbeelding moet voldoen aan de volgende vereisten:
   
   1. Een Windows-besturingssysteem moet worden geïnstalleerd.
   2. HPC Pack moet worden geïnstalleerd in de rol van de compute-knooppunt.

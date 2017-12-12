@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Bijwerken van een toepassing in Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ In vorige zelfstudies is een toepassing worden verpakt in een installatiekopie v
 
 Een toepassing-opslagplaats is ook gekloond waaronder de broncode van de toepassing en een vooraf gemaakte Docker Compose bestand dat wordt gebruikt in deze zelfstudie. Controleer of dat u een kloon van de opslagplaats hebt gemaakt en dat u de mappen in de gekloonde directory hebt ingesteld. Binnen een map met de naam is `azure-vote` en een bestand met de naam `docker-compose.yml`.
 
-Als u deze stappen niet zijn voltooid en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken](./tutorial-kubernetes-prepare-app.md). 
+Als u deze stappen niet zijn voltooid en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app]. 
 
 ## <a name="update-application"></a>Toepassing bijwerken
 
@@ -61,7 +61,7 @@ Sla en sluit het bestand.
 
 ## <a name="update-container-image"></a>Bijwerken van de installatiekopie van de container
 
-Gebruik [docker compose](https://docs.docker.com/compose/) opnieuw maken van de front-installatiekopie en de bijgewerkte toepassing uitvoeren. De `--build` argument wordt gebruikt om te instrueren Docker Compose installatiekopie van de toepassing opnieuw te maken.
+Gebruik [docker compose] [ docker-compose] opnieuw maken van de front-installatiekopie en de bijgewerkte toepassing uitvoeren. De `--build` argument wordt gebruikt om te instrueren Docker Compose installatiekopie van de toepassing opnieuw te maken.
 
 ```console
 docker-compose up --build -d
@@ -83,13 +83,13 @@ Ophalen van de aanmeldingsnaam van server met de [az acr lijst](/cli/azure/acr#l
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Gebruik [docker-tag](https://docs.docker.com/engine/reference/commandline/tag/) voor het taggen van de installatiekopie. Vervang `<acrLoginServer>` met uw Azure-Container register server aanmeldingsnaam of openbare register hostnaam. Ook u ziet dat de versie van de installatiekopie wordt bijgewerkt naar `redis-v2`.
+Gebruik [docker-tag] [ docker-tag] voor het taggen van de installatiekopie. Vervang `<acrLoginServer>` met uw Azure-Container register server aanmeldingsnaam of openbare register hostnaam. Ook u ziet dat de versie van de installatiekopie wordt bijgewerkt naar `redis-v2`.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Gebruik [docker push](https://docs.docker.com/engine/reference/commandline/push/) voor het uploaden van de installatiekopie aan het register. Vervang `<acrLoginServer>` met de naam van uw Azure-Container register-aanmelding.
+Gebruik [docker push] [ docker-push] voor het uploaden van de installatiekopie aan het register. Vervang `<acrLoginServer>` met de naam van uw Azure-Container register-aanmelding.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -97,7 +97,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Updatetoepassing implementeren
 
-Maximale uptime, zodat moeten meerdere exemplaren van de toepassing schil worden uitgevoerd. Controleer de configuratie met de [kubectl ophalen schil](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) opdracht.
+Maximale uptime, zodat moeten meerdere exemplaren van de toepassing schil worden uitgevoerd. Controleer de configuratie met de [kubectl ophalen schil] [ kubectl-get] opdracht.
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ Als er niet meerdere gehele product met de azure-stem-front-installatiekopie, sc
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Gebruik voor het bijwerken van de toepassing, de [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) opdracht. Update `<acrLoginServer>` met de aanmeldingsnaam voor server of de hostnaam van het register van de container.
+Gebruik voor het bijwerken van de toepassing, de [kubectl set] [ kubectl-set] opdracht. Update `<acrLoginServer>` met de aanmeldingsnaam voor server of de hostnaam van het register van de container.
 
 ```azurecli
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Voor het bewaken van de implementatie, gebruiken de [kubectl ophalen schil](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) opdracht. Als de bijgewerkte toepassing wordt geïmplementeerd, worden uw gehele product is beëindigd en opnieuw gemaakt met de nieuwe installatiekopie van de container.
+Voor het bewaken van de implementatie, gebruiken de [kubectl ophalen schil] [ kubectl-get] opdracht. Als de bijgewerkte toepassing wordt geïmplementeerd, worden uw gehele product is beëindigd en opnieuw gemaakt met de nieuwe installatiekopie van de container.
 
 ```azurecli
 kubectl get pod
@@ -167,4 +167,15 @@ In deze zelfstudie maakt een toepassing wordt bijgewerkt en deze update geïmple
 Ga naar de volgende zelfstudie voor meer informatie over het bewaken van Kubernetes bij Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Kubernetes bewaken met Log Analystics](./tutorial-kubernetes-monitor.md)
+> [Monitor Kubernetes met logboekanalyse][aks-tutorial-monitor]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md

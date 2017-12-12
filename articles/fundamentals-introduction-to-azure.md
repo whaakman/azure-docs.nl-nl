@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Inleiding tot Microsoft Azure
 Microsoft Azure is Microsoft toepassingsplatform voor de openbare cloud.  Het doel van dit artikel is het bieden u een basis voor informatie over de grondbeginselen van Azure, zelfs als u niet over cloud weet computing.
@@ -40,7 +40,7 @@ In dit artikel gebruikt een **andere organisatie** praten over services op basis
  *Afbeelding: Azure biedt Internet toegankelijke toepassingsservices in Azure-datacenters wordt uitgevoerd.*
 
 ## <a name="management-portal"></a>Management Portal
-Azure heeft een webinterface die is aangeroepen de [beheerportal](http://manage.windowsazure.com) waarmee beheerders voor toegang tot en beheer van de meeste, maar niet alle Azure-functies.  De nieuwere UI-portal in beta versies Microsoft doorgaans vóór buiten gebruik stellen oudere. De nieuwere versie heet de ["Azure Preview Portal"](https://portal.azure.com/).
+Azure heeft een webinterface die is aangeroepen de [beheerportal](http://manage.windowsazure.com) waarmee beheerders voor toegang tot en beheer van de meeste, maar niet alle Azure-functies.  De nieuwere UI-portal in beta versies Microsoft doorgaans vóór buiten gebruik stellen oudere. De nieuwere versie heet de ["Azure Portal"](https://portal.azure.com/).
 
 Er is meestal een lange overlapping wanneer beide portals actief zijn. Terwijl basisservices wordt weergegeven in beide portals, is het mogelijk dat niet alle functionaliteit beschikbaar in beide. Nieuwere services worden weergegeven in de nieuwe portal eerste en de oudere services en functionaliteit mag alleen bestaan in de oudere versie.  Het bericht hier is dat als u iets niet in de portal voor oudere vinden controleert u de nieuwere versie en vice versa.
 
@@ -218,7 +218,7 @@ De eigenaar van een toepassing definieert de regels die specificeren hoe aanvrag
 Het Traffic manager Directory Name Service (DNS) gebruikt voor gebruikers van de route voor service-eindpunten, maar meer verkeer gaat niet via het Traffic Manager wanneer deze verbinding wordt gemaakt. Zo voorkomt Traffic Manager wordt een knelpunt dat uw service-communicatie mogelijk vertragen.
 
 ## <a name="developer-services"></a>Ontwikkelaarsservices
-Azure biedt een aantal hulpprogramma's waarmee ontwikkelaars en IT-professionals maken en beheren van toepassingen in de cloud.  
+Azure biedt een aantal hulpprogramma's waarmee ontwikkelaars en IT-Professionals maken en onderhouden van toepassingen in de cloud.  
 
 ### <a name="azure-sdk"></a>Azure SDK
 Terug in 2008 ondersteund de allereerste voorlopige versie van Azure .NET-ontwikkeling. Vandaag de dag, kunt u Azure-toepassingen in vrijwel elke taal. Microsoft biedt momenteel taalspecifieke SDK voor .NET, Java, PHP, Node.js, Ruby en Python. Er is een algemene Azure-SDK die basic ondersteuning voor een andere taal, zoals C++ biedt.  
@@ -347,7 +347,7 @@ Notification Hubs is ontworpen voor gebruik met elke back-end. U kunt Azure Mobi
 
 U kunt belangrijk nieuws, sport gebeurtenissen en meldingen van de product-aankondiging naar miljoenen gebruikers met een lage latentie verzenden. Ondernemingen kunnen melden bij hun werknemers over nieuwe tijd gevoelige communicatie, zoals verkoopkansen, zodat werknemers niet voortdurend controleren van e-mailadres of andere toepassingen op de hoogte blijven. U kunt ook een eenmalige wachtwoorden vereist voor multi-factor authentication verzenden.
 
-## <a name="back-up"></a>Een back-up
+## <a name="back-up"></a>Back-ups maken
 Elke enterprise moet back-up en herstellen van gegevens. U kunt Azure back-up en herstellen van uw toepassing in de cloud of on-premises gebruiken. Azure biedt verschillende opties om u te helpen afhankelijk van het type back-up.
 
 ### <a name="site-recovery"></a>Site Recovery
@@ -368,7 +368,7 @@ Gegevens is veiliger omdat back-ups worden versleuteld voor verzending en versle
 
 **Scenario's voor Azure Backup**
 
-Als u al gebruikmaakt van Windows Server of System Center, Azure back-up een natuurlijke oplossing is voor back-ups van uw bestandssysteem voor servers, virtuele machines en SQL Server-databases.  Dit proces werkt met versleutelde, sparse en gecomprimeerde bestanden. Er zijn enkele beperkingen, moet u [Controleer de vereisten voor Azure Backup](http://technet.microsoft.com/library/dn296608.aspx) eerste.
+Als u al Windows Server of System Center gebruikt, is Azure backup een natuurlijke oplossing voor back-ups van uw bestandssysteem voor servers, virtuele machines en SQL Server-databases.  Dit proces werkt met versleutelde, sparse en gecomprimeerde bestanden. Er zijn enkele beperkingen, moet u [Controleer de vereisten voor Azure Backup](http://technet.microsoft.com/library/dn296608.aspx) eerste.
 
 ## <a name="messaging-and-integration"></a>Berichten en integratie
 Ongeacht wat het doet, moet de code vaak communiceren met andere code.  In sommige gevallen is alles wat nodig is in de wachtrij basisberichten. In andere gevallen zijn meer complexe interacties vereist. Azure biedt een aantal verschillende manieren voor het oplossen van deze problemen. Afbeelding 5 ziet u de opties.
@@ -424,11 +424,11 @@ Op elk gewenst moment u instelt waarbij er zijn veel berichten die alle belangri
 ![BizTalk Services](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Afbeelding: BizTalk Services biedt de mogelijkheid voor het transformeren van XML-berichten indelingen in de cloud.*
 
-Soms moet u systemen die communiceren met behulp van verschillende-indelingen. Het is gebruikelijk voor bedrijven hebben andere database schema's en XML-messaging-indelingen, zelfs als een algemene standaard beschikbaar. In plaats van een groot aantal aangepaste code schrijven, kunt u BizTalk Server on-premises, voor het integreren van verschillende systemen.  Azure BizTalk Services geeft hetzelfde type van de service, maar in de cloud. U kunt alleen wat u gebruikt en u geen zorgen over schalen zoals u tot on-premises hebben zou betalen.
+Soms moet u verbinding maken met systemen die communiceren met behulp van verschillende-indelingen. Het is gebruikelijk voor bedrijven hebben andere database schema's en XML-messaging-indelingen, zelfs als een algemene standaard beschikbaar. In plaats van een groot aantal aangepaste code schrijven, kunt u BizTalk Server on-premises, voor het integreren van verschillende systemen.  Azure BizTalk Services geeft hetzelfde type van de service, maar in de cloud. U kunt alleen wat u gebruikt en u geen zorgen over schalen zoals u tot on-premises hebben zou betalen.
 
 **BizTalk Services-scenario 's**
 
-Dit type vertaling voor bedrijven vereisen meestal interacties Business-to-Business (B2B).  Een bedrijf bouwen vliegtuigen moet bestellen van onderdelen van de bijbehorende verschillende onderdelen leveranciers. Er is veel leveranciers van onderdelen.  Deze orders moeten worden geautomatiseerd om rechtstreeks vanuit de vliegtuig opbouwfuncties systemen van de leveranciers-systemen.  Geen van beide bedrijven wil wijzigen van hun core systemen en berichtindelingen en is zeer onwaarschijnlijk dat deze indelingen hetzelfde zijn. BizTalk Services kan duren voordat de berichten en tussen de nieuwe indelingen beide manieren vertalen. Het werk te vertalen kunt doen door de leverancier van het vliegtuig of de verschillende leveranciers kunnen, afhankelijk van die wil meer controle en de hoeveelheid vertaling nodig.     
+Dit type vertaling voor bedrijven vereisen meestal interacties Business-to-Business (B2B).  Bijvoorbeeld, een bedrijf bouwen vliegtuigen moet volgorde-onderdelen van de verschillende onderdelen leveranciers. Er is veel leveranciers van onderdelen.  Deze orders moeten worden geautomatiseerd om rechtstreeks vanuit de vliegtuig opbouwfuncties systemen van de leveranciers-systemen.  Geen van beide bedrijven wil wijzigen van hun core systemen en berichtindelingen en is zeer onwaarschijnlijk dat deze indelingen hetzelfde zijn. BizTalk Services kan duren voordat de berichten en tussen de nieuwe indelingen beide manieren vertalen. Het werk te vertalen kunt doen door de leverancier van het vliegtuig of de verschillende leveranciers kunnen, afhankelijk van die wil meer controle en de hoeveelheid vertaling nodig.     
 
 ## <a name="compute-assistance"></a>Rekenuren voor hulp
 Azure biedt ondersteuning voor services die niet hoeven te worden uitgevoerd.  
@@ -437,7 +437,7 @@ Azure biedt ondersteuning voor services die niet hoeven te worden uitgevoerd.
 ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
 *Afbeelding: Azure Scheduler biedt een manier om taken te plannen op een bepaald tijdstip gedurende een bepaalde periode.*
 
-Soms moeten toepassingen alleen uitvoeren op een bepaald moment. In Azure, kunt u geld met dit type app in plaats van een toepassing alleen 24 x 7 wachten op gegevens verwerken blijven uitvoeren laten opslaan. Azure Scheduler kunt u plannen wanneer een toepassing moet worden uitgevoerd op basis van het interval van tijd of een kalender. Het is betrouwbare en controleert of dat een proces wordt uitgevoerd zelfs als er netwerk, machine en data center-fouten. De REST-API van Scheduler kunt u deze acties beheren.
+Soms moeten toepassingen alleen uitvoeren op een bepaald moment. In Azure, kunt u geld met dit type app in plaats van een toepassing alleen 24 x 7 wachten op gegevens verwerken blijven uitvoeren laten opslaan. Azure Scheduler kunt u plannen wanneer een toepassing moet worden uitgevoerd op basis van een interval van tijd of een kalender. Het is betrouwbare en controleert of dat een proces wordt uitgevoerd zelfs als er netwerk, machine en data center-fouten. De REST-API van Scheduler kunt u deze acties beheren.
 
 Wanneer een geplande waarschuwing wordt Scheduler HTTP of HTTPS-berichten verzendt naar een specifieke eindpunt of een bericht in een wachtrij opslag kunt plaatsen.  Daarom moet u uw toepassing op een toegankelijk eindpunt hebt of laat het bewaken van een opslagwachtrij hebt. Zodra het bericht krijgt, kunt het ongeacht deze geprogrammeerd actie uitvoeren.
 
@@ -493,7 +493,7 @@ HDInsight is de naam van de Azure-service op basis van Apache Hadoop. HDInsight 
 HDinsight biedt ondersteuning voor andere onderdelen van het Hadoop-ecosysteem, waaronder Hive en Pig. Microsoft heeft ook onderdelen waarmee het eenvoudiger om te werken met gegevens die door HDInsight worden geproduceerd met traditionele BI-hulpprogramma's, zoals de HiveODBC-adapter en Data Explorer die werken met Excel gemaakt.
 
 ### <a name="high-performance-computing-big-compute"></a>High-Performance Computing (Big Compute)
-Een van de meest aantrekkelijk manieren om een cloudplatform is high performance computing (HPC) en andere toepassingen 'Big Compute'. Voorbeelden zijn gespecialiseerde engineering toepassingen die zijn ontworpen om te gebruiken voor de industriestandaard Message Passing Interface (MPI), evenals de zogenaamde perfect parallelle toepassingen, zoals financiële risico-modellen.
+Een van de meest aantrekkelijk manieren om een cloudplatform is high performance computing (HPC) en andere toepassingen 'Big Compute'. Voorbeelden zijn gespecialiseerde engineering toepassingen die zijn ontworpen om te gebruiken voor de industriestandaard Message Passing Interface (MPI), evenals de zogenaamde perfect parallelle toepassingen, zoals de modellen van financiële risico's.
 
 De essentie van Big Compute wordt code uitgevoerd op meerdere computers tegelijkertijd. In Azure machines dit betekent dat met veel virtuele tegelijk, alle werkt parallel sommige probleem op te lossen. Hiervoor moet een bepaalde manier tot bronnen en toepassingen, dat wil zeggen plannen, naar hun werk te verdelen over deze exemplaren. Het gratis HPC Pack van Microsoft en andere compute clusteroplossingen kunnen uitvoeren in Azure, profiteert van Azure services voor de berekenings- en infrastructuur capaciteit op aanvraag toevoegen aan een lokale compute cluster of voer Big Compute-toepassingen volledig in de cloud.
 
@@ -515,7 +515,7 @@ Zoals in de afbeelding toont, biedt Media Services een reeks onderdelen voor toe
 
 Toepassingen die gebruikmaken van dit platform kunnen uitvoeren op Azure of ergens anders. Bijvoorbeeld, een bureaubladtoepassing voor een video productie huis kunt mogelijk de video uploaden met Media Services, gebruikers vervolgens verwerken op verschillende manieren. U kunt ook een inhoudsbeheer cloud-gebaseerde service uitgevoerd op Azure mogelijk afhankelijk van de Media Services om te verwerken en distribueren van video. Waar deze wordt uitgevoerd en wat het doet, elke toepassing geeft de voorkeur welke onderdelen moet worden gebruikt, toegang hebben tot deze via RESTful-interfaces.
 
-Voor het distribueren van wat is het resultaat, een toepassing gebruik van Azure CDN, een ander CDN of net bits rechtstreeks naar gebruikers verzenden. Echter er krijgt, video gemaakt met behulp van Media Services kan worden gebruikt door verschillende clientsystemen, met inbegrip van Windows, Macintosh HTML 5, iOS, Android, Windows Phone, Flash en Silverlight. Het doel is om het gemakkelijker om voor moderne mediatoepassingen te maken.
+Voor het distribueren van wat is het resultaat, een toepassing gebruik van Azure CDN, een ander CDN of net bits rechtstreeks naar gebruikers verzenden. Bij het ophalen van er, kan er echter video gemaakt met behulp van Media Services worden gebruikt door verschillende clientsystemen, met inbegrip van Windows, Macintosh HTML 5, iOS, Android, Windows Phone, Flash en Silverlight. Het doel is om het gemakkelijker om voor moderne mediatoepassingen te maken.
 
 **Verwijzingen**
 

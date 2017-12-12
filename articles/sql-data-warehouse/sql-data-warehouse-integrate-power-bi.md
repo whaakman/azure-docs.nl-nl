@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Power BI gebruiken met SQL datawarehouse
 Als met Azure SQL Database kan SQL Data Warehouse Direct Connect gebruiker gebruikmaken van krachtige logische naar beneden duwen naast de analytische functies van Power BI.  Query's worden met Direct Connect terug naar uw Azure SQL Data Warehouse in realtime verzonden als u de gegevens verkennen.  Deze, gecombineerd met de schaal van SQL Data Warehouse, kunnen gebruikers dynamische om rapporten te maken in minuten op basis van terabytes aan gegevens.  Bovendien kan de introductie van de openen in Power BI-knop gebruikers direct verbinding maken met Power BI hun SQL Data Warehouse zonder gegevens te verzamelen uit andere delen van Azure.
@@ -39,7 +39,7 @@ Deze beperkingen en -opmerkingen kunnen wijzigen, omdat we verder te verbeteren 
 ## <a name="using-the-open-in-power-bi-button"></a>De knop 'Openen in Power BI'
 De eenvoudigste manier om te verplaatsen tussen uw SQL Data Warehouse en Power BI is met de openen in Power BI-knop. Deze knop kunt u naadloos begint met het maken van nieuwe dashboards in Power BI.  
 
-1. Aan de slag gaat u naar uw SQL Data Warehouse-exemplaar in de klassieke Azure-Portal.
+1. Aan de slag gaat u naar uw SQL Data Warehouse-exemplaar in de Azure portal.
 2. Klik op de knop Openen in Power BI.
 3. Als we geen kunnen u rechtstreeks aanmelden, of als u een Power BI-account niet hebt, u moet aan te melden.  
 4. U wordt omgeleid naar de pagina SQL Data Warehouse verbinding met de gegevens van uw SQL Data Warehouse vooraf worden ingevuld.

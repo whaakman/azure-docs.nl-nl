@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 330e3691307d0b52ed63da3560390beef154f779
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Maken van HDInsight-clusters met de Azure CLI
 
@@ -117,7 +117,7 @@ De volgende stappen moeten worden uitgevoerd vanaf een opdrachtregel zoals Power
     * Vervang `sshuser` en `sshuserpassword` met de gebruikersnaam en wachtwoord die u gebruiken wilt bij het openen van het cluster via SSH
 
     > [!IMPORTANT]
-    > In dit voorbeeld maakt een cluster met twee worker opmerkingen. U kunt het aantal worker-knooppunten ook wijzigen nadat de cluster is gemaakt door het uitvoeren van bewerkingen voor vergroten/verkleinen. Als u van plan bent over het gebruik van meer dan 32 worker-knooppunten, selecteert u een grootte van het hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen. U kunt de grootte van het hoofdknooppunt instellen met behulp van de `--headNodeSize` parameter tijdens het maken van het cluster.
+    > In dit voorbeeld maakt een cluster met twee worker-knooppunten. U kunt het aantal worker-knooppunten ook wijzigen nadat de cluster is gemaakt door het uitvoeren van bewerkingen voor vergroten/verkleinen. Als u van plan bent over het gebruik van meer dan 32 worker-knooppunten, selecteert u een grootte van het hoofdknooppunt met ten minste 8 kerngeheugens en 14 GB RAM-geheugen. U kunt de grootte van het hoofdknooppunt instellen met behulp van de `--headNodeSize` parameter tijdens het maken van het cluster.
     >
     > Zie voor meer informatie over knooppuntgrootten en bijbehorende kosten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 

@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Richtlijnen en aanbevelingen voor betrouwbare verzamelingen in Azure Service Fabric
 Deze sectie bevat richtlijnen voor het gebruik van betrouwbare statusbeheer en betrouwbare verzamelingen. Het doel is om gebruikers niet voor verrassingen.
@@ -33,6 +33,7 @@ De richtlijnen zijn ingedeeld als eenvoudige aanbevelingen die worden voorafgega
 * Maak een transactie in een andere transactie geen `using` instructie omdat dit ertoe leiden impassen dat kan.
 * Kan ervoor zorgen dat uw `IComparable<TKey>` implementatie juist is. Het systeem neemt afhankelijkheid `IComparable<TKey>` voor het samenvoegen van controlepunten en rijen.
 * Gebruik vergrendeling tijdens bijwerken bij het lezen van een item met een doel om bij te werken om te voorkomen dat een bepaalde klasse impassen.
+* Houd rekening houdt aantal betrouwbare verzamelingen per partitie moet minder dan 1000. Voorkeur betrouwbare verzamelingen met meer items via een meer betrouwbare verzamelingen met minder objecten.
 * Overweeg te houden van uw objecten (bijvoorbeeld TKey + TValue voor betrouwbare woordenlijst) lager dan 80 kB: kleiner hoe beter. Dit reduceert de hoeveelheid Heap voor grote objecten gebruik, evenals de schijf en netwerk i/o-vereisten. Vaak vermindert dubbele gegevens repliceren wanneer er slechts één klein onderdeel van de waarde wordt bijgewerkt. Veelgebruikte manier om dit te bereiken in betrouwbare woordenlijst is uw rijen te breken op meerdere rijen.
 * Overweeg het gebruik van back-up en herstel functionaliteit om het herstel na noodgevallen hebben.
 * Voorkomen dat de combinatie van één entiteit operations en bewerkingen voor meerdere entiteiten (bijvoorbeeld `GetCountAsync`, `CreateEnumerableAsync`) in dezelfde transactie vanwege de verschillende isolatieniveaus.

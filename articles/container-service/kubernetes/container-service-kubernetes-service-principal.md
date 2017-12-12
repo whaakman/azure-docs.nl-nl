@@ -1,26 +1,19 @@
 ---
-title: Service-principal voor Azure Kubernetes-cluster | Microsoft-documenten
+title: Service-principal voor Azure Kubernetes-cluster
 description: Een service-principal voor Azure Active Directory voor een Kubernetes-cluster in Azure Container Service maken en beheren
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Een service-principal voor Azure AD voor een Kubernetes-cluster in Container Service instellen
 
@@ -36,9 +29,9 @@ In dit artikel worden verschillende opties getoond om een service-principal in t
 
 U kunt een bestaande Azure AD-service-principal gebruiken die voldoet aan de volgende vereisten, maar u kunt ook een nieuwe maken.
 
-* **Bereik**: de resourcegroep die is gebruikt om het cluster te implementeren.
+* **Bereik**: resourcegroep
 
-* **Rol**: **inzender**
+* **Rol**: Inzender
 
 * **Clientgeheim**: moet een wachtwoord zijn. U kunt momenteel geen service-principal gebruiken om verificatie via een certificaat in te stellen.
 
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 De uitvoer ziet er ongeveer zo uit (dit voorbeeld is geredigeerd):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Als u de **client-id** voor de service-principal opgeeft, kunt u de waarde van de `appId` gebruiken (zoals beschreven in dit artikel) of de bijbehorende service-principal `name` (bijvoorbeeld `https://www.contoso.org/example`).
 
-* Op de hoofd- en agent-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand /etc/kubernetes/azure.json.
+* Op de hoofd- en agent-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`.
 
-* Als u de opdracht `az acs create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand ~/.azure/acsServicePrincipal.json geschreven op de machine die wordt gebruikt om de opdracht uit te voeren.
+* Als u de opdracht `az acs create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/acsServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
 
 * Als u de opdracht `az acs create` gebruikt om de service-principal automatisch te genereren, kan de service-principal ook worden geverifieerd bij een [Azure Container Registry](../../container-registry/container-registry-intro.md) dat in hetzelfde abonnement wordt gemaakt.
+
+* Referenties voor service-principals kunnen verlopen, waardoor uw clusterknooppunten de status **NotReady** krijgen. Zie de sectie [Het verlopen van referenties](#credential-expiration) voor informatie waarmee u dit risico kunt beperken.
+
+## <a name="credential-expiration"></a>Het verlopen van referenties
+
+Tenzij u tijdens het maken van een service-principal een tijdvenster opgeeft waarbinnen u de geldigheid kunt aanpassen met de parameter `--years`, blijven de referenties ervan tot 1 jaar na de aanmaakdatum geldig. Wanneer de referenties verlopen, krijgen uw clusterknooppunten mogelijk de status **NotReady**.
+
+Als u de vervaldatum van een service-principal wilt controleren, moet u de opdracht [az ad app show](/cli/azure/ad/app#az_ad_app_show) met de parameter `--debug` uitvoeren, en naar de waarde `endDate` van `passwordCredentials` in het onderste gedeelte van de uitvoer zoeken:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+De uitvoer (hier ingekort weergegeven):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Als de referenties voor uw service-principal zijn verlopen, gebruikt u de opdracht [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) om de referenties bij te werken:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Uitvoer:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Werk vervolgens op alle clusterknooppunten `/etc/kubernetes/azure.json` bij met de nieuwe referenties en start de knooppunten opnieuw.
 
 ## <a name="next-steps"></a>Volgende stappen
 

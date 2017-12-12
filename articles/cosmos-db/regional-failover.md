@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b530cd6f12c08124d9483c6c4898ee4d69b8e5a2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatische regionale failover voor bedrijfscontinuïteit in Azure Cosmos-DB
 Azure Cosmos DB vereenvoudigt de algemene distributie van gegevens door het aanbieden van volledig worden beheerd, [meerdere landen/regio database accounts](distribute-data-globally.md) die wissen balans vinden tussen de consistentie, beschikbaarheid en prestaties, met bijbehorende garanties bieden. Cosmos DB accounts bieden hoge beschikbaarheid, één cijfer ms latenties, [goed gedefinieerde consistentieniveaus](consistency-levels.md), transparante regionale failover met multihoming-API's en de mogelijkheid om te schalen doorvoer en opslag overal ter wereld. 
@@ -46,7 +46,7 @@ Het volgende fragment toont hoe u een toepassing met meerdere regio initialisere
 * Met geconfigureerd `West US` leest als de eerste voorkeursregio voor lage latentie
 * Met geconfigureerd `North Europe` als de tweede voorkeursregio (voor hoge beschikbaarheid tijdens regionale fouten)
 
-Deze configuratie ziet het volgende fragment in de DocumentDB-API:
+Deze configuratie ziet het volgende fragment in de SQL-API:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ In dit artikel bekeken we hoe handmatige en automatische failovers werk in Cosmo
 ## <a id="NextSteps"></a>Volgende stappen
 * Meer informatie over hoe Cosmos DB ondersteunt [globale distributie](distribute-data-globally.md)
 * Meer informatie over [globale consistentie met Azure Cosmos-DB](consistency-levels.md)
-* Ontwikkelen met meerdere regio's met behulp van Azure Cosmos DB [DocumentDB-API](../cosmos-db/tutorial-global-distribution-documentdb.md)
-* Informatie over het bouwen [meerdere landen/regio writer architecturen](multi-region-writers.md) met Azure DocumentDB
+* Ontwikkelen met meerdere regio's met behulp van Azure Cosmos DB [SQL-API](tutorial-global-distribution-documentdb.md)
+* Informatie over het bouwen [meerdere landen/regio writer architecturen](multi-region-writers.md) met Azure Cosmos-DB
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>AlwaysOn-beschikbaarheidsgroep configureren in Azure Virtual Machines (klassiek)
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Deze zelfstudie wordt ervan uitgegaan:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>De virtuele netwerk en domain controller-server maken
-U begint met een nieuwe Azure proefaccount. Nadat u uw account hebt ingesteld, moet u op het startscherm van de klassieke Azure portal.
+U begint met een nieuwe Azure proefaccount. Nadat u uw account hebt ingesteld, moet u op het startscherm van de Azure portal.
 
 1. Klik op de **nieuw** knop op de linkerhoek van de onderkant van de pagina, zoals wordt weergegeven in de volgende schermafbeelding.
    
@@ -89,7 +89,7 @@ U begint met een nieuwe Azure proefaccount. Nadat u uw account hebt ingesteld, m
    | Configuratie van virtuele machine |**CLOUDSERVICE** = Maak een nieuwe cloudservice<br/>**DNS-naam van CLOUDSERVICE** = de naam van een unieke cloudservice<br/>**DNS-naam** een unieke naam = (ex: ContosoDC123)<br/>**REGIO/AFFINITEITSGROEP/VIRTUEEL netwerk** ContosoNET =<br/>**VIRTUEEL NETWERKSUBNETTEN** Back(10.10.2.0/24) =<br/>**STORAGE-ACCOUNT** = gebruik een automatisch gegenereerde storage-account<br/>**BESCHIKBAARHEIDSSET** = (geen) |
    | Opties voor de virtuele machine |Standaardinstellingen gebruiken |
 
-Nadat u de nieuwe virtuele machine configureert, wacht u totdat de virtuele machine niet provsioned. Dit proces neemt enige tijd voltooien. Als u op de **virtuele Machine** tabblad in de klassieke Azure portal, ziet u ContosoDC waarbij statussen van **starten (inrichten)** naar **gestopt**, **starten**, **uitgevoerd (inrichten)**, en tot slot **met**.
+Nadat u de nieuwe virtuele machine configureert, wacht u totdat de virtuele machine niet provsioned. Dit proces neemt enige tijd voltooien. Als u op de **virtuele Machine** tabblad in de Azure-portal, ziet u ContosoDC waarbij statussen van **starten (inrichten)** naar **gestopt**,  **Starten van**, **uitgevoerd (inrichten)**, en tot slot **met**.
 
 De DC-server is nu is ingericht. Vervolgens configureert u het Active Directory-domein op deze DC-server.
 

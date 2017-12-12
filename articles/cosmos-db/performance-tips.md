@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Tips voor betere prestaties voor Azure Cosmos-DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos-database is een snelle en flexibele gedistribueerde database waarin naadloos met gegarandeerde latentie en doorvoer schaalt. U beschikt niet over belangrijke architectuur wijzigen of complexe code schrijven om te schalen van uw database met Cosmos-DB. Omhoog en omlaag schalen is net zo eenvoudig als het maken van één API-aanroep of [SDK-aanroep van methode](set-throughput.md#set-throughput-sdk). Omdat Cosmos DB wordt benaderd via het netwerk aanroepen zijn er echter clientzijde optimalisaties die voor optimale prestaties kunt u.
 
 Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekening met de volgende opties:
@@ -96,7 +99,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     DB cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van Gateway-modus en zijn onderworpen aan de standaardlimiet verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxConnections ingesteld op een hogere waarde (100-1000), zodat meerdere gelijktijdige verbindingen met Cosmos DB van de clientbibliotheek gebruikmaken kan. In de .NET SDK 1.8.0 en hoger wordt met de standaardwaarde voor [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 en de waarde wilt wijzigen, kunt u instellen de [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)op een hogere waarde.   
 4. **Parallelle query's voor gepartitioneerde verzamelingen afstemmen**
 
-     DocumentDB .NET SDK versie 1.9.0 en hoger ondersteuning parallelle query's waarmee u kunt een query uitvoeren op een gepartitioneerde verzameling worden parallel (Zie [werken met de SDK's](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) en de verwante [codevoorbeelden](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) voor meer informatie Info). Parallelle query's zijn ontworpen voor betere Querylatentie en doorvoer via hun seriële equivalent. Parallelle query's bieden twee parameters die gebruikers afstemmen kunnen om de vereisten (a) MaxDegreeOfParallelism aangepaste aanpassen: om te bepalen dat het maximum aantal partities vervolgens kan worden opgevraagd in parallel en (b) MaxBufferedItemCount: om te bepalen het aantal vooraf opgehaalde resultaten.
+     SQL .NET SDK versie 1.9.0 en hoger ondersteuning parallelle query's waarmee u kunt een query uitvoeren op een gepartitioneerde verzameling worden parallel (Zie [werken met de SDK's](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) en de verwante [codevoorbeelden](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) voor meer informatie). Parallelle query's zijn ontworpen voor betere Querylatentie en doorvoer via hun seriële equivalent. Parallelle query's bieden twee parameters die gebruikers afstemmen kunnen om de vereisten (a) MaxDegreeOfParallelism aangepaste aanpassen: om te bepalen dat het maximum aantal partities vervolgens kan worden opgevraagd in parallel en (b) MaxBufferedItemCount: om te bepalen het aantal vooraf opgehaalde resultaten.
 
     (a) ***afstemmen MaxDegreeOfParallelism\:***  parallelle query werkt door meerdere partities parallel uitvoeren van query's. Echter, gegevens van een afzonderlijke gepartitioneerde verzamelen ten opzichte van de query wordt opeenvolgend opgehaald. Dus heeft als u de MaxDegreeOfParallelism op het aantal partities de maximale kans op de meeste query zodat opgegeven alle andere voorwaarden system hetzelfde blijven. Als u het aantal partities niet weet, kunt u de MaxDegreeOfParallelism instellen op een groot aantal en het systeem de minimale (aantal partities, invoer van de gebruiker opgegeven) als de MaxDegreeOfParallelism kiest.
 
@@ -110,7 +113,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     In sommige gevallen kan minder vaak uit garbagecollection helpen. Stel in .NET, [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) op true.
 6. **Backoff RetryAfter intervallen implementeren**
 
-    Tijdens het testen van prestaties, moet u load verhogen tot een klein aantal aanvragen ophalen beperkt. Als beperkt, moet de clienttoepassing backoff op vertraging voor de server opgegeven interval. De backoff te respecteren, zorgt u ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor nieuwe pogingen Groepsbeleid is opgenomen in versie 1.8.0 en hoger van de DocumentDB [.NET](documentdb-sdk-dotnet.md) en [Java](documentdb-sdk-java.md), versie 1.9.0 en hoger van de [Node.js](documentdb-sdk-node.md) en [Python ](documentdb-sdk-python.md), en alle ondersteunde versies van de [.NET Core](documentdb-sdk-dotnet-core.md) SDK's. Zie voor meer informatie [Exceeding gereserveerd doorvoerlimieten](request-units.md#RequestRateTooLarge) en [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Tijdens het testen van prestaties, moet u load verhogen tot een klein aantal aanvragen ophalen beperkt. Als beperkt, moet de clienttoepassing backoff op vertraging voor de server opgegeven interval. De backoff te respecteren, zorgt u ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor nieuwe pogingen Groepsbeleid is opgenomen in versie 1.8.0 en hoger van de SQL [.NET](documentdb-sdk-dotnet.md) en [Java](documentdb-sdk-java.md), versie 1.9.0 en hoger van de [Node.js](documentdb-sdk-node.md) en [Python](documentdb-sdk-python.md), en alle ondersteunde versies van de [.NET Core](documentdb-sdk-dotnet-core.md) SDK's. Zie voor meer informatie [Exceeding gereserveerd doorvoerlimieten](request-units.md#RequestRateTooLarge) en [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Uitbreiden van de werkbelasting van uw client**
 
     Als u op niveaus met hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing mogelijk het knelpunt als gevolg van de machine beperking af op CPU- of -gebruik. Als u deze punt bereikt, kunt u blijven voor de push-het account Cosmos DB verder door het uitbreiden van uw clienttoepassingen op meerdere servers.
@@ -120,7 +123,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
    <a id="tune-page-size"></a>
 9. **De paginagrootte van de voor query's leestijd feeds voor betere prestaties afstemmen**
 
-    Bij het uitvoeren van een bulksgewijs documenten met behulp van de feed functionaliteit (bijvoorbeeld ReadDocumentFeedAsync) lezen of lezen bij de uitgifte van een DocumentDB SQL-query, worden de resultaten in een gesegmenteerde manier geretourneerd als de resultatenset is te groot is. Standaard resultaten worden geretourneerd in segmenten van 100 items of 1 MB, eerst de limiet is bereikt.
+    Bij het uitvoeren van een bulksgewijs documenten met behulp van de feed functionaliteit (bijvoorbeeld ReadDocumentFeedAsync) lezen of lezen bij de uitgifte van een SQL-query, worden de resultaten in een gesegmenteerde manier geretourneerd als de resultatenset is te groot is. Standaard resultaten worden geretourneerd in segmenten van 100 items of 1 MB, eerst de limiet is bereikt.
 
     Verminder het aantal netwerk retouren vereist voor het ophalen van alle toepasselijke resultaten, kunt u de paginagrootte met behulp van de aanvraagheader x-ms-max--aantal items en maximaal 1000 vergroten. In gevallen waarin u wilt alleen enkele resultaten weer te geven bijvoorbeeld, als uw gebruikers-interface of toepassing API retourneert alleen 10 een tijd resulteert, u kunt ook de paginagrootte van de op 10 tot en met de doorvoer verbruikt voor leesbewerkingen en query's verminderen verlagen.
 
@@ -133,7 +136,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 
 11. **Gebruik 64-bits host verwerken**
 
-    De DocumentDB SDK werkt in een 32-bits hostproces wanneer u de DocumentDB .NET SDK versie 1.11.4 gebruikt en hoger. Als u over verschillende partitie query's gebruikt, wordt 64-bits host verwerken echter aanbevolen voor verbeterde prestaties. De volgende soorten toepassingen hebben het hostproces van 32-bits als de standaardconfiguratie, om te wijzigen die in 64-bits, volg deze stappen uit op basis van het type van uw toepassing:
+    De SQL-SDK werkt in een 32-bits hostproces wanneer u SQL .NET SDK versie 1.11.4 en hoger. Als u over verschillende partitie query's gebruikt, wordt 64-bits host verwerken echter aanbevolen voor verbeterde prestaties. De volgende soorten toepassingen hebben het hostproces van 32-bits als de standaardconfiguratie, om te wijzigen die in 64-bits, volg deze stappen uit op basis van het type van uw toepassing:
 
     - Voor uitvoerbare toepassingen kunt dit doen door het uitschakelen van de **liever 32-bits** optie in de **Projecteigenschappen** venster op de **bouwen** tabblad.
 

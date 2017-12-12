@@ -3,33 +3,33 @@ title: Installeer PowerShell voor Azure Stack | Microsoft Docs
 description: Informatie over het installeren van PowerShell voor Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack  
 
 Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure-Stack. In deze handleiding doorlopen we de stappen die nodig zijn voor het installeren van PowerShell voor Azure-Stack. U kunt de stappen in dit artikel vanuit de Azure-Stack Development Kit of vanaf een externe Windows-client als u via VPN-verbinding verbonden bent gebruiken.
 
-In dit artikel bevat gedetailleerde instructies voor het installeren van PowerShell voor Azure-Stack. Als u wilt snel installeren en configureren van PowerShell, kunt u het script dat is opgegeven in het onderwerp 'Actief en werkend ophalen met PowerShell' gebruiken. 
+In dit artikel bevat gedetailleerde instructies voor het installeren van PowerShell voor Azure-Stack. Als u wilt snel installeren en configureren van PowerShell, kunt u het script dat is opgegeven in het artikel 'Actief en werkend ophalen met PowerShell' gebruiken. 
 
 > [!NOTE]
 > De volgende stappen moet PowerShell 5.0. U kunt uw versie controleren door $PSVersionTable.PSVersion uitvoeren en het vergelijken van de ' ' hoofdversie.
 
-PowerShell-opdrachten voor Azure-Stack zijn geïnstalleerd via de PowerShell-galerie. Aan de opslagplaats PSGallery regiser, open een PowerShell-sessie met verhoogde bevoegdheden van de development kit of van een externe Windows-client als u bent via VPN-verbinding verbonden en voer de volgende opdracht:
+PowerShell-opdrachten voor Azure-Stack zijn geïnstalleerd via de PowerShell-galerie. Voor het registreren van de opslagplaats PSGallery, open een PowerShell-sessie met verhoogde bevoegdheden van de development kit of van een externe Windows-client als u bent via VPN-verbinding verbonden en voer de volgende opdracht:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Bevestig de installatie door de volgende opdracht uitvoeren:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  Als de installatie geslaagd is, worden de modules AzureRM en AzureStack weergegeven in de uitvoer.
+  Als de installatie geslaagd is, worden de modules AzureRM en Azure-Stack in de uitvoer weergegeven.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installeer PowerShell in een niet-verbonden of een gedeeltelijk verbonden scenario (met beperkte verbinding met internet)
 

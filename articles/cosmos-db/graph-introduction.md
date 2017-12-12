@@ -2,7 +2,7 @@
 title: Inleiding tot Azure Cosmos DB Graph API's | Microsoft Docs
 description: Meer informatie over hoe u Azure Cosmos DB op te slaan, query, en bladeren door het grote grafieken met een lage latentie met behulp van de Gremlin graph-querytaal van Apache TinkerPop kunt gebruiken.
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Inleiding tot Azure Cosmos DB: Graph API
 
@@ -98,7 +98,7 @@ Azure Cosmos DB biedt de volgende gedifferentieerde mogelijkheden in vergelijkin
 
 * Instelbare consistentieniveaus
 
- Selecteer in de vijf goed gedefinieerde consistentieniveaus voor optimale balans tussen de consistentie en prestaties. Voor query's en leesbewerkingen biedt Azure Cosmos DB vijf verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Deze gedetailleerde, goed gedefinieerde consistentieniveaus zodat u kunt geluid-en nadelen van de consistentie, beschikbaarheid en latentie. Zie [Consistentieniveaus gebruiken om de beschikbaarheid en prestaties in DocumentDB te maximaliseren](consistency-levels.md) voor meer informatie.
+ Selecteer in de vijf goed gedefinieerde consistentieniveaus voor optimale balans tussen de consistentie en prestaties. Voor query's en leesbewerkingen biedt Azure Cosmos DB vijf verschillende consistentieniveaus: sterk, gebonden-verouderd, sessie, consistent voorvoegsel en mogelijk. Deze gedetailleerde, goed gedefinieerde consistentieniveaus zodat u kunt geluid-en nadelen van de consistentie, beschikbaarheid en latentie. Meer informatie [gegevens instelbare consistentieniveaus in Azure Cosmos DB](consistency-levels.md).
 
 Azure Cosmos DB kunt ook meerdere modellen, zoals documenten en grafiek binnen de dezelfde containers/databases gebruiken. U kunt een documentverzameling gebruiken voor het opslaan van grafiekgegevens naast documenten. U kunt SQL-query's via JSON en query's Gremlin query dezelfde gegevens als een grafiek gebruiken.
 
@@ -113,7 +113,7 @@ De volgende tabel geeft populaire Gremlin-stuurprogramma's die u met Azure Cosmo
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript op Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin console](https://tinkerpop.apache.org/downloads.html) |[TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB biedt ook een .NET-bibliotheek met Gremlin uitbreidingsmethoden boven de [Azure Cosmos DB SDK's](documentdb-sdk-dotnet.md) via NuGet. Deze bibliotheek biedt een 'in-process' Gremlin-server kunt u direct verbinding maken met DocumentDB gegevenspartities.
+Azure Cosmos DB biedt ook een .NET-bibliotheek met Gremlin uitbreidingsmethoden boven de [Azure Cosmos DB SDK's](documentdb-sdk-dotnet.md) via NuGet. Deze bibliotheek biedt een 'in-process' Gremlin-server kunt u direct verbinding maken met gegevenspartities.
 
 | Downloaden | Documentatie |
 | --- | --- |

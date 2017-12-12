@@ -4,7 +4,7 @@ description: "Een onderwerp met uitleg over de strategieën voor het beveiligen 
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Bevoegde toegang beveiligen in Azure AD
 Bevoegde toegang beveiligen is een belangrijke eerste stap ter bescherming van zakelijke activa in een moderne organisatie. Bevoegde accounts zijn accounts dat beheren en het beheer van IT-systemen. Cyberbeveiliging aanvallers gericht zijn op deze accounts toegang krijgen tot gegevens en systemen van een organisatie. Als u wilt beveiligen bevoorrechte toegang, moet u de accounts en systemen van het risico worden blootgesteld aan een kwaadwillende gebruiker isoleren.

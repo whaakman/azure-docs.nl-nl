@@ -4,7 +4,7 @@ description: Een handleiding voor protocollen die worden ondersteund door het Az
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0-protocollen - OAuth 2.0 & OpenID Connect
 Het v2.0-eindpunt kunt Azure AD voor identity-as-a-service met de protocollen volgens de industrienorm, OpenID Connect en OAuth 2.0 gebruiken.  De service is compatibel met de standaarden, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen.  Hier de informatie is nuttig als u uw code te schrijven wilt door rechtstreeks verzenden & afhandeling van HTTP-aanvragen of gebruik een 3rd partij open source bibliotheek in plaats van met een van onze open-source bibliotheken.

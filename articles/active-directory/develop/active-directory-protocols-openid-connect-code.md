@@ -4,7 +4,7 @@ description: Dit artikel wordt beschreven hoe u met HTTP-berichten toestaan van 
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a813d73dc8a80c46e1b7500ec72ccb2a47bc6d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Toegang tot webtoepassingen die gebruikmaken van OpenID Connect en Azure Active Directory autoriseren
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een eenvoudige identiteitlaag gebouwd op het OAuth 2.0-protocol. OAuth 2.0 definieert mechanismen voor het verkrijgen en gebruiken van **toegang tot tokens** voor toegang tot beveiligde bronnen, maar ze niet bepalen standaardmethoden om identiteit informatie te geven. OpenID Connect implementeert verificatie als een uitbreiding van het autorisatieproces OAuth 2.0. Biedt informatie over de gebruiker in de vorm van een `id_token` die de identiteit van de gebruiker wordt geverifieerd en basisprofiel informatie over de gebruiker.
@@ -90,8 +90,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Aanbevolen |De redirect_uri van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app.  Er moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende authorization_code terug naar uw app.  Ondersteunde waarden zijn `form_post` voor *HTTP Formulierbericht* of `fragment` voor *URL-fragment*.  Voor webtoepassingen, wordt u aangeraden `response_mode=form_post` om te controleren of de meest beveiligde overdracht van tokens voor uw toepassing. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd.  Een tekenreeks van inhoud die u wenst dat kan zijn.  Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12).  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
-| prompt |Optioneel |Geeft het type van de interactie van de gebruiker die is vereist.  Op dit moment de enige geldige waarden zijn 'aanmelding', 'none', ' toestemming geven '.  `prompt=login`Hiermee wordt de gebruiker gevraagd hun referenties op die aanvraag, het negatief maken van eenmalige aanmelding.  `prompt=none`is het tegenovergestelde - zorgt ervoor dat de gebruiker niet vragen beeïndigen krijgt.  Als de aanvraag kan achtergrond via eenmalige aanmelding worden voltooid, wordt door het eindpunt een fout geretourneerd.  `prompt=consent`de OAuth-triggers toestemming dialoogvenster nadat de gebruiker zich aanmeldt, de gebruiker machtigen om de app wordt gevraagd. |
-| login_hint |Optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
+| prompt |optioneel |Geeft het type van de interactie van de gebruiker die is vereist.  Op dit moment de enige geldige waarden zijn 'aanmelding', 'none', ' toestemming geven '.  `prompt=login`Hiermee wordt de gebruiker gevraagd hun referenties op die aanvraag, het negatief maken van eenmalige aanmelding.  `prompt=none`is het tegenovergestelde - zorgt ervoor dat de gebruiker niet vragen beeïndigen krijgt.  Als de aanvraag kan achtergrond via eenmalige aanmelding worden voltooid, wordt door het eindpunt een fout geretourneerd.  `prompt=consent`de OAuth-triggers toestemming dialoogvenster nadat de gebruiker zich aanmeldt, de gebruiker machtigen om de app wordt gevraagd. |
+| login_hint |optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
 
 Op dit punt wordt wordt de gebruiker gevraagd om hun referenties invoeren en de verificatie te voltooien.
 

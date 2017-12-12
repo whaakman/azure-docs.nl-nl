@@ -4,7 +4,7 @@ description: In dit artikel beschrijft de eenmalige aanmelding op SAML-protocol 
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML-protocol
 In dit artikel bevat informatie over het SAML 2.0-verificatieaanvragen en -antwoorden die ondersteuning biedt voor eenmalige aanmelding voor Azure Active Directory (Azure AD).
@@ -47,15 +47,15 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Id |Vereist |Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een gemeenschappelijke strategie is een tekenreeks, zoals 'id' naar de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld: `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
 | Versie |Vereist |Dit moet **2.0**. |
 | IssueInstant |Vereist |Dit is een datum/tijd-tekenreeks met een UTC-waarde en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een DateTime-waarde van dit type verwacht maar niet evalueren of gebruik de waarde. |
-| AssertionConsumerServiceUrl |Optioneel |Indien opgegeven, moet dit overeen met de `RedirectUri` van de cloudservice in Azure AD. |
-| ForceAuthn |Optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als ze een geldige sessie met Azure AD hebben. |
-| IsPassive |Optioneel |Dit is een Booleaanse waarde die aangeeft of Azure AD moet worden geverifieerd achtergrond, zonder tussenkomst van de gebruiker met behulp van de sessiecookie als er een bestaat. Als dit waar is, probeert Azure AD te verifiëren van de gebruiker met behulp van de sessie-cookie. |
+| AssertionConsumerServiceUrl |optioneel |Indien opgegeven, moet dit overeen met de `RedirectUri` van de cloudservice in Azure AD. |
+| ForceAuthn |optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als ze een geldige sessie met Azure AD hebben. |
+| IsPassive |optioneel |Dit is een Booleaanse waarde die aangeeft of Azure AD moet worden geverifieerd achtergrond, zonder tussenkomst van de gebruiker met behulp van de sessiecookie als er een bestaat. Als dit waar is, probeert Azure AD te verifiëren van de gebruiker met behulp van de sessie-cookie. |
 
 Alle andere `AuthnRequest` kenmerken, zoals toestemming, bestemming, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex en ProviderName zich **genegeerd**.
 
 Azure AD ook negeert de `Conditions` -element in `AuthnRequest`.
 
-### <a name="issuer"></a>certificaatverlener
+### <a name="issuer"></a>Certificaatverlener
 De `Issuer` -element in een `AuthnRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Normaal gesproken deze is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.
 
 Een voorbeeld SAML fragment met de `Issuer` element uitziet:
@@ -148,7 +148,7 @@ De `Response` element het resultaat van de autorisatieaanvraag bevat. Azure AD-s
 * `Destination`: Wanneer de aanmelding is voltooid, wordt deze ingesteld op de `RedirectUri` van de serviceprovider (cloudservice).
 * `InResponseTo`: Dit is ingesteld op de `ID` kenmerk van de `AuthnRequest` element dat het antwoord wordt gestart.
 
-### <a name="issuer"></a>certificaatverlener
+### <a name="issuer"></a>Certificaatverlener
 Azure AD-stelt de `Issuer` element op de `https://login.microsoftonline.com/<TenantIDGUID>/` waar <TenantIDGUID> is de tenant-ID van de Azure AD-tenant.
 
 Voor, een voorbeeldreactie met verlener element kan als volgt uitzien:
@@ -180,7 +180,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 ### <a name="assertion"></a>Verklaring
 Naast de `ID`, `IssueInstant` en `Version`, Azure AD Hiermee stelt u de volgende elementen in de `Assertion` element van het antwoord.
 
-#### <a name="issuer"></a>certificaatverlener
+#### <a name="issuer"></a>Certificaatverlener
 Dit is ingesteld op `https://sts.windows.net/<TenantIDGUID>/`waar <TenantIDGUID> is de Tenant-ID van de Azure AD-tenant.
 
 ```

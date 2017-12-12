@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: .NET-voorbeelden voor de DocumentDB-API | Microsoft Docs'
-description: C# .NET-voorbeelden op github voor algemene taken in DocumentDB, inclusief CRUD-bewerkingen niet vinden.
+title: 'Azure Cosmos DB: .NET-voorbeelden voor de SQL-API | Microsoft Docs'
+description: C# .NET-voorbeelden op github voor algemene taken met de Azure Cosmos DB SQL API, inclusief CRUD-bewerkingen niet vinden.
 keywords: NoSQL-voorbeeld
 services: cosmos-db
 author: rnagpal
@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: bc019e50ba72adc8b399579d623a63e86f21f92c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c15440d78c43fce4613953c5151ff76729f28a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: .NET-voorbeelden voor de DocumentDB-API
+# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-voorbeelden voor de SQL-API
 > [!div class="op_single_selector"]
 > * [.NET-voorbeelden](documentdb-dotnet-samples.md)
 > * [Node.js-voorbeelden](documentdb-nodejs-samples.md)
 > * [Python-voorbeelden](documentdb-python-samples.md)
-> * [Voorbeeld van Azure Codegalerie](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Voorbeeld van Azure Codegalerie](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Meest recente voorbeeldoplossingen die worden uitgevoerd CRUD-bewerkingen en andere veelvoorkomende bewerkingen op Azure DB die Cosmos-bronnen zijn opgenomen in de [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub-opslagplaats. Dit artikel bevat:
 

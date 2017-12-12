@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Zelfstudie: Proces EDIFACT facturen met Azure BizTalk Services
 
@@ -55,7 +55,7 @@ Voor het voltooien van het scenario, gebruiken we Service Bus-wachtrijen te verz
 
 ## <a name="prerequisites"></a>Vereisten
 * U moet een Service Bus-naamruimte hebben. Zie voor instructies over het maken van een naamruimte [How To: maken of wijzigen van een Service Bus-Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Laat het ons wordt ervan uitgegaan dat er al een Service Bus-naamruimte die is ingericht, aangeroepen **edifactbts**.
-* U moet een BizTalk Services-abonnement hebben. Zie voor instructies [een BizTalk Service met behulp van de klassieke Azure-portal maakt](http://go.microsoft.com/fwlink/?LinkID=302280). Voor deze zelfstudie laat het ons wordt ervan uitgegaan dat u hebt een abonnement van BizTalk Services, aangeroepen **contosowabs**.
+* U moet een BizTalk Services-abonnement hebben. Voor deze zelfstudie laat het ons wordt ervan uitgegaan dat u hebt een abonnement van BizTalk Services, aangeroepen **contosowabs**.
 * Registreer uw abonnement BizTalk Services op de BizTalk Services-Portal. Zie voor instructies [een BizTalk Service-implementatie in de Portal van BizTalk Services registreren](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio is geïnstalleerd, moet u hebben.
 * BizTalk Services SDK is geïnstalleerd, moet u hebben. U kunt de SDK van downloaden [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  

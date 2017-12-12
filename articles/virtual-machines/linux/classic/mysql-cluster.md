@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Sets met gelijke taakverdeling kunt clusterize MySQL op Linux
 > [!IMPORTANT]
@@ -48,11 +48,11 @@ U moet de volgende resources en de volgende mogelijkheden:
 ### <a name="tested-environment"></a>Geteste omgeving
 * Ubuntu 13.10
   * DRBD
-  * MySQL-Server
+  * MySQL-server
   * Corosync en pacemaker heeft
 
 ### <a name="affinity-group"></a>Affiniteitsgroep
-Maken van een affiniteitsgroep voor de oplossing aanmeldt bij de klassieke Azure portal selecteren **instellingen**, en het maken van een affiniteitsgroep. Toegewezen bronnen maken later wordt toegewezen aan deze groep affiniteit.
+Maken van een affiniteitsgroep voor de oplossing aanmeldt bij de Azure-portal selecteren **instellingen**, en het maken van een affiniteitsgroep. Toegewezen bronnen maken later wordt toegewezen aan deze groep affiniteit.
 
 ### <a name="networks"></a>Netwerken
 Een nieuw netwerk wordt gemaakt en een subnet wordt gemaakt in het netwerk. Dit voorbeeld wordt een 10.10.10.0/24-netwerk met slechts één /24 subnet binnen.

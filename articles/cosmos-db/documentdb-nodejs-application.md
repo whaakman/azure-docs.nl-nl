@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 259ce894b9b0e4a1b2dda2bff387f97bf68ad32b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Voor deze zelfstudie ziet u hoe u Azure Cosmos DB en de DocumentDB-API voor het opslaan van en toegang tot gegevens uit een Node.js Express-toepassing die wordt gehost op Azure Websites. U bouwt een eenvoudige webtoepassing voor taakbeheer, een taken-app, waarmee u taken kunt maken, ophalen en voltooien. De taken worden opgeslagen als JSON-documenten in Azure Cosmos DB. Deze zelfstudie begeleidt u bij het maken en implementeren van de app en legt uit wat er gebeurt in elk fragment.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Voor deze zelfstudie ziet u hoe u Azure Cosmos DB en de SQL-API voor het opslaan van en toegang tot gegevens uit een Node.js Express-toepassing die wordt gehost op Azure Websites. U bouwt een eenvoudige webtoepassing voor taakbeheer, een taken-app, waarmee u taken kunt maken, ophalen en voltooien. De taken worden opgeslagen als JSON-documenten in Azure Cosmos DB. Deze zelfstudie begeleidt u bij het maken en implementeren van de app en legt uit wat er gebeurt in elk fragment.
 
 ![Schermopname van de toepassing My Todo List die in deze zelfstudie voor Node.js wordt gemaakt](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -534,7 +536,7 @@ Dit is alles wat we nodig hebben voor een goed werkende toepassing.
 * Wilt u de schaal en prestaties testen met Azure Cosmos DB? Zie [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Prestaties en schaal testen met Azure Cosmos DB)
 * Leer hoe het [bewaken van een Azure Cosmos DB-account](monitor-accounts.md) werkt.
 * Voer query's uit op onze voorbeeldgegevensset in de [Queryspeelplaats](https://www.documentdb.com/sql/demo).
-* Bekijk de [documentatie voor Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/).
+* Bekijk de [documentatie voor Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

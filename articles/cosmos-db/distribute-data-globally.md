@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4427e65930aaeac6335e31dcfe3479baa6fdb6cd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Het distribueren van gegevens met Azure Cosmos DB globaal
 Azure is alomtegenwoordige - heeft een algemene footprint tussen 30 + geografische regio's en continu groter wordt. Met de wereldwijde aanwezigheid is een van de gedifferentieerde mogelijkheden die Azure voor de ontwikkelaars biedt de mogelijkheid om te maken, implementeren en globaal gedistribueerde toepassingen eenvoudig te beheren. 
@@ -88,7 +88,7 @@ De mogelijkheden voor automatische en handmatige failover worden momenteel weerg
 ### <a id="MultiHomingAPIs"></a>Multihoming API's in Azure Cosmos DB
 Azure Cosmos-database kunt u communiceren met de database met een logische (regio networkdirect) of fysieke (regiospecifieke)-eindpunten. Met behulp van de logische eindpunten zorgt ervoor dat de toepassing kunt transparant multihomed in geval van een failover. De eindpunten laatstgenoemde, fysieke bieden nauwkeuriger beheer aan de toepassing om te leiden leest en schrijft naar specifieke regio's.
 
-Voor meer informatie over het configureren van lezen voorkeuren voor de [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md), [Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [tabel API](../cosmos-db/tutorial-global-distribution-table.md), en [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in hun respectieve gekoppeld artikelen.
+U vindt informatie over het configureren van lezen voorkeuren voor de [SQL-API](../cosmos-db/tutorial-global-distribution-documentdb.md), [Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [tabel API](../cosmos-db/tutorial-global-distribution-table.md), en [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in hun respectieve gekoppelde artikelen.
 
 ### <a id="TransparentSchemaMigration"></a>De schema- en migratie transparant en consistent database 
 Azure Cosmos DB is volledig [schema networkdirect](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Het ontwerp van de database-engine van de unieke toestaat dat deze automatisch en alle gegevens die deze opgenomen zonder dat een schema of secundaire indexen van u synchroon te indexeren. Hiermee kunt u snel herhalen van de globaal gedistribueerde toepassing zonder dat u de migratie van de schema- en index van de database of de coördinatie van meerdere fase toepassingsimplementaties van wijzigingen in het schema. Azure Cosmos DB zorgt ervoor dat eventuele wijzigingen in het beleid expliciet door u uitgevoerde indexeren resulteert niet in een vermindering van prestaties of beschikbaarheid.  

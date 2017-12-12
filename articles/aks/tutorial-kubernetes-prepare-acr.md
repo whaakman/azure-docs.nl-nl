@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1283d3cff4edc0c99d22612c65fda48f9dddfbd3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementeren en gebruiken van Azure Container register
 
@@ -28,21 +28,21 @@ In volgende zelfstudies, is dit ACR-exemplaar geïntegreerd met een cluster Kube
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In de [vorige zelfstudie](./tutorial-kubernetes-prepare-app.md), een installatiekopie van een container voor een eenvoudige toepassing voor Azure uw stem is gemaakt. Als u de installatiekopie van het Azure stemmen app niet hebt gemaakt, terug naar [zelfstudie 1 – installatiekopieën van de container maken](./tutorial-kubernetes-prepare-app.md).
+In de [vorige zelfstudie][aks-tutorial-prepare-app], een installatiekopie van een container voor een eenvoudige toepassing voor Azure uw stem is gemaakt. Als u de installatiekopie van het Azure stemmen app niet hebt gemaakt, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app].
 
-Deze zelfstudie vereist dat u de Azure CLI versie 2.0.21 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Deze zelfstudie vereist dat u de Azure CLI versie 2.0.21 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [Azure CLI installeren][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Register met Azure Container implementeren
 
 Wanneer u een Azure Container Registry implementeert, moet u eerst een resourcegroep. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#create). In dit voorbeeld wordt een resourcegroep met de naam `myResourceGroup` wordt gemaakt in de `eastus` regio.
+Een resourcegroep maken met de opdracht [az group create][az-group-create]. In dit voorbeeld wordt een resourcegroep met de naam `myResourceGroup` wordt gemaakt in de `eastus` regio.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Maken van een Azure-Container register met de [az acr maken](/cli/azure/acr#create) opdracht. De naam van een Container register **moeten uniek zijn**.
+Maken van een Azure-Container register met de [az acr maken] [ az-acr-create] opdracht. De naam van een Container register **moeten uniek zijn**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ In de rest van deze zelfstudie gebruiken we `<acrName>` als een tijdelijke aandu
 
 ## <a name="container-registry-login"></a>Container register aanmelding
 
-Gebruik de [az acr aanmelding](https://docs.microsoft.com/cli/azure/acr#az_acr_login) opdracht zich aanmelden bij de ACR-exemplaar. U moet de unieke naam die is opgegeven in het register van de container wanneer deze is gemaakt.
+Gebruik de [az acr aanmelding] [ az-acr-login] opdracht zich aanmelden bij de ACR-exemplaar. U moet de unieke naam die is opgegeven in het register van de container wanneer deze is gemaakt.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ De opdracht retourneert een bericht 'Aanmelding geslaagd' eenmaal is voltooid.
 
 ## <a name="tag-container-images"></a>Installatiekopieën van de tag-container
 
-Als een lijst met huidige afbeeldingen wilt weergeven, gebruikt de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht.
+Als een lijst met huidige afbeeldingen wilt weergeven, gebruikt de [docker-installatiekopieën] [ docker-images] opdracht.
 
 ```console
 docker images
@@ -91,7 +91,7 @@ Tag nu de `azure-vote-front` installatiekopie met de loginServer van het registe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Wanneer gecodeerd, uitvoeren [docker afbeeldingen] (https://docs.docker.com/engine/reference/commandline/images/) om te controleren of de bewerking.
+Uitvoeren zodra gecodeerd, [docker-installatiekopieën] [ docker-images] om te controleren of de bewerking.
 
 ```console
 docker images
@@ -121,7 +121,7 @@ Dit duurt enkele minuten duren.
 
 ## <a name="list-images-in-registry"></a>Lijst met afbeeldingen in register
 
-Een lijst van installatiekopieën van een pushbericht hebben ontvangen aan het register Azure-Container retourneren gebruiker de [az acr opslagplaats lijst](/cli/azure/acr/repository#list) opdracht. De opdracht bijwerken met de naam van het ACR-exemplaar.
+Een lijst van installatiekopieën van een pushbericht hebben ontvangen aan het register Azure-Container retourneren gebruiker de [az acr opslagplaats lijst] [ az-acr-repository-list] opdracht. De opdracht bijwerken met de naam van het ACR-exemplaar.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-En gebruik vervolgens de labels voor een specifieke installatiekopie vindt de [az acr opslagplaats weergeven-labels](/cli/azure/acr/repository#show-tags) opdracht.
+En gebruik vervolgens de labels voor een specifieke installatiekopie vindt de [az acr opslagplaats weergeven-labels] [ az-acr-repository-show-tags] opdracht.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -163,4 +163,17 @@ In deze zelfstudie is een Azure Container Registry voorbereid voor gebruik in ee
 Ga naar de volgende zelfstudie voor meer informatie over het implementeren van een cluster Kubernetes in Azure.
 
 > [!div class="nextstepaction"]
-> [Kubernetes-cluster implementeren](./tutorial-kubernetes-deploy-cluster.md)
+> [Kubernetes-cluster implementeren][aks-tutorial-deploy-cluster]
+
+<!-- LINKS - external -->
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#create
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-group-create]: /cli/azure/group#az_group_create
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

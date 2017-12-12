@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ac83f948e367be2006e677d8d56fbd4c4a3ab57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: DocumentDB API SQL-query-referentieoverzicht PDF
-De **Azure Cosmos DB: DocumentDB API SQL Query cheats blad** krijgt u snel query's schrijven voor DocumentDB-API-gegevens door algemene database-query's, trefwoorden, ingebouwde functies en operators in een gemakkelijk te drukken PDF-verwijzing weer te geven blad. 
+# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: SQL-query-referentieoverzicht PDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+De **Azure Cosmos DB: SQL-Query cheats blad** helpt u snel query's voor SQL-API-gegevens schrijven algemene database-query's, trefwoorden, ingebouwde functies en operators in een eenvoudig om af te drukken PDF weergegeven verwijzen naar blad. 
 
 Cosmos DB ondersteunt relationele, hiërarchische en ruimtelijke query van JSON-documenten met behulp van [SQL](documentdb-sql-query.md) zonder een schema of secundaire indexen te geven. Naast de standaard ANSI SQL trefwoorden en operators biedt ondersteuning voor Cosmos DB JavaScript door de gebruiker gedefinieerde functies (UDF's), JavaScript-operators en een groot aantal ingebouwde functies.
 
@@ -38,7 +41,7 @@ Uw query's sneller door de SQL-query-referentieoverzicht downloaden en gebruiken
 
 ## <a name="more-help-with-writing-sql-queries"></a>Meer hulp bij het schrijven van SQL-query 's
 * Zie voor een doorlopen van de queryopties die beschikbaar zijn in Cosmos DB, [Query Cosmos DB](documentdb-sql-query.md).
-* Zie voor documentatie over gerelateerde verwijzing [Azure Cosmos DB DocumentDB-API: naslaginformatie voor SQL-syntaxis](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Zie voor documentatie over gerelateerde verwijzing [Azure Cosmos DB SQL-API: naslaginformatie voor SQL-syntaxis](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 Bijgewerkt op 7/29/2016 boven opnemen.

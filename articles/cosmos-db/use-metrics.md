@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Bewaking en foutopsporing met metrische gegevens in Azure Cosmos-DB
 
@@ -72,7 +72,7 @@ Als u besparen index wilt, kunt u aanpassen de [indexeren beleid](./indexing-pol
 
 ## <a name="debugging-why-queries-are-running-slow"></a>Foutopsporing waarom query's worden langzaam uitgevoerd
 
-In de DocumentDB-SDK-API's biedt Azure Cosmos DB Uitvoeringsstatistieken query. 
+In de SQL-SDK-API's biedt Azure Cosmos DB Uitvoeringsstatistieken query. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

@@ -14,13 +14,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.openlocfilehash: 324b5844362c2712d54fd766eb95e1d9102f757a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9a663387d65ea9413f18599e5cacedd7ed151bf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB: C++ consoletoepassingszelfstudie voor de DocumentDB-API
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: Zelfstudie C++ console toepassingen voor de SQL-API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -30,11 +30,12 @@ ms.lasthandoff: 10/11/2017
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
- 
 
-Welkom bij de C++ zelfstudie over de Azure Cosmos DocumentDB-API-SDK voor C++. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren. Een van deze resources is een C++ database.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-De volgende onderwerpen komen aan bod:
+Welkom bij de C++-zelfstudie voor de SQL-API van Azure Cosmos DB SDK voor C++ goedgekeurde. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren. Een van deze resources is een C++ database.
+
+Deze snelstartgids komen aan bod:
 
 * Een Azure Cosmos DB-account maken en er verbinding mee maken
 * Uw toepassing instellen
@@ -47,10 +48,6 @@ De volgende onderwerpen komen aan bod:
 * De C++ Azure Cosmos DB-database verwijderen
 
 Hebt u geen tijd? Geen probleem. De volledige oplossing is beschikbaar via [GitHub](https://github.com/stalker314314/DocumentDBCpp). Zie [De volledige oplossing gebruiken](#GetSolution) voor beknopte instructies.
-
-Wanneer u de C++-zelfstudie hebt voltooid, gebruikt u de stemknoppen onder aan deze pagina om feedback te verzenden. 
-
-Als u graag rechtstreeks contact wilt opnemen, kunt u uw e-mailadres aan uw reactie toevoegen of [hier contact met ons opnemen](https://www.research.net/r/8BKRJ3Z). 
 
 Tijd om aan de slag te gaan.
 
@@ -104,7 +101,7 @@ Open [Azure Portal](https://portal.azure.com) en ga naar het Azure Cosmos DB-dat
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Nu u beschikt over de code om de DocumentDB-client opnieuw te initialiseren, kunt u zich verder verdiepen in het werken met Azure Cosmos DB-resources.
+    Nu dat u de code voor het initialiseren van de client, laten we in het werken met Azure Cosmos DB resources hebben.
 
 ## <a id="CreateDBColl"></a>Stap 5: een C++-database en -verzameling maken
 Voordat u deze stap uitvoert, behandelen we eerst hoe een database, verzameling en documenten met elkaar communiceren, voor het geval Azure Cosmos DB nieuw voor u is. Een [database](documentdb-resources.md#databases) is een logische container voor documentopslag, gepartitioneerd in verzamelingen. Een [verzameling](documentdb-resources.md#collections) is een container van JSON-documenten en de bijbehorende JavaScript-toepassingslogica. Meer informatie over het hiërarchische resourcemodel en concepten voor Azure Cosmos DB vindt u in [Hiërarchisch Azure Cosmos DB-resourcemodel en -concepten](documentdb-resources.md).

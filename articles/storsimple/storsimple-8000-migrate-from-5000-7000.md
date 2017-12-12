@@ -11,13 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: b5c84dbea574afceba93d978425a70ce33271e36
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Gegevens migreren van StorSimple 5000 7000-serie naar 8000 series apparaat
 
@@ -73,12 +73,12 @@ Voordat u de migratie begint, zorg ervoor dat:
     > [!IMPORTANT]
     > Het is raadzaam dat u seriële toegang tot dit apparaat gedurende het migratieproces hebben. Moet er problemen apparaat, kan seriële toegang helpen bij het oplossen van problemen.
 
-* Uw Bronapparaat 5000 of 7000 reeks wordt software versie v2.1.1.518 uitgevoerd. Eerdere versies worden niet ondersteund.
+* Uw Bronapparaat 5000 of 7000 reeks v2.1.1.518 voor software-versie wordt uitgevoerd of hoger. Eerdere versies worden niet ondersteund.
 * Kijken om te controleren of de versie die uw 5000 of 7000-serie wordt uitgevoerd, de rechterbovenhoek van uw Web-UI. Dit moet worden weergegeven de softwareversie die uw apparaat wordt uitgevoerd. Voor de migratie, moet uw 5000 of 7000-serie v2.1.1.518 worden uitgevoerd.
 
     ![Controleer de softwareversie op de oudere apparaten](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Als uw live apparaat v2.1.1.518 niet wordt uitgevoerd, zet u uw systeem om de vereiste minimale versie. Raadpleeg voor gedetailleerde instructies [Upgrade van uw systeem naar v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
+    * Als uw live-apparaat wordt niet uitgevoerd v2.1.1.518 of hoger, werk uw systeem naar de vereiste minimale versie. Raadpleeg voor gedetailleerde instructies [Upgrade van uw systeem naar v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
     * Als u v2.1.1.518 uitvoert, gaat u naar de webgebruikersinterface om te zien of er geen meldingen voor register restore fouten. Als het register herstellen is mislukt, voert u register restore. Voor meer informatie gaat u naar het [uitvoeren register restore](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
     * Als er een omlaag apparaat die v2.1.1.518 niet werd uitgevoerd, moet u een failover naar een vervangende apparaat waarop v2.1.1.518 uitvoeren. Raadpleeg voor gedetailleerde instructies DR van uw 5000/7000-serie StorSimple-apparaat.
     * Back-up van de gegevens van uw apparaat door het maken van een cloudmomentopname.

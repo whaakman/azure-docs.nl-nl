@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: 4c699a8e5a9fafa0fec10bcb731f9ba533e3d283
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Gegevens importeren in Azure Machine Learning Studio van verschillende online gegevensbronnen met de module Gegevens importeren
 In dit artikel beschrijft de ondersteuning voor het importeren van online gegevens uit diverse bronnen en de benodigde informatie voor het verplaatsen van gegevens van deze bronnen naar een Azure Machine Learning-experiment.
@@ -43,7 +43,7 @@ Met behulp van de [importgegevens] [ import-data] -module, u kunt toegang tot ge
 * Azure SQL database of SQL Server op Azure VM
 * Lokale SQL Server-database.
 * Een gegevensfeed momenteel OData-provider
-* Azure CosmosDB (eerder DocumentDB genoemd)
+* Azure Cosmos DB
 
 Voor toegang tot bronnen in uw experiment Studio online, voeg de [gegevens importeren] [ import-data] module die u wilt uw, selecteer de **gegevensbron**, en geef vervolgens de parameters die toegang nodig is voor de gegevens. De online gegevensbronnen die worden ondersteund zijn gespecificeerd in de onderstaande tabel. Deze tabel ziet u ook voor de parameters die worden gebruikt voor toegang tot de gegevens en bestandsindelingen die worden ondersteund.
 

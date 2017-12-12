@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d10f9ce965e832c826e2b27b4746231b47be83d0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Monitor Azure Containerservice (AKS)
 
 Uw cluster Kubernetes en containers is niet kritiek, vooral bij een productiecluster op grote schaal met meerdere toepassingen.
 
-In deze zelfstudie configureert u bewaking van uw AKS cluster met de [Containers oplossing voor logboekanalyse](../log-analytics/log-analytics-containers.md).
+In deze zelfstudie configureert u bewaking van uw AKS cluster met de [Containers oplossing voor logboekanalyse][log-analytics-containers].
 
 Deze zelfstudie maakt deel uit zeven acht, komen de volgende taken:
 
@@ -32,7 +32,7 @@ Deze zelfstudie maakt deel uit zeven acht, komen de volgende taken:
 
 Een toepassing is in de vorige zelfstudies ingepakt in container-installatiekopieën, deze installatiekopieën geüpload naar het register van Azure-Container en een Kubernetes-cluster gemaakt.
 
-Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken](./tutorial-kubernetes-prepare-app.md).
+Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>De oplossing voor controle configureren
 
@@ -58,7 +58,7 @@ Als u wilt deze waarden ophaalt, selecteer **OMS-werkruimte** in het menu van co
 
 ## <a name="configure-monitoring-agents"></a>Monitoring-agents configureren
 
-Het volgende Kubernetes manifestbestand kan worden gebruikt voor het configureren van de container monitoring-agents op een cluster Kubernetes. Het maken van een Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), die een enkele schil wordt uitgevoerd op elk clusterknooppunt.
+Het volgende Kubernetes manifestbestand kan worden gebruikt voor het configureren van de container monitoring-agents op een cluster Kubernetes. Het maken van een Kubernetes [DaemonSet][kubernetes-daemonset], die een enkele schil wordt uitgevoerd op elk clusterknooppunt.
 
 Opslaan van de volgende tekst in een bestand met de naam `oms-daemonset.yaml`, en vervang de tijdelijke aanduiding voor waarden voor `WSID` en `KEY` Log Analytics-werkruimte-ID en sleutel van uw.
 
@@ -153,7 +153,7 @@ Selecteer de werkruimte voor logboekanalyse die is vastgemaakt aan het portaldas
 
 ![Dashboard](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Zie de [Azure Log Analytics-documentatie](../log-analytics/index.yml) voor gedetailleerde hulp bij het uitvoeren van query's en analyseren van bewakingsgegevens.
+Zie de [Azure Log Analytics-documentatie] [ log-analytics-docs] voor gedetailleerde hulp bij het uitvoeren van query's en analyseren van bewakingsgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -167,4 +167,14 @@ In deze zelfstudie maakt bewaakt u uw cluster Kubernetes met OMS. Taken aan de o
 Ga naar de volgende zelfstudie voor meer informatie over het upgraden van Kubernetes naar een nieuwe versie.
 
 > [!div class="nextstepaction"]
-> [Upgrade Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Upgrade Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

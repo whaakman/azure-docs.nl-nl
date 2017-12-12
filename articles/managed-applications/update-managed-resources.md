@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59dce2fe7d91cc80f991e5ff298be7757ae19ef4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Werken met resources in de beheerde resourcegroep voor Azure beheerde toepassing
 
@@ -95,6 +95,5 @@ De toewijzing van beleid wordt weergegeven in de portal.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot beheerde toepassingen, [beheerde toepassingsoverzicht](overview.md).
+* Zie [Overzicht van beheerde toepassingen](overview.md) voor een inleiding tot beheerde toepassingen.
 * Zie voor voorbeeldprojecten, [voorbeeldprojecten voor Azure beheerde toepassingen](sample-projects.md).
-* Zie voor meer informatie over het uitgeven van beheerde toepassingen naar Azure Marketplace [beheerde toepassingen in de Marketplace](publish-marketplace-app.md).

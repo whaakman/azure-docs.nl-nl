@@ -3,7 +3,7 @@ title: Aan de slag met Azure Active Directory | Microsoft Docs
 description: Ophalen van licenties, domeinnaam toevoegen, aangepaste aanmeldingspagina maken en selfservice wachtwoordherstel in Azure Active Directory toevoegen
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Aan de slag met Azure AD
 Moderne identiteitsbeheer vereist een schaalbare, consistente reliablity om te controleren of de beschikbaarheid van toepassingen en services aan alleen geverifieerde gebruikers. Om voldoende ondersteunen de identity management-behoeften van gebruikers, IT-afdeling moet een manier om toegang te bieden tot erkende, openbare software als een service (SaaS)-apps, kunt u interne line-host of-business-apps, en zelfs manieren voor het verbeteren van on-premises ontwikkeling van Apps en het gebruik. Al deze vereisten voldoen verwijzen aan de behoeften van een oplossing voor identiteitsbeheer cloud-gebaseerde.      

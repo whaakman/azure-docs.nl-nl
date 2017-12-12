@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Gebruik Azure Webhooks voor het bewaken van Media Services taak meldingen met .NET
-Wanneer u taken uitvoert, moet u vaak een manier om de voortgang van de taak volgen. U kunt meldingen voor Media Services-taak bewaken met behulp van Azure Webhooks of [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Dit onderwerp leest hoe u werkt met webhooks.
+Wanneer u taken uitvoert, moet u vaak een manier om de voortgang van de taak volgen. U kunt meldingen voor Media Services-taak bewaken met behulp van Azure Webhooks of [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). Dit artikel laat zien hoe u werkt met webhooks.
 
-Dit onderwerp wordt beschreven hoe u
+Dit artikel laat zien hoe u
 
 *  Een Azure-functie die kan worden aangepast om te reageren op webhooks definiëren. 
     
@@ -33,9 +33,9 @@ Dit onderwerp wordt beschreven hoe u
     >Voordat u doorgaat, moet u weten hoe [bindingen van Azure Functions HTTP- en webhook](../azure-functions/functions-bindings-http-webhook.md) werken.
     >
     
-* Een webhook toevoegen aan uw codering taak en geef de webhook-URL en de geheime sleutel die deze webhook reageert op. U ziet een voorbeeld van een webhook toegevoegd aan uw codering taak aan het einde van het onderwerp.  
+* Een webhook toevoegen aan uw codering taak en geef de webhook-URL en de geheime sleutel die deze webhook reageert op. U ziet een voorbeeld van een webhook toegevoegd aan uw codering taak aan het einde van het artikel.  
 
-U kunt zoeken naar definities van verschillende Media Services .NET Azure Functions (inclusief wordt weergegeven in dit onderwerp) [hier](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+U kunt zoeken naar definities van verschillende Media Services .NET Azure Functions (inclusief wordt weergegeven in dit artikel) [hier](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -54,7 +54,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien:
 
 Bij het ontwikkelen van Media Services-functies, is het handig om toe te voegen omgevingsvariabelen die worden gebruikt in uw functies. Klik op de koppeling instellingen van de App appinstellingen configureren. 
 
-De [toepassingsinstellingen](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) sectie definieert parameters die worden gebruikt in de webhook is gedefinieerd in dit onderwerp. Ook de volgende parameters toevoegen aan de app-instellingen. 
+De [toepassingsinstellingen](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) sectie definieert parameters die worden gebruikt in de webhook is gedefinieerd in dit artikel. Ook de volgende parameters toevoegen aan de app-instellingen. 
 
 |Naam|Definitie|Voorbeeld| 
 |---|---|---|

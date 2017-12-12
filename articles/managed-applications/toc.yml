@@ -12,8 +12,6 @@
   items:
     - name: Een servicecatalogustoepassing maken
       href: publish-service-catalog-app.md
-    - name: Een Marketplace-toepassing maken
-      href: publish-marketplace-app.md
 - name: Voorbeelden
   items:
     - name: Azure CLI

@@ -4,7 +4,7 @@
   items:
     - name: Informatie over SQL DB
       href: sql-database-technical-overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Database maken - Portal
@@ -203,6 +203,8 @@
       items:
         - name: SaaS-ontwerppatronen
           href: saas-tenancy-app-design-patterns.md
+        - name: Indexeerfunctie voor SaaS-video
+          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: Beveiliging van SaaS-app
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Databases ontwikkelen

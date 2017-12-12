@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake Store-uitvoer
 Stream Analytics-taken ondersteunen verschillende uitvoermethoden, een wordt een [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is een ondernemingsbrede opslagplaats op hyperschaal voor analytische workloads van big data. Data Lake Store kunt u voor het opslaan van gegevens van elke grootte, type en opnamesnelheid snelheid voor operationele en experimentele analyses.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Een Data Lake Store-account toestaan
-1. Wanneer Data Lake Store als uitvoer in de Azure portal is geselecteerd, wordt u gevraagd naar het gebruik van uw bestaande Data Lake Store toestaan of om aan te vragen toegang tot de Data Lake Store via de klassieke Portal.
+1. Wanneer Data Lake Store als uitvoer in de Azure portal is geselecteerd, wordt u gevraagd naar het gebruik van uw bestaande Data Lake Store toestaan of om aan te vragen toegang tot de Data Lake Store.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
@@ -68,7 +68,7 @@ Zodra u het Data Lake Store-account dat is geverifieerd hebt, kunt u de eigensch
 </tr>
 <tr>
 <td>Encoding</td>
-<td>Als CSV- of JSON-indeling, moet een codering worden opgegeven. Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.</td>
+<td>Als CSV- of JSON-indeling, moet een codering worden opgegeven. De enige ondersteunde coderingsindeling is UTF-8 op dit moment.</td>
 </tr>
 <tr>
 <td>Scheidingsteken</td>

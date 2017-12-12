@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute voor Cloud Solution Providers (CSP)
 Microsoft biedt grootschalige services waarmee traditionele leveranciers en distributeurs (CSP) snel nieuwe services en oplossingen voor uw klanten kunnen inrichten, zonder dat ze hoeven te investeren in de ontwikkeling van deze nieuwe services. Microsoft biedt programma's en API's waarmee de Cloud Solution Provider (CSP) Microsoft Azure-resources kan beheren namens uw klanten. Zo kan de Cloud Solution Provider (CSP) deze nieuwe services rechtstreeks beheren. Een van deze resources is ExpressRoute. Met ExpressRoute kan de CSP verbinding maken tussen de bestaande resources van de klant en de Azure-services. ExpressRoute is een zeer snelle persoonlijke communicatiekoppeling naar de services in Azure. 
 
-ExpresRoute bestaat uit twee circuits voor hoge beschikbaarheid die zijn gekoppeld aan het abonnement of de abonnementen van één klant. Deze kunnen niet worden gedeeld door meerdere klanten. Elk circuit moet worden beëindigd in een andere router om de hoge beschikbaarheid te houden.
+ExpressRoute bestaat uit twee circuits voor hoge beschikbaarheid die zijn gekoppeld aan één of meer abonnementen van één klant. Deze kunnen niet worden gedeeld door meerdere klanten. Elk circuit moet worden beëindigd in een andere router om de hoge beschikbaarheid te houden.
 
 > [!NOTE]
 > Er zijn limieten voor de bandbreedte en verbinding in ExpressRoute, wat betekent dat er bij grote/complexe implementaties meerdere ExpressRoute-circuits per klant zijn vereist.
 > 
 > 
 
-Microsoft Azure biedt een toenemend aantal services dat u aan uw klanten kunt aanbieden.  Als u optimaal gebruik wilt maken van deze services, moet u ExpressRoute-verbindingen gebruiken om toegang met hoge snelheid en lage latentie te bieden tot de Microsoft Azure-omgeving.
+Microsoft Azure biedt een toenemend aantal services dat u aan uw klanten kunt aanbieden. Met ExpressRoute profiteren u en uw klanten van deze services doordat toegang met hoge snelheid en lage latentie tot de Microsoft Azure-omgeving wordt geboden.
 
 ## <a name="microsoft-azure-management"></a>Microsoft Azure-beheer
 Microsoft biedt CSP's met API's voor het beheren van de Azure-klantabonnementen aan de hand van programmatische integratie met uw eigen servicebeheersystemen. U vindt de ondersteunde beheermogelijkheden [hier](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Beheer van Microsoft Azure-resources
-Het contract dat u met uw klant hebt, bepaalt hoe het abonnement wordt beheerd. De CSP kan het maken en het onderhouden van resources rechtstreeks beheren, maar de klant kan ook zelf de controle behouden over het Microsoft Azure-abonnement en de Azure-resources naar behoefte maken. Als uw klant het maken van resources in het Microsoft Azure-abonnement zelf beheert, gebruikt hij of zij het model 'Doorverbinden' of het model 'Leiden naar'. Deze modellen worden gedetailleerd beschreven in de volgende gedeelten.  
+Het contract dat u met uw klant hebt, bepaalt hoe het abonnement wordt beheerd. De CSP kan het maken en het onderhouden van resources rechtstreeks beheren, maar de klant kan ook zelf de controle behouden over het Microsoft Azure-abonnement en de Azure-resources naar behoefte maken. Als uw klant het maken van resources in het Microsoft Azure-abonnement zelf beheert, gebruikt hij of zij het model *Doorverbinden* of het model *Leiden naar*. Deze modellen worden gedetailleerd beschreven in de volgende gedeelten.  
 
 ### <a name="connect-through-model"></a>Het model 'Doorverbinden'
 ![alternatieve tekst](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -67,7 +67,7 @@ De keuze tussen deze twee opties is gebaseerd op de behoeften van uw klant en uw
 
 * **RBAC (op rollen gebaseerd toegangsbeheer)**: RBAC is gebaseerd op Azure Active Directory.  Klik [hier](../active-directory/role-based-access-control-configure.md) voor meer informatie over Azure RBAC. 
 * **Netwerken**: bevat informatie over de verschillende netwerkonderwerpen in Microsoft Azure.
-* **Azure Active Directory (AAD)**: AAD biedt het identiteitsbeheer voor Microsoft Azure en SaaS-toepassingen van derden. Klik [hier](https://azure.microsoft.com/documentation/services/active-directory/) voor meer informatie over Azure AD.  
+* **Azure Active Directory (Azure AD)**: Azure AD biedt het identiteitsbeheer voor Microsoft Azure en SaaS-toepassingen van derden. Klik [hier](https://azure.microsoft.com/documentation/services/active-directory/) voor meer informatie over Azure AD.  
 
 ## <a name="network-speeds"></a>Netwerksnelheden
 ExpressRoute ondersteunt netwerksnelheden van 50 Mb/s tot 10 Gb/s. Dit geeft klanten de mogelijkheid om de hoeveelheid bandbreedte aan te schaffen die nodig is voor hun specifieke omgeving.

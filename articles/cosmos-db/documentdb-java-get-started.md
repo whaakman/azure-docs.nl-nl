@@ -1,6 +1,6 @@
 ---
-title: 'NoSQL-zelfstudie: DocumentDB API voor Azure Cosmos DB Java SDK | Microsoft Docs'
-description: Een NoSQL-zelfstudie waarmee u maakt een online database en Java-consoletoepassing met de DocumentDB-API voor Azure Cosmos DB. Azure DocumentDB is een NoSQL-database voor JSON.
+title: 'NoSQL-zelfstudie: SQL-API voor Azure Cosmos DB Java SDK | Microsoft Docs'
+description: Een NoSQL-zelfstudie waarmee u maakt een online database en Java-consoletoepassing met behulp van de SQL-API voor Azure Cosmos DB. Azure SQL is een NoSQL-database voor JSON.
 keywords: nosql zelfstudie, onlinedatabase, java-consoletoepassing
 services: cosmos-db
 documentationcenter: Java
@@ -15,13 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38595b18817b4034c08fa0e0ec7c5dc8cde1fbb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>NoSQL-zelfstudie: een DocumentDB-API-Java-consoletoepassing bouwen
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-zelfstudie: een SQL-API-Java-consoletoepassing bouwen
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Welkom bij de NoSQL-zelfstudie over de DocumentDB-API voor Azure Cosmos DB Java SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Welkom bij de NoSQL-zelfstudie voor de SQL-API voor Azure Cosmos DB Java SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren.
 
 We behandelen de volgende onderwerpen:
 
@@ -73,7 +75,7 @@ Kloon eerst de GitHub-opslagplaats voor [Get Started with Azure Cosmos DB and Ja
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-De map bevat een `pom.xml` voor het project en een `src` map met inbegrip van Java source code `Program.java` waaruit blijkt hoe eenvoudig bewerkingen uitvoeren met Azure Cosmos DB als het maken van documenten en gegevens binnen een verzameling opvragen . De `pom.xml` bevat een afhankelijkheid van de [DocumentDB Java SDK op Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+De map bevat een `pom.xml` voor het project en een `src` map met inbegrip van Java source code `Program.java` waaruit blijkt hoe eenvoudig bewerkingen uitvoeren met Azure Cosmos DB als het maken van documenten en gegevens binnen een verzameling opvragen . De `pom.xml` bevat een afhankelijkheid op de [Azure Cosmos DB Java SDK op Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -192,6 +194,5 @@ Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werke
 * Wilt u een zelfstudie voor Java-web-apps volgen? Zie [Build a web application with Java using Azure Cosmos DB](documentdb-java-application.md) (Een Java-web-app maken met Azure Cosmos DB).
 * Leer hoe het [bewaken van een Azure Cosmos DB-account](monitor-accounts.md) werkt.
 * Voer query's uit op onze voorbeeldgegevensset in de [Queryspeelplaats](https://www.documentdb.com/sql/demo).
-* Meer informatie over het programmeermodel vindt u in de sectie Ontwikkelen van de [pagina met Azure Cosmos DB-documentatie](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

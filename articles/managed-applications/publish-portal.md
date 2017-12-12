@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Een servicetoepassing catalogus via Azure portal publiceren
 
@@ -60,7 +60,6 @@ Het ZIP-bestand met de definitie van de beheerde toepassing moet beschikbaar zij
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot beheerde toepassingen, [beheerde toepassingsoverzicht](overview.md).
+* Zie [Overzicht van beheerde toepassingen](overview.md) voor een inleiding tot beheerde toepassingen.
 * Zie voor voorbeelden van beheerde toepassingsservices [voorbeeldprojecten voor Azure beheerde toepassingen](sample-projects.md).
-* Zie voor meer informatie over het uitgeven van beheerde toepassingen naar Azure Marketplace [Azure beheerde toepassingen in de Marketplace](publish-marketplace-app.md).
-* Zie voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
+* Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.

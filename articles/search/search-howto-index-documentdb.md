@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa9bf1661e3a77ae4a2bf51285ab9a8da35e297
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinding te maken met Azure Search met behulp van indexeerfuncties
 
@@ -29,7 +29,7 @@ Als u een indexeerfunctie Cosmos DB instelt, moet er een [Azure Search-service](
 Als u ervoor voor de portal kiezen de [wizard gegevens importeren](search-import-data-portal.md) begeleidt u bij het maken van al deze resources.
 
 > [!NOTE]
-> Cosmos DB is de volgende generatie van DocumentDB. Hoewel de productnaam is gewijzigd, met syntaxis is hetzelfde als voor. Blijf op te geven `documentdb` zoals beschreven in dit artikel indexeerfunctie. 
+> Azure Cosmos-database is de volgende generatie van DocumentDB. Hoewel de productnaam is gewijzigd, met syntaxis is hetzelfde als voor. Blijf op te geven `documentdb` zoals beschreven in dit artikel indexeerfunctie. 
 
 > [!TIP]
 > U kunt starten de **gegevens importeren** wizard vanuit het dashboard Cosmos DB vereenvoudigen voor de gegevensbron te indexeren. Ga in het linkernavigatiedeelvenster naar **Verzamelingen** > **Azure Search toevoegen** om aan de slag te gaan.
@@ -154,7 +154,7 @@ Zorg ervoor dat het schema van de doelindex compatibel met het schema van de JSO
 | BOOL |Edm.Boolean, Edm.String |
 | Cijfers die als gehele getallen eruitzien |Edm.Int32, Edm.Int64, Edm.String |
 | Cijfers die zijn opgemaakt als drijvende-punten |Edm.Double, Edm.String |
-| Tekenreeks |Edm.String |
+| Reeks |Edm.String |
 | Matrices met primitieve typen, bijvoorbeeld ["a", "b", "c"] |Collection(EDM.String) |
 | Tekenreeksen die lijken op datums |Edm.DateTimeOffset, Edm.String |
 | GeoJSON-objecten, bijvoorbeeld {'type': 'Point', 'coordinates': [lang, lat]} |Edm.GeographyPoint |
@@ -295,5 +295,5 @@ Het volgende voorbeeld maakt een gegevensbron met een beleid voor voorlopig verw
 ## <a name="NextSteps"></a>Volgende stappen
 Gefeliciteerd. U hebt geleerd hoe Azure Cosmos DB integreren met Azure Search met behulp van de indexeerfunctie voor Cosmos-DB.
 
-* Zie voor meer informatie over hoe u meer informatie over Azure Cosmos DB, de [Cosmos-DB-servicepagina](https://azure.microsoft.com/services/documentdb/).
+* Zie voor meer informatie over hoe u meer informatie over Azure Cosmos DB, de [pagina van de service Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Zie voor meer informatie over hoe u meer informatie over Azure Search, de [service zoekpagina](https://azure.microsoft.com/services/search/).

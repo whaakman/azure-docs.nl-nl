@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36a2f99b9d5ea4b9e6b313fed79cf7f4dd0e7057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporteren van de certificaten Azure Cosmos DB Emulator voor gebruiken met Java, Python en Node.js
 
@@ -87,11 +87,11 @@ Eenmaal de 'CosmosDBEmulatorCertificate' SSL-certificaat is geïnstalleerd uw to
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Het gebruik van het certificaat in Python
 
-Standaard de [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) voor de DocumentDB-API wordt niet proberen en de SSL-certificaat gebruiken bij het verbinden met de lokale emulator. Als maar u wilt gebruiken, SSL-validatie voert u de voorbeelden in de [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentatie.
+Standaard de [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) voor de SQL-API wordt niet proberen en de SSL-certificaat gebruiken bij het verbinden met de lokale emulator. Als maar u wilt gebruiken, SSL-validatie voert u de voorbeelden in de [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentatie.
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Het gebruik van het certificaat in Node.js
 
-Standaard de [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) voor de DocumentDB-API wordt niet proberen en de SSL-certificaat gebruiken bij het verbinden met de lokale emulator. Als maar u wilt gebruiken, SSL-validatie voert u de voorbeelden in de [Node.js documentatie](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Standaard de [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) voor de SQL-API wordt niet proberen en de SSL-certificaat gebruiken bij het verbinden met de lokale emulator. Als maar u wilt gebruiken, SSL-validatie voert u de voorbeelden in de [Node.js documentatie](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Volgende stappen
 

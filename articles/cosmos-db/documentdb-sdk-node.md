@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Node.js-API, SDK en Resources | Microsoft Docs
-description: Meer informatie over de Node.js-API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure-SDK voor Node.js Cosmos DB.
+title: 'Azure Cosmos DB: SQL Node.js-API, SDK en resources | Microsoft Docs'
+description: Meer informatie over de SQL-API voor Node.js en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure-SDK voor Node.js Cosmos DB.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c53a7bfdcf5105df0ed3d3f70d927fc06cf36cf
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bd50bd37baeac0b06f1b3456637f68544f55f3d5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure DB Cosmos Node.js SDK: Releaseopmerkingen en resources
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK voor Cosmos Documentdb Node.js voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET-Feed van wijzigen](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/29/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 

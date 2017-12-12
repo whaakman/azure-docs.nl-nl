@@ -4,7 +4,7 @@ description: Het gebruik van aangepaste kenmerken in Azure Active Directory B2C 
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: Gebruik aangepaste kenmerken voor het verzamelen van informatie over uw consumenten
 Uw Azure Active Directory (Azure AD) B2C-directory wordt geleverd met een ingebouwde verzameling gegevens (kenmerken): voornaam, achternaam, plaats, postcode en andere kenmerken. Elke consumentgerichte toepassing heeft echter unieke vereisten op welke kenmerken voor het verzamelen van consumenten. Met Azure AD B2C, kunt u de set kenmerken die zijn opgeslagen op elke consumentenaccount uitbreiden. U kunt aangepaste kenmerken maken op de [Azure-portal](https://portal.azure.com/) en deze gebruiken in uw registratie-beleid, zoals hieronder wordt weergegeven. U kunt ook lezen en schrijven van deze kenmerken met behulp van de [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
@@ -35,7 +35,7 @@ Uw Azure Active Directory (Azure AD) B2C-directory wordt geleverd met een ingebo
 4. Geef een **naam** voor het aangepaste kenmerk (bijvoorbeeld ' ShoeSize') en eventueel een **beschrijving**. Klik op **Create**.
    
    > [!NOTE]
-   > Alleen de 'tekenreeks' **gegevenstype** is momenteel beschikbaar.
+   > Alleen de 'Tekenreeks', de 'Boolean' en 'Integer' **gegevenstypen** zijn momenteel beschikbaar.
    > 
    > 
 

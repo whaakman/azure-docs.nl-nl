@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>Het ontwikkelen van Media Services met .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-In dit onderwerp wordt beschreven hoe beginnen met het ontwikkelen van Media Services-toepassingen met behulp van .NET.
+Dit artikel wordt beschreven hoe u kunt beginnen met het ontwikkelen van Media Services-toepassingen met behulp van .NET.
 
 De **Azure Media Services .NET SDK** bibliotheek kunt u voor het programmeren in Media Services met .NET. Zelfs gemakkelijker te ontwikkelen met .NET, de **Azure Media Services .NET SDK Extensions** bibliotheek is opgegeven. Deze bibliotheek bevat een set uitbreidingsmethoden en Help-functies die uw .NET-code vereenvoudigen. Beide bibliotheken zijn beschikbaar via **NuGet** en **GitHub**.
 
 ## <a name="prerequisites"></a>Vereisten
-* Een Media Services-account in een nieuw of bestaand Azure-abonnement. Zie het onderwerp [Een Media Services-account maken](media-services-portal-create-account.md) voor meer informatie.
+* Een Media Services-account in een nieuw of bestaand Azure-abonnement. Zie het artikel [het maken van een Media Services-Account](media-services-portal-create-account.md).
 * Besturingssystemen: Windows 10, Windows 7, Windows 2008 R2 of Windows 8.
-* .NET framework 4.5.
+* .NET framework 4.5 of hoger.
 * Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
@@ -60,28 +60,21 @@ U kunt ook de meest recente Media Services .NET SDK bits ophalen vanuit GitHub (
    
     2. Het dialoogvenster referenties beheren wordt weergegeven.
     3. Onder de .NET framework-assembly's vinden en selecteer de System.Configuration-assembly en druk op **OK**.
-6. Open het bestand App.config en voeg een **appSettings** sectie naar het bestand.     
-   
-    Stel de waarden die nodig zijn voor het verbinding maken met het Media Services-API. Zie voor meer informatie [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+6. Open het bestand App.config en voeg een **appSettings** sectie naar het bestand. Stel de waarden die nodig zijn voor het verbinding maken met het Media Services-API. Zie voor meer informatie [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    Als u [gebruikersverificatie](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) uw configuratiebestand hebt waarschijnlijk waarden voor uw Azure AD-tenant-domein en de AMS REST API-eindpunt.
-    
-    >[!Note]
-    >De meeste codevoorbeelden in de documentatie van Azure Media Services instellen, gebruikt u een gebruiker (interactief) type verificatie verbinding maken met de AMS-API. Deze verificatiemethode werkt goed voor beheer- of systeemeigen apps bewaking: mobiele apps, Windows-apps en toepassingen van de Console.
-    
-    >[!Important]
-    > **Interactieve** verificatiemethode is niet geschikt is voor de server, webservices, API's typen toepassingen. Gebruik voor deze typen toepassingen, **Service-principal** verificatiemethode. Zie voor meer informatie [toegang tot de AMS-API met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+Stel de waarden die nodig zijn om te verbinden via de **Service-principal** verificatiemethode.  
 
         <configuration>
         ...
             <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
-
         </configuration>
-
-7. Overschrijf de bestaande instructies aan het begin van het bestand Program.cs **met** de volgende code.
+7. Voeg de **System.Configuration** verwijzing in naar uw project.
+7. Overschrijf de bestaande **met** instructies aan het begin van het bestand Program.cs met de volgende code:
            
         using System;
         using System.Configuration;
@@ -100,17 +93,26 @@ Hier volgt een voorbeeld van een kleine die verbinding maakt met de AMS-API en e
     class Program
     {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
     
         private static CloudMediaContext _context = null;
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-    
+
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
     
             // List all available Media Processors
