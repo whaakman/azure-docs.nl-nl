@@ -4,7 +4,7 @@ description: Informatie over het gebruik van Workday als bron van identiteitsgeg
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten met on-premises Active Directory en Azure Active Directory configureren
 Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren moet om mensen uit Workday importeren in Active Directory en Azure Active Directory, met optionele Write-back van enkele kenmerken voor Workday. 
@@ -93,9 +93,9 @@ Als u werkt met Workday en Active Directory, zijn er echter meerdere bron en doe
 
 | Bronsysteem | Doelsysteem | Opmerkingen |
 | ---------- | ---------- | ---------- |
-| Werkdag | Active Directory-Forest | Elk forest wordt behandeld als een afzonderlijke doelsysteem |
+| Werkdag | Active Directory-forest | Elk forest wordt behandeld als een afzonderlijke doelsysteem |
 | Werkdag | Azure AD-tenant | Zo vereist zijn voor gebruikers die alleen in de cloud |
-| Active Directory-Forest | Azure AD-tenant | Deze stroom wordt verwerkt door de AAD Connect vandaag |
+| Active Directory-forest | Azure AD-tenant | Deze stroom wordt verwerkt door de AAD Connect vandaag |
 | Azure AD-tenant | Werkdag | Voor write-back van e-mailadressen |
 
 Azure AD levert vergemakkelijkt deze meerdere werkstromen op meerdere bron en doel-systemen, meerdere apps voor inrichting connector die u kunt uit de galerie van Azure AD-app toevoegen:
@@ -347,7 +347,7 @@ In deze sectie configureert u hoe gebruikersgegevens uit Workday loopt naar Acti
 | **AddressLineData**    |  StreetAddress  |     |   Maken en bijwerken |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Maken en bijwerken |
 | **BusinessTitle**   |  titel     |     |  Maken en bijwerken |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, ''M',), '([ñńňÑŃŇN])', "n",), '([öòőõôóÖÒŐÕÔÓO])', "o",), '([P])', 'p',), '([Q])', 'q',), '([řŘR])', 'r',), '([ßšśŠŚS])', "s",), '([TŤť])', "t",), '([üùûúůűÜÙÛÚŮŰU])', "u",), '([V])', 'v',), '([B])', 'w',), '([ýÿýŸÝY])', 'y',), '([źžżŹŽŻZ])', 'z',), ' ',,, ' ',), 'contoso.com')**   | UserPrincipalName     |     | Maken en bijwerken                                                   
+| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, ''M',), '([ñńňÑŃŇN])', "n",), '([öòőõôóÖÒŐÕÔÓO])', "o",), '([P])', 'p',), '([Q])', 'q',), '([řŘR])', 'r',), '([ßšśŠŚS])', "s",), '([TŤť])', "t",), '([üùûúůűÜÙÛÚŮŰU])', "u",), '([V])', 'v',), '([B])', 'w',), '([ýÿýŸÝY])', 'y',), '([źžżŹŽŻZ])', 'z',), ' ',,, ' ',), 'contoso.com')**   | userPrincipalName     |     | Maken en bijwerken                                                   
 | **Switch (\[gemeente\], ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = = standaard, organisatie-eenheid locaties, DC = = contoso, DC = com ', 'Dallas' ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Dallas, OU = locaties, DC = = contoso, DC = com ', 'Austin' ' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Austin, OU = locaties, DC = = contoso, DC = com ","Seattle"' organisatie-eenheid standaardgebruikers, OU = gebruikers, OU = Seattle, OU = locaties, DC = = contoso, DC = com ', 'Londen', ' organisatie-eenheid standaardgebruikers = OU = Users, organisatie-eenheid Londen, OU = locaties, DC = = contoso, DC = com ")**  | parentDistinguishedName     |     |  Maken en bijwerken |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Deel 3: De lokale synchronisatie-agent configureren

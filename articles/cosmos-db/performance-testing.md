@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos-DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Prestaties en schaal testen is een belangrijke stap in de ontwikkeling van toepassingen. Voor veel toepassingen heeft de databaselaag een aanzienlijke gevolgen voor de algehele prestaties en schaalbaarheid. Het is daarom een essentieel onderdeel van de prestatietests. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is speciaal hiervoor gemaakte voor elastisch schalen en voorspelbare prestaties. Deze mogelijkheden kunnen u een goede geschikt voor toepassingen die een krachtige databaselaag moeten. 
 
 In dit artikel is een verwijzing voor ontwikkelaars prestaties testen van suites voor hun Azure DB die Cosmos-werkbelastingen te implementeren. Het kan ook worden gebruikt om te evalueren Azure Cosmos DB voor hoge prestaties toepassingsscenario's. Richt zich voornamelijk op de geïsoleerde prestaties testen van de database, maar bevat ook aanbevolen procedures voor productietoepassingen.
@@ -54,7 +57,7 @@ De snelste manier om te beginnen is compileren en uitvoeren van het .NET-voorbee
 
 **Stap 3:** compileren en de console-app uitvoeren vanaf de opdrachtregel. Hier ziet u de volgende uitvoer:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

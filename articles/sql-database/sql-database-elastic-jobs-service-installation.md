@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken installeren elastische Database
-[**Elastische Database taken** ](sql-database-elastic-jobs-overview.md) kan worden geïnstalleerd via PowerShell of via de klassieke Azure-Portal.You toegankelijk is voor het maken en beheren van taken met de PowerShell-API alleen als u het PowerShell-pakket installeert. De PowerShell APIs Geef ook aanzienlijk meer functionaliteit dan de portal op dit moment.
+[**Elastische Database taken** ](sql-database-elastic-jobs-overview.md) kan worden geïnstalleerd via PowerShell of via de Azure portal. U kunt toegang krijgen als u wilt maken en beheren van taken met de PowerShell-API alleen als u het PowerShell-pakket installeert. De PowerShell APIs Geef ook aanzienlijk meer functionaliteit dan de portal op dit moment.
 
 Als u al hebt geïnstalleerd **elastische Database taken** via de Portal van een bestaand **elastische pool**, de meest recente Powershell voorbeeldweergave scripts voor uw bestaande installatie upgraden. Het is raadzaam een upgrade naar de meest recente **elastische Database taken** onderdelen om te profiteren van nieuwe functionaliteit beschikbaar gesteld via de PowerShell APIs.
 

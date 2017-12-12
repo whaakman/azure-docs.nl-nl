@@ -4,7 +4,7 @@ description: Een lijst met voorwaarden voor vaak gebruikte concepten voor ontwik
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory-ontwikkelaar verklarende woordenlijst
 In dit artikel bevat definities voor enkele van de belangrijkste Azure Active Directory (AD) concepten voor ontwikkelaars, dit handig is bij leren over het ontwikkelen van toepassingen voor Azure AD.
@@ -54,7 +54,7 @@ Als u wilt toestaan dat een toepassing te integreren met Identity and Access Man
 
 Zie [toepassingen integreren met Azure Active Directory] [ AAD-Integrating-Apps] voor meer informatie.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>verificatie
 De handeling van een partij legitieme referenties voor de basis voor het maken van een beveiligingsprincipal moet worden gebruikt voor identiteits- en toegangsbeheer bieden een lastig aandachtspunt zijn. Tijdens een [OAuth2 authorization grant](#authorization-grant) bijvoorbeeld, het verifiëren van derden is invullen van de rol van een [resource-eigenaar](#resource-owner) of [clienttoepassing](#client-application), afhankelijk van de Verleen gebruikt.
 
 ## <a name="authorization"></a>Autorisatie

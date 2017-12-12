@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migreren van Amazon Web Services (AWS) en andere platforms naar schijven beheerd in Azure
 
-U kunt VHD-bestanden van virtualisatieoplossingen AWS of on-premises naar Azure te maken van virtuele machines die van beheerde schijven gebruikmaken uploaden. Azure-beheerde schijven verwijdert de behoefte van voor het beheren van storage-accounts voor Azure IaaS VM's. U moet alleen opgeven van het type (Premium of standaard) en de grootte van de schijf moet u en Azure maken en beheren van de schijf voor u. 
+U kunt VHD-bestanden van virtualisatieoplossingen AWS of on-premises naar Azure te maken van virtuele machines die van beheerde schijven gebruikmaken uploaden. Azure-beheerde schijven verwijdert de behoefte storage-accounts beheren voor Azure IaaS VM's. U moet alleen opgeven van het type (Premium of standaard) en de grootte van de schijf moet u en Azure maken en beheren van de schijf voor u. 
 
 U kunt algemene en gespecialiseerde VHD's uploaden. 
 - **VHD gegeneraliseerd** -heeft al uw persoonlijke accountgegevens verwijderd met behulp van Sysprep. 

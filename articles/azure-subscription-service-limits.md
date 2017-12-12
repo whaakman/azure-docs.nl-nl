@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 49dc4551f1a1528d30e489d4ba1c974f84cc70b0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -29,7 +29,7 @@ Ga naar [overzicht van Azure prijzen](https://azure.microsoft.com/pricing/) voor
 > [!NOTE]
 > Als u wilt de limiet of bovenstaande quotum verhogen de **standaard limiet**, [opent u een ondersteuningsaanvraag online klant kosteloos](azure-supportability/resource-manager-core-quotas-request.md). De limieten kunnen niet worden verhoogd boven de **maximumlimiet** waarde weergegeven in de volgende tabellen. Als er geen **maximumlimiet** kolom en vervolgens de resource heeft geen instelbare limieten.
 >
-> Gratis proefversie van abonnementen zijn niet in aanmerking komen voor limiet of quotum vergroot. Als u een gratis proefversie hebt, kunt u upgraden naar een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) abonnement. Zie voor meer informatie [Upgrade gratis proefversie van Azure naar betalen per gebruik](billing/billing-upgrade-azure-subscription.md).
+> [Gratis proefversie van abonnementen](https://azure.microsoft.com/offers/ms-azr-0044p) zijn niet in aanmerking komen voor limiet of quotum toeneemt. Als u hebt een [gratis proefabonnement](https://azure.microsoft.com/offers/ms-azr-0044p), kunt u upgraden naar een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) abonnement. Zie voor meer informatie [Upgrade gratis proefversie van Azure naar betalen per gebruik](billing/billing-upgrade-azure-subscription.md) en [gratis proefabonnement Veelgestelde vragen over](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limieten en de Azure Resource Manager

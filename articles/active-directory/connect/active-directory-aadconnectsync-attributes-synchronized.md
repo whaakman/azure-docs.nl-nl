@@ -4,7 +4,7 @@ description: Hier worden de kenmerken die zijn gesynchroniseerd met Azure Active
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synchronisatie: kenmerken gesynchroniseerd naar Azure Active Directory
 Dit onderwerp worden de kenmerken die worden gesynchroniseerd door Azure AD Connect-synchronisatie.  
@@ -36,7 +36,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Naam kenmerk | Gebruiker | Opmerking |
+| Kenmerknaam | Gebruiker | Opmerking |
 | --- |:---:| --- |
 | accountEnabled |X |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | algemene naam |X | |
@@ -45,10 +45,10 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | pwdLastSet |X |mechanische eigenschap. Gebruikt om te weten wanneer al uitgegeven tokens ongeldig maken. Door Wachtwoordsynchronisatie en Federatie gebruikt. |
 | sourceAnchor |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
-| UserPrincipalName |X |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | assistent |X |X | | |
@@ -83,7 +83,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | Voornaam |X |X | | |
 | HomePhone |X |X | | |
 | Info |X |X |X |Dit kenmerk is momenteel niet worden gebruikt voor groepen. |
-| initialen |X |X | | |
+| Intialen |X |X | | |
 | L |X |X | | |
 | LegacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -167,12 +167,12 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
 | userCertificate |X |X | | |
-| UserPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | authOrig |X |X |X | |
@@ -248,13 +248,13 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | thumbnailphoto |X |X | | |
 | titel |X |X | | |
 | unauthOrig |X |X |X | |
-| URL |X |X | | |
+| url |X |X | | |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
-| UserPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (vervolgens bekend als Skype voor bedrijven)
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | C |X |X | | |
@@ -299,11 +299,11 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | thumbnailphoto |X |X | | |
 | titel |X |X | | |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
-| UserPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | algemene naam |X | |X |Algemene naam of alias. Meestal het voorvoegsel van de waarde [e]. |
@@ -316,10 +316,10 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | securityenabled moet | | |X |GroupType is afgeleid. |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
-| UserPrincipalName |X | | |De UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X | | |De UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 
 ## <a name="intune"></a>Intune
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | C |X |X | | |
@@ -335,10 +335,10 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | securityenabled moet | | |X |Afgeleid van groupType |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
-| UserPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | C |X |X | | |
@@ -368,7 +368,7 @@ In dit geval beginnen met de lijst met kenmerken in dit onderwerp en identificer
 | telephoneNumber |X |X | | |
 | titel |X |X | | |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
-| UserPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 
 ## <a name="3rd-party-applications"></a>3e toepassingen van derden
 Deze groep is een set kenmerken die worden gebruikt als de minimale kenmerken die nodig zijn voor een algemene werkbelasting of toepassing. Het kan worden gebruikt voor een werkbelasting die niet wordt vermeld in een andere sectie of voor een niet-Microsoft-app. Expliciet wordt deze gebruikt voor het volgende:
@@ -378,7 +378,7 @@ Deze groep is een set kenmerken die worden gebruikt als de minimale kenmerken di
 
 Deze groep is een set kenmerken die kunnen worden gebruikt als de Azure AD-directory niet gebruikt wordt ter ondersteuning van Office 365, Dynamics of Intune. Er is een klein aantal belangrijke kenmerken.
 
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Hiermee worden gedefinieerd als een account is ingeschakeld. |
 | algemene naam |X | |X | |
@@ -394,12 +394,12 @@ Deze groep is een set kenmerken die kunnen worden gebruikt als de Azure AD-direc
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mechanische eigenschap. Onveranderbare id voor het onderhouden van de relatie tussen ADDS en Azure AD. |
 | usageLocation |X | | |mechanische eigenschap. Het land van de gebruiker. Gebruikt voor de licentietoewijzing. |
-| UserPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
+| userPrincipalName |X | | |UPN is de aanmeldings-ID voor de gebruiker. Meestal als [e] dezelfde waarde. |
 
 ## <a name="windows-10"></a>Windows 10
 Een Windows 10 domein computer(device) worden enkele kenmerken naar Azure AD gesynchroniseerd. Zie voor meer informatie over de scenario's [domein apparaten verbinden met Azure AD voor Windows 10 optreedt](../active-directory-azureadjoin-devices-group-policy.md). Deze kenmerken altijd te synchroniseren en Windows 10 wordt niet weergegeven als een app die kunt u het vakje. Een computer voor het domein van Windows 10 wordt geïdentificeerd door met het kenmerk userCertificate ingevuld.
 
-| Naam kenmerk | Apparaat | Opmerking |
+| Kenmerknaam | Apparaat | Opmerking |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |De waarde van de hardcoded voor domeincomputers. |
@@ -413,7 +413,7 @@ Een Windows 10 domein computer(device) worden enkele kenmerken naar Azure AD ges
 
 Deze kenmerken voor **gebruiker** worden naast de andere apps die u hebt geselecteerd.  
 
-| Naam kenmerk | Gebruiker | Opmerking |
+| Kenmerknaam | Gebruiker | Opmerking |
 | --- |:---:| --- |
 | domainFQDN |X |Ook wel een DNS-domeinnaam genoemd. Bijvoorbeeld contoso.com. |
 | domainNetBios |X |Ook wel netBiosName genoemd. Bijvoorbeeld CONTOSO. |
@@ -421,7 +421,7 @@ Deze kenmerken voor **gebruiker** worden naast de andere apps die u hebt geselec
 ## <a name="exchange-hybrid-writeback"></a>Exchange hybride Write-back
 Deze kenmerken worden teruggeschreven van Azure AD naar lokale Active Directory wanneer u selecteert om in te schakelen **Exchange hybride**. Afhankelijk van uw versie van Exchange mogelijk minder kenmerken worden gesynchroniseerd.
 
-| Naam kenmerk | Gebruiker | Contact | Groep | Opmerking |
+| Kenmerknaam | Gebruiker | Contact | Groep | Opmerking |
 | --- |:---:|:---:|:---:| --- |
 | msDS-ExternalDirectoryObjectID |X | | |Afgeleid van cloudAnchor in Azure AD. Dit kenmerk is nieuw in Exchange 2016 en Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Online archief: Kunnen klanten bij de archivering van e-mail. |
@@ -436,7 +436,7 @@ Deze kenmerken worden teruggeschreven van Azure AD naar lokale Active Directory 
 ## <a name="exchange-mail-public-folder"></a>Exchange Mail openbare map
 Deze kenmerken worden gesynchroniseerd vanuit de lokale Active Directory naar Azure AD wanneer u selecteert om in te schakelen **Exchange Mail openbare map**.
 
-| Naam kenmerk | PublicFolder | Opmerking |
+| Kenmerknaam | PublicFolder | Opmerking |
 | --- | :---:| --- |
 | Weergavenaam | X |  |
 | E-mail | X |  |
@@ -448,7 +448,7 @@ Deze kenmerken worden gesynchroniseerd vanuit de lokale Active Directory naar Az
 ## <a name="device-writeback"></a>Apparaat terugschrijven
 Apparaatobjecten zijn gemaakt in Active Directory. Deze objecten kunnen worden apparaten die zijn gekoppeld aan Azure AD of domein Windows 10-computers.
 
-| Naam kenmerk | Apparaat | Opmerking |
+| Kenmerknaam | Apparaat | Opmerking |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | Weergavenaam |X | |

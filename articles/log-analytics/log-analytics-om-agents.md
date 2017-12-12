@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Maak verbinding met Operations Manager met Log Analytics
 Voor het onderhouden van uw bestaande investeringen in System Center Operations Manager en de uitgebreide mogelijkheden met Log Analytics gebruiken, kunt u de Operations Manager integreren met de OMS-werkruimte.  Hiermee kunt dat u gebruikmaken van de mogelijkheden van OMS terwijl u Operations Manager gebruiken voor:
@@ -40,9 +40,9 @@ Als de beleidsregels van uw IT-beveiliging niet toestaan computers in uw netwerk
 ## <a name="system-requirements"></a>Systeemvereisten
 Voordat u begint, lees de volgende informatie om te controleren of u voldoet aan vereisten.
 
-* OMS biedt alleen ondersteuning voor Operations Manager 2016, UR10 van Operations Manager 2012 SP1 en hoger, en UR11 van Operations Manager 2012 R2 en hoger.
+* OMS biedt alleen ondersteuning voor Operations Manager 2016, UR6 van Operations Manager 2012 SP1 en hoger, en UR2 van Operations Manager 2012 R2 en hoger.  Proxyondersteuning is toegevoegd aan Operations Manager 2012 SP1 UR7 en Operations Manager 2012 R2 UR3.
 * Alle Operations Manager-agents moeten voldoen aan de vereisten voor minimale ondersteuning. Zorg ervoor dat agents de minimale bijgewerkt zijn, anders verkeer voor Windows-agent mislukken en veel fouten u het gebeurtenislogboek van Operations Manager vult mogelijk.
-* Een Azure-logboekanalyse-abonnement.  Bekijk voor meer informatie [aan de slag met logboekanalyse](log-analytics-get-started.md).
+* Een OMS-abonnement.  Bekijk voor meer informatie [aan de slag met logboekanalyse](log-analytics-get-started.md).
 
 ### <a name="network"></a>Netwerk
 Gegevens van de onderstaande lijst de vereist voor de Operations Manager-agent, beheerservers en Operations-console om te communiceren met OMS proxy- en firewall-configuratie-informatie.  Verkeer van elk onderdeel is uitgaand vanaf het netwerk naar de OMS-service.     
@@ -208,7 +208,7 @@ Als u wilt verwijderen van de twee connectors - Microsoft.SystemCenter.Advisor.D
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

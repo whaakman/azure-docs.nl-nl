@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: bc77fe59fdb128d28389c43d41c43ca1d393d83c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configureren van Firewalls voor Azure-opslag en virtuele netwerken (preview)
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u voor het beveiligen van uw storage-accounts op een specifieke set toegestane netwerken.  Wanneer het netwerk regels zijn geconfigureerd, kan alleen toepassingen van toegestane netwerken toegang krijgen tot een opslagaccount.  Bij het aanroepen van een toegestane netwerk, blijven de toepassingen vereisen juiste autorisatie (een geldig toegangssleutel of SAS-token) voor toegang tot het opslagaccount.
@@ -298,7 +298,6 @@ Wanneer de uitzondering 'Microsoft-Services vertrouwde' is ingeschakeld, krijgen
 |Azure Event Hubs|Microsoft.EventHub|Archiveren van gegevens met Event Hubs vastleggen.  [Meer informatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|Inrichting en de installatie van het cluster.  [Meer informatie](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure-netwerken|Microsoft.Networking|Opslaan en analyseren van logboeken over webverkeer netwerk.  [Meer informatie](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Gegevens importeren en exporteren.  [Meer informatie](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
 |Azure Backup|Microsoft.RecoveryServices|Back-up en herstel van niet-beheerde schijven.  [Meer informatie](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 

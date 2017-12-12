@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: c9a67644ff2922875de486b2a2b671f8e82e9449
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9dabf666c633b59c7d1f9478b0e9cfe9d313e129
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Implementatie van virtuele Azure-machine automatiseren met Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef is een uitstekend hulpprogramma voor het leveren van automation en gewenste status configuraties.
 
-Met de meest recente versie van de cloud-api biedt Chef naadloze integratie met Azure, zodat u de mogelijkheid voor het inrichten en implementeren van configuratiestatussen via één opdracht.
+Cloud api met de meest recente release, Chef biedt naadloze integratie met Azure, zodat u de mogelijkheid voor het inrichten en implementeren van configuratiestatussen via één opdracht.
 
-In dit artikel ziet ik u het instellen van uw omgeving Chef inrichten van virtuele machines in Azure en helpt u bij het maken van een beleid of "CookBook" en vervolgens deze cookbook implementeert op een virtuele machine van Azure.
+In dit artikel, moet u uw omgeving Chef inrichten van virtuele machines in Azure en helpt bij het maken van een beleid of "CookBook" en vervolgens deze cookbook implementeert op een virtuele machine van Azure instellen.
 
 We begint!
 
 ## <a name="chef-basics"></a>Chef basisbeginselen
-Voordat u begint, voorgesteld ik dat u de basisconcepten van Chef bekijken. Er is geweldige materiaal <a href="http://www.chef.io/chef" target="_blank">hier</a> en ik het beste hebt u een snelle Lees voordat u deze stapsgewijze kennismaking. Ik zal echter de basisbeginselen samenvatting voordat we aan de slag.
+Voordat u begint, [Bestudeer de basisconcepten van Chef](http://www.chef.io/chef). 
 
 Het volgende diagram illustreert de op hoog niveau Chef-architectuur.
 
@@ -41,24 +41,23 @@ Het volgende diagram illustreert de op hoog niveau Chef-architectuur.
 
 Chef heeft drie architectuur hoofdonderdelen: Chef-Server, Chef-Client (knooppunt) en Chef-werkstation.
 
-De Chef Server onze beheerpunt en er zijn twee opties voor de Chef Server: een gehoste oplossing of een on-premises-oplossing. We gebruiken een gehoste oplossing.
+De Chef Server het beheerpunt en er zijn twee opties voor de Chef Server: een gehoste oplossing of een on-premises-oplossing. We gebruiken een gehoste oplossing.
 
 De Chef Client (knooppunt) is de agent die zich op de servers die u beheert.
 
-Het werkstation Chef is onze beheerwerkstation waar we onze beleid maken en onze management-opdrachten uit te voeren. We voeren de **mes** opdracht van het werkstation Chef om onze infrastructuur te beheren.
+Het werkstation Chef is het werkstation admin waar we beleid maken en uitvoeren van opdrachten voor het beheer. We voeren de **mes** opdracht van het werkstation Chef om de infrastructuur te beheren.
 
-Er is ook het concept van 'Cookbooks' en 'Recepten'. Dit zijn effectief de beleidsregels die we definiëren en toepassen op onze servers.
+Er is ook het concept van 'Cookbooks' en 'Recepten'. Dit zijn effectief de beleidsregels die we definiëren en toepassen op de servers.
 
 ## <a name="preparing-the-workstation"></a>Het werkstation voorbereiden
-Ten eerste kunt het werkstation voorbereiden. Ik gebruik een standaard Windows-werkstation. Er moet een map voor het opslaan van onze configuratiebestanden en cookbooks maken.
+Ten eerste kunt het werkstation voorbereiden. Ik gebruik een standaard Windows-werkstation. Er moet een map voor het opslaan van de configuratiebestanden en cookbooks maken.
 
 Eerst een map met de naam C:\chef maken.
 
 Vervolgens maakt u een tweede directory c:\chef\cookbooks aangeroepen.
 
-Nu moeten we ons Azure-instellingen-bestand downloaden zodat Chef met ons Azure-abonnement communiceren kan.
+Er moet nu het bestand met de Azure-instellingen downloaden zodat Chef met het Azure-abonnement communiceren kan.
 
-<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
 Download uw publicatie-instellingen met behulp van de PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) opdracht. 
 
 Sla het bestand van de instellingen voor publiceren in C:\chef.
@@ -147,13 +146,13 @@ Als alles correct is geconfigureerd, ziet u een lijst met beschikbare Azure inst
 Gefeliciteerd! Het werkstation is ingesteld.
 
 ## <a name="creating-a-cookbook"></a>Maken van een Cookbook
-Een Cookbook wordt gebruikt door Chef voor het definiëren van een reeks opdrachten die u wilt uitvoeren op uw beheerde client. Het maken van een Cookbook is eenvoudig en gebruiken we de **chef genereren cookbook** opdracht voor het genereren van onze Cookbook-sjabloon. Ik zal worden aanroepen van mijn webserver Cookbook als ik een beleid dat automatisch wordt geïmplementeerd IIS zou willen.
+Een Cookbook wordt gebruikt door Chef voor het definiëren van een reeks opdrachten die u wilt uitvoeren op uw beheerde client. Het maken van een Cookbook is eenvoudig en gebruiken we de **chef genereren cookbook** opdracht voor het genereren van de sjabloon Cookbook. Ik zal worden aanroepen van mijn webserver Cookbook als ik een beleid dat automatisch wordt geïmplementeerd IIS zou willen.
 
 Voer de volgende opdracht in uw map C:\Chef.
 
     chef generate cookbook webserver
 
-Hierdoor wordt een aantal bestanden in de map C:\Chef\cookbooks\webserver gegenereerd. Nu moeten we de reeks opdrachten die we onze Chef-client wilt uitvoeren op onze beheerde virtuele machine wilt definiëren.
+Hierdoor wordt een aantal bestanden in de map C:\Chef\cookbooks\webserver gegenereerd. Er moet nu de reeks opdrachten dat willen we graag de Chef-client moet worden uitgevoerd op de beheerde virtuele machine definiëren.
 
 De opdrachten worden opgeslagen in het bestand default.rb. In dit bestand moet ik een verzameling opdrachten die IIS is geïnstalleerd, start IIS en een sjabloonbestand kopieert naar de wwwroot-map definiëren.
 
@@ -176,7 +175,7 @@ Wijzigen van het bestand C:\chef\cookbooks\webserver\recipes\default.rb en voeg 
 Sla het bestand als u klaar bent.
 
 ## <a name="creating-a-template"></a>Maken van een sjabloon
-Zoals we eerder vermeld, moeten we een sjabloonbestand dat wordt gebruikt als onze pagina met default.html genereren.
+Zoals we eerder vermeld, moeten we een sjabloonbestand die wordt gebruikt als de pagina default.html genereren.
 
 Voer de volgende opdracht voor het genereren van de sjabloon.
 
@@ -192,7 +191,7 @@ We zijn een kopie van het Cookbook die er op de lokale computer gemaakt en uploa
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Een virtuele machine met Mes Azure implementeren
-We nu implementeren van een virtuele machine van Azure en toepassen van de 'Webserver' Cookbook die onze IIS web service en de standaard webpagina wordt geïnstalleerd.
+We nu implementeren van een virtuele machine van Azure en het Cookbook 'Webserver', waarbij u de IIS web service en de standaard webpagina toepassen.
 
 Gebruik hiervoor de **mes azure-server maken** opdracht.
 

@@ -4,7 +4,7 @@ description: Een overzicht van de vijf meest voorkomende verificatie scenario's 
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Authentication Scenarios for Azure AD (Verificatiescenario's voor Azure AD)
 Azure Active Directory (Azure AD) vereenvoudigt de verificatie voor ontwikkelaars dankzij de identiteit als een service met ondersteuning voor de industriestandaard-protocollen zoals OAuth 2.0 en OpenID Connect, evenals open source-bibliotheken voor verschillende platforms om u te helpen Start snel coderen. Dit document helpt u begrijpen van de verschillende scenario's Azure AD wordt ondersteund en wordt beschreven hoe u aan de slag. Het onderverdeeld in de volgende secties:
@@ -78,16 +78,16 @@ Beveiligingstokens die zijn uitgegeven door Azure AD bevatten claims of assertie
 | Groepen |Object-id's van Azure AD-groepen die de gebruiker lid van is bevat. |
 | Id-provider |Registreert de id-provider die het onderwerp van het token wordt geverifieerd. |
 | Verleend aan |De tijd waarop het token is uitgegeven, vaak gebruikt voor het token nieuwheid registreert. |
-| certificaatverlener |Identificeert de STS dat het token, evenals de Azure AD-tenant verzonden. |
+| Certificaatverlener |Identificeert de STS dat het token, evenals de Azure AD-tenant verzonden. |
 | Achternaam |Biedt de achternaam van de gebruiker als set in Azure AD. |
 | Naam |Biedt een menselijke leesbare waarde die aangeeft van het onderwerp van het token. |
-| Object-Id |Bevat een niet-wijzigbaar, unieke id van het onderwerp in Azure AD. |
+| Object-id |Bevat een niet-wijzigbaar, unieke id van het onderwerp in Azure AD. |
 | Rollen |Beschrijvende namen bevat van Azure AD-toepassing-functies die de gebruiker heeft gekregen. |
 | Bereik |Hiermee geeft u de machtigingen te krijgen tot de clienttoepassing. |
 | Onderwerp |Hiermee geeft u de principal waarover het token asserts informatie. |
 | Tenant-Id |Bevat een niet-wijzigbaar, unieke id van de directory-tenant die het token heeft uitgegeven. |
 | Levensduur van token |Definieert het tijdsinterval waarin een token geldig is. |
-| Principalnaam van gebruiker |Bevat de user principal name van het onderwerp. |
+| User principal name |Bevat de user principal name van het onderwerp. |
 | Versie |Het versienummer van het token bevat. |
 
 ## <a name="basics-of-registering-an-application-in-azure-ad"></a>Basisbeginselen van het registreren van een toepassing in Azure AD

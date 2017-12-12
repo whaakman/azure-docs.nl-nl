@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Beveiliging Frame: Invoervalidatie | Oplossingen 
 | Product/Service | Artikel |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **Webtoepassing** | <ul><li>[Schakel XSLT uitvoeren van scripts voor alle transformaties met behulp van niet-vertrouwde opmaakmodellen](#disable-xslt)</li><li>[Zorg ervoor dat elke pagina waarvan de gebruiker instelbare inhoud buiten automatische MIME-controle kiest](#out-sniffing)</li><li>[Beperken of XML-entiteit omzetting uitschakelen](#xml-resolution)</li><li>[Toepassingen die gebruikmaken van http.sys uitvoeren URL standaardisatie verificatie](#app-verification)</li><li>[Zorg passende controles zijn geïmplementeerd tijdens het accepteren van bestanden van gebruikers](#controls-users)</li><li>[Zorg ervoor dat type veilig parameters in webtoepassing worden gebruikt voor toegang tot gegevens](#typesafe)</li><li>[Afzonderlijke model binding klassen gebruiken of bindingsfilter weer om te voorkomen dat MVC massaopslag toewijzing beveiligingslek](#binding-mvc)</li><li>[Niet-vertrouwde webuitvoer vóór rendering coderen](#rendering)</li><li>[Validatie voor invoer- en filteren op alle tekenreekstype modeleigenschappen uitvoeren](#typemodel)</li><li>[Opschoning moet worden toegepast op formuliervelden die tekens, bijvoorbeeld, RTF-editor accepteren](#richtext)</li><li>[Geen DOM elementen toewijzen aan put waarvoor geen ingebouwde codering](#inbuilt-encode)</li><li>[Valideer alle omleidingen in de toepassing worden gesloten of veilig gedaan](#redirect-safe)</li><li>[Validatie voor invoer op alle tekenreeks typeparameters geaccepteerd door de methoden van de domeincontroller implementeren](#string-method)</li><li>[Bovengrens-out voor reguliere expressie om te voorkomen van DoS vanwege ongeldige reguliere expressies verwerken instellen](#dos-expression)</li><li>[Vermijd het gebruik van Html.Raw in Razor weergaven](#html-razor)</li></ul> | 
 | **Database** | <ul><li>[Gebruik geen dynamische query's in de opgeslagen procedures](#stored-proc)</li></ul> |
 | **Web-API** | <ul><li>[Zorg ervoor dat de validatie is uitgevoerd voor Web-API-methoden](#validation-api)</li><li>[Validatie voor invoer op alle tekenreeks typeparameters geaccepteerd door de methoden van de Web-API implementeren](#string-api)</li><li>[Zorg ervoor dat type veilig parameters in Web-API worden gebruikt voor toegang tot gegevens](#typesafe-api)</li></ul> | 
-| **Azure Documentdb** | <ul><li>[SQL-query's constructorreeks mag gebruiken voor DocumentDB](#sql-docdb)</li></ul> | 
+| **Azure Documentdb** | <ul><li>[SQL-query's constructorreeks mag gebruiken voor Azure Cosmos-DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Validatie van de WCF-invoer via schemabinding](#schema-binding)</li><li>[Validatie van de WCF - invoer via Parameter Inspectors](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Schakel XSLT uitvoeren van scripts voor alle transformaties met behulp van niet-vertrouwde opmaakmodellen
@@ -660,8 +660,8 @@ De invoerwaarde mag niet langer zijn dan 11 tekens in het vorige codevoorbeeld. 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
 | **Kenmerken**              | N.v.t.  |
-| **Verwijzingen**              | [SQL-Parameterisering in DocumentDB aangekondigd](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Stappen** | Hoewel DocumentDB biedt alleen ondersteuning voor alleen-lezen-query's, is SQL-injectie nog steeds mogelijk als de query's worden gemaakt met cookievalidatie met invoer van gebruiker. Het is mogelijk dat een gebruiker toegang te krijgen tot gegevens die ze mag niet in dezelfde verzameling openen door schadelijke SQL-query's. Gebruik SQL-query's met parameters als de query's zijn samengesteld op basis van gebruikersinvoer. |
+| **Verwijzingen**              | [SQL-Parameterisering aangekondigd in Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Stappen** | Hoewel Azure Cosmos DB alleen alleen-lezen-query's ondersteunt, is SQL-injectie nog steeds mogelijk als de query's worden gemaakt met cookievalidatie met invoer van gebruiker. Het is mogelijk dat een gebruiker toegang te krijgen tot gegevens die ze mag niet in dezelfde verzameling openen door schadelijke SQL-query's. Gebruik SQL-query's met parameters als de query's zijn samengesteld op basis van gebruikersinvoer. |
 
 ## <a id="schema-binding"></a>Validatie van de WCF-invoer via schemabinding
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: f4f0aa2cfc722a1cc61788a1c6ba7caedf6b4c9b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -115,7 +115,7 @@ az account set --subscription $subscriptionId
 
 Gebruik de volgende opdracht voor het maken van een cluster snel door te geven van de minimale parameters
 
-De sjabloon die wordt gebruikt, is beschikbaar op de [azure service fabric-sjabloon voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+De sjabloon die wordt gebruikt, is beschikbaar op de [azure service fabric-sjabloon voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 De onderstaande opdrachten uit werkt voor het maken van Windows en Linux-clusters, hoeft u te dienovereenkomstig opgeven van het besturingssysteem. De powershell / CLI-opdrachten ook het certificaat in de opgegeven in theCertificateOutputFolder levert. De opdracht wordt in ook andere parameters zoals VM-SKU.
 
@@ -224,7 +224,7 @@ Als dit een door CA ondertekend certificaat dat u uiteindelijk gebruik voor ande
 
 
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Gebruik de standaard 5 knooppunt 1 nodetype sjabloon die wordt geleverd in de module
-De sjabloon die wordt gebruikt, is beschikbaar op de [azure-voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+De sjabloon die wordt gebruikt, is beschikbaar op de [azure-voorbeelden: windows-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) en [Ubuntu-sjabloon](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```Powershell
 $resourceGroupLocation="westus"
@@ -693,7 +693,7 @@ U hebt op dit moment een beveiligde cluster met Azure Active Directory verstrekk
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://manage.windowsazure.com
+[azure-classic-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

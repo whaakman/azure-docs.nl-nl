@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
@@ -41,7 +41,7 @@ Hoe partitioneren werkt? Elk item moet hebben een partitiesleutel en een rijsleu
 
 * Inrichten van een Azure DB die Cosmos-container met `T` aanvragen/s doorvoer.
 * Achter de schermen, richt Azure Cosmos DB partities nodig om te fungeren `T` aanvragen/s. Als `T` hoger is dan de maximale doorvoer per partitie `t`, vervolgens Azure Cosmos DB bepalingen `N`  =  `T/t` partities.
-* Azure Cosmos DB wordt de sleutel ruimte van de partitie sleutel hashes gelijkmatig meerdere de `N` partities. Elke partitie (fysieke partitie), fungeert als host 1 N partitie sleutelwaarden (logische partities).
+* Azure Cosmos DB wordt de sleutel ruimte van de partitie sleutel hashes gelijkmatig meerdere de `N` partities. Dus elke partitie (fysieke partitie) hosts `1/N` partitie sleutelwaarden (logische partities).
 * Wanneer een fysieke partitie `p` bereikt de opslaglimiet bereikt, Azure Cosmos DB naadloos splitst `p` in twee nieuwe partities, `p1` en `p2`. Deze distribueert waarden die overeenkomen met ongeveer de helft van de sleutels aan elk van de partities. Deze bewerking gesplitste is onzichtbaar voor uw toepassing.
 * Op dezelfde manier als het inrichten van doorvoer die hoger is dan `t*N`, Azure Cosmos DB splitst een of meer van de partities ter ondersteuning van de hogere doorvoer.
 
@@ -49,10 +49,10 @@ De semantiek voor partitiesleutels zijn enigszins verschillen overeenkomen met d
 
 | API | Partitiesleutel | Rijsleutel |
 | --- | --- | --- |
-| Azure Cosmos DB | Aangepaste partitie sleutelpad | vaste`id` | 
-| MongoDB | Aangepaste gedeelde sleutel  | vaste`_id` | 
-| Graph | Aangepaste partitie sleuteleigenschap | vaste`id` | 
-| Tabel | vaste`PartitionKey` | vaste`RowKey` | 
+| Azure Cosmos DB | Aangepaste partitie sleutelpad | Probleem met `id` opgelost | 
+| MongoDB | Aangepaste gedeelde sleutel  | Probleem met `_id` opgelost | 
+| Graph | Aangepaste partitie sleuteleigenschap | Probleem met `id` opgelost | 
+| Tabel | Probleem met `PartitionKey` opgelost | Probleem met `RowKey` opgelost | 
 
 Azure Cosmos DB gebruikt op basis van de hash partitionering. Bij het schrijven van een item wordt Azure Cosmos DB de waarde voor de partitiesleutel-hashes en gebruikt het hash-resultaat om te bepalen welke partitie voor het opslaan van het item in. Azure Cosmos DB slaat alle items met dezelfde partitiesleutel op dezelfde fysieke partitie. De keuze van de partitiesleutel is een belangrijke beslissing die u moet aanbrengen in de ontwerpfase. U moet een eigenschapsnaam die heeft een breed scala aan waarden en zelfs toegangspatronen kiezen.
 

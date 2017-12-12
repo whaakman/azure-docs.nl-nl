@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Het gebruik Uitvoeringsgeschiedenis en Model metrische gegevens in Azure Machine Learning Workbench
 
@@ -32,7 +32,7 @@ Om de stap in deze handleiding instructies, moet u:
 ## <a name="azure-ml-logging-api-overview"></a>Overzicht van Azure ML logboekregistratie API
 De [API van Azure ML-logboekregistratie](reference-logging-api.md) is beschikbaar via de **azureml.logging** -module in Python (die wordt geïnstalleerd met de Azure ML-Workbench.) Na het importeren van deze module kunt u de **get_azureml_logger** methode instantiëren van een **berichtenlogboek** object.
 Vervolgens gebruikt u het logboek **logboek** methode voor het opslaan van sleutel-waardeparen die wordt geproduceerd door uw Python-scripts.
-Op dit moment model metrieken van schaalbare, woordenlijst, lijst aan te melden, dataframe typen worden ondersteund zoals wordt weergegeven.
+Op dit moment logboekregistratie model metrieken van scalaire en typen worden ondersteund zoals wordt weergegeven.
 
 ```Python
 # create a logger instance in already set up environment 

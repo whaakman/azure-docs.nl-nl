@@ -1,5 +1,5 @@
 ---
-title: SQL-query metrische gegevens voor de API van Azure Cosmos DB DocumentDB | Microsoft Docs
+title: SQL-query metrische gegevens voor Azure Cosmos DB SQL-API | Microsoft Docs
 description: Meer informatie over het instrumenteren en de prestaties van de SQL-query's van Azure DB die Cosmos-aanvragen voor foutopsporing.
 keywords: SQL-syntaxis, sql-query, sql-query's, json-querytaal, database-concepten en sql-query's, statistische functies
 services: cosmos-db
@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2cb6319356a536aebc1db3122cf80b8736d1fd4f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Prestaties van query's met Azure Cosmos DB afstemmen
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos DB biedt een [SQL-API voor het opvragen van gegevens](documentdb-sql-query.md), zonder schema of secundaire indexen. In dit artikel biedt de volgende informatie voor ontwikkelaars:
 
 * Details op hoog niveau over de werking van Azure Cosmos DB SQL-query-uitvoering
@@ -31,7 +34,7 @@ Azure Cosmos DB biedt een [SQL-API voor het opvragen van gegevens](documentdb-sq
 
 ## <a name="about-sql-query-execution"></a>Over het uitvoeren van de SQL-query
 
-In Azure Cosmos DB, slaat u de gegevens in de containers die kunnen worden uitgebreid naar een [grootte of aanvraag opslagdoorvoer](partition-data.md). Azure Cosmos DB schaalt naadloos gegevens meerdere fysieke partities achter de Gegevensgroei verwerken of worden verhoogd met ingerichte doorvoer. U kunt de SQL-query's naar een container met de REST-API of een van de ondersteunde opdracht [DocumentDB SDK's](documentdb-sdk-dotnet.md).
+In Azure Cosmos DB, slaat u de gegevens in de containers die kunnen worden uitgebreid naar een [grootte of aanvraag opslagdoorvoer](partition-data.md). Azure Cosmos DB schaalt naadloos gegevens meerdere fysieke partities achter de Gegevensgroei verwerken of worden verhoogd met ingerichte doorvoer. U kunt de SQL-query's naar een container met de REST-API of een van de ondersteunde opdracht [SQL-SDK's](documentdb-sdk-dotnet.md).
 
 Een kort overzicht van het partitioneren: definieert u een partitiesleutel zoals 'plaats', waarmee wordt bepaald hoe gegevens zijn verdeeld over fysieke partities. Gegevens die behoren tot een enkele partitie-sleutel (bijvoorbeeld 'city' == "Seattle") zijn opgeslagen in een fysieke partitie, maar één fysieke partitie heeft doorgaans meerdere partitiesleutels. Wanneer een partitie zijn opslaggrootte bereikt, de service naadloos de partitie worden gesplitst in twee nieuwe partities en de partitiesleutel gelijkmatig wordt verdeeld over deze partities. Aangezien partities tijdelijke zijn, gebruiken de API's een abstractie van een 'partitiesleutelbereik', waarmee de bereiken van de belangrijkste hashes partitie. 
 
@@ -50,7 +53,7 @@ De SDK's bieden verschillende opties voor het uitvoeren van de query. Bijvoorbee
 | `EnableScanInQuery` | Moet worden ingesteld op true als u ervoor hebt gekozen buiten het indexeren, maar de query toch uitvoeren via een scan. Alleen is van toepassing als indexering voor de aangevraagde filterpad uitgeschakeld. | 
 | `MaxItemCount` | Het maximum aantal items per round trip terugkeren naar de server. Door de instelling op-1 kunt u de server die het aantal items beheren. Of u kunt deze waarde voor het ophalen van een klein aantal items per round trip verlagen. 
 | `MaxBufferedItemCount` | Dit is een optie voor de clientzijde, en gebruikt voor het beperken van het geheugenverbruik bij het uitvoeren van cross-partitie ORDER BY. Een hogere waarde vermindert de latentie van cross-partitie sorteren. |
-| `MaxDegreeOfParallelism` | Opgehaald of ingesteld van het aantal gelijktijdige bewerkingen clientzijde tijdens parallelle queryuitvoering in de Azure DocumentDB-database-service wordt uitgevoerd. Een positief eigenschapswaarde beperkt het aantal gelijktijdige bewerkingen op de waarde ingesteld. Als deze is ingesteld op minder dan 0, besluit het systeem automatisch het aantal gelijktijdige bewerkingen om uit te voeren. |
+| `MaxDegreeOfParallelism` | Opgehaald of ingesteld van het aantal gelijktijdige bewerkingen clientzijde tijdens parallelle queryuitvoering in de database-service van Azure DB die Cosmos uitgevoerd. Een positief eigenschapswaarde beperkt het aantal gelijktijdige bewerkingen op de waarde ingesteld. Als deze is ingesteld op minder dan 0, besluit het systeem automatisch het aantal gelijktijdige bewerkingen om uit te voeren. |
 | `PopulateQueryMetrics` | Hiermee gedetailleerde logboekregistratie van statistieken voor de tijd die is doorgebracht in verschillende fasen van de uitvoering van de query zoals compileertijd en index Lustijd document laden tijd. U kunt uitvoer van de query statistieken delen met Azure-ondersteuning voor het vaststellen van prestatieproblemen met de query. |
 | `RequestContinuation` | U kunt de queryuitvoering hervatten door door te geven in het ondoorzichtige vervolgtoken geretourneerd door een query. Het vervolgtoken ingekapseld alle staat is vereist voor uitvoering van de query. |
 | `ResponseContinuationTokenLimitInKb` | U kunt de maximale grootte van het vervolgtoken geretourneerd door de server kunt beperken. Mogelijk moet u dit instellen als uw toepassingshost limieten op antwoord header-grootte. In te stellen, kan de totale duur en RUs gebruikt voor de query verhogen.  |
@@ -137,7 +140,7 @@ De belangrijkste antwoordheaders geretourneerd van de query omvatten het volgend
 | `x-ms-documentdb-query-metrics` | De statistieken van de query voor de uitvoering. Dit is een tekenreeks met scheidingstekens met statistieken van de tijd besteed aan de verschillende fasen van de uitvoering van de query. Geretourneerde als `x-ms-documentdb-populatequerymetrics` is ingesteld op `True`. | 
 | `x-ms-request-charge` | Het aantal [aanvraageenheden](request-units.md) verbruikt door de query. | 
 
-Zie voor meer informatie over de REST-API-headers voor aanvraag en de opties [opvragen van resources met behulp van de REST-API van DocumentDB](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Zie voor meer informatie over de REST-API-headers voor aanvraag en de opties [opvragen van resources met behulp van de REST-API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Aanbevolen procedures voor prestaties van query 's
 Hieronder vindt u de meest voorkomende factoren die van invloed op prestaties van Azure DB die Cosmos-query's. We verdiepen in elk van deze onderwerpen in dit artikel.
@@ -174,7 +177,7 @@ Zie voor meer informatie over partitioneren en partitiesleutels, [partitioneren 
 Zie [Tips voor betere prestaties](performance-tips.md) en [prestatietests](performance-testing.md) voor het ophalen van de beste prestaties voor de clientzijde van Azure Cosmos DB. Dit omvat met de nieuwste SDK's, platform-specifieke netwerkconfiguraties als standaardaantal verbindingen, frequentie van garbagecollection, configureren en lightweight connectiviteitsopties zoals Direct/TCP. 
 
 
-#### <a name="max-item-count"></a>Aantal items max
+#### <a name="max-item-count"></a>Maximum aantal items
 Voor query's, de waarde van `MaxItemCount` kan een aanzienlijke invloed hebben op het moment dat de end-to-end-query. Elke retouren naar de server resulteert niet vaker dan het aantal items in `MaxItemCount` (standaard van 100 objecten). Als u dit op een hogere waarde (-1 is maximum- en aanbevolen) worden uw totale duur van de query verbeteren door het aantal retouren tussen server en client, met name voor query's met grote resultatensets te beperken.
 
 ```cs
@@ -212,7 +215,7 @@ Hieronder vindt u de implicaties van hoe de parallelle query's voor verschillend
 * (P > 1) = > parallelle taken Min (P, N) 
 * (P < 1) = > parallelle taken Min (N, D)
 
-Voor SDK-releaseopmerkingen en Zie voor meer informatie over geïmplementeerde klassen en methoden [DocumentDB SDK's](documentdb-sdk-dotnet.md)
+Voor SDK-releaseopmerkingen en Zie voor meer informatie over geïmplementeerde klassen en methoden [SQL-SDK's](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Netwerklatentie
 Zie [Azure Cosmos DB globale distributie](tutorial-global-distribution-documentdb.md) voor het instellen van de algemene distributie en verbinding maken met de dichtstbijzijnde regio. Netwerklatentie heeft een aanzienlijke invloed op prestaties van query's als u wilt meerdere retouren maken of een grote resultatenset van de query worden opgehaald. 
@@ -253,9 +256,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milliseconden | Tijd besteed aan het laden van documenten  | 
 | `systemFunctionExecuteTimeInMs` | milliseconden | Totale tijd besteed aan het uitvoerende system (ingebouwde) functies in milliseconden  | 
 | `userFunctionExecuteTimeInMs` | milliseconden | Totale tijd besteed worden uitgevoerd door de gebruiker gedefinieerde functies in milliseconden | 
-| `retrievedDocumentCount` | Aantal | Totaal aantal opgehaalde documenten  | 
-| `retrievedDocumentSize` | Bytes | Totale grootte van de opgehaalde documenten in bytes  | 
-| `outputDocumentCount` | Aantal | Het aantal uitvoerdocumenten | 
+| `retrievedDocumentCount` | aantal | Totaal aantal opgehaalde documenten  | 
+| `retrievedDocumentSize` | bytes | Totale grootte van de opgehaalde documenten in bytes  | 
+| `outputDocumentCount` | aantal | Het aantal uitvoerdocumenten | 
 | `writeOutputTimeInMs` | milliseconden | Uitvoeringstijd van de query in milliseconden | 
 | `indexUtilizationRatio` | verhouding (< = 1) | Verhouding tussen aantal documenten dat overeenkomt met het filter aan het aantal documenten die worden geladen  | 
 

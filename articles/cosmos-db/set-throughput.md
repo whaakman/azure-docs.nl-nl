@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Doorvoer instellen voor Azure DB die Cosmos-containers
 
@@ -57,7 +57,7 @@ De volgende tabel bevat de doorvoer die beschikbaar zijn voor containers:
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>De doorvoer instellen met behulp van de DocumentDB-API voor .NET
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>De doorvoer instellen met behulp van de SQL-API voor .NET
 
 ```C#
 //Fetch the resource to be updated
@@ -81,7 +81,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Hoe stel ik througput met de MongoDB-API**
 
-Er is geen extensie MongoDB-API om in te stellen doorvoer. De aanbeveling is het gebruik van de DocumentDB-API, zoals wordt weergegeven in [de doorvoer instellen met behulp van de DocumentDB-API voor .NET](#set-throughput-sdk).
+Er is geen extensie MongoDB-API om in te stellen doorvoer. De aanbeveling is het gebruik van de SQL-API, zoals wordt weergegeven in [de doorvoer instellen met behulp van de SQL-API voor .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Volgende stappen
 

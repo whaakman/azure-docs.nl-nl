@@ -5,7 +5,7 @@ services: active-directory
 keywords: Wat is Azure AD Connect, installeer Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: b4efb457a58d8b54c9ebb126a8d84fdef01b3847
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Problemen met Azure Active Directory naadloze eenmalige aanmelding
 
@@ -50,7 +50,7 @@ Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook z
 
 Blader naar **Azure Active Directory** > **aanmeldingen** in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/), en selecteer vervolgens de aanmeldingsactiviteiten van een specifieke gebruiker. Zoek naar de **SIGN-IN-FOUTCODE** veld. De waarde van dat veld worden toegewezen aan een reden voor fout en de oplossing met behulp van de volgende tabel:
 
-|Foutcode voor aanmelding|Aanmelding mislukt reden|Oplossing
+|Aanmelden foutcode|Aanmelding mislukt reden|Oplossing
 | --- | --- | ---
 | 81001 | Kerberos-ticket van de gebruiker is te groot. | Reduceer groepslidmaatschappen van de gebruiker en probeer het opnieuw.
 | 81002 | Kan geen Kerberos-ticket van de gebruiker te valideren. | Zie de [controlelijst voor probleemoplossing](#troubleshooting-checklist).

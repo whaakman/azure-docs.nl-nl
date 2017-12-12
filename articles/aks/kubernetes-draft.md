@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Concept gebruiken met Azure Containerservice (AKS)
 
-Concept is een open source-hulpprogramma dat pakket helpt code en voer deze in een cluster Kubernetes. Concept is gericht op de ontwikkelingscyclus herhaling; Als de code wordt ontwikkeld, maar alvorens toe te wijzen aan versiebeheer. Met het concept, u kunt snel opnieuw implementeren een toepassing op Kubernetes als codewijzigingen optreden. Zie voor meer informatie over ontwerp, de [concept documentatie op Github](https://github.com/Azure/draft/tree/master/docs).
+Concept is een open source-hulpprogramma dat pakket helpt code en voer deze in een cluster Kubernetes. Concept is gericht op de ontwikkelingscyclus herhaling; Als de code wordt ontwikkeld, maar alvorens toe te wijzen aan versiebeheer. Met het concept, u kunt snel opnieuw implementeren een toepassing op Kubernetes als codewijzigingen optreden. Zie voor meer informatie over ontwerp, de [concept documentatie op Github][draft-documentation].
 
 Dit Documentdetails concept gebruiken met een cluster Kubernetes op AKS.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en een kubectl-verbinding met het cluster hebt gemaakt. Als u deze items moet, Zie de [AKS Quick Start](./kubernetes-walkthrough.md).
+Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en een kubectl-verbinding met het cluster hebt gemaakt. Als u deze items moet, Zie de [AKS Quick Start][aks-quickstart].
 
-U moet ook een persoonlijke Docker-register in Azure Container register (ACR). Zie voor instructies over het implementeren van een ACR-exemplaar de [Quick Start Azure Container register](../container-registry/container-registry-get-started-azure-cli.md).
+U moet ook een persoonlijke Docker-register in Azure Container register (ACR). Zie voor instructies over het implementeren van een ACR-exemplaar, de [Azure Container register Quick Start] [acr Quick Start].
 
 ## <a name="install-helm"></a>Helm installeren
 
 De CLI Helm is een client die wordt uitgevoerd op uw ontwikkelsysteem en kunt u starten, stoppen en beheren van toepassingen met Helm grafieken.
 
-U kunt de CLI Helm installeren op een Mac met `brew`. Zie voor aanvullende installatie-opties, [Helm installeren](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+U kunt de CLI Helm installeren op een Mac met `brew`. Zie voor aanvullende installatie-opties, [Helm installeren][install-helm].
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 De CLI concept is een client die wordt uitgevoerd op uw ontwikkelsysteem, en kunt dat u snel code implementeren in een cluster met Kubernetes.
 
-Het concept CLI installeren op een Mac-gebruik `brew`. Zie voor aanvullende installatie-opties, wordt de [concept installeren handleiding](https://github.com/Azure/draft/blob/master/docs/install.md).
+Het concept CLI installeren op een Mac-gebruik `brew`. Zie voor aanvullende installatie-opties, wordt de [concept installeren handleiding][install-draft].
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ Wanneer u klaar bent met het gebruik van de toepassing testen `Control+C` stoppe
 
 ## <a name="expose-application"></a>Toepassing weergeven
 
-Wanneer u een toepassing test in Kubernetes, is het raadzaam om de toepassing beschikbaar maken op het internet. U kunt dit doen met een Kubernetes-service van het type [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) of een [inkomend controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). Dit documentgegevens met een Kubernetes-service.
+Wanneer u een toepassing test in Kubernetes, is het raadzaam om de toepassing beschikbaar maken op het internet. U kunt dit doen met een Kubernetes-service van het type [LoadBalancer] [ kubernetes-service-loadbalancer] of een [inkomend controller][kubernetes-ingress]. Dit documentgegevens met een Kubernetes-service.
 
 
 Eerst het concept pack moet worden bijgewerkt om aan te geven dat een service met een type `LoadBalancer` moet worden gemaakt. Om dit te doen bijwerken van het type van de service in de `values.yaml` bestand.
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Zie voor meer informatie over het gebruik van concept, de ontwerp-documentatie op GitHub.
 
 > [!div class="nextstepaction"]
-> [Concept documentatie](https://github.com/Azure/draft/tree/master/docs)
+> [Concept documentatie][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

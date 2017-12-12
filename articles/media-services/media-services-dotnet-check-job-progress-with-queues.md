@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue storage gebruiken voor het bewaken van Media Services taak meldingen met .NET
 Wanneer u een codering taken uitvoert, moet u vaak een manier om de voortgang van de taak volgen. U kunt Media Services voor het leveren van meldingen configureren [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). U kunt de voortgang taak bewaken door meldingen ophalen uit de wachtrij-opslag. 
@@ -27,7 +27,7 @@ Berichten in wachtrij opslag toegankelijk zijn vanuit overal ter wereld. De mess
 
 Een gebruikelijk scenario om te luisteren op Media Services-meldingen is dat als u ontwikkelt een inhoudsbeheersysteem die nodig zijn voor een aantal extra taak na een codeertaak is voltooid (bijvoorbeeld voor het activeren van de volgende stap in een werkstroom of voor het publiceren van inhoud).
 
-Dit onderwerp leest hoe u meldingen van Queue storage.  
+Dit artikel laat zien hoe u meldingen van Queue storage.  
 
 ## <a name="considerations"></a>Overwegingen
 Overweeg het volgende bij het ontwikkelen van Media Services-toepassingen die gebruikmaken van Queue storage:
@@ -54,7 +54,7 @@ Het voorbeeld in deze sectie doet het volgende:
 9. Hiermee verwijdert u de wachtrij en het eindpunt van de melding.
 
 > [!NOTE]
-> De aanbevolen manier om het bewaken van een taak is door te luisteren naar meldingsberichten, zoals wordt weergegeven in het volgende voorbeeld.
+> De aanbevolen manier voor het bewaken van de status van een taak is door te luisteren naar meldingsberichten, zoals wordt weergegeven in het volgende voorbeeld:
 >
 > U kunt ook u op de status van een taak kan controleren met behulp van de **IJob.State** eigenschap.  Op een melding over een taak is voltooid voordat de status kan binnenkomen **IJob** is ingesteld op **voltooid**. De **IJob.State** eigenschap weerspiegelt de status van de nauwkeurige met een kleine vertraging.
 >
@@ -63,7 +63,8 @@ Het voorbeeld in deze sectie doet het volgende:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
 1. Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
-2. Maak een nieuwe map (deze kan overal op uw lokaal station zijn opgeslagen) en kopieer een MP4-bestand dat u wilt coderen en streamen of progressief wilt downloaden. In dit voorbeeld wordt het pad 'C:\Media' gebruikt.
+2. Maak een nieuwe map (map kan zich ergens op uw lokale schijf) en kopieer een MP4-bestand dat u wilt coderen en streamen of progressief te downloaden. In dit voorbeeld wordt het pad 'C:\Media' gebruikt.
+3. Voeg een verwijzing naar de **System.Runtime.Serialization** bibliotheek.
 
 ### <a name="code"></a>Code
 
@@ -120,9 +121,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -138,11 +144,15 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -326,7 +336,8 @@ namespace JobNotification
     }
 }
 ```
-Het vorige voorbeeld is de volgende uitvoer geproduceerd. De waarden variëren.
+
+Het vorige voorbeeld de volgende uitvoer geproduceerd: uw waarden variëren.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

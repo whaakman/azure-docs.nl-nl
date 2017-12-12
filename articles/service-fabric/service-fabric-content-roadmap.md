@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Daarom wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote oppervlak echter en is er veel voor meer informatie.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeren van de levenscyclus van de toepassing, testen, clusters en statuscontrole-modellen. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kunnen worden gebruikt voor het maken van microservices. In dit artikel bevat een uitgebreide lijst van de inhoud niet, maar koppelen aan het overzicht en ophalen van gestarte artikelen voor elk gebied van Service Fabric. 
@@ -103,7 +103,7 @@ Een [Gast uitvoerbaar bestand](service-fabric-deploy-existing-app.md) is een bes
 ## <a name="application-lifecycle"></a>Toepassingslevenscyclus
 Zoals met andere platforms wordt een toepassing op Service Fabric meestal de volgende fasen doorloopt: ontwerpen, ontwikkelen, testen, implementatie, upgrade, onderhoud en verwijderen. Service Fabric biedt uitstekende ondersteuning voor de levenscyclus van de volledige toepassing van cloud-toepassingen, van ontwikkeling tot implementatie, dagelijkse beheer en onderhoud voor uiteindelijke buiten gebruik stellen. Het service-model kan verschillende verschillende rollen onafhankelijk deelnemen aan de levenscyclus van de toepassing. [De levenscyclus van de service Fabric-toepassing](service-fabric-application-lifecycle.md) biedt een overzicht van de API's en hoe ze worden gebruikt door de verschillende rollen in de fasen van de levenscyclus van de Service Fabric-toepassing. 
 
-De volledige levenscyclus kan worden beheerd via [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [C#-API's](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java-API's](/java/api/system.fabric._application_management_client), en [REST-API's](/rest/api/servicefabric/). U kunt ook continue integratie/continue implementatie pijplijnen met hulpprogramma's zoals instellen [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) of [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+De volledige levenscyclus kan worden beheerd via [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [CLI-opdrachten](service-fabric-sfctl.md), [C#-API's](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java-API's](/java/api/system.fabric._application_management_client), en [ REST-API's](/rest/api/servicefabric/). U kunt ook continue integratie/continue implementatie pijplijnen met hulpprogramma's zoals instellen [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) of [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 De volgende video voor Microsoft Virtual Academy wordt beschreven hoe voor het beheren van de levenscyclus van uw toepassing:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -184,12 +184,31 @@ Buiten het vak een health Service Fabric-onderdelen rapport over alle entiteiten
 
 Service Fabric bevat meerdere manieren om te [statusrapporten weergeven](service-fabric-view-entities-aggregated-health.md) geaggregeerd in de health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) of andere visualisatie hulpprogramma's.
-* Statusquery's (via [PowerShell](/powershell/module/ServiceFabric/), wordt de [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) en [Java FabricClient APIs](/java/api/system.fabric._health_client), of [REST-API's](/rest/api/servicefabric)).
-* Algemene query's dat retourneren een lijst van entiteiten met status als een van de eigenschappen (via PowerShell, de API of REST).
+* Statusquery's (via [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), wordt de [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) en [Java FabricClient APIs](/java/api/system.fabric._health_client), of [REST API's](/rest/api/servicefabric)).
+* Algemene query's dat retourneren een lijst van entiteiten met status als een van de eigenschappen (via PowerShell, CLI, de API's of REST).
 
 De volgende video voor Microsoft Virtual Academy beschrijft het statusmodel van de Service Fabric en hoe deze wordt gebruikt:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## <a name="monitoring-and-diagnostics"></a>Controle en diagnose
+[Controle en diagnostische gegevens](service-fabric-diagnostics-overview.md) cruciaal zijn voor het ontwikkelen, testen en implementeren van toepassingen en services in elke omgeving. Service Fabric-oplossingen werken het beste wanneer u plannen en implementeren van controle en diagnostische gegevens waarmee Zorg ervoor toepassingen dat en services werkt zoals verwacht in een lokale ontwikkelingsomgeving of in de productieomgeving.
+
+De belangrijkste doelstellingen van controle en diagnostische gegevens zijn naar:
+
+- Detecteren en onderzoeken van problemen met hardware- en infrastructuur
+- Problemen met software- en app detecteren, de service uitvaltijd beperken
+- Resource gebruiks- en help station operations beslissingen begrijpen
+- Toepassings-, service- en infrastructuur optimaliseren
+- Zakelijke inzichten genereren en te identificeren gebieden van de gebruikerservaring
+ 
+De algemene werkstroom van controle en diagnostische gegevens bestaat uit drie stappen:
+
+1. Genereren van gebeurtenis: dit bevat gebeurtenissen (Logboeken, traceringen, aangepaste gebeurtenissen) op de infrastructuur (cluster), platform en toepassing / service niveau
+2. Aggregatie van gebeurtenis: gegenereerde gebeurtenissen moeten worden verzameld en geaggregeerd voordat ze kunnen worden weergegeven
+3. Analyse: gebeurtenissen moeten worden gevisualiseerde en toegankelijk zijn in sommige indeling, toestaan voor analyse en indien nodig wordt weergegeven
+
+Meerdere producten zijn beschikbaar die betrekking op deze drie gebieden en u bent gratis verschillende technologieën voor elk kiezen. Lees voor meer informatie [controle en diagnostische gegevens voor Azure Service Fabric](service-fabric-diagnostics-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Leer hoe u een [cluster maakt in Azure](service-fabric-cluster-creation-via-portal.md) of hoe u een [zelfstandig cluster maakt in Windows](service-fabric-cluster-creation-for-windows-server.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning: facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
@@ -230,7 +230,7 @@ Zie [Machine Learning-modellen programmatisch opnieuw trainen](retrain-models-pr
 
 **Hoe bewaak ik mijn geïmplementeerde webservice in productie?**
 
-Nadat u een voorspellend model hebt geïmplementeerd, kunt u het bewaken via de klassieke Azure-portal (alleen voor klassieke webservices) of de Azure Machine Learning-webserviceportal. Elke geïmplementeerde service heeft een eigen dashboard met de controlegegevens voor de service. Zie [Een webservice beheren met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md) en [Een Azure Machine Learning-werkruimte beheren](manage-workspace.md) voor meer informatie over het beheren van uw geïmplementeerde webservices.
+Nadat u een voorspellend model hebt geïmplementeerd, kunt u het bewaken via de Azure Machine Learning-webserviceportal. Elke geïmplementeerde service heeft een eigen dashboard met de controlegegevens voor de service. Zie [Een webservice beheren met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md) en [Een Azure Machine Learning-werkruimte beheren](manage-workspace.md) voor meer informatie over het beheren van uw geïmplementeerde webservices.
 
 **Kan ik de uitvoer van mijn RRS/BES ergens bekijken?**
 
@@ -285,7 +285,7 @@ Nee.
 ## <a name="security-and-availability"></a>Beveiliging en beschikbaarheid
 **Wie heeft standaard toegang tot het HTTP-eindpunt voor de webservice? Hoe beperk ik de toegang tot het eindpunt?**
 
-Na de implementatie van een webservice wordt een standaardeindpunt voor de service gemaakt. Het standaardeindpunt kan worden aangeroepen met de API-sleutel. U kunt meer eindpunten toevoegen met behulp van hun eigen sleutels van de klassieke Azure-portal of programmatisch met de Web Service Management API's. Voor het aanroepen van de webservice is een toegangssleutel vereist. Zie [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Azure Machine Learning-webservice gebruiken) voor meer informatie.
+Na de implementatie van een webservice wordt een standaardeindpunt voor de service gemaakt. Het standaardeindpunt kan worden aangeroepen met de API-sleutel. U kunt meer eindpunten toevoegen met behulp van hun eigen sleutels van de Web Services-portal of programmatisch met de Web Service Management API's. Voor het aanroepen van de webservice is een toegangssleutel vereist. Zie [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Azure Machine Learning-webservice gebruiken) voor meer informatie.
 
 **Wat gebeurt er als mijn Azure-opslagaccount niet kan worden gevonden?**
 
@@ -297,7 +297,7 @@ Als u per ongeluk het opslagaccount hebt verwijderd, maakt u het opslagaccount o
 
 Voor Machine Learning Studio hebben gebruikers een Azure-opslagaccount nodig om gegevens tussentijds op te slaan bij het uitvoeren van de werkstroom. Dit opslagaccount en de toegangssleutel voor de werkruimte worden verstrekt aan Machine Learning Studio wanneer een werkruimte wordt gemaakt. Als de toegangssleutels zijn gewijzigd nadat de werkruimte is gemaakt, heeft de werkruimte geen toegang meer tot het opslagaccount. De werkruimte functioneert niet meer en alle experimenten in deze werkruimte mislukken.
 
-Als u de toegangssleutel voor een opslagaccount hebt gewijzigd, moet u de toegangssleutel in de klassieke Azure-portal opnieuw synchroniseren in de werkruimte.  
+Als u de toegangssleutel voor een opslagaccount hebt gewijzigd, moet u de toegangssleutel in Azure Portal opnieuw synchroniseren in de werkruimte.  
 
 ## <a name="support-and-training"></a>Ondersteuning en training
 **Waar kan ik training krijgen voor Azure Machine Learning?**
@@ -509,7 +509,7 @@ U hebt alleen een Microsoft-account nodig. Ga naar de [startpagina van Azure Mac
 
 **Hoe registreer ik me voor de Standard-laag van Azure Machine Learning?**
 
-Als u een Standard Machine Learning-werkruimte wilt maken, moet u eerst toegang hebben tot een Azure-abonnement. U kunt u registreren voor een gratis Azure-proefabonnement van 30 dagen en later een upgrade uitvoeren naar een betaald Azure-abonnement, of u kunt meteen een betaald Azure-abonnement kopen. Nadat u toegang hebt gekregen tot het abonnement kunt u in de klassieke Microsoft Azure-portal een Machine Learning-werkruimte maken. Bekijk de [stapsgewijze instructies](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Als u een Standard Machine Learning-werkruimte wilt maken, moet u eerst toegang hebben tot een Azure-abonnement. U kunt u registreren voor een gratis Azure-proefabonnement van 30 dagen en later een upgrade uitvoeren naar een betaald Azure-abonnement, of u kunt meteen een betaald Azure-abonnement kopen. Nadat u toegang hebt gekregen tot het abonnement kunt u in Microsoft Azure Portal een Machine Learning-werkruimte maken. Bekijk de [stapsgewijze instructies](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 U kunt ook door de eigenaar van een Standard Machine Learning-werkruimte worden uitgenodigd voor deze werkruimte.
 

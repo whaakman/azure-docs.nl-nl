@@ -4,7 +4,7 @@ description: Dit onderwerp beschrijft de accounts gebruikt en gemaakt en de vere
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: De Accounts en machtigingen
 De Azure AD Connect-installatiewizard biedt twee verschillende paden:
@@ -75,8 +75,8 @@ Azure AD Connect versie 1.1.524.0 en later is de optie om de Azure AD Connect-wi
 | Verbinding maken met Azure AD |Azure AD-directory-referenties |De rol globale beheerder in Azure AD |<li>In de Azure AD-directory-synchronisatie inschakelen.</li>  <li>Het maken van de [Azure AD-account](#azure-ad-service-account) die wordt gebruikt voor continu synchronisatiebewerkingen in Azure AD.</li> |
 | Verbinding maken met uw directory’s |On-premises Active Directory-referenties voor elke forest die is verbonden met Azure AD |De machtigingen zijn afhankelijk van welke functies u inschakelen en kunt u vinden in [het AD DS-account maken](#create-the-ad-ds-account) |Dit account wordt gebruikt om te lezen en schrijven van directory-informatie tijdens de synchronisatie. |
 | AD FS-Servers |Voor elke server in de lijst verzamelt met de wizard referenties wanneer de referenties voor de aanmelding van gebruiker die de wizard onvoldoende zijn om te verbinden |Domeinbeheerder |Installatie en configuratie van de AD FS-serverfunctie. |
-| Web application proxy-servers |Voor elke server in de lijst verzamelt met de wizard referenties wanneer de referenties voor de aanmelding van gebruiker die de wizard onvoldoende zijn om te verbinden |Lokale beheerder op de doelcomputer |Installatie en configuratie van WAP-serverfunctie. |
-| Vertrouwensrelatie proxyreferenties |Federatieservice vertrouwen referenties (de referenties op de proxy wordt gebruikt om in te schrijven voor een certificaat van de vertrouwensrelatie van de FS |Domeinaccount die een lokale beheerder van de AD FS-server |Initiële inschrijving van FS WAP vertrouwensrelatie certificaat. |
+| Webtoepassingsproxyservers |Voor elke server in de lijst verzamelt met de wizard referenties wanneer de referenties voor de aanmelding van gebruiker die de wizard onvoldoende zijn om te verbinden |Lokale beheerder op de doelcomputer |Installatie en configuratie van WAP-serverfunctie. |
+| Vertrouwde proxyreferenties |Federatieservice vertrouwen referenties (de referenties op de proxy wordt gebruikt om in te schrijven voor een certificaat van de vertrouwensrelatie van de FS |Domeinaccount die een lokale beheerder van de AD FS-server |Initiële inschrijving van FS WAP vertrouwensrelatie certificaat. |
 | AD FS-serviceaccount pagina "Gebruiken een optie gebruiker account" |AD-gebruikersaccountreferenties |Domeingebruiker |De AD-gebruikersaccount met de referenties die zijn opgegeven wordt als de aanmeldingsaccount van de AD FS-service gebruikt. |
 
 ### <a name="create-the-ad-ds-account"></a>Het AD DS-account maken
@@ -101,7 +101,7 @@ Wanneer u een van één versie van Azure AD Connect naar een nieuwe versie upgra
 >Beginnen met build 1.1.484, Azure AD Connect geïntroduceerd een bug regressie waarvoor sysadmin-machtigingen voor de SQL-database bijwerken.  Deze fout is nog steeds aanwezig zijn in de laatste build 1.1.614.  Als u naar deze versie upgraden wilt, moet u sysadmin-bevoegdheden.  Dbo-machtigingen zijn niet voldoende.  Als u probeert bij te werken van Azure AD Connect zonder sysadmin-bevoegdheden, mislukt de upgrade en Azure AD Connect wordt niet meer correct werkt daarna.  Microsoft is op de hoogte en werkt om dit te corrigeren.
 
 
-| Principal | Machtigingen die vereist zijn | Gebruikt voor |
+| Hoofd | Machtigingen die vereist zijn | Gebruikt voor |
 | --- | --- | --- |
 | Gebruiker met de installatiewizard |De beheerder van de lokale server |Binaire bestanden worden bijgewerkt. |
 | Gebruiker met de installatiewizard |Lid van ADSyncAdmins |Breng wijzigingen in synchronisatie-regels en andere configuratie. |

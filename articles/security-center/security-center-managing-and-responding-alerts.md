@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: a1ea4007f7399dff6da9d66931e1f5366942be0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
 Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
@@ -58,6 +58,10 @@ Onder aan deze pagina ziet u de details voor elke waarschuwing. Als u wilt sorte
   * **Actief**: de beveiligingswaarschuwing is gedetecteerd.
 * **Ernst**: de ernst kan hoog, gemiddeld of laag zijn.
 
+> [!NOTE]
+> Beveiligingswaarschuwingen die door Security Center worden gegenereerd, worden ook weergegeven onder het Azure-activiteitenlogboek. Zie [Activiteitenlogboeken bekijken om de acties op resources te controleren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) voor meer informatie over toegang tot het Azure-activiteitenlogboek.
+>
+
 ### <a name="filtering-alerts"></a>Waarschuwingen filteren
 U kunt waarschuwingen filteren op basis van datum, status en ernst. Het filteren van waarschuwingen kan nuttig zijn wanneer u minder beveiligingswaarschuwingen wilt weergeven. U kunt u bijvoorbeeld concentreren op de beveiligingswaarschuwingen van de afgelopen 24 uur, omdat u een mogelijke inbreuk in het systeem onderzoekt.
 
@@ -83,7 +87,7 @@ Het herstel dat door Security Center wordt voorgesteld, verschilt per beveiligin
 
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Center configureert. Zie de volgende onderwerpen voor meer informatie over Security Center:
+In dit document hebt u kunnen lezen hoe u het beveiligingsbeleid in Security Center configureert. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
 * [Beveiligingsincidenten afhandelen in Azure Security Center](security-center-incident.md)
 * [Detectiemogelijkheden van Azure Security Center](security-center-detection-capabilities.md)

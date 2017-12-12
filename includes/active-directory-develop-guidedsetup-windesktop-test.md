@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testen van uw code
 
 Testen van uw toepassing in Visual Studio, drukt u op **F5** aan uw project uitvoeren. De **MainWindow** voor uw toepassing wordt weergegeven:

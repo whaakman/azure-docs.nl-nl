@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ef0395a9c666732ba117822f46e8d2a7540aee14
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d134359cd986d654ad411586302d01634914325e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Voorbereiden van de toepassing Azure Container Service (AKS)
 
@@ -32,9 +32,9 @@ In volgende zelfstudies leert is de installatiekopie van de container geüpload 
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker-basisopdrachten. Zie, indien nodig, [Aan de slag met Docker]( https://docs.docker.com/get-started/) voor een uitleg van de basisprincipes van containers. 
+In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker-basisopdrachten. Indien nodig, Zie [aan de slag met Docker] [ docker-get-started] voor een primer op de basisprincipes van de container. 
 
-Voor deze zelfstudie hebt u een Docker-ontwikkelomgeving nodig. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
+Voor deze zelfstudie hebt u een Docker-ontwikkelomgeving nodig. Docker biedt pakketten die eenvoudig Docker op elke configureren [Mac][docker-for-mac], [Windows][docker-for-windows], of [Linux] [ docker-for-linux] system.
 
 Azure Cloud-Shell is dan de Docker-onderdelen die nodig zijn voor het voltooien van elke stap in deze zelfstudie niet opgenomen. Daarom wordt u aangeraden een volledige Docker-ontwikkelomgeving.
 
@@ -58,7 +58,7 @@ In de map is de broncode van de toepassing, een vooraf gemaakte Docker compose b
 
 ## <a name="create-container-images"></a>Maken van installatiekopieën van de container
 
-[Docker Compose](https://docs.docker.com/compose/) kan worden gebruikt voor het automatiseren van de build buiten de container-installatiekopieën en de implementatie van toepassingen met meerdere container.
+[Docker Compose] [ docker-compose] kan worden gebruikt voor het automatiseren van de build buiten de container-installatiekopieën en de implementatie van toepassingen met meerdere container.
 
 Voer de `docker-compose.yml` bestand dat u wilt maken van de installatiekopie van de container, de installatiekopie van het Redis downloaden en de toepassing niet starten.
 
@@ -66,7 +66,7 @@ Voer de `docker-compose.yml` bestand dat u wilt maken van de installatiekopie va
 docker-compose up -d
 ```
 
-Wanneer het voltooid, gebruiken de [docker-installatiekopieën](https://docs.docker.com/engine/reference/commandline/images/) opdracht om te zien van de gemaakte afbeeldingen.
+Wanneer het voltooid, gebruiken de [docker-installatiekopieën] [ docker-images] opdracht om te zien van de gemaakte afbeeldingen.
 
 ```console
 docker images
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Voer de [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) opdracht om te zien van de actieve containers.
+Voer de [docker ps] [ docker-ps] opdracht om te zien van de actieve containers.
 
 ```console
 docker ps
@@ -131,4 +131,16 @@ In deze zelfstudie maakt een toepassing is getest en installatiekopieën van de 
 Ga verder met de volgende zelfstudie voor meer informatie over het opslaan van installatiekopieën van de container in een Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Installatiekopieën pushen naar Azure Container Registry](./tutorial-kubernetes-prepare-acr.md)
+> [Push-installatiekopieën in Azure Container register][aks-tutorial-prepare-acr]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-for-mac]: https://docs.docker.com/docker-for-mac/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

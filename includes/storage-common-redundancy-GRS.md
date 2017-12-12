@@ -1,13 +1,13 @@
-Geografisch redundante opslag (GRS) worden uw gegevens gerepliceerd naar een secundaire regio die honderden mijl weg van de primaire regio. Als uw storage-account GRS ingeschakeld heeft, zijn uw gegevens is duurzame zelfs het geval van een volledige regionale uitval of een ramp optreedt waarbij de primaire regio kan niet worden hersteld.
+Geografisch redundante opslag (GRS) is zodanig ontworpen dat ten minste 99.99999999999999% (16 van 9) duurzaamheid van objecten gedurende een bepaald jaar door uw gegevens repliceren naar een secundaire regio die honderden mijl weg van de primaire regio. Als uw storage-account GRS ingeschakeld heeft, zijn uw gegevens is duurzame zelfs het geval van een volledige regionale uitval of een ramp optreedt waarbij de primaire regio kan niet worden hersteld.
 
-Voor een opslagaccount met GRS ingeschakeld, is een update eerst toegewijd aan de primaire regio, waar deze drie keer is gerepliceerd. De update wordt vervolgens asynchroon gerepliceerd naar de secundaire regio, waar deze ook driemaal gerepliceerd.
+Voor een opslagaccount met GRS ingeschakeld, wordt een update eerst naar de primaire regio doorgevoerd. De update wordt vervolgens asynchroon gerepliceerd naar de secundaire regio, waar deze ook worden gerepliceerd.
 
 Met GRS de gebieden primaire en secundaire replica's in afzonderlijke foutdomeinen beheren en domeinen binnen een schaaleenheid opslag zoals beschreven met LRS upgraden.
 
 Overwegingen:
 
 * Aangezien asynchrone replicatie moet worden van een vertraging, er in een noodsituatie regionale is het mogelijk dat wijzigingen die nog niet is gerepliceerd naar de secundaire regio verbroken worden als de gegevens van de primaire regio kan niet worden hersteld.
-* De replica is niet beschikbaar, tenzij Microsoft failover naar de secundaire regio initieert. Als Microsoft een failover naar de secundaire regio starten, u hebt leesmachtigingen en schrijftoegang tot die gegevens na de failover is voltooid. Zie voor meer informatie [Disaster Recovery richtlijnen](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+* De replica is niet beschikbaar, tenzij Microsoft failover naar de secundaire regio initieert. Als Microsoft een failover naar de secundaire regio starten, u hebt leesmachtigingen en schrijftoegang tot die gegevens na de failover is voltooid. Zie voor meer informatie [Disaster Recovery richtlijnen](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * Als een toepassing wil lezen van de secundaire regio, moet de gebruiker RA-GRS inschakelen.
 
 Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. De secundaire regio wordt bepaald op basis van de primaire regio en kan niet worden gewijzigd. De volgende tabel toont de koppelingen van de primaire en secundaire regio.
@@ -50,6 +50,6 @@ Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. 
 Zie voor actuele informatie over regio's die worden ondersteund door Azure [Azure-regio's](https://azure.microsoft.com/regions/).
 
 >[!NOTE]  
-> VS Gov Virginia secundaire regio is Gov ons Texas. Voorheen gebruikt Gov ons Virginia Gov ons Iowa als een secundaire regio. Storage-accounts nog Gov ons Iowa als een secundaire regio worden gemigreerd naar Gov ons Texas als een secundaire regio. 
-> 
-> 
+> VS Gov Virginia secundaire regio is Gov ons Texas. Voorheen gebruikt Gov ons Virginia Gov ons Iowa als een secundaire regio. Storage-accounts nog Gov ons Iowa als een secundaire regio worden gemigreerd naar Gov ons Texas als een secundaire regio.
+>
+>

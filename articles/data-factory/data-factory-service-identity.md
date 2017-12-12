@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 4b970341f9511a889bfcc288756b1be6a4f4647e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory-service-identiteit
 
@@ -172,3 +172,5 @@ Zie de volgende onderwerpen die introduceren wanneer en hoe u data factory-servi
 
 - [Opslaan van referenties in Azure Sleutelkluis](store-credentials-in-key-vault.md)
 - [Gegevens kopiëren van/naar Azure Data Lake Store met behulp van verificatie van de beheerde service-identiteit](connector-azure-data-lake-store.md)
+
+Zie [MSI overzicht](~/articles/active-directory/msi-overview.md) voor meer achtergrondinformatie over Service-identiteit beheerd welke data factory-service-identiteit is gebaseerd op. 

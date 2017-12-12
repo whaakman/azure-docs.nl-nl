@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Een streaming gegevens invoer- of gegevens toevoegen aan Stream Analytics-taak
 Informatie over het aansluiten van een gegevensbron om uw Stream Analytics-taak als streaming gegevensinvoer uit Event Hubs of verwijzing gegevens uit Blob storage.
@@ -38,7 +38,7 @@ Een invoer toevoegen aan Stream Analytics-taak:
 
 1. Klik in de Azure portal op **invoer** en klik vervolgens op **invoer toevoegen** in uw Stream Analytics-taak.
    
-    ![Klassieke Azure-portal - invoer toevoegen.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure-portal - invoer toevoegen.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     Klik in de Azure portal op de **invoer** -tegel in de Stream Analytics-taak.  
    
@@ -61,7 +61,7 @@ Een invoer toevoegen aan Stream Analytics-taak:
 5. Geef de serialisatie-instellingen voor de ingevoerde gegevens:
    
    * Om er zeker van te zijn uw query's werken zoals verwacht, geef de **gebeurtenis serialisatie-indeling** van binnenkomende gegevens.  Ondersteunde serialisatie-indelingen zijn JSON, CSV en Avro.
-   * Controleer of de **codering** voor de gegevens.  Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.
+   * Controleer of de **codering** voor de gegevens.  De enige ondersteunde coderingsindeling is UTF-8 op dit moment.
      
      ![Instellingen voor serialisatie van gegevens voor de gegevens invoeren](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
      

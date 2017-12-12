@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2410ed152674637cb1b287db55da67b8d5f5f072
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificatie van de installatiekopie met behulp van Azure Machine Learning Workbench
 
@@ -63,7 +63,7 @@ De vereisten voor het uitvoeren van dit voorbeeld zijn als volgt:
 - Fouten tijdens de training DNN-geheugen kunnen worden vermeden door minibatch verkleinen (variabele `cntk_mb_size` in `PARAMETERS.py`).
 - De code is getest met CNTK 2.2 en moet ook uitvoeren op oudere (tot v2.0) en nieuwere versies zonder of alleen kleine wijzigingen.
 - Op het moment van schrijven had de Workbench van Azure Machine Learning problemen met notitieblokken groter is dan 5 MB. Notitieblokken van deze grote omvang kunnen gebeuren als de laptop is opgeslagen met alle cellen uitvoer weergegeven. Als u deze fout optreedt en vervolgens de opdrachtprompt vanuit het menu bestand in de Workbench openen, uitvoermachtigingen `jupyter notebook`, opent u de notebook Wis alle uitvoer en opslaan van de notebook. Na deze stappen uitvoert, wordt de notebook correct in de Azure Machine Learning-Workbench opnieuw openen.
-- Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving. Alle notitieblokken moeten worden uitgevoerd met kernel ingesteld op de kernel lokaal project met de naam '<projectname> lokale ' (bijvoorbeeld ' myImgClassUsingCNTK lokaal').
+- Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving. Alle notitieblokken moeten worden uitgevoerd met kernel ingesteld op de kernel lokaal project met de naam 'PROJECTNAME lokale' (bijvoorbeeld ' myImgClassUsingCNTK lokale').
 
     
 ## <a name="create-a-new-workbench-project"></a>Maak een nieuw project in de workbench
@@ -115,7 +115,7 @@ Alle belangrijke parameters zijn opgegeven en een korte uitleg hebt opgegeven, o
 ### <a name="step-1-data-preparation"></a>Stap 1: Gegevens voorbereiden
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-De notebook `showImages.ipynb` kunnen worden gebruikt voor het visualiseren van de installatiekopieën en corrigeren van de aantekening indien nodig. Voor het uitvoeren van de notebook, opent u het in Azure Machine Learning Workbench, klik op 'Start-Notebook Server' als deze optie wordt weergegeven, in de kernel lokaal project met de naam wijzigen '<projectname> lokale ' (bijvoorbeeld de ' myImgClassUsingCNTK-lokaal'), en voer vervolgens alle cellen in de laptop. Zie de sectie Probleemoplossing in dit document als u een fout klagen krijgt dat de laptop is te groot om te worden weergegeven.
+De notebook `showImages.ipynb` kunnen worden gebruikt voor het visualiseren van de installatiekopieën en corrigeren van de aantekening indien nodig. Voor het uitvoeren van de notebook, opent u het in Azure Machine Learning Workbench, klik op 'Start-Notebook Server' als deze optie wordt weergegeven, wijzigen in de kernel lokaal project met de naam 'PROJECTNAME lokale' (bijvoorbeeld de ' myImgClassUsingCNTK-lokaal'), en vervolgens uitgevoerd alle cellen in de laptop. Zie de sectie Probleemoplossing in dit document als u een fout klagen krijgt dat de laptop is te groot om te worden weergegeven.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -179,7 +179,7 @@ Naast de nauwkeurigheid, wordt de ROC-curve getekend met respectieve gebied-onde
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën van de test schuift en hun respectieve classificatie scores visualiseren. Zoals wordt beschreven in stap 1, elke laptop in dit voorbeeld moet de lokale project kernel gebruiken met de naam '<projectname> lokale ':
+Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën van de test schuift en hun respectieve classificatie scores visualiseren. Zoals wordt beschreven in stap 1, moet elke laptop in dit voorbeeld gebruiken de kernel lokaal project met de naam 'PROJECTNAME lokale':
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -191,7 +191,7 @@ Ten slotte de notebook `showResults.py` is opgegeven voor de installatiekopieën
 ### <a name="step-6-deployment"></a>Stap 6: implementatie
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van de functionaliteit in de Azure Machine Learning-Workbench (Vergeet niet in te stellen als kernel de kernel lokaal project met de naam '<projectname> lokale '). Zie ook de Implementatiesectie uitstekende van de [IRIS zelfstudie](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) voor de implementatie van meer gerelateerde informatie.
+Het getrainde systeem kan nu worden gepubliceerd als een REST-API. Implementatie wordt uitgelegd in de notebook `deploy.ipynb`, en op basis van de functionaliteit in de Azure Machine Learning-Workbench (Vergeet niet in te stellen als kernel de kernel lokaal project met de naam 'local PROJECTNAME'). Zie ook de Implementatiesectie uitstekende van de [IRIS zelfstudie](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) voor de implementatie van meer gerelateerde informatie.
 
 Zodra geïmplementeerd, de webservice kan worden aangeroepen met het script `6_callWebservice.py`. Houd er rekening mee dat het IP-adres (lokaal of in de cloud) van de webservice moet eerst worden ingesteld in het script. De notebook `deploy.ipynb` wordt uitgelegd hoe u deze IP-adres vinden.
 

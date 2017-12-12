@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Releaseopmerkingen voor Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 De releaseopmerkingen voor Microsoft Azure BizTalk Services bevatten de bekende problemen in deze release.
 
@@ -34,8 +36,8 @@ De releaseopmerkingen voor Microsoft Azure BizTalk Services bevatten de bekende 
 * Organisatieaccounts worden ondersteund:  
   * **Scenario**: U een BizTalk Service-implementatie met behulp van een Microsoft-account geregistreerd (zoals user@live.com). In dit scenario kunnen alleen gebruikers van Microsoft-Account de BizTalk Service gebruikt de BizTalk Services-portal beheren. Een organisatie-account kan niet worden gebruikt.  
   * **Scenario**: U een BizTalk Service-implementatie met een organisatie-account in een Azure Active Directory geregistreerd (zoals user@fabrikam.com of user@contoso.com). In dit scenario kunnen alleen Azure Active Directory-gebruikers binnen dezelfde organisatie beheren van de BizTalk Service gebruikt de BizTalk Services-portal. Een Microsoft-account kan niet worden gebruikt.  
-* Wanneer u een BizTalk Service in de klassieke Azure portal maakt, wordt u automatisch geregistreerd in de Portal van BizTalk Services.
-  * **Scenario**: je je aanmelden bij de klassieke Azure portal een BizTalk Service maakt en selecteer vervolgens **beheren** voor de eerste keer. Als de BizTalk Services-portal wordt geopend, wordt de BizTalk Service automatisch wordt geregistreerd en gereed is voor uw implementaties.  
+* Wanneer u een BizTalk Service maakt, wordt u automatisch geregistreerd in de Portal van BizTalk Services.
+  * **Scenario**: je je aanmelden bij Azure, een BizTalk Service maakt en selecteer vervolgens **beheren** voor de eerste keer. Als de BizTalk Services-portal wordt geopend, wordt de BizTalk Service automatisch wordt geregistreerd en gereed is voor uw implementaties.  
     Zie [registreren en bijwerken van een BizTalk Service-implementatie BizTalk Services-Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>14 augustus Update

@@ -4,7 +4,7 @@ description: Informatie over het instellen van Azure Active Directory die lid zi
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41ae5d019e303246d7c7c2b06cf73280f6472b6e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Instellen van de Azure Active Directory die lid zijn van apparaten
 
@@ -87,7 +87,7 @@ Deze sectie biedt u de stappen voor uw Windows 10-apparaat koppelt aan uw Azure 
 
 6. Op de **wachtwoord opgeven** dialoogvenster, Voer uw wachtwoord in en klik vervolgens op **aanmelden**.
 
-    ![Wachtwoord invoeren](./media/device-management-azuread-joined-devices-setup/05.png)
+    ![Voer het wachtwoord in](./media/device-management-azuread-joined-devices-setup/05.png)
 
 
 7. Op de **Zorg ervoor dat dit is uw organisatie** dialoogvenster, klikt u op **Join**.

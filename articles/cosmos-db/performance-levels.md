@@ -1,6 +1,6 @@
 ---
-title: API voor DocumentDB-prestatieniveaus | Microsoft Docs
-description: Meer informatie over hoe API DocumentDB-prestatieniveaus u doorvoer op basis van de container per reserveren.
+title: Buiten gebruik gesteld Azure Cosmos DB prestatieniveaus | Microsoft Docs
+description: Meer informatie over de S1, S2 en S3 prestatieniveaus eerder beschikbaar zijn in Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Buiten gebruik stellen van de prestaties S1, S2 en S3
 
 > [!IMPORTANT] 
-> De S1, S2 en S3 prestatieniveaus besproken in dit artikel worden buiten gebruik gesteld en zijn niet meer beschikbaar voor nieuwe DocumentDB-API-accounts.
+> De S1, S2 en S3 prestatieniveaus besproken in dit artikel worden buiten gebruik gesteld en zijn niet meer beschikbaar voor de nieuwe Azure DB die Cosmos-accounts.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Dit artikel biedt een overzicht van S1, S2 en S3 prestatieniveaus en wordt beschreven hoe de verzamelingen die gebruikmaken van deze prestatieniveaus laat in 2017 worden gemigreerd naar verzamelingen met één partitie. Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:
 
@@ -44,7 +46,7 @@ Dit artikel biedt een overzicht van S1, S2 en S3 prestatieniveaus en wordt besch
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Waarom worden de prestaties S1, S2 en S3 niveaus buiten gebruik gesteld?
 
-De prestaties S1, S2 en S3 bieden de flexibiliteit geen die aanbieding DocumentDB API-verzamelingen. Met de S1, S2, S3 prestatieniveaus, de doorvoer en de opslagcapaciteit vooraf zijn ingesteld en is niet aangeboden elasticiteit. Azure Cosmos DB biedt nu de mogelijkheid voor het aanpassen van de doorvoer en opslag, biedt veel meer flexibiliteit in de mogelijkheid om te worden geschaald, zoals het wijzigen van uw behoeften.
+De prestaties S1, S2 en S3 bieden niet de flexibiliteit die de standaard Azure Cosmos DB aanbieding biedt. Met de S1, S2, S3 prestatieniveaus, de doorvoer en de opslagcapaciteit vooraf zijn ingesteld en is niet aangeboden elasticiteit. Azure Cosmos DB biedt nu de mogelijkheid voor het aanpassen van de doorvoer en opslag, biedt veel meer flexibiliteit in de mogelijkheid om te worden geschaald, zoals het wijzigen van uw behoeften.
 
 <a name="compare"></a>
 
@@ -141,7 +143,7 @@ U kunt migreren vanaf de prestatieniveaus S1, S2 en S3 naar verzamelingen met é
 
 **Om te migreren naar verzamelingen met één partitie met de .NET SDK**
 
-Er is een andere optie voor het wijzigen van de uw verzamelingen prestatieniveaus via de Azure Cosmos DB SDK's. Deze sectie bevat alleen de prestaties van een verzameling wijzigen niveau met behulp van de [DocumentDB .NET API](documentdb-sdk-dotnet.md), maar het proces is vergelijkbaar voor onze andere SDK.
+Er is een andere optie voor het wijzigen van de uw verzamelingen prestatieniveaus via de Azure Cosmos DB SDK's. Deze sectie bevat alleen de prestaties van een verzameling wijzigen niveau met behulp van de [SQL .NET API](documentdb-sdk-dotnet.md), maar het proces is vergelijkbaar voor onze andere SDK.
 
 Hier volgt een codefragment voor het wijzigen van de verzameling doorvoer in 5000 aanvraageenheden per seconde:
     

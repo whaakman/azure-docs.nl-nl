@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Verbindingsproblemen met Azure SQL Database oplossen
 Wanneer de verbinding met Azure SQL Database is mislukt, krijgt u [foutberichten](sql-database-develop-error-messages.md). Dit artikel is een gecentraliseerde onderwerp helpt u problemen met Azure SQL Database. Dit introduceert [algemene oorzaken](#cause) van verbindingsproblemen, raadt [een hulpprogramma voor het oplossen van problemen](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) die helpt u bij de identiteit van het probleem en bevat de stappen voor probleemoplossing voor het oplossen van [tijdelijke fouten](#troubleshoot-transient-errors) en [permanente of tijdelijke fouten](#troubleshoot-persistent-errors). 
@@ -77,7 +77,7 @@ Als de toepassing niet permanent verbinding maken met Azure SQL Database, dit ge
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Stappen voor het oplossen van problemen met de permanente netwerkverbinding
 1. Instellen van [firewall-regels](sql-database-configure-firewall-settings.md) waarmee de client-IP-adres. Voor tijdelijke voor testdoeleinden, stelt u een firewallregel 0.0.0.0 gebruikt als het eerste IP-adresbereik en 255.255.255.255 als het laatste IP-adresbereik. Hiermee opent u de server voor alle IP-adressen. Als dit het connectiviteitsprobleem is opgelost, verwijdert u deze regel en een firewallregel voor een op de juiste wijze beperkt IP-adres of -adresbereik maken. 
 2. Zorg dat de poort 1433 geopend voor uitgaande verbindingen is op alle firewalls tussen de client en het Internet. Bekijk [configureren Windows Firewall op SQL Server-toegang toestaan](https://msdn.microsoft.com/library/cc646023.aspx) en [hybride identiteit nodig poorten en protocollen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) voor aanvullende verwijzingen zijn gerelateerd aan extra poorten die u nodig hebt om te openen voor Azure Active Directory-verificatie.
-3. Controleer of de verbindingsreeks en andere instellingen. Zie de sectie verbindingsreeks in de [connectiviteit problemen onderwerp](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3. Controleer of de verbindingsreeks en andere instellingen. Zie de sectie verbindingsreeks in de [connectiviteit problemen onderwerp](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Controleer de servicestatus van de in het dashboard. Als u denkt dat er is een regionale uitval, Zie [herstellen van een storing](sql-database-disaster-recovery.md) voor stappen voor het herstellen naar een nieuw gebied.
 
 ## <a name="next-steps"></a>Volgende stappen

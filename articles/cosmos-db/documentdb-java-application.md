@@ -1,7 +1,7 @@
 ---
 title: Zelfstudie over het ontwikkelen van Java-toepassingen met Azure Cosmos DB | Microsoft Docs
-description: Deze zelfstudie over Java-webtoepassingen ziet u het gebruik van de Cosmos Azure DB en de DocumentDB-API voor het opslaan van en toegang tot gegevens uit een Java-toepassing gehost op Azure Websites.
-keywords: Toepassingsontwikkeling, databasezelfstudie, java-toepassing, java-webtoepassing zelfstudie, documentdb, azure, Microsoft azure
+description: Deze zelfstudie over Java-webtoepassingen ziet u het gebruik van de Cosmos Azure DB en de SQL-API voor het opslaan van en toegang tot gegevens uit een Java-toepassing gehost op Azure Websites.
+keywords: Toepassingsontwikkeling, zelfstudie, java-toepassing, zelfstudie over java-webtoepassingen, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0081a080e33b0377516f99d6cdeb9fcc38bc10da
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Een Java-webtoepassing met behulp van Azure DB die Cosmos en de API DocumentDB bouwen
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Een Java-webtoepassing met behulp van Azure DB die Cosmos en de SQL-API bouwen
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -29,6 +29,8 @@ ms.lasthandoff: 10/11/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Deze zelfstudie over Java-webtoepassingen, leest u hoe u de [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service voor het opslaan en toegang tot gegevens van een Java-toepassing die worden gehost op Azure App Service Web Apps. In dit onderwerp leert u het volgende:
 
@@ -86,8 +88,8 @@ De JSP-toepassing maken:
    
     ![Hello World – Zelfstudie Java-toepassing](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Stap 3: De DocumentDB Java SDK installeren
-De eenvoudigste manier om de Java DocumentDB SDK en de bijbehorende afhankelijkheden op te halen, is via [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Stap 3: Installeer de SQL-Java SDK
+De eenvoudigste manier om op te halen in de SQL-SDK voor Java en de bijbehorende afhankelijkheden is via [Apache Maven](http://maven.apache.org/).
 
 Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar een Maven-project:
 
@@ -101,12 +103,12 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
    * In de **artefact-Id** Voer azure documentdb.
    * In de **versie** Voer 1.5.1.
      
-   ![DocumentDB Java Application SDK installeren](./media/documentdb-java-application/image13.png)
+   ![SQL Java Application SDK installeren](./media/documentdb-java-application/image13.png)
      
    * Of Voeg de afhankelijkheids-XML voor de groeps-Id en artefact-Id rechtstreeks aan pom.xml via een teksteditor:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Klik op **OK** en Maven de DocumentDB Java SDK installeert.
+6. Klik op **OK** en Maven de SQL Java SDK installeert.
 7. Sla het bestand pom.xml op.
 
 ## <a id="UseService"></a>Stap 4: de Azure Cosmos DB-service in een Java-toepassing gebruiken
@@ -279,7 +281,7 @@ Hiervoor moet u de volgende stappen uitvoeren om het project te converteren naar
                 return null;
             }
         }
-7. We kunnen ook de DocumentClient gebruiken om een verzameling of lijst met TodoItems op te halen met DocumentDB SQL:
+7. We kunnen ook de DocumentClient gebruiken om op te halen van een verzameling of lijst met TodoItems met behulp van SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {

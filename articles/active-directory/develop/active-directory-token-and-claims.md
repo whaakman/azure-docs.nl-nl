@@ -4,7 +4,7 @@ description: Een handleiding voor meer informatie over en evaluatie van de claim
 documentationcenter: na
 author: dstrockis
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 2151ed6c95e8cb65917654e54133e98912011c00
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD-tokenverwijzing
 Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij de verwerking van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
@@ -71,7 +71,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `sub` |Onderwerp |Identificeert de principal waarover het token asserts informatie, zoals de gebruiker van een toepassing. Deze waarde is onveranderbaar en kan niet opnieuw worden toegewezen of opnieuw worden gebruikt, dus kan worden gebruikt controles uit te voeren autorisatie veilig. Omdat het onderwerp altijd aanwezig in de tokens problemen met de Azure AD is, raden wij u deze waarde in een algemeen autorisatie-systeem. <br> `SubjectConfirmation`is niet een claim. Hierin wordt beschreven hoe het onderwerp van het token is gecontroleerd. `Bearer`Hiermee wordt aangegeven dat het onderwerp wordt bevestigd door hun bezit van het token. <br><br> **Voorbeeldwaarde SAML**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Voorbeeldwaarde JWT**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
 | `tid` |Tenant-id |Een niet-wijzigbaar, herbruikbare id waarmee de directory-tenant die het token heeft uitgegeven. U kunt deze waarde gebruiken voor toegang tot directoryresources in een multitenant-toepassing tenantspecifieke. U kunt deze waarde bijvoorbeeld gebruiken voor het identificeren van de tenant in een aanroep van de Graph API. <br><br> **Voorbeeldwaarde SAML**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Voorbeeldwaarde JWT**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
 | `nbf`, `exp` |Levensduur van token |Definieert het tijdsinterval waarin een token geldig is. De service die het token valideert dient te verifiëren dat de huidige datum valt binnen de levensduur van tokens, anders die wordt het token moet afwijzen. De service kan leiden tot vijf minuten buiten het bereik van de levensduur van token ter compensatie van eventuele verschillen in kloktijd ('tijd tijdverschil') tussen Azure AD en de service. <br><br> **Voorbeeldwaarde SAML**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Voorbeeldwaarde JWT**: <br> `"nbf":1363289634, "exp":1363293234` |
-| `upn` |Principalnaam van gebruiker |Slaat de naam van de user principal.<br><br> **Voorbeeldwaarde JWT**: <br> `"upn": frankm@contoso.com` |
+| `upn` |User principal name |Slaat de naam van de user principal.<br><br> **Voorbeeldwaarde JWT**: <br> `"upn": frankm@contoso.com` |
 | `ver` |Versie |Slaat het versienummer van het token. <br><br> **Voorbeeldwaarde JWT**: <br> `"ver": "1.0"` |
 
 ## <a name="access-tokens"></a>Toegangstokens

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Veelgestelde vragen voor ClearDB MySql-databases met Azure App Service
 Deze Veelgestelde vragen over de antwoorden op veelgestelde vragen over het gebruik en de aanschaf van ClearDB MySQL databases voor Web-Apps van Azure.
@@ -68,7 +68,7 @@ Basic of een hogere prijscategorie voor Web-Apps gebruiken. Voor ClearDB, wordt 
 In de [Azure-portal](https://portal.azure.com), kunt u een database ClearDB gedeelde hosting opschalen. Lees dit [artikel](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) voor meer informatie. Momenteel ondersteund niet upgrade voor ClearDB Premium clusters in de Azure portal.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Ik kan mijn ClearDB-database in Azure-portal niet zien?
-Als er ClearDB-database met Azure Resource Manager worden gemaakt of [nieuwe Azure-Portal](https://portal.azure.com), zijn niet zichtbaar in de [oude Azure-Portal](https://manage.windowsazure.com). Om te werken-rond dit is de database handmatig koppelen aan de web-app. Op dezelfde manier als voor het maken van ClearDB-database in de [oude portal](https://manage.windowsazure.com) u zich niet kunnen zien van de database in de [nieuwe Azure-Portal](https://portal.azure.com). Er is geen tijdelijke oplossing voor het tweede scenario.
+Als u een ClearDB-database in de klassieke hebt gemaakt, kunt u zich niet zien van de database in de [Azure Portal](https://portal.azure.com). Er is geen tijdelijke oplossing voor dit scenario.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Wie ik contact opnemen voor ondersteuning bij mijn database niet beschikbaar is?
 Neem contact op met [ClearDB ondersteuning](https://www.cleardb.com/developers/help/support) voor alle databasequery gerelateerde problemen. Voorbereiden om ze te bieden met de informatie van uw Azure-abonnement.

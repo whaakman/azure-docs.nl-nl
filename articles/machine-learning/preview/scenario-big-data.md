@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -100,22 +100,22 @@ De totale gegevensgrootte is ongeveer 1 TB. Elk bestand is ongeveer 1-3 GB en CS
 
 Kolomnummer | Veldnaam| Type | Beschrijving |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datum/tijd |    Begintijd sessie
-2  |`SessionEnd`    | Datum/tijd | Eindtijd van sessie
+1  | `SessionStart` | Datum en tijd |    Begintijd sessie
+2  |`SessionEnd`    | Datum en tijd | Eindtijd van sessie
 3 |`ConcurrentConnectionCounts` | Geheel getal | Aantal gelijktijdige verbindingen
 4 | `MbytesTransferred` | dubbele | Genormaliseerde gegevens overgebracht in MB
 5 | `ServiceGrade` | Geheel getal |  Klasse van de service voor de sessie
 6 | `HTTP1` | Geheel getal|  Sessie gebruikt HTTP1 of HTTP2
 7 |`ServerType` | Geheel getal   |Servertype
 8 |`SubService_1_Load` | dubbele |   Subservice 1 laden
-9 | `SubService_1_Load` | dubbele |  Subservice 2 laden
-10 | `SubService_1_Load` | dubbele |     Subservice 3 laden
-11 |`SubService_1_Load` | dubbele |  Subservice 4 laden
-12 | `SubService_1_Load`| dubbele |      Subservice 5 laden
+9 | `SubService_2_Load` | dubbele |  Subservice 2 laden
+10 | `SubService_3_Load` | dubbele |     Subservice 3 laden
+11 |`SubService_4_Load` | dubbele |  Subservice 4 laden
+12 | `SubService_5_Load`| dubbele |      Subservice 5 laden
 13 |`SecureBytes_Load`  | dubbele | Beveiligde bytes laden
 14 |`TotalLoad` | dubbele | Totale belasting van server
-15 |`ClientIP` | Tekenreeks|    IP-clientadres
-16 |`ServerIP` | Tekenreeks|    Het IP-adres
+15 |`ClientIP` | Reeks|    IP-clientadres
+16 |`ServerIP` | Reeks|    Het IP-adres
 
 
 
@@ -185,11 +185,11 @@ Het eerste argument `configFilename`, is een lokale configuratiebestand waar u d
 
 | Veld | Type | Beschrijving |
 |-----------|------|-------------|
-| StorageAccount | Tekenreeks | Naam van een Azure Storage-account |
-| storageContainer | Tekenreeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
-| storageKey | Tekenreeks |Azure toegangssleutel voor Opslagaccount |
-| DataFile|Tekenreeks | Gegevensbronbestanden  |
-| Duur| Tekenreeks | duur van de gegevens in de bronbestanden van de gegevens|
+| StorageAccount | Reeks | Naam van een Azure Storage-account |
+| storageContainer | Reeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
+| storageKey | Reeks |Azure toegangssleutel voor Opslagaccount |
+| DataFile|Reeks | Gegevensbronbestanden  |
+| Duur| Reeks | duur van de gegevens in de bronbestanden van de gegevens|
 
 Wijzigen van beide `Config/storageconfig.json` en `Config/fulldata_storageconfig.json` voor het configureren van het opslagaccount, opslagsleutel en de blob-container voor het opslaan van de tussenliggende resultaten. De blob-container voor de één maand gegevens uitvoert is standaard `onemonthmodel`, en de blob-container voor een volledige gegevensset uitgevoerd is `fullmodel`. Zorg ervoor dat u deze twee containers maken in uw opslagaccount. De `dataFile` veld [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configureert welke gegevens worden geladen [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). De `duration` veld configureert u het bereik dat de gegevens bevatten. Als de duur is ingesteld op ONE_MONTH, moet de geladen gegevens slechts één CSV-bestand tussen de zeven bestanden van de gegevens voor juni 2016. Als de duur van de volledige is, wordt de volledige gegevensset (1 TB) is geladen. U hoeft niet te wijzigen `dataFile` en `duration` in deze configuratie met twee bestanden.
 
@@ -327,7 +327,7 @@ Blader op de juiste zijbalk van de Workbench naar **wordt uitgevoerd** om te zie
 
 ### <a name="operationalize-the-model"></a>Het model operationeel maken
 
-In deze sectie maakt operationeel u het model dat u in de vorige stappen hebt gemaakt als een webservice. U leert ook hoe u met de webservice werkbelasting voorspellen. Gebruik Machine Language uitoefening opdrachtregelinterfaces (CLIs) aan het pakket van de code en de afhankelijkheden als Docker-installatiekopieën en voor het publiceren van het model als een beperkte webservice. Zie voor meer informatie [dit overzicht](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+In deze sectie maakt operationeel u het model dat u in de vorige stappen hebt gemaakt als een webservice. U leert ook hoe u met de webservice werkbelasting voorspellen. Gebruik Machine Language uitoefening opdrachtregelinterfaces (CLIs) aan het pakket van de code en de afhankelijkheden als Docker-installatiekopieën en voor het publiceren van het model als een beperkte webservice.
 
 U kunt de opdrachtprompt in Machine Learning-Workbench om uit te voeren van de CLIs gebruiken.  U kunt ook de CLIs op Ubuntu Linux uitvoeren door de [installatiehandleiding](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

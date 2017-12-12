@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 71ba93c64657725b48ad5915c6bb26dc32e5434d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Maken en een VHD FreeBSD uploaden naar Azure
 In dit artikel leest u hoe maken en uploaden van een virtuele harde schijf (VHD) die het besturingssysteem FreeBSD bevat. Nadat u deze uploaden, kunt u deze als uw eigen installatiekopie maken van een virtuele machine (VM) in Azure.
@@ -133,7 +133,7 @@ Als u de VHD-bestand uploadt, kunt u deze overal opnemen in de Blob-opslag. Hier
 
 * **BlobStorageURL** is de URL voor het opslagaccount dat u in stap 2 hebt gemaakt.
 * **YourImagesFolder** is de Blob storage-container waarin u wilt uw afbeeldingen op te slaan.
-* **VHDName** wordt het label dat wordt weergegeven in de klassieke Azure portal voor het identificeren van de virtuele harde schijf.
+* **VHDName** wordt het label dat wordt weergegeven in de Azure-portal voor het identificeren van de virtuele harde schijf.
 * **PathToVHDFile** is het volledige pad en de naam van het VHD-bestand.
 
 In het venster Azure PowerShell gebruikt u in de vorige stap, type:

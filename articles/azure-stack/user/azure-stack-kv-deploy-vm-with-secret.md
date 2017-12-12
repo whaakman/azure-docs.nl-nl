@@ -3,8 +3,8 @@ title: Een virtuele machine met veilig opgeslagen wachtwoord op Azure-Stack impl
 description: Informatie over het implementeren van een virtuele machine met een wachtwoord opgeslagen in Azure Stack Sleutelkluis
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
-ms.author: sngun
-ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Een virtuele machine door op te halen van het wachtwoord dat is opgeslagen in een Sleutelkluis maken
 
@@ -28,7 +28,7 @@ In dit artikel doorlopen we de stappen die nodig zijn voor het implementeren van
 
 ## <a name="prerequisites"></a>Vereisten
  
-* U moet moet zich abonneren op een aanbieding met de Sleutelkluis-service.  
+* U moet zich abonneren op een aanbieding met de Sleutelkluis-service.  
 * [Installeer PowerShell voor Azure-Stack.](azure-stack-powershell-install.md)  
 * [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving.](azure-stack-powershell-configure-user.md)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell gebruiken om een Azure VM te maken met een rapportserver in systeemeigen modus
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ In dit onderwerp wordt beschreven en wordt u begeleid bij de implementatie en co
 ## <a name="prerequisites-and-assumptions"></a>Vereisten en veronderstellingen
 * **Azure-abonnement**: Controleer of het aantal kernen beschikbaar in uw Azure-abonnement. Als u de aanbevolen VM-grootte van **A3**, moet u **4** beschikbaar kernen. Als u een VM-grootte van **A2**, moet u **2** beschikbaar kernen.
   
-  * Om te controleren of de core-limiet van uw abonnement, in de klassieke Azure portal, klik op instellingen in het linkerdeelvenster en klikt u op informatie over het gebruik in het menu bovenaan.
+  * Om te controleren of de core-limiet van uw abonnement, in de Azure portal, klik op instellingen in het linkerdeelvenster en klikt u op informatie over het gebruik in het menu bovenaan.
   * Voor een verhoging van het quotum voor kernen, neem contact op met [ondersteuning van Azure](https://azure.microsoft.com/support/options/). Zie voor informatie over de grootte van virtuele machine [grootten van virtuele machines voor Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell-scripts**: het onderwerp wordt ervan uitgegaan dat u een werkende basiskennis hebben van Windows PowerShell. Zie de volgende onderwerpen voor meer informatie over het gebruik van Windows PowerShell:
   
@@ -43,7 +43,7 @@ In dit onderwerp wordt beschreven en wordt u begeleid bij de implementatie en co
   * [Aan de slag met Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Stap 1: Een Azure-Machine inrichten
-1. Blader naar de klassieke Azure portal.
+1. Blader naar de Azure-portal.
 2. Klik op **virtuele Machines** in het linkerdeelvenster.
    
     ![Microsoft azure virtuele machines](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -80,7 +80,7 @@ In dit onderwerp wordt beschreven en wordt u begeleid bij de implementatie en co
      * **HTTPS**: de openbare en persoonlijke standaardpoorten zijn **443**. Er is een best practice bij beveiliging voor het wijzigen van de particuliere poort en configureer uw firewall en de rapportserver de particuliere poort gebruiken. Zie voor meer informatie over eindpunten [hoe instellen om communicatie met een virtuele Machine](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Let op: als u een andere poort dan 443, wijzigt u de parameter **$HTTPsport = 443** in het HTTPS-script.
    * Klik op volgende. ![Volgende](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Gebruik de standaardwaarde op de laatste pagina van de wizard **de VM-agent installeren** geselecteerde. De stappen in dit onderwerp maken geen gebruik van de VM-agent, maar als u van plan bent te houden van deze virtuele machine, de VM-agent en -extensies kunt u hij CM verbeteren.  Zie voor meer informatie over de VM-agent [VM-Agent en -extensies – Part 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Een van de standaard-serverextensies geïnstalleerd ad met is de extensie 'BGINFO' die wordt weergegeven op de VM-bureaublad, systeemgegevens zoals intern IP-adres en de vrije schijfruimte.
-9. Klik op voltooien. ![OK](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Klik op voltooien. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. De **Status** van de virtuele machine wordt weergegeven als **starten (inrichten)** bij het inrichten verwerken en vervolgens wordt weergegeven, **met** wanneer de virtuele machine is ingericht en gereed voor gebruik.
 
 ## <a name="step-2-create-a-server-certificate"></a>Stap 2: Een servercertificaat maken
@@ -117,7 +117,7 @@ Een zelfondertekend certificaat is gemaakt op de virtuele machine wanneer de vir
 
 1. Als u van het certificaat op de lokale virtuele machine de basis-CA vertrouwt, het certificaat toevoegen aan de **Trusted Root Certification Authorities**. Hier volgt een samenvatting van de stappen die nodig zijn. Zie voor gedetailleerde stappen voor het vertrouwen van de CA [een servercertificaat installeren](https://technet.microsoft.com/library/cc740068).
    
-   1. In de klassieke Azure portal, selecteert u de virtuele machine en klik op verbinden. Afhankelijk van de browserconfiguratie van uw wordt u mogelijk gevraagd een RDP-bestand voor het verbinden met de virtuele machine op te slaan.
+   1. Selecteer de virtuele machine vanuit de Azure-portal en klik op verbinden. Afhankelijk van de browserconfiguratie van uw wordt u mogelijk gevraagd een RDP-bestand voor het verbinden met de virtuele machine op te slaan.
       
        ![verbinding maken met virtuele machine van azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Gebruik de gebruikersnaam van de VM, gebruikersnaam en wachtwoord die u hebt geconfigureerd tijdens het maken van de virtuele machine. 
       
@@ -153,7 +153,7 @@ Voor meer stappen gedetailleerde, Zie de sectie [verbinding maken met de virtuel
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Script gebruiken voor het configureren van de rapportserver en HTTP
 Voor het gebruik van de Windows PowerShell-script voor het configureren van de rapportserver, moet u de volgende stappen uitvoeren. De configuratie omvat HTTP, niet HTTPS:
 
-1. In de klassieke Azure portal, selecteert u de virtuele machine en klik op verbinden. Afhankelijk van de browserconfiguratie van uw wordt u mogelijk gevraagd een RDP-bestand voor het verbinden met de virtuele machine op te slaan.
+1. Selecteer de virtuele machine vanuit de Azure-portal en klik op verbinden. Afhankelijk van de browserconfiguratie van uw wordt u mogelijk gevraagd een RDP-bestand voor het verbinden met de virtuele machine op te slaan.
    
     ![verbinding maken met virtuele machine van azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Gebruik de gebruikersnaam van de VM, gebruikersnaam en wachtwoord die u hebt geconfigureerd tijdens het maken van de virtuele machine. 
    
@@ -287,7 +287,7 @@ Voor het gebruik van de Windows PowerShell-script voor het configureren van de r
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Script voor het configureren van de report server- en HTTPS gebruiken
 Voor het gebruik van Windows PowerShell voor het configureren van de rapportserver, moet u de volgende stappen uitvoeren. De configuratie omvat HTTPS, niet HTTP.
 
-1. In de klassieke Azure portal, selecteert u de virtuele machine en klik op verbinden. Afhankelijk van de browserconfiguratie van uw wordt u mogelijk gevraagd een RDP-bestand voor het verbinden met de virtuele machine op te slaan.
+1. Selecteer de virtuele machine vanuit de Azure-portal en klik op verbinden. Afhankelijk van de browserconfiguratie van uw wordt u mogelijk gevraagd een RDP-bestand voor het verbinden met de virtuele machine op te slaan.
    
     ![verbinding maken met virtuele machine van azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Gebruik de gebruikersnaam van de VM, gebruikersnaam en wachtwoord die u hebt geconfigureerd tijdens het maken van de virtuele machine. 
    
@@ -495,10 +495,10 @@ Het resultaat omvat het volgende:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Configuration Manager gebruiken voor het configureren van de rapportserver
 Als u niet uitvoeren van de PowerShell-script wilt voor het configureren van de rapportserver, de stappen in deze sectie voor het Reporting Services native modus configuration manager gebruiken voor het configureren van de rapportserver.
 
-1. In de klassieke Azure portal, selecteert u de virtuele machine en klik op verbinden. Gebruik de gebruikersnaam en wachtwoord die u hebt geconfigureerd tijdens het maken van de virtuele machine.
+1. Selecteer de virtuele machine vanuit de Azure-portal en klik op verbinden. Gebruik de gebruikersnaam en wachtwoord die u hebt geconfigureerd tijdens het maken van de virtuele machine.
    
     ![verbinding maken met virtuele machine van azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Voer Windows update en installeer updates met de virtuele machine. Als een herstart van de virtuele machine vereist is, start van de virtuele machine en opnieuw verbinding maken met de virtuele machine via de klassieke Azure portal.
+2. Voer Windows update en installeer updates met de virtuele machine. Als een herstart van de virtuele machine vereist is, start van de virtuele machine en opnieuw verbinding maken met de virtuele machine van de Azure-portal.
 3. Typ in het menu Start op de virtuele machine **Reporting Services** en open **Reporting Services Configuration Manager**.
 4. Laat de standaardwaarden voor **servernaam** en **rapportserverexemplaar**. Klik op **Verbinden**.
 5. Klik in het linkerdeelvenster op **URL van webservice**.
@@ -593,7 +593,7 @@ De volgende tabel ziet u enkele van de opties die beschikbaar zijn voor het publ
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Als u geen van de virtuele machine gebruikmaakt kosten minimaliseren
 > [!NOTE]
-> Om te beperken kosten voor uw Azure Virtual Machines wanneer deze niet in gebruik, sluit u de virtuele machine via de klassieke Azure portal. Als u de Windows-opties voor energiebeheer binnen een VM afsluiten van de virtuele machine gebruikt, er zijn nog steeds in rekening gebracht dezelfde mate voor de virtuele machine. Om de kosten, moet u de virtuele machine in de klassieke Azure portal afgesloten. Als u de virtuele machine niet meer nodig hebt, moet u de virtuele machine en de bijbehorende VHD-bestanden om te voorkomen dat de opslagkosten te verwijderen. Zie voor meer informatie de sectie Veelgestelde vragen op [prijsinformatie voor virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> Om te beperken kosten voor uw Azure Virtual Machines wanneer deze niet in gebruik, sluit u de virtuele machine van de Azure-portal. Als u de Windows-opties voor energiebeheer binnen een VM afsluiten van de virtuele machine gebruikt, er zijn nog steeds in rekening gebracht dezelfde mate voor de virtuele machine. Om de kosten, moet u het afsluiten van de virtuele machine in de Azure-portal. Als u de virtuele machine niet meer nodig hebt, moet u de virtuele machine en de bijbehorende VHD-bestanden om te voorkomen dat de opslagkosten te verwijderen. Zie voor meer informatie de sectie Veelgestelde vragen op [prijsinformatie voor virtuele Machines](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Meer informatie
 ### <a name="resources"></a>Resources

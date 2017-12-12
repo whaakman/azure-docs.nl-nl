@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Gebruik een SAML-identiteitsprovider 2.0 voor eenmalig
 description: In dit onderwerp wordt beschreven hoe een compatibele Idp SAML 2.0 voor eenmalige aanmelding op.
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Gebruik van SAML 2.0-identiteitsprovider (IdP) voor eenmalige aanmelding in
 
@@ -78,7 +78,7 @@ Deze tabel bevat de vereisten voor specifieke kenmerken in het SAML 2.0-bericht.
 | ----- | ----- |
 |NameID|De waarde van deze verklaring moet hetzelfde zijn als de Azure AD-gebruiker onveranderbare id genoemd. Het kan maximaal 64 alfanumerieke tekens lang zijn. Veilige niet HTML-tekens moeten worden gecodeerd, bijvoorbeeld een teken '+' wordt weergegeven als '.2B'.|
 |IDPEmail|De User Principal Name (UPN) wordt vermeld in de SAML-reactie als een element met de naam IDPEmail is dit van de gebruiker UserPrincipalName (UPN) in Azure AD/Office 365. De UPN is in de e-mailadres. De waarde van de UPN in Windows Office 365 (Azure Active Directory).|
-|certificaatverlener|Dit is een URI van de identiteitsprovider vereist. U moet niet opnieuw gebruiken voor de verlener van de voorbeeldberichten. Als er meerdere domeinen van het hoogste niveau in uw Azure AD-tenants de uitgever, moet overeenkomen met de opgegeven URI-instelling geconfigureerd per domein.|
+|Certificaatverlener|Dit is een URI van de identiteitsprovider vereist. U moet niet opnieuw gebruiken voor de verlener van de voorbeeldberichten. Als er meerdere domeinen van het hoogste niveau in uw Azure AD-tenants de uitgever, moet overeenkomen met de opgegeven URI-instelling geconfigureerd per domein.|
 
 >[!IMPORTANT]
 >Azure AD momenteel ondersteunt de volgende NameID indeling URI voor SAML-2.0:urn:oasis:names:tc:SAML:2.0:nameid-indeling: permanente.

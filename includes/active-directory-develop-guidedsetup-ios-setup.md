@@ -1,4 +1,3 @@
-
 ## <a name="setting-up-your-ios-application"></a>Uw iOS-toepassing instellen
 
 Deze sectie bevat stapsgewijze instructies voor het maken van een nieuw project te laten zien hoe een toepassing voor iOS (Swift) worden geïntegreerd met *aanmelden met Microsoft* zodat Web-API's waarvoor een token op te vragen.

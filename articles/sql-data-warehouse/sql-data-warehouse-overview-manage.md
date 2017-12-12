@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Databases in Azure SQL Data Warehouse beheren
 SQL Data Warehouse automatiseert veel aspecten van het beheer van uw databases. Bijvoorbeeld, als u wilt schalen prestaties hoeft u alleen te aanpassen en betaalt voor het juiste niveau van rekenresources en laat SQL Data Warehouse het werk van uitbreiden en terug te schalen.
@@ -47,7 +47,7 @@ Als u wilt beginnen met de Azure-portal, Zie [maken van een SQL Data Warehouse (
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools] [ SQL Server Data Tools] (SSDT) in Visual Studio kunt u verbinding wil maken, beheren en ontwikkelen van uw databases. Als u bent een toepassingsontwikkelaar bekend bent met Visual Studio of andere geïntegreerde ontwikkelomgevingen (IDE), probeert u SSDT in Visual Studio.
 
-SSDT bevat de SQL Server Object Explorer waarmee u visualiseren, verbinding maken en uitvoeren van scripts in SQL Data Warehouse-databases. Voor snel verbinding met SQL Data Warehouse, klikt u gewoon op de **openen in Visual Studio** knop in de opdrachtbalk wanneer een details weergeven van de database in de klassieke Azure-Portal.  
+SSDT bevat de SQL Server Object Explorer waarmee u visualiseren, verbinding maken en uitvoeren van scripts in SQL Data Warehouse-databases. Voor snel verbinding met SQL Data Warehouse, klikt u gewoon op de **openen in Visual Studio** knop in de opdrachtbalk wanneer een details weergeven van de database in de Azure portal.  
 
 Als u wilt beginnen met SSDT in Visual Studio, Zie [Query Azure SQL Data Warehouse met Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 

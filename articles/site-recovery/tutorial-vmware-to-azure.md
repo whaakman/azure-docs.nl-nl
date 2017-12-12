@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Herstel na noodgevallen naar Azure instellen voor de lokale virtuele VMware-machines
 
-Deze zelfstudie laat zien hoe u voor het instellen van herstel na noodgevallen in Azure voor lokale VMware virtuele machine met Windows. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe u herstel na noodgevallen naar Azure instellen voor de lokale virtuele VMware-machines waarop Windows wordt uitgevoerd. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Recovery Services-kluis maken voor Site Recovery
-> * Instellen van de bron en doel van de replicatie-omgevingen
+> * Geef de replicatiebron en de doelserver.
+> * De bron-replicatieomgeving, waaronder on-premises Site Recovery-onderdelen, en de replicatie doelomgeving instellen.
 > * Een replicatiebeleid maken
 > * Replicatie inschakelen voor een virtuele machine
 
@@ -35,37 +35,28 @@ Dit is de derde zelfstudie in een reeks. Deze zelfstudie wordt ervan uitgegaan d
 
 Voordat u begint, is het handig om [bekijken van de architectuur](concepts-vmware-to-azure-architecture.md) voor noodherstelscenario.
 
-## <a name="configure-vmware-account-permissions"></a>Machtigingen van de VMware-account configureren
 
-1. Maak een rol op het niveau van vCenter. Geef de naam op voor de rol **Azure_Site_Recovery**.
-2. De volgende machtigingen toewijzen aan de **Azure_Site_Recovery** rol.
+## <a name="select-a-replication-goal"></a>Selecteer een doel replicatie
 
-   **Taak** | **Rolmachtigingen /** | **Details**
-   --- | --- | ---
-   **VM-detectie** | Data Center-object doorgeven aan het onderliggende Object –> rol = alleen-lezen | Ten minste een alleen-lezen-gebruiker.<br/><br/> Gebruiker datacenter niveau toewijzen en toegang heeft tot alle objecten in het datacenter.<br/><br/> Om toegang te beperken, wijzen de **geen toegang** rol met de **doorgeven dat onderliggende** object naar de onderliggende objecten (vSphere-hosts, datastores, VM's en -netwerken).
-   **Een volledige replicatie, failover en failback** |  Data Center-object doorgeven aan het onderliggende Object –> rol Azure_Site_Recovery =<br/><br/> Datastore -> ruimte toewijzen, gegevensopslag, op laag niveau bestandsbewerkingen bladeren, bestand verwijderen, bestanden van virtuele machine bijwerken<br/><br/> Netwerk -> netwerk toewijzen<br/><br/> Resource -> VM toewijzen aan de resourcegroep, migreren van virtuele machine is uitgeschakeld, stroomvoorziening op virtuele machine migreren<br/><br/> Taken maken taak, updatetaak -><br/><br/> Virtuele machine-configuratie ><br/><br/> Virtuele machine -> Interact -> vraag beantwoorden, apparaatverbinding, CD's configureren, configureren van diskettes, uitschakelen, inschakelen, VMware-hulpprogramma's installeren<br/><br/> Virtuele machine -> inventaris -> maken, registreren, registratie<br/><br/> Virtuele machine inrichten -> -> downloaden van de virtuele machine toestaan, toestaan uploaden van bestanden van virtuele machine<br/><br/> Virtuele machine-momentopnamen >-Remove momentopnamen > | Gebruiker datacenter niveau toewijzen en toegang heeft tot alle objecten in het datacenter.<br/><br/> Om toegang te beperken, wijzen de **geen toegang** rol met de **doorgeven dat onderliggende** object naar de onderliggende objecten (vSphere-hosts, datastores, VM's en -netwerken).
-
-3. Maak een gebruiker op de vCenter-server of vSphere-host. De rol wordt toegewezen aan de gebruiker.
-
-## <a name="specify-what-you-want-to-replicate"></a>Geef op wat u wilt repliceren
-
-De Mobility-service moet worden geïnstalleerd op elke virtuele machine die u wilt repliceren. Site Recovery wordt deze service automatisch geïnstalleerd wanneer u replicatie voor de virtuele machine inschakelt. Automatische installatie moet u een account die door Site Recovery wordt gebruikt voor toegang tot de virtuele machine voorbereiden.
-
-U kunt een domein of lokale account gebruiken. Voor virtuele Linux-machines, moet het account hoofdmap op de bronserver Linux zijn. Voor Windows virtuele machines, als u niet een domeinaccount, Schakel externe gebruiker toegangsbeheer op de lokale computer:
-
-  - In de registery onder **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, de DWORD-vermelding toevoegen **LocalAccountTokenFilterPolicy** en de waarde ingesteld op 1.
+1. In **Recovery Services-kluizen**, klikt u op de kluisnaam **ContosoVMVault**.
+2. In **aan de slag**, klikt u op de Site Recovery. Klik vervolgens op **infrastructuur voorbereiden**.
+3. In **beveiligingsdoel** > **waar worden de machines die zich**, selecteer **On-premises**.
+4. In ** waar wilt u uw machines repliceren Selecteer **naar Azure**.
+5. In **zijn uw gevirtualiseerde machines**, selecteer **Ja, met VMware vSphere Hypervisor**. Klik vervolgens op **OK**.
 
 ## <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-Instellen van de bronomgeving bestaat uit het downloaden van de Site Recovery Unified Setup, instellen van de configuratieserver en registreren van deze in de kluis en detectie van virtuele machines.
+Als u de bronomgeving instelt, moet u het Unified installatie van Site Recovery-bestand downloaden. U uitvoeren setup om te installeren van on-premises Site Recovery-onderdelen, VMware-servers in de kluis te registreren en lokale VM's detecteren.
 
-De configuratieserver is één lokale VMware VM voor het hosten van alle onderdelen van de Site Recovery. Deze virtuele machine wordt uitgevoerd voor de configuratieserver, de processerver en de hoofddoelserver.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Controleer of de lokale Site Recovery-vereisten
+
+U moet een enkele, maximaal beschikbare, lokale VMware virtuele machine host on-premises Site Recovery-onderdelen. Onderdelen zijn de configuratieserver, de processerver en de hoofddoelserver.
 
 - De configuratieserver coördineert de communicatie tussen on-premises en Azure, en beheert de gegevensreplicatie.
-- De processerver fungeert als replicatiegateway. Dit onderdeel ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en codering, en verzendt ze naar de Azure-opslag. De Mobility-service de processerver ook geïnstalleerd op virtuele machines die u repliceren wilt, en voert u automatische detectie van virtuele machines op de on-premises VMware-servers.
+- De processerver fungeert als replicatiegateway. Dit onderdeel ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en codering, en verzendt ze naar de Azure-opslag. De Mobility-service de processerver ook geïnstalleerd op virtuele machines die u repliceren wilt, en de werking van automatische detectie van de lokale virtuele VMware-machines.
 - De hoofddoelserver verwerkt replicatiegegevens tijdens de failback vanuit Azure.
 
-De configuratieserver VM moet een maximaal beschikbare VMware VM die voldoet aan de volgende vereisten:
+De virtuele machine aan de volgende vereisten voldoen.
 
 | **Vereiste** | **Details** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ De configuratieserver VM moet een maximaal beschikbare VMware VM die voldoet aan
 | Type IP-adres | Statisch |
 | Poorten | 443 (Orchestration-besturingselement)<br/>9443 (Gegevenstransport)|
 
-Zorg ervoor dat de systeemklok is gesynchroniseerd met een Time-Server op de configuratieserver VM.
-Tijd moet worden gesynchroniseerd binnen 15 minuten. Als het tijdsverschil groter dan 15 minuten is, mislukt de installatie.
+Daarnaast doet u het volgende: 
+- Zorg ervoor dat de klok op de virtuele machine is gesynchroniseerd met een Time-Server. Tijd moet worden gesynchroniseerd binnen 15 minuten. Als deze groter is mislukt de installatie.
+Setup is mislukt.
+- Zorg ervoor dat de configuratieserver VM toegang hebt tot deze URL's:
 
-Zorg ervoor dat de configuratieserver toegang hebt tot deze URL's:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Alle IP-adressen gebaseerde firewallregels moeten communicatie met Azure toestaan.
-
-- Sta de [IP-adresbereiken voor Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653) en de HTTPS-poort (443) toe.
+- Zorg ervoor dat IP-adressen gebaseerde firewallregels voor communicatie met Azure toestaan.
+    - Toestaan dat de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653)poort 443 (HTTPS) en poort 9443 (gegevensreplicatie).
     - IP-adresbereiken voor de Azure-regio van uw abonnement en voor VS-West (gebruikt voor beheer en de identiteit van toegangsbeheer) toestaan.
 
-Alle IP-adressen gebaseerde firewallregels moeten kunnen communiceren met toestaan [Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653), en de poorten 443 (HTTPS) en 9443 (gegevensreplicatie). Zorg ervoor dat IP-adresbereiken voor de Azure-regio van uw abonnement en voor VS-West (gebruikt voor toegangsbeheer en identiteitsbeheer) toestaan.
 
-### <a name="download-the-site-recovery-unified-setup"></a>Downloaden van de Site Recovery Unified Setup
+### <a name="download-the-site-recovery-unified-setup-file"></a>Download het bestand van Site Recovery Unified Setup
 
-1. Open de [Azure-portal](https://portal.azure.com) en klik op **alle resources**.
-2. Klik op de Recovery Services-kluis met de naam **ContosoVMVault**.
-3. Klik op **siteherstel** > **infrastructuur voorbereiden** > **beveiligingsdoel**.
-4. Selecteer **On-premises** voor waar uw machines zich bevinden, **naar Azure** voor waar u uw machines repliceren en **Ja, met VMware vSphere Hypervisor**. Klik vervolgens op **OK**.
-5. Klik in het deelvenster van de bron voorbereiden op **+ configuratieserver**.
-6. In **Server toevoegen**, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
-7. Download het installatiebestand van de Site Recovery Unified Setup.
-8. Download de kluisregistratiesleutel. U moet dit wanneer u Unified Setup uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
+1. In de kluis > **infrastructuur voorbereiden**, klikt u op **bron**.
+1. In **bron voorbereiden**, klikt u op **+ configuratieserver**.
+2. In **Server toevoegen**, controleert u of **configuratieserver** wordt weergegeven in **servertype**.
+3. Download het installatiebestand van de Site Recovery Unified Setup.
+4. Download de kluisregistratiesleutel. U moet dit wanneer u Unified Setup uitvoert. De sleutel blijft vijf dagen na het genereren ervan geldig.
 
    ![Bron instellen](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -146,9 +132,11 @@ Alle IP-adressen gebaseerde firewallregels moeten kunnen communiceren met toesta
 
 ### <a name="configure-automatic-discovery"></a>Configureer Automatische detectie
 
-Voor het detecteren van virtuele machines, moet de configuratieserver verbinding maken met on-premises VMware-servers. Voeg de vCenter-server, of vSphere-hosts met een account dat beheerdersrechten op de server heeft voor de doeleinden van deze zelfstudie.
+Voor het detecteren van virtuele machines, moet de configuratieserver verbinding maken met on-premises VMware-servers. Voeg de vCenter-server, of vSphere-hosts met een account dat beheerdersrechten op de server heeft voor de doeleinden van deze zelfstudie. U hebt gemaakt met dit account in de [vorige zelfstudie](tutorial-prepare-on-premises-vmware.md). 
 
-1. Start op uw configuratieserver **CSPSConfigtool.exe**. Dit bestand is beschikbaar als snelkoppeling op het bureaublad en in de map *installatielocatie*\home\svsystems\bin.
+De account toevoegen:
+
+1. Start op de configuratieserver VM **CSPSConfigtool.exe**. Dit bestand is beschikbaar als snelkoppeling op het bureaublad en in de map *installatielocatie*\home\svsystems\bin.
 
 2. Klik op **Accounts beheren** > **Account toevoegen**.
 
@@ -158,12 +146,12 @@ Voor het detecteren van virtuele machines, moet de configuratieserver verbinding
 
    ![Details](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Een server toevoegen:
+De VMware-server toevoegen:
 
 1. Open de [Azure-portal](https://portal.azure.com) en klik op **alle resources**.
 2. Klik op de Recovery Services-kluis met de naam **ContosoVMVault**.
 3. Klik op **Site Recovery** > **infrastructuur voorbereiden** > **bron**
-4. Selecteer **+ vCenter** verbinding maken met een vCenter-server of vSphere ESXi-host.
+4. Selecteer **+ vCenter**, verbinding maken met een vCenter-server of vSphere ESXi-host.
 5. In **vCenter toevoegen**, Geef een beschrijvende naam voor de server. Geef vervolgens de IP-adres of FQDN-naam.
 6. Laat de poort 443, tenzij uw VMware-Server naar aanvragen op een andere poort luistert.
 7. Selecteer het account moet worden gebruikt voor het verbinden met de server. Klik op **OK**.

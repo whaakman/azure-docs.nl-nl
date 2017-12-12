@@ -4,7 +4,7 @@ description: Klik hier voor meer informatie over het overnemen van een DNS-domei
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als administrator in Azure Active Directory
 Dit artikel wordt beschreven op twee manieren overnemen van een DNS-domeinnaam in een niet-beheerde map in Azure Active Directory (Azure AD). Wanneer een self-service gebruiker zich voor een cloudservice die gebruikmaakt van Azure AD aanmeldt, worden ze toegevoegd aan een niet-beheerde Azure AD-directory op basis van hun e-maildomein. Zie voor meer informatie over self-service of "een" aanmelden voor een service [wat is er toepassing met selfserviceregistratie voor Azure Active Directory?]()

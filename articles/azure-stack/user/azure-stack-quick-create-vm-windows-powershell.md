@@ -3,23 +3,23 @@ title: Een virtuele Windows-machine maken met behulp van PowerShell in Azure-Sta
 description: Een virtuele Windows-machine maken met PowerShell in Azure-Stack.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 42e126ffefd75669d90ea3ff1d3939028f71159c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 688ab6c55867d72d55e27c21c883c14ef90078d2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Een virtuele Windows-machine maken met behulp van PowerShell in Azure-Stack
 
@@ -245,5 +245,5 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een eenvoudige Windows virtuele machine hebt geïmplementeerd in deze snel starten. Voor meer informatie over virtuele machines van Azure-Stack blijven [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).
+U kunt een eenvoudige Windows virtuele machine hebt geïmplementeerd in deze snelstartgids. Voor meer informatie over virtuele machines van Azure-Stack blijven [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).
 

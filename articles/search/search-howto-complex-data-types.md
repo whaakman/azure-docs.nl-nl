@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Het model complexe gegevenstypen in Azure Search
 Externe gegevenssets die worden gebruikt voor het vullen van een Azure Search-index soms bevatten hiërarchische of geneste substructuren die niet netjes in een rijenset in tabelvorm doen uitgesplitst. Voorbeelden van dergelijke structuren mogelijk meerdere locaties en telefoonnummers omvatten voor één klant, meerdere kleuren en grootten voor een enkele SKU, meerdere auteurs van één boek, enzovoort. Voorwaarden modelleren, ziet u mogelijk deze aangeduid als structuren *complexe gegevenstypen*, *samengestelde gegevenstypen*, *samengestelde gegevenstypen*, of *gegevenstypen cumulatieve*, enz.
@@ -66,7 +66,7 @@ De betrokken gegevens bevindt zich doorgaans voor als een set van JSON of XML-do
 Hoewel de velden met de naam 'id', 'name' en 'bedrijf' kunnen eenvoudig worden toegewezen-op-een volgens de velden in een Azure Search-index, het veld 'locaties' bevat een matrix met een set locatie-id's, evenals de beschrijvingen van de locatie-locaties. Gezien het feit dat Azure Search geen een gegevenstype dat wordt ondersteund, moeten we een andere manier om dit te modelleren in Azure Search. 
 
 > [!NOTE]
-> Deze methode wordt ook beschreven door Kirk Evans in een blogbericht [DocumentDB met Azure Search indexeren](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), waarin een techniek die genoemd 'plat de gegevens', waarbij u een veld met de naam hebt `locationsID` en `locationsDescription` die geen van beide [verzamelingen](https://msdn.microsoft.com/library/azure/dn798938.aspx) (of een matrix met tekenreeksen).   
+> Deze methode wordt ook beschreven door Kirk Evans in een blogbericht [Azure Cosmos DB met Azure Search indexeren](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), waarin een techniek die genoemd 'plat de gegevens', waarbij u een veld met de naam hebt `locationsID` en `locationsDescription` die geen van beide [verzamelingen](https://msdn.microsoft.com/library/azure/dn798938.aspx) (of een matrix met tekenreeksen).   
 > 
 > 
 

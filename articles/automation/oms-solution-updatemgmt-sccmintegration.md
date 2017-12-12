@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integratie van System Center Configuration Manager met OMS-updatebeheer [Preview]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integratie van System Center Configuration Manager met OMS-updatebeheer
 
 Klanten die hebben geïnvesteerd in System Center Configuration Manager voor het beheren van pc's, servers en mobiele apparaten, rekenen ook op zijn kracht en volwassenheid bij het beheren van software-updates als onderdeel van hun software-updatebeheercyclus.  
 
@@ -42,12 +42,13 @@ Hoe u clients die worden gehost in Azure IaaS met uw bestaande Configuration Man
 Voer de volgende stappen uit als u update-implementaties wilt blijven beheren vanuit Configuration Manager.  OMS maakt verbinding met Configuration Manager om updates toe te passen op de clientcomputers die zijn verbonden met uw Log Analytics-werkruimte. Update-inhoud is beschikbaar via de cache van de clientcomputer alsof de implementatie werd beheerd door Configuration Manager.  
 
 1. Maak een software-update-implementatie van de site op het hoogste niveau in uw Configuration Manager-hiërarchie met behulp van het proces dat wordt beschreven in het proces voor het [implementeren van software-updates](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates) (Engelstalig artikel).  De enige instelling die anders moet worden geconfigureerd dan bij een standaardimplementatie, is de optie **Software-updates niet installeren** om het downloadgedrag van het implementatiepakket te bepalen. Dit gedrag wordt beheerd door de OMS Updatebeheer-oplossing door in de volgende stap een geplande update-implementatie te maken.  
-2. Selecteer in Azure Portal uw Automation-account in het scherm **Automation-account**, en maak een booleaanse variabele met de naam **UseOMSForSCCMUpdates** en de waarde **true** door de aanwijzingen bij [To create a new variable with the Azure portal](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal) (Een nieuwe variabele maken met de Azure-portal) te volgen.
-3. Open het dashboard Updatebeheer in de OMS-portal.  Maak een nieuwe implementatie door de stappen te volgen die worden beschreven in [Een update-implementatie maken](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), en selecteer in de vervolgkeuzelijst de juiste Configuration Manager-verzameling die wordt weergegeven als een OMS-computergroep.  Houd rekening met de volgende belangrijke punten:
+
+1. Open het dashboard Updatebeheer in de OMS-portal.  Maak een nieuwe implementatie door de stappen te volgen die worden beschreven in [Een update-implementatie maken](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), en selecteer in de vervolgkeuzelijst de juiste Configuration Manager-verzameling die wordt weergegeven als een OMS-computergroep.  Houd rekening met de volgende belangrijke punten:
     1. Als er een onderhoudsvenster is gedefinieerd op de geselecteerde apparaatverzameling van Configuration Manager, houden leden van de verzameling zich daaraan in plaats van aan de **Duur**-instelling die is gedefinieerd in de geplande implementatie in OMS.
-    2. Leden van de doelverzameling moeten verbinding hebben met internet (rechtstreeks, via een proxyserver of via de OMS-gateway).  
+    1. Leden van de doelverzameling moeten verbinding hebben met internet (rechtstreeks, via een proxyserver of via de OMS-gateway).  
 
 Nadat de update-implementatie met de OMS-oplossing is voltooid, worden op de doelcomputers die lid zijn van de geselecteerde computergroep op de geplande tijd updates geïnstalleerd vanuit hun lokale clientcache.  U kunt de [status van de update-implementatie bekijken](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) om de resultaten van uw implementatie te bewaken.  
+
 
 ### <a name="manage-software-updates-from-oms"></a>Software-updates beheren vanuit OMS
 

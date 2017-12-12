@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b26108b000bac56fe7d49a3a634f2be9d7543a8
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Overzicht van Azure Standard van DDoS-bescherming
 
@@ -33,7 +33,7 @@ Azure DDoS-bescherming, gecombineerd met aanbevolen procedures voor de toepassin
 ![Azure DDoS-bescherming-standaard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
-> Azure DDoS-bescherming standaard is momenteel preview. Beveiliging is opgegeven voor een Azure-resource met een Azure openbare IP-adres die zijn gekoppeld, zoals virtuele machines en netwerktaakverdelers Toepassingsgateways. U moet [registreren](http://aka.ms/ddosprotection) voor de service voordat u DDoS-bescherming Standard voor uw abonnement inschakelen kunt. Na de registratie, de Azure-DDoS contactpersonen team u en handleidingen u door het proces inschakelen. DDoS-bescherming standaard is beschikbaar in de VS-Oost, VS-Oost 2, VS-West, alleen de regio West-Centraal VS, Noord-Europa, West-Europa, Japan-West, Japan-Oost, Azië Oost en Zuidoost-Azië. Tijdens de preview, er zijn niet in rekening gebracht voor het gebruik van de service.
+> Azure DDoS-bescherming standaard is momenteel preview. Beveiliging is opgegeven voor een Azure-resource met een Azure openbare IP-adres die zijn gekoppeld, zoals virtuele machines en netwerktaakverdelers Toepassingsgateways. U moet [registreren](http://aka.ms/ddosprotection) voor de service voordat u DDoS-bescherming Standard voor uw abonnement inschakelen kunt. Na de registratie het team van Azure DDoS contact met u opneemt en helpt u bij de ingeschakelde. DDoS-bescherming standaard is beschikbaar in de VS-Oost, VS-Oost 2, VS-West, alleen de regio West-Centraal VS, Noord-Europa, West-Europa, Japan-West, Japan-Oost, Azië Oost en Zuidoost-Azië. Tijdens de preview, er zijn niet in rekening gebracht voor het gebruik van de service.
 
 We raden u om te proberen DDoS-bescherming standaard in ontwikkeling, testen of productie-omgevingen. Gebruik de volgende bronnen voor feedback over uw ervaringen:
 - [Azure DDoS-bescherming op het Microsoft Azure-Forum](https://feedback.azure.com/forums/905032-azure-ddos-protection). 

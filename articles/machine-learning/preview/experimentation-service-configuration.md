@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning-experimenten Service configureren
 
@@ -221,7 +221,8 @@ _**Overzicht van externe vm-uitvoering voor een pythonscript:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Een script uitgevoerd op een HDInsight-cluster
 HDInsight is een populair platform voor big data-analyses Apache Spark ondersteunen. Workbench kunt experimenteren big Data met behulp van HDInsight Spark-clusters. 
 
->![OPMERKING] Het HDInsight-cluster moet Azure Blob als primaire opslag gebruiken. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
+>[!NOTE]
+>Het HDInsight-cluster moet Azure Blob gebruiken als de primaire opslag. Het gebruik van Azure Data Lake-opslag wordt nog niet ondersteund.
 
 U kunt een compute-doel maken en configuratie voor een HDInsight Spark-cluster met de volgende opdracht uitvoeren:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - De openbare sleutel die is gegenereerd door de Workbench naar het bestand ~/.ssh/authorized_keys op het gekoppelde compute-doel toevoegen. 
 
-[!IMPORTANT] U moet de compute-doelserver met behulp van de gebruikersnaam die u gebruikt voor het maken van de compute-doel aanmelden. 
+>[!IMPORTANT]
+>U moet de compute-doelserver met behulp van de gebruikersnaam die u gebruikt voor het maken van de compute-doel aanmelden. 
 
 - U kunt nu voorbereiden en gebruiken van de compute-doelserver met behulp van SSH-verificatie op basis van sleutels.
 

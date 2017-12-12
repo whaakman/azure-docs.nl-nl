@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: a38394d825c9a9b3007b30f598b37caa08f7325f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Azure Stream Analytics-taken voor een betere doorvoer schalen
 In dit artikel leest u hoe af te stemmen een Stream Analytics query voor een betere doorvoer voor Streaming Analytics-taken. U kunt de volgende handleiding voor het schalen van uw taak voor het verwerken van de hogere belasting en te profiteren van meer systeembronnen (zoals meer bandbreedte, meer CPU-bronnen, meer geheugen).
@@ -170,7 +170,6 @@ Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://so
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Miniatuurweergaven genereren met Media Encoder Standard met .NET
 
-U kunt Media Encoder Standard voor het genereren van miniaturen voor een of meer van uw invoervideo in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), of [BMP](https://en.wikipedia.org/wiki/BMP_file_format) installatiekopie bestandsindelingen. U kunt taken die alleen afbeeldingen produceren verzenden of u miniaturen generatie codering kunt combineren. In dit onderwerp biedt een paar voorbeeld XML en JSON miniaturen standaardinstellingen voor dergelijke scenario's. Aan het einde van het onderwerp, er is een [voorbeeldcode](#code_sample) die laat zien hoe de Media Services .NET SDK gebruiken de codering taak uit te voeren.
+U kunt Media Encoder Standard voor het genereren van miniaturen voor een of meer van uw invoervideo in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), of [BMP](https://en.wikipedia.org/wiki/BMP_file_format) installatiekopie bestandsindelingen. U kunt taken die alleen afbeeldingen produceren verzenden of u miniaturen generatie codering kunt combineren. In dit artikel biedt een paar voorbeeld XML en JSON miniaturen standaardinstellingen voor dergelijke scenario's. Aan het einde van het artikel, er is een [voorbeeldcode](#code_sample) die laat zien hoe de Media Services .NET SDK gebruiken de codering taak uit te voeren.
 
 Voor meer informatie over de elementen die worden gebruikt in de standaardinstellingen voorbeeld moet u nagaan [Media Encoder Standard schema](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Leest de [overwegingen](media-services-dotnet-generate-thumbnail-with-mes.md#con
     
 ## <a name="example-of-a-single-png-file-preset"></a>Voorbeeld van een 'één PNG-bestand'-definitie
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een enkele uitvoer PNG-bestand van de eerste paar seconden van de invoer-video waar het coderingsprogramma een poging best-effort is vinden van een 'interessante' frame. Let op: de afbeeldingsgrootte uitvoer zijn ingesteld op 100%, wat betekent dat deze komt overeen met de afmetingen van de invoer video. U ziet ook hoe de instelling 'Indeling' in 'Uitvoer' moet overeenkomen met het gebruik van 'PngLayers' in de sectie 'Codecs'. 
+De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een enkele uitvoer PNG-bestand van de eerste paar seconden van de invoer-video waar het coderingsprogramma een poging best-effort is vinden van een 'interessante' frame. Houd er rekening mee dat de afmetingen van de uitvoer-afbeelding zijn ingesteld op 100%, wat betekent dat deze overeenkomen met de afmetingen van de invoer video. U ziet ook hoe de instelling 'Indeling' in 'Uitvoer' moet overeenkomen met het gebruik van 'PngLayers' in de sectie 'Codecs'. 
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -138,7 +138,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Voorbeeld van een 'één installatiekopie op een tijdstempel voor een specifieke'-definitie
 
-De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een enkele JPEG-afbeelding op de 30 tweede beginpositie van de invoer video. Deze definitie de invoer video op meer dan 30 seconden duren worden verwacht (anders de taak mislukt).
+De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van een enkele JPEG-afbeelding van de video invoer bij de 30 seconden. Deze definitie de invoer video op meer dan 30 seconden duren worden verwacht (anders de taak mislukt).
 
 ### <a name="json-preset"></a>JSON-definitie
 
@@ -194,7 +194,7 @@ De volgende JSON- en XML-definitie kan worden gebruikt voor het produceren van e
     
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Voorbeeld van een 'miniaturen met verschillende resoluties'-definitie
 
-De volgende voorinstelling kan worden gebruikt voor het genereren van miniaturen met verschillende resoluties in één taak. In het voorbeeld posities 5% 15%,..., 95% van de invoer tijdlijn twee installatiekopieën: één voor 100% van de invoer beeldschermresolutie en andere op 50% wordt gegenereerd door de encoder.
+De volgende voorinstelling kan worden gebruikt voor het genereren van miniaturen met verschillende resoluties in één taak. In het voorbeeld posities 5% 15%,..., 95% van de invoer tijdlijn het coderingsprogramma twee installatiekopieën: één voor 100% van de invoer beeldschermresolutie en andere op 50% gegenereerd.
 
 Let op het gebruik van macro {resolutie} in de bestandsnaam; Hiermee wordt aangegeven voor het coderingsprogramma de breedte en hoogte die u hebt opgegeven in de sectie codering van de vooraf ingestelde tijdens het genereren van de bestandsnaam van de uitvoer-installatiekopieën gebruiken. Hiermee kunt u ook eenvoudig onderscheid maken tussen de verschillende afbeeldingen
 
@@ -267,7 +267,7 @@ Let op het gebruik van macro {resolutie} in de bestandsnaam; Hiermee wordt aange
 Terwijl alle van de bovenstaande voorbeelden hebt besproken hoe u een codering taak die levert afbeeldingen alleen kunt indienen, kunt u ook combineren video en audio-codering met miniaturen generatie. De volgende JSON- en XML-definitie vertellen **Media Encoder Standard** een miniatuur genereren tijdens de codering.
 
 ### <a id="json"></a>JSON-definitie
-Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) onderwerp.
+Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt
     }
 
 ### <a id="xml"></a>XML-definitie
-Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) onderwerp.
+Zie voor meer informatie over schema [dit](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -398,36 +398,45 @@ Het volgende codevoorbeeld maakt gebruik van Media Services .NET SDK naar de vol
 * Een gebeurtenis-handler voor het controleren van de voortgang van de taak toevoegen.
 * Verzenden van de taak.
 
-Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md) onderwerp voor instructies over het instellen van uw Developer-omgeving.
+Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md) artikel voor instructies over het instellen van uw Developer-omgeving.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-        namespace EncodeAndGenerateThumbnails
-        {
-        class Program
-        {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace EncodeAndGenerateThumbnails
+{
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
 
-            private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
+        private static readonly string _mediaFiles =
+        Path.GetFullPath(@"../..\Media");
 
-            private static readonly string _singleMP4File =
+        private static readonly string _singleMP4File =
             Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -439,10 +448,10 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
-            }
+        }
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
             // Get a media processor reference, and pass to it the name of the 
@@ -454,9 +463,9 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
 
             // Create a task
             ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
-                processor,
-                configuration,
-                TaskOptions.None);
+                    processor,
+                    configuration,
+                    TaskOptions.None);
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
@@ -464,47 +473,47 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
             // This output is specified as AssetCreationOptions.None, which 
             // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
+                    AssetCreationOptions.None);
 
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
             job.Submit();
             job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
             return job.OutputMediaAssets[0];
-            }
+        }
 
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
             Console.WriteLine("Job state changed event:");
             Console.WriteLine("  Previous state: " + e.PreviousState);
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
                 case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
                 case JobState.Canceling:
                 case JobState.Queued:
                 case JobState.Scheduled:
                 case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
+                    Console.WriteLine("Please wait...\n");
+                    break;
                 case JobState.Canceled:
                 case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
+                    // Display or log error details as needed.
+                    break;
                 default:
-                break;
+                    break;
             }
-            }
+        }
 
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
@@ -512,25 +521,26 @@ Zie de [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-us
                 throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
-            }
         }
-
+    }
+}
+```
 
 ## <a name="considerations"></a>Overwegingen
 Het volgende letten:
 
 * Het gebruik van expliciete tijdstempels voor stap/beginbereik wordt ervan uitgegaan dat de invoerbron ten minste 1 minuut.
-* Png-jpg/BmpImage elementen hebben starten, stap en bereik kenmerken string: deze kunnen worden geïnterpreteerd als:
+* Png-jpg/BmpImage elementen moeten worden gestart, stap en bereik tekenreekskenmerken: deze kunnen worden geïnterpreteerd als:
   
-  * Framenummer als ze niet-negatieve gehele getallen zijn, bijv. 'Start': '120'
-  * Relatieve duur van de bron als uitgedrukt als % voorafgegaan, bijv. 'Start': '15% ', of
-  * Tijdstempel als uitgedrukt als: mm: ss... de indeling. Bv. 'Start': ' 00: 01:00 '
+  * Aantal frame als ze niet-negatieve gehele getallen zijn, bijvoorbeeld 'Start': '120'
+  * Relatieve duur van de bron als uitgedrukt als % voorafgegaan, bijvoorbeeld 'Start': '15% ', of
+  * Tijdstempel als uitgedrukt als: mm: ss... de indeling. Bijvoorbeeld 'Start': ' 00: 01:00 '
     
     U kunt combineren en notaties als u moet overeenkomen.
     
     Daarnaast ondersteunt Start ook een speciale Macro: {Best}, die probeert om te bepalen van het eerste 'interessante' frame van de inhoud-NOTITIE: (stap en bereik worden genegeerd tijdens het starten is ingesteld op {beste})
   * Standaardwaarden: Starten: {Best}
-* De indeling van uitvoer moet expliciet worden opgegeven voor elke afbeeldingsindeling: Png-Jpg/BmpFormat. Indien aanwezig, MES komt overeen met JpgVideo naar JpgFormat enzovoort. OutputFormat introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, welke moet aanwezig zijn (eenmaal en slechts één keer) voor de installatiekopie-uitvoerindelingen.
+* De indeling van uitvoer moet expliciet worden opgegeven voor elke afbeeldingsindeling: Png-Jpg/BmpFormat. Als aanwezig is, vergelijkt MES JpgVideo naar JpgFormat enzovoort. OutputFormat introduceert een nieuwe installatiekopie codec specifieke Macro: {Index}, welke moet aanwezig zijn (eenmaal en slechts één keer) voor de installatiekopie-uitvoerindelingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

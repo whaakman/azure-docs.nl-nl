@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 608222da9cbe2895914e14c9f76cc5629ef65684
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Diagnostische logboekregistratie van Azure DB Cosmos
 
@@ -30,7 +30,7 @@ Gebruik deze handleiding om aan de slag met Azure Cosmos DB logboekregistratie v
 
 ## <a name="what-is-logged"></a>Wat is geregistreerd?
 
-* Alle geverifieerde REST DocumentDB SQL-API-aanvragen worden vastgelegd, ook mislukte aanvragen als gevolg van toegangsmachtigingen, systeemfouten of ongeldige aanvragen. Ondersteuning voor MongoDB, grafiek en tabel-API's is momenteel niet beschikbaar.
+* Alle geverifieerde REST-API voor SQL-aanvragen worden vastgelegd, ook mislukte aanvragen als gevolg van toegangsmachtigingen, systeemfouten of ongeldige aanvragen. Ondersteuning voor MongoDB, grafiek en tabel-API's is momenteel niet beschikbaar.
 * Bewerkingen op de database, inclusief CRUD-bewerkingen op alle documenten, containers en -databases.
 * Bewerkingen voor sleutels, waaronder maken, wijzigen of verwijderen van deze sleutels.
 * Niet-geverifieerde aanvragen die in een 401-respons resulteren. Dit zijn bijvoorbeeld aanvragen die geen Bearer-token hebben, ongeldige of verlopen aanvragen of aanvragen met een ongeldig token.
@@ -54,9 +54,9 @@ Deze zelfstudie hebt u de volgende bronnen:
     * **Archiveren naar een opslagaccount**. Om deze optie gebruikt, moet u een bestaand opslagaccount verbinding maken met. Zie voor informatie over het maken van een nieuw opslagaccount in de portal [een opslagaccount maken](../storage/common/storage-create-storage-account.md) en volg de instructies voor het maken van een Resource Manager voor algemene doeleinden-account. Keer vervolgens terug naar deze pagina in de portal voor uw storage-account selecteren. Duurt enkele minuten duren voordat de zojuist gemaakte storage-accounts worden weergegeven in de vervolgkeuzelijst.
     * **Stream naar een event hub**. Om deze optie gebruikt, moet u een Event Hub-naamruimte en event hub verbinding maken met. Zie het maken van een naamruimte Event Hubs [een Event Hubs-naamruimte en een event hub met de Azure portal maken](../event-hubs/event-hubs-create.md). Keer vervolgens terug naar deze pagina in de portal om de Event Hub-naamruimte en de beleid-naam te selecteren.
     * **Verzenden met logboekanalyse**.     Om deze optie gebruikt, gebruik een bestaande werkruimte of maak een nieuwe werkruimte voor logboekanalyse volgens de stappen voor het [Maak een nieuwe werkruimte](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in de portal. Zie voor meer informatie over het weergeven van uw logboeken in logboekanalyse [weergave wordt geregistreerd in logboekanalyse](#view-in-loganalytics).
-    * **Meld u DataPlaneRequests**. Selecteer deze optie om diagnostische gegevens voor DocumentDB, grafiek en tabel API accounts aanmelden. Als u naar een opslagaccount archiveert, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaartermijn is verstreken.
+    * **Meld u DataPlaneRequests**. Selecteer deze optie om diagnostische gegevens voor SQL, grafiek en tabel API accounts aanmelden. Als u naar een opslagaccount archiveert, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaartermijn is verstreken.
     * **Meld u MongoRequests**. Selecteer deze optie om aan te melden diagnostische gegevens voor MongoDB-API-accounts. Als u naar een opslagaccount archiveert, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaartermijn is verstreken.
-    * **Metrische aanvragen**. Selecteer deze optie om de uitgebreide gegevens opslaan in [Azure metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Als u naar een opslagaccount archiveert, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaartermijn is verstreken.
+    * **Metrische aanvragen**. Selecteer deze optie om de uitgebreide gegevens opslaan in [Azure metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Als u naar een opslagaccount archiveert, kunt u de bewaarperiode voor de diagnostische logboeken. Logboeken zijn autodeleted nadat de bewaartermijn is verstreken.
 
 3. Klik op **Opslaan**.
 

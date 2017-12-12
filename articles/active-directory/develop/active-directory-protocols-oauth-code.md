@@ -4,7 +4,7 @@ description: Dit artikel wordt beschreven hoe u met HTTP-berichten toestaan van 
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
 Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
@@ -56,10 +56,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Aanbevolen |De redirect_uri van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app.  Er moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen.  Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app.  Kan `query` of `form_post`. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12).  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
-| Resource |Optioneel |De App ID URI van de web-API (beveiligde resource). Klik op de URI van de App-ID van de web-API, informatie in de Azure Portal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**. |
-| prompt |Optioneel |Geef het type van de interactie van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om te verifiëren. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om toestemming. <p> *admin_consent*: een beheerder moet worden gevraagd om toestemming namens alle gebruikers in hun organisatie |
-| login_hint |Optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
-| domain_hint |Optioneel |Biedt een aanwijzing over de tenant of het domein dat de gebruiker gebruiken moet om aan te melden. De waarde van de domain_hint is een geregistreerd domein voor de tenant. Als de tenant aan een lokale directory is gefedereerd, is AAD wordt omgeleid naar de opgegeven tenant federation-server. |
+| Bron |optioneel |De App ID URI van de web-API (beveiligde resource). Klik op de URI van de App-ID van de web-API, informatie in de Azure Portal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**. |
+| prompt |optioneel |Geef het type van de interactie van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om te verifiëren. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om toestemming. <p> *admin_consent*: een beheerder moet worden gevraagd om toestemming namens alle gebruikers in hun organisatie |
+| login_hint |optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
+| domain_hint |optioneel |Biedt een aanwijzing over de tenant of het domein dat de gebruiker gebruiken moet om aan te melden. De waarde van de domain_hint is een geregistreerd domein voor de tenant. Als de tenant aan een lokale directory is gefedereerd, is AAD wordt omgeleid naar de opgegeven tenant federation-server. |
 
 > [!NOTE]
 > Als de gebruiker deel van een organisatie uitmaakt, kan een beheerder van de organisatie toestemming geven of weigeren namens de gebruiker of toestaan van de gebruiker om toestemming. De gebruiker krijgt de mogelijkheid om toestemming alleen wanneer de beheerder toestaat.
@@ -138,7 +138,7 @@ grant_type=authorization_code
 | code |Vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
 | redirect_uri |Vereist |Dezelfde `redirect_uri` waarde die is gebruikt voor het verkrijgen van de `authorization_code`. |
 | client_secret |vereist voor web-apps |De toepassingsgeheim die u in de portal van de registratie van de app voor uw app hebt gemaakt.  Deze mag niet worden gebruikt in een eigen app omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's die u de mogelijkheid hebt voor het opslaan van de `client_secret` veilig op de server. |
-| Resource |vereist als het opgegeven in de autorisatieaanvraag, anders optioneel |De App ID URI van de web-API (beveiligde resource). |
+| Bron |vereist als het opgegeven in de autorisatieaanvraag, anders optioneel |De App ID URI van de web-API (beveiligde resource). |
 
 Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**.
 
@@ -169,7 +169,7 @@ Een geslaagde reactie kan er als volgt uitzien:
 | token_type |Geeft de waarde van het type token. Het enige type dat ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over Bearer-tokens [OAuth2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
-| Resource |De App ID URI van de web-API (beveiligde resource). |
+| Bron |De App ID URI van de web-API (beveiligde resource). |
 | Bereik |Imitatie gemachtigd om de clienttoepassing. Standaard de machtiging is `user_impersonation`. De eigenaar van de beveiligde bron kunt u aanvullende waarden registreren in Azure AD. |
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken voor aanvullende toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen.  Vernieuwen van tokens worden lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden. |
 | id_token |Een niet-ondertekende JSON Web Token (JWT). De app kan base64Url decoderen de segmenten van dit token informatie opvragen over de gebruiker die zich aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze niet verstandig deze beveiligingsgrenzen of autorisatie. |
@@ -347,7 +347,7 @@ Een geslaagde reactie token, ziet er als:
 | token_type |Het type token. De enige ondersteunde waarde is **bearer**. |
 | expires_in |De resterende levensduur van het token in seconden. Een typische waarde is 3600 (één uur). |
 | expires_on |De datum en tijd waarop het token verloopt. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. |
-| Resource |Geeft de beveiligde bron die het toegangstoken kan worden gebruikt voor toegang. |
+| Bron |Geeft de beveiligde bron die het toegangstoken kan worden gebruikt voor toegang. |
 | Bereik |Imitatie gemachtigd om de native client-toepassing. Standaard de machtiging is **user_impersonation**. De eigenaar van de doelbron kunt alternatieve waarden registreren in Azure AD. |
 | access_token |Het nieuwe toegangstoken die is aangevraagd. |
 | refresh_token |Een nieuwe OAuth 2.0-refresh_token die kunnen worden gebruikt om aan te vragen van nieuwe toegangstokens wanneer de structuur in voor deze reactie is verlopen. |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: d66c6760cd2414e377d9c0cf55835a21b4bc5051
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f678bba89adf1450bd6a08909fdad51424a210e8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure-Monitor
 Azure biedt verschillende manieren om te communiceren met metrische gegevens, inclusief grafieken ze in de portal of opvragen ze toegang hebben tot deze via de REST-API met PowerShell of CLI. Hieronder volgt een volledige lijst met alle metrische gegevens op dit moment met metrische gegevens van de Monitor van het Azure-pipeline.
@@ -519,7 +519,9 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |DeviceAssignments|Apparaten die zijn toegewezen|Count|Totaal|Aantal apparaten dat is toegewezen aan een IoT-hub|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Attestation pogingen|Count|Totaal|Het aantal apparaten verklaringen geprobeerd|ProvisioningServiceName, Status,-Protocol|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
 |TotalRequests|Totaal aantal aanvragen|Count|Count|Aantal aanvragen|DatabaseAccount, CollectionName, DatabaseName, regio, StatusCode|
@@ -897,8 +899,8 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
-|DiskQueueLength|Lengte van de wachtrij voor de schijf|Count|Totaal|Lengte van de wachtrij voor de schijf|Exemplaar|
-|HttpQueueLength|Lengte van de HTTP-wachtrij|Count|Totaal|Lengte van de HTTP-wachtrij|Exemplaar|
+|DiskQueueLength|Wachtrijlengte voor schijf|Count|Totaal|Wachtrijlengte voor schijf|Exemplaar|
+|HttpQueueLength|HTTP-wachtrijlengte|Count|Totaal|HTTP-wachtrijlengte|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
 
@@ -910,19 +912,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http101|HTTP-fout 101|Count|Totaal|HTTP-fout 101|Exemplaar|
-|Http2xx|HTTP 2xx|Count|Totaal|HTTP 2xx|Exemplaar|
-|Http3xx|HTTP 3xx|Count|Totaal|HTTP 3xx|Exemplaar|
-|Http401|HTTP 401|Count|Totaal|HTTP 401|Exemplaar|
+|Http101|HTTP 101|Count|Totaal|HTTP 101|Exemplaar|
+|Http2xx|HTTP-2xx|Count|Totaal|HTTP-2xx|Exemplaar|
+|Http3xx|HTTP-3xx|Count|Totaal|HTTP-3xx|Exemplaar|
+|Http401|401 HTTP|Count|Totaal|401 HTTP|Exemplaar|
 |Http403|HTTP-fout 403|Count|Totaal|HTTP-fout 403|Exemplaar|
-|Http404|HTTP-fout 404|Count|Totaal|HTTP-fout 404|Exemplaar|
-|Http406|HTTP-fout 406|Count|Totaal|HTTP-fout 406|Exemplaar|
+|Http404|HTTP 404|Count|Totaal|HTTP 404|Exemplaar|
+|Http406|HTTP 406|Count|Totaal|HTTP 406|Exemplaar|
 |Http4xx|Http 4xx|Count|Totaal|Http 4xx|Exemplaar|
-|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
-|MemoryWorkingSet|Geheugenwerkset|Bytes|Gemiddeld|Geheugenwerkset|Exemplaar|
-|AverageMemoryWorkingSet|Gemiddeld geheugenwerkset|Bytes|Gemiddeld|Gemiddeld geheugenwerkset|Exemplaar|
+|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
+|MemoryWorkingSet|Geheugen-werkset|Bytes|Gemiddeld|Geheugen-werkset|Exemplaar|
+|AverageMemoryWorkingSet|Gemiddelde geheugen werkset|Bytes|Gemiddeld|Gemiddelde geheugen werkset|Exemplaar|
 |AverageResponseTime|Gemiddelde reactietijd|Seconden|Gemiddeld|Gemiddelde reactietijd|Exemplaar|
-|FunctionExecutionUnits|Functie-uitvoeringseenheden|Count|Gemiddeld|Functie-uitvoeringseenheden|Exemplaar|
+|FunctionExecutionUnits|Eenheden van de functie kan worden uitgevoerd|Count|Gemiddeld|Eenheden van de functie kan worden uitgevoerd|Exemplaar|
 |FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Gemiddeld|Aantal uitvoeringen van functie|Exemplaar|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (functies)
@@ -931,10 +933,10 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
-|MemoryWorkingSet|Geheugenwerkset|Bytes|Gemiddeld|Geheugenwerkset|Exemplaar|
-|AverageMemoryWorkingSet|Gemiddeld geheugenwerkset|Bytes|Gemiddeld|Gemiddeld geheugenwerkset|Exemplaar|
-|FunctionExecutionUnits|Functie-uitvoeringseenheden|Count|Gemiddeld|Functie-uitvoeringseenheden|Exemplaar|
+|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
+|MemoryWorkingSet|Geheugen-werkset|Bytes|Gemiddeld|Geheugen-werkset|Exemplaar|
+|AverageMemoryWorkingSet|Gemiddelde geheugen werkset|Bytes|Gemiddeld|Gemiddelde geheugen werkset|Exemplaar|
+|FunctionExecutionUnits|Eenheden van de functie kan worden uitgevoerd|Count|Gemiddeld|Eenheden van de functie kan worden uitgevoerd|Exemplaar|
 |FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Gemiddeld|Aantal uitvoeringen van functie|Exemplaar|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
@@ -945,19 +947,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http101|HTTP-fout 101|Count|Totaal|HTTP-fout 101|Exemplaar|
-|Http2xx|HTTP 2xx|Count|Totaal|HTTP 2xx|Exemplaar|
-|Http3xx|HTTP 3xx|Count|Totaal|HTTP 3xx|Exemplaar|
-|Http401|HTTP 401|Count|Totaal|HTTP 401|Exemplaar|
+|Http101|HTTP 101|Count|Totaal|HTTP 101|Exemplaar|
+|Http2xx|HTTP-2xx|Count|Totaal|HTTP-2xx|Exemplaar|
+|Http3xx|HTTP-3xx|Count|Totaal|HTTP-3xx|Exemplaar|
+|Http401|401 HTTP|Count|Totaal|401 HTTP|Exemplaar|
 |Http403|HTTP-fout 403|Count|Totaal|HTTP-fout 403|Exemplaar|
-|Http404|HTTP-fout 404|Count|Totaal|HTTP-fout 404|Exemplaar|
-|Http406|HTTP-fout 406|Count|Totaal|HTTP-fout 406|Exemplaar|
+|Http404|HTTP 404|Count|Totaal|HTTP 404|Exemplaar|
+|Http406|HTTP 406|Count|Totaal|HTTP 406|Exemplaar|
 |Http4xx|Http 4xx|Count|Totaal|Http 4xx|Exemplaar|
-|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
-|MemoryWorkingSet|Geheugenwerkset|Bytes|Gemiddeld|Geheugenwerkset|Exemplaar|
-|AverageMemoryWorkingSet|Gemiddeld geheugenwerkset|Bytes|Gemiddeld|Gemiddeld geheugenwerkset|Exemplaar|
+|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
+|MemoryWorkingSet|Geheugen-werkset|Bytes|Gemiddeld|Geheugen-werkset|Exemplaar|
+|AverageMemoryWorkingSet|Gemiddelde geheugen werkset|Bytes|Gemiddeld|Gemiddelde geheugen werkset|Exemplaar|
 |AverageResponseTime|Gemiddelde reactietijd|Seconden|Gemiddeld|Gemiddelde reactietijd|Exemplaar|
-|FunctionExecutionUnits|Functie-uitvoeringseenheden|Count|Gemiddeld|Functie-uitvoeringseenheden|Exemplaar|
+|FunctionExecutionUnits|Eenheden van de functie kan worden uitgevoerd|Count|Gemiddeld|Eenheden van de functie kan worden uitgevoerd|Exemplaar|
 |FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Gemiddeld|Aantal uitvoeringen van functie|Exemplaar|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
@@ -967,33 +969,33 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http101|HTTP-fout 101|Count|Totaal|HTTP-fout 101|Exemplaar|
-|Http2xx|HTTP 2xx|Count|Totaal|HTTP 2xx|Exemplaar|
-|Http3xx|HTTP 3xx|Count|Totaal|HTTP 3xx|Exemplaar|
-|Http401|HTTP 401|Count|Totaal|HTTP 401|Exemplaar|
+|Http101|HTTP 101|Count|Totaal|HTTP 101|Exemplaar|
+|Http2xx|HTTP-2xx|Count|Totaal|HTTP-2xx|Exemplaar|
+|Http3xx|HTTP-3xx|Count|Totaal|HTTP-3xx|Exemplaar|
+|Http401|401 HTTP|Count|Totaal|401 HTTP|Exemplaar|
 |Http403|HTTP-fout 403|Count|Totaal|HTTP-fout 403|Exemplaar|
-|Http404|HTTP-fout 404|Count|Totaal|HTTP-fout 404|Exemplaar|
-|Http406|HTTP-fout 406|Count|Totaal|HTTP-fout 406|Exemplaar|
+|Http404|HTTP 404|Count|Totaal|HTTP 404|Exemplaar|
+|Http406|HTTP 406|Count|Totaal|HTTP 406|Exemplaar|
 |Http4xx|Http 4xx|Count|Totaal|Http 4xx|Exemplaar|
-|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
+|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
 |AverageResponseTime|Gemiddelde reactietijd|Seconden|Gemiddeld|Gemiddelde reactietijd|Exemplaar|
 |CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
-|DiskQueueLength|Lengte van de wachtrij voor de schijf|Count|Totaal|Lengte van de wachtrij voor de schijf|Exemplaar|
-|HttpQueueLength|Lengte van de HTTP-wachtrij|Count|Totaal|Lengte van de HTTP-wachtrij|Exemplaar|
+|DiskQueueLength|Wachtrijlengte voor schijf|Count|Totaal|Wachtrijlengte voor schijf|Exemplaar|
+|HttpQueueLength|HTTP-wachtrijlengte|Count|Totaal|HTTP-wachtrijlengte|Exemplaar|
 |ActiveRequests|Actieve aanvragen|Count|Totaal|Actieve aanvragen|Exemplaar|
-|TotalFrontEnds|Totaalaantal front-ends|Count|Gemiddeld|Totaalaantal front-ends|Exemplaar|
-|SmallAppServicePlanInstances|Werkrollen kleine App Plan Service-plan|Count|Gemiddeld|Werkrollen kleine App Plan Service-plan|Exemplaar|
-|MediumAppServicePlanInstances|Werkrollen middelgrote App Service-plan|Count|Gemiddeld|Werkrollen middelgrote App Service-plan|Exemplaar|
-|LargeAppServicePlanInstances|Werkrollen grote App Service-plan|Count|Gemiddeld|Werkrollen grote App Service-plan|Exemplaar|
+|TotalFrontEnds|Totaal aantal Front-Ends|Count|Gemiddeld|Totaal aantal Front-Ends|Exemplaar|
+|SmallAppServicePlanInstances|Werknemers van kleine App Service-Plan|Count|Gemiddeld|Werknemers van kleine App Service-Plan|Exemplaar|
+|MediumAppServicePlanInstances|Gemiddeld App Service Plan werknemers|Count|Gemiddeld|Gemiddeld App Service Plan werknemers|Exemplaar|
+|LargeAppServicePlanInstances|Grote App Service Plan werknemers|Count|Gemiddeld|Grote App Service Plan werknemers|Exemplaar|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|WorkersTotal|Totaalaantal werkrollen|Count|Gemiddeld|Totaalaantal werkrollen|Exemplaar|
-|WorkersAvailable|Beschikbare werkrollen|Count|Gemiddeld|Beschikbare werkrollen|Exemplaar|
-|WorkersUsed|Gebruikte werkrollen|Count|Gemiddeld|Gebruikte werkrollen|Exemplaar|
+|WorkersTotal|Totaal aantal werknemers|Count|Gemiddeld|Totaal aantal werknemers|Exemplaar|
+|WorkersAvailable|Beschikbare werknemers|Count|Gemiddeld|Beschikbare werknemers|Exemplaar|
+|WorkersUsed|Gebruikte werknemers|Count|Gemiddeld|Gebruikte werknemers|Exemplaar|
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over metrische gegevens in Azure-Monitor](monitoring-overview-metrics.md)

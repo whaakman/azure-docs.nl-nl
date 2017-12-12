@@ -4,7 +4,7 @@ description: Dit artikel wordt beschreven hoe u een toepassing met Azure Active 
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Uw toepassing registreren met uw Azure Active Directory-tenant
 
@@ -45,7 +45,7 @@ Instellingen van een bestaande toepassing met de Azure portal kunt u eenvoudig w
   * De **eigenschappen** pagina kunt u de algemene informatie over de toepassing wijzigen. Dit omvat de toepassingsnaam, de aanmeldings-URL en de URL voor afmelden.
   * De **antwoord-URL's** pagina kunt u een antwoord-URL is waar Azure AD token antwoorden verzendt toevoegen.
   * De **eigenaars** pagina kunt u toepassingseigenaars toevoegen.
-  * De **machtigingen** pagina kunt u machtigingen voor de app kunt configureren. Bijvoorbeeld voor toegang tot de Microsoft Graph-API, klikt u op **toevoegen** en selecteer **Microsoft Graph** Kies de machtiging is vereist, bijvoorbeeld in de API-selector **Directory-gegevens lezen**.
+  * De **vereist machtigingen** pagina kunt u machtigingen voor de app kunt configureren. Bijvoorbeeld voor toegang tot de Microsoft Graph-API, klikt u op **toevoegen** en selecteer **Microsoft Graph** Kies de machtiging is vereist, bijvoorbeeld in de API-selector **Directory-gegevens lezen**.
   * De **sleutels** pagina kunt u geheimen van de toepassing toevoegen. Het geheim wordt alleen weergegeven wanneer u onmiddellijk na het maken, verder in dat geval moet u ervoor zorgen te kopiëren voor gebruik.
 
 ## <a name="use-the-inline-manifest-editor"></a>De inline manifest-editor gebruiken

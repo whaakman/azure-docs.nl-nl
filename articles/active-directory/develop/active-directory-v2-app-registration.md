@@ -4,7 +4,7 @@ description: Het registreren van een app met Microsoft voor het inschakelen aanm
 services: active-directory
 documentationcenter: 
 author: lnalepa
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eba8ecd27542b23676c08b8ce072c91134d27fa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Het registreren van een app met het v2.0-eindpunt
 Als u wilt maken van een app die zowel MSA & Azure AD accepteert aanmelden, u moet eerst een app registreren bij Microsoft.  Op dit moment niet mogelijk om eventuele bestaande apps u met Azure AD hebt wellicht te gebruiken of MSA - u moet een geheel nieuwe maken.

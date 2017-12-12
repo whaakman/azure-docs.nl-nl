@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Redshift met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -207,22 +207,22 @@ Voor dit voorbeeld gebruiken geval, activiteit verwijdering gegevens kopiëren v
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>De gegevenstypetoewijzing voor Amazon Redshift
 
-Bij het kopiëren van gegevens uit een Teradata, worden de volgende toewijzingen van gegevenstypen Teradata gebruikt om tussentijdse Azure Data Factory-gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
+Bij het kopiëren van gegevens vanaf Amazon Redshift, worden de volgende toewijzingen van Amazon Redshift gegevenstypen gebruikt voor Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
 
 | Amazon Redshift gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAANSE WAARDE |Tekenreeks |
-| CHAR |Tekenreeks |
-| DATUM |Datum/tijd |
+| BOOLEAANSE WAARDE |Reeks |
+| CHAR |Reeks |
+| DATUM |Datum en tijd |
 | DECIMALE |Decimale |
 | DUBBELE PRECISIE |dubbele |
 | GEHEEL GETAL |Int32 |
-| ECHTE |Één |
+| ECHTE |Single |
 | SMALLINT |Int16 |
-| TEKST |Tekenreeks |
-| TIJDSTEMPEL |Datum/tijd |
-| VARCHAR |Tekenreeks |
+| TEKST |Reeks |
+| TIJDSTEMPEL |Datum en tijd |
+| VARCHAR |Reeks |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB in Azure Opslagverkenner beheren
 description: Informatie over het beheren van Azure Cosmos-database in Azure Storage Explorer.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
 author: Jiaj-Li
@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)
 
-Met behulp van Azure DB die Cosmos in Azure Storage Explorer, kunnen gebruikers Azure Cosmos DB entiteiten beheren, het manipuleren van gegevens, het bijwerken van opgeslagen procedures en triggers samen met andere Azure entiteiten zoals Storage-blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken voor het beheren van uw andere Azure entiteiten op één plek. Op dit moment ondersteunt Azure Storage Explorer SQL (DocumentDB) en accounts met MongoDB.
+Met behulp van Azure DB die Cosmos in Azure Storage Explorer, kunnen gebruikers Azure Cosmos DB entiteiten beheren, het manipuleren van gegevens, het bijwerken van opgeslagen procedures en triggers samen met andere Azure entiteiten zoals Storage-blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken voor het beheren van uw andere Azure entiteiten op één plek. Op dit moment ondersteunt Azure Storage Explorer SQL en MongoDB-accounts.
 
 In dit artikel kunt u informatie over het gebruik van Storage Explorer voor het beheren van Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure DB die Cosmos-account voor een SQL (DocumentDB) of het MongoDB-database. Als u geen account hebt, kunt u een in de Azure portal maken zoals beschreven in [Azure Cosmos DB: een DocumentDB-API-web-app met .NET- en de Azure-portal bouwen](create-documentdb-dotnet.md).
+Een Azure DB die Cosmos-account voor de SQL-API of de MongoDB-API. Als u geen account hebt, kunt u een in de Azure portal maken zoals beschreven in [Azure Cosmos DB: bouwen van een SQL-API-web-app met .NET- en de Azure-portal](create-documentdb-dotnet.md).
 
 ## <a name="installation"></a>Installeren
 

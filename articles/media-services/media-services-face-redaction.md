@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigeren vlakken met Azure Media Analytics
 ## <a name="overview"></a>Overzicht
 **Azure Media Redactor** is een [Azure Media Analytics](media-services-analytics-overview.md) Mediaprocessor (MP) die schaalbare face redactie in de cloud biedt. Face redactie kunt u uw video te wijzigen als u wilt vervagen vlakken van geselecteerde gebruikers. U wilt de redactie face service in openbare veiligheid en nieuws media scenario's gebruiken. Kunnen een paar minuten beeldmateriaal waarin meerdere vlakken uren handmatig Redigeren duren, maar met deze service het face redactie proces een paar eenvoudige stappen is vereist. Zie voor meer informatie [dit](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-Dit onderwerp bevat informatie over **Azure Media Redactor** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET.
+In dit artikel geeft informatie over **Azure Media Redactor** en laat zien hoe u deze gebruiken met Media Services SDK voor .NET.
 
 ## <a name="face-redaction-modes"></a>Face redactie modi
-Analyseert redactie werkt door het detecteren van vlakken in elke frame van video en het face-object beide voorwaarts en achterwaarts bijhouden in de tijd, zodat dezelfde persoon kan worden vervaagd vanuit andere hoeken ook. Het proces geautomatiseerde redactie is zeer complex en komt niet altijd produceren 100% van de gewenste uitvoer, om deze reden Media Analytics beschikt u over een aantal manieren om te wijzigen van de uiteindelijke uitvoer.
+Analyseert redactie werkt door het detecteren van vlakken in elke frame van video en het face-object beide voorwaarts en achterwaarts bijhouden in de tijd, zodat dezelfde persoon kan worden vervaagd vanuit andere hoeken ook. Het proces geautomatiseerde redactie is complex en komt niet altijd produceren 100% van de gewenste uitvoer, om deze reden Media Analytics beschikt u over een aantal manieren om te wijzigen van de uiteindelijke uitvoer.
 
-Naast een volledig automatische modus is er een twee keer werkstroom waarmee de selectie/de-selection gevonden vlakken via een lijst met id. Ook als u wilt willekeurige per frame aanpassingen aan het Management Pack maken maakt gebruik van een bestand met metagegevens in JSON-indeling. Deze werkstroom is onderverdeeld in **analyseren** en **Redact** modi. U kunt de twee modi in één iteratie die beide taken in één taak uitvoert; combineren Deze modus wordt aangeroepen **gecombineerde**.
+Naast een volledig automatische modus is er een werkstroom twee keer, waardoor de selectie/de-selection gevonden vlakken via een lijst met id. Ook als u wilt willekeurige per frame aanpassingen aan het Management Pack maken maakt gebruik van een bestand met metagegevens in JSON-indeling. Deze werkstroom is onderverdeeld in **analyseren** en **Redact** modi. U kunt de twee modi in één iteratie die beide taken in één taak uitvoert; combineren Deze modus wordt aangeroepen **gecombineerde**.
 
 ### <a name="combined-mode"></a>Gecombineerde modus
-Het resultaat is een geredigeerde mp4 automatisch zonder handmatige invoer.
+Dit resulteert in een geredigeerde mp4 automatisch zonder handmatige invoer.
 
 | Fase | Bestandsnaam | Opmerkingen |
 | --- | --- | --- |
@@ -172,7 +171,7 @@ De MP redactie biedt hoge precisie face locatie detectie en bijhouden die kan ma
 De volgende programma toont hoe:
 
 1. Maak een asset en upload een mediabestand naar de asset.
-2. Een taak maken met een face redactie taak op basis van een configuratiebestand met de volgende json-definitie. 
+2. Een taak met een face redactie taak op basis van een configuratiebestand met de volgende json-definitie maken: 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. De uitvoer JSON-bestanden downloaden. 
@@ -183,30 +182,39 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
 #### <a name="example"></a>Voorbeeld
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace FaceRedaction
+namespace FaceRedaction
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,11 +273,11 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-                            error.Code,
-                            error.Message));
-            return null;
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                error.Code,
+                                error.Message));
+                return null;
             }
 
             return job.OutputMediaAssets[0];
@@ -289,7 +297,7 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
         {
             foreach (IAssetFile file in asset.AssetFiles)
             {
-            file.Download(Path.Combine(outputDirectory, file.Name));
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
 
@@ -302,8 +310,8 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
             .LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                   mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                       mediaProcessorName));
 
             return processor;
         }
@@ -316,30 +324,31 @@ Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinfo
 
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                // LogJobStop(job.Id);
-                break;
-            default:
-                break;
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
-        }
     }
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

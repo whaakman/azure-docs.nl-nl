@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Werken met datums in Azure Cosmos DB
 Azure Cosmos DB biedt schemaflexibiliteit en geavanceerde indexeermogelijkheden via een systeemeigen [JSON](http://www.json.org) gegevensmodel. Alle Azure DB die Cosmos-bronnen, zoals databases, verzamelingen, documenten en opgeslagen procedures worden gemodelleerd en opgeslagen als JSON-documenten. Als een vereiste voor draagbare wordt JSON (en Azure Cosmos DB) ondersteunt een kleine set basistypen: String, getal, Booleaanse waarde, Array, Object en Null. Echter JSON is flexibel en ontwikkelaars en frameworks voor complexe typen met behulp van deze primitieven en samenstellen van deze objecten of-matrices. 
@@ -75,7 +75,7 @@ Bereik query's zijn veelvoorkomende met DateTime-waarden. Als u wilt zoeken naar
 U kunt meer informatie over het configureren van indexering beleid op [Azure Cosmos DB indexeren beleid](indexing-policies.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Datum/tijd in LINQ opvragen
-De DocumentDB .NET SDK ondersteunt automatisch gegevens opgeslagen in Azure Cosmos DB via LINQ opvragen. Bijvoorbeeld, toont het volgende fragment een LINQ-query die filters orders die zijn verzonden in de afgelopen drie dagen.
+De SQL-SDK voor .NET ondersteunt automatisch gegevens opgeslagen in Azure Cosmos DB via LINQ opvragen. Bijvoorbeeld, toont het volgende fragment een LINQ-query die filters orders die zijn verzonden in de afgelopen drie dagen.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -89,5 +89,5 @@ In dit artikel wordt bekeken hoe opslaan, index-en datum/tijd in Azure Cosmos DB
 
 ## <a name="next-steps"></a>Volgende stappen
 * Downloaden en uitvoeren van de [codevoorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Meer informatie over [DocumentDB API-Query](documentdb-sql-query.md)
+* Meer informatie over [SQL-query's](documentdb-sql-query.md)
 * Meer informatie over [Azure Cosmos DB indexeren beleid](indexing-policies.md)

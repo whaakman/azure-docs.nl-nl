@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detecteren, identificeren en classificeren van persoonlijke gegevens in Microsoft Azure
 
@@ -185,7 +185,7 @@ Allereerst de basisbeginselen, gaat u naar de [Azure CosmosD DB: een query met b
 
 Voor meer gedetailleerde informatie over het bouwen van de SQL-query's, gaat u naar [SQL-query's voor Azure Cosmos DB Document DB API.](../cosmos-db/documentdb-sql-query.md)
 
-Als u niet vertrouwd met Azure Cosmos DB bent en wil graag informatie over het maken van een database, een verzameling toevoegen en gegevens toevoegen, gaat u naar de [Azure Cosmos DB: een DocumentDB-API-web-app bouwen](../cosmos-db/create-documentdb-dotnet.md) Quick Start-zelfstudie. Als u dit doen in een andere taal dan .NET, zoals Java of Python, kiest uw voorkeurstaal u eenmaal naar de site.
+Als u niet vertrouwd met Azure Cosmos DB bent en wil graag informatie over het maken van een database, een verzameling toevoegen en gegevens toevoegen, gaat u naar de [Azure Cosmos DB: een SQL-API-web-app bouwen](../cosmos-db/create-documentdb-dotnet.md) Quick Start-zelfstudie. Als u dit doen in een andere taal dan .NET, zoals Java of Python, kiest uw voorkeurstaal u eenmaal naar de site.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configureren en beheren van problemen voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -182,7 +182,7 @@ Met behulp van een van de methoden hierboven, moeten de respectieve certificaten
 
 Cloudservice is een klassieke resource. Alleen bronnen via Azure Resource Manager support-tags is gemaakt. U kunt tags toepassen op klassieke resources zoals Service in de Cloud. 
 
-## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Wat zijn de toekomstige Cloudservice die in de Azure-Portal waarmee kunt beheren en bewaken van toepassingen?
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Wat zijn de toekomstige Cloudservice die in de Azure portal waarmee kunt beheren en bewaken van toepassingen?
 
 * Een nieuw certificaat genereren voor Remote Desktop Protocol (RDP) is binnenkort beschikbaar. U kunt ook dit script uitvoeren:
 
@@ -221,3 +221,65 @@ Zodra dit is gedaan, kunt u controleren of de HTTP/2 is ingeschakeld of niet via
 - Schakel F12 ontwikkelprogramma in Internet Explorer/rand en overschakelen naar het tabblad netwerk om te controleren of het protocol. 
 
 Zie voor meer informatie [HTTP/2 op IIS](https://blogs.iis.net/davidso/http2).
+
+## <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>De Azure-portal kan de SDK-versie van de Cloudservice wordt niet weergegeven. Hoe kan ik die krijgen?
+
+We werken aan deze functie te brengen in de Azure portal. U kunt ondertussen volgende PowerShell-opdrachten gebruiken om op te halen van de SDK-versie:
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Ik kan geen extern bureaublad voor Cloud Service-VM met behulp van het RDP-bestand. Ik ophalen volgende fout: Er is een verificatiefout opgetreden (Code: 0x80004005)
+
+Deze fout kan optreden als u het RDP-bestand van een machine die is gekoppeld aan Azure Active Directory. U lost dit probleem door de volgende stappen uit:
+
+1. Met de rechtermuisknop op het RDP-bestand dat u hebt gedownload en selecteer vervolgens **bewerken**.
+2. Voeg ' &#92; ' als voorvoegsel voordat de gebruikersnaam. Bijvoorbeeld: **. \username** in plaats van **gebruikersnaam**.
+
+## <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Ik wil de Cloudservice enkele maanden afgesloten. Hoe kan ik de facturering toegangskosten van Cloudservice zonder verlies van het IP-adres?
+
+Een reeds geïmplementeerde Service in de Cloud wordt gefactureerd voor de berekenings- en wordt gebruikt. Dus zelfs als u de Azure VM afsluiten, wordt u nog steeds ophalen gefactureerd voor de opslag. 
+
+Dit is wat u kunt doen om uw facturering reduceren zonder verlies van het IP-adres voor uw service:
+
+1. [Het IP-adres reserveren](../virtual-network/virtual-networks-reserved-public-ip.md) voordat u de implementaties verwijderd.  U wordt alleen gefactureerd voor dit IP-adres. Zie voor meer informatie over IP-adres facturering [IP-adressen prijzen](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. De implementaties verwijderd. Verwijder de xxx.cloudapp.net niet zodat u deze voor toekomstige gebruiken kunt.
+3. Als u wilt de Cloudservice implementeren met behulp van dezelfde gereserveerde IP die u in uw abonnement gereserveerd, raadpleegt u [gereserveerde IP-adressen voor Cloudservices en virtuele Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+
+## <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Mijn Cloud Service Management-certificaat verloopt. Hoe het te vernieuwen?
+
+U kunt volgende PowerShell-opdrachten gebruiken voor het vernieuwen van certificaten voor uw:
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+De **Get-AzurePublishSettingsFile** maakt een nieuw beheercertificaat in **abonnement** > **Beheercertificaten** in de Azure portal. De naam van het nieuwe certificaat eruit als 'YourSubscriptionNam]-[CurrentDate] - referenties'.
+
+## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Hoe kan ik automatisch geschaald op basis van geheugen metrische gegevens configureren?
+
+Automatisch geschaald op basis van geheugen metrische gegevens voor een cloudservices is momenteel niet ondersteund. 
+
+U kunt dit probleem omzeilen, kunt u Application Insights, zodat de diagnostische agent de metrische gegevens naar Application Insights routeren zou. Automatisch schalen ondersteunt Application Insights als bron van de metrische gegevens en het aantal rolinstanties dat op basis van de Gast metriek zoals 'Geheugen' kan worden geschaald.  U moet Application Insights configureren in uw Cloud Service-project-pakketbestand (*.cspkg) en Azure Diagnostics-extensie van de service voor het implementeren van deze functie inschakelen.
+
+Zie voor meer informatie over het gebruik van een aangepaste waarde die via de Application Insights automatisch schalen configureren op Cloudservices [aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+
+
+Zie voor meer informatie over het integreren van Azure Diagnostics met Application Insights voor Cloudservices [Cloudservice verzenden, virtuele Machine of Service Fabric diagnostische gegevens naar Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+
+Zie voor meer informatie over het inschakelen van Application Insights voor Cloud Services, [Application Insights voor Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+Zie voor meer informatie over het inschakelen van logboekregistratie van Azure Diagnostics voor Cloudservices [diagnostics instellen voor Azure Cloud Services en virtuele machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
+## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Hoe kan ik de belangrijkste SSL-certificaat (.pfx) en de tussenliggende certificate(.p7b) certificeringsinstallatie automatiseren?
+
+U kunt deze taak automatiseren met behulp van een opstartscript (cmd-batch/PowerShell) en die opstartscript registreren in het servicedefinitiebestand. Zowel het opstartscript en het certificaat (.p7b-bestand) in de projectmap van dezelfde map van het opstartscript toevoegen.
+
+Raadpleeg voor meer informatie de volgende artikelen:
+- [Het configureren en starten van de taken voor een cloudservice uitvoeren](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
+- [Algemene taken voor Cloud-Service starten](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Waarom vereist Azure-portal me waarmee u een opslagaccount voor de implementatie?
+
+Het pakket is geüpload naar de API-beheerlaag rechtstreeks in de klassieke portal en vervolgens de API-laag tijdelijk plaatst het pakket naar een interne storage-account.  Dit proces zorgt ervoor dat problemen met prestaties en schaalbaarheid omdat de API-laag niet ontworpen is om te worden van een bestand uploaden-service.  In de Azure portal (Resource Manager-implementatiemodel), hebben we de tussentijdse stap van het eerste uploaden naar de API-laag omzeild waardoor sneller en betrouwbaarder implementaties.
+ 
+Als de kosten voor zeer kleine is en u kunt hetzelfde opslagaccount opnieuw gebruiken in alle implementaties. U kunt de [opslag kosten Rekenmachine](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) om te bepalen van de kosten voor het uploaden van het servicepakket (CSPKG), de CSPKG downloaden en verwijder vervolgens de CSPKG.

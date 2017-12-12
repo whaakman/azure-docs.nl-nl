@@ -41,13 +41,14 @@
 
 ## Analyseren
 ### [Gebruikspatronen van Azure CDN analyseren](cdn-log-analysis.md)
-#### [Verizon-kernrapporten](cdn-analyze-usage-patterns.md)
-#### [Aangepaste Verizon-rapporten](cdn-verizon-custom-reports.md)
 #### [Diagnostische logboeken van Azure](cdn-azure-diagnostic-logs.md)
-### Analytische hulpprogramma's voor Azure CDN van Verizon
-#### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)
-#### [Statistieken in realtime bekijken](cdn-real-time-stats.md)
-#### [Prestaties van edge-knooppunt analyseren](cdn-edge-performance.md)
+#### Analytische hulpprogramma's voor Azure CDN van Verizon
+##### [Verizon-kernrapporten](cdn-analyze-usage-patterns.md)
+##### [Aangepaste Verizon-rapporten](cdn-verizon-custom-reports.md)
+#### Analysehulpprogramma's voor Azure CDN Premium van Verizon
+##### [Geavanceerde HTTP-rapporten genereren](cdn-advanced-http-reports.md)
+##### [Statistieken in realtime bekijken](cdn-real-time-stats.md)
+##### [Prestaties van edge-knooppunt analyseren](cdn-edge-performance.md)
 
 ## Ontwikkelen
 ### [.NET](cdn-app-dev-net.md)

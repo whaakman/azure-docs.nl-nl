@@ -6,19 +6,18 @@ documentationcenter:
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 0b407c3b092fd2c706775154cee3164a9869315a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Het beheren van Media Services-activa tussen meerdere Opslagaccounts
 Beginnen met Microsoft Azure Media Services 2.2, kunt u meerdere opslagaccounts aan een enkel Media Services-account koppelen. De mogelijkheid meerdere opslagaccounts koppelen aan een Media Services-account biedt de volgende voordelen:
@@ -26,7 +25,7 @@ Beginnen met Microsoft Azure Media Services 2.2, kunt u meerdere opslagaccounts 
 * Uw assets te verdelen over meerdere opslagaccounts worden geladen.
 * Schalen Media Services voor grote hoeveelheden inhoud verwerken (zoals een enkele storage-account is momenteel een limiet van 500 TB). 
 
-Dit onderwerp wordt beschreven hoe u meerdere opslagaccounts koppelt in een Media Services-account met [Azure Resource Manager-API's](https://docs.microsoft.com/rest/api/media/mediaservice) en [Powershell](/powershell/module/azurerm.media). Ook ziet u hoe verschillende opslagaccounts opgeven bij het maken van activa met behulp van de Media Services SDK. 
+In dit artikel laat zien hoe u het koppelen van meerdere opslagaccounts aan een Media Services-account met [Azure Resource Manager-API's](https://docs.microsoft.com/rest/api/media/mediaservice) en [Powershell](/powershell/module/azurerm.media). Ook ziet u hoe verschillende opslagaccounts opgeven bij het maken van activa met behulp van de Media Services SDK. 
 
 ## <a name="considerations"></a>Overwegingen
 Als u meerdere opslagaccounts aan uw Media Services-account koppelt, past u de volgende overwegingen:
@@ -42,7 +41,7 @@ Media Services maakt gebruik van de waarde van de **IAssetFile.Name** eigenschap
 
 ## <a name="to-attach-storage-accounts"></a>Storage-accounts koppelen  
 
-Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Manager-API's](https://docs.microsoft.com/rest/api/media/mediaservice) en [Powershell](/powershell/module/azurerm.media), zoals wordt weergegeven in het volgende voorbeeld.
+Gebruiken om de storage-accounts aan uw AMS-account koppelt, [Azure Resource Manager-API's](https://docs.microsoft.com/rest/api/media/mediaservice) en [Powershell](/powershell/module/azurerm.media), zoals wordt weergegeven in het volgende voorbeeld:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -91,15 +90,23 @@ namespace MultipleStorageAccounts
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

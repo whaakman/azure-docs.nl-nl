@@ -4,7 +4,7 @@ description: Dit artikel wordt beschreven hoe u van Microsoft Windows PowerShell
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Technische documentatie van Windows PowerShell-Connector
 In dit artikel beschrijft de Windows PowerShell-Connector. Het artikel is van toepassing op de volgende producten:
@@ -271,10 +271,10 @@ Het script wachtwoord ontvangt de volgende parameters van de connector:
 | Referentie |[PSCredential][pscred] |Bevat geen referenties opgegeven door de beheerder op het tabblad verbinding. |
 | Partitie |[Partitie][part] |Directory-partitie die de CSEntry in. |
 | CSEntry |[CSEntry][cse] |Connector ruimte vermelding voor het object dat is ontvangen een wachtwoord wijzigen of opnieuw instellen. |
-| OperationType |Tekenreeks |Hiermee wordt aangegeven of de bewerking opnieuw instellen (**SetPassword**) of een wijziging (**ChangePassword**). |
+| OperationType |Reeks |Hiermee wordt aangegeven of de bewerking opnieuw instellen (**SetPassword**) of een wijziging (**ChangePassword**). |
 | PasswordOptions |[PasswordOptions][pwdopt] |Vlaggen die een wachtwoord opgeven voor het beoogde instellen gedrag. Deze parameter is alleen beschikbaar als OperationType **SetPassword**. |
-| OudWachtwoord |Tekenreeks |Ingevuld met de oude wachtwoord van het object voor wachtwoordwijzigingen. Deze parameter is alleen beschikbaar als OperationType **ChangePassword**. |
-| NieuwWachtwoord |Tekenreeks |Gevuld met een nieuw wachtwoord in van het object dat het script moet worden ingesteld. |
+| OudWachtwoord |Reeks |Ingevuld met de oude wachtwoord van het object voor wachtwoordwijzigingen. Deze parameter is alleen beschikbaar als OperationType **ChangePassword**. |
+| NieuwWachtwoord |Reeks |Gevuld met een nieuw wachtwoord in van het object dat het script moet worden ingesteld. |
 
 Het script wachtwoord wordt niet verwacht geen resultaten geretourneerd aan de Windows PowerShell-pijplijn. Als er een fout optreedt in het script wachtwoord moet een van de volgende uitzonderingen op de synchronisatieservice informeren over het probleem door het script genereert:
 

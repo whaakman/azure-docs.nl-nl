@@ -1,4 +1,3 @@
-
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Microsoft Graph API aanroepen vanuit een Windows-bureaublad-app
 
 Deze handleiding wordt uitgelegd hoe een systeemeigen Windows Desktop .NET (XAML)-toepassing kunt ophalen van een toegangstoken en Microsoft Graph API of andere API's waarvoor toegangstokens van Azure Active Directory-v2-eindpunt niet aanroepen.

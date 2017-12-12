@@ -1,6 +1,6 @@
 ---
-title: Bronnen voor & Azure Cosmos DB .NET SDK | Microsoft Docs
-description: Meer informatie over de .NET API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB .NET SDK.
+title: 'Azure Cosmos DB: SQL .NET API, SDK en resources | Microsoft Docs'
+description: Meer informatie over de SQL .NET API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee6d649ac1ab0813098b13750ccc1f6ebf82f684
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d68079e2bbf12f50eb74b0d2d2c5b17ddb42d28d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: Downloaden en release-opmerkingen
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET-Feed van wijzigen](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/18/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -86,7 +88,7 @@ ms.lasthandoff: 11/18/2017
 *   Toegevoegde ondersteuning voor het opgeven van aangepaste JsonSerializerSettings tijdens het instantiëren van [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Een probleem dat van invloed op een x64 vaste machines die geen ondersteuning voor SSE4 instructie en genereert een SEHException bij het uitvoeren van query's Azure Cosmos DB DocumentDB API.
+*   Een probleem dat van invloed op een x64 vaste machines die geen ondersteuning voor de instructie SSE4 en genereert een SEHException bij het uitvoeren van Azure Cosmos DB SQL-query's.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Ondersteuning toegevoegd voor een nieuwe consistentieniveau ConsistentPrefix genoemd.

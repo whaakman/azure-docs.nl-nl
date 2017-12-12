@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe biedt Azure Cosmos DB indexgegevens?
 
@@ -183,7 +183,7 @@ Hier worden de soorten ondersteunde index en voorbeelden van query's die ze kunn
 | Index-type | Beschrijving/gebruiksvoorbeeld                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Hash       | Hash-via/prop /? (of /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Hash via Eigenschappen / [] /? (of / of eigenschappen /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer labelen van verzameling c JOIN-tag IN c.props waar tag = 5                                                                                                                       |
-| Bereik      | Bereik via/prop /? (of /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop > 5<br><br>Selecteer in de c verzameling ORDER BY c.prop                                                                                                                                                                                                              |
+| bereik      | Bereik via/prop /? (of /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer uit verzameling c WHERE c.prop = '' waarde ''<br><br>Selecteer uit verzameling c WHERE c.prop > 5<br><br>Selecteer in de c verzameling ORDER BY c.prop                                                                                                                                                                                                              |
 | Ruimtelijk     | Bereik via/prop /? (of /) efficiënt voor de volgende query's kunnen worden gebruikt:<br><br>Selecteer uit verzameling c<br><br>WAAR ST_DISTANCE (c.prop, {'type': 'Point', 'coördinaten': [0,0, 10.0]}) < 40<br><br>Selecteer uit verzameling c waar ST_WITHIN(c.prop, {"type": "Polygon",...})--met indexeren op punten ingeschakeld<br><br>Selecteer uit verzameling c waar ST_WITHIN({"type": "Point",...}, c.prop)--met indexeren op veelhoek ingeschakeld              |
 
 Standaard wordt een fout geretourneerd voor query's met bereik operators zoals > = als er geen bereikindex (van eventuele precisie is) om aan te geven dat een scan mogelijk nodig voor het uitvoeren van de query. Bereik query's kunnen worden uitgevoerd zonder een bereikindex met behulp van de header x-ms-documentdb-enable-scan in de REST-API of de EnableScanInQuery aanvraagoptie met de .NET SDK. Als er geen andere filters in de query die Cosmos Azure DB die wordt de index kunt gebruiken om te filteren op basis van dan geen fout wordt geretourneerd.
@@ -229,7 +229,7 @@ U kunt kiezen of u wilt dat de verzameling automatisch alle documenten te indexe
 
 Met automatische indexeren uitgeschakeld, kunt u nog steeds selectief alleen bepaalde documenten toevoegen aan de index. U kunt daarentegen laat automatische indexering op en selectief wilt uitsluiten van alleen specifieke documenten. Indexeren aan/uit-configuraties zijn nuttig wanneer u hebt alleen een subset van documenten die moeten worden opgevraagd.
 
-Het volgende voorbeeld ziet u bijvoorbeeld het opnemen van een document expliciet met behulp van de [DocumentDB API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
+Het volgende voorbeeld ziet u bijvoorbeeld het opnemen van een document expliciet met behulp van de [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -315,7 +315,7 @@ Wanneer zou u indexering beleidswijzigingen aanbrengen in uw Azure DB die Cosmos
 > 
 
 ## <a name="performance-tuning"></a>Prestaties afstemmen
-De DocumentDB APIs bieden informatie over de maatstaven voor prestaties zoals de index opslag gebruikt en de kosten van doorvoer (aanvraageenheden) voor elke bewerking. Deze informatie kan worden gebruikt om te vergelijken van verschillende beleidsregels voor indexering en voor prestaties afstemmen.
+De SQL-API's bieden informatie over de maatstaven voor prestaties zoals de index opslag gebruikt en de kosten van doorvoer (aanvraageenheden) voor elke bewerking. Deze informatie kan worden gebruikt om te vergelijken van verschillende beleidsregels voor indexering en voor prestaties afstemmen.
 
 Controleer de opslaglimiet en informatie over het gebruik van een verzameling, uitvoeren van een HEAD- of GET-aanvraag op de verzamelingsbron en controleren van de x-ms-aanvraag-quota en -headers van de x-ms-aanvraag-gebruik. In de .NET SDK, de [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) en [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) eigenschappen in [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) deze bijbehorende waarden bevatten.
 
@@ -409,7 +409,7 @@ Voor een praktische vergelijking volgt hier een voorbeeld van aangepast indexeri
 ## <a name="next-steps"></a>Volgende stappen
 Volg de onderstaande koppelingen voor index beleid management voorbeelden en voor meer informatie over Azure Cosmos DB querytaal.
 
-1. [DocumentDB-API .NET indexbeheer-codevoorbeelden](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [DocumentDB API REST-verzameling bewerkingen](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [SQL-API .NET indexbeheer-codevoorbeelden](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [SQL-API REST-verzameling bewerkingen](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [De query met behulp van SQL](documentdb-sql-query.md)
 

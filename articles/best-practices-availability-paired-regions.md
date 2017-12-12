@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/11/2017
 ms.author: raynew
-ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure-gebieden gekoppeld
 
@@ -32,13 +32,14 @@ Elke Azure-regio is gekoppeld aan een andere regio binnen de dezelfde Geografie,
 
 Afbeelding 1: Azure regionale paar diagram
 
-| Geografie | Gekoppelde regio 's |  |
+| Geografie | Gekoppelde regio's |  |
 |:--- |:--- |:--- |
 | Azië |Oost-Azië |Zuidoost-Azië |
 | Australië |Australië - oost |Australië - zuidoost |
 | Canada |Canada - centraal |Canada - oost |
 | China |China - noord |China - oost|
 | India |Centraal-India |Zuid-India |
+| India |West, India (1) |Zuid-India |
 | Japan |Japan - oost |Japan - west |
 | Korea |Korea - centraal |Korea - zuid |
 | Noord-Amerika |Noord-centraal VS |Zuid-centraal VS |
@@ -47,9 +48,9 @@ Afbeelding 1: Azure regionale paar diagram
 | Noord-Amerika |VS - west 2 |West-centraal VS |
 | Europa |Noord-Europa |West-Europa |
 | Japan |Japan - oost |Japan - west |
-| Brazilië |Brazilië-Zuid (1) |Zuid-centraal VS |
-| Amerikaanse overheid |VS Gov Iowa (2) |VS (overheid) - Virginia |
-| Amerikaanse overheid |VS Gov Virginia (3) |VS (overheid) - Texas |
+| Brazilië |Brazilië-Zuid (2) |Zuid-centraal VS |
+| Amerikaanse overheid |VS Gov Iowa (3) |VS (overheid) - Virginia |
+| Amerikaanse overheid |VS Gov Virginia (4) |VS (overheid) - Texas |
 | Amerikaanse overheid |VS (overheid) - Arizona |VS (overheid) - Texas |
 | Amerikaanse ministerie van defensie |US DoD - oost |US DoD - centraal |
 | VERENIGD KONINKRIJK |Verenigd Koninkrijk West |Verenigd Koninkrijk Zuid |
@@ -57,11 +58,10 @@ Afbeelding 1: Azure regionale paar diagram
 
 Tabel 1 - toewijzing van Azure regionale paren
 
-> (1) Brazilië-Zuid is uniek omdat deze is gekoppeld aan een regio buiten de eigen Geografie. Brazilië-Zuid secundaire regio is Zuid-centraal VS, maar er is geen Zuid-centraal VS van secundaire regio Brazilië-Zuid.
->
-> (2) VS Gov Iowa secundaire regio is Gov ons Virginia, maar de Gov ons Virginia secundaire regio is niet Gov ons Iowa.
-> 
-> (3) de secundaire regio VS Gov Virginia Gov ons Texas is, maar Gov ons-Texas secundaire regio is niet Gov ons Virginia.
+- > (1) India West is verschillend, omdat deze is gekoppeld aan een andere regio in één richting. Secundaire regio West India Zuid, India is, maar de secundaire regio Zuid, India centraal, India is.
+- > (2) Brazilië-Zuid is uniek omdat deze is gekoppeld aan een regio buiten de eigen Geografie. Brazilië-Zuid secundaire regio is Zuid-centraal VS, maar er is geen Zuid-centraal VS van secundaire regio Brazilië-Zuid.
+- > (3) VS Gov Iowa secundaire regio is Gov ons Virginia, maar de Gov ons Virginia secundaire regio is niet Gov ons Iowa.
+- > (4) de secundaire regio VS Gov Virginia Gov ons Texas is, maar Gov ons-Texas secundaire regio is niet Gov ons Virginia.
 
 
 Het is raadzaam dat u workloads over regionale paren repliceren profiteren van Azure isolatie en beschikbaarheid van beleid. Bijvoorbeeld, geplande Azure systeemupdates sequentieel worden geïmplementeerd (en niet op hetzelfde moment) tussen de gekoppelde regio's. Dat betekent dat zelfs in het zeldzame geval van een defecte update beide regio's worden niet beïnvloed tegelijkertijd. Bovendien, in het onwaarschijnlijke geval van een brede onderbreking herstel van ten minste één regio buiten elk paar voorrang krijgt.
@@ -94,7 +94,7 @@ In afbeelding 2 bedoelde.
 **Platform geleverde replicatie** -sommige services zoals geografisch redundante opslag bieden automatische replicatie naar de gekoppelde regio.
 
 ![Herstel](./media/best-practices-availability-paired-regions/7Orange.png)
-**regio herstel volgorde** : In het geval van een storing brede herstel van één regio buiten elk paar is geplaatst. Toepassingen die zijn geïmplementeerd op gekoppelde regio's zijn gegarandeerd een van de regio's met prioriteit is hersteld. Als een toepassing wordt geïmplementeerd in regio's die niet zijn gekoppeld, herstel mogelijk een vertraging – in het ergste geval dat de gekozen regio's mogelijk is de laatste twee wilt herstellen.
+**regio herstel volgorde** : In het geval van een storing brede herstel van één regio buiten elk paar is geplaatst. Toepassingen die zijn geïmplementeerd op gekoppelde regio's zijn gegarandeerd een van de regio's met prioriteit is hersteld. Als een toepassing wordt geïmplementeerd in regio's die niet zijn gekoppeld, kan herstel worden vertraagd: in het ergste geval dat de gekozen regio's mogelijk is de laatste twee wilt herstellen.
 
 ![Updates](./media/best-practices-availability-paired-regions/8Orange.png)
 **opeenvolgende updates** – systeemupdates geplande Azure worden geïmplementeerd voor gekoppelde regio's worden na elkaar (en niet op hetzelfde moment) uitvaltijd, het effect van de fouten en logische fouten in het zeldzame geval van een onjuiste minimaliseren Update.

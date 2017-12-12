@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>De registratiegegevens van de toepassing toevoegen aan uw App
 
 In deze stap moet u de omleidings-URL van de registratiegegevens van de toepassing configureren en vervolgens de toepassings-Id toe te voegen aan uw toepassing JavaScript SPA.

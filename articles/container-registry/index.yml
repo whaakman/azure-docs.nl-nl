@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentatie voor Azure Container Registry
 metadata:
   title: Documentatie voor Azure Container Registry - zelfstudies | Microsoft Docs
-  description: 'Met Azure Container Registry kunt u installatiekopieën opslaan en beheren voor alle typen containerimplementaties. Ontdek met deze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Container Registry gebruikt.'
+  description: "Met Azure Container Registry kunt u installatiekopieën opslaan en beheren voor alle typen containerimplementaties. Ontdek met deze QuickStarts, zelfstudies en voorbeelden hoe u Azure Container Registry gebruikt."
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,47 +13,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Met Azure Container Registry kunt u installatiekopieën opslaan en beheren voor alle typen containerimplementaties. Ontdek met deze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Container Registry gebruikt.'
+  description: "Met Azure Container Registry kunt u installatiekopieën opslaan en beheren voor alle typen containerimplementaties. Ontdek met deze QuickStarts, zelfstudies en voorbeelden hoe u Azure Container Registry gebruikt."
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Meer informatie over het implementeren van een Azure Container-register.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Meer informatie over het implementeren van een Azure Container-register.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Azure CLI
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure Portal
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Ontdek met deze zelfstudies hoe u Azure Container Registry gebruikt.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Ontdek met deze zelfstudies hoe u Azure Container Registry gebruikt.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Geo-replicatie voor Container Registry (preview)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry met Azure Container Instances</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry met Azure Container Service (AKS)</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry met Service Fabric</a>
-  - title: Naslaginformatie
+    - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Geo-replicatie voor Container Registry (preview)</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry met Azure Container Instances</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry met Azure Container Service (AKS)</a>
+    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry met Service Fabric</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Opdrachtregel
-            html: <p><a href="/cli/azure/acr">Azure-CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/containerregistry">Naslaginformatie over REST-API</a></p>
+    - title: Opdrachtregel
+      html: <p><a href="/cli/azure/acr">Azure-CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: Talen
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/containerregistry">Naslaginformatie over REST-API</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Resource Manager-sjabloon</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Webhook-schema</a></p>

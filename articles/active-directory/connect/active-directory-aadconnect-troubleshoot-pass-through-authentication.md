@@ -5,7 +5,7 @@ services: active-directory
 keywords: Problemen met Azure AD Connect Pass through-verificatie, installeert u Active Directory, de vereiste onderdelen voor Azure AD, SSO, Single Sign-on
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Problemen met Azure Active Directory Pass-through-verificatie
 
@@ -57,7 +57,7 @@ Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook z
 
 Navigeer naar **Azure Active Directory** -> **aanmeldingen** op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/) en klik op een specifieke gebruiker aanmelden activiteit. Zoek naar de **SIGN-IN-FOUTCODE** veld. De waarde van dat veld worden toegewezen aan een reden voor fout en de oplossing met behulp van de volgende tabel:
 
-|Foutcode voor aanmelding|Aanmelding mislukt reden|Oplossing
+|Aanmelden foutcode|Aanmelding mislukt reden|Oplossing
 | --- | --- | ---
 | 50144 | Het Active Directory-wachtwoord van de gebruiker is verlopen. | Wachtwoord van de gebruiker in uw lokale Active Directory worden ingesteld.
 | 80001 | Er is geen verificatieagent beschikbaar. | Installeren en registreren van een verificatie-Agent.

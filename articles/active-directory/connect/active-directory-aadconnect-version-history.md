@@ -4,7 +4,7 @@ description: Dit artikel vindt u alle versies van Azure AD Connect en Azure AD S
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5a47d7f589d4d2dcd40ebb6ff551f2c77fc8a8aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -335,7 +335,7 @@ CBool(
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecteer|
     |CertKeyAlgorithmParams|CertHashString|waar|
-    |||met|
+    |||Met|
 
 * Wijzigingen in het volgende schema zijn geïntroduceerd om te kunnen klanten om van aangepaste synchronisatieregels sAMAccountName, domainNetBios en domainFQDN voor een groepsobjecten worden weergegeven, evenals distinguishedName voor gebruikersobjecten stromen te maken:
 

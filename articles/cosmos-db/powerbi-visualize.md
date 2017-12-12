@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: mimig
-ms.openlocfilehash: 03127c9d35b8dd0fe54310c84ff89ea087f175b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-zelfstudie voor Azure Cosmos DB: gegevens visualiseren met behulp van de Power BI-connector
 [PowerBI.com](https://powerbi.microsoft.com/) is een onlineservice waar u kunt maken en delen van dashboards en rapporten met gegevens die belangrijk voor u en uw organisatie.  Power BI Desktop is een speciale rapport ontwerpgereedschap waarmee u gegevens ophalen uit verschillende gegevensbronnen, samen te voegen en de gegevens transformeren krachtige rapporten en visualisaties maken en publiceren van de rapporten naar Power BI.  Met de meest recente versie van Power BI Desktop, u kunt nu verbinding maken met uw account Cosmos DB via de Cosmos-DB-connector voor Power BI.   
@@ -224,5 +224,5 @@ Ga als volgt te werk voor een geplande vernieuwing.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor meer informatie over Power BI, [aan de slag met Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* Zie voor meer informatie over Cosmos DB, de [startpagina van Azure DB die Cosmos documentatie](https://azure.microsoft.com/documentation/services/documentdb/).
+* Zie voor meer informatie over Cosmos DB, de [startpagina van Azure DB die Cosmos documentatie](https://azure.microsoft.com/documentation/services/cosmos-db/).
 

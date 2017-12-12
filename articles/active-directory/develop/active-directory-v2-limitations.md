@@ -4,7 +4,7 @@ description: Een lijst met voorwaarden en beperkingen voor het Azure AD v2.0-ein
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 Wanneer u toepassingen die zijn geïntegreerd met Azure Active Directory maakt, moet u bepalen of het v2.0-eindpunt en verificatieprotocollen aan uw behoeften voldoet. Oorspronkelijke Azure Active Directory-eindpunt wordt nog steeds volledig ondersteund en is in sommige opzichten meer uitgebreide functionaliteit dan versie 2.0. Echter, het v2.0-eindpunt [introduceert aanzienlijke voordelen](active-directory-v2-compare.md) voor ontwikkelaars.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 9bd92e48440ad4edf2261221446ce66718ffea17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met Azure Data Factory
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 > * [Versie 1 - Algemene beschikbaarheid](v1/data-factory-azure-documentdb-connector.md)
 > * [Versie 2 - Preview](connector-azure-cosmos-db.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Azure Cosmos-DB (DocumentDB-API). Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar Azure Cosmos-DB (SQL-API). Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Azure Cosmos DB connnector in V1](v1/data-factory-azure-documentdb-connector.md).
@@ -36,7 +36,7 @@ U kunt gegevens kopiëren van Azure DB die Cosmos naar een ondersteunde sink-geg
 
 In het bijzonder ondersteunt deze Azure DB die Cosmos-connector:
 
-- Cosmos DB [DocumentDB API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [SQL-API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - JSON-documenten als importeren/exporteren-is of kopiëren van gegevens van/naar tabular gegevensset bijvoorbeeld SQL-database, CSV-bestanden, enzovoort.
 
 Documenten kopiëren als-is naar/van de JSON-bestanden of een andere verzameling van de Cosmos-DB, Zie [voor importeren/exporteren JSON-documenten](#importexport-json-documents).

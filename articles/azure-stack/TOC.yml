@@ -45,6 +45,8 @@
       items:
         - name: Vereisten
           href: azure-stack-deploy.md
+        - name: Telemetrie
+          href: azure-stack-telemetry.md
         - name: Implementeren
           href: azure-stack-run-powershell-script.md
         - name: PowerShell installeren

@@ -4,7 +4,7 @@ description: "Gebouw webtoepassingen die gebruikmaken van Azure AD v2.0 uitvoeri
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocollen - kuuroorden met behulp van de impliciete stroom
 Met het v2.0-eindpunt kunt u gebruikers zich bij uw apps op één pagina met persoonlijke en zakelijke/school accounts van Microsoft.  Één pagina en andere JavaScript-apps die worden uitgevoerd voornamelijk in een browser gezicht interessante enkele uitdagingen bij de verificatie:
@@ -76,9 +76,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app.  Moet `fragment` voor de impliciete stroom. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord worden geretourneerd.  Een tekenreeks van inhoud die u wenst dat kan zijn.  Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12).  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die wordt opgenomen in de resulterende id_token als een claim.  De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen.  De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| prompt |Optioneel |Geeft het type van de interactie van de gebruiker die is vereist.  De enige geldige waarden op dit moment zijn 'aanmelding', 'none', ' toestemming geven '.  `prompt=login`wordt de gebruiker dwingen te hun referenties invoeren voor deze aanvraag, het negatief maken van eenmalige aanmelding.  `prompt=none`is het tegenovergestelde - dan gegarandeerd dat de gebruiker niet vragen beeïndigen krijgt.  Als de aanvraag kan achtergrond via eenmalige aanmelding worden voltooid, wordt het v2.0-eindpunt een fout geretourneerd.  `prompt=consent`activeert de toestemming OAuth dialoogvenster nadat de gebruiker zich aanmeldt, de gebruiker machtigen om de app wordt gevraagd. |
-| login_hint |Optioneel |Kan worden gebruikt voor het vervullen van het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf als u hun gebruikersnaam tevoren weet.  Vaak apps Gebruik deze parameter tijdens hernieuwde verificatie de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
-| domain_hint |Optioneel |Een van `consumers` of `organizations`.  Als opgenomen, wordt het proces detectie op basis van e-mailbericht wordt overgeslagen die gebruiker doorloopt op de v2.0 aanmeldingspagina wordt, wat leidt tot een iets meer gestroomlijnde gebruikerservaring.  Vaak apps wordt met deze parameter gebruikt tijdens de hervalidatie door het uitpakken van de `tid` opvragen bij de id_token.  Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad`, moet u `domain_hint=consumers`.  Gebruik anders `domain_hint=organizations`. |
+| prompt |optioneel |Geeft het type van de interactie van de gebruiker die is vereist.  De enige geldige waarden op dit moment zijn 'aanmelding', 'none', ' toestemming geven '.  `prompt=login`wordt de gebruiker dwingen te hun referenties invoeren voor deze aanvraag, het negatief maken van eenmalige aanmelding.  `prompt=none`is het tegenovergestelde - dan gegarandeerd dat de gebruiker niet vragen beeïndigen krijgt.  Als de aanvraag kan achtergrond via eenmalige aanmelding worden voltooid, wordt het v2.0-eindpunt een fout geretourneerd.  `prompt=consent`activeert de toestemming OAuth dialoogvenster nadat de gebruiker zich aanmeldt, de gebruiker machtigen om de app wordt gevraagd. |
+| login_hint |optioneel |Kan worden gebruikt voor het vervullen van het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf als u hun gebruikersnaam tevoren weet.  Vaak apps Gebruik deze parameter tijdens hernieuwde verificatie de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
+| domain_hint |optioneel |Een van `consumers` of `organizations`.  Als opgenomen, wordt het proces detectie op basis van e-mailbericht wordt overgeslagen die gebruiker doorloopt op de v2.0 aanmeldingspagina wordt, wat leidt tot een iets meer gestroomlijnde gebruikerservaring.  Vaak apps wordt met deze parameter gebruikt tijdens de hervalidatie door het uitpakken van de `tid` opvragen bij de id_token.  Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad`, moet u `domain_hint=consumers`.  Gebruik anders `domain_hint=organizations`. |
 
 Op dit moment wordt de gebruiker wordt gevraagd hun referenties invoeren en de authenticatie voltooien.  Het v2.0-eindpunt er ook voor zorgen dat de gebruiker heeft ingestemd met de machtigingen die zijn aangegeven in de `scope` queryparameter.  Als de gebruiker niet aan een van deze machtigingen heeft ingestemd, wordt deze vraagt de gebruiker toe te staan de vereiste machtigingen.  Details van [machtigingen, toestemming en multitenant apps vindt u hier](active-directory-v2-scopes.md).
 

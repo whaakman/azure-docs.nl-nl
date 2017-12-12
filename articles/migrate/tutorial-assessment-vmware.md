@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/06/2017
 ms.author: raynew
-ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 448dda89623ca2a1e8de86773c1d6a50e708c151
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detecteren en beoordelen van de lokale virtuele VMware-machines op de migratie naar Azure
 
@@ -175,7 +175,7 @@ Deze weergave toont de gereedheidsstatus voor elke computer.
 Deze weergave toont de totale berekenings- en opslagkosten van de virtuele machines in Azure samen met de details voor elke computer wordt uitgevoerd. Maakt een schatting van kosten zijn berekend met behulp van de aanbevelingen op basis van prestaties grootte voor een machine en de schijven en de eigenschappen van de evaluatie. 
 
 > [!NOTE]
-> De kosten schatting verstrekt door Azure migreren is voor het uitvoeren van de lokale virtuele machines als Azure-infrastructuur als een dienst (IaaS) virtuele machines. Het beschouwd niet als een Platform als een service (PaaS) of Software als een dienst (SaaS)-kosten. 
+> De kosten schatting verstrekt door Azure migreren is voor het uitvoeren van de lokale virtuele machines als Azure-infrastructuur als een dienst (IaaS) virtuele machines. Azure migreren beschouwd niet als een Platform als een service (PaaS) of Software als een dienst (SaaS)-kosten. 
 
 Geschatte maandelijkse kosten voor berekeningen en opslag worden samengevoegd voor alle virtuele machines in de groep. 
 

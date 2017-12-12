@@ -5,7 +5,7 @@ keywords: Inleiding tot MFA mfa overzicht, wat is mfa
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: a928344dfc41687c92e7845bc304a05122ab8a92
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 63b717fb08861b0efe902400a8765f9515ed5b1a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Wat is Azure Multi-Factor Authentication?
 Verificatie in twee stappen is een authenticatiemethode die meer dan één verificatiemethode is vereist en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. Het werkt door te vereisen van twee of meer van de volgende verificatiemethoden:

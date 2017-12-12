@@ -4,7 +4,7 @@ description: Een zelfstudie die u bij het proces helpt van het gebruik van een W
 services: active-directory
 documentationcenter: 
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: c6347e332f73f6b6dfb5cf9fe4aa7030db331988
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dfa5c75c803be0cda05b2906c3615300ad84bca6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure SQL
 
@@ -38,7 +38,7 @@ Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een W
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
 

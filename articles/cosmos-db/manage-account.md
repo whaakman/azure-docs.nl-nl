@@ -1,7 +1,7 @@
 ---
 title: Beheren van een Azure DB die Cosmos-account via Azure Portal | Microsoft Docs
 description: "Informatie over het beheren van uw Azure DB die Cosmos-account via Azure Portal. Een handleiding voor het gebruik van de Azure Portal weergeven, kopiëren, verwijderen en toegang tot accounts vinden."
-keywords: Azure-Portal, documentdb, azure, Microsoft azure
+keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Het beheren van een Azure DB die Cosmos-account
 Informatie over het globale consistentie instellen, in combinatie met sleutels en verwijderen van een Azure DB die Cosmos-account in de Azure-portal.

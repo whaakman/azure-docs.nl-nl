@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: het gebruik van azure-directory, active directory in de cloud, active directory-zelfstudie
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 2c62f36ed1c9bec9bc62d9ce63132b5e082867ae
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d516ef578608a6cead3823585007cbd0636de24a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Mijn account voor verificatie in twee stappen instellen
 Verificatie in twee stappen is een extra beveiligingsstap die voorkomen dat uw account door waardoor het moeilijker voor andere mensen om in te verbreken. Als u dit artikel leest ontvangen u waarschijnlijk een e-mailbericht van uw werk of school-beheerder over meervoudige verificatie. Of misschien probeert aan te melden en krijg een bericht waarin u wordt gevraagd voor het instellen van aanvullende beveiligingsverificatie. Als dat het geval is, **je niet aanmelden totdat u het proces voor automatische inschrijving hebt voltooid**.

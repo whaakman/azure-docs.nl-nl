@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Een Azure gehoste API exporteren naar PowerApps en Microsoft-stroom
 
@@ -34,7 +34,7 @@ Voordat u exporteert een API, moet u de API met behulp van de definitie van een 
 
 Als u wilt exporteren van de API-definitie, de volgende stappen uit:
 
-1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw Azure Functions of App Service-toepassing.
+1. In de [Azure-portal](https://portal.azure.com), navigeer naar uw Azure-functies of een andere App Service-toepassing.
 
     Als u Azure Functions, selecteert u de functie-app, kiest u **platformfuncties**, en vervolgens **API-definitie**.
 
@@ -48,11 +48,11 @@ Als u wilt exporteren van de API-definitie, de volgende stappen uit:
 
     ![Exporteren naar PowerApps + Microsoft Flow knop](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. Selecteer de **exportmodus**:
+3. Selecteer de **modus exporteren**:
 
-    **Express** kunt u de aangepaste connector uit binnen de Azure portal maken. Hiervoor is dat u bent aangemeld bij PowerApps of Microsoft Flow en gemachtigd connectors maken in de doelomgeving. Dit is de aanbevolen aanpak als aan deze eis kan worden voldaan. Als u deze modus gebruikt, volgt u de [snelle exporteren gebruiken](#express) onderstaande instructies.
+    **Express** kunt u de aangepaste connector uit binnen de Azure portal maken. Hiervoor is dat u bent aangemeld bij PowerApps of Microsoft Flow en gemachtigd connectors maken in de doelomgeving. Dit is de aanbevolen aanpak als deze twee vereisten kunnen worden voldaan. Als u deze modus gebruikt, volgt u de [snelle exporteren gebruiken](#express) onderstaande instructies.
 
-    **Handmatige** kunt u het exporteren van de API-definitie die u vervolgens importeren met behulp van de portals PowerApps of Flow van Microsoft. Dit is de aanbevolen aanpak als de Azure-gebruiker en de gebruiker met machtigingen voor het maken van connectors verschillende personen of als de connector moet worden gemaakt in een andere tenant. Als u deze modus gebruikt, volgt u de [gebruiken voor het handmatig exporteren](#manual) onderstaande instructies.
+    **Handmatige** kunt u het exporteren van de API-definitie die u vervolgens importeren met behulp van de portals PowerApps of Flow van Microsoft. Dit is de aanbevolen aanpak als de Azure-gebruiker en de gebruiker met machtigingen voor het maken van connectors verschillende personen of als de connector moet worden gemaakt in een andere Azure-tenant. Als u deze modus gebruikt, volgt u de [gebruiken voor het handmatig exporteren](#manual) onderstaande instructies.
 
     ![Modus exporteren](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -168,7 +168,7 @@ De volgende configuratiewaarden zijn vereist:
 > [!IMPORTANT]
 > Als iemand anders de API-definitie in PowerApps en Microsoft-Flow als onderdeel van de handmatige stroom importeert wordt, moet u ze opgeven met de client-ID en clientgeheim van de *registratie van de connector*, evenals de bron-URL van uw API. Zorg ervoor dat deze geheime gegevens veilig worden beheerd. **De beveiligingsreferenties van de API zelf niet delen.**
 
-### <a name="generic-oauth-20"></a>Algemene OAuth 2.0
+### <a name="generic-oauth-20"></a>Generieke OAuth 2.0
 Wanneer u algemene OAuth 2.0, die u kunt integreren met elke OAuth 2.0-provider. Hiermee kunt u werken met aangepaste providers die niet systeemeigen worden ondersteund.
 
 De volgende configuratiewaarden zijn vereist:

@@ -3,7 +3,7 @@ title: Azure Identity begrijpen | Microsoft Docs
 description: Haal een basiskennis van Microsoft Azure identiteit oplossing voorwaarden, concepten en aanbevelingen voor u het beste identiteit governance beslissing neemt voor uw organisatie.
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure-identiteitsoplossingen begrijpen
 Microsoft Azure Active Directory (Azure AD) is een identiteits- en toegangsbeheer cloud beheeroplossing die directoryservices en identiteit governance Toepassingsbeheer toegang biedt. Azure AD snel [kunt van eenmalige aanmelding (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) naar 1. 000 de met vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps die u waarschijnlijk al, zoals Office 365, Salesforce.com vak, ServiceNow en Workday gebruikt.

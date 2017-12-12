@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
 
@@ -57,7 +57,12 @@ Als u de gevolgen van deze aanbeveling schatten, kunt worden u geleverd bij een 
 
 Als u deze aanbeveling uitvoert, geforceerde parameterisering binnen enkele minuten in de database wordt het ingeschakeld en wordt het bewakingsproces die het duurt ongeveer 24 uur. Na deze periode, kunt u zich kunt zien van het validatierapport voor CPU-gebruik van de database waarin de 24 uur voordat en nadat de aanbeveling is toegepast. SQL Database Advisor is een beveiligingsmechanisme dat de toegepaste aanbeveling automatisch teruggezet als de regressie van een prestaties is gedetecteerd.
 
-## <a name="fix-schema-issues-recommendations"></a>Aanbevelingen voor schema-problemen oplossen
+## <a name="fix-schema-issues-recommendations-preview"></a>Los problemen met aanbevelingen voor schema (preview)
+
+> [!IMPORTANT]
+> Microsoft is bezig te 'Schema probleem op te lossen' aanbevelingen bestandstypen. U moet beginnen met [Intelligent Insights](sql-database-intelligent-insights.md) voor de automatische bewaking van uw prestatieproblemen met de database, zoals schema problemen die eerder aanbevelingen 'Schema probleem op te lossen' gedekt.
+> 
+
 **Los de problemen schema** aanbevelingen worden weergegeven wanneer de service SQL Database meldingen een afwijkingsdetectie in het aantal schema-gerelateerde SQL fouten op uw Azure SQL Database plaatsvinden. Deze aanbeveling wordt doorgaans weergegeven wanneer de database meerdere fouten over schema (ongeldige kolomnaam, Ongeldige objectnaam, enzovoort) binnen een uur optreedt.
 
 'Problemen met het schema' vormen een klasse syntaxisfouten in SQL Server die ontstaan wanneer de definitie van de SQL-query en de definitie van schema van de database zijn niet uitgelijnd. Bijvoorbeeld, een van de kolommen die werd verwacht door de query ontbreekt mogelijk in de doeltabel of vice versa. 

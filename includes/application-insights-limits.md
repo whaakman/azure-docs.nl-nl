@@ -11,7 +11,7 @@ Er gelden enkele beperkingen voor het aantal meetgegevens en gebeurtenissen per 
 | Naamlengte voor de eigenschappen en meetgegevens | 150 | Zie [typt u schema's](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Lengte van de tekenreeks eigenschapswaarde | 8.192 | Zie [typt u schema's](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Lengte van berichten voor tracering en uitzonderingen | 10.000 | Zie [typt u schema's](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Aantal [beschikbaarheidstests](../articles/application-insights/app-insights-monitor-web-app-availability.md) per app  | 10 |
+| Aantal [beschikbaarheidstests](../articles/application-insights/app-insights-monitor-web-app-availability.md) per app  | 100 |
 | [Profiler](../articles/application-insights/app-insights-profiler.md) bewaren van gegevens | Er zijn vijf dagen |
 | [Profiler](../articles/application-insights/app-insights-profiler.md) gegevens verzonden per dag | 10GB |
 

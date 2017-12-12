@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Upgrade Kubernetes in Azure Containerservice (AKS)
 
-Een Azure Container Service (AKS)-cluster kan worden bijgewerkt met de Azure CLI. Tijdens het upgradeproces Kubernetes knooppunten zijn zorgvuldig [cordoned en geleegd](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) onderbreking van actieve toepassingen minimaliseren.
+Een Azure Container Service (AKS)-cluster kan worden bijgewerkt met de Azure CLI. Tijdens het upgradeproces Kubernetes knooppunten zijn zorgvuldig [cordoned en geleegd] [ kubernetes-drain] onderbreking van actieve toepassingen minimaliseren.
 
 In deze zelfstudie deel acht acht, wordt een cluster Kubernetes bijgewerkt. Taken die u uitvoert, zijn onder andere:
 
@@ -30,12 +30,12 @@ In deze zelfstudie deel acht acht, wordt een cluster Kubernetes bijgewerkt. Take
 
 In vorige zelfstudies is een toepassing worden verpakt in een installatiekopie van een container, deze installatiekopie geüpload naar het register van Azure-Container en een Kubernetes-cluster gemaakt. De toepassing is vervolgens op het cluster Kubernetes uitgevoerd.
 
-Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar de [zelfstudie 1 – installatiekopieën van de container maken](./tutorial-kubernetes-prepare-app.md).
+Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar de [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Clusterversies ophalen
 
-Vóór de upgrade van een cluster, gebruikt u de `az aks get-versions` opdracht om te controleren die Kubernetes versies zijn beschikbaar voor de upgrade.
+Voordat u een cluster upgradet, gebruikt u de opdracht `az aks get-versions` om te controleren welke Kubernetes-releases beschikbaar zijn voor de upgrade.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -115,7 +115,7 @@ Uitvoer:
 
 ## <a name="validate-upgrade"></a>Upgrade valideren
 
-U kunt nu Bevestig de upgrade is geslaagd met de `az aks show` opdracht.
+U kunt nu bevestigen dat de upgrade is geslaagd met de opdracht `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -141,4 +141,11 @@ In deze zelfstudie maakt u Kubernetes in een cluster AKS bijgewerkt. De volgende
 Volg deze koppeling voor meer informatie over AKS.
 
 > [!div class="nextstepaction"]
-> [AKS-overzicht](./intro-kubernetes.md)
+> [AKS-overzicht][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

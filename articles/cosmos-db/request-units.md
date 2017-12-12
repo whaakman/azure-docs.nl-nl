@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.documentdb.com/capacityplanner). Meer informatie [schatting van de doorvoer moet](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Nu beschikbaar: Azure Cosmos DB [aanvraag eenheid Rekenmachine](https://www.docu
 ![Doorvoer Rekenmachine][5]
 
 ## <a name="introduction"></a>Inleiding
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) van Microsoft wereldwijd gedistribueerde database voor meerdere model is. Met Azure Cosmos DB er geen virtuele machines te verhuren, software implementeren of databases bewaken. Azure Cosmos DB wordt beheerd en continu bewaakt door Microsoft bovenste engineers leveren world klasse beschikbaarheid, prestaties en beveiliging. U toegang hebt tot uw gegevens met behulp van API's van uw keuze, zoals SQL via de [DocumentDB API](documentdb-introduction.md), MongoDB-APIs [tabel API](table-introduction.md), en Gremlin via de [Graph API](graph-introduction.md) -zijn alle systeemeigen ondersteund. De valuta van Azure DB die Cosmos is de aanvraag Unit (ru/s). Met RUs hoeft u niet reserveren lezen/schrijven capaciteiten of inrichten CPU, geheugen en IOPS.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) van Microsoft wereldwijd gedistribueerde database voor meerdere model is. Met Azure Cosmos DB er geen virtuele machines te verhuren, software implementeren of databases bewaken. Azure Cosmos DB wordt beheerd en continu bewaakt door Microsoft bovenste engineers leveren world klasse beschikbaarheid, prestaties en beveiliging. U toegang hebt tot uw gegevens met behulp van de API's van uw keuze, zoals de [SQL-API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tabel API](table-introduction.md), en Gremlin via de [Graph API](graph-introduction.md) - alle systeemeigen worden ondersteund. De valuta van Azure DB die Cosmos is de aanvraag Unit (ru/s). Met RUs hoeft u niet reserveren lezen/schrijven capaciteiten of inrichten CPU, geheugen en IOPS.
 
 Azure Cosmos DB ondersteunt een aantal API's met verschillende bewerkingen, variërend van eenvoudige leest en schrijft naar grafiek complexe query's. Omdat niet alle aanvragen gelijk zijn, zijn ze een genormaliseerde hoeveelheid toegewezen **aanvraageenheden** op basis van de hoeveelheid berekeningen voor het uitvoeren van de aanvraag. Het aantal aanvraageenheden voor een bewerking is deterministisch en kunt u het aantal aanvraageenheden verbruikt door elke bewerking in Azure Cosmos DB via een antwoordheader bijhouden. 
 
@@ -304,7 +304,7 @@ De volgende tabel bevat een benadering aanvraag eenheid kosten voor normale bewe
 
 | Bewerking | Aanvraag eenheid kosten |
 | --- | --- |
-| -Item maken |~ 15 RU |
+| Item maken |~ 15 RU |
 | Item lezen |~ 1 RU |
 | Query-item met id |~2.5 RU |
 
@@ -326,7 +326,7 @@ Met deze informatie kunt u schat de RU-vereisten voor deze toepassing gezien het
 
 | Bewerking/Query | Het geschatte aantal per seconde | Vereiste RUs |
 | --- | --- | --- |
-| -Item maken |10 |150 |
+| Item maken |10 |150 |
 | Item lezen |100 |100 |
 | Selecteer levensmiddelen op fabrikant |25 |175 |
 | Selecteer door de Voedingsgroep |10 |700 |

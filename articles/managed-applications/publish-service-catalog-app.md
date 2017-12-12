@@ -1,6 +1,6 @@
 ---
 title: Maken en publiceren van een Azure-service catalogus beheerde toepassing | Microsoft Docs
-description: Het maken van een Azure-toepassing die is bedoeld voor leden van uw organisatie worden beheerd.
+description: In dit artikel leest u hoe u een beheerde Azure-toepassing maakt die is bedoeld voor leden van uw organisatie.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Een beheerde toepassing voor intern verbruik publiceren
 
@@ -32,7 +32,7 @@ Voor dit artikel bevat de beheerde toepassing alleen een opslagaccount. Het is b
 
 ## <a name="create-the-resource-template"></a>De resource-sjabloon maken
 
-De definitie van elke beheerde toepassing bevat een bestand met de naam **mainTemplate.json**. In deze definieert u de Azure-resources te richten. De sjabloon is niet anders dan reguliere Resource Manager-sjabloon.
+De definitie van elke beheerde toepassing bevat een bestand met de naam **mainTemplate.json**. In deze definieert u de Azure-resources te richten. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon.
 
 Maak een bestand met de naam **mainTemplate.json**. De naam is hoofdlettergevoelig.
 
@@ -83,7 +83,7 @@ Sla het bestand mainTemplate.json.
 
 ## <a name="create-the-user-interface-definition"></a>De gebruiker interfacedefinitie maken
 
-De Azure portal maakt gebruik van de **createUiDefinition.json** bestand voor het genereren van de gebruikersinterface voor gebruikers die de beheerde toepassing maken. U definiëren hoe gebruikers de gegevens voor elke parameter opgeven. U kunt opties kunt gebruiken, zoals een vervolgkeuzelijst, in het tekstvak, wachtwoord en andere hulpprogramma's voor invoer. Zie voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
+De Azure portal maakt gebruik van de **createUiDefinition.json** bestand voor het genereren van de gebruikersinterface voor gebruikers die de beheerde toepassing maken. U definiëren hoe gebruikers de gegevens voor elke parameter opgeven. U kunt opties kunt gebruiken, zoals een vervolgkeuzelijst, in het tekstvak, wachtwoord en andere hulpprogramma's voor invoer. Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.
 
 Maak een bestand met de naam **createUiDefinition.json**. De naam is hoofdlettergevoelig.
 
@@ -164,7 +164,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>Definitie van de beheerde toepassing maken
+## <a name="create-the-managed-application-definition"></a>De definitie van de beheerde toepassing maken
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Een groep voor Azure Active Directory-gebruiker of toepassing maken
 
@@ -176,13 +176,13 @@ U moet de object-ID van de gebruikersgroep moet worden gebruikt voor het beheren
 
 ### <a name="get-the-role-definition-id"></a>De roldefinitie-ID ophalen
 
-Vervolgens moet u de roldefinitie-ID van de ingebouwde RBAC-rol die u toegang wilt verlenen aan de gebruiker, groep of toepassing. Meestal gebruikt u de rol van eigenaar of bijdrager of lezer. De volgende opdracht ziet u hoe de roldefinitie-ID ophalen voor de rol van eigenaar:
+Vervolgens moet u de roldefinitie-ID van de ingebouwde RBAC-rol die u toegang wilt verlenen aan de gebruiker, groep of toepassing. Meestal gebruikt u de rol van eigenaar of bijdrager of lezer. In de volgende opdracht ziet u hoe u de roldefinitie-id ophaalt voor de rol van eigenaar:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>Definitie van de beheerde toepassing maken
+### <a name="create-the-managed-application-definition"></a>De definitie van de beheerde toepassing maken
 
 Als u nog geen een resourcegroep voor het opslaan van de definitie van de beheerde toepassing, maakt u een nu:
 
@@ -190,7 +190,7 @@ Als u nog geen een resourcegroep voor het opslaan van de definitie van de beheer
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
-Maak nu de bron van de definitie van beheerde toepassingsservices.
+Maak nu de definitieresource van de beheerde toepassing.
 
 ```powershell
 $blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
@@ -242,7 +242,6 @@ Nadat de implementatie is voltooid, wordt de beheerde toepassing in een resource
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot beheerde toepassingen, [beheerde toepassingsoverzicht](overview.md).
+* Zie [Overzicht van beheerde toepassingen](overview.md) voor een inleiding tot beheerde toepassingen.
 * Bijvoorbeeld projecten, Zie [voorbeeldprojecten voor Azure beheerde toepassingen](sample-projects.md).
-* Zie voor meer informatie over het uitgeven van beheerde toepassingen naar Azure Marketplace [Azure beheerde toepassingen in de Marketplace](publish-marketplace-app.md).
-* Zie voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
+* Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.

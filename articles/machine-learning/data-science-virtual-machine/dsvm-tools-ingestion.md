@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Gegevens wetenschappelijke virtuele Machine gegevens opname hulpprogramma 's
 
@@ -62,11 +62,11 @@ Hier volgen enkele we hebt opgegeven op de DSVM verkeer hulpprogramma's.
 | Bijbehorende hulpprogramma's op de DSVM      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB: DocumentDB API Data Migration tool
+## <a name="azure-cosmos-db-data-migration-tool"></a>Azure-hulpprogramma voor gegevensmigratie Cosmos-DB
 
 |    |           |
 | ------------- | ------------- |
-| Wat is het?   | Hulpprogramma voor het importeren van gegevens uit diverse bronnen, met inbegrip van JSON-bestanden, CSV-bestanden, SQL, MongoDB, Azure Table storage, Amazon DynamoDB en DocumentDB-API van Azure Cosmos DB verzamelingen in Azure Cosmos DB of Azure DocumentDB.      |
+| Wat is het?   | Hulpprogramma voor het importeren van gegevens uit diverse bronnen, met inbegrip van JSON-bestanden, CSV-bestanden, SQL, MongoDB, Azure Table storage, Amazon DynamoDB en SQL-API van Azure Cosmos DB verzamelingen naar Azure Cosmos DB.      |
 | Ondersteunde DSVM versies      | Windows      |
 | Doorgaans worden gebruikt      | Bestanden van een virtuele machine importeren in CosmosDB, importeren van gegevens uit Azure-tabelopslag in CosmosDB of importeren van gegevens uit een SQL Server-database in CosmosDB.     |
 |  Hoe gebruik / uitvoeren?    |   De opdrachtregel te gebruiken versie, Open een opdrachtprompt, typ `dt`. De GUI-hulpprogramma gebruiken, opent u een opdrachtprompt, typ `dtui`.    |

@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b721f66ef4d453b5c5f0faf40f5eb2b8913a848
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Partitioneren in Azure Cosmos-database met de DocumentDB-API
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitioneren in Azure Cosmos-database met behulp van de SQL-API
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) is een globale gedistribueerde, meerdere model-database-service waarmee u snel, voorspelbare prestaties en schaalbaarheid naadloos samen met uw toepassing bereiken wanneer deze groeit. 
 
-Dit artikel bevat een overzicht van het werken met het partitioneren van de Cosmos-DB containers met de DocumentDB-API. Zie [partitionerings- en horizontaal schalen](../cosmos-db/partition-data.md) voor een overzicht van de concepten en aanbevolen procedures voor het partitioneren van Azure Cosmos DB API. 
+Dit artikel bevat een overzicht van het werken met het partitioneren van de Cosmos-DB containers met de SQL-API. Zie [partitionerings- en horizontaal schalen](../cosmos-db/partition-data.md) voor een overzicht van de concepten en aanbevolen procedures voor het partitioneren van Azure Cosmos DB API. 
 
 Download het project uit om te beginnen met code [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -44,7 +46,7 @@ Download het project uit om te beginnen met code [Azure Cosmos DB prestaties tes
 
 ## <a name="partition-keys"></a>Partitiesleutels
 
-In de DocumentDB-API geeft u de definitie van de partitie sleutel in de vorm van een JSON-pad. De volgende tabel ziet u voorbeelden van partitie basisdefinities en de waarden die overeenkomen met elke. De partitiesleutel is opgegeven als een pad, bijvoorbeeld `/department` vertegenwoordigt de eigenschap afdeling. 
+In de SQL-API geeft u de definitie van de partitie sleutel in de vorm van een JSON-pad. De volgende tabel ziet u voorbeelden van partitie basisdefinities en de waarden die overeenkomen met elke. De partitiesleutel is opgegeven als een pad, bijvoorbeeld `/department` vertegenwoordigt de eigenschap afdeling. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -106,7 +108,7 @@ await client.CreateDocumentCollectionAsync(
 Deze methode maakt een REST-API-aanroep om Cosmos-database en de service wordt een aantal partities op basis van de aangevraagde doorvoer inrichten. U kunt de doorvoer van een container te wijzigen wanneer de prestaties van uw behoeften ontwikkelen. 
 
 ### <a name="reading-and-writing-items"></a>Lezen en schrijven van items
-Nu gaan we gegevens invoegen in Cosmos-DB. Hier volgt een voorbeeldklasse met een apparaat lezen en een aanroep naar CreateDocumentAsync invoegen van een nieuw apparaat lezen in een container. Dit is een voorbeeld gebruik van de DocumentDB-API:
+Nu gaan we gegevens invoegen in Cosmos-DB. Hier volgt een voorbeeldklasse met een apparaat lezen en een aanroep naar CreateDocumentAsync invoegen van een nieuw apparaat lezen in een container. Dit is een voorbeeld gebruik van de SQL-API:
 
 ```csharp
 public class DeviceReading
@@ -223,7 +225,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 In het volgende gedeelte kijken we hoe u naar een gepartitioneerde containers uit één partitie containers verplaatsen kunt.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel wordt een overzicht van het werken met partitionering van Azure DB die Cosmos-containers met de DocumentDB-API opgegeven. Zie ook [partitionerings- en horizontaal schalen](../cosmos-db/partition-data.md) voor een overzicht van de concepten en aanbevolen procedures voor het partitioneren van Azure Cosmos DB API. 
+In dit artikel wordt een overzicht van het werken met partitionering van Azure DB die Cosmos-containers met de SQL-API opgegeven. Zie ook [partitionerings- en horizontaal schalen](../cosmos-db/partition-data.md) voor een overzicht van de concepten en aanbevolen procedures voor het partitioneren van Azure Cosmos DB API. 
 
 * Schaal en prestaties testen met Azure Cosmos DB uitvoeren. Zie [prestaties en schaal testen met Azure Cosmos DB](performance-testing.md) voor een voorbeeld.
 * Aan de slag programmeren met de [SDK's](documentdb-sdk-dotnet.md) of de [REST-API](/rest/api/documentdb/)

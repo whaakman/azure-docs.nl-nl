@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ Clients gebruiken MSOLAP-, AMO- of ADOMD-[clientbibliotheken](analysis-services-
 ## <a name="get-help"></a>Help opvragen
 
 #### <a name="documentation"></a>Documentatie
-Azure Analysis Services is eenvoudig in te stellen en te beheren. U kunt hier alle informatie vinden die u nodig hebt om uw servergebaseerde services te maken en te beheren. Wanneer u een gegevensmodel gaat maken voor implementatie op uw server, is de procedure grotendeels hetzelfde als bij het maken van een gegevensmodel dat u implementeert op een on-premises server. Er is een uitgebreide bibliotheek met overzichtsinformatie, procedures, zelfstudies en naslagartikelen beschikbaar op [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+Azure Analysis Services is eenvoudig in te stellen en te beheren. U kunt hier alle informatie vinden die u nodig hebt om uw servergebaseerde services te maken en te beheren. Wanneer u een gegevensmodel gaat maken voor implementatie op uw server, is de procedure grotendeels hetzelfde als bij het maken van een gegevensmodel dat u implementeert op een on-premises server. Er is een uitgebreide bibliotheek met overzichtsinformatie, procedures, zelfstudies en naslagartikelen beschikbaar op [SQL Server Analysis Services help](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 #### <a name="videos"></a>Video's
 Bekijk nuttige video's over [Azure Analysis Services op Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).

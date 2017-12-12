@@ -4,7 +4,7 @@ description: Dit artikel wordt beschreven hoe toepassingen worden toegevoegd aan
 services: active-directory
 documentationcenter: 
 author: shoatman
-manager: kbrint
+manager: mtillman
 editor: 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 51ef7e554b6fd3764893f0fd35464088e42e49f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom toepassingen worden toegevoegd aan Azure AD
 Een van de in eerste instantie puzzling dingen tijdens het weergeven van een lijst met toepassingen in uw exemplaar van Azure Active Directory is het waar de toepassingen vandaan komen en waarom ze zijn er registreren.  In dit artikel biedt een hoog niveau overzicht van hoe toepassingen worden weergegeven in de map en bieden u context die u u helpt begrijpen hoe een toepassing zijn geworden in uw directory.

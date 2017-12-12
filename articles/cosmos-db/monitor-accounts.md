@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB bewaken
 U kunt uw Azure DB die Cosmos-accounts in bewaken de [Azure-portal](https://portal.azure.com/). Voor elk Azure DB die Cosmos-account is een volledige reeks metrische gegevens beschikbaar zijn voor het bewaken van doorvoer, opslag, beschikbaarheid, latentie en consistentie.
@@ -69,7 +69,7 @@ Metrische gegevens kunnen worden gecontroleerd op de pagina met het Account voor
      ![Schermopname van de toevoegen een waarschuwingsregel-pagina](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Azure Cosmos DB programmatisch bewaken
-De account niveau metrische gegevens beschikbaar zijn in de portal, zoals account opslag gebruik en totaal aantal aanvragen, zijn niet beschikbaar via de DocumentDB APIs. U kunt echter gebruiksgegevens op het niveau verzameling ophalen met behulp van de DocumentDB APIs. Voor het ophalen van gegevens te verzamelen niveau het volgende doen:
+De account niveau metrische gegevens beschikbaar zijn in de portal, zoals account opslag gebruik en totaal aantal aanvragen, zijn niet beschikbaar via de SQL-API's. U kunt echter gebruiksgegevens op het niveau verzameling ophalen met behulp van de SQL-API's. Voor het ophalen van gegevens te verzamelen niveau het volgende doen:
 
 * De REST-API gebruiken [GET uitvoeren op de verzameling](https://msdn.microsoft.com/library/mt489073.aspx). De quota's en gebruik van informatie voor de verzameling wordt de x-ms-resource-quota- en x-ms--Resourcegebruik aangegeven in het antwoord geretourneerd.
 * De .NET SDK, gebruikt de [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) methode retourneert een [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) die bevat een aantal eigenschappen van gebruik, zoals **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**, en meer.

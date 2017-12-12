@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Python API, SDK en Resources | Microsoft Docs
-description: Meer informatie over de Python-API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure-SDK voor Python Cosmos DB.
+title: 'Azure Cosmos DB: SQL Python-API, SDK en resources | Microsoft Docs'
+description: Meer informatie over de SQL-API voor Python en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure-SDK voor Python Cosmos DB.
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 891af14f347c798d7c661e19d110b5c0a2d8982c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure DB Cosmos Python SDK: Releaseopmerkingen en resources
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET-Feed van wijzigen](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/15/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -81,8 +83,8 @@ ms.lasthandoff: 11/15/2017
 * Ondersteuning toegevoegd voor TOP/ORDERBY-query's voor gepartitioneerde verzamelingen.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Toegevoegde opnieuw Beleidsondersteuning voor beperkte aanvragen. (Beperkte aanvragen ontvangen van een aanvraag snelheid te groot uitzondering, foutcode 429.) Standaard Azure Cosmos DB pogingen negen keer voor elke aanvraag wanneer foutcode 429 is opgetreden, de tijd retryAfter in de antwoordheader naleven. Een vaste opnieuw tijdsinterval kan nu worden ingesteld als onderdeel van de eigenschap RetryOptions op het object ConnectionPolicy als u wilt de retryAfter tijd geretourneerd door server tussen de pogingen negeren. Azure Cosmos-DB wordt nu gewacht op maximaal 30 seconden voor elke aanvraag die wordt beperkt (ongeacht het aantal pogingen) en het antwoord met foutcode 429 retourneert. Deze tijd kan ook worden onderdrukt in de eigenschap RetryOptions op ConnectionPolicy-object.
-* Cosmos DB retourneert nu x-ms-versnelling-aantal nieuwe pogingen en x-ms-throttle-retry-wait-time-ms de antwoordheaders in elke aanvraag om aan te geven van de beperking probeer aantal en de cummulative tijd dat de aanvraag worden gewacht tussen de nieuwe pogingen.
+* Toegevoegde opnieuw Beleidsondersteuning voor beperkte aanvragen. (Beperkte aanvragen ontvangen van een aanvraag snelheid te groot uitzondering, foutcode 429.) Standaard Azure Cosmos DB pogingen negen keer voor elke aanvraag wanneer foutcode 429 is opgetreden, de tijd retryAfter in de antwoordheader naleven. Een vaste opnieuw tijdsinterval kan nu worden ingesteld als onderdeel van de eigenschap RetryOptions op het object ConnectionPolicy als u wilt de retryAfter tijd geretourneerd door server tussen de pogingen negeren. Azure Cosmos-DB wordt nu gewacht op maximaal 30 seconden voor elke aanvraag die wordt beperkt (ongeacht het aantal pogingen) en het antwoord met foutcode 429 retourneert. Deze tijd kan ook worden overschreven in de eigenschap RetryOptions in ConnectionPolicy-object.
+* Cosmos DB retourneert nu x-ms-versnelling-aantal nieuwe pogingen en x-ms-throttle-retry-wait-time-ms de antwoordheaders in elke aanvraag om aan te geven van de beperking probeer aantal en de cumulatieve tijd dat de aanvraag worden gewacht tussen de nieuwe pogingen.
 * Het RetryPolicy-klasse en de bijbehorende eigenschap (retry_policy) weergegeven op de klasse document_client verwijderd en wordt geïntroduceerd in plaats daarvan een RetryOptions klasse blootstellen van de eigenschap RetryOptions voor ConnectionPolicy-klasse die kan worden gebruikt voor het onderdrukken van enkele van de standaardopties voor opnieuw proberen.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -92,7 +94,7 @@ ms.lasthandoff: 11/15/2017
 * De ondersteuning voor de functie tijd-Live(TTL) voor documenten toegevoegd.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Oplossingen voor problemen voor het server-side partitioneren zodat speciale tekens in pad partitionkey.
+* Oplossingen voor problemen met betrekking tot serverzijde partitioneren zodat speciale tekens in sleutelpad partitie.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Geïmplementeerd [gepartitioneerde verzamelingen](partition-data.md) en [prestatieniveaus die door de gebruiker gedefinieerde](performance-levels.md). 
@@ -126,7 +128,7 @@ Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan 
 Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 
 > [!WARNING]
-> Alle versies van de Azure DocumentDB SDK voor Python voorafgaand aan versie **1.0.0** wordt buiten gebruik worden gesteld op **29 februari 2016**. 
+> Alle versies van de SQL Azure SDK voor Python voorafgaand aan versie **1.0.0** buiten gebruik zijn gesteld op **29 februari 2016**. 
 > 
 > 
 

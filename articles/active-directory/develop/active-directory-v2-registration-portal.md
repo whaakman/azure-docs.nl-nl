@@ -4,7 +4,7 @@ description: Een beschrijving van verschillende functies in de Microsoft app-reg
 services: active-directory
 documentationcenter: 
 author: lnalepa
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3340df3fcc2456a355e523bfcf09978a16966036
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="app-registration-reference"></a>Verwijzing van App-registratie
 Dit document bevat context en beschrijvingen van de verschillende functies die zijn gevonden in de Microsoft App-Registratieportal [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
@@ -30,7 +30,7 @@ Deze lijst bevat alle van de toepassingen die zijn geregistreerd voor gebruik me
 ## <a name="live-sdk-applications"></a>Live SDK-Apps
 Deze lijst bevat alle van de toepassingen die zijn geregistreerd voor gebruik uitsluitend met Microsoft-account.  Ze zijn niet ingeschakeld voor gebruik met Azure Active Directory beeïndigen.  Dit is waar vindt u alle toepassingen die eerder was is geregistreerd in de ontwikkelaarsportal MSA op `https://account.live.com/developers/applications`.  Alle functies die u eerder hebt uitgevoerd op `https://account.live.com/developers/applications` kunnen nu worden uitgevoerd in deze nieuwe portal `https://apps.dev.microsoft.com`.  Als u meer vragen over uw toepassingen van Microsoft-account hebt, neem dan contact met ons.
 
-## <a name="application-secrets"></a>Toepassing geheimen
+## <a name="application-secrets"></a>Toepassingsgeheimen
 Toepassing geheimen zijn referenties waarmee uw toepassing uit te voeren betrouwbare [clientverificatie](http://tools.ietf.org/html/rfc6749#section-2.3) met Azure AD.  In het OAuth- & OpenID Connect, een toepassing geheimen wordt vaak aangeduid als een `client_secret`.  In het v2.0-protocol, alle toepassingen die u een beveiligingstoken voor een adresseerbare weblocatie ontvangt (met behulp van een `https` schema) moet een toepassingsgeheim gebruiken om zichzelf te identificeren bij Azure AD bij inwisseling die beveiligingstoken.  Bovendien een native client die krijgen tokens op een apparaat wordt worden niet toegestaan vanaf een toepassingsgeheim met voor het uitvoeren van clientverificatie, om te voorkomen dat de opslag van geheimen in onbeveiligde omgevingen.
 
 Elke app kan twee geldige aanvraag-geheimen op elk gewenst moment in de tijd bevatten.  Door twee geheimen, hebt u de ablilty periodieke sleutelrollover uitvoert voor de gehele omgeving van uw toepassing.  Zodra u het geheel van uw toepassing naar een nieuwe geheim hebt gemigreerd, kunt u deze kunt verwijderen van het oude geheim en inrichten van een nieuwe.

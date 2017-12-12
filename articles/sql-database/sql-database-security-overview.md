@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 181ad8471c0d0cb24d8f4eae6bddd9d750b4ee61
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-your-sql-database"></a>Uw SQL Database beveiligen
 
@@ -31,7 +31,7 @@ Zie het [Beveiligingscentrum voor SQL Server Database Engine en Azure SQL Databa
 Uw gegevens worden beveiligd met SQL Database via gegevensversleuteling. Voor gegevens die in beweging zijn, wordt [Transport Layer Security](https://support.microsoft.com/kb/3135244) gebruikt, voor data-at-rest [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) en voor gebruikte gegevens [Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Alle verbindingen met Azure SQL Database vereisen te allen tijde versleuteling (SSL/TLS) wanneer gegevens naar en vanuit de database worden verzonden. In de verbindingsreeks van uw toepassing moet u de parameters voor het versleutelen van de verbinding opgeven en *niet* het servercertificaat vertrouwen (dit doet u als u de verbindingsreeks buiten de klassieke Azure Portal kopieert). Anders verifieert de verbinding niet de identiteit van de server en is deze vatbaar voor 'man-in-the-middle'-aanvallen. Voor het stuurprogramma ADO.NET zijn deze verbindingsreeksparameters bijvoorbeeld **Encrypt=True** en **TrustServerCertificate=False**. 
+>Alle verbindingen met Azure SQL Database vereisen te allen tijde versleuteling (SSL/TLS) wanneer gegevens naar en vanuit de database worden verzonden. In de verbindingsreeks van uw toepassing, moet u de parameters voor het versleutelen van de verbinding opgeven en *niet* het servercertificaat (dit geldt voor u als u de verbindingsreeks buiten de Azure-portal kopieert), anders vertrouwt de verbinding is wordt de identiteit van de server niet controleren en vatbaar voor 'man-in-the-middle'-aanvallen. Voor het stuurprogramma ADO.NET zijn deze verbindingsreeksparameters bijvoorbeeld **Encrypt=True** en **TrustServerCertificate=False**. 
 
 Andere manieren om uw gegevens te versleutelen die u kunt overwegen:
 

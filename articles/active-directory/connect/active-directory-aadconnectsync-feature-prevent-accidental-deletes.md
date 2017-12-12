@@ -4,7 +4,7 @@ description: Dit onderwerp beschrijft de functie verhinderen onopzettelijk verwi
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synchronisatie: onopzettelijke verwijderingen voorkomen
 Dit onderwerp beschrijft de functie verhinderen onopzettelijk verwijderen (onopzettelijke verwijderingen voorkomen) in Azure AD Connect.
@@ -32,7 +32,7 @@ Algemene scenario's, wanneer er veel verwijderingen omvatten:
 * Alle objecten in een organisatie-eenheid worden verwijderd.
 * De naam van een organisatie-eenheid wordt gewijzigd zodat alle objecten in deze worden beschouwd als niet binnen het bereik voor synchronisatie.
 
-De standaardwaarde van 500 objecten kan worden gewijzigd met PowerShell met `Enable-ADSyncExportDeletionThreshold`. U moet deze waarde aan de grootte van uw organisatie configureren. Aangezien de sync scheduler wordt elke 30 minuten uitgevoerd, is de waarde het aantal verwijderingen gezien binnen 30 minuten.
+De standaardwaarde van 500 objecten kan worden gewijzigd met PowerShell met `Enable-ADSyncExportDeletionThreshold`, die deel uitmaakt van de module AD Sync is geïnstalleerd met Azure Active Directory Connect. U moet deze waarde aan de grootte van uw organisatie configureren. Aangezien de sync scheduler wordt elke 30 minuten uitgevoerd, is de waarde het aantal verwijderingen gezien binnen 30 minuten.
 
 Als er te veel verwijderingen voorbereid om te worden geëxporteerd naar Azure AD, stopt de export en u ontvangt een e-mail als volgt:
 

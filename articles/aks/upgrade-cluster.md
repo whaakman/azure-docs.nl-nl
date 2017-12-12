@@ -1,27 +1,19 @@
 ---
-title: Een AKS-cluster (Azure Container Service) upgraden | Microsoft Docs
+title: Een AKS-cluster (Azure Container Service) upgraden
 description: Een AKS-cluster (Azure Container Service) upgraden
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, containers, microservices, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 92c4850f623aea331e9834b5c8da66a7de34107f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) upgraden
 
@@ -43,7 +35,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Er zijn drie versies beschikbaar voor de upgrade: 1.7.9, 1.8.1 en 1.8.2. We kunnen de opdracht `az aks upgrade` gebruiken om te upgraden naar de meest recente beschikbare versie.  Tijdens het upgradeproces worden knooppunten zorgvuldig [afgebakend en geleegd](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) om onderbreking van actieve toepassingen te minimaliseren.  Voordat u begint met het upgraden van een cluster, moet u controleren of u genoeg compute-capaciteit heeft om de workload te verwerken wanneer klusterknooppunten worden toegevoegd en verwijderd.
+Er zijn drie versies beschikbaar voor de upgrade: 1.7.9, 1.8.1 en 1.8.2. We kunnen de opdracht `az aks upgrade` gebruiken om te upgraden naar de meest recente beschikbare versie.  Tijdens het upgradeproces knooppunten zijn zorgvuldig [cordoned en geleegd] [ kubernetes-drain] onderbreking van actieve toepassingen minimaliseren.  Voordat u begint met het upgraden van een cluster, moet u controleren of u genoeg compute-capaciteit heeft om de workload te verwerken wanneer klusterknooppunten worden toegevoegd en verwijderd.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -124,4 +116,10 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 U krijgt meer informatie over het implementeren en beheren van AKS in de AKS-zelfstudies.
 
 > [!div class="nextstepaction"]
-> [AKS-zelfstudie](./tutorial-kubernetes-prepare-app.md)
+> [AKS-zelfstudie][aks-tutorial-prepare-app]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

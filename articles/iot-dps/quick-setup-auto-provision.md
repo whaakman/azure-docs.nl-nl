@@ -1,6 +1,6 @@
 ---
 title: Inrichting van mobiele apparaten instellen in de Azure Portal | Microsoft Docs
-description: Azure-snelstartgids - Azure IoT Hub Device Provisioning Service instellen in de Azure Portal
+description: Azure-QuickStart - Azure IoT Hub Device Provisioning Service instellen in de Azure Portal
 services: iot-dps
 keywords: 
 author: dsk-2015
@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>De IoT Hub Device Provisioning Service (preview) instellen met de Azure Portal
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>IoT Hub Device Provisioning Service instellen met Azure Portal
 
 Deze stappen laten zien hoe u de Azure-cloudresources in de portal instelt voor het inrichten van uw apparaten. Dit omvat het maken van uw IoT-hub, het maken van een nieuwe IoT Hub Device Provisioning Service en het aan elkaar koppelen van de twee services. 
 
@@ -46,7 +46,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-2. *Zoek op de marketplace* naar de **Device Provisioning Service**. Selecteer **IoT Device Provisioning Service (preview)** en klik op de knop **Maken**. 
+2. *Zoek op de marketplace* naar de **Device Provisioning Service**. Selecteer **IoT Device Provisioning Service** en klik op de knop **Maken**. 
 
 3. Geef uw Device Provisioning Service-exemplaar een **naam**. Selecteer het abonnement dat moet worden gebruikt voor dit exemplaar en de naam van een nieuwe of bestaande resourcegroep. Selecteer de locatie. Klik op **Maken** wanneer u klaar bent.
 
@@ -71,14 +71,14 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere snelstartgidsen of met de zelfstudies, verwijdert u de resources die u in deze snelstartgids hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze snelstartgids in de Azure Portal zijn gemaakt.
+Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere QuickStarts of met de zelfstudies, verwijdert u de resources die u in deze QuickStart hebt gemaakt niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze QuickStart in de Azure Portal zijn gemaakt.
 
 1. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer uw Device Provisioning Service. Klik bovenaan de blade **Alle resources** op **Verwijderen**.  
 2. Klik in het linkermenu in de Azure Portal op **Alle resources** en selecteer vervolgens uw IoT-hub. Klik bovenaan de blade **Alle resources** op **Verwijderen**.  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een IoT-hub en een Device Provisioning Service-exemplaar geïmplementeerd en de twee resources gekoppeld. Als u wilt weten hoe u deze instellingen gebruikt voor het inrichten van een gesimuleerd apparaat, gaat u verder met de rest van de snelstartgids voor het maken van een gesimuleerd apparaat.
+In deze QuickStart hebt u een IoT-hub en een Device Provisioning Service-exemplaar geïmplementeerd en de twee resources gekoppeld. Als u wilt weten hoe u deze instellingen gebruikt voor het inrichten van een gesimuleerd apparaat, gaat u verder met de rest van de QuickStart voor het maken van een gesimuleerd apparaat.
 
 > [!div class="nextstepaction"]
-> [Snelstartgids voor het maken van een gesimuleerd apparaat](./quick-create-simulated-device.md)
+> [QuickStart voor het maken van een gesimuleerd apparaat](./quick-create-simulated-device.md)

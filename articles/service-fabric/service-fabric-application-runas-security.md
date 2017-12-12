@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Beveiligingsbeleid configureren voor uw toepassing
 U kunt toepassingen die worden uitgevoerd in het cluster onder verschillende gebruikersaccounts beveiligen met behulp van Azure Service Fabric. Service Fabric helpt ook bij de resources die worden gebruikt door toepassingen op het moment van implementatie onder de gebruikersaccounts--bijvoorbeeld, bestanden, mappen en certificaten beveiligen. Hierdoor waarop toepassingen worden uitgevoerd, zelfs in een gedeelde gehoste omgeving veiliger van elkaar.
@@ -30,7 +30,7 @@ Service Fabric-toepassingen worden standaard uitgevoerd onder het account waaron
 U kunt definiëren en gebruikersgroepen maken, zodat een of meer gebruikers kunnen worden toegevoegd aan elke groep samen worden beheerd. Dit is handig wanneer er meerdere gebruikers voor verschillende toegangspunten en deze moeten bepaalde algemene rechten die beschikbaar op het groepeerniveau van de zijn.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Het beleid voor een toegangspunt voor service-instellingen configureren
-Zoals beschreven in de [toepassingsmodel](service-fabric-application-model.md), het ingangspunt setup **entrypoint**, is een bevoorrechte toegangspunt dat wordt uitgevoerd met dezelfde referenties als Service Fabric (meestal de  *NetworkService* account) voordat andere toegangspunt. Het uitvoerbare bestand dat is opgegeven door **EntryPoint** is meestal de ServiceHost langlopende. Dus met een afzonderlijke installatie ingangspunt zo voorkomt u dat de ServiceHost uitvoerbare uitvoeren met hoge bevoegdheden voor langere tijd. Het uitvoerbare bestand dat **EntryPoint** geeft wordt uitgevoerd na **entrypoint** is afgesloten. Het resulterende proces wordt bewaakt en opnieuw opgestart, en opnieuw begint met **entrypoint** ooit wordt beëindigd als of als deze is vastgelopen.
+Zoals beschreven in [toepassing en service manifesten](service-fabric-application-and-service-manifests.md), het ingangspunt setup **entrypoint**, is een bevoorrechte toegangspunt dat wordt uitgevoerd met dezelfde referenties als Service Fabric (meestal de *NetworkService* account) voordat andere toegangspunt. Het uitvoerbare bestand dat is opgegeven door **EntryPoint** is meestal de ServiceHost langlopende. Dus met een afzonderlijke installatie ingangspunt zo voorkomt u dat de ServiceHost uitvoerbare uitvoeren met hoge bevoegdheden voor langere tijd. Het uitvoerbare bestand dat **EntryPoint** geeft wordt uitgevoerd na **entrypoint** is afgesloten. Het resulterende proces wordt bewaakt en opnieuw opgestart, en opnieuw begint met **entrypoint** ooit wordt beëindigd als of als deze is vastgelopen.
 
 Hier volgt een eenvoudige service manifest voorbeeld waarin de entrypoint en de belangrijkste EntryPoint voor de service.
 

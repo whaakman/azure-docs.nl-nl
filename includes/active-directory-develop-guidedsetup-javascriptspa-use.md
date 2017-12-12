@@ -1,4 +1,3 @@
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>De Microsoft Authentication Library (MSAL) gebruiken voor de gebruiker van de aanmeldingspagina
 
 1.  Maak een bestand met de naam `app.js`. Als u Visual Studio gebruikt, selecteert u het project (basismap project), klik met de rechtermuisknop en selecteer: `Add`  >  `New Item`  >  `JavaScript File`:

@@ -4,7 +4,7 @@ description: De typen tokens en claims die door het Azure AD v2.0-eindpunt
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Overzicht van Azure Active Directory v2.0-tokens
 Het v2.0-eindpunt voor Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens in elk [authenticatiestroom](active-directory-v2-flows.md). Deze verwijzing beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
@@ -61,13 +61,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | verleend aan |`iat` |`1452285331` |De tijd waarop het token is uitgegeven, weergegeven in de epoche tijd. |
 | verlooptijd |`exp` |`1452289231` |De tijd waarop het token ongeldig is, weergegeven in de epoche tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | niet voor |`nbf` |`1452285331` |Het tijdstip waarop het token geldig is, wordt weergegeven in de epoche tijd. Het is doorgaans hetzelfde zijn als de uitgifte-tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
-| Versie |`ver` |`2.0` |De versie van het token ID, zoals gedefinieerd door Azure AD. De waarde voor het v2.0-eindpunt heeft `2.0`. |
+| versie |`ver` |`2.0` |De versie van het token ID, zoals gedefinieerd door Azure AD. De waarde voor het v2.0-eindpunt heeft `2.0`. |
 | Tenant-ID |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Een GUID die de Azure AD-tenant waarvan de gebruiker van vertegenwoordigt. De GUID is voor werk- en schoolaccounts-accounts, niet-wijzigbaar tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor deze claim wordt ontvangen. |
 | code-hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |De hash van de code is opgenomen in de ID-tokens, alleen wanneer het token ID is uitgegeven door een OAuth 2.0-autorisatie-code. Het kan worden gebruikt om de echtheid van een autorisatiecode te valideren. Zie voor meer informatie over het uitvoeren van deze validatie de [specificatie van het OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | token hash toegang |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |De toegang token hash is opgenomen in de ID tokens alleen wanneer het token ID uitgegeven met een OAuth 2.0-toegangstoken. Het kan worden gebruikt om de echtheid van een toegangstoken te valideren. Zie voor meer informatie over het uitvoeren van deze validatie de [specificatie van het OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | nonce |`nonce` |`12345` |De nonce is een strategie voor beperkende token replay-aanvallen. Uw app een nonce kunt opgeven in een aanvraag voor verificatie met behulp van de `nonce` queryparameter. De waarde die u in de aanvraag opgeeft is verzonden in het ID-token `nonce` claim, ongewijzigd. Uw app kunt controleren of de waarde met de waarde die het opgegeven op de aanvraag die sessie van de app aan een specifieke ID-token koppelt. Uw app moet deze validatie tijdens de validatie van token ID uitvoeren. |
 | naam |`name` |`Babe Ruth` |De van naamclaim biedt een leesbare waarde die aangeeft van het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek zijn en veranderlijke is ontworpen om te worden gebruikt alleen ter informatie weergegeven. De `profile` bereik is vereist voor deze claim wordt ontvangen. |
-| E-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Het primaire e-mailadres dat is gekoppeld aan het gebruikersaccount, indien aanwezig. De waarde ervan is veranderlijke en na verloop van tijd kan wijzigen. De `email` bereik is vereist voor deze claim wordt ontvangen. |
+| e-mailen |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Het primaire e-mailadres dat is gekoppeld aan het gebruikersaccount, indien aanwezig. De waarde ervan is veranderlijke en na verloop van tijd kan wijzigen. De `email` bereik is vereist voor deze claim wordt ontvangen. |
 | voorkeur gebruikersnaam |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |De primaire gebruikersnaam die de gebruiker in het v2.0-eindpunt vertegenwoordigt. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een specifieke indeling. De waarde ervan is veranderlijke en na verloop van tijd kan wijzigen. Aangezien het veranderlijke, moet deze waarde niet worden gebruikt om autorisatiebeslissingen te nemen. De `profile` bereik is vereist voor deze claim wordt ontvangen. |
 | Onderwerp |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | De principal waarover het token asserts informatie, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Deze controles uit te voeren autorisatie veilig, zoals wanneer het token wordt gebruikt voor toegang tot een bron kan worden gebruikt en kan worden gebruikt als een sleutel in databasetabellen. Omdat het onderwerp altijd aanwezig zijn op de tokens dat problemen met Azure AD, wordt u aangeraden deze waarde in een algemeen autorisatiesysteem. Het onderwerp is echter een pairwise id - deze uniek is voor een bepaalde toepassing-ID.  Daarom als één gebruiker zich bij twee verschillende apps met behulp van twee andere client-ID aanmeldt, ontvangt deze apps twee verschillende waarden voor de claim onderwerp.  Dit kan of kan niet worden gewenst afhankelijk van uw architectuur en privacy-vereisten. |
 | object-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | De onveranderbare id voor een object in de Microsoft identity-systeem, in dit geval een gebruikersaccount.  Het kan ook worden gebruikt voor het uitvoeren van autorisatie controles veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker alle toepassingen - twee verschillende toepassingen dezelfde gebruiker aanmelden ontvangt dezelfde waarde in de `oid` claim.  Dit betekent dat deze kan worden gebruikt bij het maken van query's bij Microsoft online services, zoals Microsoft Graph.  Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaald gebruikersaccount.  Omdat de `oid` meerdere apps met elkaar correleren gebruikers, kan de `profile` bereik is vereist voor deze claim wordt ontvangen. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat-deze worden beschouwd als andere accounts, zelfs als de gebruiker zich bij elk account met dezelfde aanmeldingsgegevens aanmeldt. |

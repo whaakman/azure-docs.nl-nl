@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Trend Micro Deep Security installeren en configureren als een service op een Windows VM
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ In dit artikel leest u hoe installeren en configureren van Trend Micro grondige 
 
 De client is als een uitbreiding van beveiliging via de VM-Agent geïnstalleerd. Op een nieuwe virtuele machine installeren u de beveiligingsagent grondige als de VM-Agent automatisch door de Azure-portal gemaakt wordt.
 
-Een bestaande virtuele machine gemaakt met behulp van de klassieke portal, de Azure CLI of PowerShell hebben mogelijk niet een VM-agent. Voor een bestaande virtuele machine die niet de VM-Agent, die u wilt downloaden en installeer het eerst. In dit artikel komen beide situaties.
+Een bestaande virtuele machine gemaakt met behulp van de Azure-portal, de Azure CLI of PowerShell hebben mogelijk niet een VM-agent. Voor een bestaande virtuele machine die niet de VM-Agent, die u wilt downloaden en installeer het eerst. In dit artikel komen beide situaties.
 
 Als u een abonnement van de Trend Micro voor een on-premises oplossing hebt, kunt u het beveiligen van uw virtuele machines in Azure. Als u niet een klant nog, kunt u zich aanmelden voor een proefabonnement. Zie voor meer informatie over deze oplossing het trendanalyse Micro blogbericht [Microsoft Azure VM-Agent-extensie voor grondige Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

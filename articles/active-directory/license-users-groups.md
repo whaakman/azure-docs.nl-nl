@@ -4,7 +4,7 @@ description: Informatie over het licentie-uzelf en uw gebruikers in Azure Active
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Snelstartgids: Licentie gebruikers in Azure Active Directory
 Azure AD op basis van een licentie services werk door een abonnement voor Azure Active Directory (Azure AD) in uw Azure-tenant activeren. Nadat het abonnement actief is, zijn de servicefuncties beheerd door beheerders van Azure AD en gebruikt door gebruikers met een licentie. Bij de aankoop van Enterprise Mobility + Security, Azure AD Premium of Azure AD Basic, wordt uw tenant wordt bijgewerkt met het abonnement, met inbegrip van de geldigheidsperiode en vooruitbetaalde licenties. Uw abonnementsgegevens, waaronder het aantal licenties toegewezen of beschikbaar is, is beschikbaar via de Azure-portal onder **Azure Active Directory** door het openen van de **licenties** tegel. De **licenties** blade is ook de beste plaats voor het beheren van uw licentietoewijzingen.

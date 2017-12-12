@@ -4,7 +4,7 @@ description: Leert u hoe u een wijziging aanbrengt in de configuratie in Azure A
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synchronisatie: hoe een wijziging aanbrengt in de standaardconfiguratie
 Het doel van dit onderwerp is om te zien hoe u wijzigingen aanbrengen in de standaardconfiguratie in Azure AD Connect-synchronisatie. Het bevat stappen voor enkele algemene scenario's. Met deze kennis moet u enkele eenvoudige wijzigingen aanbrengen in uw eigen configuratie op basis van uw eigen bedrijfsregels.
@@ -293,7 +293,7 @@ De synchronisatieregel voor binnenkomende wordt toegestaan de waarde van het ken
  
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Directe | PreferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
+    | Rechtstreeks | PreferredDataLocation | Kies het bronkenmerk | Dit selectievakje is uitgeschakeld | Update |
 
 7. Klik op **toevoegen** om de binnenkomende regel te maken.
 
@@ -333,7 +333,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk stro
 
     | Stroomtype | Doelkenmerk | Bron | Eenmaal toepassen | Type samenvoeging |
     | --- | --- | --- | --- | --- |
-    | Directe | PreferredDataLocation | PreferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
+    | Rechtstreeks | PreferredDataLocation | PreferredDataLocation | Dit selectievakje is uitgeschakeld | Update |
 
 7. Sluit **toevoegen** de uitgaande regel maken.
 

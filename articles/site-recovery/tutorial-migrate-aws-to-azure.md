@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) virtuele machines migreren naar Azure
 
-Deze zelfstudie leert u hoe Amazon Web Services (AWS) virtuele machines (VM's) te migreren virtuele Azure-machines met Site Recovery. Wanneer EC2 exemplaren migreren naar Azure, de VMsare behandeld alsof het fysieke, lokale computers. In deze zelfstudie leert u het volgende:
+Deze zelfstudie leert u hoe Amazon Web Services (AWS) virtuele machines (VM's) te migreren virtuele Azure-machines met Site Recovery. Wanneer er instanties EC2 migreren naar Azure, de virtuele machines worden behandeld alsof het fysieke, lokale computers. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Azure-resources voorbereiden

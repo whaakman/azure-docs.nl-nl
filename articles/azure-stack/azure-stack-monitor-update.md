@@ -3,8 +3,8 @@ title: In Azure-Stack met behulp van de bevoegde endpoint-updates controleren | 
 description: "Informatie over het gebruik van het bevoegde eindpunt om te bewaken updatestatus voor Azure-Stack geïntegreerd systemen."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
-ms.author: twooley
-ms.openlocfilehash: af7387268d60dc639a39da23e040097fd0695a22
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: mabrigg
+ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Updates controleren in Azure-Stack met behulp van de bevoegde eindpunt
 
@@ -109,9 +109,9 @@ $statusString.Value
 
 Mogelijke waarden:
 
-- Running
+- Actief
 - Voltooid
-- Is mislukt 
+- Mislukt 
 - Geannuleerd
 
 U kunt deze opdrachten herhaaldelijk voor de meest actuele status uitvoeren. U moet niet opnieuw een verbinding opnieuw te controleren.

@@ -3,7 +3,7 @@ Als u Service Bus-berichtenentiteiten wilt gebruiken in Azure, moet u eerst een 
 Ga als volgt te werk om een naamruimte te maken:
 
 1. Meld u aan bij [Azure Portal][Azure portal].
-2. Klik in het linker navigatiedeelvenster van de portal achtereenvolgens op **Nieuw**, **Enterprise Integration** en **Service Bus**.
+2. Klik in het linkernavigatievenster van de portal op **+ maken van een resource**, klikt u vervolgens op **Enterprise Integration**, en klik vervolgens op **Service Bus**.
 3. Voer in het dialoogvenster **Naamruimte maken** een naam in voor de naamruimte. In het systeem wordt onmiddellijk gecontroleerd of de naam beschikbaar is.
 4. Nadat u hebt gecontroleerd of de naam van de naamruimte beschikbaar is, kiest u de prijscategorie (Basic, Standard of Premium).
 5. Kies in het veld **Abonnement** een Azure-abonnement waarin u de naamruimte maakt.
@@ -14,14 +14,14 @@ Ga als volgt te werk om een naamruimte te maken:
 8. Klik op **Create**. Uw naamruimte wordt nu gemaakt en ingeschakeld. U moet wellicht enkele minuten wachten terwijl de resources voor uw account worden ingericht.
 
 ### <a name="obtain-the-management-credentials"></a>De beheerreferenties ophalen
-Bij het maken van een nieuwe naamruimte wordt automatisch een eerste Shared Access Signature-regel (SAS) gegenereerd met een bijbehorende primaire en secundaire sleutel die volledige controle over alle aspecten van de naamruimte bieden. Raadpleeg [Vereenvoudigde Service Bus-verificatie en -autorisatie](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) voor het maken van meer regels met beperktere rechten voor reguliere afzenders en ontvangers. Volg deze stappen om de eerste regel te kopiëren: 
+Het automatisch maken van een nieuwe naamruimte, genereert een eerste regel van de Shared Access Signature (SAS) met een combinatie van primaire en secundaire sleutels dat elk volledige controle over alle aspecten van de naamruimte verlenen van een gekoppeld. Zie [Service Bus-verificatie en autorisatie](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) beperkte voor informatie over het maken van verdere regels met meer rechten voor reguliere afzenders en ontvangers. Volg deze stappen om de eerste regel te kopiëren: 
 
 1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
-2. Klik in de naamruimte-blade op **Beleid voor gedeelde toegang**.
-3. Klik in de blade **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
+2. Klik in het venster naamruimte **gedeeld toegangsbeleid**.
+3. In de **gedeeld toegangsbeleid** scherm, klikt u op **RootManageSharedAccessKey**.
    
     ![verbinding-gegevens][connection-info]
-4. Klik in het blade **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Verbindingsreeks–primaire sleutel** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
+4. In de **beleid: RootManageSharedAccessKey** venster, klikt u op de kopie bladeren... naast **Connection string – primaire sleutel**, de verbindingsreeks kopiëren naar uw Klembord voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
    
     ![connection-string][connection-string]
 

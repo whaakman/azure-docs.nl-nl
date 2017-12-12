@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installeren van de rand van de IoT-runtime op Windows IoT Core - voorbeeld
 
-De Azure IoT rand Runtime kunt zelfs op kleine één mededelingenbord Computer SBC ()-apparaten die zeer gangbare in de branche IoT zijn uitvoeren. Dit artikel begeleidt u bij het inrichten van de runtime op een [MinnowBoard tarbot] [ lnk-minnow] ontwikkeling mededelingenbord Windows IoT Core uitgevoerd.
+Azure IoT-rand en [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) werken samen om te schakelen computergebruik op zelfs kleine apparaten rand. De Azure IoT rand Runtime kunt zelfs op kleine één mededelingenbord Computer SBC ()-apparaten die zeer gangbare in de branche IoT zijn uitvoeren. 
+
+Dit artikel begeleidt u bij het inrichten van de runtime op een [MinnowBoard tarbot] [ lnk-minnow] ontwikkeling mededelingenbord Windows IoT Core uitgevoerd. Azure IoT rand ondersteunt Windows IoT Core alleen op x64-bits Intel-processors. 
 
 ## <a name="install-the-runtime"></a>Installeer de runtime
 

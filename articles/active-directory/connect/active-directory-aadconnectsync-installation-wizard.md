@@ -5,7 +5,7 @@ keywords: De Azure AD Connect-installatiewizard kunt u de tweede keer dat u het 
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synchronisatie: uitvoeren van de installatiewizard van een tweede keer
 De eerste keer dat u de wizard Azure AD Connect-installatie uitvoert begeleidt het u bij het configureren van uw installatie. Als u de installatiewizard opnieuw uitvoert, biedt opties voor onderhoud.
@@ -48,7 +48,7 @@ Deze optie biedt een overzicht van de momenteel geconfigureerde opties.
 
 Klik op **vorige** om terug te gaan. Als u selecteert **afsluiten**, u de installatiewizard sluit.
 
-## <a name="customize-synchronization-options"></a>Opties voor synchronisatie aanpassen
+## <a name="customize-synchronization-options"></a>Synchronisatieopties aanpassen
 Deze optie wordt gebruikt om de configuratie van de synchronisatie te wijzigen. Er is een subset van de opties in het installatiepad van aangepaste configuratie. U ziet deze optie ook als u snelle installatie in eerste instantie worden gebruikt.
 
 * [Toevoegen van meer mappen](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Zie voor het verwijderen van een map [verwijderen van een Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
@@ -69,7 +69,7 @@ Wanneer u deze optie selecteert, worden de mappen in uw configuratie weergegeven
 
 ![Pagina met een lijst met alle mappen in de omgeving](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
-## <a name="configure-staging-mode"></a>Faseringsmodus configureren
+## <a name="configure-staging-mode"></a>De faseringsmodus configureren
 Deze optie kunt u inschakelen en uitschakelen van de faseringsmodus op de server. Meer informatie over modus en hoe deze wordt gebruikt voor gefaseerde installatie vindt u in [Operations](active-directory-aadconnectsync-operations.md#staging-mode).
 
 De optie ziet als tijdelijke momenteel is ingeschakeld of uitgeschakeld:  

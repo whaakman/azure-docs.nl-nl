@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Azure Cosmos Doeldatabase voor JSON-uitvoer van de Stream Analytics
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, lage latentie en archiveren gegevensquery op niet-gestructureerde JSON-gegevens. Dit document bevat informatie over enkele aanbevolen procedures voor het implementeren van deze configuratie.
@@ -27,7 +27,7 @@ Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/serv
 Voor gebruikers die niet bekend met Cosmos DB bent, Bekijk [leertraject voor Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) aan de slag. 
 
 > [!Note]
-> Op dit moment Azure Stream Analytics biedt alleen ondersteuning voor verbinding met behulp van CosmosDB **DocumentDB SQL-API**.
+> Op dit moment Azure Stream Analytics biedt alleen ondersteuning voor verbinding met behulp van CosmosDB **SQL-API**.
 > Andere Azure Cosmos DB-API's zijn nog niet ondersteund. Als u punt Azure Stream Analytics aan de Azure DB die Cosmos-accounts die worden gemaakt met andere API's, zijn de gegevens mogelijk niet juist opgeslagen. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Basisprincipes van Cosmos-database als een output-doel
@@ -36,7 +36,7 @@ De Azure DB die Cosmos-uitvoer in Stream Analytics kunt schrijven uw stream resu
 Sommige van de opties voor het verzamelen van Cosmos DB worden hieronder beschreven.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Consistentie, beschikbaarheid en latentie afstemmen
-Om te voldoen aan uw toepassing, kunt Cosmos DB u fijnmazig afstemmen van de database en verzamelingen en afweging tussen de consistentie, beschikbaarheid en latentie. Afhankelijk van welke mate van lezen van consistentie op basis van de behoeften van uw scenario lezen en schrijven latentie, dat kunt u een consistentiecontrole-niveau voor het databaseaccount van uw. Standaard kunnen Cosmos DB ook synchrone indexeren op elke bewerking CRUD aan uw verzameling. Dit is een andere nuttig optie om te bepalen van de prestaties schrijven leestijd in Cosmos-database. Raadpleeg voor meer informatie over dit onderwerp de [wijzigen van uw database en query consistentieniveaus](../documentdb/documentdb-consistency-levels.md) artikel.
+Om te voldoen aan uw toepassing, kunt Cosmos DB u fijnmazig afstemmen van de database en verzamelingen en afweging tussen de consistentie, beschikbaarheid en latentie. Afhankelijk van welke mate van lezen van consistentie op basis van de behoeften van uw scenario lezen en schrijven latentie, dat kunt u een consistentiecontrole-niveau voor het databaseaccount van uw. Standaard kunnen Cosmos DB ook synchrone indexeren op elke bewerking CRUD aan uw verzameling. Dit is een andere nuttig optie om te bepalen van de prestaties schrijven leestijd in Cosmos-database. Raadpleeg voor meer informatie over dit onderwerp de [wijzigen van uw database en query consistentieniveaus](../cosmos-db/consistency-levels.md) artikel.
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts vanuit Stream Analytics
 Stream Analytics-integratie met Cosmos DB kunt u invoegen of bijwerken van de records in uw Cosmos-DB-verzameling op basis van een bepaalde Document-ID-kolom. Dit wordt ook wel een *Upsert*.

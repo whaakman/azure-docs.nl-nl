@@ -4,7 +4,7 @@ description: Dit onderwerp beschrijft de ingebouwde rollen voor op rollen gebase
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
@@ -55,7 +55,7 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [Data Factory Inzender](#data-factory-contributor) |Kan maken en beheren van gegevensfactory's en onderliggende resources binnen deze. |
 | [DevTest Labs gebruiker](#devtest-labs-user) |Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van de virtuele machines |
 | [DNS-Zone Inzender](#dns-zone-contributor) |DNS-zones en -records beheren |
-| [Azure Cosmos DB Account Inzender](#documentdb-account-contributor) |Azure DB die Cosmos-accounts kunnen beheren |
+| [DocumentDB-Account Inzender](#documentdb-account-contributor) |Azure DB die Cosmos-accounts kunnen beheren |
 | [Intelligente systemen Account Inzender](#intelligent-systems-account-contributor) |Intelligente systemen accounts kunnen beheren |
 | Logic App Inzender | Kan alle aspecten van een logische App beheren, maar niet een nieuwe maken. |
 | Logic App-Operator |Kunt starten en stoppen van werkstromen die zijn gedefinieerd in een logische App. |
@@ -88,7 +88,7 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 ## <a name="role-permissions"></a>Rolmachtigingen
 De volgende tabellen beschrijven de specifieke machtigingen toegekend aan elke rol. Het kan hierbij gaan **acties**, die machtigingen geven en **NotActions**, die ze beperken.
 
-### <a name="api-management-service-contributor"></a>API Management-Service Inzender
+### <a name="api-management-service-contributor"></a>Inzender voor API Management-services
 API Management-services kunt beheren
 
 | **Acties** |  |
@@ -135,7 +135,7 @@ API Management-services kunt beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="application-insights-component-contributor"></a>Application Insights-Onderdeelinzender
+### <a name="application-insights-component-contributor"></a>Inzender voor Application Insights-onderdelen
 Application Insights-onderdelen kunt beheren
 
 | **Acties** |  |
@@ -274,7 +274,7 @@ Alle factureringsgegevens kunt weergeven
 | Microsoft.Billing/*/read |Factureringsgegevens lezen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="biztalk-contributor"></a>BizTalk Inzender
+### <a name="biztalk-contributor"></a>Inzender voor BizTalk
 BizTalk services kunt beheren
 
 | **Acties** |  |
@@ -287,7 +287,7 @@ BizTalk services kunt beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB Contributor
+### <a name="cleardb-mysql-db-contributor"></a>Inzender voor ClearDB MySQL-databases
 ClearDB MySQL-databases kunt beheren
 
 | **Acties** |  |
@@ -312,7 +312,7 @@ Kunnen alles beheren behalve toegang
 | Microsoft.Authorization/*/Delete |Rollen en roltoewijzingen verwijderen niet |
 | Microsoft.Authorization/*/Write |Kan de functies en roltoewijzingen niet maken |
 
-### <a name="data-factory-contributor"></a>Data Factory Inzender
+### <a name="data-factory-contributor"></a>Inzender Data Factory
 Maken en beheren van de gegevensfactory en de onderliggende resources binnen deze.
 
 | **Acties** |  |
@@ -325,7 +325,7 @@ Maken en beheren van de gegevensfactory en de onderliggende resources binnen dez
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="devtest-labs-user"></a>DevTest Labs gebruiker
+### <a name="devtest-labs-user"></a>DevTest Labs-gebruiker
 Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van de virtuele machines
 
 | **Acties** |  |
@@ -371,20 +371,20 @@ Kunnen DNS-zones en -records beheren.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/\* |Maken en ondersteuningstickets beheren |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Azure Cosmos DB Account Inzender
-Azure DB die Cosmos-accounts kunnen beheren
+### <a name="documentdb-account-contributor"></a>Inzender voor het DocumentDB-account
+Kan Azure Cosmos DB accounts beheren. Azure Cosmos DB is voorheen bekend als DocumentDB.
 
 | **Acties** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Lezen van rollen en functie toewijzingen |
-| Microsoft.DocumentDb/databaseAccounts/* |Maken en beheren van de DocumentDB-accounts |
+| Microsoft.DocumentDb/databaseAccounts/* |Maken en beheren van Azure DB die Cosmos-accounts |
 | Microsoft.Insights/alertRules/* |Maken en beheren van regels voor waarschuwingen |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="intelligent-systems-account-contributor"></a>Intelligente systemen Account Inzender
+### <a name="intelligent-systems-account-contributor"></a>Inzender voor ISS-accounts
 Intelligente systemen accounts kunnen beheren
 
 | **Acties** |  |
@@ -427,7 +427,7 @@ Kan alle bewakingsgegevens lezen en controle-instellingen bewerken. Zie ook [aan
 | Microsoft.OperationalInsights/workspaces/sharedKeys/action |Lijst met sleutels voor een werkruimte voor logboekanalyse. |
 | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Lezen/schrijven/verwijderen logboekanalyse inzicht opslagconfiguraties. |
 
-### <a name="network-contributor"></a>Network Contributor
+### <a name="network-contributor"></a>Inzender voor netwerken
 Alle netwerkbronnen kunt beheren
 
 | **Acties** |  |
@@ -467,7 +467,7 @@ Alles weergeven, maar u kunt geen wijzigingen aanbrengen
 | --- | --- |
 | * / lezen |Bronnen van alle typen, met uitzondering van geheimen lezen. |
 
-### <a name="redis-cache-contributor"></a>Redis-Cache Inzender
+### <a name="redis-cache-contributor"></a>Inzender voor Redis-caches
 Redis-caches kunt beheren
 
 | **Acties** |  |
@@ -480,7 +480,7 @@ Redis-caches kunt beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="scheduler-job-collections-contributor"></a>Scheduler-taak verzamelingen Inzender
+### <a name="scheduler-job-collections-contributor"></a>Inzender voor Scheduler-taakverzamelingen
 Scheduler-taakverzamelingen kunt beheren
 
 | **Acties** |  |
@@ -493,7 +493,7 @@ Scheduler-taakverzamelingen kunt beheren
 | Microsoft.Scheduler/jobcollections/* |Maken en beheren van jobverzamelingen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="search-service-contributor"></a>Search Service Inzender
+### <a name="search-service-contributor"></a>Inzender voor Search-services
 Search-services kunt beheren
 
 | **Acties** |  |
@@ -647,7 +647,7 @@ Kan de status van de Site Recovery in de Recovery Services-kluis bewaken en onde
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Details van het gebruik van een Recovery Services-kluis lezen |
 | Microsoft.Support/*  |  Maken en ondersteuningstickets beheren |
 
-### <a name="sql-db-contributor"></a>SQL DB Contributor
+### <a name="sql-db-contributor"></a>Inzender voor SQL-databases
 Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren
 
 | **Acties** |  |
@@ -671,7 +671,7 @@ Kan SQL-databases, maar niet hun beleid betrekking hebben op beveiliging beheren
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Waarschuwing beveiligingsbeleid kan niet worden bewerkt. |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Metrische gegevens voor beveiliging kan niet worden bewerkt. |
 
-### <a name="sql-security-manager"></a>SQL Security Manager
+### <a name="sql-security-manager"></a>SQL-beveiligingsbeheer
 Het beleid betrekking hebben op de beveiliging van SQL-servers en databases kunt beheren
 
 | **Acties** |  |
@@ -698,7 +698,7 @@ Het beleid betrekking hebben op de beveiliging van SQL-servers en databases kunt
 | Microsoft.Sql/servers/securityAlertPolicies/* |Maken en beheren van de waarschuwing beleidsregels voor de beveiliging van SQL server |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="sql-server-contributor"></a>SQL Server Inzender
+### <a name="sql-server-contributor"></a>Inzender voor SQL Server
 Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveiliging beheren
 
 | **Acties** |  |
@@ -724,7 +724,7 @@ Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveilig
 | Microsoft.Sql/servers/databases/securityMetrics/* |Metrische gegevens van SQL server-database beveiliging kan niet worden bewerkt. |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Waarschuwing beleidsregels voor de beveiliging van SQL server kan niet worden bewerkt. |
 
-### <a name="classic-storage-account-contributor"></a>Klassieke Storage Account Inzender
+### <a name="classic-storage-account-contributor"></a>Inzender voor klassieke opslagaccounts
 Klassieke opslagaccounts kunt beheren
 
 | **Acties** |  |
@@ -737,7 +737,7 @@ Klassieke opslagaccounts kunt beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="storage-account-contributor"></a>Storage-Account Inzender
+### <a name="storage-account-contributor"></a>Inzender voor opslagaccounts
 Kan storage-accounts beheren, maar geen toegang tot deze.
 
 | **Acties** |  |
@@ -769,7 +769,7 @@ Gebruikerstoegang tot Azure-resources kunt beheren
 | Microsoft.Authorization/* |Machtigingen beheren |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="classic-virtual-machine-contributor"></a>Klassieke Virtual Machine Contributor
+### <a name="classic-virtual-machine-contributor"></a>Inzender voor klassieke virtuele machines
 Klassieke virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden kunt beheren
 
 | **Acties** |  |
@@ -792,7 +792,7 @@ Klassieke virtuele machines, maar niet het virtuele netwerk of opslag account wa
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="virtual-machine-contributor"></a>Virtual Machine Contributor
+### <a name="virtual-machine-contributor"></a>Inzender voor virtuele machines
 Beheren van virtuele machines, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden
 
 | **Acties** |  |
@@ -823,7 +823,7 @@ Beheren van virtuele machines, maar niet het virtuele netwerk of opslag account 
 | Microsoft.Storage/storageAccounts/read |Lezen van de storage-accounts |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="classic-network-contributor"></a>Klassieke Network Contributor
+### <a name="classic-network-contributor"></a>Inzender voor klassieke netwerken
 Klassieke virtuele netwerken en gereserveerde IP's kunt beheren
 
 | **Acties** |  |
@@ -836,7 +836,7 @@ Klassieke virtuele netwerken en gereserveerde IP's kunt beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="web-plan-contributor"></a>Web Plan Inzender
+### <a name="web-plan-contributor"></a>Inzender voor webabonnementen
 Kunt u web-abonnementen beheren
 
 | **Acties** |  |
@@ -849,7 +849,7 @@ Kunt u web-abonnementen beheren
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 | Microsoft.Web/serverFarms/* |Maken en beheren van serverfarms |
 
-### <a name="website-contributor"></a>Website Inzender
+### <a name="website-contributor"></a>Inzender voor websites
 Kunt beheren, websites, maar niet de web-abonnementen waaraan ze zijn verbonden
 
 | **Acties** |  |

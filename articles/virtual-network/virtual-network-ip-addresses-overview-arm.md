@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -150,7 +150,7 @@ Een privé-IP-adres wordt in toegewezen in het adresbereik van het subnet van he
 Er zijn twee methoden voor het toewijzen van een privé-IP-adres:
 
 - **Dynamisch**: Azure wijst het volgende beschikbare niet-toegewezen of niet-gereserveerde IP-adres in het adresbereik van het subnet toe. Azure wijst 10.0.0.10 bijvoorbeeld toe aan een nieuwe resource als de adressen van 10.0.0.4 tot en met 10.0.0.9 al aan andere bronnen zijn toegewezen. Dynamisch is de standaardmethode voor toewijzing. Nadat dynamische IP-adressen zijn toegewezen, worden ze alleen vrijgegeven als een netwerkinterface wordt verwijderd of wordt toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk of als de toewijzingsmethode wordt gewijzigd in statisch en een ander IP-adres wordt opgegeven. Standaard wijst Azure het vorige dynamisch toegewezen adres toe als het statische adres wanneer u de toewijzingsmethode van dynamisch wijzigt in statisch.
-- **Statisch**: u selecteert elk beschikbaar niet-toegewezen of niet-gereserveerde IP-adres in het adresbereik van het subnet en wijst dit toe. Als het adresbereik van een subnet bijvoorbeeld 10.0.0.0/16 is en de adressen van 10.0.0.4 tot en met 10.0.0.9 al zijn toegewezen aan andere resources, kunt u elk adres tussen 10.0.0.10 en 10.0.255.254 toewijzen. Statische adressen worden alleen vrijgegeven als een netwerkinterface wordt verwijderd. Als u de toewijzingsmethode wijzigt in statisch, wijst Azure het eerder toegewezen statische IP-adres toe als dynamisch adres, zelfs als dat adres niet het eerstvolgende beschikbare adres in het adresbereik van het subnet is. Het adres verandert ook als de netwerkinterface wordt toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk, maar als u de netwerkinterface wilt toewijzen aan een ander subnet, moet u eerst de toewijzingsmethode wijzigen van statisch in dynamisch. Nadat u de netwerkinterface hebt toegewezen aan een ander subnet, kunt u de toewijzingsmethode weer wijzigen in statisch en een IP-adres uit het adresbereik van het nieuwe subnet toewijzen.
+- **Statisch**: u selecteert elk beschikbaar niet-toegewezen of niet-gereserveerde IP-adres in het adresbereik van het subnet en wijst dit toe. Als het adresbereik van een subnet bijvoorbeeld 10.0.0.0/16 is en de adressen van 10.0.0.4 tot en met 10.0.0.9 al zijn toegewezen aan andere resources, kunt u elk adres tussen 10.0.0.10 en 10.0.255.254 toewijzen. Statische adressen worden alleen vrijgegeven als een netwerkinterface wordt verwijderd. Als u de toewijzingsmethode wijzigt in dynamisch, wijst Azure het eerder toegewezen statische IP-adres toe als dynamisch adres, zelfs als dat adres niet het eerstvolgende beschikbare adres in het adresbereik van het subnet is. Het adres verandert ook als de netwerkinterface wordt toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk, maar als u de netwerkinterface wilt toewijzen aan een ander subnet, moet u eerst de toewijzingsmethode wijzigen van statisch in dynamisch. Nadat u de netwerkinterface hebt toegewezen aan een ander subnet, kunt u de toewijzingsmethode weer wijzigen in statisch en een IP-adres uit het adresbereik van het nieuwe subnet toewijzen.
 
 ### <a name="virtual-machines"></a>Virtuele machines
 

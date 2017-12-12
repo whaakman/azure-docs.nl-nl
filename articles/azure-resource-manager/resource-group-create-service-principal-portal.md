@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot
 
@@ -118,7 +118,7 @@ Wanneer u programmatisch zich aanmeldt, moet u de ID voor uw toepassing en een v
 
    ![toepassing selecteren](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Kopieer de **toepassings-ID** en op te slaan in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) sectie verwijzen naar deze waarde als de client-ID.
+1. Kopieer de **toepassings-ID** en op te slaan in uw toepassingscode. Sommige [voorbeeldtoepassingen](#log-in-as-the-application) verwijzen naar deze waarde als de client-ID.
 
    ![Client-ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 

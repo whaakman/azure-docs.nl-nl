@@ -1,5 +1,5 @@
 ---
-title: Node.js-toepassing met Socket.io | Microsoft Docs
+title: Node.js-toepassing met Socket.io - Azure
 description: Informatie over het gebruik van socket.io in een node.js-toepassing die wordt gehost op Azure.
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Het bouwen van een Node.js-chattoepassing met Socket.IO op een Azure Cloudservice
-Socket.IO biedt realtime-communicatie tussen tussen uw node.js-server en clients. Deze zelfstudie helpt u bij het hosten van een socket. I/o gebaseerd chatprogramma op Azure. Zie voor meer informatie over Socket.IO <http://socket.io/>.
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Het bouwen van een Node.js-chattoepassing met Socket.IO op een Azure Cloud Service
+
+Socket.IO biedt realtime-communicatie tussen uw node.js-server en clients. Deze zelfstudie leert u die als host fungeert voor een socket. I/o gebaseerd chatprogramma op Azure. Zie voor meer informatie over Socket.IO [socket.io](http://socket.io).
 
 Een schermopname van de voltooide toepassing lager is dan:
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Releaseopmerkingen voor Hadoop-onderdelen op Azure HDInsight
 
@@ -101,7 +101,7 @@ Spark 2.0.1 is nu beschikbaar op Spark-clusters (HDInsight versie 3.5).
 * De URI voor de edge-knooppunt toegang is gewijzigd in **clustername**-ed-ssh.azurehdinsight.net
 * R Server over het inrichten van HDInsight-cluster is gestroomlijnd.
 * Op HDInsight R Server is nu beschikbaar als reguliere HDInsight 'R Server' type cluster en niet meer als een afzonderlijke HDInsight-toepassing is geïnstalleerd. De edge-knooppunt en R Server binaire bestanden worden nu ingericht als onderdeel van de implementatie van het cluster R Server. Dit verbetert de snelheid en betrouwbaarheid van de inrichting. Prijsmodel voor R Server wordt dienovereenkomstig bijgewerkt.
-* R Server type clusterprijs is nu gebaseerd op standaardcategorie prijzen plus R Server aanvulling prijs. Premium-laag is gereserveerd voor Premium-functies die beschikbaar zijn in verschillende clustertypen en wordt niet gebruikt voor het type R Server-cluster. Deze wijziging heeft geen invloed op de effectieve prijzen van R Server; alleen hoe de kosten worden weergegeven in de factuur worden gewijzigd. Alle bestaande R Server-clusters blijven werken en Resource Manager-sjablonen blijven werken totdat afschaffing aankondiging. **Het verdient aanbeveling tot bijwerken van uw script implementaties als nieuwe Resource Manager-sjabloon wilt gebruiken.**
+* R Server type clusterprijs is nu gebaseerd op standaardcategorie prijzen plus R Server aanvulling prijs. Deze wijziging heeft geen invloed op de effectieve prijzen van R Server; alleen hoe de kosten worden weergegeven in de factuur worden gewijzigd. Alle bestaande R Server-clusters blijven werken en Resource Manager-sjablonen blijven werken totdat afschaffing aankondiging. **Het verdient aanbeveling tot bijwerken van uw script implementaties als nieuwe Resource Manager-sjabloon wilt gebruiken.**
 
 
 

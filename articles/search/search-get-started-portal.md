@@ -1,29 +1,29 @@
 ---
-title: "Index, query & filter op pagina‘s van de Azure Search-portal | Microsoft Docs"
-description: Gebruik in Azure Portal de vooraf gedefinieerde voorbeeldgegevens om een index te genereren. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
+title: Azure Search-zelfstudie over indexeren, query's uitvoeren en filteren via de portal | Microsoft Docs
+description: Gebruik in Azure Portal de vooraf gedefinieerde voorbeeldgegevens om een index te genereren in Azure Search. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten, geosearch en meer.
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Een Azure Search-index in de portal maken, filteren en er een query op uitvoeren
 
-Begin in Azure Portal met een vooraf gedefinieerde set voorbeeldgegevens om snel een index te genereren met behulp van de wizard **Gegevens importeren**. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**.  
+Begin in Azure Portal met een vooraf gedefinieerde set voorbeeldgegevens om snel een Azure Search-index te genereren met behulp van de wizard **Gegevens importeren**. Probeer zoekopdrachten in volledige tekst, filters, facetten, fuzzy zoekopdrachten en geosearch met **Search Explorer**.  
 
 Met deze inleiding zonder code kunt u aan de slag met vooraf gedefinieerde gegevens, zodat u direct interessante query's kunt schrijven. Hoewel de hulpprogramma's van de portal geen vervanging zijn voor code, zijn ze handig voor deze taken:
 

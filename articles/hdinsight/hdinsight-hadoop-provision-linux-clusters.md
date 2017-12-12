@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters in HDInsight met Hadoop, Spark en Kafka instellen
 
@@ -62,7 +62,7 @@ Volg de instructies op het scherm een basic clusterinstallatie doen. Details wor
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [HDInsight 3.3 buiten gebruik stellen](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
-## <a name="resource-group-name"></a>De naam van resourcegroep 
+## <a name="resource-group-name"></a>Naam resourcegroep 
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helpt u werkt met de resources in uw toepassing als een groep aangeduid als een Azure-resourcegroep. U kunt implementeren, bijwerken, bewaken of verwijderen van alle resources voor uw toepassing in een enkele, gecoördineerde bewerking.
 
@@ -98,15 +98,6 @@ Zie voor meer informatie [standaard configuratie en de virtuele machine knooppun
 
 ### <a name="hdinsight-version"></a>HDInsight-versie
 Selecteer de versie van HDInsight voor dit cluster. Zie voor meer informatie [versies van HDInsight ondersteund](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Cluster-laag: Servicelagen HDInsight
-
-Azure HDInsight biedt de cloud big data-oplossingen in twee Servicelagen: Standard en Premium.  Zie voor meer informatie [HDInsight Standard en HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-De volgende schermafbeelding ziet de Azure portal-gegevens voor het kiezen van de clustertypen.
-
-![HDInsight premium configuratie](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Cluster-aanmelding en SSH-gebruikersnaam
 Met HDInsight-clusters, kunt u twee gebruikersaccounts configureren tijdens het maken van het cluster:
