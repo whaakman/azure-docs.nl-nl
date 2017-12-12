@@ -4,7 +4,7 @@ description: Meer informatie over hoe self-service verbonden apps met Azure Acti
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9049f526243cb4659aaf86b3d31146abe8f5f3ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 763007f004ab82ef5a6b2cac6dbef1ab221a060f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configuring single sign-on to applications that are not in the Azure Active Directory application gallery (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
 Dit artikel is over een functie waarmee beheerders voor het configureren van eenmalige aanmelding tot toepassingen die niet aanwezig in de app-galerie van Azure Active Directory *zonder code te schrijven*. Deze functie werd uitgebracht van technical preview op 18 November 2015 en is opgenomen in [Azure Active Directory Premium](active-directory-editions.md). Als u in plaats daarvan-handleiding voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via code zoekt, Zie [verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md).

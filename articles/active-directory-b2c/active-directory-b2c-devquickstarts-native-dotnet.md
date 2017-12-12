@@ -4,7 +4,7 @@ description: Het bouwen van een Windows-bureaubladtoepassing met aanmelden, aanm
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 8e2b5c704230ee2ba1395dc76a1551aaa8e7af7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62b1a34f2380446b9f5cbadda7eab8c698f1a92f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Een Windows desktop app bouwen
 U kunt met behulp van Azure Active Directory (Azure AD) B2C beheerfuncties krachtige Self-service identiteitsbeheer toevoegen aan uw bureaublad-app in slechts enkele korte stappen. In dit artikel wordt beschreven hoe u een .NET Windows Presentation Foundation (WPF) 'takenlijst' u app maakt die gebruikersregistratie, aanmelding en Profielbeheer bevat. De app biedt ondersteuning voor aanmelden en aanmelden met een gebruikersnaam of e-mailbericht. Het biedt ook ondersteuning voor zich kunnen registreren en aanmelden via sociale accounts zoals Facebook en Google.

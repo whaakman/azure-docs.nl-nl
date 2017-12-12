@@ -4,7 +4,7 @@ description: Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 0d2e7e6f17fecb9809ac76fbfa0db860b7948a7e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 Dit artikel laat zien hoe u beveiligde Lightweight Directory Access Protocol (LDAPS) kunt inschakelen voor uw beheerde domein van Azure AD Domain Services. Beveiligde LDAP wordt ook wel ' Lightweight Directory Access Protocol (LDAP) via Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
@@ -39,23 +39,18 @@ Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u h
 ### <a name="requirements-for-the-secure-ldap-certificate"></a>Vereisten voor de beveiligde LDAP-certificaat
 Een geldig certificaat per de volgende richtlijnen te verkrijgen voordat u beveiligde LDAP inschakelen. Er optreden fouten als u probeert in te schakelen beveiligde LDAP voor uw beheerde domein met een ongeldig/onjuist certificaat.
 
-1. **Vertrouwde uitgevers** -het certificaat moet worden uitgegeven door een instantie wordt vertrouwd door computers verbinding maken met het beheerde domein met behulp van beveiligde LDAP. Deze instantie is mogelijk een openbare certificeringsinstantie wordt vertrouwd door deze computers.
+1. **Vertrouwde uitgevers** -het certificaat moet worden uitgegeven door een instantie wordt vertrouwd door computers verbinding maken met het beheerde domein met behulp van beveiligde LDAP. Deze instantie is mogelijk een openbare certificeringsinstantie (CA) of een CA voor ondernemingen wordt vertrouwd door deze computers.
 2. **Levensduur** -het certificaat moet geldig zijn ten minste de komende 3-6 maanden. Beveiligde LDAP-toegang tot uw beheerde domein wordt onderbroken wanneer het certificaat is verlopen.
 3. **Onderwerpnaam** -de onderwerpnaam op het certificaat moet een jokerteken voor uw beheerde domein. Bijvoorbeeld, als uw domein met de naam, contoso100.com', de onderwerpnaam van het certificaat moet ' *. contoso100.com'. De DNS-naam (alternatieve onderwerpnaam) ingesteld op deze jokertekennaam.
 4. **Sleutelgebruik** -het certificaat moet worden geconfigureerd voor het volgende gebruikt - digitale handtekeningen en sleutelcodering.
 5. **Doel van het certificaat** -het certificaat moet geldig zijn voor SSL-serververificatie.
-
-> [!NOTE]
-> **Ondernemings-CA's:** Azure AD Domain Services biedt geen ondersteuning voor het gebruik van beveiligde LDAP certificaten uitgegeven door een certificeringsinstantie voor ondernemingen van uw organisatie. Deze beperking is omdat de service de ondernemings-CA als een basiscertificeringsinstantie niet vertrouwt. 
->
->
 
 <br>
 
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Taak 1: een certificaat verkrijgen voor beveiligde LDAP
 De eerste taak omvat het verkrijgen van een certificaat gebruikt voor beveiligde LDAP-toegang tot het beheerde domein. U hebt hiervoor twee opties:
 
-* Een certificaat verkrijgen van een openbare certificeringsinstantie.
+* Een certificaat verkrijgen van een openbare CA of een ondernemings-CA.
 * Een zelfondertekend certificaat maken.
 
 > [!NOTE]
@@ -63,7 +58,7 @@ De eerste taak omvat het verkrijgen van een certificaat gebruikt voor beveiligde
 >
 
 ### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Optie een (aanbevolen) - een beveiligde LDAP-certificaat verkrijgen van een certificeringsinstantie (CA)
-Als uw organisatie krijgt de certificaten van een openbare certificeringsinstantie, moet u de beveiligde LDAP-certificaat verkrijgen van openbare certificeringsinstantie.
+Als uw organisatie krijgt de certificaten van een openbare Certificeringsinstantie, moet u de beveiligde LDAP-certificaat verkrijgen van die openbare Certificeringsinstantie. Als u een ondernemings-CA implementeert, moet u de beveiligde LDAP-certificaat verkrijgen van de ondernemings-CA.
 
 > [!TIP]
 > **Gebruik zelfondertekende certificaten voor beheerde domeinen met '. onmicrosoft.com' domeinachtervoegsels.**

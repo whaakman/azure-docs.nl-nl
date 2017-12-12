@@ -4,7 +4,7 @@ description: Bevat informatie over de basisbeginselen van Azure AD-toepassingspr
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f2d7387f03757afb0b51105f02068d4aada8f9f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD-toepassingsproxy publiceren
 
@@ -115,7 +115,7 @@ De configuratie zoals beschreven in dit artikel is bedoeld voor gebruikers in Wi
 
 | Verificatiemethode | Ondersteunde client-configuratie |
 | --------------------- | ------------------------------ |
-| Verificatie vooraf    | Windows 7/10 met behulp van Internet Explorer + RDS ActiveX-invoegtoepassing |
+| Pre-authenticatie    | Windows 7/10 met behulp van Internet Explorer + RDS ActiveX-invoegtoepassing |
 | Passthrough | Een ander besturingssysteem die ondersteuning biedt voor de toepassing Microsoft Extern bureaublad |
 
 De stroom voor pre-authenticatie biedt de voordelen van meer beveiliging dan de passthrough-stroom. U kunt Azure AD authenticatiefuncties zoals het eenmalige aanmelding, voorwaardelijke toegang en verificatie in twee stappen voor uw lokale bronnen gebruiken met vooraf-verificatie. U ook voor zorgen dat alleen geverifieerd verkeer bereikt uw netwerk.

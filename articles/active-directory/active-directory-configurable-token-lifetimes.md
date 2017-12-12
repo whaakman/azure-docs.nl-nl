@@ -4,7 +4,7 @@ description: Informatie over het instellen van de levensduur voor tokens die zij
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare token levensduur in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. Token levensduur voor alle apps in uw organisatie, voor een multitenant (meerdere organisatie)-toepassing of voor een specifieke service-principal kunt u instellen in uw organisatie.
@@ -474,7 +474,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Service-principal-beleid
+### <a name="service-principal-policies"></a>Service-principal-beleidsregels
 U kunt de volgende cmdlets gebruiken voor service-principal-beleid.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Voeg AzureADServicePrincipalPolicy

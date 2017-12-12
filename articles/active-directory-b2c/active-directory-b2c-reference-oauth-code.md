@@ -4,7 +4,7 @@ description: Informatie over het bouwen van web-apps met behulp van Azure AD B2C
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99a292c6be66016264e528525a5920667207b605
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-autorisatiecodestroom
 U kunt het verlenen van OAuth 2.0 autorisatie code in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's gebruiken. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OAuth 2.0, u kunt toevoegen, registreren, aanmelden en andere identiteitsbeheer taken naar uw mobiele en bureaublad-apps. In dit artikel is taalonafhankelijk. In het artikel wordt beschreven hoe verzenden en ontvangen van HTTP-berichten zonder gebruik van een open source-bibliotheken.

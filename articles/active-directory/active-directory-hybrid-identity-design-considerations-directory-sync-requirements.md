@@ -4,7 +4,7 @@ description: Identificeren welke vereisten nodig zijn voor het synchroniseren va
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5ef87e606f055359ca325befd6048353ce57ca2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Vereisten voor directory-synchronisatie bepalen
 Synchronisatie is alles over een identiteit in de cloud op basis van hun on-premises identiteits zodat gebruikers beschikken. Of ze gesynchroniseerde account wordt gebruikt voor verificatie of federatieve verificatie, of niet wordt nog steeds de gebruikers moeten een identiteit hebben in de cloud.  Deze identiteit moet worden behouden en regelmatig bijgewerkt.  De updates kunnen vele vormen aannemen, wijzigingen van de titel aan wachtwoord te wijzigen.  

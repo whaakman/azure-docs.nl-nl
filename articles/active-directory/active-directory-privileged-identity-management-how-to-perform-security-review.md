@@ -4,7 +4,7 @@ description: Informatie over het uitvoeren van een overzicht met de Azure Privil
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: a98ed60221eeba1d9c92df846aeae2deafb8ae60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ca735f04334557f40ddbe3119f7110dbcdde2a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Het uitvoeren van een onderzoek toegang in Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management vereenvoudigt de manier waarop bedrijven bevoorrechte toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 of Microsoft Intune beheert.  

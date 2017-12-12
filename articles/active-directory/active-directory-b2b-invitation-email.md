@@ -4,7 +4,7 @@ description: Azure Active Directory B2B-samenwerking uitnodiging voor een e-mail
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>De elementen van de uitnodigingsmail voor B2B-samenwerking
 
@@ -36,7 +36,7 @@ Het onderwerp van het e-mailbericht volgt u de volgende notatie: U bent uitgenod
 ### <a name="from-address"></a>Van-adres
 We gebruiken een LinkedIn patroon voor het adres van de afzender.  U moet wissen die afzender van de uitnodiging is en waaruit de bedrijfsportal en ook verduidelijken dat het e-mailbericht afkomstig is van een Microsoft e-mailadres. De indeling is: &lt;weergavenaam van de uitnodiging antwoorden&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
 
-### <a name="reply-to"></a>Beantwoorden
+### <a name="reply-to"></a>Antwoorden op
 Het antwoord aan e-mailbericht is ingesteld op van de afzender van de uitnodiging e indien beschikbaar, zodat u het e-mailbericht beantwoordt een e-mailbericht teruggestuurd naar de uitnodiging antwoorden wordt.
 
 ### <a name="branding"></a>De huisstijl

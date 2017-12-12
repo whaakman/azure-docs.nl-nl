@@ -4,7 +4,7 @@ description: In dit onderwerp vindt u een gedetailleerd overzicht van wat risico
 services: active-directory
 keywords: beveiliging voor Azure active directory-identiteit, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e0fb528b22c5696aa46a677199b95ff3fbd6a79
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -84,7 +84,7 @@ Dit type risico gebeurtenis identificeert aanmeldingen vanaf apparaten geïnfect
 Dit type risico gebeurtenis identificeert IP-adressen waaruit een groot aantal mislukte aanmeldingspogingen zijn gezien, bij verschillende gebruikersaccounts gedurende een korte periode. Dit komt overeen met verkeerspatronen van IP-adressen die door aanvallers worden gebruikt en een sterke indicator dat accounts al zijn, of moeten worden aangetast. Dit is een machine learning-algoritme dat wordt genegeerd voor de hand liggende '*false positieven*', zoals IP-adressen die regelmatig worden gebruikt door andere gebruikers in de organisatie.  Het systeem heeft een initiële learning periode van 14 dagen waar deze leert het gedrag aanmelden van een nieuwe gebruiker en de nieuwe tenant.
 
 
-## <a name="detection-type"></a>Detectietype
+## <a name="detection-type"></a>Detectie van type
 
 De eigenschap van het type detectie is een indicator (realtime of Offline) voor het tijdsbestek detectie van een risicogebeurtenis.  
 Op dit moment worden de meeste risicogebeurtenissen gedetecteerd offline in na verwerking bewerking nadat de risicogebeurtenis heeft plaatsgevonden.

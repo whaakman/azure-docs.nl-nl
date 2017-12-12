@@ -4,7 +4,7 @@ description: Informatie over het beheren van gebruikers account inrichten voor z
 services: active-directory
 documentationcenter: 
 author: asmalser
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Het beheer van gebruikersaccount inrichten voor zakelijke apps in Azure portal
 In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -44,7 +44,7 @@ De **inrichten** blade begint met een **modus** menu ziet u welke inrichting mod
 ## <a name="configuring-automatic-user-account-provisioning"></a>Configuratie van automatische gebruikers account inrichten
 Als u de **automatische** optie wordt weergegeven, een scherm weergegeven dat is onderverdeeld in vier secties:
 
-### <a name="admin-credentials"></a>Beheerdersreferenties
+### <a name="admin-credentials"></a>Referenties voor beheerder
 Dit is waar de referenties nodig voor Azure AD verbinding maken met de toepassing Gebruikersbeheer API worden ingevoerd. De invoer vereist clientdownload is afhankelijk van de toepassing. Zie voor meer informatie over de vereisten voor specifieke toepassingen en het type referentie, de [zelfstudie voor de configuratie voor de specifieke toepassing](active-directory-saas-app-provisioning.md).
 
 Als u de **verbinding testen** knop kunt u de referenties testen door Azure AD poging verbinding maken met de app de app met behulp van de opgegeven referenties inrichten.

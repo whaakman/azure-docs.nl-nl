@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jeedes
-ms.openlocfilehash: c2b7638e99fa46ff41a7f2202bdf0e7a2b017c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c0cd547a9a33ee83883058623e4905ea0af4031
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Zelfstudie: Azure Active Directory-integratie met Schoolbord meer
 
@@ -124,7 +124,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 5. In de **gebruikerskenmerken** sectie op **eenmalige aanmelding** dialoogvenster SAML-token kenmerken configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren. We hebben de Userprincipalname toegewezen als het kenmerk unieke gebruikers hier maar kunt u deze toewijzen aan de juiste waarde die uniek is voor de gebruiker in de organisatie en die wordt toegewezen aan het veld username Schoolbord meer informatie.
            
-    | Naam van kenmerk | De waarde van kenmerk |   
+    | Kenmerknaam | Waarde kenmerk |   
     | ---------------| ----------------|
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 |User.userPrincipalName |
 

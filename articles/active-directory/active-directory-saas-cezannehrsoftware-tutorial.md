@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Zelfstudie: Azure Active Directory-integratie met Cezanne HR-Software
 
@@ -125,25 +125,29 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Op de **Cezanne HR-softwareconfiguratie** sectie, klikt u op **Cezanne HR-Software configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+6. Op de **Cezanne HR-softwareconfiguratie** sectie, klikt u op **Cezanne HR-Software configureren** openen **eenmalige aanmelding configureren** venster.
 
-    ![De softwareconfiguratie voor Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![De softwareconfiguratie voor Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. In een ander browservenster aanmelding bij uw tenant Cezanne HR Software als een beheerder.
+7. Schuif omlaag naar de **Naslaggids** sectie. Kopieer de **SAML Single Sign-On Service-URL en SAML entiteit-ID** van de **Naslaggids punt.**
 
-8. Klik in het navigatiedeelvenster links op **Setup van System**. Ga naar **beveiligingsinstellingen**. Navigeer naar **configuratie voor één aanmelding**.
+    ![De softwareconfiguratie voor Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. In een ander browservenster aanmelding bij uw tenant Cezanne HR Software als een beheerder.
+
+9. Klik in het navigatiedeelvenster links op **Setup van System**. Ga naar **beveiligingsinstellingen**. Navigeer naar **configuratie voor één aanmelding**.
 
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. In de **toestaan dat gebruikers zich aanmelden met de volgende Service voor eenmalige aanmelding (SSO)** Configuratiescherm, Controleer de **SAML 2.0** vak en selecteer de **geavanceerde configuratie** optie.
+10. In de **toestaan dat gebruikers zich aanmelden met de volgende Service voor eenmalige aanmelding (SSO)** Configuratiescherm, Controleer de **SAML 2.0** vak en selecteer de **geavanceerde configuratie** optie.
 
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Klik op **nieuwe toevoegen** knop.
+11. Klik op **nieuwe toevoegen** knop.
 
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Voer de volgende stappen uit op **SAML 2.0 IDENTITEITSPROVIDERS** sectie.
+12. Voer de volgende stappen uit op **SAML 2.0 IDENTITEITSPROVIDERS** sectie.
 
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     g. Klik op de knop **OK**. 
 
-12. Klik op **opslaan** knop.
+13. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding op App aan clientzijde configureren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

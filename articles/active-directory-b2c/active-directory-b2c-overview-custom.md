@@ -4,7 +4,7 @@ description: Een onderwerp op Azure Active Directory B2C aangepast beleid
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
 ms.service: active-directory-b2c
@@ -14,23 +14,23 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Aangepast beleid
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="what-are-custom-policies"></a>Wat zijn aangepast beleid?
+## <a name="what-are-custom-policies"></a>Wat is aangepast beleid?
 
 Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure AD B2C-tenant definiëren. Terwijl **ingebouwde beleid** zijn vooraf gedefinieerd in de Azure AD B2C-portal voor de meest algemene taken voor identiteit, aangepaste beleidsregels kunnen worden volledig bewerkt door een ontwikkelaar identiteit een onbeperkt aantal taken in bijna voltooid. Lees verder voor bepalen of aangepaste beleidsregels bij u en uw identiteitsscenario zijn.
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Beleidsregels voor ingebouwde en aangepaste vergelijken
 
-| | Ingebouwde beleid | aangepast beleid |
+| | Ingebouwde beleid | Aangepaste beleidsregels |
 |-|-------------------|-----------------|
 |Doelgebruikers | Alle app-ontwikkelaars met of zonder identiteit expertise | Identity-professionals: systeemintegrators, adviseurs en interne identiteit teams. Ze vertrouwd bent met OpenIDConnect stromen en id-providers en verificatie op basis van claims begrijpen |
 |Configuratiemethode | Azure-portal met een gebruiksvriendelijke gebruikersinterface | XML-bestanden rechtstreeks te bewerken en vervolgens uploaden naar de Azure-portal |
@@ -74,7 +74,7 @@ Een volledig worden geconfigureerd, beleid gebaseerde, cloud-gebaseerde Azure-pl
 Vooraf gedefinieerde configuratiebestanden die het gedrag van Azure AD B2C om uit te voeren van de meest vaak gebruikte id taken (dat wil zeggen gebruikersregistratie, aanmelding in wachtwoordherstel) en communiceren met vertrouwde partijen waarvan relatie ook vooraf is gedefinieerd in Azure AD B2C (voor directe voorbeeld Facebook id-provider, LinkedIn, Microsoft-Account, Google-accounts).  In de toekomst daarenboven ingebouwde beleidsregels voor aanpassing van de id-providers die meestal in de enterprise-realm zoals Azure Active Directory Premium, Active Directory AD FS, Salesforce-ID-Provider, enzovoort.
 
 
-### <a name="custom-policies"></a>aangepast beleid
+### <a name="custom-policies"></a>Aangepaste beleidsregels
 
 De configuratiebestanden die het gedrag van identiteit ervaring Framework in uw Azure AD B2C-tenant definiëren. Er is een aangepast beleid toegankelijk als een of meer XML-bestanden (Zie beleidsbestanden definities) die worden uitgevoerd door de identiteit ervaring Framework wordt aangeroepen door een relying party (bijvoorbeeld een toepassing). Aangepast beleid kunnen rechtstreeks worden bewerkt door een ontwikkelaar identiteit een onbeperkt aantal taken in bijna voltooid. Ontwikkelaars aangepaste beleidsregels configureren, moeten de vertrouwde relaties definiëren in zorgvuldige samenvattingsniveau metagegevens-eindpunten, exacte claims exchange-definities en geheimen, sleutels en certificaten die door elke id-provider configureren.
 

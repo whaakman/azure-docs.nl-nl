@@ -12,7 +12,7 @@
 # Procedures
 ## Hoge beschikbaarheid configureren
 ### [Opties voor hoge beschikbaarheid](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Always On-beschikbaarheidsgroep configureren in de klassieke portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Een AlwaysOn-beschikbaarheidsgroep configureren in de portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [AlwaysOn-beschikbaarheidsgroep configureren met PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Een interne listener configureren voor een beschikbaarheidsgroep](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Een externe listener configureren voor een beschikbaarheidsgroep](virtual-machines-windows-classic-ps-sql-ext-listener.md)
@@ -36,7 +36,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
-## [Azure-CLI](/cli/azure/)
+## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server-stuurprogramma's](https://docs.microsoft.com/sql/connect/sql-server-drivers)
 ## [REST](/rest/api/)

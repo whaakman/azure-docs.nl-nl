@@ -5,7 +5,7 @@ services: active-directory, virtual-network
 keywords: 'Active directory virtuele machine van de active directory-forest installeren, azure active directory-video ''s '
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 tags: 
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 96020eb305b0a027a2128cdd3e3c8acf998c8e54
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk
 Dit artikel laat zien hoe u een nieuwe Windows Server Active Directory-omgeving op een virtuele machine (VM) maakt op een [virtuele Azure-netwerk](../virtual-network/virtual-networks-overview.md). De virtuele Azure-netwerk is in dit geval niet verbonden met een on-premises netwerk.
@@ -27,7 +27,7 @@ Dit artikel laat zien hoe u een nieuwe Windows Server Active Directory-omgeving 
 U is mogelijk ook geïnteresseerd in deze verwante artikelen:
 
 * Zie voor een video ziet u deze stappen [een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-* U kunt eventueel [een site-naar-site-VPN configureren](../vpn-gateway/vpn-gateway-site-to-site-create.md) en vervolgens een nieuw forest installeert of uitbreiden van een lokale forest met een Azure virtual network. Zie voor deze stappen [een Replica Active Directory-domeincontroller installeren in een Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
+* U kunt eventueel [een site-naar-site-VPN configureren](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) en vervolgens een nieuw forest installeert of uitbreiden van een lokale forest met een Azure virtual network. Zie voor deze stappen [een Replica Active Directory-domeincontroller installeren in een Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
 * Raadpleeg voor algemene richtlijnen over het installeren van Active Directory Domain Services (AD DS) op een virtuele Azure-netwerk [richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Scenario-Diagram
@@ -108,7 +108,7 @@ Zie voor meer informatie over het gebruik van Windows PowerShell [aan de slag me
 ## <a name="see-also"></a>Zie ook
 * [Een nieuw Active Directory-forest installeren op een virtuele Azure-netwerk](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Richtlijnen voor het implementeren van Windows Server Active Directory op virtuele Machines in Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-* [Een Site-naar-Site-VPN configureren](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Een Site-naar-Site-VPN configureren](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Een Replica Active Directory-domeincontroller installeren in een Azure-netwerk](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IT Pro IaaS: grondbeginselen (01) virtuele Machine](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IT Pro IaaS: (05) maken van virtuele netwerken en Cross-Premises connectiviteit](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)

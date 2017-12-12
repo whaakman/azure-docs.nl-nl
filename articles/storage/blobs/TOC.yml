@@ -60,6 +60,8 @@
       items:
         - name: Replicatie
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Opslagaccountopties
+          href: storage-account-options.md
         - name: 'Warme, koude en archieflagen'
           href: storage-blob-storage-tiers.md
         - name: Reageren op gebeurtenissen

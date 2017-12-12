@@ -4,7 +4,7 @@ description: Ondersteuning voor meerdere huisstijl ervaringen met HTML5/CSS-inho
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 1e8b8359efb75246e40103ee8cbc2a786bfa6b46
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Het configureren van de gebruikersinterface met dynamische inhoud met behulp van aangepast beleid
 Met behulp van Azure Active Directory B2C (Azure AD B2C) aangepast beleid, kunt u een parameter in een queryreeks verzenden. Door de parameter wordt doorgegeven aan uw HTML-eindpunt, kunt u de pagina-inhoud dynamisch wijzigen. U kunt bijvoorbeeld de achtergrondafbeelding op de Azure AD B2C registreren of aanmelden pagina op basis van een parameter die u van uw web- of mobiele toepassing doorgeeft wijzigen. 

@@ -4,7 +4,7 @@ description: Dit onderwerp wordt beschreven hoe u verbinding maken wanneer u een
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a7df154748a4ce8ac592a41f2a3d6b10ac359113
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b3efcdd8c3f7173711c005e0fe4d7080bd902663
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Wanneer u hebt een bestaande tenant
 De meeste van de onderwerpen over het gebruik van Azure AD Connect wordt ervan uitgegaan dat u begint met een nieuwe Azure AD-tenant en dat er geen gebruikers of er andere objecten zijn. Maar als u hebt gestart met een Azure AD-tenant gevuld zijn met gebruikers en andere objecten, en wilt verbinden, gebruik vervolgens dit onderwerp is voor u.

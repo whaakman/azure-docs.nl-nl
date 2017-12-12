@@ -5,7 +5,7 @@ services: active-directory
 keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid, verklarende woordenlijst
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5b6d2db0a8df31fd159053cceab6b9b320ffd8cb
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Verklarende woordenlijst voor beveiliging van Azure Active Directory-identiteit
 ### <a name="at-risk-user"></a>Risico (gebruiker)
@@ -142,7 +142,7 @@ Een risicogebeurtenis geactiveerd wanneer een gebruiker zich met succes aanmeldt
 ### <a name="sign-in-risk"></a>Aanmelden risico
 Zie risico niveau (sign-in)
 
-### <a name="sign-in-risk-policy"></a>Beleid voor aanmelden risico
+### <a name="sign-in-risk-policy"></a>Beleid voor aanmeldingsrisico's
 Een beleid voor voorwaardelijke toegang dat het risico op een specifieke aanmelden wordt geëvalueerd en oplossingen op basis van vooraf gedefinieerde voorwaarden en regels van toepassing is.
 
 ### <a name="user-compromise-risk"></a>Gebruiker risico op inbreuk
@@ -151,13 +151,13 @@ Zie risico niveau (gebruiker inbreuk)
 ### <a name="user-risk"></a>Gebruiker risico
 Zie risico niveau (gebruiker inbreuk).
 
-### <a name="user-risk-policy"></a>Gebruikersbeleid risico
+### <a name="user-risk-policy"></a>Beleid voor gebruikersrisico's
 Een beleid voor voorwaardelijke toegang die beschouwt de aanmeldingspagina en oplossingen op basis van vooraf gedefinieerde voorwaarden en bepalingen toepast.
 
 ### <a name="users-flagged-for-risk"></a>Gebruikers voor wie wordt aangegeven dat ze risico lopen
 Gebruikers die risicogebeurtenissen zijn die actief of herstelde hebben
 
-### <a name="vulnerability"></a>Beveiligingslek
+### <a name="vulnerability"></a>Beveiligingsprobleem
 Een configuratie of een voorwaarde in Azure Active Directory, waardoor de map vatbaar voor aanvallen of bedreigingen.
 
 ## <a name="see-also"></a>Zie ook

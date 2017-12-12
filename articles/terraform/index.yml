@@ -13,8 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
+  ms.openlocfilehash: 000d7d19a6bf897d5c32ec31017f96fe23461b29
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 12/11/2017
 abstract:
-  description: 'Gebruik Terraform om op betrouwbare wijze infrastructuur in Azure te maken en versies te beheren. Leer aan de hand van onze snelstartgidsen en zelfstudies over het maken van resources, het gebruiken van Azure Terraform-modules en het onderhouden van uw infrastructuur met code.'
+  description: Gebruik Terraform om op betrouwbare wijze infrastructuur in Azure te maken en versies te beheren. Leer aan de hand van onze snelstartgidsen en zelfstudies over het maken van resources, het gebruiken van Azure Terraform-modules en het onderhouden van uw infrastructuur met code.
   aside:
     image:
       alt: Terraform logo.
@@ -22,45 +27,46 @@ abstract:
       src: media/Terraform_VerticalLogo_FullColor.svg
       width: 250
 sections:
-  - title: Snelstartgidsen
+- title: Snelstartgidsen
+  items:
+  - type: paragraph
+    text: Terraform configureren en gebruiken om een Linux-VM te maken in Azure.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Terraform configureren en gebruiken om een Linux-VM te maken in Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg'
-            text: Terraform installeren en configureren
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg'
-            text: Een Linux-VM maken
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm'
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+      text: Terraform installeren en configureren
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+      text: Een Linux-VM maken
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Informatie over het maken van berekenings- en netwerkinfrastructuur in Azure op basis van code met Terraform.
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Informatie over het maken van berekenings- en netwerkinfrastructuur in Azure op basis van code met Terraform.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Een VM-cluster met taakverdeling maken met behulp van Azure Terraform-modules</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Een VM-cluster met taakverdeling maken in de Azure Cloud Shell</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Een VM-schaalset configureren met netwerkmogelijkheden en opslag.</a>
-  - title: Voorbeelden
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Een VM-cluster met taakverdeling maken met behulp van Azure Terraform-modules</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Een VM-cluster met taakverdeling maken in de Azure Cloud Shell</a>.
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Een VM-schaalset configureren met netwerkmogelijkheden en opslag.</a>
+    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie.</a>
+- title: Voorbeelden
+  items:
+  - type: paragraph
+    text: Voorbeelden van configuratiesjablonen voor veelvoorkomende implementatietaken.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Voorbeelden van configuratiesjablonen voor veelvoorkomende implementatietaken.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>'
-  - title: Naslaginformatie
+    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Azure Terraform-modules
-            html: '<p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM for Database</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM for Load Balancer</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM Compute Group</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM Network</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM Compute</a></p>'
+    - title: Azure Terraform-modules
+      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM for Database</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM for Load Balancer</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM Compute Group</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM Network</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM Compute</a></p>

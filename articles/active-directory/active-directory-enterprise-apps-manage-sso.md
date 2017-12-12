@@ -4,7 +4,7 @@ description: Instellingen voor eenmalige aanmelding voor zakelijke apps binnen u
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Eenmalige aanmelding voor zakelijke apps beheren
 
@@ -63,7 +63,7 @@ Dit is waar beheerders kunnen weergeven en bewerken van de kenmerken die worden 
 
 Het alleen worden bewerkt kenmerk ondersteund is de **gebruikers-id** kenmerk. De waarde van dit kenmerk is het veld in Azure AD dat is uniek voor elke gebruiker in de toepassing. Bijvoorbeeld als de app is geïmplementeerd met behulp van de 'e-mailadres' als de gebruikersnaam en een unieke id, klikt u vervolgens de waarde zou worden ingesteld op het veld 'user.mail' in Azure AD.
 
-### <a name="saml-signing-certificate"></a>Certificaat voor ondertekening van SAML
+### <a name="saml-signing-certificate"></a>SAML-handtekeningcertificaat
 Deze sectie worden de details van het certificaat dat Azure AD wordt gebruikt voor het ondertekenen van de SAML-tokens die zijn verleend aan de toepassing telkens wanneer de gebruiker wordt geverifieerd. Hierdoor kan de eigenschappen van het huidige certificaat moet worden gecontroleerd, met inbegrip van de vervaldatum.
 
 ### <a name="application-configuration"></a>De configuratie van toepassing

@@ -4,7 +4,7 @@ description: Gids voor probleemoplossing voor Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - probleemoplossingsgids
 Dit artikel bevat tips voor probleemoplossing voor problemen die optreden kunnen bij het instellen of het beheer van Azure Active Directory (AD) Domain Services.
@@ -57,13 +57,10 @@ Controleer of er een toepassing met de naam 'Azure AD Domain Services Sync' in u
 
 Voer de volgende stappen uit om te controleren op de aanwezigheid van de toepassing en verwijderen, als de toepassing bestaat:
 
-1. Navigeer naar de **klassieke Azure-portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. Selecteer het knooppunt **Active Directory** in het linkerdeelvenster.
-3. Selecteer de Azure AD-tenant (directory) waarvoor u Azure AD Domain Services wilt inschakelen.
-4. Navigeer naar de **toepassingen** tabblad.
-5. Selecteer de **toepassingen mijn bedrijf eigenaar is van** optie in de vervolgkeuzelijst.
-6. Controleer voor een toepassing met de naam **Azure AD Domain Services Sync**. Als de toepassing bestaat, gaat u verder te verwijderen.
-7. Zodra u de toepassing hebt verwijderd, probeer het opnieuw inschakelen van Azure AD Domain Services.
+1. Navigeer naar de **toepassingen** gedeelte van uw Azure AD-directory in de [Azure-portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Selecteer **alle toepassingen** in de **weergeven** vervolgkeuzelijst. Selecteer **eventuele** in de **toepassingen status** vervolgkeuzelijst. Selecteer **eventuele** in de **toepassing zichtbaarheid** vervolgkeuzelijst.
+3. Type **Azure AD Domain Services Sync** in het zoekvak. Als de toepassing bestaat, klikt u op en klik op de **verwijderen** knop op de werkbalk om deze te verwijderen.
+4. Zodra u de toepassing hebt verwijderd, probeer het opnieuw inschakelen van Azure AD Domain Services.
 
 ### <a name="invalid-configuration"></a>Ongeldige configuratie
 **Foutbericht:**
@@ -153,7 +150,7 @@ Azure AD voorkomt dat u onbedoeld gebruikersobjecten verwijdert. Wanneer u een g
 
 Het gebruikersaccount blijft uitgeschakeld in uw beheerde domein, zelfs als u een gebruikersaccount met dezelfde UPN opnieuw in uw Azure AD-directory maken. Als het gebruikersaccount uit uw beheerde domein verwijderen, moet u deze geforceerd verwijderen uit uw Azure AD-tenant.
 
-Als het gebruikersaccount volledig uit uw beheerde domein verwijderen, de gebruiker verwijderen permanent van uw Azure AD-tenant. Gebruik de Remove-MsolUser PowerShell-cmdlet met de optie '-RemoveFromRecycleBin', zoals beschreven in dit [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Als het gebruikersaccount volledig uit uw beheerde domein verwijderen, de gebruiker verwijderen permanent van uw Azure AD-tenant. Gebruik de `Remove-MsolUser` PowerShell-cmdlet met de `-RemoveFromRecycleBin` optie, zoals beschreven in dit [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Contact opnemen
 Neem contact op met de Azure Active Directory Domain Services-productteam voor [feedback delen of voor ondersteuning](active-directory-ds-contact-us.md).

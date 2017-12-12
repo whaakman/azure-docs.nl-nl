@@ -2,11 +2,11 @@
 # Overzicht
 ## [Wat is Service Fabric?](service-fabric-overview.md)
 
-# QuickStarts
+# Snelstartgidsen
 ## [Een .NET-toepassing maken](service-fabric-quickstart-dotnet.md)
 ## [Een Linux-containertoepassing implementeren](service-fabric-quickstart-containers-linux.md)
 ## [Een Windows-containertoepassing implementeren](service-fabric-quickstart-containers.md)
-## Java-QuickStarts
+## Java-snelstartgidsen
 ### [Een Spring Boot-toepassing implementeren](service-fabric-quickstart-java-spring-boot.md)
 ### [Een betrouwbare servicetoepassing implementeren](service-fabric-quickstart-java-reliable-services.md)
 
@@ -75,6 +75,7 @@
 ##### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [Toepassingsmodel](service-fabric-application-model.md)
+### [Toepassings- en servicemanifesten](service-fabric-application-and-service-manifests.md)
 ### [Hostingmodel](service-fabric-hosting-model.md)
 
 ### Services

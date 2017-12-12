@@ -4,7 +4,7 @@ description: Identificeer de beveiligingsvereisten van de gegevens voor uw bedri
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Plan voor het verbeteren van de beveiliging van gegevens via de van de sterke-identiteitsoplossing
 De eerste stap om de gegevens te beveiligen is bepalen wie toegang heeft tot die gegevens en als onderdeel van dit proces die moet u beschikken over een identiteit oplossing die kan worden geïntegreerd met uw systeem te bieden mogelijkheden voor verificatie en autorisatie. Verificatie en autorisatie worden vaak verward met elkaar en hun rollen verkeerd begrepen. In werkelijkheid zijn ze heel anders, zoals wordt weergegeven in de afbeelding hieronder:

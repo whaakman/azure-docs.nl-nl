@@ -5,7 +5,7 @@ services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 10/23/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migreren van klassieke beleid in de Azure portal 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/24/2017
 In dit onderwerp helpt u bij de migratie van uw bestaande beleidsregels voor klassieke naar het nieuwe de nieuwe Azure AD-beleid voor voorwaardelijke toegang.
 
 
-## <a name="classic-policies"></a>Klassieke beleid
+## <a name="classic-policies"></a>Klassieke beleidsregels
 
 Beleid voor voorwaardelijke toegang voor Azure AD en Intune u niet in de Azure-portal hebt gemaakt, worden ook wel bekend als **klassieke beleid**. Voor het migreren van uw klassieke beleid, moet u geen toegang hebben tot de klassieke Azure-portal. De Azure-portal beschikt u over een [ **klassieke beleid (preview)** weergave](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) waarmee u kunt uw klassieke beleid.
 
@@ -80,7 +80,7 @@ Zie:
 
 ## <a name="multi-factor-authentication-policy"></a>Beleid voor meervoudige verificatie 
 
-In dit voorbeeld laat zien hoe voor het migreren van een klassieke beleid waarvoor multi-factor authentication ** voor een cloud-app. 
+Dit voorbeeld ziet u het migreren van een klassieke beleid waarvoor **multi-factorauthenticatie** voor een cloud-app. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 

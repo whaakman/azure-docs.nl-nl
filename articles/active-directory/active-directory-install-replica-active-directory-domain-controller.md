@@ -4,7 +4,7 @@ description: Het installeren van de replica-DC's voor lokale Active Directory-do
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 60839f93954bfe38f0346b235259f68e479b8a00
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Een replica Active Directory-domeincontroller installeren in een Azure-netwerk
 Dit artikel wordt beschreven hoe u voor het installeren van extra domeincontrollers (DC's) moet worden gebruikt als replica DC's voor lokale Active Directory-domein op Azure virtuele machines (VM's) in een Azure-netwerk. U kunt ook [een Windows Server Active Directory-forest installeren op een virtuele Azure-netwerk](active-directory-new-forest-virtual-machine.md). Voor informatie over het installeren van Active Directory Domain Services (AD DS) op een virtuele Azure-netwerk, Zie [richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).

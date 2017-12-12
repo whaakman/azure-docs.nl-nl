@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
-  document_id: null
-  title: 'Azure IoT Edge - zelfstudies, API-referentiemateriaal'
+  document_id: 
+  title: Azure IoT Edge - zelfstudies, API-referentiemateriaal
   meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
   services: iot-edge
   author: kgremban
@@ -12,35 +12,41 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/08/2017
+  ms.date: 12/08/2017
   ms.author: kgremban
+  ms.openlocfilehash: d49e1647db25023cefd59d667f87396827b7ca27
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 12/11/2017
 abstract:
-  description: 'Azure IoT Edge is een Internet of Things-service (IoT-service) die voortbouwt op IoT Hub. Deze service is bedoeld voor klanten die ook gegevens willen analyseren op apparaten, oftewel ''aan de rand'', in plaats van in de cloud. Door delen van uw werkbelasting naar de rand te verplaatsen, hoeven uw apparaten minder tijd te besteden aan het verzenden van berichten naar de cloud en kunnen ze sneller reageren op statuswijzigingen.'
+  description: Azure IoT Edge is een Internet of Things-service (IoT-service) die voortbouwt op IoT Hub. Deze service is bedoeld voor klanten die ook gegevens willen analyseren op apparaten, oftewel 'aan de rand', in plaats van in de cloud. Door delen van uw werkbelasting naar de rand te verplaatsen, hoeven uw apparaten minder tijd te besteden aan het verzenden van berichten naar de cloud en kunnen ze sneller reageren op statuswijzigingen.
 sections:
-  - title: QuickStarts van vijf minuten
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Implementeer uw eerste IoT Edge-module en verwerk gegevens op een gesimuleerd apparaat:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Implementeer uw eerste IoT Edge-module en verwerk gegevens op een gesimuleerd apparaat:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Windows
-            href: /azure/iot-edge/quickstart
-          - image:
-              src: /azure/virtual-machines/linux/media/index/portal.svg
-            text: Linux
-            href: /azure/iot-edge/quickstart-linux
-  - title: Zelfstudies met stapsgewijze instructies
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Windows
+      href: /azure/iot-edge/quickstart
+    - image:
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Linux
+      href: /azure/iot-edge/quickstart-linux
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Informatie over het installeren en configureren van IoT Edge, het implementeren van modules en het gebruik van Azure-services zoals Stream Analytics aan de rand.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Informatie over het installeren en configureren van IoT Edge, het implementeren van modules en het gebruik van Azure-services zoals Stream Analytics aan de rand.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Een IoT Edge-apparaat simuleren in Windows</a>
-          - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Een IoT Edge-apparaat simuleren in Linux</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Een C#-module ontwikkelen en implementeren</a>'
-          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Azure Stream Analytics implementeren als module</a>
-          - html: <a href="/azure/iot-edge/tutorial-deploy-function">Azure Functions implementeren als module</a>
+    - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Een IoT Edge-apparaat simuleren in Windows</a>
+    - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Een IoT Edge-apparaat simuleren in Linux</a>
+    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Een C#-module ontwikkelen en implementeren</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Azure Stream Analytics implementeren als module</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Azure Machine Learning implementeren als module</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-function">Azure Functions implementeren als module</a>

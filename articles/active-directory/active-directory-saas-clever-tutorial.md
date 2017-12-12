@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 84082ff567e37d7fff80be9e089c67cfab911861
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1aad242ff1e9161ad5dfbecd01a44d8fb3c93cbb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Zelfstudie: Azure Active Directory-integratie met Clever
 
@@ -127,7 +127,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
     
-    | Naam van kenmerk  | De waarde van kenmerk |
+    | Kenmerknaam  | Waarde kenmerk |
     | --------------- | -------------------- |    
     | clever.student.credentials.district\_gebruikersnaam  | User.userPrincipalName |
     | Voornaam  | User.givenName |

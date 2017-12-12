@@ -4,7 +4,7 @@ description: Meer informatie over het centrale bureaublad gebruiken met Azure Ac
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: fe32c1d68040ceb9d9de2ad6c4a6dc9ea93f5aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ad6e5946b2c1b68222b3d3a2d29c2ca93db9922
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Zelfstudie: Azure Active Directory-integratie met centraal bureaublad
 Het doel van deze zelfstudie is om de integratie van Azure en centrale bureaublad weer te geven. Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:

@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e9a5e65c484dfb98d1a7bc63d55f6ef92039554b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7271efe4a1cd943f84d322e7333c92d6f60b62aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Zelfstudie: Azure Active Directory-integratie met ADP Globalview
 
@@ -127,10 +127,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
-    | Naam van kenmerk | De waarde van kenmerk |
+    | Kenmerknaam | Waarde kenmerk |
     | ------------------- | -------------------- |    
     | personalimmutableid | User.extensionattribute2 |
-    | E-mail               | User.mail |
+    | e-mailen               | User.mail |
     | gebruikers-id              | User.userPrincipalName|
     
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.

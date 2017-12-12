@@ -4,7 +4,7 @@ description: Informatie over het aanpassen van de vervaldatum voor uw federatiec
 services: active-directory
 documentationcenter: 
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2247b668584c7bb501043917f98e77c7c5cecfdc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding bij Azure Active Directory beheren
 In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt om vast te stellen federatieve eenmalige aanmelding (SSO) aan uw SaaS-toepassingen. Toepassingen toevoegen vanuit de app-galerie van Azure AD of met behulp van een sjabloon voor niet-galerie toepassingen. De toepassing configureren met behulp van de federatieve SSO-optie.

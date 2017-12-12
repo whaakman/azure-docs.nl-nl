@@ -4,7 +4,7 @@ description: Het doel van dit onderwerp is om te voorzien van de stappen die u m
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 8d78e925-e331-40ba-904a-e4ef14260cac
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8584809b76d6be12a6f489f0bb819081d1803d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Cloud App Discovery-registerinstellingen voor proxyservices
 Het doel van dit onderwerp wordt uitgelegd hoe u kunt uitvoeren om in te stellen de vereiste poort op de computers waarop de Cloud App Discovery-agent wordt uitgevoerd. De Cloud App Discovery-agent is standaard geconfigureerd om alleen de poorten 80 of 443 te gebruiken. Als u van plan bent over het installeren van Cloud App Discovery in een omgeving met een proxyserver die van een aangepaste poort (geen 80 of 443 gebruikmaakt), moet u de agents voor het gebruik van deze poort configureren. De configuratie is gebaseerd op een registersleutel.

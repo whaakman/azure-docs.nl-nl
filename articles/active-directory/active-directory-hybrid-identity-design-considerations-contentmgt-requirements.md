@@ -4,7 +4,7 @@ description: Biedt inzicht in hoe de vereisten voor beheer van de inhoud van uw 
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 840de1e1fcba74285788d51d8f544375f0affa77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Inhoudsbeheer vereisten bepalen voor uw oplossing voor hybride identiteit
 Inhoudsbeheer vereisten voor uw bedrijf kan een directe invloed hebben op uw beslissing over welke oplossing voor hybride identiteit moet worden gebruikt. Met de komst van meerdere apparaten en de mogelijkheid van gebruikers voor hun eigen apparaten meebrengen ([BYOD](http://aka.ms/byodcg)), het bedrijf een eigen gegevens moet beveiligen, maar deze ook moet ervoor zorgen dat de privacy van gebruikers behouden. Gewoonlijk wellicht wanneer een gebruiker zijn of haar eigen apparaat heeft hij ook meerdere referenties zal worden afwisselende volgens de toepassing die hij gebruikt. Het is belangrijk om te onderscheiden welke inhoud is gemaakt met behulp van persoonlijke referenties die gemaakt met zakelijke referenties. De oplossing van uw identiteit moet kunnen communiceren met cloud services voor een naadloze ervaring voor de eindgebruiker tijdens zijn privacy garanderen en verhoogt de beveiliging tegen het gegevenslekken van. 

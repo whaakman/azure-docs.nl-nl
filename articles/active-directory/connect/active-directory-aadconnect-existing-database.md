@@ -4,7 +4,7 @@ description: Dit onderwerp wordt beschreven hoe u een bestaande database van ADS
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Azure AD Connect met een bestaande database van ADSync installeren
 Azure AD Connect vereist een SQL Server-database voor het opslaan van gegevens. De standaard die SQL Server 2012 Express LocalDB met Azure AD Connect geïnstalleerd of uw eigen volledige versie van SQL gebruiken. Voorheen wanneer u Azure AD Connect geïnstalleerd, is een nieuwe database met de naam ADSync altijd gemaakt. U hebt de optie voor het Azure AD Connect installeert door deze aan te wijzen aan een bestaande database van ADSync met Azure AD Connect versie 1.1.613.0 (of na).

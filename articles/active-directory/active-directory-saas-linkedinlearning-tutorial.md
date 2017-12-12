@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6ad28cb3adaa63ddc3d3769a650d26ca6a7e2695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 07d19a3fb457093d05afc13e1953c120ece3a280
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn Learning
 
@@ -132,9 +132,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
 9. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en kenmerken instellen. De gebruiker moet vier claims met de naam toe te voegen **e**, **afdeling**, **firstname**, en **lastname** en de waarde moet worden toegewezen met **user.mail**, **user.department**, **user.givenname**, en **user.surname** respectievelijk
 
-    | Naam van kenmerk | De waarde van kenmerk |
+    | Kenmerknaam | Waarde kenmerk |
     | --- | --- |
-    | E-mail| User.mail |    
+    | e-mailen| User.mail |    
     | Afdeling| User.Department |
     | Voornaam| User.givenName |
     | Achternaam| User.surname |

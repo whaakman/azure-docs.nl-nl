@@ -4,7 +4,7 @@ description: Apps maken via de protocollen die worden ondersteund door Azure Act
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5e407d0a-73a2-4d74-ac81-3aa6c31ddcee
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 8e7e7bc7633370057f8dc596ad04a3f1d796a7d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb5d0da5b723c5fef81f7d74936ae30d4366385c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Verificatieprotocollen
 Azure Active Directory B2C (Azure AD B2C) biedt identiteit als een service voor uw apps door de ondersteuning van twee standaardprotocollen: OpenID Connect en OAuth 2.0. De service is compatibel met standaarden, maar de twee implementaties van deze protocollen subtiele verschillen kunnen hebben. 
