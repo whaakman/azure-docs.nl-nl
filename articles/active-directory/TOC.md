@@ -219,7 +219,6 @@
 ### [Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
-#### [Selfservice toegang](active-directory-self-service-application-access.md)
 #### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
 #### [Beperkingen voor tenants](active-directory-tenant-restrictions.md)
