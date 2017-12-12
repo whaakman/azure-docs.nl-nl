@@ -4,7 +4,7 @@ description: Toepassingen publiceren met PingAccess en App-Proxy naar header geb
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy en PingAccess
 
@@ -106,7 +106,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
 
 16. Selecteer **Toevoegen**. Kies voor de API **Windows Azure Active Directory**, klikt u vervolgens **Selecteer**. Voor de machtigingen kiest **lezen en schrijven van alle toepassingen** en **aanmelden en gebruikersprofiel lezen**, vervolgens **Selecteer** en **gedaan**.  
 
-  ![Selecteer machtigingen](./media/application-proxy-ping-access/select-permissions.png)
+  ![Machtigingen selecteren](./media/application-proxy-ping-access/select-permissions.png)
 
 17. Machtigingen verlenen voordat u het scherm machtigingen sluit. 
 ![Machtigingen toekennen](media/application-proxy-ping-access/grantperms.png)
@@ -127,7 +127,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
 
   Deze waarde nu niet opslaan omdat het niet mogelijk om het te bekijken opnieuw nadat u dit venster sluiten.
 
-  ![Maak een nieuwe sleutel](./media/application-proxy-ping-access/create-keys.png)
+  ![Een nieuwe sleutel maken](./media/application-proxy-ping-access/create-keys.png)
 
 6. Sluit de blade van App-registraties of schuif helemaal naar links om te keren naar het menu van Azure Active Directory.
 7. Selecteer **eigenschappen**.

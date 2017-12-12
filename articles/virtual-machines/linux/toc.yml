@@ -4,7 +4,7 @@
   items:
     - name: Informatie over virtuele machines
       href: overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Virtuele machine maken - Azure CLI
@@ -124,6 +124,8 @@
       items:
         - name: Richtlijnen voor infrastructuur
           href: infrastructure-example.md
+        - name: vCPU-quota
+          href: quotas.md
 - name: Handleidingen
   items:
     - name: Virtuele machines maken

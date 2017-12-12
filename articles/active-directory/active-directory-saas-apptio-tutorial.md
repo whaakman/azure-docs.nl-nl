@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d7e5692945961fb2b90f86b2aa775c13939bd8c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 2948b3df7e2258b6d842f9d9d5f632e531929676
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Zelfstudie: Azure Active Directory-integratie met Apptio
 
@@ -123,11 +123,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
 
-    | Naam van kenmerk | De waarde van kenmerk |
+    | Kenmerknaam | Waarde kenmerk |
     | -------------- | -------------------- |    
     | Volledige naam       | User.DisplayName |
     | E-mail           | User.mail |
-    | Rol           | User.assignedrole |
+    | rol           | User.assignedrole |
     
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 

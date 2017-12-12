@@ -4,7 +4,7 @@ description: Veelgestelde vragen over Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Veelgestelde vragen (FAQ's)
 Deze pagina antwoorden op veelgestelde vragen over Azure Active Directory Domain Services. Houd regelmatig op updates controleren.
 
 ### <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
-Raadpleeg onze [Troubleshooting guide](active-directory-ds-troubleshooting.md) oplossingen voor algemene problemen bij het configureren en beheren van Azure AD Domain Services.
+Raadpleeg de [Troubleshooting guide](active-directory-ds-troubleshooting.md) oplossingen voor algemene problemen bij het configureren en beheren van Azure AD Domain Services.
 
 ### <a name="configuration"></a>Configuratie
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Kan ik meerdere beheerde domeinen voor één maken Azure AD-directory?
@@ -34,10 +34,10 @@ Nee. U kunt slechts één beheerde domein onderhouden door Azure AD Domain Servi
 Ja. Azure AD Domain Services kan worden ingeschakeld in een virtueel netwerk van Azure Resource Manager. Deze functionaliteit is momenteel in preview.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Kan ik mijn bestaande beheerde domein van een klassiek virtueel netwerk met een virtueel netwerk van Resource Manager migreren?
-Momenteel niet. We bieden een mechanisme voor het migreren van uw bestaande beheerde domein van een klassiek virtueel netwerk met een virtueel netwerk van Resource Manager in de toekomst.
+Momenteel niet. Microsoft levert een mechanisme voor het migreren van uw bestaande beheerde domein van een klassiek virtueel netwerk met een virtueel netwerk van Resource Manager in de toekomst.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Kan ik Azure AD Domain Services in een Azure-CSP (Cloud Solution Provider)-abonnement inschakelen?
-Nee. We werken aan de ondersteuning voor CSP abonnementen toe te voegen.
+Nee. Het productteam werkt over het toevoegen van ondersteuning voor abonnementen van de CSP.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Kan ik inschakelen Azure AD Domain Services in een federatieve Azure AD-directory? Ik gebruik van AD FS voor verificatie van gebruikers voor toegang tot Office 365 en wachtwoord-hashes naar Azure AD niet synchroniseren. Kan ik Azure AD Domain Services voor deze directory inschakelen?
 Nee. Azure AD Domain Services moet toegang tot de wachtwoord-hashes van gebruikersaccounts, gebruikers verifiëren via NTLM of Kerberos. In een federatieve map worden wachtwoord-hashes niet opgeslagen in de Azure AD-directory. Azure AD Domain Services werkt daarom niet met dergelijke Azure AD-mappen.
@@ -46,13 +46,13 @@ Nee. Azure AD Domain Services moet toegang tot de wachtwoord-hashes van gebruike
 De service zelf ondersteunt dit scenario niet direct. Uw beheerde domein is beschikbaar in slechts één virtueel netwerk tegelijk. U kunt echter verbinding tussen meerdere virtuele netwerken te kunnen stellen Azure AD Domain Services met andere virtuele netwerken configureren. Zie hoe u kunt [verbinding maken met virtuele netwerken in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Kan ik Azure AD Domain Services met behulp van PowerShell inschakelen?
-PowerShell/geautomatiseerde implementatie van Azure AD Domain Services is momenteel niet beschikbaar.
+Ja. Zie [hoe het inschakelen van Azure AD Domain Services met behulp van PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD Domain Services beschikbaar is in de nieuwe Azure portal?
 Ja. Azure AD Domain Services kunnen worden geconfigureerd met de [Azure-portal](https://portal.azure.com). De [klassieke Azure portal](https://manage.windowsazure.com) wordt niet langer ondersteund.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Kan ik Azure AD Domain Services met een Resource Manager-sjabloon inschakelen?
-Nee. Sommige taken moeten worden uitgevoerd als onderdeel van het inschakelen van Azure AD Domain Services. Deze taken zijn niet mogelijk via een Resource Manager-sjabloon. De nieuwe Azure portal gebruiken om in te schakelen van Azure AD Domain Services voor uw directory.
+Ja. Zie [hoe het inschakelen van Azure AD Domain Services met behulp van PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kan ik domeincontrollers toevoegen aan een beheerd domein van Azure AD Domain Services
 Nee. Het domein dat is verstrekt door Azure AD Domain Services is een beheerd domein. U hoeft niet inrichten, configureren of anderszins beheren domeincontrollers voor dit domein - worden deze activiteiten management als een service door Microsoft geleverd. U kunt extra domeincontrollers (alleen-lezen of alleen-lezen) voor het beheerde domein daarom niet toevoegen.

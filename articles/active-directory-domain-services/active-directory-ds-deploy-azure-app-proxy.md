@@ -4,7 +4,7 @@ description: Azure AD-toepassingsproxy gebruiken op de beheerde domeinen Azure A
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: bd79644c6a13ccaab8eb7e14131465cc7c3165d3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD-toepassingsproxy op een beheerd domein van Azure AD Domain Services implementeren
 Toepassingsproxy van Azure Active Directory (AD) kunt u ondersteuning voor externe werknemers door het publiceren van on-premises toepassingen via internet worden geopend. U kunt nu lift-en-shift oudere toepassingen met lokale naar Azure Infrastructure Services met Azure AD Domain Services. Vervolgens kunt u deze toepassingen de Azure AD-toepassingsproxy gebruiken voor veilige externe toegang tot gebruikers in uw organisatie publiceren.

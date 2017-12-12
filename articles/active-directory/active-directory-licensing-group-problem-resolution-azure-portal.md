@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD-licentieverlening
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa16cf14def7c6b4555d6624b25e267ef01d5adb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bd28eeb8d67dc0dcb3303fdb0e3c20b32f7c431
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Het identificeren en oplossen van problemen met licentie-toewijzing voor een groep in Azure Active Directory
 
@@ -52,7 +52,7 @@ Wanneer u Groepsbeleid-licentieverlening, wordt de dezelfde fouten kunnen optred
 
 De volgende secties geven een beschrijving van elke potentieel probleem en de manier te verhelpen.
 
-## <a name="not-enough-licenses"></a>Niet voldoende licenties
+## <a name="not-enough-licenses"></a>Er zijn niet genoeg licenties
 
 **Probleem:** er niet voldoende beschikbare licenties voor een van de producten die is opgegeven in de groep. U moet meer licenties koopt voor het product of niet-gebruikte licenties van andere gebruikers of groepen vrijmaken.
 
@@ -62,7 +62,7 @@ Als u wilt zien welke gebruikers en groepen licenties verbruiken, selecteer een 
 
 **PowerShell:** PowerShell-cmdlets rapporteer deze fout als _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Conflicterende service-abonnementen
+## <a name="conflicting-service-plans"></a>Conflicterende serviceabonnementen
 
 **Probleem:** een van de producten die is opgegeven in de groep bevat een service-abonnement dat conflicteert met een andere service-abonnement al aan de gebruiker via een ander product toegewezen is. Sommige service-abonnementen zijn geconfigureerd op een manier die ze voor dezelfde gebruiker als een andere, gerelateerde service-abonnement kunnen niet worden toegewezen.
 

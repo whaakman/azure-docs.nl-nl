@@ -4,7 +4,7 @@ description: "Informatie over het gebruik van geavanceerde opties in het SAML-to
 services: active-directory
 documentationcenter: 
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: c4fb4e220d03533bd73a663d12e2639e664b4dba
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 9c035dcb55af451d0dae71d7a0f5548a6ba3c0ed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties in het SAML-token voor galerie apps in Azure Active Directory voor Certificaatondertekening
 Azure Active Directory (Azure AD) ondersteunt vandaag duizenden vooraf geïntegreerde toepassingen in de App-galerie van Azure Active Directory. Dit aantal bevat meer dan 500 toepassingen die ondersteuning bieden voor eenmalige aanmelding met behulp van het SAML 2.0-protocol. Als een gebruiker zich bij een toepassing via Azure AD verifieert via SAML, verzendt Azure AD een token naar de toepassing (via een HTTP POST). De toepassing wordt vervolgens valideert en gebruikt het token aan te melden als de gebruiker in plaats van naar een gebruikersnaam en wachtwoord wordt gevraagd. Deze SAML-tokens worden ondertekend met de unieke certificaat dat gegenereerd in Azure AD en door specifieke standaard algoritmen.
@@ -28,7 +28,7 @@ Azure AD gebruikt enkele van de standaardinstellingen voor de galerij-toepassing
 
 Azure AD biedt ondersteuning voor geavanceerde instellingen voor ondertekening van het certificaat. Als u wilt deze opties selecteert, selecteert u eerst de **weergeven geavanceerde instellingen voor het ondertekenen van certificaat** selectievakje:
 
-![Geavanceerde instellingen voor ondertekening van het certificaat weergeven][1]
+![Geavanceerd instellingen voor ondertekening van certificaat weergeven][1]
 
 Nadat u dit selectievakje inschakelt, kunt u opties voor ondertekening van het certificaat en het certificaat voor ondertekening van algoritme instellen.
 

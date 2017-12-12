@@ -4,7 +4,7 @@ description: "Bepalen van de mogelijkheden voor bewaking en rapportage voor de o
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 536071ec61d093af243bfd42faa6bb404172fb8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd612c0634782ed758835b8bf264fcc884c428fd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Vereisten voor respons op incidenten voor uw oplossing voor hybride identiteit bepalen
 Grote of middelgrote organisaties waarschijnlijk heeft een [beveiliging respons op incidenten](https://technet.microsoft.com/library/cc700825.aspx) om u te helpen IT dienovereenkomstig te handelen naar het niveau van incident. Het identity management-systeem is een belangrijk onderdeel van het proces voor respons op incidenten omdat kan worden gebruikt om u te helpen identificeren wie een specifieke actie vergeleken met het doel is uitgevoerd. De oplossing voor hybride identiteit moet kunnen bieden mogelijkheden voor controle- en rapportagefuncties die kunnen worden gebruikt door IT te ondernemen acties te identificeren en een mogelijke bedreiging beperken. In een typische beveiligingsplan hebt u de volgende fasen als onderdeel van het plan:

@@ -4,7 +4,7 @@ description: Vergelijking van Azure Active Directory Domain Services met ZELFOPL
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>U moet kiezen als Azure AD Domain Services is geschikt voor uw use case
 U kunt uw workloads in Azure Infrastructure Services implementeren zonder te hoeven maken over het onderhoud van infrastructuur voor identiteiten in Azure met Azure AD Domain Services. Deze beheerde service wijkt af van een normale implementatie van Windows Server Active Directory die u implementeert en beheert zelf. De service is eenvoudig te implementeren en biedt geautomatiseerde statuscontrole en het doorvoeren. We zijn voortdurend de service voor het toevoegen van ondersteuning voor algemene implementatiescenario's in ontwikkeling.
@@ -86,7 +86,7 @@ Beheerde domeinen kunnen niet worden geconfigureerd voor het instellen van vertr
 #### <a name="ldap-read"></a>LDAP lezen
 Het beheerde domein ondersteunt LDAP werkbelastingen lezen. Daarom kunt u toepassingen waarmee leesbewerkingen op basis van het beheerde domein LDAP implementeren.
 
-#### <a name="secure-ldap"></a>Beveiligde LDAP
+#### <a name="secure-ldap"></a>Secure LDAP
 U kunt Azure AD Domain Services beveiligde LDAP toegang bieden tot uw beheerde domein, met inbegrip van via internet configureren.
 [Meer informatie](active-directory-ds-admin-guide-configure-secure-ldap.md)
 

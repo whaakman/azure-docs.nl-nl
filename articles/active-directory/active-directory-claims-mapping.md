@@ -3,7 +3,7 @@ title: Claims toewijzen in Azure Active Directory (openbare preview) | Microsoft
 description: Deze pagina beschrijft Azure Active Directory-claims toewijzen.
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Claims toewijzen in Azure Active Directory (openbare preview)
 
@@ -95,8 +95,8 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|E-mail|
-|Eindpunt|
+|e-mailen|
+|eindpunt|
 |enfpolids|
 |EXP|
 |expires_on|
@@ -154,8 +154,8 @@ Beperkte claims worden niet gewijzigd met behulp van beleid. De gegevensbron kan
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|Resource|
-|Rol|
+|Bron|
+|rol|
 |rolls|
 |Bereik|
 |SCP|
@@ -287,14 +287,14 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|weergavenaam|Weergavenaam|
 |Gebruiker|object-id|Object-id|
 |Gebruiker|E-mail|E-mailadres|
-|Gebruiker|userPrincipalName|Principalnaam van gebruiker|
+|Gebruiker|userPrincipalName|User principal name|
 |Gebruiker|Afdeling|Afdeling|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
 |Gebruiker|NetBIOS-naam|NetBios-naam|
 |Gebruiker|DNS-domeinnaam|DNS-domeinnaam|
 |Gebruiker|onpremisesecurityidentifier|on-premises beveiligings-id|
 |Gebruiker|bedrijfsnaam|Naam van organisatie|
-|Gebruiker|streetAddress|Straat|
+|Gebruiker|streetAddress|Adres|
 |Gebruiker|Postcode|Postcode|
 |Gebruiker|preferredlanguange|Voorkeurstaal|
 |Gebruiker|onpremisesuserprincipalname|lokale UPN|
@@ -319,7 +319,7 @@ Het ID-element identificeert welke eigenschap op de bron wordt de waarde voor de
 |Gebruiker|city|Plaats|
 |Gebruiker|state|Status|
 |Gebruiker|functie|Functie|
-|Gebruiker|Werknemer-id|Werknemer-ID|
+|Gebruiker|Werknemer-id|Werknemer-id|
 |Gebruiker|facsimiletelephonenumber|Faxbericht telefoonnummer|
 |toepassing, resource, doelgroep|weergavenaam|Weergavenaam|
 |toepassing, resource, doelgroep|objecten|Object-id|
@@ -381,9 +381,9 @@ Op basis van de gekozen methode, wordt een reeks invoer en uitvoer verwacht. Dez
 |Bron|Id|Beschrijving|
 |-----|-----|-----|
 |Gebruiker|E-mail|E-mailadres|
-|Gebruiker|userPrincipalName|Principalnaam van gebruiker|
+|Gebruiker|userPrincipalName|User principal name|
 |Gebruiker|onpremisessamaccountname|Op de lokale Sam-accountnaam|
-|Gebruiker|Werknemer-id|Werknemer-ID|
+|Gebruiker|Werknemer-id|Werknemer-id|
 |Gebruiker|extensionattribute1|Kenmerk toestelnummer 1|
 |Gebruiker|extensionattribute2|Kenmerk toestelnummer 2|
 |Gebruiker|extensionattribute3|Kenmerk toestelnummer 3|

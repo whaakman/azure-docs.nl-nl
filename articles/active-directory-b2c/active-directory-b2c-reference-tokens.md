@@ -4,7 +4,7 @@ description: De typen tokens die zijn uitgegeven in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
-ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
 
@@ -74,7 +74,7 @@ Houd er rekening mee dat de claims in de ID-tokens niet in een bepaalde volgorde
 | Naam | Claim | Voorbeeldwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | Doelgroep |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Een claim doelgroep identificeert de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep van uw app-toepassings-ID die is toegewezen aan uw app in de app-portal voor wachtwoordregistratie. Uw app moet deze waarde niet valideren en weigeren van het token als komt niet overeen met. |
-| certificaatverlener |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token. Ook worden de Azure AD-directory waarin de gebruiker werd geverifieerd. Uw app moet de claim verlener om ervoor te zorgen dat het token afkomstig zijn van het Azure Active Directory v2.0-eindpunt te valideren. |
+| Certificaatverlener |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en retourneert het token. Ook worden de Azure AD-directory waarin de gebruiker werd geverifieerd. Uw app moet de claim verlener om ervoor te zorgen dat het token afkomstig zijn van het Azure Active Directory v2.0-eindpunt te valideren. |
 | verleend aan |`iat` |`1438535543` |Deze claim is de tijd waarop het token is uitgegeven, epoche tijd. |
 | verlooptijd |`exp` |`1438539443` |Verlooptijd van de claim is de tijd waarop het token ongeldig is, weergegeven in epoche tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | niet voor |`nbf` |`1438535543` |Deze claim is het tijdstip waarop het token geldige, dat wordt vertegenwoordigd in epoche tijd wordt. Dit is meestal hetzelfde zijn als de tijd die het token is uitgegeven. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |

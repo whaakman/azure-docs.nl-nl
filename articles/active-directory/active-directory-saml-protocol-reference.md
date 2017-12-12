@@ -4,7 +4,7 @@ description: "Dit artikel bevat een overzicht van de profielen voor eenmalige aa
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
-ms.openlocfilehash: 7361d05850cf3ae997c0c186bf9a674c139f1f9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fcc854362428d4ae32e815ccbf611f4562399ad
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Hoe het SAML-protocol wordt gebruikt in Azure Active Directory
 Maakt gebruik van het SAML 2.0-protocol van de Azure Active Directory (Azure AD) zodat toepassingen kunnen een ervaring voor eenmalige aanmelding te bieden aan hun gebruikers. De [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) en [één Afmelden](active-directory-single-sign-out-protocol-reference.md) SAML-profielen van Azure AD wordt uitgelegd hoe SAML asserties, protocollen en bindingen worden gebruikt in de id-provider-service.

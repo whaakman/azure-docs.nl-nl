@@ -4,7 +4,7 @@ description: Dit onderwerp beschrijft de ingebouwde automatische upgrade functie
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatische upgrade
 Deze functie is geïntroduceerd met build 1.1.105.0 (uitgebracht februari 2016).
@@ -37,7 +37,7 @@ De huidige status van de automatische upgrade kan worden bekeken met de PowerShe
 | Status | Opmerking |
 | --- | --- |
 | Ingeschakeld |Automatische upgrade is ingeschakeld. |
-| Onderbroken |Door het systeem alleen ingesteld. Het systeem is niet meer in aanmerking voor automatische upgrades. |
+| Uitgesteld |Door het systeem alleen ingesteld. Het systeem is niet meer in aanmerking voor automatische upgrades. |
 | Uitgeschakeld |Automatische upgrade is uitgeschakeld. |
 
 U kunt schakelen tussen **ingeschakeld** en **uitgeschakelde** met `Set-ADSyncAutoUpgrade`. Alleen het systeem moet de status ingesteld **onderbroken**.

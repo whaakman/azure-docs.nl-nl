@@ -139,24 +139,24 @@
           items:
             - name: Overzicht en vereisten
               href: site-recovery-deployment-planner.md
-            - name: De implementatieplanner uitvoeren
+            - name: Het hulpprogramma Deployment Planner uitvoeren
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Het gegenereerde rapport analyseren
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Het schattingsrapport voor de kosten van herstel na noodgevallen analyseren
+            - name: Het rapport met kostenramingen analyseren
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Processervers voor VMware-replicatie uitschalen
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Implementatieplanning en tool voor Hyper-V-replicatie naar Azure
+        - name: Hulpprogramma Deployment Planner voor Hyper-V-replicatie naar Azure
           href: null
           items:
             - name: Overzicht en vereisten
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: De implementatieplanner uitvoeren
+            - name: Het hulpprogramma Deployment Planner uitvoeren
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Het gegenereerde rapport analyseren
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Het schattingsrapport voor de kosten van herstel na noodgevallen analyseren
+            - name: Het rapport met kostenramingen analyseren
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Prestatieschaal testen voor Hyper-V-replicatie tussen on-premises sites
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
