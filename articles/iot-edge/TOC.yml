@@ -4,7 +4,7 @@
   items:
     - name: Over Azure IoT Edge
       href: how-iot-edge-works.md
-- name: QuickStarts
+- name: Snelstartgidsen
   items:
     - name: Implementeren naar de rand - Linux
       href: quickstart-linux.md
@@ -34,8 +34,6 @@
       href: how-to-install-iot-core.md
 - name: Concepten
   items:
-    - name: IoT Edge-woordenlijst
-      href: iot-edge-glossary.md
     - name: IoT Edge-modules
       href: iot-edge-modules.md
       items:
@@ -51,6 +49,8 @@
       href: iot-edge-as-gateway.md
     - name: Beveiliging
       href: security.md
+    - name: IoT Edge-woordenlijst
+      href: iot-edge-glossary.md
 - name: Resources
   items:
     - name: Azure Certified voor IoT-apparaatcatalogus

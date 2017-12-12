@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Toepassingen ontwikkelen
           href: concepts-database-application-development.md
-    - name: Uw database migreren
-      items:
-        - name: Dumpen en terugzetten
-          href: concepts-migrate-dump-restore.md
-        - name: Importeren en exporteren
-          href: concepts-migrate-import-export.md
 - name: Handleidingen
   items:
     - name: Een server beheren
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+    - name: Een database migreren
+      items:
+        - name: Dumpen en terugzetten
+          href: concepts-migrate-dump-restore.md
+        - name: Importeren en exporteren
+          href: concepts-migrate-import-export.md
     - name: Toepassingen koppelen
       items:
         - name: Gebruikers maken
@@ -161,3 +161,5 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Verhalen van klanten
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: Handleiding voor databasemigratie
+      href: 'https://datamigration.microsoft.com/'
