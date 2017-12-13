@@ -4,18 +4,18 @@
   items:
     - name: Overzicht
       href: apache-domain-joined-introduction.md
-    - name: Plan voor bedrijfsbeveiliging
+    - name: Plan voor aan een domein gekoppelde clusters
       href: apache-domain-joined-architecture.md
-    - name: Bedrijfsbeveiliging configureren in HDInsight
+    - name: Een aan een domein gekoppelde sandbox-omgeving configureren
       href: apache-domain-joined-configure.md
-    - name: Bedrijfsbeveiliging configureren in HDInsight met behulp van Azure AD DS
+    - name: Aan een domein gekoppelde clusters configureren met behulp van Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Hive-beleid configureren
       href: apache-domain-joined-run-hive.md
     - name: Capaciteitsplanning
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-    - name: Clusters met bedrijfsbeveiliging beheren
+    - name: Aan een domein gekoppelde clusters beheren
       href: apache-domain-joined-manage.md
 - name: Gegevens beveiligen
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md

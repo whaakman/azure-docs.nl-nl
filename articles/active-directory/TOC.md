@@ -242,7 +242,7 @@
 ## Uw directory beheren
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
-#### [Snelstartgids](add-custom-domain.md)
+#### [QuickStart](add-custom-domain.md)
 #### [Aangepaste domeinnamen toevoegen](active-directory-domains-manage-azure-portal.md)
 ### [Uw directory beheren](active-directory-administer.md)
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
@@ -283,8 +283,9 @@
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
+#### [Klassieke beleidsregels migreren](active-directory-conditional-access-migration.md)
 #### Taken
-##### [Klassieke beleidsregels migreren](active-directory-conditional-access-migration.md)
+##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Voorwaardelijke toegang op basis van apps instellen](active-directory-conditional-access-mam.md)
 ##### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)

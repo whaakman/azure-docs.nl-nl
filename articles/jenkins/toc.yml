@@ -4,7 +4,7 @@
   items:
     - name: Over Jenkins in Azure
       href: overview.md
-- name: Snelstartgidsen
+- name: QuickStarts
   expanded: true
   items:
     - name: Een Jenkins-server maken
@@ -25,6 +25,9 @@
       maintainContext: true
     - name: De schaal aanpassen met Azure-VM-agents
       href: /azure/jenkins/jenkins-azure-vm-agents
+      maintainContext: true
+    - name: Compileren met Azure Container Instances
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
       maintainContext: true
 - name: Uitleg
   items:

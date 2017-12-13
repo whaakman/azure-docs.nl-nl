@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Als u niet bekend met Data Factory bent, Zie [Inleiding tot Azure Data Factory](
 ## <a name="overview"></a>Overzicht
 Een gegevensfactory kan één of meer pijplijnen hebben. Een **pijplijn** is een logische groepering van **activiteiten** die samen een taak uitvoeren. Met activiteiten in een pijplijn definieert u welk acties moeten worden uitgevoerd voor uw gegevens. Bijvoorbeeld, kunt u een kopieeractiviteit om gegevens te kopiëren van een lokale SQL Server naar Azure Blob-opslag. Vervolgens kunt u een Hive-activiteit die wordt uitgevoerd van een Hive-script op een Azure HDInsight-cluster om gegevens te verwerken van Blob-opslag voor het produceren van uitvoergegevens. Ten slotte kunt u een tweede kopieeractiviteit de uitvoergegevens kopiëren naar Azure SQL Data Warehouse boven op welke business intelligence (BI) reporting oplossingen zijn gebouwd. Zie voor meer informatie over de pijplijnen en activiteiten [pijplijnen en activiteiten](concepts-pipelines-activities.md) in Azure Data Factory.
 
-Nu een **gegevensset** is een benoemde weergave van gegevens die eenvoudig verwijst of verwijst naar de gegevens die u gebruiken wilt uw **activiteiten** als invoer en uitvoer. Met gegevenssets worden gegevens binnen andere gegevensarchieven geïdentificeerd, waaronder tabellen, bestanden, mappen en documenten. Een Azure Blob-gegevensset geeft bijvoorbeeld de blob-container en map in Blob storage van waaruit de activiteit, de gegevens moet lezen.
+Nu een **gegevensset** is een benoemde weergave van gegevens die eenvoudig verwijst of verwijst naar de gegevens die u gebruiken wilt uw **activiteiten** als invoer en uitvoer. Met gegevenssets worden gegevens binnen andere gegevensarchieven geïdentificeerd, waaronder tabellen, bestanden, mappen en documenten. Een Azure Blob-gegevensset benoemt bijvoorbeeld de blobcontainer en -map in de Blob-opslag van waaruit de activiteit de gegevens moet lezen.
 
 Voordat u een gegevensset maakt, moet u een **gekoppelde service** uw data store koppelen aan de gegevensfactory. Gekoppelde services zijn te vergelijken met verbindingsreeksen, die de verbindingsinformatie bevatten die Data Factory nodig heeft om verbinding te maken met externe bronnen. Beschouw dit niet mogelijk. de gegevensset vertegenwoordigt de structuur van de gegevens in de gekoppelde gegevens worden opgeslagen, en de gekoppelde service definieert de verbinding met de gegevensbron. Bijvoorbeeld, gekoppelde een Azure Storage service een opslagaccount aan de gegevensfactory. Een Azure Blob-gegevensset vertegenwoordigt de blob-container en de map binnen die Azure-opslagaccount waarin de invoer blobs moeten worden verwerkt.
 
@@ -43,6 +43,56 @@ Hier volgt een voorbeeldscenario. Om gegevens te kopiëren van Blob-opslag met e
 Het volgende diagram toont de relaties tussen pipeline, de activiteit, de gegevensset en de gekoppelde service in de Data Factory:
 
 ![Relatie tussen een pijplijn, activiteit, gegevensset, gekoppelde services](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>JSON van de gekoppelde service
+Een gekoppelde service in de Data Factory is gedefinieerd in JSON-indeling als volgt:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
+
+Eigenschap | Beschrijving | Vereist |
+-------- | ----------- | -------- |
+naam | Naam van de gekoppelde service. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
+type | Type van de gekoppelde service. Bijvoorbeeld: AzureStorage (gegevensopslag) of AzureBatch (berekenen). Zie de beschrijving voor typeProperties. | Ja |
+typeProperties | Eigenschappen van het type zijn verschillend voor elke gegevensopslag of compute. <br/><br/> Opslaan voor de ondersteunde gegevens typen en hun eigenschappen, Zie de [gegevensettype](#dataset-type) tabel in dit artikel. Ga naar het data store connector artikel voor meer informatie over de type-eigenschappen die specifiek zijn voor een gegevensarchief. <br/><br/> Zie voor de ondersteunde rekentypen en hun eigenschappen [gekoppelde services berekenen](compute-linked-services.md). | Ja |
+connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Nee
+
+## <a name="linked-service-example"></a>Voorbeeld van de gekoppelde service
+De volgende gekoppelde service is een gekoppelde Azure Storage-service. U ziet dat het type is ingesteld op AzureStorage. De eigenschappen van het type voor de gekoppelde Azure Storage-service omvatten een verbindingsreeks. De Data Factory-service gebruikt deze verbindingsreeks verbinding maken met het gegevensarchief tijdens runtime. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>JSON van de gegevensset
 Een gegevensset in Gegevensfactory is gedefinieerd in JSON-indeling als volgt:
@@ -72,12 +122,12 @@ Een gegevensset in Gegevensfactory is gedefinieerd in JSON-indeling als volgt:
 ```
 De volgende tabel beschrijft de eigenschappen in de bovenstaande JSON:
 
-Eigenschap | Beschrijving | Vereist | Standaard
--------- | ----------- | -------- | -------
-naam | Naam van de gegevensset. | Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). | Ja | N.v.t.
-type | Het type van de gegevensset. | Geef een van de typen die door Data Factory worden ondersteund (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie [gegevensset typen](#dataset-types). | Ja | N.v.t.
-structuur | Schema voor de gegevensset. | Zie voor meer informatie [gegevenssetstructuur](#dataset-structure). | Nee | N.v.t.
-typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en hun eigenschappen [gegevensettype](#dataset-type). | Ja | N.v.t.
+Eigenschap | Beschrijving | Vereist |
+-------- | ----------- | -------- |
+naam | Naam van de gegevensset. Zie [Azure Data Factory - naamgevingsregels](naming-rules.md). |  Ja |
+type | Het type van de gegevensset. Geef een van de typen die door Data Factory worden ondersteund (bijvoorbeeld: AzureBlob, AzureSqlTable). <br/><br/>Zie voor meer informatie [gegevensset typen](#dataset-types). | Ja |
+structuur | Schema voor de gegevensset. Zie voor meer informatie [gegevenssetstructuur](#dataset-structure). | Nee |
+typeProperties | De type-eigenschappen zijn verschillend voor elk type (bijvoorbeeld: Azure Blob, Azure SQL-tabel). Zie voor meer informatie over de ondersteunde typen en hun eigenschappen [gegevensettype](#dataset-type). | Ja |
 
 ## <a name="dataset-example"></a>Voorbeeld van de gegevensset
 De gegevensset vertegenwoordigt in het volgende voorbeeld wordt een tabel MijnTabel in een SQL-database.
@@ -104,28 +154,6 @@ Houd rekening met de volgende punten:
 - type is ingesteld op azuresqltable zijn.
 - tableName type eigenschap (die specifiek is voor AzureSqlTable type) is ingesteld op MyTable.
 - linkedServiceName verwijst naar een gekoppelde service van het type AzureSqlDatabase die is gedefinieerd in het volgende JSON-codefragment.
-
-## <a name="linked-service-example"></a>Voorbeeld van de gekoppelde service
-AzureSqlLinkedService wordt als volgt gedefinieerd:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-In het voorgaande JSON-fragment:
-
-- **type** is ingesteld op AzureSqlDatabase.
-- **connectionString** type-eigenschap geeft u informatie voor verbinding met een SQL-database.
-
-Zoals u ziet, definieert de gekoppelde service verbinding maken met een SQL-database. De gegevensset wordt gedefinieerd welke tabel wordt gebruikt als invoer en uitvoer voor de activiteit in een pijplijn.
 
 ## <a name="dataset-type"></a>Gegevensettype
 Er zijn veel verschillende typen gegevenssets, afhankelijk van het gegevensarchief die u gebruikt. Zie de volgende tabel voor een lijst met opgeslagen gegevens die door Data Factory worden ondersteund. Klik op een gegevensarchief voor meer informatie over het maken van een gekoppelde service en een gegevensset voor die gegevensopslag.
