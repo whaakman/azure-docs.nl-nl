@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Store
 Informatie over het inschakelen van diagnostische logboekregistratie voor uw Data Lake Store-account en het weergeven van de logboeken die worden verzameld voor uw account.
@@ -47,7 +47,7 @@ Organisaties kunnen diagnostische logboekregistratie inschakelen voor hun Azure 
         
         * Selecteer de optie voor **Stream naar een event hub** stroom logboek gegevens naar een Azure Event Hub. Zeer waarschijnlijk zal gebruik deze optie als u een pijplijn downstreamverwerking binnenkomende Logboeken in realtime analyseren. Als u deze optie selecteert, moet u de details opgeven voor de Azure Event Hub die u wilt gebruiken.
 
-        * Selecteer de optie voor **verzenden met logboekanalyse** om de Azure Log Analytics-service gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de Operations Management Suite-werkruimte dat zou u de logboekanalyse uitvoeren is.
+        * Selecteer de optie voor **verzenden met logboekanalyse** om de Azure Log Analytics-service gebruiken voor het analyseren van de gegenereerde logboekgegevens. Als u deze optie selecteert, moet u de details opgeven voor de Operations Management Suite-werkruimte dat zou u de logboekanalyse uitvoeren is. Zie [weergeven of gegevens die worden verzameld met logboekanalyse logboek search analyseren](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van logboekanalyse.
      
    * Geef op of u wilt ophalen controlelogboeken of Logboeken aanvragen of beide.
    * Geef het aantal dagen waarvoor de gegevens moeten worden bewaard. Bewaartermijn is alleen van toepassing als u Azure storage-account gebruikt voor het archiveren van gegevens aan het logboek.
@@ -122,7 +122,7 @@ Hier volgt een voorbeeldvermelding voor het in het logboek voor aanvraag JSON-in
 | operationName |Reeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
 | resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
 | callerIpAddress |Reeks |Het IP-adres van de client die de aanvraag |
-| correlationId |Reeks |De id van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
+| correlationId |Reeks |De ID van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
 | identity |Object |De identiteit die door het logboek is gegenereerd |
 | properties |JSON |Zie hieronder voor meer informatie |
 
@@ -132,7 +132,7 @@ Hier volgt een voorbeeldvermelding voor het in het logboek voor aanvraag JSON-in
 | HttpMethod |Reeks |De HTTP-methode gebruikt voor het opnieuw. Bijvoorbeeld, ophalen. |
 | Pad |Reeks |Het pad van de bewerking is uitgevoerd op |
 | RequestContentLength |int |De lengte van de inhoud van de HTTP-aanvraag |
-| clientRequestId |Reeks |De Id die is uniek voor deze aanvraag |
+| clientRequestId |Reeks |De ID die is uniek voor deze aanvraag |
 | StartTime |Reeks |Het tijdstip waarop de server de aanvraag ontvangen |
 | Eindtijd |Reeks |Het tijdstip waarop de server een antwoord verzonden |
 
@@ -167,7 +167,7 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 | category |Reeks |De logboek-categorie. Bijvoorbeeld: **Audit**. |
 | operationName |Reeks |De naam van de bewerking die wordt vastgelegd. Bijvoorbeeld: getfilestatus. |
 | resultType |Reeks |De status van de bewerking, bijvoorbeeld 200. |
-| correlationId |Reeks |De id van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
+| correlationId |Reeks |De ID van het logboek dat kan worden gebruikt om een set van gerelateerde logboekvermeldingen groepen |
 | identity |Object |De identiteit die door het logboek is gegenereerd |
 | properties |JSON |Zie hieronder voor meer informatie |
 
@@ -177,6 +177,15 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 | StreamName |Reeks |Het pad van de bewerking is uitgevoerd op |
 
 ## <a name="samples-to-process-the-log-data"></a>Voorbeelden voor het verwerken van de logboekgegevens
+Bij het verzenden van Logboeken van Azure Data Lake Store naar de Azure-Monitor (Zie [weergeven of gegevens die worden verzameld met logboekanalyse logboek search analyseren](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van logboekanalyse), de volgende query retourneert een tabel met een lijst van gebruikers namen van de tijd van de gebeurtenissen en het aantal gebeurtenissen weer voor de tijd van de gebeurtenis samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van de gebruikers-GUID of andere kenmerken:
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Een voorbeeld van een biedt Azure Data Lake Store voor het verwerken en analyseren van de logboekgegevens. U vindt het voorbeeld op [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Zie ook

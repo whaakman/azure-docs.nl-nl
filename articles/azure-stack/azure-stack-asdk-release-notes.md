@@ -3,7 +3,7 @@ title: Opmerkingen bij de release van Microsoft Azure-Stack Development Kit | Mi
 description: Verbeteringen, correcties en bekende problemen voor Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
-ms.author: mabrigg
-ms.openlocfilehash: ca966dd4664861f476401c5691ab73b95d3f5a2b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 12/11/2017
+ms.author: andredm
+ms.openlocfilehash: 49d26defef56e6fc174cda57b24a126cd77227e4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure-Stack Development Kit release-opmerkingen
 
@@ -76,6 +76,7 @@ Deze releaseopmerkingen bevatten informatie over verbeteringen, correcties en be
 - Onder **Networking**, als u op **verbinding** voor het instellen van een VPN-verbinding, **VNet-naar-VNet** wordt vermeld als een mogelijke verbindingstype. Selecteer deze optie niet. Op dit moment wordt alleen de **Site-naar-site (IPsec)** optie wordt ondersteund.
 - U kunt een openbare IP-adres van een virtuele machine (VM) kan niet loskoppelen nadat de virtuele machine is gemaakt en gekoppeld aan dat IP-adres. Disassociation wordt weergegeven om te werken, maar de eerder toegewezen openbaar IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine. Dit gebeurt zelfs als u een nieuwe virtuele machine het IP-adres toewijzen (gewoonlijk aangeduid als een *VIP's wisselen*). Alle toekomstige verbinding probeert te maken via dit resultaat van de IP-adres in van een verbinding met de oorspronkelijk gekoppelde virtuele machine en niet naar het nieuwe bericht. U moet nieuwe openbare IP-adressen op dit moment alleen gebruiken voor het maken van nieuwe virtuele machine.
 - Azure Stack-operators kunnen mogelijk geen implementeren, verwijderen, wijzigen Vns of Netwerkbeveiligingsgroepen. Dit probleem is hoofdzakelijk zichtbaar op latere update pogingen van hetzelfde pakket. Dit wordt veroorzaakt door een probleem pakketten met een update die op dit moment onderzocht wordt.
+- MAC-adressen verwerkt interne Load Balancing (ILB) niet goed voor back-end virtuele machines waarop Linux, alle exemplaren wordt verbroken.
  
 #### <a name="sqlmysql"></a>SQL/MySQL 
 - Dit kan een uur duren voordat tenants databases in een nieuwe SQL- of MySQL SKU kunnen maken. 

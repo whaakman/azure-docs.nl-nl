@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Gegevens kopiëren van Amazon Redshift met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ Om gegevens te kopiëren van Amazon Redshift, stelt u het brontype in de kopieer
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **AmazonRedshiftSource** | Ja |
 | query |Gebruik de aangepaste query om gegevens te lezen. |SQL-query-tekenreeks. Bijvoorbeeld: Selecteer * from MijnTabel. |Nee (als 'tableName' in de gegevensset is opgegeven) |
 | redshiftUnloadSettings | Eigenschappengroep bij gebruik van Amazon Redshift verwijderen. | Nee |
-| s3LinkedServiceName | Verwijst naar een Amazon S3 naar-worden gebruikt als een tussentijdse store door te geven van een naam van de ADF gekoppelde service van het type 'AmazonS3'. | Ja als u laden ongedaan maken |
+| s3LinkedServiceName | Verwijst naar een Amazon S3 naar-worden gebruikt als een tussentijdse store door te geven van een gekoppelde service-naam van het type 'AmazonS3'. | Ja als u laden ongedaan maken |
 | bucketName | S3-bucket voor het opslaan van de tijdelijke gegevens aangeven. Als u niet is opgegeven, Data Factory-service wordt automatisch gegenereerd.  | Ja als u laden ongedaan maken |
 
 **Voorbeeld: Redshift Amazon-bron in de kopieeractiviteit middels de verwijderen**

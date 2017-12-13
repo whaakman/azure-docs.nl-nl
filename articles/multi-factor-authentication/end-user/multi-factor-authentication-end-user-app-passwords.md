@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d785c70dff331f2c5050fd07c65812a4cbc983b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Wat zijn App-wachtwoorden in Azure multi-factor Authentication?
-Bepaalde niet-browsertoepassingen, zoals de systeemeigen e-mailclient van Apple die gebruikmaakt van Exchange Active Sync, ondersteunen momenteel geen multi-factor authentication-server. Multi-factor authentication is ingeschakeld per gebruiker. Dit betekent dat als een gebruiker is ingeschakeld voor multi-factor authentication en ze zijn bij het gebruik van niet-browsertoepassingen, ze zich niet te doen. Een app-wachtwoord maakt dit mogelijk.
+Bepaalde niet-browsertoepassingen, zoals de systeemeigen e-mailclient van Apple die gebruikmaakt van Exchange Active Sync, ondersteunen momenteel geen multi-factor authentication-server. Multi-factor authentication is ingeschakeld per gebruiker. Dit betekent dat als een gebruiker is ingeschakeld voor multi-factor authentication en ze zijn bij het gebruik van niet-browsertoepassingen, ze zich niet te doen. Een app-wachtwoord maakt dit mogelijk. Als u multi-factor Authentication via beleid voor voorwaardelijke toegang en niet via MFA per gebruiker afdwingen, kunt u geen app-wachtwoorden maken. Toepassingen die gebruikmaken van beleidsregels voor voorwaardelijke toegang om toegang te beheren, hoeft geen app-wachtwoorden.
 
 Zodra u een app-wachtwoord hebt, kunt u deze gebruiken in plaats van het oorspronkelijke wachtwoord met deze niet-browsertoepassingen. Dit is omdat wanneer u zich voor verificatie in twee stappen registreert, u Microsoft niet wilt laten iedereen zich aanmelden met uw wachtwoord dat bent als ze ook de tweede verificatie kunnen niet uitvoeren. De systeemeigen e-mailclient van Apple op uw telefoon kan niet aanmelden als u omdat deze kan niet om verificatie in twee stappen vragen. De oplossing voor dit is het maken van een veiliger app-wachtwoord die u niet gebruikt dagelijkse, maar alleen voor apps die verificatie in twee stappen niet ondersteunt. Het app-wachtwoord gebruiken zodat apps kunnen multi-factor authentication overslaan en doorgaan met werken.
 

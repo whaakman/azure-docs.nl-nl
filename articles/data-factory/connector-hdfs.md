@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Gegevens kopiëren van en naar Azure Data Factory met HDFS
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ De volgende eigenschappen worden ondersteund voor HDFS gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Hdfs**. | Ja |
-| URL |URL naar de HDFS |Ja |
+| url |URL naar de HDFS |Ja |
 | authenticationType | Toegestane waarden zijn: **anoniem**, of **Windows**. <br><br> Gebruik **Kerberos-verificatie** voor HDFS-connector raadpleegt u [in deze sectie](#use-kerberos-authentication-for-hdfs-connector) voor het instellen van uw on-premises omgeving dienovereenkomstig. |Ja |
 | Gebruikersnaam |Gebruikersnaam voor Windows-verificatie. Geef voor Kerberos-verificatie, `<username>@<domain>.com`. |Ja (voor Windows-verificatie) |
 | wachtwoord |Wachtwoord voor Windows-verificatie. Dit veld markeren als SecureString. |Ja (voor Windows-verificatie) |
@@ -162,7 +162,7 @@ Om gegevens te kopiëren uit HDFS, stelt u het brontype in de kopieerbewerking n
 | Recursieve | Hiermee wordt aangegeven of de gegevens recursief is gelezen uit de submappen of alleen uit de opgegeven map.<br/>Toegestane waarden zijn: **true** (standaard), **false** | Nee |
 | distcpSettings | Eigenschappengroep bij gebruik van HDFS DistCp. | Nee |
 | resourceManagerEndpoint | Het eindpunt Yarn ResourceManager | Ja, als DistCp |
-| tempScriptPath | Pad naar een map gebruikt voor het opslaan van tijdelijke DistCp opdrachtscript. Het scriptbestand wordt gegenereerd door ADF en wordt verwijderd nadat de taak kopiëren voltooid. | Ja, als DistCp |
+| tempScriptPath | Pad naar een map gebruikt voor het opslaan van tijdelijke DistCp opdrachtscript. Het scriptbestand wordt gegenereerd door de Data Factory en wordt verwijderd nadat de taak kopiëren voltooid. | Ja, als DistCp |
 | distcpOptions | Aanvullende opties voor het opgegeven DistCp-opdracht. | Nee |
 
 **Voorbeeld: HDFS-bron in de kopieeractiviteit middels de verwijderen**

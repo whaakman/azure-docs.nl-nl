@@ -35,12 +35,12 @@
    
         mysql -u root -p
    
-    Voer het hoofdwachtwoord van MySQL (die u hebt gewijzigd in de vorige stap) en er moet worden weergegeven met een prompt waar SQL-instructies om te communiceren met de database kunnen worden verleend.
-7. Voor het maken van een nieuwe MySQL-gebruiker, voert u de volgende op de **mysql >** prompt:
+    Voer het hoofdwachtwoord van MySQL (die u hebt gewijzigd in de vorige stap) en krijgt u een prompt waar SQL-instructies om te communiceren met de database kunnen worden verleend.
+7. Voer de volgende opdracht op voor het maken van een nieuwe MySQL-gebruiker, de **mysql >** prompt:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Opmerking: de puntkomma (;) aan het einde van de regels zijn essentieel voor het beëindigen van de opdrachten.
+    Opmerking: de puntkomma (;) aan het einde van de regel is van cruciaal belang voor het beëindigen van de opdracht.
 8. Een database maken en verlenen de `mysqluser` gebruikersmachtigingen voor het uitgeven van de volgende opdrachten:
    
         CREATE DATABASE testdatabase;
@@ -51,24 +51,24 @@
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    waar `ip-address` het IP-adres van de computer van waaruit u verbinding met MySQL.
+    waar `ip-address` het IP-adres van de computer van waaruit u verbinding met MySQL maken.
 10. Typ de MySQL-database-beheerprogramma om af te sluiten:
     
         quit
 
 ## <a name="add-an-endpoint"></a>Een eindpunt toevoegen
-1. Nadat de MySQL is geïnstalleerd, moet u een eindpunt voor MySQL op afstand toegang tot configureren. Meld u aan bij de [klassieke Azure-portal][AzurePortal]. Klik op **virtuele Machines**, klik op de naam van uw nieuwe virtuele machine en klik vervolgens op **eindpunten**.
+1. Nadat de MySQL is geïnstalleerd, moet u een eindpunt voor MySQL op afstand toegang tot configureren. Meld u aan bij de [Azure-portal][AzurePortal]. Klik op **virtuele Machines**, klik op de naam van uw nieuwe virtuele machine en klik vervolgens op **eindpunten**.
 2. Klik op **toevoegen** aan de onderkant van de pagina.
 3. Toevoegen van een eindpunt met de naam 'MySQL' met protocol **TCP**, en **openbare** en **persoonlijke** poorten ingesteld op '3306'.
 4. Om extern verbinding maken met de virtuele machine van de computer, typt u:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    Met behulp van de virtuele machine die we in deze zelfstudie hebt gemaakt, typ deze opdracht:
+    Met behulp van de virtuele machine die u in deze zelfstudie hebt gemaakt, typ deze opdracht:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

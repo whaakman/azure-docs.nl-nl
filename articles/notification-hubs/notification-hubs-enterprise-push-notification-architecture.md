@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Hulp voor architectuur via pushmeldingen van het bedrijf
 Ondernemingen zijn tegenwoordig geleidelijk verplaatsen naar het maken van mobiele toepassingen voor hun eindgebruikers (extern) of voor de werknemers (intern). Ze hebben bestaande back-endsystemen mainframes of sommige LoB-toepassingen die moeten worden geïntegreerd in de architectuur van de mobiele toepassing. Deze handleiding wordt hebben over de beste manier om u te doen van deze integratie mogelijke oplossing aanbevelen voor het algemene scenario's.
@@ -212,7 +212,7 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
    
     ![][3]
    
-    g. Configureren van de taak voor het 'Continu uitvoeren' zo dat wanneer u zich aanmelden bij de [klassieke Azure-Portal] ziet er ongeveer als volgt:
+    g. Configureren van de taak voor het 'Continu uitvoeren' zo dat wanneer u zich aanmelden bij de [Azure-portal] ziet er ongeveer als volgt:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
 3. Voer de **EnterprisePushBackendSystem** consoletoepassing die de LoB-back-end simuleert en wordt gestart met het verzenden van berichten en ziet u pop-upmeldingen verschijnen als volgt:
    
     ![][5]
-4. De berichten werden oorspronkelijk is verzonden naar Service Bus-onderwerpen die werd bewaakt door Service Bus-abonnementen in uw Web-taak. Wanneer een bericht is ontvangen, is een melding gemaakt en verzonden naar de mobiele app. U kunt zoeken via de webtaak Logboeken om te bevestigen dat de verwerking wanneer u gaat de koppeling om de logboeken in [klassieke Azure-Portal] voor uw Web-taak:
+4. De berichten werden oorspronkelijk is verzonden naar Service Bus-onderwerpen die werd bewaakt door Service Bus-abonnementen in uw Web-taak. Wanneer een bericht is ontvangen, is een melding gemaakt en verzonden naar de mobiele app. U kunt zoeken via de webtaak Logboeken om te bevestigen dat de verwerking wanneer u gaat de koppeling om de logboeken in [Azure-portal] voor uw Web-taak:
    
     ![][6]
 
@@ -264,4 +264,4 @@ De code voor het volledige voorbeeld is beschikbaar op [Notification Hub voorbee
 [Service Bus Pub subitems programmering]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure webtaak]: ../app-service/web-sites-create-web-jobs.md
 [Notification Hubs - universele Windows-zelfstudie]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[klassieke Azure-Portal]: https://manage.windowsazure.com/
+[Azure-portal]: https://portal.azure.com/

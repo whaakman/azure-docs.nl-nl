@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: ad6469fcf86aeb7a0076ab5909fbe593596df695
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/13/2017
+ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>SQL Server on-premises, migreren naar Azure SQL-database met Azure PowerShell
-In dit artikel leert u de migratie de **Adventureworks2012** database teruggezet naar een lokaal exemplaar van SQL Server 2016 of hoger naar een Azure SQL Database met behulp van Microsoft Azure PowerShell.  U kunt databases van een lokale SQL Server-instantie migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` -module in Microsoft Azure PowerShell.
+In dit artikel leert u de migratie de **Adventureworks2012** database teruggezet naar een lokaal exemplaar van SQL Server 2016 of hoger naar een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases van een lokale SQL Server-instantie migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` -module in Microsoft Azure PowerShell.
 
 In dit artikel leert u hoe:
 > [!div class="checklist"]
@@ -26,7 +26,6 @@ In dit artikel leert u hoe:
 > * Geen exemplaar maken van de Service Azure Database migratie.
 > * Maak een migratieproject in een Azure-Database migratieservice-exemplaar.
 > * Voer de migratie uit.
-
 
 ## <a name="prerequisites"></a>Vereisten
 Deze stappen uit te voeren, hebt u het volgende nodig:
@@ -36,15 +35,15 @@ Deze stappen uit te voeren, hebt u het volgende nodig:
 - Voor het configureren van uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Een Azure SQL Database-exemplaar. U kunt een Azure SQL Database-exemplaar maken door de details in het artikel [maken van een Azure SQL database in de Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Migratie-assistent gegevens](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 of hoger.
-- Migratie van Azure databaseservice vereist een VNET gemaakt met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- De Service Azure Database migratie vereist een VNET gemaakt met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - De beoordeling van de lokale database en het schema migratie met behulp van migratie-assistent gegevens zoals beschreven in het artikel is voltooid [ uitvoeren van een beoordeling van de migratie van SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
-- Download en installeer AzureRM.DataMigration module van het gebruik van PowerShell Gallery [Install-Module PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
-- De referenties waarmee verbinding met bron SQL Server-exemplaar moeten hebben [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) machtigingen.
-- De referenties waarmee verbinding met Azure SQL DB doelexemplaar moeten de machtiging beheer DATABASE hebben op de doel-Azure SQL DB-databases.
+- Download en installeer de module AzureRM.DataMigration via de PowerShell Gallery door [Install-Module PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
+- De referenties waarmee verbinding met bron SQL Server-exemplaar moeten hebben de [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) machtiging.
+- De referenties waarmee verbinding met Azure SQL DB doelexemplaar moeten de machtiging beheer DATABASE hebben op de doel-Azure SQL Database-databases.
+- Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Aanmelden bij uw Microsoft Azure-abonnement
 Gebruik de instructies in het artikel [aanmelden met Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) aan te melden bij uw Azure-abonnement met behulp van PowerShell.
-
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Een resourcegroep maken voordat u een virtuele machine kunt maken.
@@ -56,7 +55,6 @@ Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## <a name="create-an-azure-database-migration-service-instance"></a>Azure-Database migratieservice-exemplaar maken 
 U kunt nieuwe exemplaar van Azure Database migratieservice maken met behulp van de `New-AzureRmDataMigrationService` cmdlet. Deze cmdlet verwacht dat de volgende parameters vereist:
 - *De naam van de Azure-resourcegroep*. U kunt [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) opdracht voor het maken van Azure-resourcegroep zoals eerder weergegeven en geeft de naam op als een parameter.
@@ -130,12 +128,10 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Maak en start een migratietaak
-
 Ten slotte maakt en start de migratietaak van Azure-Database. Azure-Database migratietaak vereist verbinding referentie-informatie voor zowel bron- en doel en lijst met databasetabellen naast de informatie die al zijn opgegeven aan het project is gemaakt als een vereiste worden gemigreerd. 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Referentie-parameters voor de bron en doel maken
-
-Beveiligingsreferenties van de verbinding kunnen worden gemaakt als [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object. 
+Beveiligingsreferenties van de verbinding kunnen worden gemaakt als een [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object. 
 
 Het volgende voorbeeld toont het maken van *PSCredential* objecten voor de bron- en doelserver verbindingen bieden wachtwoorden als tekenreeksvariabelen *$sourcePassword* en *$ doelwachtwoord*. 
 
@@ -200,11 +196,11 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 U kunt de migratietaak uitgevoerd door het opvragen van de eigenschap state van de taak, zoals weergegeven in het volgende voorbeeld controleren:
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Bekijk de migratie-instructies in de [Migratiehandleiding voor Microsoft-Database](https://datamigration.microsoft.com/)
+- Bekijk de migratie-instructies in de Microsoft [Database Migratiehandleiding](https://datamigration.microsoft.com/).

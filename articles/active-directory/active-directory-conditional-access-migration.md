@@ -1,11 +1,11 @@
 ---
 title: Migreren van klassieke beleid in de Azure portal | Microsoft Docs
-description: Migreer klassieke beleid in de Azure portal.
+description: Meer informatie over wat u moet weten voor het migreren van klassieke beleid in de Azure portal.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
 documentationcenter: 
 author: MarkusVi
-manager: mtillman
+manager: femila
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migreren van klassieke beleid in de Azure portal 
 
 
-[Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md) is een functie van Azure Active directory (Azure AD) dat u bepalen hoe kunt gemachtigde gebruikers toegang hebben uw cloud-apps. Terwijl het doel nog steeds hetzelfde is is, heeft aanzienlijke verbeteringen in hoe voorwaardelijke toegang werkt ook in de release van de nieuwe Azure portal geïntroduceerd. U hebt geconfigureerd buiten de Azure portal beleid voor voorwaardelijke toegang kunnen worden gecombineerd met het nieuwe beleid dat u in de Azure portal maakt. Als u niet uit te schakelen of te verwijderen, worden ze nog steeds toegepast in uw omgeving. We raden u echter aan het beleid voor klassieke te migreren naar de nieuwe Azure AD voorwaardelijke toegangsbeleid omdat:
+[Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md) is een functie van Azure Active directory (Azure AD) dat u bepalen hoe kunt gemachtigde gebruikers toegang hebben uw cloud-apps. Het doel is nog steeds hetzelfde is, heeft de release van de nieuwe Azure portal aanzienlijke verbeteringen in hoe voorwaardelijke toegang werkt geïntroduceerd.
 
-- Het nieuwe beleid kunnen u soort scenario's die u niet met beleid voor klassieke kan verwerken.
+U moet rekening houden met de beleidsregels die u hebt gemaakt in de Azure portal omdat migreren:
+
+- U kunt nu scenario's die u niet voordat verwerken kan oplossen.
 
 - U kunt het nummer van de beleidsregels die u hebt voor het beheren van deze samen te verkleinen.   
 
-In dit onderwerp helpt u bij de migratie van uw bestaande beleidsregels voor klassieke naar het nieuwe de nieuwe Azure AD-beleid voor voorwaardelijke toegang.
+- U kunt het voorwaardelijke toegangsbeleid op één centrale locatie kunt beheren.
 
+- De klassieke Azure portal wordt buiten gebruik worden gesteld.   
 
+Dit artikel wordt uitgelegd wat u moet weten om te migreren van uw bestaande beleidsregels voor voorwaardelijke toegang naar de nieuwe structuur.
+ 
 ## <a name="classic-policies"></a>Klassieke beleidsregels
 
-Beleid voor voorwaardelijke toegang voor Azure AD en Intune u niet in de Azure-portal hebt gemaakt, worden ook wel bekend als **klassieke beleid**. Voor het migreren van uw klassieke beleid, moet u geen toegang hebben tot de klassieke Azure-portal. De Azure-portal beschikt u over een [ **klassieke beleid (preview)** weergave](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) waarmee u kunt uw klassieke beleid.
+In de [Azure-portal](https://portal.azure.com), wordt de [voorwaardelijke toegang - beleid](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) pagina is het beleid van uw toegangspunt voor de voorwaardelijke toegang. Echter in uw omgeving, mogelijk ook hebt u geen hebt gemaakt met behulp van deze pagina beleid voor voorwaardelijke toegang. Deze beleidsregels worden aangeduid als *klassieke beleid*. Klassieke beleidsregels zijn beleidsregels voor voorwaardelijke toegang, u hebt gemaakt in:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- de klassieke Azure portal
+- De klassieke portal Intune
+- De Intune App Protection-portal
 
 
-### <a name="open-a-classic-policy"></a>Een klassieke beleid openen
+Op de **voorwaardelijke toegang** pagina kunt u uw klassieke beleid openen door te klikken op [ **klassieke beleid (preview)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) in de **beheren** sectie. 
 
-**Een klassieke beleid openen:**
 
-1. In de [Azure-portal](https://portal.azure.com), klik op de navigatiebalk links, **Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. Op de **Azure Active Directory** pagina in de **beheren** sectie, klikt u op **voorwaardelijke toegang**.
+De **klassieke beleid** weergave biedt u een optie voor:
 
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/02.png)
+- Het beleid voor klassieke filteren.
  
-2. Op de **voorwaardelijke toegang - beleid** pagina in de **beheren** sectie, klikt u op **klassieke beleid (preview)**.
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. Selecteer in de lijst met klassieke beleidsregels, het beleid voor dat u belangrijk vindt.   
+- Beleidsregels voor klassieke uitschakelen.
 
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Controleer de instellingen van een klassieke beleidsregels (en dat u deze uitschakelt).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+Als u een beleid voor klassieke hebt uitgeschakeld, is niet mogelijk deze stap niet meer. Daarom kunt u het lidmaatschap in een klassieke beleid met de **Details** weergeven. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+Beide wijzigen van de geselecteerde groepen of uitsluiten van specifieke groepen, kunt u het effect van een uitgeschakelde klassieke beleid voor enkele testgebruikers testen voordat u het beleid voor alle inbegrepen gebruikers en groepen uitschakelt. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Azure AD-beleid voor voorwaardelijke toegang
 
-In dit onderwerp vindt u gedetailleerde stappen waarmee u kunt uw klassieke beleid migreren zonder dat u bekend bent met voorwaardelijke toegang van Azure AD hoeft het beleid. Echter, wordt nagegaan wat de basisbegrippen en terminologie van Azure AD voorwaardelijke toegang helpt om uw migratie-ervaring te verbeteren.
+U kunt alle beleidsregels op één centrale locatie kunt beheren met voorwaardelijke toegang in de Azure portal. Omdat de implementatie van de werking van voorwaardelijke toegang is aanzienlijk gewijzigd, moet u vertrouwd raken met de basisconcepten vóór de migratie van uw klassieke beleid.
 
 Zie:
 
-- [Voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal.md) voor meer informatie over de basisconcepten en de terminologie
+- [Voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal.md) voor meer informatie over de basisconcepten en de terminologie.
 
-- [Aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) om vertrouwd te raken met de gebruikersinterface in de Azure portal
+- [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md) ophalen van sommige hulp bij het implementeren van voorwaardelijke toegang in uw organisatie.
+
+- [Aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) om vertrouwd te raken met de gebruikersinterface in de Azure portal.
 
 
  
+## <a name="migration-considerations"></a>Overwegingen bij migratie
+
+In dit artikel, beleidsregels voor voorwaardelijke toegang van Azure AD worden ook aangeduid als *nieuw beleid*.
+Het beleid voor klassieke blijven werken naast het nieuwe beleid totdat u ze verwijdert of uitschakelt. 
+
+De volgende aspecten zijn belangrijk in de context van een beleid voor consolidatie:
+
+- Tijdens het klassieke beleidsregels zijn gekoppeld aan een specifieke cloud-app, kunt u zoveel cloud-apps zoals u in een nieuw beleid nodig hebt om te selecteren.
+
+- Besturingselementen van een klassieke beleid en een nieuw beleid voor een cloud-app is vereist voor alle besturingselementen (*en*) moet worden voldaan. 
+
+
+- In een nieuw beleid kunt u het volgende doen:
+ 
+    - Meerdere voorwaarden combineren indien vereist door uw scenario. 
+
+    - Selecteer verschillende vereisten als toegang beheren en deze te combineren met een logische verlenen *OR* (vereist een van de geselecteerde besturingselementen) of met een logische *en* (alle geselecteerde besturingselementen vereist).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 Exchange online
 
-## <a name="multi-factor-authentication-policy"></a>Beleid voor meervoudige verificatie 
+Als u wilt migreren van klassieke beleidsregels voor **Office 365 Exchange online** die **Exchange Active Sync** als voorwaarde voor client-apps, u niet mogelijk ze naar een nieuw beleid te consolideren. 
 
-Dit voorbeeld ziet u het migreren van een klassieke beleid waarvoor **multi-factorauthenticatie** voor een cloud-app. 
+Dit is, bijvoorbeeld het geval als u wilt ondersteunen alle client-app-typen. In een nieuw beleid dat is **Exchange Active Sync** als voorwaarde voor client-apps, u kunt geen andere ClientApps te selecteren.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+Een consolidatie in een nieuw beleid is ook niet mogelijk als het beleid voor klassieke verschillende voorwaarden bevatten. Een nieuw beleid met **Exchange Active Sync** als client-apps voorwaarde geconfigureerd biedt geen ondersteuning voor andere voorwaarden:   
 
-**Een klassieke beleid migreren:**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Open het klassieke beleid](#open-a-classic-policy) ophalen van de configuratie-instellingen.
-2. Maak een nieuwe Azure AD-beleid voor voorwaardelijke toegang voor uw beleid voor klassieke vervangen. 
+Als er een nieuw beleid met **Exchange Active Sync** als client-apps voorwaarde geconfigureerd, moet u ervoor zorgen dat alle andere voorwaarden niet zijn geconfigureerd. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>Maak een nieuw beleid voor voorwaardelijke toegang
+[Op basis van een App](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) klassieke beleidsregels voor Office 365 Exchange Online met **Exchange Active Sync** als voorwaarde voor client-apps toestaan **ondersteund** en **wordtnietondersteund** [apparaatplatforms](active-directory-conditional-access-technical-reference.md#device-platform-condition). Terwijl u afzonderlijke apparaatplatforms in een nieuw beleid voor verwante configureren kunt, kunt u de ondersteuning om te beperken [ondersteunde platforms voor apparaten](active-directory-conditional-access-technical-reference.md#device-platform-condition) alleen. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. In de [Azure-portal](https://portal.azure.com), klik op de navigatiebalk links, **Azure Active Directory**.
+U kunt meerdere beleidsregels voor het klassieke met consolideren **Exchange Active Sync** als voorwaarde voor client-apps als ze hebben:
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- Alleen **Exchange Active Sync** als voorwaarde 
 
-2. Op de **Azure Active Directory** pagina in de **beheren** sectie, klikt u op **voorwaardelijke toegang**.
+- Verschillende vereisten voor het verlenen van toegang dat is geconfigureerd
 
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/02.png)
+Een gebruikelijk scenario is de consolidatie van:
 
+- Op basis van apparaten en beleid klassieke vanuit de klassieke Azure portal 
+- Een app gebaseerde klassieke beleid in de Intune-portal voor app-beveiliging 
+ 
+In dit geval kunt u uw klassieke beleid samenvoegen in een nieuw beleid met beide vereisten die zijn geselecteerd.
 
-
-3. Op de **voorwaardelijke toegang** pagina, open de **nieuw** pagina in de werkbalk bovenaan, klikt u op **toevoegen**.
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/03.png)
-
-4. Op de **nieuw** pagina in de **naam** textbox, typ een naam voor uw beleid.
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/29.png)
-
-5. In de **toewijzingen** sectie, klikt u op **gebruikers en groepen**.
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/05.png)
-
-    a. Als u alle gebruikers in uw beleid voor klassieke geselecteerd hebt, klikt u op **alle gebruikers**. 
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/35.png)
-
-    b. Als u groepen in uw beleid voor klassieke geselecteerd hebt, klikt u op **gebruikers en groepen selecteren**, en selecteer vervolgens de vereiste gebruikers en groepen.
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/36.png)
-
-    c. Als u de uitgesloten groepen hebt, klikt u op de **uitsluiten** tabblad en selecteer vervolgens de vereiste gebruikers en groepen. 
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/37.png)
-
-6. Op de **nieuw** pagina, open de **Cloud-apps** pagina in de **toewijzing** sectie, klikt u op **Cloud-apps**.
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. Op de **Cloud-apps** pagina, voert u de volgende stappen uit:
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/08.png)
-
-    a. Klik op **apps selecteren**.
-
-    b. Klik op **Selecteren**.
-
-    c. Op de **Selecteer** pagina, selecteer uw cloud-app en klik vervolgens op **Selecteer**.
-
-    d. Op de **Cloud-apps** pagina, klikt u op **gedaan**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. Als u hebt **meervoudige authenticatie** geselecteerde:
+### <a name="device-platforms"></a>Apparaatplatforms
 
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/26.png)
+Klassieke beleidsregels met [besturingselementen op basis van een app](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) vooraf geconfigureerd zijn met iOS en Android als de [apparaat platform voorwaarde](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    a. In de **toegangscontroles** sectie, klikt u op **Grant**.
+In een nieuw beleid, moet u selecteert de [apparaatplatforms](active-directory-conditional-access-technical-reference.md#device-platform-condition) u wilt ondersteunen afzonderlijk.
 
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/27.png)
-
-    b. Op de **Grant** pagina, klikt u op **toegang verlenen**, en klik vervolgens op **meervoudige authenticatie**.
-
-    c. Klik op **Selecteren**.
-
-
-10. Klik op **op** om in te schakelen van uw beleid.
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/30.png)
-
-11. Schakel het klassieke beleid. 
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

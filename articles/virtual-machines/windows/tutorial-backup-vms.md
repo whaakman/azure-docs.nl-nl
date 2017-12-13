@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Back-up van Windows virtuele machines in Azure
 
@@ -78,7 +78,7 @@ In dit voorbeeld laten we zien hoe de installatiekopiebestand dat wordt gebruikt
     ![IIS-standaardwebpagina](./media/tutorial-backup-vms/iis-broken.png)
 
 5. Open een nieuw tabblad op uw lokale computer en Ga de de [Azure-portal](https://portal.azure.com).
-6. Selecteer in het menu aan de linkerkant **virtuele machines** en selecteer de virtuele machine uit de lijst.
+6. Selecteer in het menu aan de linkerkant **virtuele machines** en selecteer de virtuele machine in de lijst.
 8. Op de blade VM in de **instellingen** sectie, klikt u op **back-up**. De **back-up** blade wordt geopend. 
 9. Selecteer in het menu bovenaan de blade **bestandsherstel**. De **bestandsherstel** blade wordt geopend.
 10. In **stap 1: Selecteer herstelpunt**, selecteer een herstelpunt in de vervolgkeuzelijst.

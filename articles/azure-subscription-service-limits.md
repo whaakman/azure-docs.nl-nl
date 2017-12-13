@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 49dc4551f1a1528d30e489d4ba1c974f84cc70b0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -85,6 +85,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Service Bus](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
+* [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
 * [StorSimple-systeem](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
@@ -308,6 +309,9 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 
 ### <a name="sql-database-limits"></a>Limieten voor SQL-Database
 Zie voor SQL-Database-limieten, [limieten voor SQL Database](sql-database/sql-database-resource-limits.md).
+
+### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse-limieten
+Zie voor SQL Data Warehouse-limieten, [limieten voor SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="see-also"></a>Zie ook
 [Inzicht in de Azure-limieten en toeneemt](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)

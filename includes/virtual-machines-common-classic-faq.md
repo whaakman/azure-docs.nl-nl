@@ -58,7 +58,7 @@ Als er problemen optreden met Extern bureaublad of SSH, installeert en gebruikt 
 
 Voor Windows-VM's gelden nog deze extra opties:
 
-* Zoek de VM in de klassieke Azure-portal en klik vervolgens op **Externe toegang opnieuw instellen** op de opdrachtbalk.
+* Zoek de virtuele machine in de Azure-portal en klik vervolgens op **externe toegang opnieuw instellen** uit de opdrachtbalk.
 * Raadpleeg [Problemen oplossen met verbindingen van Extern bureaublad met virtuele Azure-machines waarop Windows wordt uitgevoerd](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Gebruik externe communicatie van Windows PowerShell om verbinding te maken met de VM of maak extra eindpunten zodat andere resources verbinding kunnen maken met de VM. Zie [Eindpunten voor een virtuele machine instellen](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor meer informatie.
 
@@ -85,7 +85,7 @@ Als u de gebruikersnaam of het wachtwoord bent vergeten en u de VM-agent hebt ge
 
 Aanvullende details:
 
-* Als u de klassieke Azure-portal gebruikt, geldt voor de Linux-installatiekopieën dat 'azureuser' de standaardgebruikersnaam is. U kunt dit echter wijzigen door de virtuele machine te maken met behulp van Uit galerie in plaats van Snel maken. Als u Uit galerie gebruikt, kunt u ook beslissen of u zich wilt aanmelden met een wachtwoord, een SSH-sleutel of beide. Het gebruikersaccount is een niet-bevoegde gebruiker met 'sudo'-toegang voor het uitvoeren van opdrachten met verhoogde bevoegdheden. Het root-account is uitgeschakeld.
+* De Linux-installatiekopieën, als u de Azure-portal gebruikt, 'azureuser' wordt weergegeven als een standaardnaam van de gebruiker maar u kunt dit wijzigen met behulp van 'Uit galerie' in plaats van snel maken als de manier waarop de virtuele machine maken. Als u Uit galerie gebruikt, kunt u ook beslissen of u zich wilt aanmelden met een wachtwoord, een SSH-sleutel of beide. Het gebruikersaccount is een niet-bevoegde gebruiker met 'sudo'-toegang voor het uitvoeren van opdrachten met verhoogde bevoegdheden. Het root-account is uitgeschakeld.
 * Voor Windows-installatiekopieën moet u een gebruikersnaam en wachtwoord opgeven wanneer u de virtuele machine maakt. Het account wordt toegevoegd aan de groep Administrators.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Kan Azure een antivirusprogramma uitvoeren op mijn virtuele machines?
@@ -105,7 +105,7 @@ Azure rekent een uurprijs op basis van de grootte en het besturingssysteem van d
 
 Er worden kosten in rekening gebracht wanneer de VM de status Uitvoeren of Gestopt heeft, maar niet bij de status Gestopt (Toewijzing ongedaan gemaakt). Als u een VM in de status Gestopt (Toewijzing ongedaan gemaakt) wilt zetten, voert u een van de volgende handelingen uit:
 
-* Sluit de VM af in de klassieke Azure-portal of verwijder de VM daar.
+* Afgesloten of de virtuele machine verwijderen uit de Azure-portal.
 * Gebruik de cmdlet Stop-AzureVM, beschikbaar in de Azure PowerShell-module.
 * Gebruik de bewerking Rol afsluiten in de REST-API van Servicebeheer en geef StoppedDeallocated op voor het element PostShutdownAction.
 
@@ -118,7 +118,7 @@ Niet-gepland onderhoudsgebeurtenissen kunnen optreden wanneer Azure een ernstige
 
 In het geval van een zelfstandige VM (een VM die geen deel uitmaakt van een beschikbaarheidsset) wordt er vanuit Azure ten minste één week voor gepland onderhoud een e-mail verstuurd naar de servicebeheerder van het abonnement met de mededeling dat de VM tijdens dit onderhoud opnieuw kan worden opgestart. Toepassingen die worden uitgevoerd op de VM's kunnen tijdelijk niet beschikbaar zijn.
 
-U kunt ook de klassieke Azure-portal of Azure PowerShell gebruiken om de logboeken voor opnieuw opstarten weer te geven wanneer het opnieuw opstarten onderdeel was van gepland onderhoud. Zie voor meer informatie [VM-opstartlogboeken bekijken](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Ook kunt u de Azure portal of Azure PowerShell om de logboeken opnieuw worden opgestart bij het opstarten is opgetreden vanwege gepland onderhoud bekijken. Zie voor meer informatie [VM-opstartlogboeken bekijken](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Om redundantie te bieden, plaatst u twee of meer vergelijkbaar geconfigureerde VM's in dezelfde beschikbaarheidsset. Op deze manier zorgt u ervoor dat er ten minste één VM beschikbaar is tijdens gepland of ongepland onderhoud. Azure garandeert bepaalde niveaus van VM-beschikbaarheid voor deze configuratie. Zie [Beschikbaarheid van virtuele machines beheren](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie.
 

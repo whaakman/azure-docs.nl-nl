@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centraal beheren van werkitems ITSM met IT Service Management-Connector (Preview)
 
@@ -106,7 +106,7 @@ ServiceDeskWorkItemType_s = "Incident"
 - Category
 - Titel
 - Beschrijving
-- Datum gemaakt
+- Gemaakt op
 - Datum gesloten
 - Datum opgelost
 - Datum van laatste wijziging
@@ -132,10 +132,10 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Status conflict
 - Urgentie
 - Prioriteit
-- Risico 's
+- Risico
 - Impact
 - Toegewezen aan
-- Datum gemaakt
+- Gemaakt op
 - Datum gesloten
 - Datum van laatste wijziging
 - Gevraagde datum
@@ -182,7 +182,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 | CRState_s|  Status|
 | Urgency_s|  Urgentie |
 | Priority_s| Prioriteit|
-| Risk_s| Risico 's|
+| Risk_s| Risico|
 | Impact_s| Impact|
 | RequestedDate_t  | Aangevraagd door datum |
 | ClosedDate_t | Datum gesloten |
@@ -292,9 +292,11 @@ Bij het maken/bewerken van een Azure waarschuwingsregel, moet u een actiegroep, 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>ITSM verbindingen in OMS oplossen
 1.  Als de verbinding is mislukt door de gebruikersinterface van de verbonden bron met een **fout bij het opslaan van de verbinding** bericht wordt weergegeven, voert de volgende stappen uit:
- - Voor verbindingen tussen ServiceNow, Cherwell en Provance-Zorg ervoor dat u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen ingevoerd.
-        -Controleer of u voldoende rechten hebt in het bijbehorende ITSM product de verbinding te maken.
- - Voor Service Manager-verbindingen-Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding is gemaakt. Om te controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de Web-app-URL zoals beschreven in de documentatie voor de [hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+ - Voor ServiceNow, Cherwell en Provance-verbindingen  
+        -Controleer of u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen opgegeven.  
+        -Controleer of u voldoende rechten hebt in het bijbehorende ITSM product de verbinding te maken.  
+ - Voor Service Manager-verbindingen  
+        -Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding is gemaakt. Om te controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de Web-app-URL zoals beschreven in de documentatie voor de [hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Als u gegevens van ServiceNow is niet ophalen die zijn gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar zich niet in de slaapstand. ServiceNow Dev exemplaren gaat soms slaapstand bij inactiviteit gedurende een lange periode. Anders Meld het probleem.
 3.  Als OMS waarschuwingen geactiveerd, maar werkt items ITSM product niet worden gemaakt of configuratie-items zijn niet gemaakt/gekoppeld aan werkitems of andere algemene informatie, vindt u in de volgende locaties:

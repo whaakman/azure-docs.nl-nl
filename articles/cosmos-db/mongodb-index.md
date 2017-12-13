@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 313f176a1f33fcd5f627ec2251380e602027f8b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: MongoDB API-documentatie
 
@@ -31,16 +31,18 @@ Dit moet zijn gelezen onderwerpen en resources voor meer informatie over de Mong
 
 - [Inleiding MongoDB-API](mongodb-introduction.md)
 - [Verbinding maken met uw MongoDB-account](connect-mongodb-account.md)
+- [Ondersteuning voor MongoDB-onderdelen en syntaxis](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Snelstartgidsen
 
 De Quick Start-onderwerpen worden de snelste manier om een werkende toepassing maken met Azure Cosmos DB. In elke Quick Start leert u hoe u de gebruikersinterface gebaseerde Azure-portal en uw favoriete taal coderen om databaseoplossingen te maken met Azure Cosmos DB. Kloonbare web-apps vanuit GitHub ruimte beschikbaar is voor elke Quick Start. 
 
 
-- [MongoDB Express + AngularJS + Node.js + Web-apps](create-mongodb-nodejs.md)
+- [Node.js Express + AngularJS + Web-apps](create-mongodb-nodejs.md)
 - [.NET + azure-portal + Web-apps](create-mongodb-dotnet.md)
 - [Java + Azure-portal + Web-apps](create-mongodb-java.md)
 - [Ga + Azure-portal + Ga](create-mongodb-golang.md)
+- [Python + Flask + Azure-portal](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Zelfstudies
 

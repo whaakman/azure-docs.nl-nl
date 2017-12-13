@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jingwang
-ms.openlocfilehash: d0db2bd3a7e4d93a8d0690fcb4535c4552cef7ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Gegevens kopiëren van/naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ De volgende eigenschappen worden ondersteund voor Salesforce gekoppelde service:
 | type |De eigenschap type moet worden ingesteld op: **Salesforce**. |Ja |
 | environmentUrl | Geef de URL van de Salesforce-exemplaar. <br> -Standaard is `"https://login.salesforce.com"`. <br> -Geef om gegevens te kopiëren vanuit sandbox, `"https://test.salesforce.com"`. <br> -Om gegevens te kopiëren van een aangepast domein, opgeven, bijvoorbeeld `"https://[domain].my.salesforce.com"`. |Nee |
 | gebruikersnaam |Geef een naam op voor het gebruikersaccount. |Ja |
-| wachtwoord |Geef een wachtwoord voor het gebruikersaccount.<br/><br/>U kunt dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en ADF vizier pull van daaruit kopiëren bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
-| securityToken |Geef een beveiligingstoken voor de gebruikersaccount. Zie [security token ophalen](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) voor instructies over het opnieuw instellen of ophalen van een beveiligingstoken. Zie voor informatie over het algemeen over beveiligingstokens, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>U kunt dit veld markeren als een SecureString veilig opslaan in ADF of beveiligingstoken worden opgeslagen in Azure Sleutelkluis en ADF vizier pull van daaruit kopiëren bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
+| wachtwoord |Geef een wachtwoord voor het gebruikersaccount.<br/><br/>U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of wachtwoord worden opgeslagen in Azure Sleutelkluis en de kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
+| securityToken |Geef een beveiligingstoken voor de gebruikersaccount. Zie [security token ophalen](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) voor instructies over het opnieuw instellen of ophalen van een beveiligingstoken. Zie voor informatie over het algemeen over beveiligingstokens, [beveiligings- en de API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>U kunt kiezen voor dit veld markeren als een SecureString veilig opslaan in ADF of beveiligingstoken worden opgeslagen in Azure Sleutelkluis en de kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren: meer informatie kunt [referenties opgeslagen in de Sleutelkluis](store-credentials-in-key-vault.md). |Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. | Er is geen voor bron Ja voor sink |
 
 >[!IMPORTANT]

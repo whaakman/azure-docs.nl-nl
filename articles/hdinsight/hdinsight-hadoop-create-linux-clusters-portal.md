@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 80e797c1b53d62b08c3c7fce99ec961fe26f1f4c
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de Azure-portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -52,25 +52,18 @@ De Azure-portal beschrijft de meeste van de eigenschappen van het cluster. Azure
 
     * Van de **abonnement** vervolgkeuzelijst, selecteer de Azure-abonnement dat wordt gebruikt voor het cluster.
 
-    * Klik op **type Cluster**, en selecteer vervolgens:
-   
-        * **Clustertype**: als u niet weet wat u moet kiezen, selecteert u **Hadoop**. Dit is het meestgebruikte clustertype.
+    * Klik op **type Cluster**, en selecteer vervolgens het type van het cluster (Hadoop, Spark, enzovoort) die u wilt maken. Voor **besturingssysteem**, klikt u op **Linux** en selecteer vervolgens een versie. Gebruik de standaardversie als u niet wat weet te kiezen. Zie [HDInsight-clusterversies](hdinsight-component-versioning.md) voor meer informatie.
      
-            > [!IMPORTANT]
-            > HDInsight clusters worden geleverd in verschillende typen die met de werkbelasting of technologie die het cluster is afgestemd overeenkomen op. Er is geen ondersteunde methode om een cluster waarin meerdere typen zoals Storm en HBase op één cluster te maken. 
-            > 
-            > 
+        > [!IMPORTANT]
+        > HDInsight clusters worden geleverd in verschillende typen die met de werkbelasting of technologie die het cluster is afgestemd overeenkomen op. Er is geen ondersteunde methode om een cluster waarin meerdere typen zoals Storm en HBase op één cluster te maken. 
+        > 
+        > 
         
-        * **Besturingssysteem**: selecteer **Linux**.
-        
-        * **Versie**: gebruik de standaardversie als u niet weet wat u moet kiezen. Zie [HDInsight-clusterversies](hdinsight-component-versioning.md) voor meer informatie.
-        
-
     * Voor **clusteraanmeldgegevens** en **Cluster aanmeldingswachtwoord**, gebruikersnaam en wachtwoord opgeven voor de beheerder.
 
     * Voer een **SSH-gebruikersnaam** en als u wilt de SSH-wachtwoord hetzelfde als de Administrator-wachtwoord dat u eerder hebt opgegeven, selecteer de **gebruik hetzelfde wachtwoord als cluster aanmelding** selectievakje. Als dit niet het geval is, Geef een **wachtwoord** of **openbare sleutel**, die wordt gebruikt voor het verifiëren van de SSH-gebruiker. Het gebruik van een openbare sleutel is de aanbevolen methode. Klik onderaan op **Selecteren** om de referentieconfiguratie op te slaan.
    
-        Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
+    Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
     * Voor **resourcegroep**, opgeven of u wilt een nieuwe resourcegroep maken of een bestaande wilt gebruiken.
 

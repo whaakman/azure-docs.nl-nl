@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: e0e58e443897adad2b6029db4e64fa220cebb6b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Voor probleemoplossing: Kan niet verwijderen van een virtueel netwerk in Azure
 
@@ -35,7 +35,7 @@ Fouten kan worden weergegeven wanneer u probeert te verwijderen van een virtueel
 5. [Controleer of een virtuele machine nog steeds actief is in het virtuele netwerk](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
 6. [Controleer of het virtuele netwerk is vastgelopen bij migratie](#check-whether-the-virtual-network-is-stuck-in-migration).
 
-## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
+## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
 
 ### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Controleer of een virtuele netwerkgateway actief is in het virtuele netwerk
 
@@ -65,13 +65,7 @@ Als de Active Directory Domain Services is ingeschakeld en met het virtuele netw
 
 ![Controleer het aangesloten apparaat](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Schakel de service de volgende stappen uit:
-
-1. Ga naar de [klassieke Azure-portal](https://manage.windowsazure.com).
-2. Selecteer in het linkerdeelvenster **Active Directory**.
-3. Selecteer de map voor Azure Active Directory (Azure AD) met Active Directory Domain Services is ingeschakeld.
-4. Selecteer de tab **Configureren**.
-5. Onder **domeinservices**, wijzig de **domeinservices inschakelen voor deze map** optie naar **Nee**.  
+Zie de service uitschakelen [uitschakelen Azure Active Directory Domain Services met Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Controleer of het virtuele netwerk is verbonden met andere resources
 

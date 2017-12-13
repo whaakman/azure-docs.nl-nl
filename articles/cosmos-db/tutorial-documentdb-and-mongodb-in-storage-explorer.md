@@ -4,7 +4,7 @@ description: Informatie over het beheren van Azure Cosmos-database in Azure Stor
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: Jejiang
+ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)
 
-Met behulp van Azure DB die Cosmos in Azure Storage Explorer, kunnen gebruikers Azure Cosmos DB entiteiten beheren, het manipuleren van gegevens, het bijwerken van opgeslagen procedures en triggers samen met andere Azure entiteiten zoals Storage-blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken voor het beheren van uw andere Azure entiteiten op één plek. Op dit moment ondersteunt Azure Storage Explorer SQL en MongoDB-accounts.
+Met behulp van Azure DB die Cosmos in Azure Storage Explorer, kunnen gebruikers Azure Cosmos DB entiteiten beheren, het manipuleren van gegevens, het bijwerken van opgeslagen procedures en triggers samen met andere Azure entiteiten zoals Storage-blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken voor het beheren van uw andere Azure entiteiten op één plek. Op dit moment ondersteunt Azure Storage Explorer SQL en MongoDB-accounts. De Azure Storage Explorer werkt niet met de Azure Cosmos DB lokale Emulator. 
 
 In dit artikel kunt u informatie over het gebruik van Storage Explorer voor het beheren van Azure Cosmos DB.
 

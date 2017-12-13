@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: dc6916bd25c5a020fdcef0707fe28a1e34fb0f88
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1bff8e4b052ffe8274c290abdebfbac7bf9a883d
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -28,12 +28,12 @@ De Microsoft Azure Virtual Network-service biedt Azure-bronnen te veilig te comm
 ![Netwerkdiagram](./media/virtual-networks-overview/virtual-network-overview.png)
 
 Klik op de mogelijkheid voor meer informatie over de volgende mogelijkheden van Azure Virtual Network:
-- **[Isolatie:](#isolation)**  virtuele netwerken zijn geïsoleerd van elkaar. Kunt u afzonderlijke virtuele netwerken die gebruikmaken van de dezelfde CIDR (bijvoorbeeld 10.0.0.0/0) voor ontwikkelen, testen en productie adres blokken. Als u daarentegen, kunt u meerdere virtuele netwerken die gebruikmaken van verschillende CIDR-adresblokken en de netwerken met elkaar verbinden. U kunt een virtueel netwerk segmenteren in meerdere subnetten. Azure biedt interne naamomzetting voor virtuele machines en Azure Cloud Services-rolinstanties zijn geïmplementeerd in een virtueel netwerk. U kunt desgewenst een virtueel netwerk voor het gebruik van uw eigen DNS-servers, in plaats van Azure interne naamomzetting configureren.
-- **[Internetcommunicatie:](#internet)**  alle Azure virtuele Machines en Cloud Services-rolexemplaren in een virtueel netwerk heeft standaard toegang tot het Internet. U kunt binnenkomende toegang tot specifieke bronnen, indien nodig.
-- **[Communicatie van de Azure-resource:](#within-vnet)**  Azure-resources zoals Cloudservices en virtuele machines in hetzelfde virtuele netwerk kunnen worden geïmplementeerd. De resources kunnen communiceren met elkaar met behulp van privé IP-adressen, zelfs als ze zich in verschillende subnetten. Azure biedt standaardroutering tussen subnetten, VNets en on-premises netwerken, zodat u niet hoeft te configureren en beheren van routes. U kunt Azure routering, indien gewenst.
+- **[Isolatie:](#isolation)**  virtuele netwerken zijn geïsoleerd van elkaar. Kunt u afzonderlijke virtuele netwerken die gebruikmaken van de dezelfde CIDR (bijvoorbeeld 10.0.0.0/0) voor ontwikkelen, testen en productie adres blokken. Als u daarentegen, kunt u meerdere virtuele netwerken die gebruikmaken van verschillende CIDR-adresblokken en de netwerken met elkaar verbinden. U kunt een virtueel netwerk segmenteren in meerdere subnetten. Azure biedt interne naamomzetting voor resources geïmplementeerd in een virtueel netwerk. Indien nodig, kunt u een virtueel netwerk voor het gebruik van uw eigen DNS-servers, in plaats van Azure interne naamomzetting configureren.
+- **[Internetcommunicatie:](#internet)**  Resources, zoals virtuele machines die zijn geïmplementeerd in een virtueel netwerk, hebt u toegang tot het Internet standaard. U kunt binnenkomende toegang tot specifieke bronnen, indien nodig.
+- **[Communicatie van de Azure-resource:](#within-vnet)**  Azure-resources geïmplementeerd in een virtueel netwerk kunnen communiceren met elkaar met behulp van privé IP-adressen, zelfs als de bronnen in verschillende subnetten wordt geïmplementeerd. Azure biedt standaardroutering tussen subnetten, verbonden virtuele netwerken en on-premises netwerken, zodat u niet hoeft te configureren en beheren van routes. Indien gewenst, kunt u de Azure routering kunt aanpassen.
 - **[Virtuele netwerkverbinding:](#connect-vnets)**  virtuele netwerken kunnen worden verbonden met elkaar, waardoor bronnen in een virtueel netwerk om te communiceren met resources in een virtueel netwerk.
-- **[Lokale connectiviteit:](#connect-on-premises)**  een virtueel netwerk kunt privé worden verbonden met een on-premises netwerk of met behulp van een site-naar-site VPN-verbinding via Internet.
-- **[Wordt verkeer gefilterd:](#filtering)**  rol exemplaar netwerkverkeer virtuele machines en Cloud-Services kan worden gefilterd binnenkomend en uitgaand op bron-IP-adres en poort, doel-IP-adres en poort en protocol.
+- **[Lokale connectiviteit:](#connect-on-premises)**  een virtueel netwerk kan worden verbonden met een on-premises netwerk, waardoor bronnen voor de communicatie tussen elkaar.
+- **[Wordt verkeer gefilterd:](#filtering)**  kunt u netwerkverkeer naar en van resources in een virtueel netwerk door IP-adres en poort, doel-IP-adres en poort en protocol filteren.
 - **[Routering:](#routing)**  u kunt eventueel Azure standaard routering door het configureren van uw eigen routes overschrijven of doorgeven van BGP routes via een netwerkgateway.
 
 ## <a name = "isolation"></a>Netwerkisolatie en segmentering
@@ -41,10 +41,10 @@ Klik op de mogelijkheid voor meer informatie over de volgende mogelijkheden van 
 U kunt meerdere virtuele netwerken in elke Azure implementeren [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) en Azure [regio](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Elk virtuele netwerk is geïsoleerd van andere virtuele netwerken. U kunt voor elke virtuele netwerk:
 - Geef een aangepaste persoonlijke IP-adresruimte met behulp van openbare en persoonlijke (RFC 1918)-adressen. Azure wijst bronnen in een virtueel netwerk een particulier IP-adres van de adresruimte die u toewijst.
 - Het virtuele netwerk segmenteren in een of meer subnetten en een deel van de adresruimte van het virtuele netwerk op elk subnet toegewezen.
-- Azure verschafte naamomzetting gebruiken of uw eigen DNS-server voor gebruik door resources in een virtueel netwerk opgeven. Zie voor meer informatie over naamomzetting in virtuele netwerken, [naamomzetting voor VM's en Cloudservices](virtual-networks-name-resolution-for-vms-and-role-instances.md) artikel.
+- Azure verschafte naamomzetting gebruiken of uw eigen DNS-server, voor gebruik door de bronnen in een virtueel netwerk opgeven. Zie voor meer informatie over naamomzetting in virtuele netwerken, [naamomzetting voor resources in virtuele netwerken](virtual-networks-name-resolution-for-vms-and-role-instances.md) artikel.
 
 ## <a name = "internet"></a>Internetcommunicatie
-Alle resources in een virtueel netwerk kunnen communiceren met Internet, uitgaande standaard. Het privé IP-adres van de resource is Bronnetwerk adres vertaald (snat omzetten) naar een openbare IP-adres geselecteerd door de Azure-infrastructuur. Lees voor meer informatie over uitgaande internetverbinding, de [inzicht in uitgaande verbindingen in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) artikel. Om te voorkomen dat een uitgaande internetverbinding, kunt u aangepaste routes of filteren van verkeer te implementeren.
+Alle resources in een virtueel netwerk kunnen communiceren uitgaand naar het Internet. Het privé IP-adres van de resource is standaard Bronnetwerk adres vertaald (snat omzetten) naar een openbare IP-adres geselecteerd door de Azure-infrastructuur. Lees voor meer informatie over uitgaande internetverbinding, de [inzicht in uitgaande verbindingen in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) artikel. Om te voorkomen dat een uitgaande internetverbinding, kunt u aangepaste routes of filteren van verkeer te implementeren.
 
 Inkomende communicatie voor Azure-resources van het Internet of om te communiceren met Internet, zonder snat omzetten uitgaand, moet een resource een openbaar IP-adres worden toegewezen. Lees voor meer informatie over openbare IP-adressen, de [openbare IP-adressen](virtual-network-public-ip-address.md) artikel.
 
@@ -52,9 +52,9 @@ Inkomende communicatie voor Azure-resources van het Internet of om te communicer
 
 U kunt virtuele machines binnen een virtueel netwerk kunt implementeren. Virtuele machines communiceren met andere resources in een virtueel netwerk via een netwerkinterface. Zie voor meer informatie over netwerkinterfaces, [netwerkinterfaces](virtual-network-network-interface.md).
 
-U kunt ook diverse andere typen van Azure-resources implementeren met een virtueel netwerk, zoals virtuele Machines van Azure, Azure Cloud Services, Azure App Service-omgevingen en Azure virtuele Machine-Schaalsets. Zie voor een volledige lijst van Azure-resources u in een virtueel netwerk implementeren kunt [virtuele netwerk-integratie voor Azure-services](virtual-network-for-azure-services.md).
+U kunt ook diverse andere typen van Azure-resources implementeren met een virtueel netwerk, zoals Azure App Service-omgevingen en Azure virtuele Machine-Schaalsets. Zie voor een volledige lijst van Azure-resources u in een virtueel netwerk implementeren kunt [virtuele netwerk-integratie voor Azure-services](virtual-network-for-azure-services.md).
 
-Sommige resources kunnen niet worden geïmplementeerd in een virtueel netwerk, maar kunnen u de communicatie van bronnen binnen een virtueel netwerk alleen beperken. Zie voor meer informatie over het beperken van toegang tot bronnen, [Virtual network service-eindpunten](virtual-network-service-endpoints-overview.md). 
+Sommige resources kunnen niet worden geïmplementeerd in een virtueel netwerk, maar u communicatie op resources binnen een virtueel netwerk alleen beperken inschakelen. Zie voor meer informatie over het beperken van toegang tot bronnen, [Virtual network service-eindpunten](virtual-network-service-endpoints-overview.md). 
 
 ## <a name="connect-vnets"></a>Verbinding maken met virtuele netwerken
 
@@ -63,11 +63,11 @@ U kunt virtuele netwerken met elkaar verbinden resources in een virtueel netwerk
 ## <a name="connect-on-premises"></a>Verbinding maken met een on-premises netwerk
 
 U kunt uw on-premises netwerk verbinden met een virtueel netwerk met een combinatie van de volgende opties:
-- **Punt-naar-site virtueel particulier netwerk (VPN):** tot stand gebracht tussen een virtueel netwerk en één computer in uw netwerk. Elke computer die verbinding met een virtueel netwerk tot stand te wil moet onafhankelijk hun verbindingen configureren. Dit verbindingstype is handig als u alleen aan de slag met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk. De verbinding wordt de SSTP-protocol gebruikt voor gecodeerde communicatie via Internet tussen de PC en een virtueel netwerk. De latentie voor een punt-naar-site VPN-verbinding is onvoorspelbaar zijn, aangezien het verkeer over het Internet wordt verzonden.
+- **Punt-naar-site virtueel particulier netwerk (VPN):** tot stand gebracht tussen een virtueel netwerk en één computer in uw netwerk. Elke computer die verbinding met een virtueel netwerk tot stand te wil moet de verbinding afzonderlijk configureren. Dit verbindingstype is handig als u alleen aan de slag met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk. De verbinding wordt de SSTP-protocol gebruikt voor gecodeerde communicatie via Internet tussen de PC en een virtueel netwerk. De latentie voor een punt-naar-site VPN-verbinding is onvoorspelbaar zijn, aangezien het verkeer over het Internet wordt verzonden.
 - **Site-naar-site-VPN:** tot stand gebracht tussen uw VPN-apparaat en een Azure VPN-Gateway is geïmplementeerd in een virtueel netwerk. Dit verbindingstype kunt een on-premises-resource die geeft u toestemming voor toegang tot een virtueel netwerk. De verbinding is een VPN IPSec/IKE waarmee gecodeerde communicatie via Internet tussen uw on-premises-apparaat en de Azure VPN-gateway. De latentie voor een site-naar-site-verbinding is onvoorspelbaar zijn, aangezien het verkeer over het Internet wordt verzonden.
 - **Azure ExpressRoute:** tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer niet via Internet verloopt. De latentie voor een ExpressRoute-verbinding is betrouwbaar, aangezien het verkeer niet via Internet verloopt.
 
-Lees voor meer informatie over de vorige verbindingsopties, de [gatewayverbindingsdiagrammen topologie](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams) artikel.
+Zie voor meer informatie over de vorige verbindingsopties, [gatewayverbindingsdiagrammen topologie](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
 
 ## <a name="filtering"></a>Filteren van netwerkverkeer
 U kunt filteren netwerkverkeer tussen subnetten op met behulp van een of beide van de volgende opties:
@@ -76,7 +76,7 @@ U kunt filteren netwerkverkeer tussen subnetten op met behulp van een of beide v
 
 ## <a name="routing"></a>Doorsturen van netwerkverkeer
 
-Azure maakt routetabellen waarmee bronnen die zijn verbonden met een enkel subnet in een virtueel netwerk om te communiceren met elkaar, standaard. U kunt een of beide van de volgende opties voor het onderdrukken van de Azure maakt standaardroutes implementeren:
+Azure maakt routetabellen waarmee bronnen die standaard op enkel subnet in een virtueel netwerk om te communiceren met elkaar en het Internet zijn aangesloten. U kunt een of beide van de volgende opties voor het onderdrukken van de Azure maakt standaardroutes implementeren:
 - **Gebruiker gedefinieerde routes:** kunt u aangepaste routetabellen met routes die bepalen waar verkeer wordt doorgestuurd naar voor elk subnet. Zie voor meer informatie over de gebruiker gedefinieerde routes, [gebruiker gedefinieerde routes](virtual-networks-udr-overview.md#user-defined).
 - **BGP-routes:** als u het virtuele netwerk verbinding met uw on-premises netwerk via een Azure VPN-Gateway of ExpressRoute-verbinding, kunt u BGP-routes doorgegeven aan uw virtuele netwerken.
 
@@ -87,7 +87,6 @@ Er zijn geen kosten voor virtuele netwerken, subnetten, routetabellen of netwerk
 ## <a name="faq"></a>Veelgestelde vragen
 
 Veelgestelde vragen over Azure Virtual Network, Zie de [virtueel netwerk Veelgestelde vragen over](virtual-networks-faq.md) artikel.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

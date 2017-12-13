@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd5bd82a35c5a2ba72cffe35138311322714a1c0
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Query voor cloud-databases met verschillende schema's (preview)
 ![Query tussen tabellen in verschillende databases][1]
@@ -43,7 +43,7 @@ Databases verticaal gepartitioneerd Gebruik verschillende sets van tabellen op v
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Bereik databasehoofdsleutel en referenties maken
 De referentie wordt gebruikt door de elastische query verbinding maken met uw externe databases.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ De volgende query voert een koppeling drie richtingen tussen de twee lokale tabe
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Opgeslagen procedure voor uitvoering op afstand T-SQL: sp\_execute_remote
-Elastische query bevat ook een opgeslagen procedure die rechtstreekse toegang tot de shards biedt. De opgeslagen procedure is aangeroepen [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) en kan worden gebruikt voor het uitvoeren van extern opgeslagen procedures of T-SQL-code op de externe databases. Het bevat de volgende parameters: 
+Elastische query bevat ook een opgeslagen procedure die rechtstreekse toegang tot de externe database biedt. De opgeslagen procedure is aangeroepen [sp\_uitvoeren \_externe](https://msdn.microsoft.com/library/mt703714) en kan worden gebruikt voor het uitvoeren van extern opgeslagen procedures of T-SQL-code op de externe database. Het bevat de volgende parameters: 
 
 * Naam van de gegevensbron (nvarchar): de naam van de externe gegevensbron van het type RDBMS. 
-* Query (nvarchar): de T-SQL-query uitgevoerd op elke shard. 
+* Query (nvarchar): de T-SQL-query moet worden uitgevoerd op de externe database. 
 * Parameterdeclaratie (nvarchar) - optioneel: de tekenreeks met typedefinities gegevens voor de parameters in de Query-parameter (zoals sp_executesql) gebruikt. 
 * Waarde parameterlijst - optioneel: door komma's gescheiden lijst met parameterwaarden (zoals sp_executesql).
 
-De sp\_uitvoeren\_afstand maakt gebruik van de externe gegevensbron opgegeven in de Aanroepparameters voor het uitvoeren van de gegeven T-SQL-instructie op de externe databases. Gebruikt de referenties van de externe gegevensbron verbinding maken met de shardmap manager-database en de externe databases.  
+De sp\_uitvoeren\_afstand maakt gebruik van de externe gegevensbron opgegeven in de Aanroepparameters voor het uitvoeren van de gegeven T-SQL-instructie op de externe database. Gebruikt de referenties van de externe gegevensbron verbinding maken met de externe database.  
 
 Voorbeeld: 
 

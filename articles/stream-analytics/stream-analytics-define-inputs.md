@@ -4,8 +4,8 @@ description: Meer informatie over het instellen van een gegevensverbinding met S
 keywords: gegevensstroom, gegevensverbinding, stroom gebeurtenissen
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Gegevensverbinding: meer informatie over gegevens invoer van de stroom van gebeurtenissen voor Stream Analytics
 De gegevensverbinding met een Stream Analytics-taak is een stream van gebeurtenissen van een gegevensbron waarnaar wordt verwezen als de taak *invoer*. Stream Analytics is een uitstekende integratie met Azure stream gegevensbronnen, waaronder [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Deze invoerbronnen kunnen zijn in dezelfde Azure-abonnement als analytics-taak, of vanuit een ander abonnement.
@@ -37,9 +37,9 @@ Zie voor meer informatie over het maken van verwijzing gegevens invoer, [gebruik
 
 ## <a name="compression"></a>Compressie
 
-Azure Stream Analytics ondersteunt compressie via alle stream invoer gegevensbronnen (Event Hubs, IoT-Hub en Blob-opslag). Deze functie voegt een nieuwe optie in de vervolgkeuzelijst aan de **nieuwe invoer** blade in Azure Portal, zodat u kunt eventueel ook gegevensstromen comprimeren. Ondersteunde typen zijn momenteel geen, GZip, en Deflate-compressie. 
+Azure Stream Analytics ondersteunt compressie via alle stream invoer gegevensbronnen (Event Hubs, IoT-Hub en Blob-opslag). Deze functie voegt een nieuwe optie in de vervolgkeuzelijst aan de **nieuwe invoer** blade in Azure Portal, zodat u kunt eventueel ook gegevensstromen comprimeren. Op dit moment ondersteund verwijzing typen zijn - None, GZip, en Deflate-compressie. Ondersteuning voor compressie is niet beschikbaar voor referentiegegevens.
 
-Compressie wordt niet ondersteund in combinatie met de Avro-serialisatie en is niet van toepassing om te verwijzen naar gegevens. 
+U hoeft niet te compressietype opgeven met de Avro-serialisatie. Als de invoergegevens Avro is gecomprimeerd, wordt dit transparant verwerkt. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Gegevensstroominvoer van Event Hubs maken
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 119189415e75134ff0c77a551536559b81116fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -100,86 +100,18 @@ In uw omgeving, moet u de volgende configuraties voorkomen:
 
 ## <a name="policy-migration"></a>Beleid voor migratie
 
-Als u beleid in de klassieke Azure portal geconfigureerd hebt, moet u deze migreert naar de Azure portal omdat:
+U moet rekening houden met de beleidsregels die u hebt gemaakt in de Azure portal omdat migreren:
+
+- U kunt nu scenario's die u niet voordat verwerken kan oplossen.
+
+- U kunt het nummer van de beleidsregels die u hebt voor het beheren van deze samen te verkleinen.   
+
+- U kunt het voorwaardelijke toegangsbeleid op één centrale locatie kunt beheren.
+
+- De klassieke Azure portal wordt buiten gebruik worden gesteld.   
 
 
-- Een gebruiker die zich in een Azure classic portal beleid en een Azure-portal beleid moet voldoen aan de vereisten in beide soorten beleid 
-
-- Als u uw bestaande beleidsregels niet migreert, kunt u zich geen beleid implementeren dat het verlenen van toegang
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migratie van de klassieke Azure portal
-
-In dit scenario: 
-
-- In uw [klassieke Azure-portal](https://manage.windowsazure.com), u hebt geconfigureerd:
-
-    - SharePoint Online
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Beleid voor voorwaardelijke toegang op basis van apparaten
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-best-practices/15.png)
-
-- U wilt een mam-beleid voor voorwaardelijke toegang configureren in de Azure portal 
- 
-
-#### <a name="configuration"></a>Configuratie 
-
-- Bekijk uw beleid voor voorwaardelijke toegang op basis van apparaten
-
-- Migreert naar de Azure-portal 
-
-- Beleidsregels voor mobile application management-voorwaardelijke toegang toevoegen
-
-
-### <a name="migrating-from-intune"></a>Migreren van Intune 
-
-In dit scenario:
-
-- In [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), hebt u een mam-beleid voor voorwaardelijke toegang voor beide Exchange Online of SharePoint Online geconfigureerd
-
-    ![Voorwaardelijke toegang](./media/active-directory-conditional-access-best-practices/15.png)
-
-- U wilt migreren met voorwaardelijke toegang voor mobile application management in Azure portal
-
-
-#### <a name="configuration"></a>Configuratie 
- 
-- Bekijk uw beleid voor voorwaardelijke toegang op basis van apparaten
-
-- Migreert naar de Azure-portal 
-
-- Bekijk u beleidsregels voor voorwaardelijke toegang van mobile application management geconfigureerd voor Exchange Online of SharePoint Online in Intune
-
-- Toevoegen van het besturingselement voor **vereisen goedgekeurde toepassingen** naast het besturingselement op basis van apparaten 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migreren van de klassieke Azure-portal en Intune
-
-In dit scenario:
-
-- U hebt de volgende geconfigureerd:
-
-    - **Klassieke Azure-portal:** voorwaardelijke op basis van apparaten 
-
-    - **Intune:** Mobile application management-beleid voor voorwaardelijke toegang 
-    
-- U wilt migreren van beide beleidsregels voor het gebruik van beleidsregels voor voorwaardelijke toegang van mobile application management in Azure portal
-
-
-#### <a name="configuration"></a>Configuratie
-
-- Bekijk uw beleid voor voorwaardelijke toegang op basis van apparaten
-
-- Migreert naar de Azure-portal 
-
-- Bekijk u beleid voor voorwaardelijke toegang van mobiele toepassing management geconfigureerd voor Exchange Online of SharePoint Online in Intune
-
-- Toevoegen van het besturingselement voor **vereisen goedgekeurde toepassingen** naast de op basis van apparaten 
-
-
+Zie voor meer informatie [migreren klassieke beleid in de Azure portal](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen

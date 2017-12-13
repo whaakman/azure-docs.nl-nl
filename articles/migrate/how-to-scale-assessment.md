@@ -1,24 +1,16 @@
 ---
 title: De schaal van detectie en beoordeling met Azure migreren | Microsoft Docs
 description: Beschrijft hoe vast te stellen van grote aantallen lokale machines met de service Azure migreren.
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: dde0d07f-94b7-4b6a-a158-a89aa9324a35
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 930ec182cf329e7dda072dc49bd7f70abb413f2d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e28a2144dd102fcd2ec05531432cac0df250ae01
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detecteren en beoordelen van een grote VMware-omgeving
 
@@ -144,7 +136,7 @@ Voor elke detectieregel die u moet uitvoeren, moet u de collector naar virtuele 
     - In **verzameling bereik**, selecteert u een bereik voor detectie van de virtuele machine. De collector kan alleen detecteren voor virtuele machines binnen het opgegeven bereik. Bereik kan worden ingesteld op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
     - n **Tag categorie voor groepering**, selecteer **geen**.
 
-        ![Bereiken selecteren](./media/how-to-scale-assessment/select-scope.png)
+        ![Selecteer bereik](./media/how-to-scale-assessment/select-scope.png)
 
 1. In **Project selecteren**, geeft u de ID en sleutel voor het project. Als niet kopiëren, de Azure portal openen van de VM-collector. In het project **overzicht** pagina, klikt u op **Machines detecteren**, en kopieer de waarden.  
 In **volledige detectie**, het detectieproces bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector zorgt voor een geschatte detectie.

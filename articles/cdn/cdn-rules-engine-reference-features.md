@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 35bae19deb6d4a79367c171aea5d74b6698e023b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -162,6 +162,7 @@ Naam | Doel
 -----|--------
 [Caching geschikte HTTP-methoden](#cacheable-http-methods) | Bepaalt de set met extra HTTP-methoden die in de cache kan worden opgeslagen in het netwerk.
 [Grootte van standaardberichthoofdtekst voor caching geschikte aanvraag](#cacheable-request-body-size) | Hiermee definieert u de drempelwaarde voor het bepalen of een POST-antwoord in cache.
+[Variabele van de gebruiker](#user-variable) | Gebruikte primarity met Lua scripts.
 
  
 ## <a name="url-features"></a>URL-functies
@@ -178,6 +179,7 @@ Naam | Doel
 
 ## <a name="azure-cdn-rules-engine-features-reference"></a>Azure CDN regels engine functies verwijzing
 
+---
 ### <a name="age-response-header"></a>Leeftijd antwoordheader
 **Doel**: Hiermee wordt bepaald of een antwoordheader leeftijd wordt opgenomen in het antwoord verzonden naar de aanvrager.
 Waarde|Resultaat
@@ -187,6 +189,11 @@ Uitgeschakeld | De antwoordheader van de leeftijd is uitgesloten van het antwoor
 
 **Standaardgedrag**: uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bandwidth-parameters"></a>Bandbreedte-Parameters
 **Doel:** bepaalt of parameters (bijvoorbeeld ec_rate en ec_prebuf) voor bandbreedteregeling actief zijn.
 
@@ -198,7 +205,12 @@ Ingeschakeld|Kan de edge-servers en bandbreedte, snelheidsbeperking aanvragen.
 Uitgeschakeld|Zorgt ervoor dat de edge-servers voor het negeren van bandbreedte, snelheidsbeperking parameters. De gevraagde inhoud normaal kan worden geleverd (dat wil zeggen, zonder bandbreedtebeperking).
 
 **Standaardgedrag:** ingeschakeld.
+ 
+[Terug naar boven](#azure-cdn-rules-engine-features)
 
+</br>
+
+---
 ### <a name="bandwidth-throttling"></a>Bandbreedtebeperking
 **Doel:** beperkt de bandbreedte voor de respons van de edge-servers.
 
@@ -207,10 +219,15 @@ Beide van de volgende opties moeten worden gedefinieerd voor het correct ingeste
 Optie|Beschrijving
 --|--
 KB per seconde|Deze optie instelt op de maximale bandbreedte (in Kb per seconde) die kan worden gebruikt voor het leveren van het antwoord.
-Prebuf seconden|Deze optie instelt op het aantal seconden dat de randservers totdat de bandbreedteregeling bandbreedte wachten moeten. Het doel van deze periode van onbeperkte bandbreedte is om te voorkomen dat een mediaspeler momenteel haperend of buffering problemen als gevolg van bandbreedtebeperking.
+Prebuf seconden|Deze optie instelt op het aantal seconden voor de edge-servers te wachten tot de bandbreedte wordt beperkt. Het doel van deze periode van onbeperkte bandbreedte is om te voorkomen dat een mediaspeler momenteel haperend of buffering problemen als gevolg van bandbreedtebeperking.
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bypass-cache"></a>De Bypass-Cache
 **Doel:** bepaalt of de aanvraag moet overslaan.
 
@@ -225,21 +242,31 @@ Uitgeschakeld|Zorgt ervoor dat randservers cache activa volgens het cachebeleid 
 
 <!---
 - **ADN:** Enabled
+
 --->
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-http-methods"></a>Caching geschikte HTTP-methoden
 **Doel:** bepaalt de set met extra HTTP-methoden die in de cache kan worden opgeslagen in het netwerk.
 
 Belangrijke informatie:
 
 - Deze functie wordt ervan uitgegaan dat GET antwoorden moeten altijd opslaan in de cache. Als gevolg hiervan moet HALEN HTTP-methode niet worden opgenomen bij het instellen van deze functie.
-- Deze functie ondersteunt alleen HTTP POST-methode. POST antwoord in cache opslaan door deze functie in te stellen op: POST 
-- Standaard alleen aanvragen waarvan hoofdtekst kleiner dan 14 Kb is wordt in de cache opgeslagen. De caching geschikte aanvraag hoofdtekst grootte-functie gebruiken om de maximale aanvraag hoofdtekst grootte instellen.
+- Deze functie ondersteunt alleen HTTP POST-methode. POST antwoord in cache opslaan door deze functie in te stellen op `POST`.
+- Standaard alleen aanvragen waarvan hoofdtekst kleiner dan 14 Kb is in cache zijn opgeslagen. De caching geschikte aanvraag hoofdtekst grootte-functie gebruiken om de maximale aanvraag hoofdtekst grootte instellen.
 
-**Standaardgedrag:** wordt alleen GET-antwoord in cache worden opgeslagen.
+**Standaardgedrag:** alleen GET-reacties in de cache zijn opgeslagen.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-request-body-size"></a>Grootte van standaardberichthoofdtekst voor caching geschikte aanvraag
-
 **Doel:** definieert de drempelwaarde voor het bepalen of een POST-antwoord in cache.
 
 Deze drempelwaarde wordt bepaald door het opgeven van een maximale aanvraag hoofdtekst grootte. Wordt niet in cache opgeslagen dat aanvragen met een grotere aanvraagtekst.
@@ -256,6 +283,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** 14 Kb
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-control-header-treatment"></a>Cache-Control Header behandeling
 **Doel:** bepaalt het genereren van `Cache-Control` headers door de edge-server als de externe maximumleeftijd functie actief is.
 
@@ -263,13 +295,18 @@ De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en
 
 Waarde|Resultaat
 --|--
-Overschrijven|Zorgt ervoor dat de volgende acties wordt uitgevoerd:<br/> -Overschrijft de header van de Cache-Control die worden gegenereerd door de bronserver. <br/>-Voegt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd aan het antwoord.
-Doorgeven|Zorgt ervoor dat de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Cache-Control` -kop, worden doorgegeven aan de eindgebruiker. <br/> Als de bronserver geen produceert een `Cache-Control` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Cache-Control` header.
-Indien deze ontbreken toevoegen|Als een `Cache-Control` header is niet ontvangen op de bronserver en vervolgens deze optie wordt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd. Deze optie is handig om ervoor te zorgen dat alle activa zal worden toegewezen een `Cache-Control` header.
+Overschrijven|Zorgt ervoor dat de volgende acties uitgevoerd:<br/> -Overschrijft de header van de Cache-Control die worden gegenereerd door de bronserver. <br/>-Voegt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd aan het antwoord.
+Doorgeven|Zorgt ervoor dat de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Cache-Control` -kop, dit wordt doorgegeven via voor de eindgebruiker. <br/> Als de bronserver geen produceert een `Cache-Control` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Cache-Control` header.
+Indien deze ontbreken toevoegen|Als een `Cache-Control` header is niet ontvangen op de bronserver en vervolgens deze optie wordt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd. Deze optie is handig om ervoor te zorgen dat alle activa wordt zijn toegewezen een `Cache-Control` header.
 Verwijderen| Deze optie zorgt ervoor dat een `Cache-Control` header is niet opgenomen in de header-reactie. Als een `Cache-Control` header is al toegewezen en deze worden verwijderd uit het antwoord van de header.
 
 **Standaardgedrag:** overschrijven.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-query-string"></a>Cache-sleutel queryreeks
 **Doel:** bepaalt of de cache-sleutel wordt opnemen of uitsluiten van queryreeksparameters die zijn gekoppeld aan een aanvraag.
 
@@ -338,6 +375,11 @@ Dit type configuratie genereert de volgende query tekenreeks parameter cache-sle
 
     /800001/Origin/folder/asset.htm
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-rewrite"></a>Cache-sleutel opnieuw schrijven
 **Doel:** herschrijft de cache-sleutel die is gekoppeld aan een aanvraag.
 
@@ -351,6 +393,11 @@ Oorspronkelijke pad| Definieer het relatieve pad naar de soorten waarvan Cachesl
 Nieuwe pad|Definieer het relatieve pad voor de nieuwe cache-sleutel. Een relatief pad worden gedefinieerd met een base oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren. Deze relatieve pad kan dynamisch worden samengesteld door het gebruik van HTTP-variabelen
 **Standaardgedrag:** Cachesleutel van een aanvraag wordt bepaald door de aanvraag-URI.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="comment"></a>Opmerking
 **Doel:** kunt een opmerking in een regel worden toegevoegd.
 
@@ -362,12 +409,18 @@ Belangrijke informatie:
 - Gebruik alleen alfanumerieke tekens.
 - Deze functie heeft geen invloed op het gedrag van de regel. Dit is alleen bedoeld voor een gebied waarin u de informatie voor toekomstig gebruik of die kan helpen bij het oplossen van de regel kunt opgeven.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="complete-cache-fill"></a>Voltooien van de opvulling van de Cache
 **Doel:** bepaalt wat er gebeurt wanneer een aanvraag in een gedeeltelijke Cachemisser op een edge-server resulteert.
 
 Een gedeeltelijke Cachemisser beschrijft de status van de cache voor een asset die niet volledig is gedownload naar een edge-server. Als een asset is slechts gedeeltelijk in cache op een edge-server, wordt klikt u vervolgens de volgende aanvraag voor de activa doorgestuurd opnieuw met de oorspronkelijke server.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
+
 --->
 Een gedeeltelijke Cachemisser treedt meestal op nadat een gebruiker een download annuleert of voor bedrijfsmiddelen die uitsluitend worden aangevraagd met behulp van HTTP-aanvragen voor bereik. Deze functie is vooral handig voor grote activa waar gebruikers wordt niet doorgaans worden gedownload van begin tot eind (bijvoorbeeld video's). Als gevolg hiervan is deze functie standaard ingeschakeld op het grote HTTP-platform. Het is uitgeschakeld op alle andere platforms.
 
@@ -382,6 +435,11 @@ Uitgeschakeld|Hiermee voorkomt dat een edge-server uitvoeren van een op de achte
 
 **Standaardgedrag:** ingeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="compress-file-types"></a>Bestandstypen comprimeren
 **Doel:** worden de bestandsindelingen die zal worden gecomprimeerd gedefinieerd op de server.
 
@@ -402,12 +460,17 @@ Belangrijke informatie:
 - Jokertekens zoals sterretjes, worden niet ondersteund.
 - Voordat u deze functie naar een regel toevoegt, zorg ervoor dat u stelt u de optie compressie uitgeschakeld op de pagina compressie voor het platform waarop deze regel moet worden toegepast.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="custom-log-field-1"></a>Aangepast logboekveld 1
 **Doel:** bepaalt de indeling en de inhoud die wordt toegewezen aan het aangepaste logboekveld in een onbewerkte logboekbestand.
 
-Het belangrijkste doel achter dit aangepaste veld is dat u kunt bepalen welke aanvraag en antwoord met de headerwaarden wordt opgeslagen in de logboekbestanden.
+Dit aangepaste veld kunt u bepalen welke headerwaarden aanvraag en -antwoord in de logboekbestanden worden opgeslagen.
 
-Standaard wordt het aangepaste logboekveld 'x-ec_custom-1.' genoemd. De naam van dit veld kan echter worden aangepast via de [onbewerkte logboekinstellingen pagina]().
+Standaard wordt het aangepaste logboekveld 'x-ec_custom-1.' genoemd. De naam van dit veld kan echter worden aangepast via de pagina onbewerkte logboekinstellingen.
 
 De opmaak die u gebruiken moet om op te geven van de aanvraag- en reactieheaders is onder gedefinieerd.
 
@@ -426,6 +489,11 @@ Belangrijke informatie:
 
 **Standaardwaarde:** -
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="debug-cache-response-headers"></a>Fouten opsporen in Cache antwoordheaders
 **Doel:** bepaalt of een antwoord antwoordheader van de X-EC-Debug die informatie over het cachebeleid voor de aangevraagde asset bevat kan bevatten.
 
@@ -449,6 +517,11 @@ Uitgeschakeld|De X-EC-Debug response-header worden uitgesloten van het antwoord.
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="default-internal-max-age"></a>Standaard interne-maximumleeftijd
 **Doel:** bepaalt het standaardinterval voor de maximale leeftijd voor edge-server naar de oorsprong server cache opnieuw te worden gevalideerd. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een edge-server wordt gecontroleerd of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
 
@@ -474,6 +547,11 @@ Belangrijke informatie:
 
 **Standaardwaarde:** 7 dagen
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="deny-access-403"></a>(403) toegang weigeren
 **Doel**: Hiermee bepaalt u of alle aanvragen zijn afgewezen met een 403-verboden-antwoord.
 
@@ -487,6 +565,11 @@ Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is
 > [!TIP]
    > Een mogelijke gebruik voor deze functie is het koppelen aan een voorwaarde van de overeenkomst Header aanvragen toegang tot HTTP-verwijzingen die van inline koppelingen naar uw inhoud gebruikmaken blokkeren.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="expires-header-treatment"></a>Koptekst behandeling verloopt
 **Doel:** Expires-koppen worden gegenereerd door een edge-server bepaalt wanneer de functie externe maximumleeftijd actief is.
 
@@ -501,6 +584,11 @@ Verwijderen| Zorgt ervoor dat een Expires-header niet opgenomen in de header-rea
 
 **Standaardgedrag:** overschrijven
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="external-max-age"></a>Externe maximumleeftijd
 **Doel:** bepaalt het maximumleeftijd interval voor de browser edge-server opnieuw valideren. Met andere woorden, de hoeveelheid tijd die wordt doorgegeven voordat een browser kan worden gecontroleerd voor een nieuwe versie van een actief van een edge-server.
 
@@ -515,6 +603,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** uitschakelen
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="follow-redirects"></a>Omleidingen volgen
 **Doel:** bepaalt of de aanvragen kunnen worden omgeleid naar de hostnaam die is gedefinieerd in de locatieheader geretourneerd door een klant-bronserver.
 
@@ -529,6 +622,11 @@ Uitgeschakeld|Geen zal aanvragen worden omgeleid.
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="force-internal-max-age"></a>Interne maximumleeftijd forceren
 **Doel:** de maximumleeftijd interval voor edge-server naar de oorsprong server cache hervalidatie bepaald. Met andere woorden, de hoeveelheid tijd dat wordt gewacht voordat een edge-server controleren kunt of een in cache asset overeenkomt met de asset die zijn opgeslagen op de bronserver.
 
@@ -553,6 +651,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** uitschakelen
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="h264-support-http-progressive-download"></a>H.264-ondersteuning (http-progressief downloaden)
 **Doel:** bepaalt de soorten H.264 bestandsindelingen die kunnen worden gebruikt om inhoud streamen.
 
@@ -563,6 +666,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** MP4 en F4V media standaard HTTP progressief downloaden ondersteunt.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="honor-no-cache-request"></a>EEr No-Cache-aanvraag
 **Doel:** bepaalt of een HTTP-client geen cache's aanvragen zal worden doorgestuurd naar de oorspronkelijke server.
 
@@ -579,6 +687,11 @@ De status van de cache die worden gerapporteerd voor een aanvraag die is toegest
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-origin-no-cache"></a>Negeren oorsprong No-Cache
 **Doel:** bepaalt of de CDN wordt genegeerd door de volgende richtlijnen geleverd van een bronserver:
 
@@ -603,6 +716,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** het standaardgedrag is om te voldoen aan de bovenstaande richtlijnen.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-unsatisfiable-ranges"></a>Ongeldig bereiken negeren 
 **Doel:** bepaalt de reactie die naar clients wordt geretourneerd wanneer een aanvraag statuscode 416 aangevraagd bereik niet geldig genereert.
 
@@ -615,6 +733,11 @@ Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is om 
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="internal-max-stale"></a>Interne Max-verouderd
 **Doel:** bepaalt hoe lang voorbij de normale verlooptijd een activum in de cache kan worden geleverd vanuit een edge-server wanneer de edge-server niet kan valideren van de cache asset met de bronserver.
 
@@ -644,6 +767,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** twee minuten
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="log-query-string"></a>Queryreeks logboek
 **Doel:** bepaalt of een queryreeks samen met de URL in Logboeken worden opgeslagen.
 
@@ -654,6 +782,11 @@ Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is que
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="maximum-keep-alive-requests"></a>Maximum aantal keepalive-aanvragen
 **Doel:** definieert het maximum aantal aanvragen voor een Keep-Alive verbinding wordt gesloten.
 
@@ -666,6 +799,11 @@ Belangrijke informatie:
 
 **Standaardwaarde:** 10.000 aanvragen
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-request-header"></a>De aanvraagheader Client wijzigen
 **Doel:** elke aanvraag bevat een set van aanvraagheaders beschrijving van het. Deze functie de volgende mogelijkheden:
 
@@ -699,6 +837,11 @@ Belangrijke informatie:
     - x doorgestuurd voor
     - Alle headernamen die met 'x ec beginnen' zijn gereserveerd.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-response-header"></a>Client-antwoordheader wijzigen
 Elk antwoord bevat een set van antwoordheaders beschrijving van het. Deze functie de volgende mogelijkheden:
 
@@ -740,6 +883,11 @@ Belangrijke informatie:
     - Waarschuwing
     - Alle headernamen die met 'x ec beginnen' zijn gereserveerd.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="partial-cache-sharing"></a>Gedeeltelijke Cache delen
 **Doel:** bepaalt of een aanvraag deels in cache opgeslagen inhoud kan genereren.
 
@@ -752,6 +900,11 @@ Uitgeschakeld|Aanvragen kunnen alleen genereren voor een volledig in de cache op
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="prevalidate-cached-content"></a>De inhoud in cache prevalidate
 **Doel:** Hiermee wordt bepaald of de inhoud in cache in aanmerking komen voor vroege hervalidatie voordat de TTL verloopt.
 
@@ -763,6 +916,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** uitschakelen. Hervalidatie kan alleen plaatsvinden nadat de inhoud in de cache van TTL is verlopen.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="proxy-special-headers"></a>Speciale proxy-kopteksten
 **Doel:** definieert de set van CDN-specifieke aanvraagheaders die uit een edge-server, worden doorgestuurd naar een bronserver.
 
@@ -773,6 +931,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** alle CDN-specifieke aanvraagheaders doorgestuurd naar de oorspronkelijke server.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="refresh-zero-byte-cache-files"></a>Vernieuwen van nul bytes cachebestanden
 **Doel:** bepaalt hoe van de client van een HTTP-aanvraag voor een asset 0-byte-cache wordt verwerkt door de edge-servers.
 
@@ -788,6 +951,11 @@ voor deze inhoud vervolgens deze functie kunt voorkomen dat deze typen elementen
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-cacheable-status-codes"></a>Statuscodes voor caching geschikte instellen
 **Doel:** definieert de set met statuscodes die tot de inhoud in cache leiden kunnen.
 
@@ -803,6 +971,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** opslaan in cache is alleen ingeschakeld voor reacties waarbij 200 OK statuscode is gegenereerd.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-client-ip-custom-header"></a>Stel aangepaste Header voor Client-IP
 **Doel:** voegt u een aangepaste header die de aanvragende client op IP-adres op de aanvraag identificeert.
 
@@ -822,6 +995,11 @@ Zorg ervoor dat de opgegeven header-naam komt niet overeen met een van de volgen
     - x doorgestuurd voor
     - Alle headernamen die met 'x ec beginnen' zijn gereserveerd.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-content-delivery-on-error"></a>Verouderde Contentlevering bij fout
 **Doel:** bepaalt of verlopen in de cache inhoud wordt geleverd als een fout optreedt tijdens de hervalidatie van de cache of bij het ophalen van de aangevraagde inhoud op de bronserver van de klant.
 
@@ -832,6 +1010,11 @@ Uitgeschakeld|Fout bij de bronserver wordt doorgestuurd naar de aanvrager.
 
 **Standaardgedrag:** uitgeschakeld
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-while-revalidate"></a>Verouderde tijdens Revalidate
 **Doel:** verbetert de prestaties doordat de edge-servers en verouderde inhoud leveren aan de aanvrager terwijl hervalidatie plaatsvindt.
 
@@ -844,6 +1027,11 @@ Belangrijke informatie:
 
 **Standaardgedrag:** uitschakelen. Hervalidatie moet plaatsvinden voordat de aangevraagde inhoud kan worden geleverd.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth"></a>Token Auth
 **Doel:** bepaalt of verificatie op basis van tokens worden toegepast op een aanvraag.
 
@@ -858,6 +1046,11 @@ Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is
 
 **Standaardgedrag:** uitgeschakeld.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-denial-code"></a>Token Auth DOS-Code
 **Doel:** bepaalt het type van de reactie die wordt geretourneerd voor een gebruiker wanneer een aanvraag wordt geweigerd vanwege verificatie op basis van tokens.
 
@@ -898,6 +1091,11 @@ De bovenstaande configuratie kan worden bereikt door het uitvoeren van de volgen
 
 De WWW-Authenticate-header is alleen van toepassing op 401 responscodes.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-ignore-url-case"></a>Token Auth hoofdlettergevoeligheid niet van belang URL
 **Doel:** bepaalt of de URL vergelijkingen aangebracht door verificatie op basis van tokens hoofdlettergevoelig zijn.
 
@@ -915,7 +1113,12 @@ Ingeschakeld|Zorgt ervoor dat de edge-server hoofdlettergevoeligheid niet van be
 Uitgeschakeld|Hiermee herstelt u het standaardgedrag. Het standaardgedrag is voor de URL vergelijkingen voor tokenverificatie zijn hoofdlettergevoelig.
 
 **Standaardgedrag:** uitgeschakeld.
- 
+
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-parameter"></a>Token Auth-Parameter
 **Doel:** bepaalt of de verificatie op basis van tokens querytekenreeksparameter moet worden gewijzigd.
 
@@ -932,6 +1135,11 @@ Uitgeschakeld|Een token kan worden opgegeven als een niet-gedefinieerde queryree
 
 **Standaardgedrag:** uitgeschakeld. Een token kan worden opgegeven als een niet-gedefinieerde queryreeksparameter opgeven in de aanvraag-URL.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-redirect"></a>URL-omleiding
 **Doel:** aanvragen via de locatie-header wordt omgeleid.
 
@@ -967,7 +1175,12 @@ Deze URL-omleiding kan worden bereikt via de volgende configuratie:![](./media/c
         - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - De variabele aanvragen schema (% {schema}) is gebruikt in de doel-optie. Dit zorgt ervoor dat het schema van de aanvraag ongewijzigd na omleiding blijft.
 - De URL-segmenten die zijn opgenomen in de aanvraag worden toegevoegd aan de nieuwe URL via "$1."
- 
+
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-rewrite"></a>Herschrijven van URL
 **Doel:** herschrijft de aanvraag-URL.
 
@@ -1021,6 +1234,14 @@ Deze functie bevat die overeenkomt met de criteria die moeten worden voldaan voo
 - URL-queryparameter
 - URL-Query Regex
 - URL-Query jokertekens
+
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
+### <a name="user-variable"></a>Variabele van de gebruiker
+**Doel:** primarity met Lua scripts gebruikt. Met de functie gebruiker-variabele, kunt u hash-functies voor het beveiligen van URL's met een script Lua downloaden.
 
 
 ## <a name="next-steps"></a>Volgende stappen

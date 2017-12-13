@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 91958b14d3e73677b30bbc8f46eb9eada3afde84
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -101,6 +101,9 @@ Om te bepalen of uw gebruikersrol van het account de vereiste machtigingen heeft
 4. In de **Resource Provider** selecteert **Microsoft Authorization**. 
     * **Roltoewijzing** moet **lezen** en **schrijven** machtigingen.
     * **Roldefinitie** moet **lezen** en **schrijven** machtigingen.
+
+<a id="server-endpoint-createjobfailed"></a>**Het maken van de endpoint mislukt, vanwege de volgende fout: 'MgmtServerJobFailed' (foutcode:-2134375898)**                                                                                                                           
+Dit probleem treedt op als het pad naar het eindpunt van de server zich op het systeemvolume en cloud tiering is ingeschakeld. Cloud tiering wordt niet ondersteund op het systeemvolume. Een om servereindpunt te maken op het systeemvolume, cloud tiering bij het maken van de server het eindpunt niet uitschakelen.
 
 <a id="server-endpoint-deletejobexpired"></a>**Server-eindpunt verwijderen is mislukt, vanwege de volgende fout: "MgmtServerJobExpired"**                
 Dit probleem treedt op als de server offline is of geen verbinding met het netwerk. Als de server niet langer beschikbaar is, hef de registratie van de server in de portal die de server-eindpunten wordt verwijderd. Volg de stappen die worden beschreven in voor het verwijderen van de server-eindpunten [Hef de registratie van een server met het synchroniseren van Azure bestand](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

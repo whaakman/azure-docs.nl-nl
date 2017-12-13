@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
 In dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
@@ -159,227 +159,33 @@ Zie voor een volledige lijst van sjabloonfuncties [Azure Resource Manager-sjablo
 ## <a name="parameters"></a>Parameters
 U opgeven welke waarden u invoeren kunt bij het implementeren van de resources in het gedeelte parameters van de sjabloon. De parameterwaarden van deze kunnen u de implementatie aanpassen door het verstrekken van waarden die zijn aangepast voor een bepaalde omgeving (zoals ontwikkelen, testen en productie). U hoeft niet te bieden parameters in de sjabloon, maar zonder parameters uw sjabloon altijd dezelfde resources met dezelfde namen, locaties en eigenschappen zou implementeren.
 
-U definieert parameters met de volgende structuur:
+Het volgende voorbeeld ziet u een eenvoudige parameterdefinitie:
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": "<default-value-of-parameter>",
-        "allowedValues": [ "<array-of-allowed-values>" ],
-        "minValue": <minimum-value-for-int>,
-        "maxValue": <maximum-value-for-int>,
-        "minLength": <minimum-length-for-string-or-array>,
-        "maxLength": <maximum-length-for-string-or-array-parameters>,
-        "metadata": {
-            "description": "<description-of-the parameter>" 
-        }
+  "siteNamePrefix": {
+    "type": "string",
+    "metadata": {
+      "description": "The name prefix of the web app that you wish to create."
     }
-}
+  },
+},
 ```
 
-| Elementnaam | Vereist | Beschrijving |
-|:--- |:--- |:--- |
-| parameterName |Ja |De naam van de parameter. Moet een geldige JavaScript-id. |
-| type |Ja |Type van de waarde van parameter. Zie de lijst met toegestane typen na deze tabel. |
-| Standaardwaarde |Nee |De standaardwaarde voor de parameter als u geen waarde is opgegeven voor de parameter. |
-| allowedValues |Nee |Matrix van toegestane waarden voor de parameter om ervoor te zorgen dat de juiste waarde is opgegeven. |
-| MinValue |Nee |De minimumwaarde voor de parameters van het type int, deze waarde is liggen. |
-| MaxValue |Nee |De maximale waarde voor de parameters van het type int, deze waarde is liggen. |
-| minLength |Nee |De minimale lengte voor string, secureString en array typeparameters deze waarde is liggen. |
-| maxLength |Nee |De maximale lengte voor string, secureString en array typeparameters deze waarde is liggen. |
-| description |Nee |Beschrijving van de parameter die wordt weergegeven voor gebruikers via de portal. |
-
-De toegestane typen en waarden zijn:
-
-* **tekenreeks**
-* **secureString**
-* **int**
-* **BOOL**
-* **object** 
-* **secureObject**
-* **matrix**
-
-Als u een parameter als een optionele, bieden een defaultValue (kunnen geen lege tekenreeks zijn). 
-
-Als u een parameternaam in de sjabloon die overeenkomt met een parameter in de opdracht om de sjabloon te implementeren opgeeft, is het mogelijke verwarring over de waarden die u opgeeft. Resource Manager wordt deze verwarring opgelost doordat de postfix **FromTemplate** voor de sjabloonparameter. Bijvoorbeeld, als u een parameter genaamd opnemen **ResourceGroupName** in uw sjabloon een conflict met de **ResourceGroupName** parameter in de [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Tijdens de implementatie, moet u een waarde opgeven voor **ResourceGroupNameFromTemplate**. In het algemeen moet u deze verwarring niet door de naam geen parameters met dezelfde naam als parameters die worden gebruikt voor implementatiebewerkingen.
-
-> [!NOTE]
-> Alle wachtwoorden, sleutels en andere geheime informatie moeten gebruiken de **secureString** type. Als u gevoelige gegevens in een JSON-object doorgeven, gebruikt u de **secureObject** type. Sjabloonparameters met secureString of secureObject typen kunnen niet worden gelezen na de implementatie van de resource. 
-> 
-> De volgende vermelding in de implementatiegeschiedenis van de ziet u bijvoorbeeld de waarde voor een tekenreeks en object maar niet voor secureString en secureObject.
->
-> ![waarden van de implementatie weergeven](./media/resource-group-authoring-templates/show-parameters.png)  
->
-
-Het volgende voorbeeld ziet u hoe parameters definiëren:
-
-```json
-"parameters": {
-    "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-    },
-    "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-    },
-    "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-    },
-    "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-    }
-}
-```
-
-Voor het invoeren van de parameterwaarden die tijdens de implementatie, Zie [Implementeer een toepassing met Azure Resource Manager-sjabloon](resource-group-template-deploy.md). 
+Zie voor meer informatie over het definiëren van parameters [sectie opdrachtregelparameters van Azure Resource Manager-sjablonen](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Variabelen
 In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon opstellen. U hoeft geen variabelen definiëren, maar ze vaak uw sjabloon vereenvoudigen doordat complexe expressies.
 
-U definieert variabelen met de volgende structuur:
+Het volgende voorbeeld ziet u een eenvoudige variabele-definitie:
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    }
-}
-```
-
-Het volgende voorbeeld ziet u hoe een variabele die is samengesteld uit twee parameterwaarden definiëren:
-
-```json
-"variables": {
-    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-}
-```
-
-Het volgende voorbeeld ziet u een variabele die is complex type JSON en variabelen die zijn samengesteld uit andere variabelen:
-
-```json
-"parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
-},
-"variables": {
-    "environmentSettings": {
-        "test": {
-            "instancesSize": "Small",
-            "instancesCount": 1
-        },
-        "prod": {
-            "instancesSize": "Large",
-            "instancesCount": 4
-        }
-    },
-    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-}
-```
-
-U kunt de **kopie** syntaxis van een variabele maken met een matrix van meerdere elementen. U kunt een aantal opgeven voor het aantal elementen. Elk element bevat de eigenschappen in de **invoer** object. U kunt kopiëren binnen een variabele of de variabele maken. Beide benaderingen worden weergegeven in het volgende voorbeeld:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "disk-array-on-object": {
-      "copy": [
-        {
-          "name": "disks",
-          "count": 5,
-          "input": {
-            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-            "diskSizeGB": "1",
-            "diskIndex": "[copyIndex('disks')]"
-          }
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "disks-top-level-array",
-        "count": 5,
-        "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-          "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
-        }
-      }
-    ]
-  },
-  "resources": [],
-  "outputs": {
-    "exampleObject": {
-      "value": "[variables('disk-array-on-object')]",
-      "type": "object"
-    },
-    "exampleArrayOnObject": {
-      "value": "[variables('disk-array-on-object').disks]",
-      "type" : "array"
-    },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
-      "type" : "array"
-    }
-  }
-}
-```
-
-U kunt ook meer dan één object opgeven wanneer zij exemplaar gebruiken voor het maken van variabelen. Het volgende voorbeeld definieert twee matrices als variabelen. Een heet **schijven top-niveau matrix** en vijf elementen heeft. De andere heet **een andere-matrix** en drie elementen heeft.
-
-```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
+  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
 },
 ```
+
+Zie voor meer informatie over het definiëren van variabelen [gedeelte variabelen van Azure Resource Manager-sjablonen](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Resources
 In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert de juiste waarden opgeven dat u begrijpt. Zie voor de resource-specifieke waarden (apiVersion, type en eigenschappen) die u nodig hebt om in te stellen [resources in Azure Resource Manager-sjablonen definiëren](/azure/templates/). 
@@ -427,14 +233,14 @@ U definieert resources met de volgende structuur:
 
 | Elementnaam | Vereist | Beschrijving |
 |:--- |:--- |:--- |
-| Voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource is geïmplementeerd. |
+| voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource is geïmplementeerd. |
 | apiVersion |Ja |De versie van de REST-API gebruiken voor het maken van de resource. |
 | type |Ja |Type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). |
 | naam |Ja |De naam van de resource. De naam moet URI onderdeel beperkingen gedefinieerd in RFC3986 volgen. Bovendien Azure-services die beschikbaar om te valideren buiten partijen de naam om te controleren of deze de naam van de resource is niet een poging tot een andere identiteit vervalsen. |
 | location |Varieert |Ondersteunde geografische locaties van de opgegeven bron. U kunt een van de beschikbare locaties selecteren, maar meestal is het verstandig om te selecteren die dicht bij uw gebruikers. Meestal is het ook handig om resources die in dezelfde regio met elkaar communiceren. De meeste brontypen die een locatie vereist, maar sommige typen (zoals een roltoewijzing) hoeven niet een locatie. Zie [Resourcelocatie instellen in Azure Resource Manager-sjablonen](resource-manager-template-location.md). |
 | tags |Nee |Labels die gekoppeld aan de resource zijn. Zie [resources in Azure Resource Manager-sjablonen taggen](resource-manager-template-tags.md). |
 | Opmerkingen |Nee |De notities voor de resources in uw sjabloon documenteren |
-| Kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources te implementeren op hetzelfde moment opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
+| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources te implementeren op hetzelfde moment opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat u deze bron wordt geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze worden geïmplementeerd in de juiste volgorde. Wanneer u resources zijn niet afhankelijk van elkaar, worden ze geïmplementeerd parallel. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of unieke id's voor een resource. Alleen de lijst van resources die zijn geïmplementeerd in deze sjabloon. Bronnen die niet in deze sjabloon zijn gedefinieerd, moeten al bestaan. Vermijd toe te voegen onnodige afhankelijkheden als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor instructies over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
 | properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de aanvraagtekst voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
 | bronnen |Nee |Onderliggende resources die afhankelijk zijn van de bron wordt gedefinieerd. Geef alleen brontypen die worden toegestaan door het schema van de bovenliggende resource. Het volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource niet geïmpliceerd. U moet deze afhankelijkheid expliciet definiëren. |
