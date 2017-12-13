@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: Problemen oplossen met behulp van Data Management Gateway
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: SSIS-pakketten aanroepen met behulp van opgeslagen procedureactiviteit
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Naslaginformatie
   items:
     - name: Codevoorbeelden
