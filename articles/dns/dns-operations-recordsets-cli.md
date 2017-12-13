@@ -3,7 +3,7 @@ title: DNS-records in Azure DNS met de Azure CLI 2.0 beheren | Microsoft Docs
 description: Het beheren van DNS-recordsets en records op Azure DNS bij het hosten van uw Azure DNS-domein. Alle 2.0 CLI-opdrachten voor bewerkingen voor recordsets en records.
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,29 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS-records en recordsets in Azure DNS met de Azure CLI 2.0 beheren
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 In dit artikel laat zien hoe DNS-records voor de DNS-zone beheren met behulp van de platformoverschrijdende Azure-opdrachtregelinterface (CLI) 2.0, die beschikbaar voor Windows, Mac en Linux is. U kunt ook de DNS-records met beheren [Azure PowerShell](dns-operations-recordsets.md) of de [Azure-portal](dns-operations-recordsets-portal.md).
-
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versies om de taak uit te voeren
-
-U kunt de taak uitvoeren met behulp van een van de volgende CLI-versies:
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md): onze CLI voor het klassieke implementatiemodel en het Resource Manager-implementatiemodel.
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md): onze CLI van de volgende generatie voor het Resource Manager-implementatiemodel.
 
 De voorbeelden in dit artikel wordt ervan uitgegaan dat u al hebt [Azure CLI 2.0, aangemeld, geïnstalleerd en wordt gemaakt van een DNS-zone](dns-operations-dnszones-cli.md).
 

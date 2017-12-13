@@ -1,6 +1,6 @@
 ---
 title: SAP HANA-bewerkingen op Azure | Microsoft Docs
-description: Bewerkingen van SAP HANA op virtuele machines in Azure systeemeigen
+description: "Bedieningshandleiding voor SAP HANA-systemen die zijn geïmplementeerd op virtuele machines in Azure."
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: 
 author: juergent
@@ -16,132 +16,133 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab609fe9e7b01d7087dd00c22c19e69a471f6599
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e8ddfd5e2ee57d79fecacdc648af9264b6c95240
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA op Azure-bedieningshandleiding
-Deze handleiding bevat richtlijnen voor SAP HANA besturingssystemen die zijn geïmplementeerd op Azure Virtual Machines. Dit document is niet bedoeld ter vervanging van een van de standaard SAP-documentatie. SAP-handleidingen en -opmerkingen vindt u op de volgende locaties:
+Dit document biedt richtlijnen voor SAP HANA besturingssystemen die worden geïmplementeerd op Azure systeemeigen virtuele machines (VM's). Dit document is niet bedoeld voor het vervangen van de standaard SAP-documentatie, waaronder de volgende inhoud:
 
 - [Beheerdershandleiding voor SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP installatiehandleidingen](https://service.sap.com/instguides)
-- [SAP-notitie](https://sservice.sap.com/notes)
+- [SAP-opmerkingen](https://sservice.sap.com/notes)
 
-Vereiste is dat u basiskennis van de verschillende Azure-onderdelen van:
+## <a name="prerequisites"></a>Vereisten
+Voor het gebruik van deze handleiding, moet u basiskennis hebt van de volgende Azure onderdelen:
 
-- [Virtuele Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-- [Azure-netwerk- en vnet 's](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Virtuele machines van Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Azure-netwerken en virtuele netwerken](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-Aanvullende documentatie over SAP NetWeaver en andere onderdelen SAP op Azure vindt u in de [SAP op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) sectie van de [Azure-documentatie](https://docs.microsoft.com/azure/).
+Zie voor meer informatie over SAP NetWeaver en andere onderdelen SAP op Azure, de [SAP op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) sectie van de [Azure-documentatie](https://docs.microsoft.com/azure/).
 
 ## <a name="basic-setup-considerations"></a>Basisinstellingen overwegingen
-### <a name="connecting-into-azure"></a>Verbinding maken in Azure
-Zoals beschreven in [Azure Virtual Machines planning en implementatie voor SAP NetWeaver] [-Planningshandleiding], er zijn twee basismethoden in Azure virtuele Machines te koppelen. 
+De volgende secties beschrijven basisinstellingen overwegingen voor het implementeren van SAP HANA-systemen op Azure Virtual machines.
 
-- Verbinding maken via Internet en openbare eindpunten op een VM gaan of de virtuele machine met SAP HANA
-- Verbinding maken via een [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) of Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+### <a name="connect-into-azure-virtual-machines"></a>Verbinding maken in Azure virtuele machines
+Zoals beschreven in de [Planningshandleiding virtuele Azure-machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide), er zijn twee basismethoden om verbinding te maken in Azure Virtual machines:
 
-Voor productie scenario's of scenario's waarin niet productiescenario's die naar de productie-scenario's in combinatie met SAP-software die u wilt een site-naar-site-connectiviteit via VPN- of ExpressRoute hebben, zoals wordt weergegeven in deze afbeelding:
+- Verbinding maken via het internet en de openbare eindpunten op een VM gaan of op de virtuele machine met SAP HANA.
+- Verbinding maken via een [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) of Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+
+Site-naar-site-connectiviteit via VPN- of ExpressRoute is nodig voor productiescenario's. Dit type verbinding is ook nodig voor niet-productieve scenario's die naar de productie-scenario's waar SAP-software wordt gebruikt. De volgende afbeelding toont een voorbeeld van cross-site-verbinding:
 
 ![Cross-site-connectiviteit](media/virtual-machines-shared-sap-planning-guide/300-vpn-s2s.png)
 
 
-### <a name="choice-of-azure-vm-types"></a>Keuze van de virtuele machine van Azure-typen
-Azure VM-typen die kunnen worden gebruikt voor productiescenario's kunnen worden opgezocht [hier](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Voor niet-productieve scenario's, kunt u een groter aantal systeemeigen Azure VM's. U moet echter zelf tot beperken de VM-typen die zijn [SAP-notitie #1928533](https://launchpad.support.sap.com/#/notes/1928533). Implementatie van deze virtuele machines in Azure kan worden uitgevoerd via:
+### <a name="choose-azure-vm-types"></a>Virtuele machine van Azure typen kiezen
+De virtuele machine van Azure-typen die kunnen worden gebruikt voor productiescenario's worden vermeld in de [SAP-documentatie voor IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Voor scenario's met niet-productieve is een groter aantal systeemeigen Azure VM-typen beschikbaar.
 
-- Azure Portal
-- Azure Powershell-Cmdlets
-- Azure CLI
+>[!NOTE]
+>Gebruik voor niet-productiescenario's de VM-typen die worden vermeld in de [SAP-notitie #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-U kunt volledige geïnstalleerde SAP HANA-platform op Azure Virtual machine-services via ook implementeren [SAP-cloudplatform](https://cal.sap.com/) zoals beschreven [hier](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+De virtuele machines in Azure implementeren door gebruik te maken:
 
-### <a name="choice-of-azure-storage"></a>Keuze van de Azure-opslag
-Azure biedt twee belangrijke opslagtypen geschikt is voor Azure Virtual machines SAP HANA uitgevoerd
+- De Azure-portal.
+- Azure PowerShell-cmdlets.
+- De Azure CLI.
+
+U kunt een volledige SAP HANA-platform is geïnstalleerd op de virtuele machine van Azure-services via ook implementeren de [SAP-Cloud-platform](https://cal.sap.com/). Het installatieproces wordt beschreven in [implementeren SAP S/4HANA of BW/4HANA op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+
+### <a name="choose-azure-storage-type"></a>Azure Storage type kiezen
+Azure biedt twee typen opslag die geschikt zijn voor Azure VM's waarop SAP HANA:
 
 - [Azure Standard-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
 - [Azure Premium-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
 
-Azure biedt twee methoden voor het implementeren voor virtuele harde schijven op Azure Standard en Premium-opslag. Als het algemene scenario toestaat, is het raadzaam gebruikmaken van [beheerde Azure-schijf](https://azure.microsoft.com/services/managed-disks/) implementaties.
+Azure biedt twee methoden voor het implementeren voor virtuele harde schijven op Azure Standard en Premium-opslag. Als het algemene scenario toestaat, profiteren van [Azure beheerd schijf](https://azure.microsoft.com/services/managed-disks/) implementaties.
 
-Controleer voor de exacte opslagtypen en sla's rond de opslagtypen [deze documentatie](https://azure.microsoft.com/pricing/details/managed-disks/)
+Raadpleeg voor een lijst van de opslagtypen en de bijbehorende Sla de [Azure-documentatie voor beheerde schijven](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Het verdient aanbeveling gebruik van Azure Premium-schijven voor /hana/data en /hana/log volumes. Voor het bouwen van een RAID LVM over meerdere schijven met Premium-opslag en gebruik deze RAID-volumes als /hana/data en /hana/log volumes wordt ondersteund.
+Azure Premium-schijven wordt aanbevolen voor /hana/data en /hana/log volumes. U kunt een RAID LVM bouwen via meerdere schijven met Premium-opslag en de RAID-volumes als /hana/data en /hana/log volumes gebruiken.
 
-Een mogelijke configuratie voor verschillende algemene typen van de VM die klanten gebruikt tot nu toe als host voor SAP HANA op Azure Virtual machines kan eruitzien als:
+De volgende tabel toont een configuratie van VM-typen die klanten wordt meestal gebruikt voor SAP HANA op Azure Virtual machines host:
 
 | VM-SKU | RAM | hana/gegevens en hana/logboekbestanden<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| E16v3 | 128 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
+| E32v3 | 256 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64s | 1 TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
 | M64ms | 1.7 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
 | M128ms | 3.8 TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
 
 
-### <a name="azure-networking"></a>Azure-netwerken
-Ervan uitgaande dat u een verbinding van de site-naar-site VPN- of ExpressRoute in Azure hebt, hebt u minimaal één [Azure VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) die is verbonden via een virtuele Gateway aan de VPN- of ExpressRoute-circuit. De virtuele Gateway woont in een subnet in het Azure Vnet. Om te installeren HANA, maakt u een andere twee subnetten binnen het VNet. Één subnet dat de VM('s) met de SAP HANA-exemplaren en een ander subnet met uiteindelijke Jumpbox of Management VM('s) die hosts SAP HANA Studio of andere software voor beheer kunnen hosten.
-Wanneer u de virtuele machines die moeten worden uitgevoerd HANA installeert, moeten de virtuele machines hebben:
+### <a name="set-up-azure-virtual-networks"></a>Virtuele netwerken in Azure instellen
+Als u site-naar-site-verbinding in Azure via de VPN- of ExpressRoute hebt, moet u ten minste één hebben [virtuele Azure-netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) die is verbonden via een virtuele Gateway aan de VPN- of ExpressRoute-circuit. De virtuele Gateway woont in een subnet in het Azure-netwerk. Als u wilt installeren SAP HANA, moet u twee extra subnetten in het virtuele netwerk maken. Eén subnet als host fungeert voor de virtuele machines voor uitvoering van de SAP HANA-exemplaren. Jumpbox of beheer van virtuele machines als host voor SAP HANA Studio of andere software voor beheer, wordt het andere subnet uitgevoerd.
 
-- Twee virtuele NIC's geïnstalleerd die een verbinding met het management-subnet maakt en één NIC die wordt gebruikt vanaf op lokale of andere netwerken verbinding maken met de SAP HANA-exemplaar in de Azure VM.
-- Statische privé IP-adressen die zijn geïmplementeerd voor beide vNICs
+Wanneer u de virtuele machines uitvoeren SAP HANA installeert, moeten de virtuele machines:
 
-Een overzicht van de verschillende mogelijkheden om IP-adrestoewijzing vindt [hier](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+- Twee virtuele NIC's geïnstalleerd: één NIC verbinding maken met het management-subnet en één NIC die vanaf de on-premises netwerk of andere netwerken verbinding maken met de SAP HANA-exemplaar in de Azure VM.
+- Statische privé IP-adressen die zijn geïmplementeerd voor zowel virtuele NIC's.
 
-Door het verkeersroutering naar rechtstreeks naar het SAP HANA-exemplaar of de jumpbox wordt geleid [Netwerkbeveiligingsgroepen Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) die zijn gekoppeld aan het subnet HANA en het subnet Management.
+Zie voor een overzicht van de verschillende methoden voor het toewijzen van IP-adressen [IP-adres typen en toewijzingsmethoden in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-De algemene eruit als het schema ruwe implementatie:
+[Azure Netwerkbeveiligingsgroepen (nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) worden gebruikt om verkeer dat wordt doorgestuurd naar de SAP HANA-exemplaar of de Jumpbox sturen. Het nsg's zijn gekoppeld aan het SAP HANA-subnet en het subnet Management.
+
+De volgende afbeelding toont een overzicht van een schema ruwe implementatie voor SAP HANA:
 
 ![Schema voor SAP HANA ruwe implementatie](media/hana-vm-operations/hana-simple-networking.PNG)
 
 
-Als u alleen SAP HANA in Azure implementeren zonder een site-naar-site (VPN- of ExpressRoute in Azure), opent u zou de SAP HANA-exemplaar al is een openbaar IP-adres dat is toegewezen aan de virtuele machine in Azure waarop uw Jumpbox VM wordt uitgevoerd. In het eenvoudige geval afhankelijk u ook van de Azure-ingebouwde DNS-services om om te zetten hostnamen. Met name wanneer u openbare internetgerichte IP-adressen, die u wilt Netwerkbeveiligingsgroepen Azure gebruiken om te beperken van de open poorten of IP-adresbereiken die verbinding mogen maken in de Azure-subnetten met activa met openbare internetgerichte IP-adressen. Het schema van deze implementatie kan eruitzien als:
+Als u wilt SAP HANA in Azure implementeren zonder een site-naar-site-verbinding, toegang krijgen tot het SAP HANA-exemplaar al een openbaar IP-adres. Het IP-adres moet worden toegewezen aan de virtuele machine in Azure waarop uw Jumpbox VM wordt uitgevoerd. In dit eenvoudige scenario is de implementatie is afhankelijk van Azure geïntegreerde DNS-services hostnamen omzetten. Azure geïntegreerde DNS-services zijn in een complexere implementatie waar de openbare IP-adressen worden gebruikt, met name belangrijk. Gebruik Azure nsg's te beperken van de open poorten of IP-adresbereiken die verbinding kunnen maken in de Azure-subnetten met activa met openbare IP-adressen. De volgende afbeelding toont een ruwe schema voor SAP HANA implementeren zonder een site-naar-site-verbinding:
   
-![Implementatie van ruwe schema voor SAP HANA zonder site-naar-site-verbinding](media/hana-vm-operations/hana-simple-networking2.PNG)
+![Implementatie van ruwe schema voor SAP HANA zonder een site-naar-site-verbinding](media/hana-vm-operations/hana-simple-networking2.PNG)
  
 
 
-## <a name="operations"></a>Bewerkingen
-### <a name="backup-and-restore-operations-on-azure-vms"></a>Back-up en herstelbewerkingen op Azure Virtual machines
-De mogelijkheden van SAP HANA Backup and Restore worden beschreven in deze documenten:
+## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Bewerkingen voor het implementeren van SAP HANA op Azure Virtual machines
+De volgende secties worden enkele van de bewerkingen die betrekking hebben op de implementatie van SAP HANA-systemen op Azure Virtual machines beschreven.
 
-- [Back-up van SAP HANA-overzicht](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-- [Back-ups maken van SAP HANA op bestandsniveau](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+### <a name="back-up-and-restore-operations-on-azure-vms"></a>Back-up en herstelbewerkingen op Azure Virtual machines
+De volgende documenten wordt beschreven hoe u back-up en herstellen van uw SAP HANA-implementatie:
+
+- [Overzicht van back-ups van SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [SAP HANA-back-up op bestandsniveau](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 - [SAP HANA opslag momentopname benchmark](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
-
-### <a name="start-and-restart-of-vms-containing-sap-hana"></a>Begin- en opnieuw opstarten van virtuele machines met SAP HANA
-Een van de kracht van openbare Azure-cloud is het feit dat u alleen worden in rekening gebracht voor de compute-minuten die u besteden. Dit betekent dat als u een met SAP HANA uitgevoerd in deze virtuele machine afsluit, alleen de kosten voor opslag worden gefactureerd gedurende die tijd. Als u de virtuele machine met SAP HANA in deze begint opnieuw, wordt de virtuele machine zal opnieuw worden gestart en u dezelfde IP-adressen (als u hebt geïmplementeerd met statische IP-adressen). 
-
-
-### <a name="saprouter-enabling-sap-remote-support"></a>SAPRouter inschakelen SAP ondersteuning voor externe
-Als u een site-naar-site-verbinding tussen uw on-premises locatie (s) en Azure en u SAP onderdelen uitvoeren die al hebt, is het zeer waarschijnlijk dat u al uitgevoerd SAProuter al. In dit geval wordt is er niets hoeft te doen met SAP HANA-exemplaren die u in Azure implementeren. De VM HANA aangepast, behalve als u wilt onderhouden het privé- en statische IP-adres van de virtuele machine die als host fungeert HANA in de configuratie SAPRouter en hebben de NSG van het subnet hosten (verkeer via poort TCP/IP-poort 3299 toegestaan).
-
-Als u SAP HANA implementeert en u verbinding met Azure via Internet maken en u hebt een SAP-Router in het Vnet dat een VM wordt uitgevoerd met SAP HANA geïnstalleerd, moet u de SAPRouter installeren op een afzonderlijke virtuele machine in het subnet Management zoals hier wordt weergegeven :
+### <a name="start-and-restart-vms-that-contain-sap-hana"></a>Start en opnieuw opstarten van virtuele machines die SAP HANA bevatten
+Een belangrijk onderdeel van de openbare Azure-cloud is dat u in rekening alleen uw computing minuten gebracht bent. Bijvoorbeeld, wanneer u een virtuele machine waarop SAP HANA wordt afgesloten, bent u gefactureerd alleen voor de opslagkosten gedurende die tijd. Een andere functie is beschikbaar wanneer u statische IP-adressen voor uw virtuele machines in uw initiële implementatie opgeven. Wanneer u opnieuw een VM die SAP HANA heeft, de virtuele machine wordt opnieuw gestart met de eerdere IP-adressen. 
 
 
-![Implementatie van ruwe schema voor SAP HANA zonder site-naar-site-verbinding en SAPRouter](media/hana-vm-operations/hana-simple-networking3.PNG)
+### <a name="use-saprouter-for-sap-remote-support"></a>SAProuter gebruiken voor externe SAP-ondersteuning
+Als u een site-naar-site-verbinding tussen uw lokale locaties en Azure hebt en u SAP onderdelen uitvoert, bent u waarschijnlijk al SAProuter uitgevoerd. In dit geval voert u de volgende items voor externe ondersteuning:
 
-U moet SAPRouter installeren in een afzonderlijke virtuele machine en niet in uw Jumpbox VM. De afzonderlijke virtuele machine moet een statisch IP-adres. Om SAPRouter verbinding met de SAPRouter die als host fungeert van SAP (equivalent van het exemplaar SAPRouter die u installeert VM), moet u contact opnemen met SAP voor het ophalen van een IP-adres uit SAP die u nodig hebt voor het configureren van uw SAPRouter-exemplaar. De enige poort die nodig is TCP-poort 3299.
-Raadpleeg voor meer informatie over het instellen en onderhouden van ondersteuning voor externe verbindingen via SAPRouter dit [SAP bron](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
+- Het privé- en statische IP-adres van de virtuele machine die als host fungeert SAP HANA in de configuratie SAProuter onderhouden.
+- Configureer het NSG van het subnet dat als host fungeert voor de VM HANA voor verkeer via TCP/IP-poort 3299.
+
+Als u verbinding met Azure via internet maakt en u een SAP-router voor de virtuele machine met SAP HANA hoeft, moet u het onderdeel te installeren. SAProuter installeren op een afzonderlijke virtuele machine in het subnet Management. De volgende afbeelding toont een ruwe schema voor SAP HANA implementeren zonder een site-naar-site-verbinding en met SAProuter:
+
+![Implementatie-schema voor SAP HANA ruwe zonder een site-naar-site-verbinding en SAProuter](media/hana-vm-operations/hana-simple-networking3.PNG)
+
+Zorg ervoor dat SAProuter installeren in een afzonderlijke virtuele machine en niet in uw Jumpbox VM. De afzonderlijke virtuele machine moet een statisch IP-adres hebben. Neem contact op met SAP voor een IP-adres voor uw SAProuter verbinding met de SAProuter die wordt gehost door SAP. (De SAProuter die wordt gehost door SAP is het equivalent van het exemplaar SAProuter die u op de virtuele machine installeert.) Het IP-adres van het SAP gebruiken voor het configureren van uw SAProuter-exemplaar. In de configuratie-instellingen is het alleen de benodigde poort TCP-poort 3299.
+
+Zie voor meer informatie over het instellen en onderhouden van ondersteuning voor externe verbindingen via SAProuter de [SAP documentatie](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Hoge beschikbaarheid met SAP HANA op virtuele machines in Azure systeemeigen
-SUSE Linux 12 SP1 wordt uitgevoerd en meer recente kunt u een cluster pacemaker heeft instellen met STONITH apparaten voor het instellen van een SAP HANA-configuratie die gebruikmaakt van synchrone replicatie met HANA System Replication en automatische failover. De procedure van setup wordt beschreven in het artikel [hoge beschikbaarheid van SAP HANA op Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
-
- 
-
-
-
-
-
-
-
-
-
-
+Als u werkt met SUSE Linux 12 SP1 of later kunt u een cluster pacemaker heeft met STONITH apparaten kunt instellen. U kunt de apparaten gebruiken voor het instellen van een SAP HANA-configuratie die gebruikmaakt van synchrone replicatie met HANA System Replication en automatische failover. Zie voor meer informatie over de installatieprocedure [hoge beschikbaarheid van SAP HANA op virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).

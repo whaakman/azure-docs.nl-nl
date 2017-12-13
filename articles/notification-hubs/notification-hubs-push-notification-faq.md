@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Pushmeldingen met Azure Notification Hubs: veelgestelde vragen
 ## <a name="general"></a>Algemeen
@@ -179,14 +179,14 @@ Als u geen back-end wanneer de app wordt gestart op doelapparaten, uitvoeren een
 Er is een periode apparaten met niet-geopende apps wanneer geen meldingen ontvangt.
 
 ### <a name="is-there-audit-log-capability"></a>Is er audit log mogelijkheid?
-Alle beheerbewerkingen voor Notification Hubs gaat u naar bewerkingslogboeken, die beschikbaar worden gesteld in de [klassieke Azure-portal].
+Alle beheerbewerkingen voor Notification Hubs gaat u naar bewerkingslogboeken, die beschikbaar worden gesteld in de [Azure-portal].
 
 ## <a name="monitoring-and-troubleshooting"></a>Bewaking en probleemoplossing
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Welke mogelijkheden voor probleemoplossing zijn beschikbaar?
 Azure Notification Hubs biedt verschillende functies voor het oplossen van problemen met name voor de meest voorkomende scenario van verwijderde meldingen. Zie voor meer informatie de [Notification Hubs probleemoplossing] witboek.
 
 ### <a name="what-telemetry-features-are-available"></a>Welke telemetrie-functies zijn beschikbaar?
-Azure Notification Hubs kunt bekijken van telemetriegegevens in de [klassieke Azure-portal]. Details van de metrische gegevens zijn beschikbaar op de [Notification Hubs metrische gegevens] pagina.
+Azure Notification Hubs kunt bekijken van telemetriegegevens in de [Azure-portal]. Details van de metrische gegevens zijn beschikbaar op de [Notification Hubs metrische gegevens] pagina.
 
 > [!NOTE]
 > Geslaagde meldingen betekenen gewoon zijn aan de externe PNS (bijvoorbeeld APNS voor Apple) of GCM voor Google pushmeldingen geleverd. Het is de verantwoordelijkheid van de PNS om te leveren de meldingen aan doelapparaten. De PNS maakt normaal gesproken niet beschikbaar voor levering metrische gegevens aan derden.  
@@ -195,7 +195,7 @@ Azure Notification Hubs kunt bekijken van telemetriegegevens in de [klassieke Az
 
 We bieden ook de mogelijkheid de telemetriegegevens programmatisch (in de prijscategorie Standard) exporteren. Zie voor meer informatie de [Notification Hubs metrische gegevens voorbeeld].
 
-[klassieke Azure-portal]: https://manage.windowsazure.com
+[Azure-portal]: https://portal.azure.com
 [Notification Hubs prijzen]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Casestudy: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ We bieden ook de mogelijkheid de telemetriegegevens programmatisch (in de prijsc
 [Notification Hubs metrische gegevens]: https://msdn.microsoft.com/library/dn458822.aspx
 [Notification Hubs metrische gegevens voorbeeld]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [registraties exporteren/importeren]: https://msdn.microsoft.com/library/dn790624.aspx
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [prijzen van App Service]: https://azure.microsoft.com/pricing/details/app-service/

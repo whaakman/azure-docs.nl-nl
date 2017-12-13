@@ -1,6 +1,6 @@
 ---
-title: Een virtuele SQL Server 2017-machine voor Windows maken in Azure | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u een virtuele SQL Server 2017-machine voor Windows in Azure Portal kunt maken.
+title: Het configureren van Windows SQL Server 2017 VM's in de Azure portal | Microsoft Docs
+description: Deze instructies handleiding beschrijft uw opties voor het maken van Windows SQL Server 2017 virtuele machines in de Azure-portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,39 +9,29 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine voor Windows inrichten in Azure Portal
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Het maken van een virtuele machine van Windows SQL Server in de Azure portal
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+Deze handleiding bespreekt de verschillende opties beschikbaar wanneer u een virtuele machine van Windows SQL Server in de Azure-portal maakt. U kunt de stappen om uw eigen SQL Server VM tijdens het leren over de verschillende keuzen te maken. Of u kunt gaat u naar een specifieke sectie voor verwijzing van een bepaalde stap in de portal.
 
-In deze snelstartzelfstudie gaat u Azure Portal gebruiken om een virtuele Windows-machine te maken waarop SQL Server is geïnstalleerd.
+> [!TIP]
+> Om snel aan de slag met de portal standaardwaarden, Zie de [Azure quickstart - maken van een virtuele machine van SQL Server in de portal](quickstart-sql-vm-create-portal.md).
 
-In deze zelfstudie leert u het volgende:
-
-* [Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren](#select)
-* [De virtuele machine configureren en maken](#configure)
-* [De virtuele machine openen via Extern bureaublad](#remotedesktop)
-* [Op afstand verbinding maken met SQL Server](#connect)
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a id="select"></a> Een installatiekopie voor een virtuele SQL-machine in de galerie selecteren
 
 1. Meld u met uw account aan bij de [Azure Portal](https://portal.azure.com).
-
-   > [!NOTE]
-   > Als u geen Azure-account hebt, gaat u naar [Azure, gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
 1. Klik in Azure Portal op **Nieuw**. In de portal wordt het venster **Nieuw** geopend.
 
@@ -277,19 +267,11 @@ U kunt de implementatie bewaken vanuit Azure Portal. Met de knop **Meldingen** b
 
 Doorloop de volgende stappen om via Extern bureaublad verbinding te maken met de virtuele SQL Server-machine:
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 Nadat u verbinding hebt gemaakt met de virtuele SQL Server-machine, kunt u SQL Server Management Studio starten en verbinding maken met Windows-verificatie met behulp van de lokale beheerdersreferenties. Als u SQL Server-verificatie inschakelt, kunt u ook verbinding maken met SQL-verificatie. Dit kan met behulp van de SQL-aanmeldingsnaam en het wachtwoord die u hebt geconfigureerd tijdens het inrichten.
 
 Met toegang tot de machine kunt u rechtstreeks de instellingen voor de machine en de SQL Server wijzigen op basis van uw vereisten. U kunt bijvoorbeeld de firewallinstellingen configureren of de SQL Server-configuratie-instellingen wijzigen.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>TCP/IP inschakelen voor Developer- en Express-edities
-
-Bij het inrichten van een nieuwe VM voor SQL Server wordt in Azure niet automatisch het TCP/IP-protocol ingeschakeld voor SQL Server Developer- en Express-edities. In de onderstaande stappen wordt uitgelegd hoe u TCP/IP handmatig kunt inschakelen, zodat u op afstand via een IP-adres verbinding kunt maken.
-
-In de volgende stappen wordt **SQL Server Configuration Manager** gebruikt voor het inschakelen van het TCP/IP-protocol voor SQL Server Developer- en Express-edities.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> Op afstand verbinding maken met SQL Server
 
@@ -300,7 +282,7 @@ In deze zelfstudie hebben we **Openbare** toegang voor de virtuele machine en **
 
 In de volgende secties ziet u hoe u vanaf een andere computer via internet verbinding maakt met uw SQL Server-exemplaar op de virtuele machine.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

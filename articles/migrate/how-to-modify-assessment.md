@@ -1,24 +1,16 @@
 ---
 title: Azure migreren assessment instellingen aanpassen | Microsoft Docs
 description: Hierin wordt beschreven hoe instellen en uitvoeren van een beoordeling voor VMware-machines migreren naar Azure met de Azure-migratie-Planner
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-an-assessment"></a>Een beoordeling aanpassen
 
@@ -32,9 +24,9 @@ ms.lasthandoff: 11/29/2017
 
     **Instelling** | **Details** | **Standaard**
     --- | --- | ---
-    **TARGET-locatie** | De Azure-locatie waarnaar u wilt migreren. |  VS West 2 is de standaardlocatie.
-    **Redundantie van gegevensopslag** | Het type opslag die door de Azure VM's na de migratie wordt gebruikt. | Alleen [lokaal redundante opslag (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replicatie wordt momenteel ondersteund.
-    **Comfort factor** | Comfort factor is een buffer die wordt gebruikt tijdens de evaluatie. Gebruik dit voor het account voor zaken zoals seizoensgebonden gebruik, geschiedenis van geheugenprestaties korte, waarschijnlijk in de toekomst het gebruik van verhoogd. | Standaard wordt 1.3 x.
+    **Doellocatie** | De Azure-locatie waarnaar u wilt migreren. |  VS West 2 is de standaardlocatie.
+    **Opslagredundantie** | Het type opslag dat na de migratie door de virtuele Azure-machines wordt gebruikt. | Alleen [lokaal redundante opslag (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replicatie wordt momenteel ondersteund.
+    **Comfortfactor** | Comfort factor is een buffer die wordt gebruikt tijdens de evaluatie. Gebruik dit voor het account voor zaken zoals seizoensgebonden gebruik, geschiedenis van geheugenprestaties korte, waarschijnlijk in de toekomst het gebruik van verhoogd. | Standaard wordt 1.3 x.
     **Geschiedenis van leiden** | De tijd die wordt gebruikt bij het evalueren van de prestatiegeschiedenis. | De standaardwaarde is één maand.
     **Gebruik percentiel** | De percentielwaarde in overweging moet nemen voor de geschiedenis van leiden. | Standaard is 95%.
     **Prijscategorie** | U kunt opgeven de [prijscategorie](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) voor een virtuele machine.  | Standaard de [standaard](../virtual-machines/windows/sizes-general.md) laag wordt gebruikt.

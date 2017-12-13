@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configureren en beheren van problemen voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -257,9 +257,9 @@ De **Get-AzurePublishSettingsFile** maakt een nieuw beheercertificaat in **abonn
 
 ## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Hoe kan ik automatisch geschaald op basis van geheugen metrische gegevens configureren?
 
-Automatisch geschaald op basis van geheugen metrische gegevens voor een cloudservices is momenteel niet ondersteund. 
+Automatisch geschaald op basis van geheugen metrische gegevens voor een Cloud-Services is momenteel niet ondersteund. 
 
-U kunt dit probleem omzeilen, kunt u Application Insights, zodat de diagnostische agent de metrische gegevens naar Application Insights routeren zou. Automatisch schalen ondersteunt Application Insights als bron van de metrische gegevens en het aantal rolinstanties dat op basis van de Gast metriek zoals 'Geheugen' kan worden geschaald.  U moet Application Insights configureren in uw Cloud Service-project-pakketbestand (*.cspkg) en Azure Diagnostics-extensie van de service voor het implementeren van deze functie inschakelen.
+U kunt dit probleem omzeilen, kunt u Application Insights. Automatisch schalen ondersteunt Application Insights als bron van de metrische gegevens en het aantal rolinstanties dat op basis van de Gast metriek zoals 'Geheugen' kan worden geschaald.  U moet Application Insights configureren in uw Cloud Service-project-pakketbestand (*.cspkg) en Azure Diagnostics-extensie van de service voor het implementeren van deze functie inschakelen.
 
 Zie voor meer informatie over het gebruik van een aangepaste waarde die via de Application Insights automatisch schalen configureren op Cloudservices [aan de slag met automatisch schalen door aangepaste metrische gegevens in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
@@ -270,16 +270,10 @@ Zie voor meer informatie over het inschakelen van Application Insights voor Clou
 
 Zie voor meer informatie over het inschakelen van logboekregistratie van Azure Diagnostics voor Cloudservices [diagnostics instellen voor Azure Cloud Services en virtuele machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Hoe kan ik de belangrijkste SSL-certificaat (.pfx) en de tussenliggende certificate(.p7b) certificeringsinstallatie automatiseren?
+## <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Hoe kunt u de installatie van de belangrijkste SSL-certificaat (.pfx) en tussenliggende certificate(.p7b) automatiseren?
 
 U kunt deze taak automatiseren met behulp van een opstartscript (cmd-batch/PowerShell) en die opstartscript registreren in het servicedefinitiebestand. Zowel het opstartscript en het certificaat (.p7b-bestand) in de projectmap van dezelfde map van het opstartscript toevoegen.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 - [Het configureren en starten van de taken voor een cloudservice uitvoeren](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Algemene taken voor Cloud-Service starten](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
-
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Waarom vereist Azure-portal me waarmee u een opslagaccount voor de implementatie?
-
-Het pakket is geüpload naar de API-beheerlaag rechtstreeks in de klassieke portal en vervolgens de API-laag tijdelijk plaatst het pakket naar een interne storage-account.  Dit proces zorgt ervoor dat problemen met prestaties en schaalbaarheid omdat de API-laag niet ontworpen is om te worden van een bestand uploaden-service.  In de Azure portal (Resource Manager-implementatiemodel), hebben we de tussentijdse stap van het eerste uploaden naar de API-laag omzeild waardoor sneller en betrouwbaarder implementaties.
- 
-Als de kosten voor zeer kleine is en u kunt hetzelfde opslagaccount opnieuw gebruiken in alle implementaties. U kunt de [opslag kosten Rekenmachine](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) om te bepalen van de kosten voor het uploaden van het servicepakket (CSPKG), de CSPKG downloaden en verwijder vervolgens de CSPKG.

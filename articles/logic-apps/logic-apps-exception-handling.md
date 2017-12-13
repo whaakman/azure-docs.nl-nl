@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 20f93d5dbcc91a633f040feb454e96ed3f7d561f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Voor het afhandelen van fouten en uitzonderingen in Azure Logic Apps
 
@@ -36,7 +36,7 @@ De `exponential` beleidstype probeert een mislukte aanvraag na een willekeurig t
 <tr><th> Willekeurige variabele bereik </th></tr>
 <tr><td>
 
-| Probeer getal | Minimaal interval | Maximaal interval |
+| Probeer getal | Minimuminterval | Maximuminterval |
 | ------------ |  ------------ |  ------------ |
 | 1 | Max (0, **minimumInterval**) | Min (interval **maximumInterval**) |
 | 2 | Max (interval **minimumInterval**) | Min (2 * interval **maximumInterval**) |
@@ -50,11 +50,11 @@ Voor `exponential` beleidsregels, typ **aantal** en **interval** vereist, terwij
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
-| type | Ja | Tekenreeks | `exponential` |
+| type | Ja | Reeks | `exponential` |
 | aantal | Ja | Geheel getal | aantal nieuwe pogingen, moet tussen 1 en 90 liggen  |
-| interval | Ja | Tekenreeks | interval in poging [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en PT1D |
-| minimumInterval | Nee| Tekenreeks | minimale herhalingsinterval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en **interval** |
-| maximumInterval | Nee| Tekenreeks | minimale herhalingsinterval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen **interval** en PT1D |
+| interval | Ja | Reeks | interval in poging [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en PT1D |
+| minimumInterval | Nee| Reeks | minimale herhalingsinterval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en **interval** |
+| maximumInterval | Nee| Reeks | minimale herhalingsinterval in [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen **interval** en PT1D |
 
 ### <a name="fixed-interval"></a>Vast interval
 
@@ -62,16 +62,16 @@ De `fixed` beleidstype probeert een mislukte aanvraag door te wachten op het opg
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
-| type | Ja | Tekenreeks | `fixed`|
+| type | Ja | Reeks | `fixed`|
 | aantal | Ja | Geheel getal | aantal nieuwe pogingen, moet tussen 1 en 90 liggen |
-| interval | Ja | Tekenreeks | interval in poging [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en PT1D |
+| interval | Ja | Reeks | interval in poging [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), moet liggen tussen PT5S en PT1D |
 
 ### <a name="none"></a>Geen
 De `none` beleidstype wordt geen nieuwe poging gedaan een mislukte aanvraag.
 
 | Elementnaam | Vereist | Type | Beschrijving |
 | ------------ | -------- | ---- | ----------- |
-| type | Ja | Tekenreeks | `none`|
+| type | Ja | Reeks | `none`|
 
 ### <a name="default"></a>Standaard
 Als er geen beleid voor opnieuw proberen is opgegeven, wordt het standaardbeleid gebruikt. Het standaardbeleid is een exponentiële interval-beleid dat maximaal 4 nieuwe pogingen, op exponentieel steeds groter wordende intervallen geschaald met 7.5 seconden en beperkt op tussen 5 en 45 seconden wordt verzonden. Dit standaardbeleid (gebruikt wanneer **retryPolicy** is niet gedefinieerd) is gelijk aan het beleid in dit voorbeeld werkstroomdefinitie HTTP:

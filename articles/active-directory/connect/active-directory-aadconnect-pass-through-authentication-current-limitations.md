@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0b86be1c1b26079aee33bcf8e861f679f4cbe11e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory Pass-through-verificatie: Huidige beperkingen
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/11/2017
 De volgende scenario's worden volledig ondersteund:
 
 - Gebruikersaanmeldingen voor alle web browser gebaseerde toepassingen
-- Gebruikersaanmeldingen voor Office 365-clienttoepassingen die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga)
-- Office 2016 of Office 2013 _met_ moderne verificatie
+- Gebruikersaanmeldingen aan Office-toepassingen die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga): Office 2016 of Office 2013 _met_ moderne verificatie
+- Gebruikersaanmeldingen tot Skype voor bedrijven die moderne authenticatie van ondersteuning, met inbegrip van Online- en hybride topologieën. Meer informatie over ondersteunde topologieën [hier](https://technet.microsoft.com/library/mt803262.aspx).
 - Azure AD-domein wordt toegevoegd aan voor Windows 10-apparaten
 - Exchange ActiveSync-ondersteuning
 
@@ -40,11 +40,11 @@ De volgende scenario's worden volledig ondersteund:
 De volgende scenario's zijn _niet_ ondersteund:
 
 - Gebruikersaanmeldingen bij oudere toepassingen van Office-client: Office 2010 en Office 2013 _zonder_ moderne verificatie. Organisaties aangemoedigd overschakelen naar moderne verificatie, indien mogelijk. Moderne verificatie maakt ondersteuning voor Pass-through-verificatie. Ook kunt u uw gebruikersaccounts beveiligen met behulp van [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) functies, zoals Azure multi-factor Authentication.
-- Gebruikersaanmeldingen tot Skype voor bedrijven-clienttoepassingen, met inbegrip van Skype voor bedrijven 2016.
+- Gebruikersaanmeldingen tot Skype voor bedrijven-clienttoepassingen _zonder_ moderne verificatie.
 - Gebruikersaanmeldingen naar PowerShell versie 1.0. Het is raadzaam dat u PowerShell versie 2.0.
-- Azure Active Directory Domain Services.
 - App-wachtwoorden voor multi-factor Authentication.
 - Detectie van gebruikers met [gelekte referenties](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Azure AD Domain Services moet zijn ingeschakeld op de tenant synchronisatie van wachtwoordhash. Daarom huurders die gebruikmaken van Pass-through-verificatie _alleen_ werken niet voor scenario's waarvoor Azure AD Domain Services.
 
 >[!IMPORTANT]
 >Als een oplossing voor niet-ondersteunde scenario's _alleen_, synchronisatie van wachtwoordhash inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard.

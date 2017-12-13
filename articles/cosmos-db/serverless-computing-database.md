@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Zonder Server database computing met behulp van Azure Functions
 
@@ -44,7 +44,7 @@ De Azure DB die Cosmos trigger, binding invoer en uitvoer binding kunnen worden 
 * Een invoer-binding aan een Azure DB die Cosmos-container kan worden gebruikt in dezelfde functie uit als een Azure DB die Cosmos-trigger en kan worden gebruikt met of zonder binding ook uitvoer. U kunt deze combinatie up-to-date valuta exchange-gegevens (opgehaald met een invoer-binding aan een exchange-container) toepassen op de feed wijziging van de nieuwe orders in uw winkelwagen winkelwagen-service. De winkelwagen winkelwagen Totaal bijgewerkt, kan met de huidige valutaconversie toegepast, worden geschreven naar een derde container met een uitvoer-binding.
 
 > [!NOTE]
-> Op dit moment worden de Azure DB die Cosmos trigger bindingen invoer en uitvoer bindingen met SQL, Table en Graph API-accounts werken.
+> Op dit moment worden de Azure DB die Cosmos trigger bindingen invoer en uitvoer bindingen met SQL-API en Graph API-accounts werken.
 
 ## <a name="use-cases"></a>Gebruiksvoorbeelden
 
@@ -86,14 +86,14 @@ De volgende afbeeldingen tonen de code in de Azure-portal voor dit scenario.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Games gebruiksvoorbeeld - trigger Azure Cosmos DB en uitvoer van de binding
 
-In games, wanneer een nieuwe gebruiker is gemaakt kunt u zoeken voor andere gebruikers die weten met behulp van mogelijk de [Azure Cosmos DB Graph API](graph-introduction.md). Vervolgens kunt u de resultaten uitgevoerd naar een [Azure Cosmos DB Table database](table-introduction.md) gemakkelijk kunt ophalen.
+In games, wanneer een nieuwe gebruiker is gemaakt kunt u zoeken voor andere gebruikers die weten met behulp van mogelijk de [Azure Cosmos DB Graph API](graph-introduction.md). U kunt de resultaten vervolgens schrijven naar een [Azure Cosmos DB SQL-database] gemakkelijk kunt ophalen.
 
 **Implementatie:** een trigger Azure Cosmos DB en een uitvoer-binding gebruiken
 
 1. Met behulp van een Cosmos Azure DB [grafiek database](graph-introduction.md) voor het opslaan van alle gebruikers, kunt u een nieuwe functie maken met een Azure DB die Cosmos-trigger. 
 2. Wanneer een nieuwe gebruiker wordt geplaatst, de functie is aangeroepen en vervolgens het resultaat opgeslagen met behulp van een **uitvoer binding**.
 3. De functie uit de database van de grafiek om te zoeken naar alle gebruikers die direct gerelateerd zijn aan de nieuwe gebruiker en deze gegevensset retourneert aan de functie opvraagt.
-4. Deze gegevens worden vervolgens opgeslagen in een Cosmos Azure DB [tabel database](table-introduction.md) als een set sleutel / waarde-paren, die vervolgens gemakkelijk kunnen worden opgehaald met een front-toepassing die wordt weergegeven van de nieuwe gebruiker verbonden vrienden.
+4. Deze gegevens worden vervolgens opgeslagen in een Cosmos Azure DB, die vervolgens gemakkelijk kunnen worden opgehaald met een front-toepassing die wordt weergegeven van de nieuwe gebruiker verbonden vrienden.
 
 ### <a name="retail-use-case---multiple-functions"></a>Gebruiksvoorbeeld Retail - meerdere functies
 

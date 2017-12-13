@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9d0db50e5dcf6af97e15019c11fdeafb209de639
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 042b2b4a5c4ccb573b0d1d13abe7855aea779348
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure virtuele Machine PowerShell-voorbeelden
 
@@ -29,6 +29,7 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts d
 | | |
 |---|---|
 |**Virtuele machines maken**||
+| [Snel een virtuele machine gemaakt](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een resourcegroep, virtuele machine en alle gerelateerde resources maakt met het minimum van prompts.|
 | [Een volledig geconfigureerde virtuele machine maken](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een resourcegroep, virtuele machine en alle gerelateerde resources gemaakt.|
 | [Maximaal beschikbare virtuele machines maken](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Maakt verschillende virtuele machines in een maximaal beschikbare en configuratie van taakverdeling.|
 | [Een virtuele machine maken en voer het script voor configuratie](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een virtuele machine maakt en wordt de extensie Azure aangepast Script gebruikt om IIS te installeren. |

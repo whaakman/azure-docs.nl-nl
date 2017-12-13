@@ -1,9 +1,7 @@
-1. Meld u aan bij de [klassieke Azure-portal](http://manage.windowsazure.com).  
-2. Klik op de opdrachtbalk aan de onderkant van het venster **nieuw**.
-3. Onder **Compute**, klikt u op **virtuele Machine**, en klik vervolgens op **uit galerie**.
+1. Meld u aan bij [Azure Portal](http://portal.azure.com).  
+2. Klik op **nieuw** > **Compute** > **alle Zie** en typ vervolgens **SUSE**.
    
-    ![Maak een nieuwe virtuele Machine][Image1]
-4. Onder de **SUSE** groep, selecteert u een installatiekopie van de virtuele machine OpenSUSE en klik op de pijl om door te gaan.
+3. Een installatiekopie van de virtuele machine OpenSUSE selecteren en klik op de pijl om door te gaan.
 5. Op de eerste **Virtuele-machineconfiguratie** pagina:
    
    * Typ een **virtuele-machinenaam**, zoals 'testlinuxvm'. De naam moet tussen 3 en 15 tekens bevatten, kunnen alleen letters, cijfers en afbreekstreepjes bevatten en moet beginnen met een letter en eindigen met een letter of een cijfer.
@@ -49,7 +47,5 @@ U SSH of PuTTY verbinding maken met de virtuele machine, afhankelijk van het bes
 3. Nadat de installatie wordt uitgevoerd, selecteert u **voltooien**.  Uw systeem is nu up-to-date te houden.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-
-[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

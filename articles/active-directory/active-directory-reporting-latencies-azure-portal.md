@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f4b3e59cb6cec5ac4ca771818e5eca8509a43d82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapportage latenties
 
@@ -37,13 +37,15 @@ Er zijn twee gebieden van de activiteit reporting:
 
 De volgende tabel bevat de latentie-informatie voor activiteitsrapporten.
 
-| Rapport | Minimum | Gemiddeld | Maximum |
-| :-- | --- | --- | --- |
-| Controlelogboeken             | 30 minuten  | 1 uur | 2 uur     |
-| Aanmeldingen               | 15 minuten  | 2 uur * | 24 uur  |
+| Rapport | Minimum | Gemiddeld |
+| :-- | --- | --- |
+| Controlelogboeken | 30 minuten  | 1 uur  |
+| Aanmeldingen | 15 minuten  | 2 uur |
 
->[!NOTE]
-> Als de aanmeldactiviteitgegevens afkomstig zijn van verouderde Office-toepassingen, kan het tot acht uur duren voor de rapportagegegevens worden weergegeven. 
+In sommige gevallen rand kunnen:
+
+- 2 uur voor controle activiteitsgegevens worden weergegeven.
+- 24 uur voor aanmeldingsactiviteiten gegevens worden weergegeven. Dit omvat activiteitsgegevens aanmeldingen die afkomstig zijn van verouderde office-toepassingen. 
 
 
 ## <a name="security-reports"></a>Beveiligingsrapporten

@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Notification Hubs gebruiken om belangrijk nieuws te verzenden
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -278,7 +278,7 @@ De app is nu voltooid en een set categorieën kunt opslaan in de lokale opslag g
 2. Een of meer categorieën Schakelknoppen inschakelen en klik vervolgens op **abonneren**.
    
     De app de geselecteerde categorieën converteert naar labels en een nieuwe apparaatregistratie voor de geselecteerde codes aanvragen van de notification hub. De geregistreerde categorieën worden geretourneerd en weergegeven in een pop-upmelding.
-3. Een nieuwe melding verzenden door het uitvoeren van de .NET-consoletoepassing.  U kunt ook met tags Sjabloonmeldingen met behulp van het foutopsporingstabblad van uw notification hub in verzenden de [klassieke Azure-Portal].
+3. Een nieuwe melding verzenden door het uitvoeren van de .NET-consoletoepassing.  U kunt ook met tags Sjabloonmeldingen met behulp van het foutopsporingstabblad van uw notification hub in verzenden de [Azure-portal].
    
     Meldingen voor de geselecteerde categorieën weergegeven als pop-upmeldingen.
 
@@ -302,5 +302,5 @@ In deze zelfstudie hebt u geleerd hoe belangrijk nieuws per categorie-broadcast.
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[klassieke Azure-Portal]: https://manage.windowsazure.com
+[Azure-portal]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

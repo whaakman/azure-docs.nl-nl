@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe biedt Azure Cosmos DB indexgegevens?
 
@@ -258,9 +258,9 @@ U kunt echter verplaatsen naar Lazy of None indexering modus tijdens een transfo
 * Wanneer u naar Lazy verplaatst, wordt de beleidswijziging index effectieve onmiddellijk en Azure Cosmos DB begint asynchroon opnieuw maken van de index. 
 * Wanneer u op geen verplaatst, is wordt de index weggehaald effectieve onmiddellijk. Op None verplaatsen is handig als u wilt annuleren van een onderhanden transformatie en begin met een ander beleid voor indexering. 
 
-Als u de .NET SDK, kunt u ere van een indexering beleidswijziging met behulp van de nieuwe **ReplaceDocumentCollectionAsync** methode en bijhouden van de voortgang percentage van de index transformatie met behulp van de **IndexTransformationProgress** antwoord-eigenschap van een **ReadDocumentCollectionAsync** aanroepen. Andere SDK en de REST-API ondersteuning voor equivalente eigenschappen en methoden voor het maken van wijzigingen in het indexeren.
-
 Hier volgt een codefragment die laat zien hoe het indexeringsbeleid een verzameling van consistente indexering modus naar Lazy wijzigen.
+
+Als u de .NET SDK, kunt u ere van een indexering beleidswijziging met behulp van de nieuwe **ReplaceDocumentCollectionAsync** methode.
 
 **Indexeringsbeleid van consistente naar vertraagde wijzigen**
 
@@ -271,10 +271,9 @@ Hier volgt een codefragment die laat zien hoe het indexeringsbeleid een verzamel
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-U kunt de voortgang van een index transformatie controleren door het aanroepen van ReadDocumentCollectionAsync, bijvoorbeeld zoals hieronder wordt weergegeven.
-
 **Voortgang van de Index transformatie volgen**
+
+U kunt de voortgang van het percentage van de index transformatie naar een consistente index volgen met behulp van de **IndexTransformationProgress** antwoord-eigenschap van een **ReadDocumentCollectionAsync** aanroepen. Andere SDK en de REST API, ondersteuning voor equivalente eigenschappen en methoden voor het maken van wijzigingen in het indexeren. U kunt de voortgang van een index transformatie naar een consistente index controleren door het aanroepen van **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -288,6 +287,14 @@ U kunt de voortgang van een index transformatie controleren door het aanroepen v
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> De eigenschap IndexTransformationProgress is alleen toepasbaar wanneer transformeren naar een consistente index. Gebruik de eigenschap ResourceResponse.LazyIndexingProgress voor het bijhouden van transformaties naar een vertraagde index.
+>
+
+> [!NOTE]
+> De IndexTransformationProgress en de eigenschappen LazyIndexingProgress worden alleen in het geval van een niet-gepartitioneerde verzameling, dat wil zeggen, een verzameling die is gemaakt zonder een partitiesleutel ingevuld.
+>
 
 U kunt de index voor een verzameling verwijderen door te verplaatsen naar de geen modus te indexeren. Dit wordt mogelijk een handig hulpmiddel operationele als u wilt een transformatie in voortgang annuleren en een nieuwe onmiddellijk starten.
 

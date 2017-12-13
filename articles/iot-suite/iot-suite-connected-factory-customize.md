@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Aanpassen hoe de gegevens van uw OPC UA-servers worden weergegeven in de verbonden factory-oplossing
 
@@ -48,7 +48,7 @@ De verbonden factory-oplossing worden gegevens uit de OPC UA-servers die is verb
 
 U kunt de gegevensitems die een verbonden OPC UA-server om uw oplossing in het dashboard te verzenden kunt bladeren:
 
-1. Navigeer naar de **selecteert u een server OPC UA** weergeven:
+1. Kies **Browser** om te navigeren naar de **selecteert u een server OPC UA** weergeven:
 
     ![Navigeer naar het selecteren van een weergave OPC UA-server][img-select-server]
 
@@ -57,7 +57,7 @@ U kunt de gegevensitems die een verbonden OPC UA-server om uw oplossing in het d
     > [!NOTE]
     > Deze waarschuwing alleen verschijnt eenmaal voor elke server en er wordt een vertrouwensrelatie tussen het dashboard van de oplossing en de server.
 
-1. U kunt nu de gegevensitems die de server naar de oplossing verzenden kan bladeren. Items die worden verzonden naar de oplossing hebt een groen vinkje:
+1. U kunt nu de gegevensitems die de server naar de oplossing verzenden kan bladeren. Items die worden verzonden naar de oplossing zijn ingeschakeld:
 
     ![Gepubliceerde items][img-published]
 
@@ -65,7 +65,7 @@ U kunt de gegevensitems die een verbonden OPC UA-server om uw oplossing in het d
 
 ## <a name="map-the-data"></a>De gegevens moeten worden toegewezen
 
-De oplossing verbonden factory toegewezen en de gepubliceerde-gegevensitems van de OPC UA-server samenvoegt met de verschillende weergaven in de oplossing. De verbonden factory-oplossing implementeert in uw Azure-account wanneer u de oplossing inricht. Een JSON-bestand in de Visual Studio verbonden factory oplossing slaat deze informatie over de Identiteitstoewijzing. U kunt weergeven en wijzigen van dit JSON-configuratiebestand in de verbonden fabriek Visual Studio-oplossing. U kunt de oplossing opnieuw implementeren nadat u een wijziging aanbrengt.
+De oplossing verbonden factory toegewezen en de gepubliceerde-gegevensitems van de OPC UA-server samenvoegt met de verschillende weergaven in de oplossing. De verbonden factory-oplossing implementeert in uw Azure-account wanneer u de oplossing inricht. Een JSON-bestand in de Visual Studio verbonden factory-oplossing slaat deze informatie over de Identiteitstoewijzing. U kunt weergeven en wijzigen van dit JSON-configuratiebestand in de verbonden fabriek Visual Studio-oplossing. U kunt de oplossing opnieuw implementeren nadat u een wijziging aanbrengt.
 
 U kunt het configuratiebestand te gebruiken:
 

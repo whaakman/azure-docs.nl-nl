@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemen bij de implementatie voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -75,3 +75,8 @@ Aangezien de Cloudservice een klassieke resource die niet rechtstreeks compatibe
 
     Dit werkt vanuit de [Azure-portal](https://portal.azure.com) als de aanroep verloopt via een proxy/shim waarmee de communicatie tussen Azure Resource Manager en klassieke resources. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Waarom vereist Azure-portal me waarmee u een opslagaccount voor de implementatie? 
+
+Het pakket is geüpload naar de API-beheerlaag rechtstreeks in de klassieke portal en vervolgens de API-laag tijdelijk plaatst het pakket naar een interne storage-account.  Dit proces zorgt ervoor dat problemen met prestaties en schaalbaarheid omdat de API-laag niet ontworpen is om te worden van een bestand uploaden-service.  In de Azure portal (Resource Manager-implementatiemodel), hebben we de tussentijdse stap van het eerste uploaden naar de API-laag omzeild waardoor sneller en betrouwbaarder implementaties. 
+
+Als de kosten voor zeer kleine is en u kunt hetzelfde opslagaccount opnieuw gebruiken in alle implementaties. U kunt de [opslag kosten Rekenmachine](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) om te bepalen van de kosten voor het uploaden van het servicepakket (CSPKG), de CSPKG downloaden en verwijder vervolgens de CSPKG. 

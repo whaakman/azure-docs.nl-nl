@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Voorbeelden van Azure CLI
 
@@ -29,6 +29,7 @@ De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behul
 | | |
 |-|-|
 |**App maken**||
+| [Een web-app maken en implementeren van bestanden met FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Een Azure-web-app maakt en implementeert een bestand met de FTP. |
 | [Een web-app maken en code implementeren vanuit GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Een Azure-web-app maakt en implementeert de code van een openbare GitHub-opslagplaats. |
 | [Een web-app maken met doorlopende implementatie vanuit GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Hiermee maakt een Azure-web-app met continue publiceren vanaf een GitHub-opslagplaats die u bezit. |
 | [Een web-app maken en code implementeren vanuit een lokale Git-opslagplaats](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Een Azure-web-app maakt en configureert u code push van een lokale Git-opslagplaats. |

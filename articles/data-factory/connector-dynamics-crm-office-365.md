@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Gegevens kopiëren van/naar Dynamics 365 Dynamics CRM met Azure Data Factory
 
@@ -46,7 +46,7 @@ Voor de Dynamics 365 met name worden de volgende typen ondersteund:
 - Dynamics 365 voor Marketing
 
 > [!NOTE]
-> Gebruik Dynamics connector moet uw wachtwoord opslaan in Azure Sleutelkluis en laat ADF kopie vizier pull daar bij het uitvoeren van de gegevens opnieuw te kopiëren. Informatie over het configureren van in [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
+> Gebruik Dynamics connector moet uw wachtwoord opslaan in Azure Sleutelkluis en de kopie vizier pull van daaruit laat bij het uitvoeren van de gegevens opnieuw te kopiëren. Informatie over het configureren van in [gekoppelde service-eigenschappen](#linked-service-properties) sectie.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -322,7 +322,7 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieerbewer
 
 Bij het kopiëren van gegevens uit Dynamics, worden de volgende toewijzingen van Dynamics gegevenstypen gebruikt voor Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
 
-Configureren van het bijbehorende ADF-gegevenstype in de gegevenssetstructuur op basis van uw Dynamics brongegevens typen met behulp van onderstaande toewijzingstabel:
+Configureren van het bijbehorende Data Factory-gegevenstype in de gegevenssetstructuur op basis van uw Dynamics brongegevens typen met behulp van onderstaande toewijzingstabel:
 
 | Het gegevenstype Dynamics | Data factory tussentijdse gegevenstype | Ondersteund als bron | Als sink ondersteund |
 |:--- |:--- |:--- |:--- |

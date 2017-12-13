@@ -12,28 +12,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5a47d7f589d4d2dcd40ebb6ff551f2c77fc8a8aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
-
-Dit artikel is bedoeld om u te helpen u de versies die zijn uitgebracht en om te begrijpen of u wilt bijwerken naar de nieuwste versie of niet.
+' In dit artikel is bedoeld om u te helpen u de versies die zijn uitgebracht en om te begrijpen of u wilt bijwerken naar de nieuwste versie of niet.
 
 Dit is een lijst met verwante onderwerpen:
+
 
 
 Onderwerp |  Details
 --------- | --------- |
 Stappen voor het upgraden van Azure AD Connect | Methoden om [upgrade van een eerdere versie naar de meest recente](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect-release.
 Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update van toepassing, [accounts en machtigingen](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Downloaden| [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Download | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Status: 12 December 2017
+
+>[!NOTE]
+>Dit is een beveiliging gerelateerde hotfix voor Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Wanneer u Azure AD Connect voor het eerst installeert, kan een nieuw account worden gemaakt die wordt gebruikt voor het uitvoeren van de service Azure AD Connect. Voordat u deze release is het account gemaakt met instellingen die een gebruiker met wachtwoord adminsitrator rechten weet dat de mogelijkheid het wachtwoord te wijzigen in een waarde die aan hen toegestaan.  Dit u zich kunt aanmelden met dit account toegestaan en dit vormt een uitbreiding van bevoegdheden inbreuk op de beveiliging. Deze release beperkt de instelling voor het account dat is gemaakt en verwijdert u deze kwetsbaarheid tonen.
+
+>[!NOTE]
+>Deze release verwijdert alleen de kwetsbaarheid voor nieuwe installaties van Azure AD Connect waarop de serviceaccount is gemaakt door het installatieproces. Voor installaties exisating of in gevallen waarin u het account zelf opgeven, sould u ervoor te zorgen dat deze kwetsbaarheid niet bestaat.
+
+Naar de instellingen voor het serviceaccount dat u kunt uitvoeren webserverbeheerders [dit PowerShell-script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Het dat de instellingen op het serviceaccount voor het verwijderen van de kwetsbaarheid voor wordt versterkt de onderstaande waarden:
+
+*   Overname van het opgegeven object uitschakelen
+*   Verwijder alle vermeldingen voor toegangsbeheer in het specifieke object, met uitzondering van ACE's specifieke naar zichzelf. We willen de standaardmachtigingen behouden wanneer deze naar zichzelf wordt.
+*   Deze machtigingen toewijzen:
+
+Type     | Naam                          | Toegang               | Van toepassing op
+---------|-------------------------------|----------------------|--------------|
+Toestaan    | SYSTEEM                        | Volledig beheer         | Dit object  |
+Toestaan    | Ondernemingsadministrators             | Volledig beheer         | Dit object  |
+Toestaan    | Domeinadministrators                 | Volledig beheer         | Dit object  |
+Toestaan    | Beheerders                | Volledig beheer         | Dit object  |
+Toestaan    | Ondernemings-domeincontrollers | Inhoud weergeven        | Dit object  |
+Toestaan    | Ondernemings-domeincontrollers | Alle eigenschappen lezen  | Dit object  |
+Toestaan    | Ondernemings-domeincontrollers | Machtigingen lezen     | Dit object  |
+Toestaan    | Geverifieerde gebruikers           | Inhoud weergeven        | Dit object  |
+Toestaan    | Geverifieerde gebruikers           | Alle eigenschappen lezen  | Dit object  |
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>PowerShell-script voor de hand van een bestaande service-account
+
+Deze instellingen toepassen op een bestaande serviceaccount met het PowerShell-script (ether geleverd door uw organisatie of gemaakt met een eerdere installatie van Azure AD Connect download het script van de opgegeven koppeling hierboven.
+
+##### <a name="usage"></a>Gebruik:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+waar 
+
+$ObjectDN = Active Directory-account waarvan de machtigingen wilt hoger worden ingesteld.
+$Credential = referentie is gebruikt voor het verifiëren van de client als praten met Active Directory. Doorgaans is dit de ondernemingsbeheerder referenties gebruikt voor het maken van het account waarvan machtigingen die behoeften verstrakking.
+
+>[!NOTE] 
+>$credential. Gebruikersnaam moet de indeling DOMEIN\gebruikersnaam.  
+
+##### <a name="example"></a>Voorbeeld:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Deze kwetsbaarheid gebruikt om onbevoegde toegang te krijgen?
+
+Om te zien als deze kwetsbaarheid is gebruikt om inbreuk van uw Azure AD te herstellen Connect-configuratie moet u controleren of het wachtwoord van de laatste datum van het serviceaccount.  Als de tijdstempel in onverwachte, verder onderzoek via het gebeurtenislogboek voor dat het wachtwoord opnieuw instellen van gebeurtenis, moet worden ondernomen.
+
+                                                                                                               
+
+## <a name="116490"></a>1.1.649.0
+Status: Oktober 27 2017
+
+>[!NOTE]
+>Deze versie is niet beschikbaar voor klanten via de functie Azure AD Connect automatische Upgrade
 
 ## <a name="116490"></a>1.1.649.0
 Status: Oktober 27 2017

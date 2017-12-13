@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Notification Hubs gebruiken om belangrijk nieuws te verzenden
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -207,7 +207,7 @@ De eerste stap is het toevoegen van de UI-elementen naar uw bestaande storyboard
 De app kan nu een set van categorieën worden opgeslagen in de lokale opslag van apparaat wordt gebruikt om u te registreren bij de notification hub wanneer de app wordt gestart.  De gebruiker kan de selectie van categorieën op runtime en klik op wijzigen de **abonneren** methode voor het bijwerken van de registratie voor het apparaat. Vervolgens kunt u de app het laatste nieuws om meldingen te verzenden rechtstreeks in de app zelf wordt bijgewerkt.
 
 ## <a name="optional-sending-tagged-notifications"></a>(optioneel) Verzenden van meldingen met tags
-Als u geen toegang tot Visual Studio hebt, kunt u met de volgende sectie overslaan en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [klassieke Azure-Portal] met behulp van het foutopsporingstabblad voor uw notification hub. 
+Als u geen toegang tot Visual Studio hebt, kunt u met de volgende sectie overslaan en meldingen verzenden vanuit de app zelf. U kunt ook de juiste sjabloon melding verzenden de [Azure-portal] met behulp van het foutopsporingstabblad voor uw notification hub. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -331,4 +331,4 @@ In deze zelfstudie hebt u geleerd hoe belangrijk nieuws per categorie-broadcast.
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[klassieke Azure-Portal]: https://manage.windowsazure.com
+[Azure-portal]: https://portal.azure.com

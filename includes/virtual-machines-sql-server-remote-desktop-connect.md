@@ -1,3 +1,4 @@
+
 1. Wanneer de virtuele Azure-machine is gemaakt en wordt uitgevoerd, klikt u in Azure Portal op het pictogram Virtuele machines om uw VM's te bekijken.
 
 1. Klik op het beletselteken (**...**) voor de nieuwe virtuele machine.

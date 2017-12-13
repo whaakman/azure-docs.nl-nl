@@ -1,31 +1,33 @@
 ---
 title: Problemen met Azure migreren | Microsoft Docs
 description: Biedt een overzicht van bekende problemen in de service Azure migreren en tips voor veelvoorkomende fouten.
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="troubleshoot-azure-migrate"></a>Problemen met Azure migreren
+# <a name="troubleshoot-azure-migrate"></a>Problemen met Azure Migrate oplossen
 
 ## <a name="troubleshoot-common-errors"></a>Veelvoorkomende fouten oplossen
 
 [Azure migreren](migrate-overview.md) voor lokale werkbelastingen voor migratie naar Azure evalueert. Gebruik dit artikel bij het oplossen van problemen bij het implementeren en gebruiken Azure migreren.
 
+
+**Collector kan geen verbinding maken met internet**
+
+Dit kan gebeuren wanneer de door u gebruikte computer zich achter een proxy. Zorg ervoor dat u de autorisatiereferenties opgeven als de proxy een moet.
+Als u elke URL gebaseerde, firewall-proxy gebruikt om te bepalen uitgaande verbinding, moet aan de lijst met geaccepteerde dat deze URL's vereist:
+
+**URL** | **Doel**  
+--- | ---
+*. portal.azure.com | Vereist connectiviteit met de Azure-service controleren en valideren tijdsynchronisatie verstrekt.
+*. oneget.org | Vereist voor het downloaden van de powershell op basis van vCenter PowerCLI module.
 
 **De collector geen verbinding maken met het project met de project-ID en sleutel ik gekopieerd vanuit de portal.**
 

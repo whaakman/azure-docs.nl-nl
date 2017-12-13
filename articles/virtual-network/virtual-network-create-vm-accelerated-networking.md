@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06b77ce5b6f15e3dae4a7d4bad76def949774678
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 233e0449bc0803709f0aa369a446c2ec5d3f177e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Een virtuele machine met versnelde toegang maken
 
@@ -46,13 +46,13 @@ De voordelen van versnelde netwerken zijn alleen van toepassing op de virtuele m
 De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
 
 * **Interface maken van een netwerk:** Accelerated netwerken kan alleen worden ingeschakeld voor een nieuwe NIC. Deze kan niet worden ingeschakeld voor een bestaande NIC.
-* **Maken van VM:** een NIC met versnelde netwerken ingeschakeld kan alleen worden gekoppeld aan een VM wanneer de virtuele machine wordt gemaakt. De NIC kan niet worden gekoppeld aan een bestaande virtuele machine.
-* **Gebieden:** Windows virtuele machines met versnelde netwerken worden aangeboden in de meeste Azure-regio's. Virtuele Linux-machines met versnelde netwerken worden aangeboden in meerdere regio's. Deze mogelijkheid is beschikbaar in regio's is uitgebreid. Zie het blog Azure virtuele netwerken Updates hieronder voor de meest recente informatie.   
-* **Ondersteunde besturingssystemen:** Windows: Microsoft Windows Server 2012 R2 Datacenter- en Windows Server 2016. Linux: Ubuntu Server 16.04 TNS met kernel 4.4.0-77 of hoger, SLES 12 SP2, RHEL 7.3 en CentOS 7.3 (gepubliceerd door 'Rogue Wave Software').
+* **Maken van VM:** een NIC met versnelde netwerken ingeschakeld kan alleen worden gekoppeld aan een VM wanneer de virtuele machine wordt gemaakt. De NIC kan niet worden gekoppeld aan een bestaande virtuele machine. Als de virtuele machine toe te voegen aan de bestaande beschikbaarheidsset is ingesteld, moeten alle virtuele machines in de beschikbaarheidsset ook versnelde netwerken ingeschakeld.
+* **Gebieden:** Windows virtuele machines met versnelde netwerken worden aangeboden in de meeste Azure-regio's. Virtuele Linux-machines met versnelde netwerken worden aangeboden in meerdere regio's. De mogelijkheid is beschikbaar in regio's is uitgebreid. Voor de meest recente informatie, Zie de [Azure virtuele netwerken Updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blog.   
+* **Ondersteunde besturingssystemen:** Windows: Microsoft Windows Server 2012 R2 Datacenter- en Windows Server 2016. Linux: Ubuntu Server 16.04 TNS met kernel 4.4.0-77 of hoger, SLES 12 SP2 RHEL 7.3 en CentOS 7.3 (gepubliceerd door 'Rogue Wave Software').
 * **VM-grootte:** algemeen en de grootte van de compute-geoptimaliseerde exemplaar met acht of meer cores. Zie voor meer informatie de [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM-groottes artikelen. De set ondersteunde grootten voor VM-exemplaar vergroten in de toekomst.
 * **Implementatie via Azure Resource Manager (ARM) alleen:** versnelde toegang is niet beschikbaar voor implementatie via ASM/RDFE.
 
-Wijzigingen in deze beperkingen zijn aangekondigd door de [virtuele netwerken van Azure updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) pagina.
+Wijzigingen in deze beperkingen zijn aangekondigd door de [virtuele netwerken van Azure updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) pagina.
 
 ## <a name="create-a-windows-vm"></a>Een Windows-VM maken
 U kunt de Azure portal of Azure [PowerShell](#windows-powershell) voor het maken van de virtuele machine.
@@ -164,7 +164,7 @@ Zodra u de virtuele machine in Azure maakt, moet u de versnelde-netwerkstuurprog
 9. Versnelde netwerken is nu ingeschakeld voor uw virtuele machine.
 
 ## <a name="create-a-linux-vm"></a>Een Linux-VM maken
-U kunt de Azure portal of Azure [PowerShell](#linux-powershell) een Ubuntu of SLES VM te maken. Er is een andere werkstroom voor RHEL en CentOS virtuele machines.  Zie de onderstaande instructies.
+U kunt de Azure portal of Azure [PowerShell](#linux-powershell) een Ubuntu of SLES VM te maken. Zie voor instructies RHEL en CentOS [RHEL en CentOS](#rhel-and-centos).
 
 ### <a name="linux-portal"></a>Portal
 1. Registreren voor versnelde netwerken voor Linux-preview door te voeren 1-5 van stappen de [maken van een Linux-VM - PowerShell](#linux-powershell) sectie van dit artikel.  U registreren niet voor de Preview-versie in de portal.
@@ -183,7 +183,7 @@ U kunt de Azure portal of Azure [PowerShell](#linux-powershell) een Ubuntu of SL
 2. Een PowerShell-sessie starten door te klikken op de knop Start typen **powershell**, vervolgens te klikken op **PowerShell** in de zoekresultaten.
 3. Voer in het PowerShell-venster de `login-azurermaccount` opdracht zich kunnen aanmelden met uw Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Als u nog een account hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Registreren voor de versnelde netwerken voor Azure preview via de volgende stappen:
-    - Een e-mail sturen naar [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) met uw Azure-abonnement-ID en het beoogde gebruik. Wacht totdat een e-mailbevestiging van Microsoft over uw abonnement wordt ingeschakeld.
+    - Een e-mail sturen naar [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) met uw Azure-abonnement-ID en het beoogde gebruik. Voltooi de volgende stappen totdat niet wanneer u een e-mailbevestiging van Microsoft of uw abonnement is ingeschakeld voor versnelde netwerken hebt ontvangen.
     - Voer de volgende opdracht om te bevestigen dat u bent geregistreerd voor de Preview-versie:
     
         ```powershell
@@ -201,7 +201,7 @@ U kunt de Azure portal of Azure [PowerShell](#linux-powershell) een Ubuntu of SL
       >[!NOTE]
       >Als u hebt deelgenomen aan de netwerken Accelerated voor VM's van Windows-preview (is niet meer nodig zijn om u te registreren voor het gebruik van Accelerated netwerken voor Windows-VM's), worden u niet automatisch geregistreerd voor de Accelerated netwerken voor virtuele Linux-machines bekijken. U moet registreren voor de Accelerated netwerken voor virtuele Linux-machines preview deel te nemen aan het.
       >
-5. Kopieer het volgende script vervangen door Ubuntu of SLES naar wens in uw browser.  Redhat en CentOS hebben weer een andere workflow onderstaande:
+5. Kopieer het volgende script vervangen door Ubuntu of SLES naar wens in uw browser.  Opnieuw, hebben een andere workflow uiteengezet in Redhat en CentOS [RHEL en CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -309,18 +309,18 @@ Op dit moment afhankelijk de instructies van de distributie die u gebruikt.
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. Nadat het script is uitgevoerd, wordt de virtuele machine opnieuw opgestart nadat een 60 seconden onderbreken.
+3. Nadat het script is uitgevoerd, wordt de virtuele machine opnieuw opgestart na een onderbreking 60 seconden.
 4. Zodra de virtuele machine opnieuw is opgestart, opnieuw verbinding maken met het door stap 5-7 opnieuw uit te voeren.
 5. Voer de `ifconfig` opdracht in en Bevestig dat bond0 is actief en de interface wordt weergegeven als omhoog. 
  
  >[!NOTE]
       >Toepassingen die gebruikmaken van versnelde netwerken moeten communiceren via de *bond0* interface niet *eth0*.  Naam van de interface overgaan voordat versnelde netwerken algemene beschikbaarheid bereikt.
 
-#### <a name="rhelcentos"></a>RHEL/CentOS
+#### <a name="rhel-and-centos"></a>RHEL en CentOS
 
 Maken van een Red Hat Enterprise Linux of CentOS 7.3 VM, is enkele extra stappen uitvoeren om het laden van de nieuwste stuurprogramma's die nodig is voor SR-IOV en de functie VF stuurprogramma (Virtual) voor de netwerkkaart vereist. De eerste fase van de instructies bereidt een installatiekopie die kan worden gebruikt voor het maken van een of meer virtuele machines die de stuurprogramma's die vooraf is geladen.
 
-##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Stap 1: een Red Hat Enterprise Linux of CentOS 7.3 basisinstallatiekopie voorbereiden. 
+##### <a name="phase-1-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Fase 1: Een Red Hat Enterprise Linux of CentOS 7.3 basisinstallatiekopie voorbereiden 
 
 1.  Inrichten van een niet - SRIOV CentOS 7.3 VM op Azure
 
@@ -352,9 +352,9 @@ Maken van een Red Hat Enterprise Linux of CentOS 7.3 VM, is enkele extra stappen
 
 5.  Vanuit Azure-portal stop deze virtuele machine; en gaat u naar een van de virtuele machine '-schijven genoemd, vastleggen van de OSDisk VHD-URI. Deze URI bevat de naam van de basisinstallatiekopie VHD en de storage-account. 
  
-##### <a name="phase-two-provision-new-vms-on-azure"></a>Fase twee: inrichten van nieuwe virtuele machines in Azure
+##### <a name="phase-2-provision-new-vms-on-azure"></a>Fase 2: Inrichten van nieuwe virtuele machines in Azure
 
-1.  Inrichten van nieuwe virtuele machines op basis van New-AzureRMVMConfig met behulp van de basisinstallatiekopie VHD vastgelegd in stap 1, met AcceleratedNetworking ingeschakeld op de vNIC:
+1.  Nieuwe virtuele machines inrichten op basis van met New-AzureRMVMConfig met behulp van de basisinstallatiekopie VHD vastgelegd in de fase 1, met AcceleratedNetworking ingeschakeld op de vNIC:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -394,7 +394,7 @@ Maken van een Red Hat Enterprise Linux of CentOS 7.3 VM, is enkele extra stappen
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
-    # Specify the base image's VHD URI (from phase one step 5). 
+    # Specify the base image's VHD URI (from phase 1, step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
     # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
@@ -430,7 +430,7 @@ Maken van een Red Hat Enterprise Linux of CentOS 7.3 VM, is enkele extra stappen
      -VM $VmConfig
     ```
 
-2.  Nadat de virtuele machines wordt opgestart, Controleer het VF-apparaat door 'lspci' en de vermelding Mellanox controleren. Bijvoorbeeld, zien we dit item in de uitvoer lspci:
+2.  Nadat de virtuele machines wordt opgestart, Controleer het VF-apparaat door 'lspci' en de vermelding Mellanox controleren. U ziet bijvoorbeeld de volgende tekst in de uitvoer lspci:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]

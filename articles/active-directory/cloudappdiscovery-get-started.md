@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: a3593611c7a2467de1c1639f8b5c6b0eb6f1ecbf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Cloud App Discovery instellen in Azure AD
 
@@ -79,6 +79,7 @@ Om een Cloud App Discovery-rapport is gegenereerd, moeten uw verkeerslogboeken v
 * Barracuda - Web-App-Firewall (W3C)
 * Blue Coat Proxy SG - toegangslogboek (W3C)
 * Check Point
+* Cisco ASA vuurkracht
 * Cisco ASA-Firewall (Cisco ASA voor firewalls, de informatie-niveau instellen op 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe
