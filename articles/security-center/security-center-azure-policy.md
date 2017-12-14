@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integratie van Security Center-beveiligingsbeleid met Azure Policy
 In dit artikel leest u hoe u Azure Security Center-beveiligingsbeleid configureert met Azure Policy. 
@@ -30,7 +30,7 @@ In Security Center wordt voor elk van uw Azure-abonnementen automatisch een stan
 * Beleidsnaleving bewaken.
 
 > [!NOTE]
-> Azure Policy is alleen beschikbaar als beperkte preview-versie. Als u zich wilt registreren, gaat u naar [Registreren voor Azure Policy](https://aka.ms/getpolicy). Lees [Beleid maken en beheren om naleving af te dwingen](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy) voor meer informatie over Azure Policy.
+> Azure Policy is alleen beschikbaar als beperkte preview-versie. Als u zich wilt registreren, gaat u naar [Registreren voor Azure Policy](https://aka.ms/getpolicy). Lees [Beleid maken en beheren om naleving af te dwingen](http://docs.microsoft.com/azure/azure-policy/create-manage-policy) voor meer informatie over Azure Policy.
 
 ## <a name="edit-security-policies"></a>Beveiligingsbeleid bewerken
 U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerken in Security Center. U kunt een beveiligingsbeleid alleen wijzigen als u een eigenaar, bijdrager of beveiligingsbeheerder van dat abonnement bent of van de bovenliggende beheergroep. Als u uw beveiligingsbeleid wilt weergeven in Security Center, doet u het volgende:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Gegevens ophalen met de rapportage-API van Azure AD met certificaten
 In dit artikel wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaatreferenties om zonder tussenkomst van de gebruiker gegevens op te halen uit directory's. 
@@ -89,7 +89,7 @@ U kunt nu het script maken. Hieronder ziet u een voorbeeld waarin de cmdlet Invo
 U bent nu klaar om te gaan exporteren naar een CSV-bestand en dit bestand op te slaan in een SIEM-systeem. U kunt uw script ook verpakken in een geplande taak om periodiek gegevens van Azure AD op te halen uit uw tenant zonder dat u toepassingssleutels hoeft op te slaan in de broncode. 
 
 ## <a name="next-steps"></a>Volgende stappen
-[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (De grondbeginselen van Azure-identiteitsbeheer)<br>
+[The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity) (De grondbeginselen van Azure-identiteitsbeheer)<br>
 
 
 

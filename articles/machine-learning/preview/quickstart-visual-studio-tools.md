@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f066f0dd0dab0096279c18ded3c024a7cc0cbda0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools voor AI
-Visual Studio Tools voor AI is een ontwikkelingsextensie voor het bouwen, testen en implementeren van deep learning- en AI-oplossingen. Het zorgt voor naadloze integratie met Azure Machine Learning, met name een uitvoeringsgeschiedenisweergave, met gedetailleerde informatie over de prestaties van vorige trainingen en aangepaste metrische gegevens. Het biedt een voorbeeldverkennerweergave waarmee ontwikkelaars door voorbeelden kunnen bladeren en snel nieuwe projecten opstarten met [Microsoft Cognitive Toolkit (vroeger bekend als CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) en andere deep learning-frameworks. Tot slot biedt het een verkenner voor compute-doelen, waarmee u taken kunt verzenden voor het trainen van modellen op externe omgevingen zoals Azure Virtual Machines of Linux-servers met GPU. Het programma biedt ook toegang tot [Azure Batch AI (preview-versie)](https://docs.microsoft.com/en-us/azure/batch-ai/).
+Visual Studio Tools voor AI is een ontwikkelingsextensie voor het bouwen, testen en implementeren van deep learning- en AI-oplossingen. Het zorgt voor naadloze integratie met Azure Machine Learning, met name een uitvoeringsgeschiedenisweergave, met gedetailleerde informatie over de prestaties van vorige trainingen en aangepaste metrische gegevens. Het biedt een voorbeeldverkennerweergave waarmee ontwikkelaars door voorbeelden kunnen bladeren en snel nieuwe projecten opstarten met [Microsoft Cognitive Toolkit (vroeger bekend als CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) en andere deep learning-frameworks. Tot slot biedt het een verkenner voor compute-doelen, waarmee u taken kunt verzenden voor het trainen van modellen op externe omgevingen zoals Azure Virtual Machines of Linux-servers met GPU. Het programma biedt ook toegang tot [Azure Batch AI (preview-versie)](https://docs.microsoft.com/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Aan de slag 
 U moet eerst [Visual Studio](https://www.visualstudio.com/downloads/) downloaden en installeren om aan de slag te kunnen gaan. Wanneer u Visual Studio hebt geopend, voert u de volgende stappen uit:
@@ -28,7 +28,7 @@ U moet eerst [Visual Studio](https://www.visualstudio.com/downloads/) downloaden
 3. Klik op de knop **Downloaden**. 
 4. Start Visual Studio na de installatie opnieuw. 
 
-Wanneer Visual Studio opnieuw is geladen, is de extensie actief. [Meer informatie over het zoeken naar extensies](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+Wanneer Visual Studio opnieuw is geladen, is de extensie actief. [Meer informatie over het zoeken naar extensies](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
 > Voor Visual Studio Tools voor AI is Visual Studio 2015 of 2017 vereist in de editie voor professionals of bedrijven. De Apple OSX-versie wordt niet ondersteund. 

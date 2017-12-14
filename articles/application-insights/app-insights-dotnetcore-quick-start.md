@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Beginnen met controleren van de ASP.NET Core-webtoepassing
 
@@ -32,7 +32,7 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 - [.NET Core 2.0 SDK installeren](https://www.microsoft.com/net/core)
 - U hebt een Azure-abonnement en een bestaande .NET Core-webtoepassing nodig.
 
-Als u geen ASP.NET Core-webtoepassing hebt, kunt u er een maken door de handleiding [Een ASP.NET Core-web-app maken](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs) te volgen.
+Als u geen ASP.NET Core-webtoepassing hebt, kunt u er een maken door de handleiding [Een ASP.NET Core-web-app maken](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs) te volgen.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -126,4 +126,4 @@ Als u van plan bent om door te gaan met andere snelstartgidsen of met de zelfstu
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Runtime-uitzonderingen zoeken en diagnoses uitvoeren](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Runtime-uitzonderingen zoeken en diagnoses uitvoeren](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

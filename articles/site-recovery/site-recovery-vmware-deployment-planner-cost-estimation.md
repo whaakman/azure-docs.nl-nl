@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 62308b4ab6c9aedf2f7f7e5a40ff476cce171988
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 36309eb85244435a853013448c83d125420c001c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van de Azure Site Recovery-implementatieplanner  
 
@@ -45,7 +45,7 @@ U kunt de kosten maandelijks of jaarlijks weergeven. Meer informatie over [onder
 **Azure-opslagkosten per maand-jaar** Dit toont de totale opslagkosten die zullen worden gemaakt voor premium en standard-opslag voor replicatie en details voor DR.
 
 ## <a name="detailed-cost-analysis"></a>Gedetailleerde kostenanalyse
-Azure-prijzen voor berekening, opslag, netwerk enz. variëren per Azure-regio. U kunt een kostenramingsrapport genereren met de meest recente Azure-prijzen op basis van uw abonnement, de aanbieding die aan uw abonnement is gekoppeld en voor de opgegeven Azure-doelregio in de opgegeven valuta. Het hulpprogramma gebruikt standaard de Azure-regio VS - west 2 en als valuta de Amerikaanse dollar (USD). Als u een andere regio en valuta hebt gebruikt, worden de volgende keer wanneer u een rapport zonder abonnements-ID, aanbiedings-id, doelregio en valuta genereert, de prijzen van de laatst gebruikte doelregio en valuta voor de raming van kosten gebruikt.
+Azure-prijzen voor berekening, opslag, netwerk enz. variëren per Azure-regio. U kunt een kostenramingsrapport genereren met de meest recente Azure-prijzen op basis van uw abonnement, de aanbieding die aan uw abonnement is gekoppeld en voor de opgegeven Azure-doelregio in de opgegeven valuta. Het hulpprogramma gebruikt standaard de Azure-regio VS - west 2 en als valuta de Amerikaanse dollar (USD). Als u een andere regio en valuta hebt gebruikt, worden de volgende keer wanneer u een rapport zonder abonnements-id, aanbiedings-id, doelregio en valuta genereert, de prijzen van de laatst gebruikte doelregio en valuta voor de raming van kosten gebruikt.
 In deze sectie wordt het abonnements-ID en aanbiedings-ID weergegeven die u hebt gebruikt voor het genereren van rapporten.  Als u deze niet hebt gebruikt, is deze leeg.
 
 Voor het hele rapport geldt dat de cellen die grijs zijn gemarkeerd, alleen-lezen zijn. Witte cellen kunnen worden gewijzigd overeenkomstig uw vereisten.
@@ -58,12 +58,12 @@ In de eerste sectie ziet u de totale DR-kosten per onderdelen en per statussen.
 **Berekenen**: de kosten voor IaaS-VM's die worden uitgevoerd op Azure voor DR-behoeften. Hierbij inbegrepen zijn de kosten voor virtuele machines die zijn gemaakt door Azure Site Recovery tijdens DR-oefeningen (testfailovers) en voor virtuele machines die worden uitgevoerd op Azure, zoals SQL Server met AlwaysOn-beschikbaarheidsgroepen en domeincontrollers/DNS (Domain Name Servers).
 
 **Opslag**: de kosten voor het opslagverbruik van Azure voor DR-behoeften. Deze omvatten de kosten voor het opslagverbruik voor replicatie en tijdens DR-oefeningen.
-Netwerk: kosten voor ExpressRoute en voor Site-naar-Site VPN voor DR-behoeften. 
+Netwerk: kosten voor ExpressRoute en voor site-naar-site VPN voor DR-behoeften. 
 
 **ASR-licentie**: kosten voor de Azure Site Recovery-licentie voor alle compatibele virtuele machines. Als u handmatig een virtuele machine in de tabel met de gedetailleerde kostenanalyse hebt ingevoerd, worden de kosten voor de licentie van Azure Site Recovery ook voor die VM inbegrepen.
 
 ### <a name="overall-dr-cost-by-states"></a>Totale DR-kosten per statussen
-De total kosten voor DR zijn gebaseerd op twee verschillende statussen: Replicatie en DR-oefening.
+De total kosten voor DR zijn gebaseerd op twee verschillende statussen: replicatie en DR-oefening.
 
 **Replicatiekosten**: de kosten die zijn gemoeid met een replicatie. Dit dekt de kosten van opslag, netwerk en de Azure Site Recovery-licentie. 
 
@@ -166,4 +166,4 @@ Met Azure Site Recovery Deployment Planner kunt u het kostenrapport genereren me
 |TRY|Turkse lira (TL)||USD| Amerikaanse dollar ($)||ZAR|Zuid-Afrikaanse rand (R)|
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het beveiligen van [VMware-VM's naar Azure met Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-vmware-to-azure).
+Meer informatie over het beveiligen van [VMware-VM's naar Azure met Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).

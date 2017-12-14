@@ -9,25 +9,26 @@ editor: vturecek
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: bd1b36af82a01909b12404ef54de32beb2f31c0b
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.custom: mvc
+ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Een Service Fabric Windows-containertoepassing implementeren in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
 
-Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. In deze QuickStart ziet u hoe u een vooraf gebouwde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve Windows Server 2016 Nano Server en IIS-container. In deze QuickStart wordt beschreven hoe u een Windows-container implementeert. Lees [deze QuickStart](service-fabric-quickstart-containers-linux.md) als u een Linux-container wilt implementeren.
+Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. In deze snelstartgids ziet u hoe u een vooraf gebouwde Docker-containerinstallatiekopie in een Service Fabric-toepassing implementeert. Wanneer u klaar bent, hebt u een actieve Windows Server 2016 Nano Server en IIS-container. In deze snelstartgids wordt beschreven hoe u een Windows-container implementeert. Lees [deze snelstartgids](service-fabric-quickstart-containers-linux.md) als u een Linux-container wilt implementeren.
 
 ![IIS-standaardwebpagina][iis-default]
 
-In deze QuickStart leert u de volgende zaken:
+In deze snelstartgids leert u de volgende zaken:
 > [!div class="checklist"]
 > * Een Docker-containerinstallatiekopie verpakken
 > * Communicatie configureren
@@ -54,14 +55,14 @@ In **Naam van installatiekopie** voert u 'microsoft/iis:nanoserver' in, de [Wind
 Geef uw service de naam 'MyContainerService' en klik op **OK**.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Communicatie en poort-naar-host poorttoewijzing van de container configureren
-De service heeft een eindpunt voor communicatie nodig.  U kunt nu het protocol en de poort toevoegen en typen naar een `Endpoint` in het bestand ServiceManifest.xml. Voor deze QuickStart luistert de beperkte service naar poort 80: 
+De service heeft een eindpunt voor communicatie nodig.  U kunt nu het protocol en de poort toevoegen en typen naar een `Endpoint` in het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de beperkte service naar poort 80: 
 
 ```xml
 <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
 ```
 Door `UriScheme` op te geven wordt het eindpunt van de container automatisch geregistreerd bij de Service Fabric Naming-service voor meer zichtbaarheid. Een volledig voorbeeld van een ServiceManifest.xml-bestand vindt u aan het einde van dit artikel. 
 
-Configureer de poorttoewijzing poort-naar-host voor de container door een `PortBinding`-beleid op te geven in `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor deze QuickStart is `ContainerPort` 80 en `EndpointRef` 'MyContainerServiceTypeEndpoint' (het eindpunt dat is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 80 worden toegewezen aan poort 80 in de container.  
+Configureer de poorttoewijzing poort-naar-host voor de container door een `PortBinding`-beleid op te geven in `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor deze snelstartgids is `ContainerPort` 80 en `EndpointRef` 'MyContainerServiceTypeEndpoint' (het eindpunt dat is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 80 worden toegewezen aan poort 80 in de container.  
 
 ```xml
 <ServiceManifestImport>
@@ -98,7 +99,7 @@ Typ het verbindingseindpunt van het cluster in het veld **Verbindingseindpunt**.
 Open een browser en ga naar http://winh1x87d1d.westus.cloudapp.azure.com:80. U ziet de IIS-standaardwebpagina: ![IIS-standaardwebpagina][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Volledig voorbeeld van de manifesten voor de Fabric Service-toepassing en -service
-Dit zijn de volledige manifesten voor de service en toepassing die worden gebruikt in deze QuickStart.
+Dit zijn de volledige manifesten voor de service en toepassing die worden gebruikt in deze snelstartgids.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -183,7 +184,7 @@ Dit zijn de volledige manifesten voor de service en toepassing die worden gebrui
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze QuickStart hebt u de volgende zaken geleerd:
+In deze snelstartgids hebt u de volgende zaken geleerd:
 > [!div class="checklist"]
 > * Een Docker-containerinstallatiekopie verpakken
 > * Communicatie configureren

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integratie van System Center Configuration Manager met OMS-updatebeheer
 
@@ -41,7 +41,7 @@ Hoe u clients die worden gehost in Azure IaaS met uw bestaande Configuration Man
 
 Voer de volgende stappen uit als u update-implementaties wilt blijven beheren vanuit Configuration Manager.  OMS maakt verbinding met Configuration Manager om updates toe te passen op de clientcomputers die zijn verbonden met uw Log Analytics-werkruimte. Update-inhoud is beschikbaar via de cache van de clientcomputer alsof de implementatie werd beheerd door Configuration Manager.  
 
-1. Maak een software-update-implementatie van de site op het hoogste niveau in uw Configuration Manager-hiërarchie met behulp van het proces dat wordt beschreven in het proces voor het [implementeren van software-updates](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates) (Engelstalig artikel).  De enige instelling die anders moet worden geconfigureerd dan bij een standaardimplementatie, is de optie **Software-updates niet installeren** om het downloadgedrag van het implementatiepakket te bepalen. Dit gedrag wordt beheerd door de OMS Updatebeheer-oplossing door in de volgende stap een geplande update-implementatie te maken.  
+1. Maak een software-update-implementatie van de site op het hoogste niveau in uw Configuration Manager-hiërarchie met behulp van het proces dat wordt beschreven in het proces voor het [implementeren van software-updates](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates) (Engelstalig artikel).  De enige instelling die anders moet worden geconfigureerd dan bij een standaardimplementatie, is de optie **Software-updates niet installeren** om het downloadgedrag van het implementatiepakket te bepalen. Dit gedrag wordt beheerd door de OMS Updatebeheer-oplossing door in de volgende stap een geplande update-implementatie te maken.  
 
 1. Open het dashboard Updatebeheer in de OMS-portal.  Maak een nieuwe implementatie door de stappen te volgen die worden beschreven in [Een update-implementatie maken](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment), en selecteer in de vervolgkeuzelijst de juiste Configuration Manager-verzameling die wordt weergegeven als een OMS-computergroep.  Houd rekening met de volgende belangrijke punten:
     1. Als er een onderhoudsvenster is gedefinieerd op de geselecteerde apparaatverzameling van Configuration Manager, houden leden van de verzameling zich daaraan in plaats van aan de **Duur**-instelling die is gedefinieerd in de geplande implementatie in OMS.
