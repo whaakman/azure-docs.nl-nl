@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/28/2017
 ms.author: spelluru
-ms.openlocfilehash: 6a6d0af6ed4e2c4ece7d69f6d7606e3ca149f8a7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 8d00602dd2634b6fdbd9e9203efaf1e4393f4c09
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Zelfstudie: een Azure Data Factory maken op basis van een Azure Resource Manager-sjabloon
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -384,7 +384,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-    Hier volgt een voorbeeld van de uitvoer: 
+    Hier volgt een voorbeeld van uitvoer: 
 
     ```json
     TriggerName       : ArmTemplateTestTrigger
@@ -401,7 +401,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Hier volgt een voorbeeld van de uitvoer: 
+    Hier volgt een voorbeeld van uitvoer: 
     
     ```
     Confirm
@@ -415,7 +415,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Hier volgt een voorbeeld van de uitvoer:
+    Hier volgt een voorbeeld van uitvoer:
     
     ```
     TriggerName       : ArmTemplateTestTrigger
@@ -426,7 +426,7 @@ De geïmplementeerde trigger is gestopt. Een van de manieren om de trigger te st
     ```
 
 ## <a name="monitor-the-pipeline"></a>De pijplijn bewaken
-1. Nadat u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Meer services**, zoekt u met een trefwoord zoals `data fa` en selecteert u **Data factory's**.
+1. Nadat u zich hebt aangemeld bij [Azure Portal](https://portal.azure.com/), klikt u op **Meer services**, zoekt u met een trefwoord zoals **data fa**, en selecteert u **Gegevensfabrieken**.
 
     ![Door het menu met data factory's bladeren](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. Klik op de pagina **Data factory's** op de data factory die u hebt gemaakt. Filter de lijst zo nodig op de naam van uw data factory.  

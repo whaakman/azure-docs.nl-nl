@@ -1,13 +1,13 @@
-### <a name="windows-powershell"></a>Windows Powershell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 #### <a name="install-powershell"></a>PowerShell installeren
 Installeer de nieuwste versie van PowerShell als deze nog niet op uw computer staat. 
 
-1. Navigeer in uw webbrowser naar de pagina [Azure SDK-downloads en SDK’s](https://azure.microsoft.com/downloads/). 
+1. Navigeer in uw webbrowser naar de pagina [Azure downloads](https://azure.microsoft.com/downloads/). 
 2. Klik op **Windows installeren** in de sectie **Opdrachtregelprogramma's** -> **PowerShell**. 
 3. Voer het **MSI**-bestand uit om PowerShell te installeren. 
 
-Zie [PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor gedetailleerde instructies. 
+Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor gedetailleerde instructies. 
 
 #### <a name="log-in-to-powershell"></a>Aanmelden bij PowerShell
 
@@ -19,12 +19,12 @@ Zie [PowerShell installeren en configureren](/powershell/azure/install-azurerm-p
     ```powershell
     Login-AzureRmAccount
     ```        
-2. Als u meerdere Azure-abonnementen hebt, voert u de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
+2. Voer de volgende opdracht uit om alle abonnementen voor dit account weer te geven:
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Voer de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **SubscriptionId** door de id van uw Azure-abonnement:
+3. Als u meerdere abonnementen hebt, voert u de volgende opdracht uit om het abonnement te selecteren waarmee u wilt werken. Vervang **SubscriptionId** door de id van uw Azure-abonnement:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
