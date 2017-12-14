@@ -4,7 +4,7 @@
   items:
     - name: Informatie over SQL DB
       href: sql-database-technical-overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Database maken - Portal
@@ -60,9 +60,8 @@
 - name: Concepten
   items:
     - name: Servicekenmerken
+      href: sql-database-servers-databases.md
       items:
-        - name: Overzicht
-          href: sql-database-servers-databases.md
         - name: Servicelagen
           href: sql-database-service-tiers.md
         - name: Bronlimieten
@@ -106,9 +105,8 @@
         - name: Algemene SQL Server-functies
           href: sql-database-features.md
     - name: Beveiliging
+      href: sql-database-security-overview.md
       items:
-        - name: Overzicht
-          href: sql-database-security-overview.md
         - name: Toegangsbeheer
           href: sql-database-control-access.md
         - name: Azure AD
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Gegevensmaskering
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: Hoge beschikbaarheid
+      href: sql-database-high-availability.md
     - name: Bedrijfscontinuïteit
+      href: sql-database-business-continuity.md
       items:
-        - name: Overzicht
-          href: sql-database-business-continuity.md
         - name: Databaseherstel
           href: sql-database-recovery-using-backups.md
         - name: Beveiliging configureren
@@ -140,9 +139,8 @@
         - name: Herstelanalyse uitvoeren
           href: sql-database-disaster-recovery-drills.md
     - name: Migreren naar SQL Database
+      href: sql-database-cloud-migrate.md
       items:
-        - name: SQL Server-DB migreren
-          href: sql-database-cloud-migrate.md
         - name: T-SQL-wijzigingen
           href: sql-database-transact-sql-information.md
         - name: Een database na migratie beheren
@@ -158,9 +156,8 @@
         - name: Gegevens synchroniseren
           href: sql-database-sync-data.md
     - name: Bewaken en afstemmen
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: Overzicht
-          href: sql-database-troubleshoot-performance.md
         - name: Prestatiebewaking
           href: sql-database-single-database-monitor.md
         - name: Prestatie-aanbevelingen
@@ -180,9 +177,8 @@
         - name: In-memory bewaken
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Uitschalen
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: Overzicht
-          href: sql-database-elastic-scale-introduction.md
         - name: Shard-kaarten
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Query-routering
@@ -220,9 +216,8 @@
         - name: In-memory configureren
           href: sql-database-in-memory-oltp-migration.md
     - name: Apps ontwikkelen
+      href: sql-database-develop-overview.md
       items:
-        - name: Overzicht
-          href: sql-database-develop-overview.md
         - name: Connectiviteit
           href: sql-database-libraries.md
         - name: App verifiëren

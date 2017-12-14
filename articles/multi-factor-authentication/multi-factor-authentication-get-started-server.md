@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: verificatieserver, app-activeringspagina voor azure multi factor authentication, downloaden bij verificatieserver
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Aan de slag met de Azure Multi-Factor Authentication-server
 
@@ -89,7 +89,7 @@ Als u de functie Gebeurtenisbevestiging niet gebruikt en gebruikers geen mobiele
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>De MFA-server downloaden - openbare preview
+## <a name="download-the-mfa-server"></a>De MFA-server downloaden
 
 Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden via Azure Portal:
 
@@ -101,28 +101,6 @@ Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden v
    ![MFA-server downloaden](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. Houd deze pagina open want er wordt naar verwezen na het uitvoeren van het installatieprogramma.
-
-
-## <a name="download-the-mfa-server"></a>De MFA-server downloaden
-
-Volg deze stappen om de Azure Multi-Factor Authentication-server te downloaden via de pfweb-portal:
-
-1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Selecteer **Gebruikers en groepen**
-4. Selecteer **Alle gebruikers**
-5. Selecteer **Multi-Factor Authentication**
-6. Selecteer **Service-instellingen** onder **Multi-Factor Authentication**.
-
-   ![Pagina met service-instellingen](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. Klik onderaan op de pagina met service-instellingen op **Naar de portal**. Er wordt een nieuwe pagina geopend.
-7. Selecteer **Downloads**.
-8. Klik op de koppeling **Downloaden** en sla het installatieprogramma op.
-
-   ![MFA-server downloaden](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Houd deze pagina open want er wordt naar verwezen na het uitvoeren van het installatieprogramma.
 
 ## <a name="install-and-configure-the-mfa-server"></a>De MFA-server installeren en configureren
 

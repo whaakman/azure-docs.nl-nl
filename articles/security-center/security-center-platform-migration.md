@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migratie van Azure Security Center-platform
 
@@ -36,7 +36,7 @@ Voortaan maakt Security Center gebruik van de Microsoft Monitoring Agent. Dit is
 
 ## <a name="agent"></a>Agent
 
-Als onderdeel van de overgang wordt de Microsoft Monitoring Agent (voor [Windows](../log-analytics/log-analytics-windows-agents.md) of [Linux](../log-analytics/log-analytics-linux-agents.md)) geïnstalleerd op alle virtuele machines van Azure waarop momenteel gegevens worden verzameld.  Als de Microsoft Monitoring Agent al op de virtuele machine is geïnstalleerd, maakt Security Center gebruik van de huidige geïnstalleerde agent.
+Als onderdeel van de overgang wordt de Microsoft Monitoring Agent (voor [Windows](../log-analytics/log-analytics-windows-agent.md) of [Linux](../log-analytics/log-analytics-linux-agents.md)) geïnstalleerd op alle virtuele machines van Azure waarop momenteel gegevens worden verzameld.  Als de Microsoft Monitoring Agent al op de virtuele machine is geïnstalleerd, maakt Security Center gebruik van de huidige geïnstalleerde agent.
 
 Voor een bepaalde tijd (doorgaans een paar dagen) worden beide agents naast elkaar uitgevoerd om te zorgen voor een soepele overgang zonder verlies van gegevens. Dit stelt Microsoft in staat om te controleren of de nieuwe gegevenspijplijn operationeel is voordat wordt gestopt met het gebruik van de huidige pijplijn. Nadat dit is geverifieerd, wordt de Azure Monitoring Agent verwijderd van uw virtuele machines. U hoeft hier niets voor te doen. U ontvangt een e-mailbericht wanneer alle klanten die zijn gemigreerd.
  
