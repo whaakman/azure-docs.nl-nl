@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL-verbindingen in de Azure-Database configureren voor PostgreSQL
 Azure-Database voor PostgreSQL verkiest verbinding maken met uw clienttoepassingen naar de PostgreSQL-service met Secure Sockets Layer (SSL). Afdwingen van SSL-verbindingen tussen uw database-server en client-toepassingen beschermt tegen 'man-in het midden'-aanvallen door het versleutelen van de gegevensstroom tussen de server en uw toepassing.
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Verbinding maken met Azure-Database voor PostgreSQL met SSL-verificatie
 Nu dat u hebt uw certificaat is gedecodeerd, kunt u nu verbinding met de databaseserver veilig via SSL. Zodat serververificatie certificaat moet het certificaat in het bestand ~/.postgresql/root.crt in de basismap van de gebruiker worden geplaatst. (Microsoft Windows het bestand de naam % APPDATA%\postgresql\root.crt.). Hieronder vindt u instructies voor het verbinden met Azure-Database voor PostgreSQL.
-
-> [!NOTE]
-> Er is momenteel een bekend probleem als u ' sslmode controleren volledige = ' in de verbinding met de service, mislukt de verbinding met de volgende fout: _servercertificaat voor '&lt;regio&gt;. control.database.windows.net ' (en 7 andere namen) komt niet overeen met de hostnaam '&lt;servername&gt;. postgres.database.azure.com '._
-> Als ' sslmode controleren volledige = ' is vereist, gebruikt u de servernaamconventie  **&lt;servername&gt;. database.windows.net** als de hostnaam in de verbindingsreeks. We willen verwijderen van deze beperking in de toekomst. Verbindingen met andere [SSL modi](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) moeten blijven gebruiken van de gewenste host naamconventie  **&lt;servername&gt;. postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Werken met het opdrachtregelhulpprogramma psql
 Het volgende voorbeeld laat zien hoe om verbinding te maken met uw PostgreSQL-server met het opdrachtregelprogramma psql. Gebruik de `root.crt` -bestand gemaakt en de `sslmode=verify-ca` of `sslmode=verify-full` optie.

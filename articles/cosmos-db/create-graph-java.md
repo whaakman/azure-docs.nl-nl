@@ -17,15 +17,15 @@ ms.date: 11/20/2017
 ms.author: denlee
 ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
 ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: een grafiek maken met behulp van Java en Azure Portal
 
-Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. Met behulp van Azure Cosmos DB, kunt u snel maken en query beheerd document, de tabel en de databases van de grafiek. 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. Met behulp van Azure Cosmos DB kunt u snel beheerde databases voor documenten, tabellen en grafieken maken en doorzoeken. 
 
-Deze snelstartgids maakt een eenvoudige graph-database met behulp van de Azure portal-hulpprogramma's voor Azure Cosmos DB. In deze snelstartgids leest u ook hoe u snel een Java-console-app kunt maken via een grafiekdatabase met behulp van het OSS-stuurprogramma [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver). De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. Deze snelstartgids familiarizes u met het maken en wijzigen van grafieken in de gebruikersinterface of via een programma, afhankelijk van wat is uw voorkeur. 
+In deze QuickStart maakt u een eenvoudige grafiekendatabase met behulp van de Azure Portal-hulpprogramma's voor Azure Cosmos DB. In deze QuickStart leest u ook hoe u snel een Java-console-app kunt maken via een grafiekdatabase met behulp van het OSS-stuurprogramma [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver). De instructies in deze QuickStart kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. In deze QuickStart leert u hoe u grafieken kunt maken en wijzigen in de gebruikersinterface of via een programma, afhankelijk van uw voorkeur. 
 
 ## <a name="prerequisites"></a>Vereisten
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -50,19 +50,19 @@ Voordat u een grafiekdatabase kunt maken, moet u een Gremlin-databaseaccount (Gr
 
 U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafiekdatabase te maken. 
 
-1. Klik op **Gegevensverkenner** > **nieuwe grafiek**.
+1. Klik op **Data Explorer** > **Nieuwe grafiek**.
 
-    De **grafiek toevoegen** gebied aan de rechterkant wordt weergegeven, moet u mogelijk scrollen rechts om het te bekijken.
+    Uiterst rechts wordt het gebied **Grafiek toevoegen** weergegeven. Mogelijk moet u naar rechts scrollen om het te bekijken.
 
-    ![De Azure portal Data Explorer grafiek toevoegen-pagina](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
+    ![Azure Portal Data Explorer, pagina Grafiek toevoegen](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
 
-2. In de **grafiek toevoegen** pagina, voert u de instellingen voor de nieuwe grafiek.
+2. Geef op de pagina **Grafiek toevoegen** de instellingen voor de nieuwe grafiek op.
 
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    Database-id|voorbeelddatabase|Voer *-voorbeelddatabase* als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/ \ # ?` bevatten of eindigen op een spatie.
-    Grafiek-id|voorbeeldgrafiek|Voer *voorbeeld grafiek* als de naam voor de nieuwe verzameling. Namen van de grafiek hebben dezelfde vereisten als de database-id's teken.
-    Opslagcapaciteit|Vast (10 GB)|Wijzig de waarde in **vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
+    Database-id|sample-database|Voer *sample-database* in als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/ \ # ?` bevatten of eindigen op een spatie.
+    Grafiek-id|sample-graph|Voer *sample-graph* in als de naam voor uw nieuwe verzameling. Voor namen van grafieken gelden dezelfde tekenvereisten als voor database-id's.
+    Opslagcapaciteit|Vast (10 GB)|Wijzig de waarde in **Vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
     Doorvoer|400 RU‘s|Wijzig de doorvoer in 400 aanvraageenheden per seconde (RU/s). U kunt de doorvoer later opschalen als u de latentie wilt beperken.
     Partitiesleutel|Leeg laten|Laat het veld voor de partitiesleutel leeg omwille van deze snelstartgids.
 
@@ -70,21 +70,21 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafi
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-Nu gaan we werken met code. We gaan een Graph API-app vanuit GitHub, de verbindingsreeks instellen en voer dit klonen. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.  
+Nu gaan we werken met code. We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.  
 
-1. Open een opdrachtprompt, maak een nieuwe map met de naam git-samples en sluit de opdrachtprompt.
+1. Open een opdrachtprompt, maak een nieuwe map met de naam git-samples en sluit vervolgens de opdrachtprompt.
 
     ```bash
     md "C:\git-samples"
     ```
 
-2. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app.  
+2. Open een git-terminalvenster, bijvoorbeeld git bash, en gebruik de `cd`-opdracht om naar een map te gaan voor het installeren van de voorbeeld-app.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-3. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer. 
+3. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt een kopie van de voorbeeld-app op uw computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -92,7 +92,7 @@ Nu gaan we werken met code. We gaan een Graph API-app vanuit GitHub, de verbindi
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de databaseresources worden gemaakt in de code bent, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn afkomstig uit de `Program.java` bestand in de map C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Anders kunt u verder gaan naar [bijwerken van de verbindingsreeks](#update-your-connection-information). 
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code worden gemaakt, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn allemaal afkomstig uit het `Program.java`-bestand in de map C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsgegevens bijwerken](#update-your-connection-information). 
 
 * De Gremlin-`Client` wordt geïnitialiseerd vanuit de configuratie in `src/remote.yaml`.
 
@@ -115,36 +115,36 @@ Deze stap is optioneel. Als u wilt weten hoe de databaseresources worden gemaakt
     }
     ```
 
-## <a name="update-your-connection-information"></a>Werk uw verbindingsgegevens
+## <a name="update-your-connection-information"></a>Uw verbindingsgegevens bijwerken
 
-Ga terug naar de Azure portal voor het verkrijgen van uw verbindingsgegevens en kopieer dit naar de app. Deze instellingen inschakelen voor uw app om te communiceren met uw gehoste-database.
+Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in de app te kopiëren. Met behulp van deze instellingen kan de app communiceren met de gehoste database.
 
-1. In de [Azure-portal](http://portal.azure.com/), klikt u op **sleutels**. 
+1. Klik in [Azure Portal](http://portal.azure.com/) op **Sleutels**. 
 
     Kopieer het eerste gedeelte van de URI-waarde.
 
-    ![Weergeven en een toegangssleutel in de Azure portal, sleutels pagina kopiëren](./media/create-graph-java/keys.png)
-2. Open het bestand src/remote.yaml en plak de waarde via `$name$` in `hosts: [$name$.graphs.azure.com]`.
+    ![Een toegangssleutel in Azure Portal bekijken en kopiëren op de pagina Sleutels](./media/create-graph-java/keys.png)
+2. Open het bestand src/remote.yaml en vervang `$name$` in `hosts: [$name$.graphs.azure.com]` door de zojuist gekopieerde waarde.
 
-    Regel 1 van remote.yaml nu zijn vergelijkbaar met 
+    Regel 1 van remote.yaml moet er nu als volgt uitzien 
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. In de Azure portal kunt u de primaire sleutel kopiëren en plakken via `$masterKey$` in `password: $masterKey$`.
+3. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `$masterKey$` in `password: $masterKey$` door deze waarde.
 
-    Regel 4 van remote.yaml nu zijn vergelijkbaar met 
+    Regel 4 van remote.yaml moet er nu als volgt uitzien 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Regel 3 van remote.yaml van wijzigen
+4. Wijzig regel 3 van remote.yaml van
 
     `username: /dbs/$database$/colls/$collection$`
 
-    tot 
+    in 
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Sla het bestand remote.yaml.
+5. Sla het bestand remote.yaml op.
 
 ## <a name="run-the-console-app"></a>De console-app uitvoeren
 
@@ -154,13 +154,13 @@ Ga terug naar de Azure portal voor het verkrijgen van uw verbindingsgegevens en 
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. Gebruik de volgende opdracht om de vereiste Java-pakketten te installeren in het venster van de git-terminal.
+2. Gebruik in het git-terminalvenster de volgende opdracht om de vereiste Java-pakketten te installeren.
 
    ```
    mvn package
    ```
 
-3. Gebruik de volgende opdracht om de Java-toepassing te starten in het venster van de git-terminal.
+3. Gebruik in het git-terminalvenster de volgende opdracht om de Java-applicatie te starten.
     
     ```
     mvn exec:java -D exec.mainClass=GetStarted.Program
@@ -168,30 +168,30 @@ Ga terug naar de Azure portal voor het verkrijgen van uw verbindingsgegevens en 
 
     In het terminalvenster ziet u de hoekpunten die worden toegevoegd aan de grafiek. 
     
-    Als u de time-outfouten ondervindt, controleert u dat u de verbindingsgegevens correct in bijgewerkt [werk uw verbindingsgegevens](#update-your-connection-information), en probeer het ook de laatste opdracht opnieuw uit te voeren. 
+    Als er time-outfouten optreden, controleert u of u de verbindingsgegevens correct hebt bijgewerkt in [Uw verbindingsgegevens bijwerken](#update-your-connection-information). Probeer ook de laatste opdracht opnieuw uit te voeren. 
     
-    Zodra het programma wordt gestopt, druk op Enter, gaat u terug naar de Azure-portal in uw internetbrowser. 
+    Wanneer het programma is gestopt, drukt u op Enter en gaat u in uw internetbrowser terug naar Azure Portal. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Voorbeeldgegevens bekijken en toevoegen
 
 U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegevoegd aan de grafiek. Ook kunt u extra hoekpunten toevoegen.
 
-1. Klik op **Data Explorer**, vouw **voorbeeld grafiek**, klikt u op **grafiek**, en klik vervolgens op **Filter toepassen**. 
+1. Klik op **Data Explorer**, vouw **sample-graph** uit, en klik achtereenvolgens op **Grafiek** en op **Filter toepassen**. 
 
    ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. In de lijst met **resultaten** ziet u de nieuwe gebruikers die zijn toegevoegd aan de grafiek. Als u **ben** selecteert, ziet u dat hij is verbonden met robin. U kunt de hoekpunten rond door slepen en neerzetten, in-en uitzoomen door het stuur van de muis schuiven en vouwt u de grootte van de grafiek met de dubbele pijl verplaatsen. 
+2. In de lijst met **resultaten** ziet u de nieuwe gebruikers die zijn toegevoegd aan de grafiek. Als u **ben** selecteert, ziet u dat hij is verbonden met robin. U kunt de hoekpunten verplaatsen via slepen en neerzetten, in- en uitzoomen door te scrollen met het muiswiel en de grafiek uitvouwen met de dubbele pijl. 
 
    ![Nieuwe hoekpunten in de grafiek in Data Explorer in Azure Portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Laten we enkele nieuwe gebruikers toevoegen. Klik op de knop **Nieuw hoekpunt** om gegevens toe te voegen aan uw grafiek.
+3. Laten we nu enkele nieuwe gebruikers toevoegen. Klik op de knop **Nieuw hoekpunt** om gegevens toe te voegen aan uw grafiek.
 
    ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. Voer een label van *persoon*.
+4. Geef het label *persoon* op.
 
-5. Klik op **eigenschap toevoegen** om toe te voegen op elk van de volgende eigenschappen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de id-sleutel is vereist.
+5. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de id-sleutel is vereist.
 
     sleutel|waarde|Opmerkingen
     ----|----|----
@@ -206,9 +206,9 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 7. Klik op **Nieuw hoekpunt** en voeg nog een nieuwe gebruiker toe. 
 
-8. Voer een label van *persoon*.
+8. Geef het label *persoon* op.
 
-9. Klik op **eigenschap toevoegen** om toe te voegen op elk van de volgende eigenschappen:
+9. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen:
 
     sleutel|waarde|Opmerkingen
     ----|----|----
@@ -218,15 +218,15 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
 10. Klik op **OK**. 
 
-11. Klik op de **Filter toepassen** knop met het standaard `g.V()` filter wilt weergeven van alle waarden in de grafiek. Alle gebruikers worden nu weergegeven in de lijst met **resultaten**. 
+11. Klik op de knop **Filter toepassen** met het standaard-`g.V()`-filter om alle waarden in de grafiek weer te geven. Alle gebruikers worden nu weergegeven in de lijst met **resultaten**. 
 
-    Als u meer gegevens toevoegt, kunt u filters gebruiken om de resultaten te beperken. Data Explorer gebruikt standaard `g.V()` voor het ophalen van alle hoekpunten van een grafiek. U kunt dit wijzigen in een andere [grafiek query](tutorial-query-graph.md), zoals `g.V().count()`om te retourneren van een aantal van de hoekpunten in de grafiek in JSON-indeling. Als u het filter, wijzig het filter terug naar gewijzigd `g.V()` en klik op **Filter toepassen** om opnieuw alle resultaten weer te geven.
+    Als u meer gegevens toevoegt, kunt u filters gebruiken om de resultaten te beperken. Data Explorer maakt standaard gebruik van `g.V()` voor het ophalen van alle hoekpunten van een grafiek. U kunt dit wijzigen in een andere [grafiekquery](tutorial-query-graph.md), bijvoorbeeld `g.V().count()`, om een telling van alle hoekpunten in de grafiek in JSON-indeling te retourneren. Nadat u het filter hebt gewijzigd, wijzigt u het weer in `g.V()` en klikt u op **Filter toepassen** om alle resultaten opnieuw weer te geven.
 
-12. Nu kunnen we rakesh en ashley met elkaar verbinden. Zorg ervoor dat **Pascaline** is geselecteerd in de **resultaten** lijst en klik op de knop Bewerken naast **doelen** lagere rechts op. Mogelijk moet u het scherm verbreden om het gedeelte **Eigenschappen** te kunnen zien.
+12. Nu kunnen we rakesh en ashley met elkaar verbinden. Zorg ervoor dat **ashley** in de lijst met **resultaten** is geselecteerd en klik vervolgens rechtsonder, naast **Doelen**, op de knop Bewerken. Mogelijk moet u het scherm verbreden om het gedeelte **Eigenschappen** te kunnen zien.
 
    ![Het doel van een hoekpunt in een grafiek wijzigen](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. In de **doel** vak type *rakesh*, en in de **rand label** vak type *kent*, en klik vervolgens op de controle.
+13. Typ in het vak **Doel** de naam *rakesh* en in het vak **Edge-label** het woord *kent*. Klik vervolgens op het selectievakje.
 
    ![Een verbinding tussen ashley en rakesh toevoegen in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
@@ -234,7 +234,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
    ![Twee hoekpunten die zijn verbonden in Data Explorer](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-   De resource maken deel uit van deze zelfstudie is voltooid. U kunt blijven hoekpunten toevoegen aan uw grafiek, het wijzigen van de bestaande hoekpunten of het wijzigen van de query's. Nu gaan we leest de metrische gegevens Azure Cosmos DB biedt en vervolgens de resources opschonen. 
+   Hiermee is het onderdeel voor het maken van resources van deze zelfstudie voltooid. U kunt naar eigen inzicht verdergaan met toevoegen van hoekpunten, aanpassen van de bestaande hoekpunten of wijzigen van de query's. Laten we nu de metrische gegevens bekijken die Azure Cosmos DB biedt en vervolgens de resources opschonen. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 

@@ -3,7 +3,7 @@ title: Uitvoeren van Runbook in Azure Automation | Microsoft Docs
 description: Beschrijft de details van hoe een runbook in Azure Automation wordt verwerkt.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 22852fed184022b4eae298d6cc531fd383eff552
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 Wanneer u een runbook in Azure Automation start, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers worden gedeeld door meerdere Azure-accounts, zijn taken van andere Automation-accounts geïsoleerd van elkaar. U doet geen hebben controle over welke worker-services de aanvraag voor de taak. Één runbook kan meerdere taken tegelijk actief hebben.  De omgeving worden uitgevoerd voor de taken van hetzelfde Automation-Account kan opnieuw worden gebruikt. Wanneer u de lijst met runbooks in de Azure portal weergeeft, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook weergeven om de status van elk bijhouden. Voor een beschrijving van de status van een andere taak [status van een taak](#job-statuses).

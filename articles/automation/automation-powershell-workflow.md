@@ -3,7 +3,7 @@ title: Leren van PowerShell-werkstroom voor Azure Automation | Microsoft Docs
 description: In dit artikel is bedoeld als een snelle les voor auteurs bekend zijn met PowerShell om te weten over de specifieke verschillen tussen PowerShell en PowerShell-werkstroom en concepten die van toepassing op de Automation-runbooks.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Leren van de belangrijkste concepten voor Windows PowerShell-werkstroom voor Automation-runbooks 
 Azure Automation-Runbooks worden geïmplementeerd als Windows PowerShell-werkstromen.  Een Windows PowerShell-werkstroom is vergelijkbaar met een Windows PowerShell-script, maar heeft enkele belangrijke verschillen die kunnen verwarrend zijn naar een nieuwe gebruiker.  Hoewel dit artikel is bedoeld om te schrijven met behulp van PowerShell-werkstroom runbooks, wordt u aangeraden dat u runbooks met behulp van PowerShell, tenzij u controlepunten moet schrijven.  Er zijn verschillende syntaxisverschillen bij het ontwerpen van PowerShell Workflow-runbooks en deze verschillen vereisen iets meer werk effectieve werkstromen te schrijven.  

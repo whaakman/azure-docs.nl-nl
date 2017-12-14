@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kabel gegevens 2.0 (Preview)-oplossing in Log Analytics
 
@@ -58,7 +58,7 @@ Draadgegevens worden afkomstig de gegevens uit de Microsoft-Agent voor afhankeli
 
 | **Verbonden bron** | **Ondersteund** | **Beschrijving** |
 | --- | --- | --- |
-| Windows-agents | Ja | Draadgegevens worden geleverd, analyseert en verzamelt gegevens van agent-Windows-computers. <br><br> Naast de [OMS-Agent](log-analytics-windows-agents.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Draadgegevens worden geleverd, analyseert en verzamelt gegevens van agent-Windows-computers. <br><br> Naast de [OMS-Agent](log-analytics-windows-agent.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Linux-agents | Ja | Draadgegevens worden geleverd, analyseert en verzamelt gegevens van Linux-agent-computers.<br><br> Naast de [OMS-Agent](log-analytics-quick-collect-linux-computer.md), Linux-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Ja | Kabel gegevens analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](log-analytics-om-agents.md). <br><br> Een directe verbinding van de System Center Operations Manager agent-computer met logboekanalyse is vereist. Gegevens uit de beheergroep doorgestuurd met logboekanalyse. |
 | Azure Storage-account | Nee | Draadgegevens worden geleverd verzamelt gegevens van computers die door agents, dus er zijn geen gegevens te verzamelen van Azure Storage. |
@@ -208,7 +208,7 @@ De afhankelijkheid-Agent is geïnstalleerd op computers waarop Windows wordt uit
 
 Gebruik de volgende stappen voor het installeren van de Agent voor afhankelijkheden op elke computer waarop Windows wordt uitgevoerd:
 
-1. De stappen in de OMS-Agent installeren [verzamelen van gegevens van Windows-computers in uw omgeving gehoste](log-analytics-windows-agents.md).
+1. De stappen in de OMS-Agent installeren [verzamelen van gegevens van Windows-computers in uw omgeving gehoste](log-analytics-windows-agent.md).
 2. Download de Windows-afhankelijkheid-Agent op de koppeling in de vorige sectie en vervolgens uitvoeren met behulp van de volgende opdracht:`InstallDependencyAgent-Windows.exe`
 3. Volg de wizard om de agent te installeren.
 4. Als de Agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Voor Windows-agents is de logboekmap %Programfiles%\Microsoft Agent\logs afhankelijkheid.

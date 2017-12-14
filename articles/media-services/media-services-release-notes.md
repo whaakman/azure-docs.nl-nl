@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0b10132f1a6be3a237ffa386f45233e3494d10eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -324,13 +324,6 @@ Media Services SDK voor .NET is nu versie 3.0.0.7
 * **Oorsprong** is gewijzigd in [StreamingEndpoint].
 * Een wijziging in het standaardgedrag bij gebruik van de **Azure-portal** coderen en vervolgens publiceren MP4-bestanden.
 
-Voorheen wanneer één bestand MP4 videoasset een SAS-URL te publiceren met behulp van de klassieke Azure-portal zou worden gemaakt (SAS-URL's kunt u downloaden van de video van een blob-opslag). Wanneer u de klassieke Azure-portal gebruikt om te coderen en vervolgens één bestand MP4 videoasset publiceren, moet de gegenereerde URL verwijst momenteel naar een Azure Media Services-streaming-eindpunt.  Deze wijziging heeft geen invloed op MP4-video's die rechtstreeks worden geüpload naar de Media Services en gepubliceerd zonder Azure Media Services wordt gecodeerd.
-
-U hebt op dit moment wordt de volgende twee opties voor het oplossen van het probleem.
-
-* Streaming-eenheden inschakelen en gebruiken van dynamische pakketten om te streamen van de asset MP4 als smooth streaming-presentatie.
-* Een SAS-url om te downloaden (of progressief play) op de MP4 maken. Zie voor meer informatie over het maken van een SAS-locator [leveren van inhoud].
-
 ### <a id="sept_14_GA_changes"></a>Nieuwe functies/scenario's die deel van de GA-release uitmaken
 * **Indexeerfunctie Mediaprocessor**. Zie voor meer informatie [mediabestanden indexeren met Azure Media Indexer].
 * De [StreamingEndpoint] entiteit nu kunt u toevoegen van aangepaste domeinnamen (host).
@@ -443,7 +436,7 @@ De wijzigingen die worden vermeld in deze sectie zijn opgenomen in de versies va
 
 * Mogelijkheid om meerdere opslagaccounts aan een Media Service-account koppelen. 
   
-    Opslagaccount
+    StorageAccount
   
     Asset.StorageAccountName en Asset.StorageAccount
 * De mogelijkheid om bij te werken Job.Priority. 
@@ -561,7 +554,7 @@ De volgende functionaliteit is nieuw in de release van November van de SDK.
 [Media Services Pricing Details]: http://azure.microsoft.com/pricing/details/media-services/
 [invoer metagegevens]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [uitvoer metagegevens]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[leveren van inhoud]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [mediabestanden indexeren met Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [werken met Azure Media Services Live Streaming]: http://msdn.microsoft.com/library/azure/dn783466.aspx

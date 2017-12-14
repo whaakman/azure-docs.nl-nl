@@ -6,7 +6,7 @@
       href: storage-blobs-introduction.md
     - name: 'Kies blobs, bestanden of gegevensschijven'
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: QuickStarts
+- name: Snelstartgidsen
   items:
     - name: Een opslagaccount maken - PowerShell
       href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Werken met blobs - Python
       href: storage-quickstart-blobs-python.md
+    - name: Werken met blobs - Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: Werken met blobs - Node.js
       href: storage-quickstart-blobs-nodejs.md
     - name: Werken met blobs - Storage Explorer
@@ -46,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Niet-gestructureerde gegevens in cloudopslag doorzoeken
       href: storage-unstructured-search.md
+    - name: De prestaties en schaalbaarheid van opslagoplossingen optimaliseren
+      items:
+        - name: Een virtuele machine en een opslagaccount maken
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Grote gegevensvolumes uploaden naar een Azure-opslagaccount
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Grote gegevensvolumes downloaden vanuit een Azure-opslagaccount
+          href: storage-blob-scalable-app-download-files.md
+        - name: Metrische gegevens over doorvoer en latentie controleren
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Voorbeelden
   items:
     - name: .NET

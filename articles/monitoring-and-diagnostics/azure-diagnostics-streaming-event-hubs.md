@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming van Azure Diagnostics-gegevens in de hot pad met behulp van Event Hubs
 Azure Diagnostics biedt flexibele manieren voor het verzamelen van Logboeken en metrische gegevens van virtuele machines (VM's) voor cloud services en resultaten overdragen naar Azure Storage. Vanaf het tijdsbestek maart 2016 (SDK 2.9), kunt u diagnostische gegevens verzenden naar aangepaste gegevensbronnen en gegevensoverdracht hot pad (in seconden) met behulp van [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -104,7 +104,7 @@ De Event Hubs-sink moet ook worden gedeclareerd en gedefinieerd in de **PrivateC
 }
 ```
 
-De `SharedAccessKeyName` waarde moet overeenkomen met een Shared Access Signature (SAS)-sleutel en het beleid dat is gedefinieerd in de **Event Hubs** naamruimte. Blader naar het dashboard Event Hubs in de [Azure-portal](https://manage.windowsazure.com), klikt u op de **configureren** tabblad en instellen van een benoemde beleid (bijvoorbeeld ' SendRule') is *verzenden* machtigingen. De **StorageAccount** ook is gedeclareerd in **PrivateConfig**. Hoeft niet hier waarden wijzigen als ze werken. In dit voorbeeld laat wordt de waarden leeg, dit is een teken dat een downstream asset u de waarden stelt. Bijvoorbeeld, de *ServiceConfiguration.Cloud.cscfg* omgeving configuratiebestand stelt de omgeving passende namen en -sleutels.  
+De `SharedAccessKeyName` waarde moet overeenkomen met een Shared Access Signature (SAS)-sleutel en het beleid dat is gedefinieerd in de **Event Hubs** naamruimte. Blader naar het dashboard Event Hubs in de [Azure-portal](https://portal.azure.com), klikt u op de **configureren** tabblad en instellen van een benoemde beleid (bijvoorbeeld ' SendRule') is *verzenden* machtigingen. De **StorageAccount** ook is gedeclareerd in **PrivateConfig**. Hoeft niet hier waarden wijzigen als ze werken. In dit voorbeeld laat wordt de waarden leeg, dit is een teken dat een downstream asset u de waarden stelt. Bijvoorbeeld, de *ServiceConfiguration.Cloud.cscfg* omgeving configuratiebestand stelt de omgeving passende namen en -sleutels.  
 
 > [!WARNING]
 > De Event Hubs SAS-sleutel wordt opgeslagen als tekst zonder opmaak in het *.wadcfgx* bestand. Deze sleutel wordt vaak wordt ingecheckt bij broncodebeheer of is beschikbaar als een activum in uw buildserver, zodat u deze naar gelang van toepassing moet beschermen. Het is raadzaam dat u een SAS-sleutel hier met *alleen verzenden* machtigingen zodat een kwaadwillende gebruiker kunt naar de event hub schrijven, maar die niet worden naar het luisteren of beheren.

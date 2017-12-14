@@ -3,7 +3,7 @@ title: Referentieassets in Azure Automation | Microsoft Docs
 description: Referentieassets in Azure Automation bevatten beveiligingsreferenties op die kunnen worden gebruikt voor verificatie aan resources die toegankelijk is voor het runbook of de DSC-configuratie. In dit artikel wordt beschreven hoe referentieassets maken en gebruiken in een runbook of de DSC-configuratie.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 70f6272d936b097a9458dfa18279a70727da9d6b
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Referentieassets in Azure Automation
 Een Automation-referentieasset bevat een [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) object met beveiligingsgegevens zoals een gebruikersnaam en wachtwoord. Runbooks en DSC-configuraties kunt cmdlets die een PSCredential-object voor verificatie accepteren of ze kunnen extraheren gebruikersnaam en wachtwoord van de PSCredential-object om te bieden tot een bepaalde toepassing of service-verificatie vereist. De eigenschappen van een referentie worden veilig opgeslagen in Azure Automation en kunnen worden geopend in het runbook of de DSC-configuratie met de [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) activiteit.

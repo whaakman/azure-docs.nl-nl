@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>Met behulp van de operator ANOMALYDETECTION
 
@@ -38,12 +38,12 @@ Deze kan eventueel ook verwerken groepen gebeurtenissen afzonderlijk op basis va
 
 ## <a name="syntax"></a>Syntaxis
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Voorbeeld van syntaxis
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Argumenten
@@ -56,7 +56,7 @@ Deze kan eventueel ook verwerken groepen gebeurtenissen afzonderlijk op basis va
 
 - **partition_by_clause** 
 
-  De `PARTITION BY \<partition key\>` component verdeelt de learning en training van meerdere afzonderlijke partities. Met andere woorden, een afzonderlijk model moet worden gebruikt per waarde voor `\<partition key\>` en alleen gebeurtenissen met de waarde moeten worden gebruikt voor learning en opleiding in dit model. Bijvoorbeeld:
+  De `PARTITION BY <partition key>` component verdeelt de learning en training van meerdere afzonderlijke partities. Met andere woorden, een afzonderlijk model moet worden gebruikt per waarde voor `<partition key>` en alleen gebeurtenissen met de waarde moeten worden gebruikt voor learning en opleiding in dit model. Bijvoorbeeld:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -80,7 +80,7 @@ De functie retourneert een Record die alle drie scores als uitvoer ervan weergeg
 
 Als u wilt de afzonderlijke waarden uit de record extraheren, gebruikt u de **GetRecordPropertyValue** functie. Bijvoorbeeld:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Een afwijkingsdetectie van een bepaald type wordt gedetecteerd wanneer een van deze scores afwijkingsdetectie een drempelwaarde overschrijdt. De drempelwaarde mag een drijvende-kommagetal \>= 0. De drempelwaarde is een afweging tussen het gevoeligheid en vertrouwen. Bijvoorbeeld, zou een lagere drempelwaarde detectie gevoeliger voor wijzigingen aanbrengen en meer waarschuwingen genereren, terwijl een hogere drempelwaarde kan ervoor zorgen dat detectie minder gevoelig en meer vertrouwen, maar sommige afwijkingen maskeren. De exacte drempelwaarde moet worden gebruikt, is afhankelijk van het scenario. Er is geen bovengrens maar aanbevolen bereik 3,25 5 is.
@@ -160,12 +160,12 @@ Zoals al eerder is vermeld, sla niet de `FillInMissingValuesStep` stap nu. Als d
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Verwijzingen

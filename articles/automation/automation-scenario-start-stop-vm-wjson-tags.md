@@ -3,7 +3,7 @@ title: JSON-indeling codes gebruiken om de status van de virtuele machine van Az
 description: In dit artikel laat zien hoe u van tekenreeksen voor JSON-tags voor het automatiseren van de planning van de virtuele machine opstarten en afsluiten.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure Automation-scenario: labels JSON-indeling gebruiken voor het maken van een planning voor de virtuele machine van Azure opstarten en afsluiten
 Klanten willen vaak het opstarten en afsluiten van de virtuele machines om abonnement kosten te verlagen of ondersteuning voor bedrijfs- en technische vereisten te plannen.

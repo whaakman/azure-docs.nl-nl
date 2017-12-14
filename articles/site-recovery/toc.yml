@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Replicatie-instellingen voor VMware naar Azure configureren
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: Schijven uitsluiten van replicatie
+        - name: Schijven uitsluiten van replicatie voor VMware-naar-Azure
           href: site-recovery-exclude-disk.md
+        - name: Schijven uitsluiten van replicatie voor Hyper-V-naar-Azure
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: De Mobility-service voor VMware-replicatie implementeren
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:

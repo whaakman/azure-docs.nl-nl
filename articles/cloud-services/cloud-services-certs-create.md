@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificaten voor Azure Cloud Services-overzicht
 Certificaten worden gebruikt in Azure voor cloudservices ([service certificaten](#what-are-service-certificates)) en voor het verifiëren van de beheer-API ([beheercertificaten](#what-are-management-certificates)). In dit onderwerp biedt een algemeen overzicht van beide typen certificaten hoe naar [maken](#create) en [implementeren](#deploy) ze naar Azure.
@@ -71,7 +71,7 @@ Dit hulpprogramma is afgeschaft en wordt niet meer hier beschreven. Zie voor mee
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 2048 -KeySpec "KeyExchange"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
