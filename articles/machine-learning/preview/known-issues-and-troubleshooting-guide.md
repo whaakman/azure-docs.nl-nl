@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1d3ba76336701221484d2879f4b28285936aa656
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -113,7 +113,7 @@ Er is helaas geen eenvoudig correctie dit project. U hebt de volgende stappen ui
    - verwijderen van snelkoppeling op het bureaublad waarmee het bovenstaande script wordt gestart
    - het installatieprogramma https://aka.ms/azureml-wb-msi downloaden en te installeren.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Hangen 'Experimenteren account controleren' scherm na het aanmelden
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Op het scherm "Experimenteren account controleren" is vastgelopen na het aanmelden
 Na het aanmelden, kan de Workbench-app op een leeg scherm ophalen vastgelopen met een bericht weergegeven met 'Controleren experimenteren account' met een draaiende wheel. U lost dit probleem, moet u de volgende stappen uitvoeren:
 1. Afsluiten van de app.
 2. Het volgende bestand verwijderen:
@@ -147,6 +147,13 @@ Als u Windows 10 vallen auteurs Update hebt en uw project is gemaakt in een loka
 
 ## <a name="file-name-too-long-on-windows"></a>De bestandsnaam te lang in Windows
 Als u de Workbench van Windows gebruikt, is het mogelijk uitgevoerd in de standaard maximaal 260 tekens bestand naam lengtelimiet, die surface kan als een fout 'systeem kan het opgegeven pad niet vinden'. U kunt een registersleutelinstelling waarmee veel langer pad bestandsnaam wijzigen. Bekijk [in dit artikel](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) voor meer informatie over het instellen van de _MAX_PATH_ registersleutel.
+
+## <a name="interrupt-cli-execution-output"></a>Onderbreken van de uitvoer van de CLI-uitvoering
+Als u een experimenteren uitgevoerd met behulp van starten `az ml experiment submit` of `az ml notebook start` en u wilt onderbreken van de uitvoer: 
+- Gebruik de toetscombinatie Ctrl-Break via het toetsenbord op Windows.
+- Op Mac OS, gebruikt u Ctrl-c
+
+Houd er rekening mee dat dit alleen de uitvoerstroom in het venster CLI-interrupts. Deze stopt daadwerkelijk niet een taak die wordt uitgevoerd. Als u annuleren een actieve taak wilt, gebruikt u `az ml experiment cancel -r <run_id> -t <target name>` opdracht.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker-fout ' lezen: verbinding geweigerd '
 Wanneer u deze uitvoert op basis van een lokale Docker-container, soms mogelijk ziet u de volgende fout: 

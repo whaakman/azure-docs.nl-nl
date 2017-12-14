@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitor abonnement activiteit met de Azure Activity Log
 De **Azure Activity Log** is een abonnementlogboek die biedt inzicht in het abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit omvat een bereik van gegevens van operationele gegevens van de Azure Resource Manager-updates op Service Health-gebeurtenissen. Het activiteitenlogboek heette vroeger 'Controlelogboeken' of 'Operationele Logs' sinds de beheercategorie rapporten besturingselement vlak gebeurtenissen voor uw abonnementen. Met het activiteitenlogboek, kunt u bepalen de ' wat, wie, en wanneer ' voor een (PUT, POST, verwijderen schrijfbewerkingen) die zijn gemaakt op de resources in uw abonnement. U kunt ook de status van de bewerking en andere relevante eigenschappen begrijpen. Het activiteitenlogboek bevat geen leesbewerkingen (GET) en bewerkingen voor resources die gebruikmaken van het klassieke / 'RDFE' model.
@@ -33,7 +33,7 @@ U kunt gebeurtenissen ophalen uit uw activiteitenlogboek met de Azure portal, CL
 
 
 > [!WARNING]
-> De Azure Activity Log is voornamelijk bedoeld voor activiteiten die in Azure Resource Manager optreden. Resources met behulp van het klassieke/RDFE-model worden niet bijgehouden. Sommige klassieke resource-typen hebben een proxy-resourceprovider in Azure Resource Manager (bijvoorbeeld Microsoft.ClassicCompute). Als u met een resourcetype klassieke via Azure Resource Manager met behulp van deze proxy-resourceproviders werken, is de bewerkingen worden weergegeven in het gebeurtenissenlogboek. Als u met een klassiek brontype in de klassieke portal of anderszins buiten de Azure Resource Manager-proxy's communiceren, zijn alleen uw acties in het logboek geregistreerd. Het logboek kan worden gebladerd in een apart gedeelte van de portal.
+> De Azure Activity Log is voornamelijk bedoeld voor activiteiten die in Azure Resource Manager optreden. Resources met behulp van het klassieke/RDFE-model worden niet bijgehouden. Sommige klassieke resource-typen hebben een proxy-resourceprovider in Azure Resource Manager (bijvoorbeeld Microsoft.ClassicCompute). Als u met een resourcetype klassieke via Azure Resource Manager met behulp van deze proxy-resourceproviders werken, is de bewerkingen worden weergegeven in het gebeurtenissenlogboek. Als u met een klassiek brontype buiten de Azure Resource Manager-proxy's communiceren, worden alleen uw acties in het logboek geregistreerd. Het logboek kan worden gebladerd in een apart gedeelte van de portal.
 >
 >
 
@@ -172,7 +172,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | serviceBusRuleId |Nee |Service Bus regel-ID voor de Service Bus-naamruimte die u hebben van event hubs gemaakt wilt in. Is een tekenreeks met deze indeling: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Locaties |Ja |Door komma's gescheiden lijst met regio's waarvoor u wilt verzamelen van gebeurtenissen voor Activity Log. |
 | RetentionInDays |Ja |Aantal dagen voor welke gebeurtenissen worden bewaard, tussen 1 en 2147483647. Een waarde van nul wordt de logboeken voor onbepaalde tijd opgeslagen (permanent). |
-| Categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
+| categorieën |Nee |Door komma's gescheiden lijst met categorieën van gebeurtenissen die moeten worden verzameld. Mogelijke waarden zijn schrijven, verwijderen en in te grijpen. |
 
 #### <a name="remove-a-log-profile"></a>Een logboek-profiel verwijderen
 ```

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en -beperkingen in Azure Active Directory
 
@@ -97,7 +97,7 @@ De volgende tabel beschrijft de instellingen voor wachtwoordbeleid beschikbaar d
 | --- | --- |
 | Toegestane tekens |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Niet-toegestane tekens |<ul><li>Unicode-tekens.</li><li>Spaties.</li><li> Sterke wachtwoorden alleen: een punt-teken niet bevatten "." direct vóór de ' @ ' symbool.</li></ul> |
-| Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Sterke wachtwoorden alleen: drie op vier van de volgende vereist:<ul><li>Kleine letters character.s</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>Symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
+| Wachtwoordbeperkingen |<ul><li>Ten minste 8 tekens en maximaal 16 tekens bestaan.</li><li>Sterke wachtwoorden alleen: drie op vier van de volgende vereist:<ul><li>Kleine letters.</li><li>Hoofdletters.</li><li>Cijfers (0-9).</li><li>Symbolen (Zie de vorige wachtwoordbeperkingen).</li></ul></li></ul> |
 | Wachtwoordverval |<ul><li>Standaardwaarde: **90** dagen.</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet uit de Azure Active Directory-Module voor Windows PowerShell.</li></ul> |
 | Meldingen verlopen van wachtwoorden |<ul><li>Standaardwaarde: **14** dagen (voordat wachtwoord is verlopen).</li><li>De waarde kan worden geconfigureerd met behulp van de `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Wachtwoord verloopt |<ul><li>Standaardwaarde: **false** dagen (geeft aan dat totdat het wachtwoord afloopt is ingeschakeld).</li><li>De waarde kan worden geconfigureerd voor afzonderlijke gebruikersaccounts met behulp van de `Set-MsolUser` cmdlet.</li></ul> |

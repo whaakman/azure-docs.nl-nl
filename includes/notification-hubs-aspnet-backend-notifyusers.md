@@ -148,7 +148,7 @@ In deze sectie kunt u een nieuwe domeincontroller toevoegen aan de WebAPI-back-e
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Vervang de `Notifications` klasse-definitie maken met de volgende code en vervang de twee tijdelijke aanduidingen door de verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub (beschikbaar op [klassieke Azure-portal](http://manage.windowsazure.com)):
+6. Vervang de `Notifications` klasse-definitie maken met de volgende code en vervang de twee tijdelijke aanduidingen door de verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub (beschikbaar op [Azure-portal](http://portal.azure.com)):
    
         public class Notifications
         {

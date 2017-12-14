@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream de Azure Activity Log naar Event Hubs
 De [ **Azure Activity Log** ](monitoring-overview-activity-logs.md) kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie 'Exporteren' in de portal of doordat de Service Bus regel-Id in een logboek profiel via de Azure PowerShell-Cmdlets of Azure CLI.
@@ -30,7 +30,7 @@ Hier volgen slechts enkele manieren waarop u de streaming-mogelijkheden kunt geb
 * **Maken van een aangepaste Telemetrie en logboekregistratie platform** : als u al hebt een op maat gemaakte telemetrie platform of de zijn alleen nadenkt over het bouwen van een uiterst schaalbare voor publiceren / abonneren aard van Event Hubs kunt u het activiteitenlogboek flexibel opnemen. [Zie de Dan Rosanova-handleiding voor het gebruik van Event Hubs in een hier wereldwijde schaal telemetrie-platform.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Streaming van het activiteitenlogboek activeren
-U kunt het inschakelen van het activiteitenlogboek streaming via programmacode of via de portal. In beide gevallen moet u kiest een Service Bus-Namespace en een gedeeld toegangsbeleid voor die naamruimte en een Event Hub wordt gemaakt in die naamruimte als de eerste nieuwe activiteitenlogboek gebeurtenis plaatsvindt. Als u een Service Bus-Namespace niet hebt, moet u eerst een maken. Als u hebt eerder gestreamd activiteitenlogboek van gebeurtenissen naar deze Service Bus-Namespace, wordt opnieuw gebruikt de Event Hub die eerder is gemaakt. Het beleid voor gedeelde toegang definieert de machtigingen van het mechanisme voor streaming. Vandaag de dag streaming naar een Event Hubs vereist **beheren**, **verzenden**, en **luisteren** machtigingen. U kunt maken of wijzigen van Service Bus Namespace gedeeld toegangsbeleid in de klassieke portal onder het tabblad 'Configureren' voor uw Service Bus-Namespace. Voor het bijwerken van het profiel van het logboek activiteitenlogboek om op te nemen streaming, moet de gebruiker wijziging aan te brengen de machtiging ListKey hebben op die Service Bus-autorisatieregel.
+U kunt het inschakelen van het activiteitenlogboek streaming via programmacode of via de portal. In beide gevallen moet u kiest een Service Bus-Namespace en een gedeeld toegangsbeleid voor die naamruimte en een Event Hub wordt gemaakt in die naamruimte als de eerste nieuwe activiteitenlogboek gebeurtenis plaatsvindt. Als u een Service Bus-Namespace niet hebt, moet u eerst een maken. Als u hebt eerder gestreamd activiteitenlogboek van gebeurtenissen naar deze Service Bus-Namespace, wordt opnieuw gebruikt de Event Hub die eerder is gemaakt. Het beleid voor gedeelde toegang definieert de machtigingen van het mechanisme voor streaming. Vandaag de dag streaming naar een Event Hubs vereist **beheren**, **verzenden**, en **luisteren** machtigingen. U kunt maken of wijzigen van Service Bus Namespace gedeeld toegangsbeleid in de Azure portal onder het tabblad 'Configureren' voor uw Service Bus-Namespace. Voor het bijwerken van het profiel van het logboek activiteitenlogboek om op te nemen streaming, moet de gebruiker wijziging aan te brengen de machtiging ListKey hebben op die Service Bus-autorisatieregel.
 
 De service bus of event hub-naamruimte heeft geen zich in hetzelfde abonnement als het abonnement dat Logboeken, zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
 

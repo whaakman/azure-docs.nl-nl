@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Voorbeeldwerkstroom voor het voorbereiden van harde schijven voor een importtaak
 In dit onderwerp leert u het volledige proces van het voorbereiden van stations voor een import-taak.  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Kopiëren van de sessie is voltooid
 
-Nadat de kopie-sessies hebt voltooid, kunt u de twee schijven verbreken van de computer kopiëren en naar het juiste Windows Azure-datacenter worden verzonden. De twee journaal-bestanden uploaden `FirstDrive.jrn` en `SecondDrive.jrn`wanneer u de import-taak in de [Windows Azure-portal](https://manage.windowsazure.com/).  
+Nadat de kopie-sessies hebt voltooid, kunt u de twee schijven verbreken van de computer kopiëren en naar het juiste Windows Azure-datacenter worden verzonden. De twee journaal-bestanden uploaden `FirstDrive.jrn` en `SecondDrive.jrn`wanneer u de import-taak in de [Azure-portal](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Volgende stappen
 

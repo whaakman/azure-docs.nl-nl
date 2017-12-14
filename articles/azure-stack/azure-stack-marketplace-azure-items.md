@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 8a4e92dbcf65d907e7b95b5f52597fc625e77897
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -29,6 +29,7 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace-items:
 |  | De itemnaam van het | Beschrijving | Uitgever |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Docker-extensie voor virtuele Linux-Machines. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | SQL IaaS-uitbreiding | <b>Download deze uitbreiding voor het implementeren van een SQL-Server op Windows Marketplace-items.<b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op WindowsServer 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft-Machine Learning-Server 9.2.1 op WindowsServer 2016. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op Ubuntu 16.04](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft-Machine Learning-Server 9.2.1 op Ubuntu 16.04. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft-Machine Learning-Server 9.2.1 op CentOS Linux 7.2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft-Machine Learning-Server 9.2.1 op CentOS Linux 7.2. | Microsoft |
@@ -156,8 +157,8 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace-items:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine verkoop CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compacte marketing-, verkoop- en -servicetoepassing. | bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS- en Web-Portal programma dat wordt gemaakt dynamische websites.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Open Source CRM-systeem: mobiele, sociale en Gamified. | bitnami |
-| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC beveiligingsbeheer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC biedt geavanceerde, meerlaagse threat preventie om klant activa in Azure te beveiligen tegen malware en geavanceerde dreigingen. | Check Point |
-| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef automatiseren](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Maken, implementeren en beheren met Chef automatiseren, het doorlopende Automation-Platform. | Chef-Software, Inc. |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC beveiligingsbeheer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC biedt geavanceerde, meerlaagse threat preventie om klant activa in Azure te beveiligen tegen malware en geavanceerde dreigingen. <b>Download beide selectievakje punt vSEC marketplace-items.</b> | Check Point |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef automatiseren](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Maken, implementeren en beheren met Chef automatiseren, het doorlopende Automation-Platform. <b>Download beide Chef marketplace-items</b> | Chef-Software, Inc. |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux door virtuele CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Container Linux is een moderne en minimale Linux-distributie bieden een eenvoudige manier om containers worden uitgevoerd, clusters beheren en uw servers naadloos bijwerken - alle onderdelen waarmee datawarehouse scale compute. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server is de meest populaire Linux's werelds voor cloudomgevingen. | Canonical |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 'Jessie'](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |
@@ -171,7 +172,9 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace-items:
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro grondige Security-extensie voor Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro grondige Security-extensie voor Windows. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hulpprogramma voor ZeroDown Software](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown Software hulpprogramma v7.1 - migreren + HA. | ZeroDown Software |
-
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure-Stack-infrastructuur te automatiseren. <b>Download beide Puppet Marketplace-items.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa hybride AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatibele storage-service die openbare omvat en on-premises resources van de capaciteit. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP)-Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 2,5 100% open aangedreven door HDP source-platform voor Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 
 ### <a name="next-steps"></a>Volgende stappen
 [Download een Marketplace-item](azure-stack-download-azure-marketplace-item.md)

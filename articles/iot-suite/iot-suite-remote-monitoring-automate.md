@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Problemen met behulp van regels op basis van drempelwaarden detecteren
 
@@ -67,12 +67,12 @@ De volgende waarden gebruiken om de regel te maken:
 | Instelling          | Waarde                                 |
 | ---------------- | ------------------------------------- |
 | Naam             | Koelunit waarschuwing                       |
-| Bron           | **Koelunit** apparaatgroep              |
-| Trigger-veld    | Druk                              |
+| Bron           | **Chillers** apparaatgroep             |
+| Trigger-veld    | pressure                              |
 | Trigger-operator | Groter dan                          |
 | Trigger-waarde    | 150                                   |
 | Ernstniveau   | Waarschuwing                               |
-| Tekst van de gebeurtenis alarm | Druk Koelunit heeft 150 PSI overschreden |
+| Beschrijving      | Druk Koelunit heeft 150 PSI overschreden |
 
 Kies voor het opslaan van de nieuwe regel **toepassen**.
 

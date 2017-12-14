@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5c3129a50f456e484bf8af2a866059f494bed1d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Veelgestelde vragen over wachtwoordbeheer
 
@@ -41,6 +41,11 @@ Deze Veelgestelde vragen wordt opgedeeld in de volgende secties:
 * **V: kunnen mijn gebruikers registreren hun eigen wachtwoord opnieuw instellen van gegevens?**
 
   > **A:** Ja. Zolang wachtwoord opnieuw instellen is ingeschakeld en worden ze in licentie gegeven, gaat u naar de registratieportal voor wachtwoordherstel (http://aka.ms/ssprsetup) registreren hun verificatiegegevens gebruikers. Gebruikers kunnen ook registreren via het toegangsvenster (http://myapps.microsoft.com). Als u wilt registreren via het toegangsvenster, moeten ze hun profielfoto selecteert, selecteert u **profiel**, en selecteer vervolgens de **registreren voor wachtwoordherstel** optie.
+  >
+  >
+* **V: als ik wachtwoord opnieuw instellen voor een groep en vervolgens besluit in te schakelen voor iedereen zijn mijn gebruikers vereiste opnieuw registreren?**
+
+  > **A:** Nee. Gebruikers die verificatiegegevens hebt ingevuld, zijn niet vereist voor het opnieuw te registreren.
   >
   >
 * **V: kan ik wachtwoord opnieuw instellen van gegevens definiëren namens mijn gebruikers?**

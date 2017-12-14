@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken installeren elastische Database
 [**Elastische Database taken** ](sql-database-elastic-jobs-overview.md) kan worden geïnstalleerd via PowerShell of via de Azure portal. U kunt toegang krijgen als u wilt maken en beheren van taken met de PowerShell-API alleen als u het PowerShell-pakket installeert. De PowerShell APIs Geef ook aanzienlijk meer functionaliteit dan de portal op dit moment.
@@ -155,7 +155,7 @@ Zodra u hebt [een elastische pool gemaakt](sql-database-elastic-pool-manage-port
 
 **Geschatte duur:** 10 minuten.
 
-1. Uit de dashboardweergave van de elastische groep via de [Azure Portal](https://portal.azure.com/#) , klikt u op **maken taak**.
+1. Uit de dashboardweergave van de elastische groep via de [Azure-portal](https://portal.azure.com/#) , klikt u op **maken taak**.
 2. Als u een taak voor het eerst maakt, moet u **elastische Database taken** door te klikken op **PREVIEW-voorwaarden**.
 3. De voorwaarden accepteren door te klikken op het selectievakje in.
 4. Klik in de weergave 'Services installeren' **taak REFERENTIES**.

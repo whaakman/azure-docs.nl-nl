@@ -3,7 +3,7 @@ title: Aan de slag met Azure Automation DSC | Microsoft Docs
 description: Uitleg en voorbeelden van de meest algemene taken in Azure Automation Desired State Configuration (DSC)
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
-ms.author: magoedte;eslesar
-ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: magoedte;gwallace
+ms.openlocfilehash: e8b7d0d38f59589cbe6f82798b4e725af7b20e23
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Aan de slag met Azure Automation DSC
-Dit onderwerp wordt uitgelegd hoe u de meest algemene taken met Azure Automation Desired State Configuration (DSC), zoals het maken, importeren, en compileren configuraties, voorbereiding-machines te beheren, en het weergeven van rapporten. Zie voor een overzicht van wat Azure Automation DSC is, [overzicht van Azure Automation DSC](automation-dsc-overview.md). Zie voor documentatie DSC [Windows PowerShell Desired Configuration overzicht](https://msdn.microsoft.com/PowerShell/dsc/overview).
+Dit artikel wordt uitgelegd hoe u de meest algemene taken met Azure Automation Desired State Configuration (DSC), zoals het maken, importeren, en compileren configuraties, voorbereiding-machines te beheren, en het weergeven van rapporten. Zie voor een overzicht van wat Azure Automation DSC is, [overzicht van Azure Automation DSC](automation-dsc-overview.md). Zie voor documentatie DSC [Windows PowerShell Desired Configuration overzicht](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Dit onderwerp bevat een stapsgewijze handleiding voor het gebruik van Azure Automation DSC. Als u een Voorbeeldomgeving is al ingesteld zonder dat u de stappen in dit onderwerp beschreven wilt, kunt u [de volgende ARM-sjabloon](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Deze sjabloon stelt u een voltooide Azure Automation DSC-omgeving, met inbegrip van een virtuele machine van Azure die wordt beheerd door Azure Automation DSC.
+Dit artikel bevat een stapsgewijze handleiding voor het gebruik van Azure Automation DSC. Als u een Voorbeeldomgeving is al ingesteld zonder de stappen in dit artikel wilt, kunt u de volgende [Resource Manager-sjabloon](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Deze sjabloon stelt u een voltooide Azure Automation DSC-omgeving, met inbegrip van een virtuele machine van Azure die wordt beheerd door Azure Automation DSC.
 
 ## <a name="prerequisites"></a>Vereisten
-Het volgende is vereist voor het voltooien van de voorbeelden in dit onderwerp:
+Het volgende is vereist voor het voltooien van de voorbeelden in dit artikel:
 
 * Een Azure Automation-account. Zie [Azure Uitvoeren-als-account](automation-sec-configure-azure-runas-account.md) voor instructies over het maken van een Azure Automation Uitvoeren-als-account.
 * Een Azure Resource Manager VM (niet-klassieke) met Windows Server 2008 R2 of hoger. Zie [Uw eerste virtuele Windows-machine maken met behulp van Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) voor instructies voor het maken van een VM
 
 ## <a name="creating-a-dsc-configuration"></a>Maken van een DSC-configuratie
-We gaan een eenvoudige maken [DSC-configuratie](https://msdn.microsoft.com/powershell/dsc/configurations) die ervoor zorgt de aanwezigheid of afwezigheid van de **webserver** Windows functie (IIS), afhankelijk van hoe u knooppunten toewijzen.
+U maakt een eenvoudige [DSC-configuratie](https://msdn.microsoft.com/powershell/dsc/configurations) die ervoor zorgt de aanwezigheid of afwezigheid van de **webserver** Windows functie (IIS), afhankelijk van hoe u knooppunten toewijzen.
 
 1. Start de Windows PowerShell ISE (of een teksteditor).
 2. Typ de volgende tekst:
@@ -67,7 +67,7 @@ We gaan een eenvoudige maken [DSC-configuratie](https://msdn.microsoft.com/power
 Deze configuratie een resource in elk blok knooppunt roept de [WindowsFeature resource](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), die zorgt ervoor dat de aanwezigheid of afwezigheid van de **webserver** functie.
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Een configuratie te importeren in Azure Automation
-We je de configuratie vervolgens importeren in het Automation-account.
+Vervolgens moet importeren u de configuratie in het Automation-account.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik in het menu Hub op **alle resources** en vervolgens de naam van uw Automation-account.
@@ -129,7 +129,7 @@ Voltooiing van een Compilatietaak maakt een of meer nieuwe knooppuntconfiguratie
     ![Schermafbeelding van het tabblad DSC-knooppuntconfiguraties](./media/automation-dsc-getting-started/NodeConfigs.png)
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-dsc"></a>Voorbereiden op een virtuele machine van Azure voor beheer met Azure Automation DSC
-Azure Automation DSC kunt u virtuele Azure-machines (Classic en Resource Manager), lokale virtuele machines Linux machines, AWS virtuele machines en fysieke machines lokale beheren. In dit onderwerp wordt uitgelegd hoe u kunt alleen Azure Resource Manager VM's vrijgeven. Zie voor informatie over de voorbereiding andere soorten machines, [machines voorbereiden voor beheer door Azure Automation DSC](automation-dsc-onboarding.md).
+Azure Automation DSC kunt u virtuele Azure-machines (Classic en Resource Manager), lokale virtuele machines Linux machines, AWS virtuele machines en fysieke machines lokale beheren. In dit artikel leert u hoe u kunt alleen Azure Resource Manager VM's vrijgeven. Zie voor informatie over de voorbereiding andere soorten machines, [machines voorbereiden voor beheer door Azure Automation DSC](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Voorbereiden van een Azure Resource Manager VM voor beheer door Azure Automation DSC
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -151,10 +151,10 @@ Azure Automation DSC kunt u virtuele Azure-machines (Classic en Resource Manager
    
     ![Schermafbeelding van de registratie-blade](./media/automation-dsc-getting-started/RegisterVM.png)
    
-    De configuratie van het opgegeven worden toegepast op de virtuele machine met een interval dat is opgegeven door de **frequentie van de configuratiemodus**, en de virtuele machine wordt gecontroleerd op updates voor de knooppuntconfiguratie met een interval dat is opgegeven door de **vernieuwingsfrequentie**. Zie voor meer informatie over het gebruik van deze waarden [configureren van de lokale Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+    De knooppuntconfiguratie die u hebt opgegeven, worden toegepast op de virtuele machine met een interval dat is opgegeven door de **frequentie van de configuratiemodus**, en de virtuele machine wordt gecontroleerd op updates voor de knooppuntconfiguratie met een interval dat is opgegeven door de **vernieuwen Frequentie**. Zie voor meer informatie over het gebruik van deze waarden [configureren van de lokale Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
 9. In de **Azure Virtual machines toevoegen** blade, klikt u op **maken**.
 
-Azure kan het proces van het voorbereiden op de virtuele machine wordt gestart. Wanneer deze voltooid is, de virtuele machine wordt weergegeven in de **DSC-knooppunten** blade in de Automation-account.
+Azure begint het proces van het voorbereiden op de virtuele machine. Wanneer deze voltooid is, de virtuele machine wordt weergegeven in de **DSC-knooppunten** blade in de Automation-account.
 
 ## <a name="viewing-the-list-of-dsc-nodes"></a>De lijst van DSC-knooppunten
 U kunt de lijst weergeven met alle machines die zijn vrijgegeven voor management in uw Automation-account in de **DSC-knooppunten** blade.

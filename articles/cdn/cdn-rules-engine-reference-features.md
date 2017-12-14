@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -48,13 +48,13 @@ Naam | Doel
 [Bandbreedte-Parameters](#bandwidth-parameters) | Bepaalt of bandbreedte bandbreedteregeling parameters (bijvoorbeeld ec_rate en ec_prebuf) actief zijn.
 [Bandbreedtebeperking](#bandwidth-throttling) | Beperkt de bandbreedte voor de respons van de edge-servers.
 [De Bypass-Cache](#bypass-cache) | Hiermee wordt bepaald of de aanvraag moet overslaan.
-[Cache-Control Header behandeling](#cache-control-header-treatment) | Hiermee bepaalt u het genereren van Cache-Control headers door de edge-server als onderdeel van de externe maximumleeftijd actief is.
+[Cache-Control Header behandeling](#cache-control-header-treatment) | Hiermee bepaalt u het genereren van `Cache-Control` headers door de edge-server als onderdeel van de externe maximumleeftijd actief is.
 [Cache-sleutel queryreeks](#cache-key-query-string) | Hiermee wordt bepaald of de cache-sleutel wordt opnemen of uitsluiten van queryreeksparameters die zijn gekoppeld aan een aanvraag.
 [Cache-sleutel opnieuw schrijven](#cache-key-rewrite) | Herschrijft de cache-sleutel die is gekoppeld aan een aanvraag.
 [Voltooien van de opvulling van de Cache](#complete-cache-fill) | Hiermee bepaalt u wat er gebeurt wanneer een aanvraag resulteert in een gedeeltelijke Cachemisser op een edge-server.
 [Bestandstypen comprimeren](#compress-file-types) | Hiermee definieert u de bestandsindelingen die zal worden gecomprimeerd op de server.
 [Standaard interne-maximumleeftijd](#default-internal-max-age) | Het standaardinterval voor de maximale leeftijd voor edge-server naar de oorsprong server cache hervalidatie bepaalt.
-[Koptekst behandeling verloopt](#expires-header-treatment) | Hiermee bepaalt het genereren van Expires-koppen door een edge-server wanneer de functie externe maximumleeftijd actief is.
+[Koptekst behandeling verloopt](#expires-header-treatment) | Hiermee bepaalt u het genereren van `Expires` headers door een edge-server als de functie externe maximumleeftijd actief is.
 [Externe maximumleeftijd](#external-max-age) | Bepaalt de maximumleeftijd interval voor de browser edge-server opnieuw valideren.
 [Interne maximumleeftijd forceren](#force-internal-max-age) | De maximale leeftijd interval voor edge-server naar de oorsprong server cache hervalidatie bepaald.
 [H.264-ondersteuning (http-progressief downloaden)](#h264-support-http-progressive-download) | Bepaalt de soorten H.264 bestandsindelingen die kunnen worden gebruikt om inhoud streamen.
@@ -162,7 +162,7 @@ Naam | Doel
 -----|--------
 [Caching geschikte HTTP-methoden](#cacheable-http-methods) | Bepaalt de set met extra HTTP-methoden die in de cache kan worden opgeslagen in het netwerk.
 [Grootte van standaardberichthoofdtekst voor caching geschikte aanvraag](#cacheable-request-body-size) | Hiermee definieert u de drempelwaarde voor het bepalen of een POST-antwoord in cache.
-[Variabele van de gebruiker](#user-variable) | Gebruikte primarity met Lua scripts.
+[Variabele van de gebruiker](#user-variable) | Alleen voor intern gebruik.
 
  
 ## <a name="url-features"></a>URL-functies
@@ -181,7 +181,7 @@ Naam | Doel
 
 ---
 ### <a name="age-response-header"></a>Leeftijd antwoordheader
-**Doel**: Hiermee wordt bepaald of een antwoordheader leeftijd wordt opgenomen in het antwoord verzonden naar de aanvrager.
+**Doel**: Hiermee wordt bepaald of een antwoordheader leeftijd is opgenomen in het antwoord verzonden naar de aanvrager.
 Waarde|Resultaat
 --|--
 Ingeschakeld | De antwoordheader van de leeftijd is opgenomen in het antwoord verzonden naar de aanvrager.
@@ -295,10 +295,10 @@ De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en
 
 Waarde|Resultaat
 --|--
-Overschrijven|Zorgt ervoor dat de volgende acties uitgevoerd:<br/> -Overschrijft de header van de Cache-Control die worden gegenereerd door de bronserver. <br/>-Voegt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd aan het antwoord.
+Overschrijven|Zorgt ervoor dat de volgende acties uitgevoerd:<br/> -Overschrijft de `Cache-Control` header die worden gegenereerd door de bronserver. <br/>-Voegt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd aan het antwoord.
 Doorgeven|Zorgt ervoor dat de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Cache-Control` -kop, dit wordt doorgegeven via voor de eindgebruiker. <br/> Als de bronserver geen produceert een `Cache-Control` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Cache-Control` header.
-Indien deze ontbreken toevoegen|Als een `Cache-Control` header is niet ontvangen op de bronserver en vervolgens deze optie wordt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd. Deze optie is handig om ervoor te zorgen dat alle activa wordt zijn toegewezen een `Cache-Control` header.
-Verwijderen| Deze optie zorgt ervoor dat een `Cache-Control` header is niet opgenomen in de header-reactie. Als een `Cache-Control` header is al toegewezen en deze worden verwijderd uit het antwoord van de header.
+Indien deze ontbreken toevoegen|Als een `Cache-Control` header is niet ontvangen op de bronserver en vervolgens deze optie wordt de `Cache-Control` header geproduceerd door de functie externe maximumleeftijd. Deze optie is handig om ervoor te zorgen dat alle activa zijn toegewezen een `Cache-Control` header.
+Verwijderen| Deze optie zorgt ervoor dat een `Cache-Control` header is niet opgenomen in de header-reactie. Als een `Cache-Control` header is al toegewezen en vervolgens wordt deze verwijderd uit de header-reactie.
 
 **Standaardgedrag:** overschrijven.
 
@@ -424,7 +424,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 --->
 Een gedeeltelijke Cachemisser treedt meestal op nadat een gebruiker een download annuleert of voor bedrijfsmiddelen die uitsluitend worden aangevraagd met behulp van HTTP-aanvragen voor bereik. Deze functie is vooral handig voor grote activa waar gebruikers wordt niet doorgaans worden gedownload van begin tot eind (bijvoorbeeld video's). Als gevolg hiervan is deze functie standaard ingeschakeld op het grote HTTP-platform. Het is uitgeschakeld op alle andere platforms.
 
-Het is raadzaam laat u de standaardconfiguratie voor het HTTP-grote platform, omdat deze wordt de belasting van uw klant oorsprong server verminderen en verhoogt de snelheid waarmee uw klanten uw inhoud downloaden.
+Houd de standaardconfiguratie voor het HTTP-grote platform, omdat deze de belasting van de bronserver voor uw klant wordt en verhoogt de snelheid waarmee uw klanten uw inhoud downloaden.
 
 Vanwege de manier die in cache van welke instellingen worden bijgehouden, deze functie kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst: rand Cname, Header letterlijke aanvragen, aanvragen Header jokertekens, URL Query letterlijke, en URL-Query.
 
@@ -527,15 +527,15 @@ Uitgeschakeld|De X-EC-Debug response-header worden uitgesloten van het antwoord.
 
 Belangrijke informatie:
 
-- Deze actie vindt alleen plaats voor antwoorden van een bronserver die een maximumleeftijd aanduiding in de Cache-Control of Expires-header niet hebt toegewezen.
+- Deze actie vindt alleen plaats voor antwoorden van een bronserver die niet een indicatie van de maximale leeftijd in hebt toegewezen de `Cache-Control` of `Expires` header.
 - Deze actie vindt niet plaats voor activa die niet als caching geschikte worden beschouwd.
-- Deze actie heeft geen invloed op de browser edge server cache revalidations. Deze typen revalidations worden bepaald door de Cache-Control of Expires-koppen verzonden naar de browser, die kan worden aangepast met de functie externe maximumleeftijd.
+- Deze actie heeft geen invloed op de browser edge server cache revalidations. Deze typen revalidations worden bepaald door de `Cache-Control` of `Expires` verzonden naar de browser, die kan worden aangepast met de functie externe maximumleeftijd headers.
 - De resultaten van deze actie hebben geen gevolgen heeft voor de antwoordheaders waarneembare en de inhoud die is geretourneerd van de randservers voor uw inhoud, maar deze mogelijk gevolgen hebben voor de hoeveelheid hervalidatie verkeer vanaf randservers wordt verzonden naar de bronserver.
 - Deze functie door configureren:
     - Als u de statuscode waarvoor een standaard interne-maximumleeftijd kan worden toegepast.
     - Een geheel getal opgeven en vervolgens te klikken op de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort). Deze waarde bepaalt het standaardinterval voor de interne maximumleeftijd.
 
-- Instellen van de tijdseenheid 'Uit', wordt een interne maximumleeftijd standaardinterval van 7 dagen voor aanvragen die niet zijn toegewezen aan een maximumleeftijd aanduiding in de Cache-Control of Expires-header toewijzen.
+- Instellen van de tijdseenheid 'Uit' toewijst een interne maximumleeftijd standaardinterval van 7 dagen voor aanvragen die niet zijn toegewezen aan een indicatie van de maximale leeftijd in hun `Cache-Control` of `Expires` header.
 - Dit onderdeel kan niet worden gekoppeld aan de volgende voorwaarden van de overeenkomst vanwege de manier die in cache van welke instellingen worden bijgehouden: 
     - Rand 
     - CNAME
@@ -571,16 +571,16 @@ Uitgeschakeld| Hiermee herstelt u het standaardgedrag. De standaardinstelling is
 
 ---
 ### <a name="expires-header-treatment"></a>Koptekst behandeling verloopt
-**Doel:** Expires-koppen worden gegenereerd door een edge-server bepaalt wanneer de functie externe maximumleeftijd actief is.
+**Doel:** bepaalt het genereren van `Expires` headers door een edge-server als de functie externe maximumleeftijd actief is.
 
 De eenvoudigste manier om dit type configuratie is de externe maximumleeftijd en de functies verloopt Header behandeling plaatsen in dezelfde instructie.
 
 Waarde|Resultaat
 --|--
-Overschrijven|Zorgt ervoor dat de volgende acties wordt uitgevoerd:<br/>-Overschrijft de Expires-header die worden gegenereerd door de bronserver.<br/>-Voegt de Expires-header die wordt geproduceerd door de functie externe maximumleeftijd aan het antwoord.
-Doorgeven|Zorgt ervoor dat de Expires-header die wordt geproduceerd door de functie externe maximumleeftijd nooit is toegevoegd aan het antwoord. <br/> Als de bronserver een Expires-header ontstaat, worden doorgegeven aan de eindgebruiker. <br/>Als de bronserver geen een Expires-header produceert, klikt u vervolgens deze optie kan ertoe leiden dat de response-header bevat geen een Expires-header.
-Indien deze ontbreken toevoegen| Als een Expires-header niet van de bronserver ontvangen is, voegt de geproduceerd door de functie externe maximumleeftijd Expires-header met deze optie. Deze optie is nuttig om ervoor te zorgen dat alle activa een Expires-header wordt toegewezen.
-Verwijderen| Zorgt ervoor dat een Expires-header niet opgenomen in de header-reactie is. Als er al een Expires-header is toegewezen, worden klikt u vervolgens het verwijderd uit het antwoord van de header.
+Overschrijven|Zorgt ervoor dat de volgende acties wordt uitgevoerd:<br/>-Overschrijft de `Expires` header die worden gegenereerd door de bronserver.<br/>-Voegt de `Expires` header geproduceerd door de functie externe maximumleeftijd aan het antwoord.
+Doorgeven|Zorgt ervoor dat de `Expires` header geproduceerd door de functie externe maximumleeftijd nooit wordt toegevoegd aan het antwoord. <br/> Als de bronserver produceert een `Expires` -kop, worden doorgegeven aan de eindgebruiker. <br/>Als de bronserver geen produceert een `Expires` header, wordt deze optie kan ertoe leiden dat de response-header bevat geen een `Expires` header.
+Indien deze ontbreken toevoegen| Als een `Expires` header is niet ontvangen op de bronserver en vervolgens deze optie wordt de `Expires` header geproduceerd door de functie externe maximumleeftijd. Deze optie is handig om ervoor te zorgen dat alle activa zal worden toegewezen een `Expires` header.
+Verwijderen| Zorgt ervoor dat een `Expires` header is niet opgenomen in de header-reactie. Als een `Expires` header is al toegewezen en vervolgens wordt deze verwijderd uit de header-reactie.
 
 **Standaardgedrag:** overschrijven
 
@@ -592,14 +592,14 @@ Verwijderen| Zorgt ervoor dat een Expires-header niet opgenomen in de header-rea
 ### <a name="external-max-age"></a>Externe maximumleeftijd
 **Doel:** bepaalt het maximumleeftijd interval voor de browser edge-server opnieuw valideren. Met andere woorden, de hoeveelheid tijd die wordt doorgegeven voordat een browser kan worden gecontroleerd voor een nieuwe versie van een actief van een edge-server.
 
-Inschakelen van deze functie genereert Cache-Control: max-na verloop van tijd en headers van de randservers verloopt en ze verzenden naar de HTTP-client. Standaard wordt deze headers die zijn gemaakt met de oorspronkelijke server overschreven. Maar de behandeling van Cache-Control-Header en de onderdelen van de Header behandeling verloopt gebruikt voor het wijzigen van dit probleem.
+Inschakelen van deze functie genereert `Cache-Control: max-age` en `Expires` headers van de edge-servers en verzend dit naar de HTTP-client. Standaard wordt deze headers die zijn gemaakt met de oorspronkelijke server overschreven. Maar de behandeling van Cache-Control-Header en de onderdelen van de Header behandeling verloopt gebruikt voor het wijzigen van dit probleem.
 
 Belangrijke informatie:
 
-- Deze actie heeft geen invloed op de edge-server naar de oorsprong server cache revalidations. Deze typen revalidations worden bepaald door de Cache-Control/Expires-koppen ontvangen van de bronserver en kunnen worden aangepast met de standaard interne-maximumleeftijd en de onderdelen van Force interne-maximumleeftijd.
+- Deze actie heeft geen invloed op de edge-server naar de oorsprong server cache revalidations. Deze typen revalidations worden bepaald door de `Cache-Control` en `Expires` headers ontvangen van de bronserver en kunnen worden aangepast met de standaard interne-maximumleeftijd en de onderdelen van Force interne-maximumleeftijd.
 - Deze functie configureren door een geheel getal opgeven en het selecteren van de gewenste tijdseenheid (bijvoorbeeld seconden, minuten, uren, enzovoort).
-- Als u deze functie op een negatieve waarde zorgt ervoor dat de edge-servers voor het verzenden van een Cache-Control: no-cache en een Expires-tijd die is ingesteld in het verleden met elk antwoord naar de browser. Hoewel een HTTP-client wordt de reactie niet in cache, wordt deze instelling geen invloed op de mogelijkheid de randservers in de cache van het antwoord op de bronserver.
-- Instellen van de tijdseenheid 'Uit', wordt deze functie uitschakelen. De Cache-Control/Expires-koppen in de cache opgeslagen met de reactie van de bronserver worden naar de browser doorgegeven.
+- Als u deze functie op een negatieve waarde zorgt ervoor dat de randservers verzenden een `Cache-Control: no-cache` en een `Expires` tijd die is ingesteld in het verleden met elk antwoord naar de browser. Hoewel een HTTP-client wordt de reactie niet in cache, wordt deze instelling geen invloed op de mogelijkheid de randservers in de cache van het antwoord op de bronserver.
+- Instellen van de tijdseenheid 'Uit', wordt deze functie uitschakelen. De `Cache-Control` en `Expires` headers in de cache opgeslagen met de reactie van de bronserver naar de browser worden doorgegeven.
 
 **Standaardgedrag:** uitschakelen
 
@@ -674,7 +674,7 @@ Belangrijke informatie:
 ### <a name="honor-no-cache-request"></a>EEr No-Cache-aanvraag
 **Doel:** bepaalt of een HTTP-client geen cache's aanvragen zal worden doorgestuurd naar de oorspronkelijke server.
 
-Een aanvraag Nee-cache treedt op wanneer de HTTP-client een Cache verzendt-Control: no-cache en/of Pragma:no-cache-header in de HTTP-aanvraag.
+Een aanvraag Nee-cache treedt op wanneer de HTTP-client verzendt een `Cache-Control: no-cache` en/of `Pragma: no-cache` -header in de HTTP-aanvraag.
 
 Waarde|Resultaat
 --|--
@@ -747,7 +747,7 @@ Als de edge-server niet kan geen verbinding met de oorspronkelijke server tijden
 
 Houd er rekening mee dat dit tijdsinterval wordt gestart wanneer de activa maximumleeftijd is verlopen, niet als de mislukte hervalidatie optreedt. De maximale periode gedurende welke een asset kan worden geleverd zonder geslaagde hervalidatie is daarom de hoeveelheid tijd die is opgegeven door de combinatie van maximumleeftijd plus max verouderd. Bijvoorbeeld, als een actief is in de cache om 9:00 uur met een maximumleeftijd van 30 minuten en een maximale-verouderde van 15 minuten, zou klikt u vervolgens een hervalidatie mislukte poging om 9:44 leiden tot een eindgebruiker de verlopen in de cache asset ontvangen tijdens een poging tot mislukte hervalidatie om 9:46 tot de nl leiden zou d gebruiker ontvangt een 504 Gateway timeout gegenereerd.
 
-Een waarde die is geconfigureerd voor deze functie wordt vervangen door `Cache-Control:must-revalidate` of `Cache-Control:proxy-revalidate` headers ontvangen van de bronserver. Als een van deze koppen wordt ontvangen op de bronserver wanneer u een actief is in eerste instantie in de cache opgeslagen, klikt u vervolgens in de edge-server niet een verlopen in de cache asset fungeren. Als de edge-server niet kan valideren met de oorsprong wanneer de activa maximumleeftijd interval is verstreken, geeft de edge-server in dat geval een 504 Gateway Timeout-fout.
+Een waarde die is geconfigureerd voor deze functie wordt vervangen door `Cache-Control: must-revalidate` of `Cache-Control: proxy-revalidate` headers ontvangen van de bronserver. Als een van deze koppen wordt ontvangen op de bronserver wanneer u een actief is in eerste instantie in de cache opgeslagen, klikt u vervolgens in de edge-server niet een verlopen in de cache asset fungeren. Als de edge-server niet kan valideren met de oorsprong wanneer de activa maximumleeftijd interval is verstreken, geeft de edge-server in dat geval een 504 Gateway Timeout-fout.
 
 Belangrijke informatie:
 
@@ -823,7 +823,7 @@ Verwijderen|Hiermee verwijdert u de opgegeven aanvraagheader.|**Headerwaarde (Cl
 Belangrijke informatie:
 
 - Zorg ervoor dat de opgegeven waarde in de optie voor een exacte overeenkomst voor de gewenste aanvraagheader.
-- Aanvraag is niet in aanmerking voor de identificatie van een koptekst genomen. Elk van de volgende variaties van de naam van de Cache-Control-header kan bijvoorbeeld worden gebruikt bij het identificeren ervan:
+- Aanvraag is niet in aanmerking voor de identificatie van een koptekst genomen. Bijvoorbeeld, een van de volgende variaties van de `Cache-Control` headernaam kan worden gebruikt bij het identificeren ervan:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
@@ -861,7 +861,7 @@ Verwijderen|Hiermee verwijdert u de opgegeven antwoordheader.|**Antwoord headerw
 Belangrijke informatie:
 
 - Zorg ervoor dat de opgegeven waarde in de optie voor een exacte overeenkomst voor de gewenste response-header. 
-- Aanvraag is niet in aanmerking voor de identificatie van een koptekst genomen. Elk van de volgende variaties van de naam van de Cache-Control-header kan bijvoorbeeld worden gebruikt bij het identificeren ervan:
+- Aanvraag is niet in aanmerking voor de identificatie van een koptekst genomen. Bijvoorbeeld, een van de volgende variaties van de `Cache-Control` headernaam kan worden gebruikt bij het identificeren ervan:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
@@ -1241,8 +1241,11 @@ Deze functie bevat die overeenkomt met de criteria die moeten worden voldaan voo
 
 ---
 ### <a name="user-variable"></a>Variabele van de gebruiker
-**Doel:** primarity met Lua scripts gebruikt. Met de functie gebruiker-variabele, kunt u hash-functies voor het beveiligen van URL's met een script Lua downloaden.
+**Doel:** alleen voor intern gebruik.
 
+[Terug naar boven](#azure-cdn-rules-engine-features)
+
+</br>
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Regels Engine verwijzing](cdn-rules-engine-reference.md)

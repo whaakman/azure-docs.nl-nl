@@ -11,31 +11,97 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
 De Lookup Activity kan worden gebruikt om een record/tabelnaam/waarde van een externe bron te lezen of op te zoeken. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
-
-De volgende gegevensbronnen worden momenteel ondersteund voor het opzoeken van:
-- JSON-bestand in Azure Blob
-- Lokale JSON-bestand
-- Azure SQL Database (JSON-gegevens geconverteerd van een query)
-- Azure Table Storage (JSON-gegevens geconverteerd van een query)
 
 Lookup-activiteit is handig als u wilt een lijst met bestanden dynamisch ophalen-records/tabellen vanuit een configuratiebestand of een gegevensbron. De uitvoer van de activiteit kan verder worden gebruikt door andere activiteiten uit te voeren specifieke verwerking op alleen die items.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Data Factory V1 documentatie](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
+
+De volgende gegevensbronnen worden momenteel ondersteund voor het opzoeken van:
+- JSON-bestand in Azure Blob
+- JSON-bestand in bestandssysteem
+- Azure SQL Database (JSON-gegevens geconverteerd van een query)
+- Azure SQL Data Warehouse (JSON-gegevens geconverteerd van een query)
+- SQL Server (JSON-gegevens geconverteerd van een query)
+- Azure Table Storage (JSON-gegevens geconverteerd van een query)
+
+## <a name="syntax"></a>Syntaxis
+
+```json
+{
+    "name": "LookupActivity",
+    "type": "Lookup",
+    "typeProperties": {
+        "source": {
+            "type": "<source type>"
+            <additional source specific properties (optional)>
+        },
+        "dataset": { 
+            "referenceName": "<source dataset name>",
+            "type": "DatasetReference"
+        },
+        "firstRowOnly": false
+    }
+}
+```
+
+## <a name="type-properties"></a>Type-eigenschappen
+Naam | Beschrijving | Type | Vereist
+---- | ----------- | ---- | --------
+Gegevensset | Het kenmerk dataset is voor de dataset-verwijzing voor de zoekopdracht. Op dit moment wordt zijn de gegevensset ondersteunde typen:<ul><li>`AzureBlobDataset`voor [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) als bron</li><li>`FileShareDataset`voor [bestandssysteem](connector-file-system.md#dataset-properties) als bron</li><li>`AzureSqlTableDataset`voor [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) of [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) als bron</li><li>`SqlServerTable`voor [SQL Server](connector-sql-server.md#dataset-properties) als bron</li><li>`AzureTableDataset`voor [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) als bron</li> | Sleutel-waardepaar | Ja
+bron | DataSet-specifieke eigenschappen van gegevensbron, dezelfde zijn als kopieerbron voor de activiteit. Meer details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector-onderwerp. | Sleutel-waardepaar | Ja
+firstRowOnly | Geef aan of alleen de eerste rij of alle rijen retourneren. | Booleaanse waarde | Nee. Standaard is `ture`.
+
+## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Resultaat van Lookup-activiteit gebruiken in de volgende activiteit
+
+Het resultaat van de zoekactie wordt geretourneerd als de `output` sectie in het resultaat van uitgevoerde activiteit.
+
+**Wanneer `firstRowOnly` is ingesteld op `true` (standaard)**, de indeling van de uitvoer is als volgt. Het resultaat van de zoekactie is onder een vaste `firstRow` sleutel. Als u het resultaat van de volgende activiteit, gebruikt u het patroon van `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+
+```json
+{
+    "firstRow":
+    {
+        "Id": "1",
+        "TableName" : "Table1"
+    }
+}
+```
+
+**Wanneer `firstRowOnly` is ingesteld op `false`** ,-indeling is de uitvoer ziet er als volgt. Een `count` veld geeft aan hoeveel records worden geretourneerd en gedetailleerde waarden onder een vaste `value` matrix. In dit geval is, de activiteit opzoeken meestal wordt gevolgd door een [Foreach-activiteit](control-flow-for-each-activity.md), u kunt doorgeven de `value` -matrix naar ForEach-activiteit `items` veld met het patroon van `@activity('MyLookupActivity').output.value`.
+
+```json
+{
+    "count": "2",
+    "value": [
+        {
+            "Id": "1",
+            "TableName" : "Table1"
+        },
+        {
+            "Id": "2",
+            "TableName" : "Table2"
+        }
+    ]
+} 
+```
 
 ## <a name="example"></a>Voorbeeld
 In dit voorbeeld kopieert de kopieeractiviteit gegevens uit een SQL-tabel in Azure SQL-database naar Azure Blob Storage. De naam van de SQL-tabel is opgeslagen in een JSON-bestand in Blob Storage. De activiteit opzoeken, zoekt u de naam van de tabel tijdens runtime. Deze aanpak kunt JSON dynamisch worden gewijzigd zonder pijplijnen/gegevenssets opnieuw distribueren. 
+
+In dit voorbeeld laat zien hoe zoekt u alleen de eerste rij. Raadpleeg voor het opzoeken alle rijen en -keten met ForEach-activiteit, [zelfstudie - gegevens bulksgewijs kopiëren](tutorial-bulk-copy.md) voorbeeld.
 
 ### <a name="pipeline"></a>Pijplijn
 Deze pipeline bevat twee activiteiten: **opzoeken** en **kopie**. 
@@ -68,7 +134,7 @@ Deze pipeline bevat twee activiteiten: **opzoeken** en **kopie**.
                 "typeProperties": {
                     "source": { 
                         "type": "SqlSource", 
-                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.tableName}" 
+                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.firstRow.tableName}" 
                     },
                     "sink": { 
                         "type": "BlobSink" 
@@ -131,7 +197,7 @@ De bron-gegevensset maakt gebruik van de uitvoer van de activiteit opzoeken, die
     "properties": {
         "type": "AzureSqlTable",
         "typeProperties":{
-            "tableName": "@{activity('LookupActivity').output.tableName}"
+            "tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
         },
         "linkedServiceName": {
             "referenceName": "AzureSqlLinkedService",
@@ -215,6 +281,7 @@ Deze Azure SQL-database bevat de gegevens moeten worden gekopieerd naar de blob-
   "tableName": "Table2",
 }
 ```
+
 #### <a name="array-of-objects"></a>Matrix met objecten
 
 ```json
@@ -229,15 +296,6 @@ Deze Azure SQL-database bevat de gegevens moeten worden gekopieerd naar de blob-
     }
 ]
 ```
-
-
-
-## <a name="type-properties"></a>Type-eigenschappen
-Naam | Beschrijving | Type | Vereist
----- | ----------- | ---- | --------
-Gegevensset | Het kenmerk dataset is voor de dataset-verwijzing voor de zoekopdracht. Op dit moment wordt zijn de gegevensset ondersteunde typen:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Sleutel-waardepaar | Ja
-bron | Eigenschappen van gegevensset-specifieke gegevensbron, dezelfde zijn als kopieerbron voor de activiteit | Sleutel-waardepaar | Nee
-firstRowOnly | Retourneert de eerste rij of alle rijen. | Booleaanse waarde | Nee
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 

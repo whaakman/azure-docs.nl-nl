@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit implementatiesnelstart
 
@@ -31,9 +31,9 @@ De [Azure Stack Development Kit](azure-stack-poc.md) is een test- en -omgeving d
 
 2. [**Downloaden en uitpakken van het implementatiepakket**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). U kunt het implementatiepakket downloaden naar de development kit host of naar een andere computer. De implementatie van de uitgepakte bestanden duren 60 GB aan vrije schijfruimte, zodat een andere computer kan helpen verminderen de hardwarevereisten voor de host van development kit.
 
-3. [**Voorbereiden van de host van development kit** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) met behulp van het installatieprogramma. Na deze stap wordt de development kit host opgestart naar de Cloudbuilder.vhdx (een virtuele harde schijf met een besturingssysteem en de Azure-Stack installeren bestanden).
+3. [**Voorbereiden van de host van development kit** ](azure-stack-run-powershell-script.md) met behulp van het installatieprogramma. Na deze stap wordt de development kit host opgestart naar de Cloudbuilder.vhdx (een virtuele harde schijf met een besturingssysteem en de Azure-Stack installeren bestanden).
 
-4. [**Implementeer de development kit** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) op de host van development kit.
+4. [**Implementeer de development kit** ](azure-stack-run-powershell-script.md) op de host van development kit.
 
 5. Als uw Azure-Stack-implementatie gebruikmaakt van Azure Active Directory, moet u [Azure Stack registreren bij Azure](azure-stack-register.md) zodat u kunt [Azure marketplace-items downloaden](azure-stack-download-azure-marketplace-item.md) naar Azure-Stack.
 

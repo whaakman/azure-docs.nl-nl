@@ -3,7 +3,7 @@ title: Compileren van configuraties in Azure Automation DSC | Microsoft Docs
 description: In dit artikel wordt beschreven hoe Desired State Configuration (DSC)-configuraties voor Azure Automation worden gecompileerd.
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compileren van configuraties in Azure Automation DSC
 
@@ -47,7 +47,7 @@ Nadat u hebt besloten een compilatie-methode, kunt u de desbetreffende procedure
 1. Van uw Automation-account, klikt u op **DSC-configuraties**.
 2. Klik op een configuratie om de blade te openen.
 3. Klik op **compileren**.
-4. Als de configuratie geen parameters heeft, wordt u gevraagd om te bevestigen of u wilt compileren. Als de configuratie van de parameters, heeft de **configuratie compileren** blade geopend zodat u parameterwaarden kan opgeven. Zie de [ **fundamentele Parameters** ](#basic-parameters) sectie hieronder voor meer informatie over parameters.
+4. Als de configuratie geen parameters heeft, wordt u gevraagd om te bevestigen of u wilt compileren. Als de configuratie van de parameters, heeft de **configuratie compileren** blade wordt geopend zodat u parameterwaarden kan opgeven. Zie de [ **fundamentele Parameters** ](#basic-parameters) sectie hieronder voor meer informatie over parameters.
 5. De **Compilatietaak** blade wordt geopend zodat u de status van de Compilatietaak en de knooppuntconfiguraties (MOF configuratiedocumenten) het veroorzaakt worden geplaatst op de Azure Automation DSC-Pull-Server kunt bijhouden.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Compileren van een DSC-configuratie met Windows PowerShell
@@ -131,16 +131,16 @@ Zie voor meer informatie over PSCredentials doorgeeft als parameters <a href="#c
 
 ## <a name="composite-resources"></a>Samengestelde bronnen
 
-**Samengestelde bronnen** kunt u DSC-configuraties gebruiken als ingesloten resources binnen een configuratie.  Hiermee kunt u meerdere configuraties toepassen op één resource.  Zie [samengestelde bronnen: met een DSC-configuratie als een resource](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) voor meer informatie over **samengestelde bronnen**
+**Samengestelde bronnen** kunt u DSC-configuraties gebruiken als ingesloten resources binnen een configuratie. Hiermee kunt u meerdere configuraties toepassen op één resource.  Zie [samengestelde bronnen: met een DSC-configuratie als een resource](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) voor meer informatie over **samengestelde bronnen**
 
 > [!NOTE]
 > Opdat **samengestelde bronnen** correct compileren, moet u eerst ervoor zorgen dat eventuele DSC-Resources die afhankelijk is van de samengestelde waarde eerst in de opslagplaats Azure Automation-Account-Modules zijn geïnstalleerd of deze niet correct worden geïmporteerd.
 
-Toevoegen van een DSC **samengestelde bron**, moet u de module resource toevoegen aan een archief (* .zip). Ga naar de opslagplaats Modules op uw Azure Automation-Account.  Klik vervolgens op de knop 'Add een Module'.
+Toevoegen van een DSC **samengestelde bron**, moet u de module resource toevoegen aan een archief (* .zip). Ga naar de opslagplaats Modules op uw Azure Automation-Account. Klik vervolgens op de knop 'Add een Module'.
 
 ![Module toevoegen](./media/automation-dsc-compile/add_module.png)
 
-Ga naar de map waar het archief zich bevindt.  Selecteer het archiefbestand, en klik op OK.
+Ga naar de map waar het archief zich bevindt. Selecteer het archiefbestand, en klik op OK.
 
 ![Selecteer de Module](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Knooppuntconfiguraties importeren
 
-U kunt ook knooppunt configuratons (MOF-bestanden) die u hebt gecompileerd buiten Azure importeren. Een voordeel hiervan is dat de knooppuntconfiguraties kunnen worden ondertekend.
+U kunt ook knooppuntconfiguraties (MOF-bestanden) die u hebt gecompileerd buiten Azure importeren. Een voordeel hiervan is dat de knooppuntconfiguraties kunnen worden ondertekend.
 Een ondertekende knooppuntconfiguratie is lokaal op een beheerde knooppunt gecontroleerd door de DSC-agent, waarbij u ervoor zorgt dat de configuratie die wordt toegepast op het knooppunt van een gemachtigde bron afkomstig is.
 
 > [!NOTE]

@@ -45,7 +45,7 @@ Leer hoe u het volgende doet:
 
 Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
 
- Er wordt om beschikbare installatiekopieën van het cloud-init zijn ingeschakeld in de Azure marketplace gewerkt met onze aangebracht Linux distro partners. Deze installatiekopieën brengt uw cloud-init-implementaties en configuraties naadloos werken met virtuele machines en VM Scale Sets (VMSS). De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de installatiekopieën van cloud-init zijn ingeschakeld op de Azure-platform:
+ Er wordt om beschikbare installatiekopieën van het cloud-init zijn ingeschakeld in de Azure marketplace gewerkt met onze aangebracht Linux distro partners. Deze installatiekopieën Controleer uw cloud-init-implementaties en configuraties naadloos werken met virtuele machines en virtuele-machineschaalsets. De volgende tabel geeft een overzicht van de huidige beschikbaarheid van de installatiekopieën van cloud-init zijn ingeschakeld op de Azure-platform:
 
 | Uitgever | Aanbieding | SKU | Versie | cloud-init gereed
 |:--- |:--- |:--- |:--- |:--- |:--- |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Vereisten voor de implementatie van Azure Stack
 
@@ -85,7 +85,7 @@ Als u wilt implementeren Stack van Azure met behulp van een Azure AD-account, mo
 
 1. Maak een Azure AD-account dat de directory-beheerder voor ten minste één Azure AD. Als u er al een hebt, kunt u die gebruiken. Anders kunt u een gratis op [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, gaat u naar <http://go.microsoft.com/fwlink/?LinkID=717821> in plaats daarvan). Als u van plan later bent [Azure Stack registreren bij Azure](azure-stack-register.md), moet u ook een abonnement hebben in de nieuwe account.
    
-    Deze referenties voor gebruik opslaan in stap 6 van [implementeren de development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). Dit *servicebeheerders*account kan resourceclouds, gebruikersaccounts, tenantplannen, quota en prijzen configureren en beheren. In de portal kunnen ze websiteclouds, persoonlijke clouds voor virtuele machines en plannen maken en gebruikersabonnementen beheren.
+    Deze referenties voor gebruik opslaan in stap 6 van [implementeren de development kit](azure-stack-run-powershell-script.md). Dit *servicebeheerders*account kan resourceclouds, gebruikersaccounts, tenantplannen, quota en prijzen configureren en beheren. In de portal kunnen ze websiteclouds, persoonlijke clouds voor virtuele machines en plannen maken en gebruikersabonnementen beheren.
 2. [Maak](azure-stack-add-new-user-aad.md) ten minste één account zodat u zich kunt aanmelden bij de development kit als een tenant.
    
    | **Azure Active Directory-account** | **Ondersteund?** |

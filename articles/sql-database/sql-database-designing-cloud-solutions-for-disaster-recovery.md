@@ -13,21 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
 ms.workload: On Demand
-ms.date: 09/08/2017
 ms.author: sashan
-ms.openlocfilehash: 0fb11ee553685618cc7466d3ad8b07ba01611027
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Maximaal beschikbare services met behulp van Azure SQL Database ontwerpen
 
 Bij het maken en implementeren van maximaal beschikbare services in Azure SQL-Database, gebruikt u [failover groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md) om herstelmogelijkheden bij uitval van regionale en kritieke fouten optreden. Ook kunt snel herstel van de secundaire databases. Dit artikel is gericht op algemene patronen van de toepassing en de voordelen en -en nadelen van elke optie. Zie voor meer informatie over actieve geo-replicatie met elastische Pools [elastische Pool disaster recovery strategieën](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Met behulp van twee Azure-regio's voor bedrijfscontinuïteit met minimale downtime
-In dit scenario heeft de toepassingen in de volgende kenmerken: 
+In dit scenario hebben de toepassingen in de volgende kenmerken: 
 *   Toepassing is actief in een Azure-regio
 *   Alle Databasesessies vereisen lezen en schrijven (RW) om gegevens te
 *   Weblaag en gegevenslaag moeten worden geplaatst om de latentie en verkeer kosten 
@@ -151,7 +152,7 @@ Maar er een aantal zijn **voor-en nadelen**:
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>Zakelijke continuïteit planning: Kies het ontwerp van een toepassing voor noodherstel voor cloud
 Uw strategie voor noodherstel specifieke cloud kunt combineren of breid deze ontwerppatronen voor het beste voldoet aan de behoeften van uw toepassing.  Zoals eerder vermeld, wordt de strategie die u kiest is gebaseerd op de SLA die u wilt aanbieden aan uw klanten en de topologie van de implementatie van toepassing. Om u te helpen uw beslissing, vergelijkt de volgende tabel de opties op basis van beoogd herstelpunt (RPO) en de geschatte hersteltijd (invoegen).
 
-| patroon | RPO | INVOEGEN |
+| Patroon | RPO | INVOEGEN |
 |:--- |:--- |:--- |
 | Actief / passief-implementatie voor herstel na noodgevallen met toegang tot de database met CO-locaties |Lees-/ schrijftoegang sec < 5. |Fout detectietijd + DNS TTL |
 | Implementatie van de actieve toepassing load balancing |Lees-/ schrijftoegang sec < 5. |Fout detectietijd + DNS TTL |
