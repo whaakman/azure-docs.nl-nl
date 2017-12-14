@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Maken van een functie die kan worden geïntegreerd met Azure Logic Apps
 
@@ -72,28 +72,31 @@ De cognitieve Services-API's zijn beschikbaar in Azure als afzonderlijke resourc
  
     ![Sleutels](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>De functie maken
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>De functie-app maken
 
 Functies biedt een uitstekende manier om de offload van taken in een werkstroom van logic apps. Deze zelfstudie gebruikt een functie HTTP is geactiveerd voor het verwerken van tweet gevoel scores van cognitieve Services en een categoriewaarde retourneren.  
 
-1. Klik op de **nieuw** en selecteer **Compute** > **functie-App**. Vervolgens gebruikt u de instellingen die zijn opgegeven in de onderstaande tabel. Accepteer de voorwaarden en selecteer vervolgens **vastmaken aan dashboard**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Azure-functie-App maken](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Maken van een functie HTTP is geactiveerd  
 
-    | Instelling      |  Voorgestelde waarde   | Beschrijving       |
-    | --- | --- | --- |
-    | **Naam** | MyFunctionApp | Kies een unieke naam. |
-    | **Resourcegroep** | myResourceGroup | Gebruik dezelfde resourcegroep voor alle services in deze zelfstudie.|
-    | **Hosting-plan** | Verbruiksabonnement | Hiermee definieert u de toewijzingen van uw kosten en het gebruik.
-    | **Locatie** | VS - west | De dichtstbijzijnde gebruiken. |
-    | **Storage** | Create New | Genereert automatisch een nieuw opslagaccount.|
-    | **Prijscategorie** | F0 | Beginnen met de laagste categorie. Als u buiten aanroepen uitvoert, kan worden uitgebreid naar een hogere laag.|
+1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
-2. Selecteer uw app functies in uw dashboard en vouw de functie, klikt u op de  **+**  naast **functies**, klikt u op de **Webhook + API**,  **CSharp**, klikt u vervolgens **maken van deze functie**. Hiermee maakt u een functie met de sjabloon HTTPTrigger C#. Uw code wordt weergegeven in een nieuw venster als`run.csx`
+    ![De Quick Start-pagina van Functions in Azure Portal](media/functions-twitter-email/add-first-function.png)
 
-    ![Functie Apps blade functies +](media/functions-twitter-email/add_fun.png)
+2. Typ in het zoekveld `http` en kies vervolgens **C#** voor de HTTP-trigger-sjabloon. 
 
-3. Vervang de inhoud van de `run.csx` het bestand met de volgende code en klik vervolgens op **opslaan**:
+    ![Kies de HTTP-trigger](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Typ een **naam** kiezen voor de functie `Function` voor  **[verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens **maken**. 
+
+    ![De functie HTTP geactiveerd maken](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Hiermee maakt u een C# scriptfunctie met de HTTP-Trigger-sjabloon. Uw code wordt weergegeven in een nieuw venster als `run.csx`.
+
+4. Vervang de inhoud van de `run.csx` het bestand met de volgende code en klik vervolgens op **opslaan**:
 
     ```csharp
     using System.Net;

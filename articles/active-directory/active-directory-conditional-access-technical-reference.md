@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory voorwaardelijke toegang technische naslaginformatie | Microsoft Docs
-description: "Informatie over het gebruik van voorwaardelijk toegangsbeheer in Azure Active Directory. Geef de voorwaarden voor gebruikers te verifiëren en beheren van toegang tot uw toepassing. Wanneer de opgegeven voorwaarden wordt voldaan, worden gebruikers zijn geverifieerd en toegang tot uw toepassing."
+title: Azure Active Directory-naslaginformatie voor voorwaardelijke toegang | Microsoft Docs
+description: Hiermee krijgt u een overzicht van de ondersteunde instellingen in een beleid voor voorwaardelijke toegang van Azure Active Directory.
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 871c1d222d78eccdb7e25bf22276b5f63f8f3b8f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory voorwaardelijke toegang technische naslaginformatie
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-naslaginformatie voor voorwaardelijke toegang
 
-U kunt [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) af te stemmen hoe geautoriseerde gebruikers toegang uw resources tot hebben.   
+U kunt [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) om te bepalen hoe geautoriseerde gebruikers kunnen toegang tot uw resources.   
 
-Dit artikel vindt u informatie over ondersteuning voor de volgende configuratieopties voor beleid voor voorwaardelijke toegang: 
+Dit artikel vindt u informatie over ondersteuning voor de volgende configuratieopties in een beleid voor voorwaardelijke toegang: 
 
 - Toewijzingen voor cloud-toepassingen
 
@@ -35,6 +35,7 @@ Dit artikel vindt u informatie over ondersteuning voor de volgende configuratieo
 - Vereisten voor toepassingsimplementatie goedgekeurde client
 
 
+Als dit niet de informatie die u zoekt, laat u een opmerking aan het einde van dit artikel.
 
 ## <a name="cloud-apps-assignments"></a>Toewijzingen voor cloud-apps
 

@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions schalen en die als host fungeert
 
 U kunt Azure Functions uitvoeren in twee verschillende modi: verbruik plannings- en Azure App Service-abonnement. Het plan verbruik wijst automatisch rekencapaciteit wanneer uw code wordt uitgevoerd, indien nodig om belasting te verwerken uitgeschaald en vervolgens omlaag geschaald wanneer de code wordt niet uitgevoerd. U hoeft niet te betalen voor niet-actieve virtuele machines en hoeft niet te worden van tevoren capaciteit reserveren. In dit artikel is gericht op het plan verbruik een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) app-model. Zie voor meer informatie over de werking van de App Service-abonnement de [gedetailleerd overzicht van Azure App Service-plannen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Linux-host is momenteel alleen beschikbaar op een App Service-abonnement.
+> [Linux-host](functions-create-first-azure-function-azure-cli-linux.md) is momenteel alleen beschikbaar op een App Service-abonnement.
 
 Als u niet bekend bent met Azure Functions, raadpleegt u de [overzicht van Azure Functions](functions-overview.md).
 
@@ -46,7 +46,7 @@ U kunt op een App Service-plan schalen tussen lagen andere hoeveelheid bronnen t
 Wanneer u een plan verbruik gebruikt, worden instanties van de Azure Functions-host dynamisch toegevoegd en verwijderd op basis van het aantal binnenkomende gebeurtenissen. Dit abonnement automatisch wordt geschaald en u in rekening worden gebracht rekenresources alleen wanneer uw functies worden uitgevoerd. Op een plan verbruik kan een functie voor een maximum van tien minuten uitgevoerd. 
 
 > [!NOTE]
-> De standaardtime-out voor de functies worden uitgevoerd op een plan verbruik is 5 minuten. De waarde kan worden verhoogd tot 10 minuten voor de functie-App met het wijzigen van de eigenschap `functionTimeout` in [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> De standaardtime-out voor de functies worden uitgevoerd op een plan verbruik is 5 minuten. De waarde kan worden verhoogd tot 10 minuten voor de functie-App met het wijzigen van de eigenschap `functionTimeout` in de [host.json](functions-host-json.md#functiontimeout) projectbestand.
 
 Facturering is gebaseerd op aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Facturering wordt getotaliseerd over alle functies binnen een functie-app. Zie voor meer informatie de [Azure Functions pagina met prijzen].
 

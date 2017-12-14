@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows universele Apps Engagement SDK-integratie
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Als u in plaats daarvan tijdens runtime opgeven wilt, kunt u de volgende methode
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-De verbindingsreeks voor uw toepassing wordt weergegeven in de klassieke Azure-Portal.
+De verbindingsreeks voor uw toepassing wordt weergegeven in de Azure Portal.
 
 ### <a name="engagement-initialization"></a>De initialisatie van de engagement
 Wanneer u een nieuw project maakt een `App.xaml.cs` -bestand is gegenereerd. Deze klasse neemt over van `Application` en bevat veel belangrijke methoden. Dit wordt ook worden gebruikt voor het initialiseren van de Engagement SDK.

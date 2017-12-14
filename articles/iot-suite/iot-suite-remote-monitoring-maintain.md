@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Problemen oplossen en het oplossen van problemen met apparaat
 
@@ -46,11 +46,7 @@ Voor het onderzoeken van het probleem verder kiest de **verkennen Alarm** optie 
 
 ![Waarschuwing vanuit het dashboard verkennen](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-U kunt nu een overzicht van waarschuwingen op de **onderhoud** pagina:
-
-![Lijst met waarschuwingen op de onderhoudspagina](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-Om de details van de waarschuwing wordt weergegeven, kies de waarschuwing in de **alarmen** lijst. De detailweergave ziet:
+De detailweergave van de waarschuwing wordt weergegeven:
 
 * Wanneer de waarschuwing is geactiveerd
 * Statusinformatie over de apparaten die zijn gekoppeld aan het alarm
@@ -70,7 +66,7 @@ In de lijst ziet u de **Prototype** verantwoordelijk voor het starten van het al
 
 Oplossen van het probleem met de **Prototype** apparaat gebruikt, moet u aan te roepen de **DecreaseTemperature** methode op het apparaat.
 
-Als u wilt uitvoeren op een apparaat, selecteert u deze in de lijst met apparaten en kies vervolgens **planning**. De **Engine** Apparaatmodel bevat drie methoden die een apparaat moet ondersteunen:
+Als u wilt uitvoeren op een apparaat, selecteert u deze in de lijst met apparaten en kies vervolgens **planning**. De **Prototype** Apparaatmodel bevat vier verschillende manieren een apparaat moet ondersteunen:
 
 ![Bekijk de methoden die ondersteuning biedt voor het apparaat](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Kies **DecreaseTemperature** en stel de taaknaam op **DecreaseTemperature**. Kie
 
 ![De taak voor het verkleinen van de temperatuur maken](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-De status van de taak volgen op de **onderhoud** pagina **systeemstatus**. Gebruik de **systeemstatus** om bij te houden van alle taken weergeven en methode-aanroepen in de oplossing:
+De status van de taak volgen op de **onderhoud** pagina **taken**. Gebruik de **taken** om bij te houden van alle taken weergeven en methode-aanroepen in de oplossing:
 
 ![De taak voor het verkleinen van de temperatuur bewaken](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Als u wilt weergeven in de details van een bepaalde taak of methodeaanroep, kies in de lijst in de **systeemstatus** weergeven:
+Als u wilt weergeven in de details van een bepaalde taak of methodeaanroep, kies in de lijst in de **taken** weergeven:
 
 ![Taakdetails weergeven](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

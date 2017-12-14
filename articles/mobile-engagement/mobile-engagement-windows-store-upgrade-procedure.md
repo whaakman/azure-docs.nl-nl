@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Upgradeprocedures van Windows universele Apps SDK
 Als u hebt al een oudere versie van Engagement geïntegreerd in uw toepassing, hebt u de volgende punten overwegen bij het upgraden van de SDK.
@@ -294,7 +294,7 @@ Als u in plaats daarvan tijdens runtime opgeven wilt, kunt u de volgende methode
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-De verbindingsreeks voor uw toepassing wordt weergegeven in de klassieke Azure-Portal.
+De verbindingsreeks voor uw toepassing wordt weergegeven in de Azure Portal.
 
 ### <a name="items-name-change"></a>Wijziging van items
 Alle items met de naam *capptain* naam hebt gegeven *engagement*. Op dezelfde manier voor *Capptain* naar *Engagement*.

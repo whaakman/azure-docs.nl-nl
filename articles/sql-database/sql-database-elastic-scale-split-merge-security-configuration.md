@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="split-merge-security-configuration"></a>Gesplitste samenvoegen Beveiligingsconfiguratie
 Als u wilt de splitsing/Merge-service gebruikt, moet u correct beveiliging configureren. De service maakt deel uit van de functie van de elastische Schaalfunctionaliteit van Microsoft Azure SQL Database. Zie voor meer informatie [elastische Scale splitsen en Merge-zelfstudie](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -434,7 +434,7 @@ In de Wizard Certificaat importeren:
 9. Klik op **OK** op alle vensters van het dialoogvenster.
 
 ## <a name="upload-certificate"></a>Certificaat uploaden
-In de [Azure-Portal](https://portal.azure.com/)
+In de [Azure-portal](https://portal.azure.com/)
 
 1. Selecteer **Cloudservices**.
 2. Selecteer de cloudservice.

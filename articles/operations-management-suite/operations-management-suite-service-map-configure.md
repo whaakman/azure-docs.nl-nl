@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: ba6dc69fa4aca8e0ee03ba97668d8b2ab1191002
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Serviceoverzicht configureren in Operations Management Suite
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
@@ -37,7 +37,7 @@ Serviceoverzicht afkomstig zijn uit de Microsoft-Agent voor afhankelijkheden. De
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
-| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van agent-Windows-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-windows-agents.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van agent-Windows-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-windows-agent.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-agent-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-linux-agents.md), Linux-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager agent-computer met Operations Management Suite vereist. Gegevens uit de beheergroep doorgestuurd naar de Operations Management Suite-opslagplaats.|
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van computers die door agents, dus er zijn geen gegevens te verzamelen van Azure Storage. |
@@ -74,7 +74,7 @@ De afhankelijkheid-Agent is geïnstalleerd op Windows-computers via InstallDepen
 
 Gebruik de volgende stappen voor het installeren van de Agent voor afhankelijkheden op elke Windows-computer:
 
-1.  De OMS-Agent installeren met behulp van de instructies op de [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agents.md).
+1.  De OMS-Agent installeren met behulp van de instructies op de [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  De Windows-agent downloaden en uitvoeren met behulp van de volgende opdracht: <br>`InstallDependencyAgent-Windows.exe`
 3.  Volg de wizard om de agent te installeren.
 4.  Als de Agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Op Windows-agents is de logboekmap %Programfiles%\Microsoft Agent\logs afhankelijkheid. 
@@ -388,7 +388,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 |:--|:--|
 | 10 SP4 | 2.6.16.60 |
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostische gegevens en gebruiksgegevens
+## <a name="diagnostic-and-usage-data"></a>Diagnostische en gebruiksgegevens
 Microsoft verzamelt automatisch gebruiks- en via uw gebruik van de service Serviceoverzicht. Microsoft gebruikt deze gegevens te bieden en de kwaliteit, beveiliging en integriteit van de service Serviceoverzicht te verbeteren. Gegevens omvatten informatie over de configuratie van uw software, zoals het besturingssysteem en versie. Dit omvat ook IP-adres, de DNS-naam en de Werkstationnaam zodat nauwkeurige en efficiënte mogelijkheden voor probleemoplossing. Er worden geen namen, adressen of andere contactgegevens verzameld.
 
 Zie voor meer informatie over het verzamelen van gegevens en gebruiksgegevens het [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

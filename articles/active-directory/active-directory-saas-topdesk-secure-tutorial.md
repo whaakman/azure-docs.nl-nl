@@ -1,177 +1,230 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met TOPdesk - beveiligde | Microsoft Docs'
-description: Informatie over het gebruik van TOPdesk - beveiligen met Azure Active Directory om het inschakelen van eenmalige aanmelding, geautomatiseerde inrichting en meer!.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en TOPdesk - veilig.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
-ms.assetid: 8e149d2d-7849-48ec-9993-31f4ade5fdb4
+manager: femila
+ms.reviewer: joflore
+ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: e165a18c5a24071d52838ca95edbb5e6b39e63a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Zelfstudie: Azure Active Directory-integratie met TOPdesk - beveiligen
-Het doel van deze zelfstudie is het weergeven van de integratie van Azure en TOPdesk - veilig.  
-Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
-* Een geldige Azure-abonnement
-* Een TOPdesk - beveiligde eenmalige aanmelding ingeschakeld abonnement
+In deze zelfstudie leert u hoe TOPdesk - integreren met Azure Active Directory (Azure AD) beveiligen.
 
-Na het voltooien van deze zelfstudie, de Azure AD-gebruikers die u hebt toegewezen aan TOPdesk - veilig kan worden één Meld u aan bij de toepassing op uw TOPdesk - beveiligd bedrijf site (serviceprovider geïnitieerd aanmelding) of met behulp van de [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
+TOPdesk - beveiligde integreren met Azure AD biedt u de volgende voordelen:
 
-Het scenario in deze zelfstudie bestaat uit de volgende elementen:
+- U kunt beheren in Azure AD die toegang tot TOPdesk - veilig heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij TOPdesk - beveiligde (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-1. De integratie van toepassingen voor TOPdesk - beveiligde inschakelen
-2. Eenmalige aanmelding configureren
-3. Configuratie van gebruikers inrichten
-4. Gebruikers toewijzen
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scenario](./media/active-directory-saas-topdesk-secure-tutorial/IC790596.png "Scenario")
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="enabling-the-application-integration-for-topdesk---secure"></a>De integratie van toepassingen voor TOPdesk - beveiligde inschakelen
-Het doel van deze sectie is het inschakelen van de integratie van toepassingen voor TOPdesk - beveiligde overzicht.
+Voor het configureren van Azure AD-integratie met TOPdesk - wilt beveiligen, moet u de volgende items:
 
-### <a name="to-enable-the-application-integration-for-topdesk---secure-perform-the-following-steps"></a>Om in te schakelen van de integratie van toepassingen voor TOPdesk - beveiligen, voert u de volgende stappen uit:
-1. Klik in de klassieke Azure-portal op het navigatiedeelvenster links op **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
+- Een Azure AD-abonnement
+- Een TOPdesk - beveiligde eenmalige aanmelding ingeschakeld abonnement
 
-2. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
+> [!NOTE]
+> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
 
-3. De weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.
-   
-    ![Toepassingen](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "toepassingen")
+Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-4. Klik op **toevoegen** aan de onderkant van de pagina.
-   
-    ![Toepassing toevoegen](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "toepassing toevoegen")
+- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
-5. Op de **wat wilt u doen** dialoogvenster, klikt u op **toevoegen van een toepassing uit de galerie**.
-   
-    ![Een toepassing toevoegen van gallerry](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "een toepassing van gallerry toevoegen")
+## <a name="scenario-description"></a>Scenariobeschrijving
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-6. In de **zoekvak**, type **TOPdesk - beveiligde**.
-   
-    ![Toepassingsgalerie](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "-Toepassingsgalerie")
+1. Toe te voegen TOPdesk - beveiligen uit de galerie
+2. Configureren en testen van Azure AD eenmalige aanmelding
 
-7. Selecteer in het deelvenster met resultaten **TOPdesk - beveiligde**, en klik vervolgens op **Complete** de toepassing toevoegen.
-   
-    ![TOPdesk - beveiligde](./media/active-directory-saas-topdesk-secure-tutorial/IC791933.png "TOPdesk - beveiligen")
+## <a name="adding-topdesk---secure-from-the-gallery"></a>Toe te voegen TOPdesk - beveiligen uit de galerie
+Voor het configureren van de integratie van TOPdesk - beveiligen met Azure AD, moet u TOPdesk add - beveiligen uit de galerie aan de lijst met beheerde SaaS apps.
 
-## <a name="configuring-single-sign-on"></a>Eenmalige aanmelding configureren
-Het doel van deze sectie is om een overzicht van gebruikers te verifiëren bij TOPdesk - in staat te beveiligen met een account in Azure AD dat gebruikmaakt van Federatie op basis van het SAML-protocol.  
-Configureren eenmalige aanmelding voor TOPdesk - beveiligen, moet u een pictogram logobestand te uploaden. Als u het pictogrambestand, contact op met het ondersteuningsteam TOPdesk.
+**Als u wilt toevoegen, TOPdesk - beveiligen uit de galerie, de volgende stappen uitvoeren:**
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Voor het configureren van eenmalige aanmelding, moet u de volgende stappen uitvoeren:
-1. Meld u aan bij uw **TOPdesk - beveiligde** bedrijf site als beheerder.
-2. In de **TOPdesk** menu, klikt u op **instellingen**.
-   
-    ![Instellingen](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "instellingen")
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-3. Klik op **aanmeldingsinstellingen**.
-   
-    ![Instellingen voor aanmelding](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "aanmeldingsinstellingen")
+    ![De Azure Active Directory-knop][1]
 
-4. Vouw de **aanmeldingsinstellingen** menu en klik vervolgens op **algemene**.
-   
-    ![Algemene](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "algemeen")
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-5. In de **Secure** sectie van de **SAML aanmelding** configuratie sectie, voert u de volgende stappen uit:
-   
-    ![Instellingen voor technische](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "technische instellingen")
+    ![De blade Enterprise-toepassingen][2]
+    
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+
+    ![De knop Nieuw toepassing][3]
+
+4. Typ in het zoekvak **TOPdesk - beveiligde**, selecteer **TOPdesk - beveiligde** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+
+    ![TOPdesk - beveiligd in de lijst met resultaten](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met TOPdesk - beveiligde op basis van een testgebruiker 'Britta Simon' genoemd.
+
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in TOPdesk - beveiligde is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in TOPdesk - beveiligde tot stand worden gebracht.
+
+In TOPdesk - beveiligen, wordt de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+
+Om te configureren en testen van Azure AD eenmalige aanmelding met TOPdesk - wilt beveiligen, moet u de volgende bouwstenen voltooien:
+
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een TOPdesk - beveiligde testgebruiker](#create-a-topdesk---secure-test-user)**  - hebben een equivalent van Britta Simon in TOPdesk - beveiligde die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw TOPdesk - beveiligde toepassing.
+
+**Voor het configureren van Azure AD eenmalige aanmelding met TOPdesk - beveiligen, voert u de volgende stappen uit:**
+
+1. In de Azure-portal op de **TOPdesk - beveiligde** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+
+    ![Koppeling voor eenmalige aanmelding configureren][4]
+
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+ 
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
+
+3. Op de **TOPdesk - domein beveiligen en URL's** sectie, voert u de volgende stappen uit:
+
+    ![TOPdesk - URL's en beveiligd domein met eenmalige aanmelding informatie](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
+
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.topdesk.net`
+
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.topdesk.net/tas/secure/login/verify`
+
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.topdesk.net/tas/public/login/saml`
+
+    > [!NOTE] 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Antwoord-URL wordt verderop in de zelfstudie beschreven. Neem contact op met [TOPdesk - ondersteuningsteam van de beveiligde Client](http://www.topdesk.com/us/support) ophalen van deze waarden. 
+
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_certificate.png) 
+
+5. Klik op **opslaan** knop.
+
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_400.png)
+
+6. Op de **TOPdesk - configuratie Secure** sectie, klikt u op **TOPdesk configureren - beveiligde** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+
+    ![TOPdesk - veilige configuratie](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
+    
+7. Meld u aan bij uw **TOPdesk - beveiligde** bedrijf site als beheerder.
+
+8. In de **TOPdesk** menu, klikt u op **instellingen**.
+
+    ![Instellingen](./media/active-directory-saas-topdesk-secure-tutorial/ic790598.png "instellingen")
+
+9. Klik op **aanmeldingsinstellingen**.
+
+    ![Instellingen voor aanmelding](./media/active-directory-saas-topdesk-secure-tutorial/ic790599.png "aanmeldingsinstellingen")
+
+10. Vouw de **aanmeldingsinstellingen** menu en klik vervolgens op **algemene**.
+
+    ![Algemene](./media/active-directory-saas-topdesk-secure-tutorial/ic790600.png "algemeen")
+
+11. In de **Secure** sectie van de **SAML aanmelding** configuratie sectie, voert u de volgende stappen uit:
+
+    ![Instellingen voor technische](./media/active-directory-saas-topdesk-secure-tutorial/ic790855.png "technische instellingen")
    
     a. Klik op **downloaden** downloaden van het metagegevensbestand van de openbare en lokaal opslaan op uw computer.
    
     b. Open het metagegevensbestand en Ga naar de **AssertionConsumerService** knooppunt.
     
-    ![Verklaring Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion Consumer-Service")
+    ![Verklaring Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/ic790856.png "Assertion Consumer-Service")
    
-    c. Kopieer de **AssertionConsumerService** waarde.  
-      
-    > [!NOTE]
-    > U moet de waarde in de **App-URL configureren** verderop in deze zelfstudie.
-    > 
-    > 
+    c. Kopieer de **AssertionConsumerService** waarde, plakt u deze waarde in het tekstvak de URL van antwoord in **TOPdesk - domein beveiligen en URL's** sectie.
 
-6. In een ander browservenster, meld u aan bij uw **klassieke Azure-portal** als beheerder.
-
-7. Op de **TOPdesk - beveiligde** toepassing Integratiepagina, klikt u op **eenmalige aanmelding configureren** openen de ** configureren eenmalige aanmelding ** dialoogvenster.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "eenmalige aanmelding configureren")
-
-8. Op de **hoe wilt u dat gebruikers zich aanmelden op TOPdesk - beveiligde** pagina **Microsoft Azure AD Single Sign-On**, en klik vervolgens op **volgende**.
-   
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.png "eenmalige aanmelding configureren")
-
-9. Op de **App-URL configureren** pagina, voert u de volgende stappen uit:
-   
-    ![App-URL configureren](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "App-URL configureren")
-   
-    a. In de **TOPdesk - beveiligde aanmelding op URL** textbox, typ de URL gebruikt door uw gebruikers zich aanmeldt bij uw TOPdesk - beveiligde toepassing (bijvoorbeeld: '*https://qssolutions.topdesk.net*').
-   
-    b. In de **TOPdesk – openbare antwoord-URL** textbox, plak de **TOPdesk - beveiligde AssertionConsumerService URL** (bijvoorbeeld: '*https://qssolutions.topdesk.net/tas/public/login/saml*")
-   
-    c. Klik op **Volgende**.
-
-10. Op de **eenmalige aanmelding configureren op TOPdesk - beveiligde** pagina voor het downloaden van het metagegevensbestand, klikt u op **metagegevens downloaden**, en sla het bestand lokaal op uw computer.
+12. Voer de volgende stappen uit voor het maken van een certificaatbestand:
     
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "eenmalige aanmelding configureren")
+    ![Certificaat](./media/active-directory-saas-topdesk-secure-tutorial/ic790606.png "certificaat")
+    
+    a. Open het metagegevensbestand gedownloade vanuit Azure-portal.
 
-11. Voer de volgende stappen uit voor het maken van een certificaatbestand:
-    
-    ![Certificaat](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "certificaat")
-    
-    a. Open het metagegevensbestand gedownloade.
     b. Vouw de **RoleDescriptor** knooppunt met een **xsi: type** van **ingevoerd: ApplicationServiceType**.
+
     c. Kopieer de waarde van de **X509Certificate** knooppunt.
+
     d. Opslaan van de gekopieerde **X509Certificate** waarde lokaal op uw computer in een bestand.
 
-12. Beveiligd op uw TOPdesk - site, bedrijf, in de **TOPdesk** menu, klikt u op **instellingen**.
+13. In de **openbare** sectie, klikt u op **toevoegen**.
     
-    ![Instellingen](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "instellingen")
+    ![Voeg](./media/active-directory-saas-topdesk-secure-tutorial/ic790607.png "toevoegen")
 
-13. Klik op **aanmeldingsinstellingen**.
+14. Op de **SAML-configuratie-assistent** dialoogvenster pagina, voert u de volgende stappen uit:
     
-    ![Instellingen voor aanmelding](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "aanmeldingsinstellingen")
-
-14. Vouw de **aanmeldingsinstellingen** menu en klik vervolgens op **algemene**.
+    ![SAML-configuratie-assistent](./media/active-directory-saas-topdesk-secure-tutorial/ic790608.png "assistent voor SAML-configuratie")
     
-    ![Algemene](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "algemeen")
-
-15. In de **openbare** sectie, klikt u op **toevoegen**.
-    
-    ![Voeg](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "toevoegen")
-
-16. Op de **SAML-configuratie-assistent** dialoogvenster pagina, voert u de volgende stappen uit:
-    
-    ![SAML-configuratie-assistent](./media/active-directory-saas-topdesk-secure-tutorial/IC790608.png "assistent voor SAML-configuratie")
-    
-    a. Voor het uploaden van uw gedownloade metagegevensbestand onder **Federatiemetagegevens**, klikt u op **Bladeren**.
+    a. Voor het uploaden van uw gedownloade metagegevensbestand vanuit Azure-portal onder **Federatiemetagegevens**, klikt u op **Bladeren**.
 
     b. Voor het uploaden van het certificaatbestand onder **certificaat (RSA)**, klikt u op **Bladeren**.
 
     c. Het logobestand dat u het ondersteuningsteam TOPdesk onder gekregen te uploaden **Logo pictogram**, klikt u op **Bladeren**.
 
-    d. In de **naam gebruikerskenmerk** textbox type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. In de **naam gebruikerskenmerk** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     e. In de **weergavenaam** textbox, typ een naam voor uw configuratie.
 
     f. Klik op **Opslaan**.
 
-17. Bij de klassieke Azure portal, selecteert u de configuratie voor één aanmelding bevestiging en klik op **Complete** sluiten de **configureren eenmalige aanmelding** dialoogvenster.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "eenmalige aanmelding configureren")
+> [!TIP]
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## <a name="configuring-user-provisioning"></a>Configuratie van gebruikers inrichten
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+
+   ![Een Azure AD-testgebruiker maken][100]
+
+**Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
+
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+
+    ![De Azure Active Directory-knop](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_01.png)
+
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_02.png)
+
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+
+    ![De knop toevoegen](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_03.png)
+
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_04.png)
+
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+
+    d. Klik op **Create**.
+ 
+### <a name="create-a-topdesk---secure-test-user"></a>Een TOPdesk - beveiligde testgebruiker maken
+
 Om in te schakelen van Azure AD-gebruikers aan te melden bij TOPdesk - wilt beveiligen, ze moeten worden ingericht in TOPdesk - veilig.  
 In het geval van TOPdesk - veilige, inrichting is een handmatige taak.
 
@@ -179,15 +232,15 @@ In het geval van TOPdesk - veilige, inrichting is een handmatige taak.
 1. Meld u aan bij uw **TOPdesk - beveiligde** bedrijf site als administrator.
 2. Klik in het menu bovenaan op **TOPdesk \> nieuw \> ondersteuningsbestanden \> Operator**.
    
-    ![Operator](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "Operator")
+    ![Operator](./media/active-directory-saas-topdesk-secure-tutorial/ic790610.png "Operator")
 
 3. Op de **Operator New** dialoogvenster de volgende stappen uitvoeren:
    
-    ![Nieuwe Operator](./media/active-directory-saas-topdesk-secure-tutorial/IC790611.png "nieuwe Operator")
+    ![Nieuwe Operator](./media/active-directory-saas-topdesk-secure-tutorial/ic790611.png "nieuwe Operator")
    
-    a. Klik op het tabblad Algemeen.
+    a. Klik op de **algemene** tabblad.
    
-    b. In de **achternaam** textbox van de **algemene** sectie, typt u de achternaam van een geldig Azure Active Directory-account dat u inrichten wilt.
+    b. In de **achternaam** textbox type achternaam van de gebruiker, zoals **Simon**.
    
     c. Selecteer een **Site** voor het account in de **locatie** sectie.
    
@@ -197,21 +250,60 @@ In het geval van TOPdesk - veilige, inrichting is een handmatige taak.
 
 > [!NOTE]
 > U kunt andere TOPdesk - hulpmiddelen voor het maken van account beveiligde gebruiker of geleverd door TOPdesk - veilig voor het inrichten van accounts voor gebruikers met AAD-API's gebruiken.
-> 
-> 
 
-## <a name="assigning-users"></a>Gebruikers toewijzen
-Als u wilt testen van uw configuratie, moet u de Azure AD-gebruikers verlenen die u wilt toestaan dat met behulp van uw toepassing toegang tot deze door toe te wijzen.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Als u gebruikers toewijzen aan TOPdesk - wilt beveiligen, de volgende stappen uitvoeren:
-1. In de klassieke Azure portal een testaccount te maken.
-2. Op de ** TOPdesk - beveiligde ** toepassing Integratiepagina, klikt u op **gebruikers toewijzen**.
-   
-    ![Gebruikers toewijzen](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "gebruikers toewijzen")
+In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan TOPdesk - beveiligde.
 
-3. Selecteer uw testgebruiker, klik op **toewijzen**, en klik vervolgens op **Ja** om te bevestigen dat de toewijzing.
-   
-    ![Ja](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Ja")
+![Toewijzen van de gebruikersrol][200] 
 
-Als u testen van uw instellingen voor eenmalige aanmelding wilt, opent u het toegangsvenster. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
+**Britta Simon om aan te wijzen TOPdesk - beveiligen, voert u de volgende stappen uit:**
+
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+
+    ![Gebruiker toewijzen][201] 
+
+2. Selecteer in de lijst met toepassingen **TOPdesk - beveiligde**.
+
+    ![De TOPdesk - beveiligde verbinding in de lijst met toepassingen](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_app.png)  
+
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+
+    ![De koppeling 'Gebruikers en groepen'][202]
+
+4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+
+    ![Het deelvenster toewijzing toevoegen][203]
+
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+
+6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+
+7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+    
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+
+Wanneer u klikt op de TOPdesk - beveiligde tegel in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw TOPdesk - beveiligde toepassing.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Aanvullende bronnen
+
+* [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_203.png
 

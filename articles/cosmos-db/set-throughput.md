@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/13/2017
 ms.author: mimig
-ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ba24ee0926928503b3f466405d8651b1dab6fb95
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Doorvoer instellen voor Azure DB die Cosmos-containers
 
@@ -36,7 +36,7 @@ De volgende tabel bevat de doorvoer die beschikbaar zijn voor containers:
         <tr>
             <td valign="top"><p>Minimaal doorvoer</p></td>
             <td valign="top"><p>400 aanvraageenheden per seconde</p></td>
-            <td valign="top"><p>2500 aanvraageenheden per seconde</p></td>
+            <td valign="top"><p>1000 aanvraageenheden per seconde</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Maximale doorvoer</p></td>
@@ -51,7 +51,7 @@ De volgende tabel bevat de doorvoer die beschikbaar zijn voor containers:
 1. In een nieuw venster openen de [Azure-portal](https://portal.azure.com).
 2. Klik op de linkerbalk op **Azure Cosmos DB**, of klik op **meer Services** aan de onderkant en schuif vervolgens naar **Databases**, en klik vervolgens op **Azure Cosmos DB**.
 3. Selecteer uw account Cosmos DB.
-4. Klik in het nieuwe venster **Data Explorer (Preview)** in het navigatiemenu.
+4. Klik in het nieuwe venster **Data Explorer** in het navigatiemenu.
 5. Vouw uw database en de container in het nieuwe venster en klik vervolgens op **schaal & instellingen**.
 6. Typ in het nieuwe venster de nieuwe waarde van de doorvoer in de **doorvoer** vak en klik vervolgens op **opslaan**.
 
@@ -60,7 +60,7 @@ De volgende tabel bevat de doorvoer die beschikbaar zijn voor containers:
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>De doorvoer instellen met behulp van de SQL-API voor .NET
 
 ```C#
-//Fetch the resource to be updated
+// Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -69,7 +69,7 @@ Offer offer = client.CreateOfferQuery()
 // Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes to the database by replacing the original resource
+// Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
 ```
 
@@ -77,7 +77,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Kan ik mijn doorvoer ingesteld op minder dan 400 RU/s**
 
-400 RU/s is de minimale doorvoer die beschikbaar zijn op verzamelingen met één partitie Cosmos-DB (2500 RU/s is de minimale voor gepartitioneerde verzamelingen). Aanvraag eenheden worden ingesteld met intervallen van 100 RU/s, maar doorvoer kan niet worden ingesteld op 100 RU/s of een willekeurige waarde kleiner is dan 400 RU/s. Als u naar een voordelige methode zoekt te ontwikkelen en testen van de Cosmos-DB, kunt u de gratis [Azure Cosmos DB Emulator](local-emulator.md), die u lokaal kunt implementeren zonder kosten. 
+400 RU/s is de minimale doorvoer voor Cosmos DB één partitie containers (het minimum voor gepartitioneerde containers 1000 RU/s is). Aanvraag eenheden worden ingesteld met intervallen van 100 RU/s, maar doorvoer kan niet worden ingesteld op 100 RU/s of een willekeurige waarde kleiner is dan 400 RU/s. Als u naar een voordelige methode zoekt te ontwikkelen en testen van de Cosmos-DB, kunt u de gratis [Azure Cosmos DB Emulator](local-emulator.md), die u lokaal kunt implementeren zonder kosten. 
 
 **Hoe stel ik througput met de MongoDB-API**
 

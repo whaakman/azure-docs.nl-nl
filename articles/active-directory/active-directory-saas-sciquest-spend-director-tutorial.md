@@ -2,55 +2,55 @@
 title: 'Zelfstudie: Azure Active Directory-integratie met SciQuest besteden directeur | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SciQuest besteden directeur.
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
-manager: mtillman
-editor: 
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 9fab641b-292e-4bef-91d1-8ccc4f3a0c1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 2fe4d6a5fdaeebac142e28a72eced9556ef86795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be9b17f31bedca1ae5704b484760c3ad24fbb14d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Zelfstudie: Azure Active Directory-integratie met SciQuest besteden directeur
-Er is het doel van deze zelfstudie leert u SciQuest besteden directeur integreren met Azure Active Directory (Azure AD).  
-SciQuest besteden directeur integreren met Azure AD biedt de volgende voordelen: 
 
-* U kunt beheren in Azure AD die toegang tot SciQuest besteden directeur heeft 
-* U kunt uw gebruikers automatisch ophalen aangemeld bij SciQuest besteden directeur (Single Sign-On) inschakelen met hun Azure AD-accounts
-* U kunt uw accounts op één centrale locatie - en de klassieke Azure portal beheren
+In deze zelfstudie leert u hoe SciQuest besteden directeur integreren met Azure Active Directory (Azure AD).
+
+SciQuest besteden directeur integreren met Azure AD biedt de volgende voordelen:
+
+- U kunt beheren in Azure AD die toegang tot SciQuest besteden directeur heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij SciQuest besteden directeur (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voor het configureren van Azure AD-integratie met SciQuest besteden directeur, moet u de volgende items:
 
-* Een Azure AD-abonnement
-* Een SciQuest besteden directeur eenmalige aanmelding ingeschakeld abonnement
+- Een Azure AD-abonnement
+- Een SciQuest besteden directeur eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
 > Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
-> 
-> 
 
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-* U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.
-* Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/). 
+- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-Het doel van deze zelfstudie is zodat u kunt eenmalige aanmelding Azure AD te testen in een testomgeving.  
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. SciQuest besteden directeur uit de galerie toevoegen 
+1. SciQuest besteden directeur uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-sciquest-spend-director-from-the-gallery"></a>SciQuest besteden directeur uit de galerie toevoegen
@@ -58,205 +58,175 @@ Voor het configureren van de integratie van SciQuest besteden directeur in Azure
 
 **Als u wilt toevoegen SciQuest besteden directeur uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de **klassieke Azure-portal**, klik op het navigatiedeelvenster links **Active Directory**. 
-   
-    ![Active Directory][1]
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-2. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
+    ![De Azure Active Directory-knop][1]
 
-3. De weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.
-   
-    ![Toepassingen][2]
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-4. Klik op **toevoegen** aan de onderkant van de pagina.
-   
-    ![Toepassingen][3]
+    ![De blade Enterprise-toepassingen][2]
+    
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-5. Op de **wat wilt u doen** dialoogvenster, klikt u op **toevoegen van een toepassing uit de galerie**.
-   
-    ![Toepassingen][4]
+    ![De knop Nieuw toepassing][3]
 
-6. Typ in het zoekvak **sciQuest besteden directeur**.
-   
-    ![Toepassingen][5]
+4. Typ in het zoekvak **SciQuest besteden directeur**, selecteer **SciQuest besteden directeur** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-7. Selecteer in het deelvenster met resultaten **SciQuest besteden directeur**, en klik vervolgens op **Complete** de toepassing toevoegen.
-   
-    ![Toepassingen][6]
+    ![SciQuest besteden directeur in de lijst met resultaten](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_addfromgallery.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-Het doel van deze sectie is het beschreven hoe u met het configureren en testen eenmalige aanmelding Azure AD met SciQuest besteden directeur op basis van een testgebruiker 'Britta Simon' genoemd.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in SciQuest besteden directeur aan een gebruiker in Azure AD is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in SciQuest besteden directeur tot stand worden gebracht.  
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in SciQuest besteden directeur.
+In deze sectie configureert en test eenmalige aanmelding Azure AD met SciQuest besteden directeur op basis van een testgebruiker 'Britta Simon' genoemd.
+
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in SciQuest besteden directeur is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in SciQuest besteden directeur tot stand worden gebracht.
+
+In SciQuest directeur hoeven te besteden aan, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met SciQuest besteden directeur, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD één Single Sign-On](#configuring-azure-ad-single-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker SciQuest besteden directeur](#creating-a-halogen-software-test-user)**  - SciQuest besteden directeur die is gekoppeld aan de Azure AD-representatie van haar van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker SciQuest besteden directeur](#create-a-sciquest-spend-director-test-user)**  - SciQuest besteden directeur die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-single-sign-on"></a>Azure AD één eenmalige aanmelding configureren
-Het doel van deze sectie is Azure AD eenmalige aanmelding inschakelen in de klassieke Azure portal en eenmalige aanmelding in uw toepassing SciQuest besteden directeur configureren.
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing SciQuest besteden directeur configureren.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met SciQuest besteden directeur, moet u de volgende stappen uitvoeren:**
 
-1. In de klassieke Azure-portal op de **SciQuest besteden directeur** pagina van de integratie van toepassing, klikt u op **eenmalige aanmelding configureren** openen de **configureren Single Sign-On** dialoogvenster.
-   
-    ![Eenmalige aanmelding configureren][8]
+1. In de Azure-portal op de **SciQuest besteden directeur** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-2. Op de **hoe wilt u dat gebruikers zich aanmelden op SciQuest besteden directeur** pagina **Azure AD Single Sign-On**, en klik vervolgens op **volgende**.
-   
-    ![Azure AD voor eenmalige aanmelding][9]
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
-3. Op de **App-instellingen configureren** dialoogvenster pagina, voert u de volgende stappen uit: 
-   
-    ![App-instellingen configureren][10]
-   
-     a. In de **aanmelding op URL** textbox, typ de URL van uw gebruikt door uw gebruikers aanmelden bij uw SciQuest te besteden aan de directeur-toepassing met het volgende patroon volgen: *https://.* SciQuest.com/.**
-   
-     b. In de **antwoord-URL** textbox dezelfde waarde die u hebt opgegeven in de **aanmelding op URL** textbox. 
-   
-     c. Klik op **Volgende**.
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+ 
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_samlbase.png)
 
-4. Op de **eenmalige aanmelding configureren op SciQuest besteden directeur** pagina, klikt u op **metagegevens downloaden**, en sla het bestand met metagegevens lokaal op uw computer.
-   
-    ![Wat is Azure AD Connect?][11]
+3. Op de **SciQuest besteden directeur domein en de URL's** sectie, voert u de volgende stappen uit:
 
-5. Neem contact op met SciQuest ondersteuning voor deze methode voor verificatie met behulp van de metagegevens van de bovenstaande gedownloade inschakelen.
+    ![URL's en SciQuest besteden directeur domein één aanmelding informatie](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_url.png)
 
-6. Bij de klassieke Azure portal, selecteert u de configuratie voor één aanmelding bevestiging en klik op **Complete** sluiten de **configureren eenmalige aanmelding** dialoogvenster. 
-   
-    ![Wat is Azure AD Connect?][15]
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-7. Op de **eenmalige aanmelding bevestiging** pagina, klikt u op **Complete**.  
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.sciquest.com`
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is een testgebruiker maken in de klassieke Azure portal Britta Simon aangeroepen.
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
+
+    > [!NOTE] 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met [SciQuest besteden directeur Client ondersteuningsteam](https://www.jaggaer.com/contact-us/) ophalen van deze waarden. 
+
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_certificate.png) 
+
+5. Klik op **opslaan** knop.
+
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_400.png)
+
+6. Eenmalige aanmelding configureren op **SciQuest besteden directeur** zijde, moet u de gedownloade verzenden **Metadata XML** naar [SciQuest besteden directeur ondersteuningsteam](https://www.jaggaer.com/contact-us/).
+
+> [!TIP]
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **klassieke Azure-portal**, klik op het navigatiedeelvenster links **Active Directory**.
-   
-    ![Wat is Azure AD Connect?][100] 
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-2. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
+    ![De Azure Active Directory-knop](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_01.png)
 
-3. De lijst met gebruikers, in het menu bovenaan, klikt u op **gebruikers**.
-   
-    ![Wat is Azure AD Connect?][101] 
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-4. Openen van de **gebruiker toevoegen** dialoogvenster op de werkbalk aan de onderkant, klikt u op **gebruiker toevoegen**. 
-   
-    ![Wat is Azure AD Connect?][102] 
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_02.png)
 
-5. Op de **Vertel ons meer over deze gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Wat is Azure AD Connect?][103] 
-   
-    a. Als **Type gebruiker**, selecteer **nieuwe gebruiker in uw organisatie**.
-   
-    b. De gebruikersnaam **textbox**, type **BrittaSimon**.
-   
-    c. Klik op **Volgende**.
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-6. Op de **gebruikersprofiel** dialoogvenster pagina, voert u de volgende stappen uit: 
-   
-    ![Wat is Azure AD Connect?][104] 
-   
-    a. In de **voornaam** textbox type **Britta**.  
-   
-    b. In de **achternaam** txtbox, type, **Simon**.
-   
-    c. In de **weergavenaam** textbox type **Britta Simon**.
-   
-    d. In de **rol** selecteert **gebruiker**.
-   
-    e. Klik op **Volgende**.
+    ![De knop toevoegen](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_03.png)
 
-7. Op de **tijdelijk wachtwoord** dialoogvenster pagina, klikt u op **maken**.
-   
-    ![Wat is Azure AD Connect?][105]  
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-8. Op de **tijdelijk wachtwoord** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Wat is Azure AD Connect?][106]   
-   
-    a. Noteer de waarde van de **nieuw wachtwoord**.
-   
-    b. Klik op **Voltooien**.   
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_04.png)
 
-### <a name="creating-a-sciquest-spend-director-test-user"></a>Een testgebruiker SciQuest besteden directeur maken
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+
+    d. Klik op **Create**.
+ 
+### <a name="create-a-sciquest-spend-director-test-user"></a>Een testgebruiker SciQuest besteden directeur maken
+
 Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen in SciQuest besteden directeur.
 
-Moet u contact op met het ondersteuningsteam SciQuest besteden directeur en geeft u de details over uw testaccount downloaden gemaakt.
+U moet contact opnemen met uw [SciQuest besteden directeur ondersteuningsteam](https://www.jaggaer.com/contact-us/) en geeft u de details over uw testaccount downloaden gemaakt.
 
 U kunt ook kunt u gebruikmaken van just-in-time-inrichting, een eenmalige aanmelding functie die wordt ondersteund door SciQuest besteden directeur.  
 Als just-in-time-inrichting is ingeschakeld, worden gebruikers automatisch gemaakt door SciQuest besteden directeur tijdens een poging voor aanmelding als ze nog niet bestaan. Deze functie hoeven gebruikers eenmalige aanmelding equivalent handmatig maken.
 
-Als u just-in-time-inrichting is ingeschakeld, moet u contact opnemen met je het ondersteuningsteam SciQuest besteden directeur.
+Als u just-in-time-inrichting is ingeschakeld, moet u contact opnemen met uw [SciQuest besteden directeur ondersteuningsteam](https://www.jaggaer.com/contact-us/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
-Het doel van deze sectie is het Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang te verlenen aan SciQuest besteden directeur inschakelen.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-![Wat is Azure AD Connect?][200]
+In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang te verlenen aan SciQuest besteden directeur.
+
+![Toewijzen van de gebruikersrol][200] 
 
 **Als u wilt toewijzen Britta Simon SciQuest besteden directeur, moet u de volgende stappen uitvoeren:**
 
-1. In de klassieke Azure portal, de weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.
-   
-    ![Wat is Azure AD Connect?][201]
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+
+    ![Gebruiker toewijzen][201] 
 
 2. Selecteer in de lijst met toepassingen **SciQuest besteden directeur**.
-   
-    ![Wat is Azure AD Connect?][202]
 
-3. Klik in het menu bovenaan op **gebruikers**.
-   
-    ![Wat is Azure AD Connect?][203]
+    ![De koppeling SciQuest besteden directeur in de lijst met toepassingen](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_app.png)  
 
-4. Selecteer in de lijst gebruikers **Britta Simon**.
-   
-    ![Wat is Azure AD Connect?][204]
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-5. Klik in de werkbalk aan de onderkant op **toewijzen**.
-   
-    ![Wat is Azure AD Connect?][205]
+    ![De koppeling 'Gebruikers en groepen'][202]
 
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.  
+4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+
+    ![Het deelvenster toewijzing toevoegen][203]
+
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+
+6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+
+7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+    
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+
 Als u op de tegel SciQuest besteden directeur in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing SciQuest besteden directeur.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
+
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
+
 [1]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_01.png
-[6]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_05.png
-[8]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_06.png
-[9]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_07.png
-[10]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_08.png
-[11]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_03.png
-[15]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_04.png
 
-[100]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_09.png 
-[101]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_10.png 
-[102]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_11.png 
-[103]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_12.png 
-[104]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_13.png 
-[105]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_14.png 
-[106]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_15.png 
-[200]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_16.png 
-[201]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_17.png 
-[202]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_06.png
-[203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
-[204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
-[205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
+[100]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_203.png
 

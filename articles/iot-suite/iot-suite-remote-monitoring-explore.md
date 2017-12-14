@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle
 
@@ -101,11 +101,11 @@ Als operator ziet u in het dashboard dat er een waarschuwing die betrekking hebb
 
 1. Sluit **apparaat detail**.
 
-1. Om te navigeren naar de **onderhoud** pagina, klikt u op **...**  in de **verkennen Alarm** kolom naast de waarschuwing in het raster alarm.
+1. Om te navigeren naar de **onderhoud** pagina **onderhoud** in het navigatiemenu.
 
 Op de **onderhoud** pagina vindt u de details van de regel die de Koelunit druk waarschuwing heeft geactiveerd.
 
-1. U kunt het aantal keren dat de waarschuwing heeft geactiveerd, bevestigingen en open en gesloten alarmen zien:
+1. De lijst met meldingen toont het aantal keren dat de waarschuwing heeft geactiveerd, bevestigingen en open en gesloten alarmen:
 
     ![Onderhoudspagina bevat een overzicht van waarschuwingen die zijn geactiveerd](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ U hebt het probleem dat de waarschuwing en het gekoppelde apparaat geactiveerd g
 
     ![Selecteer het apparaat en het plannen van een actie](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Als u wilt weergeven van de taakstatus, terug naar de **onderhoud** pagina en bekijk de lijst met taken in de **systeemstatus** weergeven. De taak is uitgevoerd om de klep druk op de Koelunit vrij te geven, kunt u zien:
+1. Als u wilt weergeven van de taakstatus, terug naar de **onderhoud** pagina en bekijk de lijst met taken in de **taken** weergeven. De taak is uitgevoerd om de klep druk op de Koelunit vrij te geven, kunt u zien:
 
-    ![De status van de taken in de systeemstatus](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![De status van de taken in de weergave taken](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Ten slotte Bevestig dat de telemetrie-waarden uit de Koelunit terug naar normaal.
 
@@ -159,7 +159,7 @@ Gebruik voor de benodigde apparaatstuurprogramma beheertaken uitvoeren, de **app
     ![Planning firmware-update op apparaat](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Met de gesimuleerde apparaten kunt u elke URL die u als dat het **Firemware URI** waarde. De URL toegang de gesimuleerde apparaten geen.
+    > Met de gesimuleerde apparaten kunt u elke URL die u als dat het **Firmware URI** waarde. De URL toegang de gesimuleerde apparaten geen.
 
 1. Houd er rekening mee hoeveel apparaten is van invloed op de taak en kies **toepassen**:
 
@@ -167,13 +167,13 @@ Gebruik voor de benodigde apparaatstuurprogramma beheertaken uitvoeren, de **app
 
 U kunt de **onderhoud** pagina voor het bijhouden van de taak terwijl deze wordt uitgevoerd.
 
-1. De lijst met taken wilt weergeven, gaat u naar de **onderhoud** pagina en klik op **systeemstatus**.
+1. De lijst met taken wilt weergeven, gaat u naar de **onderhoud** pagina en klik op **taken**.
 
 1. Zoek de gebeurtenis met betrekking tot de taak die u hebt gemaakt. Controleer of dat het updateproces firmware correct is gestart.
 
-U kunt een filter om te controleren van de firmware-update voor versie correct maken.
+U kunt een filter om te controleren of de juiste wijze bijgewerkt firmwareversie maken.
 
-1. Een filter maken, gaat u naar de **apparaten** pagina en selecteer **beheren**:
+1. Een filter maken, gaat u naar de **apparaten** pagina en selecteer **filters beheren**:
 
     ![Apparaatfilters beheren](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ U kunt labelnamen te gebruiken met apparaten kunt maken.
 
     ![Selecteer de apparaten prototype en vrachtwagen](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Kies **Tag** en maak vervolgens een nieuwe tekenreeks tag aangeroepen **FieldService** met een waarde **ConnectedVehicle**. Kies een naam voor de taak. Klik vervolgens op **toepassen**:
+1. Kies **Tag** en maak vervolgens een nieuwe tekst tag aangeroepen **FieldService** met een waarde **ConnectedVehicle**. Kies een naam voor de taak. Klik vervolgens op **toepassen**:
 
     ![Label voor prototype en vrachtwagen apparaten toevoegen](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ U kunt labelnamen te gebruiken met apparaten kunt maken.
 
     ![Selecteer Koelunit-engine en lift-apparaten](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Kies **Tag** en maak vervolgens een nieuwe tag aangeroepen **FieldService** met een waarde **SmartBuilding**. Kies een naam voor de taak. Klik vervolgens op **opslaan**:
+1. Kies **Tag** en maak vervolgens een nieuwe tekst tag aangeroepen **FieldService** met een waarde **SmartBuilding**. Kies een naam voor de taak. Klik vervolgens op **opslaan**:
 
     ![Label toevoegen aan Koelunit, -engine en lift-apparaten](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

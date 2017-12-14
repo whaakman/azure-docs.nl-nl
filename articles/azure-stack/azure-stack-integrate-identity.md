@@ -2,26 +2,25 @@
 title: Stack datacenter integratie van Azure - identiteit
 description: Meer informatie over het Azure-Stack AD FS integreren in uw datacenter AD FS
 services: azure-stack
-author: troettinger
+author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/20/2017
-ms.author: victorh
+ms.date: 12/12/2017
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: c66761d44266a33ddfa1e95444355d3908186ef8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Stack datacenter integratie van Azure - identiteit
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
 
-Azure-Stack kan worden geïmplementeerd met Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) als de id-providers. Deze keuze moet plaatsvinden voordat de implementatie. De implementatie met AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
+U kunt Azure-Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure-Stack implementeert, moet u de keuze maken. Implementatie met behulp van AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
 
 De volgende tabel ziet u de verschillen tussen de twee identiteit keuzes:
-
 
 ||Fysiek losgekoppeld|Fysiek verbonden|
 |---------|---------|---------|
@@ -75,33 +74,36 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 Desgewenst kunt u een account voor de grafiek service in de bestaande Active Directory. Deze stap uitvoeren als u hebt al een account dat u wilt gebruiken.
 
 1. Maak de volgende gebruikersaccount (aanbevolen) in de bestaande Active Directory:
-   - Gebruikersnaam: graphservice
-   - Wachtwoord: gebruik een sterk wachtwoord<br>Configureer het wachtwoord nooit verloopt.
+   - **Gebruikersnaam**: graphservice
+   - **Wachtwoord**: gebruik een sterk wachtwoord<br>Configureer het wachtwoord nooit verloopt.
 
-   Is geen speciale machtigingen of lidmaatschap vereist
+   Er is geen speciale machtigingen of lidmaatschap vereist.
 
-**Automatisering van trigger voor het configureren van de grafiek**
+#### <a name="trigger-automation-to-configure-graph"></a>Automatisering van trigger voor het configureren van de grafiek
 
 Voor deze procedure gebruikt u een computer in uw datacenternetwerk die met het bevoorrechte eindpunt in Azure-Stack communiceren kan.
 
-2. Open een verhoogde Windows PowerShell-sessie (als administrator uitvoeren) en verbinding maken met het IP-adres van de bevoegde eindpunt. De referenties voor CloudAdmin voor verificatie gebruiken.
+2. Open een verhoogde Windows PowerShell-sessie (als administrator uitvoeren) en verbinding maken met het IP-adres van de bevoegde eindpunt. Gebruik de referenties voor **CloudAdmin** om te verifiëren.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdrachten. Wanneer u wordt gevraagd, geef de referenties voor de gebruikersaccount die u wilt gebruiken voor de grafiek service (zoals graphservice).
+3. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht: 
 
-   `Register-DirectoryService -CustomADGlobalCatalog contoso.com`
+   ```powershell
+   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+   ```
+
+   Wanneer u wordt gevraagd, geef de referenties voor de gebruikersaccount die u wilt gebruiken voor de grafiek service (zoals graphservice).
 
    > [!IMPORTANT]
    > Wacht totdat de pop-referenties (Get-Credential wordt niet ondersteund in de beschermde eindpunt) en voer de referenties van het serviceaccount van de grafiek.
 
-**Grafiek-protocollen en poorten**
+#### <a name="graph-protocols-and-ports"></a>Grafiek-protocollen en poorten
 
 Grafiek-service in Azure-Stack maakt gebruik van de volgende protocollen en poorten om te communiceren met het doel van Active Directory:
-
 
 |Type|Poort|Protocol|
 |---------|---------|---------|
@@ -114,7 +116,6 @@ Grafiek-service in Azure-Stack maakt gebruik van de volgende protocollen en poor
 
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
-
 |Parameter|Beschrijving|Voorbeeld|
 |---------|---------|---------|
 |CustomAdfsName|Naam van de claimprovider. <cr>Lijkt op die manier op de startpagina van de AD FS.|Contoso|
@@ -123,22 +124,26 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatisering van trigger voor het configureren van de vertrouwensrelatie met claimproviders in Azure-Stack
 
-Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorrechte eindpunt in Azure-Stack. Er wordt verwacht dat het certificaat dat wordt gebruikt door de STS AD FS-account wordt vertrouwd door de Azure-Stack.
+Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorrechte eindpunt in Azure-Stack. Er wordt verwacht dat het certificaat wordt gebruikt door het account **STS AD FS** wordt vertrouwd door de Azure-Stack.
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en verbinding maken met de bevoorrechte eindpunt.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht met de parameters die geschikt is voor uw omgeving:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+   ```
 
 3. Voer de volgende opdracht voor het bijwerken van de eigenaar van het abonnement van de provider standaard met de parameters die geschikt is voor uw omgeving:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Instellen van integratie met AD FS aan de hand van bestand met federatieve metagegevens
 
@@ -161,7 +166,7 @@ Voor de volgende procedure moet u een computer die een netwerkverbinding heeft m
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht, met de parameters die geschikt is voor uw omgeving:
 
-   ```
+   ```powershell
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -176,18 +181,22 @@ Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorr
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en verbinding maken met de bevoorrechte eindpunt.
 
-   ```
+   ```powershell
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Nu dat u met het bevoorrechte eindpunt verbonden bent, voer de volgende opdracht met de parameters die geschikt is voor uw omgeving:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
+   ```
 
 3. Voer de volgende opdracht voor het bijwerken van de eigenaar van het abonnement van de provider standaard met de parameters die geschikt is voor uw omgeving:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Relying party configureren op de bestaande AD FS-implementatie (account STS)
 
@@ -199,7 +208,7 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
 
 1. Kopieer de volgende inhoud naar een txt-bestand (bijvoorbeeld opgeslagen als c:\ClaimRules.txt) op uw datacenter AD FS-exemplaar of -farm lid:
 
-   ```
+   ```text
    @RuleTemplate = "LdapClaims"
    @RuleName = "Name claim"
    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
@@ -232,28 +241,43 @@ Als u besluit de opdrachten handmatig uitvoeren, volg deze stappen:
 
 2. Om verificatie op basis van Windows Forms, open een Windows PowerShell-sessie als een gebruiker met verhoogde bevoegdheid en voer de volgende opdracht:
 
-   `Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")`
+   ```powershell
+   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   ```
 
 3. Als u wilt de relying party trust toevoegen, de volgende Windows PowerShell-opdracht worden uitgevoerd op uw exemplaar van AD FS of een Farmlid. Zorg ervoor dat het eindpunt van de AD FS worden bijgewerkt en verwijzen naar het bestand is gemaakt in stap 1.
 
    **Voor AD FS 2016**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   ```
 
    **Voor AD FS 2012/2012 R2**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   ```
 
    > [!IMPORTANT]
    > U moet de AD FS MMC-module gebruiken voor het configureren van de autorisatieregels voor uitgifte bij gebruik van Windows Server 2012 of 2012 R2 AD FS.
 
 4. Wanneer u Internet Explorer of Edge-browser gebruikt voor toegang tot Azure-Stack, moet u token bindingen negeren. Anders worden de aanmeldingspogingen mislukken. Op uw exemplaar van AD FS of een Farmlid, moet u de volgende opdracht uitvoeren:
 
-   `Set-AdfsProperties -IgnoreTokenBinding $true`
+   ```powershell
+   Set-AdfsProperties -IgnoreTokenBinding $true
+   ```
+
+5. Als u wilt vernieuwen van tokens, open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdracht:
+
+   ```powershell
+   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
+   ```
 
 ## <a name="spn-creation"></a>SPN maken
 
 Er zijn veel scenario's waarvoor het gebruik van een service principal name (SPN) voor verificatie. Hier volgen enkele voorbeelden:
+
 - Gebruik met AD FS-implementatie van de Azure CLI
 - System Center Management Pack voor Azure-Stack wanneer geïmplementeerd met AD FS
 - Resourceproviders in Azure-Stack wanneer geïmplementeerd met AD FS
@@ -271,21 +295,25 @@ Een optie voor het terugdraaien is beschikbaar als een fout optreedt die verlaat
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Voer de volgende cmdlet:
 
-   `Reset-DatacenterIntegationConfiguration`
+   ```powershell
+   Reset-DatacenterIntegationConfiguration
+   ```
 
-   Na het uitvoeren van de actie terugdraaien worden alle configuratiewijzigingen die hersteld. Alleen verificatie met de ingebouwde 'CloudAdmin'-gebruiker is mogelijk.
+   Na het uitvoeren van de actie terugdraaien worden alle configuratiewijzigingen die hersteld. Alleen verificatie met de ingebouwde **CloudAdmin** gebruiker is mogelijk.
 
    > [!IMPORTANT]
    > U moet de oorspronkelijke eigenaar van het standaard provider-abonnement configureren
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
+   ```
 
 ### <a name="collecting-additional-logs"></a>Verzamelen van aanvullende logboeken
 
@@ -293,14 +321,16 @@ Als een van de cmdlets mislukt, kunt u aanvullende logboekbestanden verzamelen m
 
 1. Open een Windows PowerShell-sessie met verhoogde bevoegdheden en voer de volgende opdrachten:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Voer de volgende cmdlet:
 
-   `Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE`
+   ```powershell
+   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   ```
 
 
 ## <a name="next-steps"></a>Volgende stappen

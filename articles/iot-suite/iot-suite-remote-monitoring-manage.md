@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Uw apparaten beheren en configureren
 
@@ -40,13 +40,13 @@ Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voo
 
 Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-deploy.md) zelfstudie.
 
-## <a name="provision-a-simulated-device"></a>Een gesimuleerd apparaat inrichten
+## <a name="add-a-simulated-device"></a>Een gesimuleerd apparaat toevoegen
 
-Navigeer naar de **apparaten** pagina in de oplossing en kies vervolgens **inrichten**. In de **inrichten** deelvenster, kiest u **gesimuleerde**:
+Navigeer naar de **apparaten** pagina in de oplossing en kies vervolgens **nieuw apparaat**. In de **nieuw apparaat** deelvenster, kiest u **gesimuleerde**:
 
 ![Een gesimuleerd apparaat inrichten](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Laat het aantal apparaten inrichten ingesteld op **1**. Kies **Engine** als de **Apparaatmodel**, en kies vervolgens **toepassen** voor het maken van het gesimuleerde apparaat:
+Laat het aantal apparaten inrichten ingesteld op **1**. Kies **defecte Engine** als de **Apparaatmodel**, en kies vervolgens **toepassen** voor het maken van het gesimuleerde apparaat:
 
 ![Een engine voor het gesimuleerde apparaat inrichten](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Als u wilt weergeven van gedetailleerde diagnostische gegevens, bladert u omlaag
 
 ## <a name="act-on-a-device"></a>Reageren op een apparaat
 
-Als u wilt uitvoeren op een apparaat, selecteert u deze in de lijst met apparaten en kies vervolgens **planning**. De **Engine** Apparaatmodel bevat vier verschillende manieren een apparaat moet ondersteunen:
+Als u wilt uitvoeren op een of meer apparaten, selecteert u deze in de lijst met apparaten en kies vervolgens **planning**. De **Engine** Apparaatmodel bevat vier verschillende manieren een apparaat moet ondersteunen:
 
 ![Engine-methoden](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Kies **opnieuw**, de taaknaam van de ingesteld op **RestartEngine**, en kies ver
 
 ![Plannen van de methode opnieuw starten](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-De status van de taak volgen op de **onderhoud** pagina **systeemstatus**:
+De status van de taak volgen op de **onderhoud** pagina **taken**:
 
 ![De taak schema's bewaken](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Als u wilt een wijziging aanbrengt, Voeg een naam voor de taak, werk de eigensch
 
 ![De waarde van de eigenschap van een apparaat bijwerken](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-De status van de taak volgen op de **onderhoud** pagina **systeemstatus**.
+De status van de taak volgen op de **onderhoud** pagina **taken**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

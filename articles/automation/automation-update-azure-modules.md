@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: ce249694035c48d3f626006e63724f47fee3d877
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -28,11 +28,11 @@ Omdat modules regelmatig door de productgroep bijgewerkt worden, worden wijzigin
 
 ## <a name="updating-azure-modules"></a>Bijwerken van de Azure-Modules
 
-1. In de Modules blade van uw Automation-account er is een optie **Azure-Modules WU**.  Het is altijd ingeschakeld.<br><br> ![De optie Azure Modules in Modules blade bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. Op de pagina Modules van uw Automation-account, is de optie **Azure-Modules WU**. Het is altijd ingeschakeld.<br><br> ![De optie Azure Modules in Modules pagina bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Klik op **Azure-Modules WU** en u krijgt een bevestigingsbericht weergegeven waarin u wordt gevraagd of u wilt doorgaan.<br><br> ![Azure-Modules updatebericht](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Klik op **Azure-Modules WU** en krijgt u een bevestigingsbericht weergegeven waarin u wordt gevraagd of u wilt doorgaan.<br><br> ![Azure-Modules updatebericht](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Klik op **Ja** en begint met het updateproces van de module.  Het updateproces duurt ongeveer 15-20 minuten om bij te werken van de volgende modules:
+3. Klik op **Ja** en begint het updateproces van de module. Het updateproces duurt ongeveer 15-20 minuten om bij te werken van de volgende modules:
 
   * Azure
   * Azure.Storage
@@ -43,12 +43,12 @@ Omdat modules regelmatig door de productgroep bijgewerkt worden, worden wijzigin
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Als de modules al up-to-date te houden, wordt het proces voltooid binnen een paar seconden.  U ontvangt een melding wanneer de update is voltooid.<br><br> ![Azure-Modules updatestatus bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Als de modules al up-to-date te houden, klikt u vervolgens het proces is voltooid binnen een paar seconden. U ontvangt een melding wanneer de update is voltooid.<br><br> ![Azure-Modules updatestatus bijwerken](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
-> Azure Automation gebruikt de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.    
+> Azure Automation maakt gebruik van de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.    
 
-Als u cmdlets uit deze Azure PowerShell-modules in uw runbooks gebruikt om Azure-resources te beheren, wordt vervolgens u voor dit updateproces elke maand of dus voor zorgen dat u de meest recente modules hebben.
+Als u cmdlets uit deze Azure PowerShell-modules in uw runbooks gebruikt om Azure-resources te beheren, klikt u voor dit updateproces elke maand of dus voor zorgen dat u de meest recente modules hebben.
 
 ## <a name="next-steps"></a>Volgende stappen
 

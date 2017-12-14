@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: c0ec888dbe94229701391f1aed79a78d3cb90d77
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
 In dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
@@ -188,152 +188,23 @@ Het volgende voorbeeld ziet u een eenvoudige variabele-definitie:
 Zie voor meer informatie over het definiëren van variabelen [gedeelte variabelen van Azure Resource Manager-sjablonen](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Resources
-In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert de juiste waarden opgeven dat u begrijpt. Zie voor de resource-specifieke waarden (apiVersion, type en eigenschappen) die u nodig hebt om in te stellen [resources in Azure Resource Manager-sjablonen definiëren](/azure/templates/). 
-
-U definieert resources met de volgende structuur:
+In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert de juiste waarden opgeven dat u begrijpt.
 
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
-      "apiVersion": "<api-version-of-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-      "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-      },
-      "comments": "<your-reference-notes>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
-          "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
-      },
-      "dependsOn": [
-          "<array-of-related-resource-names>"
-      ],
-      "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-              {
-                  "name": ,
-                  "count": ,
-                  "input": {}
-              }
-          ]
-      },
-      "resources": [
-          "<array-of-child-resources>"
-      ]
-  }
-]
-```
-
-| Elementnaam | Vereist | Beschrijving |
-|:--- |:--- |:--- |
-| voorwaarde | Nee | Booleaanse waarde die aangeeft of de resource is geïmplementeerd. |
-| apiVersion |Ja |De versie van de REST-API gebruiken voor het maken van de resource. |
-| type |Ja |Type van de resource. Deze waarde is een combinatie van de naamruimte van de resourceprovider en het resourcetype (zoals **Microsoft.Storage/storageAccounts**). |
-| naam |Ja |De naam van de resource. De naam moet URI onderdeel beperkingen gedefinieerd in RFC3986 volgen. Bovendien Azure-services die beschikbaar om te valideren buiten partijen de naam om te controleren of deze de naam van de resource is niet een poging tot een andere identiteit vervalsen. |
-| location |Varieert |Ondersteunde geografische locaties van de opgegeven bron. U kunt een van de beschikbare locaties selecteren, maar meestal is het verstandig om te selecteren die dicht bij uw gebruikers. Meestal is het ook handig om resources die in dezelfde regio met elkaar communiceren. De meeste brontypen die een locatie vereist, maar sommige typen (zoals een roltoewijzing) hoeven niet een locatie. Zie [Resourcelocatie instellen in Azure Resource Manager-sjablonen](resource-manager-template-location.md). |
-| tags |Nee |Labels die gekoppeld aan de resource zijn. Zie [resources in Azure Resource Manager-sjablonen taggen](resource-manager-template-tags.md). |
-| Opmerkingen |Nee |De notities voor de resources in uw sjabloon documenteren |
-| kopiëren |Nee |Als meer dan één exemplaar is vereist, het aantal resources om te maken. Er is de standaardmodus voor parallelle. Seriële modus wanneer u niet dat alle wilt of de resources te implementeren op hetzelfde moment opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
-| dependsOn |Nee |Resources die moeten worden geïmplementeerd voordat u deze bron wordt geïmplementeerd. Resource Manager evalueert de afhankelijkheden tussen resources en ze worden geïmplementeerd in de juiste volgorde. Wanneer u resources zijn niet afhankelijk van elkaar, worden ze geïmplementeerd parallel. De waarde kan een door komma's gescheiden lijst van een resource zijn namen of unieke id's voor een resource. Alleen de lijst van resources die zijn geïmplementeerd in deze sjabloon. Bronnen die niet in deze sjabloon zijn gedefinieerd, moeten al bestaan. Vermijd toe te voegen onnodige afhankelijkheden als ze kunnen uw implementatie vertragen en circulaire afhankelijkheden maken. Zie voor instructies over de afhankelijkheden van de instelling [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md). |
-| properties |Nee |Resource-specifieke configuratie-instellingen. De waarden voor de eigenschappen zijn hetzelfde als de waarden die u in de aanvraagtekst voor de REST-API-bewerking (PUT-methode opgeeft) om de resource te maken. U kunt ook een matrix kopiëren voor het maken van meerdere exemplaren van een eigenschap opgeven. Zie voor meer informatie [maken van meerdere exemplaren van resources in Azure Resource Manager](resource-group-create-multiple.md). |
-| bronnen |Nee |Onderliggende resources die afhankelijk zijn van de bron wordt gedefinieerd. Geef alleen brontypen die worden toegestaan door het schema van de bovenliggende resource. Het volledig gekwalificeerde type van de onderliggende resource bevat het type van de bovenliggende resource, zoals **Microsoft.Web/sites/extensions**. Afhankelijkheid van de bovenliggende resource niet geïmpliceerd. U moet deze afhankelijkheid expliciet definiëren. |
-
-De sectie resources bevat een matrix van de resources te implementeren. U kunt ook een matrix van onderliggende resources binnen elke resource definiëren. Het gedeelte van uw resources kan daarom een structuur zoals hebben:
-
-```json
-"resources": [
-  {
-      "name": "resourceA",
-  },
-  {
-      "name": "resourceB",
-      "resources": [
-        {
-            "name": "firstChildResourceB",
-        },
-        {   
-            "name": "secondChildResourceB",
-        }
-      ]
-  },
-  {
-      "name": "resourceC",
-  }
-]
-```      
-
-Zie voor meer informatie over het definiëren van de onderliggende resources [naam en type voor onderliggende resource in het Resource Manager-sjabloon instellen](resource-manager-template-child-resource.md).
-
-De **voorwaarde** element geeft aan of de resource is geïmplementeerd. De waarde voor dit element wordt omgezet in true of false. Bijvoorbeeld: als u wilt opgeven of een nieuw opslagaccount wordt geïmplementeerd, gebruiken:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
+    "apiVersion": "2016-08-01",
+    "name": "[variables('webSiteName')]",
+    "type": "Microsoft.Web/sites",
     "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+    "properties": {
+      "serverFarmId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Web/serverFarms/<plan-name>"
+    }
+  }
+],
 ```
 
-Zie voor een voorbeeld van het gebruik van een nieuwe of bestaande resourcegroep [nieuwe of bestaande voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
-
-Als u wilt opgeven of een virtuele machine wordt geïmplementeerd met een wachtwoord of SSH-sleutel, definieert u twee versies van de virtuele machine in de sjabloon en het gebruik **voorwaarde** te onderscheiden van informatie over het gebruik. Hiermee geeft u een parameter die welke scenario aangeeft te implementeren.
-
-```json
-{
-    "condition": "[equals(parameters('passwordOrSshKey'),'password')]",
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(variables('vmName'),'password')]",
-    "properties": {
-        "osProfile": {
-            "computerName": "[variables('vmName')]",
-            "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPassword')]"
-        },
-        ...
-    },
-    ...
-},
-{
-    "condition": "[equals(parameters('passwordOrSshKey'),'sshKey')]",
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(variables('vmName'),'ssh')]",
-    "properties": {
-        "osProfile": {
-            "linuxConfiguration": {
-                "disablePasswordAuthentication": "true",
-                "ssh": {
-                    "publicKeys": [
-                        {
-                            "path": "[variables('sshKeyPath')]",
-                            "keyData": "[parameters('adminSshKey')]"
-                        }
-                    ]
-                }
-            }
-        },
-        ...
-    },
-    ...
-}
-``` 
-
-Zie voor een voorbeeld van het gebruik van een wachtwoord of SSH-sleutel voor het implementeren van virtuele machine [gebruikersnaam of SSH voorwaarde sjabloon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+Zie voor meer informatie [bronnensectie van Azure Resource Manager-sjablonen](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Uitvoer
 In de sectie uitvoer geeft u de waarden die worden geretourneerd van de implementatie. U kan bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource geretourneerd.

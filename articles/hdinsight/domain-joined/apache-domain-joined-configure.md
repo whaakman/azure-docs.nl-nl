@@ -13,244 +13,153 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 12/12/2017
 ms.author: saurinsh
-ms.openlocfilehash: 649d138a85ca47440e43c00637ee92b86f4eb03e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="configure-domain-joined-hdinsight-clusters"></a>Domein-HDInsight-clusters configureren
+# <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>HDInsight domein sandbox-omgeving configureren
 
-Meer informatie over het instellen van een Azure HDInsight-cluster met Azure Active Directory (Azure AD) en [Apache Zwerver](http://hortonworks.com/apache/ranger/) om te profiteren van sterke authenticatie- en uitgebreide op rollen gebaseerde toegang beleid voor toegangsbeheer (RBAC).  Domein HDInsight kan alleen worden geconfigureerd op Linux gebaseerde clusters. Zie voor meer informatie [introduceren domein HDInsight-clusters](apache-domain-joined-introduction.md).
+Meer informatie over het instellen van een Azure HDInsight-cluster met zelfstandige Active Directory en [Apache Zwerver](http://hortonworks.com/apache/ranger/) om te profiteren van sterke authenticatie- en uitgebreide op rollen gebaseerde toegang beleid voor toegangsbeheer (RBAC). Zie voor meer informatie [introduceren domein HDInsight-clusters](apache-domain-joined-introduction.md).
+
+Zonder HDInsight-cluster lid van een domein, kan alleen elk cluster hebben een Hadoop-HTTP-account voor gebruikers en een SSH-account.  De verificatie met meerdere gebruikers kan worden bereikt met:
+
+-   Een zelfstandige Active Directory uitgevoerd op Azure IaaS
+-   Azure Active Directory
+-   Active Directory wordt uitgevoerd op de klant on-premises omgeving.
+
+Een zelfstandige Active Directory wordt uitgevoerd op Azure IaaS in dit artikel beschreven. Het is de eenvoudigste architectuur die van de klant volgen kunt om ondersteuning voor meerdere gebruikers op HDInsight. 
 
 > [!IMPORTANT]
 > Oozie is niet ingeschakeld op HDInsight domein.
 
-Dit artikel is de eerste zelfstudie van een serie:
+## <a name="prerequisite"></a>Vereiste
+* Azure-abonnement
 
-* Maak een HDInsight-cluster dat is verbonden met Azure AD (via de mogelijkheid Azure Directory Domain Services) met Apache Zwerver ingeschakeld.
-* Maken en Hive beleidsregels via Apache Zwerver en toestaan dat gebruikers (bijvoorbeeld gegevenswetenschappers) verbinding maken met Hive ODBC-hulpprogramma's, zoals Excel, Tableau enzovoort met. Microsoft werkt over het toevoegen van andere werkbelastingen, zoals HBase en Storm, aan het domein HDInsight snel.
+## <a name="create-an-active-directory"></a>Maak een Active Directory
 
-Azure-service-namen moeten uniek zijn. De volgende namen worden gebruikt in deze zelfstudie. Contoso is een fictieve naam. U moet vervangen *contoso* met een andere naam wanneer u de zelfstudie doorloopt. 
+Azure Resource Manager-sjabloon maakt het gemakkelijker te maken van Azure-resources. In deze sectie maakt u een [Azure QuickStart-sjabloon](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) maken van een nieuw forest en domein met twee virtuele machines. De twee virtuele machines die fungeert als een primaire domeincontroller en een back-domeincontroller.
 
-**Namen:**
+**Maken van een domein met twee domeincontrollers**
 
-| Eigenschap | Waarde |
-| --- | --- |
-| Azure AD-map |contosoaaddirectory |
-| Azure AD-domeinnaam |Contoso (contoso.onmicrosoft.com) |
-| HDInsight-VNet |contosohdivnet |
-| HDInsight VNet resourcegroep |contosohdirg |
-| HDInsight-cluster |contosohdicluster |
+1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen.
 
-Deze zelfstudie bevat de stappen voor het configureren van een domein HDInsight-cluster. Elke sectie bevat koppelingen naar andere artikelen met achtergrondinformatie over.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-## <a name="prerequisite"></a>Voorwaarde:
-* Vertrouwd raken met [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) de [prijzen](https://azure.microsoft.com/pricing/details/active-directory-ds/) structuur.
-* Zorg ervoor dat uw abonnement wilt plaatsen voor deze openbare preview. U kunt dit doen door te sturen een e-mail naar hdipreview@microsoft.com met uw abonnement-ID.
-* Een SSL-certificaat dat is ondertekend door een instantie voor het ondertekenen van of een zelfondertekend certificaat voor uw domein. Het certificaat is vereist voor het configureren van beveiligde LDAP.
+    De sjabloon ziet eruit als:
 
-## <a name="procedures"></a>Procedures
-1. Een HDInsight-VNet maken in de Azure-resource management-modus.
-2. Maak en configureer Azure AD en Azure AD DS.
-3. Maak een HDInsight-cluster.
+    ![HDInsight-domein zijn toegevoegd forest domein virtuele machines maken](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-arm-template.png)
 
-> [!NOTE]
-> Deze zelfstudie wordt ervan uitgegaan dat u geen een Azure AD hebt. Als u hebt, kunt u dit gedeelte overslaan.
-> 
-> 
+2. Voer de volgende waarden in:
 
-## <a name="create-a-resource-manager-vnet-for-hdinsight-cluster"></a>Een Resource Manager VNet voor HDInsight-cluster maken
-In deze sectie maakt u een Azure Resource Manager VNet dat wordt gebruikt voor het HDInsight-cluster. Zie voor meer informatie over het maken van Azure VNet van andere methoden [een virtueel netwerk maken](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+    - **Subscription**: selecteer een Azure-abonnement.
+    - **De naam van resourcegroep**: Typ de naam van een resource-groep.  Een resourcegroep wordt gebruikt voor het beheren van uw Azure-resources die zijn gerelateerd aan een project.
+    - **Locatie**: Selecteer een Azure-locatie dicht bij u is.
+    - **Gebruikersnaam van de beheerder**: dit is de gebruikersnaam van de domein-beheerder. Deze gebruiker is niet het HTTP-gebruikersaccount van uw HDInsight-cluster. Dit is het account waarmee u in de zelfstudie.
+    - **Beheerderswachtwoord**: Voer het wachtwoord voor de domeinbeheerder.
+    - **Domeinnaam**: de domeinnaam moet een tweedelige naam. Bijvoorbeeld: contoso.com is, of contoso.local of hdinsight.test.
+    - **DNS-voorvoegsel**: Typ een DNS-voorvoegsel
+    - **PDC RDP-poort**: (de standaardwaarde voor deze zelfstudie gebruiken)
+    - **De RDP-poort BDC**: (de standaardwaarde voor deze zelfstudie gebruiken)
+    - **locatie van de artefacten**: (de standaardwaarde voor deze zelfstudie gebruiken)
+    - **artefacten locatie SAS-token**: (laat het veld leeg voor deze zelfstudie.)
 
-Nadat het VNet is gemaakt, configureert u de Azure AD DS voor het gebruik van dit VNet.
+Het duurt ongeveer 20 minuten om de resources te maken.
 
-**Een Resource Manager VNet aanmaken**
+## <a name="setup-ldaps"></a>Setup LDAPS
+
+Lightweight Directory Access Protocol (LDAP) wordt gebruikt voor het lezen van en schrijven naar AD.
+
+**Verbinding maken met de primaire domeincontroller met behulp van extern bureaublad**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **nieuw**, **Networking**, en vervolgens **virtueel netwerk**. 
-3. In **een implementatiemodel selecteren**, selecteer **Resource Manager**, en klik vervolgens op **maken**.
-4. Typ of selecteer de volgende waarden:
-   
-   * **Naam**: contosohdivnet
-   * **Adresruimte**: 10.0.0.0/16.
-   * **De subnetnaam van het**: Subnet1
-   * **Adresbereik van**: 10.0.0.0/24
-   * **Abonnement**: (uw Azure-abonnement selecteren.)
-   * **Resourcegroep**: contosohdirg
-   * **Locatie**: (Selecteer dezelfde locatie als de Azure AD-VNet. Bijvoorbeeld, contosoaadvnet.)
-5. Klik op **Create**.
+2. Open de resourcegroep en open vervolgens de virtuele machine van de primaire domeincontroller domeincontroller (PDC). De standaardnaam van de PDC is adPDC. 
+3. Klik op **Connect** verbinding maken met de primaire domeincontroller met behulp van extern bureaublad.
 
-**DNS configureren voor het Resource Manager VNet**
+    ![HDInsight-domein zijn toegevoegd verbinding maken met extern bureaublad PDC](./media/apache-domain-joined-configure/hdinsight-domain-joined-remote-desktop-pdc.png)
 
-1. Van de [Azure-portal](https://portal.azure.com), klikt u op **meer services** > **virtuele netwerken**. Zorg ervoor dat geen u klikt op **virtuele netwerken (klassiek)**.
-2. Klik op **contosohdivnet**.
-3. Klik op **DNS-servers** vanaf de linkerkant van de nieuwe blade.
-4. Klik op **aangepaste**, en voer de volgende waarden:
-   
-   * 10.0.0.4
-   * 10.0.0.5     
-     
-5. Klik op **Opslaan**.
 
-## <a name="create-and-configure-azure-ad-ds-for-your-azure-ad"></a>Maken en configureren van Azure AD DS voor uw Azure AD
-U wordt in deze sectie:
+**Toevoegen van de Active Directory Certificate services**
 
-1. Maak een Azure AD.
-2. Gebruikers van Azure AD maken. Deze gebruikers zijn Domeingebruikers. U kunt de eerste gebruiker gebruiken voor het configureren van het HDInsight-cluster met Azure AD.  De twee gebruikers zijn optioneel voor deze zelfstudie. Ze worden gebruikt [configureren Hive-beleid voor domein-HDInsight-clusters](apache-domain-joined-run-hive.md) wanneer u Apache Zwerver beleid configureert.
-3. Maak de AAD-DC-beheerdersgroep en de Azure AD-gebruiker toevoegen aan de groep. U kunt deze gebruiker gebruiken voor het maken van de organisatie-eenheid.
-4. Azure AD Domain Services (Azure AD DS) voor de Azure AD in te schakelen.
-5. LDAPS configureren voor Azure AD. Lightweight Directory Access Protocol (LDAP) wordt gebruikt voor het lezen van en schrijven naar Azure AD.
+4. Open **Serverbeheer** als dit niet is geopend.
+5. Klik op **beheren**, en klik vervolgens op **functies en onderdelen toevoegen**.
 
-Als u liever een bestaande Azure AD gebruikt, kunt u stap 1 en 2 overslaan.
+    ![HDInsight-domein zijn toegevoegd, functies en onderdelen toevoegen](./media/apache-domain-joined-configure/hdinsight-domain-joined-add-roles.png)
+5. 'Voordat u begint', klik op **volgende**.
+6. Selecteer **op basis van functie of onderdeel gebaseerde installatie**, en klik vervolgens op **volgende**.
+7. Selecteer de PDC en klik vervolgens op **volgende**.  De standaardnaam van de PDC is adPDC.
+8. Selecteer **Active Directory certificaatservices**.
+9. Klik op **onderdelen toevoegen** in het dialoogvenster pop-upvenster.
+10. Volg de wizard, gebruikt u de standaardinstellingen voor de rest van de procedure.
+11. Klik op **Sluiten** om de wizard te sluiten.
 
-**Maken van een Azure AD**
+**AD-certificaat configureren**
 
-1. Van de [klassieke Azure-portal](https://manage.windowsazure.com), klikt u op **nieuw** > **App Services** > **Active Directory** > **Directory** > **aangepast maken**. 
-2. Typ of selecteer de volgende waarden:
-   
-   * **Naam**: contosoaaddirectory
-   * **Domeinnaam**: contoso.  Deze naam moet uniek zijn.
-   * **Land of regio**: Selecteer uw land of regio.
-3. Klik op **Voltooien**.
+1. In Serverbeheer klikt u op de gele meldingspictogram en klik vervolgens op **configureren Active Directory Certificate services**.
 
-**Een Azure AD-gebruiker maken**
+    ![HDInsight lid van domein AD-certificaat configureren](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-1. Van de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory** > **contosoaaddirectory** > **gebruikers en groepen**. 
-2. Klik op **alle gebruikers** in het menu.
-3. Klik op **nieuwe gebruiker**.
-4. Voer **naam** en **gebruikersnaam**, en klik vervolgens op **volgende**. 
-5. Gebruikersprofiel; configureren In **rol**, selecteer **globale beheerder**; en klik vervolgens op **volgende**.  De rol globale beheerder is nodig voor het maken van de organisatie-eenheden.
-6. Maak een kopie van het tijdelijke wachtwoord.
-7. Klik op **Create**. Verderop in deze zelfstudie maakt u deze gebruiker globale beheerder gebruikt voor het maken van het HDInsight-cluster.
+2. Klik op ** Selecteer functieservices aan de linkerkant **certificeringsinstantie**, en klik vervolgens op **volgende**.
+3. Volg de wizard, gebruikt u de standaardinstellingen voor de rest van de procedure (Klik op **configureren** op de laatste stap).
+4. Klik op **Sluiten** om de wizard te sluiten.
 
-Volg dezelfde procedure voor het maken van twee meer gebruikers met de **gebruiker** rol, hiveuser1 en hiveuser2. De volgende gebruikers worden gebruikt voor [configureren Hive-beleid voor domein-HDInsight-clusters](apache-domain-joined-run-hive.md).
+## <a name="optional-create-ad-users-and-groups"></a>(Optioneel) AD-gebruikers en groepen maken
 
-**DC beheerders van de AAD-groep maken en toevoegen van een Azure AD-gebruiker**
+**Maken van gebruikers en groepen in de AD**
+1. Verbinding maken met de primaire domeincontroller met behulp van extern bureaublad
+1. Open **Active Directory-gebruikers en Computers**.
+2. Selecteer uw domeinnaam in het linkerdeelvenster.
+3. Klik op de **Maak een nieuwe gebruiker in de huidige container** pictogram in het bovenste menu.
 
-1. Van de [Azure-portal](https://portal.azure.com), klikt u op **Azure Active Directory** > **contosoaaddirectory** > **gebruikers en groepen**. 
-2. Klik op **alle groepen** in het menu bovenaan.
-3. Klik op **nieuwe groep**.
-4. Typ of selecteer de volgende waarden:
-   
-   * **Naam**: AAD DC-beheerders.  Naam van de groep niet worden gewijzigd.
-   * **Lidmaatschapstype**: toegewezen.
-5. Klik op **Selecteren**.
-6. Klik op **leden**.
-7. Selecteer de eerste gebruiker die u in de vorige stap hebt gemaakt en klik vervolgens op **Selecteer**.
-8. Herhaal de stappen voor het maken van een andere groep met de naam **HiveUsers**, en de twee Hive-gebruikers toevoegen aan de groep.
+    ![Gebruikers die lid zijn van HDInsight-domein maken](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-ad-user.png)
+4. Volg de instructies voor het maken van een paar gebruikers. Hiveuser1 en hiveuser2.
+5. Klik op de **maakt een nieuwe groep in de huidige container** pictogram in het bovenste menu.
+6. Volg de instructies voor het maken van een groep genaamd **HDInsightUsers**.  Deze groep wordt gebruikt wanneer u een HDInsight-cluster verderop in deze zelfstudie maakt.
 
-Zie voor meer informatie [Azure AD Domain Services (Preview): Maak de groep 'AAD DC Administrators'](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+> [!IMPORTANT]
+> U moet de PDC-virtuele machine opnieuw worden opgestart voordat u een domein HDInsight-cluster maakt.
 
-**Azure AD DS voor uw Azure AD inschakelen**
+## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Een HDInsight-cluster in het VNet maken
 
-1. Van de [Azure-portal](https://portal.azure.com), klikt u op **maken van een resource** > **beveiliging en identiteit** > **Azure AD Domain Services**  >  **Toevoegen**. 
-2. Typ of selecteer de volgende waarden:
-   * **Mapnaam**: contosoaaddirectory
-   * **DNS-domeinnaam**: dit betekent dat de standaard DNS-naam van de Azure-map. Bijvoorbeeld: contoso.onmicrosoft.com.
-   * **Locatie**: Selecteer de regio.
-   * **Netwerk**: Selecteer het virtuele netwerk en subnet dat u eerder hebt gemaakt. Bijvoorbeeld: **contosohdivnet**.
-3. Klik op **OK** van de pagina overzicht. U ziet **implementatie wordt uitgevoerd...**  onder meldingen.
-4. Wachten tot **implementatie wordt uitgevoerd...**  verdwijnt, en **IP-adres** opgehaald ingevuld. Twee IP-adressen wordt ophalen ingevuld. Dit zijn de IP-adressen van de domeincontrollers die zijn ingericht met Domain Services. Elk IP-adres is zichtbaar nadat de corresponderende domeincontroller ingericht en gereed is. Noteer de twee IP-adressen. U moet ze later.
+In deze sectie kunt u de Azure portal gebruiken voor het toevoegen van een HDInsight-cluster in het virtuele netwerk dat hebt gemaakt met behulp van de Resource Manager-sjabloon eerder in de zelfstudie. In dit artikel bevat alleen informatie over de specifieke informatie voor domein-clusterconfiguratie.  Voor algemene informatie, Zie [maken Linux gebaseerde clusters in HDInsight met behulp van de Azure-portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 
-Zie voor meer informatie [inschakelen Azure Active Directory Domain Services met Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
-
-**Synchroniseren van wachtwoord**
-
-Als u uw eigen domein gebruikt, moet u het wachtwoord te synchroniseren. Zie [wachtwoordsynchronisatie inschakelen voor Azure AD domain services voor een alleen-Azure AD-directory](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
-
-**LDAPS configureren voor de Azure AD**
-
-1. Ophalen van een SSL-certificaat dat is ondertekend door een instantie voor het ondertekenen van voor uw domein.
-2. Van de [Azure-portal](https://portal.azure.com), klikt u op **Azure AD Domain Services** > **contoso.onmicrosoft.com**. 
-3. Schakel **beveiligde LDAP**.
-6. Volg de instructies voor het certificaatbestand en het wachtwoord opgeven.  
-7. Wachten tot **Secure LDAP certificaat** is ingevuld. Dit kan 10 minuten of langer duren.
-
-> [!NOTE]
-> Als een aantal achtergrondtaken zijn op de Azure AD DS wordt uitgevoerd, wordt er een fout opgetreden tijdens het uploaden certificaat - <i>er is een bewerking wordt uitgevoerd voor deze tenant. Probeer het later opnieuw</i>.  Als deze fout zich voordoet, probeer het na enige tijd opnieuw. Het tweede domain controller IP-adres kan worden ingericht tot 3 uur duren.
-> 
-> 
-
-Zie voor meer informatie [configureren beveiligde LDAP (LDAPS) gebruiken voor een Azure AD Domain Services beheerd domein](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-
-## <a name="create-hdinsight-cluster"></a>HDInsight-cluster maken
-In deze sectie maakt u een Linux gebaseerde Hadoop-cluster in HDInsight met behulp van de Azure-portal of [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-template-deploy.md). Voor andere methoden voor het maken van cluster en kennis van de instellingen, Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md). Zie voor meer informatie over het gebruik van Resource Manager-sjabloon maken van Hadoop-clusters in HDInsight [maken Hadoop-clusters in HDInsight met behulp van Resource Manager-sjablonen](../hdinsight-hadoop-create-windows-clusters-arm-templates.md)
-
-**Maken van een domein HDInsight-cluster met de Azure portal**
+**Een domein HDInsight-cluster maken**
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **nieuw**, **Intelligence en analyse**, en vervolgens **HDInsight**.
-3. Van de **nieuwe HDInsight-cluster** blade invoeren of selecteren van de volgende waarden:
-   
-   * **Clusternaam**: Voer een nieuwe clusternaam voor het domein HDInsight-cluster.
-   * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het maken van dit cluster.
-   * **Configuratie van het cluster**:
-     
-     * **Type cluster**: Hadoop. Domein HDInsight is momenteel alleen ondersteund op Hadoop, Spark en interactieve Query-clusters.
-     * **Besturingssysteem**: Linux.  HDInsight domein wordt alleen ondersteund op Linux gebaseerde HDInsight-clusters.
-     * **Versie**: HDI 3.6. HDInsight domein wordt alleen ondersteund op HDInsight-cluster versie 3.6.
-     * **Type cluster**: PREMIUM
-       
-       Klik op **Selecteer** de wijzigingen wilt opslaan.
-   * **Referenties**: Configureer de referenties voor de gebruiker van het cluster en de SSH-gebruiker.
-   * **Gegevensbron**: een nieuw opslagaccount maken of een bestaand opslagaccount gebruiken als het standaardopslagaccount voor het HDInsight-cluster. De locatie moet hetzelfde zijn als de twee VNets.  De locatie is ook de locatie van het HDInsight-cluster.
-   * **Prijzen**: Selecteer het aantal worker-knooppunten van het cluster.
-   * **Geavanceerde configuraties**: 
-     
-     * **Lid worden van domein & Vnet/Subnet**: 
-       
-       * **Domeininstellingen**: 
-         
-         * **Domeinnaam**: contoso.onmicrosoft.com
-         * **Domeingebruikersnaam**: Voer de gebruikersnaam van een domein. Dit domein moet beschikken over de volgende bevoegdheden: machines toevoegen aan het domein op en plaats deze in de organisatie-eenheid die u tijdens het maken van het cluster opgeeft; Maken van de service-principals binnen de organisatie-eenheid die u tijdens het maken van het cluster opgeeft; Omgekeerde DNS-vermeldingen te maken. Deze domeingebruiker, worden de beheerder van dit domein HDInsight-cluster.
-         * **Domeinwachtwoord**: Voer het wachtwoord voor gebruiker.
-         * **Organisatie-eenheid**: Geef de DN-naam van de organisatie-eenheid die u wilt gebruiken met HDInsight-cluster. Bijvoorbeeld: OU = HDInsightOU, DC = contoso, DC = onmicrosoft gebruikt, DC = com. Als deze organisatie-eenheid niet bestaat, probeert het HDInsight-cluster te maken van deze organisatie-eenheid. Controleer of de organisatie-eenheid is al aanwezig of het domeinaccount machtigingen heeft voor een nieuwe maken. Als u het domeinaccount dat deel uitmaakt van de beheerders AADDC gebruikt, heeft dit vereiste machtigingen om de organisatie-eenheid maken.
-         * **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
-         * **Gebruikersgroep toegang**: Geef de beveiligingsgroep waarvan gebruikers die u wilt synchroniseren met het cluster. Bijvoorbeeld: HiveUsers.
-           
-           Klik op **Selecteer** de wijzigingen wilt opslaan.
-           
-           ![HDInsight-portal domein configureren domeininstelling](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-domain-setting.png)
-       * **Virtueel netwerk**: contosohdivnet
-       * **Subnet**: Subnet1
-         
-         Klik op **Selecteer** de wijzigingen wilt opslaan.        
-         Klik op **Selecteer** de wijzigingen wilt opslaan.
-   * **Resourcegroep**: Selecteer de resourcegroep die wordt gebruikt voor het HDInsight-VNet (contosohdirg).
-4. Klik op **Create**.  
+2. Open de resourcegroep die hebt gemaakt met behulp van de Resource Manager-sjabloon eerder in de zelfstudie.
+3. Een HDInsight-cluster toevoegen aan de resourcegroep.
+4. Selecteer **aangepaste** optie:
 
-Een andere optie voor het maken van domein HDInsight-cluster is het gebruik van Azure Resource Management-sjabloon. De volgende procedure laat zien u hoe:
+    ![HDInsight verbonden met het domein aangepast optie maken](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-custom-configuration-option.png)
 
-**Een domein HDInsight-cluster met een Resource Management-sjabloon maken**
+    Er zijn zes secties met de optie aangepaste configuratie: basisbeginselen, opslag, toepassingen, Cluster grootte, geavanceerde instellingen en samenvatting.
+5. In de **basisbeginselen** sectie:
 
-1. Klik op de volgende afbeelding om te openen van een Resource Manager-sjabloon in de Azure portal. De Resource Manager-sjabloon bevindt zich in een openbare blob-container. 
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Van de **Parameters** blade, voer de volgende waarden:
-   
-   * **Abonnement**: (Selecteer uw Azure-abonnement).
-   * **Resourcegroep**: klik op **gebruik bestaande**, en geef dezelfde resourcegroep die u hebt gebruikt.  Bijvoorbeeld contosohdirg. 
-   * **Locatie**: Geef de locatie van een resourcegroep.
-   * **Clusternaam**: voer een naam in voor het Hadoop-cluster dat u maakt. Bijvoorbeeld contosohdicluster.
-   * **Type cluster**: een cluster selecteren.  De standaardwaarde is **hadoop**.
-   * **Locatie**: Selecteer een locatie voor het cluster.  Het standaardopslagaccount maakt gebruik van dezelfde locatie.
-   * **Aantal Worker-knooppunten cluster**: Selecteer het aantal worker-knooppunten.
-   * **Aanmeldgegevens voor het cluster**: de standaardaanmeldnaam is **admin**.
-   * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen. 
-   * **Virtueel netwerk-Id**: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;ResourceGroupName > /providers/Microsoft.Network/virtualNetworks/&lt;VNetName >
-   * **Virtueel netwerksubnet**: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;ResourceGroupName > /providers/Microsoft.Network/virtualNetworks/&lt;VNetName >/subnetten/Subnet1
-   * **Domeinnaam**: contoso.onmicrosoft.com
-   * **DN-naam van organisatie-eenheid**: OU = HDInsightOU, DC = contoso, DC = onmicrosoft gebruikt, DC = com
-   * **Gebruikers clustergroep DNs**: [\"HiveUsers\"]
-   * **LDAPUrls**: ["ldaps://contoso.onmicrosoft.com:636"]
-   * **DomainAdminUserName**: (Geef de gebruikersnaam van de domein-beheerder)
-   * **DomainAdminPassword**: (Geef het beheerderswachtwoord voor het domein)
-   * **Ik ga akkoord met de voorwaarden en bepalingen hierboven**: (controleren)
-   * **Vastmaken aan dashboard**: (controleren)
-3. Klik op **Kopen**. U ziet een nieuwe tegel met de titel **Implementatie van sjabloonimplementatie**. Het duurt ongeveer 20 minuten om een cluster te maken. Zodra het cluster is gemaakt, kunt u de cluster-blade in de portal om deze te openen.
+    - Cluster-type: kies **PREMIUM**. Momenteel kunt u alleen premium cluster maken met de volgende clustertypen: Hadoop en interactieve Query Spark.
+
+        ![Domein voor HDInsight Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+    - Cluster-aanmelding gebruikersnaam: dit is de Hadoop-HTTP-gebruiker. Dit account verschilt van het domein administrator-account.
+    - Resourcegroep: Selecteer de resourcegroep die u eerder met de Resource Manager-sjabloon hebt gemaakt.
+    - Locatie: De locatie moet niet dezelfde zijn als het account dat u hebt gebruikt toen u het vnet maken en de DC's met behulp van de Resource Manager-sjabloon.
+
+6. In de **geavanceerde instellingen** sectie:
+
+    - Instellingen van het domein:
+
+        ![Geavanceerde instellingen domein HDInsight-domein](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
+        
+        - Domeinnaam: Geef de domeinnaam die u gebruikt in [maken van een Active Directory](#create-an-active-directory).
+        - Domeingebruikersnaam: Voer de gebruikersnaam van de AD-beheerder u gebruikt in [maken van een Active Directory](#create-an-active-directory).
+        - Organisatie-eenheid: Zie de schermafbeelding voor een voorbeeld.
+        - LDAPS URL: Zie de schermafbeelding voor een voorbeeld
+        - Gebruikersgroep voor toegang: Voer de gebruikersnaam van de groep u hebt gemaakt in [maken AD-gebruikers en groepen](#optionally-createad-users-and-groups)
+    - Virtueel netwerk: Selecteer het virtuele netwerk dat u hebt gemaakt in [maken van een Active Directory](#create-an-active-directory). De standaardnaam die wordt gebruikt in de sjabloon is **adVNET**.
+    - Subnet: De standaardnaam die wordt gebruikt in de sjabloon is **adSubnet**.
+
+
 
 Nadat u de zelfstudie hebt voltooid, kunt u het cluster verwijdert. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster [beheren Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
 

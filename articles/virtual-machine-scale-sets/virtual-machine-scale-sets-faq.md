@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
@@ -219,8 +219,8 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
 linuxConfiguration elementnaam | Vereist | Type | Beschrijving
 --- | --- | --- | --- |  ---
 SSH | Nee | Verzameling | Hiermee geeft u de belangrijkste SSH-configuratie voor een Linux-besturingssysteem
-Pad | Ja | Tekenreeks | Hiermee geeft u het pad van het Linux waar de SSH-sleutels of het certificaat moet zich bevinden
-keyData | Ja | Tekenreeks | Hiermee geeft u een base64-gecodeerd openbare SSH-sleutel
+pad | Ja | Reeks | Hiermee geeft u het pad van het Linux waar de SSH-sleutels of het certificaat moet zich bevinden
+keyData | Ja | Reeks | Hiermee geeft u een base64-gecodeerd openbare SSH-sleutel
 
 Zie voor een voorbeeld [de 101-vm-SSH-sleutelbestand GitHub snel starten-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -369,7 +369,13 @@ Zie voor meer informatie over het sequentiëren van de uitbreiding in virtuele-m
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hoe stel ik het wachtwoord voor virtuele machines in mijn virtuele-machineschaalset
 
-Gebruiken om het wachtwoord opnieuw instellen voor virtuele machines in uw virtuele-machineschaalset, VM-uitbreidingen voor toegang tot. 
+Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machines in-schaalsets.
+
+1. Het model VMSS rechtstreeks wijzigen. Beschikbaar met Compute API 2017-12-01 en hoger.
+
+Werk de beheerdersreferenties rechtstreeks in het model met een schaal (bijvoorbeeld met de Azure Resource Explorer, PowerShell of CLI). Zodra de schaalaanpassingsset bijgewerkt, worden alle nieuwe is heeft virtuele machines met de nieuwe referenties. Bestaande virtuele machines hebt alleen de nieuwe referenties als ze zijn teruggezet. 
+
+2. Het wachtwoord met behulp van de VM-extensies voor toegang opnieuw instellen.
 
 Gebruik het volgende PowerShell-voorbeeld:
 

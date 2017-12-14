@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/09/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>De definitie van een OpenAPI voor een functie maken
 REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](http://swagger.io/) bestand). Deze definitie bevat informatie over welke bewerkingen zijn beschikbaar in een API en hoe de gegevens van de aanvraag en -antwoord voor de API moet worden opgebouwd.
@@ -48,9 +48,17 @@ U moet een functie-app hebben die als host fungeert voor de uitvoering van uw fu
 
 Deze zelfstudie wordt gebruikgemaakt van een HTTP-geactiveerd functie waarvoor twee parameters zijn vereist: de geschatte tijd voor het maken van een turbine herstellen (in uren); en de capaciteit van de turbine (in kilowatt). De functie vervolgens berekend hoeveel reparatie kost en hoeveel omzet turbine kan in een periode van 24 uur.
 
-1. Vouw de functie-app, klikt u op de  **+**  naast **functies**, klikt u op de **HTTPTrigger** sjabloon. Voer `TurbineRepair` voor de functie **naam** en klik op **maken**.
+1. Vouw de functie-app en selecteer de  **+**  naast **functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen. 
 
-    ![Functie Apps blade functies +](media/functions-openapi-definition/add-function.png)
+    ![De Quick Start-pagina van Functions in Azure Portal](media/functions-openapi-definition/add-first-function.png)
+
+2. Typ in het zoekveld `http` en kies vervolgens **C#** voor de HTTP-trigger-sjabloon. 
+ 
+    ![Kies de HTTP-trigger](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Type `TurbineRepair` voor de functie **naam**, kies `Function` voor  **[verificatieniveau](functions-bindings-http-webhook.md#http-auth)**, en selecteer vervolgens **maken**.  
+
+    ![De functie HTTP geactiveerd maken](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. De inhoud van het bestand run.csx vervangen door de volgende code en klik vervolgens op **opslaan**:
 

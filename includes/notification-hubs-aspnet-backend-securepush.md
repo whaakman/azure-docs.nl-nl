@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>WebAPI-Project
 1. Open in Visual Studio de **AppBackend** project dat u hebt gemaakt in de **gebruikers waarschuwen** zelfstudie.
-2. Vervang in Notifications.cs, het gehele **meldingen** klasse met de volgende code. Zorg ervoor dat de tijdelijke aanduidingen vervangt door uw verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub. U vindt deze waarden uit de [klassieke Azure-Portal](http://manage.windowsazure.com). Deze module vertegenwoordigt nu de verschillende beveiligde meldingen die worden verzonden. Op een volledige implementatie worden de meldingen opgeslagen in een database. voor het gemak opslaan in dit geval wordt deze in het geheugen.
+2. Vervang in Notifications.cs, het gehele **meldingen** klasse met de volgende code. Zorg ervoor dat de tijdelijke aanduidingen vervangt door uw verbindingsreeks (met volledige toegang) voor uw notification hub en de naam van de hub. U vindt deze waarden uit de [Azure-portal](http://portal.azure.com). Deze module vertegenwoordigt nu de verschillende beveiligde meldingen die worden verzonden. Op een volledige implementatie worden de meldingen opgeslagen in een database. voor het gemak opslaan in dit geval wordt deze in het geheugen.
    
         public class Notification
         {

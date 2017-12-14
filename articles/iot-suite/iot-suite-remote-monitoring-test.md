@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testen van uw oplossing met gesimuleerde apparaten
 
-Deze zelfstudie leert u hoe u het apparaat simulator microservice met de vooraf geconfigureerde oplossing voor externe controle aanpassen. Om weer te geven de mogelijkheden van de apparaatsimulator dat twee scenario's in de toepassing Contoso IoT maakt gebruik van deze zelfstudie.
+Deze zelfstudie ziet u het aanpassen van het apparaat simulator microservice in de vooraf geconfigureerde oplossing voor externe controle. Om weer te geven de mogelijkheden van de apparaatsimulator dat twee scenario's in de toepassing Contoso IoT maakt gebruik van deze zelfstudie.
 
 In het eerste scenario wil Contoso voor het testen van een nieuw smart gloeilamp-apparaat. Als u wilt de tests uitvoert, kunt u een nieuw gesimuleerd apparaat maken met de volgende kenmerken:
 
@@ -34,7 +34,7 @@ In het eerste scenario wil Contoso voor het testen van een nieuw smart gloeilamp
 
 *Telemetrie*
 
-De volgende tabel ziet u de gegevens dat de ligthbulb rapporten naar de cloud als een gegevensstroom:
+De volgende tabel ziet u de gegevens dat de gloeilamp rapporten naar de cloud als een gegevensstroom:
 
 | Naam   | Waarden      |
 | ------ | ----------- |
@@ -177,7 +177,7 @@ De `lightbulb-01.json` -bestand definieert de kenmerken van het type, zoals de t
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ Als u wilt testen en fouten opsporen in uw wijzigingen op een lokaal, Zie [appar
 
 Configureren van het project voor het kopiëren van de nieuwe **gloeilamp** apparaatbestanden naar de uitvoermap:
 
-* Als u Visual Studio gebruikt, controleert u of u de drie nieuwe gloeilamp bestanden u hebt gemaakt in de vorige sectie toevoegen de **Services** project in de oplossing. Gebruik vervolgens **Solution explorer** ze kunnen worden gekopieerd naar de uitvoermap markeren.
+* Als u Visual Studio gebruikt, controleert u of toevoegen van de vier nieuwe gloeilamp bestanden u hebt gemaakt in de vorige sectie aan de **Services** project in de oplossing. Gebruik vervolgens **Solution explorer** ze kunnen worden gekopieerd naar de uitvoermap markeren.
 
-* Als u Visual Studio Code gebruikt, opent u de **Services.csproj** -bestand en voeg de drie nieuwe gloeilamp bestanden u in de vorige sectie hebt gemaakt. Zie het bestaande model bestand apparaatvermeldingen in de **Services.csproj** bestand als voorbeelden.
+* Als u Visual Studio Code gebruikt, opent u de **Services.csproj** bestands- en toevoegen van de vier nieuwe gloeilamp bestanden u in de vorige sectie hebt gemaakt. Zie het bestaande model bestand apparaatvermeldingen in de **Services.csproj** bestand als voorbeelden.
 
 Test het nieuwe apparaat in een oplossing geïmplementeerd, ziet u een van:
 

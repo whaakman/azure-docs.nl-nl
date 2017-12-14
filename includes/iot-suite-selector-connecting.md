@@ -54,7 +54,7 @@ Als u wilt de referenties op die het apparaat gebruiken moet voor verbinding met
 
 1. Zoek de resourcegroep met de Azure-services die maakt gebruik van uw oplossing voor externe controle. De resourcegroep heeft dezelfde naam als de externe bewakingsoplossing die u hebt ingericht.
 
-1. Navigeer naar de IoT-hub in deze resourcegroep. Kies vervolgens **apparaat explorer**:
+1. Navigeer naar de IoT-hub in deze resourcegroep. Kies vervolgens **IoT-apparaten**:
 
     ![Apparaat explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
 

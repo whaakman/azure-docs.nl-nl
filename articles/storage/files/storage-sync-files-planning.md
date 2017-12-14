@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: b5a3537355bef593cc7796af041a53a5eca76b23
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 69150acf483d776e8ecad6e5076a54675bff7439
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -28,10 +28,10 @@ Dit artikel bevat belangrijke aandachtspunten voor de implementatie van een Azur
 ## <a name="azure-file-sync-terminology"></a>Azure File-Sync-terminologie
 Voordat u in de details van de planning voor de implementatie van een Azure-bestand synchronisatie, is het belangrijk dat u de terminologie begrijpt.
 
-### <a name="storage-sync-service"></a>Opslagsynchronisatieservice
+### <a name="storage-sync-service"></a>Opslag Sync-Service
 De Storage-Sync-Service is op het hoogste niveau Azure-resource voor Azure File-synchronisatie. De resource-opslag-Sync-Service is geen peer van de account opslagbronnen en kan op dezelfde manier worden geïmplementeerd op Azure-resourcegroepen. Een afzonderlijke op het hoogste niveau resource uit de bron van storage-account is nodig omdat de Storage-Sync-Service kan de synchronisatierelaties met meerdere opslagaccounts via meerdere synchronisatiegroepen maken kunt. Een abonnement kan meerdere synchronisatie opslagservice resources geïmplementeerd hebben.
 
-### <a name="sync-group"></a>Synchronisatiegroep
+### <a name="sync-group"></a>Groep voor synchronisatie
 Een groep voor synchronisatie definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een groep voor synchronisatie zijn gesynchroniseerd met elkaar. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met het synchroniseren van Azure-bestand hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een opslag-Sync-Service kan zo veel synchronisatiegroepen behoefte hosten.  
 
 ### <a name="registered-server"></a>Geregistreerde server
@@ -158,6 +158,7 @@ Azure File-synchronisatie is alleen beschikbaar in de volgende regio's Preview-v
 
 | Regio | Datacenter-locatie |
 |--------|---------------------|
+| VS - oost | Virginia, Verenigde Staten |
 | VS - west | Californië, Verenigde Staten |
 | West-Europa | Nederland |
 | Zuidoost-Azië | Singapore |

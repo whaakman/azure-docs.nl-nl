@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren door technologieën voor In-Memory in SQL-Database
 
@@ -77,9 +77,7 @@ Gedetailleerde video's over de technologieën:
 
 In het geheugen OLTP bevat geheugen geoptimaliseerde tabellen die worden gebruikt voor het opslaan van gebruikersgegevens. Deze tabellen zijn vereist voor het geheugen. Aangezien u geheugen rechtstreeks in de SQL Database-service beheert, hebben we het concept van een quotum voor gebruikersgegevens. Dit idee wordt aangeduid als *In het geheugen OLTP-opslag*.
 
-Elke prijscategorie en elke elastische pool prijscategorie ondersteunde zelfstandige-database bevat een bepaalde hoeveelheid In het geheugen OLTP-opslag. Op het moment van schrijven krijgt u een gigabyte van opslag van elke 125 database transactie-eenheden (dtu's) of transactie-eenheden voor de elastische database (edtu's).
-
-De [SQL Database Servicelagen](sql-database-service-tiers.md) artikel heeft de officiële lijst van de In-Memory OLTP-opslag die beschikbaar is voor elke ondersteunde zelfstandige database en de elastische groep prijscategorie.
+Elke prijscategorie en elke elastische pool prijscategorie ondersteunde zelfstandige-database bevat een bepaalde hoeveelheid In het geheugen OLTP-opslag. Op het moment van schrijven krijgt u een gigabyte van opslag van elke 125 database transactie-eenheden (dtu's) of transactie-eenheden voor de elastische database (edtu's). Zie voor meer informatie [limieten](sql-database-resource-limits.md).
 
 De volgende items meetellen voor uw opslagruimte In het geheugen OLTP cap:
 

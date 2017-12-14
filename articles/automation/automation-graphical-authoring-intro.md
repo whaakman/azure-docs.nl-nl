@@ -3,7 +3,7 @@ title: Grafisch ontwerpen in Azure Automation | Microsoft Docs
 description: Grafisch ontwerpen, kunt u runbooks voor Azure Automation maken zonder het werken met code. In dit artikel biedt een inleiding tot het grafisch ontwerpen en alle gegevens die nodig zijn voor het maken van een grafisch runbook starten.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
 ## <a name="introduction"></a>Inleiding
@@ -185,7 +185,7 @@ Selecteer de koppeling voor het configureren van de eigenschappen in de configur
 | Koppelingstype | Beschrijving |
 |:--- |:--- |
 | Pijplijn |De doelactiviteit wordt eenmaal uitvoeren voor elk objectuitvoer vanuit de bronactiviteit.  De doelactiviteit wordt niet uitgevoerd als de bronactiviteit in het geen uitvoer resulteert.  De uitvoer van de bronactiviteit is beschikbaar als een object. |
-| Reeks |De doelactiviteit wordt slechts één keer uitgevoerd.  Wordt een matrix met objecten ontvangen van de bronactiviteit.  Uitvoer van de bronactiviteit is beschikbaar als een matrix met objecten. |
+| Volgorde |De doelactiviteit wordt slechts één keer uitgevoerd.  Wordt een matrix met objecten ontvangen van de bronactiviteit.  Uitvoer van de bronactiviteit is beschikbaar als een matrix met objecten. |
 
 ### <a name="starting-activity"></a>Starten van de activiteit
 Een grafisch runbook start met activiteiten die geen van de koppeling van een binnenkomende.  Dit is vaak slechts één activiteit die als de eerste activiteit voor het runbook optreden zou.  Als meerdere activiteiten een binnenkomende koppeling niet hebt, start het runbook door ze parallel worden uitgevoerd.  Deze wordt vervolgens volgt de koppelingen voor andere activiteiten worden uitgevoerd zoals elk is voltooid.

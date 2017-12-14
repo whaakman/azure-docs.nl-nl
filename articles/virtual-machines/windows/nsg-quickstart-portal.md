@@ -4,7 +4,7 @@ description: Meer informatie over het openen van een poort of een eindpunt met u
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Het openen van poorten op een virtuele machine met de Azure-portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Selecteer uw nieuwe Netwerkbeveiligingsgroep. Selecteer 'Inkomende beveiligingsr
 
 ![Een inkomende regel toevoegen](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Kies een gemeenschappelijke **Service** uit de vervolgkeuzelijst zoals *HTTP*. U kunt ook selecteren *aangepaste* voor een specifieke poort te gebruiken. Indien gewenst, wijzigt u de naam van de prioriteit of. De prioriteit bepaalt de volgorde waarin regels worden toegepast - des te lager de numerieke waarde, eerder de regel wordt toegepast. U kunt ook selecteren **Geavanceerd** boven aan dit scherm naar een specifieke bron IP-blok of poort bereik invoeren, bijvoorbeeld. Wanneer u klaar bent, selecteert u **OK** om de regel te maken:
+Maken van een regel waarmee verkeer:
+
+- Selecteer de **Basic** knop. Standaard de **Geavanceerd** venster biedt enkele extra configuratieopties, zoals voor het definiëren van een specifieke bron-IP-adresbereik blokkeren of poort.
+- Kies een gemeenschappelijke **Service** uit de vervolgkeuzelijst zoals *HTTP*. U kunt ook selecteren *aangepaste* voor een specifieke poort te gebruiken. 
+- Indien gewenst, wijzigt u de naam van de prioriteit of. De prioriteit bepaalt de volgorde waarin regels worden toegepast - des te lager de numerieke waarde, eerder de regel wordt toegepast.
+- Wanneer u klaar bent, selecteert u **OK** om de regel te maken:
 
 ![Een inkomende regel maken](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

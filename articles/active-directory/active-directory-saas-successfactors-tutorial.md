@@ -1,56 +1,54 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met SuccessFactors | Microsoft Docs'
-description: Meer informatie over het gebruik van SuccessFactors met Azure Active Directory voor het inschakelen van eenmalige aanmelding, geautomatiseerde inrichting en meer!
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en SuccessFactors.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: d206298f8c0af6c3f96740594c6ff904228ee48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b9545599b4ac02927c38931777a3cee623a4e940
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Zelfstudie: Azure Active Directory-integratie met SuccessFactors
-Er is het doel van deze zelfstudie leert u SuccessFactors integreren met Azure Active Directory (Azure AD).
+
+In deze zelfstudie leert u hoe SuccessFactors integreren met Azure Active Directory (Azure AD).
 
 SuccessFactors integreren met Azure AD biedt de volgende voordelen:
 
-* U kunt beheren in Azure AD die toegang tot SuccessFactors heeft
-* U kunt uw gebruikers automatisch ophalen aangemeld bij SuccessFactors (Single Sign-On) met hun Azure AD-accounts inschakelen
-* U kunt uw accounts op één centrale locatie - en de klassieke Azure portal beheren
+- U kunt beheren in Azure AD die toegang tot SuccessFactors heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij SuccessFactors (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voor het configureren van Azure AD-integratie met SuccessFactors, moet u de volgende items:
 
-* Een geldige Azure-abonnement
-* Een tenant in SuccessFactors
+- Een Azure AD-abonnement
+- Een SuccessFactors eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
 > Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
-> 
-> 
 
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-* U moet uw productieomgeving niet gebruiken tenzij dit noodzakelijk is.
-* Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-Het doel van deze zelfstudie is zodat u kunt eenmalige aanmelding Azure AD te testen in een testomgeving.
-
-Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. SuccessFactors uit de galerie toevoegen
 2. Configureren en testen van Azure AD eenmalige aanmelding
@@ -60,104 +58,126 @@ Voor het configureren van de integratie van SuccessFactors in Azure AD, moet u S
 
 **Als u wilt toevoegen SuccessFactors uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de klassieke Azure-portal op het linkernavigatievenster op **Active Directory**.
-   
-    ![Eenmalige aanmelding configureren][1]
-2. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
-3. De weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.
-   
-    ![Eenmalige aanmelding configureren][2]
-4. Klik op **toevoegen** aan de onderkant van de pagina.
-   
-    ![Toepassingen][3]
-5. Op de **wat wilt u doen** dialoogvenster, klikt u op **toevoegen van een toepassing uit de galerie**.
-   
-    ![Eenmalige aanmelding configureren][4]
-6. In de **zoekvak**, type **SuccessFactors**.
-   
-    ![Eenmalige aanmelding configureren][5]
-7. Selecteer in het deelvenster resultaten **SuccessFactors**, en klik vervolgens op **Complete** de toepassing toevoegen.
-   
-    ![Eenmalige aanmelding configureren][6]
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-Het doel van deze sectie is het beschreven hoe u met het configureren en testen eenmalige aanmelding Azure AD met SuccessFactors op basis van een testgebruiker 'Britta Simon' genoemd.
+    ![De Azure Active Directory-knop][1]
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker van het bijbehorende equivalent in SuccessFactors aan een gebruiker in Azure AD is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in SuccessFactors tot stand worden gebracht.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-Deze relatie koppeling wordt ingesteld door het toewijzen van de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** in SuccessFactors.
+    ![De blade Enterprise-toepassingen][2]
+    
+3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+
+    ![De knop Nieuw toepassing][3]
+
+4. Typ in het zoekvak **SuccessFactors**, selecteer **SuccessFactors** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+
+    ![SuccessFactors in de lijst met resultaten](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+
+In deze sectie configureert en test eenmalige aanmelding Azure AD met SuccessFactors op basis van een testgebruiker 'Britta Simon' genoemd.
+
+Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in SuccessFactors is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in SuccessFactors tot stand worden gebracht.
+
+Wijs in SuccessFactors, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met SuccessFactors, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker SuccessFactors](#creating-a-successfactors-test-user)**  - SuccessFactors die is gekoppeld aan de Azure AD-representatie van haar van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker SuccessFactors](#create-a-successfactors-test-user)**  - SuccessFactors die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
-In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de klassieke portal en eenmalige aanmelding configureren in uw toepassing SuccessFactors.
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+
+In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing SuccessFactors configureren.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met SuccessFactors, moet u de volgende stappen uitvoeren:**
 
-1. In de klassieke Azure-portal op de **SuccessFactors** toepassing Integratiepagina, klikt u op **eenmalige aanmelding configureren** openen de **configureren eenmalige aanmelding** dialoogvenster.
-   
-    ![Eenmalige aanmelding configureren][7]
-2. Op de **hoe wilt u dat gebruikers zich aanmelden op SuccessFactors** pagina **Microsoft Azure AD Single Sign-On**, en klik vervolgens op **volgende**.
-   
-    ![Eenmalige aanmelding configureren][8]
-3. Op de **App-URL configureren** pagina, voer de volgende stappen uit en klik vervolgens op **volgende**.
-   
-    ![Eenmalige aanmelding configureren][9]
-   
-    a. In de **aanmelding op URL** textbox, typ een URL met een van de volgende patronen: 
-   
-    |  |
-    | --- |
-    | `https://<company name>.successfactors.com/<company name>` |
-    | `https://<company name>.sapsf.com/<company name>` |
-    | `https://<company name>.successfactors.eu/<company name>` |
-    | `https://<company name>.sapsf.eu` |
-   
-    b. In de **antwoord-URL** textbox, typ een URL met een van de volgende patronen: 
-   
-    |  |
-    | --- |
-    | `https://<company name>.successfactors.com/<company name>` |
-    | `https://<company name>.sapsf.com/<company name>` |
-    | `https://<company name>.successfactors.eu/<company name>` |
-    | `https://<company name>.sapsf.eu` |
-    | `https://<company name>.sapsf.eu/<company name>` |
-   
-    c. Klik op **Volgende**. 
+1. In de Azure-portal op de **SuccessFactors** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-    > [!NOTE]
-    > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke aanmelding op de URL en antwoord-URL. Als u deze waarden, neem contact op met [SuccessFactors ondersteuningsteam](https://www.successfactors.com/en_us/support.html).
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
-1. Op de **eenmalige aanmelding configureren op SuccessFactors** pagina, klikt u op **certificaat downloaden**, en sla het certificaatbestand lokaal op uw computer.
-   
-    ![Eenmalige aanmelding configureren][10]
+2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+ 
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_samlbase.png)
 
-2. In een ander browservenster, meld u aan bij uw **SuccessFactors-beheerportal** als beheerder.
+3. Op de **SuccessFactors domein en de URL's** sectie, voert u de volgende stappen uit:
 
-3. Ga naar **Toepassingsbeveiliging** en systeemeigen naar **eenmalige aanmelding op functie**. 
+    ![URL's en SuccessFactors domein eenmalige aanmelding informatie](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_url.png)
 
-4. Plaats van elke waarde in de **Token opnieuw** en klik op **Token opslaan** SAML SSO inschakelen.
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:
+    | |
+    |--|
+    | `https://<companyname>.successfactors.com/<companyname>`|
+    | `https://<companyname>.sapsf.com/<companyname>`|
+    | `https://<companyname>.successfactors.eu/<companyname>`|
+    | `https://<companyname>.sapsf.eu`|
+
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen:
+    | |
+    |--|
+    | `https://www.successfactors.com/<companyname>`|
+    | `https://www.successfactors.com`|
+    | `https://<companyname>.successfactors.eu`|
+    | `https://www.successfactors.eu/<companyname>`|
+    | `https://<companyname>.sapsf.com`|
+    | `https://hcm4preview.sapsf.com/<companyname>`|
+    | `https://<companyname>.sapsf.eu`|
+    | `https://www.successfactors.cn`|
+    | `https://www.successfactors.cn/<companyname>`|
+
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:
+    | |
+    |--|
+    | `https://<companyname>.successfactors.com/<companyname>`|
+    | `https://<companyname>.successfactors.com`|
+    | `https://<companyname>.sapsf.com/<companyname>`|
+    | `https://<companyname>.sapsf.com`|
+    | `https://<companyname>.successfactors.eu/<companyname>`|
+    | `https://<companyname>.successfactors.eu`|
+    | `https://<companyname>.sapsf.eu`|
+    | `https://<companyname>.sapsf.eu/<companyname>`|
+    | `https://<companyname>.sapsf.cn`|
+    | `https://<companyname>.sapsf.cn/<companyname>`|
+         
+    > [!NOTE] 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [SuccessFactors Client ondersteuningsteam](https://www.successfactors.com/en_us/support.html) ophalen van deze waarden. 
+
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_certificate.png) 
+
+5. Klik op **opslaan** knop.
+
+    ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-successfactors-tutorial/tutorial_general_400.png)
+    
+6. Op de **SuccessFactors configuratie** sectie, klikt u op **configureren SuccessFactors** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_configure.png) 
+
+7. In een ander browservenster geopend, moet u zich aanmelden bij uw **SuccessFactors-beheerportal** als beheerder.
+    
+8. Ga naar **Toepassingsbeveiliging** en systeemeigen naar **eenmalige aanmelding op functie**. 
+
+9. Plaats van elke waarde in de **Token opnieuw** en klik op **Token opslaan** SAML SSO inschakelen.
    
     ![Configureren van eenmalige aanmelding op app aan clientzijde][11]
 
     > [!NOTE] 
-    > Deze waarde wordt alleen gebruikt als de schakeloptie/verbergen. Als een willekeurige waarde wordt opgeslagen, is het SAML SSO ingeschakeld. Als een lege waarde wordt opgeslagen is SAML SSO uitgeschakeld.
+    > Deze waarde wordt gebruikt als de schakeloptie/verbergen. Als een willekeurige waarde wordt opgeslagen, is het SAML SSO ingeschakeld. Als een lege waarde wordt opgeslagen is SAML SSO uitgeschakeld.
 
-1. Systeemeigen naar onderstaande schermafbeelding en de volgende acties uitvoeren.
+10. Systeemeigen naar onderstaande schermafbeelding en de volgende acties uitvoeren:
    
     ![Configureren van eenmalige aanmelding op app aan clientzijde][12]
    
     a. Selecteer de **SAML v2 SSO** keuzerondje
    
-    b. De SAML aantonen partij Name(e.g. SAml issuer + company name) ingesteld.
+    b. Stel de **SAML-naam aantonen partij**(bijvoorbeeld SAML verlener + bedrijfsnaam).
    
-    c. In de **SAML verlener** textbox plaatsen de waarde van **URL-verlener** van de configuratiewizard voor Azure AD-toepassing.
+    c. In de **URL-verlener** textbox, plak de **SAML entiteit-ID** waarde die u hebt gekopieerd uit de Azure portal.
    
     d. Selecteer **(klant gegenereerd/IdP/AP) antwoord** als **verplichte handtekening vereisen**.
    
@@ -169,18 +189,18 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de klassieke
    
     h. Selecteer **Nee** als **geldigheidsduur van certificaat afdwingen**.
    
-    ik. Kopieer de inhoud van het gedownloade certificaatbestand en plakt u deze in de **SAML verifiëren certificaat** textbox.
+    ik. Kopieer de inhoud van het gedownloade certificaatbestand van Azure-portal en plakt u deze in de **SAML verifiëren certificaat** textbox.
 
     > [!NOTE] 
     > De inhoud van certificaten moet certificaat en certificaat afsluitcodes hebben beginnen.
 
-1. Navigeer naar de SAML-V2 en voer de volgende stappen uit:
+11. Navigeer naar de SAML-V2 en voer de volgende stappen uit:
    
     ![Configureren van eenmalige aanmelding op app aan clientzijde][13]
    
     a. Selecteer **Ja** als **ondersteuning voor globale afmelding Serviceprovider geïnitieerde**.
    
-    b. In de **globale afmelding Service-URL (LogoutRequest doel)** textbox plaatsen de waarde van **externe URL voor afmelden** van de configuratiewizard voor Azure AD-toepassing.
+    b. In de **globale afmelding Service-URL (LogoutRequest doel)** textbox, plak de **Sign-Out URL** waarde die u hebt gekopieerd, vormen de Azure-portal.
    
     c. Selecteer **Nee** als **vereisen sp alle NameID element moet versleutelen**.
    
@@ -188,145 +208,125 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de klassieke
    
     e. Selecteer **Ja** als **inschakelen geïnitieerd sp aanmelding (AuthnRequest)**.
    
-    f. In de **Verzendaanvraag als uitgever van het hele bedrijf** textbox plaatsen de waarde van **externe aanmeldings-URL** van de configuratiewizard voor Azure AD-toepassing.
-2. Voer deze stappen uit als u wilt maken van de aanmelding gebruikersnamen niet hoofdlettergevoelig.
+    f. In de **Verzendaanvraag als uitgever van het hele bedrijf** textbox plakken **SAML Single Sign-On Service-URL** waarde die u hebt gekopieerd uit de Azure portal.
+
+12. Voer deze stappen uit als u wilt maken van de aanmelding gebruikersnamen niet hoofdlettergevoelig.
    
+    ![Eenmalige aanmelding configureren][29]
+    
     a. Ga naar **Bedrijfsinstellingen**(in de buurt van de onderkant).
    
     b. Schakel dit selectievakje in bij **inschakelen niet hoofdlettergevoelig gebruikersnaam**.
    
     c.Click **opslaan**.
    
-    ![Eenmalige aanmelding configureren][29]
-
     > [!NOTE] 
-    > Als u probeert deze, controleert het systeem als een dubbele naam van de SAML-aanmelding wordt gemaakt. Bijvoorbeeld als de klant heeft gebruikersnamen Gebruiker1 als Gebruiker1. Blijf de hoofdlettergevoeligheid, kunt u deze dubbele vermeldingen. Het systeem, krijgt u een foutbericht weergegeven en wordt de functie niet inschakelen. De klant moet een van de gebruikersnamen wijzigen zodat gespeld daadwerkelijk verschillende. 
+    > Als u probeert deze, controleert het systeem als maakt het een dubbele SAML-aanmeldingsnaam. Bijvoorbeeld als de klant heeft gebruikersnamen Gebruiker1 als Gebruiker1. Blijf de hoofdlettergevoeligheid, kunt u deze dubbele vermeldingen. Het systeem krijgt u een foutbericht weergegeven en kan de functie niet. De klant moet een van de gebruikersnamen wijzigen zodat deze verschillende gespeld.
 
-1. Bij de klassieke Azure portal, selecteert u de configuratie voor één aanmelding bevestiging en klik op **Complete** sluiten de **configureren eenmalige aanmelding** dialoogvenster.
-   
-    ![Toepassingen][14]
-2. Op de **eenmalige aanmelding bevestiging** pagina, klikt u op **Complete**.
-   
-    ![Toepassingen][15]
+> [!TIP]
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de klassieke portal Britta Simon aangeroepen.
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
-![Azure AD-gebruiker maken][16]
+Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **klassieke Azure-Portal**, klik op het navigatiedeelvenster links **Active Directory**.
-   
-    ![Een Azure AD-testgebruiker maken][17]
-2. Van de **Directory** , selecteert u de map waarvoor u wilt inschakelen van Active directory-integratie.
-3. De lijst met gebruikers, in het menu bovenaan, klikt u op **gebruikers**.
-   
-    ![Een Azure AD-testgebruiker maken][18]
-4. Openen van de **gebruiker toevoegen** dialoogvenster op de werkbalk aan de onderkant, klikt u op **gebruiker toevoegen**.
-   
-    ![Een Azure AD-testgebruiker maken][19]
-5. Op de **Vertel ons meer over deze gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Een Azure AD-testgebruiker maken][20]
-   
-    a. Selecteer de nieuwe gebruiker in uw organisatie als Type gebruiker.
-   
-    b. De gebruikersnaam **textbox**, type **BrittaSimon**.
-   
-    c. Klik op **Volgende**.
-6. Op de **gebruikersprofiel** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Een Azure AD-testgebruiker maken][21]
-   
-    a. In de **voornaam** textbox type **Britta**.  
-   
-    b. In de **achternaam** textbox type, **Simon**.
-   
-    c. In de **weergavenaam** textbox type **Britta Simon**.
-   
-    d. In de **rol** selecteert **gebruiker**.
-   
-    e. Klik op **Volgende**.
-7. Op de **tijdelijk wachtwoord** dialoogvenster pagina, klikt u op **maken**.
-   
-    ![Een Azure AD-testgebruiker maken][22]
-8. Op de **tijdelijk wachtwoord** dialoogvenster pagina, voert u de volgende stappen uit:
-   
-    ![Een Azure AD-testgebruiker maken][23]
-   
-    a. Noteer de waarde van de **nieuw wachtwoord**.
-   
-    b. Klik op **Voltooien**.  
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-### <a name="creating-a-successfactors-test-user"></a>Een testgebruiker SuccessFactors maken
-Om in te schakelen gebruikers van Azure AD aan te melden bij SuccessFactors, moeten ze worden ingericht in SuccessFactors.  
+    ![De Azure Active Directory-knop](./media/active-directory-saas-successfactors-tutorial/create_aaduser_01.png)
+
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-successfactors-tutorial/create_aaduser_02.png)
+
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+
+    ![De knop toevoegen](./media/active-directory-saas-successfactors-tutorial/create_aaduser_03.png)
+
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-successfactors-tutorial/create_aaduser_04.png)
+
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+
+    d. Klik op **Create**.
+ 
+### <a name="create-a-successfactors-test-user"></a>Een testgebruiker SuccessFactors maken
+
+Om Azure AD-gebruikers zich aanmelden bij SuccessFactors, moeten ze worden ingericht in SuccessFactors.  
 In het geval van SuccessFactors is inrichting een handmatige taak.
 
 Als u gebruikers in SuccessFactors hebt gemaakt, moet u contact opnemen met de [SuccessFactors ondersteuningsteam](https://www.successfactors.com/en_us/support.html).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
-Het doel van deze sectie is het Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang verlenen aan SuccessFactors inschakelen.
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-![Gebruiker toewijzen][24]
+In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan SuccessFactors.
+
+![Toewijzen van de gebruikersrol][200] 
 
 **Britta Simon om aan te wijzen SuccessFactors, moet u de volgende stappen uitvoeren:**
 
-1. In de klassieke portal, de weergave toepassingen in de directoryweergave, klikt u op **toepassingen** in het menu bovenaan.
-   
-    ![Gebruiker toewijzen][25]
-2. Selecteer in de lijst met toepassingen **SuccessFactors**.
-   
-    ![Eenmalige aanmelding configureren][26]
-3. Klik in het menu bovenaan op **gebruikers**.
-   
-    ![Gebruiker toewijzen][27]
-4. Selecteer in de lijst gebruikers **Britta Simon**.
-5. Klik in de werkbalk aan de onderkant op **toewijzen**.
-   
-    ![Gebruiker toewijzen][28]
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+    ![Gebruiker toewijzen][201] 
+
+2. Selecteer in de lijst met toepassingen **SuccessFactors**.
+
+    ![De koppeling SuccessFactors in de lijst met toepassingen](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_app.png)  
+
+3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+
+    ![De koppeling 'Gebruikers en groepen'][202]
+
+4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+
+    ![Het deelvenster toewijzing toevoegen][203]
+
+5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+
+6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+
+7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+    
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel SuccessFactors in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing SuccessFactors.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Aanvullende bronnen
+
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
+
+
 <!--Image references-->
 
-[0]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_00.png
 [1]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_01.png
-[6]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_02.png
-[7]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_03.png
-[8]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_04.png
-[9]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_05.png
-[10]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_06.png
 
 [11]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_07.png
 [12]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_08.png
 [13]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_09.png
 [14]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_05.png
 [15]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_06.png
-
-[16]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_00.png
-[17]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_01.png
-[18]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_02.png
-[19]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_03.png
-[20]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_04.png
-[21]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_05.png
-[22]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_06.png
-[23]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_07.png
-
-[24]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_07.png
-[25]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_08.png
-[26]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_11.png
-[27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
-[28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
+
+[100]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_203.png
+

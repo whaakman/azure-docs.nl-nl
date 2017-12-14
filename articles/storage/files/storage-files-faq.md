@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -80,7 +80,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 
 ## <a name="azure-file-sync"></a>Azure File-synchronisatie
 * <a id="afs-region-availability"></a>**Welke regio's worden ondersteund voor Azure File-synchronisatie (preview)?**  
-    Azure File-synchronisatie is momenteel beschikbaar in VS-West, West-Europa, Australië-Oost en Zuidoost-Azië. Ondersteuning voor meer regio's worden toegevoegd wanneer we voor algemene beschikbaarheid werken. Zie voor meer informatie [beschikbaarheid in regio's](storage-sync-files-planning.md#region-availability).
+    Azure File-synchronisatie is momenteel beschikbaar in VS-Oost, VS-West, West-Europa, Australië-Oost en Zuidoost-Azië. Ondersteuning voor meer regio's worden toegevoegd wanneer we voor algemene beschikbaarheid werken. Zie voor meer informatie [beschikbaarheid in regio's](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**Kan ik domein en niet-domein-servers in de groep voor synchronisatie met dezelfde hebben?**  
     Ja. Een groep voor synchronisatie mag server-eindpunten die verschillende Active Directory-lidmaatschap hebben, zelfs als ze geen lid van een domein zijn. Hoewel deze configuratie technisch werkt, raadzaam niet deze als een typische configuratie omdat toegangsbeheerlijsten (ACL's) die zijn gedefinieerd voor bestanden en mappen op één server mogelijk niet worden afgedwongen door andere servers in de groep voor synchronisatie. Voor de beste resultaten wordt u aangeraden synchroniseren tussen de servers die zich in hetzelfde Active Directory-forest, tussen servers die zich in verschillende Active Directory-forests, maar die ingestelde vertrouwensrelaties of tussen servers die zich niet in een domein. Het is raadzaam om te voorkomen dat een combinatie van deze configuraties gebruikt.

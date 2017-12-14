@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP- en webhook bindingen
 
@@ -383,12 +383,13 @@ Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#t
 
 De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `HttpTrigger` kenmerk.
 
+
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
 | **type** | N.v.t.| Vereist - moet worden ingesteld op `httpTrigger`. |
 | **richting** | N.v.t.| Vereist - moet worden ingesteld op `in`. |
 | **naam** | N.v.t.| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. |
-| **authLevel** |  **AuthLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het machtigingsniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er is geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een specifieke functies API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [autorisatie sleutels](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Hiermee bepaalt u wat sleutels, indien van toepassing, aanwezig zijn op de aanvraag moeten om de functie aanroepen. Het machtigingsniveau kan een van de volgende waarden zijn: <ul><li><code>anonymous</code>&mdash;Er is geen API-sleutel is vereist.</li><li><code>function</code>&mdash;Een specifieke functies API-sleutel is vereist. Dit is de standaardwaarde als niets wordt opgegeven.</li><li><code>admin</code>&mdash;De hoofdsleutel is vereist.</li></ul> Zie de sectie voor meer informatie over [autorisatie sleutels](#authorization-keys). |
 | **methoden** |**Methoden** | Een matrix met de HTTP-methoden waarop de functie reageert. Als niet wordt opgegeven, wordt de functie reageert op alle HTTP-methoden. Zie [aanpassen van het http-eindpunt](#trigger---customize-the-http-endpoint). |
 | **route** | **Route** | Definieert het Routesjabloon aanvragen waarmee uw functie reageert URL's beheren. De standaardwaarde als niets wordt opgegeven is `<functionname>`. Zie voor meer informatie [aanpassen van het http-eindpunt](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Hiermee wordt de HTTP-trigger om te fungeren als een [webhook](https://en.wikipedia.org/wiki/Webhook) ontvanger voor de opgegeven provider. Stelt niet de `methods` eigenschap als u deze eigenschap instellen. Het type webhook kan een van de volgende waarden zijn:<ul><li><code>genericJson</code>&mdash;Een eindpunt voor algemene doeleinden webhook zonder logica voor een specifieke provider. Deze instelling voorkomt dat aanvragen met alleen die via HTTP POST en met de `application/json` inhoudstype.</li><li><code>github</code>&mdash;De functie reageert op [GitHub webhooks](https://developer.github.com/webhooks/). Gebruik niet de _authLevel_ eigenschap met de GitHub-webhooks. Zie de sectie van de webhooks GitHub verderop in dit artikel voor meer informatie.</li><li><code>slack</code>&mdash;De functie reageert op [webhooks vertraging](https://api.slack.com/outgoing-webhooks). Gebruik niet de _authLevel_ eigenschap met de toegestane webhooks. Zie de sectie toegestane webhooks verderop in dit artikel voor meer informatie.</li></ul>|

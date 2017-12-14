@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>De REST-API van de Azure-service Import/Export gebruiken
 
-De Microsoft Azure Import/Export-service wordt een REST-API voor programmatisch beheer van importeren/exporteren-taken. U kunt de REST-API gebruiken om uit te voeren op alle bewerkingen voor importeren/exporteren die u met uitvoeren kunt de [Azure-portal](https://portal.azure.com/). Bovendien kunt u de REST-API om uit te voeren van bepaalde gedetailleerde bewerkingen, zoals het uitvoeren van query's de percentage voltooiing van een taak die momenteel niet beschikbaar in de klassieke Azure portal is.
+De Microsoft Azure Import/Export-service wordt een REST-API voor programmatisch beheer van importeren/exporteren-taken. U kunt de REST-API gebruiken om uit te voeren op alle bewerkingen voor importeren/exporteren die u met uitvoeren kunt de [Azure-portal](https://portal.azure.com/). Bovendien kunt u de REST-API om uit te voeren van bepaalde gedetailleerde bewerkingen, zoals het uitvoeren van query's de percentage voltooiing van een taak die momenteel niet beschikbaar in de Azure portal is.
 
-Zie [via de Microsoft Azure Import/Export-service gegevens overdragen naar Blob Storage](../storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie waarin wordt getoond hoe u de klassieke portal maken en beheren van importeren en exporteren van taken.
+Zie [via de Microsoft Azure Import/Export-service gegevens overdragen naar Blob Storage](../storage-import-export-service.md) voor een overzicht van de Import/Export-service en een zelfstudie over het gebruik van de portal te maken en beheren van importeren en exporteren van taken.
 
 ## <a name="service-endpoints"></a>Service-eindpunten
 

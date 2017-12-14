@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/13/2017
 ms.author: billmath
-ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -42,12 +42,16 @@ Status: 12 December 2017
 >Dit is een beveiliging gerelateerde hotfix voor Azure AD Connect
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-Wanneer u Azure AD Connect voor het eerst installeert, kan een nieuw account worden gemaakt die wordt gebruikt voor het uitvoeren van de service Azure AD Connect. Voordat u deze release is het account gemaakt met instellingen die een gebruiker met wachtwoord adminsitrator rechten weet dat de mogelijkheid het wachtwoord te wijzigen in een waarde die aan hen toegestaan.  Dit u zich kunt aanmelden met dit account toegestaan en dit vormt een uitbreiding van bevoegdheden inbreuk op de beveiliging. Deze release beperkt de instelling voor het account dat is gemaakt en verwijdert u deze kwetsbaarheid tonen.
+Een verbetering is toegevoegd aan Azure AD Connect versie 1.1.654.0 (en na) om ervoor te zorgen dat de aanbevolen beschreven onder sectie wijzigingen [toegang tot het AD DS-account voor het vergrendelen](#lock) worden automatisch toegepast wanneer Azure AD Verbinding maken met het AD DS-account maakt. 
+
+- Bij het instellen van Azure AD Connect, kunt de beheerder van de installatie een bestaande AD DS-account opgeven of Azure AD Connect automatisch maken van het account te laten. De wijzigingen in de machtigingen worden automatisch toegepast op het AD DS-account dat is gemaakt met Azure AD Connect tijdens de installatie. Ze worden niet toegepast op bestaande AD DS-account, opgegeven door de beheerder installeren.
+- Voor klanten die een upgrade hebt uitgevoerd van een oudere versie van Azure AD Connect naar 1.1.654.0 (of na), de machtiging zal wijzigingen niet worden met terugwerkende kracht toegepast op bestaande AD DS-accounts gemaakt vóór de upgrade. Ze worden alleen worden toegepast op nieuwe AD DS-accounts die na de upgrade is gemaakt. Dit gebeurt wanneer u nieuwe AD-forests worden gesynchroniseerd naar Azure AD toevoegt.
 
 >[!NOTE]
->Deze release verwijdert alleen de kwetsbaarheid voor nieuwe installaties van Azure AD Connect waarop de serviceaccount is gemaakt door het installatieproces. Voor installaties exisating of in gevallen waarin u het account zelf opgeven, sould u ervoor te zorgen dat deze kwetsbaarheid niet bestaat.
+>Deze release verwijdert alleen de kwetsbaarheid voor nieuwe installaties van Azure AD Connect waarop de serviceaccount is gemaakt door het installatieproces. Bestaande installaties of in gevallen waarin u het account zelf opgeven sould u ervoor te zorgen dat deze kwetsbaarheid niet bestaat.
 
-Naar de instellingen voor het serviceaccount dat u kunt uitvoeren webserverbeheerders [dit PowerShell-script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Het dat de instellingen op het serviceaccount voor het verwijderen van de kwetsbaarheid voor wordt versterkt de onderstaande waarden:
+#### <a name="lock"></a>Toegang tot het AD DS-account vergrendelen
+Vergrendelen van toegang tot het AD DS-account door het implementeren van de volgende machtigingswijzigingen in de on-premises AD:  
 
 *   Overname van het opgegeven object uitschakelen
 *   Verwijder alle vermeldingen voor toegangsbeheer in het specifieke object, met uitzondering van ACE's specifieke naar zichzelf. We willen de standaardmachtigingen behouden wanneer deze naar zichzelf wordt.
@@ -64,10 +68,13 @@ Toestaan    | Ondernemings-domeincontrollers | Alle eigenschappen lezen  | Dit o
 Toestaan    | Ondernemings-domeincontrollers | Machtigingen lezen     | Dit object  |
 Toestaan    | Geverifieerde gebruikers           | Inhoud weergeven        | Dit object  |
 Toestaan    | Geverifieerde gebruikers           | Alle eigenschappen lezen  | Dit object  |
+Toestaan    | Geverifieerde gebruikers           | Machtigingen lezen     | Dit object  |
+
+De strikter de instellingen voor de AD DS-account kunnen uitvoeren [dit PowerShell-script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Het PowerShell-script wordt de AD DS-account genoemd machtigingen toewijzen.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>PowerShell-script voor de hand van een bestaande service-account
 
-Deze instellingen toepassen op een bestaande serviceaccount met het PowerShell-script (ether geleverd door uw organisatie of gemaakt met een eerdere installatie van Azure AD Connect download het script van de opgegeven koppeling hierboven.
+Deze instellingen toepassen op een bestaande AD DS-account met het PowerShell-script (ether geleverd door uw organisatie of gemaakt met een eerdere installatie van Azure AD Connect download het script van de opgegeven koppeling hierboven.
 
 ##### <a name="usage"></a>Gebruik:
 
@@ -92,13 +99,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Om te zien als deze kwetsbaarheid is gebruikt om inbreuk van uw Azure AD te herstellen Connect-configuratie moet u controleren of het wachtwoord van de laatste datum van het serviceaccount.  Als de tijdstempel in onverwachte, verder onderzoek via het gebeurtenislogboek voor dat het wachtwoord opnieuw instellen van gebeurtenis, moet worden ondernomen.
 
-                                                                                                               
-
-## <a name="116490"></a>1.1.649.0
-Status: Oktober 27 2017
-
->[!NOTE]
->Deze versie is niet beschikbaar voor klanten via de functie Azure AD Connect automatische Upgrade
+Zie voor meer informatie [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Status: Oktober 27 2017
