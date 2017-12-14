@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: jgao
-ms.openlocfilehash: e139db13cf943723a498158870627fd66cdd6e0f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store gebruiken met Azure HDInsight-clusters
 
@@ -51,7 +51,6 @@ Op dit moment ondersteunt slechts een deel van de HDInsight-clustertypen/-versie
 | HDInsight-versie 3.4 | Nee | Ja | |
 | HDInsight-versie 3.3 | Nee | Nee | |
 | HDInsight-versie 3.2 | Nee | Ja | |
-| HDInsight Premium (laag)| Nee | Nee | |
 | Storm | | |U kunt Data Lake Store gebruiken om gegevens te schrijven op basis van een Storm-topologie. U kunt Data Lake Store ook gebruiken voor referentiegegevens die vervolgens kunnen worden gelezen door een Storm-topologie.|
 
 Het gebruik van Data Lake Store als extra opslagaccount heeft geen invloed op de prestaties of de mogelijkheid om te lezen of schrijven naar Azure-opslag vanuit het cluster.

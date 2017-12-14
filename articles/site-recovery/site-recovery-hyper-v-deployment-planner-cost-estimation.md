@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 47cdbf31e6b01055405cefedda11d5eeef82f32e
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b36e8064da2661e6424d68f11b1e08d5af96131f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van de Azure Site Recovery-implementatieplanner  
 
@@ -162,4 +162,4 @@ Met Azure Site Recovery Deployment Planner kunt u het kostenrapport genereren me
 |TRY|Turkse lira (TL)||USD| Amerikaanse dollar ($)||ZAR|Zuid-Afrikaanse rand (R)|
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het beveiligen van [Hyper-V-VM's naar Azure met Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
+Meer informatie over het beveiligen van [Hyper-V-VM's naar Azure met Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-hyper-v-to-azure).

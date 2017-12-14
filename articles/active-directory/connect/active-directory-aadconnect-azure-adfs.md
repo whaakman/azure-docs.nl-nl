@@ -5,7 +5,7 @@ keywords: AD FS implementeren in azure, azure adfs implementeren, azure adfs, az
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.

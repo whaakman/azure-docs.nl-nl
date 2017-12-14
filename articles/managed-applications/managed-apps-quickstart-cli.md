@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 062e6b4d9edd9ca9220b8d11336f1a3ff544a1dd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Een beheerde Azure-toepassing maken en implementeren met Azure CLI
 
@@ -121,5 +121,4 @@ Nadat de implementatie is voltooid, ziet u dat de beheerde toepassing in applica
 
 * Zie [Overzicht van beheerde toepassingen](overview.md) voor een inleiding tot beheerde toepassingen.
 * Zie [Voorbeelden van beheerde toepassingen](https://github.com/Azure/azure-managedapp-samples/tree/master/samples) voor voorbeelden van de bestanden.
-* Zie [Marketplace-toepassing maken](publish-marketplace-app.md)v oor meer informatie over het uitgeven van beheerde toepassingen in Microsoft Azure Marketplace.
 * Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.

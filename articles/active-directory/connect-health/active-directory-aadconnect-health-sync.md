@@ -4,7 +4,7 @@ description: Dit is de Azure AD Connect Health-pagina waarop wordt besproken hoe
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>De Azure AD Connect synchronisatie met Azure AD Connect Health bewaken
 De volgende documentatie is specifiek voor het bewaken van Azure AD Connect-synchronisatie met Azure AD Connect Health.  Zie [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md) (Engelstalig) voor informatie over het controleren van AD FS met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.

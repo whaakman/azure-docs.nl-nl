@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
-[Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
+[Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
 
 ![Voorbeeld](./media/app-insights-cloudservices/sample.png)
 
@@ -142,7 +142,7 @@ Voeg meer telemetrie toe - zie de secties hieronder - en publiceer uw app vervol
 * Zie [Probleemoplossing][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Gebeurtenissen van Azure Diagnostics weergeven
-Waar vind ik informatie van [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) in Application Insights:
+Waar vind ik informatie van [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) in Application Insights:
 
 * Prestatiemeteritems worden weergegeven als aangepaste functies voor het verzamelen van metrische gegevens. 
 * Windows-gebeurtenislogboeken worden als traceringen en aangepaste gebeurtenissen weergegeven.

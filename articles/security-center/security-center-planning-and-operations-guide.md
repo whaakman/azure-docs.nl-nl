@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Plannings- en bedieningsgids voor Azure Security Center
 Deze gids is bedoeld voor IT-specialisten, IT-architecten, gegevensbeveiligingsanalisten en cloudbeheerders die willen gaan werken met Azure Security Center.
@@ -125,7 +125,7 @@ Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en h
 
 Beleidsregels van Security Center bevatten de volgende onderdelen:
 - [Gegevensverzameling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): instellingen voor configuratie van agent en verzamelen van gegevens.
-- [Beveiligingsbeleid](https://docs.microsoft.com/azure/security-center/security-center-policies): een [Azure-beleid](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) dat bepaalt welke items worden bewaakt en aanbevolen door Security Center, of Azure-beleid gebruiken voor het maken van nieuwe definities, het definiëren van extra beleidsregels en het toewijzen van beleidsregels binnen beheergroepen.
+- [Beveiligingsbeleid](https://docs.microsoft.com/azure/security-center/security-center-policies): een [Azure-beleid](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) dat bepaalt welke items worden bewaakt en aanbevolen door Security Center, of Azure-beleid gebruiken voor het maken van nieuwe definities, het definiëren van extra beleidsregels en het toewijzen van beleidsregels binnen beheergroepen.
 - [E-mailmeldingen](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): instellingen voor contactpersonen en meldingen voor beveiliging.
 - [Prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing): keuze uit de prijscategorie Gratis of Standaard, die bepaalt welke functies van Security Center beschikbaar zijn voor resources binnen het bereik (kan worden opgegeven voor abonnementen, resourcegroepen en werkruimten).
 

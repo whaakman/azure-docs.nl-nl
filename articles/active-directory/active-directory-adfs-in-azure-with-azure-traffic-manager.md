@@ -5,7 +5,7 @@ keywords: Ad fs met Azure traffic manager, adfs met Azure Traffic Manager, geogr
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-implementaties in meerdere regio’s in Azure, met maximale beschikbaarheid dankzij Azure Traffic Manager
 [AD FS-implementatie in Azure](active-directory-aadconnect-azure-adfs.md) biedt stapsgewijze richtlijnen over het implementeren van een eenvoudige AD FS-infrastructuur voor uw organisatie in Azure. In dit artikel vindt u de volgende stappen voor het maken van een implementatie van AD FS in Azure in meerdere regio’s met [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Met Azure Traffic Manager kunt u geografisch verspreide AD FS-infrastructuur met een hoge beschikbaarheid en uitstekende prestaties maken voor uw organisatie. Hiervoor maakt u gebruikt van de verschillende routeringsmethoden die beschikbaar zijn om aan verschillende eisen te voldoen voor de infrastructuur.

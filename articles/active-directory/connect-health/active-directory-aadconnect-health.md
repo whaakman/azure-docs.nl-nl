@@ -4,7 +4,7 @@ description: Dit is de Azure AD Connect Health-pagina waar wordt beschreven wat 
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Uw on-premises infrastructuur voor identiteiten en synchronisatieservices in de cloud controleren
 Azure Active Directory (Azure AD) Connect Health helpt u om inzicht te verkrijgen in uw on-premises infrastructuur voor identiteiten en de synchronisatieservices. Hiermee kunt u een betrouwbare verbinding met Office 365 en Microsoft Online Services onderhouden door bewakingsmogelijkheden te bieden voor uw belangrijkste identiteitsonderdelen, zoals Active Directory Federation Services-servers (AD FS), Azure AD Connect-servers (ook wel Sync Engine genoemd), Active Directory-domeincontrollers, enzovoort. Ook worden de belangrijkste gegevenspunten over deze onderdelen gemakkelijk toegankelijk gemaakt, zodat u statistieken over het gebruik en andere zaken kunt ophalen en u weloverwogen beslissingen kunt nemen.

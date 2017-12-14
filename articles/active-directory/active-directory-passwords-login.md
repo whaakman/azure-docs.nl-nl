@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,22 +16,22 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 46d5a673c530c6fbcbd1a88a8e74a753ae04998b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
-U hebt selfservice voor wachtwoordherstel (SSPR) voor Azure AD al geïmplementeerd, maar uw gebruikers bellen nog steeds met de helpdesk wanneer ze hun wachtwoord zijn vergeten. Ze bellen de helpdesk omdat ze geen toegang hebben tot een webbrowser om toegang te krijgen tot SSPR.
+U hebt self-service voor wachtwoordherstel (SSPR) voor Azure AD al geïmplementeerd, maar uw gebruikers bellen nog steeds met de helpdesk wanneer ze hun wachtwoord zijn vergeten. Ze bellen de helpdesk omdat ze geen toegang hebben tot een webbrowser om toegang te krijgen tot SSPR.
 
 Met de nieuwe Windows 10 Fall Creators Update zien gebruikers met apparaten die zijn toegevoegd aan Azure AD, de koppeling 'Wachtwoord opnieuw instellen' op hun aanmeldingsscherm. Wanneer ze op deze koppeling klikken, worden ze omgeleid naar dezelfde selfservice voor wachtwoordherstel (SSPR) als waarmee ze al bekend zijn.
 
 Als u wilt dat gebruikers hun Azure AD-wachtwoord opnieuw kunnen instellen via het aanmeldingsscherm van Windows 10, moet aan de volgende vereisten worden voldaan:
 
 * Windows 10, versie 1709, of nieuwere client die is [toegevoegd aan Azure AD](device-management-azure-portal.md).
-* Selfservice voor wachtwoordherstel voor Azure AD moet zijn ingeschakeld.
+* Self-service voor wachtwoordherstel voor Azure AD moet zijn ingeschakeld.
 * U kunt de instelling die de koppeling 'Wachtwoord opnieuw instellen' inschakelt, configureren en implementeren met een van de volgende methoden:
    * [Intune-apparaatconfiguratieprofiel](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
    * [Registersleutel](active-directory-passwords-login.md#configure-reset-password-link-using-the-registry)
@@ -102,7 +102,7 @@ Welke wijzigingen zien de gebruikers nadat het beleid is geconfigureerd en toege
 
 ![Aanmeldingsscherm][LoginScreen]
 
-Wanneer gebruikers zich proberen aan te melden, zien ze nu de koppeling Wachtwoord opnieuw instellen die toegang biedt tot de selfservice voor wachtwoordherstel vanuit het aanmeldingsscherm. Deze functionaliteit maakt het mogelijk dat gebruikers hun wachtwoord opnieuw instellen zonder dat ze een ander apparaat moeten gebruiken om toegang te krijgen tot een webbrowser.
+Wanneer gebruikers zich proberen aan te melden, zien ze nu de koppeling Wachtwoord opnieuw instellen die toegang biedt tot de self-service voor wachtwoordherstel vanuit het aanmeldingsscherm. Deze functionaliteit maakt het mogelijk dat gebruikers hun wachtwoord opnieuw instellen zonder dat ze een ander apparaat moeten gebruiken om toegang te krijgen tot een webbrowser.
 
 Uw gebruikers vinden hulp voor het gebruik van deze functie in [Uw wachtwoord voor werk of school opnieuw instellen](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 

@@ -8,11 +8,11 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: hero-article
 manager: carmonm
-ms.openlocfilehash: bfdd67ac1018f242e415da1a66d93f22bea8d054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Een virtuele Azure-machine met inventarisverzameling beheren
 
@@ -20,7 +20,7 @@ U kunt Inventaris bijhouden voor een virtuele Azure-machine inschakelen vanaf de
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u nog geen abonnement op Azure hebt, [maak dan een gratis account](https://azure.microsoft.com/free/).
-Als u nog geen virtuele Azure-machine hebt, [maak dan een virtuele machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal).
+Als u nog geen virtuele Azure-machine hebt, [maak dan een virtuele machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 Meld u aan bij [Azure Portal](https://portal.azure.com/).

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Service-eindpunten voor virtuele netwerken configureren
 
@@ -385,7 +385,7 @@ Service-eindpunten kunnen afzonderlijk op virtuele netwerken worden geconfiguree
 
 Als u Azure-serviceresources naar een VNet wilt beveiligen, moet u machtigingen hebben voor Microsoft.Network/JoinServicetoaSubnet voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
 
-Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+Meer informatie over [ingebouwde rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
 VNets en Azure-serviceresources kunnen in hetzelfde of in verschillend abonnementen zitten. Als ze in verschillende abonnementen zitten, moeten de resources tijdens deze previewperiode onder dezelfde Active Directory-tenant (AD) zitten.
 
