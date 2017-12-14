@@ -3,7 +3,7 @@ title: Schema's in Azure Automation | Microsoft Docs
 description: Automation-planningen worden gebruikt voor het plannen van runbooks in Azure Automation automatisch wordt gestart. Beschrijft het maken en beheren van een planning in, zodat u automatisch een runbook op een bepaald tijdstip of volgens een terugkerend schema starten kunt.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation plannen
 Als u een runbook in Azure Automation om te beginnen bij een bepaalde tijd plannen, koppelt u deze aan een of meer planningen. Een schema kan worden geconfigureerd voor uitvoeren nadat de of op een opnieuw optreedt per uur of dagelijks schema voor runbooks in de klassieke Azure portal en voor runbooks in de Azure portal, kunt u ze ook plannen voor wekelijks, maandelijks, specifieke dagen van de week of dagen van de maand , of een bepaalde dag van de maand.  Een runbook kan worden gekoppeld aan meerdere planningen kan, en een planning meerdere runbooks die zijn gekoppeld.

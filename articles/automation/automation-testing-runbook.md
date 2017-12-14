@@ -3,7 +3,7 @@ title: Testen van een runbook in Azure Automation | Microsoft Docs
 description: Voordat u een runbook in Azure Automation publiceren, kunt u het testen om ervoor te zorgen dat werkt zoals verwacht.  In dit artikel wordt beschreven hoe een runbook testen en weergeven van de uitvoer ervan weergegeven.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 2c811cc8c8277e9840babcf1043cde44238b8661
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df675dbf915d0fe08905a83b7874fdd95deed42d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testen van een runbook in Azure Automation
 Wanneer u een runbook test de [conceptversie](automation-creating-importing-runbook.md#publishing-a-runbook) wordt uitgevoerd en acties die worden uitgevoerd, zijn voltooid. Er wordt geen Taakgeschiedenis is gemaakt, maar de [uitvoer](automation-runbook-output-and-messages.md#output-stream) en [waarschuwingen en fouten](automation-runbook-output-and-messages.md#message-streams) stromen worden weergegeven in de Test deelvenster Uitvoer. Berichten naar de [uitgebreide stroom](automation-runbook-output-and-messages.md#message-streams) worden weergegeven in het deelvenster Uitvoer alleen als de [variabele $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) is ingesteld om verder te gaan.

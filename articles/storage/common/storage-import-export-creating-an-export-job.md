@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Een exporttaak voor de Azure Import/Export-service maken
 Maken van een taak voor het exporteren van de Microsoft Azure Import/Export-service met de REST API omvat de volgende stappen:
@@ -57,7 +57,7 @@ Voordat u maakt een taak voor het exporteren, moet u een back-upfunctie locatien
 
 Volg onderstaande stappen voor het verkrijgen van de locatie van de back-ups:
 
--   Geef de naam van de locatie van uw opslagaccount. Deze waarde kan worden gevonden in de **locatie** op het opslagaccount **Dashboard** in de klassieke portal of voor de query met de service management API-bewerking [eigenschappen van het Opslagaccount ophalen](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Geef de naam van de locatie van uw opslagaccount. Deze waarde kan worden gevonden in de **locatie** op het opslagaccount **Dashboard** in de Azure portal of voor de query met de service management API-bewerking [eigenschappen van het Opslagaccount ophalen](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Ophalen van de locatie die beschikbaar zijn voor het verwerken van dit opslagaccount door het aanroepen van de `Get Location` bewerking.
 

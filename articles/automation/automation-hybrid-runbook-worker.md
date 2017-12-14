@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Workers | Microsoft Docs
 description: In dit artikel bevat informatie over het installeren en gebruiken van Hybrid Runbook Worker die is een functie van Azure Automation kunt u runbooks uitvoeren op machines in uw lokale datacentrum of de cloudprovider.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 5697491ed62a3a2ed5b4762041a683ee97f42b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d33ce1b4f00e8186ad894d54901e3bc09d263fa4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatiseren van bronnen in uw datacenter of de cloud met Hybrid Runbook Worker
 Runbooks in Azure Automation heeft geen toegang tot resources in andere clouds of in uw on-premises omgeving omdat ze worden uitgevoerd in de Azure-cloud.  De Hybrid Runbook Worker-functie van Azure Automation kunt u direct op de computer die als host fungeert voor de rol en op basis van bronnen in de omgeving voor het beheren van de lokale bronnen runbooks worden uitgevoerd. Runbooks zijn opgeslagen en beheerd in Azure Automation en vervolgens aan een of meer specifieke computers geleverd.  
@@ -103,7 +103,7 @@ Volg de instructies voor [toevoegen van een oplossing met behulp van de galerie 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent installeren
 Microsoft Monitoring Agent verbonden computers met Operations Management Suite.  Wanneer u de agent op uw on-premises computer installeren en met uw werkruimte verbinden, worden de onderdelen die vereist zijn voor hybride Runbook Worker automatisch gedownload.
 
-Volg de instructies voor [verbinding maken met Windows-computers met logboekanalyse](../log-analytics/log-analytics-windows-agents.md) voor het installeren van de agent op de lokale computer.  U kunt dit proces voor meerdere computers meerdere werknemers toevoegen aan uw omgeving herhalen.
+Volg de instructies voor [verbinding maken met Windows-computers met logboekanalyse](../log-analytics/log-analytics-windows-agent.md) voor het installeren van de agent op de lokale computer.  U kunt dit proces voor meerdere computers meerdere werknemers toevoegen aan uw omgeving herhalen.
 
 Wanneer de agent is met Operations Management Suite verbonden, wordt het weergegeven op de **verbonden bronnen** tabblad van de Operations Management Suite **instellingen** deelvenster.  U kunt controleren of de agent correct de Automation-oplossing heeft gedownload wanneer er een map met de naam **AzureAutomationFiles** in C:\Program Files\Microsoft Monitoring Agent\Agent.  Als u wilt controleren welke versie van de hybride Runbook Worker, u kunt navigeren naar C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ en noteer de \\ *versie* submap.   
 

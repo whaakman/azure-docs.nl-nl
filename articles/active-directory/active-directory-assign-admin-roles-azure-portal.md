@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 12/13/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 0ecba72de9604fe1fd13a993f58bcdb1e8097501
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -76,7 +76,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **Bevoegde rol beheerder**: gebruikers met deze rol roltoewijzingen in Azure Active Directory, evenals in Azure AD Privileged Identity Management kunnen beheren. Bovendien kan deze rol beheer van alle aspecten van Privileged Identity Management.
 
-* **Beveiligingsbeheerder**: gebruikers met deze functie hebben alle alleen-lezen machtigingen van de beveiligingsrol van de lezer, plus de mogelijkheid voor het beheren van configuratie voor beveiliging gerelateerde services: Azure Active Directory: Identity Protection, Privileged Identity Management en Office 365-beveiliging en naleving Center. Meer informatie over machtigingen voor Office 365 is beschikbaar op [machtigingen in de Office 365-beveiliging & Compliancecentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Beveiligingsbeheerder**: gebruikers met deze functie hebben alle alleen-lezen machtigingen van de beveiligingsrol van de lezer, plus de mogelijkheid voor het beheren van configuratie voor beveiliging gerelateerde services: Azure Active Directory: Identity Protection, Azure Information Protection, Privileged Identity Management en Office 365-beveiliging en naleving Center. Meer informatie over machtigingen voor Office 365 is beschikbaar op [machtigingen in de Office 365-beveiliging & Compliancecentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Beveiliging lezer**: gebruikers met deze rol globale alleen-lezen toegang hebben, met inbegrip van alle gegevens in Azure Active Directory, Identity Protection, Privileged Identity Management, evenals de mogelijkheid om te lezen van Azure Active Directory-in rapporten en controlelogboeken. De functie geeft ook het kenmerk alleen-lezen recht in Office 365-beveiliging en naleving Center. Meer informatie over machtigingen voor Office 365 is beschikbaar op [machtigingen in de Office 365-beveiliging & Compliancecentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.openlocfilehash: ef49a6c176017d05a4048145c62fcf8692ffc23b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Een inleiding tot Hadoop-beveiliging met HDInsight-clusters domein
 
@@ -31,6 +31,8 @@ Tot nu toe werd in Azure HDInsight alleen ondersteuning geboden voor één lokal
 
 > [!IMPORTANT]
 > Oozie is niet ingeschakeld op HDInsight domein.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="benefits"></a>Voordelen
 Bedrijfsbeveiliging bestaat uit vier kernonderdelen: perimeterbeveiliging, verificatie, autorisatie en versleuteling.

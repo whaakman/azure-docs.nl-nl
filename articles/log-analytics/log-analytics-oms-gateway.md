@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Computers zonder toegang tot het Internet verbinden met OMS met behulp van de OMS-Gateway
 
@@ -129,7 +129,7 @@ Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS-agent en Operations Manager-beheergroep configureren
 De volgende sectie bevat stapsgewijze instructies voor het rechtstreeks verbonden zijn met OMS-agents, een Operations Manager-beheergroep of Azure Automation Hybrid Runbook Workers configureren met de OMS-Gateway om te communiceren met OMS.  
 
-Zie vereisten en stappen voor het installeren van de OMS-agent op Windows-computers rechtstreeks verbinden met OMS inzicht [verbinding maken met Windows-computers met OMS](log-analytics-windows-agents.md) of voor Linux-computers Zie [verbinding maken met Linux-computers met OMS](log-analytics-linux-agents.md). 
+Zie vereisten en stappen voor het installeren van de OMS-agent op Windows-computers rechtstreeks verbinden met OMS inzicht [verbinding maken met Windows-computers met OMS](log-analytics-windows-agent.md) of voor Linux-computers Zie [verbinding maken met Linux-computers met OMS](log-analytics-linux-agents.md). 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>De OMS-agent en de Operations Manager om de OMS-Gateway gebruiken als een proxyserver configureren
 

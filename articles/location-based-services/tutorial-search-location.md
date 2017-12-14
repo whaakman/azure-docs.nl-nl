@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 31b0df0442a46761cb19e390e723535ff5a81594
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Zoeken in de buurt interessante met Azure locatie op basis van Services
 
@@ -105,7 +105,7 @@ Azure kaart beheer-API is een handige clientbibliotheek waarmee u eenvoudig Azur
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
     </body>
 
@@ -115,7 +115,7 @@ Azure kaart beheer-API is een handige clientbibliotheek waarmee u eenvoudig Azur
  
 3.  Voeg de volgende JavaScript-code naar de *script* blok van het HTML-bestand. Vervang de tijdelijke aanduiding *< insert-sleutel >* met primaire sleutel van uw Services op basis van locatie-account. 
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Instantiate map to the div with id "map"
     var subscriptionKey = "<insert-key>";
     var map = new atlas.Map("map", {
@@ -126,7 +126,7 @@ Azure kaart beheer-API is een handige clientbibliotheek waarmee u eenvoudig Azur
 
 4. Voeg de volgende JavaScript-code naar de *script* blok, een laag van search pincodes toevoegen aan het Kaartbesturingselement:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
     map.addPins([], {
@@ -146,7 +146,7 @@ Azure kaart beheer-API is een handige clientbibliotheek waarmee u eenvoudig Azur
 Deze sectie wordt beschreven hoe u met de Azure Locatieservices op basis van de API van zoekservice een punt van belang vinden op de kaart. Het is een RESTful-API die zijn bestemd voor ontwikkelaars om te zoeken naar adressen, wetenswaardigheden en andere geografische informatie. De Search-Service toewijst een breedtegraad en lengtegraad informatie aan een opgegeven adres. 
 
 1. Open de **MapSearch.html** bestand in de voorgaande sectie hebt gemaakt en voeg de volgende JavaScript-code naar de *script* blok ter illustratie van de Search-Service. 
-    ```HTML/JavaScript
+    ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -189,7 +189,7 @@ Deze sectie wordt beschreven hoe u met de Azure Locatieservices op basis van de 
 
 2. Voeg de volgende code naar de *script* blok, de XMLHttpRequest verzenden naar de locatie op basis van de zoekopdracht Service van Azure Services:
 
-    ```HTML/JavaScript
+    ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
@@ -205,7 +205,7 @@ Deze sectie wordt beschreven hoe u met de Azure Locatieservices op basis van de 
 
 3. Voeg de volgende regels voor de *script* blok pop-ups voor de punten van belang zijn geretourneerd door de Search-Service maken:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
     var popup = new atlas.Popup();
     map.addEventListener("mouseover", searchLayerName, (e) => {

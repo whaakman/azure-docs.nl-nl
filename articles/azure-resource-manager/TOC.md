@@ -14,6 +14,7 @@
 ### [Sjabloonsecties](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variabelen](resource-manager-templates-variables.md)
+#### [Bronnen](resource-manager-templates-resources.md)
 ### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
 ### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)

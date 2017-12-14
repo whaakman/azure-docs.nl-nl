@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 8dce980e50b465b67d3d6f14dc79c48c5f2fcdb5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Documentatie voor Azure HDInsight
 
-Leer hoe u Azure HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten u zien hoe u clusters maakt, big data verwerkt en analyseert, en oplossingen ontwikkelt met populaire open-source frameworks als Hadoop, Spark, Hive, LLAP, Kafka, Storm, R en meer 
+Leer hoe u Azure HDInsight kunt gebruiken om streaming of historische gegevens te analyseren. Zelfstudies en andere documentatie laten u zien hoe u clusters maakt, big data verwerkt en analyseert, en oplossingen ontwikkelt met populaire open-source frameworks als Hadoop, Spark, Hive, LLAP, Kafka, Storm, R en meer. 
 
 Azure HDInsight is een volledig beheerde, zeer uitgebreide open-source analyseservice voor bedrijven. HDInsight is een cloudservice die het eenvoudig, snel en kosteneffectief maakt om enorme hoeveelheden gegevens te verwerken. HDInsight biedt bovendien ondersteuning voor een breed scala aan scenario's, zoals uitpakken, transformeren en laden (ETL), gegevensopslag, machine learning en IoT.  
 

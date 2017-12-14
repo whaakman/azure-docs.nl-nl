@@ -3,7 +3,7 @@ title: Bron van de integratie van broncodebeheer in Azure Automation | Microsoft
 description: Integratie van broncodebeheer met GitHub in Azure Automation beschreven.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: d8f236a012648062e703fa2c4123d139c0e115ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 Integratie van broncodebeheer kunt u runbooks in uw Automation-account aan een GitHub-resourcebeheerbibliotheek koppelen. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en terugkeren naar eerdere versies van uw runbooks. Broncodebeheer kunt u verschillende filialen in besturingselement voor de ontwikkeling, testen of productie Automation-accounts, zodat u eenvoudig ter bevordering van de code die in uw ontwikkelomgeving, zodat uw productie Automation-account is getest synchroniseren.
@@ -46,7 +46,7 @@ Als u al een GitHub-account en een locatie die u wilt koppelen aan Azure Automat
    | Bron kiezen |Selecteer de gegevensbron. Op dit moment alleen **GitHub** wordt ondersteund. |
    | Autorisatie |Klik op de **autoriseren** knop Azure Automation toegang geven tot uw GitHub-opslagplaats. Als u bent al aangemeld bij uw GitHub-account in een ander venster, wordt de referenties van het account gebruikt. Wanneer autorisatie voltooid is, ziet de pagina uw GitHub-gebruikersnaam onder **autorisatie eigenschap**. |
    | Kies de opslagplaats |Selecteer een GitHub-opslagplaats in de lijst met beschikbare opslagplaatsen. |
-   | Vertakking kiezen |Selecteer een vertakking uit de lijst met beschikbare vertakkingen. Alleen de **master** vertakking wordt weergegeven als u eventuele vertakkingen dat nog niet hebt gemaakt. |
+   | Kies vertakking |Selecteer een vertakking uit de lijst met beschikbare vertakkingen. Alleen de **master** vertakking wordt weergegeven als u eventuele vertakkingen dat nog niet hebt gemaakt. |
    | Pad naar de Runbookmap |Het pad naar de runbookmap geeft het pad in de GitHub-opslagplaats van waaruit u wilt push of pull uw code. Dit moet worden ingevoerd in de indeling **/mapnaam/submapnaam**. Alleen runbooks in het pad naar de runbookmap worden met uw Automation-account gesynchroniseerd. Runbooks in submappen van het pad naar de runbookmap wordt **niet** worden gesynchroniseerd. Gebruik  **/**  om alle runbooks in de opslagplaats te synchroniseren. |
 3. Bijvoorbeeld, als er een opslagplaats met de naam **PowerShellScripts** die een map met de naam bevat **RootFolder**, die een map met de naam bevat **submap**. U kunt de volgende tekenreeksen elke mapniveau synchroniseren:
    
@@ -67,7 +67,7 @@ Als u al een GitHub-account en een locatie die u wilt koppelen aan Azure Automat
      | **Parameter** | **Waarde** |
      |:--- |:--- |
      | Naam |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |Tekenreeks |
+     | Type |Reeks |
      | Waarde |{{'Vertakking':\<*de naam van uw vertakking*>, 'RunbookFolderPath':\<*pad naar de Runbookmap*>, 'ProviderType':\<*heeft de waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
 
     * De variabele **Microsoft.Azure.Automation.SourceControl.OAuthToken**, bevat de veilig versleutelde waarde van uw OAuthToken.  

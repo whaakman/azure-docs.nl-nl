@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Aanbevolen procedures voor Automatisch schalen
 In dit artikel leert aanbevolen beveiligingsprocedures voor automatisch schalen in Azure. Monitor voor automatisch schalen die Azure is alleen bedoeld voor [virtuele-Machineschaalsets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloudservices](https://azure.microsoft.com/services/cloud-services/), en [App Service - Web-Apps](https://azure.microsoft.com/services/app-service/web/). Andere Azure-services verschillende schalen methoden gebruiken.
@@ -44,9 +44,6 @@ Als u handmatig het aantal exemplaren op een waarde boven of onder de maximale b
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Gebruik altijd een combinatie van scale-out en schaal in regel waarmee een verhogen en de afname
 Als u slechts één deel van de combinatie gebruikt, wordt automatisch schalen scale-dat in enkele uit of in, tot de maximum of minimum, bereikt.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Niet overschakelen tussen de Azure-portal en de klassieke Azure portal bij het beheren van automatisch schalen
-Gebruik de Azure portal (portal.azure.com) maken en beheren van instellingen voor automatisch schalen voor Cloudservices en App-Services (Web-Apps). Gebruik PowerShell, CLI of REST-API maken en beheren van de instelling voor automatisch schalen voor virtuele-Machineschaalsets. Kan niet schakelen tussen de klassieke Azure portal (manage.windowsazure.com) en de Azure portal (portal.azure.com) bij het beheren van configuraties voor automatisch schalen. De klassieke Azure portal en de onderliggende back-end heeft beperkingen. Verplaatsen naar de Azure-portal voor het beheren van automatisch schalen met een grafische gebruikersinterface. De opties zijn om te gebruiken voor het automatisch schalen PowerShell, CLI of REST-API (via Azure Resource Explorer).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Kies de juiste statistieken voor de metriek diagnostische gegevens
 Voor de metrische gegevens voor diagnostische gegevens, kunt u kiezen uit *gemiddelde*, *Minimum*, *maximale* en *totale* als een waarde te schalen. De meest voorkomende statistieken *gemiddelde*.

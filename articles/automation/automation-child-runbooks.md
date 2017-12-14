@@ -3,7 +3,7 @@ title: Onderliggende runbooks in Azure Automation | Microsoft Docs
 description: Beschrijft de verschillende methoden voor het starten van een runbook in Azure Automation vanuit een ander runbook en delen van gegevens tussen deze.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Onderliggende runbooks in Azure Automation
 Het is een best practice in Azure Automation schrijven herbruikbare, modulaire runbooks met een aparte functie die kan worden gebruikt door andere runbooks. Een bovenliggend runbook roept vaak een of meer onderliggende runbooks om uit te voeren van de vereiste functionaliteit. Er zijn twee manieren om aan te roepen, een onderliggend runbook en elke manier kent duidelijke verschillen die u moet begrijpen zodat u kunt bepalen wat de beste optie voor uw verschillende scenario's.

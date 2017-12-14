@@ -1,8 +1,8 @@
 # [Overzicht](overview.md)
 
-# QuickStart
-## [QuickStart voor Bash](quickstart.md)
-## [QuickStart voor PowerShell](quickstart-powershell.md)
+# Snelstartgids
+## [Snelstartgids voor Bash](quickstart.md)
+## [Snelstartgids voor PowerShell](quickstart-powershell.md)
 
 # Concepten
 ## [Functies en hulpprogramma's in Bash](features.md)
@@ -17,7 +17,7 @@
 # Voorbeelden
 ## [Azure-resources met Terraform in Bash implementeren](example-terraform-bash.md)
 
-# [Prijzen](pricing.md)
+# [Cloud Shell insluiten](embed-cloud-shell.md)
 
 # [Problemen oplossen](troubleshooting.md)
 
