@@ -3,7 +3,7 @@ title: "Runbook- en galerieën voor Azure Automation | Microsoft Docs"
 description: Runbooks en modules van Microsoft en de community zijn beschikbaar voor u installeren en gebruiken in uw Azure Automation-omgeving.  Dit artikel wordt beschreven hoe u toegang hebt tot deze bronnen en bij te dragen van uw runbooks aan de galerie.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d3fee7b4-630a-4c10-8425-9bf51d7c9e58
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e46c09a0cfecf07514f85b5801129fbd8162510f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot allerlei scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder aanpassingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.

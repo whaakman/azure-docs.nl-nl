@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Plannen van capaciteit voor Hyper-V-virtuele machine met de capaciteit en prestaties-oplossing (Preview)
 
@@ -45,7 +45,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 | Verbonden bron | Ondersteuning | Beschrijving |
 |---|---|---|
-| [Windows-agents](log-analytics-windows-agents.md) | Ja | De oplossing verzamelt gegevens van de capaciteit en prestaties van Windows-agents. |
+| [Windows-agents](log-analytics-windows-agent.md) | Ja | De oplossing verzamelt gegevens van de capaciteit en prestaties van Windows-agents. |
 | [Linux-agents](log-analytics-linux-agents.md) | Nee    | De oplossing verzamelt geen gegevens van de capaciteit en prestaties van rechtstreekse Linux-agents.|
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Ja |De oplossing verzamelt gegevens van capaciteit en prestaties van agents in een verbonden SCOM-beheergroep. Een directe verbinding van de SCOM-agents met OMS is niet vereist. Gegevens worden doorgestuurd van de beheergroep naar de OMS-opslag.|
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Azure-opslag bevat geen gegevens voor capaciteit en prestaties.|

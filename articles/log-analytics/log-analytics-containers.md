@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: d200587e211758ade85b14cbeb206ebce9291f1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -52,7 +52,7 @@ De volgende tabel licht de Docker-orchestration en het besturingssysteem onderst
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Service<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat openen<br>SHIFT | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat openen<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(zelfstandig) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux-server<br>(zelfstandig) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -137,7 +137,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Overschakelen van het gebruik van een geïnstalleerde Linux-agent op een in een container**
 
-Als u eerder gebruikt de agent rechtstreeks is geïnstalleerd en u wilt gebruiken in plaats daarvan een agent wordt uitgevoerd in een container, moet u eerst de OMS-Agent verwijderen voor Linux. Zie [de OMS-Agent verwijderen voor Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) om te begrijpen hoe de agent met succes te verwijderen.  
+Als u eerder gebruikt de agent rechtstreeks is geïnstalleerd en u wilt gebruiken in plaats daarvan een agent wordt uitgevoerd in een container, moet u eerst de OMS-Agent verwijderen voor Linux. Zie [de OMS-Agent verwijderen voor Linux](log-analytics-agent-linux.md) om te begrijpen hoe de agent met succes te verwijderen.  
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configureer een OMS-agent voor Docker Swarm
 
@@ -515,9 +515,9 @@ Zie voor meer informatie over de Docker-daemon-configuratie gebruikt met Windows
 
 #### <a name="install-windows-agents"></a>Windows-agents installeren
 
-Schakel bewaking voor het Windows- en Hyper-V-container door Microsoft Monitoring Agent (MMA) te installeren op Windows-computers die container hosts zijn. Voor computers waarop Windows wordt uitgevoerd in uw on-premises-omgeving, Zie [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agents.md). Voor virtuele machines worden uitgevoerd in Azure, verbind ze met logboekanalyse met behulp van de [extensie van virtuele machine](log-analytics-azure-vm-extension.md).
+Schakel bewaking voor het Windows- en Hyper-V-container door Microsoft Monitoring Agent (MMA) te installeren op Windows-computers die container hosts zijn. Voor computers waarop Windows wordt uitgevoerd in uw on-premises-omgeving, Zie [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md). Voor virtuele machines worden uitgevoerd in Azure, verbind ze met logboekanalyse met behulp van de [extensie van virtuele machine](log-analytics-azure-vm-extension.md).
 
-U kunt Windows-containers die zijn uitgevoerd op de Service Fabric bewaken. Echter alleen [virtuele machines worden uitgevoerd in Azure](log-analytics-azure-vm-extension.md) en [computers met Windows in uw on-premises omgeving](log-analytics-windows-agents.md) momenteel worden ondersteund voor Service Fabric.
+U kunt Windows-containers die zijn uitgevoerd op de Service Fabric bewaken. Echter alleen [virtuele machines worden uitgevoerd in Azure](log-analytics-azure-vm-extension.md) en [computers met Windows in uw on-premises omgeving](log-analytics-windows-agent.md) momenteel worden ondersteund voor Service Fabric.
 
 U kunt controleren of de bewaking van de Container-oplossing goed is ingesteld voor Windows. Als u wilt controleren of het management pack downloaden goed is, zoekt u naar *ContainerManagement.xxx*. De bestanden zich in de map C:\Program Files\Microsoft Monitoring Agent\Agent\Health State\Management servicepacks.
 
@@ -534,7 +534,7 @@ De oplossing Container bewaking verzamelt verschillende metrische gegevens en lo
 Gegevens worden elke drie minuten worden verzameld door de volgende typen van de agent.
 
 - [OMS-Agent voor Linux](log-analytics-linux-agents.md)
-- [Windows-agent](log-analytics-windows-agents.md)
+- [Windows-agent](log-analytics-windows-agent.md)
 - [Log Analytics VM-extensie](log-analytics-azure-vm-extension.md)
 
 

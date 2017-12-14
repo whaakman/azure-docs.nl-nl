@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: c7650fe4e10b9dcfe6068152398922723587a658
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Hoe u een asset coderen met behulp van Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -57,8 +57,6 @@ Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de
 > Als u met de REST-API van Media Services werkt, past u de volgende overwegingen:
 >
 > Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van REST-API voor Media Services](media-services-rest-how-to-use.md).
->
-> Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI. Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 >
 > Wanneer met behulp van JSON en op te geven voor het gebruik van de **__metadata** sleutelwoord in de aanvraag (bijvoorbeeld om een verwijzing naar een gekoppeld object), stelt u de **accepteren** koptekst tot [uitgebreide JSON-indeling](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accepteren: application/json; odata = verbose.
 >

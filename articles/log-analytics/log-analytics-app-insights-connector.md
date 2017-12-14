@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Application Insights-Connector oplossing (Preview) in de Operations Management Suite (OMS)
 
@@ -39,7 +39,7 @@ In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet gegeven
 
 | Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
-| [Windows-agents](log-analytics-windows-agents.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
+| [Windows-agents](log-analytics-windows-agent.md) | Nee | De oplossing verzamelt geen informatie van Windows-agents. |
 | [Linux-agents](log-analytics-linux-agents.md) | Nee | De oplossing worden geen gegevens verzameld van Linux-agents. |
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Nee | De oplossing worden geen gegevens verzameld van agents in een verbonden SCOM-beheergroep. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | De oplossing biedt geen gegevens naar Azure storage. |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL Database met behulp van Azure SQL Analytics (Preview) in logboekanalyse bewaken
 
@@ -43,7 +43,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 | Verbonden bron | Ondersteuning | Beschrijving |
 | --- | --- | --- |
-| [Windows-agents](log-analytics-windows-agents.md) | Nee | Directe Windows-agents worden niet gebruikt door de oplossing. |
+| [Windows-agents](log-analytics-windows-agent.md) | Nee | Directe Windows-agents worden niet gebruikt door de oplossing. |
 | [Linux-agents](log-analytics-linux-agents.md) | Nee | Directe Linux-agents worden niet gebruikt door de oplossing. |
 | [SCOM-beheergroep](log-analytics-om-agents.md) | Nee | Een rechtstreekse verbinding tussen de SCOM-agents met logboekanalyse wordt niet gebruikt door de oplossing. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Log Analytics biedt de gegevens niet lezen uit een opslagaccount. |

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: ca4066396f71865626f4034e490bb069a5f7ddf6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Het gebruik van GPU in Azure Machine Learning
 Grafische verwerken Unit (GPU) wordt veel gebruikt voor het verwerken van rekenkracht taken die doorgaans kunnen ontstaan bij het trainen van bepaalde diepe neural network-modellen. Met behulp van GPU's, kunt u de trainingstijd van de modellen aanzienlijk verkorten. In dit document, u informatie over het configureren van Azure ML-Workbench om te gebruiken [DSVM (gegevens wetenschappelijke virtuele Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) uitgerust met GPU's als doel kan worden uitgevoerd. 
@@ -64,7 +64,7 @@ Azure ML-Workbench bieden ook ondersteuning voor uitvoering in Docker in een Azu
 4. Klik op **maken** een Ubuntu DSVM maken.
 
 5. Vul de **basisbeginselen** formulier met de vereiste informatie.
-Als u de locatie voor uw virtuele machine, houd er rekening mee dat GPU VM's alleen beschikbaar in bepaalde Azure-regio's, bijvoorbeeld zijn **Zuid-centraal VS**. Zie [producten die beschikbaar zijn in elke regio compute](https://azure.microsoft.com/en-us/regions/services/).
+Als u de locatie voor uw virtuele machine, houd er rekening mee dat GPU VM's alleen beschikbaar in bepaalde Azure-regio's, bijvoorbeeld zijn **Zuid-centraal VS**. Zie [producten die beschikbaar zijn in elke regio compute](https://azure.microsoft.com/regions/services/).
 Klik op OK om op te slaan de **basisbeginselen** informatie.
 
 6. Kies de grootte van de virtuele machine. Selecteer een van de grootte met NC voorafgegaan VM's die zijn uitgerust met chips NVidia GPU.  Klik op **Alles weergeven** om te zien van de volledige lijst indien nodig. Meer informatie over [GPU uitgerust Azure Virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).

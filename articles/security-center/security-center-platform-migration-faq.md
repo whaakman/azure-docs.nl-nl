@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-platform migratie Veelgestelde vragen
 In eerdere juni 2017 begonnen Azure Security Center met behulp van Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie voor meer informatie, [Azure Security Center-Platform migratie](security-center-platform-migration.md). Deze Veelgestelde vragen over de antwoorden op vragen over de migratie van het platform.
@@ -175,7 +175,7 @@ U wilt afmelden automatische inrichting als voor u het volgende geldt:
 Zodra de migratie is voltooid, kan geen Security Center voor het verzamelen van beveiligingsgegevens van de virtuele machine en een aantal aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar. Als u dit doet, moet u Microsoft Monitoring Agent handmatig installeren. Zie [aanbevolen stappen bij uitschrijft](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Wat zijn de aanbevolen stappen buiten het automatisch inrichten uitschakelen?
-U moet Microsoft Monitoring Agent handmatig installeren zodat Security Center kunt verzamelen van beveiligingsgegevens van uw VM's en aanbevelingen waarschuwingen en. Zie [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agents.md) voor hulp bij de installatie.
+U moet Microsoft Monitoring Agent handmatig installeren zodat Security Center kunt verzamelen van beveiligingsgegevens van uw VM's en aanbevelingen waarschuwingen en. Zie [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md) voor hulp bij de installatie.
 
 U kunt de agent verbinden met een bestaande aangepaste werkruimte of Security Center werkruimte hebt gemaakt. Als een aangepaste werkruimte beschikt niet over de 'Security' of 'SecurityCenterFree' oplossingen die zijn ingeschakeld, moet u een oplossing toepassen. Als u wilt toepassen, selecteert u de aangepaste werkruimte of het abonnement en toepassen van een prijscategorie via de **beveiligingsbeleid – prijscategorie** blade.
 

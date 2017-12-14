@@ -3,7 +3,7 @@ title: " Herstellen van de Azure VM waarschuwingen met Automation-Runbooks | Mic
 description: Dit artikel wordt beschreven hoe u waarschuwingen van de virtuele Machine van Azure integreren met Azure Automation-runbooks en automatisch oplossen van problemen
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: csand;magoedte
-ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef18a2de8ce62de945c49b91dc74aca7d7f408b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Azure Automation-scenario: waarschuwingen van de virtuele machine in Azure oplossen
 Azure Automation en Azure Virtual Machines zijn beschikbaar voor een nieuwe functie waarmee u kunt de virtuele Machine (VM) waarschuwingen configureren om te Automation-runbooks worden uitgevoerd. Deze nieuwe mogelijkheid kunt u automatisch uit te voeren standaard in reactie op waarschuwingen van de virtuele machine, zoals het opnieuw te starten of stoppen van de virtuele machine.

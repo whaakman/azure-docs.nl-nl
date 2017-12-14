@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Platform niveau gebeurtenis- en logboekbestanden genereren
 
@@ -105,7 +105,7 @@ Zie voor een lijst van te verzamelen bij gebruik van Service Fabric prestatiemet
 
 Hier zijn twee algemene manieren waarop u kunt instellen voor het verzamelen van prestatiegegevens voor het cluster:
 
-* Met behulp van een agent: dit is de beste manier om het verzamelen van prestaties van een machine Aangezien agents hebben meestal een lijst met mogelijke prestaties metrische gegevens die kunnen worden verzameld en is een relatief gemakkelijk proces voor het kiezen van de metrische gegevens die u wilt verzamelen of deze te wijzigen. Meer informatie over [de OMS configureren voor Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) en [instellen van de OMS-Agent voor Windows](../log-analytics/log-analytics-windows-agents.md) artikelen voor meer informatie over de OMS-agent is een dergelijke monitoring agent die kunnen worden opgepikt prestaties gegevens voor het cluster virtuele machines en geïmplementeerde containers.
+* Met behulp van een agent: dit is de beste manier om het verzamelen van prestaties van een machine Aangezien agents hebben meestal een lijst met mogelijke prestaties metrische gegevens die kunnen worden verzameld en is een relatief gemakkelijk proces voor het kiezen van de metrische gegevens die u wilt verzamelen of deze te wijzigen. Meer informatie over [de OMS configureren voor Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) en [instellen van de OMS-Agent voor Windows](../log-analytics/log-analytics-windows-agent.md) artikelen voor meer informatie over de OMS-agent is een dergelijke monitoring agent die kunnen worden opgepikt prestaties gegevens voor het cluster virtuele machines en geïmplementeerde containers.
 
 * Diagnostische gegevens voor het schrijven van prestatie-items aan een tabel te configureren: voor clusters op Azure, betekent dit wijzigen van de configuratie van Azure Diagnostics om op te halen de juiste prestatiemeteritems van de virtuele machines in het cluster en het inschakelen van deze docker-statistieken kunnen worden opgepikt als dat u implementeert geen containers. Meer informatie over het configureren van [prestatiemeters in af](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric voor het instellen van het verzamelen van prestatiemeteritems.
 

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3631bab8e5cb505689e92d2862c6863bcd56404d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Routes voor verschillende modi van reizen met locatie op basis van Azure-Services vinden
 
@@ -65,12 +65,12 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
             }
         </style>
     </head>
+    
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -78,88 +78,87 @@ Gebruik de volgende stappen voor het maken van een statische HTML-pagina in de l
     Houd er rekening mee dat de resource-locaties voor CSS en JavaScript-bestanden voor de locatie op basis van Azure-Services-bibliotheek wordt ingesloten door de HTML-header. U ziet ook de *script* segment toevoegen aan de hoofdtekst van het HTML-code, de inline JavaScript-code voor toegang tot de Azure-API voor het beheer van kaart bevat.
 3. Voeg de volgende JavaScript-code naar de *script* blok van het HTML-bestand. Vervang de tijdelijke aanduiding *< insert-sleutel >* met primaire sleutel van uw Services op basis van locatie-account.
 
-    ```HTML
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    ```JavaScript
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     De **atlas. Kaart** biedt het besturingselement voor een kaart visual en interactieve webpagina en is een onderdeel van de Azure-API voor het beheer van kaart.
 
 4. Voeg de volgende JavaScript-code naar de *script* blok, de weergave van de stroom verkeer toevoegen aan de kaart:
 
-    ```HTML
-            // Add Traffic Flow to the Map
-            map.setTraffic({
-                flow: "relative"
-            });
+    ```JavaScript
+    // Add Traffic Flow to the Map
+    map.setTraffic({
+        flow: "relative"
+    });
     ```
     Deze code wordt het netwerkverkeer ingesteld op `relative`, dit is de snelheid van de weg ten opzichte van de gratis stroom. U kunt deze ook instellen op `absolute` snelheid van de weg of `relative-delay` die de relatieve processorsnelheid waar deze verschilt van gratis overdracht weergegeven. 
 
 5. Voeg de volgende JavaScript-code voor het maken van de pincodes voor het begin- en eindpunten van de route:
 
-    ```HTML
-            // Create the GeoJSON objects which represent the start and end point of the route
-            var startPoint = new atlas.data.Point([-122.356099, 47.580045]);
-            var startPin = new atlas.data.Feature(startPoint, {
-                title: "Fabrikam, Inc.",
-                icon: "pin-round-blue"
-            });
+    ```JavaScript
+    // Create the GeoJSON objects which represent the start and end point of the route
+    var startPoint = new atlas.data.Point([-122.356099, 47.580045]);
+    var startPin = new atlas.data.Feature(startPoint, {
+        title: "Fabrikam, Inc.",
+        icon: "pin-round-blue"
+    });
 
-            var destinationPoint = new atlas.data.Point([-122.130137, 47.644702]);
-            var destinationPin = new atlas.data.Feature(destinationPoint, {
-                title: "Microsoft",
-                icon: "pin-blue"
-            });
+    var destinationPoint = new atlas.data.Point([-122.130137, 47.644702]);
+    var destinationPin = new atlas.data.Feature(destinationPoint, {
+        title: "Microsoft",
+        icon: "pin-blue"
+    });
     ```
     Deze code maakt u twee [GeoJSON objecten](https://en.wikipedia.org/wiki/GeoJSON) vertegenwoordigt de begin- en eindpunten van de route. 
 
 6. Voeg de volgende JavaScript-code om toe te voegen lagen van *multipoint* voor het Kaartbesturingselement om weer te geven van de routes op basis van de modus van transport, bijvoorbeeld _auto_ en _vrachtwagen_.
 
-    ```HTML
-            // Place route layers on the map
-            var carRouteLayerName = "car-route";
-            map.addLinestrings([], {
-                name: carRouteLayerName,
-                color: "#B76DAB",
-                width: 5,
-                cap: "round",
-                join: "round",
-                before: "labels"
-            });
-    
-            var truckRouteLayerName = "truck-route";
-            map.addLinestrings([], {
-                name: truckRouteLayerName,
-                color: "#2272B9",
-                width: 9,
-                cap: "round",
-                join: "round",
-                before: carRouteLayerName
-            });
+    ```JavaScript
+    // Place route layers on the map
+    var carRouteLayerName = "car-route";
+    map.addLinestrings([], {
+        name: carRouteLayerName,
+        color: "#B76DAB",
+        width: 5,
+        cap: "round",
+        join: "round",
+        before: "labels"
+    });
+
+    var truckRouteLayerName = "truck-route";
+    map.addLinestrings([], {
+        name: truckRouteLayerName,
+        color: "#2272B9",
+        width: 9,
+        cap: "round",
+        join: "round",
+        before: carRouteLayerName
+    });
     ```
 
 7. Voeg de volgende JavaScript-code voor de begin- en toevoegen aan de kaart:
 
-    ```HTML
-            // Fit the map window to the bounding box defined by the start and destination points
-            var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 100
-            });
+    ```JavaScript
+    // Fit the map window to the bounding box defined by the start and destination points
+    var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    map.setCameraBounds({
+        bounds: [swLon, swLat, neLon, neLat],
+        padding: 100
+    });
 
-            // Add pins to the map for the start and end point of the route
-            map.addPins([startPin, destinationPin], {
-                name: "route-pins",
-                textFont: "SegoeUi-Regular",
-                textOffset: [0, -20]
-            });
+    // Add pins to the map for the start and end point of the route
+    map.addPins([startPin, destinationPin], {
+        name: "route-pins",
+        textFont: "SegoeUi-Regular",
+        textOffset: [0, -20]
+    });
     ``` 
     De API **map.setCameraBounds** past u het venster volgens de coördinaten van de begin- en eindpunten hebben. De API **map.addPins** voegt de punten toe aan het kaartbesturingselement als visuele onderdelen.
 
@@ -173,40 +172,40 @@ Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route 
 
 1. Open de **MapTruckRoute.html** bestand in de voorgaande sectie hebt gemaakt en voeg de volgende JavaScript-code naar de *script* blok ophalen van de route voor een vrachtwagen met behulp van de Route-Service.
 
-    ```HTML
-            // Perform a request to the route service and draw the resulting truck route on the map
-            var xhttpTruck = new XMLHttpRequest();
-            xhttpTruck.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(this.responseText);
+    ```JavaScript
+    // Perform a request to the route service and draw the resulting truck route on the map
+    var xhttpTruck = new XMLHttpRequest();
+    xhttpTruck.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var route = response.routes[0];
-                    var routeCoordinates = [];
-                    for (var leg of route.legs) {
-                        var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                        routeCoordinates = routeCoordinates.concat(legCoordinates);
-                    }
+            var route = response.routes[0];
+            var routeCoordinates = [];
+            for (var leg of route.legs) {
+                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
+                routeCoordinates = routeCoordinates.concat(legCoordinates);
+            }
 
-                    var routeLinestring = new atlas.data.LineString(routeCoordinates);
-                    map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                        name: truckRouteLayerName
-                    });
-                }
-            };
+            var routeLinestring = new atlas.data.LineString(routeCoordinates);
+            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
+                name: truckRouteLayerName
+            });
+        }
+    };
 
-            var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-            truckRouteUrl += "&api-version=1.0";
-            truckRouteUrl += "&subscription-key=" + subscriptionKey;
-            truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-                destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-            truckRouteUrl += "&travelMode=truck";
-            truckRouteUrl += "&vehicleWidth=2";
-            truckRouteUrl += "&vehicleHeight=2";
-            truckRouteUrl += "&vehicleLength=5";
-            truckRouteUrl += "&vehicleLoadType=USHazmatClass2";
+    var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
+    truckRouteUrl += "&api-version=1.0";
+    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
+        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
+    truckRouteUrl += "&travelMode=truck";
+    truckRouteUrl += "&vehicleWidth=2";
+    truckRouteUrl += "&vehicleHeight=2";
+    truckRouteUrl += "&vehicleLength=5";
+    truckRouteUrl += "&vehicleLoadType=USHazmatClass2";
 
-            xhttpTruck.open("GET", truckRouteUrl, true);
-            xhttpTruck.send();
+    xhttpTruck.open("GET", truckRouteUrl, true);
+    xhttpTruck.send();
     ```
     Dit codefragment maakt een [XMLHttpRequest](https://xhr.spec.whatwg.org/), en voegt u een gebeurtenis-handler voor het parseren van het binnenkomende antwoord. Voor een geslaagde reactie wordt gemaakt een matrix van coördinaten voor de route die is geretourneerd, en voegt u het toe van de documentstructuur `truckRouteLayerName` laag. 
     
@@ -216,35 +215,35 @@ Deze sectie wordt beschreven hoe de Azure Locatieservices op basis van de Route 
 
 2. Voeg de volgende JavaScript-code voor de route voor een auto met behulp van de Route-Service:
 
-    ```HTML
-            // Perform a request to the route service and draw the resulting car route on the map
-            var xhttpCar = new XMLHttpRequest();
-            xhttpCar.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(this.responseText);
+    ```JavaScript
+    // Perform a request to the route service and draw the resulting car route on the map
+    var xhttpCar = new XMLHttpRequest();
+    xhttpCar.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var route = response.routes[0];
-                    var routeCoordinates = [];
-                    for (var leg of route.legs) {
-                        var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                        routeCoordinates = routeCoordinates.concat(legCoordinates);
-                    }
+            var route = response.routes[0];
+            var routeCoordinates = [];
+            for (var leg of route.legs) {
+                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
+                routeCoordinates = routeCoordinates.concat(legCoordinates);
+            }
 
-                    var routeLinestring = new atlas.data.LineString(routeCoordinates);
-                    map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                        name: carRouteLayerName
-                    });
-                }
-            };
+            var routeLinestring = new atlas.data.LineString(routeCoordinates);
+            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
+                name: carRouteLayerName
+            });
+        }
+    };
 
-            var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-            carRouteUrl += "&api-version=1.0";
-            carRouteUrl += "&subscription-key=" + subscriptionKey;
-            carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-                destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
+    var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
+    carRouteUrl += "&api-version=1.0";
+    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
+        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
-            xhttpCar.open("GET", carRouteUrl, true);
-            xhttpCar.send();
+    xhttpCar.open("GET", carRouteUrl, true);
+    xhttpCar.send();
     ```
     Dit codefragment maakt u een andere [XMLHttpRequest](https://xhr.spec.whatwg.org/), en voegt u een gebeurtenis-handler voor het parseren van het binnenkomende antwoord. Voor een geslaagde reactie wordt gemaakt een matrix van coördinaten voor de route die is geretourneerd, en voegt u het toe van de documentstructuur `carRouteLayerName` laag. 
     

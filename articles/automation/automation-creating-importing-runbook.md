@@ -3,7 +3,7 @@ title: Maken of importeren van een runbook in Azure Automation
 description: In dit artikel wordt beschreven hoe een nieuw runbook maken in Azure Automation of een uit een bestand importeren.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 24414362-b690-4474-8ca7-df18e30fc31d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: ad070333b85b70d911a492a35cc89c8c4a60e5c1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: f2e34e6a4d3d2f29fe6320d805e38e6fccbb74de
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Maken of importeren van een runbook in Azure Automation
 U kunt een runbook toevoegen aan Azure Automation door [maken van een nieuwe](#creating-a-new-runbook) of een bestaand runbook importeren vanuit een bestand of vanuit de [Runbookgalerie](automation-runbook-gallery.md). In dit artikel bevat informatie over het maken en importeren van runbooks uit een bestand.  U kunt alle gegevens over de toegang tot de community-runbooks en modules in krijgen [galerieën Runbook en de module voor Azure Automation](automation-runbook-gallery.md).

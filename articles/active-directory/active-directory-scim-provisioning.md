@@ -12,25 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: e433baf69ea0e66465612de077d8e59f5e234ee5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: aaddev;it-pro
+ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Systeem voor het identiteitsbeheer van verschillende domeinen gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory voor toepassingen
 
 ## <a name="overview"></a>Overzicht
 Azure Active Directory (Azure AD) kunnen automatisch worden ingericht, gebruikers en groepen naar een toepassing of identiteit store die door een webservice met de interface is fronted gedefinieerd in de [systeem voor verschillende domeinen Identity Management (SCIM) 2.0-protocol specificatie](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory kunt verzenden aanvragen voor het maken, wijzigen of verwijderen toegewezen gebruikers en groepen met de webservice. De webservice kan vervolgens deze aanvragen worden omgezet in bewerkingen op de doel-id-store. 
-
-> [!IMPORTANT]
-> Microsoft raadt u aan Azure AD te beheren met het [Azure AD-beheercentrum](https://aad.portal.azure.com) in Azure Portal in plaats van de klassieke Azure portal waarnaar in dit artikel wordt verwezen. 
-
-
 
 ![][0]
 *Afbeelding 1: Inrichting van Azure Active Directory naar een winkel identiteit via een webservice*
