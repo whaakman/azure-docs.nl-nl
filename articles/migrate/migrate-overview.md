@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: raynew
-ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -33,14 +33,16 @@ Azure Migrate helpt u bij het volgende:
 
 - **Azure-gereedheid beoordelen**: bepalen of uw on-premises machines geschikt zijn om te worden uitgevoerd in Azure. 
 - **Aanbevelingen voor de grootte geven**: aanbevolen groottes voor virtuele Azure-machines na de migratie, op basis van de prestatiegeschiedenis van de on-premises virtuele machines. 
-- **Schatting van maandelijkse kosten**: de geschatte kosten voor het uitvoeren van on-premises machines in Azure.
-- **Migreren met hoge betrouwbaarheid**: wanneer u on-premises machines voor evaluatie groepeert, kunt u de betrouwbaarheid van de evaluatie verhogen door afhankelijkheden te visualiseren. U kunt nauwkeurig de afhankelijkheden weergeven voor een specifieke machine of voor alle machines in een groep.
+- **Schatting van maandelijkse kosten**: de geschatte kosten voor het uitvoeren van on-premises machines in Azure.  
+- **Migreren met hoge betrouwbaarheid**: visualiseren afhankelijkheden van lokale computers maken van groepen computers die u wilt beoordelen en tegelijk migreren. U kunt nauwkeurig de afhankelijkheden weergeven voor een specifieke machine of voor alle machines in een groep.
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 
 - Op dit moment kunt u on-premises virtuele machines (VM's) met VMware beoordelen voor migratie naar virtuele Azure-machines.
+
 > [!NOTE]
 > Ondersteuning voor Hyper-V staat in de roadmap en komt over enkele maanden beschikbaar. Ondertussen raden we u aan Azure Site Recovery Deployment Planner te gebruiken om de migratie van Hyper-V-werkbelastingen te plannen. 
+
 - U kunt maximaal 1000 virtuele machines beoordelen in één evaluatie en maximaal 1500 machines in één Azure Migrate-project. Als u meer moet beoordelen, kunt u het aantal projecten of evaluaties verhogen. [Meer informatie](how-to-scale-assessment.md).
 - Virtuele machines die u wilt beoordelen, moeten worden beheerd door een vCenter Server, versie 5.5, 6.0 of 6.5.
 - U kunt een Azure Migrate-project alleen maken in de regio West-centraal VS. Dit is echter niet van invloed op de mogelijkheid om uw migratie te plannen voor een andere Azure-doellocatie. De locatie van het migratieproject wordt alleen gebruikt om de gedetecteerde metagegevens uit de on-premises omgeving op te slaan.
@@ -54,11 +56,11 @@ Azure Migrate is zonder extra kosten beschikbaar. Tijdens de openbare preview ge
 
 ## <a name="whats-in-an-assessment"></a>Wat maakt er deel uit van een evaluatie?
 
-Azure Migrate-evaluaties zijn gebaseerd op de instellingen in de volgende tabel.
+Een beoordeling helpt u bij het identificeren van de Azure geschiktheid van de lokale virtuele machines, juiste formaat aanbevelingen krijgen en uw kosten schattingen voor het uitvoeren van de virtuele machines in Azure. Azure Migrate-evaluaties zijn gebaseerd op de instellingen in de volgende tabel. U kunt deze eigenschappen aanpassen in het portaal van Azure Migrate. 
 
-**Instelling** | **Details**
+**Eigenschap** | **Details**
 --- | ---
-**Doellocatie** | De Azure-locatie waarnaar u wilt migreren. Standaard is dit de locatie waarin u het Azure Migrate-project maakt. U kunt deze instelling wijzigen.   
+**Doellocatie** | De Azure-locatie waarnaar u wilt migreren. De doellocatie is standaard ingesteld op VS - west 2. 
 **Opslagredundantie** | Het type opslag dat na de migratie door de virtuele Azure-machines wordt gebruikt. LRS is de standaardinstelling.
 **Prijsplannen** | Bij de beoordeling wordt er rekening mee gehouden of u bent geregistreerd voor Software Assurance en de [Azure Hybrid User Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) kunt gebruiken. Er wordt ook rekening gehouden met Azure-aanbiedingen die moeten worden toegepast en u kunt kortingen (%) voor specifieke abonnementen opgeven die worden toegepast boven op de aanbieding. 
 **Prijscategorie** | U kunt de [prijscategorie (basis/standaard)](../virtual-machines/windows/sizes-general.md) van virtuele Azure-machines opgeven. Dit helpt u te migreren naar een geschikte Azure-VM-serie op basis van het feit of u zich in een productieomgeving bevindt. Standaard wordt de categorie [Standaard](../virtual-machines/windows/sizes-general.md) gebruikt.
@@ -69,12 +71,12 @@ Azure Migrate-evaluaties zijn gebaseerd op de instellingen in de volgende tabel.
 ## <a name="how-does-azure-migrate-work"></a>Hoe werkt Azure Migrate?
 
 1.  U maakt een Azure Migrate-project.
-2.  Azure Migrate gebruikt een on-premises virtuele machine, het collectorapparaat genoemd, om informatie over uw on-premises machines te detecteren. U maakt dit apparaat door het installatiebestand in de Open Virtualization Appliance-indeling (.ova) te downloaden en als virtuele machine te importeren in uw on-premises vCenter-server.
-3.  U maakt verbinding met de virtuele machine met alleen-lezen referenties voor de vCenter-server en voert de collector uit.
+2.  Azure Migrate gebruikt een on-premises virtuele machine, het collectorapparaat genoemd, om informatie over uw on-premises machines te detecteren. U maakt dit apparaat door het installatiebestand in de Open Virtualization Appliance-indeling (.ova) te downloaden en als virtuele machine te importeren in uw on-premises VMware vCenter Server.
+3.  U verbinding maken met de virtuele machine met consoleverbinding in VMware vCenter Server, een nieuw wachtwoord opgeven voor de virtuele machine tijdens het verbinding maken en vervolgens de collector-toepassing in de virtuele machine starten detectie uitgevoerd.
 4.  De collector verzamelt metagegevens van de virtuele machines met behulp van PowerCLI-cmdlets van VMware. Detectie vindt plaats zonder agent en er wordt niets op de VMware-hosts of virtuele machines geïnstalleerd. De verzamelde metagegevens bevatten informatie over de virtuele machines (kernen, geheugen, schijven, schijfgroottes en netwerkadapters). Er worden ook prestatiegegevens van de virtuele machines verzameld, met inbegrip van CPU- en geheugengebruik, schijf-IOPS, schijfdoorvoer (MBps) en netwerkuitvoer (MBps).
 5.  De metagegevens worden doorgegeven aan het Azure Migrate-project. U kunt ze bekijken in Azure Portal.
-6.  Voor evaluatiedoeleinden deelt u de virtuele machine in groepen in. U kunt bijvoorbeeld virtuele machines groeperen waarin dezelfde app wordt uitgevoerd. U kunt de virtuele machines groeperen met behulp van labels in vCenter of in de vCenter-portal. Gebruik visualisatie om de afhankelijkheden te controleren voor een specifieke machine of voor alle machines in een groep.
-7.  U maakt een evaluatie voor een groep.
+6.  Voor evaluatiedoeleinden deelt u de gedetecteerde virtuele machines in groepen in. U kunt bijvoorbeeld virtuele machines groeperen waarin dezelfde applicatie wordt uitgevoerd. U kunt virtuele machines groeperen in het portaal van Azure Migrate of door labels te gebruiken in VMware vCenter Server. Bovendien kunt u afhankelijkheidsvisualisatie gebruiken om afhankelijkheden te bekijken van een specifieke computer, of voor alle machines in een groep en de groep verfijnen.
+7.  Als uw groep is gevormd maakt u een beoordeling van de groep. 
 8.  Nadat de evaluatie is voltooid, kunt u deze weergeven in de portal of downloaden in Excel-indeling.
 
 
@@ -89,7 +91,7 @@ De tabel geeft een overzicht van de poorten die nodig zijn voor communicatie met
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate-service   |TCP 443        |De collector maakt verbinding met de service via SSL-poort 443|
 |Collector          |vCenter Server          |Standaard 9443   | Standaard maakt de collector verbinding met de vCenter-server op poort 9443. Als de server op een andere poort luistert, moet deze worden geconfigureerd als uitgaande poort in de collector-VM. |
-|On-premises virtuele machine     | OMS-werkruimte          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |De MMA-agent gebruikt TCP 443 om verbinding te maken met Log Analytics. U hebt deze poort alleen nodig als u de functie voor visualisatie van afhankelijkheden gebruikt en de MMA-agent installeert. |
+|On-premises virtuele machine     | Overzicht van Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |De MMA-agent gebruikt TCP 443 om verbinding te maken met Log Analytics. U hebt deze poort alleen nodig als u de functie voor visualisatie van afhankelijkheden gebruikt en de Microsoft Monitoring Agent-agent (MMA) installeert. |
 
 
   
