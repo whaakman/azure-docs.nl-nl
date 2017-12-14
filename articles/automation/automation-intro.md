@@ -3,7 +3,7 @@ title: Wat is Azure Automation | Microsoft Docs
 description: Informatie over welke waarde Azure Automation biedt en antwoorden op veelgestelde vragen, zodat u aan de slag kunt met het maken en gebruiken van runbooks en Azure Automation DSC.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: wat is automation, azure automation en voorbeelden van azure automation
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Overzicht van Azure Automation
 Microsoft Azure Automation biedt gebruikers een manier om de handmatige, langlopende, foutgevoelige en regelmatig herhaalde taken te automatiseren die vaak worden uitgevoerd in een cloud- en bedrijfsomgeving. Het bespaart tijd en verhoogt de betrouwbaarheid van regelmatige beheertaken. Deze worden zelfs gepland om met regelmatige intervallen automatisch te worden uitgevoerd. U kunt processen automatiseren met behulp van runbooks of configuratiebeheer automatiseren met behulp van Desired State Configuration. In dit artikel wordt een kort overzicht gegeven van Azure Automation en worden enkele veelgestelde vragen beantwoord. U kunt andere artikelen in deze bibliotheek raadplegen voor gedetailleerdere informatie over de verschillende onderwerpen.

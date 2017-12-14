@@ -19,7 +19,7 @@ Blob-opslagaccounts hebben het kenmerk **Toegangslaag**, dat kan worden opgegeve
 * De toegangslaag **Hot**, waarmee wordt aangegeven dat de objecten in het opslagaccount vaker worden gebruikt. Hiermee kunt u gegevens tegen lagere toegangskosten opslaan.
 * De toegangslaag **Cool**, waarmee wordt aangegeven dat de objecten in het opslagaccount minder vaak worden gebruikt. Hiermee kunt u gegevens tegen lagere gegevensopslagkosten opslaan.
 
-Als er een wijziging optreedt in het gebruikspatroon van de gegevens, kunt u op elk gewenst moment schakelen tussen deze toegangslagen. Aan het wijzigen van de toegangslaag kunnen extra kosten zijn verbonden. Zie [Blob Storage-accounts: prijzen en facturering](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) voor meer informatie.
+Als er een wijziging optreedt in het gebruikspatroon van de gegevens, kunt u op elk gewenst moment schakelen tussen deze toegangslagen. Aan het wijzigen van de toegangslaag kunnen extra kosten zijn verbonden. Zie [Blob Storage-accounts: prijzen en facturering](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) voor meer informatie.
 
 Zie [Azure Blob Storage: Cool Storage-laag en Hot Storage-laag](../articles/storage/blobs/storage-blob-storage-tiers.md) voor meer informatie.
 

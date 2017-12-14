@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Wat is Operations Management Suite (OMS)?
 Dit artikel is een inleiding tot Operations Management Suite (OMS) met inbegrip van een kort overzicht van de bedrijfswaarde die het biedt, de services en beheeroplossingen die het bevat, en de aanbiedingen waarin verschillende services en oplossingen worden gecombineerd.  Bovendien vindt u hier koppelingen naar gedetailleerde documentatie over de implementatie en het gebruik van de diverse services en oplossingen.
@@ -64,7 +64,7 @@ De kernfunctionaliteit van OMS wordt geleverd door een reeks services die in Azu
 #### <a name="collecting-data"></a>Verzamelen van gegevens
 Er zijn tal van manieren waarop u gegevens in de opslagplaats kunt verzamelen, zodat Log Analytics ze kan analyseren.
 
-- **Windows- of Linux-computers en -VM's.**  U installeert de Microsoft Monitoring Agent op [Windows](../log-analytics/log-analytics-windows-agents.md)- en [Linux](../log-analytics/log-analytics-linux-agents.md)-computers of -VM's waarvan u gegevens wilt verzamelen.  De agent downloadt vanuit Log Analytics automatisch een configuratie die de gebeurtenissen en prestatiegegevens definieert die moeten worden verzameld.  Met behulp van Azure Portal kunt u de agent gemakkelijk installeren op virtuele machines die in Azure worden uitgevoerd.  Als u een bestaande Operations Manager-omgeving hebt, kunt u de beheergroep koppelen aan Log Analytics en automatisch gegevens gaan verzamelen van alle bestaande agenten.
+- **Windows- of Linux-computers en -VM's.**  U installeert de Microsoft Monitoring Agent op [Windows](../log-analytics/log-analytics-windows-agent.md)- en [Linux](../log-analytics/log-analytics-linux-agents.md)-computers of -VM's waarvan u gegevens wilt verzamelen.  De agent downloadt vanuit Log Analytics automatisch een configuratie die de gebeurtenissen en prestatiegegevens definieert die moeten worden verzameld.  Met behulp van Azure Portal kunt u de agent gemakkelijk installeren op virtuele machines die in Azure worden uitgevoerd.  Als u een bestaande Operations Manager-omgeving hebt, kunt u de beheergroep koppelen aan Log Analytics en automatisch gegevens gaan verzamelen van alle bestaande agenten.
 - **Azure-services.**  Log Analytics verzamelt in de opslagplaats telemetrie van [Azure Diagnostics en Azure Monitor](../log-analytics/log-analytics-azure-storage.md), zodat u Azure-resources kunt bewaken.
 - **Gegevensverzamelaar-API.**  Log Analytics heeft een [REST-API voor het invullen van gegevens vanuit elke client](../log-analytics/log-analytics-data-collector-api.md).  Hiermee kunt u gegevens verzamelen vanuit toepassingen van derden en aangepaste beheerscenario's implementeren.  Een veelvoorkomende methode is het gebruik van een runbook in Azure Automation om gegevens te verzamelen en vervolgens de gegevensverzamelaar-API te gebruiken om de gegevens naar de opslagplaats te schrijven.
 

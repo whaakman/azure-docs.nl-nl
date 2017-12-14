@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>De oplossing voor updatebeheer in OMS
 
@@ -81,7 +81,7 @@ Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de dat
     > OMS-agents voor Linux die zijn geconfigureerd om te rapporteren aan meerdere OMS-werkruimten, worden niet ondersteund in deze oplossing.  
     >
 
-Raadpleeg [Operations Management Suite-agent voor Linux](https://github.com/microsoft/oms-agent-for-linux) voor meer informatie over het installeren van de OMS-agent voor Linux en om de nieuwste versie te downloaden.  Raadpleeg [Operations Management Suite-agent voor Windows](../log-analytics/log-analytics-windows-agents.md) voor meer informatie over het installeren van de OMS-agent voor Windows.  
+Raadpleeg [Operations Management Suite-agent voor Linux](https://github.com/microsoft/oms-agent-for-linux) voor meer informatie over het installeren van de OMS-agent voor Linux en om de nieuwste versie te downloaden.  Raadpleeg [Operations Management Suite-agent voor Windows](../log-analytics/log-analytics-windows-agent.md) voor meer informatie over het installeren van de OMS-agent voor Windows.  
 
 ### <a name="permissions"></a>Machtigingen
 Als u update-implementaties wilt maken, moet de rol Bijdrager aan u worden toegewezen voor zowel het Automation-account als voor de Log Analytics-werkruimte.  
@@ -126,7 +126,7 @@ Op Windows-computers kunt u het volgende controleren om te bekijken of agents ve
 1.  Open Microsoft Monitoring Agent in het Configuratiescherm en ga naar het tabblad **Azure-logboekanalyse (OMS)**. Het volgende bericht wordt weergegeven voor de agent: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.   
 2.  Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector.  Deze gebeurtenissen geven aan of de computer is geregistreerd bij de OMS-werkruimte en of deze configuratie ontvangt.  
 
-Als de agent niet kan communiceren met de OMS-service en is geconfigureerd voor communicatie met internet via een firewall of proxyserver, controleert u of de firewall of proxyserver correct is geconfigureerd: [informatie over de netwerkconfiguratie voor de Windows-agent](../log-analytics/log-analytics-windows-agents.md#network) en [informatie over de netwerkconfiguratie voor de Linux-agent](../log-analytics/log-analytics-agent-linux.md#network) (beide onderwerpen zijn in het Engels overigens).
+Als de agent niet kan communiceren met de OMS-service en is geconfigureerd voor communicatie met internet via een firewall of proxyserver, controleert u of de firewall of proxyserver correct is geconfigureerd: [informatie over de netwerkconfiguratie voor de Windows-agent](../log-analytics/log-analytics-windows-agent.md) en [informatie over de netwerkconfiguratie voor de Linux-agent](../log-analytics/log-analytics-agent-linux.md) (beide onderwerpen zijn in het Engels overigens).
 
 > [!NOTE]
 > Als uw Linux-systemen zijn geconfigureerd om te communiceren met een proxy of OMS-gateway en u deze oplossing wilt onboarden, moet de *proxy.conf*-machtigingen bijwerken om de groep omiuser leesmachtigingen te geven voor het bestand. Dit kan door de volgende opdrachten uit te voeren:  

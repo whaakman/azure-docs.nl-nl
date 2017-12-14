@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -84,7 +84,7 @@ Updatebeheer is ingeschakeld voor uw virtuele machine.
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Updatebeheer voor virtuele machines en computers zonder Azure inschakelen
 
-Zie [Windows-computers verbinden met de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agents.md) voor instructies over het inschakelen van Updatebeheer voor virtuele Windows-machines en -computers zonder Azure.
+Zie [Windows-computers verbinden met de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md) voor instructies over het inschakelen van Updatebeheer voor virtuele Windows-machines en -computers zonder Azure.
 
 Zie [Uw Linux-computers verbinden met Log Analytics](../log-analytics/log-analytics-agent-linux.md) voor instructies over het inschakelen van Updatebeheer voor virtuele Linux-machines en -computers zonder Azure.
 

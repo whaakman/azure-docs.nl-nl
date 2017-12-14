@@ -2,7 +2,7 @@
 
 ## [Over SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 
-# QuickStarts
+# Snelstartgidsen
 
 ## [Maken en koppelen - portal](create-data-warehouse-portal.md)
 
@@ -32,8 +32,8 @@
 ### [Gegevens migreren](sql-data-warehouse-migrate-data.md)
 
 ## Gegevens laden en verplaatsen
-### [Overzicht](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [Overzicht](design-elt-data-loading.md)
+### [Hulp](guidance-for-loading-data.md)
 
 
 ## Integreren

@@ -10,7 +10,7 @@ Ja, u kunt uw eigen openbare ASN's of persoonlijke ASN's voor zowel uw on-premis
 ### <a name="are-there-asns-reserved-by-azure"></a>Zijn er ASN's die zijn gereserveerd door Azure?
 Ja, de volgende ASN's zijn gereserveerd door Azure voor zowel interne als externe koppelingen:
 
-* Openbare ASN’s: 8075, 8076, 12076
+* Openbare ASN's: 8074, 8075, 12076
 * Privé-ASNs: 65515, 65517, 65518, 65519, 65520
 
 U kunt deze ASN's niet opgeven voor uw on-premises VPN-apparaten wanneer u verbinding maakt met Azure VPN-gateways.

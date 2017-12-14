@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>De oplossing Status van agent in OMS
 De oplossing Status van agent in OMS geeft inzicht in de agents die niet reageren en de agents die wel operationele gegevens versturen. Het betreft alle agents die rechtstreeks aan de OMS-werkruimte rapporteren of aan een beheergroep van System Center Operations Manager die is verbonden met OMS.  U kunt ook bijhouden hoeveel agents er zijn geïmplementeerd en waar deze zich geografisch gezien bevinden. Bovendien kunt u query's uitvoeren om op de hoogte te blijven van de verdeling van agents over Azure, andere cloudomgevingen of on-premises.    
 
 ## <a name="prerequisites"></a>Vereisten
-U kunt deze oplossing alleen implementeren als u beschikt over ondersteunde [Windows-agents](../log-analytics/log-analytics-windows-agents.md) die rapporteren aan de OMS-werkruimte of aan een [Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md) die is geïntegreerd met de OMS-werkruimte.    
+U kunt deze oplossing alleen implementeren als u beschikt over ondersteunde [Windows-agents](../log-analytics/log-analytics-windows-agent.md) die rapporteren aan de OMS-werkruimte of aan een [Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md) die is geïntegreerd met de OMS-werkruimte.    
 
 ## <a name="solution-components"></a>Oplossingsonderdelen
 Deze oplossing bestaat uit de volgende resources die worden toegevoegd aan uw werkruimte en rechtstreeks verbonden agents of verbonden Operations Manager-beheergroepen.
