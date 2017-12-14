@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: e322e79c0a11278a6a7d186cfab6b6d6c271ce1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 645d417e22b32e6da978e8d94e67f9615100ea89
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Media Services-entiteiten met REST beheren 
 > [!div class="op_single_selector"]
@@ -41,9 +41,6 @@ Bij het openen van entiteiten in Media Services, moet u specifieke header-velden
 ## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
 
 Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI.
 
 ## <a name="adding-entities"></a>Toevoegen van entiteiten
 Elke entiteit in Media Services wordt toegevoegd aan een entiteit ingesteld, zoals activa, via een HTTP POST-aanvraag.

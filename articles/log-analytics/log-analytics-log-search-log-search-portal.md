@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Logboek zoekopdrachten maken in Azure-logboekanalyse via de portal logboek zoeken
 
@@ -34,7 +34,7 @@ Zie voor informatie over het maken van zoekopdrachten in de portal Advanced Anal
 Deze zelfstudie wordt ervan uitgegaan dat u al een werkruimte voor logboekanalyse met ten minste één verbonden bron die gegevens voor de query's hebt genereert te analyseren.  
 
 - Als u een werkruimte geen hebt, kunt u een gratis abonnement met de procedure op [aan de slag met een werkruimte voor logboekanalyse](log-analytics-get-started.md).
-- Verbinding maken met ten minste één [Windows-agent](log-analytics-windows-agents.md) of één [Linux-agent](log-analytics-linux-agents.md) naar de werkruimte.  
+- Verbinding maken met ten minste één [Windows-agent](log-analytics-windows-agent.md) of één [Linux-agent](log-analytics-linux-agents.md) naar de werkruimte.  
 
 ## <a name="open-the-log-search-portal"></a>De portal logboek zoeken openen
 Start via de portal logboek zoeken.  U kunt openen in de Azure-portal of de OMS-portal.

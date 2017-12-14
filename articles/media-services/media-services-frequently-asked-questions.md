@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: juliako
-ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab66994b0212593aff1384b0801f3359eb0a3751
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
@@ -60,7 +60,7 @@ A: Media Services gebruikt de waarde van de eigenschap IAssetFile.Name tijdens h
 
 V: hoe u verbinding maakt met behulp van REST?
 
-A: Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). Na het correct verbinding maakt met https://media.windows.net, ontvangt u een 301 omleiding opgeven van een andere URI van de Media Services. U moet de volgende aanroepen naar de nieuwe URI. 
+A: Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 V: hoe kan ik een video draaien tijdens de codering.
 

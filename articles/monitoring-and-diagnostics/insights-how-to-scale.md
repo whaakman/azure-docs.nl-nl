@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Aantal exemplaren handmatig of automatisch schalen
 In de [Azure Portal](https://portal.azure.com/), kunt u het aantal exemplaren van de service handmatig instellen of, kunt u parameters instellen zodat deze automatisch schalen op basis van vraag. Dit wordt meestal aangeduid als *uitschalen* of *schalen*.
@@ -26,11 +26,6 @@ In de [Azure Portal](https://portal.azure.com/), kunt u het aantal exemplaren va
 Voordat u schalen op basis van exemplaren, moet u overwegen schalen wordt beïnvloed door **prijscategorie** naast het aantal exemplaren. Andere Prijscategorieën kan hebben verschillende aantallen kernen en het geheugen en dus betere prestaties voor hetzelfde aantal exemplaren hebben (dit is *opschalen* of *omlaag schalen*). Dit artikel behandelt specifiek *schalen* en *uit*.
 
 In de portal kunnen worden geschaald en u kunt ook de [REST-API](https://msdn.microsoft.com/library/azure/dn931953.aspx) of [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) schaal aanpassen handmatig of automatisch.
-
-> [!NOTE]
-> Dit artikel wordt beschreven hoe u een instelling voor automatisch schalen maakt in de portal op [http://portal.azure.com](http://portal.azure.com). Instellingen voor automatisch schalen gemaakt in deze portal kunnen niet worden bewerkt het de klassieke portal ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>Handmatig schalen
 1. In de [Azure Portal](https://portal.azure.com/), klikt u op **Bladeren**, navigeer naar de resource die u schalen wilt, zoals een **App Service-abonnement**.

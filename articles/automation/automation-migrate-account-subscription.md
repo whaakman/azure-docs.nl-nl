@@ -3,7 +3,7 @@ title: Automation-Account en Resources migreren | Microsoft Docs
 description: In dit artikel wordt beschreven hoe een Automation-Account in Azure Automation en de bijbehorende bronnen van een abonnement te verplaatsen naar een andere.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9c2db4a2-f324-48dc-8ce7-3343bf7230d5
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 6a6765753e0dadf31692819a9d8f2ca7e77c7f10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c13ee767cc2a1fb7880e6d0491cd6a247c737c13
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="migrate-automation-account-and-resources"></a>Automation-Account en resources migreren
 Voor het Automation-accounts en de bijbehorende bronnen (dat wil zeggen, assets, runbooks, modules, enzovoort) die u hebt gemaakt in de Azure portal en wilt migreren van een resourcegroep naar een andere of van een abonnement naar een andere, kunt u dit doen eenvoudig met de [verplaatsen van resources](../azure-resource-manager/resource-group-move-resources.md) functie is beschikbaar in de Azure-portal. Echter, voordat u doorgaat met deze actie moet u eerst nagaan de volgende [controlelijst voor het verplaatsen van resources](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) en daarnaast de volgende lijst specifiek zijn voor Automation.   

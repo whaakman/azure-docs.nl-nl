@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Replicatiestatus van Active Directory met Log Analytics
 
@@ -32,7 +32,7 @@ De replicatiestatus van de AD-oplossingspakket regelmatig controleert uw Active 
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om te installeren en configureren van de oplossing.
 
-* U moet de agents installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of moet u agents installeren op servers die lid zijn en de agents voor het verzenden van gegevens van de AD-replicatie met OMS configureren. Om te begrijpen hoe u Windows-computers te verbinden met OMS, Zie [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agents.md). Als uw domeincontroller al deel uit van een bestaande System Center Operations Manager-omgeving die u wilt verbinden met OMS maakt, Zie [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
+* U moet de agents installeren op domeincontrollers die lid van het domein zijn moet worden geëvalueerd. Of moet u agents installeren op servers die lid zijn en de agents voor het verzenden van gegevens van de AD-replicatie met OMS configureren. Om te begrijpen hoe u Windows-computers te verbinden met OMS, Zie [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md). Als uw domeincontroller al deel uit van een bestaande System Center Operations Manager-omgeving die u wilt verbinden met OMS maakt, Zie [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
 * De replicatiestatus van Active Directory-oplossing toevoegen aan uw OMS-werkruimte met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD replicatiestatus Gegevensdetails verzameling
@@ -47,7 +47,7 @@ Als u niet wilt dat een van uw domeincontrollers rechtstreeks verbinden met OMS,
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Een niet-domeincontroller AD gegevens verzenden naar OMS inschakelen
 1. Controleer of de computer lid is van het domein dat u wilt bewaken met behulp van de replicatiestatus van de AD-oplossing.
-2. [De Windows-computer verbinden met OMS](log-analytics-windows-agents.md) of [verbinding maken met behulp van uw bestaande omgeving Operations Manager met OMS](log-analytics-om-agents.md), als deze niet al is aangesloten.
+2. [De Windows-computer verbinden met OMS](log-analytics-windows-agent.md) of [verbinding maken met behulp van uw bestaande omgeving Operations Manager met OMS](log-analytics-om-agents.md), als deze niet al is aangesloten.
 3. Stel de volgende registersleutel op die computer:
 
    * Sleutel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management groepen\<ManagementGroupName > \Solutions\ADReplication**
@@ -148,7 +148,7 @@ A: normale gebruikersmachtigingen voor Active Directory zijn voldoende.
 ## <a name="troubleshoot-data-collection-problems"></a>Gegevens verzamelen problemen oplossen
 De replicatiestatus van de AD-oplossingspakket vereist om het verzamelen van gegevens ten minste één domeincontroller zijn verbonden met de OMS-werkruimte. Totdat u verbinding maakt met een domeincontroller, verschijnt een bericht dat **nog steeds worden gegevens verzameld**.
 
-Als u verbinding maken met een van uw domeincontrollers hulp nodig hebt vindt u documentatie op [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agents.md). Als uw domeincontroller al met een bestaande System Center Operations Manager-omgeving verbonden is, kunt u ook documentatie op bekijken [verbinding maken met System Center Operations Manager met logboekanalyse](log-analytics-om-agents.md).
+Als u verbinding maken met een van uw domeincontrollers hulp nodig hebt vindt u documentatie op [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md). Als uw domeincontroller al met een bestaande System Center Operations Manager-omgeving verbonden is, kunt u ook documentatie op bekijken [verbinding maken met System Center Operations Manager met logboekanalyse](log-analytics-om-agents.md).
 
 Als u niet wilt verbinding maken met een van uw domeincontrollers rechtstreeks OMS of aan SCOM, Zie [om in te schakelen van een niet-domeincontroller AD gegevens verzenden naar OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

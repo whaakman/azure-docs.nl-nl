@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Oplossing voor waarschuwingen in Operations Management Suite (OMS)
 
@@ -49,7 +49,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 | Verbonden bron | Ondersteuning | Beschrijving |
 |:--- |:--- |:--- |
-| [Windows-agents](log-analytics-windows-agents.md) | Nee |Directe Windows-agents genereren geen waarschuwingen.  Log Analytics waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld via Windows-agents. |
+| [Windows-agents](log-analytics-windows-agent.md) | Nee |Directe Windows-agents genereren geen waarschuwingen.  Log Analytics waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld via Windows-agents. |
 | [Linux-agents](log-analytics-linux-agents.md) | Nee |Directe Linux-agents genereren geen waarschuwingen.  Log Analytics waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld van Linux-agents.  Nagios en Zabbix waarschuwingen worden verzameld van deze servers waarvoor de Linux-agent. |
 | [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) |Ja |Waarschuwingen die worden gegenereerd op de Operations Manager-agents zijn geleverd aan de beheergroep en vervolgens doorgestuurd naar logboekanalyse.<br><br>Een directe verbinding van Operations Manager-agents met logboekanalyse is niet vereist. Waarschuwingsgegevens wordt uit de beheergroep doorgestuurd naar de opslagplaats logboekanalyse. |
 

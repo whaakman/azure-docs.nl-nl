@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute (Preview)
 
@@ -129,7 +129,7 @@ Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute
 
 ### <a name="proxy"></a>2.3: Configureer proxy-instellingen (optioneel)
 
-Als u van een webproxy gebruikmaakt voor internettoegang, gebruikt u de volgende stappen uit voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent. Voer deze stappen uit voor elke server. Als er veel servers zijn die u moet configureren, is het wellicht eenvoudiger om een script te gebruiken om dit proces te automatiseren. Zo ja, Zie [voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent met een script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Als u van een webproxy gebruikmaakt voor internettoegang, gebruikt u de volgende stappen uit voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent. Voer deze stappen uit voor elke server. Als er veel servers zijn die u moet configureren, is het wellicht eenvoudiger om een script te gebruiken om dit proces te automatiseren. Zo ja, Zie [voor het configureren van proxy-instellingen voor Microsoft Monitoring Agent met een script](../log-analytics/log-analytics-windows-agent.md).
 
 Proxy-instellingen voor Microsoft Monitoring Agent via het Configuratiescherm configureren:
 
@@ -200,7 +200,7 @@ Nadat u de vorige secties en controleer of dat u goedgekeurde lijst zijn, kunt u
   ![functie-installatie](.\media\how-to-npm\npm2.png)
 3. Navigeer naar de op het tabblad ExpressRoute-Peerings in het deelvenster links op de configuratiepagina. Klik op **nu detecteren**.
 
-  ![Detecteren](.\media\how-to-npm\13.png)
+  ![detecteren](.\media\how-to-npm\13.png)
 4. Wanneer detectie is voltooid, ziet u regels voor unieke naam van het Circuit en VNet-naam. In eerste instantie zijn deze regels uitgeschakeld. Schakelt u de regels en selecteer vervolgens de controle agents en drempelwaarden.
 
   ![regels](.\media\how-to-npm\14.png)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Analyse van gebeurtenis en visualisatie met OMS
 
@@ -41,7 +41,7 @@ Zie [OMS Log Analytics instellen](service-fabric-diagnostics-oms-setup.md) aan d
 
 ## <a name="using-the-oms-agent"></a>Met behulp van de OMS-Agent
 
-Het is aanbevolen en te gebruiken EventFlow af als aggregatieoplossingen omdat ze is toegestaan voor een meer modulaire benadering voor diagnostische gegevens en bewaking. Bijvoorbeeld: als u wilt wijzigen van de uitvoer van EventFlow, heeft deze geen wijziging in uw werkelijke instrumentation, alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit te investeren in OMS Log Analytics gebruiken, moet u instellen de [OMS-agent](../log-analytics/log-analytics-windows-agents.md). U moet ook de OMS-agent gebruiken bij het implementeren van containers met uw cluster, zoals hieronder beschreven. 
+Het is aanbevolen en te gebruiken EventFlow af als aggregatieoplossingen omdat ze is toegestaan voor een meer modulaire benadering voor diagnostische gegevens en bewaking. Bijvoorbeeld: als u wilt wijzigen van de uitvoer van EventFlow, heeft deze geen wijziging in uw werkelijke instrumentation, alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit te investeren in OMS Log Analytics gebruiken, moet u instellen de [OMS-agent](../log-analytics/log-analytics-windows-agent.md). U moet ook de OMS-agent gebruiken bij het implementeren van containers met uw cluster, zoals hieronder beschreven. 
 
 HEAD via naar [de OMS-Agent toevoegen aan een cluster](service-fabric-diagnostics-oms-agent.md) voor stapsgewijze instructies voor dit.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing voor Active Directory-Serverstatus controleren in Log Analytics
 
@@ -52,7 +52,7 @@ Nadat u de oplossing hebt toegevoegd en een controle voltooid, samenvatting is-i
 
 Als u wilt uitvoeren van de statuscontrole op basis van uw domeincontrollers die lid van het domein zijn moet worden geëvalueerd, vereisen ze een agent en de connectiviteit met logboekanalyse met een van de volgende ondersteunde methodes:
 
-1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) als de domeincontroller niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
+1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) als de domeincontroller niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
 2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de Log Analytics-service, de domeincontroller kan worden multihomed met logboekanalyse voor het verzamelen van gegevens en door te sturen naar de service- en nog steeds worden bewaakt door Operations Manager.  
 3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
@@ -108,8 +108,8 @@ Nadat deze is geïnstalleerd, kunt u de samenvatting van aanbevelingen weergeven
 De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen in aanbevelingen weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
-1. Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com). 
-2. Klik in de Azure-portal op **meer services** gevonden in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Meld Analytics**.
+1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **OMS-Portal** tegel.  
 4. Op de **overzicht** pagina, klikt u op de **AD Health Check** tegel. 
 5. Op de **Health Check** pagina, Controleer de overzichtsgegevens in een van de focus gebied blades en klik op een om aanbevelingen voor het desbetreffende focusgebied weer te geven.

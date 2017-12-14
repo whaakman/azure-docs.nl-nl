@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Netwerk-Prestatiemeter-oplossing in Log Analytics
 
@@ -46,7 +46,7 @@ Als u bewaken van een line-of-business-toepassing wilt, kunt u de netwerk-Presta
 Ook als u al in andere hulpprogramma's voor netwerk investeert, klikt u vervolgens de oplossing kan een aanvulling op deze hulpprogramma's omdat meest traditioneel netwerk bewakingsoplossingen geen inzicht in de end-to-end netwerk maatstaven voor prestaties zoals en netwerklatentie bieden.  De netwerk-Prestatiemeter-oplossing kunt die ruimte te vullen.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Installeren en configureren van agents voor de oplossing
-De fundamentele processen gebruiken voor het installeren van agents op [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agents.md) en [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
+De fundamentele processen gebruiken voor het installeren van agents op [verbinding maken met Windows-computers met logboekanalyse](log-analytics-windows-agent.md) en [Operations Manager verbinden met Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
 > U moet ten minste 2 om agents te installeren om voldoende gegevens om te detecteren en bewaken van uw netwerkbronnen. Anders wordt blijft de oplossing configureren status totdat installeert en configureert u aanvullende agents.
