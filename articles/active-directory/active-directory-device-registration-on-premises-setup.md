@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4117414f4605b73d8aab8acc2e788720deff8b99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Lokale voorwaardelijke toegang instellen met behulp van Azure Active Directory-apparaatregistratie
 Als u werkplek koppelen gebruikers hun persoonlijke apparaten naar de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekend is bij uw organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -101,19 +101,13 @@ De implementatie is voltooid en u een aantal scenario's kunt uitproberen. Gebrui
 | Nu dat gebruikers hun apparaten registreren kunnen, kunt u de toepassing maken toegangsbeleid in AD FS die ervoor zorgen alleen geregistreerde apparaten dat. In deze taak maakt u een toegangsregel van toepassing en een aangepast bericht voor geweigerde toegang. |[Maak een beleid voor toepassingstoegang en een aangepaste bericht bij geweigerde toegang](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Azure Active Directory integreren met on-premises Active Directory
-Deze stap kunt u uw Azure AD-tenant met uw lokale Active Directory integreren met behulp van Azure AD Connect. Hoewel de stappen beschikbaar in de klassieke Azure portal zijn, noteer eventuele speciale instructies die worden vermeld in deze sectie.
 
-1. Aanmelden bij de klassieke Azure portal met behulp van een account dat een globale beheerder in Azure AD.
-2. Selecteer in het linkerdeelvenster **Active Directory**.
-3. Selecteer uw directory op het tabblad **Directory**.
-4. Selecteer de **Adreslijstintegratie** tabblad.
-5. Onder de **implementeren en beheren van** sectie, volg de stappen 1 tot en met 3 Azure Active Directory integreren met uw on-premises directory.
-   
-   1. Domeinen toevoegen.
-   2. Installeren en uitvoeren van Azure AD Connect met behulp van de instructies op de [aangepaste installatie van Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
-   3. Te controleren en beheren van directory-synchronisatie. Instructies voor één aanmelding zijn beschikbaar in deze stap.
-   
-   Bovendien Federatie met AD FS configureren zoals wordt beschreven in [aangepaste installatie van Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+**Zie:**
+
+- [Uw on-premises adreslijsten integreren met Azure Active Directory](./connect/active-directory-aadconnect.md) - om conceptuele informatie te bekijken.
+
+- [Aangepaste installatie van Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) - voor de installatie-instructies.
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Uw Active Directory Domain Services-schema bijwerken
 > [!NOTE]

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens verplaatsen en naar Azure Cosmos DB met Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -489,7 +489,7 @@ Azure Cosmos-database is een NoSQL-opslagplaats voor JSON-documenten, waarbij ge
 2. **Vraag:** records hoe al biedt een nieuwe poging van een kopie te behandelen Azure Cosmos DB gekopieerd?
 
     **Antwoord:** als records een veld 'ID hebben' en de kopieerbewerking wordt geprobeerd een record met dezelfde ID in te voegen, de kopieerbewerking een fout genereert.  
-3. **Vraag:** biedt ondersteuning voor Data Factory [bereik of de gegevens op basis van het hash-partitionering](../../cosmos-db/documentdb-partition-data.md)?
+3. **Vraag:** biedt ondersteuning voor Data Factory [bereik of de gegevens op basis van het hash-partitionering](../../cosmos-db/sql-api-partition-data.md)?
 
     **Antwoord:** Nee.
 4. **Vraag:** kan ik meer dan één Azure Cosmos DB verzameling voor een tabel opgeven?

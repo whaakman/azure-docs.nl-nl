@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1f56e7ae96388ff1135017e07771138ebfc5ac33
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Tips voor betere prestaties voor Azure Cosmos-DB
 
@@ -88,7 +88,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
 ## <a name="sdk-usage"></a>Gebruik van de SDK
 1. **De meest recente SDK installeren**
 
-    De Cosmos-DB SDK's zijn voortdurend wordt verbeterd, zodat de beste prestaties bieden. Zie de [Cosmos DB SDK](documentdb-sdk-dotnet.md) pagina's om te bepalen van de meest recente SDK en verbeteringen controleren.
+    De Cosmos-DB SDK's zijn voortdurend wordt verbeterd, zodat de beste prestaties bieden. Zie de [Cosmos DB SDK](sql-api-sdk-dotnet.md) pagina's om te bepalen van de meest recente SDK en verbeteringen controleren.
 2. **Een singleton Cosmos-DB-client gedurende de levensduur van uw toepassing gebruiken**
 
     Houd er rekening mee dat elk exemplaar DocumentClient thread-veilige en efficiënte Verbindingsbeheer en adrescaching in directe modus wordt uitgevoerd. Zodat efficiënt Verbindingsbeheer en betere prestaties door DocumentClient verdient het gebruik van één exemplaar van de DocumentClient per AppDomain gedurende de levensduur van de toepassing.
@@ -99,7 +99,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     DB cosmos-aanvragen worden gedaan via HTTPS/REST bij gebruik van Gateway-modus en zijn onderworpen aan de standaardlimiet verbinding per hostnaam of IP-adres. Mogelijk moet u de MaxConnections ingesteld op een hogere waarde (100-1000), zodat meerdere gelijktijdige verbindingen met Cosmos DB van de clientbibliotheek gebruikmaken kan. In de .NET SDK 1.8.0 en hoger wordt met de standaardwaarde voor [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 en de waarde wilt wijzigen, kunt u instellen de [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)op een hogere waarde.   
 4. **Parallelle query's voor gepartitioneerde verzamelingen afstemmen**
 
-     SQL .NET SDK versie 1.9.0 en hoger ondersteuning parallelle query's waarmee u kunt een query uitvoeren op een gepartitioneerde verzameling worden parallel (Zie [werken met de SDK's](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) en de verwante [codevoorbeelden](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) voor meer informatie). Parallelle query's zijn ontworpen voor betere Querylatentie en doorvoer via hun seriële equivalent. Parallelle query's bieden twee parameters die gebruikers afstemmen kunnen om de vereisten (a) MaxDegreeOfParallelism aangepaste aanpassen: om te bepalen dat het maximum aantal partities vervolgens kan worden opgevraagd in parallel en (b) MaxBufferedItemCount: om te bepalen het aantal vooraf opgehaalde resultaten.
+     SQL .NET SDK versie 1.9.0 en hoger ondersteuning parallelle query's waarmee u kunt een query uitvoeren op een gepartitioneerde verzameling worden parallel (Zie [werken met de SDK's](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) en de verwante [codevoorbeelden](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) voor meer informatie). Parallelle query's zijn ontworpen voor betere Querylatentie en doorvoer via hun seriële equivalent. Parallelle query's bieden twee parameters die gebruikers afstemmen kunnen om de vereisten (a) MaxDegreeOfParallelism aangepaste aanpassen: om te bepalen dat het maximum aantal partities vervolgens kan worden opgevraagd in parallel en (b) MaxBufferedItemCount: om te bepalen het aantal vooraf opgehaalde resultaten.
 
     (a) ***afstemmen MaxDegreeOfParallelism\:***  parallelle query werkt door meerdere partities parallel uitvoeren van query's. Echter, gegevens van een afzonderlijke gepartitioneerde verzamelen ten opzichte van de query wordt opeenvolgend opgehaald. Dus heeft als u de MaxDegreeOfParallelism op het aantal partities de maximale kans op de meeste query zodat opgegeven alle andere voorwaarden system hetzelfde blijven. Als u het aantal partities niet weet, kunt u de MaxDegreeOfParallelism instellen op een groot aantal en het systeem de minimale (aantal partities, invoer van de gebruiker opgegeven) als de MaxDegreeOfParallelism kiest.
 
@@ -113,7 +113,7 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     In sommige gevallen kan minder vaak uit garbagecollection helpen. Stel in .NET, [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) op true.
 6. **Backoff RetryAfter intervallen implementeren**
 
-    Tijdens het testen van prestaties, moet u load verhogen tot een klein aantal aanvragen ophalen beperkt. Als beperkt, moet de clienttoepassing backoff op vertraging voor de server opgegeven interval. De backoff te respecteren, zorgt u ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor nieuwe pogingen Groepsbeleid is opgenomen in versie 1.8.0 en hoger van de SQL [.NET](documentdb-sdk-dotnet.md) en [Java](documentdb-sdk-java.md), versie 1.9.0 en hoger van de [Node.js](documentdb-sdk-node.md) en [Python](documentdb-sdk-python.md), en alle ondersteunde versies van de [.NET Core](documentdb-sdk-dotnet-core.md) SDK's. Zie voor meer informatie [Exceeding gereserveerd doorvoerlimieten](request-units.md#RequestRateTooLarge) en [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Tijdens het testen van prestaties, moet u load verhogen tot een klein aantal aanvragen ophalen beperkt. Als beperkt, moet de clienttoepassing backoff op vertraging voor de server opgegeven interval. De backoff te respecteren, zorgt u ervoor dat u besteden aan de minimale hoeveelheid tijd wachten tussen nieuwe pogingen. Ondersteuning voor nieuwe pogingen Groepsbeleid is opgenomen in versie 1.8.0 en hoger van de SQL [.NET](sql-api-sdk-dotnet.md) en [Java](sql-api-sdk-java.md), versie 1.9.0 en hoger van de [Node.js](sql-api-sdk-node.md) en [Python](sql-api-sdk-python.md), en alle ondersteunde versies van de [.NET Core](sql-api-sdk-dotnet-core.md) SDK's. Zie voor meer informatie [Exceeding gereserveerd doorvoerlimieten](request-units.md#RequestRateTooLarge) en [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Uitbreiden van de werkbelasting van uw client**
 
     Als u op niveaus met hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing mogelijk het knelpunt als gevolg van de machine beperking af op CPU- of -gebruik. Als u deze punt bereikt, kunt u blijven voor de push-het account Cosmos DB verder door het uitbreiden van uw clienttoepassingen op meerdere servers.

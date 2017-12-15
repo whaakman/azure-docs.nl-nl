@@ -1,5 +1,5 @@
 ---
-title: Een PHP- en MySQL web-app in Azure bouwen | Microsoft Docs
+title: Een PHP- en MySQL web-app in Azure App Service maken op Linux | Microsoft Docs
 description: Informatie over het ophalen van een PHP-app in Azure, met verbinding met een MySQL-database in Azure AD werkt.
 services: app-service\web
 documentationcenter: nodejs
@@ -12,13 +12,17 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bf6efd96bea8a6f563ec72d5469d91b4cbfbd5fe
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Een PHP- en MySQL web-app in Azure bouwen
+# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL web-app in Azure App Service maken op Linux
+
+> [!NOTE]
+> In dit artikel implementeert een app in App Service op Linux. Voor de implementatie in App Service _Windows_, Zie [een PHP- en MySQL web-app in Azure bouwen](../app-service-web-tutorial-php-mysql.md).
+>
 
 [App-Service op Linux](app-service-linux-intro.md) biedt een zeer schaalbaar, zelf patch webhosting-service met het Linux-besturingssysteem. Deze zelfstudie laat zien hoe een PHP-web-app maken en te verbinden met een MySQL-database. Wanneer u klaar bent, hebt u een [Laravel](https://laravel.com/) app die op App Service op Linux wordt uitgevoerd.
 
@@ -155,7 +159,7 @@ In deze stap maakt u een MySQL-database in [Azure Database voor MySQL (Preview)]
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
-Een server in Azure-Database voor MySQL (Preview) te maken met de [az mysql-server maken](/cli/azure/mysql/server#az_mysql_server_create) opdracht.
+Een server in Azure-Database voor MySQL (Preview) te maken met de [az mysql-server maken](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) opdracht.
 
 Vervang de naam van uw MySQL-server waarin u ziet in de volgende opdracht de  _&lt;mysql_server_name >_ tijdelijke aanduiding (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de MySQL-server de hostnaam (`<mysql_server_name>.database.windows.net`), moet worden globaal uniek zijn.
 
@@ -180,7 +184,7 @@ Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie vergelijkbaar 
 
 ### <a name="configure-server-firewall"></a>Een firewall configureren
 
-Maken van een firewallregel voor uw MySQL-server clientverbindingen toestaat met behulp van de [az mysql server-firewallregel maken](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) opdracht.
+Maken van een firewallregel voor uw MySQL-server clientverbindingen toestaat met behulp van de [az mysql server-firewallregel maken](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) opdracht.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -331,7 +335,7 @@ In deze stap maakt implementeren u de MySQL verbonden PHP-toepassing in Azure Ap
 
 ### <a name="configure-database-settings"></a>Database-instellingen configureren
 
-In App Service, stelt u omgevingsvariabelen als _appinstellingen_ met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) opdracht.
+In App Service, stelt u omgevingsvariabelen als _appinstellingen_ met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht.
 
 De volgende opdracht uit de app-instellingen configureert `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, en `DB_PASSWORD`. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;mysql_server_name >_.
 
@@ -363,7 +367,7 @@ Gebruik `php artisan` voor het genereren van een nieuwe Toepassingssleutel zonde
 php artisan key:generate --show
 ```
 
-Stel de Toepassingssleutel in de App Service web-app met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) opdracht. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;outputofphpartisankey: genereren >_.
+Stel de Toepassingssleutel in de App Service web-app met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht. Vervang de tijdelijke aanduidingen  _&lt;appname >_ en  _&lt;outputofphpartisankey: genereren >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -375,7 +379,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Het pad van de virtuele toepassing voor de web-app ingesteld. Deze stap is vereist omdat de [Laravel toepassing lifecycle](https://laravel.com/docs/5.4/lifecycle) begint in de _openbare_ map in plaats van de hoofdmap van de toepassing. Andere PHP-frameworks waarvan de levenscyclus van starten in de hoofdmap werken zonder handmatige configuratie van het pad van de virtuele toepassing.
 
-Pad van de virtuele toepassing instellen via de [az resource update](/cli/azure/resource#az_resource_update) opdracht. Vervang de  _&lt;appname >_ tijdelijke aanduiding.
+Pad van de virtuele toepassing instellen via de [az resource update](/cli/azure/resource?view=azure-cli-latest#az_resource_update) opdracht. Vervang de  _&lt;appname >_ tijdelijke aanduiding.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

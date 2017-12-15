@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)
 
@@ -32,7 +32,7 @@ In dit artikel kunt u informatie over het gebruik van Storage Explorer voor het 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure DB die Cosmos-account voor de SQL-API of de MongoDB-API. Als u geen account hebt, kunt u een in de Azure portal maken zoals beschreven in [Azure Cosmos DB: bouwen van een SQL-API-web-app met .NET- en de Azure-portal](create-documentdb-dotnet.md).
+Een Azure DB die Cosmos-account voor de SQL-API of de MongoDB-API. Als u geen account hebt, kunt u een in de Azure portal maken zoals beschreven in [Azure Cosmos DB: bouwen van een SQL-API-web-app met .NET- en de Azure-portal](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installeren
 
@@ -137,7 +137,7 @@ Voor het maken van een nieuw document openen **documenten** in het linkerdeelven
 #### <a name="delete-a-document"></a>Een document verwijderen
 Klik op de **verwijderen** knop om te verwijderen van het geselecteerde document.
 #### <a name="query-for-documents"></a>Query voor documenten
-Het documentfilter bewerken door te voeren een [SQL-query](documentdb-sql-query.md) en klik vervolgens op **toepassen**.
+Het documentfilter bewerken door te voeren een [SQL-query](sql-api-sql-query.md) en klik vervolgens op **toepassen**.
 
 ![Filteren](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

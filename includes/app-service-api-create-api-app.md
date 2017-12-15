@@ -1,5 +1,5 @@
 
-Maak met de opdracht [az webapp create](/cli/azure/webapp#az_webapp_create) een app in het App Service-plan `myAppServicePlan`. 
+Maak met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) een app in het App Service-plan `myAppServicePlan`. 
 
 De web-app biedt hostruimte voor uw API en biedt een URL waarmee u de geïmplementeerde app kunt weergeven.
 

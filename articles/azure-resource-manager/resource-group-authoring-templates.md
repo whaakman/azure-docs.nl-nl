@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: c0ec888dbe94229701391f1aed79a78d3cb90d77
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
 In dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
@@ -139,18 +139,16 @@ Elk element bevat eigenschappen die u kunt instellen. Het volgende voorbeeld bev
 
 Dit artikel wordt beschreven in de secties van de sjabloon in meer detail.
 
-## <a name="expressions-and-functions"></a>Expressies en functies
+## <a name="syntax"></a>Syntaxis
 De syntaxis van de basis van de sjabloon is JSON. Expressies en functies echter uitbreiden de JSON-waarden die beschikbaar zijn in de sjabloon.  Expressies zijn geschreven in JSON-letterlijke waarvan de eerste en laatste tekens zijn de vierkante haken: `[` en `]`respectievelijk. De waarde van de expressie wordt geëvalueerd wanneer de sjabloon wordt geïmplementeerd. Hoewel geschreven als een letterlijke tekenreeks, zijn het resultaat van evaluatie van de expressie van een ander JSON-type, zoals een matrix of een geheel getal, afhankelijk van de werkelijke expressie.  Een letterlijke tekenreeks beginnen met een haakje hebben `[`, maar dit wordt geïnterpreteerd als een expressie niet, Voeg een extra haakje voor het starten van de tekenreeks met `[[`.
 
 Normaal gesproken u expressies gebruiken met functies bewerkingen voor het configureren van de implementatie uit te voeren. Net zoals in JavaScript-functieaanroepen die zijn opgemaakt als `functionName(arg1,arg2,arg3)`. U verwijzen naar eigenschappen met behulp van de punt en [index] operators.
 
-Het volgende voorbeeld ziet u hoe u verschillende functies gebruikt bij het maken van de waarden:
+Het volgende voorbeeld ziet u hoe u verschillende functies gebruikt bij het maken van een waarde:
 
 ```json
 "variables": {
-    "location": "[resourceGroup().location]",
-    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -209,35 +207,16 @@ Zie voor meer informatie [bronnensectie van Azure Resource Manager-sjablonen](re
 ## <a name="outputs"></a>Uitvoer
 In de sectie uitvoer geeft u de waarden die worden geretourneerd van de implementatie. U kan bijvoorbeeld de URI voor toegang tot een geïmplementeerde resource geretourneerd.
 
-Het volgende voorbeeld ziet u de structuur van de definitie van een uitvoer:
-
 ```json
 "outputs": {
-    "<outputName>" : {
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "newHostName": {
+    "type": "string",
+    "value": "[reference(variables('webSiteName')).defaultHostName]"
+  }
 }
 ```
 
-| Elementnaam | Vereist | Beschrijving |
-|:--- |:--- |:--- |
-| outputName |Ja |De naam van de uitvoerwaarde. Moet een geldige JavaScript-id. |
-| type |Ja |Type van de uitvoerwaarde. Uitvoerwaarden ondersteuning voor dezelfde typen als sjabloon invoerparameters. |
-| waarde |Ja |De sjabloontaalexpressie dat wordt geëvalueerd en geretourneerd als de waarde voor uitvoer. |
-
-Het volgende voorbeeld ziet een waarde die wordt geretourneerd in de sectie uitvoer.
-
-```json
-"outputs": {
-    "siteUri" : {
-        "type" : "string",
-        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-    }
-}
-```
-
-Zie voor meer informatie over het werken met uitvoer [delen status in Azure Resource Manager-sjablonen](best-practices-resource-manager-state.md).
+Zie voor meer informatie [levert sectie van Azure Resource Manager-sjablonen](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Limieten voor sjabloon
 

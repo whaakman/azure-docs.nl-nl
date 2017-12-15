@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Een Docker Python en PostgreSQL web-app in Azure bouwen
 
@@ -121,7 +121,7 @@ In deze stap maakt u een PostgreSQL-database in Azure. Wanneer uw app wordt geï
 
 ### <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Nu gaat u de Azure CLI 2.0 gebruiken om de resources die nodig zijn voor het hosten van uw toepassing Python in Web-App voor Containers te maken.  Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/#az_login) en volg de instructies op het scherm.
+Nu gaat u de Azure CLI 2.0 gebruiken om de resources die nodig zijn voor het hosten van uw toepassing Python in Web-App voor Containers te maken.  Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/?view=azure-cli-latest#az_login) en volg de instructies op het scherm.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een [resourcegroep](../../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group#az_group_create).
+Maak een [resourcegroep](../../azure-resource-manager/resource-group-overview.md) met de opdracht [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ Het volgende voorbeeld maakt een resourcegroep in de regio VS-West:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Gebruik de [az appservice lijst-locaties](/cli/azure/appservice#az_appservice_list_locations) Azure CLI-opdracht naar de lijst met beschikbare locaties.
+Gebruik de [az appservice lijst-locaties](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) Azure CLI-opdracht naar de lijst met beschikbare locaties.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken
 
-Maak een PostgreSQL-server met de [az postgres server maken](/cli/azure/postgres/server#az_postgres_server_create) opdracht.
+Maak een PostgreSQL-server met de [az postgres server maken](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) opdracht.
 
 In de volgende opdracht te vervangen door een unieke naam voor de  *\<postgresql_name >* tijdelijke aanduiding en een gebruiker een naam voor de  *\<admin_username >* tijdelijke aanduiding. Naam van de server wordt gebruikt als onderdeel van uw eindpunt PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), zodat de naam moet uniek zijn in alle servers in Azure. De gebruikersnaam is voor de gebruikersaccount van de oorspronkelijke database-beheerder. U wordt gevraagd een wachtwoord voor deze gebruiker kiest.
 
@@ -364,7 +364,7 @@ In deze stap maakt implementeren u om uw toepassing Docker-container op basis va
 
 ### <a name="create-an-app-service-plan"></a>Een App Service-plan maken
 
-Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Wanneer de App Service-abonnement is gemaakt, toont de Azure CLI informatie verg
 
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak een WebApp in de *myAppServicePlan* App Service-abonnement met de [az webapp maken](/cli/azure/webapp#az_webapp_create) opdracht.
+Maak een WebApp in de *myAppServicePlan* App Service-abonnement met de [az webapp maken](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) opdracht.
 
 De web-app hebt u een hosting ruimte om uw code te implementeren en biedt een URL op voor u de gedistribueerde toepassing weergeven. Gebruik te maken van de web-app.
 
@@ -445,7 +445,7 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke informatie als in
 
 Eerder in de zelfstudie u omgevingsvariabelen verbinding maken met uw PostgreSQL-database gedefinieerd.
 
-In App Service, stelt u omgevingsvariabelen als _appinstellingen_ met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) opdracht.
+In App Service, stelt u omgevingsvariabelen als _appinstellingen_ met behulp van de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht.
 
 Het volgende voorbeeld geeft de details van de database-verbinding als de app-instellingen. Gebruikt ook de *poort* poort 5000 kaart variabele van uw Docker-Container voor het ontvangen van HTTP-verkeer op poort 80.
 

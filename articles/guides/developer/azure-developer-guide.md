@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -108,7 +108,7 @@ De meeste toepassingen moeten opslaan van gegevens, dus ongeacht hoe u besluit v
 -   **Azure Cosmos DB**: een globaal gedistribueerd en modellen database-service waarmee u kunt de doorvoer en opslag via verschillende geografische regio's met een uitgebreide SLA schalen. 
     >**Gebruik:** wanneer uw toepassing moet een document, tabel of grafiek databases, met inbegrip van MongoDB-databases met meerdere goed gedefinieerde consistentie modellen. 
 
-    >**Aan de slag**: [bouwen van een web-app van Azure DB die Cosmos](../../cosmos-db/create-documentdb-dotnet.md). Als u een ontwikkelaar MongoDB, Zie [bouwen van een MongoDB-web-app met Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Aan de slag**: [bouwen van een web-app van Azure DB die Cosmos](../../cosmos-db/create-sql-api-dotnet.md). Als u een ontwikkelaar MongoDB, Zie [bouwen van een MongoDB-web-app met Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure Storage**: biedt duurzaam en maximaal beschikbare opslag voor blobs, wachtrijen, bestanden en andere soorten niet-relationele gegevens. Storage vormt de opslagbasis voor virtuele machines.
 

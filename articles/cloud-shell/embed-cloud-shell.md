@@ -14,28 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 7c06a51e7f9f402b2ec10e440ca98125a7f2a7cf
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: af5e5b536ced96680b65e2463c9dea159a26ca7b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure-Cloud-Shell insluiten
 
-Cloud-Shell insluiten kan ontwikkelaars en schrijvers van de inhoud rechtstreeks Cloud-Shell openen vanuit een specifieke URL, [shell.azure.com](https://shell.azure.com). Dit Hiermee ontgrendelt u de kracht van Cloud-Shell-verificatie, tooling en up-to-date Azure CLI/Azure PowerShell-hulpprogramma's.
+Cloud-Shell insluiten kan ontwikkelaars en schrijvers van de inhoud rechtstreeks Cloud-Shell openen vanuit een specifieke URL, [shell.azure.com](https://shell.azure.com). Hiermee onmiddellijk de kracht van Cloud-Shell-verificatie, tooling, en up-to-date Azure CLI/Azure PowerShell hulpprogramma's voor uw gebruikers.
+
+[![](https://shell.azure.com/images/launchcloudshell.png "Azure-Cloud-Shell starten")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Uitleg
 
 Knop voor Cloud-Shell starten integreren in markdown-bestanden te kopiëren van de volgende:
 
 ```markdown
-[![Launch Cloud Shell](https:shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
+[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 ```
 
 De HTML-code voor het insluiten van een pop-Cloud-Shell lager is dan:
 ```html
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
+
+## <a name="customize-experience"></a>Aanpassen
+
+Stel een specifieke shell-ervaring door het uitbreiden van de URL van uw.
+|Ervaring   |URL   |
+|---|---|
+|Onlangs gebruikte shell   |Shell.Azure.com           |
+|Bash                       |Shell.Azure.com/Bash       |
+|PowerShell                 |Shell.Azure.com/PowerShell |
 
 ## <a name="next-steps"></a>Volgende stappen
 [In de Cloud Shell snel Bash](quickstart.md)<br>

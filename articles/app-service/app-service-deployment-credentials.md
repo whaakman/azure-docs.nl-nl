@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie configureren voor Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](app-service-deploy-local-git.md) en [FTP-/ S implementatie](app-service-deploy-ftp.md). Deze zijn niet hetzelfde zijn als uw Azure Active Directory-referenties.
 
-* **Beveiliging op gebruikersniveau referenties**: één set met referenties voor de volledige Azure-account. Het kan worden gebruikt om te implementeren in App Service voor een app, in een abonnement dat het Azure-account toegang heeft tot. Dit zijn de standaardset van de referenties die u configureert in **App Services** > **&lt;app_naam >** > **implementatiereferenties**. Dit is de standaardinstelling set die wordt opgehaald in de GUI-portal (zoals de **overzicht** en **eigenschappen** van uw app [resourceblade](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Beveiliging op gebruikersniveau referenties**: één set met referenties voor de volledige Azure-account. Het kan worden gebruikt om te implementeren in App Service voor een app, in een abonnement dat het Azure-account toegang heeft tot. Dit zijn de standaardset van de referenties die u configureert in **App Services** > **&lt;app_naam >** > **implementatiereferenties**. Dit is de standaardinstelling set die wordt opgehaald in de GUI-portal (zoals de **overzicht** en **eigenschappen** van uw app [bronpagina](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
     > Wanneer u toegang tot Azure-resources via op rollen gebaseerd toegangsbeheer (RBAC) of co-beheerder machtigingen delegeren, kunt elke Azure-gebruiker die toegang tot een app ontvangt stelt zijn/haar persoonlijke op gebruikersniveau referenties gebruiken totdat de toegang is ingetrokken. Deze referenties voor implementatie mag niet worden gedeeld met andere Azure-gebruikers.
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>Instellen en de referenties op gebruikersniveau resetten
 
-U kunt uw referenties op gebruikersniveau configureren in elke app [resourceblade](../azure-resource-manager/resource-group-portal.md#manage-resources). Ongeacht in welke app configureert u deze referenties, geldt dit voor alle apps en voor alle abonnementen in uw Azure-account. 
+U kunt uw referenties op gebruikersniveau configureren in elke app [bronpagina](../azure-resource-manager/resource-group-portal.md#manage-resources). Ongeacht in welke app configureert u deze referenties, geldt dit voor alle apps en voor alle abonnementen in uw Azure-account. 
 
 Uw referenties op gebruikersniveau configureren:
 
 1. In de [Azure-portal](https://portal.azure.com), klik op App Service >  **&lt;any_app >** > **implementatiereferenties**.
 
     > [!NOTE]
-    > U moet ten minste één app in de portal hebben voordat u toegang hebt tot de implementatie van de blade referenties. Bij de [Azure CLI](/cli/azure/webapp/deployment/user#set), kunt u de referenties op gebruikersniveau zonder een bestaande app configureren.
+    > U moet ten minste één app in de portal hebben voordat u toegang hebt tot de pagina implementatie-referenties. Bij de [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), kunt u de referenties op gebruikersniveau zonder een bestaande app configureren.
 
 2. Configureer de gebruikersnaam en wachtwoord en klik vervolgens op **opslaan**.
 

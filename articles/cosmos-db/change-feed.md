@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de ondersteuning in Azure Cosmos DB feed wijziging
 
@@ -90,11 +90,11 @@ Triggers kunnen worden gemaakt in de Azure Functions-portal in de Azure DB die C
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Met behulp van de SDK
 
-De [SQL SDK](documentdb-sdk-dotnet.md) voor Azure Cosmos DB biedt u de bevoegdheid om te lezen en beheren van een wijziging in de feed. Maar met geweldige power te veel verantwoordelijkheden geleverd. Als u wilt beheren van controlepunten, behandelt document volgnummers en hebben gedetailleerde controle over partitiesleutels, klik met de SDK mogelijk de juiste aanpak.
+De [SQL SDK](sql-api-sdk-dotnet.md) voor Azure Cosmos DB biedt u de bevoegdheid om te lezen en beheren van een wijziging in de feed. Maar met geweldige power te veel verantwoordelijkheden geleverd. Als u wilt beheren van controlepunten, behandelt document volgnummers en hebben gedetailleerde controle over partitiesleutels, klik met de SDK mogelijk de juiste aanpak.
 
 Deze sectie wordt uitgelegd hoe u de SQL-SDK gebruiken om te werken met een wijziging in de feed.
 
-1. Lezen van de volgende bronnen van appconfig starten. Instructies voor het ophalen van de endpoint- en autorisatie-sleutel zijn beschikbaar in [bijwerken van de verbindingsreeks](create-documentdb-dotnet.md#update-your-connection-string).
+1. Lezen van de volgende bronnen van appconfig starten. Instructies voor het ophalen van de endpoint- en autorisatie-sleutel zijn beschikbaar in [bijwerken van de verbindingsreeks](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Uw matrix controlepunt wordt dus alleen te houden het LSN voor elke partitie. Ma
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Met behulp van de wijziging Feed Processor-bibliotheek 
 
-De [Azure Cosmos DB wijzigen Feed Processor bibliotheek](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) kunt u eenvoudig de verwerking van gebeurtenissen te verdelen over meerdere gebruikers. Deze bibliotheek vereenvoudigt lezen wijzigingen in partities en meerdere threads die parallel werken.
+De [Azure Cosmos DB wijzigen Feed Processor bibliotheek](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kunt u eenvoudig de verwerking van gebeurtenissen te verdelen over meerdere gebruikers. Deze bibliotheek vereenvoudigt lezen wijzigingen in partities en meerdere threads die parallel werken.
 
 Het belangrijkste voordeel van wijziging Feed Processor-bibliotheek is dat u geen hebt voor het beheren van elke partitie en vervolgtoken en u hoeft te peilen handmatig op elke verzameling.
 
@@ -276,11 +276,11 @@ Zie voor meer informatie over het gebruik van Azure DB die Cosmos met Azure Func
 
 Gebruik de volgende bronnen voor meer informatie over het gebruik van de wijziging Feed Processor-bibliotheek:
 
-* [Informatiepagina](documentdb-sdk-dotnet-changefeed.md) 
+* [Informatiepagina](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget-pakket](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Stap 1-6 hierboven weergegeven voorbeeldcode](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Aanvullende voorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Gebruik de volgende bronnen voor meer informatie over het gebruik van de wijziging via de SDK-feed:
 
-* [Informatiepagina SDK](documentdb-sdk-dotnet.md)
+* [Informatiepagina SDK](sql-api-sdk-dotnet.md)

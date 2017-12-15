@@ -32,7 +32,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Netwerkinterfaces (NIC) |350 |20000 |
 | Netwerkbeveiligingsgroepen (NSG's) |100 |5000 |
 | NSG-regels per NSG |200 |500 |
-| IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsregel |2000 |4000 |
+| IP-adressen en -bereiken die zijn opgegeven voor de bron- of doelserver in een beveiligingsgroep |2000 |4000 |
 | Toepassingsbeveiligingsgroepen |200 |500 |
 | Beveiligingsgroepen toepassing per IP-configuratie per NIC |10 |20 |
 | IP-configuraties per groep van toepassingen-beveiliging |1000 |4000 |
@@ -48,7 +48,7 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
-| Taakverdelers | 100 | 1000 |
+| Load Balancers | 100 | 1000 |
 | Regels per resource, Basic | 150 | 250 |
 | Regels per resource, standaard | 1250 | 1500 |
 | Regels per IP-configuratie | 299 |299 |

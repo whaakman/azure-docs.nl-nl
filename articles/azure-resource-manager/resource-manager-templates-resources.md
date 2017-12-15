@@ -13,9 +13,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 468a6bc77b354f2e0fbe981c3d4a5691eac4ec4d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/14/2017
 ---
@@ -140,7 +140,7 @@ Voor brontypen die u voornamelijk via een andere resource benaderen, kunt u een 
 }
 ```
 
-## <a name="resource-location"></a>Resourcelocatie
+## <a name="location"></a>Locatie
 Bij het implementeren van een sjabloon, moet u een locatie voor elke resource opgeven. Andere brontypen die worden ondersteund in verschillende locaties. Als een lijst met locaties die beschikbaar voor uw abonnement voor een bepaald brontype zijn weergeven, gebruikt u Azure PowerShell of Azure CLI. 
 
 Het volgende voorbeeld maakt gebruik van PowerShell om op te halen van de locaties voor de `Microsoft.Web\sites` brontype:

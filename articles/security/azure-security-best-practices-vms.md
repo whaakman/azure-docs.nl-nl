@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Aanbevolen procedures voor beveiliging van de virtuele machine in Azure
 
@@ -51,7 +51,7 @@ De eerste stap bij het beveiligen van uw virtuele machine is om ervoor te zorgen
 
 Virtuele machines die deel uitmaken van een resourcegroep natuurlijk neemt de beleidsregels. Hoewel we deze benadering voor het beheren van virtuele machines wordt aangeraden, kunt u ook toegang tot afzonderlijke VM-beleid beheren met behulp van [op rollen gebaseerde toegangsbeheer (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Wanneer u beleidsregels voor Resource Manager en RBAC VM toegangsbeheer inschakelt, kunt u helpen verbeteren de algehele beveiliging van de virtuele machine. Het is raadzaam dat u virtuele machines met de dezelfde levenscyclus in dezelfde resourcegroep samenvoegen. Met behulp van resourcegroepen kunt u implementeren, bewaken en samengevouwen facturering kosten voor uw resources. Gebruiken om gebruikers te openen en het instellen van virtuele machines, een [minimale bevoegdheid benadering](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). En als u rechten aan gebruikers toewijst, wilt gebruiken de volgende ingebouwde Azure-rollen:
+Wanneer u beleidsregels voor Resource Manager en RBAC VM toegangsbeheer inschakelt, kunt u helpen verbeteren de algehele beveiliging van de virtuele machine. Het is raadzaam dat u virtuele machines met de dezelfde levenscyclus in dezelfde resourcegroep samenvoegen. Met behulp van resourcegroepen kunt u implementeren, bewaken en samengevouwen facturering kosten voor uw resources. Gebruiken om gebruikers te openen en het instellen van virtuele machines, een [minimale bevoegdheid benadering](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). En als u rechten aan gebruikers toewijst, wilt gebruiken de volgende ingebouwde Azure-rollen:
 
 - [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): VM's, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden kunt beheren.
 - [Klassieke Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, maar niet het virtuele netwerk of opslag account waarmee de virtuele machines zijn verbonden kunt beheren.
@@ -80,7 +80,7 @@ Organisaties die niet netwerk toegangsbeperkingen internetgerichte virtuele mach
 
 Uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsvereisten, kunt u schijfversleuteling helpt bij de beveiliging toepassen. Uw organisatie moet rekening houden met behulp van versleuteling op risico's met betrekking tot niet-geautoriseerde gegevenstoegang verminderen. Bovendien aangeraden om uw stations te versleutelen, voordat u gevoelige gegevens naar deze schrijft.
 
-Zorg ervoor dat voor het versleutelen van uw VM gegevensvolumes om ze te beveiligen in rust in uw Azure storage-account. Bescherming van de versleutelingssleutels en geheim met behulp van [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Zorg ervoor dat voor het versleutelen van uw VM gegevensvolumes om ze te beveiligen in rust in uw Azure storage-account. Bescherming van de versleutelingssleutels en geheim met behulp van [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Organisaties die niet gegevensversleuteling afdwingen worden meer blootgesteld aan problemen van de integriteit van gegevens. Onbevoegde of rogue gebruikers kunnen bijvoorbeeld gestolen gegevens in de accounts waarmee is geknoeid of onbevoegde toegang te krijgen tot gegevens die zijn gecodeerd in ClearFormat. Behalve op dergelijke risico's, om te voldoen aan de regelgeving vanuit de sector, moeten bedrijven bewijzen dat zij toewijding inzetten uitoefenen en met behulp van besturingselementen voor de juiste beveiliging om de gegevensbeveiliging van hun te garanderen.
 
@@ -122,7 +122,7 @@ Organisaties die een sterke beveiligingspostuur niet voor hun virtuele machines 
 
 Misbruik van de resource is een probleem als VM processen meer bronnen dan zou moeten gebruiken. Prestatieproblemen met een VM kunnen leiden tot een onderbreking van de service die niet voldoet aan de beveiligingsprincipal van beschikbaarheid. Daarom is het noodzakelijk is voor het bewaken van VM-toegang is het niet alleen reactief terwijl er een probleem optreedt, maar ook proactief tegen basislijn gemeten tijdens normale werking.
 
-Door te analyseren [Azure diagnostische logboekbestanden](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), kunt u uw VM-resources bewaken en mogelijke problemen die op de prestaties en beschikbaarheid hebben kunnen. De extensie voor diagnostische gegevens van Azure biedt mogelijkheden voor controle en diagnostische gegevens op Windows gebaseerde virtuele machines. U kunt deze mogelijkheden inschakelen door de uitbreiding als onderdeel van de [Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md).
+Door te analyseren [Azure diagnostische logboekbestanden](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), kunt u uw VM-resources bewaken en mogelijke problemen die op de prestaties en beschikbaarheid hebben kunnen. De extensie voor diagnostische gegevens van Azure biedt mogelijkheden voor controle en diagnostische gegevens op Windows gebaseerde virtuele machines. U kunt deze mogelijkheden inschakelen door de uitbreiding als onderdeel van de [Azure Resource Manager-sjabloon](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 U kunt ook [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) meer inzicht verkrijgen in de status van uw resources.
 

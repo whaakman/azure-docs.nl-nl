@@ -1,4 +1,4 @@
-Maak in de Cloud Shell implementatiereferenties met de opdracht [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set). Een implementatiegebruiker is vereist voor FTP- en lokale Git-implementatie naar een webtoepassing. De gebruikersnaam en het wachtwoord staan op accountniveau. _Deze verschillen van de referenties van uw Azure-abonnement._
+Maak in de Cloud Shell implementatiereferenties met de opdracht [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set). Een implementatiegebruiker is vereist voor FTP- en lokale Git-implementatie naar een webtoepassing. De gebruikersnaam en het wachtwoord staan op accountniveau. _Deze verschillen van de referenties van uw Azure-abonnement._
 
 Vervang in het volgende voorbeeld wordt  *\<username >* en  *\<wachtwoord >* (inclusief haken) met een nieuwe gebruikersnaam en wachtwoord. De gebruikersnaam moet uniek zijn. Het wachtwoord moet ten minste acht tekens lang zijn en minimaal twee van de volgende drie typen elementen bevatten: letters, cijfers, symbolen. 
 

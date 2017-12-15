@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Netwerkbeveiligingsgroepen met de Azure Portal oplossen
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ De volgende stappen voor het oplossen van nsg's voor een virtuele machine:
 
 U kunt de volledige lijst van de regels voor een effectieve beveiligingsmethode weergeven op een Netwerkinterfacekaart, van de virtuele machine zelf. U kunt ook toevoegen, wijzigen en verwijderen van zowel NIC en het subnetmasker NSG-regels op de blade effectieve regels als u machtigingen hebt voor deze bewerkingen uitvoeren.
 
-1. Meld u aan bij de Azure portal op https://portal.azure.com.
+1. Meld u aan bij de Azure portal op https://portal.azure.com met een Azure-account. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klik op **meer services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
 3. Selecteer een virtuele machine om op te lossen in de lijst die wordt weergegeven en een VM-blade met opties wordt weergegeven.
 4. Klik op **spoor & oplossen van problemen met** en selecteer vervolgens een veelvoorkomend probleem. In dit voorbeeld **ik kan geen verbinding maken met mijn Windows-VM** is geselecteerd. 

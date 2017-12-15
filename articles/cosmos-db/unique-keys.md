@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 85157f3f0bcf86ae049c0bec76afb0ca33797b11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unieke sleutels in Azure Cosmos-DB
 
 Unieke sleutels kunnen ontwikkelaars de mogelijkheid een laag van de integriteit van gegevens toevoegen aan de database. Door het maken van een unieke sleutel beleid wanneer een container is gemaakt, zorgt u ervoor de uniekheid van een of meer waarden per [partitiesleutel](partition-data.md). Als een container is gemaakt met een unieke sleutel beleid, voorkomt u dat het maken van alle nieuwe of bijgewerkte items met waarden dat er dubbele waarden die zijn opgegeven door de unique key-beperking.   
 
 > [!NOTE]
-> Unieke sleutels worden ondersteund door de nieuwste versies van de [.NET](documentdb-sdk-dotnet.md) en [.NET Core](documentdb-sdk-dotnet-core.md) SQL SDK's, en de [MongoDB API](mongodb-feature-support.md#unique-indexes). De tabel-API en een Graph API bieden geen ondersteuning voor unieke sleutels op dit moment. 
+> Unieke sleutels worden ondersteund door de nieuwste versies van de [.NET](sql-api-sdk-dotnet.md) en [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK's, en de [MongoDB API](mongodb-feature-support.md#unique-indexes). De tabel-API en een Graph API bieden geen ondersteuning voor unieke sleutels op dit moment. 
 > 
 >
 

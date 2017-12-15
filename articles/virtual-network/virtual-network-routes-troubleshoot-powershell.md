@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Problemen oplossen met Azure PowerShell routes
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Overzicht van de cumulatieve routes die worden toegepast op een virtuele machine
 ### <a name="view-effective-routes-for-a-network-interface"></a>De effectieve routes weergeven voor een netwerkinterface
 Overzicht van de cumulatieve routes die worden toegepast op een netwerkinterface, de volgende stappen uitvoeren:
 
-1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend met Azure PowerShell bent, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
+1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend met Azure PowerShell bent, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. De volgende opdracht retourneert alle routes die worden toegepast op een netwerkinterface met de naam *VM1 NIC1* in de resourcegroep *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -122,7 +122,7 @@ Een aantal dingen rekening moet houden bij het controleren van de lijst met rout
 
 * Routering is gebaseerd op langste voorvoegsel overeen (LPM) tussen udr's, systeem- en BGP-routes. Als er meer dan één route met dezelfde overeenkomende LPM is, klikt u vervolgens een route geselecteerd op basis van de oorsprong in de volgende volgorde:
   
-  * Gebruiker gedefinieerde route
+  * Door de gebruiker gedefinieerde route
   * BGP-route
   * Systeemroute (standaard)
     

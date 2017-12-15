@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Met Azure Cosmos DB sociale gaan
 Die in een samenleving massively onderling verbonden betekent dat op een bepaald moment in leven u deel van uitmaken een **sociale netwerken**. We gebruiken sociale netwerken om te communiceren vrienden, collega's, familie of soms onze passie delen met mensen met een gemeenschappelijke interesses.
@@ -103,7 +103,7 @@ Maken van feeds is zojuist een kwestie van het maken van documenten die een lijs
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-We een 'laatste' stream met berichten die zijn geordend op aanmaakdatum kan hebben, die berichten met 'gegevensbeheer' stream graag meer in de afgelopen 24 uur kan zelfs implementeren van een aangepaste stroom voor elke gebruiker op basis van logica zoals pc-gebruikers en interesses en is nog steeds een lijst met p osts. Er is een kwestie van het bouwen van deze lijsten, maar de prestaties lezen concurrerende blijft. Zodra er een van deze lijsten aanschaft, wordt één query verlenen aan Cosmos-database met behulp van de [IN de operator](documentdb-sql-query.md#WhereClause) verkrijgen van pagina's van berichten op een tijdstip.
+We een 'laatste' stream met berichten die zijn geordend op aanmaakdatum kan hebben, die berichten met 'gegevensbeheer' stream graag meer in de afgelopen 24 uur kan zelfs implementeren van een aangepaste stroom voor elke gebruiker op basis van logica zoals pc-gebruikers en interesses en is nog steeds een lijst met p osts. Er is een kwestie van het bouwen van deze lijsten, maar de prestaties lezen concurrerende blijft. Zodra er een van deze lijsten aanschaft, wordt één query verlenen aan Cosmos-database met behulp van de [IN de operator](sql-api-sql-query.md#WhereClause) verkrijgen van pagina's van berichten op een tijdstip.
 
 De feed stromen kunnen worden gebouwd met behulp van [Azure App Services](https://azure.microsoft.com/services/app-service/) processen op de achtergrond: [Webjobs](../app-service/web-sites-create-web-jobs.md). Nadat een advertentie is gemaakt, achtergrondverwerking kan worden geactiveerd met behulp van [Azure Storage](https://azure.microsoft.com/services/storage/) [wachtrijen](../storage/queues/storage-dotnet-how-to-use-queues.md) en Webjobs geactiveerd met behulp van de [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uitvoering de na de doorgifte in streams op basis van ons eigen aangepaste regels. 
 
@@ -237,7 +237,7 @@ Wat gebeurt er als dingen wordt steeds betere en gebruikers van een andere regio
 
 Maar geduld … ontdekt u snel hun ervaring met uw platform is niet optimaal; ze zijn tot nu toe weg van uw operationele regio dat de latentie verschrikkelijke is en u natuurlijk niet wilt dat ze om af te sluiten. Als er slechts er een eenvoudige manier van is **uitbreiden van uw globale bereik**..., maar er is!
 
-Cosmos DB kunt u [globaal uw gegevens repliceren](../cosmos-db/tutorial-global-distribution-documentdb.md) en transparant met een paar muisklikken en automatisch kiezen uit de beschikbare regio's van uw [clientcode](../cosmos-db/tutorial-global-distribution-documentdb.md). Dit betekent ook dat u hebt [meerdere regio's voor failover-](regional-failover.md). 
+Cosmos DB kunt u [globaal uw gegevens repliceren](../cosmos-db/tutorial-global-distribution-sql-api.md) en transparant met een paar muisklikken en automatisch kiezen uit de beschikbare regio's van uw [clientcode](../cosmos-db/tutorial-global-distribution-sql-api.md). Dit betekent ook dat u hebt [meerdere regio's voor failover-](regional-failover.md). 
 
 Wanneer u uw gegevens globaal repliceren, moet u ervoor zorgen dat uw clients van deze profiteren kunnen. Als u een web-front- of toegang tot API's vanaf mobiele clients gebruikt, kunt u implementeren [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) en klonen van uw Azure App Service op de gewenste regio's met behulp van een configuratie van de prestaties voor de ondersteuning van de uitgebreide algemene dekking. Wanneer uw clients toegang krijgen uw frontend of API's tot, worden ze doorgestuurd naar de dichtstbijzijnde App Service, die op zijn beurt maakt verbinding met de lokale replica van de Cosmos-DB.
 

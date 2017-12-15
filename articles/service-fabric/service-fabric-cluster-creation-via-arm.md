@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 19ad079c58728479a7f39ce7520bd8eaebdff1f5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -377,7 +377,7 @@ WebApplicationReplyUrl is het standaardeindpunt die Azure AD aan uw gebruikers r
 
 https://&lt;cluster_domain&gt;: 19080/Explorer
 
-U wordt gevraagd aan te melden bij een account met voor de Azure AD-tenant beheerdersbevoegdheden. Nadat u zich aanmeldt, wordt het script maakt de web- en systeemeigen toepassingen voor uw Service Fabric-cluster. Als u kijkt naar de tenant-toepassingen in de [klassieke Azure-portal][azure-classic-portal], ziet u twee nieuwe vermeldingen:
+U wordt gevraagd aan te melden bij een account met voor de Azure AD-tenant beheerdersbevoegdheden. Nadat u zich aanmeldt, wordt het script maakt de web- en systeemeigen toepassingen voor uw Service Fabric-cluster. Als u kijkt naar de tenant-toepassingen in de [Azure-portal][azure-portal], ziet u twee nieuwe vermeldingen:
 
    * *Clusternaam*\_Cluster
    * *Clusternaam*\_Client
@@ -615,7 +615,7 @@ Als u problemen ondervindt en cryptisch berichten ophalen, gebruikt u '-fouten o
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>Gebruikers toewijzen aan rollen
-Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aan de rollen die worden ondersteund door Service Fabric: alleen-lezen en de beheerder. U kunt de rollen toewijzen met behulp van de [klassieke Azure-portal][azure-classic-portal].
+Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aan de rollen die worden ondersteund door Service Fabric: alleen-lezen en de beheerder. U kunt de rollen toewijzen met behulp van de [Azure-portal][azure-portal].
 
 1. In de Azure portal, gaat u naar uw tenant en selecteer vervolgens **toepassingen**.
 2. Selecteer de webtoepassing heeft een naam zoals `myTestCluster_Cluster`.
@@ -693,7 +693,7 @@ U hebt op dit moment een beveiligde cluster met Azure Active Directory verstrekk
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

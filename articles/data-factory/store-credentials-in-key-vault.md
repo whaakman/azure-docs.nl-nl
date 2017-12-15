@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Opslaan van referenties in Azure Sleutelkluis
 
-Slaat u referenties voor gegevensopslag in een [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory haalt de referenties bij het uitvoeren van een activiteit die gebruikmaakt van het gegevensarchief. Op dit moment alleen [Dynamics connector](connector-dynamics-crm-office-365.md) en [Salesforce-connector](connector-salesforce.md) deze functie ondersteunen.
+Slaat u referenties voor gegevensopslag in een [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory haalt de referenties bij het uitvoeren van een activiteit die gebruikmaakt van het gegevensarchief.
+
+Op dit moment [Dynamics connector](connector-dynamics-crm-office-365.md), [Salesforce-connector](connector-salesforce.md) en enkele nieuwe connectors ondersteuning deze functie inschakelt. Naar verwachting krijgt later meer binnenkort. U kunt elk onderwerp connector details controleren. De geheime velden die ondersteuning bieden voor deze functie, ziet u een opmerking in de beschrijving van de melding '*kunt u dit veld markeren als een SecureString veilig opslaan in ADF, of wachtwoord opslaan in Azure Sleutelkluis en de kopie vizier pull van daaruit laten bij het uitvoeren van de gegevens opnieuw te kopiëren - weten van referenties voor gegevensopslag in de Sleutelkluis.* "
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [documentatie voor Data Factory version1 gedefinieerd](v1/data-factory-introduction.md).
@@ -70,7 +72,7 @@ De volgende eigenschappen worden ondersteund wanneer u een veld in de gekoppelde
 | type | De eigenschap type van het veld moet worden ingesteld op: **AzureKeyVaultSecret**. | Ja |
 | secretName | De naam van het geheim in azure sleutelkluis. | Ja |
 | secretVersion | De versie van het geheim in azure sleutelkluis.<br/>Als niet wordt opgegeven, gebruikt deze altijd de nieuwste versie van het geheim.<br/>Indien opgegeven, klikt u vervolgens blijven deze hangen naar de opgegeven versie.| Nee |
-| opslaan | Verwijst naar een Azure Key Vault gekoppelde service die u gebruikt voor het opslaan van de referentie. | Ja |
+| store | Verwijst naar een Azure Key Vault gekoppelde service die u gebruikt voor het opslaan van de referentie. | Ja |
 
 **Voorbeeld: (Zie de sectie 'password')**
 

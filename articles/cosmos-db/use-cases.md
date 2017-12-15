@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 660c0fbe80af125a840ef9ae324a72261c8adc24
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Algemene gebruiksvoorbeelden voor Azure Cosmos-DB
 In dit artikel biedt een overzicht van enkele algemene gebruiksvoorbeelden voor Azure Cosmos DB.  De aanbevelingen in dit artikel fungeren als een beginpunt tijdens het ontwikkelen van uw toepassing met Cosmos-DB.   
@@ -105,7 +105,7 @@ JSON, een indeling die wordt ondersteund door Cosmos DB, is een effectieve indel
 ![Azure DB Cosmos web-app-referentiearchitectuur](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-Om aan de slag met Azure Cosmos DB, volg ons [snel aan de slag](create-documentdb-dotnet.md), die helpt u bij het maken van een account en aan de slag met Cosmos-DB. 
+Om aan de slag met Azure Cosmos DB, volg ons [snel aan de slag](create-sql-api-dotnet.md), die helpt u bij het maken van een account en aan de slag met Cosmos-DB. 
 
 Of, als u meer informatie over klanten met behulp van de Cosmos-database, de volgende ervaringen van klanten zijn beschikbaar:
 

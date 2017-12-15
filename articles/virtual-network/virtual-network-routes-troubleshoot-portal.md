@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Routes met behulp van de Azure Portal oplossen
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Terwijl het voorbeeld alleen de systeemroutes van het wordt, kunnen dezelfde sta
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>De effectieve routes weergeven voor een virtuele machine
 Overzicht van de cumulatieve routes die worden toegepast op een virtuele machine, moet u de volgende stappen uitvoeren:
 
-1. Meld u aan bij de Azure portal op https://portal.azure.com.
+1. Meld u aan bij de Azure portal op https://portal.azure.com. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klik op **meer services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
 3. Selecteer een virtuele machine om op te lossen in de lijst die wordt weergegeven en een VM-blade met opties wordt weergegeven.
 4. Klik op **spoor & oplossen van problemen met** en selecteer vervolgens een veelvoorkomend probleem. In dit voorbeeld **ik kan geen verbinding maken met mijn Windows-VM** is geselecteerd.
@@ -137,7 +137,7 @@ Een aantal dingen rekening moet houden bij het controleren van de lijst met rout
 
 * Routering is gebaseerd op langste voorvoegsel overeen (LPM) tussen udr's, systeem- en BGP-routes. Als er meer dan één route met dezelfde overeenkomende LPM is, klikt u vervolgens een route geselecteerd op basis van de oorsprong in de volgende volgorde:
 
-  * Gebruiker gedefinieerde route
+  * Door de gebruiker gedefinieerde route
   * BGP-route
   * Systeemroute (standaard)
 

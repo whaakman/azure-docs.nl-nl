@@ -15,115 +15,122 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics gebeurtenis volgorde overweging
+# <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics gebeurtenis volgorde overwegingen
 
-## <a name="understand-arrival-time-and-application-time"></a>Begrijpen aankomsttijd en het tijdstip van de toepassing.
+## <a name="arrival-time-and-application-time"></a>Aankomsttijd en het tijdstip van de toepassing
 
-In een tijdelijke gegevensstroom van gebeurtenissen krijgt elke gebeurtenis een tijdstempel. Tijdstempel Azure Stream Analytics toegewezen aan elke gebeurtenis met behulp van de aankomsttijd of de tijd van de toepassing. De kolom 'System.Timestamp' heeft de tijdstempel die is toegewezen aan de gebeurtenis. Aankomsttijd is toegewezen aan de invoerbron wanneer de gebeurtenis de bron bereikt. Aankomsttijd is EventEnqueuedTime voor invoer van de Event Hub en [blob laatst gewijzigd om](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) voor blob-invoer. Tijd van de toepassing wordt toegewezen wanneer de gebeurtenis wordt gegenereerd en het deel van de nettolading uitmaakt. Voor het verwerken van gebeurtenissen door de tijd van de toepassing, door de component 'Tijdstempel door' te gebruiken in de query select. Als de component 'Tijdstempel door' niet aanwezig is, worden door aankomsttijd gebeurtenissen verwerkt. Aankomsttijd toegankelijk gebruikt EventEnqueuedTime eigenschap voor event hub en BlobLastModified-eigenschap voor blob-invoer. Azure Stream Analytics produceert uitvoer in de volgorde van het tijdstempel en vindt u enkele instellingen om te gaan met de volgorde van gegevens.
+In een tijdelijke gegevensstroom van gebeurtenissen krijgt elke gebeurtenis een tijdstempel. Azure Stream Analytics wijst een tijdstempel toe aan elke gebeurtenis met aankomst tijd of tijd van de toepassing. De **System.Timestamp** kolom heeft de tijdstempel die is toegewezen aan de gebeurtenis. 
+
+Aankomsttijd is toegewezen aan de invoerbron wanneer de gebeurtenis de bron bereikt. Aankomsttijd is toegankelijk via de **EventEnqueuedTime** eigenschap voor event hub invoer- en met behulp van de [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) eigenschap voor blob-invoer. 
+
+Tijd van de toepassing wordt toegewezen wanneer de gebeurtenis wordt gegenereerd en het deel van de nettolading uitmaakt. U kunt gebeurtenissen verwerken door toepassing tijd de **tijdstempel door** -component in de query select. Als de **tijdstempel door** component is afwezig, gebeurtenissen worden verwerkt door aankomsttijd. 
+
+Azure Stream Analytics produceert uitvoer in de volgorde van het tijdstempel en instellingen om te gaan met out volgorde gegevens biedt.
 
 
-## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Azure Stream Analytics-verwerking van meerdere streams
+## <a name="handling-of-multiple-streams"></a>De verwerking van meerdere streams
 
-Azure Stream Analytics-taak combineert meerdere tijdlijnen in enkele gevallen, met inbegrip van gebeurtenissen
+Een Azure Stream Analytics-taak combineert gebeurtenissen van meerdere tijdlijnen in gevallen als volgt:
 
-* Het opstellen van uitvoer van meerdere partities. Query's waarvoor geen een expliciete 'partitie door PartitionId' zou moeten gebeurtenissen van alle partities worden gecombineerd.
+* Het opstellen van uitvoer van meerdere partities. Query's waarvoor geen een expliciete **partitie door PartitionId** component moet een combinatie van gebeurtenissen van alle partities.
 * De samenvoeging van twee of meer verschillende invoerbronnen.
 * Lid worden van invoerbronnen.
 
-In scenario's waarbij meerdere tijdlijnen worden gecombineerd, Azure Stream Analytics produceert uitvoer voor een tijdstempel *t1* pas nadat alle bronnen die zijn gecombineerd ten minste gelijktijdig zijn *t1*.
-Bijvoorbeeld, als de query leest uit een *Event Hub* partitie die twee partities en een van de partitie heeft *P1* heeft gebeurtenissen tot keer *t1* en andere partitie  *P2* heeft gebeurtenissen tot keer *t1 + x*, uitvoer geproduceerd tot keer *t1*.
-Maar als er een expliciete *'Partitie door PartitionId'* component, zowel de partities verloopt onafhankelijk.
-Laat aankomen van de tolerantie-instelling wordt gebruikt om te gaan met de afwezigheid van gegevens in een aantal partities.
+In scenario's waarbij meerdere tijdlijnen worden gecombineerd, levert Azure Stream Analytics uitvoer voor tijdstempel *t1* pas nadat alle bronnen die zijn gecombineerd ten minste gelijktijdig zijn *t1*. Stel bijvoorbeeld dat de query uit een event hub-partitie met twee partities kan lezen. Een van de partities *P1*, gebeurtenissen heeft tot keer *t1*. De andere partitie *P2*, gebeurtenissen heeft tot keer *t1 + x*. Uitvoer geproduceerd vervolgens tot keer *t1*. Maar als er een expliciete **partitie door PartitionId** component, zowel de partities voortgang onafhankelijk.
 
-## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>Late ontvangst tolerantie en volgorde tolerantie configureren
+De instelling voor late ontvangst tolerantie wordt gebruikt om te gaan met het ontbreken van gegevens in een aantal partities.
+
+## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>Late ontvangst tolerantie en out-van-order tolerantie configureren
 Invoer stromen die zich niet in volgorde zijn:
-* Gesorteerd (en dus **vertraagd**).
-* Aangepast door het systeem, volgens de door de gebruiker opgegeven beleid.
+* Gesorteerd (en dus vertraagd)
+* Aangepast door het systeem volgens het beleid door gebruiker opgegeven
 
-Stream Analytics maximaal wordt toegestaan laat en volgorde gebeurtenissen bij het verwerken van door **toepassing tijd**. De volgende instellingen zijn beschikbaar in de **gebeurtenis ordening** optie in Azure-portal: 
+Stream Analytics maximaal gebeurtenissen laat en out volgorde wanneer u door de tijd van de toepassing verwerkt bent wordt toegestaan. De volgende instellingen zijn beschikbaar in de **gebeurtenis ordening** optie in de Azure-portal: 
 
 ![Stream Analytics gebeurtenisverwerking](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
-**Late ontvangst tolerantie**
-* Deze instelling is alleen toepasbaar wanneer verwerkt door de tijd van de toepassing, wordt anders genegeerd.
-* Dit is het maximale verschil tussen het aankomen van de tijd en tijd van de toepassing. Als de toepassing valt vóór (aankomsttijd - venster voor Late ontvangst), is deze ingesteld op (aankomsttijd - laat aankomst venster)
-* Wanneer meerdere partities van de dezelfde invoerstroom of meerdere invoer stromen worden gecombineerd, is late ontvangst tolerantie de maximale hoeveelheid tijd die elke partitie wordt gewacht op nieuwe gegevens. 
+### <a name="late-arrival-tolerance"></a>Late ontvangst tolerantie
+Late ontvangst tolerantie geldt alleen wanneer u door de tijd van de toepassing verwerkt bent. Anders wordt wordt de instelling genegeerd.
 
-Kort samengevat kunt is late ontvangst venster de maximale vertraging tussen het genereren van gebeurtenis en ontvangst van de gebeurtenis op de invoerbron.
-Op basis van tolerantie voor Late ontvangst aanpassing eerst wordt uitgevoerd en volgorde wordt uitgevoerd naast. De **System.Timestamp** kolom heeft het tijdstempel voor de uiteindelijke toegewezen aan de gebeurtenis.
+Late ontvangst tolerantie is het maximale verschil tussen het van de aankomsttijd en tijd van de toepassing. Als een gebeurtenis hoger is dan de late ontvangst tolerantie binnenkomt (bijvoorbeeld toepassing tijd *app_t* < aankomsttijd *arr_t* -late ontvangst beleid tolerantie *late_t*), wordt de de gebeurtenis wordt aangepast aan de maximale lengte van de late ontvangst tolerantie (*arr_t* - *late_t*). De late ontvangst window is de maximale vertraging tussen het genereren van gebeurtenis en ontvangst van de gebeurtenis op de invoerbron. 
 
-**Volgorde tolerantie**
-* Gebeurtenissen die volgorde maar binnen de set 'volgorde tolerantieperiode binnenkomen' zijn **opnieuw geordend door tijdstempel**. 
-* Gebeurtenissen die hoger is dan de tolerantie binnenkomen zijn **op verwijderd of aangepast**.
-    * **Aangepast**: aangepast, zodat deze lijkt te zijn ontvangen op de laatste toegestane tijd. 
-    * **Verwijderd**: verwijderd.
+Wanneer meerdere partities van de dezelfde invoerstroom of meerdere invoer stromen worden gecombineerd, is late ontvangst tolerantie de maximale hoeveelheid tijd dat elke partitie moet voor nieuwe gegevens wachten. 
 
-Om de volgorde van gebeurtenissen ontvangen binnen 'volgorde tolerantieperiode', te uitvoer van de query is **vertraging tolerantieperiode voor onjuiste volgorde**.
+Op basis van tolerantie voor late ontvangst aanpassing eerst gebeurt. Op basis van out volgorde tolerantie aanpassing gebeuren. De **System.Timestamp** kolom heeft het laatste tijdstempel is toegewezen aan de gebeurtenis.
 
-**Voorbeeld**
+### <a name="out-of-order-tolerance"></a>Volgorde buiten tolerantie
+Gebeurtenissen die een andere volgorde ontvangen, maar binnen de set out volgorde tolerantieperiode door tijdstempel wordt gewijzigd. Gebeurtenissen die hoger is dan de tolerantieperiode binnenkomen zijn:
+* **Aangepast**: aangepast, zodat deze lijkt te zijn ontvangen op de laatste toegestane tijd. 
+* **Verwijderd**: verwijderd.
+
+Wanneer de Stream Analytics volgorde gebeurtenissen die in het venster tolerantie out volgorde worden ontvangen, is de uitvoer van de query door het venster out volgorde tolerantie vertraging.
+
+### <a name="example"></a>Voorbeeld
 
 * Late ontvangst tolerantie = 10 minuten<br/>
-* Buiten de volgorde tolerantie = 3 minuten<br/>
+* Out-van-order tolerantie = 3 minuten<br/>
 * Verwerking door de tijd van de toepassing<br/>
 * Evenementen:
-   * Gebeurtenis 1 _toepassing tijd_ = 00:00:00 _aankomsttijd_ = 00:10:01 _System.Timestamp_ 00:00:01 aangepast omdat = (_aankomsttijd_  -  _Toepassing tijd_) is hoger dan de late ontvangst tolerantie.
-   * Gebeurtenis 2 _toepassing tijd_ = 00:00:01 _aankomsttijd_ = 00:10:01 _System.Timestamp_ 00:00:01 niet aangepast omdat de tijd van de toepassing ligt binnen de late ontvangst = venster.
-   * Gebeurtenis 3 _toepassing tijd_ = 00:10:00 _aankomsttijd_ = 00:10:02 _System.Timestamp_ 00:10:00 niet aangepast omdat de tijd van de toepassing is in het venster van de aankomst laat = .
-   * Gebeurtenis 4 _toepassing tijd_ = 00:09:00 _aankomsttijd_ = 00:10:03 _System.Timestamp_ 00:09:00, met oorspronkelijke tijdstempel geaccepteerd, omdat de tijd van de toepassing binnen de out = volgorde tolerantie.
-   * Gebeurtenis 5 _toepassing tijd_ = 00:06:00 _aankomsttijd_ = 00:10:04 _System.Timestamp_ 00:07:00 aangepast omdat het tijdstip van de toepassing is ouder dan de volgorde = tolerantie.
+   1. **Tijd van de toepassing** = 00:00:00 **aankomsttijd** = 00:10:01 **System.Timestamp** 00:00:01 aangepast omdat = (**aankomsttijd - tijd van de toepassing**) is meer dan de late ontvangst tolerantie.
+   2. **Tijd van de toepassing** = 00:00:01 **aankomsttijd** = 00:10:01 **System.Timestamp** = 00:00:01 niet aangepast omdat toepassing tijd aan het eind aankomst-venster.
+   3. **Tijd van de toepassing** = 00:10:00 **aankomsttijd** = 00:10:02 **System.Timestamp** = 00:10:00 niet aangepast omdat toepassing tijd aan het eind aankomst-venster.
+   4. **Tijd van de toepassing** = 00:09:00 **aankomsttijd** = 00:10:03 **System.Timestamp** 00:09:00, met de oorspronkelijke tijdstempel geaccepteerd omdat de tijd van de toepassing ligt binnen de out-van-volgorde = tolerantie.
+   5. **Tijd van de toepassing** = 00:06:00 **aankomsttijd** = 00:10:04 **System.Timestamp** = 00:07:00, omdat de tijd van de toepassing is ouder dan de tolerantie out volgorde aangepast.
 
 ### <a name="practical-considerations"></a>Praktische overwegingen
-Zoals eerder vermeld, *late ontvangst tolerantie* is het maximale verschil tussen de tijd van de toepassing en aankomsttijd.
-Ook wanneer verwerking door toepassing tijd, gebeurtenissen die hoger zijn dan de geconfigureerde *late ontvangst tolerantie* worden aangepast voordat de *volgorde tolerantie* instelling wordt toegepast. Met ingang van volgorde is dus het minimum voor late ontvangst tolerantie en de volgorde tolerantie.
+Zoals eerder vermeld, is late ontvangst tolerantie het maximale verschil tussen de tijd van de toepassing en aankomsttijd. Wanneer u door de tijd van de toepassing verwerkt bent, worden de gebeurtenissen die hoger dan de opgegeven tolerantie voor late ontvangst zijn worden aangepast voordat de out-van-order tolerantie-instelling wordt toegepast. Met ingang van volgorde is dus het minimum voor late ontvangst tolerantie en out-van-order tolerantie.
 
-Gebeurtenissen in andere volgorde binnen een stroom oorzaken met inbegrip van
-* Tijdverschil tussen de afzenders.
-* Variabele latentie tussen de afzender en de gebeurtenisbron invoer.
+Redenen voor out-van-order gebeurtenissen binnen een stroom zijn:
+* Tijdsverschil tussen de afzenders.
+* Variabele latentie tussen de afzender en de invoer gebeurtenisbron.
 
-Late ontvangst gebeurt om redenen, met inbegrip van
-* Afzenders batch- en de gebeurtenissen voor een interval later verzenden na het interval.
+Redenen voor late ontvangst zijn:
+* Afzenders batchverwerking en het verzenden van de gebeurtenissen voor een interval later na de interval.
 * Latentie tussen de gebeurtenis door afzender verzenden en ontvangen van de gebeurtenis bij de invoerbron.
 
-Tijdens het configureren van *late ontvangst tolerantie* en *volgorde tolerantie* voor een specifieke taak, juistheid, latentievereisten en hoger factoren overwegen.
+Bij het configureren van late ontvangst tolerantie en out volgorde tolerantie voor een specifieke taak, overweeg juistheid latentievereisten en de voorgaande factoren.
 
-Hier volgen enkele voorbeelden
+Hier volgen enkele voorbeelden.
 
-#### <a name="example-1"></a>Voorbeeld 1: 
-Query 'Partitie door PartitionId'-component bevat en binnen een enkele partitie, gebeurtenissen worden verzonden met behulp van methoden synchrone verzenden. Synchrone verzenden methoden blokkeren totdat de gebeurtenissen worden verzonden.
-In dit geval volgorde is nul omdat gebeurtenissen worden in volgorde met expliciete bevestiging voordat het verzenden van de volgende gebeurtenis verzonden. Late ontvangst is een maximale vertraging tussen het genereren van de gebeurtenis en het verzenden van de gebeurtenis + maximale latentie tussen de afzender en de invoerbron
+#### <a name="example-1"></a>Voorbeeld 1 
+De query heeft een **partitie door PartitionId** component. Binnen een enkele partitie, worden gebeurtenissen verzonden via de methoden synchrone verzenden. Synchrone verzenden methoden blokkeren totdat de gebeurtenissen worden verzonden.
 
-#### <a name="example-2"></a>Voorbeeld 2:
-Query 'Partitie door PartitionId' component heeft en binnen een enkele partitie, gebeurtenissen worden verzonden via de methode asynchrone verzending. Verzenden van asynchrone methoden kunnen meerdere verzendt op hetzelfde moment, wat leiden gebeurtenissen in andere volgorde tot kan worden geïnitieerd.
-In dit geval zijn de volgorde en late ontvangst ten minste maximale vertraging tussen het genereren van de gebeurtenis en het verzenden van de gebeurtenis + maximale latentie tussen de afzender en de invoerbron.
+In dit geval volgorde is nul omdat gebeurtenissen in volgorde met expliciete bevestiging verzonden worden voordat de volgende gebeurtenis wordt verzonden. Late ontvangst is de maximale vertraging tussen het genereren van de gebeurtenis en het verzenden van de gebeurtenis, plus de maximale latentie tussen de afzender en de invoerbron.
 
-#### <a name="example-3"></a>Voorbeeld 3:
-Query heeft geen 'Partitie door PartitionId' en er zijn ten minste twee partities.
-Configuratie is hetzelfde als voorbeeld 2. Gebrek aan gegevens in een van de partities kan echter de uitvoer uitstellen door een extra * late ontvangst tolerantie ' venster.
+#### <a name="example-2"></a>Voorbeeld 2
+De query heeft een **partitie door PartitionId** component. Binnen een enkele partitie, worden gebeurtenissen verzonden via het verzenden van asynchrone methoden. Verzenden van asynchrone methoden kunnen meerdere verzendt op hetzelfde moment, wat leiden out volgorde gebeurtenissen tot kan initiëren.
+
+In dit geval volgorde en late ontvangst zijn ten minste de maximale vertraging tussen het genereren van de gebeurtenis en het verzenden van de gebeurtenis, plus de maximale latentie tussen de afzender en de invoerbron.
+
+#### <a name="example-3"></a>Voorbeeld 3
+De query heeft geen een **partitie door PartitionId** component, en er zijn ten minste twee partities.
+
+Configuratie is hetzelfde als voorbeeld 2. Gebrek aan gegevens in een van de partities kan echter de uitvoer door een extra tolerantieperiode voor late uitstellen.
 
 ## <a name="handling-event-producers-with-differing-timelines"></a>Afhandeling van gebeurtenis producenten met verschillende tijdlijnen
-Een stream met één invoer gebeurtenis bevatten vaak gebeurtenissen die afkomstig zijn van meerdere gebeurtenis producenten (zoals afzonderlijke apparaten).  Deze gebeurtenissen mogelijk een verkeerde volgorde de eerder besproken oorzaken binnenkomen. In deze scenario's, terwijl de verslechterde tussen producenten gebeurtenis mogelijk groot is, de verslechterde binnen de gebeurtenissen van een enkele producent niet kleine (of zelfs niet-bestaand).
-Hoewel Azure Stream Analytics biedt algemene mechanismen voor het omgaan met out volgorde gebeurtenissen, wordt deze mechanismen resultaat in beide vertragingen verwerking (tijdens het wachten op voor de straggling gebeurtenissen te bereiken van het systeem), verwijderd of aangepast gebeurtenissen of beide.
-Nog in veel scenario's, wordt de gewenste query verwerkt gebeurtenissen van verschillende gebeurtenis producenten onafhankelijk.  Bijvoorbeeld: deze kan worden aggregeren van gebeurtenissen per venster per-apparaat.  In dergelijke gevallen hoeft niet uit te stellen van de uitvoer die overeenkomt met een gebeurtenis producent tijdens het wachten op de andere gebeurtenis producenten te lopen.  Met andere woorden, hoeft niet te bekommeren om de tijd tussen producenten scheeftrekken en kan eenvoudig worden genegeerd.
-Natuurlijk dit betekent dat de uitvoergebeurtenissen zelf out volgorde ten opzichte van de tijdstempels; de downstream consument moet kunnen maken met dit gedrag.  Maar alle gebeurtenissen in de uitvoer juist zijn.
+Een stream met één invoer gebeurtenis bevat vaak gebeurtenissen die afkomstig van meerdere producenten gebeurtenis, zoals afzonderlijke apparaten zijn. Deze gebeurtenissen mogelijk een verkeerde volgorde de eerder besproken oorzaken binnenkomen. In deze scenario's, hoewel de verslechterde tussen producenten gebeurtenis mogelijk groot is, is de verslechterde binnen de gebeurtenissen van een enkele producent klein (of zelfs niet-bestaande).
 
-Azure Stream Analytics implementeert deze functionaliteit met de [TIMESTAMP-door via](https://msdn.microsoft.com/library/azure/mt573293.aspx) component.
+Azure Stream Analytics biedt algemene mechanismen voor het omgaan met out volgorde gebeurtenissen. Deze mechanismen leiden tot een verwerkingsvertragingen (tijdens het wachten op voor de straggling gebeurtenissen te bereiken van het systeem), verwijderd of aangepast gebeurtenissen of beide.
 
+Nog in veel scenario's, wordt de gewenste query verwerkt gebeurtenissen van verschillende gebeurtenis producenten onafhankelijk. Het aggregeren bijvoorbeeld gebeurtenissen per venster per apparaat. In dergelijke gevallen hoeft niet uit te stellen van de uitvoer die met één gebeurtenis producent correspondeert tijdens het wachten op de andere gebeurtenis producenten te lopen. Met andere woorden, hoeft niet te bekommeren om de tijd tussen producenten scheeftrekken. U kunt deze negeren.
 
+Natuurlijk betekent dit dat de uitvoergebeurtenissen zelf volgorde ten opzichte van de tijdstempels zijn. De downstream consument moet kunnen maken met dit gedrag. Maar alle gebeurtenissen in de uitvoer juist is.
 
-## <a name="to-summarize"></a>Samenvatten
-* Late ontvangst tolerantie en volgorde venster moeten worden geconfigureerd op basis van de juistheid, latentie is vereist en moeten ook rekening houden hoe de gebeurtenissen worden verzonden.
-* Het is raadzaam dat volgorde tolerantie kleiner dan late ontvangst tolerantie is.
-* Bij het combineren van meerdere tijdlijnen, kan de uitvoer door een extra tolerantieperiode voor late gebrek aan gegevens in een van de bronnen of partities worden vertraagd.
-* Wanneer de volgorde is alleen van belang zijn binnen de gebeurtenis producent tijdlijn, is de TIMESTAMP BY over-component gebruiken voor het verwerken van elke producent gebeurtenis als een onafhankelijke substroomtype.
+Azure Stream Analytics deze functionaliteit wordt geïmplementeerd met behulp van de [TIMESTAMP-door via](https://msdn.microsoft.com/library/azure/mt573293.aspx) component.
+
+## <a name="summary"></a>Samenvatting
+* Late ontvangst tolerantie en het venster out volgorde is gebaseerd op juistheid en latentievereisten configureren. Denk ook na over hoe de gebeurtenissen worden verzonden.
+* Het is raadzaam dat out volgorde tolerantie kleiner dan late ontvangst tolerantie is.
+* Wanneer u meerdere tijdlijnen samenvoegen wilt, kan de uitvoer door een extra tolerantieperiode voor late gebrek aan gegevens in een van de bronnen of partities worden vertraagd.
 
 ## <a name="get-help"></a>Help opvragen
-Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Voor meer informatie en ondersteuning kunt u proberen de [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Stream Analytics](stream-analytics-introduction.md)

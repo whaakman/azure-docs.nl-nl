@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Aanpassen hoe de gegevens van uw OPC UA-servers worden weergegeven in de verbonden factory-oplossing
 
@@ -72,92 +72,7 @@ U kunt het configuratiebestand te gebruiken:
 - Bewerk de bestaande gesimuleerde fabrieken, de regels voor productie en de stations.
 - Gegevens van echte OPC UA-servers waarop u verbinding met de oplossing maken toewijzen.
 
-Als u wilt klonen van een kopie van de verbonden factory Visual Studio-oplossing, kunt u de volgende git-opdracht gebruiken:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-Het bestand **ContosoTopologyDescription.json** definieert u de toewijzing van de items OPC UA-server gegevens naar de weergaven in het dashboard van de verbonden factory-oplossing. U vindt dit configuratiebestand in de **Contoso\Topology** map in de **WebApp** -project in Visual Studio-oplossing.
-
-De inhoud van het JSON-bestand is ingedeeld als een hiërarchie van de factory-, productie-lijn- en station knooppunten. Deze hiërarchie definieert de navigatiehiërarchie in het dashboard verbonden factory. Waarden op elk knooppunt van de hiërarchie bepalen van de informatie die wordt weergegeven in het dashboard. Het JSON-bestand bevat bijvoorbeeld de volgende waarden voor de factory München:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-De naam, beschrijving en locatie worden weergegeven op deze weergave in het dashboard:
-
-![München gegevens in het dashboard][img-munich]
-
-Elke factory-, productie-lijn- en station hebt een eigenschap van de afbeelding. U vindt deze JPEG-bestanden in de **Content\img** map in de **WebApp** project. Deze installatiekopiebestanden weergeven in het dashboard verbonden factory.
-
-Elk station bevat verschillende gedetailleerde eigenschappen waarmee de toewijzing van de gegevens OPC UA items definiëren. Deze eigenschappen worden beschreven in de volgende secties:
-
-### <a name="opcuri"></a>OpcUri
-
-De **OpcUri** waarde is de OPC UA toepassing URI die een unieke identificatie van de OPC UA-server. Bijvoorbeeld, de **OpcUri** waarde voor de assembly-station op productie regel 1 in München op het volgende lijkt: **urn: scada2194:ua:munich:productionline0:assemblystation**.
-
-U kunt de URI's van de gekoppelde OPC UA-servers bekijken in het dashboard van oplossing:
-
-![Het OPC UA-server URI's weergeven][img-server-uris]
-
-### <a name="simulation"></a>Simulatie
-
-De informatie in de **simulatie** knooppunt is specifiek voor de simulatie OPC UA die wordt uitgevoerd in de OPC UA-servers die standaard zijn ingericht. Dit wordt niet gebruikt voor een echte OPC UA-server.
-
-### <a name="kpi1-and-kpi2"></a>Kpi1 en Kpi2
-
-Deze knooppunten wordt beschreven hoe gegevens uit het station draagt bij aan de twee KPI-waarden in het dashboard. Deze KPI-waarden zijn in een standaardimplementatie eenheden per uur en kWh per uur. De oplossing KPI-waarden op het niveau van een station berekend en ze op het niveau van de factory en productie regel samenvoegt.
-
-Elke KPI heeft een minimum, maximum- en doel-waarde. Elke KPI-waarde kunt ook definiëren voor meldingen voor de verbonden factory-oplossing om uit te voeren. Het volgende codefragment bevat de definities van de KPI voor de assembly-station op productie regel 1 in München:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-De volgende schermafbeelding ziet de KPI-gegevens in het dashboard.
-
-![KPI-gegevens in het dashboard][lnk-kpi]
-
-### <a name="opcnodes"></a>OpcNodes
-
-De **OpcNodes** knooppunten de gepubliceerde gegevens herstellen vanaf de OPC UA-server en geef het verwerken van die gegevens.
-
-De **NodeId** waarde identificeert de specifieke OPC UA NodeID van de OPC UA-server. Het eerste knooppunt in het station assembly voor productie-regel 1 in München heeft een waarde **ns = 2; ik 385 =**. Een **NodeId** waarde geeft aan dat het gegevensitem lezen uit de OPC UA-server en de **symbolische naam** biedt een gebruiksvriendelijke naam moet worden gebruikt in het dashboard voor die gegevens.
-
-Andere waarden die zijn gekoppeld aan elk knooppunt worden in de volgende tabel samengevat:
-
-| Waarde | Beschrijving |
-| ----- | ----------- |
-| Relevantie  | Waarden voor de KPI en OEE deze gegevens draagt bij aan. |
-| OpCode     | Hoe de gegevens worden samengevoegd. |
-| Eenheden      | De eenheden die worden gebruikt in het dashboard.  |
-| Zichtbaar    | Of u wilt weergeven van deze waarde in het dashboard. Sommige waarden worden gebruikt voor berekeningen, maar niet weergegeven.  |
-| Maximum    | De maximumwaarde die een waarschuwing in het dashboard. |
-| MaximumAlertActions | Een actie moet worden uitgevoerd in reactie op een waarschuwing. Bijvoorbeeld: een opdracht verzenden naar een station. |
-| ConstValue | Een constante waarde die wordt gebruikt in een berekening. |
+Zie voor meer informatie over toewijzing en samenvoeging van de gegevens om te voldoen aan uw specifieke vereisten [vooraf geconfigureerde oplossing voor het configureren van de verbonden factory ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>De wijzigingen te implementeren
 

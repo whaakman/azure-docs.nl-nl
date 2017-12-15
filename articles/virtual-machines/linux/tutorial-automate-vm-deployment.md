@@ -4,7 +4,7 @@ description: Meer informatie over het cloud-init en Sleutelkluis te gebruiken cu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Het aanpassen van een virtuele Linux-machine op de eerste keer opstarten
 In een vorige zelfstudie hebt u geleerd hoe u voor SSH aan een virtuele machine (VM) en handmatig installeren NGINX. Voor het maken van virtuele machines op een snelle en consistente manier, is een vorm van automatisering doorgaans gewenst. Een gemeenschappelijke aanpak voor het aanpassen van een virtuele machine op de eerste keer opstarten is het gebruik [cloud init](https://cloudinit.readthedocs.io). In deze zelfstudie leert u het volgende:
@@ -39,7 +39,7 @@ Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereis
 
 
 
-## <a name="cloud-init-overview"></a>Cloud-init-overzicht
+## <a name="cloud-init-overview"></a>Overzicht van cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud init gebruiken voor het installeren van pakketten en bestanden schrijven of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of vereist agents naar uw configuratie toe te passen.
 
 Cloud-init werkt ook via distributies. Bijvoorbeeld, u niet gebruikt **apt get-installatie** of **yum installeren** om een pakket te installeren. In plaats daarvan kunt u een lijst met pakketten te installeren. Het hulpprogramma voor systeemeigen pakket cloud init automatisch gebruikt voor de distro die u selecteert.
@@ -51,6 +51,8 @@ We werken met onze partners ophalen van cloud-init opgenomen en in de afbeelding
 | UbuntuLTS |Canonical |UbuntuServer |16.04 TNS |meest recente |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |meest recente |
 | CoreOS |CoreOS |CoreOS |Stabiel |meest recente |
+| | OpenLogic | CentOS | 7 CI | meest recente |
+| | RedHat | RHEL | 7 ONBEWERKTE CI | meest recente
 
 
 ## <a name="create-cloud-init-config-file"></a>Cloud-init-configuratiebestand maken

@@ -29,7 +29,7 @@
 
 <sup>1</sup>apps en opslagquota zijn per App Service-abonnement tenzij anders vermeld wordt.  
 <sup>2</sup>het werkelijke aantal apps die u op deze machines hosten kunt is afhankelijk van de activiteit van de apps, de grootte van de machine-exemplaren en de bijbehorende bronnen beter worden benut.  
-<sup>3</sup>specifieke exemplaren van verschillende grootte kunnen zijn. Zie [prijzen van App Service](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) voor meer informatie.  
+<sup>3</sup>specifieke exemplaren van verschillende grootte kunnen zijn. Zie [prijzen van App Service](https://azure.microsoft.com/pricing/details/app-service/) voor meer informatie.  
 <sup>4</sup>premium-laag kan maximaal 50 exemplaren (afhankelijk van beschikbaarheid) en 500 GB aan schijfruimte berekent bij gebruik van App Service-omgevingen en 20 compute-exemplaren en 250 GB opslagruimte anders.  
 <sup>5</sup>de opslaglimiet is de totale grootte van de inhoud voor alle apps in hetzelfde App Service-plan. Meer opties voor opslag zijn beschikbaar in [App Service-omgeving](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>deze resources worden beperkt door fysieke resources op de specifieke exemplaren (de exemplaargrootte en het aantal exemplaren van).  

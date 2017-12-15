@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy en PingAccess
 
@@ -73,6 +73,10 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
 4. Selecteer **On-premises toepassing**.
 5. Vul de vereiste velden met informatie over uw nieuwe app. Gebruik de volgende richtlijnen voor de instellingen:
    - **Interne URL**: normaal bieden u de URL die u u naar de aanmeldingspagina van de app gaat als u op het bedrijfsnetwerk bevinden. Voor dit scenario moet de connector de proxy PingAccess behandelen als de voorpagina van de app. Gebruik de volgende notatie: `https://<host name of your PA server>:<port>`. De poort is 3000 standaard, maar u kunt deze configureren in PingAccess.
+
+    > [!WARNING]
+    > Voor dit type eenmalige aanmelding, worden de interne URL moet gebruikmaken van https en http niet gebruiken.
+
    - **Methode voor verificatie vooraf**: Azure Active Directory
    - **URL in de Headers vertalen**: Nee
 
@@ -106,7 +110,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
 
 16. Selecteer **Toevoegen**. Kies voor de API **Windows Azure Active Directory**, klikt u vervolgens **Selecteer**. Voor de machtigingen kiest **lezen en schrijven van alle toepassingen** en **aanmelden en gebruikersprofiel lezen**, vervolgens **Selecteer** en **gedaan**.  
 
-  ![Machtigingen selecteren](./media/application-proxy-ping-access/select-permissions.png)
+  ![Selecteer machtigingen](./media/application-proxy-ping-access/select-permissions.png)
 
 17. Machtigingen verlenen voordat u het scherm machtigingen sluit. 
 ![Machtigingen toekennen](media/application-proxy-ping-access/grantperms.png)
@@ -135,7 +139,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Optioneel - Update GraphAPI voor het verzenden van aangepaste velden
 
-Zie voor een lijst van beveiligingstokens die door Azure AD voor verificatie verzonden, [Azure AD-tokenverwijzing](./develop/active-directory-token-and-claims.md). Als u een aangepaste claim die door andere tokens verzonden moet, gebruikt u GraphAPI instellen van het veld app *acceptMappedClaims* naar **True**. U kunt alleen Azure AD Graph Explorer gebruiken om deze configuratie. 
+Zie voor een lijst van beveiligingstokens die door Azure AD voor verificatie verzonden, [Azure AD-tokenverwijzing](./develop/active-directory-token-and-claims.md). Als u een aangepaste claim die door andere tokens verzonden, met grafiek Verkenner of het manifest voor de toepassing in de Azure-Portal te stelt u het veld app *acceptMappedClaims* naar **True**.    
 
 In dit voorbeeld wordt een grafiek Explorer:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+In dit voorbeeld wordt de [Azure-portal](https://portal.azure.com) naar udpate de *acceptedMappedClaims* veld:
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als globale beheerder.
+2. Selecteer **Azure Active Directory** > **App registraties**.
+3. Selecteer uw toepassing > **Manifest**.
+4. Selecteer **bewerken**, zoekt de *acceptedMappedClaims* veld en wijzig de waarde in **true**.
+![App-manifest](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. Selecteer **Opslaan**.
 
 >[!NOTE]
 >Voor het gebruik van een aangepaste claim, hebt u ook een aangepast beleid gedefinieerd en toegewezen aan de toepassing.  Dit beleid moet alle vereiste aangepaste kenmerken bevatten.

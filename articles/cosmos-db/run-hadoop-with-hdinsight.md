@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Voer een Apache Hive, Pig of Hadoop met behulp van Azure DB die Cosmos en HDInsight
 Deze zelfstudie leert u hoe u uitvoert [Apache Hive][apache-hive], [Apache Pig][apache-pig], en [Apache Hadoop] [ apache-hadoop] MapReduce-taken in Azure HDInsight met Hadoop-connector Cosmos-database. Hadoop-connector cosmos-database kunt Cosmos DB om te fungeren als een bron- en sink voor Hive, Pig en MapReduce-taken. Deze zelfstudie gaat Cosmos DB gebruiken als de gegevensbron en de bestemming voor Hadoop-taken.
@@ -161,7 +161,7 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 
     ![Diagram voor Azure PowerShell][azure-powershell-diagram]
 
-## <a name="RunHive"></a>Stap 3: Voer een Hive-taak met Cosmos DB en HDInsight
+## <a name="RunHive"></a>Stap 3: Voer een Hive-taak met behulp van Azure DB die Cosmos en HDInsight
 > [!IMPORTANT]
 > Alle variabelen aangegeven door een combinatie moeten worden ingevuld met behulp van uw configuratie-instellingen.
 >
@@ -187,7 +187,7 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 
         '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from Azure Cosmos DB. Pass Azure Cosmos DB the query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -207,7 +207,7 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for the output data to Azure Cosmos DB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -286,7 +286,7 @@ Voer in: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/
 
     Documenten worden gedistribueerde round robin in meerdere verzamelingen. Een batch van documenten worden opgeslagen in één verzameling en vervolgens een tweede reeks documenten worden opgeslagen in de volgende verzameling, enzovoort.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass the Azure Cosmos DB query to filter transferred data to _rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
@@ -397,7 +397,7 @@ We hebben onze Hadoop-Connector die afkomstig zijn geopend. Als u geïnteresseer
 
 Zie voor meer informatie de volgende artikelen:
 
-* [Een Java-toepassing met Documentdb ontwikkelen][documentdb-java-application]
+* [Een Java-toepassing met Azure Cosmos DB ontwikkelen][sql-api-java-application]
 * [Het ontwikkelen van Java-MapReduce-programma's voor Hadoop in HDInsight][hdinsight-develop-deploy-java-mapreduce]
 * [Aan de slag met Hadoop Hive in HDInsight analyseren mobiele telefoon gebruiken][hdinsight-get-started]
 * [MapReduce gebruiken met HDInsight][hdinsight-use-mapreduce]
@@ -409,14 +409,14 @@ Zie voor meer informatie de volgende artikelen:
 [apache-hadoop-doc]: http://hadoop.apache.org/docs/current/
 [apache-hive]: http://hive.apache.org/
 [apache-pig]: http://pig.apache.org/
-[getting-started]: documentdb-get-started.md
+[getting-started]: sql-api-get-started.md
 
 [azure-portal]: https://portal.azure.com/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
 [hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
-[documentdb-java-application]: documentdb-java-application.md
+[sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md

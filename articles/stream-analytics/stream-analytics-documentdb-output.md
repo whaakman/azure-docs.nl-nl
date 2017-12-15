@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Azure Cosmos Doeldatabase voor JSON-uitvoer van de Stream Analytics
 Stream Analytics kunt richten [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) inschakelen voor JSON-uitvoer, lage latentie en archiveren gegevensquery op niet-gestructureerde JSON-gegevens. Dit document bevat informatie over enkele aanbevolen procedures voor het implementeren van deze configuratie.
@@ -48,7 +48,7 @@ Cosmos DB [gepartitioneerde verzamelingen](../cosmos-db/partition-data.md) zijn 
 
 Voor één Cosmos DB verzamelingen kunt Stream Analytics u nog steeds voor het partitioneren van uw gegevens op basis van de querypatronen en de prestatiebehoeften van uw toepassing. Elke verzameling maximaal 10GB aan gegevens (maximaal) kan bevatten en er is momenteel geen manier voor een verzameling omhoog schalen (of overloop). Voor het uitbreiden, Stream Analytics kunt u schrijven tot meerdere verzamelingen met het opgegeven voorvoegsel (Zie onderstaande details van gebruik). Stream Analytics maakt gebruik van de consistente [Hash partitie Resolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategie op basis van de gebruiker opgegeven PartitionKey kolom voor het partitioneren van de uitvoer-records. Het aantal verzamelingen met het opgegeven voorvoegsel tijdens het starten van de streaming-taak wordt gebruikt als het aantal uitvoer partities, waarop de taak naar parallel schrijft (Cosmos DB verzamelingen = uitvoer partities). Voor één verzameling met de vertraagde indexering doen alleen ingevoegd, over 0,4 schrijfbewerkingen MB/s kan worden verwacht. Met behulp van meerdere verzamelingen, kunt u een hogere doorvoer en een verbeterde capaciteit.
 
-Als u van plan bent om te verhogen van het aantal partities in de toekomst, moet u mogelijk uw taak stoppen, partitioneren van de gegevens van uw bestaande verzamelingen in nieuwe verzamelingen en vervolgens de Stream Analytics-taak opnieuw te starten. Meer informatie over het gebruik van PartitionResolver en opnieuw partitioneren samen met voorbeeldcode, worden opgenomen in een vervolgzelfstudie post. Het artikel [partitionering en schalen in Cosmos DB](../documentdb/documentdb-partition-data.md) biedt ook informatie over dit.
+Als u van plan bent om te verhogen van het aantal partities in de toekomst, moet u mogelijk uw taak stoppen, partitioneren van de gegevens van uw bestaande verzamelingen in nieuwe verzamelingen en vervolgens de Stream Analytics-taak opnieuw te starten. Meer informatie over het gebruik van PartitionResolver en opnieuw partitioneren samen met voorbeeldcode, worden opgenomen in een vervolgzelfstudie post. Het artikel [partitionering en schalen in Cosmos DB](../cosmos-db/sql-api-partition-data.md) biedt ook informatie over dit.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Cosmos DB-instellingen voor JSON-uitvoer
 Maken van de Cosmos-DB als uitvoer in Stream Analytics genereert een prompt voor meer informatie, zoals hieronder wordt weergegeven. Deze sectie bevat een uitleg van de eigenschappen van definitie.

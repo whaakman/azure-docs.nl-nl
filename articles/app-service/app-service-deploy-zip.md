@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 9838f0810f4827df3eb4f9407d4d4fbc1ad0ff4d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Uw app implementeren in Azure App Service met een ZIP-bestand
 
@@ -25,7 +25,7 @@ Dit artikel laat zien hoe u uw web-app te implementeren met een ZIP-bestand [Azu
 
 Deze implementatie van het ZIP-bestand gebruikt dezelfde Kudu service die bevoegdheden continue integratie-implementaties. Kudu ondersteunt de volgende functionaliteit voor de implementatie van het ZIP-bestand: 
 
-- Verwijdering van bestanden vanuit een eerdere implementatie overgebleven.
+- Verwijdering van bestanden die zijn overgebleven van een eerdere implementatie.
 - Optie voor het proces voor het bouwen van standaard, waaronder pakket herstellen inschakelen.
 - [Implementatieaanpassing](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), waaronder de implementatiescripts uitgevoerd.  
 - Implementatielogboeken van de. 

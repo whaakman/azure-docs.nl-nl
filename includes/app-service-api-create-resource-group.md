@@ -1,4 +1,4 @@
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create).
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

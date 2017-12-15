@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise state roaming instellingen windows cloud, veelgestelde vragen op enterprise state roaming
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
 In dit onderwerp worden enkele vragen beantwoord IT-beheerders over de instellingen en synchroniseren van app-gegevens hebben kunnen.
@@ -72,7 +72,7 @@ In de versies November 2015 of hoger van Windows 10 wordt Enterprise State Roami
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Synchroniseer instellingen voor Azure AD-accounts van meerdere tenants?
 Wanneer meerdere Azure AD-accounts van verschillende Azure AD-tenants, zijn op hetzelfde apparaat, moet u de registersleutel van het apparaat om te communiceren met Azure Rights Management (Azure RMS) voor elke Azure AD-tenant bijwerken.  
 
-1. De GUID voor elke Azure AD-tenant niet vinden. Open de klassieke Azure portal en selecteert u een Azure AD-tenant. De GUID voor de tenant is in de URL in de adresbalk van uw browser. Bijvoorbeeld: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. De GUID voor elke Azure AD-tenant niet vinden. De Azure portal openen en selecteer een Azure AD-tenant. De GUID voor de tenant is in de URL in de adresbalk van uw browser. Bijvoorbeeld: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Nadat u de GUID hebt, moet u de registersleutel toevoegen **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant-ID GUID >**.
    Van de **tenant-ID GUID** sleutel, maakt u een nieuwe waarde met meerdere tekenreeksen (REG-MULTI-SZ) te gebruiken met de naam **AllowedRMSServerUrls**. Geef de licentieverlening distribution point URL's van de andere Azure-tenants die het apparaat toegang heeft tot voor de gegevens.
 3. U vindt de distribution point URL's voor licentieverlening door het uitvoeren van de **Get-AadrmConfiguration** cmdlet. Als de waarden voor de **LicensingIntranetDistributionPointUrl** en **LicensingExtranetDistributionPointUrl** verschillend zijn, beide waarden opgeven. Als de waarden hetzelfde zijn, maar één keer de waarde opgeven.
