@@ -16,7 +16,7 @@
 ## Site-to-siteverbindingen configureren
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-### [Azure-CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
 ## Point-to-site-verbindingen configureren – systeemeigen Azure-certificaatverificatie
@@ -38,7 +38,7 @@
 ## Verbindingen tussen VNet's configureren
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-### [Azure-CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure Portal (klassiek)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Een VNet-naar-VNet-verbinding tussen implementatiemodellen configureren
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -75,6 +75,7 @@
 ## VPN-apparaten van derden configureren
 ### [Overzicht en Azure-configuratie](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Voorbeeld: Cisco ASA-apparaat (IKEv2/geen BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Migratie van het klassieke model naar het Resource Manager-model](vpn-gateway-classic-resource-manager-migration.md)
 ## Problemen oplossen
 ### [VPN-doorvoer naar een VNet valideren](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Door de community voorgestelde VPN- of firewallinstellingen voor apparaten](vpn-gateway-third-party-settings.md)

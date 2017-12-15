@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: vCenter-servers beheren
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Multitenancy met CSP beheren
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Servers verwijderen en beveiliging uitschakelen
           href: site-recovery-manage-registration-and-protection.md
         - name: Een kluis verwijderen

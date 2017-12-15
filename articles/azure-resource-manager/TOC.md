@@ -15,12 +15,11 @@
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variabelen](resource-manager-templates-variables.md)
 #### [Bronnen](resource-manager-templates-resources.md)
-### [Aanbevolen procedures voor sjablonen](resource-manager-template-best-practices.md)
+#### [Uitvoer](resource-manager-templates-outputs.md)
 ### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Meerdere exemplaren maken](resource-group-create-multiple.md)
-### [Bron bijwerken](resource-manager-update.md)
-### [Status delen tussen gekoppelde sjablonen](best-practices-resource-manager-state.md)
+### [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
 
 

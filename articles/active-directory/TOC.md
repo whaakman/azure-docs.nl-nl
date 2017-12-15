@@ -242,7 +242,7 @@
 ## Uw directory beheren
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Aangepaste domeinnamen
-#### [QuickStart](add-custom-domain.md)
+#### [Snelstartgids](add-custom-domain.md)
 #### [Aangepaste domeinnamen toevoegen](active-directory-domains-manage-azure-portal.md)
 ### [Uw directory beheren](active-directory-administer.md)
 ### [Meerdere directory’s beheren](active-directory-licensing-directory-independence.md)
@@ -265,6 +265,7 @@
 #### [Beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
+### [Beheerdersaccounts voor noodtoegang beheren](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Toegangsbeoordelingen
 ### [Overzicht toegangsbeoordelingen](active-directory-azure-ad-controls-access-reviews-overview.md)

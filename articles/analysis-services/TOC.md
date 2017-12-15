@@ -21,6 +21,7 @@
 ## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
 ## [Uitschalen configureren](analysis-services-scale-out.md)
+## [Een alias voor een servernaam configureren](analysis-services-server-alias.md)
 ## [Verbinden met Excel](analysis-services-connect-excel.md)
 ## [Verbinden met Power BI](analysis-services-connect-pbi.md)
 ## [Een ODC-bestand maken](analysis-services-odc.md)

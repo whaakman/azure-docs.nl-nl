@@ -71,6 +71,7 @@
 ### [Een gateway implementeren voor een verbonden bedrijf](iot-suite-connected-factory-gateway-deployment.md)
 ### [Een verbonden factory aanpassen](iot-suite-connected-factory-customize.md)
 ### [De OPC-uitgever voor een verbonden factory gebruiken](iot-suite-connected-factory-publisher.md)
+### [Een verbonden factory configureren](iot-suite-connected-factory-configure.md)
 ## [Machtigingen op azureiotsuite.com](iot-suite-permissions.md)
 
 # Naslaginformatie
