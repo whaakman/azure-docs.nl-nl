@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Opslagresources beheren
           href: azure-stack-manage-storage-accounts.md
+        - name: Opslagcapaciteit beheren
+          href: azure-stack-manage-storage-shares.md
         - name: Virtuele Windows Azure Pack-machines beheren
           href: azure-stack-manage-windows-azure-pack.md
         - name: Hardware vervangen
