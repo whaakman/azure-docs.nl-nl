@@ -4,7 +4,7 @@
   items:
     - name: Meer informatie over Time Series Insights
       href: time-series-insights-overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   items:
     - name: Time Series Insights verkennen
       href: time-series-quickstart.md
@@ -44,6 +44,8 @@
       href: time-series-insights-send-events.md
     - name: De schaal van uw omgeving aanpassen
       href: time-series-insights-how-to-scale-your-environment.md
+    - name: Resources beheren met behulp van sjablonen
+      href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
 - name: Naslaginformatie
   items:
     - name: Query-API
