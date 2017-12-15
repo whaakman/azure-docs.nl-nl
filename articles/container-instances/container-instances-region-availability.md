@@ -1,6 +1,6 @@
 ---
-title: Azure Containerexemplaren regio en resource beschikbaarheid | Azure Docs
-description: Ontdek welke Azure-regio's ondersteuning voor de implementatie van de containerexemplaren en de CPU en geheugen limieten voor ALE exemplaren.
+title: "Beschikbaarheid van regio’s en resources voor Azure Container Instances | Azure Docs"
+description: Ontdek in welke Azure-regio's de implementatie van containerinstanties en de CPU en geheugenlimieten voor deze instanties worden ondersteund.
 services: container-instances
 documentationcenter: 
 author: mmacy
@@ -19,25 +19,25 @@ ms.author: marsma
 ms.custom: 
 ms.openlocfilehash: 2b9b1b864bbfd73383759212dd7d91f8e4941544
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="region-availability-for-azure-container-instances"></a>Beschikbaarheid in regio's voor exemplaren van Azure-Container
+# <a name="region-availability-for-azure-container-instances"></a>Beschikbaarheid van regio’s voor Azure Container Instances
 
-Tijdens de preview zijn exemplaren van Azure-Container beschikbaar in de volgende regio's met de opgegeven CPU en geheugenlimieten.
+Tijdens de preview-periode is Azure Container Instances beschikbaar in de volgende regio's met de opgegeven CPU en geheugenlimieten.
 
 | Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
-| West-Europa, VS-West, VS-Oost | Linux | 2 | 7 |
-| West-Europa, VS-West, VS-Oost | Windows | 2 | 3,5 |
+| West-Europa, VS West, VS Oost | Linux | 2 | 7 |
+| West-Europa, VS West, VS Oost | Windows | 2 | 3,5 |
 
 ## <a name="resource-availability"></a>Beschikbaarheid van resources
 
-Containerexemplaren gemaakt binnen de grenzen van deze resource zijn onderworpen aan de beschikbaarheid binnen de regio voor de implementatie. Wanneer een regio zwaar wordt belast is, treedt een fout opgetreden bij het implementeren van exemplaren.
+Containerinstanties die binnen deze resourcelimieten zijn gemaakt, zijn afhankelijk van de beschikbaarheid in de implementatieregio. Wanneer een regio zwaar wordt belast, kan er een fout optreden bij het implementeren van instanties.
 
-Om te beperken die een implementatie is mislukt, probeer exemplaren met lagere CPU en geheugeninstellingen implementeren, of uw implementatie op een later tijdstip.
+Als u dergelijke implementatiefouten wilt minimaliseren, implementeert u instanties met een lagere CPU en geheugeninstellingen, of voert u de implementatie op een later tijdstip uit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het oplossen van container exemplaar implementatie [implementatieproblemen oplossen met Azure Containerexemplaren](container-instances-troubleshooting.md).
+Zie [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md) (Implementatieproblemen met Azure Container Instances oplossen) voor meer informatie over het oplossen van problemen met de implementatie van containerinstanties.

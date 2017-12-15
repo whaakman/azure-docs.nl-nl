@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service Quick Start - DC/OS-Cluster implementeren | Microsoft Docs
-description: Azure Container Service Quick Start - DC/OS-Cluster implementeren
+title: Quickstart voor Azure Container Service - Een DC/OS-cluster implementeren | Microsoft Docs
+description: Quickstart voor Azure Container Service - Een DC/OS-cluster implementeren
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -19,13 +19,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 8070d224fe6281e61f67483d4f1dd905a2ab99eb
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-dcos-cluster"></a>Een DC/OS-cluster implementeren
 
-DC/OS biedt een gedistribueerde platform voor lopende moderne en beperkte toepassingen. Met Azure Container Service is het inrichten van een productie gereed DC/OS-cluster snel en eenvoudig. Deze informatie snel starten de eenvoudige stappen die nodig zijn voor het implementeren van een DC/OS-cluster en basic werkbelasting uitvoeren.
+DC/OS biedt een gedistribueerd platform voor het uitvoeren van moderne toepassingen in containers. Met Azure Container Service kunt u eenvoudig en snel een DC/OS-cluster inrichten dat gereed is voor productie. Deze quickstart biedt details over de basisstappen die nodig zijn om een DC/OS-cluster te implementeren en een eenvoudige workload uit te voeren.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -49,11 +49,11 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-dcos-cluster"></a>DC/OS-cluster maken
+## <a name="create-dcos-cluster"></a>Een DC/OS-cluster maken
 
-Maken van een DC/OS-cluster met de [az acs maken](/cli/azure/acs#create) opdracht.
+Maak een DC/OS-cluster met behulp van de opdracht [az acs maken](/cli/azure/acs#create).
 
-Het volgende voorbeeld wordt een DC/OS-cluster met de naam *myDCOSCluster* en SSH-sleutels gemaakt als deze niet al bestaan. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
+In het volgende voorbeeld wordt een DC/OS-cluster gemaakt met de naam *myDCOSClster* en worden SSH-sleutels gemaakt, als deze nog niet bestaan. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
 ```azurecli
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
@@ -61,39 +61,39 @@ az acs create --orchestrator-type dcos --resource-group myResourceGroup --name m
 
 In sommige gevallen, zoals met een beperkte proefversie, heeft een Azure-abonnement beperkte toegang tot Azure-resources. Als de implementatie mislukt vanwege beperkte beschikbare kernen, verminder dan het aantal standaardagenten door `--agent-count 1` toe te voegen aan de opdracht [az acs create](/cli/azure/acs#create). 
 
-Na enkele minuten, de opdracht is voltooid en retourneert informatie over de implementatie.
+Na enkele minuten is de opdracht voltooid en wordt er informatie geretourneerd over de implementatie.
 
-## <a name="connect-to-dcos-cluster"></a>Verbinding maken met DC/OS-cluster
+## <a name="connect-to-dcos-cluster"></a>Verbinding maken met een DC/OS-cluster
 
-Zodra een DC/OS-cluster is gemaakt, kan het zijn toegang tot en met een SSH-tunnel. Voer de volgende opdracht om te retourneren van het openbare IP-adres van de DC/OS-master. Dit IP-adres is opgeslagen in een variabele en gebruikt in de volgende stap.
+Zodra een DC/OS-cluster is gemaakt, hebt u toegang tot het cluster via een SSH-tunnel. Voer de volgende opdracht uit om het openbare IP-adres van de DC/OS-master te retourneren. Dit IP-adres wordt opgeslagen in een variabele en gebruikt in de volgende stap.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-De SSH-tunnel maken, voert de volgende opdracht uit en volg de aanwijzingen op het scherm instructies. Als poort 80 al in gebruik is is, mislukt de opdracht. De via een tunnel poort naar een niet in gebruik, zoals bijwerken `85:localhost:80`. 
+Voer de volgende opdracht uit en volg de instructies op het scherm op de SSH-tunnel te maken. Als poort 80 al in gebruik is, mislukt de opdracht. Werk de poort bij naar een poort die nog niet als tunnel wordt gebruikt, zoals `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-De SSH-tunnel kan worden getest door te bladeren naar `http://localhost`. Als een poort andere 80 is bereikt, de locatie moet worden gezocht aanpassen. 
+De SSH-tunnel kan worden getest door naar `http://localhost` te bladeren. Als een andere poort dan 80 wordt gebruikt, past u de locatie aan zodat deze overeenkomt. 
 
 Als de SSH-tunnel is gemaakt, wordt de DC/OS-portal geretourneerd.
 
-![DCOS GEBRUIKERSINTERFACE](./media/container-service-dcos-quickstart/dcos-ui.png)
+![DCOS-UI](./media/container-service-dcos-quickstart/dcos-ui.png)
 
-## <a name="install-dcos-cli"></a>DC/OS CLI installeren
+## <a name="install-dcos-cli"></a>De DC/OS CLI installeren
 
-De DC/OS-opdrachtregelinterface wordt gebruikt voor het beheren van een DC/OS-cluster vanaf de opdrachtregel. Installeer de DC/OS cli met de [az acs dcos install-cli](/azure/acs/dcos#install-cli) opdracht. Als u Azure CloudShell gebruikt, wordt de DC/OS CLI is al geïnstalleerd. 
+De DC/OS-opdrachtregelinterface wordt gebruikt om een DC/OS-cluster te beheren via de opdrachtregel. Installeer de DC/OS CLI met behulp van de opdracht [az acs dcos install-cli](/azure/acs/dcos#install-cli). Als u Azure CloudShell gebruikt, is de DC/OS CLI al geïnstalleerd. 
 
-Als u de Azure CLI voor Mac OS- of Linux uitvoert, moet u mogelijk de opdracht uitvoert met sudo.
+Als u Azure CLI uitvoert in Mac OS of Linux, moet u de opdracht mogelijk uitvoeren met sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Voordat de CLI kan worden gebruikt met het cluster, moet deze worden geconfigureerd voor het gebruik van de SSH-tunnel. Voer de volgende opdracht, de poort aan te passen, indien nodig om dit te doen.
+Voordat de CLI kan worden gebruikt met het cluster, moet deze worden geconfigureerd voor gebruik van de SSH-tunnel. Voer hiervoor de volgende opdracht, waarbij u de poort aanpast, indien nodig.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -101,7 +101,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Een toepassing uitvoeren
 
-De standaardwaarde planning mechanisme voor een ACS-DC/OS-cluster is Marathon. Marathon wordt gebruikt om een toepassing starten en beheren van de status van de toepassing op de DC/OS-cluster. Als u een toepassing via Marathon plannen, maakt u een bestand met de naam *marathon app.json*, en kopieer de volgende inhoud in de App. 
+Het standaardmechanisme voor het plannen van een ACS DC/OS-cluster is Marathon. Marathon wordt gebruikt om een toepassing te starten en de status van de toepassing te beheren op het DC/OS-cluster. Als u een toepassing wilt plannen via Marathon, maakt u een bestand met de naam *marathon app.json* en kopieert u de volgende inhoud in dit bestand. 
 
 ```json
 {
@@ -133,38 +133,38 @@ De standaardwaarde planning mechanisme voor een ACS-DC/OS-cluster is Marathon. M
 }
 ```
 
-Voer de volgende opdracht om te plannen van de toepassing uit te voeren op de DC/OS-cluster.
+Voer de volgende opdracht uit om het uitvoeren van de toepassing op het DC/OS-cluster te plannen.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Overzicht van de implementatiestatus voor de app, voer de volgende opdracht.
+Voer de volgende opdracht uit om de implementatiestatus voor de app te zien.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Wanneer de **WACHTEN** kolomwaarde verandert van *True* naar *False*, implementatie van toepassing is voltooid.
+Wanneer de waarde in de kolom **WAITING** is gewijzigd van *True* naar *False*, is de implementatie van de toepassing voltooid.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
-Haal het openbare IP-adres van de agents DC/OS-cluster.
+Haal het openbare IP-adres van de DC/OS-clusteragents op.
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Bladeren naar dit adres retourneert de standaard NGINX-site.
+Als u naar dit adres gaat, wordt de standaardsite NGINX geopend.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
-## <a name="delete-dcos-cluster"></a>DC/OS-cluster verwijderen
+## <a name="delete-dcos-cluster"></a>Het DC/OS-cluster verwijderen
 
-Wanneer deze niet langer nodig is, kunt u de [az groep verwijderen](/cli/azure/group#delete) opdracht voor het verwijderen van de resourcegroep, DC/OS-cluster, en alle bijbehorende resources.
+U kunt de opdracht [az group delete](/cli/azure/group#delete) gebruiken om de resourcegroep, het DC/OS-cluster en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
@@ -172,7 +172,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snel starten moet u een DC/OS-cluster hebt geïmplementeerd en een eenvoudige Docker-container hebt uitgevoerd op het cluster. Blijven de ACS-zelfstudies voor meer informatie over Azure Container Service.
+In deze quickstart hebt u een DC/OS-cluster geïmplementeerd en hebt u een eenvoudige Docker-container op het cluster uitgevoerd. Ga verder met de ACS-zelfstudies voor meer informatie over Azure Container Service.
 
 > [!div class="nextstepaction"]
-> [Een ACS-DC/OS-Cluster beheren](container-service-dcos-manage-tutorial.md)
+> [Een ACS DC/OS-cluster beheren](container-service-dcos-manage-tutorial.md)

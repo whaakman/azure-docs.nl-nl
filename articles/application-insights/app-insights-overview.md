@@ -16,12 +16,12 @@ ms.date: 05/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2e2a9e8491ad56bcbc42be64729715016f7ed17b
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-application-insights"></a>Wat is Application Insights?
-Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. Het kan worden geïntegreerd met uw DevOps-proces en verbindingspunten naar allerlei ontwikkelingsprogramma's heeft. Deze kunt bewaken en analyseren van telemetrie van mobiele apps door te integreren met Visual Studio App Center en HockeyApp.
+Application Insights is een uitbreidbare APM-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Afwijkende prestaties worden automatisch gedetecteerd. De service bevat krachtige analysehulpmiddelen om u te helpen bij het vaststellen van problemen en te begrijpen wat gebruikers daadwerkelijk doen met uw app.  De service is bedoeld om u te helpen de prestaties en bruikbaarheid van uw apps continu te verbeteren. Het werkt voor apps op uiteenlopende platforms, waaronder .NET, Node.js en J2EE, on-premises of in de cloud gehost. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars. Gebruik de service voor het controleren en analyseren van telemetrie van mobiele apps door Application Insights te integreren met Visual Studio App Center en HockeyApp.
 
 ![Breng statistieken van gebruikersactiviteiten in kaart of zoom in op specifieke gebeurtenissen.](./media/app-insights-overview/00-sample.png)
 
@@ -117,7 +117,7 @@ Er zijn verschillende manieren om van start te gaan. Begin op de manier die voor
   * [Node.js](app-insights-nodejs.md)
   * [Andere platforms](app-insights-platforms.md)
 * **[Instrumenteer uw webpagina’s](app-insights-javascript.md)** voor paginaweergaven, AJAX-aanroepen en andere telemetrie op de clientzijde.
-* **[Mobiele app-gebruik analyseren](app-insights-mobile-center-quickstart.md)**  door te integreren met Visual Studio App Center.
+* **[Analyseer het gebruik van uw mobiele app](app-insights-mobile-center-quickstart.md)** door de service te integreren met Visual Studio App Center.
 * **[Beschikbaarheidstests](app-insights-monitor-web-app-availability.md)** - ping uw website regelmatig vanaf onze servers.
 
 

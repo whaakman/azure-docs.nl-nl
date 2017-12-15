@@ -1,6 +1,6 @@
 ---
-title: Quick Start - uw eerste Azure-Containerexemplaren container maken met PowerShell
-description: Aan de slag met Azure Containerexemplaren een Windows-container door exemplaar te maken met PowerShell.
+title: 'Quickstart: uw eerste Azure Container Instances-container maken met PowerShell'
+description: Ga aan de slag met Azure Container Instances door een exemplaar van een Windows-container te maken met PowerShell.
 services: container-instances
 documentationcenter: 
 author: mmacy
@@ -19,15 +19,15 @@ ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: ca10274fc6a23d7f5e7436dbaf72a6e7a918f275
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
 
-Azure Containerexemplaren gemakkelijk maken en beheren van Docker-containers in Azure, zonder te hoeven inrichten van virtuele machines of aannemen van een service op een hoger niveau.
+Met Azure Container Instances kunt u gemakkelijk Docker-containers in Azure maken en beheren, zonder virtuele machines te hoeven inrichten of een service op een hoger niveau te moeten gebruiken.
 
-In deze snelstartgids maken van een Windows-container in Azure en tijdens het blootgesteld aan internet met een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen enkele ogenblikken ziet u de actieve toepassing uw browser:
+In deze quick start maakt u een Windows-container in Azure en geeft u deze op internet weer via een openbaar IP-adres. Deze bewerking wordt uitgevoerd in één opdracht. Binnen enkele ogenblikken wordt de toepassing uitgevoerd in uw browser:
 
 ![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][qs-powershell-01]
 
@@ -39,7 +39,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudi
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een Azure-resourcegroep met [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een Azure-resourcegroep met behulp van de opdracht [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
  ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -47,19 +47,19 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Een container maken
 
-U kunt een container maken door op te geven van een naam, een Docker-installatiekopie en een Azure-resourcegroep voor de [nieuw AzureRmContainerGroup] [ New-AzureRmContainerGroup] cmdlet. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. We gebruiken in dit geval een container Windows Nano Server is waarop Internet Information Services (IIS).
+U kunt een container maken door een naam, een Docker-installatiekopie en een Azure-resourcegroep op te geven met de cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. U kunt de container desgewenst weergeven op internet met een openbaar IP-adres. In dit geval gebruiken we een Windows Nano Server-container waarin IIS (Internet Information Services) wordt uitgevoerd.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-Binnen een paar seconden als u krijgt een reactie op uw aanvraag. In eerste instantie is de container is in de **maken** staat, maar moet worden gestart binnen een minuut of twee. U kunt ook het gebruik van de status controleren de [Get-AzureRmContainerGroup] [ Get-AzureRmContainerGroup] cmdlet:
+Binnen enkele seconden krijgt u een reactie op uw aanvraag. In eerste instantie heeft de container nog de status **Creating**, maar de container moet binnen een of twee minuten starten. U kunt de status controleren met de cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-De Inrichtingsstatus van de container en de IP-adres weergegeven in van de cmdlet uitvoer:
+De inrichtingsstatus van de container en het IP-adres worden weergegeven in de uitvoer van de cmdlet:
 
 ```
 ResourceGroupName        : myResourceGroup
@@ -78,13 +78,13 @@ OsType                   : Windows
 Volumes                  :
 ```
 
-Eenmaal in de container **ProvisioningState** wordt verplaatst naar `Succeeded`, u kunt deze bereiken in uw browser met behulp van het IP-adres opgegeven.
+Als de container niet meer de status **ProvisioningState** heeft maar `Succeeded`, kunt u de container via uw browser bereiken door het opgegeven IP-adres in te voeren.
 
-![IIS is geïmplementeerd met behulp van Azure Containerexemplaren weergegeven in de browser][qs-powershell-01]
+![IIS geïmplementeerd via Azure Container Instances, weergegeven in de browser][qs-powershell-01]
 
 ## <a name="delete-the-container"></a>De container verwijderen
 
-Wanneer u klaar bent met de container, kunt u verwijderen met behulp van de [verwijderen AzureRmContainerGroup] [ Remove-AzureRmContainerGroup] cmdlet:
+Wanneer u klaar bent met de container, kunt u deze verwijderen met behulp van de cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -92,10 +92,10 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids kunt u een vooraf samengestelde Windows-container in Azure Containerexemplaren gestart. Als u probeert het bouwen van een container en geïmplementeerd op Azure Container-exemplaren die gebruikmaken van het register van de Container Azure doorgaan naar de zelfstudie Containerexemplaren Azure wilt.
+In deze quickstart hebt u een vooraf samengestelde Windows-container in Azure Container Instances gestart. Als u zelf een container wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor Azure Containerexemplaren](./container-instances-tutorial-prepare-app.md)
+> [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
 <!-- LINKS -->
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup

@@ -1,6 +1,6 @@
 ---
-title: Registreren van uw Azure-abonnement met Azure kosten Management | Microsoft Docs
-description: Uw Azure-abonnement gebruiken om te registreren met Azure kosten Management door Cloudyn.
+title: Uw Azure-abonnement registreren bij Azure Cost Management | Microsoft Docs
+description: Gebruik uw Enterprise Overeenkomst om u te registreren bij Azure Cost Management by Cloudyn.
 services: cost-management
 keywords: 
 author: bandersmsft
@@ -12,41 +12,41 @@ ms.service: cost-management
 manager: carmonm
 ms.openlocfilehash: 4fed181a004ba6a5ea35dcbe1366e7d48342c96d
 ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/12/2017
 ---
-# <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registreren van een afzonderlijke Azure-abonnement en de weergave kostengegevens
+# <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Een individueel Azure-abonnement registreren en gegevenskosten weergeven
 
-Uw Azure-abonnement kunt u met Azure kosten Management door Cloudyn registreren. Uw registratie biedt toegang tot de portal Cloudyn. De details van deze Quick Start het registratieproces nodig voor het maken van een proefabonnement Cloudyn en meld u aan bij de portal Cloudyn. Deze ook wordt beschreven hoe u meteen kostengegevens bekijken.
+U gebruikt uw Azure-abonnement om u te registreren bij Azure Cost Management by Cloudyn. Uw registratie biedt toegang tot de Cloudyn-portal. In deze quickstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van gegevenskosten.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
 - Meld u via http://portal.azure.com aan bij Azure Portal.
 
-## <a name="create-a-trial-registration"></a>Een proefabonnement registratie maken
+## <a name="create-a-trial-registration"></a>Registratie voor een proefabonnement maken
 
-1. Klik in de Azure-portal op **kostenbeheer + facturering** in de lijst met services.
-2. Onder **overzicht**, klikt u op **kostenbeheer**  
-    ![Kosten Management-pagina](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
-3. Op de **kostenbeheer** pagina, klikt u op **gaat u naar kostenbeheer** naar de registratiepagina Cloudyn in een nieuw venster openen.
-4. Typ de naam van uw bedrijf op de pagina van de portal proefversie registratie Cloudyn en selecteer vervolgens **Azure de eigenaar van afzonderlijke abonnement** en klik vervolgens op **volgende**. Uw accountnaam en het Tenant-ID wordt automatisch toegevoegd aan het formulier.  
-    ![de registratie van de evaluatieversie](./media/quick-register-azure-sub/trial-reg-ind.png)
-5. Selecteer uw **aanbod-ID - naam** gekoppeld aan uw abonnement. Als u niet zeker weet wat uw tarief-ID voor uw abonnement is, kunt u uw Azure-factuur weergeven en zoekt u **bieden ID**.
-6. Ga akkoord met de gebruiksvoorwaarden en vervolgens uw gegevens valideren en klik vervolgens op **volgende**.
-7. In de **verzamelen van aanvullende gegevens** pagina, klikt u op **volgende** te autoriseren Cloudyn voor het verzamelen van gegevens van de Azure-resource. Verzamelde gegevens omvatten informatie over het gebruik, prestaties, facturering en labelgegevens van uw abonnementen.  
+1. Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**.
+2. Klik onder **Overzicht** op **Cost Management**  
+    ![Pagina Cost Management](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+3. Klik op de pagina **Cost Management** op **Go to Cost Management** om de Cloudyn-registratiepagina in een nieuw venster te openen.
+4. Typ op de pagina voor de registratie van het proefabonnement in de Cloudyn-portal de naam van uw bedrijf en selecteer **Azure Individual Subscription Owner** en klik op **Volgende**. Uw accountnaam en tenant-id worden automatisch toegevoegd aan het formulier.  
+    ![registratie voor proefabonnement](./media/quick-register-azure-sub/trial-reg-ind.png)
+5. Selecteer uw **Aanbiedings-id - Naam** die is gekoppeld aan uw abonnement. Als u niet zeker bent van de tarief-id voor uw abonnement, kunt u uw Azure-factuur weergeven en zoeken naar **Aanbiedings-id**.
+6. Accepteer de Gebruiksvoorwaarden en valideer uw gegevens. Klik vervolgens op **Volgende**.
+7. Klik op de pagina **Gather additional data** op **Volgende** om Cloudyn te autoriseren Azure-brongegevens te verzamelen. De gegevens die worden verzameld zijn onder meer gegevens over gebruik, prestaties, facturering en tags van uw abonnementen.  
     ![aanvullende gegevens verzamelen](./media/quick-register-azure-sub/gather-additional.png)
-8. Uw browser gaat u naar de aanmeldingspagina voor Cloudyn. Aanmelden met de referenties van uw Azure-abonnement.
-9. Klik op **gaat u naar Cloudyn** de Cloudyn portal openen en klik vervolgens op de **accountbeheer** pagina ziet u de accountgegevens van uw Azure-abonnement.  
-    ![Accountbeheer](./media/quick-register-azure-sub/accounts-mgt.png)
+8. U gaat in de browser naar de aanmeldingspagina voor Cloudyn. Meld u aan met de referenties voor uw Azure-abonnement.
+9. Klik op **Go to Cloudyn** op de Cloudyn-portal te openen. Op de pagina **Accounts Management** zou u de accountgegevens voor het Azure-abonnement moeten zien.  
+    ![Accounts Management](./media/quick-register-azure-sub/accounts-mgt.png)
 
-Een zelfstudie als video wilt bekijken over het registreren van uw Azure-abonnement, Zie [uw Directory-GUID en tarief-ID vinden voor gebruik in Azure kosten Management Cloudyn](https://youtu.be/PaRjnyaNGMI).
+Zie [Finding your Directory GUID and Rate ID for use in Azure Cost Management by Cloudyn](https://youtu.be/PaRjnyaNGMI) (Uw Directory-GUID en tarief-id zoeken voor gebruik in Azure Cost Management) als u een video met een zelfstudie wilt bekijken over het registreren van uw Azure-abonnement.
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids gebruikt u de informatie van uw Azure-abonnement kostenbeheer registreren. U ook aangemeld bij de portal Cloudyn en gestart kostengegevens weer te geven. Voor meer informatie over het beheer van Azure kosten door Cloudyn doorgaan naar de zelfstudie voor het beheer van kosten.
+In deze quickstart hebt u de gegevens van uw Azure-abonnement gebruikt om u te registreren bij Cost Management. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga door naar de zelfstudie voor Cost Management voor meer informatie over Azure Cost Management by Cloudyn.
 
 > [!div class="nextstepaction"]
-> [Bekijk informatie over het gebruik en de kosten](./tutorial-review-usage.md)
+> [Gebruik en kosten controleren](./tutorial-review-usage.md)

@@ -1,6 +1,6 @@
 ---
-title: Uw eerste functie maken in Azure met Java en Maven | Microsoft Docs
-description: Maken en publiceren van een eenvoudige HTTP geactiveerd functie naar Azure met Java en Maven.
+title: Uw eerste functie maken in Azure met behulp van Java en Maven | Microsoft Docs
+description: Lees hier hoe u een eenvoudige, door HTTP getriggerde functie maakt en publiceert naar Azure met Java en Maven.
 services: functions
 documentationcenter: na
 author: rloutlaw
@@ -16,47 +16,47 @@ ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>Maken van uw eerste functie met Java en Maven (Preview)
+# <a name="create-your-first-function-with-java-and-maven-preview"></a>Uw eerste functie maken met Java en Maven (Preview)
 
 > [!NOTE] 
 > Java voor Azure Functions is momenteel in preview.
 
-Deze snelstartgids helpt bij het maken een [zonder server](https://azure.microsoft.com/overview/serverless-computing/) functie project met Maven, lokaal te testen en deze implementeert in Azure Functions. Wanneer u bent klaar, hebt u een HTTP-geactiveerde functie-app in Azure wordt uitgevoerd.
+In deze quickstart vindt u instructies voor het maken van een [serverloos](https://azure.microsoft.com/overview/serverless-computing/) Functions-project met Maven. Daarnaast wordt uitgelegd hoe u het project lokaal kunt testen en vervolgens kunt implementeren naar Azure Functions. Wanneer u bent klaar, hebt u een door HTTP getriggerde functie-app die in Azure wordt uitgevoerd.
 
-![Toegang tot een functie Hallo wereld vanaf de opdrachtregel met cURL](media/functions-create-java-maven/hello-azure.png)
+![Hello World-functie aanroepen vanaf de opdrachtregel met cURL](media/functions-create-java-maven/hello-azure.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-Om te zetten met behulp van Java-functies app, hebt u het volgende zijn geïnstalleerd:
+Als u functie-apps wilt ontwikkelen met behulp van Java, moet het volgende zijn geïnstalleerd:
 
--  [.NET core](https://www.microsoft.com/net/core), meest recente versie.
+-  [.NET Core](https://www.microsoft.com/net/core), nieuwste versie.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), versie 8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), versie 3.0 of hoger.
--  [Node.js](https://nodejs.org/download/), 8,6 of hoger.
+-  [Node.js](https://nodejs.org/download/), versie 8.6 of hoger.
 
 > [!IMPORTANT] 
-> De omgevingsvariabele JAVA_HOME moet worden ingesteld naar de installatielocatie van de JDK die op het voltooien van deze snelstartgids.
+> De omgevingsvariabele JAVA_HOME moet zijn ingesteld op de installatielocatie van de JDK om deze quickstart te kunnen voltooien.
 
-## <a name="install-the-azure-functions-core-tools"></a>De Azure Functions Core hulpprogramma's installeren
+## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
-De [Azure Functions Core extra 2.0](https://www.npmjs.com/package/azure-functions-core-tools) voorzien in een lokale ontwikkelingsomgeving schrijven, uitvoeren en Azure-functies voor foutopsporing. Installeer de's met [npm](https://www.npmjs.com/), opgenomen in [Node.js](https://nodejs.org/).
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) is een lokale ontwikkelingsomgeving voor het schrijven, uitvoeren en debuggen van Azure Functions. Installeer de met [npm](https://www.npmjs.com/), dat is opgenomen in [Node.js](https://nodejs.org/).
 
 ```
 npm install -g azure-functions-core-tools@core
 ```
 
 > [!NOTE]
-> Als u problemen ondervindt bij het installeren van hulpprogramma's voor Azure Functions Core versie 2.0, Zie [versie 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
+> Als er problemen zijn bij het installeren van Azure Functions Core Tools versie 2.0, raadpleegt u [Runtime versie 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
 
-## <a name="generate-a-new-functions-project"></a>Genereren van een nieuw project van functies
+## <a name="generate-a-new-functions-project"></a>Een nieuw Functions-project genereren
 
-Voer de volgende opdracht voor het genereren van het project functies uit in een lege map een [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+Voer in een lege map de volgende opdracht uit om het Functions-project te genereren op basis van een [Maven-archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 ### <a name="linuxmacos"></a>Linux/Mac OS
 
@@ -73,7 +73,7 @@ mvn archetype:generate ^
     -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven vraagt u om de waarden die nodig zijn voor het maken van het project te voltooien. Voor _groupId_, _artefact-id_, en _versie_ waarden, Zie de [Maven naamconventies](https://maven.apache.org/guides/mini/guide-naming-conventions.html) verwijzing. De _appName_ waarde moet uniek zijn voor Azure, zodat Maven een appnaam op basis van de eerder opgegeven genereert _artefact-id_ standaard. De _packageName_ waarde bepaalt de Java-pakket voor de gegenereerde functiecode.
+U wordt door Maven gevraagd om de waarden die nodig zijn om het project te kunnen genereren. Informatie over de waarden voor _groupId_, _artifactId_ en _version_ kunt u vinden in de Engelstalige [naslag van Maven over naamconventies](https://maven.apache.org/guides/mini/guide-naming-conventions.html). De waarde voor _appName_ moet uniek zijn binnen Azure. Om die reden genereert Maven standaard een app-naam op basis van de eerder opgegeven waarde voor _artifactId_. De waarde voor _packageName_ bepaalt het Java-pakket voor de gegenereerde functiecode.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -84,7 +84,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven maakt de project-bestanden in een nieuwe map met de naam _artefact-id_. De gegenereerde code in het project is een eenvoudige [HTTP geactiveerd](/azure/azure-functions/functions-bindings-http-webhook) functie die de hoofdtekst van de aanvraag een echo:
+Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_. De gegenereerde code in het project is een eenvoudige, [door HTTP getriggerde](/azure/azure-functions/functions-bindings-http-webhook) functie die de hoofdtekst van de aanvraag weergeeft:
 
 ```java
 public class Function {
@@ -98,7 +98,7 @@ public class Function {
 
 ## <a name="run-the-function-locally"></a>De functie lokaal uitvoeren
 
-Wijzig map in de zojuist gemaakte projectmap en bouwen en uitvoeren van de functie met Maven:
+Ga naar de zojuist gemaakte projectmap en gebruik Maven om de functie te bouwen en uit te voeren:
 
 ```
 cd fabrikam-function
@@ -106,7 +106,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 
-U ziet deze uitvoer wanneer de functie wordt uitgevoerd:
+U ziet deze uitvoer terwijl de functie wordt uitgevoerd:
 
 ```Output
 Listening on http://localhost:7071
@@ -117,7 +117,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-De functie vanaf de opdrachtregel met curl in een nieuwe terminal activeren:
+Activeer de functie vanaf de opdrachtregel met de opdracht curl in een nieuwe terminal:
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -127,18 +127,18 @@ curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 Hello LocalFunction!
 ```
 
-Gebruik `Ctrl-C` in de terminal de functiecode stoppen.
+Gebruik `Ctrl-C` in de terminal om de functiecode te stoppen.
 
 ## <a name="deploy-the-function-to-azure"></a>De functie implementeren in Azure
 
-Het proces implementeren naar Azure Functions maakt gebruik van accountreferenties van de Azure CLI. [Meld u aan met de Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) en vervolgens uw code te implementeren in een nieuwe functie app via de `azure-functions:deploy` Maven-doel.
+Bij het implementeren naar Azure Functions worden accountreferenties uit de Azure CLI gebruikt. [Meld u daarom aan met de Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) en implementeer de code vervolgens in een nieuwe functie app via de Maven-target `azure-functions:deploy`.
 
 ```
 az login
 mvn azure-functions:deploy
 ```
 
-Wanneer de implementeren voltooid is, ziet u de URL die u gebruiken kunt voor toegang tot uw Azure-functie-app:
+Als het implementeren is voltooid, ziet u de URL die u kunt gebruiken voor toegang tot de Azure-functie-app:
 
 ```output
 [INFO] Successfully deployed Function App with package.
@@ -148,7 +148,7 @@ Wanneer de implementeren voltooid is, ziet u de URL die u gebruiken kunt voor to
 [INFO] ------------------------------------------------------------------------
 ```
 
-De functie-app uitgevoerd op Azure met curl testen:
+Test de functie-app in Azure met behulp van de opdracht curl:
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
@@ -160,11 +160,11 @@ Hello AzureFunctions!
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt gemaakt van een Java-functie-app met een eenvoudige HTTP-trigger en geïnstalleerd op de Azure Functions.
+U hebt een Java-functie-app gemaakt met een eenvoudige HTTP-trigger en deze geïmplementeerd naar Azure Functions.
 
-- Controleer de [functies van Java-handleiding voor ontwikkelaars](functions-reference-java.md) voor meer informatie over het ontwikkelen van Java-functies.
-- Extra functies met verschillende triggers toevoegen aan uw project met de `azure-functions:add` Maven-doel.
-- Functies met Visual Studio Code lokaal voor foutopsporing. Met de [pack voor Java-extensie](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) geïnstalleerd en aan uw project functies openen in Visual Studio Code [het foutopsporingsprogramma koppelen](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) op poort 5005. Vervolgens stelt u een onderbrekingspunt in de editor en uw functie te activeren tijdens het lokaal uitvoeren: ![functies in Visual Studio Code foutopsporing](media/functions-create-java-maven/vscode-debug.png)
+- Neem de [Azure Functions Java-handleiding voor ontwikkelaars](functions-reference-java.md) door voor meer informatie over het ontwikkelen van Java-functies. Deze handleiding is vooralsnog door een vertaalmachine vertaald.
+- U kunt extra functies met verschillende triggers toevoegen aan uw project met behulp van de Maven-target `azure-functions:add`.
+- Gebruik Visual Studio Code om functies lokaal te debuggen. Als u het [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) hebt geïnstalleerd en het Functions-project hebt geopend in Visual Studio Code, [kunt u de debugger via attach koppelen](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) aan poort 5005. Vervolgens stelt u een onderbrekingspunt in de editor in en activeert u de functie terwijl deze lokaal wordt uitgevoerd: ![Functies debuggen in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
 
 
 

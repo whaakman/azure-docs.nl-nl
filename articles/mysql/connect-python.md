@@ -1,6 +1,6 @@
 ---
 title: Via Python verbinding maken met Azure Database voor MySQL | Microsoft Docs
-description: Deze snelstartgids bevat enkele voorbeelden van Python-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Database voor MySQL.
+description: Deze quickstart bevat enkele voorbeelden van Python-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit Azure Database voor MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -13,20 +13,20 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database voor MySQL: Python gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database voor MySQL. Er worden SQL-instructies gebruikt om gegevens op te vragen, in te voegen, bij te werken en te verwijderen in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In dit onderwerp wordt ervan uitgegaan dat u bekend bent met ontwikkelen met behulp van Python en dat u niet bekend bent met werken met Azure-Database voor MySQL.
+In deze quickstart ziet u hoe u met behulp van [Python](https://python.org) verbinding maakt met Azure Database voor MySQL. Er worden SQL-instructies gebruikt om gegevens op te vragen, in te voegen, bij te werken en te verwijderen in de database vanaf Mac OS-, Ubuntu Linux- en Windows-platforms. In dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Python, maar geen ervaring hebt met het werken met Azure Database voor MySQL.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
+In deze quickstart worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Een Azure-database voor een MySQL-server maken met behulp van Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Python en de MySQL-connector installeren
-Installeer [Python](https://www.python.org/downloads/) en de [MySQL-connector voor Python](https://dev.mysql.com/downloads/connector/python/) op uw computer. Volg de stappen in het desbetreffende gedeelte afhankelijk van uw platform:
+Installeer [Python](https://www.python.org/downloads/) en de [MySQL-connector voor Python](https://dev.mysql.com/downloads/connector/python/) op uw computer. Volg afhankelijk van uw platform de volgende stappen uit in de toepasselijke sectie:
 
 ### <a name="windows"></a>Windows
 1. Download en installeer Python 2.7 van [python.org](https://www.python.org/downloads/windows/). 
@@ -69,13 +69,13 @@ Haal de verbindingsgegevens op die nodig zijn om verbinding te maken met de Azur
    
 
 ## <a name="run-python-code"></a>Python-code uitvoeren
-- Plak de code in een tekstbestand en sla het bestand in een projectmap met bestand extensie .py (zoals C:\pythonmysql\createtable.py of /home/username/pythonmysql/createtable.py).
-- Als u wilt de code uitvoeren, starten vanaf de opdrachtprompt of Bash-shell. Ga naar de projectmap `cd pythonmysql`. Typ vervolgens de python-opdracht, gevolgd door de bestandsnaam `python createtable.py` om de toepassing uit te voeren. Op het Windows-besturingssysteem als python.exe niet wordt gevonden, u mogelijk moet het volledige pad naar het uitvoerbare bestand opgeven of het Python-pad toevoegen aan de omgevingsvariabele path. `C:\python27\python.exe createtable.py`
+- Plak de code in een tekstbestand en sla het bestand vervolgens op in een projectmap met de bestandsextensie .py, zoals C:\pythonmysql\createtable.py of /home/gebruikersnaam/pythonmysql/createtable.py.
+- Voor het uitvoeren van de code opent u de opdrachtprompt of bash-shell. Ga naar de projectmap `cd pythonmysql`. Typ vervolgens de python-opdracht, gevolgd door de bestandsnaam `python createtable.py` om de toepassing uit te voeren. Als python.exe niet wordt gevonden, moet u in Windows mogelijk het volledige pad naar het uitvoerbare bestand opgeven, of het Python-pad toevoegen aan de omgevingsvariabele. `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>Verbinden, tabel maken en gegevens invoegen
-De volgende code gebruiken om te verbinden met de server, een tabel maken en de gegevens laden met behulp van een **invoegen** SQL-instructie. 
+Gebruik de volgende code om verbinding te maken met de server, een tabel te maken en de gegevens te laden met behulp van de SQL-instructie **INSERT**. 
 
-Met deze code wordt de bibliotheek mysql.connector geïmporteerd. De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code maakt gebruik van een cursor op de verbinding en de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) voert de SQL-query op MySQL-database. 
+Met deze code wordt de bibliotheek mysql.connector geïmporteerd. De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code gebruikt een cursor voor de verbinding, en met de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) wordt de SQL-query uitgevoerd voor de MySQL-database. 
 
 Vervang de parameters `host`, `user`, `password` en `database` door de waarden die u hebt opgegeven tijdens het maken van de server en database.
 
@@ -129,9 +129,9 @@ else:
 ```
 
 ## <a name="read-data"></a>Gegevens lezen
-De volgende code gebruiken om verbinding te en de gegevens niet lezen via een **Selecteer** SQL-instructie. 
+Gebruik de volgende code om verbinding te maken en de gegevens te lezen met behulp van de SQL-instructie **SELECT**. 
 
-Met deze code wordt de bibliotheek mysql.connector geïmporteerd. De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code maakt gebruik van een cursor op de verbinding en de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) voert de SQL-instructie op MySQL-database. De rijen met gegevens worden gelezen met methode [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html). De resultatenset wordt bewaard in een verzamelrij en via een for-iterator worden de rijen steeds doorlopen.
+Met deze code wordt de bibliotheek mysql.connector geïmporteerd. De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code gebruikt een cursor voor de verbinding en met de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) wordt de SQL-instructie uitgevoerd voor de MySQL-database. De gegevensrijen worden gelezen met de methode [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html). De resultatenset wordt bewaard in een verzamelrij en via een for-iterator worden de rijen steeds doorlopen.
 
 Vervang de parameters `host`, `user`, `password` en `database` door de waarden die u hebt opgegeven tijdens het maken van de server en database.
 
@@ -178,9 +178,9 @@ else:
 ```
 
 ## <a name="update-data"></a>Gegevens bijwerken
-De volgende code gebruiken om verbinding te en bijwerken van de gegevens met behulp van een **bijwerken** SQL-instructie. 
+Gebruik de volgende code om verbinding te maken en de gegevens bij te werken met behulp van de SQL-instructie **UPDATE**. 
 
-Met deze code wordt de bibliotheek mysql.connector geïmporteerd.  De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code maakt gebruik van een cursor op de verbinding en de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) voert de SQL-instructie op MySQL-database. 
+Met deze code wordt de bibliotheek mysql.connector geïmporteerd.  De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code gebruikt een cursor voor de verbinding, en met de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) wordt de SQL-instructie uitgevoerd voor de MySQL-database. 
 
 Vervang de parameters `host`, `user`, `password` en `database` door de waarden die u hebt opgegeven tijdens het maken van de server en database.
 
@@ -222,9 +222,9 @@ else:
 ```
 
 ## <a name="delete-data"></a>Gegevens verwijderen
-De volgende code gebruiken om verbinding te en verwijderen van gegevens met behulp van een **verwijderen** SQL-instructie. 
+Gebruik de volgende code om verbinding te maken en de gegevens te verwijderen met behulp van de SQL-instructie **DELETE**. 
 
-Met deze code wordt de bibliotheek mysql.connector geïmporteerd.  De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code maakt gebruik van een cursor op de verbinding en de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) voert de SQL-query op MySQL-database. 
+Met deze code wordt de bibliotheek mysql.connector geïmporteerd.  De functie [connect ()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) wordt gebruikt om verbinding te maken met Azure Database voor MySQL, met behulp van de [connection-argumenten](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in de config-verzameling. De code gebruikt een cursor voor de verbinding, en met de methode [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) wordt de SQL-query uitgevoerd voor de MySQL-database. 
 
 Vervang de parameters `host`, `user`, `password` en `database` door de waarden die u hebt opgegeven tijdens het maken van de server en database.
 

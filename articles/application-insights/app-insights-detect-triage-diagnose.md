@@ -16,99 +16,99 @@ ms.date: 06/26/2017
 ms.author: mbullwin
 ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/01/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Overzicht van Application Insights voor DevOps
 
-Met [Application Insights](app-insights-overview.md), u kunt snel ontdekken hoe uw app wordt uitgevoerd en wordt gebruikt wanneer het live. Er is een probleem, kunt u informatie over het helpt bij het beoordelen van de impact en helpt u de oorzaak te achterhalen.
+Met [Application Insights](app-insights-overview.md) komt u snel te weten hoe uw app presteert en hoe deze wordt gebruikt als ze actief is. Als er een probleem is, ziet u dat hier meteen, krijgt u hulp bij het beoordelen van de impact ervan en bij het achterhalen van de oorzaak.
 
-Hier volgt een account van een team dat webtoepassingen ontwikkelt:
+Hier volgt een verhaal van een team dat webtoepassingen ontwikkelt:
 
-* *"Een aantal dagen geleden implementeerden we een 'secundaire' hotfix. Een brede testronde niet worden uitgevoerd, maar helaas sommige onverwachte wijziging in de nettolading, waardoor ze niet compatibel zijn tussen de begin- en back-ends is samengevoegd. Direct serveruitzonderingen toenam, onze waarschuwing geactiveerd en er zijn aangebracht op de hoogte van de situatie. Een paar muisklikken opgeslagen op de Application Insights-portal wij voldoende informatie van de uitzondering callstacks om het probleem vast te stellen. We onmiddellijk teruggedraaid en de schade beperkt. Application Insights heeft dit deel van de devops bladeren aangebracht zeer eenvoudig en actie worden uitgevoerd."*
+* *"Een paar dagen geleden hebben we een 'kleine' hotfix geïmplementeerd. We hebben geen uitgebreide testronde uitgevoerd, maar helaas kwamen er een aantal onverwachte wijzigingen in de nettolading terecht, waardoor de front-end en back-end incompatibel waren. Er was een onmiddellijke toename van serveruitzonderingen, we ontvingen meteen waarschuwingen, en zijn op de hoogte gebracht van de situatie. Na een paar muisklikken op de Application Insights-portal beschikten we via de oproepstacks van de uitzonderingen over voldoende informatie om mogelijke oorzaken van het probleem vast te stellen. We hebben de hotfix onmiddellijk teruggedraaid en zo de schade beperkt. Application Insights heeft dit deel van de DevOps-cyclus erg vereenvoudigd en maakt het gemakkelijk actie te ondernemen."*
 
-In dit artikel volgen we een team in Fabrikam Bank die het systeem internetbankieren (OBS) om te zien hoe ze Application Insights gebruiken om snel reageren op klanten en wijzigingen ontwikkelt.  
+In dit artikel volgen we een team in Fabrikam Bank dat een systeem voor internetbankieren (IB) ontwikkelt om te zien hoe ze Application Insights gebruiken om snel te kunnen reageren op klanten en om updates uit te voeren.  
 
-Het team werkt op een DevOps cyclus afgebeeld in de volgende afbeelding:
+Het team maakt deel uit van een DevOps-cyclus die wordt uitgebeeld in de volgende afbeelding:
 
-![DevOps cyclus](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+![DevOps-cyclus](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Vereisten van de feed in de achterstand van hun ontwikkeling (takenlijst). Ze werken in een korte sprints, wat vaak resulteert in een werkende software - gewoonlijk in de vorm van verbeteringen en uitbreidingen voor de bestaande toepassing. De live-app wordt regelmatig bijgewerkt met nieuwe functies. Het live is, wordt het in het team bewaakt om prestaties en gebruik met behulp van Application Insights. Deze gegevens APM-feeds terug naar de achterstand van hun ontwikkeling.
+De vereisten worden toegevoegd aan de lijst met achterstallige ontwikkeltaken (takenlijst). Het team werkt in korte sprints en produceert werkende software, gewoonlijk in de vorm van verbeteringen en uitbreidingen voor de bestaande toepassing. De actieve app wordt regelmatig bijgewerkt met nieuwe functies. Zolang de toepassing actief is, gebruikt het team Application Insights om de prestaties ervan in de gaten te houden en het gebruik ervan te controleren. Deze gegevens over de toepassingsprestaties worden teruggekoppeld naar de lijst met achterstallige ontwikkeltaken.
 
-Het team gebruik maakt van Application Insights voor het bewaken van de webtoepassing live nauw voor:
+Het team gebruikt Application Insights voor het nauwgezet controleren van de actieve webtoepassing op:
 
-* De prestaties. Ze willen weten hoe reactietijden verschillen naargelang het aantal verzoeken; hoeveel CPU-, netwerk-, schijf- en andere bronnen worden gebruikt; welke toepassingscode vertraagd prestaties; en waar de knelpunten zijn.
-* Fouten. Als er uitzonderingen zijn of mislukte aanvragen, of als een prestatiemeteritem buiten de vertrouwd bereik gaat, het team moet snel worden kennen, zodat ze actie kunnen ondernemen.
-* Het gebruik. Wanneer er een nieuwe functie wordt uitgebracht, wil het team in welke mate het wordt gebruikt en of gebruikers hebben problemen met het weten.
+* Prestaties. Ze willen weten hoe reactietijden verschillen naargelang het aantal aanvragen; hoeveel CPU-, netwerk-, schijf- en andere resources worden gebruikt; door welke toepassingscode de prestaties verminderden; en waar de knelpunten zijn.
+* Fouten. Als er uitzonderingen zijn of mislukte aanvragen, of als een prestatiemeteritem het vertrouwde bereik overschrijdt, moet het team dat snel weten, zodat er actie kan worden ondernomen.
+* Gebruik. Steeds als er een nieuwe functie wordt uitgebracht, wil het team weten in welke mate deze wordt gebruikt en of gebruikers problemen ermee ondervinden.
 
-Laten we zich richten op het feedback deel van de cyclus:
+Laten we ons richten op het feedbackgedeelte van de cyclus:
 
-![Detecteren-selectie-onderzoeken](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
+![Detecteren - classificeren - diagnosticeren](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 ## <a name="detect-poor-availability"></a>Slechte beschikbaarheid detecteren
-Marcela Markova is een senior ontwikkelaar van het team OBS, en wordt de lead op online-prestaties bewaken. Ze stelt u verschillende [beschikbaarheidstests](app-insights-monitor-web-app-availability.md):
+Marcela Markova is senior ontwikkelaar van het IB-team en heeft de leiding waar het om het controleren van onlineprestaties gaat. Ze zet verschillende [beschikbaarheidstests](app-insights-monitor-web-app-availability.md) op:
 
-* Een enkele URL-test voor de belangrijkste startpagina voor de app http://fabrikambank.com/onlinebanking/. Ze stelt criteria van HTTP-code, 200 en tekst 'Welkom!'. Als deze test mislukt, is er een ernstig probleem met het netwerk of de servers of misschien een probleem met de implementatie. (Of iemand de welkomstpagina is gewijzigd! bericht op de pagina zonder dat haar weten.)
-* Een dieper test met meerdere stappen, die zich aanmeldt en een account van de huidige aanbieding, controle van enkele belangrijke gegevens op elke pagina opgehaald. Deze test controleert of de koppeling naar de database met gebruikersaccounts werkt. Ze gebruikt een fictieve klant-id: een aantal worden bijgehouden voor testdoeleinden.
+* Een enkele URL-test voor de belangrijkste startpagina van de app, http://fabrikambank.com/onlinebanking/. Ze stelt criteria op voor HTTP-code 200 en de tekst 'Welkom!'. Als deze test mislukt, is er een ernstig probleem met het netwerk of de servers, of is er misschien een probleem met de implementatie. (Of iemand heeft het welkomstbericht op de pagina gewijzigd zonder haar dat te laten weten.)
+* Een diepgaandere test van meerdere stappen, waarbij een aanmelding plaatsvindt en er een lijst met huidige gebruikersaccounts wordt verkregen, en een aantal cruciale gegevens op elke pagina wordt gecontroleerd. Tijdens deze test wordt gecontroleerd of de koppeling naar de database met gebruikersaccounts werkt. Ze gebruikt een fictieve klant-id: een aantal wordt er aangehouden voor testdoeleinden.
 
-Met deze tests is ingesteld, is het Marcela er zeker van te zijn dat het team snel over een storing weten.  
+Nadat ze deze tests heeft opgezet, heeft Marcela er alle vertrouwen in dat het team snel weet als er zich een storing voordoet.  
 
-Fouten worden weergegeven als rood punten op de web-test-grafiek:
+Fouten worden als rode punten in het webtestdiagram weergegeven:
 
-![Weergave van webtests die via de voorafgaande periode hebben uitgevoerd](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Weergave van webtests die in de voorafgaande periode zijn uitgevoerd](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Maar belangrijker is, een waarschuwing over een storing in het ontwikkelingsteam per e-mail is verzonden. Op die manier kunnen weten ze voordat u vrijwel alle klanten.
+Maar belangrijker is dat er per e-mail een waarschuwing over een storing naar het ontwikkelingsteam wordt verzonden. Op die manier zijn de teamleden er eerder van op de hoogte dan de meeste van hun klanten.
 
 ## <a name="monitor-performance"></a>Prestaties bewaken
-Op de overzichtspagina in Application Insights wordt een grafiek ziet u diverse [belangrijke metrische gegevens](app-insights-web-monitor-performance.md).
+Op de overzichtspagina in Application Insights bevindt zich een diagram met diverse [belangrijke metrische gegevens](app-insights-web-monitor-performance.md).
 
-![Verschillende metrische gegevens](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Diverse metrische gegevens](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Laadtijd van browserpagina is afgeleid van telemetrie die rechtstreeks van webpagina's. Serverreactietijd, aantal servers-aanvraag en aantal mislukte aanvragen zijn alle gemeten in de webserver en van daaruit naar Application Insights is verzonden.
+De laadtijd van een browserpagina wordt afgeleid van telemetriegegevens die rechtstreeks vanaf webpagina's worden verzonden. De serverreactietijd, het aantal serveraanvragen en het aantal mislukte aanvragen worden allemaal in de webserver gemeten en van daaruit naar Application Insights verzonden.
 
-Marcela is enigszins betrokken zijn bij de server antwoord-grafiek. Deze grafiek toont de gemiddelde tijd tussen wanneer de server een HTTP-aanvraag van de browser van een gebruiker ontvangt, en wanneer het antwoord retourneert. Het is niet ongebruikelijke is een variatie in deze grafiek zien als de belasting op het systeem varieert. Maar in dit geval wordt er lijkt dat een correlatie tussen small verhogingen in de telling van aanvragen, en big komt in de reactietijd. Dat kan duiden op het systeem werkt alleen bij de grenzen.
+Marcela maakt zich enigszins ongerust als ze het diagram met de serverreactietijd ziet. Dit diagram toont de gemiddelde tijd tussen het tijdstip waarop de server een HTTP-aanvraag van de browser van een gebruiker ontvangt en het moment waarop de reactie wordt geretourneerd. Het is niet ongebruikelijk dat in dit diagram variaties zichtbaar zijn, omdat de belasting op het systeem varieert. Maar in dit geval lijkt er een correlatie te zijn tussen kleine pieken in het aantal aanvragen en een grote toename van de reactietijd. Dat kan erop wijzen dat het systeem bijna tegen zijn limiet aanzit.
 
-Ze opent de grafieken Servers:
+Ze opent de serverdiagrammen:
 
-![Verschillende metrische gegevens](./media/app-insights-detect-triage-diagnose/06.png)
+![Diverse metrische gegevens](./media/app-insights-detect-triage-diagnose/06.png)
 
-Er lijkt geen teken van bronbeperking, dus misschien dat de dalen in de grafieken van de reactie server zojuist een samenvallen zijn.
+Er zijn geen tekenen die wijzen op een beperking van een resource, dus misschien dat de dalen in de diagrammen met de serverreactietijden gewoon op toeval berusten.
 
 ## <a name="set-alerts-to-meet-goals"></a>Waarschuwingen instellen om doelstellingen te behalen
-Niettemin wil ze de reactietijden gaten houden. Als ze te hoog, dat ze wil weten over het direct.
+Niettemin wil ze de reactietijden in gaten houden. Als die te groot worden, wil ze dat meteen weten.
 
-Zodat ze stelt een [waarschuwing](app-insights-metrics-explorer.md), reactietijden groter is dan een typische drempelwaarde. Hiermee geeft u haar erop vertrouwen dat ze over het weten moet als reactietijden traag zijn.
+Dus stelt ze een [waarschuwing](app-insights-metrics-explorer.md) in voor reactietijden die groter zijn dan een normale drempelwaarde. Zo weet ze zeker dat ze op de hoogte is als de reactietijden traag zijn.
 
-![Waarschuwingen-blade toevoegen](./media/app-insights-detect-triage-diagnose/07-alerts.png)
+![Blade Waarschuwing toevoegen](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
-Waarschuwingen kunnen worden ingesteld voor een groot aantal andere metrische gegevens. U kunt bijvoorbeeld een e-mailberichten ontvangen als het aantal uitzondering toeneemt, anders wordt de hoeveelheid beschikbaar geheugen laag, of als er een piek in de aanvragen van clients.
+Waarschuwingen kunnen worden ingesteld voor een groot aantal verschillende metrische gegevens. U kunt bijvoorbeeld instellen dat u e-mailberichten wilt ontvangen als het aantal uitzonderingen sterk toeneemt, als de beschikbare geheugenruimte laag is, of als er een piek in de clientaanvragen is.
 
-## <a name="stay-informed-with-smart-detection-alerts"></a>Blijf op de hoogte met slim Detectiewaarschuwingen
-Volgende dag, een e-mailwaarschuwingen van de Application Insights binnenkomen. Maar wanneer ze de wordt geopend, ze vindt dat niet zo is de reactie tijd waarschuwing die ze ingesteld. In plaats daarvan krijgt haar is er een plotselinge toename van mislukte aanvragen - dat wil zeggen, aanvragen die codes van 500 of meer fout geretourneerd.
+## <a name="stay-informed-with-smart-detection-alerts"></a>Blijf op de hoogte met slimme-detectiewaarschuwingen
+Een dag later ontvangt ze een e-mailwaarschuwing van Application Insights. Maar als ze deze opent, ziet ze dat het niet de waarschuwing is die ze voor de reactietijd heeft ingesteld. In plaats daarvan leest ze dat er een plotselinge toename van mislukte aanvragen is geweest, dat wil zeggen, aanvragen die foutcodes van 500 of hoger hebben geretourneerd.
 
-Mislukte aanvragen zijn waarbij gebruikers een fout - doorgaans na een uitzondering opgetreden in de code hebt gezien. Mogelijk zien ze een bericht tekst "Helaas uw gegevens nu niet bijwerken." Of op absolute gênante ergste geval een Stackdump wordt weergegeven op het scherm van de gebruiker, door de webserver.
+Mislukte aanvragen zijn aanvragen waarbij gebruikers een foutmelding hebben ontvangen, doorgaans nadat er een uitzondering is gegenereerd in de code. Mogelijk zien ze een bericht als: 'Uw gegevens kunnen momenteel niet worden bijgewerkt'. Maar het wordt pas echt gênant als er een stackdump wordt weergegeven op het scherm van de gebruiker, met dank aan de webserver.
 
-Deze waarschuwing is onverwacht, omdat de laatste keer dat ze, gezien het aantal mislukte aanvragen encouragingly lage is. Er is een klein aantal fouten worden verwacht in een overbelaste server.
+Deze waarschuwing komt volledig onverwacht, omdat de laatste keer dat ze naar het aantal mislukte aanvragen keek, dit bemoedigend laag was. Er kan een klein aantal fouten worden verwacht op een zwaarbelaste server.
 
-Het is ook een stukje onverwacht voor haar omdat ze niet beschikbaar om deze waarschuwing te configureren. Application Insights bevatten Slimme detectie. Automatisch wordt aangepast aan de gebruikelijke fout patroon en fouten 'wordt gebruikt voor' op een bepaalde pagina of onder hoge belasting van uw app of gekoppeld aan andere metrische gegevens. Er wordt een waarschuwing gegeven alleen als er een nooit meer dan wat ze kunnen verwachten afkomstig is.
+Het kwam voor haar ook nogal als een verrassing omdat ze deze waarschuwing niet heeft hoeven in te stellen. Application Insights bevat ook Slimme detectie. Deze functionaliteit voegt zich automatisch naar het normale foutpatroon van uw app en 'raakt gewend' aan fouten op een bepaalde pagina, aan fouten als gevolg van een hoge werkbelasting of aan fouten die met andere metrische gegevens samenhangen. Er wordt alleen een waarschuwing gegeven als de toename groter is dan er op grond van de ervaring mag worden verwacht.
 
-![proactieve diagnoses e](./media/app-insights-detect-triage-diagnose/21.png)
+![Proactieve e-mail met diagnostische gegevens](./media/app-insights-detect-triage-diagnose/21.png)
 
-Dit is een zeer nuttig e-mailadres. Het verhogen niet alleen een waarschuwing wordt gegeven. Veel van de selectie en diagnostische werk te gebeurt.
+Dit is een zeer handige e-mail. Deze waarschuwt u niet alleen. Veel van het classificatiewerk en het verzamelen van diagnostische gegevens wordt er ook door gedaan.
 
-Er wordt weergegeven hoeveel klanten door worden getroffen, en welke webpagina's of bewerkingen. Marcela kunt bepalen of ze nodig heeft om op te halen van het hele team werkt op deze als een detailanalyse fire of of kan worden genegeerd totdat de volgende week.
+Er wordt weergegeven hoeveel klanten door een fout worden getroffen, en welke webpagina's of bewerkingen er gevolgen van ondervinden. Marcela kan nu bepalen of ze wil dat het hele team ermee aan de slag gaat als een soort van brandoefening, of dat het tot de volgende week kan wachten.
 
-Het e-mailbericht ziet ook dat een bepaalde uitzondering is opgetreden en - zelfs meer interessante - of de fout gekoppeld aan de mislukte aanroepen met een bepaalde database is. Hier wordt uitgelegd waarom de fout plotseling komt Hoewel team Marcela van updates niet onlangs geïmplementeerd.
+Het e-mailbericht toont haar of er een bepaald soort uitzondering is opgetreden, en, wellicht nog interessanter, dat de fout heeft te maken met mislukte pogingen om een bepaalde database aan te roepen. Dat verklaart waarom de fout plotseling optrad ook al heeft het team van Marcela recentelijk geen updates geïmplementeerd.
 
-Marcella pingt de opvulteken van het database-team op basis van dit e-mailbericht. Ze leert dat ze een hotfix beschikbaar in de afgelopen half uur; vrijgegeven en Oeps, mogelijk er is een secundaire schemawijziging...
+Marcella neemt contact op met de leidinggevende van het databaseteam op basis van deze e-mail. Deze vertelt haar dat zijn team in het afgelopen half uur een hotfix heeft uitgebracht, en dat het schema daardoor wellicht ietwat is veranderd....
 
-Daarom is het probleem op de manier om te worden opgelost, zelfs vóór het onderzoeken van Logboeken en binnen 15 minuten ervan die voortvloeien. Marcela klikt echter op de koppeling om de Application Insights openen. Deze direct door naar een mislukte aanvraag wordt geopend en kan ze zien de mislukte aanroep in de bijbehorende lijst met afhankelijkheidsaanroepen-database.
+Het probleem wordt mogelijk zelfs nog binnen vijftien minuten nadat het optrad, opgelost, en zelfs nog voordat de logs zijn bestudeerd. Maar Marcela klikt op de koppeling waarmee Application Insights wordt geopend. Ze gaat hiermee rechtstreeks naar een mislukte aanvraag en ze ziet de mislukte databaseaanroep in de bijbehorende lijst met afhankelijkheidsaanroepen.
 
-![mislukte aanvragen](./media/app-insights-detect-triage-diagnose/23.png)
+![mislukte aanvraag](./media/app-insights-detect-triage-diagnose/23.png)
 
-## <a name="detect-exceptions"></a>Uitzonderingen te detecteren
-Met een beetje van setup [uitzonderingen](app-insights-asp-net-exceptions.md) automatisch naar Application Insights worden gerapporteerd. Ze kunnen ook worden vastgelegd expliciet door het invoegen van aanroepen naar [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) in de code in:  
+## <a name="detect-exceptions"></a>Uitzonderingen detecteren
+Door een beetje met instellingen te spelen, worden [uitzonderingen](app-insights-asp-net-exceptions.md) automatisch aan Application Insights gerapporteerd. Ze kunnen ook expliciet worden vastgelegd door aanroepen aan [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) in de code in te voegen:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -129,9 +129,9 @@ Met een beetje van setup [uitzonderingen](app-insights-asp-net-exceptions.md) au
     }
 
 
-Het team Fabrikam Bank is altijd telemetrie te verzenden van een uitzondering ontwikkeld, tenzij er een duidelijke herstel.  
+Het team bij Fabrikam Bank heeft zich aangeleerd om telemetrie over een uitzondering te verzenden, tenzij er heel duidelijk een geslaagde herstelactie heeft plaatsgehad.  
 
-In feite hun strategie is zelfs breder is dan: verzenden van telemetrie in alle gevallen waar de klant gefrustreerd is in wat ze doen, wilden of het komt met een uitzondering opgetreden in de code of niet overeen. Bijvoorbeeld, als het systeem externe tussen overschrijving een bericht 'deze transactie kan niet worden voltooid' om een operationele reden (Er is geen fout van de klant geeft) bijhouden vervolgens zij die gebeurtenis.
+In feite is hun strategie zelfs veelomvattender dan dat: ze verzenden telemetrie in alle gevallen waarbij de klant gefrustreerd is geraakt bij wat deze wilde doen, of dat nu overeenkomt met een uitzondering in de code of niet. Als bijvoorbeeld door het systeem voor het doen van interbancaire overboekingen een bericht als 'Deze transactie kan niet worden voltooid' om de een of andere operationele reden (geen fout van de klant) wordt weergegeven, volgen ze die gebeurtenis.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -143,96 +143,96 @@ In feite hun strategie is zelfs breder is dan: verzenden van telemetrie in alle 
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException wordt gebruikt voor het rapporteren van uitzonderingen omdat zendt het een kopie van de stack. TrackEvent wordt gebruikt voor het rapporteren van andere gebeurtenissen. U kunt alle eigenschappen die mogelijk nuttig zijn bij de diagnose koppelen.
+TrackException wordt gebruikt om uitzonderingen te rapporteren omdat hiermee een kopie van de stack wordt verzonden. TrackEvent wordt gebruikt voor het rapporteren van andere gebeurtenissen. U kunt er alle eigenschappen aan koppelen die mogelijk nuttig zijn bij het diagnoseproces.
 
-Uitzonderingen en gebeurtenissen weergegeven in de [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md) blade. U kunt inzoomen in deze om te zien van de aanvullende eigenschappen en stacktracering.
+Uitzonderingen en gebeurtenissen worden weergegeven in de blade [Diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md). U kunt erop inzoomen om de aanvullende eigenschappen en stacktracering te zien.
 
-![In Diagnostic Search filters gebruiken om bepaalde soorten gegevens weer te geven](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![In Diagnostische gegevens doorzoeken worden filters gebruikt om bepaalde soorten gegevens weer te geven.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## <a name="monitor-proactively"></a>Proactief bewaken
-Marcela niet alleen hoeft verder niets te wachten op waarschuwingen. Snel na elke opnieuw implementeren, ze kijken neemt [reactietijden](app-insights-web-monitor-performance.md) -zowel de algehele afbeelding en de tabel van de traagste aanvragen, evenals een aantal uitzonderingen is.  
+Marcela zit niet de hele dag te wachten totdat er waarschuwingen binnenkomen. Steeds nadat er een nieuwe implementatie is uitgevoerd, bekijkt ze de [reactietijden](app-insights-web-monitor-performance.md), zowel het algemene cijfer en de tabel met de langzaamste aanvragen, als het aantal uitzonderingen.  
 
-![Antwoord tijd grafiek en een raster van reactietijden van de server.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Het diagram met de reactietijden en het raster met reactietijden van de server.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
-Ze kan het effect van de prestaties van elke implementatie doorgaans vergelijken per week met de laatste beoordelen. Als er een plotselinge verslechtering, worden ze die gegeven aan de relevante ontwikkelaars.
+Ze kan het effect van de prestaties van elke implementatie beoordelen, en dit elke week vergelijken met dat van de afgelopen week. Als er een plotselinge verslechtering optreedt, wordt dat meteen aangekaart met de relevante ontwikkelaars.
 
-## <a name="triage-issues"></a>Selectie problemen
-De eerste stap is - voor het beoordelen van de ernst en de omvang van een probleem - selectie na detectie. Moeten we noemen uit het team om middernacht? Of kan het blijven totdat de afstand in de achterstand van de volgende handige? Er zijn enkele belangrijke vragen in de selectie.
+## <a name="triage-issues"></a>Problemen met classificeren
+Classificeren: het beoordelen van de ernst en de omvang van een probleem is de eerste stap na detectie. Moeten we het team midden in de nacht alarmeren? Of kan het wachten tot het volgende handige gaatje zich voordoet in de achterstallige taken? Bij het classificeren doen zich een aantal belangrijke vragen voor.
 
-Hoe vaak gebeurt dit? De grafieken op de overzichtsblade sommige perspectief om een probleem te geven. Bijvoorbeeld, de toepassing Fabrikam gegenereerd vier web test waarschuwingen één nacht. De grafiek bekijkt in de ochtend, kan het team zien dat er immers rode punten zijn nog steeds de meeste tests is alsof groen. Dieper ingegaan op de grafiek beschikbaarheid, werd het ons duidelijk dat deze problemen uit één testlocatie zijn. Dit is natuurlijk een netwerkprobleem die invloed hebben op slechts één route en schakelt zichzelf waarschijnlijk.  
+Hoe vaak gebeurt dit? De diagrammen op de overzichtsblade geven een bepaalde mate van inzicht in een probleem. Zo heeft de toepassing van Fabrikam in één nacht tijd vier webtestwaarschuwingen gegenereerd. Als het team de ochtend daarna het diagram bekijkt, zou het kunnen zien dat er inderdaad een aantal rode punten zichtbaar zijn, hoewel de meeste tests groen worden weergeven. Door in te zoomen op het beschikbaarheidsdiagram wordt het duidelijk dat al deze onregelmatig voorkomende problemen afkomstig zijn van één testlocatie. Hier gaat het duidelijk om een netwerkprobleem dat op slechts één route invloed heeft en zich mogelijk vanzelf oplost.  
 
-Daarentegen een indrukwekkende en stabiele stijging van de grafiek uitzondering tellingen of antwoord vaak is natuurlijk iets zorgen over.
+Als er daarentegen in het diagram met het aantal uitzonderingen een dramatisch en onafgebroken toename van reactietijden is te zien, is er duidelijk iets aan de hand waarover het team zich grote zorgen moet maken.
 
-Een e-mailbericht nuttig selectie is probeer het zelf. Als u hetzelfde probleem, weet u dat het echte is.
+Een nuttige classificatietechniek is om het zelf uit te proberen. Als u tegen hetzelfde probleem aanloopt, weet u dat het een echt probleem is.
 
-Welke fractie van de gebruikers worden beïnvloed? Als u een ruwe antwoord, het Faalpercentage door het aantal sessies te delen.
+Welke fractie van de gebruikers heeft hier last van? Voor een ruwe schatting moet u het aantal fouten delen door het aantal sessies.
 
 ![Diagrammen van mislukte aanvragen en sessies](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-Wanneer er trage reacties, vergelijkt u de tabel aanvragen traagste reageert met de frequentie van de informatie over het gebruik van elke pagina.
+Als er trage reactietijden zijn, vergelijkt u de tabel met de aanvragen die het traagste reageren met de gebruiksfrequentie van elke pagina.
 
-Het is belangrijk de geblokkeerde scenario? Als dit een functioneel probleem het verhaal van een bepaalde gebruiker worden geblokkeerd, maakt het uit veel? Als klanten hun rekeningen kunnen niet betalen, is dit ernstige; Als ze niet kunnen de kleur scherm Voorkeuren wijzigen, kunt mogelijk het wachten. De details van de gebeurtenis of uitzondering of de identiteit van de pagina langzaam vertelt u klanten hebben waar problemen.
+Hoe belangrijk is het geblokkeerde scenario? Als het om een functioneel probleem gaat dat een bepaalde gebruikerservaring blokkeert, moet u zichzelf de vraag stellen of het heel belangrijk is. Als klanten hun rekeningen niet kunnen betalen, is het een ernstig probleem; als ze hun persoonlijke voorkeuren voor schermkleuren niet kunnen wijzigen, kan het mogelijk even wachten. De details over de gebeurtenis of de uitzondering, of de id van de langzame pagina, laten u zien waar klanten problemen ervaren.
 
-## <a name="diagnose-issues"></a>Problemen vaststellen
-Diagnose is niet erg hetzelfde is als het opsporen van fouten. Voordat u tracering via de code, moet u een idee van de reden, hebben waar en wanneer het probleem zich voordoet.
+## <a name="diagnose-issues"></a>Problemen diagnosticeren
+Het diagnosticeren van problemen is niet hetzelfde als fouten opsporen. Voordat u via de code het probleem gaat traceren, moet u een ruw idee hebben van het waarom, waar en wanneer van het probleem.
 
-**Wanneer treedt dit?** De historische weergave geleverd door de grafieken gebeurtenissen en metrische gegevens kunt gemakkelijk effecten correleren met mogelijke oorzaken. Als er onregelmatige pieken in tijd of uitzondering respons zijn, bekijkt u het aantal verzoeken: bij deze waar de pieken op hetzelfde moment wordt het lijkt erop dat een probleem met de bronnen. Wilt u meer CPU of geheugen toewijzen? Of is het een afhankelijkheid die de belasting kan niet worden beheerd?
+**Wanneer treedt het op?** De historische weergave die door de diagrammen van de gebeurtenissen en door de metrische gegevens worden gegeven, maken het gemakkelijk om een correlatie met mogelijke oorzaken te zien. Als er onregelmatige pieken in de reactietijden of de aantallen uitzondering zijn, bekijkt u het aantal aanvragen: als deze op dezelfde momenten een piek laten zien, lijkt het erop alsof er een resourceprobleem is. Moet u meer CPU of geheugen toewijzen? Of gaat het om een afhankelijkheid die de belasting niet aankan?
 
-**Het is ons?**  Als u een plotselinge afname in de prestaties van een bepaald soort aanvraag - bijvoorbeeld wanneer de klant wil een rekeningoverzicht - hebt vervolgens bestaat de kans is mogelijk een extern subsysteem in plaats van uw webtoepassing. In Metrics Explorer, selecteer de afhankelijkheidsfout frequentie en duur afhankelijkheid tarieven en hun geschiedenis gedurende de afgelopen paar uren of dagen met het probleem dat u achterhaalt vergelijken. Als er wijzigingen zijn correleren, kan een externe subsysteem te wijten zijn.  
+**Ligt het aan ons?**  Als u te maken hebt met een plotselinge afname in de prestaties van een bepaald soort aanvraag, bijvoorbeeld wanneer de klant een rekeningoverzicht wil, bestaat de kans dat het met een extern subsysteem te maken heeft in plaats van met uw webtoepassing. Selecteer in Metrics Explorer de frequentie waarmee de afhankelijkheidsfout optreedt en de duur ervan, en vergelijk vervolgens de geschiedenis over de afgelopen paar uur of dagen ervan met het probleem dat u hebt gedetecteerd. Als er een correlatie met wijzigingen bestaat, moet het aan een extern subsysteem liggen.  
 
 
-![Grafieken van afhankelijkheidsfout en duur van aanroepen naar afhankelijkheden](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
+![Diagrammen van afhankelijkheidsfouten en de duur van het aanroepen van afhankelijkheden](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
-Sommige afhankelijkheidsproblemen trage zijn geolocatie problemen. Fabrikam Bank Azure virtuele machines worden gebruikt en dat ze had per ongeluk hun webserver en de server van de accountpartner in verschillende landen gevestigde gedetecteerd. Een aanzienlijk is veroorzaakt door het migreren van een van beide.
+Bij een aantal problemen met trage afhankelijkheden gaat het om problemen met de geolocatie. Fabrikam Bank gebruikt virtuele Azure-machines en ontdekte dat ze hun webserver en accountserver per ongeluk in verschillende landen hadden geplaatst. Door een daarvan te migreren, trad er een dramatische verbetering op.
 
-**Wat er?** Als het probleem zich in een afhankelijkheid niet wordt weergegeven, en als deze is niet altijd er, wordt deze waarschijnlijk veroorzaakt door een recente wijziging. Het historische perspectief geleverd door de grafieken metrische gegevens en gebeurtenissen kunt gemakkelijk plotselinge wijzigingen correleren met implementaties. Die wordt beperkt u de zoekactie voor het probleem. Inschakelen om te identificeren welke regels in de toepassingscode vertraagd de prestaties, Application Insights Profiler. Raadpleeg [Profiling live Azure-web-apps met Application Insights](./app-insights-profiler.md). Nadat de Profiler is ingeschakeld, ziet u een vergelijkbaar met de volgende tracering. In dit voorbeeld is het vervelend dat de methode *GetStorageTableData* het probleem heeft veroorzaakt.  
+**Wat hebben we gedaan?** Als blijkt dat het probleem niet aan een afhankelijkheid is toe te schrijven, en als het er voorheen niet was, wordt het waarschijnlijk door een recente wijziging veroorzaakt. Het historische perspectief dat door de diagrammen met de metrische gegevens en gebeurtenissen wordt geboden, maakt het gemakkelijk om een correlatie aan te tonen tussen eventuele plotselinge wijzigingen en implementaties. Zo beperkt u de zoekactie naar het probleem. Om de regels in de toepassingscode te vinden waardoor de prestaties werden vertraagd, moet u Application Insights Profiler inschakelen. Raadpleeg [Profiling live Azure-web-apps met Application Insights](./app-insights-profiler.md) (Live Azure-web-apps profileren met Application Insights). Nadat de Profiler is ingeschakeld, ziet u een tracering die er ongeveer als volgt uitziet. In dit voorbeeld is goed te zien dat de methode *GetStorageTableData* het probleem heeft veroorzaakt.  
 
-![App Insights Profiler tracering](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
+![App Insights Profiler-tracering](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**Wat gebeurt er?** Sommige problemen slechts zelden en kunnen het lastig voor het opsporen van door het testen offline. We kunnen doen is om te proberen om vast te leggen van de fout als deze live optreedt. U kunt de stackdumps in uitzonderingenrapporten controleren. Bovendien kunt u tracering-aanroepen, schrijven met uw favoriete framework voor logboekregistratie of TrackTrace() of TrackEvent().  
+**Wat gebeurt er?** Sommige problemen doen zich slechts zelden voor en zijn lastig te achterhalen met offlinetests. Het enige wat we kunnen doen is om de bug vast te leggen op het moment dat deze zich voordoet. U kunt de stackdumps in uitzonderingenrapporten inspecteren. Bovendien kunt u traceringsaanroepen schrijven, ofwel met uw favoriete framework voor logboekregistratie, ofwel met TrackTrace() of TrackEvent().  
 
-Fabrikam had een onregelmatig probleem met tussen account overdrachten, maar alleen met bepaalde accounttypen. Om te begrijpen beter gebeurtenissen, ze TrackTrace() aanroepen op de belangrijkste punten in de code wordt het accounttype koppelen als een eigenschap aan elke aanroep ingevoegd. Die het gemakkelijk voor het filteren van alleen de traceringen in Diagnostic Search geworden. Ze ook parameterwaarden als eigenschappen en metingen aan de traceringsaanroepen gekoppeld.
+Fabrikam had een onregelmatig terugkerend probleem met overboekingen tussen rekeningen, maar alleen bij bepaalde rekeningtypen. Ze wilden beter begrijpen wat er precies gebeurde en hebben om die reden aanroepen van TrackTrace() op de belangrijkste punten in de code ingevoegd, waarbij het rekeningtype als eigenschap aan elke aanroep werd gekoppeld. Zo werd het gemakkelijker om alleen op traceringen te filteren die tijdens het doorzoeken van diagnostische gegevens werden gevonden. Ook koppelden ze parameterwaarden als eigenschappen en metingen aan de traceringsaanroepen.
 
 ## <a name="respond-to-discovered-issues"></a>Reageren op gedetecteerde problemen
-Zodra u het probleem hebt vastgesteld, kunt u een plan om dit te herstellen. Mogelijk moet u een recente wijziging terugdraaien of misschien u kunt alleen opwekken en op te lossen. Als het herstel is voltooid, Application Insights kunt u zien of u is voltooid.  
+Zodra u het probleem hebt vastgesteld, kunt u een plan maken om het te herstellen. Mogelijk moet u een recente wijziging terugdraaien, of misschien gewoon proberen het probleem op te lossen. Als het probleem is opgelost, laat Application Insights u weten of u daarin bent geslaagd.  
 
-Het ontwikkelteam van Fabrikam Bank nemen een meer gestructureerde benadering voor prestatiemeting dan ze gebruikt om te voordat ze Application Insights gebruikt.
+Het ontwikkelteam van Fabrikam Bank kiest zo voor een meer gestructureerde benadering voor het meten van prestaties dan voordat het van Application Insights gebruikmaakte.
 
-* Ze prestatiedoelen in termen van specifieke maatregelen hebt ingesteld in de overzichtspagina van Application Insights.
-* Ze ontwerpen prestatiemetingen in de toepassing vanaf het begin, zoals de metrische gegevens die het meten van de voortgang van de gebruiker via 'schoorstenen'.  
+* Het team stelt op de overzichtspagina van Application Insights prestatiedoelen in als specifieke metingen.
+* Ze bouwen al vanaf het begin prestatiemetingen in het ontwerp van de toepassing in, zoals de metrische gegevens waarmee de voortgang van de gebruiker via 'trechters' wordt gemeten.  
 
 
-## <a name="monitor-user-activity"></a>Monitor gebruikersactiviteit
-Wanneer reactietijd consistent goed is en er enkele uitzonderingen zijn, kunt de dev-team tot bruikbaarheid verplaatsen. Ze kunnen zien over het verbeteren van de gebruikerservaring en het stimuleren van meer gebruikers om de gewenste doelstellingen te realiseren.
+## <a name="monitor-user-activity"></a>Gebruikersactiviteit bewaken
+Wanneer de reactietijd consistent goed is en er slechts enkele uitzonderingen zijn, kan het ontwikkelteam zich gaan bezighouden met de gebruikerservaring. De teamleden kunnen dan nadenken over hoe ze de gebruikerservaring kunnen verbeteren, en hoe ze meer gebruikers kunnen aanmoedigen om de gewenste doelstellingen te realiseren.
 
-Application Insights kunnen ook worden gebruikt voor meer informatie over wat gebruikers doen met een app. Zodra deze goed blijft werken wordt uitgevoerd, wil het team weten welke functies de meest populaire zijn wat gebruikers wel en hebben problemen met en hoe vaak ze terugkeren. Waarmee ze hun werk toekomstige prioriteren. En ze kunnen plannen waarmee het succes van elke functie als onderdeel van het ontwikkelingsproces bevindt.
+Application Insights kan ook worden gebruikt om erachter te komen wat gebruikers met een app doen. Zodra deze soepel werkt, wil het team graag weten welke functies het populairst zijn, wat gebruikers prettig vinden om te gebruiken of waar ze problemen ondervinden. En hoe vaak ze terugkeren. Met die informatie kunnen ze hun toekomstige taken beter organiseren. En ze kunnen als onderdeel van het ontwikkelingsproces inplannen om het succes van elke functie te meten.
 
-Een typische gebruiker reis via de website heeft bijvoorbeeld een duidelijke 'trechter'. Veel klanten bekijken de tarieven van verschillende soorten lening. Een kleiner getal gaat u naar het formulier aanhalingstekens invullen. Van mensen die een aanhalingstekens ophalen, is enkele opwekken en verricht de lening.
+Een normaal traject dat een gebruiker aflegt door de website verloopt bijvoorbeeld volgens een duidelijk trechterpatroon. Veel klanten bekijken de tarieven van verschillende soorten leningen. Een kleiner aantal gaat een stap verder en vult een offerteaanvraagformulier in. Van mensen die een offerte ontvangen, gaat een klein aantal nog een stap verder en neemt de lening.
 
-![Paginaweergave geteld](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Aantal paginaweergaven](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Het bedrijf kunt u overweegt waar het grootste aantal klanten neerzetten, werken over het ophalen van meer gebruikers via naar de onderkant van de trechter. In sommige gevallen is er mogelijk een gebruikersfout ervaring (UX) - bijvoorbeeld de knop 'volgende' is moeilijk te vinden of de instructies zijn niet duidelijk. Er zijn meer waarschijnlijk meer belangrijke zakelijke redenen voor drop-outs: mogelijk de tarieven voor autofinancieringen te hoog zijn.
+Door na te denken over waar het grootste aantal klanten afhaakt, kan het bedrijf een manier bedenken die ertoe moet leiden om meer gebruikers naar het einde van de ‘trechter’ te leiden. In sommige gevallen ligt dat misschien aan een fout in de gebruikerservaring (UX), als bijvoorbeeld de knop 'Volgende' moeilijk is te vinden, of als de instructies niet duidelijk zijn. Maar het is waarschijnlijker dat de oorzaken van meer zakelijke aard zijn, bijvoorbeeld omdat het rentepercentage van de lening te hoog is.
 
-Ongeacht de redenen, kunt de gegevens u het team komen wat gebruikers doen. Aanroepen van meer bijhouden kunnen u meer details worden ingevoegd. TrackEvent() kan worden gebruikt voor het tellen van eventuele gebruikersacties uit de kleine details op van een afzonderlijke knop naar aanzienlijke prestaties, zoals een lening af te betalen.
+Ongeacht de redenen, de gegevens helpen het team om erachter te komen wat gebruikers doen. Er kunnen meer traceringsaanroepen worden ingevoegd om nog meer details bloot te leggen. TrackEvent() kan worden gebruikt voor het tellen van eventuele gebruikersacties, vanaf de kleinste details over het klikken op knoppen tot grote acties als het afbetalen van een lening.
 
-Het team wordt ophalen gebruikt om informatie over gebruikersactiviteit. Tegenwoordig wanneer ze een nieuwe functie ontwerpt, werken ze uit hoe ze feedback over het gebruik ervan krijgen. Ze ontwerp bijhouden aanroepen in de functie vanaf het begin. Ze de feedback voor het verbeteren van de functie in elke ontwikkelingscyclus gebruiken.
+Het team raakt eraan gewend om informatie over gebruikersactiviteiten te krijgen. Als ze tegenwoordig een nieuwe functie ontwerpen, denken ze al na over hoe ze feedback over het gebruik ervan kunnen krijgen. Ze bouwen vanaf het begin al traceringsaanroepen in het ontwerp van de functie in. Ze gebruiken de feedback om in elke ontwikkelingscyclus de functie te kunnen verbeteren.
 
-[Meer informatie over het bijhouden van gebruik](app-insights-usage-overview.md).
+[Meer informatie over gebruikstracering](app-insights-usage-overview.md).
 
-## <a name="apply-the-devops-cycle"></a>De cyclus DevOps toepassen
-Dit is dus hoe een team gebruik Application Insights niet alleen op afzonderlijke problemen kan oplossen, maar voor het verbeteren van de levenscyclus van de ontwikkeling. Ik hoop dat het enkele ideeën over hoe Application Insights u met de prestaties van Toepassingsbeheer in uw eigen toepassingen helpen kan hebt gekregen.
+## <a name="apply-the-devops-cycle"></a>De DevOps-cyclus toepassen
+Dit is dus hoe een team Application Insights niet alleen gebruikt om afzonderlijke problemen op te lossen, maar om de ontwikkelingscyclus in zijn geheel te verbeteren. Hopelijk hebt u nu een aantal ideeën opgedaan over hoe Application Insights u kan helpen met het beheren van de prestaties van uw toepassingen.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt aan de slag op verschillende manieren, afhankelijk van de kenmerken van uw toepassing. Kies wat u het beste past:
+U kunt op verschillende manieren aan de slag, afhankelijk van de kenmerken van uw toepassing. Kies wat het beste bij u past:
 
 * [ASP.NET-webtoepassing](app-insights-asp-net.md)
 * [Java-webtoepassing](app-insights-java-get-started.md)
 * [Node.js-webtoepassing](app-insights-nodejs.md)
-* Al geïmplementeerde apps, die worden gehost op [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), of [Azure](app-insights-azure.md).
-* [Webpagina's](app-insights-javascript.md) -App met één pagina of normale webpagina - Gebruik deze zelf of in aanvulling op een van de opties van de server.
+* Reeds geïmplementeerde apps die worden gehost op [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) of [Azure](app-insights-azure.md).
+* [Webpagina's](app-insights-javascript.md): een app die uit één pagina bestaat of een normale webpagina; gebruik deze afzonderlijk of in aanvulling op een van de serveropties.
 * [Beschikbaarheidstests](app-insights-monitor-web-app-availability.md) voor het testen van uw app op het openbare internet.

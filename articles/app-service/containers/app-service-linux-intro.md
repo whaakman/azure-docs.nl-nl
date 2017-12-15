@@ -1,7 +1,7 @@
 ---
-title: Inleiding tot op Linux-App Service | Microsoft Docs
-description: Meer informatie over op Linux-Azure App Service.
-keywords: Azure app service, linux, oss
+title: Inleiding tot App Service onder Linux | Microsoft Docs
+description: Meer informatie over Azure App Service onder Linux.
+keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
@@ -18,17 +18,17 @@ ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
 ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/25/2017
 ---
-# <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot op Linux-Azure App Service
+# <a name="introduction-to-azure-app-service-on-linux"></a>Inleiding tot App Service onder Linux
 
-[Web-App](../app-service-web-overview.md) is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en webtoepassingen. Klanten kunnen gebruiken App Service op Linux op host WebApps systeemeigen op Linux voor stacks ondersteunde toepassing. De volgende secties vindt u de toepassing stapels die momenteel worden ondersteund.
+[Web App](../app-service-web-overview.md) is een volledig beheerd rekenplatform dat is geoptimaliseerd voor het hosten van websites en webtoepassingen. Klanten kunnen App Service onder Linux gebruiken voor het systeemeigen hosten van web-apps op Linux voor ondersteunde toepassingsstacks. In de volgende secties worden de toepassingsstacks vermeld die momenteel worden ondersteund.
 
 ## <a name="languages"></a>Talen
 
-Op Linux-App Service ondersteunt een aantal ingebouwde afbeeldingen om productiviteit van ontwikkelaars. Als de runtime die vereist zijn voor uw toepassing wordt niet ondersteund in de ingebouwde installatiekopieën, er zijn instructies voor het [bouwen van uw eigen installatiekopie Docker](tutorial-custom-docker-image.md) om Web-App voor Containers te implementeren.
+App Service onder Linux ondersteunt een aantal ingebouwde installatiekopieën om zodoende de productiviteit van ontwikkelaars te verhogen. Als de runtime die uw toepassing vereist, niet in de ingebouwde installatiekopieën wordt ondersteund, zijn er instructies voor het [bouwen van een Docker-installatiekopie](tutorial-custom-docker-image.md) voor implementatie voor Web App for Containers.
 
 | Taal | Ondersteunde versies |
 |---|---|
@@ -47,56 +47,56 @@ Op Linux-App Service ondersteunt een aantal ingebouwde afbeeldingen om productiv
 ## <a name="devops"></a>DevOps
 
 * Faseringsomgevingen
-* [Azure-Container register](https://docs.microsoft.com/azure/container-registry/container-registry-intro) en DockerHub CI/CD
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) en DockerHub-CI/CD
 
-## <a name="console-publishing-and-debugging"></a>-Console, publiceren en foutopsporing
+## <a name="console-publishing-and-debugging"></a>Console, publiceren en foutopsporing
 
 * Omgevingen
 * Implementaties
-* Basic-console
+* Basisconsole
 * SSH
 
 ## <a name="scaling"></a>Schalen
 
-* Klanten kunnen worden geschaald web-apps omhoog en omlaag door het wijzigen van de laag van hun [App Service-abonnement](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+* Klanten kunnen web-apps omhoog of omlaag schalen door de laag van hun [App Service-plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json) te wijzigen
 
 ## <a name="locations"></a>Locaties
 
-Controleer de [Azure Status Dashboard](https://azure.microsoft.com/status).
+Controleer [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 ## <a name="limitations"></a>Beperkingen
 
-De Azure-portal bevat alleen de functies die nu ook voor Web-App voor Containers werken. Als er meer functies inschakelt, wordt ze zichtbaar zijn in de portal.
+In Azure Portal worden alleen functies getoond die momenteel werken voor Web App for Containers. Naarmate er meer functies mogelijk worden, zullen ze op de portal worden getoond.
 
-Sommige functies, zoals de integratie van virtueel netwerk, verificatie van Azure Active Directory/van derden of Kudu-site-uitbreidingen zijn nog niet beschikbaar. Zodra deze functies beschikbaar zijn, werken wij onze documentatie en blog over de wijzigingen.
+Sommige functies, zoals de integratie van virtuele netwerken, verificatie van derden van Azure Active Directory of Kudu-site-extensies, zijn nog niet beschikbaar. Zodra deze functies beschikbaar zijn, worden de documentatie en de blog over de wijzigingen bijgewerkt.
 
-Op Linux-App Service wordt alleen ondersteund met [Basic en Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) app service-abonnementen en niet beschikt over een [Free of Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) laag. Hieronder vindt u ook belangrijke beperkingen voor op Linux-App Service:
+App Service onder Linux wordt alleen ondersteund met de app-serviceplannen [Basic en Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) en heeft geen [Free- of Shared-](https://azure.microsoft.com/pricing/details/app-service/plans/)laag. De volgende beperkingen zijn ook belangrijk voor App Service onder Linux:
 
-* U kunt de Web-App voor Containers maken in een App Service-abonnement al als host voor niet - Linux-Web-Apps.
-* Wanneer u Web-App voor Containers in een bronnengroep met niet - Linux-Web-Apps, moet u een App Service-abonnement maken in een andere regio dan de bestaande App Service-abonnement.
+* U kunt Web App for Containers niet maken met een App Service-plan waarvoor al non-Linux Web Apps wordt gehost.
+* Als u Web App for Containers maakt in een resourcegroep die non-Linux Web Apps bevat, moet u een App Service-plan maken in een andere regio dan die van het bestaande plan.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Wanneer uw toepassing niet kan worden gestart of u wilt controleren van de logboekregistratie van uw app, Controleer u dat de Docker-Logboeken in de map met logboekbestanden. U kunt toegang tot deze map via uw SCM-site of via de FTP.
-Logboek de `stdout` en `stderr` van de container, moet u inschakelen **Docker-Container logboekregistratie** onder **diagnostische logboeken**.
+Wanneer uw toepassing niet kan worden gestart of als u de logboeken vanuit de app wilt controleren, controleert u de Docker-logboeken in de map LogFiles. U kunt deze map openen via uw SCM-site of via FTP.
+Als u `stdout` en `stderr` in het logboek wilt registreren in de container, moet u **Logboekregistratie voor Docker-container** inschakelen onder **Diagnoselogboeken**.
 
 ![Logboekregistratie inschakelen][2]
 
-![Met behulp van Kudu Docker-logboeken weergeven][1]
+![Kudu gebruiken om Docker-logboeken weer te geven][1]
 
-U toegang hebt tot de site SCM bij **geavanceerde hulpmiddelen** in de **ontwikkelingsprogramma's** menu.
+U hebt toegang tot de SCM-site via **Geavanceerde hulpmiddelen** in het menu **Ontwikkelprogramma's**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende koppelingen aan de slag met App-Service op Linux. U kunt vragen en problemen op boeken [ons forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Zie de volgende koppelingen om aan de slag te gaan met App Service onder Linux. Vragen kunt u posten op [ons forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Het gebruik van een aangepaste Docker-installatiekopie voor Web-App voor Containers](quickstart-custom-docker-image.md)
-* [Met behulp van .NET Core in Azure App Service op Linux](quickstart-dotnetcore.md)
-* [Met behulp van Ruby in Azure App Service op Linux](quickstart-ruby.md)
-* [Web-App voor Containers Veelgestelde vragen over Azure App Service](app-service-linux-faq.md)
-* [SSH-ondersteuning voor Azure App Service op Linux](app-service-linux-ssh-support.md)
+* [Een aangepaste Docker-installatiekopie uitvoeren voor Web App for Containers](quickstart-custom-docker-image.md)
+* [.NET Core gebruiken in Azure App Service onder Linux](quickstart-dotnetcore.md)
+* [Ruby gebruiken in Azure App Service onder Linux](quickstart-ruby.md)
+* [Web App for Containers van Azure App Service: veelgestelde vragen](app-service-linux-faq.md)
+* [SSH-ondersteuning voor Azure App Service onder Linux](app-service-linux-ssh-support.md)
 * [Faseringsomgevingen in Azure App Service instellen](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Docker Hub continue implementatie met Web-App voor Containers](./app-service-linux-ci-cd.md)
+* [Continue implementatie van Docker Hub met Web App for Containers](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

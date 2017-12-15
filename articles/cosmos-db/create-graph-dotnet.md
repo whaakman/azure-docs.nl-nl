@@ -1,6 +1,6 @@
 ---
-title: Maken van een Azure Cosmos DB .NET Framework of Core toepassing met behulp van de Graph API | Microsoft Docs
-description: Geeft een voorbeeld van .NET Framework/Core code die kunt u verbinding maken met en query uitvoeren op Azure Cosmos-DB
+title: Een Azure Cosmos DB .NET Framework- of Core-toepassing ontwikkelen met Graph API | Microsoft Docs
+description: Presenteert een .NET Framework-/Core-codevoorbeeld dat u kunt gebruiken om verbinding te maken met Azure Cosmos DB en een query uit te voeren
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -17,11 +17,11 @@ ms.date: 10/06/2017
 ms.author: denlee
 ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Een .NET Framework of Core-toepassing met behulp van de Graph API bouwen
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: een .NET Framework- of Core-toepassing ontwikkelen met Graph API
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
@@ -31,7 +31,7 @@ Deze Quick Start laat zien hoe u een Azure Cosmos DB-account, een database en ee
 
 Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en de **gratis** [Community Edition van Visual Studio 2017](https://www.visualstudio.com/downloads/) gebruiken. Zorg ervoor dat u **Azure-ontwikkeling** inschakelt tijdens de installatie van Visual Studio.
 
-Als u Visual Studio 2017 geïnstalleerd hebt, controleert u of moet worden geïnstalleerd tot [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
+Als u Visual Studio 2017 al hebt geïnstalleerd, controleert u of u alles hebt geïnstalleerd tot en met [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ Als u Visual Studio 2017 geïnstalleerd hebt, controleert u of moet worden geïn
 
 We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-Dit voorbeeldproject .NET Core project-indeling gebruikt en is geconfigureerd voor het doel van de volgende frameworks:
+In dit voorbeeldproject wordt de .NET Core-projectindeling gebruikt, en het project is geconfigureerd voor de volgende frameworks:
  - netcoreapp2.0
  - net461
 
@@ -108,13 +108,13 @@ Laten we eens kijken wat er precies gebeurt in de app. Open het bestand Program.
 
 Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app.
 
-1. Open het bestand appsettings.json in Visual Studio-2017. 
+1. Open het bestand appsettings.json in Visual Studio 2017. 
 
 2. Klik in Azure Portal in uw Azure Cosmos DB-account in het linkernavigatiegedeelte op **Sleutels**. 
 
     ![Een primaire sleutel bekijken en kopiëren in Azure Portal, op de pagina Sleutels](./media/create-graph-dotnet/keys.png)
 
-3. Kopieer uw **URI** waarde van de portal en de waarde van de sleutel voor eindpunt in appsettings.json maken. U kunt de knop Kopiëren gebruiken zoals weergegeven op de vorige schermafbeelding om de waarde te kopiëren.
+3. Kopieer de **URI**-waarde uit de portal en geef deze waarde op voor de eindpuntsleutel in appsettings.json. U kunt de knop Kopiëren gebruiken zoals weergegeven op de vorige schermafbeelding om de waarde te kopiëren.
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
@@ -126,13 +126,13 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 
 ## <a name="run-the-console-app"></a>De console-app uitvoeren
 
-Voordat u de toepassing uitvoert, wordt aanbevolen dat u bijwerkt de *Microsoft.Azure.Graphs* pakket naar de nieuwste versie.
+Voordat u de toepassing uitvoert, wordt aanbevolen om het *Microsoft.Azure.Graphs*-pakket bij te werken naar de nieuwste versie.
 
 1. Klik in Visual Studio met de rechtermuisknop op het project in **GraphGetStarted** in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
 
-2. In de NuGet Package Manager **Updates** tabblad, typt u *Microsoft.Azure.Graphs* en controleer de **bevat voorlopige versie** vak. 
+2. Op het tabblad **Updates** in NuGet Package Manager typt u *Microsoft.Azure.Graphs*. Schakel vervolgens het vak **Inclusief voorlopige versie** in. 
 
-3. Bijwerken van de resultaten van de **Microsoft.Azure.Graphs** bibliotheek naar de nieuwste versie van het pakket. Hiermee installeert u het pakket met de bibliotheek met graafextensies van Azure Cosmos DB en alle afhankelijkheden.
+3. Werk in de resultaten de bibliotheek **Microsoft.Azure.Graphs** bij naar de nieuwste versie van het pakket. Hiermee installeert u het pakket met de bibliotheek met graafextensies van Azure Cosmos DB en alle afhankelijkheden.
 
     Als u een bericht ontvangt over het controleren van wijzigingen in de oplossing, klikt u op **OK**. Als u een bericht ontvangt over het accepteren van de licentie, klikt u op **Accepteren**.
 

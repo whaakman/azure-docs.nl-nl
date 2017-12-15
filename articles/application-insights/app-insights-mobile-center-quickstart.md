@@ -1,6 +1,6 @@
 ---
-title: Snelstartgids met Azure Application Insights | Microsoft Docs
-description: Bevat instructies voor het instellen van een mobiele app voor bewaking met Application Insights en App Center snel
+title: Quickstart met Azure Application Insights | Microsoft Docs
+description: In dit artikel vindt u instructies om een mobiele app snel in te stellen voor controle door Application Insights en App Center
 services: application-insights
 keywords: 
 author: numberbycolors
@@ -12,105 +12,105 @@ ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Start het analyseren van uw mobiele app met App Center en Application Insights
+# <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobiele app analyseren met App Center en Application Insights
 
-Deze snelstartgids leidt u door verbinding te maken van uw app Center-App-exemplaar met Application Insights. Met Application Insights, u kunt een query, segmenteren filteren en analyseren van uw telemetrie met krachtige hulpprogramma's dan beschikbaar zijn vanuit de [Analytics](https://docs.microsoft.com/mobile-center/analytics/) van Center-App service.
+In deze quickstart wordt stapsgewijs uitgelegd hoe u het App Center-App-exemplaar van uw app verbindt met Application Insights. Met Application Insights kunt u uw telemetriegegevens opvragen, segmenteren filteren en analyseren van met krachtigere tools dan die beschikbaar zijn via de service [Analyse](https://docs.microsoft.com/mobile-center/analytics/) van App Center.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om deze snelstartgids te voltooien:
+U hebt het volgende nodig om deze quickstart te voltooien:
 
 - Een Azure-abonnement.
-- Een iOS-, Android, Xamarin, universeel Windows of systeemeigen reageren app.
+- Een app voor iOS, Android, Xamarin, Universal Windows of React Native.
  
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="onboard-to-app-center"></a>Onboarding van App-Center
+## <a name="onboard-to-app-center"></a>Onboarden in App Center
 
-Voordat u Application Insights met uw mobiele app gebruiken kunt, moet u vrijgeven uw app [App Center](https://docs.microsoft.com/mobile-center/). Application Insights ontvangt geen telemetrie van uw mobiele app rechtstreeks. Uw app wordt in plaats daarvan aangepaste gebeurtenis telemetrie verzendt naar App Center. Vervolgens exporteert App Center continu kopieën van deze aangepaste gebeurtenissen in Application Insights als de gebeurtenissen worden ontvangen.
+Voordat u Application Insights kunt gebruiken met uw mobiele app, moet u de app onboarden in [App Center](https://docs.microsoft.com/mobile-center/). Application Insights kan namelijk niet rechtstreeks telemetriegegevens ontvangen van uw mobiele app. Uw app stuurt daarom telemetrie van aangepaste gebeurtenissen naar App Center. App Center exporteert deze aangepaste gebeurtenissen vervolgens direct naar Application Insights zodra ze worden ontvangen.
 
-Voorbereiden uw app volgt u de App Center Quick Start voor elk platform voor uw app ondersteunt. Afzonderlijke exemplaren van de App Center voor elk platform maken:
+U kunt uw app onboarden door de quickstart voor App Center uit te voeren voor elk platform dat uw app ondersteunt. Maak afzonderlijke App Center-exemplaren voor elk platform:
 
-* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios).
-* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android).
-* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin).
-* [Universeel Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp).
-* [Systeemeigen reageren](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native).
+* [iOS](https://docs.microsoft.com/mobile-center/sdk/getting-started/ios)
+* [Android](https://docs.microsoft.com/mobile-center/sdk/getting-started/android)
+* [Xamarin](https://docs.microsoft.com/mobile-center/sdk/getting-started/xamarin)
+* [Universal Windows](https://docs.microsoft.com/mobile-center/sdk/getting-started/uwp)
+* [React Native](https://docs.microsoft.com/mobile-center/sdk/getting-started/react-native)
 
-## <a name="track-events-in-your-app"></a>Houd gebeurtenissen in uw app
+## <a name="track-events-in-your-app"></a>Gebeurtenissen bijhouden in uw app
 
-Nadat uw app vrijgegeven voor App Center is, moet deze worden aangepast voor het verzenden van telemetrie van aangepaste gebeurtenis met de Center-App SDK. Aangepaste gebeurtenissen zijn het enige type App Center telemetrie die is geëxporteerd naar Application Insights.
+Nadat de onboarding van uw in App Center is voltooid, moet de appe worden aangepast voor om telemetrie van aangepaste gebeurtenissen te versturen met de SDK van App Center. Aangepaste gebeurtenissen zijn het enige type telemetrie van App Center dat wordt geëxporteerd naar Application Insights.
 
-Aangepaste gebeurtenissen van iOS-apps worden verzonden, gebruikt u de `trackEvent` of `trackEvent:withProperties` methoden in de App Center SDK. [Meer informatie over het bijhouden van gebeurtenissen van iOS-apps.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
+Als u aangepaste gebeurtenissen wilt versturen vanuit iOS-apps, gebruikt u de methode `trackEvent` of `trackEvent:withProperties` in de SDK van App Center. [Meer informatie over het bijhouden van gebeurtenissen van iOS-apps.](https://docs.microsoft.com/mobile-center/sdk/analytics/ios)
 
 ```Swift
 MSAnalytics.trackEvent("Video clicked")
 ```
 
-Aangepaste gebeurtenissen van Android-apps worden verzonden, gebruikt u de `trackEvent` methode in de App Center SDK. [Meer informatie over het bijhouden van gebeurtenissen van Android-apps.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
+Als u aangepaste gebeurtenissen wilt versturen vanuit Android-apps, gebruikt u de methode `trackEvent` in de SDK van App Center. [Meer informatie over het bijhouden van gebeurtenissen van Android-apps.](https://docs.microsoft.com/mobile-center/sdk/analytics/android)
 
 ```Java
 Analytics.trackEvent("Video clicked")
 ```
 
-Aangepaste gebeurtenissen van andere platforms app worden verzonden, gebruikt u de `trackEvent` methoden in hun App Center SDK's.
+Als u aangepaste gebeurtenissen wilt versturen vanaf andere platforms, gebruikt u de methoden `trackEvent` in de App Center-SDK van het platform.
 
-Om te zorgen dat uw aangepaste gebeurtenissen worden ontvangen, gaat u naar de **gebeurtenissen** tabblad onder de **Analytics** sectie in het midden van de App. Het kan enkele minuten duren voordat gebeurtenissen worden weergegeven uit wanneer deze wordt verzonden vanuit uw app.
+Om er zeker van te zijn dat uw aangepaste gebeurtenissen worden ontvangen, gaat u naar het tabblad **Gebeurtenissen** in de sectie **Analytics** van App Center. Het kan enkele minuten duren voordat gebeurtenissen worden weergegeven nadat deze zijn verzonden vanuit uw app.
 
 ## <a name="create-an-application-insights-resource"></a>Een Application Insights-resource maken
 
-Als uw app aangepaste gebeurtenissen verzendt en deze gebeurtenissen worden ontvangen door de App Center, moet u een App Center-type Application Insights-resource maken in de Azure portal:
+Wanneer uw app aangepaste gebeurtenissen verzendt en deze gebeurtenissen worden ontvangen door App Center, moet u in Azure Portal een Application Insights-resource van het type App Center maken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **Nieuw** > **Controle + Beheer** > **Application Insights**.
 
     ![Application Insights-resource toevoegen](./media/app-insights-mobile-center-quickstart/add.png)
 
-    Er verschijnt een configuratie-venster. Gebruik de onderstaande tabel om de invoervelden in te vullen.
+    Er verschijnt een configuratievenster. Gebruik de onderstaande tabel om de velden in te vullen.
 
     | Instellingen        |  Waarde           | Beschrijving  |
    | ------------- |:-------------|:-----|
-   | **Naam**      | Sommige globaal unieke waarde, zoals 'myApp iOS' | Naam die de app beschrijft die u wilt controleren |
+   | **Naam**      | Een volledig unieke waarde, zoals 'mijnApp-iOS' | Naam die de app beschrijft die u wilt controleren |
    | **Toepassingstype** | App Center-toepassing | Type app dat u wilt controleren |
-   | **Resourcegroep**     | Een nieuwe resourcegroep of een bestaande in het menu | De resourcegroep waarin u de nieuwe Application Insights-resource maken |
+   | **Resourcegroep**     | Maak een nieuwe resourcegroep of selecteer een groep in het menu. | De resourcegroep waarin u de nieuwe Application Insights-resource wilt maken |
    | **Locatie** | Een locatie in het menu | Kies een locatie in uw buurt of in de buurt van waar de app wordt gehost |
 
 3. Klik op **Create**.
 
-Als uw app biedt ondersteuning voor meerdere platforms (iOS, Android, enz.), is het raadzaam te maken van afzonderlijke Application Insights-resources, één voor elk platform.
+Als uw app meerdere platforms ondersteunt (iOS, Android, enz.), is het raadzaam afzonderlijke Application Insights-resources te maken, één voor elk platform.
 
 ## <a name="export-to-application-insights"></a>Exporteren naar Application Insights
 
-In uw nieuwe Application Insights-resource op de **overzicht** pagina in de **Essentials** sectie aan de bovenkant, Kopieer de instrumentatiesleutel voor deze bron.
+Ga in de nieuwe Application Insights-resource op de pagina **Overzicht** naar de sectie **Essentials** aan de bovenkant en kopieer de instrumentatiesleutel voor deze resource.
 
-In het midden van de App-exemplaar voor uw app:
+Ga als volgt te werk in het App Center-exemplaar voor uw app:
 
-1. Op de **instellingen** pagina, klikt u op **exporteren**.
-2. Kies **nieuwe exporteren**, kies **Application Insights**, klikt u vervolgens op **aanpassen**.
-3. Plak uw Application Insights-instrumentatiesleutel in het vak.
-4. Toestemming voor het verbeteren van het gebruik van het Azure-abonnement met uw Application Insights-resource. Elke Application Insights-resource is gratis voor de eerste 1 GB aan gegevens ontvangen per maand. [Meer informatie over prijzen voor Application Insights.](https://azure.microsoft.com/pricing/details/application-insights/)
+1. Klik op de pagina **Instellingen** op **Exporteren**.
+2. Kies **Nieuwe export**, kies **Application Insights** en klik vervolgens op **Aanpassen**.
+3. Plak de instrumentatiesleutel van Application Insights in het vak.
+4. Geef toestemming voor toenemen van het gebruik van het Azure-abonnement met de Application Insights-resource. Elke resource van Application Insights is gratis voor de eerste 1 GB gegevens die per maand worden ontvangen. [Meer informatie over de prijzen van Application Insights.](https://azure.microsoft.com/pricing/details/application-insights/)
 
-Onthoud dit proces herhalen voor elk platform voor uw app ondersteunt.
+Vergeet niet om dit proces te herhalen voor elk platform dat uw app ondersteunt.
 
-Eenmaal [exporteren](https://docs.microsoft.com/mobile-center/analytics/export) is ingesteld, wordt elke aangepaste gebeurtenis is ontvangen door de App Center gekopieerd naar Application Insights. Het kan enkele minuten duren voordat gebeurtenissen naar Application Insights bereikt, dus als ze niet direct wachten met een beetje verder onderzoeken.
+Als het [exporteren](https://docs.microsoft.com/mobile-center/analytics/export) is ingesteld, wordt elke aangepaste gebeurtenis die wordt ontvangen door App Center, naar Application Insights gekopieerd. Het kan een paar minuten duren voordat gebeurtenissen aankomen bij Application Insights, dus als ze niet direct worden weergegeven, is het beter om even te wachten voordat u een diagnose start.
 
-Zodat u meer gegevens wanneer u eerst verbinding maakt, worden de meest recente 48 uur van aangepaste gebeurtenissen in het midden van de App automatisch geëxporteerd naar Application Insights.
+Om u toegang te geven tot meer gegevens wanneer u voor het eerst verbinding maakt, worden de meest recente aangepaste gebeurtenissen voor de afgelopen 48 uur in App Center automatisch naar Application Insights geëxporteerd.
 
-## <a name="start-monitoring-your-app"></a>Starten van de controle van uw app
+## <a name="start-monitoring-your-app"></a>Uw app gaan controleren
 
-Application Insights kunnen opvragen, segmenteren filteren en analyseren van de aangepaste gebeurtenis telemetrie van uw apps, afgezien van de hulpprogramma's voor de analytics die Center-App biedt.
+Met Application Insights kunt u de telemetriegegevens van aangepaste gebeurtenissen van uw apps opvragen, segmenteren, filteren en analyseren. Deze mogelijkheden zijn uitgebreider dan die de analysetools van App Center kunnen bieden.
 
-1. **Query uitvoeren op uw aangepaste gebeurtenis telemetrie.** Uit de Application Insights **overzicht** pagina **Analytics**. 
+1. **Vraag de telemetriegegevens van aangepaste gebeurtenissen op.** Kies op de pagina **Overzicht** van Application Insights de optie **Analyse**. 
 
-   ![Analytics-knop in Application Insights](./media/app-insights-mobile-center-quickstart/analytics.png)
+   ![Knop Analyse in Application Insights](./media/app-insights-mobile-center-quickstart/analytics.png)
 
-   De Application Insights Analytics-portal die zijn gekoppeld aan uw Application Insights-resource wordt geopend. De portal Analytics kunt u rechtstreeks query uitvoeren op uw gegevens dankzij de Log Analytics query language, zodat u willekeurig complexe over uw app en de gebruikers vragen kunt.
+   De analyseportal van Application Insights wordt geopend met gegevens die zijn gekoppeld aan uw Application Insights-resource. In de portal kunt u rechtstreeks query's uitvoeren op uw gegevens via de querytaal Log Analytics. Dit betekent dat u willekeurig complexe vragen over uw app en de gebruikers kunt stellen.
    
-   Open een nieuw tabblad in de portal Analytics vervolgens plakken in de volgende query. Deze retourneert een telling van het aantal unieke gebruikers hebt verzonden elke aangepaste gebeurtenis van uw app in de afgelopen 24 uur, gesorteerd op basis van de verschillende aantallen.
+   Open een nieuw tabblad in de analyseportal en plak vervolgens de volgende query. De query retourneert een telling van het aantal unieke gebruikers die aangepaste gebeurtenissen hebben verzonden vanuit uw app in de afgelopen 24 uur, gesorteerd op deze unieke aantallen.
 
    ```AIQL
    customEvents
@@ -119,52 +119,52 @@ Application Insights kunnen opvragen, segmenteren filteren en analyseren van de 
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics-portal](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
+   ![Analyseportal](./media/app-insights-mobile-center-quickstart/analytics-portal.png)
 
-   1. De query selecteren door te klikken op een willekeurige plaats in de query in de teksteditor.
-   2. Klik vervolgens op **gaat** de query uit te voeren. 
+   1. Selecteer de query door ergens in de query in de teksteditor te klikken.
+   2. Klik vervolgens op **Go** om de query uit te voeren. 
 
-   Meer informatie over [Application Insights Analytics](app-insights-analytics.md) en de [querytaal van logboekanalyse](https://docs.loganalytics.io/docs/Language-Reference).
+   Lees hier meer over [Application Insights Analytics](app-insights-analytics.md) en de [querytaal Log Analytics](https://docs.loganalytics.io/docs/Language-Reference).
 
 
-2. **Segmenteer en filteren van uw aangepaste gebeurtenis telemetrie.** Uit de Application Insights **overzicht** pagina **gebruikers** in de inhoudsopgave.
+2. **Segmenteer en filter de telemetrie van uw aangepaste gebeurtenissen.** Kies op de pagina **Overzicht** van Application Insights de optie **Gebruikers** in de inhoudsopgave.
 
-   ![Pictogram voor gebruikers-hulpprogramma](./media/app-insights-mobile-center-quickstart/users-icon.png)
+   ![Pictogram voor hulpprogramma Gebruikers](./media/app-insights-mobile-center-quickstart/users-icon.png)
 
-   Het hulpprogramma gebruikers ziet u hoeveel gebruikers van uw app bepaalde knoppen wordt geklikt, bepaalde schermen bezocht of andere actie die u als een gebeurtenis met de App Center SDK bijhoudt is uitgevoerd. Als u hebt een manier te segmenteren en uw App Center gebeurtenissen filteren is geopend, is het hulpprogramma gebruikers een uitstekende keuze.
+   In het hulpprogramma Gebruikers ziet u hoeveel gebruikers van uw app op bepaalde knoppen hebben geklikt, bepaalde schermen hebben weergegeven of een andere actie hebben uitgevoerd die u als een gebeurtenis bijhoudt met de SDK van App Center. Als u op zoekt bent naar een manier om gebeurtenissen van App Center te segmenteren en te filteren, is het hulpprogramma Gebruikers een uitstekende keuze.
 
-   ![Hulpprogramma voor gebruikers](./media/app-insights-mobile-center-quickstart/users.png) 
+   ![Hulpprogramma Gebruikers](./media/app-insights-mobile-center-quickstart/users.png) 
 
-   Bijvoorbeeld, gebruik van uw per Geografie segmenteren door te kiezen **land of regio** in de **gesplitst** vervolgkeuzemenu.
+   Zo kunt u het gebruik bijvoorbeeld geografisch segmenteren door **Land of regio** te kiezen in de vervolgkeuzelijst **Splitsen op**.
 
-3. **Analyseren op patronen conversie, bewaren en navigatie in uw app.** Uit de Application Insights **overzicht** pagina **gebruiker loopt** in de inhoudsopgave.
+3. **Analyseer conversie, retentie en navigatiepatronen in uw app.** Kies op de pagina **Overzicht** van Application Insights de optie **Gebruikersstromen** in de inhoudsopgave.
 
-   ![User-hulpprogramma voor stromen](./media/app-insights-mobile-center-quickstart/user-flows.png)
+   ![Hulpprogramma Gebruikersstromen](./media/app-insights-mobile-center-quickstart/user-flows.png)
 
-   Het hulpprogramma gebruiker loopt visualiseren welke gebeurtenissen gebruikers na enkele begin gebeurtenis verzenden. Dit is handig voor het ophalen van een volledig beeld van hoe gebruikers door uw app navigeren. Hij kan ook de plaatsen waar veel gebruikers zijn churning van uw app of dezelfde acties steeds herhalende onthullen.
+   Het hulpprogramma Gebruikersstromen laat zien welke gebeurtenissen gebruikers versturen na een bepaalde begingebeurtenis. Dit is handig om een algemeen beeld te krijgen van de manier waarop gebruikers door de app navigeren. U kunt zo ook de plekken zien waar het verloop van gebruikers groot is of waar steeds dezelfde acties worden herhaald.
 
-   Naast de gebruiker loopt beschikt Application Insights over diverse andere gebruik analytics hulpmiddelen om bepaalde vragen te beantwoorden:
+   Naast het hulpprogramma Gebruikersstromen, beschikt u met Application Insights over verschillende andere tools voor gebruiksanalyse om specifieke vragen te beantwoorden:
 
-   * **Schoorstenen** voor analyseren en de controle van de tarieven voor conversie.
-   * **Bewaartermijn** voor het analyseren van hoe goed uw app gebruikers behoudt gedurende een bepaalde periode.
-   * **Werkmappen** voor het combineren van visualisaties en tekst in een deelbaar rapport.
-   * **Cohorten** voor naamgeving en het opslaan van specifieke groepen van gebruikers of gebeurtenissen, zodat ze gemakkelijk kunnen worden verwezen vanuit andere hulpmiddelen analytics.
+   * **Trechters** voor het analyseren en controleren van conversies.
+   * **Retentie** voor het analyseren van hoe goed een app gebruikers vasthoudt tijdens een bepaalde periode.
+   * **Workbooks** voor het combineren van visualisaties en tekst in een deelbaar rapport.
+   * **Cohorten** voor naamgeving en het opslaan van specifieke groepen gebruikers of gebeurtenissen, zodat er gemakkelijk naar deze entiteiten kan worden verwezen vanuit andere analysehulpmiddelen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u niet doorgaan met Application Insights met App Center wilt, export in de App Center uitschakelen en verwijderen van de Application Insights-resource. Hiermee voorkomt u dat u in rekening worden gebracht verder door Application Insights voor deze bron.
+Als u Application Insights niet wilt blijven gebruiken met App Center, schakelt u de exportfunctie uit in App Center en verwijdert u de Application Insights-resource. Hiermee voorkomt u dat er verdere kosten voor Application Insights in rekening worden gebracht voor deze resource.
 
-Export in de App Center uitschakelen:
+Exportfunctie uitschakelen in App Center:
 
-1. In het midden van de App, gaat u naar **instellingen** en kies **exporteren**.
-2. Klik op de Application Insights-uitvoer die u wilt verwijderen en klik vervolgens op **export verwijderen** onderaan en te bevestigen.
+1. Ga in App Center naar **Instellingen** en kies **Exporteren**.
+2. Klik op de exportbewerking van Application Insights die u wilt verwijderen en klik vervolgens onderaan op **Export verwijderen** om dit te bevestigen.
 
-Verwijderen van de Application Insights-resource:
+De Application Insights-resource verwijderen:
 
-1. Klik in het menu links van de Azure portal op **resourcegroepen** en kies vervolgens de resourcegroep waarin uw Application Insights-resource is gemaakt.
-2. Open de Application Insights-resource die u wilt verwijderen. Klik vervolgens op **verwijderen** in het menu van de bron en te bevestigen. Hiermee wordt de kopie van de gegevens die zijn geëxporteerd naar Application Insights permanent verwijderd.
+1. Klik in het menu aan de linkerkant van Azure Portal op **Resourcegroepen** en kies de resourcegroep waarin uw Application Insights-resource is gemaakt.
+2. Open de Application Insights-resource die u wilt verwijderen. Klik vervolgens in het bovenste menu van de resource op **Verwijderen** en bevestig dit. De kopie van de gegevens die is geëxporteerd naar Application Insights wordt hierdoor permanent verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Begrijpen hoe klanten uw app gebruiken](app-insights-usage-overview.md)
+> [Inzicht krijgen in hoe klanten uw app gebruiken](app-insights-usage-overview.md)

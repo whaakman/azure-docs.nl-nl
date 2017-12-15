@@ -1,6 +1,6 @@
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het ontwikkelen van Azure Functions lokaal via de hulpprogramma's van Azure Functions Core.
+Lees meer over het lokaal ontwikkelen van Azure-functies met behulp van Azure Functions Core Tools.
 
 > [!div class="nextstepaction"] 
-> [Code en Azure Functions lokaal testen](../articles/azure-functions/functions-run-local.md)
+> [Azure-functies lokaal programmeren en testen](../articles/azure-functions/functions-run-local.md)

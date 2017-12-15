@@ -1,35 +1,27 @@
 ---
-title: Een Azure Container Service (AKS)-cluster schalen | Microsoft Docs
-description: Een Azure Container Service (AKS)-cluster schalen.
+title: Een AKS-cluster (Azure Container Service) schalen
+description: Lees hier alles over het schalen van een AKS-cluster (Azure Container Service).
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, containers, microservices, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: b2fa3ebb7a22b9d19678d45cc50806627ab80e90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Een Azure Container Service (AKS)-cluster schalen
+# <a name="scale-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) schalen
 
-Het is gemakkelijk om te schalen van een cluster AKS naar een ander aantal knooppunten.  Selecteer het gewenste aantal knooppunten en voer de `az aks scale` opdracht.  Tijdens het omlaag schalen, knooppunten zorgvuldig zich [cordoned en geleegd](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) onderbreking van actieve toepassingen minimaliseren.  Tijdens het schalen van de `az` opdracht wacht totdat de knooppunten zijn gemarkeerd `Ready` door het cluster Kubernetes.
+Het is niet moeilijk om een AKS-cluster naar een ander aantal knooppunten te schalen.  Selecteer het gewenste aantal knooppunten en voer de opdracht `az aks scale` uit.  Tijdens het omlaag schalen, knooppunten zorgvuldig zich [cordoned en geleegd] [ kubernetes-drain] onderbreking van actieve toepassingen minimaliseren.  Als u omhoog gaat schalen, wacht de opdracht `az` totdat de knooppunten zijn gemarkeerd `Ready` door het Kubernetes-cluster.
 
-## <a name="scale-the-cluster-nodes"></a>Schalen van de clusterknooppunten
+## <a name="scale-the-cluster-nodes"></a>De clusterknooppunten schalen
 
-Gebruik de `az aks scale` opdracht voor het schalen van de clusterknooppunten. Het volgende voorbeeld wordt een cluster met de naam geschaald *myK8SCluster* naar één knooppunt.
+Gebruik de opdracht `az aks scale` voor het schalen van de clusterknooppunten. In het volgende voorbeeld wordt een cluster met de naam *myK8SCluster* naar één knooppunt geschaald.
 
 ```azurecli-interactive
 az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
@@ -93,7 +85,13 @@ Uitvoer:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het implementeren en beheren van AKS met de zelfstudies AKS.
+U krijgt meer informatie over het implementeren en beheren van AKS in de AKS-zelfstudies.
 
 > [!div class="nextstepaction"]
-> [AKS-zelfstudie](./tutorial-kubernetes-prepare-app.md)
+> [AKS-zelfstudie][aks-tutorial]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

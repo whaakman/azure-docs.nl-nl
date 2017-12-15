@@ -1,6 +1,6 @@
 ---
-title: Een PHP-web-app maken en implementeren op op Linux-App Service | Microsoft Docs
-description: Uw eerste PHP Hello World in op Linux-App Service implementeren in minuten.
+title: Een PHP-web-app maken en implementeren in App Service on Linux | Microsoft Docs
+description: Implementeer in enkele minuten uw eerste PHP-web-app (Hello World) in een App Service on Linux.
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -17,21 +17,21 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Een PHP-web-app maken in App-Service op Linux
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Een PHP-web-app maken in App Service on Linux
 
-[App-Service op Linux](app-service-linux-intro.md) biedt een zeer schaalbaar, zelf patch webhosting-service met het Linux-besturingssysteem. Deze Quick Start-zelfstudie laat zien hoe een PHP-app implementeren in Azure App Service op Linux. U de web-app maken met de ingebouwde installatiekopie met de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud-Shell en u Git gebruiken voor het implementeren van de PHP-code voor de web-app.
+[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een PHP-app in Azure App Service on Linux implementeert. U maakt de web-app met de ingebouwde installatiekopie via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, en gebruikt Git om de code van PHP in de web-app te implementeren.
 
-! [Voorbeeld-app in Azure wordt uitgevoerd]] (media/quickstart-php/hello-world-in-browser.png)
+![Voorbeeld-app die wordt uitgevoerd in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
 U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux-computer.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 * <a href="https://php.net" target="_blank">PHP installeren</a>
@@ -40,7 +40,7 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Voer de volgende opdrachten voor het klonen van de voorbeeldtoepassing op uw lokale computer en navigeer naar de map met de voorbeeldcode in een terminalvenster.
+Voer de volgende opdrachten uit in een terminalvenster. Hiermee wordt de voorbeeldtoepassing gekloond naar uw lokale machine en navigeert u naar de map met de voorbeeldcode.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -55,7 +55,7 @@ Voer de toepassing lokaal uit door een terminalvenster te openen en de opdracht 
 php -S localhost:8080
 ```
 
-Open een webbrowser en navigeer naar de voorbeeld-app op `http://localhost:8080`.
+Open een webbrowser en navigeer naar de voorbeeldapp op `http://localhost:8080`.
 
 Het bericht **Hallo wereld** uit de voorbeeld-app wordt weergegeven op de pagina.
 
@@ -75,7 +75,7 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Blader naar de site om te zien van uw nieuwe web-app met ingebouwde installatiekopie. Vervang  _&lt;app-naam >_ met de naam van uw web-app.
+Blader naar de site om uw nieuwe web-app met de ingebouwde installatiekopie te bekijken. Vervang _&lt;app-naam>_ door de naam van uw web-app.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -118,15 +118,15 @@ Blader naar de geïmplementeerde toepassing via uw webbrowser.
 http://<app_name>.azurewebsites.net
 ```
 
-De voorbeeldcode PHP wordt uitgevoerd in een web-app met ingebouwde installatiekopie.
+De PHP-voorbeeldcode wordt uitgevoerd in een web-app met een ingebouwde installatiekopie.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Gefeliciteerd!** U hebt uw eerste PHP-app geïmplementeerd in App Service op Linux.
+**Gefeliciteerd!** U hebt uw eerste PHP-app geïmplementeerd in App Service on Linux.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>De code lokaal bijwerken en opnieuw implementeren
 
-Open in de lokale adreslijstservice de `index.php` bestand in de PHP-app en een kleine wijziging in de tekst binnen de tekenreeks naast `echo`:
+Open in de lokale map het bestand `index.php` binnen de PHP-app en breng een kleine wijziging aan in de tekst in de tekenreeks naast `echo`:
 
 ```php
 echo "Hello Azure!";

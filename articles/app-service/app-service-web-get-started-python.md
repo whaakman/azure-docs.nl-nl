@@ -17,13 +17,13 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Een Python-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstartgids helpt u bij het ontwikkelen en implementeren van een Python-app in Azure Web Apps. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Python in de web-app te implementeren.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze quickstart helpt u bij het ontwikkelen en implementeren van een Python-app in Azure Web Apps. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Python in de web-app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
@@ -66,7 +66,7 @@ Voer de toepassing lokaal uit door een terminalvenster te openen en de opdracht 
 python main.py
 ```
 
-Open een webbrowser en navigeer naar de voorbeeld-app op `http://localhost:5000`.
+Open een webbrowser en navigeer naar de voorbeeldapp op `http://localhost:5000`.
 
 Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
 
@@ -86,7 +86,7 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Blader naar uw nieuwe web-app. Vervang  _&lt;app-naam >_ met een unieke app-naam.
+Blader naar uw nieuwe web-app. Vervang _&lt;app-naam>_ door een unieke app-naam.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -160,7 +160,7 @@ Gebruik een lokale teksteditor om het bestand `main.py` in de Python-app te open
 return 'Hello, Azure!'
 ```
 
-Uw wijzigingen in Git in het lokale terminalvenster en vervolgens de codewijzigingen pushen naar Azure.
+Leg in het lokale terminalvenster uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
 
 ```bash
 git commit -am "updated output"

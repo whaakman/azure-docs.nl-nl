@@ -1,6 +1,6 @@
 ---
-title: Een melding ontvangen wanneer er een voorwaarde voldoet aan de metrische waarde voor een | Microsoft Docs
-description: Een Quick Start-handleiding voor gebruikers die een metriek maken voor een logische App
+title: Een melding ontvangen wanneer een metrische waarde voldoet aan een voorwaarde | Microsoft Docs
+description: Een quickstart om gebruikers te helpen bij het maken van een metrische waarde voor een logische app
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -12,15 +12,15 @@ ms.author: ancav
 ms.custom: mvc
 ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Een melding ontvangen wanneer een metrische waarde aan een voorwaarde voldoet.
+# <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Een melding ontvangen wanneer een metrische waarde voldoet aan een voorwaarde
 
-Azure Monitor worden metrische gegevens beschikbaar gemaakt voor veel Azure-resources. Deze metrische gegevens overbrengen de prestaties en de status van deze bronnen. In veel gevallen metriek kunnen waarden verwijzen naar iets mis met een resource wordt. U kunt metrische waarschuwingen om te controleren voor abnormaal gedrag en de hoogte gesteld als dit gebeurt maken. Deze snelstartgids stappen bij het maken van een logische App, een taak maken en visualiseren van de metrische gegevens voor de logische app. Vervolgens gaat het bij het maken van een waarschuwing en ontvangt een melding voor een waarde voor de logische App-resource.
+Met Azure Monitor worden metrische gegevens beschikbaar gemaakt voor veel Azure-resources. Deze metrische gegevens geven inzicht in de prestaties en de status van deze resources. In veel gevallen wijzen metrische gegevens erop dat er iets mis is met een resource. U kunt waarschuwingen voor metrische gegevens instellen om te controleren op abnormaal gedrag. Wanneer er iets voorvalt, ontvangt u een melding. In deze quickstart wordt stapsgewijs uitgelegd hoe u een logische app en een taak maakt, en hoe u de metrische gegevens voor de logische app visueel kunt weergegeven. Vervolgens wordt beschreven hoe u een waarschuwing instelt en meldingen voor metrische gegevens ontvangt voor de logische app.
 
-Zie voor meer informatie over metrische gegevens en waarschuwingen metrische [Azure Monitor metrische gegevens overzicht](./monitoring-overview-metrics.md) en [overzicht van Azure Monitor waarschuwingen](./monitoring-overview-alerts.md). 
+Zie [Azure Monitor metrics overview](./monitoring-overview-metrics.md) (Overzicht van metrische gegevens in Azure Monitor) en [Azure Monitor alerts overview](./monitoring-overview-alerts.md) (Overzicht van Azure Monitor-waarschuwingen) voor meer informatie over metrische gegevens en waarschuwingen voor metrische gegevens. 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -28,89 +28,89 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-logic-app"></a>Een logica-app maken
+## <a name="create-a-logic-app"></a>Een logische app maken
 
 1. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
 
-2. Zoek en selecteer **logische App**. Maak een nieuwe resourcegroep met de naam **myResourceGroup** gebruiken de standaardlocatie. Klik op de knop **Maken**.
+2. Zoek en selecteer **Logische app**. Maak een nieuwe resourcegroep met de naam **myResourceGroup**. Gebruik hiervoor de standaardlocatie. Klik op de knop **Maken**.
 
-3. Geeft informatie over de logic app en controleert u de **vastmaken aan Dashboard** optie. Klik op **Maken** wanneer u klaar bent.
+3. Voer de gegevens voor de logisch app in en selecteer de optie **Vastmaken aan dashboard**. Klik op **Maken** wanneer u klaar bent.
 
-    ![Geef algemene informatie over uw logische app in de portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Voer basisinformatie over de logische app in via de portal](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
-4. De logische app moet worden vastgemaakt aan uw dashboard. Navigeer naar de logische app door erop te klikken.
+4. De logische app moet worden vastgemaakt aan het dashboard. Navigeer naar de logische app door erop te klikken.
 
-5. Selecteer in het deelvenster logische App de **Logic App-ontwerper**
+5. Selecteer in het paneel Logische app de functie **Ontwerper van logische app**
 
-     ![Een trigger terugkeerpatroon gemaakt in de ontwerpfunctie voor logic app in de portal Configuratiescherm](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Maak een trigger Terugkeerpatroon in de functie Ontwerper voor logische app in het portalpaneel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
-6. Stel u waarden zoals te zien is in het volgende diagram.
+6. Stel de waarden in zoals weergegeven in het volgende diagram.
 
-    ![De logica voor app trigger in het deelvenster portal configureren](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configureer de logische app-trigger in het portalpaneel](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
-7. Selecteer in de ontwerpfunctie voor de **terugkeerpatroon** trigger.
+7. Selecteer in de ontwerpfunctie de trigger **Terugkeerpatroon**.
 
-8. Stel een interval van 20 en een frequentie van de tweede om te controleren of dat uw logische app elke 20 seconden wordt geactiveerd.
+8. Stel een interval in van 20 en een frequentie van een seconde om ervoor te zorgen dat de logische app elke 20 seconden wordt geactiveerd.
 
-9. Klik op de **nieuwe stap** en selecteer **een actie toevoegen**.
+9. Klik op de knop **Nieuwe stap** en selecteer **Een actie toevoegen**.
 
-10. Kies de **HTTP** optie en selecteer **HTTP-HTTP-**.
+10. Kies de optie **HTTP** en selecteer **HTTP-HTTP**.
 
-11. Stel de **methode** als POST en de **Uri** aan een webadres van uw keuze.
+11. Stel **Methode** in op POST en stel de **URI** in op een webadres van uw keuze.
 
 12. Klik op **Opslaan**.
 
 ## <a name="view-metrics-for-your-logic-app"></a>Metrische gegevens voor uw logische app weergeven
 
-1. Klik op de **Monitor** optie in het navigatiedeelvenster links.
+1. Klik op de optie **Controleren** in het navigatiedeelvenster aan de linkerkant.
 
-2. Selecteer de **metrische gegevens** tabblad, vult u de **abonnement**, **resourcegroep**, **brontype** en **Resource** informatie voor uw logische app.
+2. Selecteer het tabblad **Metrische gegevens** en vul de logische app-gegevens in bij **Abonnement**, **Resourcegroep**, **Resourcetype** en **Resource**.
 
-3. Kies in de lijst van metrische gegevens **wordt uitgevoerd gestart**.
+3. Kies **Gestarte uitvoeringen** in de lijst met metrische gegevens.
 
-4. Wijzig de **tijdsbereik** van de grafiek moet worden gegevens weergegeven voor het afgelopen uur.
+4. Wijzig het **Tijdsbereik** van de grafiek zodat de gegevens voor het afgelopen uur worden weergegeven.
 
-5. U ziet nu een grafiek uitzetten van het totale aantal uw logische app is gestart via het afgelopen uur wordt uitgevoerd.
+5. U ziet nu een grafiek met het totale aantal uitvoeringen die het afgelopen uur zijn gestart met de logische app.
 
-    ![Een grafiek metrische gegevens voor de resource voor de logische app uitzetten](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Een grafiek met metrische gegevens tekenen voor de logische app-resource](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
-## <a name="create-a-metric-alert-for-your-logic-app"></a>Een metriek waarschuwing voor uw logische app maken
+## <a name="create-a-metric-alert-for-your-logic-app"></a>Een waarschuwing voor metrische gegevens maken voor uw logische app
 
-1.  Klik in het bovenste rechts deel van het paneel metrische gegevens op de **metrische waarschuwing toevoegen** knop.
+1.  Klik rechtsboven in het paneel met metrische gegevens op de knop **Waarschuwing voor metrische gegevens toevoegen**.
 
-2. Naam van de metrische waarschuwing 'myLogicAppAlert' en geef een korte beschrijving voor de waarschuwing.
+2. Geef de waarschuwing voor metrische gegevens de naam myLogicAppAlert en geef een korte beschrijving voor de waarschuwing.
 
-3. Instellen de **voorwaarde** voor de metrische waarschuwing als 'Die groter is dan' zijn, stel de **drempelwaarde** als "10" en stel de **periode** als 'in de afgelopen 5 minuten'.
+3. Stel de **Voorwaarde** voor de waarschuwing voor metrische gegevens in op Groter dan, stel de **Drempelwaarde** in op 10, en stel de **Periode** in op In de afgelopen 5 minuten.
 
-4. Ten slotte onder **aanvullende beheerder email(s)** uw e-mailadres invoeren. Deze waarschuwing zorgt ervoor dat u een e-mailbericht ontvangen in het geval van uw logische app heeft meer dan 10 mislukte wordt uitgevoerd binnen een periode van 5 minuten.
+4. Voer ten slotte uw e-mailadres in bij **Aanvullende e-mailadressen voor beheerder**. Als u deze waarschuwing hebt ingesteld, ontvangt u een e-mailbericht als uw logische app binnen een periode van 5 minuten meer dan 10 mislukte uitvoeringen heeft.
 
-    ![De logische app waarschuwing in het deelvenster portal configureren](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![De logische app-waarschuwing configureren in het portalpaneel](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
-## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Metrische waarschuwingsmeldingen voor uw logische app ontvangen
-1. U ontvangt een e-mailbericht van 'Microsoft Azure-waarschuwingen' om aan de waarschuwing is 'geactiveerd' binnen enkele ogenblikken.
+## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Waarschuwingen voor metrische gegevens ontvangen voor de logische app
+1. Als het goed is, ontvangt u binnen enkele ogenblikken een e-mailbericht van Microsoft Azure-waarschuwingen waarin staat dat de waarschuwing is geactiveerd.
 
-2. Ga terug naar uw logische app en wijzig de trigger terugkeerpatroon een interval van 1 en de frequentie van uur.
+2. Ga terug naar de logische app en wijzig de trigger Terugkeerpatroon in een interval van 1 en wijzig de frequentie in uren.
 
-3. U ontvangt binnen een paar minuten een e-mailbericht van 'Microsoft Azure-waarschuwingen' geïnformeerd wanneer de waarschuwing is 'opgelost'.
+3. Als het goed is, ontvangt u binnen enkele minuten een e-mailbericht van Microsoft Azure-waarschuwingen waarin staat dat de waarschuwing is opgelost.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere snel aan de slag in deze verzameling bouwen voort op deze snelstartgids. Als u van plan bent om door te gaan op om te werken met de volgende snel aan de slag of met de zelfstudies, geen clean up maakt van de resources in deze snelstartgids hebt gemaakt. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in Azure Portal zijn gemaakt.
+Andere quickstarts in deze verzameling zijn gebaseerd op deze quickstart. Als u wilt doorgaan met andere quickstarts of met de zelfstudies, verwijdert u de resources die u in deze quickstart hebt gemaakt, niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources te verwijderen die tijdens deze Quick Start in Azure Portal zijn gemaakt.
 
-1. Klik in het menu links in de Azure portal op **Monitor**.
+1. Klik in het menu aan de linkerkant in Azure Portal op **Controleren**.
 
-2. Selecteer de **waarschuwingen** tabblad, vinden de waarschuwing die u in deze snelstartgids hebt gemaakt en klikt u op.
+2. Selecteer het tabblad **Waarschuwingen**, ga naar de waarschuwing die u in deze quickstart hebt gemaakt, en klik erop.
 
-3. Klik in het deelvenster voor metrische waarschuwing **verwijderen**.
+3. Klik in het paneel voor de waarschuwing voor metrische gegevens op **Verwijderen**.
 
-4. Zoek in het menu links in de Azure portal, **logische App** en klik vervolgens op **Logic apps**.
+4. Zoek in het menu aan de linkerkant in Azure Portal naar **Logische app** en klik vervolgens op **Logische apps**.
 
-5. In het deelvenster op de logische app die u hebt gemaakt in deze snelstartgids in het tekstvak en klik op **verwijderen**.
+5. Klik in het paneel op de logische app die u in deze quickstart hebt gemaakt in het tekstvak, en klik op **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe een metrische waarschuwing voor uw resources maken. Voor meer informatie over metrische waarschuwingen doorklikken naar onze overzicht van waarschuwingen.
+In deze quickstart hebt u geleerd hoe een waarschuwing voor metrische gegevens kunt maken voor uw resources. Klik verder naar het overzicht over waarschuwingen voor meer informatie over waarschuwingen voor metrische gegevens.
 
 > [!div class="nextstepaction"]
-> [Azure-abonnement actie-waarschuwingen](./monitor-quick-audit-notify-action-in-subscription.md )
+> [Actiewaarschuwingen voor Azure Monitor-abonnementen](./monitor-quick-audit-notify-action-in-subscription.md )

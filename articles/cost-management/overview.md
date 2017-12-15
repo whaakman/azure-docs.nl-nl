@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure kostenbeheer door Cloudyn | Microsoft Docs
+title: Overzicht van Azure Cost Management by Cloudyn | Microsoft Docs
 description: Kostenbeheer van Azure door Cloudyn is een kostenbeheeroplossing met meerdere clouds voor het gebruik van Azure en andere cloudresources.
 services: cost-management
 keywords: 
@@ -12,45 +12,45 @@ manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 969340080bfe2b04704367c2225895728773119e
 ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/12/2017
 ---
-# <a name="what-is-azure-cost-management"></a>Wat is Azure kosten Management?
+# <a name="what-is-azure-cost-management"></a>Wat is Azure Cost Management?
 
-Azure kostenbeheer door Cloudyn kunt u gebruik van cloud- en uitgaven voor uw Azure-resources en andere cloudproviders zoals AWS en Google bijhouden. Dashboard gemakkelijk te begrijpen rapporten hulp bij de kostentoewijzing van de en showbacks/verrekening ook. Beheer van de kosten kunt optimaliseren van uw cloud uitgaven door het identificeren van onderbenutte bronnen die u kunt beheren en aanpassen.
+Met Azure Cost Management by Cloudyn kunt u het gebruik van de cloud en de uitgaven voor uw Azure-resources en andere cloudproviders (waaronder AWS en Google) volgen. Aan de hand van eenvoudige dashboard-rapporten krijgt u inzicht in de toewijzing van kosten en tevens factureringen en teruggaven. Met behulp van Cost Management kunt u uw cloud optimaliseren door weinig gebruikte resources te identificeren, die u vervolgens kunt aanpassen en beheren.
 
-Zie voor een inleidende video bekijken, [Inleiding tot Azure kosten Management Cloudyn](https://youtu.be/NWIRny6Wpsk).
+Zie [Introduction to Azure Cost Management by Cloudyn](https://youtu.be/NWIRny6Wpsk) (Inleiding tot Azure Cost Management by Cloudyn) voor een inleidende video.
 
-## <a name="monitor-usage-and-spending"></a>Monitor voor gebruiks- en uitgaven
+## <a name="monitor-usage-and-spending"></a>Gebruik en uitgaven bewaken
 
-Controle van uw gebruik en uitgaven is zeer belangrijk voor cloudinfrastructuren omdat organisaties betaalt voor de resources die ze gedurende een bepaalde periode gebruiken. Wanneer-gebruik overeenkomst drempels overschrijdt, optreden onverwacht kosten gebruikskosten snel. Enkele belangrijke factoren kunnen moeilijk maken om ad-hoc-bewaking. Eerst kosten op basis van het gemiddelde gebruik projectie wordt ervan uitgegaan dat uw verbruik gedurende een bepaalde facturering consistent blijft. Ten tweede wanneer kosten in de buurt van zijn of uw budget overschrijdt, is het belangrijk dat u meldingen proactief aan te passen op uw uitgaven. En cloudserviceproviders kosten projectie versus drempelwaarden of periode Vergelijkingsrapporten niet aanbieden.
+Het bewaken van uw gebruik en uitgaven is cruciaal voor cloudinfrastructuren, omdat organisaties betalen voor de resources waarvan ze gebruik maken. Als het gebruik de afgesproken drempelwaarden overschrijden, kunnen zich al snel onverwachte kostenoverschrijdingen voordoen. Enkele belangrijke factoren kunnen ad-hocbewaking lastig maken. Ten eerste: bij het beramen van kosten op basis van gemiddeld gebruik wordt aangenomen dat uw verbruik consistent blijft gedurende een bepaalde factureringsperiode. Ten tweede: als de kosten uw budget (dreigen te) overschrijden, is het belangrijk dat u vooraf meldingen krijgt om uw bestedingen te kunnen aanpassen. Ten slotte: sommige cloudserviceproviders leveren geen kostenramingen versus drempelwaarden of rapporten met vergelijkingen tussen bepaalde perioden.
 
-Rapporten waarmee u kunt controleren uitgaven te analyseren en bijhouden van gebruik van cloud, kosten en trends. Gebruik gedurende een periode rapporteert, kunt u afwijkingen die van de normale trends afwijken detecteren. Inefficiëntie in uw cloudimplementatie worden weergegeven in rapporten voor optimalisatie. Ook ziet u inefficiëntie in kosten analysis-rapporten.
+Rapporten kunnen uw uitgaven helpen bewaken voor het analyseren en volgen van het gebruik van, de kosten voor en de trends in de cloud. Door rapporten met overuren te gebruiken, kunt u afwijkingen in de trends detecteren. Ondoelmatigheden in de cloudimplementatie komen naar voren in optimalisatierapporten. In kostenanalyserapporten ziet u ook ondoelmatigheden.
 
-![Rapport van de kosten gedurende een periode](media\overview\cost-over-time-rpt.png)
+![Rapport met overuren](media\overview\cost-over-time-rpt.png)
 
 
 ## <a name="manage-costs"></a>Kosten beheren
 
-Historische gegevens kunt u kosten beheren wanneer u Analyseer gebruik en kosten na verloop van tijd om trends te identificeren. Trends worden gebruikt voor het voorspellen van toekomstige uitgaven. Kostenbeheer bevat ook nuttig geschatte Kostenrapporten.
+Met behulp van historische gegevens kunt u kosten beheren bij het analyseren van uw gebruik en kosten in de loop van de tijd om trends te herkennen. De trends worden vervolgens gebruikt om een schatting te maken van toekomstige uitgaven. Cost Management omvat tevens nuttige rapporten met geraamde kosten.
 
-Kosten beheert kosten toewijzing door het analyseren van uw kosten op basis van uw beleid voor labels. U kunt tags op uw aangepaste accounts, bronnen en entiteiten verfijnen kostentoewijzing. Categorie Manager organiseert de labels te voorzien van extra governance. En u de kostentoewijzing van de voor showback/verrekenen gebruiken om brongebruik en daaraan verbonden kosten consumptiegedrag te beïnvloeden of tenant klanten weer te geven.
+Kostentoewijzing gaat over het beheer van kosten door het analyseren van uw kosten op basis van uw taggingbeleid. U kunt tags gebruiken voor uw aangepaste accounts, resources en entiteiten om de kostentoewijzing te verfijnen. Category Manager organiseert uw tags voor extra overzicht. En u gebruikt kostentoewijzing voor factureringen/terugstortingen om de kosten van resourcegebruik en aanverwante kosten te tonen om consumptief gedrag te beïnvloeden of tenantklanten te factureren.
 
-Toegangsbeheer helpt bij het beheren van kosten door ervoor te zorgen dat gebruikers en teams toegang tot alleen de gegevens in de kosten management die ze nodig zijn. U gebruikt entiteit structuur, Gebruikersbeheer en geplande rapporten met lijsten met geadresseerden toegang toewijzen.
+Door middel van toegangscontrole kunt u kosten beheren door ervoor te zorgen dat gebruikers en teams alleen toegang hebben tot de gegevens voor kostenbeheer die ze echt nodig hebben. U maakt gebruik van entiteitsstructuur, gebruikersbeheer en geplande rapporten met ontvangerslijsten om toegang te verlenen.
 
-Waarschuwingen kan worden beheerd kosten door automatisch meegedeeld wanneer ongebruikelijke uitgaven of overspending optreedt. Waarschuwingen kunnen ook andere belanghebbenden automatisch voor bestedingslimiet afwijkingen en overspending risico melden. Diverse rapporten ondersteuning waarschuwingen op basis van budget en de kosten van drempelwaarden voor. Waarschuwingen worden echter niet op dit moment ondersteund voor CSP partner accounts of abonnementen.
+Waarschuwingen helpen u de kosten beheren doordat u automatisch op de hoogte wordt gebracht als er ongewone uitgaven of budgetoverschrijdingen plaatsvinden. Waarschuwingen kunnen ook andere belanghebbenden automatisch op de hoogte stellen als er sprake is van afwijkende bestedingen of kans op budgetoverschrijding. Diverse rapporten ondersteunen waarschuwingen op basis van budgettaire en kostendrempels. Waarschuwingen worden momenteel echter niet ondersteund voor CSP-partneraccounts of -abonnementen.
 
-## <a name="improve-efficiency"></a>De efficiëntie te verbeteren
+## <a name="improve-efficiency"></a>Efficiëntie verbeteren
 
-U kunt optimale VM gebruik bepalen, en niet-actieve virtuele machines te identificeren of niet-actieve virtuele machines en niet-gekoppelde schijven kostenbeheer verwijderen. Gebruik de informatie in Sizing optimalisatie en inefficiëntie door rapporten, kunt u een plan down-grootte of verwijderen van niet-actieve virtuele machines maken. Echter, optimalisatie rapporten zijn momenteel niet ondersteund voor de CSP partner accounts of abonnementen.
+Met Cost Management kunt u het optimale VM-gebruik vaststellen en inactieve VM's identificeren of inactieve VM's en niet-gekoppelde schijven verwijderen. Met behulp van gegevens uit rapporten over optimaal en inefficiënt rangschikken op afmetingen kunt u een plan opstellen om inactieve VM's uit bedrijf te halen. Optimaliseringsrapporten worden momenteel echter niet ondersteund voor CSP-partneraccounts of -abonnementen.
 
-![Formaat van aanbevelingen](.\media\overview\sizing.png)
+![aanbevelingen betreffende afmetingen](.\media\overview\sizing.png)
 
-Als u de gereserveerde exemplaren AWS ingericht, kunt u het gebruik van uw gereserveerde exemplaren met optimalisatie rapporten waar u kunt kopen aanbevelingen weergeven, wijzigen ongebruikte reserveringen en inrichting van plan bent te verbeteren.
+Als u gereserveerde AWS-instanties van virtuele machines hebt ingericht, kunt u het gebruik van gereserveerde instanties verbeteren aan de hand van optimaliseringsrapporten. Hierin ziet u aanbevelingen voor aanschafbeleid, kunt u ongebruikte reserveringen wijzigen en inrichtingen plannen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u bekend bent met kostenbeheer, de volgende stap is om te registreren van uw cloudomgeving en te verkennen van uw gegevens.
+U bent nu bekend met Cost Management. In de volgende stap registreert u uw cloudomgeving en onderzoekt u uw gegevens.
 
-- [Registreren van een afzonderlijke Azure-abonnement](quick-register-azure-sub.md)
+- [Een individueel Azure-abonnement registreren](quick-register-azure-sub.md)
