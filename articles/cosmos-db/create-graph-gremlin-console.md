@@ -2,7 +2,7 @@
 title: 'Zelfstudie Azure Cosmos DB: de Apache TinkerPop Gremlin-console gebruiken om objecten te maken, query''s uit te voeren en door grafen te gaan| Microsoft Docs'
 description: Een Azure Cosmos DB Quick Start voor het maken van hoekpunten, randen en query's met behulp van de Graph API van Azure Cosmos DB.
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 07/27/2017
-ms.author: denlee
-ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.author: lbosq
+ms.openlocfilehash: 59336c23eb322453a7c9a487002de9bdf57da633
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Zelfstudie Azure Cosmos DB: gebruik de Gremlin-console om objecten te maken, query’s op grafen uit te voeren en door grafen te gaan
 
@@ -46,7 +46,7 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Verbinding maken met uw app service
-1. Voordat u start de Console Gremlin, maken of wijzigen van de extern-secure.yaml-configuratiebestand in de `apache-tinkerpop-gremlin-console-3.2.5/conf` directory.
+1. Voordat u de Gremlin-console start, moet u het configuratiebestand remote-secure.yaml in de map `apache-tinkerpop-gremlin-console-3.2.5/conf` maken of wijzigen.
 2. Vul uw *host-*, *poort-*, *gebruikersnaam-*, *wachtwoord-*, *connectionPool-* en *serializer-*configuraties in:
 
     Instelling|Voorgestelde waarde|Beschrijving
@@ -62,7 +62,7 @@ U moet ook de [Gremlin-console](http://tinkerpop.apache.org/) installeren. Gebru
 
     Kopieer voor de wachtwoordwaarde de **Primaire sleutel** van de pagina **Sleutels**: ![Uw primaire sleutel bekijken en kopiëren in Azure Portal op de pagina Sleutels](./media/create-graph-gremlin-console/keys.png)
 
-Uw extern secure.yaml-bestand ziet er als volgt:
+Het remote-secure.yaml-bestand moet er als volgt uitzien:
 
 ```
 hosts: [your_database_server.graphs.azure.com]

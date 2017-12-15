@@ -1,6 +1,6 @@
 ---
-title: Maken van een functie in Azure geactiveerd door een algemene webhook | Microsoft Docs
-description: Azure Functions gebruik te maken van een zonder server-functie die wordt opgeroepen door een webhook in Azure.
+title: Een door een algemene webhook geactiveerde functie maken in Azure | Microsoft Docs
+description: Gebruik Azure Functions voor het maken van een functie zonder server die wordt aangeroepen met een webhook in Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -18,15 +18,15 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-function-triggered-by-a-generic-webhook"></a>Maak een functie die wordt geactiveerd door een algemene webhook
+# <a name="create-a-function-triggered-by-a-generic-webhook"></a>Een door een algemene webhook geactiveerde functie maken
 
-Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren. U kunt bijvoorbeeld een functie om te worden geactiveerd door een waarschuwing gegenereerd door Azure Monitor configureren. Dit onderwerp leest u hoe u C#-code wordt uitgevoerd wanneer een resourcegroep wordt toegevoegd aan uw abonnement.   
+Met Azure Functions kunt u uw code in een serverloze omgeving uitvoeren zonder dat u eerst een virtuele machine moet maken of een webtoepassing moet publiceren. U kunt bijvoorbeeld een functie configureren die wordt geactiveerd wanneer in Azure Monitor een waarschuwing wordt gegenereerd. In dit onderwerp leest u hoe u C#-code uitvoert, wanneer een resourcegroep wordt toegevoegd aan uw abonnement.   
 
-![Generic webhook geactiveerd functie in de Azure portal](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
+![Een door een algemene webhook geactiveerde functie in Azure Portal](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
 ## <a name="prerequisites"></a>Vereisten 
 
@@ -42,66 +42,66 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 Vervolgens maakt u een functie in de nieuwe functie-app.
 
-## <a name="create-function"></a>Maak een functie generic webhook geactiveerd
+## <a name="create-function"></a>Een door een algemene webhook geactiveerde functie maken
 
-1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als u deze functie is het eerste certificaat in uw app in de functie, selecteert u **aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
+1. Vouw de functie-app uit en klik op de knop **+** naast **Functies**. Als dit de eerste functie in de functie-app is, selecteert u **Aangepaste functie**. U ziet nu de volledige set het functiesjablonen.
 
     ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Selecteer de **Generic WebHook - C#** sjabloon. Typ een naam voor uw C#-functie en selecteer vervolgens **maken**.
+2. Selecteer de sjabloon **Algemene webhook - C#**. Typ een naam voor de C#-functie en selecteer vervolgens **Maken**.
 
-     ![Maak een functie generic webhook geactiveerd in de Azure-portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Een door een algemene webhook geactiveerde functie maken in Azure Portal](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
 
-2. Klik in de nieuwe functie op **<> / Get function URL**, kopiëren en opslaan van de waarde. U kunt deze waarde gebruiken voor het configureren van de webhook. 
+2. Klik in de nieuwe functie op **</> Functie-URL ophalen**, kopieer de waarde en sla deze op. U gebruikt deze waarde om de webhook te configureren. 
 
     ![De functiecode controleren](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
          
-Vervolgens maakt u een webhook-eindpunt in een waarschuwing voor het logboek van activiteit in de Azure-Monitor. 
+Vervolgens maakt u een webhookeindpunt in een waarschuwing voor activiteitenlogboek in Azure Monitor. 
 
-## <a name="create-an-activity-log-alert"></a>Maken van een activiteit logboek-waarschuwing
+## <a name="create-an-activity-log-alert"></a>Een waarschuwing voor activiteitenlogboek maken
 
-1. Navigeer in de Azure-portal naar de **Monitor** service, selecteer **waarschuwingen**, en klik op **toevoegen activiteit logboek waarschuwing**.   
+1. Navigeer in Azure Portal naar de service **Controleren**, selecteer **Waarschuwingen** en klik op **Waarschuwing voor activiteitenlogboek toevoegen**.   
 
     ![Bewaken](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
 
 2. Gebruik de instellingen zoals opgegeven in de tabel:
 
-    ![Maken van een activiteit logboek-waarschuwing](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
+    ![Een waarschuwing voor activiteitenlogboek maken](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
     | Instelling      |  Voorgestelde waarde   | Beschrijving                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Waarschuwing voor activiteit logboeknaam** | resource-group-maken-waarschuwing | De naam van de activiteit logboek-waarschuwing. |
-    | **Abonnement** | Uw abonnement | Het abonnement dat u voor deze zelfstudie gebruikt. | 
-    |  **Resourcegroep** | myResourceGroup | De resourcegroep die de waarschuwing bronnen om te worden geïmplementeerd. Met behulp van dezelfde resourcegroep als uw app functie gemakkelijker om op te schonen nadat u de zelfstudie hebt voltooid. |
-    | **Gebeurteniscategorie** | Beheerdersrechten | Deze categorie omvat wijzigingen aangebracht in Azure-resources.  |
-    | **Brontype** | Resourcegroepen | Filtert waarschuwingen resource om activiteiten te groeperen. |
-    | **Resourcegroep**<br/>en **Resource** | Alle | Alle resources bewaken. |
-    | **De naam van bewerking** | Een resourcegroep maken | Waarschuwingen voor het maken van de operations-filters. |
-    | **Niveau** | Informatief | Informatieve waarschuwing bevatten. | 
-    | **Status** | Geslaagd | Filtert waarschuwingen naar acties die zijn met succes voltooid. |
-    | **Actiegroep** | Nieuw | Maak een nieuwe actiegroep waarin de actie wordt een waarschuwing wordt gegenereerd. |
-    | **De naam van groep** | functie-webhook | Een unieke naam voor de groep in te grijpen.  | 
-    | **Korte naam** | funcwebhook | Een korte naam voor de groep in te grijpen. |  
+    | **Naam voor een waarschuwing voor activiteitenlogboek** | resourcegroep-maken-waarschuwing | Naam van de waarschuwing voor activiteitenlogboek. |
+    | **Abonnement** | Uw abonnement | Het abonnement dat u gebruikt voor deze zelfstudie. | 
+    |  **Resourcegroep** | myResourceGroup | De resourcegroep waarin de waarschuwingsresources worden geïmplementeerd. Als u dezelfde resourcegroep gebruikt als de functie-app, maakt dit het opschonen gemakkelijker nadat u de zelfstudie hebt voltooid. |
+    | **Gebeurteniscategorie** | Administratief | Deze categorie omvat wijzigingen die zijn aangebracht in Azure-resources.  |
+    | **Resourcetype** | Resourcegroepen | Filtert waarschuwingen op activiteiten van resourcegroepen. |
+    | **Resourcegroep**<br/>en **Resource** | Alle | Controleer alle resources. |
+    | **Naam van bewerking** | Een resourcegroep maken | Filtert waarschuwingen op maakbewerkingen. |
+    | **Niveau** | Informatief | Neem waarschuwingen op informatieniveau op. | 
+    | **Status** | Geslaagd | Filtert waarschuwingen op acties die zijn voltooid. |
+    | **Actiegroep** | Nieuw | Maak een nieuwe actiegroep waarin de uitgevoerde actie wordt gedefinieerd wanneer een waarschuwing is gegenereerd. |
+    | **Naam van actiegroep** | functiewebhook | Een naam om de actiegroep te identificeren.  | 
+    | **Korte naam** | funcwebhook | Een korte naam voor de actiegroep. |  
 
-3. In **acties**, een actie met de instellingen die zijn opgegeven in de tabel toevoegen: 
+3. Voeg in **Acties** een actie toe met behulp van de instellingen die zijn opgegeven in de tabel: 
 
-    ![De actiegroep van een toevoegen](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
+    ![Een actiegroep toevoegen](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
 
     | Instelling      |  Voorgestelde waarde   | Beschrijving                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Naam** | CallFunctionWebhook | Een naam voor de actie. |
-    | **Actietype** | Webhook | Het antwoord op de waarschuwing is dat een Webhook-URL wordt aangeroepen. |
-    | **Details** | URL van de functie | Plak in de webhook-URL van de functie die u eerder hebt gekopieerd. |v
+    | **Actietype** | Webhook | Als antwoord op de waarschuwing wordt een webhook-URL aangeroepen. |
+    | **Details** | Functie-URL | Plak de webhook-URL van de functie die u eerder hebt gekopieerd. |v
 
-4. Klik op **OK** om de waarschuwing en de actie-groep te maken.  
+4. Klik op **OK** om de waarschuwing en actiegroep te maken.  
 
-De webhook is nu aangeroepen wanneer een resourcegroep in uw abonnement wordt gemaakt. Werk vervolgens de code in de functie voor het afhandelen van de JSON-logboekgegevens in de hoofdtekst van de aanvraag.   
+De webhook wordt nu aangeroepen wanneer een resourcegroep wordt gemaakt in uw abonnement. Vervolgens werkt u de code in de functie bij om de JSON-logboekgegevens in de hoofdtekst van de aanvraag te verwerken.   
 
 ## <a name="update-the-function-code"></a>De functiecode bijwerken
 
-1. Ga terug naar de functie-app in de portal uit en vouw de functie. 
+1. Ga terug naar de functie-app in de portal en vouw de functie uit. 
 
-2. De C#-scriptcode in de functie in de portal vervangen door de volgende code:
+2. Vervang de C#-scriptcode in de functie in de portal door de volgende code:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -141,19 +141,19 @@ De webhook is nu aangeroepen wanneer een resourcegroep in uw abonnement wordt ge
     }
     ```
 
-U kunt nu de functie testen door een nieuwe resourcegroep maken in uw abonnement.
+U kunt de functie nu testen door een nieuwe resourcegroep te maken in uw abonnement.
 
 ## <a name="test-the-function"></a>De functie testen
 
-1. Klik op het pictogram van de groep resources aan de linkerkant van de Azure portal, selecteer **+ toevoegen**, typ een **Resourcegroepnaam**, en selecteer **maken** om een lege resourcegroep te maken.
+1. Klik op het pictogram Resourcegroep links in Azure Portal, selecteer **+ Toevoegen**, typ een **Naam resourcegroep** en selecteer **Maken** om een lege resourcegroep te maken.
     
     ![Maak een resourcegroep.](./media/functions-create-generic-webhook-triggered-function/functions-create-resource-group.png)
 
-2. Ga terug naar de functie en vouw de **logboeken** venster. Nadat de resourcegroep is gemaakt, wordt de activiteit logboek waarschuwing activeert de webhook en de functie wordt uitgevoerd. Ziet u de naam van de nieuwe resourcegroep naar de logboeken geschreven.  
+2. Ga terug naar de functie en vouw het venster **Logboeken** uit. Nadat de resourcegroep is gemaakt, wordt de webhook geactiveerd door de waarschuwing voor activiteitenlogboek, en wordt de functie uitgevoerd. Zoals u ziet, is de naam van de nieuwe resourcegroep nu naar de logboeken geschreven.  
 
-    ![Een instelling van de toepassing test toevoegen.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
+    ![Voeg een instelling voor een testtoepassing toe.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
 
-3. (Optioneel) Ga terug en verwijderen van de resourcegroep die u hebt gemaakt. Houd er rekening mee dat deze activiteit de functie niet activeren. Dit komt doordat delete-bewerkingen worden gefilterd door de waarschuwing. 
+3. (Optioneel) Ga terug en verwijder de resourcegroep die u hebt gemaakt. Let op: door deze activiteit wordt de functie niet geactiveerd. Dit komt omdat verwijderbewerkingen eruit worden gefilterd door de waarschuwing. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -161,9 +161,9 @@ U kunt nu de functie testen door een nieuwe resourcegroep maken in uw abonnement
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een functie die wordt uitgevoerd wanneer een aanvraag wordt ontvangen van een algemene webhook hebt gemaakt. 
+U hebt een functie gemaakt die wordt uitgevoerd wanneer een aanvraag wordt ontvangen van een algemene webhook. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Zie [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (Azure Functions-HTTP- en webhookbindingen) voor meer informatie over webhooktriggers. Zie voor meer informatie over het ontwikkelen van functies in C#, [Azure Functions C# script referentie voor ontwikkelaars](functions-reference-csharp.md).
+Zie [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (Azure Functions-HTTP- en webhookbindingen) voor meer informatie over webhooktriggers. Zie [Azure Functions C# script developer reference](functions-reference-csharp.md) (Naslaginformatie voor ontwikkelaars van Azure Functions C#-scripts) voor meer informatie over het ontwikkelen van functies in C#.
 

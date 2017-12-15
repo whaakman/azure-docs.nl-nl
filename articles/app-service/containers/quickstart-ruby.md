@@ -1,7 +1,7 @@
 ---
-title: Een Ruby-App maken en implementeren in App Service op Linux | Microsoft Docs
-description: Meer informatie over Ruby om apps te maken met App-Service op Linux.
-keywords: Azure app service, linux, besturingssystemen, ruby
+title: Een Ruby-app maken en implementeren in App Service on Linux | Microsoft Docs
+description: Meer informatie over het maken van Ruby-apps met App Service on Linux.
+keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -18,26 +18,26 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: a54ef1ae40ba6ea9ad604a29c67e41228c0d5946
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-App maken in App-Service op Linux
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-app maken in App Service on Linux
 
-[App-Service op Linux](app-service-linux-intro.md) biedt een zeer schaalbaar, zelf patch webhosting-service. Deze snelstartgids ziet u het maken van een eenvoudige Ruby op Rails toepassing u vervolgens implementeren op Azure als een Web-App op Linux.
+[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze quickstart laat zien hoe u een eenvoudige Ruby on Rails-toepassing maakt en implementeert als web-app in Azure Web App on Linux.
 
-![Hallo wereld](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.4.1 installeren of hoger</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.4.1 of hoger installeren</a>
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Voer de volgende opdracht voor het klonen van de opslagplaats van de voorbeeld-app op uw lokale computer in een terminalvenster:
+Voer in een terminalvenster de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer:
 
 ```bash
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
@@ -45,20 +45,20 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
 
-De server rails uitvoeren om de toepassing uit te voeren. Wijzig in de *Hallo wereld* directory, en de `rails server` opdracht start de server.
+Zorg ervoor dat de Rails-server actief is, anders werkt de toepassing niet. Ga naar de map *hello-world*, en start de server met de opdracht `rails server`.
 
 ```bash
 cd hello-world\bin
 rails server
 ```
 
-Met behulp van uw webbrowser en navigeer naar `http://localhost:3000` naar de app lokaal testen.
+Navigeer naar `http://localhost:3000` met uw webbrowser om de app lokaal te testen.
 
-![Hallo wereld](./media/quickstart-ruby/hello-world.png)
+![Hello-world](./media/quickstart-ruby/hello-world.png)
 
-## <a name="modify-app-to-display-welcome-message"></a>App om weer te geven welkomstbericht wijzigen
+## <a name="modify-app-to-display-welcome-message"></a>App wijzigen om welkomstbericht weer te geven
 
-Wijzigen van de toepassing en een welkomstbericht worden weergegeven. Eerst moet u een route instellen door het wijzigen van de *~/workspace/ruby-docs-hello-world/config/routes.rb* bestand opnemen van een route met de naam `hello`.
+Wijzig de toepassing zo dat een welkomstbericht wordt weergegeven. Eerst moet u een route instellen door het bestand *~/workspace/ruby-docs-hello-world/config/routes.rb* te wijzigen. Neem er een route in op met de naam `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -67,9 +67,9 @@ Wijzigen van de toepassing en een welkomstbericht worden weergegeven. Eerst moet
   end
   ```
 
-De domeincontroller van de toepassing wijzigen zodat deze het bericht als HTML naar de browser retourneert. 
+Wijzig de controller van de toepassing zo dat het bericht als HTML wordt geretourneerd naar de browser. 
 
-Open *~/workspace/hello-world/app/controllers/application_controller.rb* voor bewerken. Wijzig de `ApplicationController` klasse om te zoeken, zoals in het volgende voorbeeld:
+Open *~/workspace/hello-world/app/controllers/application_controller.rb* voor bewerking. Wijzig de klasse `ApplicationController` zo dat deze eruitziet zoals in het volgende codevoorbeeld:
 
   ```ruby
   class ApplicationController > ActionController :: base
@@ -80,49 +80,49 @@ Open *~/workspace/hello-world/app/controllers/application_controller.rb* voor be
   end
   ```
 
-Uw app is nu geconfigureerd. Met behulp van uw webbrowser en navigeer naar `http://localhost:3000` om te bevestigen dat de startpagina van de hoofdmap.
+Uw app is nu geconfigureerd. Navigeer met behulp van uw webbrowser naar `http://localhost:3000` om de hoofdlandingspagina te controleren.
 
-![Hallo wereld geconfigureerd](./media/quickstart-ruby/hello-world-configured.png)
+![Hello World geconfigureerd](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Een Ruby web-app in Azure maken
+## <a name="create-a-ruby-web-app-on-azure"></a>Een Ruby web-app maken in Azure
 
-Een resourcegroep is vereist voor de activa die nodig zijn voor uw web-app bevatten. Voor het maken van een resourcegroep gebruikt de [az groep maken]() opdracht.
+Een resourcegroep is vereist voor de benodigde activa voor uw web-app. U kunt een resourcegroep maken met de opdracht [az group create]().
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Gebruik de [az appservice-abonnement maken](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) opdracht voor het maken van een app service-plan voor uw web-app.
+Maak een App Service-plan met de opdracht [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Vervolgens geven de [az webapp maken](https://docs.microsoft.com/cli/azure/webapp) opdracht voor het maken van de web-app die gebruikmaakt van het zojuist gemaakte service-abonnement. U ziet dat de runtime is ingesteld op `ruby|2.3`. Vergeet niet om te vervangen `<app name>` met een unieke app-naam.
+Gebruik vervolgens de opdracht [az webapp create](https://docs.microsoft.com/cli/azure/webapp) om de web-app te maken voor het zojuist gemaakte App Service-plan. Merk op dat de runtime is ingesteld op `ruby|2.3`. Vergeet niet om `<app name>` te vervangen door een unieke app-naam.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
 --runtime "ruby|2.3" --deployment-local-git
 ```
 
-De uitvoer van de opdracht geeft informatie over de nieuwe web-app, alsmede de URL van de implementatie. Het moet eruitzien als met het volgende voorbeeld. Kopieer de URL voor later gebruik in deze zelfstudie.
+De uitvoer van de opdracht bevat informatie over de nieuwe web-app en de implementatie-URL. Deze URL moet er ongeveer uitzien als de URL in het volgende voorbeeld. Kopieer de URL voor later gebruik in deze zelfstudie.
 
 ```bash
 https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
 ```
 
-Zodra de web-app is gemaakt, een **overzicht** pagina wordt weergegeven. Ga naar het. De volgende welkomstscherm pagina wordt weergegeven:
+Zodra de web-app is gemaakt, kunt u de pagina **Overzicht** weergeven. Navigeer naar die pagina. De volgende welkomstpagina wordt weergegeven:
 
-![Welkomstscherm pagina](./media/quickstart-ruby/splash-page.png)
+![Welkomstpagina](./media/quickstart-ruby/splash-page.png)
 
 
 ## <a name="deploy-your-application"></a>Uw toepassing implementeren
 
-Voer de volgende opdrachten voor het implementeren van de lokale toepassing naar uw Azure-website:
+Voer de volgende opdrachten uit om de lokale toepassing in uw Azure-website te implementeren:
 
 ```bash
 git remote add azure <Git deployment URL from above>
@@ -131,7 +131,7 @@ git commit -m "Initial deployment commit"
 git push azure master
 ```
 
-Controleer de implementatie op afstand bewerkingen melden. De opdrachten produceren uitvoer die vergelijkbaar is met de volgende tekst:
+Controleer of de externe implementatiebewerkingen met succes voltooid zijn. De uitvoer van de opdrachten moet er ongeveer uitzien als de volgende tekst:
 
 ```bash
 remote: Using sass-rails 5.0.6
@@ -147,13 +147,13 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Zodra de implementatie is voltooid, start opnieuw op uw web-app voor de implementatie van kracht te laten met behulp van de [az webapp herstart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) opdracht als volgt te werk:
+Als de implementatie is voltooid, moet u de web-app opnieuw opstarten om de implementatie van kracht te laten worden. Hiertoe voert u de opdracht [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) uit, zoals in dit voorbeeld:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
 ```
 
-Navigeer naar uw site en de resultaten controleren.
+Navigeer naar uw site en controleer de resultaten.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -162,11 +162,11 @@ http://<app name>.azurewebsites.net
 ![bijgewerkte web-app](./media/quickstart-ruby/hello-world-updated.png)
 
 > [!NOTE]
-> Terwijl de app opnieuw wordt opgestart, probeert te bladeren op de site, resulteert in een HTTP-statuscode `Error 503 Server unavailable`. Het duurt enkele minuten volledig opnieuw te starten.
+> Als u probeert op de site te bladeren terwijl de app opnieuw wordt opgestart, wordt de HTTP-statuscode `Error 503 Server unavailable` geretourneerd. Het opnieuw opstarten kan een paar minuten duren.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Op Linux FAQ-Azure App Service](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Veelgestelde vragen over Azure App Service on Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

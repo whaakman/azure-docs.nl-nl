@@ -17,23 +17,23 @@ ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Uw eerste Java-web-app in Azure maken
 
-Azure [Web-Apps](app-service-web-overview.md) biedt een zeer schaalbaar, zelf patch webhosting-service. In deze Quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
+Azure [Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. In deze quickstart leert u hoe u een Java-web-app implementeert in App Service met behulp van de [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/).
 
-Wanneer u deze Quick Start hebt voltooid, ziet uw toepassing er ongeveer als de volgende afbeelding wanneer u deze in een webbrowser bekijken:
+Wanneer u deze quickstart hebt voltooid en uw toepassing in een webbrowser bekijkt, ziet uw toepassing er ongeveer als volgt uit:
 
 !['Hello Azure'! voorbeeld van web-app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze onderdelen moeten zijn geïnstalleerd om deze Quickstart te kunnen voltooien:
+Deze onderdelen moeten zijn geïnstalleerd om deze quickstart te kunnen voltooien:
 
-* De gratis <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze Quickstart maakt gebruik van Eclipse Neon.
+* De gratis <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE voor Java EE-ontwikkelaars</a>. Deze quickstart maakt gebruik van Eclipse Neon.
 * De <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit voor Eclipse</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -185,7 +185,7 @@ Selecteer **Resourcegroepen** in het linkermenu.
 
 ![Portalnavigatie naar resourcegroepen](media/app-service-web-get-started-java/rg.png)
 
-Selecteer de resourcegroep. De pagina bevat de resources die u in deze Quickstart hebt gemaakt.
+Selecteer de resourcegroep. De pagina bevat de resources die u in deze quickstart hebt gemaakt.
 
 ![Resourcegroep myResourceGroup](media/app-service-web-get-started-java/rg2.png)
 

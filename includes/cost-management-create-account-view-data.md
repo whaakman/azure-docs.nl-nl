@@ -32,4 +32,4 @@ Klik met de rechtermuisknop op een resourcetype en selecteer **Cost Entities** o
 
 ![kostenentiteiten en services](./media/cost-management-create-account-view-data/actual-cost-05.png)
 
-Een zelfstudie als video wilt bekijken over het weergeven van uw cloud rekeninggegevens, Zie [analyseren van uw gegevens met Azure kosten Management Cloudyn facturering cloud](https://youtu.be/G0pvI3iLH-Y).
+Zie [Analyzing your cloud billing data with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y) (Uw factureringsgegevens voor de cloud analyseren met Azure Cost Management door Cloudyn) als u een video voor zelfstudie wilt bekijken over uw factureringsgegevens voor de cloud.

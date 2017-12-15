@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
@@ -68,7 +68,7 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de opslagw
 
 ## <a name="create-the-queue"></a>De wachtrij maken
 
-1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. U gebruikt deze referenties verbinding maken met de storage-account in Azure Storage Explorer. Als u uw opslagaccount al hebt verbonden, gaat u naar stap 4.
+1. Klik in de functie op **Integreren**, vouw **Documentatie** uit en kopieer de **Accountnaam** en de **Accountsleutel**. Met deze referenties kunt u verbinding maken met het opslagaccount in Azure Storage Explorer. Als u uw opslagaccount al hebt verbonden, gaat u naar stap 4.
 
     ![Haal de verbindingsreferenties voor het opslagaccount op.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
@@ -80,7 +80,7 @@ Vervolgens maakt u verbinding met uw Azure Storage-account en maakt u de opslagw
 
     ![Voer de opslagreferenties in en maak verbinding.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Vouw het gekoppelde opslagaccount, met de rechtermuisknop op **wachtrijen**, klikt u op **wachtrij maken**, type `myqueue-items`, en druk op enter.
+1. Vouw het gekoppelde opslagaccount uit. Klik met de rechtermuisknop op **Wachtrijen**, klik op **Wachtrij maken**, typ `myqueue-items` en druk vervolgens op Enter.
 
     ![Maak een opslagwachtrij.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -88,7 +88,7 @@ Nu u een opslagwachtrij hebt, kunt u de functie testen door een bericht toe te v
 
 ## <a name="test-the-function"></a>De functie testen
 
-1. Terug in de Azure portal, blader naar de functie, vouw de **logboeken** onder aan de pagina en zorg ervoor dat logboek streaming wordt niet onderbroken.
+1. Blader in Azure Portal naar de functie, vouw de **Logboeken** onder aan de pagina uit en controleer of logboekstreaming niet is onderbroken.
 
 1. Vouw in Storage Explorer uw opslagaccount, **Wachtrijen** en **myqueue-items** uit en klik vervolgens op **Bericht toevoegen**.
 

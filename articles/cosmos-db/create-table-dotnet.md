@@ -1,6 +1,6 @@
 ---
-title: 'Snelstartgids: Tabel API met .NET - Azure Cosmos DB | Microsoft Docs'
-description: Deze snelstartgids ziet u hoe u met de Azure-API voor tabel Cosmos DB een toepassing maken met de Azure-portal en .NET
+title: 'Quickstart: Table-API met .NET - Azure Cosmos DB | Microsoft Docs'
+description: In deze quickstart ziet u hoe u de Table-API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en .NET
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -17,13 +17,13 @@ ms.date: 11/20/2017
 ms.author: mimig
 ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
 ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/20/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snelstartgids: Een tabel met .NET- en Azure Cosmos DB API-app bouwen 
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Quickstart: Een Table-API compileren met .NET en Azure Cosmos DB 
 
-Deze snelstartgids laat zien hoe u Java en de Azure DB die Cosmos [tabel API](table-introduction.md) voor het bouwen van een app door het klonen van een voorbeeld van GitHub. Deze snelstartgids ziet u ook een Cosmos-DB Azure-account maken en hoe Data Explorer gebruiken om te maken van tabellen en entiteiten in de Azure portal op Internet.
+Deze quickstart laat zien hoe u Java en de [Table-API](table-introduction.md) van Azure Cosmos DB gebruikt voor het compileren van een app door een voorbeeld uit GitHub te klonen. In deze quickstart ziet u ook hoe u een Azure Cosmos DB-account maakt en hoe u Data Explorer gebruikt om tabellen en entiteiten te maken in Azure Portal op internet.
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
@@ -36,7 +36,7 @@ Als u Visual Studio 2017 nog niet hebt geïnstalleerd, kunt u het downloaden en 
 ## <a name="create-a-database-account"></a>Een databaseaccount maken
 
 > [!IMPORTANT] 
-> U moet een nieuwe tabel API-account om te werken met de SDK algemeen beschikbaar tabel-API's maken. Tabel gemaakt tijdens de preview-API-accounts worden niet ondersteund door de algemeen beschikbaar SDK's.
+> U moet een nieuw Table-API-account maken om te kunnen werken met de algemeen beschikbare SDK’s voor de Table-API. Table-API-accounts die zijn gemaakt tijdens de preview worden niet ondersteund door de algemeen beschikbaar SDK's.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -52,7 +52,7 @@ U kunt nu gegevens aan uw nieuwe tabel toevoegen met behulp van Data Explorer.
 1. Vouw in Data Explorer **sample-table** uit, klik op **Entiteiten** en klik vervolgens op **Entiteit toevoegen**.
 
    ![Nieuwe entiteiten maken in Data Explorer in Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Nu gegevens toevoegen aan de waarde PartitionKey en RowKey waarde vakken en klik op **entiteit toevoegen**.
+2. Voeg nu gegevens toe aan de vakken met een waarde voor PartitionKey en RowKey en klik op **Entiteit toevoegen**.
 
    ![De partitiesleutel en de rijsleutel instellen voor een nieuwe entiteit](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -62,82 +62,82 @@ U kunt nu gegevens aan uw nieuwe tabel toevoegen met behulp van Data Explorer.
 
 We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app. 
+1. Open een git-terminalvenster, bijvoorbeeld git bash, en gebruik de `cd`-opdracht om naar een map te gaan voor het installeren van de voorbeeld-app. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer. 
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt een kopie van de voorbeeld-app op uw computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
-3. Open het oplossingsbestand TableStorage in Visual Studio. 
+3. Open vervolgens het oplossingenbestand TableStorage in Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Uw verbindingsreeks bijwerken
 
-Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan uw app kan communiceren met uw gehoste-database. 
+Ga nu terug naar Azure Portal om de verbindingsreeksinformatie op te halen en kopieer deze in de app. Hierdoor kan de app communiceren met de gehoste database. 
 
-1. In de [Azure-portal](http://portal.azure.com/), klikt u op **verbindingsreeks**. 
+1. Klik in [Azure Portal](http://portal.azure.com/) op **Verbindingsreeks**. 
 
-    Gebruik de knoppen Kopieer aan de rechterkant van het scherm voor het kopiëren van de primaire VERBINDINGSREEKS.
+    Gebruik de kopieerknoppen aan de rechterkant van het scherm om de PRIMARY CONNECTION STRING te kopiëren.
 
-    ![Weergeven en kopieer de primaire VERBINDINGSREEKS in het deelvenster verbindingsreeks](./media/create-table-dotnet/connection-string.png)
+    ![De PRIMARY CONNECTION STRING in het deelvenster Verbindingsreeks weergeven en kopiëren](./media/create-table-dotnet/connection-string.png)
 
-2. Open het bestand App.config in Visual Studio. 
+2. In Visual Studio opent u het bestand App.config. 
 
-3. Opmerkingen bij de StorageConnectionString op regel 8 en uitcommentarieer de StorageConnectionString op regel 7 als deze zelfstudie maakt geen gebruik van de Opslagemulator. Regel 7 en 8 ziet er nu als volgt:
+3. Verwijder de opmerking bij de StorageConnectionString op regel 8 en plaats een opmerking bij de StorageConnectionString op regel 7. Dit omdat deze zelfstudie geen gebruik maakt van de Storage Emulator. Regel 7 en 8 moeten er nu als volgt uitzien:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. De primaire VERBINDINGSREEKS vanuit de portal in de waarde StorageConnectionString op regel 8 plakken. Plak de tekenreeks tussen aanhalingstekens. 
+4. Plak de PRIMARY CONNECTION STRING vanuit de portal in de waarde StorageConnectionString op regel 8. Plak de tekenreeks tussen de aanhalingstekens. 
 
     > [!IMPORTANT]
-    > Als uw eindpunt documents.azure.com treedt op wanneer u een preview-account hebt gebruikt, en u wilt maken een [nieuwe tabel API account](#create-a-database-account) werken met de algemeen beschikbaar tabel API SDK. 
+    > Als uw eindpunt documents.azure.com gebruikt, hebt u een preview-account en moet u een [nieuw Table-API-account](#create-a-database-account) maken om te kunnen werken met de algemeen beschikbare SDK voor Table- API. 
     > 
 
-    Regel 8 moet nu uitzien:
+    Regel 8 moet nu ongeveer als volgt uitzien:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-5. Sla het bestand App.config.
+5. Sla het bestand App.config op.
 
 U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicatie met Azure Cosmos DB. 
 
-## <a name="build-and-deploy-the-app"></a>De app bouwen en implementeren
+## <a name="build-and-deploy-the-app"></a>De app compileren en implementeren
 
-1. In Visual Studio met de rechtermuisknop op de **TableStorage** project in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
+1. Klik in Visual Studio met de rechtermuisknop op het project **TableStorage** in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
 
-2. In het NuGet **Bladeren** in het vak *Microsoft.Azure.CosmosDB.Table*.
+2. Typ in het NuGet-vak **Bladeren** *Microsoft.Azure.CosmosDB.Table*.
 
-3. Installeren van de resultaten de **Microsoft.Azure.CosmosDB.Table** bibliotheek. Hiermee installeert u het pakket Azure Cosmos DB tabel API, evenals alle afhankelijkheden.
+3. Installeer vanuit de resultaten de bibliotheek **Microsoft.Azure.CosmosDB.Table**. Nu worden het Azure Cosmos DB Table-API-pakket en alle daarvoor vereiste onderdelen geïnstalleerd.
 
-4. Open BasicSamples.cs en een onderbrekingspunt regel 30 en 52 regel toevoegen.
+4. Open BasicSamples.cs en voeg een onderbrekingspunt toe aan regel 30 en 52.
 
 5. Klik op CTRL+F5 om de toepassing te starten.
 
-    Het consolevenster weergegeven gegevens in de tabel wordt toegevoegd aan de nieuwe database in de tabel in Azure Cosmos DB. 
+    In het consolevenster worden de tabelgegevens weergegeven die worden toegevoegd aan de nieuwe tabeldatabase in Azure Cosmos DB. 
     
-    Als u een fout over afhankelijkheden krijgt, Zie [probleemoplossing](table-sdk-dotnet.md#troubleshooting).
+    Als u een fout over afhankelijkheden krijgt, bekijkt u de [Probleemoplossing](table-sdk-dotnet.md#troubleshooting).
 
-    Als u het eerste onderbrekingspunt raakt, Ga terug naar de Data Explorer in de Azure portal en de tabel demo * uitvouwen en op **entiteiten**. De **entiteiten** tabblad aan de rechterkant ziet u de nieuwe entiteit die is toegevoegd, houd er rekening mee dat telefoonnummer voor de gebruiker is 425-555-0101.
+    Als u het eerste onderbrekingspunt bereikt, gaat u terug naar de Data Explorer in Azure Portal en vouwt u de demotabel* uit. Klik vervolgens op **Entiteiten**. Het tabblad **Entiteiten** aan de rechterkant geeft de nieuwe entiteit weer die is toegevoegd. Houd er rekening mee dat het telefoonnummer voor de gebruiker 425-555-0101 is.
     
-6. Het tabblad entiteiten in Data Explorer sluiten.
+6. Sluit het tabblad Entiteiten in Data Explorer.
     
-7. Voer de app naar de volgende onderbrekingspunt blijven.
+7. Voer de app uit tot u het volgende onderbrekingspunt bereikt.
 
-    Wanneer u het onderbrekingspunt gaat u terug naar de portal, klikt u op entiteiten opnieuw te openen van het tabblad entiteiten en houd er rekening mee dat het telefoonnummer is bijgewerkt naar 425-555-0105.
+    Wanneer u het onderbrekingspunt bereikt, gaat u terug naar de portal en klikt u opnieuw op Entiteiten om het tabblad Entiteiten te openen. U ziet dat het telefoonnummer is bijgewerkt naar 425-555-0105.
 
-8. Druk op CTRL + c drukken om te beëindigen van de uitvoering van de app weer in het consolevenster. 
+8. Druk in het consolevenster op CTRL + C om te stoppen met de uitvoering van de app. 
 
-    U kunt nu gaat u terug naar de Data Explorer toevoegen of wijzigen van de entiteiten en gegevens opvragen.
+    U kunt nu teruggaan naar Data Explorer en de entiteiten toevoegen of wijzigen, en gegevens opvragen.
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 
@@ -152,5 +152,5 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 In deze Quick Start hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een tabel gemaakt met de Data Explorer en hebt u een app uitgevoerd.  Nu kunt u een query uitvoeren op uw gegevens met de Table-API.  
 
 > [!div class="nextstepaction"]
-> [Tabelgegevens importeren in de tabel-API](table-import.md)
+> [Tabelgegevens importeren in de Table-API](table-import.md)
 

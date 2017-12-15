@@ -17,13 +17,13 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Een Node.js-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een Node.js-app naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Node.js in de web-app te implementeren.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze quickstart laat zien hoe u een Node.js-app naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om voorbeeldcode van Node.js in de web-app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 * <a href="https://nodejs.org/" target="_blank">Node.js en NPM installeren</a>
@@ -63,7 +63,7 @@ Voer de toepassing lokaal uit door een terminalvenster te openen en met het scri
 npm start
 ```
 
-Open een webbrowser en navigeer naar de voorbeeld-app op `http://localhost:1337`.
+Open een webbrowser en navigeer naar de voorbeeldapp op `http://localhost:1337`.
 
 Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
 
@@ -141,7 +141,7 @@ Open met een teksteditor het bestand `index.js` binnen de Node.js-app en breng e
 response.end("Hello Azure!");
 ```
 
-Uw wijzigingen in Git in het lokale terminalvenster en vervolgens de codewijzigingen pushen naar Azure.
+Leg in het lokale terminalvenster uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
 
 ```bash
 git commit -am "updated output"

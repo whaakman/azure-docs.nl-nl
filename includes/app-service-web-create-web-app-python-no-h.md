@@ -1,12 +1,12 @@
-In de Cloud-Shell, maakt u een web-app in de `myAppServicePlan` App Service-abonnement met de [az webapp maken](/cli/azure/webapp#create) opdracht. 
+Maak in de Cloud Shell een web-app in het `myAppServicePlan` App Service-plan met de opdracht [az webapp](/cli/azure/webapp#az_webapp_create). 
 
-Vervang in het volgende voorbeeld wordt `<app_name>` met een globaal unieke app-naam (geldige tekens zijn `a-z`, `0-9`, en `-`). De runtime is ingesteld op `python|3.4`. Als u wilt zien alle ondersteunde runtimes, [az webapp lijst-runtimes](/cli/azure/webapp#list-runtimes). 
+Vervang in het volgende voorbeeld `<app_name>` door een unieke naam (geldige tekens zijn `a-z`, `0-9`, en `-`). De runtime is ingesteld op `python|3.4`. Voer [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes) uit om alle ondersteunde runtimes te bekijken. 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "python|3.4" --deployment-local-git
 ```
 
-Wanneer de web-app is gemaakt, ziet de Azure CLI u uitvoer lijkt op het volgende voorbeeld:
+Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in het volgende voorbeeld:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -24,8 +24,8 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-U hebt een leeg nieuwe web-app gemaakt met git-implementatie is ingeschakeld.
+U hebt een nieuwe lege web-app gemaakt, met Git-implementatie ingeschakeld.
 
 > [!NOTE]
-> De URL van de externe Git wordt weergegeven in de `deploymentLocalGitUrl` eigenschap met de indeling `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Deze URL niet opslaan omdat u hebt deze later nodig.
+> De URL van de externe Git wordt weergegeven in de eigenschap `deploymentLocalGitUrl`, met de indeling `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Sla deze URL op, want u hebt deze later nodig.
 >

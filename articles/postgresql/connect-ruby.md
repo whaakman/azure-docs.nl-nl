@@ -1,6 +1,6 @@
 ---
 title: Met Ruby verbinding maken met Azure Database voor PostgreSQL | Microsoft Docs
-description: Deze snelstartgids bevat een voorbeeld van Ruby-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
+description: Deze quickstart bevat een voorbeeld van Ruby-code die u kunt gebruiken om verbinding te maken met en gegevens op te vragen uit een Azure Database voor PostgreSQL.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database voor PostgreSQL: Ruby gebruiken om verbinding te maken en gegevens op te vragen
-In deze snelstartgids ziet u hoe u met behulp van een [Ruby](https://www.ruby-lang.org)-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. De stappen in dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Ruby en niet bekend bent met het werken met Azure-Database voor PostgreSQL.
+In deze quickstart ziet u hoe u met behulp van een [Ruby](https://www.ruby-lang.org)-toepassing verbinding maakt met een Azure Database voor PostgreSQL. U ziet hier hoe u SQL-instructies gebruikt om gegevens in de database op te vragen, in te voegen, bij te werken en te verwijderen. In de stappen van dit artikel wordt ervan uitgegaan dat u bekend bent met het ontwikkelen met behulp van Ruby en geen ervaring hebt met het werken met Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Vereisten
-In deze snelstartgids worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
+In deze quickstart worden de resources die in een van deze handleidingen zijn gemaakt, als uitgangspunt gebruikt:
 - [Database maken - Portal](quickstart-create-server-database-portal.md)
 - [Database maken - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -53,7 +53,7 @@ Installeer Ruby op uw eigen machine.
 - Bouw de Ruby pg-module met behulp van Gem. Voer daarvoor de opdracht `sudo gem install pg` uit.
 
 ## <a name="run-ruby-code"></a>Ruby-code uitvoeren 
-- De code in een tekstbestand met bestand extensie .rb op te slaan en sla het bestand naar een projectmap zoals `C:\rubypostgres\read.rb` of`/home/username/rubypostgres/read.rb`
+- Sla de code op in een tekstbestand en sla het bestand op met de bestandsextensie .rb in een projectmap, zoals `C:\rubypostgres\read.rb` of `/home/username/rubypostgres/read.rb`
 - Voor het uitvoeren van de code opent u het opdrachtprompt of de bash-shell. Verander de map in de projectmap `cd rubypostgres` en typ de opdracht `ruby read.rb` om de toepassing uit te voeren.
 
 ## <a name="get-connection-information"></a>Verbindingsgegevens ophalen

@@ -17,15 +17,15 @@ ms.date: 08/29/2017
 ms.author: denlee
 ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
 ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: een Node.js-toepassing ontwikkelen met de Graph API
 
-Azure Cosmos-database is de globaal gedistribueerde multimodel database-service van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-In dit artikel snelstartgids demonstreert hoe u een Cosmos-DB Azure-account voor Graph API (preview), de database en de grafiek te maken met behulp van de Azure-portal. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
+In dit artikel ziet u hoe u met Azure Portal een Azure Cosmos DB-account voor Graph API (preview), een database en een graaf kunt maken. U gaat vervolgens een console-app ontwikkelen en uitvoeren met behulp van het opensourcestuurprogramma [Gremlin Node.js](https://www.npmjs.com/package/gremlin).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -49,7 +49,7 @@ We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen 
 
 1. Open een venster in een Git-terminal, zoals Git Bash, en ga (met de opdracht `cd`) naar een werkmap.
 
-2. Voer de volgende opdracht om de voorbeeld-opslagplaats klonen: 
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen: 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
@@ -59,7 +59,7 @@ We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen 
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand en u ziet u de volgende regels code. 
+Laten we eens kijken wat er precies gebeurt in de app. Open het bestand `app.js`. Hier ziet u de volgende regels code. 
 
 * De Gremlin-client wordt gemaakt.
 
@@ -75,9 +75,9 @@ Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand
         });
     ```
 
-  De configuraties bevinden zich allemaal in `config.js`, die we bewerken in de [volgende sectie](#update-your-connection-string).
+  De configuraties bevinden zich allemaal in `config.js`, wat in de [volgende sectie](#update-your-connection-string) wordt bewerkt.
 
-* Een reeks functies worden gedefinieerd voor het uitvoeren van verschillende Gremlin bewerkingen. Dit is een van beide:
+* Een reeks functies wordt gedefinieerd voor het uitvoeren van verschillende Gremlin-bewerkingen. Dit is er een van:
 
     ```nodejs
     function addVertex1(callback)
@@ -91,7 +91,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand
     }
     ```
 
-* Elke functie wordt uitgevoerd een `client.execute` methode met een Gremlin queryreeksparameter opgeven. Hier volgt een voorbeeld van hoe `g.V().count()` wordt uitgevoerd:
+* Elke functie voert een `client.execute`-methode uit met behulp van een Gremlin-querytekenreeksparameter. Hier volgt een voorbeeld van hoe `g.V().count()` wordt uitgevoerd:
 
     ```nodejs
     console.log('Running Count'); 
@@ -102,7 +102,7 @@ Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand
     });
     ```
 
-* Aan het einde van het bestand, alle methoden vervolgens worden aangeroepen met behulp van de `async.waterfall()` methode. Dit zal ze achter elkaar uitvoeren:
+* Aan het einde van het bestand worden alle methoden aangeroepen met behulp van de `async.waterfall()`-methode. Hiermee worden ze achter elkaar uitgevoerd:
 
     ```nodejs
     try{
@@ -123,25 +123,25 @@ Laten we eens kijken wat er precies gebeurt in de app. Open de `app.js` -bestand
 
 1. Open het bestand config.js. 
 
-2. In het bestand config.js, vult u de `config.endpoint` sleutel met de **Gremlin URI** waarde uit de **overzicht** pagina van de Azure-portal. 
+2. Vul in config.js voor de sleutel `config.endpoint` de **Gremlin URI**-waarde in van de pagina **Overzicht** in Azure Portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
     ![Een toegangssleutel bekijken en kopiëren in Azure Portal, blade Sleutels](./media/create-graph-nodejs/gremlin-uri.png)
 
-   Als de **Gremlin URI** waarde leeg is, kunt u de waarde van de genereren de **sleutels** pagina in de portal. Gebruik de **URI** waarde, https:// verwijderen en wijzigen van documenten aan grafieken.
+   Als er geen **Gremlin URI**-waarde wordt opgegeven, kunt u de waarde genereren met behulp van de waarde op de pagina **Sleutels** in de portal. Gebruik de **URI**-waarde, verwijder https:// en wijzig de documenten in grafen.
 
    Het Gremlin-eindpunt moet alleen de hostnaam zijn zonder het protocol-/poortnummer, zoals `mygraphdb.graphs.azure.com` (niet `https://mygraphdb.graphs.azure.com` of `mygraphdb.graphs.azure.com:433`).
 
-3. In het bestand config.js, vult u de waarde config.primaryKey met de **primaire sleutel** waarde uit de **sleutels** pagina van de Azure-portal. 
+3. Vul in config.js voor de waarde config.primaryKey de waarde van de **Primaire sleutel** in van de pagina **Sleutels** in Azure Portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Blade van Azure portal 'Sleutels'](./media/create-graph-nodejs/keys.png)
+   ![De blade Sleutels in Azure Portal](./media/create-graph-nodejs/keys.png)
 
 4. Voer de databasenaam en de naam van de graaf (container) in voor de waarde van config.database en config.collection. 
 
-Hier volgt een voorbeeld van wat het bestand config.js voltooide als eruitzien moet:
+Hier volgt een voorbeeld van hoe het voltooide bestand config.js eruit moet zien:
 
 ```nodejs
 var config = {}
@@ -167,9 +167,9 @@ module.exports = config;
 
 U kunt nu teruggaan naar Data Explorer in Azure Portal en uw nieuwe graafgegevens bekijken, aanpassen en bewerken en er query's op uitvoeren.
 
-De nieuwe database wordt in Data Explorer weergegeven in het deelvenster **Grafieken**. Vouw de database, gevolgd door de verzameling, en selecteer vervolgens **grafiek**.
+De nieuwe database wordt in Data Explorer weergegeven in het deelvenster **Grafieken**. Vouw de database uit, gevolgd door de verzameling en selecteer vervolgens **Grafiek**.
 
-De gegevens die worden gegenereerd door de voorbeeld-app wordt weergegeven in het volgende venster binnen de **grafiek** tabblad wanneer u selecteert **Filter toepassen**.
+De gegevens die worden gegenereerd door de voorbeeld-app worden weergegeven in het volgende deelvenster binnen het tabblad **Grafiek** wanneer u het tabblad **Filter toepassen** selecteert.
 
 Probeer `g.V()` voltooien met `.has('firstName', 'Thomas')` om het filter te testen. Houd er rekening mee dat de waarde hoofdlettergevoelig is.
 
@@ -181,13 +181,13 @@ Probeer `g.V()` voltooien met `.has('firstName', 'Thomas')` om het filter te tes
 
 Als u niet van plan bent om door te gaan met het gebruik van deze app, verwijdert u alle resources die u in dit artikel hebt gemaakt als volgt: 
 
-1. Selecteer in de Azure-portal in het menu linkernavigatievenster **resourcegroepen**. Selecteer vervolgens de naam van de resource die u hebt gemaakt. 
+1. Selecteer in Azure Portal in het navigatiemenu links **Resourcegroepen**. Selecteer vervolgens de naam van de resource die u hebt gemaakt. 
 
-2. Selecteer **Verwijderen** op de pagina van de resourcegroep. Typ de naam van de resource moet worden verwijderd en selecteer vervolgens **verwijderen**.
+2. Selecteer **Verwijderen** op de pagina van de resourcegroep. Typ de naam van de resource die moet worden verwijderd en selecteer vervolgens **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd hoe een Azure DB die Cosmos-account maken en uitvoeren van een app maken van een grafiek met behulp van Data Explorer. U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan. 
+In dit artikel hebt u geleerd hoe u een Azure Cosmos DB-account kunt maken, hebt u een graaf gemaakt met Data Explorer en hebt u een app uitgevoerd. U kunt nu complexere query's maken en met Gremlin krachtige logica implementeren om door een graaf te gaan. 
 
 > [!div class="nextstepaction"]
-> [Query uitvoeren met behulp van Gremlin](tutorial-query-graph.md)
+> [Query’s uitvoeren met Gremlin](tutorial-query-graph.md)

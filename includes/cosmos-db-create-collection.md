@@ -1,23 +1,23 @@
 U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een database en een verzameling te maken. 
 
-1. Klik op **Gegevensverkenner** > **nieuwe verzameling**. 
+1. Klik op **Data Explorer** > **Nieuwe verzameling**. 
     
-    De **verzameling toevoegen** gebied aan de rechterkant wordt weergegeven, moet u mogelijk scrollen rechts om het te bekijken.
+    Uiterst rechts wordt het gebied **Verzameling toevoegen** weergegeven. Mogelijk moet u naar rechts scrollen om het te bekijken.
 
-    ![De Azure portal Data Explorer verzameling toevoegen-blade](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![Azure Portal Data Explorer, blade Verzameling toevoegen](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-2. In de **verzameling toevoegen** pagina, voert u de instellingen voor de nieuwe verzameling.
+2. Geef op de pagina **Verzameling toevoegen** de instellingen voor de nieuwe verzameling op.
 
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
-    Database-id|Taken|Voer *taken* als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen /, \\, # of ? bevatten en mogen niet eindigen met een spatie.
-    Verzamelings-id|Items|Voer *Items* als de naam voor de nieuwe verzameling. Verzameling-ID's hebben dezelfde vereisten als databasenamen teken.
-    Opslagcapaciteit| Vast (10 GB)|Wijzig de waarde in **vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
-    Doorvoer|400 RU|Wijzig de doorvoer in 400 aanvraageenheden per seconde (RU/s). Capaciteit moet worden ingesteld op **vast (10 GB)** om de doorvoer ingesteld op 400 RU/s. U kunt de doorvoer later opschalen als u de latentie wilt beperken. 
-    Partitiesleutel|/category|Voer */Category* als de partitiesleutel. Een partitiesleutel distribueert gegevens gelijkmatig naar elke partitie in de database. Zie voor meer informatie over partitioneren, [ontwerpen voor het partitioneren van](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Database-id|Taken|Voer *Taken* in als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen /, \\, # of ? bevatten en mogen niet eindigen met een spatie.
+    Verzamelings-id|Items|Voer *Items* in als de naam voor de nieuwe verzameling. Voor id’s van verzamelingen gelden dezelfde tekenvereisten als voor databasenamen.
+    Opslagcapaciteit| Vast (10 GB)|Wijzig de waarde in **Vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
+    Doorvoer|400 RU|Wijzig de doorvoer in 400 aanvraageenheden per seconde (RU/s). Capaciteit moet worden ingesteld op **Vast (10 GB)** om de doorvoer in te stellen op 400 RU/s. U kunt de doorvoer later opschalen als u de latentie wilt beperken. 
+    Partitiesleutel|/category|Voer */category* in als de partitiesleutel. Een partitiesleutel distribueert gegevens gelijkmatig naar elke partitie in de database. Ga voor meer informatie over partitionering naar [Ontwerpen voor partitionering](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
     Klik op **OK**.
 
-    Data Explorer wordt weergegeven voor de nieuwe database en verzameling.
+    In Data Explorer worden de nieuwe database en verzameling weergegeven.
 
-    ![De Azure portal Data Explorer, toont de nieuwe database en verzameling](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)
+    ![Data Explorer in Azure Portal, waarin de nieuwe database en verzameling worden weergegeven](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)

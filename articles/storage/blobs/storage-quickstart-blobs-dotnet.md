@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - objecten voor overdracht naar/van Azure Blob storage met .NET | Microsoft Docs
-description: Snel informatie over het overdragen van objecten uit Azure Blob storage met .NET
+title: Azure-quickstart - Objecten overdragen naar/van Azure Blob-opslag met .NET | Microsoft Docs
+description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met .NET
 services: storage
 documentationcenter: storage
 author: tamram
@@ -15,17 +15,17 @@ ms.date: 11/10/2017
 ms.author: tamram
 ms.openlocfilehash: ca4cb2dea9cdd2e46c3aef042e525acdfc09de8e
 ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/23/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Objecten voor overdracht naar/van Azure Blob storage met .NET
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Objecten overdragen naar/van Azure Blob-opslag met .NET
 
-In deze snelstartgids leert u hoe u met de .NET-clientbibliotheek voor Azure Storage uploadt, downloaden en weergeven van blok-blobs in een container.
+In deze quickstart leert u hoe u de .NET-clientbibliotheek voor Azure Storage gebruikt om blok-bobs in een container te uploaden, te downloaden en weer te geven.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Installeren voor het voltooien van deze snelstartgids [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) met de volgende werkbelasting:
+Om deze quickstart te kunnen voltooien, moet [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) zijn geïnstalleerd met de volgende workload:
 
 - **Azure-ontwikkeling**
 
@@ -35,19 +35,19 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De voorbeeldtoepassing gebruikt in deze snelstartgids is een eenvoudige consoletoepassing. 
+De voorbeeldtoepassing die in deze quickstart wordt gebruikt, is een basisconsoletoepassing. 
 
-Gebruik [git](https://git-scm.com/) een kopie van de toepassing op uw ontwikkelomgeving te downloaden. 
+Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwikkelomgeving te downloaden. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Met deze opdracht kloont de opslagplaats naar uw lokale git-map. Open de Visual Studio-oplossing, zoekt u naar de map storage-blobs-dotnet-Quick Start, opent u het en dubbelklik op de storage-blobs-dotnet-quickstart.sln. 
+Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Zoek voor het openen van de Visual Studio-oplossing naar de map storage-blobs-dotnet-quickstart, open deze en dubbelklik op storage-blobs-dotnet-quickstart.sln. 
 
 ## <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
 
-In de toepassing, moet u de verbindingsreeks opgeven voor uw opslagaccount. Open de `app.config` bestand vanuit Solution Explorer in Visual Studio. Zoek de `StorageConnectionString` vermelding. Voor **waarde**, de volledige waarde van de verbindingsreeks vervangen door het u vanuit de Azure-portal hebt opgeslagen. Uw `storageConnectionString` moet er ongeveer als volgt uitzien:
+In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. Open het bestand `app.config` vanuit Solution Explorer in Visual Studio. Zoek de vermelding `StorageConnectionString` op. Vervang voor **waarde** de gehele waarde van de verbindingsreeks door de reeks die u uit Azure Portal hebt opgeslagen. De `storageConnectionString` moet er nu ongeveer zo uitzien:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -63,11 +63,11 @@ In de toepassing, moet u de verbindingsreeks opgeven voor uw opslagaccount. Open
 </configuration>
 ```
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
-Dit voorbeeld maakt een testbestand in Mijn documenten, geüpload naar Blob storage, geeft een lijst van de blobs in de container en downloadt het bestand met een nieuwe naam zodat u de oude en nieuwe bestanden kunt vergelijken. 
+Met dit voorbeeld wordt een testbestand gemaakt in Mijn documenten, dit bestand geüpload naar Blob-opslag, worden de blobs vermeld in de container en wordt het bestand vervolgens met een nieuwe naam gedownload, zodat u het oude en het nieuwe bestand met elkaar kunt vergelijken. 
 
-Voer het voorbeeld door op F5 te drukken. Deze ziet u uitvoer in een consolevenster die vergelijkbaar is met het volgende: 
+Druk op F5 om het voorbeeld uit te voeren. Er wordt uitvoer in een consolevenster weergegeven, die er ongeveer als volgt uitziet: 
 
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8.txt
@@ -77,34 +77,34 @@ https://mystorage.blob.core.windows.net/quickstartblobs/QuickStart_cbd5f95c-6ab8
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8_DOWNLOADED.txt
 ```
 
-Wanneer u op een willekeurige toets om door te gaan, worden de storage-container en de bestanden verwijderd. Controleer voordat u doorgaat, Mijn documenten voor de twee bestanden. U kunt deze openen en ze identiek zijn. Kopieer de URL voor de blob buiten het consolevenster en plak deze in een browser om te bekijken van de inhoud van het bestand in Blob-opslag.
+Wanneer u op een willekeurige toets drukt om door te gaan, worden de opslagcontainer en de bestanden verwijderd. Controleer de map Mijn documenten op de twee bestanden voordat u doorgaat. Als u ze opent, ziet u dat ze identiek zijn. Kopieer de URL voor de blob in het consolevenster en plak deze in een browser om de inhoud van het bestand in de Blob-opslag weer te geven.
 
-U kunt ook een hulpprogramma zoals gebruiken de [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) de bestanden in Blob-opslag te bekijken. Azure Storage Explorer is een gratis hulpprogramma voor meerdere platforms waarmee u toegang tot de gegevens van uw storage-account. 
+U kunt ook een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gebruiken om de bestanden in de Blob-opslag te bekijken. Azure Storage Explorer is een gratis hulpprogramma voor meerdere platforms waarmee u toegang hebt tot de gegevens van uw opslagaccount. 
 
-Nadat u de bestanden hebt gecontroleerd, druk op een willekeurige toets om de demo voltooien en verwijderen van de testbestanden. Nu dat u wat het voorbeeld doet weet, opent u het bestand Program.cs om te kijken naar de code. 
+Nadat u de bestanden hebt gecontroleerd, drukt u op een willekeurige toets om de demo te voltooien en de testbestanden te verwijderen. Nu u weet wat het voorbeeld doet, opent u het bestand Program.cs om de code te bekijken. 
 
-## <a name="understand-the-sample-code"></a>Inzicht in de voorbeeldcode
+## <a name="understand-the-sample-code"></a>De voorbeeldcode begrijpen
 
-Daarna bekijken we de voorbeeldcode zodat u kunt begrijpen hoe het werkt.
+Nu lopen we door de voorbeeldcode zodat u begrijpt hoe deze werkt.
 
-### <a name="get-references-to-the-storage-objects"></a>Het ophalen van verwijzingen naar de opslagobjecten
+### <a name="get-references-to-the-storage-objects"></a>Verwijzingen naar de opslagobjecten ophalen
 
-Het eerste wat te doen is de verwijzingen naar objecten die worden gebruikt voor toegang tot en beheren van Blob-opslag maken. Deze objecten bouwen op elkaar--elk wordt gebruikt door de volgende gateway in de lijst.
+Als eerste moeten verwijzingen worden gemaakt naar objecten die worden gebruikt voor het verkrijgen van toegang tot de Blob-opslag en voor het beheren ervan. Deze objecten worden boven op elkaar gebouwd - elk ervan wordt door de volgende in de lijst gebruikt.
 
-* Maak een instantie van de **CloudStorageAccount** object verwijst naar het opslagaccount. 
+* Maak een exemplaar van het **CloudStorageAccount**-object, dat naar het opslagaccount wijst. 
 
-* Maak een instantie van de **CloudBlobClient** -object, dat naar de Blob-service in uw opslagaccount verwijst. 
+* Maak een exemplaar van het **CloudBlobClient**-object, dat naar de Blob-service in uw opslagaccount wijst. 
 
-* Maak een instantie van de **CloudBlobContainer** -object, dat staat voor de container die u wilt openen. Containers worden gebruikt om uw blobs te organiseren dat u de mappen op uw computer gebruiken om uw bestanden te organiseren.
+* Maak een exemplaar van het **CloudBlobContainer**-object, dat de container die u opent vertegenwoordigt. Containers worden gebruikt om uw blobs te organiseren op een wijze die lijkt op het gebruik van mappen op uw computer om uw bestanden te organiseren.
 
-Zodra u hebt de **CloudBlobContainer**, kunt u een exemplaar van de **CloudBlockBlob** -object dat verwijst naar de specifieke blob waarin u geïnteresseerd bent en uitvoeren van een uploaden, downloaden, kopiëren, enzovoort. de bewerking.
+Zodra u de **Cloud Blob-container** hebt, kunt u een exemplaar maken van het object **CloudBlockBlob** dat verwijst naar de specifieke blob waarin u geïnteresseerd bent, en kunt u bewerkingen uitvoeren zoals uploaden, downloaden en kopiëren.
 
 > [!IMPORTANT]
-> Containernamen moeten kleine letters. Zie [Naming en verwijzen naar Containers, Blobs en metagegevens](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) voor meer informatie over de container en de blob-namen.
+> Containernamen moeten uit kleine letters bestaan. Zie [Containers, blobs en metagegevens een naam geven en hiernaar verwijderen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) voor meer informatie over de naamgeving van containers en blobs.
 
-In deze sectie geen exemplaar maken van de objecten, een nieuwe container maken en vervolgens machtigingen instellen voor de container, zodat de blobs openbaar zijn en kunnen worden geopend met alleen een URL. De container wordt aangeroepen **quickstartblobs**. 
+In deze sectie gaat u een exemplaar maken van de objecten, een nieuwe container maken en vervolgens machtigingen instellen voor de container, zodat de blobs openbaar zijn en via slechts een URL kunnen worden geopend. De container heeft de naam **quickstartblobs**. 
 
-In dit voorbeeld wordt **CreateIfNotExists** omdat we willen maken van een nieuwe container telkens wanneer de steekproef wordt uitgevoerd. In een productieomgeving waarbij u gebruikmaakt van de container in een toepassing, is het beter idee om alleen aanroepen **CreateIfNotExists** zodra. U kunt ook moeten voor het maken van de container tevoren zodat u niet in de code te maken.
+In dit voorbeeld wordt **CreateIfNotExists** gebruikt omdat we bij elke nieuwe uitvoering van het voorbeeld een nieuwe container willen maken. In een productieomgeving waarin u overal in een toepassing dezelfde container gebruikt, is het beter om **CreateIfNotExists** maar één keer aan te roepen. U kunt de container ook vooraf maken, zodat u deze niet in de code hoeft te maken.
 
 ```csharp
 // Create a CloudStorageAccount instance pointing to your storage account.
@@ -125,13 +125,13 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-### <a name="upload-blobs-to-the-container"></a>BLOB's uploaden naar de container
+### <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
-Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs zijn het meest gebruikt, en dat is wat wordt gebruikt in deze snelstartgids. 
+Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs worden het meest gebruikt, en dat is wat er wordt gebruikt in deze quickstart. 
 
-Als u wilt uploaden naar een blob, geen verwijzing ophalen naar de blob in de doelcontainer. Zodra u de blobverwijzing hebt, kunt u gegevens uploaden naar deze met behulp van [CloudBlockBlob.UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of deze wordt overschreven als deze al bestaat.
+Als u een bestand naar een blob wilt uploaden, haalt u een verwijzing naar de blob op in de doelcontainer. Zodra u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [CloudBlockBlob.UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
 
-De voorbeeldcode maakt een lokaal bestand moet worden gebruikt voor het uploaden en downloaden, het opslaan van het bestand moet worden geüpload als **fileAndPath** en de naam van de blob in **Lokale_bestandsnaam**. Het volgende voorbeeld wordt het bestand geüpload naar uw zogenaamd **quickstartblobs**.
+Met de voorbeeldcode wordt een lokaal bestand gemaakt voor het uploaden en downloaden, waarmee het bestand dat moet worden geüpload als **fileAndPath** en de naam van de blob in **localFileName** worden opgeslagen. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstartblobs**.
 
 ```csharp
 // Create a file in MyDocuments to test the upload and download.
@@ -145,15 +145,15 @@ CloudBlockBlob blockBlob = container.GetBlockBlobReference(localFileName);
 await blockBlob.UploadFromFileAsync(fileAndPath);
 ```
 
-Er zijn verschillende methoden voor het uploaden die u met Blob storage gebruiken kunt. Bijvoorbeeld, als u een geheugenstream hebt, kunt u de methode UploadFromStreamAsync in plaats van de UploadFromFileAsync. 
+Er zijn meerdere uploadmethoden die u kunt gebruiken met Blob-opslag. Als u bijvoorbeeld een geheugenstream hebt, kunt u de UploadFromStreamAsync-methode gebruiken in plaats van UploadFromFileAsync. 
 
-Blok-blobs kunnen elk type tekst of binair bestand zijn. Pagina-blobs zijn voornamelijk gebruikt voor de VHD-bestanden gebruikt voor back-IaaS VM's. Toevoeg-BLOB's worden gebruikt voor logboekregistratie, zoals indien u wenst te schrijven naar een bestand en klik vervolgens houden meer gegevens toe te voegen. De meeste objecten die zijn opgeslagen in Blob storage zijn blok-blobs.
+Blok-bobs kunnen een willekeurig soort tekst- of binair bestand zijn. Pagina-blobs worden met name gebruikt voor de VHD-bestanden die worden gebruikt om een back-up te maken van IaaS-VM‘s. Toevoeg-blobs worden gebruikt voor logboekregistratie, bijvoorbeeld wanneer u wilt schrijven naar een bestand en vervolgens meer gegevens wilt blijven toevoegen. De meeste objecten die worden opgeslagen in Blob-opslag, zijn blok-blobs.
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-U krijgt een lijst met bestanden in de container met behulp [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). De volgende code haalt de lijst met blobs en doorlopen, met de URI van de blobs. U kunt de URI in het opdrachtvenster kopieert en plakt u deze in een browser om het bestand weer te geven.
+U kunt een lijst met bestanden in de container ophalen met behulp van [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Met de volgende code wordt de lijst met blobs opgehaald en doorlopen, waarbij de URL‘s van de gevonden blobs worden weergegeven. U kunt de URI uit het opdrachtvenster kopiëren en in een browser plakken om het bestand weer te geven.
 
-Als u 5.000 of minder blobs in de container hebt, worden alle blobnamen van de met één aanroep ListBlobsSegmentedAsync opgehaald. Als u meer dan 5000 blobs in de container hebt, haalt de service de lijst in sets van 5.000 totdat alle van de blob-namen zijn opgehaald. Zodat de eerste keer dat deze API wordt aangeroepen, wordt de eerste 5000 blobnamen en een vervolgtoken. De tweede keer opgeven van het token, haalt de service de volgende set van blob-namen en enzovoort, totdat het vervolgtoken is null, waarmee wordt aangegeven dat alle van de blob-namen zijn opgehaald. 
+Als u 5.000 of minder blobs in de container hebt, worden alle blobnamen in één aanroep naar ListBlobsSegmentedAsync opgehaald. Als u meer dan 5.000 blobs in de container hebt, wordt de lijst door de service opgehaald in sets van 5.000 totdat alle blobnamen zijn opgehaald. De eerste keer dat deze API wordt aangeroepen, worden dus de eerste 5.000 namen en een vervolgtoken geretourneerd. De tweede keer geeft u het token op en haalt de service de volgende set blobnamen op, enzovoort, totdat het vervolgtoken null is, wat aangeeft dat alle blobnamen zijn opgehaald. 
 
 ```csharp
 // List the blobs in the container.
@@ -171,9 +171,9 @@ do
 
 ### <a name="download-blobs"></a>Blobs downloaden
 
-Blobs downloaden naar uw lokale schijf met [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
+Download blobs naar uw lokale schijf met behulp van [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
-De volgende code downloadt de blob geüpload in een eerder gedeelte een achtervoegsel van '_DOWNLOADED' toevoegen aan de blob-naam, zodat u beide bestanden op lokale schijf kunt zien. 
+Met de volgende code wordt de blob gedownload die in een eerdere sectie is geüpload, waarbij de suffix "_DOWNLOADED" wordt toegevoegd aan de blobnaam, zodat u beide bestanden op de lokale schijf kunt zien. 
 
 ```csharp
 // Download blob. In most cases, you would have to retrieve the reference
@@ -187,7 +187,7 @@ await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de blobs in deze snelstartgids geüpload niet meer nodig hebt, kunt u de volledige container via te verwijderen [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). De bestanden die zijn gemaakt als ze niet meer nodig zijn ook verwijderd.
+Als u de blobs die in deze quickstart zijn geüpload niet langer nodig hebt, kunt u de volledige container verwijderen met behulp van [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Verwijder ook de gemaakte bestanden als u deze niet langer nodig hebt.
 
 ```csharp
 await cloudBlobContainer.DeleteAsync();
@@ -197,11 +197,11 @@ File.Delete(fileAndPath2);
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u bestanden overbrengen tussen een lokale schijf en Azure Blob storage met .NET. Voor meer informatie over het werken met Blob storage, blijven de instructies van de Blob-opslag.
+In deze quickstart hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van .NET. Voor meer informatie over het werken met Blob-opslag, gaat u naar de instructies voor Blob-opslag.
 
 > [!div class="nextstepaction"]
-> [Procedures voor de bewerkingen van de BLOB-opslag](storage-dotnet-how-to-use-blobs.md)
+> [Instructies voor bewerkingen in Blob-opslag](storage-dotnet-how-to-use-blobs.md)
 
-Voor extra Azure Storage-codevoorbeelden die u kunt downloaden en uitvoeren, raadpleegt u de lijst met [voorbeelden van Azure Storage met .NET](../common/storage-samples-dotnet.md).
+Zie de lijst met [Azure Storage-voorbeelden met behulp van .NET](../common/storage-samples-dotnet.md) voor aanvullende Azure Storage-codevoorbeelden die u kunt downloaden en uitvoeren.
 
-Zie voor meer informatie over de Storage Explorer en Blobs [beheren Azure Blob storage-resources met Opslagverkenner](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Zie [Azure Blob-opslagresources beheren met Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over de Storage Explorer en blobs.

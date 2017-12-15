@@ -1,6 +1,6 @@
 ---
-title: Quick Start - een persoonlijke Docker-register in Azure maken met de Azure portal
-description: Snel informatie over het maken van een persoonlijke register van de Docker-container met de Azure-portal.
+title: 'Quickstart: een persoonlijk Docker-register in Azure maken met Azure Portal'
+description: Leer snel een persoonlijk Docker-containerregister maken met Azure Portal.
 services: container-registry
 documentationcenter: 
 author: mmacy
@@ -19,79 +19,79 @@ ms.author: marsma
 ms.custom: 
 ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Een containerregister maken met Azure Portal
 
-Een Azure container-register is een persoonlijke Docker-register in Azure kunt u opslaan en beheren van uw persoonlijke installatiekopieën van de Docker-container. In deze snelstartgids kunt u het register van een container maken met de Azure-portal.
+Een Azure-containerregister is een persoonlijk Docker-register in Azure waar u uw persoonlijke installatiekopieën van de Docker-container kunt opslaan en beheren. In deze quickstart maakt u een containerregister in Azure Portal.
 
-U moet voor het voltooien van deze snelstartgids Docker lokaal geïnstalleerd hebben. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
+Als u het register met deze quickstart wilt voltooien, moet Docker lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Aanmelden bij de Azure portal op https://portal.azure.com.
+Meld u aan bij Azure Portal op https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
-Selecteer **nieuwe** > **Containers** > **Azure Container register**.
+Selecteer **Nieuw** > **Containers** > **Azure Container Registry**.
 
-![Een register container maken in de Azure portal][qs-portal-01]
+![Een containerregister maken met Azure Portal][qs-portal-01]
 
-Voer waarden in voor **naam van Routeringsregister** en **resourcegroep**. De registernaam moet uniek zijn binnen Azure en 5 50 alfanumerieke tekens bevatten. Maak een nieuwe resourcegroep met de naam `myResourceGroup`, en voor **SKU**, selecteert u 'Basic'. Selecteer **maken** voor het implementeren van het ACR-exemplaar.
+Voer waarden in voor **Registernaam** en **Resourcegroep**. De registernaam moet uniek zijn binnen Azure en mag 5 tot 50 alfanumerieke tekens bevatten. Maak een nieuwe resourcegroep met de naam `myResourceGroup`, en selecteer 'Basic' voor **SKU**. Selecteer **Maken** om de ACR-instantie te implementeren.
 
-![Een register container maken in de Azure portal][qs-portal-03]
+![Een containerregister maken met Azure Portal][qs-portal-03]
 
-In deze snelstartgids maken we een *Basic* register. Azure Container register is beschikbaar in diverse verschillende SKU's, een korte beschrijving van de volgende tabel. Zie voor uitgebreide informatie over elk [Container register SKU's](container-registry-skus.md).
+In deze quickstart maken we een *Basic*-register. Azure Container Registry is beschikbaar in verschillende SKU's, zoals kort beschreven in de onderstaande tabel. Zie [SKU's voor containerregisters](container-registry-skus.md) voor uitgebreide details.
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Wanneer de **implementatie is voltooid** bericht wordt weergegeven, selecteert u het register van de container in de portal en selecteer vervolgens **toegangssleutels**.
+Als het bericht **Implementatie voltooid** wordt weergegeven, selecteert u het containerregister in de portal en vervolgens **Toegangstoetsen**.
 
-![Een register container maken in de Azure portal][qs-portal-05]
+![Een containerregister maken met Azure Portal][qs-portal-05]
 
-Onder **gebruiker met beheerdersrechten**, selecteer **inschakelen**. Noteer de volgende waarden:
+Selecteer onder **Gebruiker met beheerdersrechten** de optie **Inschakelen**. Noteer de volgende waarden:
 
-* Login-server
+* Aanmeldingsserver
 * Gebruikersnaam
 * wachtwoord
 
-U kunt deze waarden in de volgende stappen gebruiken tijdens het werken met het register met de Docker CLI.
+Deze waarden gebruikt u in de volgende stappen bij het werken met uw register met de Docker-opdrachtregelinterface.
 
-![Een register container maken in de Azure portal][qs-portal-06]
+![Een containerregister maken met Azure Portal][qs-portal-06]
 
 ## <a name="log-in-to-acr"></a>Aanmelden bij ACR
 
-Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. Gebruik hiervoor de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) opdracht. Vervang de *gebruikersnaam*, *wachtwoord*, en *login-server* waarden met die in de vorige stap hebt genoteerd.
+Voordat u installatiekopieën van containers gaat pushen en pullen, moet u zich aanmelden bij het ACR-exemplaar. Gebruik hiervoor de opdracht [docker login](https://docs.docker.com/engine/reference/commandline/login/). Vervang de waarden *username*, *password* en *login server* door de waarden die u in de vorige stap hebt genoteerd (respectievelijk gebruikersnaam, wachtwoord en aanmeldingsserver).
 
 ```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-De opdracht retourneert `Login Succeeded` eenmaal is voltooid. U ziet misschien ook een beveiligingswaarschuwing aanbevelen van het gebruik van de `--password-stdin` parameter. Hoewel het gebruik ervan buiten het bereik van dit artikel is, wordt aangeraden na deze aanbevolen procedure. Zie de [docker aanmelding](https://docs.docker.com/engine/reference/commandline/login/) -opdrachten voor meer informatie.
+De opdracht retourneert `Login Succeeded` nadat deze is voltooid. Mogelijk ziet u een waarschuwing die het gebruik van de parameter `--password-stdin` aanraadt. Hoewel buiten het bestek van dit artikel, wordt u deze best practice aangeraden. Zie de verwijzing voor de opdracht [docker login](https://docs.docker.com/engine/reference/commandline/login/) voor meer informatie.
 
-## <a name="push-image-to-acr"></a>Push-installatiekopie naar ACR
+## <a name="push-image-to-acr"></a>Installatiekopie naar ACR overdragen met een push-bewerking
 
-Voor het pushen van een installatiekopie toe aan het register van de Container Azure, moet u eerst een afbeelding hebben. Indien nodig, voer de volgende opdracht voor het ophalen van een bestaande installatiekopie van Docker-Hub.
+Als u een installatiekopie naar uw Azure Container Registry wilt pushen, moet u eerst over een installatiekopie beschikken. Voer zo nodig de volgende opdracht uit om een bestaande installatiekopie vanuit Docker Hub te 'pullen'.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Voordat u de installatiekopie aan het register pushen, moet u de installatiekopie met de naam van de ACR aanmelding labelen. Label van de installatiekopie met de [docker-tag](https://docs.docker.com/engine/reference/commandline/tag/) opdracht. Vervang *login-server* met de aanmeldings-servernaam die u eerder hebt genoteerd.
+Voorzie de installatiekopie van een label met de naam van de ACR-aanmeldingsserver voordat u de kopie naar het register pusht. Label de installatiekopie met de opdracht [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Vervang *login server* door de naam van de aanmeldingsserver die u eerder hebt genoteerd.
 
 ```
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
-Gebruik tot slot [docker push](https://docs.docker.com/engine/reference/commandline/push/) voor de push-installatiekopie van het naar het ACR-exemplaar. Vervang *login-server* met de aanmeldingsnaam van de server van uw ACR-exemplaar.
+Gebruik ten slotte [docker push](https://docs.docker.com/engine/reference/commandline/push/) om de installatiekopie naar de ACR-instantie te pushen. Vervang *login server* door de naam van de ACR-instantie.
 
 ```
 docker push <login server>/aci-helloworld:v1
 ```
 
-De uitvoer van een geslaagde `docker push` opdracht is vergelijkbaar met:
+De uitvoer van een geslaagde `docker push`-opdracht is soortgelijk aan:
 
 ```
 The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
@@ -106,21 +106,21 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ## <a name="list-container-images"></a>Containerinstallatiekopieën opvragen
 
-Als de afbeeldingen in uw ACR-exemplaar wilt weergeven, gaat u naar het register in de portal en selecteer **opslagplaatsen**, selecteert u de opslagplaats die u hebt gemaakt met `docker push`.
+Als u de installatiekopieën in uw ACR-instantie wilt weergeven, gaat u naar het register in de portal en selecteert u **Opslagplaatsen**. Selecteer vervolgens de opslagplaats die u met `docker push` hebt gemaakt.
 
-In dit voorbeeld selecteren we de **aci helloworld** opslagplaats en we kunnen zien de `v1`-TIF onder **labels**.
+In dit voorbeeld selecteren we de opslagplaats **aci helloworld** en zien we de met `v1` gelabelde installatiekopie onder **TAGS**.
 
-![Een register container maken in de Azure portal][qs-portal-09]
+![Een containerregister maken met Azure Portal][qs-portal-09]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer deze niet langer nodig is, verwijdert u de **myResourceGroup** resourcegroep. In dat geval wordt de resourcegroep, ACR-exemplaar en alle container afbeeldingen worden verwijderd.
+Verwijder de resourcegroep **myResourceGroup** als u deze niet meer nodig hebt. Als u dat doet, worden ook de resourcegroep, de ACR-instantie en alle containerinstallatiekopieën verwijderd.
 
-![Een register container maken in de Azure portal][qs-portal-08]
+![Een containerregister maken met Azure Portal][qs-portal-08]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids kunt u een Azure Container Registry gemaakt met de Azure CLI. Als u gebruiken van Azure Container register met exemplaren van Azure-Container wilt, blijven de zelfstudie exemplaren van Azure-Container.
+In deze quickstart hebt u een Azure Container Registry met de Azure-opdrachtregelinterface gemaakt. Als u Azure Container Registry wilt gebruiken met Azure Container Instances, gaat u door naar de zelfstudie Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies voor Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

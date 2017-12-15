@@ -17,13 +17,13 @@ ms.author: cephalin;cfowler
 ms.custom: mvc
 ms.openlocfilehash: 2f5c295468e5bb54d14b81d52b9ad4b41fcafa81
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Een PHP-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe u een PHP-app naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell en u gebruikt Git om voorbeeldcode van PHP in de web-app te implementeren.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze quickstart laat zien hoe u een PHP-app naar Azure Web Apps implementeert. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell en u gebruikt Git om voorbeeldcode van PHP in de web-app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -31,7 +31,7 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 * <a href="https://php.net" target="_blank">PHP installeren</a>
@@ -55,7 +55,7 @@ Voer de toepassing lokaal uit door een terminalvenster te openen en de opdracht 
 php -S localhost:8080
 ```
 
-Open een webbrowser en navigeer naar de voorbeeld-app op `http://localhost:8080`.
+Open een webbrowser en navigeer naar de voorbeeldapp op `http://localhost:8080`.
 
 Het bericht **Hallo wereld** uit de voorbeeld-app wordt weergegeven op de pagina.
 
@@ -75,7 +75,7 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
 
-Blader naar uw nieuwe web-app. Vervang  _&lt;app-naam >_ met een unieke app-naam.
+Blader naar uw nieuwe web-app. Vervang _&lt;app-naam>_ door een unieke app-naam.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -132,7 +132,7 @@ Open met behulp van een lokale teksteditor het bestand `index.php` binnen de PHP
 echo "Hello Azure!";
 ```
 
-Uw wijzigingen in Git in het lokale terminalvenster en vervolgens de codewijzigingen pushen naar Azure.
+Leg in het lokale terminalvenster uw wijzigingen vast in Git en push de codewijzigingen vervolgens naar Azure.
 
 ```bash
 git commit -am "updated output"

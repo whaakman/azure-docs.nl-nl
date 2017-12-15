@@ -1,6 +1,6 @@
 ---
-title: Maken van een Node.js in Azure App Service op Linux | Microsoft Docs
-description: Uw eerste Node.js Hello World in Azure App Service op Linux in minuten implementeren.
+title: Een Node.js maken in Azure App Service op Linux | Microsoft Docs
+description: Implementeer in enkele minuten uw eerste Node.js-app (Hallo wereld) in Azure App Service op Linux.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Een Node.js-web-app maken in Azure App Service op Linux
 
-[App-Service op Linux](app-service-linux-intro.md) biedt een zeer schaalbaar, zelf patch webhosting-service met het Linux-besturingssysteem. Deze snelstartgids laat zien hoe een Node.js-app in App Service op Linux implementeren met de installatiekopie van een ingebouwde. U de web-app maken met de ingebouwde installatiekopie met de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en u Git gebruiken voor het implementeren van de Node.js-code op de web-app.
+[Azure App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een Node.js-app implementeert in Azure App Service op Linux met een ingebouwde installatiekopie. U maakt de web-app met de ingebouwde installatiekopie via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), en gebruikt Git om de code van Node.js in de web-app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -31,7 +31,7 @@ U kunt de onderstaande stappen volgen met behulp van een Mac-, Windows- of Linux
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 * <a href="https://nodejs.org/" target="_blank">Node.js en NPM installeren</a>
@@ -40,13 +40,13 @@ Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-Voer de volgende opdracht voor het klonen van de opslagplaats van de voorbeeld-app op uw lokale computer in een terminalvenster op uw computer.
+Voer in een terminalvenster op uw computer de volgende opdracht uit om de opslagplaats van de voorbeeld-app te klonen op uw lokale computer.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-Dit terminalvenster gebruikt u om alle opdrachten in deze Quickstart uit te voeren.
+Dit terminalvenster gebruikt u om alle opdrachten in deze quickstart uit te voeren.
 
 Ga naar de map die de voorbeeldcode bevat.
 
@@ -62,7 +62,7 @@ Voer de toepassing lokaal uit door een terminalvenster te openen en met het scri
 npm start
 ```
 
-Open een webbrowser en navigeer naar de voorbeeld-app op `http://localhost:1337`.
+Open een webbrowser en navigeer naar de voorbeeldapp op `http://localhost:1337`.
 
 Het bericht **Hello World** uit de voorbeeld-app wordt weergegeven op de pagina.
 
@@ -82,7 +82,7 @@ Druk in uw terminalvenster op **Ctrl + C** om de webserver af te sluiten.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Blader naar uw nieuwe web-app. Vervang  _&lt;app-naam >_ met de naam van uw web-app.
+Blader naar uw nieuwe web-app. Vervang _&lt;app-naam>_ door de naam van uw web-app.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -134,15 +134,15 @@ Blader naar de geïmplementeerde toepassing via uw webbrowser.
 http://<app_name>.azurewebsites.net
 ```
 
-De voorbeeldcode Node.js wordt uitgevoerd in een web-app met ingebouwde installatiekopie.
+De Node.js-voorbeeldcode wordt uitgevoerd in een web-app met een ingebouwde installatiekopie.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Gefeliciteerd!** U hebt uw eerste Node.js-app geïmplementeerd in App Service op Linux.
+**Gefeliciteerd!** U hebt uw eerste Node.js-app geïmplementeerd in Azure App Service on Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>De code bijwerken en opnieuw implementeren
 
-Open in de lokale adreslijstservice de `index.js` bestand in de Node.js-app en een kleine wijziging aanbrengt in de tekst in de aanroep naar `response.end`:
+Open in de lokale map het bestand `index.js` binnen de Node.js-app en breng een kleine wijziging aan in de tekst in de aanroep naar `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

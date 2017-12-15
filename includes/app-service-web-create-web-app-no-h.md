@@ -1,6 +1,6 @@
 Maak in de Cloud Shell met de opdracht [az webapp create](/cli/azure/webapp#create) een [web-app](../articles/app-service/app-service-web-overview.md) in het App Service-plan `myAppServicePlan`. 
 
-Vervang in het volgende voorbeeld wordt  *\<app_naam >* met een globaal unieke app-naam (geldige tekens zijn `a-z`, `0-9`, en `-`). 
+Vervang in het volgende voorbeeld *\<app_name>* door een unieke naam (geldige tekens zijn `a-z`, `0-9` en `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -24,10 +24,10 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-U hebt een leeg web-app gemaakt met git-implementatie is ingeschakeld.
+U hebt een lege web-app gemaakt, met Git-implementatie ingeschakeld.
 
 > [!NOTE]
-> De URL van de externe Git wordt weergegeven in de `deploymentLocalGitUrl` eigenschap met de indeling `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Deze URL niet opslaan omdat u hebt deze later nodig.
+> De URL van de externe Git wordt weergegeven in de eigenschap `deploymentLocalGitUrl`, met de indeling `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Sla deze URL op, want u hebt deze later nodig.
 >
 
 Blader naar de nieuwe web-app.

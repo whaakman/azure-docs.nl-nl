@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 10/11/2017
 ---
@@ -51,7 +51,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
 
     ![De Quick Start-pagina van Functions in Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Selecteer de **GitHub WebHook** sjabloon voor de gewenste taal. **Geef de functie een naam** en selecteer vervolgens **Maken**.
+2. Selecteer de sjabloon **GitHub-Webhook** voor de gewenste taal. **Geef de functie een naam** en selecteer vervolgens **Maken**.
 
      ![Een door een GitHub-webhook geactiveerde functie maken in Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
