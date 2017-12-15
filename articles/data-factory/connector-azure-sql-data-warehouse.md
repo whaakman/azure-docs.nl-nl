@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 42b241affa470d42dfa06eba102a2bce5faccf4a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -296,7 +296,6 @@ Als niet aan de vereisten wordt voldaan, wordt Azure Data Factory controleert de
 
 3. Er is geen `skipHeaderLineCount` onder **BlobSource** of **AzureDataLakeStore** voor de kopieeractiviteit in de pijplijn.
 4. Er is geen `sliceIdentifierColumnName` onder **SqlDWSink** voor de kopieeractiviteit in de pijplijn. (PolyBase zorgt ervoor dat alle gegevens worden bijgewerkt of niet in een enkel uitvoering bijgewerkt wordt. Als u de **herhaalbaarheid**, kunt u `sqlWriterCleanupScript`).
-5. Er is geen `columnMapping` wordt gebruikt in de bijbehorende in kopie activiteit.
 
 ```json
 "activities":[
@@ -423,7 +422,7 @@ Bij het kopiëren van gegevens van/naar Azure SQL Data Warehouse, worden de volg
 | Binaire |Byte] |
 | bits |Boole-waarde |
 | CHAR |Tekenreeks, Char] |
-| datum |Datum en tijd |
+| Datum |Datum en tijd |
 | Datum en tijd |Datum en tijd |
 | datetime2 |Datum en tijd |
 | DateTimeOffset |DateTimeOffset |

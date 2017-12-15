@@ -1,7 +1,7 @@
 Azure-klanten kunnen iedere maand 25.000 gratis e-mails ontgrendelen. Deze 25.000 gratis maandelijkse e-mails geven u toegang tot geavanceerde rapportages en analyses en [alle API's][all APIs] (web, SMTP, gebeurtenis, parseren en meer). Voor informatie over extra diensten die door SendGrid worden aangeboden, gaat u naar de pagina met [SendGrid-oplossingen][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Aanmelden voor een SendGrid-account
-1. Meld u aan bij de [Azure-beheerportal][Azure Management Portal].
+1. Meld u aan bij de [Azure-portal][Azure portal].
 2. Klik in het menu aan de linkerkant op **Nieuw**.
 
     ![opdracht-balk-nieuw][command-bar-new]
@@ -82,7 +82,7 @@ Als u uw instellingen voor de bezorging van e-mail wilt beheren, klikt u op de k
 <!--Links-->
 
 [SendGrid Solutions]: https://sendgrid.com/solutions
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html

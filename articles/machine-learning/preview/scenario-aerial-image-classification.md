@@ -7,12 +7,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/13/2017
+ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aerial-image-classification"></a>De installatiekopie van de lucht classificatie
 
@@ -157,14 +157,14 @@ We maken nu het opslagaccount dat hosts projectbestanden die moet worden gebruik
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Verwachten bestandsoverdracht naar maximaal 20 minuten duren. Terwijl u wacht, kunt u doorgaan met de volgende sectie: moet u mogelijk een andere opdrachtregelinterface via Workbench openen en tijdelijke variabelen definiëren.
+    Bestandsoverdracht naar ongeveer één uur duren voordat verwacht. Terwijl u wacht, kunt u doorgaan met de volgende sectie: moet u mogelijk een andere opdrachtregelinterface via Workbench openen en tijdelijke variabelen definiëren.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>De HDInsight Spark-cluster maken
 
 De aanbevolen methode voor het maken van een HDInsight-cluster maakt gebruik van de HDInsight Spark-cluster resource manager-sjabloon opgenomen in de submap 'Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning' van dit project.
 
 1. De sjabloon HDInsight Spark-cluster is het bestand 'template.json' in de submap 'Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning' van dit project. De sjabloon maakt standaard een Spark-cluster met 40 worker-knooppunten. Als u dit nummer aanpassen moet, opent u de sjabloon in uw favoriete teksteditor en Vervang alle exemplaren van "40" met het aantal worker-knooppunt van uw keuze.
-    - -Geheugen fouten kunnen optreden als het aantal worker-knooppunten die u kiest klein is. Bestrijden geheugenfouten, kunt u de trainings- en uitoefening scripts uitvoeren op een subset van de beschikbare gegevens zoals verderop in dit document worden beschreven.
+    - U tegenkomen-geheugen fouten later als het aantal worker-knooppunten die u kiest kleiner is. Bestrijden geheugenfouten, kunt u de trainings- en uitoefening scripts uitvoeren op een subset van de beschikbare gegevens zoals verderop in dit document worden beschreven.
 2. Kies een unieke naam en het wachtwoord voor het HDInsight-cluster en schrijf deze indien aangegeven in de volgende opdracht: maken van het cluster vervolgens door uitgifte van de opdrachten:
 
     ```
@@ -248,12 +248,10 @@ Indien gewenst, kunt u bevestigen dat de gegevensoverdracht is verder als geplan
 
 #### <a name="create-a-batch-ai-cluster"></a>Een Batch AI-cluster maken
 
-1. Maken van het cluster door uitgifte van de volgende opdrachten:
+1. Het cluster hebt gemaakt door de volgende opdracht:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Gebruik de volgende opdracht om te controleren van dat uw clusterinrichting status:
@@ -304,7 +302,7 @@ Zodra de HDInsight-cluster maken is voltooid, registreert u het cluster als een 
 1.  Geef de volgende opdracht uit de Azure Machine Learning opdrachtregelinterface:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     Deze opdracht voegt u twee bestanden: `myhdi.runconfig` en `myhdi.compute`, aan uw project `aml_config` map.

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ee6a91a22d84ba938423c04edc6f8be795b46ebb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters in HDInsight met Hadoop, Spark en Kafka instellen
 
@@ -98,6 +98,10 @@ Zie voor meer informatie [standaard configuratie en de virtuele machine knooppun
 
 ### <a name="hdinsight-version"></a>HDInsight-versie
 Selecteer de versie van HDInsight voor dit cluster. Zie voor meer informatie [versies van HDInsight ondersteund](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+### <a name="enterprise-security-package"></a>Enterprise-beveiligingspakket
+
+Voor Hadoop, Spark en interactieve Query clustertypen, kunt u kiezen om in te schakelen de **Enterprise-beveiligingspakket**. Dit pakket biedt een optie om de installatie van een beter te beveiligen met behulp van Apache Zwerver en integreren met Azure Active Directory. Zie voor meer informatie [Enterprise-beveiligingspakket in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Cluster-aanmelding en SSH-gebruikersnaam
 Met HDInsight-clusters, kunt u twee gebruikersaccounts configureren tijdens het maken van het cluster:

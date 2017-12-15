@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Diagnostische logboekregistratie van Azure DB Cosmos
 
@@ -38,7 +38,7 @@ Gebruik deze handleiding om aan de slag met Azure Cosmos DB logboekregistratie v
 ## <a name="prerequisites"></a>Vereisten
 Deze zelfstudie hebt u de volgende bronnen:
 
-* Een bestaande Azure DB die Cosmos-account, database en container. Zie voor instructies over het maken van deze resources [een databaseaccount maken met de Azure-portal](create-documentdb-dotnet.md#create-a-database-account), [CLI voorbeelden](cli-samples.md), of [voorbeelden PowerShell](powershell-samples.md).
+* Een bestaande Azure DB die Cosmos-account, database en container. Zie voor instructies over het maken van deze resources [een databaseaccount maken met de Azure-portal](create-sql-api-dotnet.md#create-a-database-account), [CLI voorbeelden](cli-samples.md), of [voorbeelden PowerShell](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Schakelt logboekregistratie in de Azure portal

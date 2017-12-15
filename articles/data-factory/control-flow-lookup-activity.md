@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: f287b0287ad85ffe1654e0d574cd44aa4dd81a0f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
 De Lookup Activity kan worden gebruikt om een record/tabelnaam/waarde van een externe bron te lezen of op te zoeken. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
@@ -61,7 +61,7 @@ De volgende gegevensbronnen worden momenteel ondersteund voor het opzoeken van:
 Naam | Beschrijving | Type | Vereist
 ---- | ----------- | ---- | --------
 Gegevensset | Het kenmerk dataset is voor de dataset-verwijzing voor de zoekopdracht. Op dit moment wordt zijn de gegevensset ondersteunde typen:<ul><li>`AzureBlobDataset`voor [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) als bron</li><li>`FileShareDataset`voor [bestandssysteem](connector-file-system.md#dataset-properties) als bron</li><li>`AzureSqlTableDataset`voor [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) of [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) als bron</li><li>`SqlServerTable`voor [SQL Server](connector-sql-server.md#dataset-properties) als bron</li><li>`AzureTableDataset`voor [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) als bron</li> | Sleutel-waardepaar | Ja
-bron | DataSet-specifieke eigenschappen van gegevensbron, dezelfde zijn als kopieerbron voor de activiteit. Meer details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector-onderwerp. | Sleutel-waardepaar | Ja
+bron | DataSet-specifieke eigenschappen van gegevensbron, dezelfde zijn als kopieerbron voor de activiteit. Meer details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector-artikel. | Sleutel-waardepaar | Ja
 firstRowOnly | Geef aan of alleen de eerste rij of alle rijen retourneren. | Booleaanse waarde | Nee. Standaard is `ture`.
 
 ## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Resultaat van Lookup-activiteit gebruiken in de volgende activiteit
@@ -80,7 +80,7 @@ Het resultaat van de zoekactie wordt geretourneerd als de `output` sectie in het
 }
 ```
 
-**Wanneer `firstRowOnly` is ingesteld op `false`** ,-indeling is de uitvoer ziet er als volgt. Een `count` veld geeft aan hoeveel records worden geretourneerd en gedetailleerde waarden onder een vaste `value` matrix. In dit geval is, de activiteit opzoeken meestal wordt gevolgd door een [Foreach-activiteit](control-flow-for-each-activity.md), u kunt doorgeven de `value` -matrix naar ForEach-activiteit `items` veld met het patroon van `@activity('MyLookupActivity').output.value`.
+**Wanneer `firstRowOnly` is ingesteld op `false`** , de indeling van de uitvoer is als volgt. Een `count` veld geeft aan hoeveel records worden geretourneerd en gedetailleerde waarden onder een vaste `value` matrix. In dit geval is, de activiteit opzoeken meestal wordt gevolgd door een [Foreach-activiteit](control-flow-for-each-activity.md), u kunt doorgeven de `value` -matrix naar ForEach-activiteit `items` veld met het patroon van `@activity('MyLookupActivity').output.value`. Voor toegang tot elementen in de `value`, gebruik de volgende syntaxis: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Hier volgt een voorbeeld:`@{activity('lookupActivity').output.value[0].tablename}`
 
 ```json
 {
@@ -101,7 +101,7 @@ Het resultaat van de zoekactie wordt geretourneerd als de `output` sectie in het
 ## <a name="example"></a>Voorbeeld
 In dit voorbeeld kopieert de kopieeractiviteit gegevens uit een SQL-tabel in Azure SQL-database naar Azure Blob Storage. De naam van de SQL-tabel is opgeslagen in een JSON-bestand in Blob Storage. De activiteit opzoeken, zoekt u de naam van de tabel tijdens runtime. Deze aanpak kunt JSON dynamisch worden gewijzigd zonder pijplijnen/gegevenssets opnieuw distribueren. 
 
-In dit voorbeeld laat zien hoe zoekt u alleen de eerste rij. Raadpleeg voor het opzoeken alle rijen en -keten met ForEach-activiteit, [zelfstudie - gegevens bulksgewijs kopiëren](tutorial-bulk-copy.md) voorbeeld.
+Dit voorbeeld wordt alleen de eerste rij opzoeken. Raadpleeg voor het opzoeken alle rijen en -keten met ForEach-activiteit, [zelfstudie - gegevens bulksgewijs kopiëren](tutorial-bulk-copy.md) voorbeeld.
 
 ### <a name="pipeline"></a>Pijplijn
 Deze pipeline bevat twee activiteiten: **opzoeken** en **kopie**. 

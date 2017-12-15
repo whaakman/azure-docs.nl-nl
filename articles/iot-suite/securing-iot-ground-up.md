@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Beveiliging van Internet der dingen van een compleet nieuwe
 Het Internet der dingen (IoT) vormt unieke beveiliging, privacy en naleving uitdagingen voor bedrijven overal ter wereld. In tegenstelling tot traditionele cyberbeveiliging technologie waar deze problemen gebaseerd op software- en hoe deze wordt geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer de cyberbeveiliging en de fysieke werelden convergeren. Beveiligen van IoT-oplossingen vereist gezorgd beveiligde inrichting van de apparaten, beveiligde verbindingen tussen deze apparaten en de cloud en de bescherming van de beveiligde gegevens in de cloud tijdens verwerking en opslag. Werken met dergelijke functionaliteit, zijn echter resource beperkte apparaten, geografische verdeling van implementaties en een groot aantal apparaten binnen een oplossing.
@@ -84,7 +84,7 @@ Van versleutelde berichten te verwerken van gegevens in de cloud helpt de Azure 
 
 Nadat de gegevens zich in de cloud, kan deze worden verwerkt en opgeslagen in een door de gebruiker gedefinieerde werkstroom. Toegang tot elk deel van de gegevens wordt beheerd met Azure Active Directory, afhankelijk van de storage-service gebruikt.
 
-Alle sleutels die worden gebruikt door de IoT-infrastructuur worden opgeslagen in de cloud in de veilige opslag met de mogelijkheid om overschakelen als sleutels moeten opnieuw worden ingericht. Gegevens kunnen worden opgeslagen in [Azure Cosmos DB](../documentdb/documentdb-introduction.md) of in [SQL-databases](../sql-database/sql-database-faq.md), definitie van het niveau van beveiliging gewenst inschakelen. Azure biedt bovendien een manier om te bewaken en controleren van alle toegang tot uw gegevens om een melding van elke inbraakdetectie of onbevoegde toegang.
+Alle sleutels die worden gebruikt door de IoT-infrastructuur worden opgeslagen in de cloud in de veilige opslag met de mogelijkheid om overschakelen als sleutels moeten opnieuw worden ingericht. Gegevens kunnen worden opgeslagen in [Azure Cosmos DB](../cosmos-db/introduction.md) of in [SQL-databases](../sql-database/sql-database-faq.md), definitie van het niveau van beveiliging gewenst inschakelen. Azure biedt bovendien een manier om te bewaken en controleren van alle toegang tot uw gegevens om een melding van elke inbraakdetectie of onbevoegde toegang.
 
 ## <a name="conclusion"></a>Conclusie
 Het Internet der dingen begint met uw dingen: de bewerkingen die belangrijk voor bedrijven. Door de kosten te verlagen, inkomsten te verhogen en transformeren bedrijven bieden IoT fantastische waarde om een bedrijf. Succes van deze transformatie afhankelijk grotendeels van de juiste IoT-software en service provider kiezen. Dit betekent dat een provider die niet alleen catalyzes deze transformatie door vereisten en behoeften van bedrijf begrijpen, maar ook biedt services en software die zijn gebouwd met beveiliging, privacy, transparantie en naleving als belangrijke ontwerpoverwegingen zoeken. Microsoft heeft de uitgebreide ervaring bij het ontwikkelen en veilige software en services implementeren en blijft een opvulteken in deze nieuwe tijd van het Internet der dingen. 

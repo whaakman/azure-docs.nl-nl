@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure CosmosDB: Ontwikkelen met de Cassandra API in Java
 
 Azure Cosmos-database is de service van Microsoft wereldwijd gedistribueerde database voor meerdere model. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze zelfstudie laat zien hoe u een Azure DB die Cosmos-account maken met de Azure-portal en maak vervolgens een Cassandra Table(documentdb-partition-data.md#partition-keys) met de [Cassandra API](cassandra-introduction.md). Als u een primaire sleutel bij het maken van een tabel, wordt uw toepassing voorbereid moeiteloos schalen als uw gegevens groeit. 
+Deze zelfstudie laat zien hoe u een Azure DB die Cosmos-account maken met de Azure-portal en maak vervolgens een Cassandra Table(sql-api-partition-data.md#partition-keys) met de [Cassandra API](cassandra-introduction.md). Als u een primaire sleutel bij het maken van een tabel, wordt uw toepassing voorbereid moeiteloos schalen als uw gegevens groeit. 
 
 Deze zelfstudie bevat de volgende taken met behulp van de API Cassandra:
 
@@ -63,13 +63,13 @@ Voordat u een documentdatabase maken kunt, moet u een Cassandra-account maken me
 
 Nu gaan we werken met code. We gaan een app Cassandra vanuit GitHub, de verbindingsreeks instellen en voer dit klonen. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app. 
+1. Open een git-terminalvenster, bijvoorbeeld git bash, en gebruik de `cd`-opdracht om naar een map te gaan voor het installeren van de voorbeeld-app. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer.
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt een kopie van de voorbeeld-app op uw computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
@@ -77,7 +77,7 @@ Nu gaan we werken met code. We gaan een app Cassandra vanuit GitHub, de verbindi
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de databaseresources worden gemaakt in de code bent, kunt u de volgende codefragmenten bekijken. Anders kunt u verder gaan naar [bijwerken van de verbindingsreeks](#update-your-connection-string). Deze fragmenten worden genomen van de src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code worden gemaakt, kunt u de volgende codefragmenten bekijken. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsgegevens bijwerken](#update-your-connection-string). Deze fragmenten worden genomen van de src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
 * Cassandra host, poort, gebruikersnaam, wachtwoord en SSL-opties worden ingesteld. De verbindingsinformatie komt uit de pagina van de tekenreeks verbinding in de Azure portal.
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Een .NET Core en SQL Database web-app in Azure App Service maken op Linux
 
@@ -93,7 +93,7 @@ Voor SQL-Database in deze zelfstudie wordt [Azure SQL Database](/azure/sql-datab
 
 ### <a name="create-a-sql-database-logical-server"></a>Maak een logische SQL Database-server
 
-In de Cloud-Shell, maakt u een logische SQL Database-server met de [az sql server maken](/cli/azure/sql/server#create) opdracht.
+In de Cloud-Shell, maakt u een logische SQL Database-server met de [az sql server maken](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) opdracht.
 
 Vervang de  *\<servernaam >* aanduiding voor items met een unieke naam voor de SQL-Database. Deze naam wordt gebruikt als het onderdeel van het eindpunt van de SQL-Database, `<server_name>.database.windows.net`, zodat de naam moet uniek zijn in alle logische servers in Azure. De naam mag alleen kleine letters, cijfers en het koppelteken (-) en moet tussen 3 en 50 tekens bevatten. Vervang ook  *\<db_username >* en  *\<db_password >* met een gebruikersnaam en wachtwoord van uw keuze. 
 
@@ -124,7 +124,7 @@ Wanneer de logische SQL Database-server is gemaakt, toont de Azure CLI informati
 
 ### <a name="configure-a-server-firewall-rule"></a>Een serverfirewallregel configureren
 
-Maak een [Azure SQL Database-firewallregel op serverniveau](../../sql-database/sql-database-firewall-configure.md) met de opdracht [az sql server firewall create](/cli/azure/sql/server#create). Als zowel de IP-beginadres en de laatste IP-zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources. 
+Maak een [Azure SQL Database-firewallregel op serverniveau](../../sql-database/sql-database-firewall-configure.md) met de opdracht [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Als zowel de IP-beginadres en de laatste IP-zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Een database maken
 
-Maak een database met een [prestatieniveau van S0](../../sql-database/sql-database-service-tiers.md) op de server met de opdracht [az sql db create](/cli/azure/sql/db#create).
+Maak een database met een [prestatieniveau van S0](../../sql-database/sql-database-service-tiers.md) op de server met de opdracht [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ In deze stap maakt implementeren u uw toepassing verbinding maken met SQL Databa
 
 ### <a name="configure-an-environment-variable"></a>Configureren van een omgevingsvariabele
 
-U stelt tekenreeksen voor databaseverbindingen voor uw app in Azure met de [az webapp config appsettings bijwerken](/cli/azure/webapp/config/appsettings#update) opdracht in de Cloud-Shell. Vervang in de volgende opdracht  *\<app-naam >*, evenals de  *\<koppeling-reeks >* parameter met de verbindingsreeks die u eerder hebt gemaakt.
+U stelt tekenreeksen voor databaseverbindingen voor uw app in Azure met de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht in de Cloud-Shell. Vervang in de volgende opdracht  *\<app-naam >*, evenals de  *\<koppeling-reeks >* parameter met de verbindingsreeks die u eerder hebt gemaakt.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos programmeren-server: opgeslagen procedures, databasetriggers en UDF's
 
@@ -56,7 +56,7 @@ Deze benadering van *'JavaScript als een moderne dag T-SQL'* toepassingsontwikke
   * Een abstractielaag boven op de onbewerkte gegevens, zodat gegevens architecten ontwikkelen hun toepassingen onafhankelijk van de gegevens worden toegevoegd. Dit is vooral nuttig wanneer de gegevens zonder schema, vanwege de brosse veronderstellingen die worden standaard uitbreidbaar in de toepassing moeten mogelijk als ze hebben om te gaan met de gegevens rechtstreeks.  
   * Deze abstractie kan bedrijven hun gegevens beveiligen door af te stroomlijnen de toegang van de scripts.  
 
-Het maken en de uitvoering van de databasetriggers, opgeslagen procedure en aangepaste query's wordt ondersteund door de [Azure-portal](https://portal.azure.com), wordt de [REST-API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), en [client-SDK's](documentdb-sdk-dotnet.md) op verschillende platforms, waaronder .NET, Node.js en JavaScript.
+Het maken en de uitvoering van de databasetriggers, opgeslagen procedure en aangepaste query's wordt ondersteund door de [Azure-portal](https://portal.azure.com), wordt de [REST-API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), en [client-SDK's](sql-api-sdk-dotnet.md) op verschillende platforms, waaronder .NET, Node.js en JavaScript.
 
 Deze zelfstudie wordt gebruikgemaakt van de [Node.js-SDK met Q](http://azure.github.io/azure-documentdb-node-q/) ter illustratie van de syntaxis en het gebruik van opgeslagen procedures, triggers en UDF's.   
 
@@ -654,7 +654,7 @@ JavaScript opgeslagen procedures en triggers zijn sandbox zodat de gevolgen van 
 Opgeslagen procedures, triggers en UDF's zijn om te voorkomen dat compilatie kosten op het moment van elke aanroep script impliciet vooraf gecompileerde naar de indeling van de code byte. Dit zorgt ervoor dat de aanroepen van opgeslagen procedures zijn snel en een lage footprint hebben.
 
 ## <a name="client-sdk-support"></a>Ondersteuning voor client-SDK
-Naast de Cosmos Azure DB [Node.js](documentdb-sdk-node.md) API, Azure Cosmos DB heeft [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), en [Python SDK's](documentdb-sdk-python.md) voor de SQL-API. Opgeslagen procedures, triggers en UDF's kunnen worden gemaakt en wordt uitgevoerd met een van deze SDK's ook. Het volgende voorbeeld laat zien hoe kunnen maken en uitvoeren van een opgeslagen procedure met de .NET-client. Houd er rekening mee hoe de .NET-typen zijn doorgegeven naar de opgeslagen procedure als JSON en de inhoud weer.
+Naast de Cosmos Azure DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB heeft [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), en [Python SDK's](sql-api-sdk-python.md) voor de SQL-API. Opgeslagen procedures, triggers en UDF's kunnen worden gemaakt en wordt uitgevoerd met een van deze SDK's ook. Het volgende voorbeeld laat zien hoe kunnen maken en uitvoeren van een opgeslagen procedure met de .NET-client. Houd er rekening mee hoe de .NET-typen zijn doorgegeven naar de opgeslagen procedure als JSON en de inhoud weer.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -708,7 +708,7 @@ Dit voorbeeld laat zien hoe u de [SQL .NET API](/dotnet/api/overview/azure/cosmo
         });
 
 
-En het volgende voorbeeld laat zien hoe door de gebruiker gedefinieerde functies (UDF) maken en deze gebruiken in een [SQL-query](documentdb-sql-query.md).
+En het volgende voorbeeld laat zien hoe door de gebruiker gedefinieerde functies (UDF) maken en deze gebruiken in een [SQL-query](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -805,7 +805,7 @@ Zodra u hebt een of meer opgeslagen procedures, triggers en gebruiker gedefiniee
 
 Ook kan nuttig voor u de volgende verwijzingen en resources in het pad voor meer informatie over Azure Cosmos dB programmeren-server:
 
-* [Azure Cosmos DB SDK 's](documentdb-sdk-dotnet.md)
+* [Azure Cosmos DB SDK 's](sql-api-sdk-dotnet.md)
 * [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
@@ -34,7 +34,7 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | AllocationFailed | Het cluster of de regio is geen beschikbare bronnen of het aangevraagde VM-grootte kan niet worden ondersteund. De aanvraag op een later tijdstip opnieuw proberen of vraag een andere VM-grootte. | [Inrichten en de toewijzing van problemen voor Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) en [inrichten en de toewijzing van problemen voor Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Wacht u totdat de gelijktijdige bewerking is voltooid. | |
 | AuthorizationFailed | Uw account of de service-principal heeft niet voldoende toegangsrechten voor het voltooien van de implementatie. Controleer de uw account behoort tot rol en de toegang voor de implementatie-scope. | [Op rollen gebaseerde toegangsbeheer van Azure](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | U verzonden implementatie-waarden die niet overeenkomen met wat er wordt verwacht door Resource Manager. Controleer de binnenste statusbericht voor meer informatie over het oplossen van problemen. | [Verwijzing naar de sjabloon](/azure/templates/) en [locaties ondersteund](resource-manager-template-location.md) |
+| BadRequest | U verzonden implementatie-waarden die niet overeenkomen met wat er wordt verwacht door Resource Manager. Controleer de binnenste statusbericht voor meer informatie over het oplossen van problemen. | [Verwijzing naar de sjabloon](/azure/templates/) en [locaties ondersteund](resource-manager-templates-resources.md#location) |
 | Conflict | U hebt aangevraagd een bewerking die niet is toegestaan in de huidige status van de resource. De schijfgrootte is mag bijvoorbeeld alleen bij het maken van een virtuele machine of wanneer de toewijzing van de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wacht voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |
 | DnsRecordInUse | De DNS-recordnaam moet uniek zijn. Geef een andere naam, of de bestaande record wijzigen. | |
@@ -51,7 +51,7 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | InvalidTemplate | Controleer de sjabloonsyntaxis van de op fouten. | [Ongeldige sjabloon oplossen](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Controleer of uw account hoort bij dezelfde tenant als de resourcegroep die u implementeert. | |
 | LinkedInvalidPropertyId | De resource-ID voor een bron is niet correct kan omzetten. Controleer dat u alle vereiste waarden voor de resource-ID opgeven, met inbegrip van de abonnements-ID, naam van een resourcegroep, resourcetype, bovenliggende Resourcenaam (indien nodig) en resourcenaam. | |
-| LocationRequired | Geef een locatie voor uw resource. | [Locatie instellen](resource-manager-template-location.md) |
+| LocationRequired | Geef een locatie voor uw resource. | [Locatie instellen](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Controleer de registratiestatus van de resource-provider en de ondersteunde locaties. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Uw abonnement bij de resourceprovider registreren. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Registratiestatus resource provider. | [Inschrijving oplossen](resource-manager-register-provider-errors.md) |

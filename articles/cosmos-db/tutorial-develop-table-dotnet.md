@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: dbcf2b3164aa4351301c52ccadecbc211193d19b
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Ontwikkelen met de tabel API in .NET
 
@@ -83,13 +83,13 @@ Begint met het maken van een Azure DB die Cosmos-account in de Azure portal.
 
 We gaan nu een Table-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken. 
 
-1. Open een git-terminalvenster zoals git bash, en gebruik de `cd` opdracht om te wijzigen naar een map voor het installeren van de voorbeeld-app. 
+1. Open een git-terminalvenster, bijvoorbeeld git bash, en gebruik de `cd`-opdracht om naar een map te gaan voor het installeren van de voorbeeld-app. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt u een kopie van de voorbeeld-app op uw computer. 
+2. Voer de volgende opdracht uit om de voorbeeldopslagplaats te klonen. Deze opdracht maakt een kopie van de voorbeeld-app op uw computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
@@ -140,7 +140,7 @@ Bepaalde functionaliteit wordt benaderd via nieuwe overloads aan CreateCloudTabl
 | Tabel-verbindingsinstellingen | Beschrijving |
 | --- | --- |
 | Verbindingsmodus  | Azure Cosmos DB ondersteunt twee modi voor connectiviteit. In `Gateway` modus aanvragen worden altijd aangebracht in de Azure DB die Cosmos-gateway stuurt deze door naar de bijbehorende gegevenspartities. In `Direct` connectiviteitsmodus, de client haalt de toewijzing van tabellen partities en aanvragen worden gedaan, rechtstreeks op basis van de gegevenspartities. Het is raadzaam `Direct`, de standaardwaarde.  |
-| Protocol van verbinding | Azure Cosmos DB ondersteunt twee verbindingsprotocollen - `Https` en `Tcp`. `Tcp`de standaardwaarde is en omdat het meer lightweight aanbevolen. |
+| Verbindingsprotocol | Azure Cosmos DB ondersteunt twee verbindingsprotocollen - `Https` en `Tcp`. `Tcp`de standaardwaarde is en omdat het meer lightweight aanbevolen. |
 | Voorkeur locaties | Door komma's gescheiden lijst met aanbevolen (multihoming) locaties voor leesbewerkingen. Elke Azure DB die Cosmos-account kan worden gekoppeld met 1-30 + regio's. Elk clientexemplaar kunt u een subset van deze gebieden in de gewenste volgorde voor lage latentie leesbewerkingen opgeven. De regio's moeten de namen van hun [weergavenamen](https://msdn.microsoft.com/library/azure/gg441293.aspx), bijvoorbeeld `West US`. Zie ook [multihoming API's](tutorial-global-distribution-table.md). |
 | Consistentieniveau | U kunt uitschakelen handel tussen latentie, consistentie en beschikbaarheid door te kiezen tussen vijf goed gedefinieerde consistentieniveaus: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, en `Eventual`. Standaard is `Session`. De keuze van de consistentieniveau maakt een belangrijke prestatieverbetering verschil in meerdere landen/regio-instellingen. Zie [consistentieniveaus](consistency-levels.md) voor meer informatie. |
 
@@ -301,7 +301,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB ondersteunt dezelfde queryfunctionaliteit als Azure Table storage voor de tabel-API. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query hiërarchie en een groot aantal ingebouwde functies. De aanvullende functionaliteit worden vermeld in de tabel-API in een toekomstige service-update. Zie [Azure Cosmos DB-query](documentdb-sql-query.md) voor een overzicht van deze mogelijkheden. 
+Azure Cosmos DB ondersteunt dezelfde queryfunctionaliteit als Azure Table storage voor de tabel-API. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query hiërarchie en een groot aantal ingebouwde functies. De aanvullende functionaliteit worden vermeld in de tabel-API in een toekomstige service-update. Zie [Azure Cosmos DB-query](sql-api-sql-query.md) voor een overzicht van deze mogelijkheden. 
 
 ## <a name="replace-an-entity"></a>Een entiteit vervangen
 Als u een entiteit wilt bijwerken, haalt u deze op uit de Tabelservice, wijzigt u het entiteitsobject en slaat u de wijzigingen weer op in de Tabelservice. De volgende code wijzigt het telefoonnummer van een bestaande klant. 

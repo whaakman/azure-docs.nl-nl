@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Aangepaste activiteiten gebruiken in een Azure Data Factory-pijplijn)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,12 +36,11 @@ Er zijn twee soorten activiteiten die u in een Azure Data Factory-pijplijn gebru
 
 Om gegevens te verplaatsen naar/van een gegevensarchief die geen ondersteuning biedt voor Data Factory, maakt u een **aangepaste activiteit** met uw eigen gegevens gegevensverplaatsing logica en gebruik de activiteit in een pijplijn. Op dezelfde manier om gegevens op een manier die niet wordt ondersteund door Data Factory-transformatie/proces, een aangepaste activiteit maken met uw eigen logica van de transformatie van gegevens en het gebruik van de activiteit in een pijplijn. 
 
-U kunt een aangepaste activiteit uit te voeren op een **Azure Batch** pool van virtuele machines of een op Windows gebaseerde **Azure HDInsight** cluster. Wanneer u Azure Batch gebruikt, kunt u een bestaande Azure Batch pool. Terwijl bij gebruik van HDInsight, kunt u een bestaand HDInsight-cluster of een cluster dat automatisch wordt gemaakt voor u op aanvraag tijdens runtime.  
+U kunt een aangepaste activiteit uit te voeren op een **Azure Batch** pool van virtuele machines. Wanneer u Azure Batch gebruikt, kunt u een bestaande Azure Batch pool.
 
-De volgende procedure bevat stapsgewijze instructies voor het maken van een aangepaste .NET-activiteit en gebruik van de aangepaste activiteit in een pijplijn. Deze stapsgewijze Kennismaking gebruikt een **Azure Batch** gekoppelde service. Een Azure HDInsight gebruiken gekoppelde service in plaats daarvan, maakt u een gekoppelde service van het type **HDInsight** (uw eigen HDInsight-cluster) of **HDInsightOnDemand** (Data Factory maakt een HDInsight-cluster op aanvraag). Configureer vervolgens een aangepaste activiteit voor het gebruik van de gekoppelde HDInsight-service. Zie [gebruik Azure HDInsight gekoppelde services](#use-hdinsight-compute-service) sectie voor meer informatie over het Azure HDInsight gebruiken voor het uitvoeren van de aangepaste activiteit.
+De volgende procedure bevat stapsgewijze instructies voor het maken van een aangepaste .NET-activiteit en gebruik van de aangepaste activiteit in een pijplijn. Deze stapsgewijze Kennismaking gebruikt een **Azure Batch** gekoppelde service. 
 
 > [!IMPORTANT]
-> - De aangepaste .NET-activiteiten alleen op Windows gebaseerde HDInsight-clusters worden uitgevoerd. Een tijdelijke oplossing voor deze beperking is het gebruik van de activiteit voor het beperken van kaart aangepaste Java-code uitvoeren op een Linux gebaseerde HDInsight-cluster. Een andere optie is het gebruik van een Azure Batch-pool van virtuele machines uitvoeren van aangepaste activiteiten in plaats van een HDInsight-cluster.
 > - Het is niet mogelijk om te gebruiken van een Data Management Gateway vanuit een aangepaste activiteit voor toegang tot on-premises gegevensbronnen. Op dit moment [Data Management Gateway](data-factory-data-management-gateway.md) ondersteunt alleen de kopieeractiviteit en de activiteit opgeslagen procedure in Data Factory.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Overzicht: een aangepaste activiteit maken
@@ -479,8 +478,6 @@ Met gekoppelde services worden gegevensarchieven of compute-services gekoppeld a
 
        Voor de **poolName** eigenschap, kunt u ook de ID van de groep in plaats van de naam van de groep opgeven.
 
-      > [!IMPORTANT]
-      > De Data Factory-service biedt een optie op aanvraag geen ondersteuning voor Azure Batch als voor HDInsight. U kunt uw eigen Azure Batch-pool alleen gebruiken in een Azure data factory.   
     
 
 ### <a name="step-3-create-datasets"></a>Stap 3: Gegevenssets maken
@@ -786,115 +783,6 @@ Zie [automatisch schalen rekenknooppunten in een Azure Batch-pool](../../batch/b
 
 Als de groep met behulp van de standaard [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), de Batch-service kan enige tijd duren 15-30 minuten voor het voorbereiden van de virtuele machine voordat u de aangepaste activiteit.  Als de groep een andere autoScaleEvaluationInterval gebruikt is, kan de Batch-service autoScaleEvaluationInterval + 10 minuten duren.
 
-## <a name="use-hdinsight-compute-service"></a>HDInsight compute-service gebruiken
-In de procedure gebruikt u Azure Batch compute om uit te voeren van de aangepaste activiteit. U kunt ook uw eigen HDInsight op basis van Windows-cluster gebruiken of Data Factory Windows gebaseerd HDInsight-cluster op aanvraag maken en de aangepaste activiteit worden uitgevoerd op het HDInsight-cluster zijn. Hier volgen de stappen op hoog niveau voor het gebruik van een HDInsight-cluster.
-
-> [!IMPORTANT]
-> De aangepaste .NET-activiteiten alleen op Windows gebaseerde HDInsight-clusters worden uitgevoerd. Een tijdelijke oplossing voor deze beperking is het gebruik van de activiteit voor het beperken van kaart aangepaste Java-code uitvoeren op een Linux gebaseerde HDInsight-cluster. Een andere optie is het gebruik van een Azure Batch-pool van virtuele machines uitvoeren van aangepaste activiteiten in plaats van een HDInsight-cluster.
- 
-
-1. Maak een gekoppelde HDInsight-service.   
-2. Gebruik HDInsight gekoppelde service in plaats van **AzureBatchLinkedService** in de JSON-pijplijn.
-
-Als u testen met deze stapsgewijze Kennismaking wilt, wijzigt u **start** en **end** time-out voor de pijplijn, zodat u het scenario met de service Azure HDInsight kunt testen.
-
-#### <a name="create-azure-hdinsight-linked-service"></a>Een gekoppelde HDInsight-service maken
-De Azure Data Factory-service ondersteunt het maken van een cluster op aanvraag en deze gebruiken voor het verwerken van de invoer voor de uitvoergegevens te produceren. U kunt ook uw eigen-cluster gebruiken om uit te voeren dezelfde. Wanneer u de HDInsight-cluster op aanvraag, wordt een cluster wordt gemaakt voor elk segment. Dat als u uw eigen HDInsight-cluster, het cluster gereed is voor het segment onmiddellijk verwerkt. Daarom wanneer u on-demand-cluster gebruikt, kan er geen uitvoergegevens zo snel wanneer u uw eigen cluster gebruikt.
-
-> [!NOTE]
-> Tijdens runtime werkt een exemplaar van een .NET-activiteit alleen op één knooppunt van de werknemer in het HDInsight-cluster. Deze kan niet worden geschaald om uit te voeren op meerdere knooppunten. Meerdere exemplaren van de activiteit .NET kunnen parallel worden uitgevoerd op verschillende knooppunten van het HDInsight-cluster.
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>Gebruik van een HDInsight-cluster op aanvraag
-1. In de **Azure-portal**, klikt u op **maken en implementeren** in de Data Factory-startpagina.
-2. In de Data Factory-Editor, klikt u op **nieuwe berekening** in de opdrachtbalk en selecteer **On-demand HDInsight-cluster** in het menu.
-3. De volgende wijzigingen aanbrengen in de JSON-script:
-
-   1. Voor de **de clustergrootte** eigenschap, de grootte van het HDInsight-cluster opgeven.
-   2. Voor de **timeToLive** eigenschap, opgeven hoe lang de klant inactief mag zijn voordat deze wordt verwijderd.
-   3. Voor de **versie** eigenschap, geef de HDInsight-versie die u wilt gebruiken. Als u deze eigenschap uitsluit, wordt de meest recente versie gebruikt.  
-   4. Voor de **linkedServiceName**, geef **AzureStorageLinkedService**.
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > De aangepaste .NET-activiteiten alleen op Windows gebaseerde HDInsight-clusters worden uitgevoerd. Een tijdelijke oplossing voor deze beperking is het gebruik van de activiteit voor het beperken van kaart aangepaste Java-code uitvoeren op een Linux gebaseerde HDInsight-cluster. Een andere optie is het gebruik van een Azure Batch-pool van virtuele machines uitvoeren van aangepaste activiteiten in plaats van een HDInsight-cluster.
-
-4. Klik op de opdrachtbalk op **Implementeren** om de gekoppelde service te implementeren.
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>Uw eigen HDInsight-cluster gebruiken:
-1. In de **Azure-portal**, klikt u op **maken en implementeren** in de Data Factory-startpagina.
-2. In de **Data Factory-Editor**, klikt u op **nieuwe berekening** in de opdrachtbalk en selecteer **HDInsight-cluster** in het menu.
-3. De volgende wijzigingen aanbrengen in de JSON-script:
-
-   1. Voor de **clusterUri** eigenschap, geef de URL voor uw HDInsight. Bijvoorbeeld: https://<clustername>.azurehdinsight.net/     
-   2. Voor de **gebruikersnaam** eigenschap, voer de naam van de gebruiker die toegang tot het HDInsight-cluster heeft.
-   3. Voor de **wachtwoord** eigenschap, voer het wachtwoord voor de gebruiker.
-   4. Voor de **LinkedServiceName** eigenschap, voer **AzureStorageLinkedService**.
-4. Klik op de opdrachtbalk op **Implementeren** om de gekoppelde service te implementeren.
-
-Zie [gekoppelde services berekenen](data-factory-compute-linked-services.md) voor meer informatie.
-
-In de **pipeline JSON**, HDInsight gebruiken (op aanvraag of uw eigen) gekoppelde service:
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Een aangepaste activiteit maken met behulp van de .NET SDK
 In de procedure in dit artikel maakt u een gegevensfactory met een pipeline die gebruikmaakt van de aangepaste activiteit met behulp van de Azure-portal. De volgende code laat zien hoe de gegevensfactory maken in plaats daarvan met .NET SDK. U vindt meer informatie over het gebruik van SDK programmatisch maken pijplijnen in de [een pijplijn maken met de kopieeractiviteit met behulp van de .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md) artikel. 

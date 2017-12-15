@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 358f2650f767057f4a220d3b3b8507de4ce14e6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bf4bb59545ce2d4172cb001d29f5bfc68968d389
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: Hoe query's uitvoeren met de Graph-API (preview)?
 
@@ -85,4 +85,4 @@ In deze zelfstudie hebt u het volgende gedaan:
 U kunt nu doorgaan met de volgende zelfstudie voor informatie over het distribueren van uw gegevens globaal.
 
 > [!div class="nextstepaction"]
-> [Uw gegevens globaal distribueren](tutorial-global-distribution-documentdb.md)
+> [Uw gegevens globaal distribueren](tutorial-global-distribution-sql-api.md)

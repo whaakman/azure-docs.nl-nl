@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Problemen met Netwerkbeveiligingsgroepen met Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Hoewel dit voorbeeld wordt de TCP-poort 3389 gebruikt, kunnen de volgende stappe
 ## <a name="detailed-troubleshooting-steps"></a>Gedetailleerde stappen voor probleemoplossing
 De volgende stappen voor het oplossen van nsg's voor een virtuele machine:
 
-1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend bent met behulp van Azure PowerShell, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel.
+1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend bent met behulp van Azure PowerShell, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Voer de volgende opdracht om te retourneren van alle NSG-regels toegepast op een NIC met de naam *VM1 NIC1* in de resourcegroep *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

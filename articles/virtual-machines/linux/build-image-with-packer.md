@@ -4,7 +4,7 @@ description: "Informatie over het gebruik van verpakker installatiekopieën make
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 1752d2e0a497bf94309a744562cf4462866d6f99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Het gebruik van verpakker voor het maken van installatiekopieën van Linux virtuele machines in Azure
 Elke virtuele machine (VM) in Azure wordt gemaakt van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Voorbeelden van afbeeldingen zijn vooraf geïnstalleerde toepassingen en configuraties. Azure Marketplace bevat veel installatiekopieën van het eerste en derde partij voor het meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source hulpprogramma [verpakker](https://www.packer.io/) om te definiëren en te maken van aangepaste installatiekopieën in Azure.
@@ -195,6 +195,8 @@ ManagedImageResourceGroupName: myResourceGroup
 ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
+
+Het duurt enkele minuten duren voordat verpakker bouwen van de virtuele machine, het uitvoeren van de provisioners en het opschonen van de implementatie.
 
 
 ## <a name="create-vm-from-azure-image"></a>Virtuele machine van de afbeelding voor Azure maken

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -59,6 +59,10 @@ Het systeem-account moet hebben de volgende bevoegdheden:
     a. Op Azure Stack Development Kit (ASDK)-installaties, moet u zich aanmelden bij de fysieke host.
 
     b. Op systemen met meerdere knooppunten moet de host een systeem dat toegang heeft tot de bevoegde eindpunt.
+    
+    >[!NOTE]
+    > Het systeem waarop het script wordt uitgevoerd *moet* worden van een Windows 10 of Windows Server 2016-systeem met de meest recente versie van de .NET runtime geïnstalleerd. Installatie mislukt anders. De host ASDK voldoet aan deze criteria.
+    
 
 3. De binaire MySQL resourceprovider downloaden en uitvoeren van de zelfstandig uitpakken om de inhoud naar een tijdelijke map te pakken.
 
@@ -67,15 +71,19 @@ Het systeem-account moet hebben de volgende bevoegdheden:
 
     | Azure Stack Build | MySQL RP-installatieprogramma |
     | --- | --- |
-    | 1.0.171122.1 | [MySQL RP versie 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171122.1 | [MySQL RP versie 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [MySQL RP versie 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [MySQL RP versie 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Het Azure-Stack-basiscertificaat wordt opgehaald uit het bevoegde eindpunt. Voor ASDK, een zelfondertekend certificaat gemaakt als onderdeel van dit proces. Voor meerdere knooppunten, moet u een geschikt certificaat opgeven.
 
-    Als u moet uw eigen certificaat op te geven, moet u het volgende certificaat:
+    Als u moet uw eigen certificaat op te geven, moet u een PFX-bestand geplaatst de **DependencyFilesLocalPath** (Zie hieronder) als volgt:
 
-    Een jokertekencertificaat voor \*.dbadapter.\< regio\>.\< externe fqdn\>. Dit certificaat moet worden vertrouwd, zoals zou zijn uitgegeven door een certificeringsinstantie. Dat wil zeggen moet de keten van vertrouwensrelatie bestaan zonder tussenliggende certificaten. Een certificaat voor één site kan worden gebruikt met expliciete naam van de VM [mysqladapter] gebruikt tijdens de installatie.
+    - Een jokertekencertificaat voor \*.dbadapter.\< regio\>.\< externe fqdn\> of een certificaat voor één site met een algemene naam van mysqladapter.dbadapter.\< regio\>.\< externe FQDN-naam\>
+    - Dit certificaat moet worden vertrouwd, zoals zou zijn uitgegeven door een certificeringsinstantie. Dat wil zeggen moet de keten van vertrouwensrelatie bestaan zonder tussenliggende certificaten.
+    - Een enkele certificaatbestand bestaat in de DependencyFilesLocalPath.
+    - De bestandsnaam moet de speciale tekens niet bevatten.
+
 
 
 5. Open een **nieuwe** (beheerdersrechten) PowerShell-console met verhoogde bevoegdheid en de wijzigingen in de map waar u de bestanden hebt uitgepakt. Een nieuw venster gebruiken om problemen die kunnen worden veroorzaakt door onjuiste PowerShell-modules die al is geladen, op het systeem te voorkomen.

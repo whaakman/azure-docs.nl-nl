@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen zijn van toepassing op alle doelgroepen.
@@ -84,11 +84,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 waar 
 
-$ObjectDN = Active Directory-account waarvan de machtigingen wilt hoger worden ingesteld.
-$Credential = referentie is gebruikt voor het verifiëren van de client als praten met Active Directory. Doorgaans is dit de ondernemingsbeheerder referenties gebruikt voor het maken van het account waarvan machtigingen die behoeften verstrakking.
+**$ObjectDN** = Active Directory-account waarvan de machtigingen wilt hoger worden ingesteld.
+
+**$Credential** = beheerdersreferenties die de benodigde machtigingen heeft voor de machtigingen voor $ObjectDN account beperken. Dit is meestal de beheerder van de Enterprise- of -domein. Gebruik de volledig gekwalificeerde domeinnaam van de administrator-account om te voorkomen dat account lookup-fouten. Voorbeeld: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Gebruikersnaam moet de indeling DOMEIN\gebruikersnaam.  
+>$credential. Gebruikersnaam moet de indeling FQDN\gebruikersnaam. Voorbeeld: contoso.com\admin 
 
 ##### <a name="example"></a>Voorbeeld:
 

@@ -3,7 +3,7 @@ title: Een Azure Automation-runbook beginnen met een webhook | Microsoft Docs
 description: Een webhook waarmee een client een runbook in Azure Automation starten vanuit een aanroep van HTTP.  Dit artikel wordt beschreven voor het maken van een webhook en het aanroepen van een voor het starten van een runbook.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook beginnen met een webhook
 Een *webhook* kunt u een bepaald runbook te starten in Azure Automation via één HTTP-aanvraag. Hierdoor kan externe services, zoals Visual Studio Team Services, GitHub, logboekanalyse van Microsoft Operations Management Suite of aangepaste toepassingen runbooks starten zonder het implementeren van een volledige oplossing met de Azure Automation-API.  
@@ -85,10 +85,10 @@ Een andere strategie is om het runbook sommige validatie van een externe voorwaa
 ## <a name="creating-a-webhook"></a>Maken van een webhook
 Gebruik de volgende procedure voor het maken van een nieuwe webhook gekoppeld aan een runbook in de Azure-portal.
 
-1. Van de **Runbooks blade** in de Azure-portal klikt u op het runbook waarmee de webhook wordt gestart om de blade details weer te geven.
-2. Klik op **Webhook** boven aan de blade opent de **Webhook toevoegen** blade. <br>
+1. Van de **Runbooks pagina** in de Azure-portal klikt u op het runbook waarmee de webhook wordt gestart om de detailpagina ervan weer te geven.
+2. Klik op **Webhook** boven aan de pagina opent de **Webhook toevoegen** pagina. <br>
    ![Knop webhooks.](media/automation-webhooks/webhooks-button.png)
-3. Klik op **maken van nieuwe webhook** openen de **webhook-blade maken**.
+3. Klik op **maken van nieuwe webhook** openen de **pagina van de webhook maken**.
 4. Geef een **naam**, **vervaldatum** voor de webhook en Hiermee wordt aangegeven of moet worden ingeschakeld. Zie [Details van een webhook](#details-of-a-webhook) voor meer informatie deze eigenschappen.
 5. Klik op het pictogram kopiëren en druk op Ctrl + C om de URL van de webhook kopiëren.  Noteer de op een veilige plaats.  **Als u de webhook gemaakt, kan u de URL opnieuw niet ophalen.** <br>
    ![Webhook-URL](media/automation-webhooks/copy-webhook-url.png)
@@ -105,7 +105,7 @@ De client ontvangt een van de volgende retourcodes van de POST-aanvraag.
 | Code | Tekst | Beschrijving |
 |:--- |:--- |:--- |
 | 202 |Geaccepteerd |De aanvraag is geaccepteerd en het runbook is in de wachtrij geplaatst. |
-| 400 |Onjuiste aanvraag |De aanvraag is niet geaccepteerd voor een van de volgende oorzaken hebben. <ul> <li>De webhook is verlopen.</li> <li>De webhook is uitgeschakeld.</li> <li>Het token in de URL is ongeldig.</li>  </ul> |
+| 400 |Ongeldig verzoek |De aanvraag is niet geaccepteerd voor een van de volgende oorzaken hebben. <ul> <li>De webhook is verlopen.</li> <li>De webhook is uitgeschakeld.</li> <li>Het token in de URL is ongeldig.</li>  </ul> |
 | 404 |Niet gevonden |De aanvraag is niet geaccepteerd voor een van de volgende oorzaken hebben. <ul> <li>De webhook is niet gevonden.</li> <li>Het runbook is niet gevonden.</li> <li>Het account is niet gevonden.</li>  </ul> |
 | 500 |Interne serverfout |De URL is geldig, maar er is een fout opgetreden.  Verzend de aanvraag. |
 
@@ -189,7 +189,7 @@ Webhook ingeschakeld runbooks kunnen worden gebruikt om te reageren op [waarschu
 
 Naast het gebruik van waarschuwingen van Azure als een waarschuwingssysteem, kunt u ook ere van runbooks in reactie op waarschuwingen. Azure Automation biedt de mogelijkheid om uit te voeren webhook ingeschakeld runbooks met waarschuwingen van Azure. Wanneer een waarde groter is dan de geconfigureerde drempelwaarde vervolgens de waarschuwingsregel actief wordt en de automation-webhook die op zijn beurt wordt uitgevoerd het runbook wordt geactiveerd.
 
-![Webhooks.](media/automation-webhooks/webhook-alert.jpg)
+![Webhooks](media/automation-webhooks/webhook-alert.jpg)
 
 ### <a name="alert-context"></a>Waarschuwingscontext
 Houd rekening met een Azure-resource zoals een virtuele machine, CPU-gebruik van deze machine is een van de prestatie-metriek. Als het CPU-gebruik is 100% of meer dan een bepaald bedrag gedurende lange tijd weergegeven, is het raadzaam om opnieuw te starten van de virtuele machine om het probleem te verhelpen. Dit kan worden opgelost door een waarschuwingsregel aan de virtuele machine configureren en deze regel gaat CPU-percentage als de metriek. Hier CPU-percentage wordt alleen gemaakt als voorbeeld, maar er zijn veel andere metrische gegevens die u voor uw Azure-resources configureren kunt en opnieuw starten van de virtuele machine is een actie die moet worden uitgevoerd om dit probleem te verhelpen, kunt u het runbook om andere acties te configureren.

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -129,7 +129,7 @@ Ongeacht de functie voor bedrijfscontinuïteit die u gebruikt, moet u:
 Als u niet bereid juist brengen van uw toepassingen online na een failover of een databaseherstel meer tijd kost en waarschijnlijk ook problemen moet oplossen op een tijdstip van stress - een ongeldige combinatie.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Failover naar een secundaire geo-replicatie-database
-Als u van actieve geo-replicatie en automatische failover-groepen (in preview) als uw herstelfunctie gebruikmaakt, kunt u beleid voor automatische failover configureren of gebruiken [handmatige failover](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Eenmaal is gestart, is de failover zorgt ervoor dat de secundaire worden de nieuwe primaire en gereed voor het registreren van nieuwe transacties en reageren op query's, met minimaal gegevensverlies voor de gegevens nog niet gerepliceerd. Zie voor meer informatie over het ontwerpen van het failoverproces [ontwerpen van een toepassing voor noodherstel voor cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Als u van actieve geo-replicatie en automatische failover-groepen (in preview) als uw herstelfunctie gebruikmaakt, kunt u beleid voor automatische failover configureren of gebruiken [handmatige failover](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Eenmaal is gestart, is de failover zorgt ervoor dat de secundaire worden de nieuwe primaire en gereed voor het registreren van nieuwe transacties en reageren op query's, met minimaal gegevensverlies voor de gegevens nog niet gerepliceerd. Zie voor meer informatie over het ontwerpen van het failoverproces [ontwerpen van een toepassing voor noodherstel voor cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Als het datacentrum weer online wordt gezet wordt de oude primaire automatisch opnieuw verbinding maken met de nieuwe primaire en secundaire databases worden. Als u aan de primaire back te verplaatsen naar de oorspronkelijke regio moet, kunt u een geplande failover handmatig starten (failback). 

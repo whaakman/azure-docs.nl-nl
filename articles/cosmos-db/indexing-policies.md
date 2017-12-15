@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a0e19fc9a5ee41dc61c8ced65206e81efe817681
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe biedt Azure Cosmos DB indexgegevens?
 
@@ -229,7 +229,7 @@ U kunt kiezen of u wilt dat de verzameling automatisch alle documenten te indexe
 
 Met automatische indexeren uitgeschakeld, kunt u nog steeds selectief alleen bepaalde documenten toevoegen aan de index. U kunt daarentegen laat automatische indexering op en selectief wilt uitsluiten van alleen specifieke documenten. Indexeren aan/uit-configuraties zijn nuttig wanneer u hebt alleen een subset van documenten die moeten worden opgevraagd.
 
-Het volgende voorbeeld ziet u bijvoorbeeld het opnemen van een document expliciet met behulp van de [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
+Het volgende voorbeeld ziet u bijvoorbeeld het opnemen van een document expliciet met behulp van de [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) en de [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) eigenschap.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -418,5 +418,5 @@ Volg de onderstaande koppelingen voor index beleid management voorbeelden en voo
 
 1. [SQL-API .NET indexbeheer-codevoorbeelden](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [SQL-API REST-verzameling bewerkingen](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [De query met behulp van SQL](documentdb-sql-query.md)
+3. [De query met behulp van SQL](sql-api-sql-query.md)
 

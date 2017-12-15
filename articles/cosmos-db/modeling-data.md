@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modeling documentgegevens voor NoSQL-databases
 Terwijl databases zonder schema, zoals Azure Cosmos DB, u kunnen heel eenvoudig om af te spelen op wijzigingen in het gegevensmodel u moet nog steeds hoeven te besteden aan bepaalde tijd na te denken over uw gegevens. 
@@ -39,7 +39,7 @@ Wanneer u gegevens in een store, document, zoals Azure Cosmos DB modelleren star
 
 Voordat we meteen te veel meer laat het ons Neem een paar stappen terug en bekijk hoe wij iets in een relationele database, een onderwerp dat velen van ons al bekend met bent mogelijk model. Het volgende voorbeeld ziet hoe een persoon kan worden opgeslagen in een relationele database. 
 
-![Relationele database-model](./media/documentdb-modeling-data/relational-data-model.png)
+![Relationele database-model](./media/sql-api-modeling-data/relational-data-model.png)
 
 Als u werkt met relationele databases, hebben we geleerd jaar normaliseren, normaliseren, normaliseren.
 
@@ -290,7 +290,7 @@ In het bovenstaande voorbeeld hebben we de unbounded verzameling verwijderd op d
 ### <a name="how-do-i-model-manymany-relationships"></a>Hoe ik veel: veel-relaties model?
 In een relationele database *veel:* relaties zijn vaak gemodelleerd met join-tabellen die records uit andere tabellen NET samenvoegen. 
 
-![Tabellen samenvoegen](./media/documentdb-modeling-data/join-table.png)
+![Tabellen samenvoegen](./media/sql-api-modeling-data/join-table.png)
 
 U kunt mogelijk geneigd te repliceren van hetzelfde met behulp van documenten en produceren van een gegevensmodel dat op het volgende lijkt.
 
@@ -395,4 +395,4 @@ Net als er geen enkele manier een stukje informatie op een scherm vertegenwoordi
 
 Raadpleeg voor meer informatie over Azure Cosmos DB, van de service [documentatie](https://azure.microsoft.com/documentation/services/cosmos-db/) pagina. 
 
-Om te begrijpen hoe naar shard van uw gegevens over meerdere partities verwijzen naar [partitioneren van gegevens in Azure Cosmos DB](documentdb-partition-data.md). 
+Om te begrijpen hoe naar shard van uw gegevens over meerdere partities verwijzen naar [partitioneren van gegevens in Azure Cosmos DB](sql-api-partition-data.md). 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Een Azure DB die Cosmos-account maken met PowerShell
 
-De volgende handleiding beschrijft automatiseren beheer van uw Azure Cosmos DB database accounts met Azure Powershell-opdrachten. Dit omvat ook opdrachten voor het beheren van sleutels en failover prioriteiten in [meerdere landen/regio database accounts][scaling-globally]. Bijwerken van uw databaseaccount, kunt u consistentie beleid wijzigen en regio's toevoegen of verwijderen. Voor het beheer van de platformoverschrijdende van uw Azure DB die Cosmos-account, kunt u een gebruiken [Azure CLI](cli-samples.md), wordt de [Resource Provider REST-API][rp-rest-api], of de [Azure-portal ](create-documentdb-dotnet.md#create-account).
+De volgende handleiding beschrijft automatiseren beheer van uw Azure Cosmos DB database accounts met Azure Powershell-opdrachten. Dit omvat ook opdrachten voor het beheren van sleutels en failover prioriteiten in [meerdere landen/regio database accounts][scaling-globally]. Bijwerken van uw databaseaccount, kunt u consistentie beleid wijzigen en regio's toevoegen of verwijderen. Voor het beheer van de platformoverschrijdende van uw Azure DB die Cosmos-account, kunt u een gebruiken [Azure CLI](cli-samples.md), wordt de [Resource Provider REST-API][rp-rest-api], of de [Azure-portal ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -194,8 +194,7 @@ Voorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Als u wilt verbinding maken met .NET, Zie [Connect en query met .NET](create-documentdb-dotnet.md).
-* Zie voor verbinding met behulp van .NET Core, [Connect en query met .NET Core](create-documentdb-dotnet-core.md).
+* Als u wilt verbinding maken met .NET, Zie [Connect en query met .NET](create-sql-api-dotnet.md).
 * Zie voor verbinding met behulp van Node.js, [Connect en query met Node.js en een app MongoDB](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Hosting-servers voor gebruik door de SQL-adapter toevoegen
 
@@ -28,11 +28,9 @@ U kunt SQL-exemplaren op virtuele machines in uw [Azure Stack](azure-stack-poc.m
 * Het SQL-exemplaar moet zijn gereserveerd voor gebruik door de werkbelastingen RP en de gebruiker. U kunt een SQL-exemplaar dat wordt gebruikt door andere gebruiker, met inbegrip van App-Services niet gebruiken.
 * De RP-adapter is niet verbonden met het domein en kan alleen verbinding maken via SQL-verificatie.
 * U moet een account met voldoende rechten voor gebruik door de RP configureren.
-* Netwerkverkeer van de RP aan SQL-poort 1433 gebruikt en kan niet worden gewijzigd.
 * De RP en gebruikers, zoals Web-Apps gebruiken het gebruikersnetwerk, zodat de verbinding met de SQL-exemplaar op dit netwerk is vereist. Deze vereiste betekent meestal dat de IP-adres voor uw SQL-exemplaren moet op een openbaar netwerk.
 * Beheer van de SQL-exemplaren en hun hosts is aan u; het RP niet uitvoeren van de toepassing van patches, back-up, referenties wisselen, enzovoort.
 * SKU's kunnen worden gebruikt voor het maken van verschillende klassen van de SQL-mogelijkheden, zoals prestaties altijd actief, enzovoort.
-
 
 
 Een aantal SQL IaaS virtuele machine afbeeldingen zijn beschikbaar via de Marketplace-Management-functie. Zorg ervoor dat u altijd de nieuwste versie van de SQL-IaaS-uitbreiding downloaden voordat u een VM die gebruikmaakt van een Marketplace-item implementeert. De SQL-afbeeldingen zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn. Geef functies zoals automatisch patchen en Backup-functies voor virtuele SQL-machines gemaakt op basis van deze installatiekopieën, de IaaS-uitbreiding en de bijbehorende portal verbeteringen.
@@ -73,6 +71,8 @@ Als u wilt toevoegen in een zelfstandige host server die al is ingericht, de vol
 
   ![Nieuwe hostserver](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    U kunt desgewenst een instantienaam opnemen en een poortnummer kan worden opgegeven als het exemplaar niet aan de standaardpoort 1433 toegewezen is.
+
   > [!NOTE]
   > Als het SQL-exemplaar kan worden geopend door de gebruiker en Azure Resource Manager-beheerder, kan deze worden geplaatst onder het beheer van de resourceprovider. Het SQL-exemplaar __moet__ worden toegewezen aan de RP uitsluitend.
 
@@ -86,10 +86,10 @@ Als u wilt toevoegen in een zelfstandige host server die al is ingericht, de vol
 
     Een voorbeeld:
 
-    ![SKU 's](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![Voorraadeenheden](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet maken, totdat de SKU is gemaakt.
+> SKU's kunnen een uur duren zichtbaar in de portal. Gebruikers kunnen geen een database maken totdat de SKU is gemaakt.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Een capaciteit met behulp van SQL AlwaysOn-beschikbaarheidsgroepen
 Configuratie-exemplaren van SQL Always On zijn aanvullende stappen vereist en moet ten minste drie virtuele machines (of fysieke machines).
@@ -126,7 +126,7 @@ SQL Always On hosting als servers wilt toevoegen, de volgende stappen uit:
     De **SQL-Servers die als host fungeert** blade is waar u de Resource Provider voor SQL Server kunt verbinden met de daadwerkelijke exemplaren van SQL Server die als back-end van de resourceprovider dienen.
 
 
-3. Vul het formulier met de details van de verbinding van uw exemplaar van SQL Server, zorg ervoor dat u de FQDN-naam of IPv4-adres van de altijd op Listener wordt. Geef de accountgegevens voor de account die u hebt geconfigureerd met een systeemaccount van de beheerder.
+3. Vul het formulier met de details van de verbinding van uw SQL Server-exemplaar wordt zorg ervoor dat u de FQDN-naam of IPv4-adres van de altijd op de Listener (en optioneel poortnummer). Geef de accountgegevens voor de account die u hebt geconfigureerd met een systeemaccount van de beheerder.
 
 4. Schakel dit selectievakje in als ondersteuning voor exemplaren van SQL AlwaysOn-beschikbaarheidsgroep wilt inschakelen.
 
@@ -137,7 +137,7 @@ SQL Always On hosting als servers wilt toevoegen, de volgende stappen uit:
 
 ## <a name="making-sql-databases-available-to-users"></a>SQL-databases maken beschikbaar voor gebruikers
 
-Maak plannen en aanbiedingen om SQL-databases beschikbaar voor gebruikers. De service Microsoft.SqlAdapter toevoegen aan het plan en toevoegen van een bestaande quotum of maak een nieuwe. Als u een quotum maakt, kunt u de capaciteit om de gebruiker.
+Maak plannen en aanbiedingen om SQL-databases beschikbaar voor gebruikers. De service Microsoft.SqlAdapter toevoegen aan het plan en toevoegen van een bestaande quotum of maak een nieuwe. Als u een quotum maakt, kunt u de capaciteit om de gebruiker opgeven.
 
 ![Plannen en aanbiedingen voor zijn onder meer databases maken](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Buiten gebruik stellen van de prestaties S1, S2 en S3
 
@@ -95,7 +95,7 @@ Ervan uitgaande dat u hebt 10 S1 verzamelingen, 1 GB aan opslagruimte voor elk i
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Wat gebeurt er als ik meer dan 10 GB aan opslagruimte nodig?
 
-Of u een verzameling met een prestatieniveau S1, S2 of S3 of een verzameling van één partitie, die allemaal 10 GB aan opslagruimte beschikbaar is, dat kunt u het hulpprogramma voor gegevensmigratie Cosmos-DB uw om gegevens te migreren naar een gepartitioneerde verzameling met vrijwel hebben onbeperkte opslag. Zie voor meer informatie over de voordelen van een gepartitioneerde verzameling [partitionering en schalen in Azure Cosmos DB](documentdb-partition-data.md). 
+Of u een verzameling met een prestatieniveau S1, S2 of S3 of een verzameling van één partitie, die allemaal 10 GB aan opslagruimte beschikbaar is, dat kunt u het hulpprogramma voor gegevensmigratie Cosmos-DB uw om gegevens te migreren naar een gepartitioneerde verzameling met vrijwel hebben onbeperkte opslag. Zie voor meer informatie over de voordelen van een gepartitioneerde verzameling [partitionering en schalen in Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -134,7 +134,7 @@ U kunt migreren vanaf de prestatieniveaus S1, S2 en S3 naar verzamelingen met é
 
 4. Klik op **opslaan** uw wijzigingen op te slaan.
 
-    Als u vaststelt dat u meer doorvoer (groter dan 10.000 RU/s) of meer opslagruimte moet (groter dan 10 GB), kunt u een gepartitioneerde verzameling kunt maken. Zie voor het migreren van een verzameling van één partitie in een gepartitioneerde verzameling, [migreren van één partitie naar gepartitioneerde verzamelingen](documentdb-partition-data.md#migrating-from-single-partition).
+    Als u vaststelt dat u meer doorvoer (groter dan 10.000 RU/s) of meer opslagruimte moet (groter dan 10 GB), kunt u een gepartitioneerde verzameling kunt maken. Zie voor het migreren van een verzameling van één partitie in een gepartitioneerde verzameling, [migreren van één partitie naar gepartitioneerde verzamelingen](sql-api-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > Wijzigen van S1, S2 of S3 naar Standard kan maximaal twee minuten duren.
@@ -143,7 +143,7 @@ U kunt migreren vanaf de prestatieniveaus S1, S2 en S3 naar verzamelingen met é
 
 **Om te migreren naar verzamelingen met één partitie met de .NET SDK**
 
-Er is een andere optie voor het wijzigen van de uw verzamelingen prestatieniveaus via de Azure Cosmos DB SDK's. Deze sectie bevat alleen de prestaties van een verzameling wijzigen niveau met behulp van de [SQL .NET API](documentdb-sdk-dotnet.md), maar het proces is vergelijkbaar voor onze andere SDK.
+Er is een andere optie voor het wijzigen van de uw verzamelingen prestatieniveaus via de Azure Cosmos DB SDK's. Deze sectie bevat alleen de prestaties van een verzameling wijzigen niveau met behulp van de [SQL .NET API](sql-api-sdk-dotnet.md), maar het proces is vergelijkbaar voor onze andere SDK.
 
 Hier volgt een codefragment voor het wijzigen van de verzameling doorvoer in 5000 aanvraageenheden per seconde:
     
@@ -177,6 +177,6 @@ EA klanten, prijs tot het einde van hun huidige contract beschermd worden.
 ## <a name="next-steps"></a>Volgende stappen
 Lees deze informatiebronnen voor meer informatie over prijzen en -gegevens met Azure Cosmos DB beheren:
 
-1.  [Partitioneren van gegevens in Cosmos DB](documentdb-partition-data.md). Het verschil tussen één partitie container en gepartitioneerde containers, evenals tips voor het implementeren van een strategie voor partitionering probleemloos schalen.
+1.  [Partitioneren van gegevens in Cosmos DB](sql-api-partition-data.md). Het verschil tussen één partitie container en gepartitioneerde containers, evenals tips voor het implementeren van een strategie voor partitionering probleemloos schalen.
 2.  [Prijzen voor cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Meer informatie over de kosten van de inrichting van de doorvoer en opslag gebruiken.
 3.  [Aanvraageenheden](request-units.md). Het verbruik van doorvoer voor een andere bewerkingstypen, bijvoorbeeld lezen, schrijven, Query begrijpen.

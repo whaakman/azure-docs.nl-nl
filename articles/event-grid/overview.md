@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure gebeurtenis raster
 
@@ -20,9 +20,18 @@ Azure Event raster kunt u eenvoudig om toepassingen te bouwen met architectuur o
 
 U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar verschillende eindpunten, multicast bij meerdere eindpunten en zorg ervoor dat uw gebeurtenissen op betrouwbare wijze worden bezorgd. Gebeurtenis raster ook met ingebouwde ondersteuning voor aangepaste en derden gebeurtenissen.
 
-Voor de preview-versie ondersteunt Event Grid de locaties **westus2** en **westcentralus**. Andere regio's worden toegevoegd.
+Op dit moment ondersteunt raster gebeurtenis de volgende gebieden:
 
-Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Event raster wilt, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).
+* VS - midden
+*   VS - oost
+*   VS - oost 2
+*   West-centraal VS
+*   VS - west
+*   VS - west 2
+
+Andere regio's worden toegevoegd.
+
+Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Event raster wilt, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md). De volgende afbeelding toont hoe gebeurtenis raster uitgevers en handlers verbinding maakt, maar biedt geen een uitgebreide lijst met ondersteunde opties.
 
 ![Gebeurtenis raster functionele model](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Ev
 
 De volgende Azure-services hebt op dit moment wordt de uitgever van de ingebouwde ondersteuning voor de gebeurtenis raster:
 
-* Resourcegroepen (beheerbewerkingen)
 * Azure-abonnementen (beheerbewerkingen)
-* Event Hubs
-* Storage-Blob
 * Aangepaste-onderwerpen
+* Event Hubs
+* Resourcegroepen (beheerbewerkingen)
+* Storage-Blob
 
 Andere Azure-services worden van dit jaar met toegevoegd.
 
@@ -42,11 +51,12 @@ Andere Azure-services worden van dit jaar met toegevoegd.
 
 De volgende Azure-services hebt op dit moment handler ingebouwde ondersteuning voor gebeurtenis raster: 
 
-* Azure Functions
-* Logic Apps
 * Azure Automation
-* Webhooks.
+* Azure Functions
+* Event Hubs
+* Logic Apps
 * Microsoft-stroom
+* Webhooks.
 
 Andere Azure-services worden van dit jaar met toegevoegd.
 

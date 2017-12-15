@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03000679ef7fc36842b1f55d4d98131dfe400c87
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Meerdere master gerepliceerd globaal database architecturen met Azure Cosmos-DB
 Azure Cosmos DB ondersteunt klare [globale replicatie](distribute-data-globally.md), waarmee u gegevens naar meerdere regio's met lage latentie toegang overal in de werklast verdelen. Dit model wordt meestal gebruikt voor publisher/consumer werkbelastingen wanneer er een schrijver in één geografische regio en globaal gedistribueerde lezers in andere regio (lezen). 
@@ -318,6 +318,6 @@ In dit artikel wordt beschreven hoe u globaal gedistribueerde meerdere landen/re
 * Meer informatie over hoe Azure Cosmos DB ondersteunt [globale distributie](distribute-data-globally.md)
 * Meer informatie over [automatische en handmatige failover in Azure Cosmos-DB](regional-failover.md)
 * Meer informatie over [globale consistentie met Azure Cosmos-DB](consistency-levels.md)
-* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - SQL-API](tutorial-global-distribution-documentdb.md)
+* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - SQL-API](tutorial-global-distribution-sql-api.md)
 * Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - MongoDB-API](tutorial-global-distribution-MongoDB.md)
 * Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - tabel-API](tutorial-global-distribution-table.md)

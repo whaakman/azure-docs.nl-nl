@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 ## <a name="overview"></a>Overzicht
@@ -295,7 +295,7 @@ Dit is een instelling die van toepassing op het hele opslagaccount is. U kunt in
 
 Op dit moment worden de sleutels die worden gebruikt voor het versleutelingsniveau dat wordt beheerd door Microsoft. We oorspronkelijk de sleutels genereren en beheren van de veilige opslag van de sleutels, evenals de reguliere draaiing zoals gedefinieerd door intern beleid van Microsoft. U wordt in de toekomst krijgen de mogelijkheid voor het beheren van uw eigen versleutelingssleutels en bieden een migratiepad van door Microsoft beheerde sleutels naar de klant beheerde sleutels.
 
-Deze functie is beschikbaar voor Standard en Premium-opslag-accounts die zijn gemaakt met het implementatiemodel van Resource Manager. SSE is alleen van toepassing op blok-blobs, pagina-blobs en toevoeg-blobs. De andere typen gegevens, waaronder tabellen, wachtrijen en -bestanden wordt niet versleuteld.
+Deze functie is beschikbaar voor Standard en Premium-opslag-accounts die zijn gemaakt met het implementatiemodel van Resource Manager. SSE is van toepassing op elk soort gegevens: blok-blobs, pagina-blobs, toevoeg-blobs, tabellen, wachtrijen en -bestanden.
 
 Gegevens worden alleen versleuteld als SSE is ingeschakeld en de gegevens worden geschreven naar Blob Storage. In- of uitschakelen van SSE heeft geen gevolgen voor bestaande gegevens. Met andere woorden, wanneer u deze versleuteling inschakelt, wordt deze niet teruggaan en gegevens versleutelen die al bestaat; ook worden de gegevens die al aanwezig is wanneer het uitschakelen van SSE gedecodeerd.
 
@@ -380,7 +380,7 @@ Versleuteling aan clientzijde meer belasting van de client is en u moet voor dit
 #### <a name="storage-service-encryption-sse"></a>Versleuteling van opslag-Service (SSE)
 SSE wordt beheerd door Azure Storage. Met behulp van SSE biedt geen voor de beveiliging van de gegevens onderweg, maar deze de gegevens Hiermee versleutelen zoals naar Azure Storage geschreven. Er zijn geen gevolgen op de prestaties bij gebruik van deze functie.
 
-U kunt alleen versleutelen blok-blobs, toevoeg-blobs en pagina-blobs SSE gebruiken. Als u nodig hebt voor het versleutelen van tabelgegevens of wachtrijgegevens, moet u rekening houden met behulp van versleuteling aan clientzijde.
+U kunt elk soort gegevens van het opslagaccount met behulp van SSE versleutelen (blok-blobs, toevoeg-blobs, pagina-blobs, tabelgegevens, wachtrijgegevens en bestanden).
 
 Als u een archiveren of bibliotheek van VHD-bestanden die u als basis gebruikt voor het maken van nieuwe virtuele machines hebt, kunt u een nieuw opslagaccount maken, SSE inschakelen en vervolgens de VHD-bestanden uploaden naar dat account. De VHD-bestanden wordt versleuteld door Azure Storage.
 
@@ -515,7 +515,7 @@ Controleer deze bronnen voor meer informatie over CORS en hoe deze in te schakel
 
    Microsoft blijft deze tot elke klant om te bepalen of FIPS-modus in te schakelen. We zijn ervan overtuigd dat er geen dwingende redenen voor klanten die niet zijn onderworpen aan wettelijke voorschriften FIPS-modus standaard inschakelen.
 
-   **Resources**
+   **Bronnen**
 
 * [Waarom We je niet aanbevelen 'FIPS-modus' meer](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 

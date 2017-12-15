@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 189f576f9ead5d67b76b3e47c312f3de76df77fe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos-database als een winkel sleutelwaarde – kosten-overzicht
 
-Azure Cosmos-database is een globaal gedistribueerd en modellen database-service voor het bouwen van maximaal beschikbare, grootschalige toepassingen eenvoudig. Standaard indexeert Azure Cosmos DB automatisch alle gegevens die zijn opgenomen, efficiënt. Hierdoor kunnen snel en consistent [SQL](documentdb-sql-query.md) (en [JavaScript](programming.md)) query's op alle soorten gegevens. 
+Azure Cosmos-database is een globaal gedistribueerd en modellen database-service voor het bouwen van maximaal beschikbare, grootschalige toepassingen eenvoudig. Standaard indexeert Azure Cosmos DB automatisch alle gegevens die zijn opgenomen, efficiënt. Hierdoor kunnen snel en consistent [SQL](sql-api-sql-query.md) (en [JavaScript](programming.md)) query's op alle soorten gegevens. 
 
 Dit artikel beschrijft de kosten van Azure DB die Cosmos voor eenvoudige schrijven en leesbewerkingen wanneer deze wordt gebruikt als een sleutel/waarde-archief. Schrijven bewerkingen behoren invoeg-, vervangt, verwijderingen en upserts van documenten. Naast een 99,99% garanderen beschikbaarheids-SLA voor alle accounts voor één regio en alle meerdere landen/regio-accounts met beperkte consistentie en 99,999% lezen beschikbaarheid voor alle accounts voor meerdere landen/regio-database, biedt Azure Cosmos DB gegarandeerd < 10 ms latentie voor leest en < 15 ms latentie voor de (geïndexeerde) respectievelijk op het 99th percentiel schrijft. 
 

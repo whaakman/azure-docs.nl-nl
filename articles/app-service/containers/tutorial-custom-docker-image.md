@@ -16,9 +16,9 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6a89db8b93f29c29e935afd94da727d2460af889
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/14/2017
 ---
@@ -192,7 +192,7 @@ U kunt systeemeigen Linux-toepassingen in de cloud hosten met behulp van Azure W
 
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak in de Cloud Shell met de opdracht [az webapp create](/cli/azure/webapp#create) een [web-app](app-service-linux-intro.md) in het App Service-plan `myAppServicePlan`. Vergeet niet om te vervangen `<app_name>` met een unieke app-naam en < docker-ID > met de Docker-ID.
+Maak in de Cloud Shell met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) een [web-app](app-service-linux-intro.md) in het App Service-plan `myAppServicePlan`. Vergeet niet om te vervangen `<app_name>` met een unieke app-naam en < docker-ID > met de Docker-ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -219,7 +219,7 @@ Wanneer de web-app is gemaakt, ziet de Azure CLI u uitvoer lijkt op het volgende
 
 De meeste Docker-afbeeldingen hebben omgevingsvariabelen die moeten worden geconfigureerd. Als u een bestaande Docker-installatiekopie gemaakt door iemand anders gebruikt, kan de installatiekopie van een andere poort dan 80 te gebruiken. U vertelt Azure over de poort die gebruikmaakt van uw installatiekopie met behulp van de `WEBSITES_PORT` app-instelling. De GitHub-pagina voor de [Python voorbeeld in deze zelfstudie](https://github.com/Azure-Samples/docker-django-webapp-linux) bevat die u nodig hebt om in te stellen `WEBSITES_PORT` naar _8000_.
 
-U kunt app-instellingen instellen met de [az webapp config appsettings bijwerken](/cli/azure/webapp/config/appsettings#update) opdracht in de Cloud-Shell. App-instellingen zijn hoofdlettergevoelig en spaties gescheiden.
+U kunt app-instellingen instellen met de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht in de Cloud-Shell. App-instellingen zijn hoofdlettergevoelig en spaties gescheiden.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -340,7 +340,7 @@ Gefeliciteerd. U kunt een aangepaste Docker-installatiekopie hebt geconfigureerd
 
 In [maken van een web-app](#create-a-web-app), u een installatiekopie van een opgegeven op de Docker-Hub in de `az webapp create` opdracht. Dit is geschikt voor een openbare-installatiekopie. Voor het gebruik van een installatiekopie van een persoonlijke, moet u uw Docker-account-ID en wachtwoord in uw Azure-web-app configureren.
 
-In de Cloud-Shell, voert u de `az webapp create` opdracht met [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set). Vervang  *\<app_naam >*, en ook _< docker-id >_ en  _<password>_  met uw Docker-ID en wachtwoord.
+In de Cloud-Shell, voert u de `az webapp create` opdracht met [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Vervang  *\<app_naam >*, en ook _< docker-id >_ en  _<password>_  met uw Docker-ID en wachtwoord.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -380,7 +380,7 @@ Register met Azure Container is een beheerde Docker-service van Azure voor het h
 
 ### <a name="create-an-azure-container-registry"></a>Een Azure Container Registry maken
 
-In de Cloud-Shell gebruiken de [az acr maken](https://docs.microsoft.com/cli/azure/acr#az_acr_create) opdracht voor het maken van een Azure Container-register. In de naam van de resourcegroep, doorgeven en `Basic` voor de SKU. Beschikbare SKU's zijn `Classic`, `Basic`, `Standard`, en `Premium`.
+In de Cloud-Shell gebruiken de [az acr maken](/cli/azure/acr?view=azure-cli-latest#az_acr_create) opdracht voor het maken van een Azure Container-register. In de naam van de resourcegroep, doorgeven en `Basic` voor de SKU. Beschikbare SKU's zijn `Classic`, `Basic`, `Standard`, en `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -418,7 +418,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Aanmelden bij Azure Container register
 
-Om te pushen een afbeelding in het register, moet u referenties opgeven zodat het register de push-bewerking accepteert. U kunt deze referenties ophalen met behulp van de [az acr weergeven](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) opdracht in de Cloud-Shell. 
+Om te pushen een afbeelding in het register, moet u referenties opgeven zodat het register de push-bewerking accepteert. U kunt deze referenties ophalen met behulp van de [az acr weergeven](/cli/azure/acr?view=azure-cli-latest#az_acr_show) opdracht in de Cloud-Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -482,7 +482,7 @@ De afbeeldingen in het register aanbieding bevestigt dat `mydockerimage` is in h
 
 U kunt de Web-App voor Containers configureren zodat deze een container die is opgeslagen in het register van de Container Azure wordt uitgevoerd. Net als bij alle persoonlijke register, dus als u wilt gebruiken, uw eigen persoonlijke register, de stappen voor het voltooien van deze taak zijn vergelijkbaar is met het Azure-Container-register.
 
-Voer in de Cloud-Shell [az acr referentie weergeven](/cli/azure/acr/credential#az_acr_credential_show) om de gebruikersnaam en het wachtwoord voor het Azure Container register weer te geven. De gebruikersnaam en een van de wachtwoorden kopiëren zodat u deze gebruiken kunt voor het configureren van de web-app in de volgende stap.
+Voer in de Cloud-Shell [az acr referentie weergeven](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) om de gebruikersnaam en het wachtwoord voor het Azure Container register weer te geven. De gebruikersnaam en een van de wachtwoorden kopiëren zodat u deze gebruiken kunt voor het configureren van de web-app in de volgende stap.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -504,7 +504,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-De Cloud-Shell, start de [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) opdracht voor het toewijzen van de aangepaste Docker-installatiekopie aan de web-app. Vervang  *\<app_naam >*,  *\<docker-register-server-url >*,  _\<register-username >_, en  _\<wachtwoord >_. Voor Azure Container register,  *\<docker-register-server-url >* heeft de indeling `https://<azure-container-registry-name>.azurecr.io`. 
+De Cloud-Shell, start de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) opdracht voor het toewijzen van de aangepaste Docker-installatiekopie aan de web-app. Vervang  *\<app_naam >*,  *\<docker-register-server-url >*,  _\<register-username >_, en  _\<wachtwoord >_. Voor Azure Container register,  *\<docker-register-server-url >* heeft de indeling `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

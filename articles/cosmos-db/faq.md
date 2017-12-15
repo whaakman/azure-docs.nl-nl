@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -111,12 +111,12 @@ Vergeet niet dat Azure Cosmos DB soevereine en government clouds respecteert bij
 ## <a name="develop-against-the-sql-api"></a>Op basis van de SQL-API ontwikkelen
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hoe start ontwikkelen van toepassingen met de SQL-API?
-Eerst moet u aanmelden voor een Azure-abonnement. Zodra u zich voor een Azure-abonnement aanmelden, kunt u een SQL-API-container toevoegen aan uw Azure-abonnement. Zie voor instructies over het toevoegen van een account voor Azure Cosmos DB [Azure DB die Cosmos-databaseaccount maken](create-documentdb-dotnet.md#create-account). 
+Eerst moet u aanmelden voor een Azure-abonnement. Zodra u zich voor een Azure-abonnement aanmelden, kunt u een SQL-API-container toevoegen aan uw Azure-abonnement. Zie voor instructies over het toevoegen van een account voor Azure Cosmos DB [Azure DB die Cosmos-databaseaccount maken](create-sql-api-dotnet.md#create-account). 
 
-Er zijn [SDK's](documentdb-sdk-dotnet.md) beschikbaar voor .NET, Python, Node.js, JavaScript en Java. Ontwikkelaars kunnen ook gebruikmaken van de [RESTful HTTP API's](/rest/api/documentdb/) om te communiceren met Azure Cosmos DB resources uit verschillende platforms en talen.
+[SDK's](sql-api-sdk-dotnet.md) zijn beschikbaar voor .NET, Python, Node.js, JavaScript en Java. Ontwikkelaars kunnen ook gebruikmaken van de [RESTful HTTP API's](/rest/api/documentdb/) om te communiceren met Azure Cosmos DB resources uit verschillende platforms en talen.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Ik toegang tot de vooraf gedefinieerde voorbeelden voor een goed uitgangspunt?
-Voorbeelden voor de SQL-API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), en [Python](documentdb-python-samples.md) SDK's zijn beschikbaar op GitHub.
+Voorbeelden voor de SQL-API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), en [Python](sql-api-python-samples.md) SDK's zijn beschikbaar op GitHub.
 
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>De database van SQL-API biedt ondersteuning voor gegevens zonder schema?
@@ -131,16 +131,16 @@ Een verzameling is een groep van documenten en hun bijbehorende JavaScript-toepa
 Verzamelingen zijn ook de factureringsentiteiten voor Azure Cosmos DB. Elke verzameling wordt per uur gefactureerd op basis van de ingerichte doorvoer en opslagruimte gebruikt. Zie voor meer informatie [prijzen van Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Hoe maak ik een database?
-U kunt databases maken met behulp van de [Azure-portal](https://portal.azure.com), zoals beschreven in [een verzameling toevoegen](create-documentdb-dotnet.md#create-collection), wordt er één van de [Azure Cosmos DB SDK's](documentdb-sdk-dotnet.md), of de [REST-API's](/rest/api/documentdb/). 
+U kunt databases maken met behulp van de [Azure-portal](https://portal.azure.com), zoals beschreven in [een verzameling toevoegen](create-sql-api-dotnet.md#create-collection), wordt er één van de [Azure Cosmos DB SDK's](sql-api-sdk-dotnet.md), of de [REST-API's](/rest/api/documentdb/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hoe stel ik gebruikers en machtigingen in?
-U kunt gebruikers en machtigingen maken met een van de [Cosmos DB API SDK's](documentdb-sdk-dotnet.md) of de [REST-API's](/rest/api/documentdb/).  
+U kunt gebruikers en machtigingen maken met een van de [Cosmos DB API SDK's](sql-api-sdk-dotnet.md) of de [REST-API's](/rest/api/documentdb/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>De SQL-API biedt ondersteuning voor SQL?
 De SQL-querytaal ondersteund door SQL-API-accounts is een uitgebreide subset van de queryfunctionaliteit die wordt ondersteund door SQL Server. De Azure Cosmos DB SQL-querytaal biedt geavanceerde hiërarchische en relationele operators en uitbreidingsmogelijkheden via op basis van JavaScript, door gebruiker gedefinieerde functies (UDF's). JSON-grammatica biedt de mogelijkheid voor het JSON-documenten te modelleren als structuren met gelabelde knooppunten, die worden gebruikt door zowel de Azure DB die Cosmos automatische indexering technieken en de SQL-querydialect van Azure Cosmos-database. Zie voor meer informatie over het gebruik van SQL-grammatica de [SQL-Query] [ query] artikel.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>De SQL-API biedt ondersteuning voor SQL-aggregatiefuncties?
-De SQL-API ondersteunt lage latentie aggregatie op elke schaal via statistische functies `COUNT`, `MIN`, `MAX`, `AVG`, en `SUM` via de SQL-grammatica. Zie voor meer informatie [statistische functies](documentdb-sql-query.md#Aggregates).
+De SQL-API ondersteunt lage latentie aggregatie op elke schaal via statistische functies `COUNT`, `MIN`, `MAX`, `AVG`, en `SUM` via de SQL-grammatica. Zie voor meer informatie [statistische functies](sql-api-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hoe biedt de SQL-API gelijktijdigheid?
 De SQL-API biedt ondersteuning voor Optimistisch gelijktijdigheidbeheer (OCC) via HTTP-entity-tags of ETags. Elke SQL-API-resource heeft een ETag en de ETag is ingesteld op de server telkens wanneer een document wordt bijgewerkt. De ETag-header en de huidige waarde worden opgenomen in alle antwoordberichten. ETags kan worden gebruikt met de header If-Match waardoor de server om te bepalen of een resource moet worden bijgewerkt. De If-Match-waarde is de ETag-waarde gecontroleerd. Als de ETag-waarde overeenkomt met de ETag-waarde van de server, wordt de bron bijgewerkt. Als de ETag niet meer actueel is, de server weigert het opnieuw met een ' HTTP 412 Precondition failure ' antwoordcode. De client haalt vervolgens opnieuw de resource te verkrijgen van de huidige ETag-waarde voor de resource. ETags kan bovendien met de header If-None-Match worden gebruikt om te bepalen of een opnieuw ophalen van een bron die nodig is.
@@ -292,7 +292,7 @@ Ja, de dezelfde API wordt ondersteund.
 Nee, kunt u maken en gebruiken van bestaande Azure Table storage activa zonder onderbreking van elk type. Als u niet de tabel-API gebruikt, kunt u kan geen echter voor profiteren van de automatische index, extra consistentie optie of distributielijsten. 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>Hoe voeg ik replicatie van de gegevens in de tabel-API over meerdere regio's van Azure?
-U kunt de Azure DB die Cosmos-portal [globale replicatie-instellingen](tutorial-global-distribution-documentdb.md#portal) regio's die geschikt voor uw toepassing zijn toevoegen. Voor het ontwikkelen van een globaal gedistribueerde toepassing, moet u ook uw toepassing toevoegen met de informatie PreferredLocation is ingesteld op de lokale regio voor het ontwikkelen van de lage latentie voor lezen. 
+U kunt de Azure DB die Cosmos-portal [globale replicatie-instellingen](tutorial-global-distribution-sql-api.md#portal) regio's die geschikt voor uw toepassing zijn toevoegen. Voor het ontwikkelen van een globaal gedistribueerde toepassing, moet u ook uw toepassing toevoegen met de informatie PreferredLocation is ingesteld op de lokale regio voor het ontwikkelen van de lage latentie voor lezen. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Hoe wijzig ik de regio primaire schrijven voor het account in de tabel-API
 Het Azure Cosmos DB globale replicatie portal deelvenster kunt u een regio toevoegen en vervolgens een failover uitvoeren naar de vereiste regio. Zie voor instructies [ontwikkelen met meerdere landen/regio Azure Cosmos DB accounts](regional-failover.md). 
@@ -368,7 +368,7 @@ Van de .NET SDK kan deze worden verstuurd in het bestand app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos-database als een platform waarschijnlijk veel mogelijkheden, zoals sorteren, statistische functies, hiërarchie en andere functionaliteit. Gaat u deze mogelijkheden toevoegen aan de tabel-API? 
-De tabel-API biedt dezelfde queryfunctionaliteit als Azure Table storage. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query hiërarchie en een groot aantal ingebouwde functies. We bieden aanvullende functionaliteit in de tabel-API in een toekomstige service-update. Zie voor meer informatie [SQL-query's](documentdb-sql-query.md).
+De tabel-API biedt dezelfde queryfunctionaliteit als Azure Table storage. Azure Cosmos DB biedt ook ondersteuning voor sorteren, statistische functies, georuimtelijke query hiërarchie en een groot aantal ingebouwde functies. We bieden aanvullende functionaliteit in de tabel-API in een toekomstige service-update. Zie voor meer informatie [SQL-query's](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Wanneer moet ik TableThroughput wijzigen voor de tabel-API?
 Wanneer een van de volgende voorwaarden van toepassing is, moet u TableThroughput wijzigen:
@@ -540,4 +540,4 @@ De Apache Cassandra-API biedt dezelfde functionaliteit als Apache Cassandra CQL.
 Feedback geven via [feedback op uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: documentdb-sql-query.md
+[query]: sql-api-sql-query.md

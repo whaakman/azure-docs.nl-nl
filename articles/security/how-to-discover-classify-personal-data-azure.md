@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detecteren, identificeren en classificeren van persoonlijke gegevens in Microsoft Azure
 
@@ -183,9 +183,9 @@ blogbericht. En controleer de informatie meer koppelingen voor meer informatie o
 
 Allereerst de basisbeginselen, gaat u naar de [Azure CosmosD DB: een query met behulp van SQL](../cosmos-db/tutorial-query-documentdb.md) zelfstudie. De zelfstudie biedt een voorbeelddocument en twee voorbeeld SQL-query's en resultaten.
 
-Voor meer gedetailleerde informatie over het bouwen van de SQL-query's, gaat u naar [SQL-query's voor Azure Cosmos DB Document DB API.](../cosmos-db/documentdb-sql-query.md)
+Voor meer gedetailleerde informatie over het bouwen van de SQL-query's, gaat u naar [SQL-query's voor Azure Cosmos DB Document DB API.](../cosmos-db/sql-api-sql-query.md)
 
-Als u niet vertrouwd met Azure Cosmos DB bent en wil graag informatie over het maken van een database, een verzameling toevoegen en gegevens toevoegen, gaat u naar de [Azure Cosmos DB: een SQL-API-web-app bouwen](../cosmos-db/create-documentdb-dotnet.md) Quick Start-zelfstudie. Als u dit doen in een andere taal dan .NET, zoals Java of Python, kiest uw voorkeurstaal u eenmaal naar de site.
+Als u niet vertrouwd met Azure Cosmos DB bent en wil graag informatie over het maken van een database, een verzameling toevoegen en gegevens toevoegen, gaat u naar de [Azure Cosmos DB: een SQL-API-web-app bouwen](../cosmos-db/create-sql-api-dotnet.md) Quick Start-zelfstudie. Als u dit doen in een andere taal dan .NET, zoals Java of Python, kiest uw voorkeurstaal u eenmaal naar de site.
 
 ## <a name="next-steps"></a>Volgende stappen
 

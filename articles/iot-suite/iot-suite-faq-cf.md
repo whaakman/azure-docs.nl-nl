@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Veelgestelde vragen voor verbonden factory IoT Suite vooraf geconfigureerde oplossing
 
@@ -42,7 +42,7 @@ OPC Unified architectuur (UA), uitgebracht in 2008, is een standaard platformona
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Waarom Microsoft OPC UA kiezen voor de verbonden factory vooraf geconfigureerde oplossing?
 
-Microsoft heeft ervoor gekozen OPC UA omdat het een open, op niet-bedrijfseigen platform onafhankelijke bedrijfstak herkend en beproefde standaard. Het is een vereiste voor Industrie 4.0 (RAMI4.0) reference architecture oplossingen interoperabiliteit tussen een uitgebreide reeks productieprocessen en apparatuur. Microsoft ziet vraag van onze klanten om Industrie 4.0 oplossingen te maken. Ondersteuning voor OPC UA verlaagt u de blokkade voor klanten om hun doelstellingen te realiseren en biedt onmiddellijke bedrijfswaarde toe.
+Microsoft heeft ervoor gekozen OPC UA omdat het een open, op niet-bedrijfseigen platform onafhankelijke bedrijfstak herkend en beproefde standaard. Het is een vereiste voor Industrie 4.0 (RAMI4.0) reference architecture oplossingen interoperabiliteit tussen een uitgebreide reeks productieprocessen en apparatuur. Microsoft ziet vraag van klanten Industrie 4.0 oplossingen bouwen. Ondersteuning voor OPC UA verlaagt u de blokkade voor klanten om hun doelstellingen te realiseren en biedt onmiddellijke bedrijfswaarde toe.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Hoe voeg ik een openbaar IP-adres toe aan de simulatie VM?
 
@@ -143,6 +143,64 @@ Inspecteer de gegevens die worden verzonden door een van de uitgever van apparat
 * Publisher.Seattle.corp.contoso
 
 Als er geen gegevens die worden verzonden naar IoT Hub, is er een probleem met de simulatie. Als eerste analyse stap moet u de logboekbestanden van de onderdelen van de simulatie analyseren. Zie [hoe krijg ik logboekgegevens uit de onderdelen van de simulatie?](#how-can-i-get-log-data-from-the-simulation-components) Probeer vervolgens om te stoppen en starten van de simulatie en als er nog geen gegevens verzonden zijn, werkt de simulatie volledig. Zie [hoe kan ik de simulatie in de virtuele machine bijwerken?](#how-do-i-update-the-simulation-in-the-vm)
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hoe schakel ik een interactieve hyperlinks in mijn verbonden factory-oplossing?
+
+Om een interactieve kaart in uw verbonden factory-oplossing, moet u een bestaande Bing kaarten-API voor Enterprise-abonnement hebben. Als u een Bing kaarten-API voor Enterprise-abonnement hebt wanneer u de verbonden factory-oplossing van www.azureiotsuite.com implementeert, wordt de interactieve kaart automatisch ingeschakeld voor u.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hoe maak ik een Bing kaarten-API voor Enterprise-account?
+
+U krijgt een gratis *interne transacties niveau 1 Bing-kaarten voor Enterprise* plan. U kunt echter alleen toevoegen twee van deze plannen op een Azure-abonnement. Als u geen Bing kaarten-API voor Enterprise-account hebt, maakt u in de Azure-portal door te klikken op **+ maken van een resource**. Zoek vervolgens naar **Bing kaarten-API voor Enterprise** en volg de aanwijzingen om deze te maken.
+
+![Bing-sleutel](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel
+
+Nadat u uw Bing kaarten-API voor Enterprise-abonnement hebt gemaakt, moet u een Bing-kaarten voor Enterprise resource toevoegen aan de resourcegroep van uw oplossing verbonden factory in de Azure-portal.
+
+1. Ga in de Azure-portal naar de resourcegroep die uw Bing kaarten-API voor Enterprise-plan bevat.
+
+1. Klik op **alle instellingen**, klikt u vervolgens **Sleutelbeheer**.
+
+1. Er zijn twee sleutels: **hoofdsleutel** en **querysleutel**. Kopieer de **querysleutel** waarde.
+
+1. De sleutel die is opgenomen door de `build.ps1` script, stelt u de omgevingsvariabele `$env:MapApiQueryKey` in uw PowerShell-omgeving naar de **querysleutel** van uw abonnement. Het build-script vervolgens automatisch wordt de waarde toegevoegd aan de instellingen van de App Service.
+
+1. Uitvoeren van een lokale of cloud implementatie met de `build.ps1` script.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Hoe schakel de interactieve kaart tijdens foutopsporing lokaal?
+
+Om de interactieve kaart terwijl u lokaal fouten opspoort, stel de waarde van de instelling `MapApiQueryKey` in de bestanden `local.user.config` en `<yourdeploymentname>.user.config` in de hoofdmap van uw implementatie om de waarde van de **querysleutel** u gekopieerd eerder.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Hoe gebruik ik een andere installatiekopie op de startpagina van Mijn dashboard
+
+De statische afbeelding weergegeven io wijzigen de startpagina van het dashboard, vervang de installatiekopie `WebApp\Content\img\world.jpg`. Vervolgens opnieuw maken en implementeren van de Web-App.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hoe gebruik ik niet OPC UA-apparaten met verbonden factory
+
+Telemetriegegevens te verzenden vanaf niet OPC UA apparaten tot verbonden factory:
+
+1. [Een nieuw station configureren in de topologie verbonden factory](iot-suite-connected-factory-configure.md) in de `ContosoTopologyDescription.json` bestand.
+
+1. De telemetriegegevens verbonden factory compatibel JSON-indeling voor opnemen:
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. De indeling van `<timestamp>` is:`2017-12-08T19:24:51.886753Z`
+
+1. Start opnieuw op de verbonden App Service-factory.
 
 ### <a name="next-steps"></a>Volgende stappen
 

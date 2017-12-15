@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Implementeer een toepassing met CI/CD naar een Service Fabric-cluster
 Deze zelfstudie maakt deel uit drie van een reeks en wordt beschreven hoe u voor het instellen van continue integratie en implementatie voor een Azure Service Fabric-toepassing met behulp van Visual Studio Team Services.  Een bestaande Service Fabric-toepassing is vereist, wordt de toepassing gemaakt in [een .NET-toepassing bouwen](service-fabric-tutorial-create-dotnet-app.md) wordt gebruikt als een voorbeeld.
@@ -44,7 +44,6 @@ Voordat u deze zelfstudie begint:
 - Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de **ontwikkelen van Azure** en **ASP.NET en web ontwikkeling** werkbelastingen.
 - [De Service Fabric SDK installeren](service-fabric-get-started.md)
-- Maak een Service Fabric-toepassing, bijvoorbeeld door [deze zelfstudie](service-fabric-tutorial-create-dotnet-app.md). 
 - Maak een Windows-Service Fabric-cluster in Azure, bijvoorbeeld door [deze zelfstudie](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Maak een [Team Services-account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
@@ -83,39 +82,49 @@ De definitie van een Team Services build beschrijft een werkstroom die bestaat u
 De definitie van een Team Services release beschrijft een werkstroom die een toepassingspakket in een cluster implementeert. Wanneer samen worden gebruikt, worden de volledige werkstroom beginnen met bronbestanden om te eindigen op een actieve toepassing in uw cluster uitvoeren door de build-definitie en de definitie van de release. Meer informatie over Services Team [definities release](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-definition"></a>Een build-definitie maken
-Open een webbrowser en navigeer naar uw nieuw teamproject op: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting. 
+Open een webbrowser en navigeer naar uw nieuw teamproject op: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
 Selecteer de **bouwen & Release** tabblad vervolgens **Builds**, klikt u vervolgens **+ nieuwe definitie**.  In **Selecteer een sjabloon**, selecteer de **Azure Service Fabric-toepassing** sjabloon en klikt u op **toepassen**. 
 
 ![Kies build-sjabloon][select-build-template] 
 
-De stemtoepassing bevat een project .NET Core, dus een taak die wordt hersteld van de afhankelijkheden toevoegen. In de **taken** weergave, selecteer **+ taak toevoegen** in de onderste links. Zoeken op 'Opdrachtregel' voor de opdrachtregeltaak vinden en klik vervolgens op **toevoegen**. 
+In **taken**, "VS2017 gehost" invoeren als de **Agent wachtrij**. 
 
-![Taak toevoegen][add-task] 
+![Taken selecteren][save-and-queue]
 
-In de nieuwe taak invoeren 'Dotnet.exe uitvoeren' in **weergavenaam**, 'dotnet.exe' in **hulpprogramma**, en "herstellen" **argumenten**. 
+Onder **Triggers**, continue integratie inschakelen door in te stellen **status activeren**.  Selecteer **opslaan en een wachtrij** een build handmatig te starten.  
 
-![Nieuwe taak][new-task] 
+![Selecteer triggers][save-and-queue2]
 
-In de **Triggers** weergeven, klikt u op de **inschakelen van deze trigger** overschakelen onder **continue integratie**. 
-
-Selecteer **opslaan en wachtrij** en voer 'VS2017 gehost' als de **Agent wachtrij**. Selecteer **wachtrij** een build handmatig te starten.  Voortbouwt ook triggers op push of inchecken.
-
-Als u wilt uw build-voortgang controleren, gaat u naar de **Builds** tabblad.  Zodra u hebt gecontroleerd dat de build met succes wordt uitgevoerd, definieert u de definitie van een versie die uw toepassing naar een cluster wordt geïmplementeerd. 
+Voortbouwt ook trigger op push of inchecken. Als u wilt uw build-voortgang controleren, gaat u naar de **Builds** tabblad.  Zodra u hebt gecontroleerd dat de build met succes wordt uitgevoerd, definieert u de definitie van een versie die uw toepassing naar een cluster wordt geïmplementeerd. 
 
 ### <a name="create-a-release-definition"></a>Een release-definitie maken  
 
-Selecteer de **bouwen & Release** tabblad vervolgens **Releases**, klikt u vervolgens **+ nieuwe definitie**.  In **maken release definitie**, selecteer de **Azure Service Fabric-implementatie** sjabloon uit de lijst en klikt u op **volgende**.  Selecteer de **bouwen** bron, Controleer de **continue implementatie** vak en klikt u op **maken**. 
+Selecteer de **bouwen & Release** tabblad vervolgens **Releases**, klikt u vervolgens **+ nieuwe definitie**.  In **Selecteer een sjabloon**, selecteer de **Azure Service Fabric-implementatie** sjabloon uit de lijst en vervolgens **toepassen**.  
 
-In de **omgevingen** weergeven, klikt u op **toevoegen** rechts van **Cluster verbinding**.  Geef de verbindingsnaam van een van 'mysftestcluster', 'tcp://mysftestcluster.westus.cloudapp.azure.com:19000' van een clustereindpunt en de Azure Active Directory of de referenties van het computercertificaat voor het cluster. Voor Azure Active Directory-referenties, definieert u de referenties die u gebruiken wilt voor verbinding met het cluster in de **gebruikersnaam** en **wachtwoord** velden. Voor verificatie op basis van certificaten, definiëren de Base64-codering van het certificaatbestand in de **clientcertificaat** veld.  Zie de pop-help op het veld voor informatie over het verkrijgen van die waarde.  Als uw certificaat beveiligd met een wachtwoord is, definieert u het wachtwoord in de **wachtwoord** veld.  Klik op **opslaan** om op te slaan de release-definitie.
+![Kies releasesjabloon][select-release-template]
 
-![Cluster-verbinding toevoegen][add-cluster-connection] 
+Selecteer **taken**->**omgeving 1** en vervolgens **+ nieuw** een nieuwe verbinding met cluster toevoegen.
 
-Klik op **uitvoeren op de agent**, selecteer daarna **VS2017 gehost** voor **implementatie wachtrij**. Klik op **opslaan** om op te slaan de release-definitie.
+![Cluster-verbinding toevoegen][add-cluster-connection]
 
-![Voer op de agent][run-on-agent]
+In de **nieuwe Service Fabric-verbinding toevoegen** Selecteer weergeven **op basis van certificaat** of **Azure Active Directory** verificatie.  Geef de verbindingsnaam van een van 'mysftestcluster' en 'tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000' van een clustereindpunt (of het eindpunt van het cluster die u implementeert op). 
 
-Selecteer **+ Release** -> **maken Release** -> **maken** handmatig maken van een release.  Controleer of de implementatie is voltooid en de toepassing wordt uitgevoerd in het cluster.  Open een webbrowser en navigeer naar [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing in dit voorbeeld is '1.0.0.20170616.3'. 
+Voor verificatie op basis, voegt u de **Server certificaatvingerafdruk** van het servercertificaat gebruikt voor het maken van het cluster.  In **clientcertificaat**, voeg de base 64-codering van het certificaatbestand. Zie het help-pop-upvenster op het veld voor informatie over het verkrijgen van die base-64 gecodeerde representatie van het certificaat. Voeg ook de **wachtwoord** voor het certificaat.  U kunt het certificaat van de cluster- of als u een afzonderlijke clientcertificaat geen. 
+
+Voor Azure Active Directory-referenties, voegt u de **Server certificaatvingerafdruk** van het servercertificaat gebruikt voor het maken van het cluster en de referenties u wilt gebruiken voor verbinding met het cluster in de **gebruikersnaam** en **wachtwoord** velden. 
+
+Klik op **toevoegen** om op te slaan van de cluster-verbinding.
+
+Voeg vervolgens een artefact build toe aan de pijplijn zodat de release-definitie de uitvoer van de build kan vinden. Selecteer **pijplijn** en **artefacten**->**+ toevoegen**.  In **bron (Build-definitie)**, selecteert u de build-definitie die u eerder hebt gemaakt.  Klik op **toevoegen** om op te slaan van het artefact build.
+
+![Artefacten toevoegen][add-artifact]
+
+Een trigger continue implementatie inschakelen zodat een release automatisch gemaakt wordt wanneer de build is voltooid. Klik op het pictogram lightning in het artefact en klikt u op de trigger inschakelen **opslaan** om op te slaan de release-definitie.
+
+![Trigger inschakelen][enable-trigger]
+
+Selecteer **+ Release** -> **maken Release** -> **maken** handmatig maken van een release.  Controleer of de implementatie is voltooid en de toepassing wordt uitgevoerd in het cluster.  Open een webbrowser en navigeer naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing in dit voorbeeld is '1.0.0.20170616.3'. 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Doorvoeren en wijzigingen forceren, een release activeren
 Om te controleren of de pijplijn continue integratie werkt door te controleren in een aantal codewijzigingen in Team Services.    
@@ -134,7 +143,7 @@ De wijzigingen worden gepusht naar Team Services automatisch een build wordt gea
 
 Als u wilt uw build-voortgang controleren, gaat u naar de **Builds** tabblad **Team Explorer** in Visual Studio.  Zodra u hebt gecontroleerd dat de build met succes wordt uitgevoerd, definieert u de definitie van een versie die uw toepassing naar een cluster wordt geïmplementeerd.
 
-Controleer of de implementatie is voltooid en de toepassing wordt uitgevoerd in het cluster.  Open een webbrowser en navigeer naar [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing in dit voorbeeld is '1.0.0.20170815.3'.
+Controleer of de implementatie is voltooid en de toepassing wordt uitgevoerd in het cluster.  Open een webbrowser en navigeer naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing in dit voorbeeld is '1.0.0.20170815.3'.
 
 ![Service Fabric Explorer][sfx1]
 
@@ -168,10 +177,13 @@ Ga naar de volgende zelfstudie:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ Ga naar de volgende zelfstudie:
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

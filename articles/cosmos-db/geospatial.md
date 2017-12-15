@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba6352704dd0d0322746feb0f6970d95ce7db129
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Werken met georuimtelijke en GeoJSON locatiegegevens in Azure Cosmos-DB
 In dit artikel bevat een inleiding tot de functionaliteit georuimtelijke in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Na het lezen van dit, kunt u zich de volgende vragen beantwoorden:
@@ -155,7 +155,7 @@ Als u niet beschikt over de breedtegraad en lengtegraad informatie, maar u besch
 Nu dat we kijken hoe georuimtelijke gegevens invoegen, eens kijken hoe deze gegevens met behulp van Azure Cosmos DB met SQL en LINQ query hebt genomen.
 
 ### <a name="spatial-sql-built-in-functions"></a>Ruimtelijke ingebouwde SQL-functies
-Azure Cosmos DB ondersteunt de volgende ingebouwde functies voor Open georuimtelijke Consortium (OGC) georuimtelijke query's. Zie voor meer informatie over de volledige reeks ingebouwde functies in de SQL-taal, [Query Azure Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos DB ondersteunt de volgende ingebouwde functies voor Open georuimtelijke Consortium (OGC) georuimtelijke query's. Zie voor meer informatie over de volledige reeks ingebouwde functies in de SQL-taal, [Query Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -396,6 +396,6 @@ Nolearned die u hierover aan de slag met ondersteuning voor georuimtelijke in Az
 
 * Gaan coderen met de [georuimtelijke .NET-codevoorbeelden op GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * U handen op waarop het georuimtelijke uitvoeren van query's op de [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-* Meer informatie over [Azure Cosmos DB-Query](documentdb-sql-query.md)
+* Meer informatie over [Azure Cosmos DB-Query](sql-api-sql-query.md)
 * Meer informatie over [Azure Cosmos DB indexeren beleid](indexing-policies.md)
 

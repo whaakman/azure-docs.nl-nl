@@ -5,7 +5,7 @@ keywords: SSH verbinding geweigerd, ssh fout, azure ssh, SSH-verbinding is mislu
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/06/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5908c9572901bfb68ce03d7e6ccb08f84f38e567
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet bereiken van de SSH-service op de virtuele machine. Als u hebt gevolgd door de meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder op te lossen. In dit artikel begeleidt u bij de gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en het probleem te verhelpen.
@@ -39,14 +39,14 @@ De volgende stappen helpen u de bron van de fout te isoleren en oplossingen of t
 
 2. Selecteer **instellingen** onderzoeken eindpunten, IP-adressen, beveiligingsgroepen en andere instellingen.
 
-   De virtuele machine moet een eindpunt dat is gedefinieerd voor de SSH-verkeer dat u kunt bekijken in **eindpunten** of  **[netwerkbeveiligingsgroep](../../virtual-network/virtual-networks-nsg.md)**. Eindpunten in virtuele machines die zijn gemaakt met Resource Manager worden opgeslagen in een netwerkbeveiligingsgroep. Controleer ook of de regels zijn toegepast op de netwerkbeveiligingsgroep en er naar wordt verwezen in het subnet.
+   De virtuele machine moet een eindpunt dat is gedefinieerd voor de SSH-verkeer dat u kunt bekijken in **eindpunten** of  **[netwerkbeveiligingsgroep](../../virtual-network/virtual-networks-nsg.md)**. Eindpunten in virtuele machines die zijn gemaakt met Resource Manager worden opgeslagen in een netwerkbeveiligingsgroep. Controleer of de regels zijn toegepast op de netwerkbeveiligingsgroep en wordt verwezen in het subnet.
 
-Om te controleren of verbinding met het netwerk, de geconfigureerde eindpunten te zien als u de virtuele machine via een ander protocol, zoals HTTP- of een andere service kan bereiken.
+Om te controleren of verbinding met het netwerk, de geconfigureerde eindpunten en controleert u of u verbinding met de virtuele machine via een ander protocol, zoals HTTP- of een andere service maken kunt.
 
 Probeer opnieuw de SSH-verbinding na deze stappen.
 
 ## <a name="find-the-source-of-the-issue"></a>De bron van het probleem vinden
-De SSH-client op uw computer mogelijk niet kan bereiken van de SSH-service op de Azure VM vanwege problemen of configuratiefouten in de volgende gebieden:
+De SSH-client op uw computer kan geen verbinding maken met de SSH-service op de Azure VM vanwege problemen of configuratiefouten in de volgende gebieden:
 
 * [SSH-clientcomputer](#source-1-ssh-client-computer)
 * [Randapparaat organisatie](#source-2-organization-edge-device)
@@ -76,11 +76,11 @@ Als u verificatie via certificaat gebruikt, controleert u of deze machtigingen t
 * Type chmod 644 ~/.ssh/known_hosts (bevat hosts die u via SSH verbinding hebt gemaakt)
 
 ## <a name="source-2-organization-edge-device"></a>Bron 2: Organisatie randapparaat
-Om te voorkomen de randapparaat van uw organisatie als de bron van de fout, Controleer of dat een computer die direct is verbonden met Internet SSH-verbindingen in uw Azure VM aanbrengen kunt. Als u de virtuele machine via een VPN site-naar-site of een Azure ExpressRoute-verbinding gebruiken, gaat u naar [bron 4: Netwerkbeveiligingsgroepen](#nsg).
+Om te verwijderen van uw organisatie kan randapparaat als de bron van de fout of een computer rechtstreeks verbonden met Internet SSH verbinding maken met uw Azure-virtuele machine. Als u de virtuele machine via een VPN site-naar-site of een Azure ExpressRoute-verbinding gebruiken, gaat u naar [bron 4: Netwerkbeveiligingsgroepen](#nsg).
 
 ![Diagram die organisatie randapparaat markeert](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Als u een computer die direct niet hebt verbonden met Internet, een nieuwe Azure-virtuele machine maken in een eigen resourcegroep of cloudservice en worden gebruikt. Zie voor meer informatie [maken van een virtuele machine waarop Linux wordt uitgevoerd in Azure](quick-create-cli.md). De resourcegroep of de virtuele machine en cloud service verwijderen wanneer u met het testen bent klaar.
+Als u een computer die direct niet hebt verbonden met Internet, een nieuwe Azure-virtuele machine maken in een eigen resourcegroep of cloudservice en gebruiken die nieuwe virtuele machine. Zie voor meer informatie [maken van een virtuele machine waarop Linux wordt uitgevoerd in Azure](quick-create-cli.md). De resourcegroep of de virtuele machine en cloud service verwijderen wanneer u met het testen bent klaar.
 
 Als u een SSH-verbinding met een computer die direct is verbonden met Internet maken kunt, controleert u het apparaat van rand voor uw organisatie voor:
 
@@ -94,7 +94,7 @@ Werken met de netwerkbeheerder om het corrigeren van de instellingen van uw orga
 > [!NOTE]
 > Deze bron geldt alleen voor virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel. Voor virtuele machines die zijn gemaakt met Resource Manager, gaat u verder met [4 bron: Netwerkbeveiligingsgroepen](#nsg).
 
-Om te voorkomen de cloud service-eindpunt en ACL als de bron van de fout, Controleer of dat een andere Azure-virtuele machine in hetzelfde virtuele netwerk SSH-verbindingen met uw virtuele machine maken kunt.
+Om te voorkomen de cloud service-eindpunt en ACL als de bron van de fout, Controleer of dat een andere Azure-virtuele machine in hetzelfde virtuele netwerk verbinding kunnen maken via SSH.
 
 ![Diagram cloud service-eindpunt en ACL illustreert](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
