@@ -64,8 +64,8 @@
 ## Opgeslagen gegevens
 ### [Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [Bestandsshares](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Sleutel-waardeparen](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON-documenten](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Sleutel-waardeparen](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON-documenten](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Relationele tabellen](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Berichtenwachtrijen](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 

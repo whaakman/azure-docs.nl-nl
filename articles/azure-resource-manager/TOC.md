@@ -19,11 +19,7 @@
 ### [Koppeling naar andere sjablonen](resource-group-linked-templates.md)
 ### [Afhankelijkheid tussen resources definiëren](resource-group-define-dependencies.md)
 ### [Meerdere exemplaren maken](resource-group-create-multiple.md)
-### [Locatie instellen](resource-manager-template-location.md)
-### [Tags toewijzen](resource-manager-template-tags.md)
-### [Naam en type van onderliggende resource instellen](resource-manager-template-child-resource.md)
 ### [Bron bijwerken](resource-manager-update.md)
-### [Objecten voor parameters gebruiken](resource-manager-objects-as-parameters.md)
 ### [Status delen tussen gekoppelde sjablonen](best-practices-resource-manager-state.md)
 ### [Patronen voor het ontwerpen van sjablonen](best-practices-resource-manager-design-templates.md)
 
