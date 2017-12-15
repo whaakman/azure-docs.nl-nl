@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c1c18deb41e16ec57eacd8272094dc418503b0fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Een Node.js en MongoDB web-app in Azure bouwen
+
+> [!NOTE]
+> In dit artikel implementeert een app in App Service in Windows. Voor de implementatie in App Service _Linux_, Zie [bouwen van een Node.js en MongoDB web-app in Azure App Service op Linux](./containers/tutorial-nodejs-mongodb-app.md).
+>
 
 Azure Web Apps biedt een zeer schaalbaar, zelf patch webhosting-service. Deze zelfstudie laat zien hoe een Node.js-web-app in Azure maken en te verbinden met een MongoDB-database. Wanneer u bent klaar, hebt u een gemiddelde-toepassing (MongoDB, snelle AngularJS en Node.js) wordt uitgevoerd in [Azure App Service](app-service-web-overview.md). Voor de eenvoud, de voorbeeldtoepassing gebruikt de [MEAN.js webframework](http://meanjs.org/).
 
@@ -127,9 +131,9 @@ Voor MongoDB, het gebruik van deze zelfstudie [Azure Cosmos DB](/azure/documentd
 
 ### <a name="create-a-cosmos-db-account"></a>Een Cosmos-DB-account maken
 
-In de Cloud-Shell, maakt u een Cosmos-DB-account met de [az cosmosdb maken](/cli/azure/cosmosdb#create) opdracht.
+In de Cloud-Shell, maakt u een Cosmos-DB-account met de [az cosmosdb maken](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) opdracht.
 
-In de volgende opdracht te vervangen door een unieke naam van de Cosmos-database voor de  *\<cosmosdb_name >* tijdelijke aanduiding. Deze naam wordt gebruikt als het onderdeel van het eindpunt Cosmos DB `https://<cosmosdb_name>.documents.azure.com/`, zodat de naam moet uniek zijn in alle Cosmos-DB-accounts in Azure. De naam mag alleen kleine letters, cijfers en het koppelteken (-) en moet tussen 3 en 50 tekens bevatten.
+In de volgende opdracht te vervangen door een unieke naam van de Cosmos-database voor de * \<cosmosdb_name >* tijdelijke aanduiding. Deze naam wordt gebruikt als het onderdeel van het eindpunt Cosmos DB `https://<cosmosdb_name>.documents.azure.com/`, zodat de naam moet uniek zijn in alle Cosmos-DB-accounts in Azure. De naam mag alleen kleine letters, cijfers en het koppelteken (-) en moet tussen 3 en 50 tekens bevatten.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -161,7 +165,7 @@ In deze stap maakt u verbinding maken uw voorbeeldtoepassing MEAN.js naar de Cos
 
 ### <a name="retrieve-the-database-key"></a>De databasesleutel ophalen
 
-Voor verbinding met de database van de Cosmos-database, moet u de databasesleutel. In de Cloud-Shell gebruiken de [az cosmosdb lijst-sleutels](/cli/azure/cosmosdb#list-keys) opdracht voor het ophalen van de primaire sleutel.
+Voor verbinding met de database van de Cosmos-database, moet u de databasesleutel. In de Cloud-Shell gebruiken de [az cosmosdb lijst-sleutels](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) opdracht voor het ophalen van de primaire sleutel.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -185,7 +189,7 @@ Kopieer de waarde van `primaryMasterKey`. U hebt deze informatie nodig voor de v
 
 In de opslagplaats van uw lokale MEAN.js, in de _config/env/_ map, maakt u een bestand met de naam _lokale production.js_. Standaard _.gitignore_ is geconfigureerd voor dit bestand uit de opslagplaats houden. 
 
-Kopieer de volgende code in de App. Zorg ervoor dat u de twee  *\<cosmosdb_name >* tijdelijke aanduidingen door uw Cosmos-DB databasenaam en vervang de  *\<primary_master_key >* aanduiding voor items met de sleutel u in de vorige stap hebt gekopieerd.
+Kopieer de volgende code in de App. Zorg ervoor dat u de twee * \<cosmosdb_name >* tijdelijke aanduidingen door uw Cosmos-DB databasenaam en vervang de * \<primary_master_key >* aanduiding voor items met de sleutel u in de vorige stap hebt gekopieerd.
 
 ```javascript
 module.exports = {
@@ -257,9 +261,9 @@ In deze stap maakt implementeren u uw MongoDB verbonden Node.js-toepassing in Az
 
 Standaard het project MEAN.js houdt _config/env/local-production.js_ buiten de Git-opslagplaats. Dus voor uw Azure-web-app gebruikt u app-instellingen voor het definiëren van de MongoDB-verbindingsreeks.
 
-U kunt app-instellingen instellen met de [az webapp config appsettings bijwerken](/cli/azure/webapp/config/appsettings#update) opdracht in de Cloud-Shell. 
+U kunt app-instellingen instellen met de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) opdracht in de Cloud-Shell. 
 
-Het volgende voorbeeld wordt een `MONGODB_URI` app-instelling in uw Azure-web-app. Vervang de  *\<app_naam >*,  *\<cosmosdb_name >*, en  *\<primary_master_key >* tijdelijke aanduidingen.
+Het volgende voorbeeld wordt een `MONGODB_URI` app-instelling in uw Azure-web-app. Vervang de * \<app_naam >*, * \<cosmosdb_name >*, en * \<primary_master_key >* tijdelijke aanduidingen.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -434,7 +438,7 @@ node server.js
 
 Navigeer naar `http://localhost:8443` in een browser en zorg ervoor dat u bent aangemeld.
 
-Selecteer **Admin > artikelen beheren**, klikt u vervolgens een artikel toevoegen door te selecteren de  **+**  knop.
+Selecteer **Admin > artikelen beheren**, klikt u vervolgens een artikel toevoegen door te selecteren de ** + ** knop.
 
 U ziet de nieuwe `Comment` textbox nu.
 
@@ -461,7 +465,7 @@ Als u alle artikelen die eerder is toegevoegd, kunt u nog steeds zien. Bestaande
 
 Als uw Node.js-toepassing in Azure App Service wordt uitgevoerd, kunt u de logboeken van de console doorgesluisd naar uw terminal opvragen. Op die manier kunt u de dezelfde diagnostische berichten op te sporen toepassingsfouten ophalen.
 
-Gebruik voor het starten van de streaming-logboek de [az webapp logboek tail](/cli/azure/webapp/log#tail) opdracht in de Cloud-Shell.
+Gebruik voor het starten van de streaming-logboek de [az webapp logboek tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) opdracht in de Cloud-Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup
