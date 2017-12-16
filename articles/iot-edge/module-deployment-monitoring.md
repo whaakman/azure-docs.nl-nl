@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Rand van de IoT-implementaties voor één apparaten of op grote schaal begrijpen - voorbeeld
 
@@ -62,7 +62,7 @@ De doelvoorwaarden wordt continu op te nemen van nieuwe apparaten die voldoen aa
 Gebruik een Boole-voorwaarde op apparaat horende tags of de apparaat-id selecteren de doelapparaten. Als u voorwaarde gebruiken met labels wilt, moet u toevoegen 'labels' :{} sectie in de apparaat-twin onder hetzelfde niveau als eigenschappen. [Meer informatie over labels in de apparaat-twin](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Voorbeelden van de doel-voorwaarden:
-* apparaat-id ='linuxprod1
+* apparaat-id = 'linuxprod1'
 * tags.Environment = de prod'
 * tags.Environment = prod en tags.location = 'westus'
 * tags.Environment = prod OR tags.location = 'westus'

@@ -16,87 +16,53 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f3284d4cbb15f21522549c678410815b54344744
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="understanding-the-azure-active-directory-application-manifest"></a>Inzicht in de Azure Active Directory-toepassingsmanifest
-Toepassingen die kunnen worden geïntegreerd met Azure Active Directory (AD) moeten zijn geregistreerd bij Azure AD-tenant, de configuratie van een permanente identiteit voor de toepassing. Deze configuratie wordt geraadpleegd tijdens runtime, waardoor scenario's waarin een toepassing uitbesteden en broker via Azure AD-verificatie/autorisatie is toegestaan. Zie voor meer informatie over het model van Azure AD-toepassing, de [toevoegen, bijwerken en verwijderen van een toepassing] [ ADD-UPD-RMV-APP] artikel.
+# <a name="azure-active-directory-application-manifest"></a>Azure Active Directory-toepassingsmanifest
+Apps die zijn geïntegreerd met Azure AD moeten worden geregistreerd bij Azure AD-tenant. Deze app kan worden geconfigureerd met het app-manifest (onder de blade van Azure AD) in de [Azure-portal](https://portal.azure.com).
 
-## <a name="updating-an-applications-identity-configuration"></a>Configuratie van de identiteit van de toepassing bijwerken
-Er zijn daadwerkelijk meerdere opties beschikbaar voor het bijwerken van de eigenschappen van de configuratie van de identiteit van een toepassing, die in de mogelijkheden en graden van problemen, waaronder de volgende verschillen:
+## <a name="manifest-reference"></a>Verwijzing manifest
 
-* De  **[Azure portal] [ AZURE-PORTAL] online gebruikersinterface** kunt u de meest voorkomende eigenschappen van een toepassing niet bijwerken. Dit is de snelste en minimaal fout foutgevoelige manier om de eigenschappen van uw toepassing bij te werken, maar geeft geen u volledige toegang tot alle eigenschappen, zoals de volgende twee methoden.
-* Voor meer geavanceerde scenario's waarin u wilt bijwerken van eigenschappen die niet worden weergegeven in de klassieke Azure portal, kunt u de **toepassingsmanifest**. Dit is de focus van dit artikel en in meer detail starten in de volgende sectie wordt besproken.
-* Het is ook mogelijk om te **schrijven van een toepassing die gebruikmaakt van de [Graph API] [ GRAPH-API]**  uw toepassing waarvoor de meeste inspanning bijwerken. Kan dit een aantrekkelijke optie Hoewel, als u software voor beheer van schrijft, of moet bijwerken toepassingseigenschappen regelmatig op automatische wijze.
-
-## <a name="using-the-application-manifest-to-update-an-applications-identity-configuration"></a>Met behulp van het toepassingsmanifest configuratie van de identiteit van de toepassing bijwerken
-Via de [Azure-portal][AZURE-PORTAL], kunt u de configuratie van de identiteit van uw toepassing door bij te werken met de inline-manifest editor manifest voor de toepassing beheren. U kunt ook downloaden en het toepassingsmanifest als een JSON-bestand uploaden. Er is geen werkelijke bestand wordt opgeslagen in de map. Het toepassingsmanifest is slechts een HTTP GET-bewerking op de entiteit van de toepassing met Azure AD Graph API en het uploaden is een PATCH voor HTTP-bewerking op de entiteit van de toepassing.
-
-Als gevolg hiervan om te begrijpen van de indeling en de eigenschappen van het toepassingsmanifest, moet u verwijzen naar de Graph API [Toepassingsentiteit] [ APPLICATION-ENTITY] documentatie. Voorbeelden van updates die kunnen worden uitgevoerd, hoewel het uploaden van het toepassingsmanifest zijn:
-
-* **-Machtigingsbereiken (oauth2Permissions) declareren** die worden weergegeven door uw web-API. Zie het onderwerp 'Blootstellen van API's voor andere webtoepassingen' in [toepassingen integreren met Azure Active Directory] [ INTEGRATING-APPLICATIONS-AAD] voor informatie over het implementeren van gebruikersimitaties met behulp van de oauth2Permissions overgedragen machtigingen bereik. Zoals eerder vermeld, toepassingseigenschappen entiteit zijn gedocumenteerd in de Graph API [entiteit en het complexType] [ APPLICATION-ENTITY] verwijzingsartikel, met inbegrip van de eigenschap oauth2Permissions die een verzameling van het type [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
-* **Toepassingsrollen (appRoles) die worden weergegeven door uw app declareren**. De eigenschap appRoles van de entiteit van de toepassing is een verzameling van het type [AppRole][APPLICATION-ENTITY-APP-ROLE]. Zie de [op rollen gebaseerde toegangsbeheer in de cloud-toepassingen die gebruikmaken van Azure AD] [ RBAC-CLOUD-APPS-AZUREAD] artikel voor een voorbeeldimplementatie.
-* **Bekende client toepassingen (knownClientApplications) declareren**, waarmee u kunt de toestemming van de opgegeven client-toepassingen voor de resource of web-API logisch koppelen.
-* **Azure AD groep lidmaatschappen claim uitgeven aanvragen** voor de aangemelde gebruiker (groupMembershipClaims).  Dit kan ook worden geconfigureerd voor het verlenen van claims over lidmaatschap van de functies van de gebruiker directory. Zie de [autorisatie in de Cloud-toepassingen met behulp van AD-groepen] [ AAD-GROUPS-FOR-AUTHORIZATION] artikel voor een voorbeeldimplementatie.
-* **Toestaan dat uw toepassing ter ondersteuning van OAuth 2.0 impliciete grant** stromen (oauth2AllowImplicitFlow). Dit type grant-stroom wordt gebruikt met ingesloten JavaScript-webpagina's of toepassingen van één pagina (SPA). Zie voor meer informatie over de impliciete authorization grant [inzicht in de impliciete OAuth2 stroom in Azure Active Directory verlenen][IMPLICIT-GRANT].
-* **Gebruik van X509 inschakelen certificaten als de geheime sleutel** (keyCredentials). Zie de [in Office 365-service en -daemon apps bouwen] [ O365-SERVICE-DAEMON-APPS] en [Ontwikkelaarshandleiding voor verificatie met Azure Resource Manager-API] [ DEV-GUIDE-TO-AUTH-WITH-ARM] artikelen voor voorbeelden van de implementatie.
-* **Voeg een nieuwe App ID URI** voor uw toepassing (identifierURIs[]). App ID URI's worden gebruikt voor het aanduiden van een toepassing binnen de Azure AD-tenant (of op meerdere Azure AD-tenants voor scenario's met meerdere tenants wanneer gekwalificeerd via geverifieerde aangepaste domeinnaam). Ze worden gebruikt bij het aanvragen van machtigingen aan een resource-toepassing of het ophalen van een toegangstoken voor de toepassing van een resource. Wanneer u dit element bijwerkt, wordt dezelfde update wordt gesteld aan van de bijbehorende service-principal servicePrincipalNames [] verzameling, die zich in de toepassing thuis-tenant.
-
-Het toepassingsmanifest biedt ook een goede manier om bij te houden van de status van de registratie van uw toepassing. Omdat het is beschikbaar in JSON-indeling, kan de bestandsweergave in uw broncodebeheer, samen met de broncode van uw toepassing worden gecontroleerd.
-
-## <a name="step-by-step-example"></a>Stap door stap voorbeeld
-U kunt nu de vereiste configuratie van de identiteit van uw toepassing via het toepassingsmanifest bijwerken stappen doorlopen. We zullen Markeer een van de voorgaande voorbeelden waarin wordt getoond hoe u een nieuwe machtiging scope declareren op een resource-toepassing:
-
-1. Meld u aan bij [Azure Portal][AZURE-PORTAL].
-2. Nadat u hebt geverifieerd, kiest u uw Azure AD-tenant selecteren in de rechterbovenhoek van de pagina.
-3. Selecteer **Azure Active Directory** extensie van het linkernavigatievenster en klik op **App registraties**.
-4. De toepassing die u wilt bijwerken in de lijst en klikt u op de gevonden.
-5. Klik op de toepassingspagina **Manifest** om het manifest inline-editor te openen. 
-6. U kunt het manifest met behulp van deze editor rechtstreeks bewerken. Houd er rekening mee dat het manifest volgt het schema voor de [Toepassingsentiteit] [ APPLICATION-ENTITY] zoals eerder gezegd: bijvoorbeeld, ervan uitgaande dat we willen implementeren/zichtbaar een nieuwe machtiging 'Employees.Read.All' aangeroepen voor de resource-toepassing (API), u zou gewoon een nieuwe/tweede element toevoegen aan de verzameling oauth2Permissions ie:
-   
-        "oauth2Permissions": [
-        {
-        "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
-        "adminConsentDisplayName": "Access MyWebApplication",
-        "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
-        "userConsentDisplayName": "Access MyWebApplication",
-        "value": "user_impersonation"
-        },
-        {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-        }
-        ],
-   
-    Het item moet uniek en daarom moet u een nieuwe globaal unieke ID (GUID) voor genereren de `"id"` eigenschap. In dit geval omdat we opgegeven `"type": "User"`, deze machtiging kan worden wil door een account dat is geverifieerd door Azure AD-tenant in de resource/API-toepassing is geregistreerd. Hiermee verkrijgt de client toepassing gemachtigd namens van het account. De beschrijving en de weergave naam tekenreeksen worden gebruikt tijdens toestemming en voor weergave in de Azure-portal.
-6. Wanneer u klaar bent voor het bijwerken van het manifest, klikt u op **opslaan** om op te slaan van het manifest.  
-   
-Nu dat het manifest is opgeslagen, kunt u geeft een geregistreerde toepassing clienttoegang tot de nieuwe machtiging we die hierboven staan vermeld. Deze tijd kunt u de Azure portal-Webgebruikersinterface gebruiken in plaats van de clienttoepassing manifest bewerken:  
-
-1. Ga naar de **instellingen** blade van de clienttoepassing die u wilt toegang aan de nieuwe API toevoegen, klikt u op **Required Permissions** en kies **selecteert u een API**.
-2. Vervolgens wordt weergegeven met de lijst met geregistreerde resource toepassingen (API's) in de tenant. Klik op de resource-toepassing om deze te selecteren, of typ de naam van de toepassing het zoekvak. Wanneer u de toepassing hebt gevonden, klikt u op **Selecteer**.  
-3. Dit gaat u naar de **Selecteer machtigingen** pagina de lijst met machtigingen voor een toepassing en overgedragen machtigingen beschikbaar zijn voor de resource-toepassing worden weergegeven. Selecteer de nieuwe machtiging om toe te voegen aan de client aangevraagde lijst met machtigingen. Deze nieuwe machtiging worden opgeslagen in de clienttoepassing identiteit configuratie in de eigenschap 'requiredResourceAccess' collection.
-
-
-Dat is alles. Uw toepassingen wordt nu uitgevoerd met de nieuwe configuratie voor identiteit.
+>[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
+|Sleutel  |Waardetype |Voorbeeldwaarde  |Beschrijving  |
+|---------|---------|---------|---------|
+|appID     |  Id-reeks       |""|  De unieke id voor de toepassing die is toegewezen aan een app door Azure AD.|
+|appRoles     |    Matrixtype     |[{<br>&emsp;'allowedMemberTypes': [<br>&emsp;&nbsp;&nbsp;&nbsp;'Gebruiker'<br>&emsp;],<br>&emsp;'beschrijving': "Lezen alleen toegang tot gegevens van een apparaat",<br>&emsp;'weergavenaam': 'Alleen-lezen'<br>&emsp;'id': guid<br>&emsp;'isEnabled': true<br>&emsp;'' waarde '': 'ReadOnly'<br>}]|De verzameling functies die een toepassing kan verklaren. Deze rollen kunnen worden toegewezen aan gebruikers, groepen of service-principals.|
+|AvailableToOtherTenants|Booleaanse waarde|waar|Als deze waarde is ingesteld op true, de toepassing is beschikbaar voor andere tenants.  Indien ingesteld op false, de app alleen beschikbaar voor de tenant is is het geregistreerd in.  Zie voor meer informatie: [aanmelden met een Azure Active Directory (AD) gebruiker met behulp van het patroon toepassing met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md). |
+|Weergavenaam     |tekenreeks         |MyRegisteredApp         |De weergavenaam voor de toepassing. |
+|errorURL     |tekenreeks         |http:<i></i>//MyRegisteredAppError         |De URL voor fouten zijn opgetreden in een toepassing. |
+|GroupMembershipClaims     |    tekenreeks     |    1     |   Een bitmasker dat de 'groepen' claim uitgegeven configureert in een gebruiker of het OAuth 2.0-toegangstoken dat de toepassing wordt verwacht. De Bitmaskerwaarden zijn: 0: geen, 1: beveiligingsgroepen en Azure AD-functies, 2: gereserveerd en 4: gereserveerd. Instellen van het bitmasker tot en met 7 krijgen alle beveiligingsgroepen, distributiegroepen en Azure AD-directory-functies dat de aangemelde gebruiker lid is van.      |
+|optionalClaims     |  tekenreeks       |     null    |    De optionele claims in het token wordt geretourneerd door de tokenbeveiligingsservice voor deze specifieke app.     |
+|acceptMappedClaims    |      Booleaanse waarde   | waar        |    Als deze waarde is ingesteld op true, kunt u een toepassing te gebruiken zonder op te geven van een aangepaste handtekeningsleutel-toewijzing claims.|
+|Startpagina     |  tekenreeks       |http:<i></i>//MyRegistererdApp         |    De URL naar de startpagina van de toepassing.     |
+|identifierUris     |  Tekenreeksmatrix       | http:<i></i>//MyRegistererdApp        |   Gebruiker gedefinieerde URI(s) unieke identificatie van een webtoepassing binnen de Azure AD-tenant of binnen een geverifieerde aangepast domein als de toepassing meerdere tenants.      |
+|keyCredentials     |   Matrixtype      |   [{<br>&nbsp;'customKeyIdentifier': null<br>'einddatum': ' 2018-09-13T00:00:00Z ",<br>'keyId': '\<guid > ",<br>'begindatum': ' 2017-09-12T00:00:00Z ",<br>'type': 'AsymmetricX509Cert'<br>'gebruik': 'Verifiëren'<br>'' waarde '': null<br>}]      |   Deze eigenschap bevat verwijzingen naar referenties toepassing wordt toegewezen, op basis van een tekenreeks gedeelde geheimen en X.509-certificaten.  Deze referenties een rol spelen bij het aanvragen van de toegangstokens (wanneer de app fungeert als een client in plaats daarvan die als bron).     |
+|knownClientApplications     |     Matrixtype    |    [guid]     |     De waarde wordt gebruikt voor bundelen toestemming hebt u een oplossing die bestaat uit twee delen, een clienttoepassing en een aangepaste web API-toepassing. Als u de appID van de clienttoepassing in deze waarde invoert, wordt de gebruiker alleen hebben om toestemming één keer aan de clienttoepassing. Azure AD weten dat ermee akkoord dat de client betekent impliciet stemt ermee in dat de web-API en service-principals voor de client en de web-API wordt automatisch worden ingericht op hetzelfde moment (zowel de client als de web-API-toepassing moeten zijn geregistreerd in dezelfde tenant).|
+|logoutUrl     |   tekenreeks      |     http:<i></i>//MyRegisteredAppLogout    |   De URL moet afmelden van de toepassing.      |
+|oauth2AllowImplicitFlow     |   Booleaanse waarde      |  onwaar       |       Hiermee geeft u op of deze webtoepassing OAuth2.0 impliciete stroom tokens kan opvragen. De standaardwaarde is ONWAAR. Dit wordt gebruikt voor de browser gebaseerde apps, zoals Javascript-apps van één pagina. |
+|oauth2AllowUrlPathMatching     |   Booleaanse waarde      |  onwaar       |   Hiermee geeft u op of, als onderdeel van aanvragen voor beveiligingstokens OAuth 2.0, Azure AD toestaat pad van de omleidings-URI op basis van de toepassing replyUrls overeenkomen. De standaardwaarde is ONWAAR.      |
+|oauth2Permissions     | Matrixtype         |      [{<br>'adminConsentDescription': "Toestaan dat de toepassing toegang krijgen tot bronnen namens de aangemelde gebruiker.",<br>'adminConsentDisplayName': "Toegang resource1",<br>'id': '\<guid > ",<br>'isEnabled': true<br>'type': 'Gebruiker'<br>'userConsentDescription': 'Toestaan de toepassing toegang krijgen tot resource1 namens jou',<br>'userConsentDisplayName': 'Toegang tot bronnen,'<br>'' waarde '': 'user_impersonation'<br>}]   |  De verzameling van OAuth 2.0-machtigingsbereiken waarmee de web-API (resource)-toepassing voor clienttoepassingen. Deze machtiging scopes kunnen worden verleend aan clienttoepassingen tijdens toestemming. |
+|oauth2RequiredPostResponse     | Booleaanse waarde        |    onwaar     |      Hiermee geeft u op of, als onderdeel van aanvragen voor beveiligingstokens OAuth 2.0, Azure AD POST-aanvragen in plaats van GET-aanvragen toestaat. De standaardwaarde is ONWAAR, die aangeeft dat alleen GET-aanvragen kunnen worden.   
+|object-id     | Id-reeks        |     ""    |    De unieke id voor de toepassing in de map.  Dit is geen de id die wordt gebruikt voor het identificeren van de app in een transactie protocol.  Deze is gebruiker voor het verwijzen naar het object in de directory-query's.|
+|passwordCredentials     | Matrixtype        |   [{<br>'customKeyIdentifier': null<br>'einddatum': ' 2018-10-19T17:59:59.6521653Z ",<br>'keyId': '\<guid > ",<br>'begindatum': ' 2016-10-19T17:59:59.6521653Z ",<br>'' waarde '': null<br>}]      |    Zie de beschrijving voor de eigenschap keyCredentials.     |
+|PublicClient     |  Booleaanse waarde       |      onwaar   | Geeft aan of een toepassing een openbare-client (zoals een geïnstalleerde toepassing die wordt uitgevoerd op een mobiel apparaat). Standaard is ingesteld op false.        |
+|supportsConvergence     |  Booleaanse waarde       |   onwaar      | Deze eigenschap mag niet worden bewerkt.  Accepteer de standaardwaarde.        |
+|replyUrls     |  Tekenreeksmatrix       |   http:<i></i>//localhost     |  Deze eigenschap met meerdere waarden bevat de lijst met geregistreerde redirect_uri waarden die Azure AD worden geaccepteerd als bestemmingen wanneer returining tokens. |
+|RequiredResourceAccess     |     Matrixtype    |    [{<br>'resourceAppId': '00000002-0000-0000-c000-000000000000'<br>'resourceAccess': [{<br>&nbsp;&nbsp;&nbsp;&nbsp;'id': '311a71cc-e848-46a1-bdf8-97ff7156d8e6'<br>&nbsp;&nbsp;&nbsp;&nbsp;'type': 'Bereik'<br>&nbsp;&nbsp;}]<br>}]     |   Hiermee geeft u resources die deze toepassing is vereist voor toegang tot en de set met OAuth-machtigingsbereiken en de rollen van de toepassing die bij elk van deze bronnen nodig. Deze vooraf configuratie van de vereiste toegang tot stations de ervaring toestemming.|
+|resourceAppId     |    Id-reeks     |  ""      |   De unieke id voor de resource die de toepassing toegang tot vereist. Deze waarde moet gelijk zijn aan de appId is gedeclareerd voor de doeltoepassing resource.     |
+|resourceAccess     |  Matrixtype       | Zie het voorbeeldwaarde voor de eigenschap requiredResourceAccess.        |   De lijst met OAuth2.0-machtigingsbereiken en app-functies die vereist dat de toepassing van de opgegeven resource (met de ID en het type waarden van de opgegeven bronnen)        |
+|samlMetadataUrl|tekenreeks|http:<i></i>//MyRegisteredAppSAMLMetadata|De URL moet de SAML-metagegevens voor de toepassing.| 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over de relatie tussen de toepassing en Service-Principal objecten van een toepassing, [toepassing en service-principal objecten in Azure AD][AAD-APP-OBJECTS].
+* Zie voor meer informatie over de relatie tussen de toepassing en Service-Principal objecten van een toepassing [toepassing en service-principal objecten in Azure AD][AAD-APP-OBJECTS].
 * Zie de [verklarende woordenlijst voor Azure AD-ontwikkelaar] [ AAD-DEVELOPER-GLOSSARY] voor definities van de concepten voor ontwikkelaars van core Azure Active Directory (AD).
 
-Gebruik de onderstaande sectie met opmerkingen om uw feedback en help ons verfijnen en onze content vorm.
+Gebruik de volgende sectie met opmerkingen feedback waarmee verfijnen en onze content vorm te geven.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md

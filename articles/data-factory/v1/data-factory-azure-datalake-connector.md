@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ceac2897e7b584c90945f3f556afc12891bf8a25
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Gegevens kopiëren naar en van Data Lake Store via Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,9 +86,9 @@ Registreren van een Toepassingsentiteit in Azure Active Directory (Azure AD) voo
 
 > [!IMPORTANT]
 > Zorg ervoor dat u service principal juiste toestemming geven in Azure Data Lake Store:
->- Voor het gebruik van Data Lake Store als bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor toegangsbeheer op account.
->- Voor het gebruik van Data Lake Store als sink, verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen dat deze rol IAM [executionLocation opgeven](data-factory-data-movement-activities.md#global) met de locatie van uw Data Lake Store in de kopieerbewerking.
->- Als u de Wizard kopiëren gebruiken voor het ontwerpen pijplijnen, ten minste verlenen **lezer** rol in account toegangsbeheer (IAM). Bovendien verlenen ten minste **lezen + Execute** machtiging voor de hoofdmap van uw Data Lake Store ('/') en de onderliggende items. Anders mogelijk ziet u het bericht "de opgegeven referenties zijn ongeldig."
+>- **Data Lake Store te gebruiken als bron**, ten minste verlenen **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor toegangsbeheer op account.
+>- **Gebruik van Data Lake Store als sink**, ten minste verlenen **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen dat deze rol IAM [executionLocation opgeven](data-factory-data-movement-activities.md#global) met de locatie van uw Data Lake Store in de kopieerbewerking.
+>- Als u **Wizard kopiëren gebruiken voor het ontwerpen van pijplijnen**, ten minste verlenen **lezer** rol in account toegangsbeheer (IAM). Bovendien verlenen ten minste **lezen + Execute** machtiging voor de hoofdmap van uw Data Lake Store ('/') en de onderliggende items. Anders mogelijk ziet u het bericht "de opgegeven referenties zijn ongeldig."
 
 Verificatie van de service-principal gebruiken door te geven van de volgende eigenschappen:
 
@@ -126,9 +126,9 @@ U kunt ook kunt u verificatie van gebruikersreferenties voor het kopiëren van o
 
 > [!IMPORTANT]
 > Zorg ervoor dat u de juiste machtiging van de gebruiker in Azure Data Lake Store verlenen:
->- Voor het gebruik van Data Lake Store als bron, verlenen ten minste **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor toegangsbeheer op account.
->- Voor het gebruik van Data Lake Store als sink, verlenen ten minste **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen dat deze rol IAM [executionLocation opgeven](data-factory-data-movement-activities.md#global) met de locatie van uw Data Lake Store in de kopieerbewerking.
->- Als u de Wizard kopiëren gebruiken voor het ontwerpen pijplijnen, ten minste verlenen **lezer** rol in account toegangsbeheer (IAM). Bovendien verlenen ten minste **lezen + Execute** machtiging voor de hoofdmap van uw Data Lake Store ('/') en de onderliggende items. Anders mogelijk ziet u het bericht "de opgegeven referenties zijn ongeldig."
+>- **Data Lake Store te gebruiken als bron**, ten minste verlenen **lezen + Execute** data access-machtiging voor het weergeven en kopieer de inhoud van een map of **lezen** machtiging voor het kopiëren van één bestand. Er is geen vereiste voor toegangsbeheer op account.
+>- **Gebruik van Data Lake Store als sink**, ten minste verlenen **schrijven + uitvoeren** data access-machtiging voor het maken van onderliggende items in de map. En als u Azure IR gebruiken om te zorgen dat kopiëren (bron- en sink zijn in de cloud), om te kunnen laten Data Factory Data Lake Store regio detecteren, verlenen ten minste **lezer** rol in account toegangsbeheer (IAM). Als u wilt voorkomen dat deze rol IAM [executionLocation opgeven](data-factory-data-movement-activities.md#global) met de locatie van uw Data Lake Store in de kopieerbewerking.
+>- Als u **Wizard kopiëren gebruiken voor het ontwerpen van pijplijnen**, ten minste verlenen **lezer** rol in account toegangsbeheer (IAM). Bovendien verlenen ten minste **lezen + Execute** machtiging voor de hoofdmap van uw Data Lake Store ('/') en de onderliggende items. Anders mogelijk ziet u het bericht "de opgegeven referenties zijn ongeldig."
 
 **Voorbeeld: Verificatie van gebruikersreferenties**
 ```json
@@ -189,6 +189,49 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 Zie voor meer informatie over de Data Factory-klassen gebruikt in de code de [AzureDataLakeStoreLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klasse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), en [ Klasse AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) onderwerpen. Voeg een verwijzing naar versie `2.9.10826.1824` van `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` voor de `WindowsFormsWebAuthenticationDialog` klasse die in de code wordt gebruikt.
+
+## <a name="troubleshooting-tips"></a>Tips voor probleemoplossing
+
+**Symptoom:** bij het kopiëren van gegevens **in** Azure Data Lake Store, als uw kopieeractiviteit met de volgende fout mislukken:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Hoofdoorzaak:** er 2 mogelijke redenen zijn:
+
+1. De `resourceGroupName` en/of `subscriptionId` opgegeven in Azure Data Lake Store gekoppelde service is onjuist.
+2. De gebruiker of de service-principal hebt niet de benodigde machtiging.
+
+**Oplossing:**
+
+1. Zorg ervoor dat de `subscriptionId` en `resourceGroupName` u opgeeft in de gekoppelde service `typeProperties` zijn inderdaad degene die uw data lake-account behoort.
+
+2. Zorg ervoor dat u ten minste verlenen '**lezer**' rol aan de gebruiker of service-principal op het data lake-account. Dit is het maken van:
+
+    1. Ga naar de Azure Portal -> uw Data Lake Store-account
+    2. Klik op ' Access Control (IAM) ' in de blade van de Data Lake Store
+    3. Klik op "Toevoegen" in de blade van ' Access Control (IAM) "
+    4. Stel 'Rol' als 'Lezer' en selecteer de gebruiker of de service-principal die u voor kopie gebruiken om toegang te verlenen
+
+3. Als u niet dat de rol 'Lezer' verlenen aan de gebruiker of service-principal wilt, alternatieve gebruikersinvoer is het [expliciet een uitvoeren-locatie opgeeft](data-factory-data-movement-activities.md#global) in kopiëren activitywith de locatie van uw Data Lake Store. Voorbeeld:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 Als een dataset staat voor invoergegevens in een Data Lake Store opgeven, die u stelt de **type** eigenschap van de gegevensset **AzureDataLakeStore**. Stel de **linkedServiceName** eigenschap van de gegevensset op de naam van de Data Lake Store gekoppelde service. Zie voor een volledige lijst van JSON-secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets de [gegevenssets maken](data-factory-create-datasets.md) artikel. Secties van een gegevensset in JSON, zoals **structuur**, **beschikbaarheid**, en **beleid**, zijn identiek voor alle typen van de gegevensset (Azure SQL-database, blob van Azure en Azure-tabel voor voorbeeld). De **typeProperties** sectie verschilt voor elk type gegevensset en bevat informatie zoals de locatie en indeling van de gegevens in het gegevensarchief. 

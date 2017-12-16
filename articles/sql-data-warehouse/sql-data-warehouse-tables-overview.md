@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Overzicht van tabellen in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Statistieken zijn een zeer belangrijk voor het ophalen van de beste prestaties b
 Tijdelijke tabellen zijn tabellen die alleen bestaan voor de duur van uw aanmelding en kunnen niet worden bekeken door andere gebruikers.  Tijdelijke tabellen mag een uitstekende manier om te voorkomen dat anderen tijdelijke resultaten en ook de noodzaak voor opschoning te verminderen.  Omdat de tijdelijke tabellen ook gebruikmaken van lokale opslag, bieden ze sneller voor bepaalde bewerkingen.  Zie de [tijdelijke tabel] [ Temporary] artikelen voor meer informatie over tijdelijke tabellen.
 
 ## <a name="external-tables"></a>Externe tabellen
-Externe tabellen, ook wel bekend als Polybase tabellen zijn tabellen die kunnen worden opgevraagd van SQL Data Warehouse, maar punt naar externe gegevens uit SQL Data Warehouse.  Bijvoorbeeld, kunt u een externe tabel die verwijst naar de bestanden op Azure Blob Storage.  Zie voor meer informatie over het maken en query uitvoeren op een externe tabel [gegevens laden met Polybase][Load data with Polybase].  
+Externe tabellen, ook wel bekend als Polybase tabellen zijn tabellen die kunnen worden opgevraagd van SQL Data Warehouse, maar punt naar externe gegevens uit SQL Data Warehouse.  Bijvoorbeeld, kunt u een externe tabel die verwijst naar de bestanden op Azure Blob Storage of Azure Data Lake Store.  Zie voor meer informatie over het maken en query uitvoeren op een externe tabel [gegevens laden met Polybase][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Niet-ondersteunde tabelfuncties
 SQL Data Warehouse bevat veel van dezelfde tabelfuncties die worden aangeboden door andere databases, maar er zijn bepaalde functies die nog niet ondersteund.  Hieronder ziet u een lijst met enkele van de tabelfuncties die nog niet ondersteund.

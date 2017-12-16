@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d30361a7149342000c6e6cfdbfe1ee7e6caf945d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: bd7fe69f50e1fe1c1b333c6102dd4b8fc39cf3ad
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure virtuele Machine PowerShell-voorbeelden
 
@@ -37,10 +37,6 @@ De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts d
 | [Een VHD uploaden en virtuele machines maken](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Een lokale VHD-bestand wordt geüpload naar Azure, maakt en een installatiekopie van de VHD en maakt u een virtuele machine vervolgens vanuit die installatiekopie. |
 | [Een virtuele machine maken van een beheerde OS-schijf](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Maakt een virtuele machine door het koppelen van een bestaande schijf beheerd als besturingssysteemschijf. |
 | [Een virtuele machine maken vanuit een momentopname](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een virtuele machine maakt vanuit een momentopname eerst een beheerde schijven maken vanuit een momentopname en vervolgens de nieuwe beheerde schijf als besturingssysteemschijf te koppelen. |
-|**Maken van virtuele machines met behulp van New-AzVM**||
-| [Een volledig geconfigureerde virtuele machine maken](./../scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een resourcegroep, virtuele machine en alle gerelateerde resources gemaakt.|
-| [Een virtuele machine maken en voer het script voor configuratie](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een virtuele machine maakt en wordt de extensie Azure aangepast Script gebruikt om IIS te installeren. |
-| [Een virtuele machine maken en uitvoeren van de DSC-configuratie](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Een virtuele machine maakt en wordt de extensie Azure Desired State Configuration (DSC) gebruikt om IIS te installeren. |
 |**Opslag beheren**||
 | [Beheerde schijf maken vanaf een VHD in hetzelfde of een ander abonnement](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Hiermee maakt een beheerde schijf vanaf een speciale VHD als een besturingssysteemschijf of uit een VHD als gegevensschijf in hetzelfde of een ander abonnement.  |
 | [Een beheerde schijf maken vanuit een momentopname](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Maakt een beheerde schijf van een momentopname. |

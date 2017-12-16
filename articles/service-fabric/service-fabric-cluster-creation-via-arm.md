@@ -14,8 +14,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 19ad079c58728479a7f39ce7520bd8eaebdff1f5
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/15/2017
@@ -617,15 +617,20 @@ Als u problemen ondervindt en cryptisch berichten ophalen, gebruikt u '-fouten o
 ## <a name="assign-users-to-roles"></a>Gebruikers toewijzen aan rollen
 Nadat u de toepassingen voor uw cluster hebt gemaakt, uw gebruikers toewijzen aan de rollen die worden ondersteund door Service Fabric: alleen-lezen en de beheerder. U kunt de rollen toewijzen met behulp van de [Azure-portal][azure-portal].
 
-1. In de Azure portal, gaat u naar uw tenant en selecteer vervolgens **toepassingen**.
-2. Selecteer de webtoepassing heeft een naam zoals `myTestCluster_Cluster`.
-3. Klik op de **gebruikers** tabblad.
-4. Selecteer een gebruiker wilt toewijzen en klik op de **toewijzen** knop aan de onderkant van het scherm.
+1. Selecteer in de Azure-portal uw tenant op de rechterbovenhoek.
 
-    ![Gebruikers toewijzen aan rollen knop][assign-users-to-roles-button]
-5. Selecteer de rol toewijzen aan de gebruiker.
+    ![Selecteer de knop tenant][select-tenant-button]
+2. Selecteer **Azure Active Directory** op het linkertabblad en selecteer 'bedrijfstoepassingen'.
+3. Selecteer 'Alle toepassingen', en zoeken en selecteer de webtoepassing heeft een naam zoals `myTestCluster_Cluster`.
+4. Klik op de **gebruikers en groepen** tabblad.
 
-    ![In het dialoogvenster 'Gebruikers toewijzen'][assign-users-to-roles-dialog]
+    ![Tabblad gebruikers en groepen][users-and-groups-tab]
+5. Klik op de **gebruiker toevoegen** knop op de nieuwe pagina, selecteert u een gebruiker en de rol toewijzen en klik vervolgens op de **Selecteer** knop aan de onderkant van de pagina.
+
+    ![Gebruikers toewijzen aan de pagina serverfuncties][assign-users-to-roles-page]
+6. Klik op de **toewijzen** knop aan de onderkant van de pagina.
+
+    ![Bevestiging van de toewijzing toevoegen][assign-users-to-roles-confirm]
 
 > [!NOTE]
 > Zie voor meer informatie over functies in Service Fabric [toegangsbeheer op basis van rollen voor Service Fabric-clients](service-fabric-cluster-security-roles.md).
@@ -665,7 +670,7 @@ Wanneer u probeert aan te melden bij Azure AD in Service Fabric Explorer, de pag
 De cluster (web)-toepassing die staat voor Service Fabric Explorer probeert te verifiëren met Azure AD en als onderdeel van de aanvraag biedt de retour Omleidings-URL. Maar de URL niet wordt vermeld in de Azure AD-toepassing **antwoord-URL** lijst.
 
 #### <a name="solution"></a>Oplossing
-Op de **configureren** tabblad toevoegen van de toepassing cluster (web) de URL van het Service Fabric Explorer naar de **antwoord-URL** lijst of vervangen door een van de items in de lijst. Wanneer u klaar bent, sla de wijziging.
+Selecteer 'App registraties' in AAD pagina, selecteer uw cluster-toepassing en selecteer vervolgens de **antwoord-URL's** knop. De URL van Service Fabric Explorer toevoegen aan de lijst op de pagina 'Antwoord-URL's ', of vervangen door een van de items in de lijst. Wanneer u klaar bent, sla de wijziging.
 
 ![Web application antwoord-url][web-application-reply-url]
 
@@ -703,13 +708,15 @@ U hebt op dit moment een beveiligde cluster met Azure Active Directory verstrekk
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#Create-a-Service-Fabric-cluster- Resource-Manager-template
+[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-[assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
-[assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
+[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
+[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
+[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Concept gebruiken met Azure Containerservice (AKS)
 
@@ -25,7 +25,7 @@ Dit Documentdetails concept gebruiken met een cluster Kubernetes op AKS.
 
 Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat u een AKS-cluster hebt gemaakt en een kubectl-verbinding met het cluster hebt gemaakt. Als u deze items moet, Zie de [AKS Quick Start][aks-quickstart].
 
-U moet ook een persoonlijke Docker-register in Azure Container register (ACR). Zie voor instructies over het implementeren van een ACR-exemplaar, de [Azure Container register Quick Start] [acr Quick Start].
+U moet ook een persoonlijke Docker-register in Azure Container register (ACR). Zie voor instructies over het implementeren van een ACR-exemplaar de [Quick Start Azure Container register][acr-quickstart].
 
 ## <a name="install-helm"></a>Helm installeren
 
@@ -312,5 +312,5 @@ Zie voor meer informatie over het gebruik van concept, de ontwerp-documentatie o
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
-[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

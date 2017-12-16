@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Sjablonen gebruiken voor het maken van Azure Data Factory-entiteiten
 > [!NOTE]
@@ -231,7 +231,7 @@ Raadpleeg [pijplijnen definiëren](data-factory-create-pipelines.md#pipeline-jso
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Data Factory-sjabloon parameters voorzien
-Zie voor aanbevolen procedures op parameters voorzien [aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-manager-template-best-practices.md#parameters) artikel. In het algemeen moet gebruik van parameters worden geminimaliseerd, vooral als variabelen in plaats daarvan kunnen worden gebruikt. Geef alleen parameters in de volgende scenario's:
+Zie voor aanbevolen procedures op parameters voorzien [aanbevolen procedures voor het maken van Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-manager-template-best-practices.md). In het algemeen moet gebruik van parameters worden geminimaliseerd, vooral als variabelen in plaats daarvan kunnen worden gebruikt. Geef alleen parameters in de volgende scenario's:
 
 * Instellingen variëren door omgeving (voorbeeld: ontwikkeling, testen en productie)
 * Geheimen (zoals wachtwoorden)

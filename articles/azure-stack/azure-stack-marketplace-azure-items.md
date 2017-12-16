@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 939ae243c02eb375251cc4d959ab5d46dc41c040
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/15/2017
@@ -30,10 +30,13 @@ U wordt aangeraden deze te downloaden wanneer er updates voor de VM-extensies di
 
 |  | De itemnaam van het | Beschrijving | Uitgever | Het type besturingssysteem |
 | --- | --- | --- | --- | --- |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS-uitbreiding](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download deze uitbreiding voor het implementeren van een SQL-Server op Windows Marketplace-item - dit is vereist.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Extensie voor aangepaste scripts](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Deze update downloaden naar de versie in het vak van het aangepaste Script uitbreiding voor Windows.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC-uitbreiding](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Deze update downloaden naar de in-box-versie van de PowerShell DSC-uitbreiding.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Antimalware-uitbreiding](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware voor Azure is een single-agent-oplossing voor toepassingen en tenant-omgevingen, die is ontworpen om uit te voeren op de achtergrond, zonder menselijke tussenkomst. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker-extensie voor virtuele Linux-Machines. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL IaaS-uitbreiding](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download deze uitbreiding voor het implementeren van een SQL-Server op Windows Marketplace-item - dit is vereist.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis Backup-extensie voor Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | De extensie van de back-up Acronis voor Microsoft Azure is onderdeel van de back-up Acronis-familie van data protection producten. | Internationale GmbH Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis Backup-extensie voor Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | De extensie van de back-up Acronis voor Microsoft Azure is onderdeel van de back-up Acronis-familie van data protection producten. | Internationale GmbH Acronis. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis Backup-extensie voor Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | De extensie van de back-up Acronis voor Microsoft Azure is onderdeel van de back-up Acronis-familie van data protection producten. | Internationale GmbH Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro grondige Security-extensie voor Linux. | Trend Micro | Linux |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Grondige beveiligingsagent voor Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro grondige Security-extensie voor Windows. | Trend Micro | Windows |
 

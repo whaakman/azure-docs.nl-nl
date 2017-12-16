@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 Wanneer u een runbook in Azure Automation start, wordt een taak gemaakt. Een taak is één uitvoeringsinstantie van een runbook. Een Azure Automation worker is toegewezen aan elke taak uitvoeren. Werknemers worden gedeeld door meerdere Azure-accounts, zijn taken van andere Automation-accounts geïsoleerd van elkaar. U doet geen hebben controle over welke worker-services de aanvraag voor de taak. Één runbook kan meerdere taken tegelijk actief hebben.  De omgeving worden uitgevoerd voor de taken van hetzelfde Automation-Account kan opnieuw worden gebruikt. Wanneer u de lijst met runbooks in de Azure portal weergeeft, geeft de status van alle taken die zijn gestart voor elk runbook. U kunt de lijst met taken voor elk runbook weergeven om de status van elk bijhouden. Voor een beschrijving van de status van een andere taak [status van een taak](#job-statuses).
@@ -40,12 +40,12 @@ De volgende tabel beschrijft de verschillende statussen die mogelijk voor een ta
 |:--- |:--- |
 | Voltooid |De taak is voltooid. |
 | Mislukt |Voor [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md), het runbook kan niet worden gecompileerd.  Voor [PowerShell-Script runbooks](automation-runbook-types.md), het runbook kan niet worden gestart of de taak is een uitzondering opgetreden. |
-| Is mislukt, wacht voor bronnen |De taak is mislukt omdat het werkproces de [evenredige verdeling](#fairshare) driemaal beperken en gestart vanaf het dezelfde controlepunt of vanaf het begin van het runbook elke keer. |
+| Is mislukt, wacht voor bronnen |De taak is mislukt omdat het werkproces de [evenredige verdeling](#fair-share) driemaal beperken en gestart vanaf het dezelfde controlepunt of vanaf het begin van het runbook elke keer. |
 | In wachtrij |De taak is in afwachting voor bronnen op een Automation worker beschikbaar zijn, zodat het kan worden gestart. |
 | Starting |De taak is toegewezen aan een werknemer en het systeem is bezig te starten. |
 | Hervatten |Het systeem is bezig de taak wordt hervat nadat deze is onderbroken. |
 | Actief |De taak wordt uitgevoerd. |
-| Wordt uitgevoerd, wachten op resources |De taak is verwijderd omdat het werkproces de [evenredige verdeling](#fairshare) limiet. Het hervatten snel uit de laatste controlepunt. |
+| Wordt uitgevoerd, wachten op resources |De taak is verwijderd omdat het werkproces de [evenredige verdeling](#fair-share) limiet. Het hervatten snel uit de laatste controlepunt. |
 | Stopped |De taak is gestopt door de gebruiker voordat deze is voltooid. |
 | Stopping |Het systeem is bezig te stoppen van de taak. |
 | Uitgesteld |De taak is onderbroken door de gebruiker, door het systeem of door een opdracht in het runbook. Een onderbroken taak kan opnieuw worden gestart en hervat vanaf het laatste controlepunt of vanaf het begin van het runbook als er geen controlepunten. Het runbook wordt alleen door het systeem worden onderbroken wanneer er een uitzondering optreedt. ErrorActionPreference is standaard ingesteld op **doorgaan**, wil zeggen dat de taak wordt uitgevoerd op een fout. Als deze voorkeursvariabele is ingesteld op **stoppen**, en vervolgens de taak wordt onderbroken op een fout opgetreden.  Van toepassing op [grafisch en PowerShell Workflow-runbooks](automation-runbook-types.md) alleen. |

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Resources beheren voor een individuele database in Azure SQL Database
 
@@ -35,6 +35,10 @@ Als u wilt instellen of wijzigen van de servicelaag, prestatieniveau of opslagru
 
 ![Prijscategorie en prestatieniveau serviceniveau configureren](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Klik op **overzicht** om te controleren en/of er een bewerking te annuleren.
+
+![De annuleringsbewerking](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Bekijk [huidige beperkingen van P11 en P15 databases met een maximale grootte van 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) bij het selecteren van een servicelaag P11 of P15.
 >
@@ -48,6 +52,8 @@ Als u wilt instellen of wijzigen van Azure SQL-databases Servicelagen en prestat
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Maakt een database |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Een of meer databases opgehaald|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Stelt eigenschappen van een database of een bestaande database is verplaatst naar een elastische pool. Gebruik bijvoorbeeld de **MaxSizeBytes** eigenschap in op de maximale grootte voor een database.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Hiermee haalt u de status van databasebewerkingen. |
+|[Stop AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Hiermee annuleert u de asynchrone update-bewerking op de database.|
 
 
 > [!TIP]
@@ -64,7 +70,8 @@ Instellen of wijzigen van Azure SQL-databases Servicelagen en prestatieniveaus o
 |[AZ sql server-firewallregel weergeven](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Geeft de details van een firewallregel|
 |[update van AZ sql server-firewallregel](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Een firewallregel bijgewerkt|
 |[AZ sql server-firewallregel verwijderen](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Hiermee verwijdert u een firewallregel|
-
+|[AZ sql db op lijst](/cli/azure/sql/db/op?#az_sql_db_op_list)|Een lijst met bewerkingen die worden uitgevoerd op de database ophalen.|
+|[AZ sql db op Annuleren](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Hiermee annuleert u de asynchrone bewerking op de database.|
 
 > [!TIP]
 > Zie voor een Azure CLI-voorbeeldscript dat één Azure SQL database naar een andere prestatieniveau schaalt na het uitvoeren van query's de informatie over de grootte van de database, [gebruik CLI bewaken en schalen van een enkele SQL-database](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,6 +109,7 @@ Gebruik deze REST-API-aanvragen wilt instellen of wijzigen van Azure SQL-databas
 |[Databases - lijst met aanbevolen elastische Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourneert een lijst met databases binnen een recommented elastische pool.|
 |[Databases - lijst per Server](/rest/api/sql/databases/listbyserver)|Retourneert een lijst met databases in een server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Een bestaande database-updates.|
+|[Operations - lijst](/rest/api/sql/Operations/List)|Een lijst met alle beschikbare SQL Rest-API-bewerkingen.|
 
 
 

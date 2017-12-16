@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Maken en beheren van een virtuele Windows-machine met meerdere NIC 's
 Virtuele machines (VM's) in Azure, kunnen meerdere virtuele netwerkinterfacekaarten (NIC's) gekoppeld aan deze hebben. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maken. U leert ook hoe toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -232,6 +232,60 @@ U kunt ook `copyIndex()` naar een nummer toevoegen aan de naam van een resource.
 ```
 
 U kunt een compleet voorbeeld van lezen [meerdere NIC's maken met Resource Manager-sjablonen](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Configureren van Gast OS voor meerdere NIC 's
+
+Azure wijst een standaardgateway voor de eerste (primaire) netwerkinterface gekoppeld aan de virtuele machine. Azure wijst geen standaardgateway toe aan extra (secundaire) netwerkinterfaces die zijn gekoppeld aan een virtuele machine. Daarom kunt u standaard niet communiceren met resources buiten het subnet waarin een secundaire netwerkinterface zich bevindt. Secundaire netwerkinterfaces kunnen echter communiceren met bronnen buiten hun subnet, hoewel de stappen voor het inschakelen van communicatie voor verschillende besturingssystemen verschillen.
+
+1. Voer vanaf een opdrachtprompt van Windows de `route print` opdracht retourneert de uitvoer lijkt op de volgende uitvoer voor een virtuele machine met twee interfaces zijn aangesloten netwerk:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    In dit voorbeeld **Microsoft Hyper-V netwerkadapter #4** (interface 7) is de secundaire netwerkinterface dat geen standaardgateway toegewezen.
+
+2. Voer vanaf een opdrachtprompt de `ipconfig` opdracht om te zien welk IP-adres is toegewezen aan de secundaire netwerkinterface. In dit voorbeeld is 192.168.2.4 toegewezen aan interface 7. Er is geen standaardgatewayadres wordt geretourneerd voor de secundaire netwerkinterface.
+
+3. Om te routeren alle verkeer dat is bestemd voor adressen buiten het subnet van de secundaire netwerkinterface met de gateway voor het subnet, voer de volgende opdracht:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    Het gateway-adres voor het subnet is het eerste IP-adres (eindigt op.1) in het adresbereik dat is gedefinieerd voor het subnet. Als u niet dat alle verkeer buiten het subnet routeren wilt, kan u in plaats daarvan afzonderlijke routes toevoegen naar bepaalde bestemmingen. Bijvoorbeeld, als u alleen wilt routeren van verkeer tussen de secundaire netwerkinterface en de 192.168.3.0 netwerk, voer van de opdracht:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Om te bevestigen geslaagde communicatie met een bron op de 192.168.3.0 Voer netwerk, bijvoorbeeld de volgende opdracht te pingen 192.168.3.4 werd gestart met behulp van de interface 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Mogelijk moet u ICMP openen via de Windows firewall van het apparaat dat u met de volgende opdracht pingen wilt:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Om te bevestigen op de route toegevoegd in de routetabel is, voer de `route print` opdracht retourneert de uitvoer lijkt op de volgende tekst:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    De route die worden weergegeven met *192.168.1.1* onder **Gateway**, is de route die er standaard is voor de primaire netwerkinterface. De route met *192.168.2.1* onder **Gateway**, is de route die u hebt toegevoegd.
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk [Windows VM-grootten](sizes.md) wanneer u probeert te maken van een virtuele machine die meerdere NIC's heeft. Let op het maximum aantal NIC's die ondersteuning biedt voor elke VM-grootte. 

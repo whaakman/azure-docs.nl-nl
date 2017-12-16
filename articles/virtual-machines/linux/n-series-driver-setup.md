@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-reeks virtuele machines waarop Linux wordt uitgevoerd
 
@@ -32,6 +32,150 @@ Zie voor N-serie VM specificaties opslagcapaciteit en details van de schijf, [GP
 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Voor NC NCv2 en ND VMs CUDA stuurprogramma's installeren
+
+Hier volgen de stappen NVIDIA-stuurprogramma's installeren op Linux NC virtuele machines van de NVIDIA CUDA Toolkit. 
+
+C en C++-ontwikkelaars kunnen desgewenst installeren voor de volledige Toolkit om GPU-versnelde toepassingen te bouwen. Zie voor meer informatie de [CUDA installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+
+> [!NOTE]
+> CUDA stuurprogramma downloadkoppelingen opgegeven op het moment van publicatie hier actueel zijn. Voor de nieuwste stuurprogramma's CUDA gaat u naar de [NVIDIA](https://developer.nvidia.com/cuda-zone) website.
+>
+
+Zorg voor het installeren van CUDA Toolkit een SSH-verbinding naar elke virtuele machine. Om te controleren of het systeem een GPU die compatibel is met CUDA heeft, voer de volgende opdracht:
+
+```bash
+lspci | grep -i NVIDIA
+```
+Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld (met een kaart NVIDIA Tesla R80):
+
+![opdrachtuitvoer lspci](./media/n-series-driver-setup/lspci.png)
+
+Vervolgens uitvoeren installatieopdrachten die specifiek is voor uw distributiepunt.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. Download en installeer de CUDA stuurprogramma's.
+  ```bash
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-get update
+
+  sudo apt-get install cuda-drivers
+
+  ```
+
+  De installatie kan enkele minuten duren.
+
+2. Wilt eventueel de volledige CUDA toolkit installeren, typt u:
+
+  ```bash
+  sudo apt-get install cuda
+  ```
+
+3. Start de virtuele machine op en gaat u verder met de installatie verifiëren.
+
+#### <a name="cuda-driver-updates"></a>Updates voor stuurprogramma's CUDA
+
+We bevelen aan dat u regelmatig CUDA stuurprogramma's na de implementatie.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Op basis van centOS 7.3 of Red Hat Enterprise Linux 7.3
+
+1. Installeer de meest recente Linux-integratieservices voor Hyper-V.
+
+  > [!IMPORTANT]
+  > Als u een installatiekopie op basis van CentOS HPC geïnstalleerd op een NC24r VM, gaat u verder met stap 3. Omdat Azure RDMA-stuurprogramma's en Linux-integratieservices in de HPC-installatiekopie vooraf worden geïnstalleerd, LIS moet niet worden bijgewerkt en kernel-updates zijn standaard uitgeschakeld.
+  >
+
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Opnieuw verbinding maken met de virtuele machine en doorgaan met installatie met de volgende opdrachten:
+
+  ```bash
+  sudo yum install kernel-devel
+
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+  sudo yum install dkms
+
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo yum install cuda-drivers
+  ```
+
+  De installatie kan enkele minuten duren. 
+
+4. Wilt eventueel de volledige CUDA toolkit installeren, typt u:
+
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. Start de virtuele machine op en gaat u verder met de installatie verifiëren.
+
+
+### <a name="verify-driver-installation"></a>Controleer of de installatie van stuurprogramma
+
+
+Query uitvoeren op de apparaatstatus GPU SSH naar de virtuele machine en voer de [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) opdrachtregelprogramma met het stuurprogramma geïnstalleerd. 
+
+Als het stuurprogramma is geïnstalleerd, ziet u uitvoer ziet er als volgt. Houd er rekening mee dat **GPU-Util** 0% ziet, tenzij u de werkbelasting van een GPU die momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat uw versie van stuurprogramma en GPU details afwijken van de namen weergegeven.
+
+![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi.png)
+
+
+
+## <a name="rdma-network-connectivity"></a>RDMA-netwerkverbinding
+
+RDMA-netwerkverbinding kan worden ingeschakeld op virtuele machines van RDMA-compatibele N-serie, zoals NC24r geïmplementeerd in dezelfde beschikbaarheidsset. Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met Intel MPI 5.x of een latere versie. Aanvullende vereisten als volgt:
+
+### <a name="distributions"></a>Distributies
+
+RDMA-compatibele N-reeks-virtuele machines van een van de volgende afbeeldingen in de Azure Marketplace die ondersteuning biedt voor RDMA-netwerkverbinding implementeren:
+  
+* **Ubuntu** -Ubuntu Server 16.04 LTS. RDMA-stuurprogramma's op de virtuele machine configureren en registreren met Intel Intel MPI downloaden:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **Op basis van centOS HPC** -7.3 HPC op basis van CentOS. RDMA-stuurprogramma's en Intel MPI 5.1 worden geïnstalleerd op de virtuele machine. 
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>RASTER stuurprogramma's voor virtuele machines NV installeren
 
@@ -95,10 +239,6 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Op basis van centOS 7.3 of Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Voer geen `sudo yum update` de versie van de kernel op CentOS 7.3 of Red Hat Enterprise Linux 7.3 bijwerken. Op dit moment werken stuurprogramma-installatiebestand en updates niet als de kernel wordt bijgewerkt.
->
-
 1. De kernel en DKMS bijwerken.
  
   ```bash  
@@ -122,9 +262,9 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 3. De virtuele machine opnieuw opstarten, opnieuw verbinding maken en installeer de meest recente Linux-integratieservices voor Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
 
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
 
   cd LISISO
 
@@ -165,7 +305,7 @@ NVIDIA RASTER stuurprogramma's installeren op virtuele machines NV, een SSH-verb
 
 Query uitvoeren op de apparaatstatus GPU SSH naar de virtuele machine en voer de [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) opdrachtregelprogramma met het stuurprogramma geïnstalleerd. 
 
-Vergelijkbaar met de volgende uitvoer weergegeven. Het is mogelijk dat uw versie van stuurprogramma en GPU details afwijken van de namen weergegeven.
+Als het stuurprogramma is geïnstalleerd, ziet u uitvoer ziet er als volgt. Houd er rekening mee dat **GPU-Util** 0% ziet, tenzij u de werkbelasting van een GPU die momenteel worden uitgevoerd op de virtuele machine. Het is mogelijk dat uw versie van stuurprogramma en GPU details afwijken van de namen weergegeven.
 
 ![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
@@ -202,152 +342,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 
 Dit bestand kan worden aangeroepen als basis voor opgestart door het maken van een vermelding voor het in `/etc/rc.d/rc3.d`.
 
-
-## <a name="install-cuda-drivers-for-nc-vms"></a>Voor virtuele machines NC CUDA stuurprogramma's installeren
-
-Hier volgen de stappen NVIDIA-stuurprogramma's installeren op Linux NC virtuele machines van de NVIDIA CUDA Toolkit. 
-
-C en C++-ontwikkelaars kunnen desgewenst installeren voor de volledige Toolkit om GPU-versnelde toepassingen te bouwen. Zie voor meer informatie de [CUDA installatiehandleiding](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
-
-> [!NOTE]
-> CUDA stuurprogramma downloadkoppelingen opgegeven op het moment van publicatie hier actueel zijn. Voor de nieuwste stuurprogramma's CUDA gaat u naar de [NVIDIA](https://developer.nvidia.com/cuda-zone) website.
->
-
-Zorg voor het installeren van CUDA Toolkit een SSH-verbinding naar elke virtuele machine. Om te controleren of het systeem een GPU die compatibel is met CUDA heeft, voer de volgende opdracht:
-
-```bash
-lspci | grep -i NVIDIA
-```
-Hier ziet u uitvoer die vergelijkbaar is met het volgende voorbeeld (met een kaart NVIDIA Tesla R80):
-
-![opdrachtuitvoer lspci](./media/n-series-driver-setup/lspci.png)
-
-Vervolgens uitvoeren installatieopdrachten die specifiek is voor uw distributiepunt.
-
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-
-1. Download en installeer de CUDA stuurprogramma's.
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
-
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-get update
-
-  sudo apt-get install cuda-drivers
-
-  ```
-
-  De installatie kan enkele minuten duren.
-
-2. Wilt eventueel de volledige CUDA toolkit installeren, typt u:
-
-  ```bash
-  sudo apt-get install cuda
-  ```
-
-3. Start de virtuele machine op en gaat u verder met de installatie verifiëren.
-
-#### <a name="cuda-driver-updates"></a>Updates voor stuurprogramma's CUDA
-
-We bevelen aan dat u regelmatig CUDA stuurprogramma's na de implementatie.
-
-```bash
-sudo apt-get update
-
-sudo apt-get upgrade -y
-
-sudo apt-get dist-upgrade -y
-
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Op basis van centOS 7.3 of Red Hat Enterprise Linux 7.3
-
-1. Installeer de meest recente Linux-integratieservices voor Hyper-V.
-
-  > [!IMPORTANT]
-  > Als u een installatiekopie op basis van CentOS HPC geïnstalleerd op een NC24r VM, gaat u verder met stap 3. Omdat Azure RDMA-stuurprogramma's en Linux-integratieservices in de HPC-installatiekopie vooraf worden geïnstalleerd, LIS moet niet worden bijgewerkt en kernel-updates zijn standaard uitgeschakeld.
-  >
-
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
- 
-  tar xvzf lis-rpms-4.2.3-1.tar.gz
- 
-  cd LISISO
- 
-  sudo ./install.sh
- 
-  sudo reboot
-  ```
- 
-3. Opnieuw verbinding maken met de virtuele machine en doorgaan met installatie met de volgende opdrachten:
-
-  ```bash
-  sudo yum install kernel-devel
-
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-  sudo yum install dkms
-
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
-
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo yum install cuda-drivers
-  ```
-
-  De installatie kan enkele minuten duren. 
-
-4. Wilt eventueel de volledige CUDA toolkit installeren, typt u:
-
-  ```bash
-  sudo yum install cuda
-  ```
-
-5. Start de virtuele machine op en gaat u verder met de installatie verifiëren.
-
-
-### <a name="verify-driver-installation"></a>Controleer of de installatie van stuurprogramma
-
-
-Query uitvoeren op de apparaatstatus GPU SSH naar de virtuele machine en voer de [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) opdrachtregelprogramma met het stuurprogramma geïnstalleerd. 
-
-Vergelijkbaar met de volgende uitvoer wordt weergegeven:
-
-![De apparaatstatus NVIDIA](./media/n-series-driver-setup/smi.png)
-
-
-
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA-netwerk voor NC24r VM
-
-RDMA-netwerkverbinding kan worden ingeschakeld op NC24r VM's geïmplementeerd in dezelfde beschikbaarheidsset. Het netwerk RDMA ondersteunt Message Passing Interface (MPI)-verkeer voor toepassingen die worden uitgevoerd met Intel MPI 5.x of een latere versie. Aanvullende vereisten als volgt:
-
-### <a name="distributions"></a>Distributies
-
-NC24r VM's van een van de volgende afbeeldingen in de Azure Marketplace die ondersteuning biedt voor RDMA-netwerkverbinding implementeren:
-  
-* **Ubuntu** -Ubuntu Server 16.04 LTS. RDMA-stuurprogramma's op de virtuele machine configureren en registreren met Intel Intel MPI downloaden:
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
-
-* **Op basis van centOS HPC** -7.3 HPC op basis van CentOS. RDMA-stuurprogramma's en Intel MPI 5.1 worden geïnstalleerd op de virtuele machine. 
-
-
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 * Er is een bekend probleem met stuurprogramma's voor CUDA op N-reeks virtuele machines in Azure die de 4.4.0-75 Linux kernel op Ubuntu 16.04 TNS worden uitgevoerd. Als u een upgrade vanaf een eerdere kernelversie uitvoert, upgrade uit naar ten minste kernel versie 4.4.0-77.
@@ -356,9 +350,5 @@ NC24r VM's van een van de volgende afbeeldingen in de Azure Marketplace die onde
 
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* Zie voor meer informatie over de NVIDIA GPU's op de N-reeks virtuele machines:
-    * [NVIDIA Tesla R80](http://www.nvidia.com/object/tesla-k80.html) (voor NC Azure VM's)
-    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (voor NV Azure VM's)
 
 * Zie voor het vastleggen van een Linux VM-installatiekopie met de geïnstalleerde stuurprogramma's voor NVIDIA [generaliseren en Linux-machine vastleggen](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Aanbevolen procedures voor prestaties voor SQL Server op virtuele machines van Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 Dit onderwerp bevat aanbevolen procedures voor het optimaliseren van de prestaties van SQL Server in Microsoft Azure Virtual machines. Tijdens het uitvoeren van SQL Server in Azure Virtual Machines, is het raadzaam dat u doorgaat met de dezelfde databaseprestaties afstemmen van de opties die van toepassing op SQL Server in on-premises server-omgeving. De prestaties van een relationele database in een openbare cloud is afhankelijk van veel factoren zoals de grootte van een virtuele machine en de configuratie van de gegevensschijven.
 
-Bij het maken van SQL Server-installatiekopieën [Houd rekening met het inrichten van uw virtuele machines in de Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server-VM's ingericht in de Portal met Resource Manager implementeren alle deze best practices, met inbegrip van de opslagconfiguratie.
+Bij het maken van SQL Server-installatiekopieën [Houd rekening met het inrichten van uw virtuele machines in de Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server-VM's in de Portal met Resource Manager ingericht en volg de aanbevolen procedures.
 
 In dit artikel is gericht op het ophalen van de *aanbevolen* prestaties voor SQL Server op Azure Virtual machines. Als uw werkbelasting minder zwaar worden belast, kunt u elke optimalisatie onderstaande mogelijk niet nodig. Houd rekening met uw prestatievereisten past en werkbelasting patronen als u deze aanbevelingen evalueren.
 
@@ -90,6 +90,9 @@ Voor virtuele machines die ondersteuning bieden voor Premium-opslag (DS-serie, D
 ### <a name="data-disks"></a>Gegevensschijven
 
 * **Gegevensschijven gebruiken voor gegevens en logboekbestanden**: ten minste 2 Premium-opslag gebruiken [P30 schijven](../premium-storage.md#scalability-and-performance-targets) waar één schijf bevat de logboekbestanden en de andere bevat de gegevens en bestanden van TempDB. Elke schijf Premium-opslag biedt een aantal IOPs en bandbreedte (MB/s), afhankelijk van de grootte, zoals beschreven in het volgende artikel: [Premium-opslag voor schijven met behulp van](../premium-storage.md).
+
+   > [!NOTE]
+   > Wanneer u een virtuele SQL Server-machine in de portal inricht, hebt u de optie voor het bewerken van de opslagconfiguratie van. Afhankelijk van uw configuratie Azure Hiermee configureert u een of meer schijven. Meerdere schijven worden gecombineerd tot een enkel opslaggroep met striping. De bestanden voor gegevens en logboekbestanden zich samen in deze configuratie, in plaats van twee afzonderlijke schijven bevinden. Zie voor meer informatie [opslagconfiguratie voor SQL Server-VM's](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Striping schijf**: voor een meer doorvoer, kunt u extra gegevensschijven toevoegen en gebruiken van Striping van de schijf. Om te bepalen het aantal gegevensschijven, moet u het aantal IOPS en bandbreedte die is vereist voor uw logboekbestanden, en voor uw gegevens en bestanden TempDB analyseren. U ziet dat andere VM-grootten verschillende beperkingen hebben op het aantal IOPs en bandbreedte die wordt ondersteund, raadpleegt u de tabellen op IOP's per [VM-grootte](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Gebruik de volgende richtlijnen:
 

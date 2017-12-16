@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/15/2017
+ms.date: 12/14/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Gegevens uit Azure Data Lake Store laden in SQL Data Warehouse
-Dit document biedt u alle stappen die u moet uw eigen gegevens van Azure Data Lake Store (ADLS) in SQL Data Warehouse laden met PolyBase.
+Dit document biedt u alle stappen die u wilt gegevens van Azure Data Lake Store (ADLS) in SQL Data Warehouse laden met PolyBase.
 Terwijl u zich kunt ad-hoc-query's uitvoeren via de gegevens die zijn opgeslagen in ADLS met behulp van de externe tabellen, als best practice is raadzaam de gegevens importeren in de SQL Data Warehouse.
 
 In deze zelfstudie leert u hoe:
@@ -42,15 +42,9 @@ Deze zelfstudie, hebt u nodig:
 
 * Zie SQL Server Management Studio of SQL Server Data Tools voor het downloaden van SSMS en verbinden [Query SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Een Azure SQL Data Warehouse, voor het maken van een opvolgen: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Een Azure SQL Data Warehouse, voor het maken van een opvolgen: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision _
 
-* Een Azure Data Lake Store, met of zonder versleuteling ingeschakeld. Maken van een opvolgen: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-
-
-
-## <a name="configure-the-data-source"></a>Configureer de gegevensbron
-PolyBase gebruikt externe T-SQL-objecten voor het definiëren van de locatie en de kenmerken van de externe gegevens. De externe objecten worden opgeslagen in SQL Data Warehouse en verwijzen naar de gegevens th is die extern zijn opgeslagen.
+* Een Azure Data Lake Store, voor het maken van een opvolgen: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Een referentie maken
@@ -88,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>De externe gegevensbron maken
-Gebruik deze [externe gegevensbron maken] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens en het type gegevens. ADL URI niet vinden in de Azure portal, gaat u naar uw Azure Data Lake Store en zoek vervolgens naar het paneel Essentials.
+Gebruik deze [externe gegevensbron maken] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens. ADL URI niet vinden in de Azure portal, gaat u naar uw Azure Data Lake Store en zoek vervolgens naar het paneel Essentials.
 
 ```sql
 -- C: Create an external data source
@@ -104,11 +98,8 @@ WITH (
 );
 ```
 
-
-
 ## <a name="configure-data-format"></a>Indeling van gegevens configureren
 Als u wilt de gegevens importeren uit ADLS, moet u de externe bestandsindeling opgeven. Deze opdracht heeft een indeling-specifieke opties om uw gegevens te beschrijven.
-Hieronder volgt een voorbeeld van een veelgebruikte bestandsindeling die een pipe gescheiden tekstbestand is.
 Bekijk onze T-SQL-documentatie voor een volledige lijst met [EXTERNAL FILE FORMAT maken][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
@@ -116,7 +107,7 @@ Bekijk onze T-SQL-documentatie voor een volledige lijst met [EXTERNAL FILE FORMA
 -- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
 -- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
 -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
--- Use_Type_Default: Store all Missing values as NULL
+-- Use_Type_Default: Store missing values as default for datatype.
 
 CREATE EXTERNAL FILE FORMAT TextFileFormat
 WITH
@@ -130,7 +121,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>De externe tabellen maken
-Nu dat u hebt opgegeven dat de bron- en gegevensindeling, bent u klaar voor het maken van de externe tabellen. Externe tabellen zijn interactie met externe gegevens. PolyBase gebruikt verandering van recursieve directory om te lezen van alle bestanden in alle submappen van de map die is opgegeven in de locatieparameter. Het volgende voorbeeld ziet ook het maken van het object. U moet de instructie om te werken met de gegevens die u in ADLS hebt aanpassen.
+Nu dat u hebt opgegeven dat de bron- en gegevensindeling, bent u klaar voor het maken van de externe tabellen. Externe tabellen zijn interactie met externe gegevens. De locatieparameter kunt een bestand of map opgeven. Als de opgegeven map, worden alle bestanden in de map wordt geladen.
 
 ```sql
 -- D: Create an External Table
@@ -161,18 +152,15 @@ WITH
 ## <a name="external-table-considerations"></a>Externe tabel overwegingen
 Het maken van een externe tabel is eenvoudig, maar er zijn enkele nuances die moeten worden besproken.
 
-Laden van gegevens met PolyBase is sterk getypeerd. Dit betekent dat elke rij van de gegevens die wordt ingenomen moet voldoen aan de tabelschemadefinitie.
-Als een bepaalde rij komt niet overeen met de schemadefinitie, wordt de rij van de belasting geweigerd.
+Externe tabellen zijn sterk getypeerd. Dit betekent dat elke rij van de gegevens die wordt ingenomen moet voldoen aan de tabelschemadefinitie.
+Als een rij komt niet overeen met de schemadefinitie, wordt de rij van de belasting geweigerd.
 
-De opties voor REJECT_TYPE en REJECT_VALUE kunnen u bepalen hoeveel rijen of welk percentage van de gegevens moet aanwezig zijn in de laatste tabel.
-Tijdens het laden, als de waarde afwijzen is bereikt, mislukt de belasting. De meest voorkomende oorzaak van geweigerde rijen is een niet-overeenkomend schema definitie.
-Bijvoorbeeld, als een kolom het schema van int onjuist opgegeven wordt als de gegevens in het bestand een tekenreeks, elke rij niet worden geladen.
+De opties voor REJECT_TYPE en REJECT_VALUE kunnen u bepalen hoeveel rijen of welk percentage van de gegevens moet aanwezig zijn in de laatste tabel. Tijdens het laden, als de waarde afwijzen is bereikt, mislukt de belasting. De meest voorkomende oorzaak van geweigerde rijen is een niet-overeenkomend schema definitie. Bijvoorbeeld, als een kolom het schema van int onjuist opgegeven wordt als de gegevens in het bestand een tekenreeks, elke rij niet worden geladen.
 
-De locatie geeft de bovenste map die u wilt lezen van gegevens uit.
-Als er zou submappen onder /DimProduct/ PolyBase in dit geval de gegevens binnen de submappen voor importeren. Azure Data Lake store maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC) om toegang tot de gegevens te beheren. Dit betekent dat de Service-Principal hebben voor de mappen die zijn gedefinieerd in de locatieparameter en de onderliggende leden van de laatste map en bestanden leesmachtigingen moet. Hierdoor PolyBase om te verifiëren en te laden die gegevens lezen. 
+ Azure Data Lake store maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC) om toegang tot de gegevens te beheren. Dit betekent dat de Service-Principal hebben voor de mappen die zijn gedefinieerd in de locatieparameter en de onderliggende leden van de laatste map en bestanden leesmachtigingen moet. Hierdoor PolyBase om te verifiëren en te laden die gegevens lezen. 
 
 ## <a name="load-the-data"></a>De gegevens laden
-Gegevens laden van Azure Data Lake Store-gebruik de [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. Laden met CTAS maakt gebruik van de sterk getypeerde externe tabel die u hebt gemaakt.
+Gegevens laden van Azure Data Lake Store-gebruik de [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. 
 
 CTAS wordt een nieuwe tabel gemaakt en gevuld met de resultaten van een select-instructie. CTAS wordt gedefinieerd in de nieuwe tabel dezelfde kolommen en gegevenstypen hebben als de resultaten van de select-instructie. Als u alle kolommen uit een externe tabel selecteert, is de nieuwe tabel een replica van de kolommen en gegevenstypen in de externe tabel.
 

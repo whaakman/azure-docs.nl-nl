@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure kosten Management
 
@@ -46,6 +46,29 @@ Voordat u de Azure Enterprise Agreement API-sleutel voor het instellen van Cloud
 
 U moet wellicht ook geven afdeling beheerders, account eigenaars en enterprise-administrators machtigingen voor _kosten weergeven_ met de API voor facturering.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Waarom zie ik niet optimaliseren aanbevelingen?
+
+Aanbeveling informatie is alleen beschikbaar voor accounts die zijn geactiveerd. Worden er geen informatie aanbeveling in **optimaliseren** categorieën voor accounts die zijn gerapporteerd *niet-geactiveerde*, waaronder:
+
+- Optimalisatie Manager
+- Sizing optimalisatie
+- Inefficiëntie
+
+Als u niet alle gegevens van de aanbeveling optimaliseren weergeven, waarschijnlijk, hebt u accounts die niet-geactiveerde zijn. Voor het activeren van een account dat u wilt registreren met uw Azure-referenties.
+
+Een account activeren:
+
+1.  Klik in de portal Cloudyn **instellingen** in de linkerbovenhoek rechts en selecteer **Accounts in de Cloud**.
+2.  Zoek op het tabblad Microsoft Azure-Accounts voor accounts die u hebt een **niet-geactiveerde** abonnement.
+3.  Aan de rechterkant van een niet-geactiveerde account, klikt u op de **bewerken** symbool dat lijkt op een pen.
+4.  Uw tenant-ID en tarief-ID wordt automatisch gedetecteerd. Klik op **Volgende**.
+5.  U wordt omgeleid naar de Azure-portal. Aanmelden bij de portal en autoriseren van de Cloudyn Collector toegang tot uw Azure-gegevens.
+6.  Vervolgens wordt u doorgestuurd naar de pagina Cloudyn Accounts beheren en uw abonnement is bijgewerkt met **active** accountstatus. Er wordt een symbool groen vinkje weergegeven.
+7.  Als er geen een groen vinkje voor een of meer van de abonnementen, betekent dit dat u bent niet gemachtigd om een reader-app (CloudynCollector) voor het abonnement te maken. Herhaal stap 3 en 4 moet een gebruiker met hogere machtigingen voor het abonnement.  
+
+Nadat u de voorgaande stappen hebt voltooid, kunt u optimaliseren aanbevelingen weergeven binnen een tot twee dagen. Het kan echter maximaal vijf dagen voordat de gegevens volledig optimalisatie beschikbaar duren.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Hoe kan ik onderbroken of vergrendelde gebruikers inschakelen?
 
 Als u een waarschuwing met een verzoek om toegang te verlenen voor een gebruiker ontvangt, moet u het gebruikersaccount activeren.
@@ -66,10 +89,7 @@ Als u uw e-mailadres in Cloudyn van het standaard-adres in Azure wijzigt, kan uw
 
 U wordt aangeraden dat u ten minste twee Cloudyn administrator-accounts maken als een van de accounts is vergrendeld.
 
-Als u niet kunt bij de portal Cloudyn aanmelden, zorg ervoor dat u de juiste URL van Azure kosten Management aan te melden bij Cloudyn. Gebruik een van de volgende URL's:
-
-- https://Azure.cloudyn.com
-- https://MS.Portal.Azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Als u niet kunt bij de portal Cloudyn aanmelden, zorg ervoor dat u de juiste URL van Azure kosten Management aan te melden bij Cloudyn. Gebruik [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Vermijd het gebruik van de Cloudyn directe URL https://app.cloudyn.com.
 

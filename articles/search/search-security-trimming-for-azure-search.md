@@ -1,6 +1,6 @@
 ---
-title: Beveiliging bijsnijden met Azure Search
-description: Implementeer beveiliging bijsnijden met Azure Search-filters.
+title: Beveiligingsfilters voor bijsnijden resulteert in Azure Search | Microsoft Docs
+description: Toegangsbeheer voor Azure Search-inhoud met behulp van beveiligingsfilters en gebruikers-id's.
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Beveiliging bijsnijden met Azure Search
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Beveiligingsfilters voor bijsnijden resulteert in Azure Search
 
-U kunt de beveiligingsfilters toepassen in de zoekresultaten te beperken van toegang tot documenten op basis van gebruikers-id op. Deze zoekervaring vereist gewoonlijk de identiteit van degene die aanvragen zoeken op basis van een veld met de principes die gemachtigd zijn om het document te vergelijken. Heeft toegang tot het document dat wanneer een overeenkomst is gevonden, de gebruiker of de principal (zoals een groep of rol).
+U kunt de beveiligingsfilters zodat zoekresultaten in Azure Search op basis van gebruikersidentiteit trim toepassen. Deze zoekervaring vereist gewoonlijk de identiteit van degene die aanvragen zoeken op basis van een veld met de principes die gemachtigd zijn om het document te vergelijken. Heeft toegang tot het document dat wanneer een overeenkomst is gevonden, de gebruiker of de principal (zoals een groep of rol).
 
 Eén manier om een beveiliging voor het filteren is via een gecompliceerde splitsing van gelijkheid expressies: bijvoorbeeld `Id eq 'id1' or Id eq 'id2'`, enzovoort. Deze aanpak is gevoelig voor fouten, moeilijk te onderhouden, en in gevallen waarbij de lijst honderden of duizenden waarden bevat vertraagt de reactietijd van de query door het aantal seconden. 
 
@@ -155,3 +155,8 @@ Krijgt u de documenten terug wanneer `group_ids` 'group_id1' of 'group_id2' beva
 
 Dit is hoe u resultaten op basis van gebruiker en de Azure Search kunt filteren `search.in()` functie. U kunt deze functie gebruiken om door te geven in de principal-id's voor de aanvragende gebruiker voor het vergelijken van de principal-id's die zijn gekoppeld aan elk doeldocument. Wanneer een zoekaanvraag is afgehandeld, de `search.in` functie gefilterd zoekresultaten waarvoor geen van de gebruiker principals leestoegang hebben. De principal-id kunnen bestaan uit items zoals beveiligingsgroepen, rollen of zelfs de identiteit van gebruiker.
  
+## <a name="see-also"></a>Zie ook
+
++ [Active Directory-identiteit gebaseerd toegangsbeheer met Azure Search-filters](search-security-trimming-for-azure-search-with-aad.md)
++ [Filters in Azure Search](search-filters.md)
++ [Beveiliging en toegang beheren in Azure Search-bewerkingen](search-security-overview.md)

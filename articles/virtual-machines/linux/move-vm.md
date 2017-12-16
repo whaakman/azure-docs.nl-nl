@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4695a9c934f97f2b2d448c4990e7ad5533e38e9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Linux-VM verplaatsen naar een ander abonnement of de resource-groep
 In dit artikel leert u hoe u een Linux-VM verplaatsen tussen resourcegroepen of abonnementen. Een virtuele machine verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine in een persoonlijke abonnement hebt gemaakt en wilt verplaatsen naar een abonnement van uw bedrijf.
@@ -32,27 +32,41 @@ In dit artikel leert u hoe u een Linux-VM verplaatsen tussen resourcegroepen of 
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>De Azure CLI gebruiken om te verplaatsen van een virtuele machine
-Als u wilt een virtuele machine is verplaatst, moet u de virtuele machine en de ondersteunende resources verplaatsen. Gebruik de **azure-groep weergeven** opdracht om een lijst van alle resources in een resourcegroep en de id's. Het nuttig om de uitvoer van deze opdracht doorsluizen naar een bestand, zodat u kunt kopiëren en plakken van de id's in latere opdrachten.
 
-    azure group show <resourceGroupName>
 
-U kunt een virtuele machine en de bijbehorende resources verplaatsen naar een andere resourcegroep met de **azure-resource verplaatsen** CLI-opdracht. Het volgende voorbeeld laat zien hoe verplaatsen van een virtuele machine en de meest voorkomende bronnen die is vereist. We gebruiken de **-i** parameter en geeft u een door komma's gescheiden lijst (zonder spaties) met id's voor de resources te verplaatsen.
+Voordat u uw virtuele machine met behulp van de CLI verplaatsen kunt, moet u controleren of dat de bron- en doelserver abonnementen bestaan binnen dezelfde tenant. Gebruiken om te controleren dat beide abonnementen de dezelfde tenant-ID hebben, [az account weergeven](/cli/azure/account#az_account_show).
 
-    vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
-    nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
-    nsg=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>
-    pip=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>
-    vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
-    diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
-    storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>      
+```azurecli-interactive
+az account show --subscription mySourceSubscription --query tenantId
+az account show --subscription myDestinationSubscription --query tenantId
+```
+Als de tenant-id's voor de bron- en doelserver abonnementen niet hetzelfde zijn zijn, moet u contact opnemen [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) de resources verplaatsen naar een nieuwe tenant.
 
-    azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
+Als u wilt een virtuele machine is verplaatst, moet u de virtuele machine en de ondersteunende resources verplaatsen. Gebruik de [az resourcelijst](/cli/azure/resource#az_resource_list) opdracht om een lijst van alle resources in een resourcegroep en de id's. Het nuttig om de uitvoer van deze opdracht doorsluizen naar een bestand, zodat u kunt kopiëren en plakken van de id's in latere opdrachten.
 
-Als u wilt dat de virtuele machine en de bijbehorende resources verplaatsen naar een ander abonnement, voegt u de **--bestemming subscriptionId &#60; destinationSubscriptionID &#62;** parameter om het doelabonnement.
+```azurecli-interactive
+az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
+```
 
-Als u vanaf de opdrachtprompt op een Windows-computer werkt, moet u toevoegen een  **$**  voor de namen van variabelen wanneer u ze declareren. Dit is niet nodig in Linux.
+U kunt een virtuele machine en de bijbehorende resources verplaatsen naar een andere resourcegroep met [az resource verplaatsen](/cli/azure/resource#az_resource_move). Het volgende voorbeeld laat zien hoe verplaatsen van een virtuele machine en de meest voorkomende bronnen die is vereist. Gebruik de **-id's** parameter en geeft u een door komma's gescheiden lijst (zonder spaties) met id's voor de resources te verplaatsen.
 
-U wordt gevraagd te bevestigen dat u wilt verplaatsen van de opgegeven resource. Type **Y** om te bevestigen dat u wilt verplaatsen van de resources.
+```azurecli-interactive
+vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+nic=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
+nsg=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG
+pip=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIPAddress
+vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet
+diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
+storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
+
+az resource move \
+    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --destination-group "myDestinationResourceGroup"
+```
+
+Als u wilt dat de virtuele machine en de bijbehorende resources verplaatsen naar een ander abonnement, voegt u de **--bestemming subscriptionId** parameter om het doelabonnement.
+
+Als u wordt gevraagd te bevestigen dat u wilt verplaatsen van de opgegeven resource. Type **Y** om te bevestigen dat u wilt verplaatsen van de resources.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
