@@ -32,6 +32,8 @@
       href: how-to-deploy-monitor.md
     - name: Een IoT Core-apparaat inrichten
       href: how-to-install-iot-core.md
+    - name: Problemen oplossen
+      href: troubleshoot.md
 - name: Concepten
   items:
     - name: IoT Edge-modules
