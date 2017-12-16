@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>De Azure-Stack Development Kit implementeren
 
@@ -104,7 +104,7 @@ Na het voorbereiden van de hostcomputer ASDK, kan de ASDK worden geïmplementeer
 1. Nadat de computer is naar de installatiekopie van het CloudBuilder.vhdx opgestart, moet u aanmelden met de administrator-referenties opgegeven in de vorige stappen. 
 2. Open een PowerShell-console met verhoogde bevoegdheid en voer de **\AzureStack_Installer\asdk-installer.ps1** script (dit is mogelijk nu op een ander station in de afbeelding CloudBuilder.vhdx). Klik op **Install**.
 3. In de **Type** vervolgkeuzelijst, selecteer **Azure-Cloud** of **AD FS**.
-    - **Azure-Cloud**: Hiermee configureert u Azure Active Directory (Azure AD) als de id-provider. Om deze optie gebruikt, moet u een internetverbinding, de volledige naam van een Azure AD directory-tenant in de vorm van *domainname*. onmicrosoft.com en de referenties van de globale beheerder voor de opgegeven map. 
+    - **Azure-Cloud**: Hiermee configureert u Azure Active Directory (Azure AD) als de id-provider. Om deze optie gebruikt, moet u een internetverbinding, de volledige naam van een Azure AD directory-tenant in de vorm van *domainname*. onmicrosoft.com of een Azure AD geverifieerd domein aangepaste naam en een globale beheerdersreferenties voor de opgegeven map. 
     - **AD FS**: de standaardstempel Active Directory wordt gebruikt als de id-provider. Het standaardaccount voor aanmelden is azurestackadmin@azurestack.local, en het wachtwoord te gebruiken die u hebt opgegeven als onderdeel van de installatie is.
 4. Onder **lokale administrator-wachtwoord**, in de **wachtwoord** vak, typt u het lokale administrator-wachtwoord (die overeenkomen met de huidige geconfigureerde lokale administrator-wachtwoord) en klik vervolgens op **Volgende**.
 5. Selecteer een netwerkadapter wilt gebruiken voor de development kit en klik vervolgens op **volgende**.
@@ -206,7 +206,7 @@ Als uw Azure AD-identiteit is gekoppeld aan **meer dan één** Azure AD-director
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Als uw omgeving **heeft geen** hebben DHCP ingeschakeld en vervolgens moet u de volgende aanvullende parameters op een van de opties hierboven (voorbeeld gebruik opgegeven) opnemen: 
@@ -219,7 +219,7 @@ Als uw omgeving **heeft geen** hebben DHCP ingeschakeld en vervolgens moet u de 
 |Parameter|Vereiste/optionele|Beschrijving|
 |-----|-----|-----|
 |AdminPassword|Vereist|Hiermee stelt u het lokale administrator-account en alle andere gebruikersaccounts op alle virtuele machines die worden gemaakt als onderdeel van de implementatie van development kit. Dit wachtwoord moet overeenkomen met het huidige lokale beheerderswachtwoord op de host.|
-|InfraAzureDirectoryTenantName|Vereist|Hiermee stelt u de tenantmap. Gebruik deze parameter om op te geven van een specifieke map waar de AAD-account de machtigingen voor het beheren van meerdere directory's heeft. Volledige naam van een Directory-Tenant van AAD in de notatie. onmicrosoft.com.|
+|InfraAzureDirectoryTenantName|Vereist|Hiermee stelt u de tenantmap. Gebruik deze parameter om op te geven van een specifieke map waar de AAD-account de machtigingen voor het beheren van meerdere directory's heeft. Volledige naam van een Directory-Tenant van AAD in de notatie. onmicrosoft.com of een Azure AD geverifieerd aangepaste domeinnaam.|
 |TimeServer|Vereist|Gebruik deze parameter om op te geven van een specifiek tijdstip-server. Deze parameter moet worden opgegeven als een geldige tijd server IP-adres. Servernamen worden niet ondersteund.|
 |InfraAzureDirectoryTenantAdminCredential|Optioneel|Hiermee stelt u de Azure Active Directory-gebruikersnaam en wachtwoord. Deze Azure-referenties moet een organisatie ID.|
 |InfraAzureEnvironment|Optioneel|Selecteer de Azure-omgeving die u wilt deze Azure-Stack-implementatie te registreren. Opties voor zijn openbare Azure, Azure - China, Azure - US Government.|
