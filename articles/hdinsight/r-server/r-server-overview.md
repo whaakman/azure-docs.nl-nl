@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/16/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Inleiding tot R Server en open-source R mogelijkheden in HDInsight
 
 Microsoft R Server is beschikbaar als een Implementatieoptie wanneer u een HDInsight-clusters in Azure maken. Deze nieuwe mogelijkheid biedt gegevenswetenschappers en statistici R programmeurs op aanvraag toegang tot schaalbare, gedistribueerde methoden van analyses in HDInsight.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Clusters kunnen worden aangepast op de juiste wijze aan de projecten en taken bij de hand en vervolgens verwijderd wanneer ze niet meer nodig zijn. Omdat ze onderdeel van Azure HDInsight zijn, is deze clusters worden geleverd met 24/7 ondersteuning op bedrijfsniveau, een SLA van 99,9% beschikbaarheid en de mogelijkheid te integreren met andere onderdelen in het Azure-ecosysteem.
 
@@ -96,7 +98,7 @@ Een andere optie voor volledige IDE is een bureaublad IDE installeren en deze ge
 Ten slotte kunt u de console R Server op de edge-knooppunt openen door te typen **R** achter de opdrachtprompt Linux na verbinding maakt via SSH of PuTY. Wanneer u de console-interface, is het handiger om te een teksteditor voor het ontwikkelen van R-script uitvoeren in een ander venster en knippen en plakken van secties van het script in de console R zo nodig.
 
 ## <a name="learn-about-pricing"></a>Meer informatie over prijzen
-De kosten die gekoppeld aan een HDInsight-cluster met R Server zijn zijn manier gestructureerd als de kosten voor de standaard HDInsight-clusters. Ze zijn gebaseerd op de grootte van de onderliggende virtuele machines in de naam, de gegevens en de edge-knooppunten, met de toevoeging van een opwaartse core uur. Zie voor meer informatie over prijzen voor HDInsight en de beschikbaarheid van een gratis proefversie van 30 dagen [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
+De kosten die gekoppeld aan een HDInsight-cluster met R Server zijn zijn manier gestructureerd als de kosten voor de standaard HDInsight-clusters. Ze zijn gebaseerd op de grootte van de onderliggende virtuele machines in de naam, de gegevens en de edge-knooppunten, met de toevoeging van een opwaartse core uur. Zie voor meer informatie over prijzen voor HDInsight [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over het gebruik van R Server met HDInsight-clusters:

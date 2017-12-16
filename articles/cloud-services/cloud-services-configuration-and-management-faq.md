@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3d8dde74687154eaf173f3ca7316262e5c1a871c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configureren en beheren van problemen voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -98,7 +98,7 @@ Als u een statisch IP-adres instelt, moet u een gereserveerde IP-adres maken. Di
 Zie [servicespecifieke beperkt](../azure-subscription-service-limits.md#subscription-limits).
 
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Waarom wordt het station van mijn cloudservice-VM weinig vrije schijfruimte weergegeven?
-Dit is verwacht gedrag en mag niet een probleem voor uw toepassing leiden. Logboekregistratie is ingeschakeld voor de % echt % station in Azure PaaS-virtuele machines, die in wezen verbruikt dubbele de hoeveelheid schijfruimte die bestanden wordt normaal gesproken in beslag nemen. Er zijn echter enkele dingen te weten dat in wezen kunt u deze uitschakelen in een niet-probleem.
+Dit is verwacht gedrag en mag niet een probleem voor uw toepassing leiden. Logboekregistratie is ingeschakeld voor het station % approot % in Azure PaaS-virtuele machines, die in wezen verbruikt dubbele de hoeveelheid schijfruimte die bestanden wordt normaal gesproken in beslag nemen. Er zijn echter enkele dingen te weten dat in wezen kunt u deze uitschakelen in een niet-probleem.
 
 De schijfgrootte % approot % als < grootte van .cspkg + maximale logboekgrootte > + marge vrije ruimte wordt berekend of 1,5 GB, afhankelijk van wat is groter. De grootte van uw virtuele machine heeft geen gevolgen voor deze berekening. (De VM-grootte geldt alleen voor de grootte van het tijdelijke station C:.) 
 

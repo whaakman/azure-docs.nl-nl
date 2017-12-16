@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 18b0a7d15c50ee147690063ac251f815c7fa34be
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -264,6 +264,7 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 |SF-replica-type|Alleen van toepassing wanneer de back-end een Service Fabric-service is en wordt opgegeven met behulp van back-end-id. Bepaalt of de aanvraag moet gaan naar de primaire of secundaire replica van een partitie. |Nee|N.v.t.|    
 |SF-resolve-voorwaarde|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Voorwaarde te identificeren als de aanroep naar Service Fabric-back-end moet worden herhaald met nieuwe resolutie.|Nee|N.v.t.|    
 |SF-service-exemplaar-name|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Kan service-exemplaren tijdens runtime te wijzigen. |Nee|N.v.t.|    
+|SF-listener-naam|Alleen van toepassing wanneer de back-end een Service Fabric-service is en wordt opgegeven met behulp van back-end-id. Service Fabric Reliable Services kunt u meerdere listeners maken in een service. Dit kenmerk wordt gebruikt voor het selecteren van een specifieke listener wanneer een back-end betrouwbare Service meer dan één listener heeft. Als dit kenmerk niet is opgegeven, wordt API Management probeert te gebruiken van een listener zonder naam. Een listener zonder naam is Typerend voor Reliable Services die slechts één listener hebben. |Nee|N.v.t.|  
 
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

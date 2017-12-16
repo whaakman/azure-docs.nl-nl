@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse Capaciteitslimieten
 De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de verschillende onderdelen van Azure SQL Data Warehouse.
@@ -37,8 +37,8 @@ De volgende tabellen bevatten de maximumwaarden die is toegestaan voor de versch
 ## <a name="database-objects"></a>database-objecten
 | Category | Beschrijving | Maximum |
 |:--- |:--- |:--- |
-| Database |Maximale grootte |240 TB gecomprimeerd op schijf<br/><br/>Deze ruimte is onafhankelijk van tempdb- of logboekbestand ruimte, en daarom deze ruimte wordt toegewezen aan permanente tabellen.  De geclusterde columnstore-compressie schatting op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen geclusterde columnstore (de standaard tabeltype) zijn. |
-| Tabel |Maximale grootte |60 TB gecomprimeerd op schijf |
+| Database |Max. grootte |240 TB gecomprimeerd op schijf<br/><br/>Deze ruimte is onafhankelijk van tempdb- of logboekbestand ruimte, en daarom deze ruimte wordt toegewezen aan permanente tabellen.  De geclusterde columnstore-compressie schatting op 5 X.  Deze compressie kan de database uitbreiden tot ongeveer 1 PB wanneer alle tabellen geclusterde columnstore (de standaard tabeltype) zijn. |
+| Tabel |Max. grootte |60 TB gecomprimeerd op schijf |
 | Tabel |Tabellen per database |2 miljard |
 | Tabel |Kolommen per tabel |1024 kolommen |
 | Tabel |Bytes per kolom |Afhankelijk van de kolom [gegevenstype][data type].  De limiet is 8000 voor de gegevenstypen char, 4000 voor nvarchar of 2 GB voor de gegevenstypen MAX. |

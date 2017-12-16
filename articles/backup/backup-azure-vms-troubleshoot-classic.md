@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
-ms.author: trinadhk;markgal;
-ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cwatson
+ms.openlocfilehash: 658a4576c5fd664ce33737a1fcf9deafccd4c8b0
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 > [!div class="op_single_selector"]
@@ -30,13 +30,13 @@ ms.lasthandoff: 10/11/2017
 U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met informatie die worden vermeld in de onderstaande tabel kunt oplossen.
 
 ## <a name="discovery"></a>Detectie
-| Back-upbewerking | Details van fouten | Tijdelijke oplossing |
+| Back-upbewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Detectie |Kan niet detecteren van nieuwe items - Microsoft Azure Backup aangetroffen en interne fout. Wacht een paar minuten en probeer het opnieuw. |Probeer het detectieproces na 15 minuten. |
 | Detectie |Kan niet detecteren van nieuwe items – wordt detectie van een andere bewerking al uitgevoerd. Wacht totdat de huidige bewerking voor de detectie is voltooid. |Geen |
 
 ## <a name="register"></a>Registreren
-| Back-upbewerking | Details van fouten | Tijdelijke oplossing |
+| Back-upbewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Registreren |Aantal gegevensschijven gekoppeld aan de virtuele machine de ondersteunde limiet overschreden: Neem loskoppelen van een aantal gegevensschijven op deze virtuele machine en probeer het opnieuw. Azure backup ondersteunt maximaal 16 gegevensschijven gekoppeld aan een virtuele machine van Azure voor back-up |Geen |
 | Registreren |Microsoft Azure Backup heeft een interne fout - wacht een paar minuten en probeer het vervolgens opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |U kunt deze fout als gevolg van een van de volgende niet-ondersteunde configuratie van de virtuele machine op Premium LRS ophalen. <br> Premium-opslag virtuele machines kan worden back-up met behulp van de recovery services-kluis. [Meer informatie](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
@@ -46,7 +46,7 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 | Registreren |Agent van de virtuele machine is niet aanwezig op de virtuele machine: Installeer de vereiste vereiste VM-agent en start de bewerking opnieuw. |[Lees meer](#vm-agent) over de installatie van de VM-agent en het valideren van de installatie van de VM-agent. |
 
 ## <a name="backup"></a>Back-up
-| Back-upbewerking | Details van fouten | Tijdelijke oplossing |
+| Back-upbewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Back-up |Kan niet communiceren met de VM-agent om de status van de momentopname op te halen. Er is een time-out opgetreden voor de momentopname VM sub-taak. -Zie de gids voor probleemoplossing over het oplossen van dit. |Deze fout wordt gegenereerd als er een probleem met de VM-Agent of netwerktoegang tot de Azure-infrastructuur is geblokkeerd op een bepaalde manier. Meer informatie over [problemen momentopname maken van VM-foutopsporing](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Als de VM-agent is niet wordt veroorzaakt door problemen, start u de virtuele machine. Een onjuiste status voor de virtuele machine kan soms problemen veroorzaken en opnieuw starten van de virtuele machine herstelt u deze 'slechte staat' |
 | Back-up |Back-up is mislukt met een interne fout: probeer de bewerking over enkele minuten opnieuw. Als het probleem zich blijft voordoen, neem dan contact op met Microsoft Support |Controleer of er een tijdelijk probleem bij het openen van de VM-opslag. Controleer of [Azure Status](https://azure.microsoft.com/en-us/status/) om te zien of er een probleem continu betrekking hebben op de compute-/ opslag/network in de regio. Maak opnieuw die het back-post-probleem is verholpen. |
@@ -60,7 +60,7 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 | Back-up |Agent van de virtuele machine is niet aanwezig op de virtuele machine: Installeer de vereiste vereiste VM-agent en start de bewerking opnieuw. |[Lees meer](#vm-agent) over de installatie van de VM-agent en het valideren van de installatie van de VM-agent. |
 
 ## <a name="jobs"></a>Taken
-| Bewerking | Details van fouten | Tijdelijke oplossing |
+| Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Taak annuleren |Annulering wordt niet ondersteund voor dit taaktype: wacht totdat de taak is voltooid. |Geen |
 | Taak annuleren |De taak is niet in een status Annuleerbare - wacht totdat de taak is voltooid. <br>OF<br> De geselecteerde taak is niet in een status Annuleerbare - wacht tot de taak te voltooien. |De taak is bijna voltooid naar alle waarschijnlijkheid; Wacht totdat de taak is voltooid |
@@ -68,7 +68,7 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 | Taak annuleren |Annuleer de taak - is mislukt. Wacht totdat de taak is voltooid. |Geen |
 
 ## <a name="restore"></a>Herstellen
-| Bewerking | Details van fouten | Tijdelijke oplossing |
+| Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Herstellen |Terugzetten is mislukt vanwege een interne Cloud fout |<ol><li>Cloudservice die u probeert te herstellen is geconfigureerd met DNS-instellingen. U kunt controleren <br>$deployment = get-AzureDeployment - ServiceName "ServiceName"-sleuf 'Productie' Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Als er is een adres dat is geconfigureerd, betekent dit dat de DNS-instellingen zijn geconfigureerd.<br> <li>Cloudservice waarnaar u wilt herstellen, is geconfigureerd met ReservedIP en bestaande virtuele machines in de cloudservice wordt gestopt.<br>U kunt controleren dat een cloudservice is gereserveerde IP-adres via de volgende powershell-cmdlets:<br>$deployment = get-AzureDeployment - ServiceName "servicename"-sleuf 'Productie' $dep. ReservedIPName <br><li>U probeert een virtuele machine te herstellen met de volgende speciale netwerkconfiguraties in dezelfde cloudservice. <br>-Virtuele machines onder load balancer-configuratie (intern en extern)<br>-Virtuele machines met meerdere gereserveerde IP 's<br>-Virtuele machines met meerdere NIC 's<br>Selecteer een nieuwe cloudservice in de gebruikersinterface of Raadpleeg [terugzetten overwegingen](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations) voor virtuele machines met speciale netwerkconfiguraties</ol> |
 | Herstellen |De geselecteerde DNS-naam is al in gebruik: Geef een andere DNS-naam en probeer het opnieuw. |De DNS-naam verwijst naar de naam van de cloudservice (meestal eindigend. cloudapp.net). Dit moet uniek zijn. Als deze fout optreedt, moet u een andere VM-naam kiezen tijdens het terugzetten. <br><br> Deze fout wordt alleen weergegeven op gebruikers van de Azure-portal. De herstelbewerking via PowerShell is gelukt, omdat deze alleen worden hersteld van de schijven en de virtuele machine niet maken. De fout wordt worden geconfronteerd wanneer de virtuele machine expliciet door u is gemaakt nadat de herstelbewerking van de schijf. |
@@ -82,7 +82,7 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 | Herstellen |Geselecteerde subnet bestaat niet: Selecteer een subnet dat bestaat |Geen |
 
 ## <a name="policy"></a>Beleid
-| Bewerking | Details van fouten | Tijdelijke oplossing |
+| Bewerking | Foutdetails | Tijdelijke oplossing |
 | --- | --- | --- |
 | Beleid maken |Maken van het beleid - Verminder de keuzes bewaarperiode om door te gaan met de configuratie van beleid is mislukt. |Geen |
 

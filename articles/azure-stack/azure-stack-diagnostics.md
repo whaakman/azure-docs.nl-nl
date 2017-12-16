@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
@@ -29,11 +29,11 @@ Onze diagnostische hulpprogramma's zorgen dat het mechanisme voor het verzamelen
  
 ## <a name="trace-collector"></a>Trace-Collector
  
-De Trace-verzamelaar is standaard ingeschakeld en continu op de achtergrond voor het verzamelen van alle Event Tracing voor Windows (ETW) logboeken van Azure-Stack componentservices worden uitgevoerd. ETW-logboeken worden opgeslagen in een algemene lokale share met een limiet van vijf dagen oud. Zodra deze limiet is bereikt, wordt de oudste bestanden worden verwijderd wanneer er nieuwe worden gemaakt. De standaard maximale grootte van elk bestand is 200MB. Controle van de grootte periodiek (elke 2 minuten) en als het huidige bestand > = 200 MB wordt opgeslagen en een nieuw bestand is gegenereerd. Er is ook een limiet voor 8GB op de totale bestandsgrootte gegenereerd per gebeurtenissessie. 
+De Trace-verzamelaar is standaard ingeschakeld en continu op de achtergrond voor het verzamelen van alle Event Tracing voor Windows (ETW) logboeken van Azure-Stack componentservices worden uitgevoerd. ETW-logboeken worden opgeslagen in een algemene lokale share met een limiet van vijf dagen oud. Zodra deze limiet is bereikt, wordt de oudste bestanden worden verwijderd wanneer er nieuwe worden gemaakt. De standaard maximale grootte van elk bestand is 200 MB. Een controle van de grootte van deze gebeurtenis treedt op elke 2 minuten en als het huidige bestand > = 200 MB, wordt deze opgeslagen en een nieuw bestand is gegenereerd. Er is ook een limiet voor 8 GB op de totale bestandsgrootte gegenereerd per gebeurtenissessie. 
 
 ## <a name="log-collection-tool"></a>Hulpprogramma voor log-verzameling
  
-De PowerShell-cmdlet **Get-AzureStackLog** kan worden gebruikt voor het verzamelen van Logboeken van alle onderdelen van een Azure-Stack-omgeving. Opgeslagen in het zip-bestanden in een door de gebruiker gedefinieerde locatie. Als het team voor onze technische ondersteuning uw logboeken moet bij het oplossen van een probleem, kunnen ze vragen u dit programma wilt uitvoeren.
+De PowerShell-cmdlet **Get-AzureStackLog** kan worden gebruikt voor het verzamelen van Logboeken van alle onderdelen van een Azure-Stack-omgeving. Opgeslagen in het zip-bestanden in een door de gebruiker gedefinieerde locatie. Als het team van de technische ondersteuning van Azure-Stack uw logboeken moet bij het oplossen van een probleem, kunnen ze vragen u dit programma wilt uitvoeren.
 
 > [!CAUTION]
 > Deze logboekbestanden mogelijk persoonsgegevens (PII) bevatten. Hiermee rekening houden voordat u alle logboekbestanden openbaar.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Verzamelen van logboeken met behulp van een grafische gebruikersinterface
-In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure-Stack-logboeken bieden, kunt u gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de belangrijkste Azure Stack extra GitHub-opslagplaats op http://aka.ms/AzureStackTools.
+In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure-Stack-logboeken bieden, kunt u gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de belangrijkste Azure Stack extra GitHub extra opslagplaats op http://aka.ms/AzureStackTools.
 
-De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Het script hebt gestart vanuit een administratief PowerShell-sessie, verbinding maakt met het bevoorrechte eindpunt en Get-AzureStackLog uitvoert met de opgegeven parameters. Als geen parameters zijn opgegeven, wordt het script wordt standaard bevestiging voor parameters via een grafische gebruikersinterface.
+De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Om ervoor te zorgen dat u de laatst beschikbare versie hebt, moet u deze rechtstreeks vanuit http://aka.ms/ERCS downloaden. Het script hebt gestart vanuit een administratief PowerShell-sessie, verbinding maakt met het bevoorrechte eindpunt en Get-AzureStackLog uitvoert met de opgegeven parameters. Als er geen parameters zijn opgegeven, wordt het script wordt standaard ingesteld op te vragen voor parameters via een grafische gebruikersinterface.
 
-Voor meer informatie over de ERCS_AzureStackLogs.ps1 PowerShell script dat u kunnen bekijken [een korte video](https://www.youtube.com/watch?v=Utt7pLsXEBc) of weergeven van het script [Leesmij-bestand](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) zich in de Azure-Stack extra GitHub-opslagplaats. 
+U kunt bekijken voor meer informatie over het ERCS_AzureStackLogs.ps1 PowerShell-script, [een korte video](https://www.youtube.com/watch?v=Utt7pLsXEBc) of weergeven van het script [Leesmij-bestand](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) zich in de Azure-Stack extra GitHub-opslagplaats. 
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 

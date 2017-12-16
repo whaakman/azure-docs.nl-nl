@@ -1,6 +1,6 @@
 ---
-title: Beveiliging in Azure Search met Azure Active Directory bijsnijden | Microsoft Docs
-description: Hoe worden ingekort met behulp van Azure Search-filter en Azure Active Directory implementeren.
+title: Beveiligingsfilters voor Azure Search-resultaten gebruik van Active Directory-identiteiten bijsnijden | Microsoft Docs
+description: Toegangsbeheer voor Azure Search-inhoud met behulp van de beveiligingsfilters en Active Directory-identiteiten.
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Beveiliging bijsnijden in Azure Search met Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Beveiligingsfilters voor het gebruik van Active Directory-identiteiten Azure Search-resultaten bijsnijden
 
-Dit artikel wordt beschreven hoe u met Azure Active Directory (AAD) samen met Azure Search beperken van toegang tot documenten op basis van lidmaatschap van gebruikersgroepen.
+In dit artikel laat zien hoe Azure Active Directory (AAD) beveiligingsidentiteiten samen met filters gebruikt in Azure Search zoekresultaten op basis van lidmaatschap van gebruikersgroepen knippen.
 
 In dit artikel bevat informatie over de volgende taken:
 > [!div class="checklist"]
@@ -187,5 +187,6 @@ In dit scenario hebt u geleerd technieken voor het gebruik van AAD aanmeldingen 
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Beveiliging bijsnijden met Azure Search](search-security-trimming-for-azure-search.md)
++ [Op basis van identiteit toegangsbeheer met Azure Search-filters](search-security-trimming-for-azure-search.md)
 + [Filters in Azure Search](search-filters.md)
++ [Beveiliging en toegang beheren in Azure Search-bewerkingen](search-security-overview.md)

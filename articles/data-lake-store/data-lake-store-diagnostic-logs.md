@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Toegang tot diagnoselogboeken voor Azure Data Lake Store
 Informatie over het inschakelen van diagnostische logboekregistratie voor uw Data Lake Store-account en het weergeven van de logboeken die worden verzameld voor uw account.
@@ -177,7 +177,7 @@ Hier wordt een voorbeeldvermelding voor het controlelogboek met JSON-indeling. E
 | StreamName |Reeks |Het pad van de bewerking is uitgevoerd op |
 
 ## <a name="samples-to-process-the-log-data"></a>Voorbeelden voor het verwerken van de logboekgegevens
-Bij het verzenden van Logboeken van Azure Data Lake Store naar de Azure-Monitor (Zie [weergeven of gegevens die worden verzameld met logboekanalyse logboek search analyseren](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van logboekanalyse), de volgende query retourneert een tabel met een lijst van gebruikers namen van de tijd van de gebeurtenissen en het aantal gebeurtenissen weer voor de tijd van de gebeurtenis samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van de gebruikers-GUID of andere kenmerken:
+Bij het verzenden van Logboeken van Azure Data Lake Store met Azure Log Analytics (Zie [weergeven of gegevens die worden verzameld met logboekanalyse logboek search analyseren](../log-analytics/log-analytics-tutorial-viewdata.md) voor meer informatie over het gebruik van logboekanalyse), de volgende query retourneert een tabel met een lijst van gebruikers namen van de tijd van de gebeurtenissen en het aantal gebeurtenissen weer voor de tijd van de gebeurtenis samen met een visuele grafiek. Kan eenvoudig worden gewijzigd om weer te geven van de gebruikers-GUID of andere kenmerken:
 
 ```
 search *

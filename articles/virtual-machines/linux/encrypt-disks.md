@@ -4,7 +4,7 @@ description: Het coderen van virtuele schijven op een Linux-VM voor verbeterde b
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
@@ -13,16 +13,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Het coderen van virtuele schijven op een Linux-VM
-Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven in Azure worden versleuteld. Schijven worden versleuteld met behulp van de cryptografische sleutels die worden beveiligd in een Azure Sleutelkluis. U kunt het gebruik ervan controleren en beheren van deze cryptografische sleutels. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Voor de uitgebreide virtuele machine (VM) beveiliging en naleving, kunnen virtuele schijven en de virtuele machine zelf worden versleuteld. Virtuele machines zijn versleuteld met behulp van de cryptografische sleutels die worden beveiligd in een Azure Sleutelkluis. U kunt het gebruik ervan controleren en beheren van deze cryptografische sleutels. Dit artikel wordt uitgelegd hoe u voor het versleutelen van virtuele schijven op een Linux-VM met de Azure CLI 2.0. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Snelle opdrachten
 Als u nodig hebt voor de taak, de volgende sectie details snel de base-opdrachten voor het versleutelen van virtuele schijven op de virtuele machine. Meer gedetailleerde informatie en context voor elke stap u de rest van het document vindt [vanaf hier](#overview-of-disk-encryption).
@@ -39,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 Maken van een Azure Key Vault met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen van de Sleutelkluis voor gebruik met schijfversleuteling. Geef een unieke naam van de Sleutelkluis voor *keyvault_name* als volgt:
 
 ```azurecli
-keyvault_name=mykeyvaultikf
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -53,7 +53,7 @@ Maken van een cryptografische sleutel in uw Sleutelkluis met [az keyvault-sleute
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Maken van een service-principal met Azure Active Directory met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac). De service-principal verwerkt de verificatie en de uitwisseling van de cryptografische sleutels uit Sleutelkluis. Het volgende voorbeeld wordt gelezen in de waarden voor de service-principal-Id en wachtwoord voor gebruik in latere opdrachten:
+Maken van een service-principal met Azure Active Directory met [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac). De service-principal verwerkt de verificatie en de uitwisseling van de cryptografische sleutels uit Sleutelkluis. Het volgende voorbeeld wordt gelezen in de waarden voor de service-principal-ID en het wachtwoord voor gebruik in latere opdrachten:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Maak een VM met [az vm maken](/cli/azure/vm#create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam `myVM` met behulp van een **CentOS 7.2n** afbeelding:
+Maak een VM met [az vm maken](/cli/azure/vm#create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *CentOS 7.2n* afbeelding:
 
 ```azurecli
 az vm create \
@@ -81,9 +81,9 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH naar uw virtuele machine met de `publicIpAddress` wordt weergegeven in de uitvoer van de voorgaande opdracht. Maken van een partitie en het bestandssysteem en vervolgens de gegevensschijf koppelen. Zie voor meer informatie [verbinding maken met een Linux-VM te koppelen van de nieuwe schijf](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Sluit uw SSH-sessie.
+SSH naar uw virtuele machine met de *publicIpAddress* wordt weergegeven in de uitvoer van de voorgaande opdracht. Maken van een partitie en het bestandssysteem en vervolgens de gegevensschijf koppelen. Zie voor meer informatie [verbinding maken met een Linux-VM te koppelen van de nieuwe schijf](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Sluit uw SSH-sessie.
 
-Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#enable). Het volgende voorbeeld wordt de `$sp_id` en `$sp_password` variabelen in de voorgaande `ad sp create-for-rbac` opdracht:
+Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#enable). Het volgende voorbeeld wordt de *$sp_id* en *$sp_password* variabelen in de voorgaande `ad sp create-for-rbac` opdracht:
 
 ```azurecli
 az vm encryption enable \
@@ -108,13 +108,14 @@ De status ziet **EncryptionInProgress**. Wacht totdat de status van het besturin
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Het versleutelingsproces schijf tijdens het opstarten is voltooid, dus wacht een paar minuten voordat u controleert de status van versleuteling opnieuw met **az vm versleuteling weergeven**:
+Het versleutelingsproces schijf tijdens het opstarten is voltooid, dus wacht een paar minuten voordat u controleert de status van versleuteling opnieuw met [az vm versleuteling weergeven](/cli/azure/vm/encryption#show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
 De status moet nu rapporteren de besturingssysteemschijf en de gegevensschijf als **versleutelde**.
+
 
 ## <a name="overview-of-disk-encryption"></a>Overzicht van schijfversleuteling
 Virtuele schijven op virtuele Linux-machines zijn versleuteld met behulp van rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Er zijn geen kosten voor het versleutelen van virtuele schijven in Azure. Cryptografische sleutels worden opgeslagen in Azure Key Vault met software-beveiliging, of u kunt importeren of genereren van uw sleutels in Hardware Security Modules (HSM's) die is gecertificeerd voor FIPS 140-2 level 2-standaarden. U beheer behouden over deze cryptografische sleutels en het gebruik ervan kunt controleren. Deze cryptografische sleutels worden gebruikt voor het versleutelen en ontsleutelen van virtuele schijven gekoppeld aan uw virtuele machine. Een Azure Active Directory service-principal biedt een veilige mechanisme voor het uitgeven van deze cryptografische sleutels als virtuele machines van stroom in- of uitschakelen voorzien worden.
@@ -143,14 +144,18 @@ Ondersteunde scenario's en vereisten voor de schijfversleuteling:
 
 * De volgende Linux-server SKU's - Ubuntu, CentOS, SUSE en SUSE Linux Enterprise Server (SLES) en Red Hat Enterprise Linux.
 * Alle resources (zoals Sleutelkluis, een opslagaccount en een VM) moeten zich in dezelfde Azure-regio en abonnement.
-* Standard A, D, DS, G en GS-serie biedt virtuele machines.
+* Standard A, D, DS, G, GS, enz., reeks virtuele machines.
+* Bijwerken van de cryptografische sleutels op een Linux-VM al is versleuteld.
 
 Schijfversleuteling is momenteel niet ondersteund in de volgende scenario's:
 
 * Basisstaffel virtuele machines.
 * Virtuele machines gemaakt met behulp van het klassieke implementatiemodel.
 * OS-schijfversleuteling op Linux VM's uitschakelen.
-* Bijwerken van de cryptografische sleutels op een Linux-VM al is versleuteld.
+* Gebruik van aangepaste Linux-installatiekopieën.
+
+Zie voor meer informatie over ondersteunde scenario's en beperkingen [Azure Disk Encryption voor IaaS VM's](../../security/azure-security-disk-encryption.md)
+
 
 ## <a name="create-azure-key-vault-and-keys"></a>Azure Sleutelkluis en de sleutels maken
 U moet de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/#login). In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. De namen van de voorbeeld-parameter *myResourceGroup*, *myKey*, en *myVM*.
@@ -167,7 +172,7 @@ az group create --name myResourceGroup --location eastus
 De Azure Sleutelkluis die de cryptografische sleutels en de bijbehorende compute-bronnen zoals opslag en de virtuele machine zelf moet zich bevinden in dezelfde regio. Maken van een Azure Key Vault met [az keyvault maken](/cli/azure/keyvault#create) en inschakelen van de Sleutelkluis voor gebruik met schijfversleuteling. Geef een unieke naam van de Sleutelkluis voor *keyvault_name* als volgt:
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
+keyvault_name=myuniquekeyvaultname
 az keyvault create \
     --name $keyvault_name \
     --resource-group myResourceGroup \
@@ -175,7 +180,7 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-U kunt met behulp van software of Hardware Security Model (HSM) protection cryptografiesleutels opslaan. Een HSM, moet een premium Sleutelkluis. Er is een extra kosten voor het maken van een premium Sleutelkluis in plaats van standaard Sleutelkluis waarmee softwarematige beveiligde sleutels worden opgeslagen. Voor het maken van een premium Sleutelkluis in de vorige stap toevoegen `--sku Premium` aan de opdracht. Het volgende voorbeeld wordt de softwarematige beveiligde sleutels omdat er een standaard Sleutelkluis hebt gemaakt.
+U kunt met behulp van software of Hardware Security Model (HSM) protection cryptografiesleutels opslaan. Een HSM, moet een premium Sleutelkluis. Er is een extra kosten voor het maken van een premium Sleutelkluis in plaats van standaard Sleutelkluis waarmee softwarematige beveiligde sleutels worden opgeslagen. Voor het maken van een premium Sleutelkluis in de vorige stap toevoegen `--sku Premium` aan de opdracht. Het volgende voorbeeld wordt de softwarematige beveiligde sleutels nadat u een standaard Sleutelkluis hebt gemaakt.
 
 Voor beide beveiligingsmodellen moet het Azure-platform toegang om aan te vragen van de cryptografische sleutels wanneer de virtuele machine wordt opgestart voor het ontsleutelen van de virtuele schijven worden verleend. Maken van een cryptografische sleutel in uw Sleutelkluis met [az keyvault-sleutel maken](/cli/azure/keyvault/key#create). Het volgende voorbeeld wordt een sleutel met de naam *myKey*:
 
@@ -205,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-Voor het versleutelen van daadwerkelijk bepaalde virtuele schijven, kunt u een virtuele machine maken en een gegevensschijf toevoegen. Maak een VM voor het versleutelen met [az vm maken](/cli/azure/vm#create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een **CentOS 7.2n** afbeelding:
+Maak een VM voor het versleutelen met [az vm maken](/cli/azure/vm#create) en koppelt u een gegevensschijf 5 Gb. Alleen bepaalde marketplace-installatiekopieën ondersteuning bieden voor schijfversleuteling. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met behulp van een *CentOS 7.2n* afbeelding:
 
 ```azurecli
 az vm create \
@@ -217,7 +222,7 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH naar uw virtuele machine met de `publicIpAddress` wordt weergegeven in de uitvoer van de voorgaande opdracht. Maken van een partitie en het bestandssysteem en vervolgens de gegevensschijf koppelen. Zie voor meer informatie [verbinding maken met een Linux-VM te koppelen van de nieuwe schijf](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Sluit uw SSH-sessie.
+SSH naar uw virtuele machine met de *publicIpAddress* wordt weergegeven in de uitvoer van de voorgaande opdracht. Maken van een partitie en het bestandssysteem en vervolgens de gegevensschijf koppelen. Zie voor meer informatie [verbinding maken met een Linux-VM te koppelen van de nieuwe schijf](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Sluit uw SSH-sessie.
 
 
 ## <a name="encrypt-virtual-machine"></a>Virtuele machine versleutelen
@@ -228,7 +233,7 @@ Voor het versleutelen van de virtuele schijven, brengt u samen de eerdere onderd
 3. Geef de cryptografische sleutels moet worden gebruikt voor de daadwerkelijke versleuteling en ontsleuteling.
 4. Geef op of u wilt versleutelen schijf met het besturingssysteem, de gegevensschijven of alle.
 
-Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#enable). Het volgende voorbeeld wordt de `$sp_id` en `$sp_password` variabelen in de voorgaande `ad sp create-for-rbac` opdracht:
+Versleutelen van uw virtuele machine met [az vm versleuteling inschakelen](/cli/azure/vm/encryption#enable). Het volgende voorbeeld wordt de *$sp_id* en *$sp_password* variabelen in de voorgaande [az ad sp maken-voor-rbac](/cli/azure/ad/sp#create-for-rbac) opdracht:
 
 ```azurecli
 az vm encryption enable \

@@ -4,7 +4,7 @@ description: Informatie over het gebruik van de Azure load balancer maken van ee
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eee852e703d25ccc4b13401c3e4ab46d09655da
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Het laden van een balans vinden tussen Windows virtuele machines in Azure een maximaal beschikbare toepassing maken
 Taakverdeling biedt een hoger niveau van de beschikbaarheid van binnenkomende aanvragen verspreid over meerdere virtuele machines. In deze zelfstudie leert u over de verschillende onderdelen van de Azure load balancer die verkeer distribueren en bieden hoge beschikbaarheid. Procedures voor:
@@ -68,7 +68,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Een load balancer maken
-Maken van een frontend-IP-adres met [nieuw AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). Het volgende voorbeeld wordt een frontend-IP-adres met de naam *myFrontEndPool*: 
+Maak een frontend-IP-adresgroep met [nieuw AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). Het volgende voorbeeld wordt een frontend-IP-adresgroep met de naam *myFrontEndPool* en koppelt u de *myPublicIP* adres: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -76,13 +76,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Maak een back-end-adresgroep met [nieuw AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Het volgende voorbeeld wordt een back-end-adresgroep met de naam *myBackEndPool*:
+Maak een back-end-adresgroep met [nieuw AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). De virtuele machines koppelen aan deze back-endpool in de resterende stappen. Het volgende voorbeeld wordt een back-end-adresgroep met de naam *myBackEndPool*:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Maak nu de load balancer met [nieuw AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). Het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* met behulp van de *myPublicIP* adres:
+Maak nu de load balancer met [nieuw AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). Het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* met behulp van de front-end- en back-end-IP-adresgroepen gemaakt in de voorgaande stappen:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -98,7 +98,7 @@ Als u wilt toestaan dat de load balancer om de status van uw app te controleren,
 
 Het volgende voorbeeld wordt een TCP-test. U kunt ook aangepaste HTTP-tests voor meer fijnmazige statuscontroles maken. Wanneer u een aangepaste HTTP-test, moet u de pagina controle van status, zoals *healthcheck.aspx*. De test moet retourneren een **HTTP 200 OK** antwoord voor de load balancer moet worden gedraaid houden de host.
 
-U gebruikt voor het maken van een TCP health test [toevoegen AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). Het volgende voorbeeld wordt een health test met de naam *myHealthProbe* die elke VM bewaakt:
+U gebruikt voor het maken van een TCP health test [toevoegen AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). Het volgende voorbeeld wordt een health test met de naam *myHealthProbe* die elke VM op gecontroleerd *TCP* poort *80*:
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
@@ -110,7 +110,7 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Bijwerken van de load balancer met [Set AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Als u wilt toepassen op de health test, werken de load balancer met [Set AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -119,7 +119,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>Een load balancer-regel maken
 Een regel voor load balancer wordt gebruikt om te definiëren hoe verkeer wordt gedistribueerd naar de virtuele machines. Definieert u de front-end-IP-configuratie voor het binnenkomende verkeer en de back-end-IP-adresgroep voor het ontvangen van het verkeer, samen met de vereiste poort van de bron- en doelserver. Om er zeker van te zijn dat alleen orde virtuele machines verkeer ontvangen, moet u ook de health test gebruiken definiëren.
 
-Maken van een regel voor load balancer met [toevoegen AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). Het volgende voorbeeld wordt een regel voor load balancer met de naam *myLoadBalancerRule* en verkeer op poort sluitend *80*:
+Maken van een regel voor load balancer met [toevoegen AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). Het volgende voorbeeld wordt een regel voor load balancer met de naam *myLoadBalancerRule* en verkeer op een compromis tussen *TCP* poort *80*:
 
 ```powershell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe

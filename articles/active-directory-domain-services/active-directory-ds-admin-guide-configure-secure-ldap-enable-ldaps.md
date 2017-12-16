@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 
@@ -117,6 +117,7 @@ Als u problemen ondervindt bij het verbinding maken met het beheerde domein met 
 * Controleer of de LDAP-client (bijvoorbeeld ldp.exe) een verbinding maakt met het beveiligde LDAP-eindpunt met een DNS-naam, niet het IP-adres.
 * Controleer of de DNS-naam die van de LDAP-client verbinding met wordt omgezet in het openbare IP-adres voor beveiligde LDAP op het beheerde domein maakt.
 * Controleer of dat de beveiligde LDAP-certificaat voor uw beheerde domein heeft de DNS-naam in het onderwerp of de alternatieve onderwerpnamen-kenmerk.
+* Als u verbinding via LDAP veilig via internet maakt, controleert u dat het NSG-instellingen voor het virtuele netwerk het verkeer op poort 636 vanaf het internet toestaan.
 
 Als u nog steeds problemen ondervindt verbinding te maken met het beheerde domein met behulp van beveiligde LDAP [Neem contact op met het productteam](active-directory-ds-contact-us.md) voor hulp. De volgende informatie om u te helpen bij het analyseren van het probleem beter omvatten:
 * Een schermopname van ldp.exe zodat de verbinding en mislukt.

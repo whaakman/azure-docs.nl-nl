@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 93acec3bada30364b6e3338e037b442d7e6cd309
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Ondersteunde matrix voor deze release 
 Wanneer uw code worden gegevens geladen met behulp van Azure Machine Learning-gegevensbronnen of Azure Machine Learning gegevens voorbereidingen, ofwel een Pandas ophalen of Spark dataframe, de volgende combinaties van proef compute-omgevingen en gegevens locaties worden ondersteund:
@@ -37,4 +37,4 @@ Azure Data Lake Store is momenteel niet ondersteund voor een compute-doel.
 
 ** Maven JDBC SQL Server-stuurprogramma 6.2.1 wordt gebruikt. U moet ervoor zorgen dat dit pakket (of een compatibele versie) is opgenomen in het bestand spark_dependencies.yml voor de compute-omgeving.
 
-Ondersteunt Azure SQL Database, Azure SQL Data Warehouse of SQL Server die dat de database kan worden bereikt vanaf de compute-omgeving. 
+Ondersteunt Azure SQL Database of SQL Server die dat de database kan worden bereikt vanaf de compute-omgeving. 

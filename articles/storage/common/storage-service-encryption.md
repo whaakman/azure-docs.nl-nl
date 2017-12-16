@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service-versleuteling voor inactieve gegevens
 Azure Storage Service versleuteling (SSE) voor gegevens in rust helpt u bij het beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Met deze functie wordt Azure Storage automatisch versleutelt uw gegevens voordat het behouden blijven van opslag en ontsleutelt vóór ophalen. De versleuteling, ontsleuteling en sleutelbeheer zijn volledig transparant voor gebruikers.
@@ -159,7 +159,7 @@ A: niet op dit moment; de sleutels zijn volledig beheerd door Microsoft.
 
 **V: is SSE standaard ingeschakeld wanneer ik een nieuw opslagaccount maken?**
 
-A: SSE is niet standaard; u kunt de Azure-portal in te schakelen. U kunt deze functie met de REST-API van Storage Resource Provider ook programmatisch inschakelen.
+A: het Azure Storage-team is aan het inschakelen van versleuteling standaard door Microsoft beheerde sleutels voor alle gegevens die worden geschreven naar Azure Storage (Blob, bestand, Table en Queue storage) en voor alle opslagaccounts (Azure Resource Manager en Classic opslag accounts), zowel nieuwe als bestaande.
 
 **V: hoe verschilt dit van Azure Disk Encryption?**
 

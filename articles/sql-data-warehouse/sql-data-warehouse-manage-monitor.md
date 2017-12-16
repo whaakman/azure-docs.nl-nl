@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
 In dit artikel wordt beschreven hoe dynamische beheerweergaven (DMV's) gebruiken om te controleren van uw werkbelasting en onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Als de query actief op de bronnen van een andere query wachten is, wordt de status van de instelling **AcquireResources**.  Als de query de vereiste resources heeft, wordt de status van de instelling **verleend**.
 
 ## <a name="monitor-tempdb"></a>Monitor tempdb
-Hoge tempdb-gebruik, kan de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen zijn. Controleer eerst of als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en de benodigde acties. Overweeg het schalen van uw datawarehouse als u de grenzen bereikt tijdens het uitvoeren van query tempdb vinden. Hieronder wordt beschreven hoe u tempdb-gebruik per query op elk knooppunt identificeert. 
+Hoge tempdb-gebruik, kan de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen zijn. Overweeg het schalen van uw datawarehouse als u de grenzen bereikt tijdens het uitvoeren van query tempdb vinden. Hieronder wordt beschreven hoe u tempdb-gebruik per query op elk knooppunt identificeert. 
 
 De volgende weergave koppelt u het juiste knooppunt-id voor sys.dm_pdw_sql_requests maken. Hierdoor kunt u gebruikmaken van andere Pass Through-DMV's en koppel deze tabellen met sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Monitor-geheugen
 
-Geheugen mag de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen. Controleer eerst of als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en de benodigde acties. Overweeg het schalen van uw datawarehouse als u SQL Server-geheugengebruik de grenzen bereikt tijdens het uitvoeren van query vinden.
+Geheugen mag de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen. Overweeg het schalen van uw datawarehouse als u SQL Server-geheugengebruik de grenzen bereikt tijdens het uitvoeren van query vinden.
 
 De volgende query retourneert SQL Server-gebruik en geheugen geheugendruk per knooppunt:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Grootte van de transactie-logboekbestand bewaken
-De volgende query retourneert de grootte van het transactielogboek op elk distributiepunt. Controleer als u gegevens kwaliteit scheeftrekken of slechte rowgroups hebben en de benodigde acties. Als een van de logboekbestanden 160GB bereikt, moet u rekening houden met schalen van uw exemplaar of de grootte van uw transactie te beperken. 
+De volgende query retourneert de grootte van het transactielogboek op elk distributiepunt. Als een van de logboekbestanden 160GB bereikt, moet u rekening houden met schalen van uw exemplaar of de grootte van uw transactie te beperken. 
 ```sql
 -- Transaction log size
 SELECT

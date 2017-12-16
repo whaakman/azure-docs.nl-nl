@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1d27dd77547c62a3c2f77aeba214f05326c9cab4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6edc777b7b6ec3cfeacc8c548bb3c6ad306303c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportageopties voor Azure AD-wachtwoordbeheer
 
@@ -64,6 +64,12 @@ In de Azure portal ervaring hebben we een verbeterde de manier waarop u wachtwoo
 
 De Azure AD-rapporten en gebeurtenissen API biedt ondersteuning voor het ophalen van de gegevens die zijn opgenomen in het wachtwoord opnieuw instellen en rapporten voor registratie voor wachtwoord opnieuw instellen. U kunt met behulp van deze API afzonderlijke wachtwoord opnieuw instellen en het wachtwoord opnieuw instellen van inschrijving gebeurtenissen downloaden en de rapportage-technologie van uw keuze integreren.
 
+> [!IMPORTANT]
+> Op dit moment wordt de Azure AD-rapporten en gebeurtenissen API haalt maximaal *75.000 afzonderlijke gebeurtenissen* van de [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) en [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) typen. De API omvat de afgelopen 30 dagen.
+> 
+> Als u wilt ophalen of gegevens buiten dit venster opslaan, het is raadzaam persistent maken in een externe database met behulp van de API om op te vragen van de delta's die het resultaat. Het is raadzaam dat u begint met het ophalen van deze gegevens wanneer u begint met behulp van SSPR in uw organisatie. Extern behouden en vervolgens doorgaan met het bijhouden van de delta's vanaf dat moment.
+>
+
 ### <a name="how-to-get-started-with-the-reporting-api"></a>Hoe u aan de slag met de rapportage-API
 
 Toegang tot deze gegevens, moet u een kleine toepassing of het script voor het ophalen van onze servers schrijven. Zie voor meer informatie [aan de slag met Azure AD rapportage-API](active-directory-reporting-api-getting-started.md).
@@ -72,12 +78,6 @@ Nadat u een werkscript hebt, moet u de wachtwoord opnieuw instellen en registrat
 
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): geeft een lijst van de beschikbare kolommen voor wachtwoord opnieuw instellen voor gebeurtenissen.
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): geeft een lijst van de beschikbare kolommen voor gebeurtenissen van de registratie voor wachtwoord opnieuw instellen.
-
-### <a name="reporting-api-data-retrieval-limitations"></a>Rapportage-API-beperkingen voor gegevens ophalen
-
-Op dit moment wordt de Azure AD-rapporten en gebeurtenissen API haalt maximaal *75.000 afzonderlijke gebeurtenissen* van de [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) en [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) typen. De API-reeksen de *afgelopen 30 dagen*.
-
-Als u wilt ophalen of gegevens buiten dit venster opslaan, het is raadzaam persistent maken in een externe database met behulp van de API om op te vragen van de delta's die het resultaat. Het is raadzaam dat u begint met het ophalen van deze gegevens wanneer u begint met behulp van SSPR in uw organisatie. Extern behouden en vervolgens doorgaan met het bijhouden van de delta's vanaf dat moment.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beschrijving van de rapportkolommen in de Azure portal
 

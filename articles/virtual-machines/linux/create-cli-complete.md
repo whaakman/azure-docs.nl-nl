@@ -4,7 +4,7 @@ description: Maken van opslag, een Linux-VM, een virtueel netwerk en subnet, een
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: e5c4785428b2150e951923e98079e00808a82d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Een volledige virtuele Linux-machine maken met de Azure CLI
 U maakt snel een virtuele machine (VM) in Azure, kunt u één Azure CLI opdracht dat standaardwaarden gebruikt voor het maken van alle vereiste ondersteunende resources. Resources, zoals een virtueel netwerk, openbare IP-adres en netwerkbeveiligingsgroepen worden automatisch gemaakt. Voor meer controle over uw omgeving in de productieomgeving gebruikt, u kunt deze resources tevoren maken en vervolgens uw VM's toe te voegen aan deze. In dit artikel begeleidt u bij het maken van een virtuele machine en elk van de ondersteunende resources één voor één.
@@ -61,7 +61,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-De uitvoer ziet u het subnet logisch gemaakt binnen het virtuele netwerk:
+De uitvoer ziet u dat het subnet logisch binnen het virtuele netwerk is gemaakt:
 
 ```json
 {
@@ -102,7 +102,7 @@ De uitvoer ziet u het subnet logisch gemaakt binnen het virtuele netwerk:
 
 
 ## <a name="create-a-public-ip-address"></a>Een openbaar IP-adres maken
-Nu gaan we maken een openbaar IP-adres met [az netwerk openbare ip-maken](/cli/azure/network/public-ip#create). Dit openbare IP-adres kunt u vanaf Internet verbinding maken met uw virtuele machines. Omdat het standaardadres dynamisch is, maken we ook een benoemde DNS-vermelding met de `--domain-name-label` optie. Het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* met de DNS-naam van *mypublicdns*. Omdat de DNS-naam moet uniek zijn, Geef uw eigen unieke DNS-naam:
+Nu gaan we maken een openbaar IP-adres met [az netwerk openbare ip-maken](/cli/azure/network/public-ip#create). Dit openbare IP-adres kunt u vanaf Internet verbinding maken met uw virtuele machines. Omdat het standaardadres dynamisch is, maakt u een benoemde DNS-vermelding met de `--domain-name-label` parameter. Het volgende voorbeeld wordt een openbaar IP-adres met de naam *myPublicIP* met de DNS-naam van *mypublicdns*. Omdat de DNS-naam moet uniek zijn, Geef uw eigen unieke DNS-naam:
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Uitvoer:
 
 
 ## <a name="create-a-network-security-group"></a>Een netwerkbeveiligingsgroep maken
-Maak een netwerkbeveiligingsgroep voor het beheren van de stroom van verkeer van en naar uw virtuele machines. Een netwerkbeveiligingsgroep kan worden toegepast op een NIC of een subnet. Het volgende voorbeeld wordt [az netwerk nsg maken](/cli/azure/network/nsg#create) een netwerkbeveiligingsgroep maken met de naam *myNetworkSecurityGroup*:
+Als de stroom van verkeer van en naar uw virtuele machines wilt aanpassen, kunt u een netwerkbeveiligingsgroep toepassen op een virtuele NIC of een subnet. Het volgende voorbeeld wordt [az netwerk nsg maken](/cli/azure/network/nsg#create) een netwerkbeveiligingsgroep maken met de naam *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-U definieert de regels die de specifieke verkeer toestaan of weigeren. Binnenkomende verbindingen op poort 22 (voor ondersteuning van SSH) wilt toestaan, maakt u een inkomende regel voor de netwerkbeveiligingsgroep met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create). Het volgende voorbeeld wordt een regel met naam *myNetworkSecurityGroupRuleSSH*:
+U definieert de regels die specifiek verkeer toestaan of weigeren. Binnenkomende verbindingen op poort 22 (waarmee toegang wordt verleend SSH) wilt toestaan, maakt u een inkomende regel met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create). Het volgende voorbeeld wordt een regel met naam *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Als u wilt toestaan voor binnenkomende verbindingen op poort 80 (voor ondersteuning webverkeer), een ander netwerk groep beveiligingsregel toevoegen. Het volgende voorbeeld wordt een regel met naam *myNetworkSecurityGroupRuleHTTP*:
+Als u wilt toestaan voor binnenkomende verbindingen op poort 80 (voor webverkeer), een ander netwerk groep beveiligingsregel toevoegen. Het volgende voorbeeld wordt een regel met naam *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -332,7 +332,7 @@ Uitvoer:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Maken van een virtuele NIC
-Virtuele netwerkinterfacekaarten (NIC's) zijn programmatisch beschikbaar omdat u regels toepassen op het gebruik ervan kunt. U kunt ook meer dan één hebben. In de volgende [az netwerk nic maken](/cli/azure/network/nic#create) opdracht maken van een NIC met de naam *myNic* en deze koppelen aan de netwerkbeveiligingsgroep. Het openbare IP-adres *myPublicIP* is ook gekoppeld aan de virtuele netwerkadapter.
+Virtuele netwerkinterfacekaarten (NIC's) zijn programmatisch beschikbaar omdat u regels toepassen op het gebruik ervan kunt. Afhankelijk van de [VM-grootte](sizes.md), kunt u meerdere virtuele NIC's koppelen aan een virtuele machine. In de volgende [az netwerk nic maken](/cli/azure/network/nic#create) opdracht maken van een NIC met de naam *myNic* en deze koppelen aan de netwerkbeveiligingsgroep. Het openbare IP-adres *myPublicIP* is ook gekoppeld aan de virtuele netwerkadapter.
 
 ```azurecli
 az network nic create \
@@ -476,12 +476,12 @@ De uitvoer opmerkingen bij de domeinen met fouten en domeinen van de update:
 ```
 
 
-## <a name="create-the-linux-vms"></a>De virtuele Linux-machines maken
-U kunt de netwerkbronnen ter ondersteuning van Internet toegankelijke VM's hebt gemaakt. Nu een virtuele machine maken en beveilig deze met een SSH-sleutel. In dit geval gaan we een Ubuntu VM op basis van de meest recente TNS maken. U vindt aanvullende afbeeldingen met [az vm afbeeldingenlijst](/cli/azure/vm/image#list), zoals beschreven in [Azure VM-installatiekopieën vinden](cli-ps-findimage.md).
+## <a name="create-a-vm"></a>Een virtuele machine maken
+U kunt de netwerkbronnen ter ondersteuning van Internet toegankelijke VM's hebt gemaakt. Nu een virtuele machine maken en beveilig deze met een SSH-sleutel. In dit voorbeeld gaan we een Ubuntu VM op basis van de meest recente TNS maken. U vindt aanvullende afbeeldingen met [az vm afbeeldingenlijst](/cli/azure/vm/image#list), zoals beschreven in [Azure VM-installatiekopieën vinden](cli-ps-findimage.md).
 
-We ook opgeven een SSH-sleutel moet worden gebruikt voor verificatie. Als u een openbare SSH-sleutelpaar niet hebt, kunt u [maken ze](mac-create-ssh-keys.md) of gebruik de `--generate-ssh-keys` -parameter voor deze voor u gemaakt. Als u al een sleutelpaar, als deze parameter gebruikt bestaande sleutels in `~/.ssh`.
+Geef een SSH-sleutel moet worden gebruikt voor verificatie. Als u een openbare SSH-sleutelpaar niet hebt, kunt u [maken ze](mac-create-ssh-keys.md) of gebruik de `--generate-ssh-keys` -parameter voor deze voor u gemaakt. Als er al een sleutelpaar, deze parameter wordt gebruikt voor bestaande sleutels in `~/.ssh`.
 
-De virtuele machine maken door brengen onze bronnen en informatie samen met de [az vm maken](/cli/azure/vm#create) opdracht. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM*:
+De virtuele machine maken doordat de resources en informatie samen met de [az vm maken](/cli/azure/vm#create) opdracht. Het volgende voorbeeld wordt een virtuele machine met de naam *myVM*:
 
 ```azurecli
 az vm create \
@@ -521,7 +521,7 @@ The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' 
 ECDSA key fingerprint is SHA256:SylINP80Um6XRTvWiFaNz+H+1jcrKB1IiNgCDDJRj6A.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

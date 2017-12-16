@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Inleiding tot Microsoft Azure
 Microsoft Azure is Microsoft toepassingsplatform voor de openbare cloud.  Het doel van dit artikel is het bieden u een basis voor informatie over de grondbeginselen van Azure, zelfs als u niet over cloud weet computing.
@@ -534,6 +534,6 @@ Het verschil tussen de twee is dat Marketplace buiten het Azure-beheerportal val
 SendGrid is een toepassing in de Azure Store waarmee u e-mail verzenden. Biedt aanvullende functionaliteit, zoals de levering van betrouwbare en statistieken.  U kunt deze toepassing en verwante services kopen plaats probeert te maken van een dergelijke infrastructuur zelf.  
 
 ## <a name="getting-started"></a>Aan de slag
-Nu u hebt de grote afbeelding, de volgende stap is het schrijven van uw eerste Azure-toepassing. Kies uw taal [Download de juiste SDK](/downloads/), en Ga daarvoor. Cloud computing is de nieuwe standaard--nu aan de slag.
+Nu u hebt de grote afbeelding, de volgende stap is het schrijven van uw eerste Azure-toepassing. Kies uw taal [Download de juiste SDK](https://azure.microsoft.com/en-us/downloads/), en Ga daarvoor. Cloud computing is de nieuwe standaard--nu aan de slag.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

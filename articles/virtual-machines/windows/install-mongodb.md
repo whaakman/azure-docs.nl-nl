@@ -4,7 +4,7 @@ description: Informatie over het MongoDB installeren op een virtuele machine van
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3fe9751467a1fc34f4e9d02855c4aff307424a3
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installeren en configureren van MongoDB op een Windows-VM in Azure
-[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel begeleidt u bij het installeren en configureren van MongoDB op een Windows Server 2012 R2 virtual machine (VM) in Azure. U kunt ook [MongoDB installeren op een Linux VM in Azure](../linux/install-mongodb.md).
+[MongoDB](http://www.mongodb.org) is een populaire open-source, hoogwaardige NoSQL-database. In dit artikel begeleidt u bij het installeren en configureren van MongoDB op een Windows Server 2016 virtuele machine (VM) in Azure. U kunt ook [MongoDB installeren op een Linux VM in Azure](../linux/install-mongodb.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u installeren en configureren van MongoDB, moet u een virtuele machine maken en in het ideale geval een gegevensschijf aan toevoegen. Zie de volgende artikelen voor het maken van een virtuele machine en een gegevensschijf toevoegen:
@@ -36,23 +36,24 @@ Om te beginnen met MongoDB installeren en configureren, [Meld u aan bij uw virtu
 > Beveiligingsfuncties van MongoDB, zoals verificatie en IP-adresbinding zijn niet standaard ingeschakeld. Beveiligingsfuncties moeten worden ingeschakeld voordat u MongoDB in een productieomgeving implementeert. Zie voor meer informatie [MongoDB-beveiliging en verificatie](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 
-1. Nadat u verbinding hebt gemaakt met uw virtuele machine via Extern bureaublad, opent u Internet Explorer uit de **Start** menu op de virtuele machine.
+1. Nadat u verbinding hebt gemaakt met uw virtuele machine via Extern bureaublad, opent u Internet Explorer uit vanaf de taakbalk.
 2. Selecteer **aanbevolen instellingen voor beveiliging, privacy en compatibiliteit gebruiken** wanneer Internet Explorer eerst wordt geopend en klik op **OK**.
 3. Verbeterde beveiliging van Internet Explorer is standaard ingeschakeld. De MongoDB-website toevoegen aan de lijst met toegestane websites:
    
    * Selecteer de **extra** pictogram in de rechterbovenhoek.
    * In **Internetopties**, selecteer de **beveiliging** tabblad en selecteer vervolgens de **vertrouwde websites** pictogram.
-   * Klik op de **Sites** knop. Voeg *https://\*. mongodb.org* aan de lijst met vertrouwde sites en sluit het dialoogvenster.
+   * Klik op de **Sites** knop. Voeg *https://\*. mongodb.com* aan de lijst met vertrouwde sites en sluit het dialoogvenster.
      
      ![Instellingen van Internet Explorer configureren](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Blader naar de [MongoDB - Downloads](http://www.mongodb.org/downloads) pagina (http://www.mongodb.org/downloads).
-5. Selecteer, indien nodig de **Community Server** edition en selecteer vervolgens de meest recente huidige stabiel release voor Windows Server 2008 R2 64-bits of hoger. Het installatieprogramma downloaden, klikt u op **downloaden (msi)**.
+4. Blader naar de [MongoDB - Downloads](http://www.mongodb.com/downloads) pagina (http://www.mongodb.com/downloads).
+5. Selecteer, indien nodig de **Community Server** edition en selecteer vervolgens de meest recente huidige stabiel vrij te geven voor*Windows Server 2008 R2 64-bits of hoger*. Het installatieprogramma downloaden, klikt u op **downloaden (msi)**.
    
     ![MongoDB-installatieprogramma downloaden](./media/install-mongodb/download-mongodb.png)
    
     Het installatieprogramma uitvoeren nadat het downloaden voltooid is.
 6. Lees en accepteer de gebruiksrechtovereenkomst. Wanneer u wordt gevraagd, selecteert u **Complete** installeren.
-7. Klik op het laatste scherm **installeren**.
+7. Indien gewenst, kunt u ook installeren kompas, een grafische interface voor MongoDB.
+8. Klik op het laatste scherm **installeren**.
 
 ## <a name="configure-the-vm-and-mongodb"></a>Configureer de virtuele machine en MongoDB
 1. De padvariabelen zijn niet bijgewerkt door het MongoDB-installatieprogramma. Zonder de MongoDB `bin` locatie in de variabele path, moet u het volledige pad opgeven telkens wanneer u een uitvoerbaar bestand van MongoDB gebruiken. De locatie toevoegen aan de variabele path:
@@ -66,7 +67,7 @@ Om te beginnen met MongoDB installeren en configureren, [Meld u aan bij uw virtu
      Het pad toevoegen aan uw MongoDB `bin` map. MongoDB wordt doorgaans geïnstalleerd in *C:\Program Files\MongoDB*. Controleer of het installatiepad op de virtuele machine. Het volgende voorbeeld wordt de standaard MongoDB-installatielocatie naar de `PATH` variabele:
      
      ```
-     ;C:\Program Files\MongoDB\Server\3.2\bin
+     ;C:\Program Files\MongoDB\Server\3.6\bin
      ```
      
      > [!NOTE]
@@ -92,8 +93,7 @@ Om te beginnen met MongoDB installeren en configureren, [Meld u aan bij uw virtu
 4. Voor een meer robuuste MongoDB-ervaring, installeert u de `mongod.exe` als een service. Een service maakt, dat u hoeft niet te laat een opdrachtprompt uitgevoerd elke keer dat u wilt gebruiken van MongoDB. Maken van de service als volgt het pad naar uw adreslijsten gegevens en logboekbestanden dienovereenkomstig aanpassen:
    
     ```
-    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log `
-        --logappend  --install
+    mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
     ```
    
     De voorgaande opdracht maakt een service met de naam MongoDB, met een beschrijving van "DB met Mongo". Er zijn ook de volgende parameters opgeven:

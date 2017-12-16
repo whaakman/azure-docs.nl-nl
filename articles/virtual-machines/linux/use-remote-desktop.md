@@ -4,7 +4,7 @@ description: Meer informatie over het installeren en configureren van extern bur
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installeren en configureren van extern bureaublad verbinding maken met een Linux VM in Azure
 Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdrachtregel met behulp van een verbinding met secure shell (SSH). Wanneer er nieuwe voor Linux, of om snel scenario's voor het oplossen van problemen, kan het gebruik van extern bureaublad eenvoudiger zijn. Dit artikel wordt uitgelegd hoe u kunt installeren en configureren van een bureaublad-omgeving ([xfce](https://www.xfce.org)) en extern bureaublad ([xrdp](http://www.xrdp.org)) voor uw Linux-VM met het implementatiemodel van Resource Manager.
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Een Netwerkbeveiligingsgroep regel maken voor extern bureaublad-verkeer
 Voor extern bureaublad-verkeer te bereiken van uw Linux-VM een netwerkbeveiliging kunt groep regel moet worden gemaakt die TCP op poort 3389 bereiken van uw virtuele machine. Zie voor meer informatie over netwerkbeveiligingsgroepen [wat is er een Netwerkbeveiligingsgroep?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) U kunt ook [Azure portal gebruiken voor het maken van een groep voor de netwerkbeveiligingsregel](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-De volgende voorbeelden maakt een groep van de netwerkbeveiligingsregel met [az netwerk nsg regel maken](/cli/azure/network/nsg/rule#create) met de naam *myNetworkSecurityGroupRule* naar *toestaan* verkeer op *tcp* poort *3389*.
+Het volgende voorbeeld wordt een groep van de netwerkbeveiligingsregel met [az vm open poort](/cli/azure/vm#open-port) op poort *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Als de xrdp-service niet wordt geluisterd, op een VM Ubuntu de service opnieuw starten als volgt:
+Als de *xrdp sesman* service niet wordt geluisterd, op een VM Ubuntu de service opnieuw starten als volgt:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Bekijk wordt geregistreerd in */var/log*Thug op uw VM Ubuntu voor aanwijzingen over waarom de service niet reageert. U kunt ook de syslog bewaken tijdens een poging verbinding met extern bureaublad om eventuele fouten weer te geven:
+Bekijk wordt geregistreerd in */var/log* op uw VM Ubuntu voor aanwijzingen over waarom de service reageert niet. U kunt ook de syslog bewaken tijdens een poging verbinding met extern bureaublad om eventuele fouten weer te geven:
 
 ```bash
 tail -f /var/log/syslog

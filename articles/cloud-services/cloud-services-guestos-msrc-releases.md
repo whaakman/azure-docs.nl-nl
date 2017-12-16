@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-guest-os"></a>Azure Gast OS
 De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates toegepast op de Azure-Gastbesturingssysteemreleases. Zoeken in dit artikel om na te gaan als een bepaalde update van toepassing op het Gastbesturingssysteem dat u gebruikt. Updates altijd transporteren voor de betreffende [familie] [ family-explain] ze werden geïntroduceerd in.
+
+## <a name="november-guest-os"></a>November Gastbesturingssysteem
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 17 10 | [4048953] |Windows 10-updates |5.13 |14 november 2017 |
+| Rel 17 10 | [4048960], [4048962], [4048961] |Windows-beveiliging |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17 10 | [4047206] |Internet explorer |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
+| N.v.t. | [4041681] |Totalisering van de niet-beveiliging oktober |2.67 |10 oktober 2017 |
+| N.v.t. | [4041690] |Totalisering van de niet-beveiliging oktober |3.55 |10 oktober 2017 |
+| N.v.t. | [4041693] |Totalisering van de niet-beveiliging oktober |4.48 |10 oktober 2017 |
+| N.v.t. | [3191565] |Update voor Windows Management Framework 5.1  |3.55 |Op 12 september 2017 |
+| N.v.t. | [3191564] |Update voor Windows Management Framework 5.1  |4.48 |Op 12 september 2017 |
 
 ## <a name="october-guest-os"></a>Oktober Gastbesturingssysteem
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -548,6 +561,19 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | N.v.t. |[3007054] |Pincode afdrukken optie altijd ziet wanneer u een document binnen een Windows Store-toepassing in Windows afdrukken |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N.v.t. |[2999802] |Ononderbroken lijnen in plaats van stippellijn worden afgedrukt in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N.v.t. |[2896881] |Lange aanmeldingstijd wanneer het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Controlepunten en replayaanvallen in duurzame functies (Azure-functies)
 
@@ -63,10 +63,10 @@ Zodra het controlepunt voltooid is, is de orchestrator-functie moet worden verwi
 
 Na voltooiing, de geschiedenis van de eerder vermelde functie ziet er ongeveer als volgt in Azure Table Storage (afgekort ter illustratie):
 
-| PartitionKey (InstanceId)                     | EventType             | tijdstempel               | Invoer | Naam             | Resultaat                                                    | Status | 
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Invoer | Naam             | Resultaat                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
@@ -90,7 +90,7 @@ Enkele opmerkingen bij de kolomwaarden:
     * **TaskScheduled**: de functie van een activiteit is gepland. De naam van de functie van de activiteit is opgenomen de `Name` kolom.
     * **TaskCompleted**: een functie activiteit is voltooid. Het resultaat van de functie is in de `Result` kolom.
     * **TimerCreated**: een duurzame timer is gemaakt. De `FireAt` kolom bevat de geplande UTC-tijd waarop de timer verloopt.
-    * **TimerFired**: een duurzame timer verlopen.
+    * **TimerFired**: een duurzame timer gestart.
     * **EventRaised**: een externe gebeurtenis is verzonden naar de orchestration-exemplaar. De `Name` kolom de naam van de gebeurtenis worden vastgelegd en de `Input` kolom de nettolading van de gebeurtenis worden vastgelegd.
     * **OrchestratorCompleted**: de orchestrator-functie wordt afgewacht.
     * **ContinueAsNew**: de orchestrator-functie is voltooid en zelf opnieuw gestart met de nieuwe status. De `Result` kolom bevat de waarde die wordt gebruikt als de invoer in het exemplaar opnieuw gestart.
@@ -98,7 +98,7 @@ Enkele opmerkingen bij de kolomwaarden:
 * **Tijdstempel**: de UTC-timestamp van de geschiedenisgebeurtenis.
 * **Naam**: de naam van de functie die is aangeroepen.
 * **Invoer**: invoer van de functie de JSON-indeling.
-* **Uitvoer**: de uitvoer van de functie; dat wil zeggen, de retourwaarde.
+* **Resultaat**: de uitvoer van de functie; dat wil zeggen, de retourwaarde.
 
 > [!WARNING]
 > Het is nuttig zijn als een foutopsporingsprogramma, geen eventuele afhankelijkheden onderneemt in deze tabel. Deze mogelijk wijzigen, omdat de extensie duurzame functies zich verder ontwikkelen.

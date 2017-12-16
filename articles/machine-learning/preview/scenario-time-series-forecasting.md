@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Energie vraag Timeseries prognose
 
@@ -56,13 +56,11 @@ Dit scenario wordt de opbouw van een machine learning-oplossing prognose energie
 - Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies beschikbaar zijn).
 - Een geïnstalleerde kopie van [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) volgende de [installatie snelstartgids](./quickstart-installation.md) het programma te installeren en het maken van een werkruimte.
 - Dit voorbeeld wordt ervan uitgegaan dat u Azure ML-Workbench worden uitgevoerd op Windows 10 met [Docker-engine](https://www.docker.com/) lokaal zijn geïnstalleerd. Als u Mac OS gebruikt, zijn de instructies grotendeels hetzelfde.
-- Azure Machine Learning uitoefening geïnstalleerd met een lokale implementatieomgeving instellen en een model-management-account gemaakt zoals beschreven in dit [handleiding](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Azure Machine Learning uitoefening geïnstalleerd met een lokale implementatieomgeving instellen en een model-management-account gemaakt zoals beschreven in dit [handleiding](./model-management-configuration.md).
 - Dit voorbeeld vereist dat u de Pandas-installatie naar versie 0.20.3 bijwerken of hoger en matplotlib installeren. Klik op *opdrachtprompt openen* van de *bestand* menu in de Workbench en voer de volgende opdrachten voor het installeren van deze afhankelijkheden:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Maak een nieuw project in de Workbench
@@ -77,7 +75,7 @@ Maak een nieuw project in dit voorbeeld als sjabloon gebruiken:
 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
-Er zijn twee gegevenssets: `nyc_demand.csv` en `nyc_weather.csv`:
+Twee gegevenssets worden geleverd met dit voorbeeld en worden gedownload met behulp van de `1-data-preparation.ipynb` notebook: `nyc_demand.csv` en `nyc_weather.csv`.
 
 **nyc_demand.csv** per uur energie vraag waarden bevat voor New York City voor het jaar 2012 2017. De gegevens heeft de volgende eenvoudige structuur:
 
@@ -98,7 +96,7 @@ Vraag waarden zijn in megawattuur-uren (MWh). Hieronder vindt u een grafiek van 
 | --- | --- | --- |
 | 2012-01-01 00:00:00 | 0.0 | 46.13 |
 | 2012-01-01 01:00:00 | 0.01 | 45.89 |
-| 2012-01-01 02:00:00 | 0.05 | 45.04 |
+| 2012-01-01 02:00:00 | 0,05 | 45.04 |
 | 2012-01-01 03:00:00 | 0.02 | 45.03 |
 
 *precip* is een meting percentage van het niveau van precipitatie. *TEMP* hebben (temperatuur) waarden schaal gebracht is weglating, zodat alle waarden in het interval [0, 100] vallen.
