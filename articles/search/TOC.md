@@ -33,7 +33,11 @@
 ### [Servicelimieten](search-limits-quotas-capacity.md)
 ### [Schaalbaarheid van service](search-capacity-planning.md)
 ### [Patronen voor multitenancy-ontwerpen](search-modeling-multitenant-saas-applications.md)
-## Ontwikkelen
+## Beveiliging
+### [Gegevensbeveiliging en operationele beveiliging](search-security-overview.md)
+### [Beveiligen met identiteitsfilters](search-security-trimming-for-azure-search.md)
+### [Beveiligen met Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+## Ontwikkeling
 ### [API-versies](search-api-versions.md)
 ### [Ontwikkelen in Node.js](search-get-started-nodejs.md)
 ### [Ontwikkelen in Java](search-get-started-java.md)
@@ -42,13 +46,6 @@
 ### [Complexe gegevenstypen modelleren](search-howto-complex-data-types.md)
 ### [Gelijktijdige updates verwerken](search-howto-concurrency.md)
 ### [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=search)
-## Beheren
-### Azure Search beheren
-#### [Azure Portal](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Gebruik en statistieken controleren](search-monitor-usage.md)
-### [Analyse zoekverkeer](search-traffic-analytics.md)
-### [Prestaties en optimalisatie](search-performance-optimization.md)
 ## Gegevens laden
 ### [Overzicht van de indexeerfunctie](search-indexer-overview.md)
 ### [Indexeerfunctie voor Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Overzicht](search-filters.md)
 #### [Facetfilters](search-filters-facets.md)
 #### [Taalfilters](search-filters-language.md)
-#### [Beveiligingsfilters (algemeen)](search-security-trimming-for-azure-search.md)
-#### [Beveiligingsfilters (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [Naslaginformatie over expressiesyntaxis](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Zoekresultaten oproepen](search-pagination-page-layout.md)
 ### [Scoren](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Facetnavigatie](search-faceted-navigation.md)
 ### [Voorbeeld synoniemen](search-synonyms.md)
 ### [Preview moreLikeThis](search-more-like-this.md)
+## Beheer en analyse
+### [Beheren met Azure Portal](search-manage.md)
+### [Beheren met PowerShell](search-manage-powershell.md)
+### [Gebruik en statistieken controleren](search-monitor-usage.md)
+### [Analyse zoekverkeer](search-traffic-analytics.md)
+### [Prestaties en optimalisatie](search-performance-optimization.md)
 
 # Naslaginformatie
 
