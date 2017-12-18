@@ -1,33 +1,33 @@
 ---
-title: Een ASP.NET Core-web-app maken in Azure | Microsoft Docs
+title: Een ASP.NET Framework-web-app maken in Azure | Microsoft Docs
 description: Leer hoe u web-apps uitvoert in Azure App Service door de standaard-ASP.NET-web-app te implementeren.
 services: app-service\web
 documentationcenter: 
 author: cephalin
 manager: cfowler
 editor: 
-ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
+ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
+ms.openlocfilehash: b4cde427115df5bb7cd80acd676c6788ff3a379e
 ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-an-aspnet-core-web-app-in-azure"></a>Een ASP.NET Core-web-app maken in Azure
+# <a name="create-an-aspnet-framework-web-app-in-azure"></a>Een ASP.NET Framework-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze quickstart laat zien hoe uw eerste ASP.NET Core-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe uw eerste ASP.NET-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
 
-> [!NOTE]
-> Als u wilt weten hoe u een ASP.NET Framework-web-app kunt maken en implementeren, raadpleegt u het artikel [hier](app-service-web-get-started-dotnet-framework.md). 
->
+Bekijk de video om de inhoud van deze quickstart in actie te zien en doorloop de stappen daarna zelf om uw eerste .NET-app op Azure te publiceren.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,41 +41,37 @@ Vereisten voor het voltooien van deze zelfstudie:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-aspnet-core-web-app"></a>Een ASP.NET Core-web-app maken
+## <a name="create-an-aspnet-web-app"></a>Een ASP.NET-web-app maken
 
 Maak in Visual Studio een project door **Bestand > Nieuw > Project** te selecteren. 
 
-Selecteer **Visual C# > Web > ASP.NET Core-webtoepassing** in het dialoogvenster **Nieuw project**.
+Selecteer **Visual C# > Web > ASP.NET-webtoepassing (.NET Framework)** in het dialoogvenster **Nieuw project**.
 
 Geef de toepassing de naam _myFirstAzureWebApp_ en selecteer vervolgens **OK**.
    
-![Het dialoogvenster Nieuw project](./media/app-service-web-get-started-dotnet/new-project.png)
+![Het dialoogvenster Nieuw project](./media/app-service-web-get-started-dotnet-framework/new-project.png)
 
-U kunt elk type ASP.NET Core-web-app implementeren in Azure. Voor deze quickstart selecteert u de sjabloon **Webtoepassing** en stelt u verificatie in op **Geen verificatie**.
+U kunt elk type ASP.NET-web-app implementeren in Azure. Voor deze Quickstart selecteert u de sjabloon **MVC** en stelt u de verificatie in op **Geen verificatie**.
       
 Selecteer **OK**.
 
-![Het dialoogvenster Nieuw ASP.NET-project](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Zodra het ASP.NET Core-project is gemaakt, worden de welkomstpagina van ASP.NET Core weergegeven. Deze biedt talrijke koppelingen naar bronnen die u op weg helpen. 
-
-![Welkomstpagina](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
+![Het dialoogvenster Nieuw ASP.NET-project](./media/app-service-web-get-started-dotnet-framework/select-mvc-template.png)
 
 Selecteer in het menu **Fouten opsporen > Starten zonder foutopsporing** om de web-app lokaal uit te voeren.
 
-![De app lokaal uitvoeren](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
+![De app lokaal uitvoeren](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
 ## <a name="publish-to-azure"></a>Publiceren naar Azure
 
 Klik in **Solution Explorer** met de rechtermuisknop op het project **myFirstAzureWebApp**-en selecteer **Publiceren**.
 
-![Publiceren vanuit Solution Explorer](./media/app-service-web-get-started-dotnet/right-click-publish.png)
+![Publiceren vanuit Solution Explorer](./media/app-service-web-get-started-dotnet-framework/solution-explorer-publish.png)
 
 Zorg ervoor dat **Microsoft Azure App Service** is geselecteerd en selecteer dan **Publiceren**.
 
-![Publiceren vanaf de projectoverzichtspagina](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
+![Publiceren vanaf de projectoverzichtspagina](./media/app-service-web-get-started-dotnet-framework/publish-to-app-service.png)
 
-Hiermee opent u het dialoogvenster **App Service maken**, waarmee u alle Azure-resources kunt maken die nodig zijn voor het uitvoeren van uw ASP.NET Core-web-app in Azure.
+Hiermee opent u het dialoogvenster **App Service maken**, waarmee u alle Azure-resources kunt maken die nodig zijn voor het uitvoeren van uw ASP.NET-web-app in Azure.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -86,7 +82,7 @@ Selecteer **Een account toevoegen** in het dialoogvenster **App Service maken** 
 >
 >
    
-![Aanmelden bij Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
+![Aanmelden bij Azure](./media/app-service-web-get-started-dotnet-framework/sign-in-azure.png)
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -104,7 +100,7 @@ Selecteer **Nieuw** naast **App Service-plan**.
 
 Gebruik in het dialoogvenster **App Service-plan configureren** de instellingen uit de tabel na de onderstaande schermafbeelding.
 
-![Een App Service-plan maken](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![Een App Service-plan maken](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
 | Instelling | Voorgestelde waarde | Beschrijving |
 |-|-|-|
@@ -120,21 +116,21 @@ Voer bij **Web-appnaam** een unieke appnaam in (geldige tekens zijn `a-z`, `0-9`
 
 Selecteer **Maken** om de Azure-resources te gaan maken.
 
-![Naam van web-app configureren](./media/app-service-web-get-started-dotnet/web-app-name.png)
+![Naam van web-app configureren](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
 
-Zodra de wizard is voltooid, wordt de ASP.NET Core-web-app naar Azure gepubliceerd. Daarna wordt de app gestart in de standaardbrowser.
+Zodra de wizard is voltooid, wordt de ASP.NET-web-app naar Azure gepubliceerd. Daarna wordt de app gestart in de standaardbrowser.
 
-![Gepubliceerde ASP.NET-web-app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
+![Gepubliceerde ASP.NET-web-app in Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 De naam van de web-app die is opgegeven in de [stap voor maken en publiceren](#create-and-publish-the-web-app), wordt gebruikt als URL-voorvoegsel in de indeling `http://<app_name>.azurewebsites.net`.
 
-Gefeliciteerd, uw ASP.NET Core-web-app wordt live uitgevoerd in Azure App Service.
+Gefeliciteerd, uw ASP.NET-web-app wordt live uitgevoerd in Azure App Service.
 
 ## <a name="update-the-app-and-redeploy"></a>De app bijwerken en opnieuw implementeren
 
-Open vanuit de **Solution Explorer** _Pages/Index.cshtml_.
+Open vanuit de **Solution Explorer** _Views\Home\Index.cshtml_.
 
-Zoek ergens bovenaan de HTML-tag `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` en vervang het volledige element door de volgende code:
+Zoek ergens bovenaan de HTML-tag `<div class="jumbotron">` en vervang het volledige element door de volgende code:
 
 ```HTML
 <div class="jumbotron">
@@ -149,7 +145,7 @@ Selecteer **Publiceren** op de publicatiepagina.
 
 Als het publiceren is voltooid, start Visual Studio een browser waarin de URL van de web-app wordt geladen.
 
-![Bijgewerkte ASP.NET-web-app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
+![Bijgewerkte ASP.NET-web-app in Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
 
 ## <a name="manage-the-azure-web-app"></a>De Azure-web-app beheren
 
@@ -157,11 +153,11 @@ Ga naar <a href="https://portal.azure.com" target="_blank">Azure Portal</a> om d
 
 Selecteer in het linkermenu **App Services** en selecteer de naam van uw Azure-web-app.
 
-![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-dotnet/access-portal.png)
+![Navigatie in de portal naar de Azure-web-app](./media/app-service-web-get-started-dotnet-framework/access-portal.png)
 
 De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene beheertaken uitvoeren, zoals bladeren, stoppen, starten, opnieuw opstarten en verwijderen. 
 
-![App Service-blade in Azure Portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![App Service-blade in Azure Portal](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
 

@@ -1,6 +1,6 @@
 ---
-title: Maken en gebruiken van een interne load balancer met een Azure App Service-omgeving
-description: "Meer informatie over het maken en gebruiken van een geïsoleerd van internet Azure App Service-omgeving"
+title: Een ILB maken en gebruiken met een Azure App Service-omgeving
+description: Meer informatie over het maken en gebruiken van een Azure App Service-omgeving met internetisolatie
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -10,51 +10,52 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cc7bdd7860506c20187dc913b72111824d1737ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Maken en gebruiken van een interne load balancer met een App Service-omgeving #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een ILB maken en gebruiken met een App Service-omgeving #
 
- Azure App Service-omgeving is een implementatie van Azure App Service in een subnet in een Azure-netwerk (VNet). Er zijn twee manieren voor het implementeren van een App Service-omgeving (as-omgeving): 
+ Azure App Service Environment is een implementatie van Azure App Service in een subnet in een virtueel Azure-netwerk (VNet). Er zijn twee manieren om een AS-omgeving te implementeren: 
 
-- Een VIP-adres op een externe IP-adres, vaak aangeduid als een externe as-omgeving.
-- Een VIP-adres op een interne IP-adres, vaak genoemd, een ILB-as-omgeving omdat het interne eindpunt, een interne load balancer (ILB is). 
+- Met een VIP-adres op een extern IP-adres, vaak aangeduid als Externe AS-omgeving.
+- Met een VIP-adres op een intern IP-adres, vaak aangeduid als een ILB AS-omgeving omdat het interne eindpunt een ILB (Internal Load Balancer) is. 
 
-In dit artikel leest u hoe een ILB-as-omgeving te maken. Zie voor een overzicht op de as-omgeving [Inleiding tot de App Service-omgevingen][Intro]. Zie voor meer informatie over het maken van een externe as-omgeving, [maken van een externe as-omgeving][MakeExternalASE].
+In dit artikel wordt uitgelegd hoe u een ILB AS-omgeving maakt. Zie [Introduction to App Service environments][Intro] (Inleiding tot App Service-omgevingen) voor een overzicht van de AS-omgeving. Zie [Create an External ASE][MakeExternalASE] (Een Externe AS-omgeving maken) voor informatie over het maken van een Externe AS-omgeving.
 
 ## <a name="overview"></a>Overzicht ##
 
-U kunt een as-omgeving met een internet toegankelijke eindpunt of met een IP-adres implementeren in uw VNet. Om in te stellen het IP-adres in een VNet-adres, moet de as-omgeving worden geïmplementeerd met een ILB. Wanneer u uw as-omgeving met een ILB implementeert, moet u het volgende opgeven:
+U kunt een AS-omgeving implementeren met een eindpunt dat toegankelijk is via internet of met een IP-adres in uw VNet. De AS-omgeving moet zijn geïmplementeerd met een ILB om het IP-adres in te stellen op een VNet-adres. Als u de AS-omgeving implementeert met een ILB, moet u het volgende opgeven:
 
--   Uw eigen domein dat u bij het maken van uw apps.
+-   Uw eigen domein dat u gebruikt bij het maken van apps.
 -   Het certificaat dat wordt gebruikt voor HTTPS.
 -   DNS-beheer voor uw domein.
 
-Tegenprestatie kunt u doen, zoals:
+Hierna kunt u dingen doen zoals:
 
--   Intranet-hosttoepassingen veilig in de cloud, die u via een site-naar-site of Azure ExpressRoute VPN-toegang.
--   Host-apps in de cloud die niet zijn opgenomen in de openbare DNS-servers.
--   Internet geïsoleerd back-end-apps, die uw front-apps kunnen veilig worden geïntegreerd met maken.
+-   Intranettoepassingen veilig hosten in de cloud, waartoe u toegang hebt via een site-naar-site- of Azure ExpressRoute-VPN.
+-   Apps die niet worden vermeld op openbare DNS-servers, hosten in de cloud.
+-   Back-end-apps met internetisolatie maken, waarmee front-end-apps veilig kunnen worden geïntegreerd.
 
 ### <a name="disabled-functionality"></a>Uitgeschakelde functionaliteit ###
 
-Er zijn een aantal zaken die u niet mogelijk wanneer u een ILB-as-omgeving:
+Er is een aantal dingen dat u niet kunt doen wanneer u een ILB AS-omgeving gebruikt:
 
--   IP-gebaseerde SSL wordt gebruikt.
+-   Op IP-gebaseerd SSL gebruiken.
 -   IP-adressen toewijzen aan specifieke apps.
--   Koop en een certificaat met een app via de Azure portal gebruiken. U kunt certificaten rechtstreeks vanuit een certificeringsinstantie verkrijgen en ze gebruiken met uw apps. U kunt deze kan niet verkrijgen via de Azure portal.
+-   Een certificaat kopen en gebruiken met een app via Azure Portal. U kunt certificaten rechtstreeks bij een certificeringsinstantie verkrijgen en ze gebruiken met uw apps. U kunt ze niet verkrijgen via Azure Portal.
 
-## <a name="create-an-ilb-ase"></a>Een as ILB-omgeving maken ##
+## <a name="create-an-ilb-ase"></a>Een ILB AS-omgeving maken ##
 
-Een as ILB-omgeving maken:
+Ga als volgt te werk om een ILB AS-omgeving te maken:
 
-1. Selecteer in de Azure-portal **nieuw** > **Web en mobiel** > **App Service-omgeving**.
+1. Selecteer in Azure Portal achtereenvolgens **Nieuw** > **Web en mobiel** > **App Service Environment**.
 
 2. Selecteer uw abonnement.
 
@@ -62,81 +63,81 @@ Een as ILB-omgeving maken:
 
 4. Selecteer of maak een VNet.
 
-5. Als u een bestaande VNet selecteert, moet u een subnet voor het opslaan van de as-omgeving maken. Zorg ervoor dat een subnetgrootte die groot genoeg voor een eventuele toekomstige groei van uw as-omgeving instellen. Een grootte van het is raadzaam `/25`, waardoor 128 adressen heeft en een maximale grootte as-omgeving kan verwerken. De minimale grootte die u kunt selecteren is een `/28`. Nadat de infrastructuur nodig heeft, kan de grootte van deze tot maximaal 11 exemplaren worden uitgebreid.
+5. Als u een bestaand VNet selecteert, moet u een subnet maken om de AS-omgeving in te plaatsen. Zorg ervoor dat u een subnetgrootte instelt die groot genoeg is voor een eventuele toekomstige groei van uw AS-omgeving. We raden een grootte aan van `/25`. Dit formaat bevat 128 adressen en kan de grootst mogelijke AS-omgeving verwerken. De minimale grootte die u kunt selecteren is een `/28`. Deze grootte kan, afhankelijk van de behoeften van uw infrastructuur, worden geschaald naar maximaal 11 exemplaren.
 
-    * Verder dan het maximumaantal 100 exemplaren in uw App Service-abonnementen.
+    * Ga verder dan het maximumaantal van 100 exemplaren in uw App Service-plannen.
 
-    * In de buurt van 100, maar met meer snelle front-schaling schalen.
+    * Schaal naar bijna 100 met snellere front-endschaling.
 
-6. Selecteer **virtuele netwerklocatie** > **virtuele netwerkconfiguratie**. Stel de **VIP Type** naar **interne**.
+6. Selecteer **Virtueel netwerk/locatie** > **Virtuele-netwerkconfiguratie**. Stel het **VIP-type** in op **Intern**.
 
-7. Voer de domeinnaam van een. Dit domein wordt gebruikt voor apps die zijn gemaakt in deze as-omgeving. Er zijn enkele beperkingen. Kan niet worden:
+7. Voer een domeinnaam in. Dit is het domein dat wordt gebruikt voor apps die zijn gemaakt in deze AS-omgeving. Er zijn enkele beperkingen. Het domein kan niet zijn:
 
-    * NET   
+    * net   
 
-    * azurewebsites.NET
+    * azurewebsites.net
 
-    * p.azurewebsites.NET
+    * p.azurewebsites.net
 
-    * &lt;asename&gt;. p.azurewebsites.net
+    * &lt;naam van AS-omgeving&gt;.p.azurewebsites.net
 
-   De aangepaste domeinnaam gebruikt voor apps en de domeinnaam die wordt gebruikt door uw as-omgeving kunnen elkaar niet overlappen. Voor een as ILB-omgeving met de domeinnaam _contoso.com_, u kunt aangepaste domeinnamen voor uw apps zoals niet gebruiken:
+   De aangepaste domeinnaam die wordt gebruikt voor apps en de domeinnaam die wordt gebruikt voor uw AS-omgeving mogen niet overlappen. Voor een ILB AS-omgeving met de domeinnaam _contoso.com_ kunt u geen aangepaste domeinnamen voor de apps gebruiken, zoals:
 
     * www.contoso.com
 
-    * ABCD.def.contoso.com
+    * abcd.def.contoso.com
 
-    * ABCD.contoso.com
+    * abcd.contoso.com
 
-   Als u weet dat de aangepaste domeinnamen voor uw apps, kiest u een domein voor de as ILB-omgeving die u geen een conflict met deze aangepaste domeinnamen hebt. In dit voorbeeld kunt u ongeveer *contoso internal.com* voor het domein van uw as-omgeving omdat dat geen met aangepaste domeinnamen die eindigen conflicten op *. contoso.com*.
+   Als u de aangepaste domeinnamen voor de apps kent, kiest u een domein voor de ILB AS-omgeving die niet conflicteert met deze aangepaste domeinnamen. In dit voorbeeld kunt u voor het domein van uw AS-omgeving een naam gebruiken zoals *contoso-internal.com*, omdat deze naam niet conflicteert met aangepaste domeinnamen die eindigen op *.contoso.com*.
 
-8. Selecteer **OK**, en selecteer vervolgens **maken**.
+8. Selecteer **OK**, en selecteer vervolgens **Maken**.
 
     ![ASE maken][1]
 
-Op de **virtueel netwerk** blade, er is een **virtuele netwerkconfiguratie** optie. U kunt deze gebruiken om een externe VIP of een interne VIP te selecteren. De standaardwaarde is **externe**. Als u selecteert **externe**, uw as-omgeving maakt gebruik van een internet toegankelijke VIP. Als u selecteert **intern**, uw as-omgeving is geconfigureerd met een ILB op een IP-adres binnen uw VNet.
+Op de blade **Virtueel netwerk** ziet u de optie **Virtuele-netwerkconfiguratie**. U kunt deze optie gebruiken om een extern VIP-adres of een intern VIP-adres te selecteren. De standaard is **Extern**. Als u **Extern** selecteert, maakt de AS-omgeving gebruik van een IP-adres dat toegankelijk is via internet. Als u **Intern** selecteert, is de AS-omgeving geconfigureerd met een ILB op een IP-adres binnen uw VNet.
 
-Nadat u hebt geselecteerd **intern**, de mogelijkheid meer IP-adressen toevoegen aan uw as-omgeving wordt verwijderd. In plaats daarvan moet u het domein van de as-omgeving te bieden. In een as met een externe VIP-omgeving, wordt de naam van de as-omgeving in het domein gebruikt voor apps die zijn gemaakt in die as-omgeving.
+Nadat u **Intern** hebt geselecteerd, wordt de mogelijkheid om meer IP-adressen toe te voegen aan de AS-omgeving verwijderd. In plaats hiervan moet u het domein van de AS-omgeving opgeven. In een AS-omgeving met een extern VIP-adres wordt de naam van de AS-omgeving gebruikt in het domein voor apps die zijn gemaakt in deze AS-omgeving.
 
-Als u instelt **VIP Type** naar **intern**, de naam van uw as-omgeving wordt niet gebruikt in het domein voor de as-omgeving. U Geef expliciet het domein. Als uw domein *contoso.corp.net* en u een app maken in de betreffende as-omgeving met de naam *timereporting*, de URL voor die app timereporting.contoso.corp.net is.
+Als u het **VIP-type** instelt op **Intern**, wordt de naam van de AS-omgeving niet gebruikt in het domein van de AS-omgeving. U geeft het domein expliciet op. Als uw domein *contoso.corp.net* is en u een app in deze AS-omgeving maakt met de naam *timereporting*, is de URL voor deze app timereporting.contoso.corp.net.
 
 
-## <a name="create-an-app-in-an-ilb-ase"></a>Een app maken in een ILB-as-omgeving ##
+## <a name="create-an-app-in-an-ilb-ase"></a>Een app maken in een ILB AS-omgeving ##
 
-U kunt een app maken in een ILB-as-omgeving op dezelfde manier als u een app in een as-omgeving normaal maken.
+Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van een app in een AS-omgeving.
 
-1. Selecteer in de Azure-portal **nieuw** > **Web en mobiel** > **Web** of **Mobile** of **API-App**.
+1. Selecteer in Azure Portal achtereenvolgens **Nieuw** > **Web en mobiel** > **Web** of **Mobile** of **API-app**.
 
-2. Voer de naam van de app.
+2. Voer de naam van de app in.
 
 3. Selecteer het abonnement.
 
 4. Selecteer of maak een resourcegroep.
 
-5. Selecteer of maak een App Service-abonnement. Als u maken van een nieuw App Service-plan wilt, selecteert u uw as-omgeving als de locatie. Selecteer de worker-groep waar u uw App Service-abonnement worden gemaakt. Wanneer u de App Service-abonnement hebt gemaakt, selecteert u uw as-omgeving als de locatie en de worker-groep. Wanneer u de naam van de app opgeeft, wordt het domein onder de appnaam van uw vervangen door het domein voor uw as-omgeving.
+5. Selecteer of maak een App Service-plan. Als u een nieuw App Service-plan wilt maken, selecteert u uw AS-omgeving als locatie. Selecteer de groep met werkrollen waarin u het App Service-plan wilt maken. Wanneer u het App Service-plan maakt, selecteert u uw AS-omgeving als de locatie en de groep met werkrollen. Wanneer u de naam van de app opgeeft, wordt het domein onder de app-naam vervangen door het domein van de AS-omgeving.
 
-6. Selecteer **Maken**. Als u wilt dat de app op uw dashboard wilt weergeven, selecteert u de **vastmaken aan dashboard** selectievakje.
+6. Selecteer **Maken**. Als u de app wilt weergeven op het dashboard, vinkt u het selectievakje **Vastmaken aan dashboard** aan.
 
-    ![App Service-abonnement maken][2]
+    ![Het maken van een App Service-plan][2]
 
-    Onder **appnaam**, de domeinnaam wordt bijgewerkt met het domein van uw as-omgeving.
+    Bij **App-naam** wordt de domeinnaam bijgewerkt zodat deze verwijst naar het domein van de AS-omgeving.
 
-## <a name="post-ilb-ase-creation-validation"></a>Validatie van post ILB as-omgeving maken ##
+## <a name="post-ilb-ase-creation-validation"></a>Het maken van een post-ILB AS-omgeving valideren ##
 
-Er is een ILB-as-omgeving iets anders dan de niet - ILB as-omgeving. Als al hebt genoteerd moet u uw eigen DNS beheren. U moet ook uw eigen certificaat voor HTTPS-verbindingen opgeven.
+Een ILB AS-omgeving verschilt iets van de niet-ILB AS-omgeving. Zoals al eerder is aangegeven, moet u uw eigen DNS beheren. U moet ook uw eigen certificaat voor HTTPS-verbindingen opgeven.
 
-Nadat u uw as-omgeving hebt gemaakt, ziet u de domeinnaam in het opgegeven domein. Een nieuw item wordt weergegeven in de **instelling** menu aangeroepen **ILB certificaat**. De as-omgeving wordt gemaakt met een certificaat dat niet Geef het domein ILB as-omgeving. Als u het as-omgeving met dat certificaat gebruikt, ziet uw browser u dat het is ongeldig. Dit certificaat vereenvoudigt het testen van HTTPS, maar u moet voor het uploaden van uw eigen certificaat dat gekoppeld aan uw domein ILB as-omgeving. Deze stap is nodig, ongeacht of het certificaat is zelfondertekend of verkregen via een certificeringsinstantie.
+Nadat u de AS-omgeving hebt gemaakt, wordt in de domeinnaam het domein weergegeven dat u hebt opgegeven. In het menu **Instelling** wordt een nieuw item weergegeven genaamd **ILB-certificaat**. De AS-omgeving wordt gemaakt met een certificaat waarin het domein van de ILB AS-omgeving niet wordt opgegeven. Als u de AS-omgeving met dit certificaat gebruikt, verschijnt er een melding in de browser dat het certificaat ongeldig is. Met dit certificaat kunt u HTTPS eenvoudiger testen, maar u moet uw eigen certificaat uploaden dat is gekoppeld aan het domein van uw ILB AS-omgeving. Deze stap is nodig, ongeacht of het certificaat zelfondertekend is of is verkregen via een certificeringsinstantie.
 
-![De domeinnaam ILB as-omgeving][3]
+![De domeinnaam van de ILB AS-omgeving][3]
 
-Uw as ILB-omgeving moet een geldig SSL-certificaat. Interne CA's gebruiken, een certificaat kopen bij een externe verlener of een zelfondertekend certificaat gebruiken. Ongeacht de bron van het SSL-certificaat moeten de volgende kenmerken van de certificaten correct worden geconfigureerd:
+Voor uw ILB AS-omgeving is een geldig SSL-certificaat vereist. Gebruik interne certificeringsinstanties, koop een certificaat van een externe gebruiker of gebruik een zelfondertekend certificaat. De volgende certificaatkenmerken moeten juist zijn geconfigureerd, ongeacht wat de bron van het SSL-certificaat is:
 
-* **Onderwerp**: dit kenmerk moet worden ingesteld op *.your, root, domein, hier.
-* **Alternatieve onderwerpnaam**: dit kenmerk moet bevatten beide **.your, root, domein, hier* en **.scm.your-hoofdmap-domain-hier*. SSL-verbindingen met de SCM/Kudu-site die is gekoppeld aan elke app een adres van het formulier gebruiken *your-app-name.scm.your-root-domain-here*.
+* **Onderwerp**: dit kenmerk moet zijn ingesteld op *.hier-uw-hoofddomein.
+* **Alternatieve onderwerpnaam**: dit kenmerk moet zowel **.hier-uw-hoofddomein* als **.scm.hier-uw-hoofddomein* bevatten. SSL-verbindingen met de SCM/Kudu-site die zijn gekoppeld aan elke app, gebruiken een adres met de notatie *uw-app-naam.scm.hier-uw-hoofddomein*.
 
-Het SSL-certificaat, converteren/opslaan als een .pfx-bestand. Het pfx-bestand moet alle tussenliggende bevatten en de hoofd-certificaten. Beveilig deze met een wachtwoord.
+Converteer het SSL-certificaat naar een .pfx-bestand of sla het certificaat in deze indeling op. Het pfx-bestand moet alle tussenliggende certificaten en basiscertificaten bevatten. Beveilig het bestand met een wachtwoord.
 
-Als u maken van een zelfondertekend certificaat wilt, kunt u hier de PowerShell-opdrachten gebruiken. Zorg ervoor dat u uw domeinnaam ILB as-omgeving in plaats van *internal.contoso.com*: 
+Als u een zelfondertekend certificaat wilt maken, kunt u hier de PowerShell-opdrachten gebruiken. Zorg ervoor dat u de domeinnaam van de ILB AS-omgeving gebruikt in plaats van *internal.contoso.com*: 
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
     
@@ -146,81 +147,81 @@ Als u maken van een zelfondertekend certificaat wilt, kunt u hier de PowerShell-
     $fileName = "exportedcert.pfx" 
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 
-Het certificaat dat u deze PowerShell-opdrachten genereren is door browsers gemarkeerd, omdat het certificaat is niet gemaakt door een certificeringsinstantie die in de vertrouwensketen van uw browser. Als u een certificaat dat uw browser vertrouwt, kunt u het aanschaffen van een commerciële certificeringsinstantie in uw browser vertrouwensketen. 
+Het certificaat dat met deze PowerShell-opdrachten is gegenereerd, wordt in browsers gemarkeerd met een vlag, omdat het certificaat niet afkomstig is van een certificeringsinstantie uit de vertrouwensketen van de browser. Als u een certificaat wilt verkrijgen dat wordt vertrouwd in de browser, kunt u het aanschaffen bij een commerciële certificeringsinstantie uit de vertrouwensketen van de browser. 
 
-![Set ILB certificaat][4]
+![ILB-certificaat instellen][4]
 
-Uw eigen certificaten uploaden en toegang testen:
+Ga als volgt te werk om uw eigen certificaten te uploaden en de toegang te testen:
 
-1. Nadat de as-omgeving is gemaakt, gaat u naar de gebruikersinterface van de as-omgeving. Selecteer **as-omgeving** > **instellingen** > **ILB certificaat**.
+1. Ga nadat de AS-omgeving is gemaakt naar de gebruikersinterface van de AS-omgeving. Selecteer **AS-omgeving** > **Instellingen** > **ILB-certificaat**.
 
-2. Het certificaat ILB instellen, selecteert u het PFX-certificaatbestand en voer het wachtwoord. Deze stap duurt enige tijd om te verwerken. Er verschijnt een bericht dat een uploadbewerking uitgevoerd wordt.
+2. Als u het ILB-certificaat wilt instellen, selecteert u het .pfx-bestand met het certificaat en voert u het wachtwoord in. Het duurt enige tijd voordat deze stap is verwerkt. Er wordt een bericht weergegeven waarin staat dat een uploadbewerking wordt uitgevoerd.
 
-3. Haal de ILB-adres voor uw as-omgeving. Selecteer **as-omgeving** > **eigenschappen** > **virtueel IP-adres**.
+3. Haal het ILB-adres voor de AS-omgeving op. Selecteer **AS-omgeving** > **Eigenschappen** > **Virtueel IP-adres**.
 
-4. Een web-app maken in uw as-omgeving, nadat de as-omgeving is gemaakt.
+4. Maak een web-app in de AS-omgeving, nadat de AS-omgeving is gemaakt.
 
-5. Een virtuele machine maken als u niet in dit VNet hebt.
+5. Maak een VM, als u in dit VNet nog geen VM hebt.
 
     > [!NOTE] 
-    > Niet probeert te maken van deze virtuele machine in hetzelfde subnet als de as-omgeving, omdat deze wordt niet uitgevoerd of problemen veroorzaken.
+    > Maak deze VM niet in hetzelfde subnet als de AS-omgeving, want deze actie mislukt of veroorzaakt problemen.
     >
     >
 
-6. Stel de DNS-server voor uw domein as-omgeving. U kunt een jokerteken gebruiken met uw domein in uw DNS. Bewerk het bestand hosts op de virtuele machine de naam van de web-app instellen op het VIP-IP-adres hiervoor enkele eenvoudige tests uit:
+6. Stel het DNS in voor het domein van de AS-omgeving. U kunt een jokerteken gebruiken bij uw domein in het DNS. Als u een aantal eenvoudige tests wilt uitvoeren, bewerkt u het hostbestand op de VM zodat de naam van de web-app is ingesteld op het virtuele IP-adres:
 
-    a. Als uw as-omgeving de domeinnaam heeft _. ilbase.com_ en maken van de web-app met de naam _mytestapp_, het gericht op _mytestapp.ilbase.com_. Vervolgens stelt u _mytestapp.ilbase.com_ omzetten naar het adres van de ILB. (Het hosts-bestand in vensters is _C:\Windows\System32\drivers\etc\_.)
+    a. Als de AS-omgeving de domeinnaam _.ilbase.com_ heeft en u een web-app maakt met de naam _mytestapp_, is het adres _mytestapp.ilbase.com_. Vervolgens stelt u _mytestapp.ilbase.com_ in om te worden omgezet naar het ILB-adres. (In Windows bevindt het hostbestand zich op _C:\Windows\System32\drivers\etc\_.)
 
-    b. Als u wilt testen webpublicaties implementatie of toegang tot de geavanceerde console, maakt u een record voor _mytestapp.scm.ilbase.com_.
+    b. Als u het publiceren van webimplementaties of de toegang tot de geavanceerde console wilt testen, maakt u een record voor _mytestapp.scm.ilbase.com_.
 
-7. Een browser gebruiken die op deze virtuele machine en Ga naar http://mytestapp.ilbase.com. (Of Ga naar wat de naam van uw web-app met uw domein is.)
+7. Gebruik een browser op deze VM en ga naar http://mytestapp.ilbase.com. (Of ga naar de web-app-naam die bij uw domein hoort.)
 
-8. Een browser gebruiken die op deze virtuele machine en Ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, accepteert u het gebrek aan beveiliging.
+8. Gebruik een browser op deze VM en ga naar https://mytestapp.ilbase.com. Als u een zelfondertekend certificaat gebruikt, aanvaardt u het gebrek aan beveiliging.
 
-    Het IP-adres voor de ILB wordt vermeld onder **IP-adressen**. Deze lijst heeft ook de IP-adressen die door het externe VIP en voor binnenkomende beheer van verkeer.
+    Het IP-adres voor de ILB wordt vermeld bij **IP-adressen**. Deze lijst bevat ook de IP-adressen die worden gebruikt voor het externe VIP-adres en voor binnenkomend beheerverkeer.
 
-    ![ILB IP-adres][5]
+    ![IP-adres voor ILB][5]
 
-## <a name="web-jobs-functions-and-the-ilb-ase"></a>Webtaken, functies en de as ILB-omgeving ##
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>WebJobs, Functions en de ILB AS-omgeving ##
 
-Zowel functies en webtaken worden ondersteund op een as ILB-omgeving, maar voor de portal om hiermee te werken, moet u toegang tot het netwerk hebben tot de SCM-site.  Dit betekent dat de browser moet op een host die is in- of verbonden met het virtuele netwerk.  
+Een ILB AS-omgeving biedt ondersteuning voor zowel Functions als WebJobs. Als u echter met deze wilt werken via de portal, hebt u netwerktoegang tot de SCM-site nodig.  Dit betekent dat de host van de browser zich in het virtuele netwerk moet bevinden of ermee moet zijn verbonden.  
 
-Als u Azure Functions op een as ILB-omgeving gebruikt, krijgt u mogelijk een foutbericht weergegeven waarin wordt gemeld 'We kunnen geen uw functies nu ophalen. Probeer het later opnieuw." Deze fout treedt op omdat de gebruikersinterface van de functies maakt gebruik van de site SCM via HTTPS en het basiscertificaat niet in de vertrouwensketen browser is. Webtaken heeft een soortgelijk probleem. U kunt het volgende doen om dit probleem te voorkomen:
+Als u Azure Functions in een ILB AS-omgeving gebruikt, wordt er mogelijk een foutbericht weergegeven waarin staat: Uw functies kunnen momenteel niet worden opgehaald. Probeer het later opnieuw. Deze fout treedt op omdat de gebruikersinterface van Functions gebruikmaakt van de SCM-site via HTTPS en het basiscertificaat geen onderdeel uitmaakt van de vertrouwensketen van de browser. Bij WebJobs treedt een soortgelijk probleem op. U kunt het volgende doen om dit probleem te voorkomen:
 
-- Het certificaat toevoegen aan uw vertrouwde certificaatarchief. Dit blokkering opgeheven rand en Internet Explorer.
-- Chrome gebruiken en gaat u naar de site SCM eerst, niet-vertrouwd certificaat te accepteren en gaat u naar de portal.
-- Een commerciële certificaat in uw browser vertrouwensketen gebruiken.  Dit is de beste optie.  
+- Voeg het certificaat toe aan het vertrouwde certificaatarchief. Hierdoor wordt de blokkering van Edge en Internet Explorer opgeheven.
+- Gebruik Chrome en ga eerst naar de SCM-site, accepteer het niet-vertrouwde certificaat en ga vervolgens naar de portal.
+- Gebruik een commercieel certificaat uit de vertrouwensketen van de browser.  Dit is de beste optie.  
 
 ## <a name="dns-configuration"></a>DNS-configuratie ##
 
-Wanneer u een externe VIP gebruikt, wordt de DNS-server wordt beheerd door Azure. Elke app gemaakt in uw as-omgeving wordt automatisch toegevoegd aan Azure DNS, die een openbare DNS-server is. In een ILB as-omgeving, moet u uw eigen DNS beheren. Voor een bepaald domein, zoals _contoso.net_, moet u DNS A-records in DNS die verwijzen naar uw adres ILB voor maken:
+Wanneer u een extern VIP-adres gebruikt, wordt de DNS-server beheerd met Azure. Elke app die is gemaakt in de AS-omgeving wordt automatisch toegevoegd aan Azure DNS, wat een openbaar DNS is. In een ILB AS-omgeving moet u uw eigen DNS beheren. Voor een gegeven domein, bijvoorbeeld _contoso.net_, moet u DNS A-records in het DNS maken die verwijzen naar uw ILB-adres voor:
 
-- *. contoso.net
-- *. scm.contoso.net
+- *.contoso.net
+- *.scm.contoso.net
 
-Als uw domein ILB as-omgeving wordt gebruikt voor meerdere dingen buiten deze as-omgeving, moet u mogelijk DNS beheren op basis van de per-app-naam. Deze methode is lastig omdat u de appnaam van elke nieuwe toevoegen in uw DNS moet wanneer u deze maakt. Daarom is het raadzaam dat u een speciale domein.
+Als het domein van de ILB AS-omgeving voor meerdere zaken buiten deze AS-omgeving wordt gebruikt, moet u het DNS mogelijk per app-naam beheren. Deze methode is lastig omdat u elke nieuwe app-naam moet toevoegen in het DNS wanneer u deze maakt. Daarom raden we u aan om een toegewezen domein te gebruiken.
 
-## <a name="publish-with-an-ilb-ase"></a>Publiceren met een ILB-as-omgeving ##
+## <a name="publish-with-an-ilb-ase"></a>Publiceren met een ILB AS-omgeving ##
 
-Voor elke app die gemaakt, zijn er twee eindpunten. In een ILB as-omgeving, hebt u  *&lt;app-naam >.&lt; ILB as-omgeving Domain >* en  *&lt;app-naam > .scm.&lt; ILB as-omgeving Domain >*. 
+Elke app die wordt gemaakt, heeft twee eindpunten. In een ILB AS-omgeving hebt u *&lt;app-naam>.&lt;Domein voor ILB AS-omgeving>* en *&lt;app-naam>.scm.&lt;Domein voor ILB AS-omgeving>*. 
 
-De sitenaam SCM Hiermee gaat u naar de Kudu-console, genaamd de **geavanceerde portal**, binnen de Azure-portal. De Kudu-console kunt u omgevingsvariabelen weergeven, de schijf verkennen, gebruikt u een console, en nog veel meer. Zie voor meer informatie [Kudu-console voor Azure App Service][Kudu]. 
+De SCM-sitenaam leidt naar de Kudu-console, genaamd de **Geavanceerde portal**, binnen Azure Portal. Met behulp van de Kudu-console kunt u omgevingsvariabelen bekijken, de schijf verkennen, een console gebruiken, en nog veel meer. Zie [Kudu-console voor Azure App Service][Kudu] voor meer informatie. 
 
-Er is eenmalige aanmelding tussen de Azure-portal en de Kudu-console in de multitenant-App Service en in een externe as-omgeving. Voor de ILB as-omgeving, echter, moet u uw publishing referenties gebruiken om aan te melden bij de Kudu-console.
+In de App Service met meerdere tenants en in een Externe AS-omgeving is sprake van eenmalige aanmelding tussen Azure Portal en de Kudu-console. Voor de ILB AS-omgeving moet u, echter, uw publicatiereferenties gebruiken om u aan te melden bij de Kudu-console.
 
-Internetgebaseerde CI systemen, zoals GitHub en Visual Studio Team Services, werkt niet met een ILB-as-omgeving omdat het publishing eindpunt niet toegankelijk internet. In plaats daarvan moet u een CI-besturingssysteem dat gebruikmaakt van een pull-model, zoals Dropbox gebruiken.
+Op internet gebaseerde CI-systemen, zoals GitHub en Visual Studio Team Services, werken niet met een ILB AS-omgeving, omdat het publicatie-eindpunt niet toegankelijk is via internet. In plaats hiervan moet u een CI-systeem gebruiken dat gebruikmaakt van een pull-model, bijvoorbeeld Dropbox.
 
-Het domein dat de as ILB-omgeving is gemaakt met de publicatie eindpunten voor apps in een ILB-as-omgeving gebruiken Dit domein wordt weergegeven in het profiel voor het publiceren van de app en de portalblade van de app (**overzicht** > **Essentials** en ook **eigenschappen**). Als u een ILB-as-omgeving met het subdomein hebt *contoso.net* en een app met de naam *mytest*, gebruik *mytest.contoso.net* voor FTP en *mytest.scm.contoso.net* voor implementatie.
+De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. Dit domein wordt weergegeven in het publicatieprofiel van de app en in de portalblade van de app (**Overzicht** > **Essentials** en ook **Eigenschappen**). Als u een ILB AS-omgeving hebt met het subdomein *contoso.net* en een app met de naam *mytest*, gebruikt u *mytest.contoso.net* voor FTP en *mytest.scm.contoso.net* voor webimplementatie.
 
-## <a name="couple-an-ilb-ase-with-a-waf-device"></a>Combineer een ILB-as-omgeving met een WAF-apparaat ##
+## <a name="couple-an-ilb-ase-with-a-waf-device"></a>Een ILB AS-omgeving koppelen met een WAF-apparaat ##
 
-Azure App Service biedt veel beveiligingsfuncties die beschermen van het systeem. Ze helpen ook om te bepalen of een app is gehackte. De beste beveiliging voor een webtoepassing is het een host-platform, zoals Azure App Service, Combineer met web application firewall (WAF). Omdat de as ILB-omgeving een toepassingseindpunt netwerk geïsoleerd van heeft, is het geschikt is voor dit gebruik.
+Azure App Service biedt veel beveiligingsmaatregelen die het systeem beveiligen. Deze maatregelen helpen ook om te bepalen of een app is gehackt. De beste beveiliging voor een webtoepassing is om een hostingplatform, zoals Azure App Service, te koppelen met een WAF (Web Application Firewall). De ILB AS-omgeving is geschikt voor dergelijk gebruik omdat deze een toepassingseindpunt met netwerkisolatie heeft.
 
-Zie voor meer informatie over het configureren van de as ILB-omgeving met een apparaat WAF, [web application firewall configureren met uw App-serviceomgeving][ASEWAF]. Dit artikel laat zien hoe u een virtueel apparaat Barracuda met uw as-omgeving. Een andere optie is het gebruik van Azure Application Gateway. Toepassingsgateway gebruikt de OWASP core-regels voor het beveiligen van alle toepassingen erachter geplaatst. Zie voor meer informatie over Application Gateway [Inleiding tot de Azure-web application firewall][AppGW].
+Zie [Configure a web application firewall with your App Service environment][ASEWAF] (Een WAF (Web Application Firewall) configureren met uw App Service-omgeving) voor meer informatie over het configureren van de ILB AS-omgeving met een WAF-apparaat. In dit artikel leest u hoe u een virtueel Barracuda-apparaat gebruikt met de AS-omgeving. Een andere optie is het gebruik van Azure Application Gateway. Application Gateway maakt gebruik van de OWASP-kernregels om alle toepassingen te beveiligen die erachter zijn geplaatst. Zie [Introduction to the Azure web application firewall][AppGW] (Inleiding tot de WAF (Web Application Firewall) in Azure) voor meer informatie over Application Gateway.
 
 ## <a name="get-started"></a>Aan de slag ##
 
-* Als u wilt beginnen met ASEs, Zie [Inleiding tot de App Service-omgevingen][Intro].
+* Zie [Introduction to App Service environments][Intro] (Inleiding tot App Service-omgevingen) om aan de slag te gaan met AS-omgevingen.
  
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
