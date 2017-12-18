@@ -27,17 +27,17 @@
 ### [Meer informatie over het gebruik van gereserveerde instanties voor Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Abonnementen beheren
+### [Abonnement of beheergroep zoeken](billing-enterprise-mgmt-grp-find.md)
 ### [Beheerdersrollen beheren](billing-add-change-azure-subscription-administrator.md)
 ### [Eigendom van het abonnement overdragen](billing-subscription-transfer.md)
 ### [Een uitgeschakeld abonnement opnieuw activeren](billing-subscription-become-disable.md)
 ### [Upgrade uitvoeren van een gratis abonnement](billing-upgrade-azure-subscription.md)
 ### [Van abonnement wisselen](billing-how-to-switch-azure-offer.md)
+### [Een Azure AD-tenant koppelen](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Abonnement annuleren](billing-how-to-cancel-azure-subscription.md)
-### [Abonnement of beheergroep zoeken](billing-enterprise-mgmt-grp-find.md)
 ## Account beheren
 ### [Profiel bewerken](billing-how-to-change-azure-account-profile.md)
 ### [Betalingsgegevens bijwerken](billing-how-to-change-credit-card.md)
-### [Office 365-tenant koppelen](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Voor abonnementen betalen per factuur](billing-how-to-pay-by-invoice.md)
 ## [Gereserveerde VM-instanties beheren](billing-manage-reserved-vm-instance.md)
 ## Problemen oplossen

@@ -58,6 +58,7 @@
 #### [Een B2B-gebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamische groepen en B2B-gebruikers](active-directory-b2b-dynamic-groups.md)
 #### [Controle en rapportage](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B voor hybride organisaties](active-directory-b2b-hybrid-organizations.md)
 #### [Extern delen B2B en Office 365](active-directory-b2b-o365-external-user.md)
 #### [B2B-licentieverlening](active-directory-b2b-licensing.md)
 #### [Huidige beperkingen](active-directory-b2b-current-limitations.md)

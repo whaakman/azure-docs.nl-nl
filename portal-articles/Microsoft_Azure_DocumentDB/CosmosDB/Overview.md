@@ -6,13 +6,13 @@ author: sewatson
 manager: lwelicki
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentatie voor Azure Cosmos DB
 
@@ -22,12 +22,12 @@ Azure Cosmos DB is een wereldwijd verspreide databaseservice waarmee u doorvoer 
 
 Meer informatie over het gebruik van Azure Cosmos DB om een globaal gedistribueerde database te maken met een van de API's voor meerdere modellen:
 
-### <a name="documentdb-api"></a>DocumentDB-API
+### <a name="sql-api"></a>SQL-API
 
-- [.NET](/azure/cosmos-db/create-documentdb-dotnet)
-- [Java](/azure/cosmos-db/create-documentdb-java)
-- [Node.js](/azure/cosmos-db/create-documentdb-nodejs)
-- [Python](/azure/cosmos-db/create-documentdb-python)
+- [.NET](/azure/cosmos-db/create-sql-api-dotnet)
+- [Java](/azure/cosmos-db/create-sql-api-java)
+- [Node.js](/azure/cosmos-db/create-sql-api-nodejs)
+- [Python](/azure/cosmos-db/create-sql-api-python)
 
 ### <a name="mongodb-api"></a>MongoDB-API
 
@@ -50,11 +50,11 @@ Meer informatie over het gebruik van Azure Cosmos DB om een globaal gedistribuee
 
 Meer informatie over het ontwikkelen van apps met behulp van Azure Cosmos DB:
 
-- Een app ontwikkelen met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Tabel](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Grafiek](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Gegevens importeren in Cosmos DB[DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Gegevens opvragen met Cosmos DB [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Tabel](/azure/cosmos-db/tutorial-query-table) | [Grafiek](/azure/cosmos-db/tutorial-query-graph)
-- Globale databasereplicatie met Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tabel](/azure/cosmos-db/tutorial-global-distribution-table | [Grafiek](/azure/cosmos-db/tutorial-global-distribution-graph)
-- [Uw toepassing lokaal ontwikkelen met behulp van de emulator](/azure/documentdb/documentdb-nosql-local-emulator)
+- Een app ontwikkelen met Cosmos DB: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Gegevens importeren in Cosmos DB [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
+- Gegevens opvragen met Cosmos DB: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
+- Wereldwijde databasereplicatie met Cosmos DB: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
+- [Uw toepassing lokaal ontwikkelen met behulp van de emulator](/azure/cosmos-db/local-emulator)
 
 ## <a name="samples"></a>Voorbeelden
 
