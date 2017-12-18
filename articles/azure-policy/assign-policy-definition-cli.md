@@ -5,42 +5,27 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Een beleidstoewijzing maken om niet-compatibele resources te identificeren in uw Azure-omgeving met Azure CLI
 
-Om naleving in Azure te begrijpen, moet u eerst weten hoe het er voorstaat met uw eigen huidige resources. In deze Quick Start gaat u een beleidstoewijzing maken voor de identificatie van virtuele machines die geen beheerde schijven gebruiken.
+Om naleving in Azure te begrijpen, moet u eerst weten hoe het er voorstaat met uw eigen huidige resources. In deze quickstart gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
 
 Als u het proces helemaal hebt doorlopen, hebt u virtuele machines geïdentificeerd die geen beheerde schijven gebruiken, en daarom *niet compatibel* zijn.
-.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze quickstart de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
-
-## <a name="opt-in-to-azure-policy"></a>Registreren voor Azure Policy
-
-Azure Policy is nu beschikbaar in openbare preview en u moet zich registreren om toegang aan te vragen.
-
-1. Ga naar Azure Policy op https://aka.ms/getpolicy en selecteer **Aanmelden** in het linkerdeelvenster.
-
-   ![Zoeken naar beleid](media/assign-policy-definition/sign-up.png)
-
-2. Registreer u voor Azure Policy door in de lijst **Abonnement** de abonnementen te selecteren waarmee u wilt werken. Selecteer vervolgens **Registreren**.
-
-   ![Registreren voor het gebruik van Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Uw aanvraag wordt automatisch goedgekeurd voor preview. Het duurt maximaal 30 minuten voordat uw registratie door het systeem is verwerkt.
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-policy-assignment"></a>Een beleidstoewijzing maken
 
@@ -66,7 +51,7 @@ Verstrek de volgende informatie en voer de volgende opdracht uit om de beleidsde
 - **Beleid**: dit is de beleidsdefinitie, op basis waarvan u de toewijzing maakt. In dit geval is het de beleidsdefinitie *Virtuele machines zonder beheerde schijven controleren*
 - Het **bereik**: het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Dit kan variëren van een abonnement tot resourcegroepen.
 
-  Gebruik het abonnement (of de resourcegroep) die u eerder hebt geregistreerd toen u zich aanmeldde voor Azure Policy. In dit voorbeeld gebruiken we de volgende abonnements-id: **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** en de naam van de resourcegroep: **FabrikamOMS**. Zorg ervoor dat u de id wijzigt in de id van het abonnement en de naam in de naam van de resourcegroep waarmee u werkt.
+  Gebruik het eerder geregistreerde abonnement (of de eerder geregistreerde resourcegroep). In dit voorbeeld gebruiken we de abonnements-id **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** en de resourcegroepnaam **FabrikamOMS**. Zorg ervoor dat u de id wijzigt in de id van het abonnement en de naam in de naam van de resourcegroep waarmee u werkt.
 
 De opdracht moet er als volgt uitzien:
 
@@ -90,7 +75,7 @@ De resources weergeven die niet compatibel zijn onder deze nieuwe toewijzing:
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Andere handleidingen in deze verzameling zijn op deze Quick Start gebaseerd. Als u door wilt gaan met andere zelfstudies, verwijdert u de resources die u in deze Quick Start hebt gemaakt, niet. Als u niet van plan bent om door te gaan, verwijdert u de toewijzing die u hebt gemaakt door de volgende opdracht uit te voeren:
+Andere handleidingen in deze verzameling zijn op deze quickstart gebaseerd. Als u door wilt gaan met andere zelfstudies, verwijdert u de resources die u in deze quickstart hebt gemaakt, niet. Als u niet van plan bent om door te gaan, verwijdert u de toewijzing die u hebt gemaakt door de volgende opdracht uit te voeren:
 
 ```azurecli
 az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS

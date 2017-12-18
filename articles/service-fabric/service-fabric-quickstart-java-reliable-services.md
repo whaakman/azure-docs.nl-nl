@@ -1,6 +1,6 @@
 ---
-title: Een Azure Service Fabric-Java-toepassing maken | Microsoft Docs
-description: Een Java-toepassing maken voor Azure met behulp van de Service Fabric-snel starten-voorbeeld.
+title: Een Java-toepassing maken in Azure Service Fabric | Microsoft Docs
+description: Maak een Java-toepassing voor Azure met behulp van het quickstart-voorbeeld voor Service Fabric.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -16,83 +16,83 @@ ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
 ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="create-a-java-application"></a>Een Java-toepassing maken
-Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en beheren van microservices en containers. 
+Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers. 
 
-Deze snelstartgids laat zien hoe uw eerste Java-toepassing naar Service Fabric implementeren met behulp van de Eclipse IDE op een Linux-machine voor ontwikkelaars. Wanneer u klaar bent, hebt u een stemtoepassing met een Java-webfront-end die stemmende resultaten in een stateful back-end-service in het cluster slaat.
+Deze quickstart laat zien hoe u uw eerste Java-toepassing in Service Fabric implementeert met behulp van de Eclipse IDE op een Linux-machine voor ontwikkelaars. Wanneer u klaar bent, hebt u een stemtoepassing met een web-front-end in Java die stemresultaten opslaat in een stateful back-endservice in het cluster.
 
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-java/votingapp.png)
 
-In deze snelstartgids leert u de volgende zaken:
+In deze quickstart leert u de volgende zaken:
 
 > [!div class="checklist"]
-> * Eclipse gebruiken als een hulpmiddel voor uw Service Fabric-Java-toepassingen
-> * De toepassing op uw lokale cluster implementeren 
-> * De toepassing implementeren naar een cluster in Azure
-> * Scale-out van de toepassing op meerdere knooppunten
+> * Eclipse gebruiken als hulpmiddel voor uw Java-toepassingen in Service Fabric
+> * De toepassing implementeren in het lokale cluster 
+> * De toepassing implementeren in een cluster in Azure
+> * De toepassing uitschalen over meerdere knooppunten
 
 ## <a name="prerequisites"></a>Vereisten
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
-1. [Service Fabric SDK & Service Fabric-opdrachtregelinterface (CLI) installeren](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Git installeren](https://git-scm.com/)
 3. [Eclipse installeren](https://www.eclipse.org/downloads/)
-4. [Java-omgeving instellen](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), waardoor ervoor dat met de optionele stappen voor het installeren van de Eclipse-invoegtoepassing 
+4. [Java-omgeving instellen](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), inclusief de optionele stappen voor het installeren van de Eclipse-invoegtoepassing 
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
-Voer de volgende opdracht voor het klonen van de opslagplaats van de voorbeeld-app op uw lokale computer in een opdrachtvenster.
+Voer in een opdrachtvenster de volgende opdracht uit om de voorbeeld-app-opslagplaats te klonen op de lokale computer.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
-1. Start uw lokale cluster door het uitvoeren van de volgende opdracht:
+1. Start het lokale cluster door de volgende opdracht uit te voeren:
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Het starten van het lokale cluster neemt enige tijd in. Toegang tot de Service Fabric Explorer op om te bevestigen dat het cluster volledig up-to-date **http://localhost: 19080**. De vijf knooppunten orde duiden op dat het lokale cluster actief is. 
+    Het starten van het lokale cluster kan enige tijd duren. Open Service Fabric Explorer op **http://localhost:19080** om te controleren of het cluster helemaal naar behoren functioneert. Als de vijf knooppunten in orde zijn, is het lokale cluster actief. 
     
-    ![Lokale cluster in orde](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Lokaal cluster is in orde](./media/service-fabric-quickstart-java/localclusterup.png)
 
-2. Open de Eclipse.
-3. Klik op bestand -> geopende projecten van bestandssysteem... 
-4. Klik op de map en kies de `Voting` map van de `service-fabric-java-quickstart` map die u vanuit Github gekloond. Klik op Voltooien. 
+2. Open Eclipse.
+3. Klik op Bestand -> Projecten openen vanuit bestandssysteem... 
+4. Klik op Map en kies de map `Voting` uit de map `service-fabric-java-quickstart` die u hebt gekloond vanuit Github. Klik op Voltooien. 
 
-    ![Dialoogvenster van eclipse importeren](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![Het importdialoogvenster van Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
     
-5. U hebt nu de `Voting` -project in de Explorer-pakket voor Eclipse. 
-6. Klik met de rechtermuisknop op het project en selecteer **toepassing publiceren...**  onder de **Service Fabric** vervolgkeuzelijst. Kies **PublishProfiles/Local.json** als het profiel van de doelcomputer en klik op publiceren. 
+5. U hebt nu het project `Voting` in de pakketverkenner voor Eclipse. 
+6. Klik met de rechtermuisknop op het project en selecteer **Toepassing publiceren...** in de vervolgkeuzelijst **Service Fabric**. Kies **PublishProfiles/Local.json** als doelprofiel en klik op Publiceren. 
 
-    ![Dialoogvenster lokale publiceren](./media/service-fabric-quickstart-java/localjson.png)
+    ![Het dialoogvenster Publiceren voor Local](./media/service-fabric-quickstart-java/localjson.png)
     
-7. Open uw favoriete webbrowser en toegang tot de toepassing met het openen van **http://localhost: 8080**. 
+7. Open uw favoriete webbrowser en open de toepassing op **http://localhost:8080**. 
 
-    ![Front-lokale toepassing](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Front-end van de toepassing voor Local](./media/service-fabric-quickstart-java/runninglocally.png)
     
-U kunt nu een set opties voor uw stem toevoegen en begin met het maken van stemmen. De toepassing wordt uitgevoerd en worden alle gegevens in uw Service Fabric-cluster, zonder de noodzaak van een aparte database opgeslagen.
+U kunt nu een reeks stemmingsopties toevoegen en beginnen met het verzamelen van stemmen. De toepassing wordt uitgevoerd en alle gegevens worden opgeslagen in het Service Fabric-cluster, zonder dat hiervoor een aparte database nodig is.
 
 ## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
 
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Uw Azure Service Fabric-Cluster instellen
-Voor het implementeren van de toepassing naar een cluster in Azure maken van uw eigen cluster of een Cluster van derden gebruiken.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Het Azure Service Fabric-cluster instellen
+Maak uw eigen cluster of gebruik een cluster van derden om de toepassing te implementeren in een cluster in Azure.
 
-Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Door het Service Fabric-team waar iedereen toepassingen implementeren en meer informatie over het platform worden uitgevoerd. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
+Clusters van derden zijn gratis tijdelijke Service Fabric-clusters die worden gehost in Azure. Ze worden beheerd door het Service Fabric-team. Iedereen kan hier toepassingen implementeren en informatie krijgen over het platform. [Volg de instructies](http://aka.ms/tryservicefabric) om toegang te krijgen tot een cluster van derden. 
 
-Zie voor meer informatie over het maken van uw eigen cluster [Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Zie [Een Service Fabric-cluster maken op Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) voor meer informatie over het maken van uw eigen cluster.
 
 > [!Note]
-> De web-front-service is geconfigureerd om te luisteren op poort 8080 voor binnenkomend verkeer. Zorg ervoor dat de poort is geopend in het cluster. Als u het Cluster van derden gebruikt, is deze poort is geopend.
+> De web-front-endservice is geconfigureerd om naar binnenkomend verkeer te luisteren op poort 8080. Zorg ervoor dat de poort is geopend in het cluster. Als u een cluster van derden gebruikt, is deze poort geopend.
 >
 
-### <a name="deploy-the-application-using-eclipse"></a>De toepassing met behulp van Eclipse implementeren
-Nu dat de toepassing en het cluster klaar bent, kunt u deze rechtstreeks vanuit de Eclipse implementeren naar het cluster.
+### <a name="deploy-the-application-using-eclipse"></a>De toepassing implementeren met behulp van Eclipse
+Nu de toepassing en het cluster gereed zijn, kunt u deze rechtstreeks vanuit Eclipse implementeren in het cluster.
 
-1. Open de **Cloud.json** bestand onder de **PublishProfiles** directory en vul de `ConnectionIPOrURL` en `ConnectionPort` velden op de juiste wijze. Een voorbeeld weergegeven: 
+1. Open het bestand **Cloud.json** in de map **PublishProfiles**, en vul de velden `ConnectionIPOrURL` en `ConnectionPort` correct in. Hier volgt een voorbeeld: 
 
     ```bash
     {
@@ -106,46 +106,46 @@ Nu dat de toepassing en het cluster klaar bent, kunt u deze rechtstreeks vanuit 
     }
     ```
 
-2. Klik met de rechtermuisknop op het project en selecteer **toepassing publiceren...**  onder de **Service Fabric** vervolgkeuzelijst. Kies **PublishProfiles/Cloud.json** als het profiel van de doelcomputer en klik op publiceren. 
+2. Klik met de rechtermuisknop op het project en selecteer **Toepassing publiceren...** in de vervolgkeuzelijst **Service Fabric**. Kies **PublishProfiles/Cloud.json** als doelprofiel en klik op Publiceren. 
 
-    ![Dialoogvenster Cloud publiceren](./media/service-fabric-quickstart-java/cloudjson.png)
+    ![Het dialoogvenster Publiceren voor Cloud](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. Open uw favoriete webbrowser en toegang tot de toepassing met het openen van **http://\<ConnectionIPOrURL >: 8080**. 
+3. Open uw favoriete webbrowser en open de toepassing op **http://\<ConnectionIPOrURL>:8080**. 
 
-    ![Toepassing front-cloud](./media/service-fabric-quickstart-java/runningcloud.png)
+    ![Front-end van de toepassing voor Cloud](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
-Services kunnen worden geschaald over een cluster te maken voor een wijziging in de belasting van de services. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. U hebt meerdere manieren schalen van uw services, kunt u scripts of opdrachten van Service Fabric CLI (sfctl). In dit voorbeeld gebruiken we Service Fabric Explorer.
+Services kunnen eenvoudig worden geschaald in een cluster om een wijziging in de belasting voor de services aan te kunnen. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. Er zijn meerdere manieren waarop u services kunt schalen. U kunt hiervoor scripts of opdrachten van Service Fabric-CLI (sfctl) gebruiken. In dit voorbeeld wordt gebruikgemaakt van Service Fabric Explorer.
 
-Service Fabric Explorer wordt uitgevoerd in alle Service Fabric-clusters en toegankelijk is vanuit een browser door te bladeren naar de clusters HTTP-poort (19080), bijvoorbeeld `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en is toegankelijk door vanuit een browser naar de HTTP-beheerpoort (19080) te bladeren, bijvoorbeeld `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
 1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
-2. Klik op het weglatingsteken (drie punten) naast de **fabric: / Voting/VotingWeb** knooppunt in de structuurweergave en kies **Scale Service**.
+2. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
 
-    ![Service Fabric Explorer Scale-Service](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![De Service Fabric Explorer-service schalen](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     U kunt er nu voor kiezen om het aantal exemplaren van de web-front-endservice te schalen.
 
 3. Wijzig het aantal in **2** en klik op **Service schalen**.
-4. Klik op de **fabric: / Voting/VotingWeb** knooppunt in de structuurweergave en het partitie-knooppunt (vertegenwoordigd door een GUID zijn).
+4. Klik op het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en vouw het partitieknooppunt uit (vertegenwoordigd door een GUID).
 
-    ![Service Fabric Explorer Scale-Service voltooid](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Schalen van Service Fabric Explorer-service is voltooid](./media/service-fabric-quickstart-java/servicescaled.png)
 
-    U kunt nu zien dat de service twee exemplaren heeft en in de structuurweergave u welke knooppunten de instanties worden uitgevoerd ziet op.
+    U ziet nu dat er twee exemplaren van de service zijn. In de structuurweergave ziet u op welke knooppunten de exemplaren worden uitgevoerd.
 
 Met deze eenvoudige beheertaak is het aantal beschikbare resources voor het verwerken van gebruikersbelasting voor onze front-endservice verdubbeld. Het is belangrijk te weten dat u niet meerdere exemplaren van een service nodig hebt om ervoor te zorgen dat deze op betrouwbare wijze wordt uitgevoerd. Als de service mislukt, wordt in Service Fabric een nieuw exemplaar van de service uitgevoerd in het cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u de volgende zaken geleerd:
+In deze quickstart hebt u de volgende zaken geleerd:
 
 > [!div class="checklist"]
-> * Eclipse gebruiken als een hulpmiddel voor uw Service Fabric-Java-toepassingen
-> * Java-toepassingen op uw lokale cluster implementeren 
-> * Java-toepassingen met een cluster in Azure implementeren
-> * Scale-out van de toepassing op meerdere knooppunten
+> * Eclipse gebruiken als hulpmiddel voor uw Java-toepassingen in Service Fabric
+> * Java-toepassingen implementeren in het lokale cluster 
+> * Java-toepassingen implementeren in een cluster in Azure
+> * De toepassing uitschalen over meerdere knooppunten
 
-* Meer informatie over [Foutopsporingsservices in Eclipse met Java](service-fabric-debugging-your-application-java.md)
-* Meer informatie over [uw doorlopende integreation & implementatie met behulp van Jenkins instellen](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Afhandeling van andere [Java-voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* Meer informatie over [foutopsporingsservices in Java met Eclipse](service-fabric-debugging-your-application-java.md)
+* Meer informatie over [doorlopende integratie en implementatie instellen met behulp van Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+* Andere [Java-voorbeelden](https://github.com/Azure-Samples/service-fabric-java-getting-started) bekijken

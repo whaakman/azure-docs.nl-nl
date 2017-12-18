@@ -1,45 +1,37 @@
 ---
-title: Snelstartgids - Azure Kubernetes-cluster voor Linux | Microsoft Docs
+title: Quickstart - Azure Kubernetes-cluster voor Linux
 description: Leer snel een Kubernetes-cluster te maken voor Linux-containers in Azure Container Service met de Azure CLI.
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
-ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 59f37565d7e1912a149497223707e96a5ce8b24e
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 48bd7c0bb7b5d13586267cac202de41c25c1fc7b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Kubernetes-cluster voor Linux-containers implementeren
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In deze snelstartgids wordt een Kubernetes-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet. 
+In deze quickstart wordt een Kubernetes-cluster geïmplementeerd met behulp van de Azure CLI. Vervolgens wordt er een toepassing met meerdere containers die bestaat uit een web-front-end en een Redis-exemplaar, geïmplementeerd en uitgevoerd op het cluster. Zodra de toepassing is voltooid, is deze toegankelijk via internet. 
 
 De voorbeeldtoepassing gebruikt in dit document is geschreven in Python. De concepten en de stappen die hier worden beschreven, kunnen worden gebruikt om een containerinstallatiekopie te implementeren in een Kubernetes-cluster. De code-, Dockerfile- en vooraf gemaakte Kubernetes-manifestbestanden die zijn gerelateerd aan dit project, zijn beschikbaar op [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-In deze snelstartgids wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Zie de [Kubernetes-documentatie]( https://kubernetes.io/docs/home/) voor gedetailleerde informatie over Kubernetes.
+In deze quickstart wordt ervan uitgegaan dat u over basiskennis van Kubernetes-concepten beschikt. Zie de [Kubernetes-documentatie]( https://kubernetes.io/docs/home/) voor gedetailleerde informatie over Kubernetes.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze quickstart de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -218,13 +210,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Code ophalen
 
-In deze snelstartgids zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Kubernetes-implementatie te maken. De gerelateerde toepassingscode, Dockerfile en het Kubernetes-manifestbestand zijn beschikbaar op GitHub.
+In deze quickstart zijn vooraf gemaakte containerinstallatiekopieën gebruikt om een Kubernetes-implementatie te maken. De gerelateerde toepassingscode, Dockerfile en het Kubernetes-manifestbestand zijn beschikbaar op GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een Kubernetes-cluster geïmplementeerd en vervolgens een toepassing met meerdere containers naar het cluster geïmplementeerd. 
+In deze quickstart hebt u een Kubernetes-cluster geïmplementeerd en vervolgens een toepassing met meerdere containers naar het cluster geïmplementeerd. 
 
 Voor meer informatie over Azure Container Service en een volledig voorbeeld van code tot implementatie gaat u naar de zelfstudie Kubernetes-cluster.
 

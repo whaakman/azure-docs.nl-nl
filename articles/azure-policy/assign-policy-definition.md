@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Een beleidstoewijzing maken om niet-compatibele resources te identificeren in uw Azure-omgeving
 Om naleving in Azure te begrijpen, moet u eerst weten hoe het er voorstaat met uw eigen huidige resources. In deze quickstart gaat u een beleidstoewijzing maken voor het identificeren van virtuele machines die geen beheerde schijven gebruiken.
@@ -21,20 +21,6 @@ Om naleving in Azure te begrijpen, moet u eerst weten hoe het er voorstaat met u
 Als u het proces helemaal hebt doorlopen, hebt u virtuele machines geïdentificeerd die geen beheerde schijven gebruiken, en daarom *niet compatibel* zijn.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-## <a name="opt-in-to-azure-policy"></a>Aanmelden voor Azure Policy
-
-Azure Policy is nu beschikbaar in openbare preview en u moet zich registreren om toegang aan te vragen.
-
-1. Ga naar Azure Policy op https://aka.ms/getpolicy en selecteer **Aanmelden** in het linkerdeelvenster.
-
-   ![Zoeken naar beleid](media/assign-policy-definition/sign-up.png)
-
-2. Meld u aan voor Azure Policy door in de lijst **Abonnement** de abonnementen te selecteren waarmee u wilt werken. Selecteer vervolgens **Registreren**.
-
-   ![Aanmelden voor het gebruik van Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Uw aanvraag wordt automatisch goedgekeurd voor preview. Het duurt maximaal 30 minuten voordat uw registratie door het systeem is verwerkt.
 
 ## <a name="create-a-policy-assignment"></a>Een beleidstoewijzing maken
 
@@ -65,7 +51,7 @@ In deze quickstart maken we een beleidstoewijzing en wijzen we de beleidsdefinit
    Er zijn twee prijscategorieën in Azure Policy: *Gratis* en *Standard*. Met de prijscategorie Gratis kunt alleen beleid afdwingen op toekomstige resources, terwijl u met Standard ook beleid kunt afdwingen op bestaande resources om een beter inzicht te krijgen in uw nalevingsstatus. Omdat we met een beperkte preview werken, hebben we nog geen prijsmodel uitgebracht en ontvangt u geen factuur als u *Standard* selecteert. Zie [Prijzen voor Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/) voor meer informatie over prijzen.
 
 7. Selecteer het **Bereik** waarop u het beleid wilt toepassen.  Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen. Dit kan variëren van een abonnement tot resourcegroepen.
-8. Selecteer het abonnement (of de resourcegroep) die u eerder hebt geregistreerd toen u zich aanmeldde voor Azure Policy. In dit voorbeeld gebruiken we dit abonnement: **Azure Analytics Capacity Dev**. Uw opties zullen echter anders zijn.
+8. Selecteer het eerder geregistreerde abonnement (of de eerder geregistreerde resourcegroep). In dit voorbeeld gebruiken we dit abonnement: **Azure Analytics Capacity Dev**. Uw opties zullen echter anders zijn.
 
    ![De juiste beleidsdefinitie vinden](media/assign-policy-definition/assign-policy.png)
 
