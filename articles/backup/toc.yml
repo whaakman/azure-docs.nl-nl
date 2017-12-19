@@ -4,7 +4,7 @@
   items:
     - name: Wat is Azure Backup?
       href: backup-introduction-to-azure-backup.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Back-up maken van een VM - Portal
@@ -59,8 +59,6 @@
           items:
             - name: Azure Backup Server-workloads voorbereiden in Azure Portal
               href: backup-azure-microsoft-azure-backup.md
-            - name: Azure Backup Server-workloads voorbereiden in klassieke portal
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Opslag toevoegen aan Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: Azure Backup Server upgraden naar v.2
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Toepassingsconsistente back-ups van virtuele Linux-machines
               href: backup-azure-linux-app-consistent.md
-            - name: Virtuele Azure-machines voorbereiden
-              href: backup-azure-vms-prepare.md
         - name: Uw omgeving plannen
           items:
             - name: VM-back-upinfrastructuur plannen
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Back-ups maken van versleutelde virtuele machines
               href: backup-azure-vms-encryption.md
-            - name: Back-ups maken van virtuele Azure-machines
-              href: backup-azure-vms.md
         - name: Virtuele machines beheren en controleren
           items:
             - name: Back-ups van virtuele Azure-machines beheren in Azure Portal
               href: backup-azure-manage-vms.md
             - name: Waarschuwingen voor virtuele Azure-machines controleren in Azure Portal
               href: backup-azure-monitor-vms.md
-            - name: Back-ups van virtuele Azure-machines beheren en controleren in klassieke portal
-              href: backup-azure-manage-vms-classic.md
         - name: Gegevens van virtuele machines herstellen
           items:
             - name: Bestanden herstellen vanuit back-ups van virtuele Azure-machines
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Versleutelde virtuele machines terugzetten
               href: backup-azure-vms-encryption.md
-            - name: Virtuele machines herstellen in Azure
-              href: backup-azure-restore-vms.md
             - name: Key Vault-sleutel en -geheim voor versleutelde virtuele machines terugzetten
               href: backup-azure-restore-key-secret.md
     - name: Azure Backup-rapporten configureren
@@ -135,8 +125,6 @@
       items:
         - name: DPM-workloads voorbereiden in Azure Portal
           href: backup-azure-dpm-introduction.md
-        - name: DPM-workloads voorbereiden in klassieke portal
-          href: backup-azure-dpm-introduction-classic.md
         - name: System Center DPM gebruiken om back-ups te maken van Exchange Server
           href: backup-azure-backup-exchange-server.md
         - name: Gegevens herstellen naar een andere DPM-server
@@ -149,16 +137,10 @@
       items:
         - name: Virtuele Azure-machines in Azure Portal
           href: backup-azure-vms-automation.md
-        - name: Virtuele Azure-machines in de klassieke portal
-          href: backup-azure-vms-classic-automation.md
         - name: DPM in Azure Portal
           href: backup-dpm-automation.md
-        - name: DPM in klassieke portal
-          href: backup-dpm-automation-classic.md
         - name: Windows Server in Azure Portal
           href: backup-client-automation.md
-        - name: Windows Server in klassieke portal
-          href: backup-client-automation-classic.md
     - name: Azure SQL Database
       items:
         - name: Langetermijnretentie van back-ups configureren
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Recovery Services-kluizen beheren en controleren
           href: backup-azure-manage-windows-server.md
-        - name: Back-ups maken en terugzetten met behulp van de klassieke portal
-          items:
-            - name: Windows Server met het klassieke implementatiemodel
-              href: backup-configure-vault-classic.md
-            - name: Back-upkluizen beheren met het klassieke implementatiemodel
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Bestanden herstellen op een Windows Server met het klassieke implementatiemodel
-              href: backup-azure-restore-windows-server-classic.md
     - name: Recovery Services-kluis
       items:
         - name: Overzicht van Recovery Services-kluizen
@@ -201,8 +175,6 @@
       items:
         - name: Problemen met back-ups van virtuele Azure-machines in Azure Portal
           href: backup-azure-vms-troubleshoot.md
-        - name: Problemen met back-ups van virtuele Azure-machines in klassieke portal
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Back-up maken van Azure VM mislukt: kan niet communiceren met de VM-agent voor de status van de momentopname - time-out opgetreden tijdens uitvoeren van subtaak voor momentopname van VM'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Langzame back-ups van bestanden en mappen in Azure Backup
