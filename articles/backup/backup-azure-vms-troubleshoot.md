@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
-> [!div class="op_single_selector"]
-> * [Recovery services-kluis](backup-azure-vms-troubleshoot.md)
-> * [Back-upkluis](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met informatie die worden vermeld in de onderstaande tabel kunt oplossen.
 
 ## <a name="backup"></a>Back-up
@@ -34,14 +28,14 @@ U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met inform
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Fout: De opgegeven schijf-configuratie wordt niet ondersteund.
 
 > [!NOTE]
-> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met > 1TB zonder begeleiding schijven. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> We hebben een beperkte preview om back-ups voor virtuele machines met > 1 TB aan onbeheerde schijven te ondersteunen. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn dan 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Als er meer dan 1 TB schijven [koppel nieuwe schijven](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) die minder dan 1 TB zijn <br>
-- Kopieer vervolgens de gegevens van de schijf groter is dan 1TB in de zojuist gemaakte een of meer schijven van kleiner is dan 1 TB. <br>
-- Zorg ervoor dat alle gegevens zijn gekopieerd en verwijder de schijven die groter is dan 1TB
+- Als u schijven hebt die groter zijn dan 1 TB, [koppelt u nieuwe schijven](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) met een grootte van minder dan 1 TB <br>
+- Kopieer vervolgens de gegevens van de schijf die groter is dan 1TB, naar de zojuist gemaakte schijf of schijven met een grootte van minder dan 1 TB. <br>
+- Zorg ervoor dat alle gegevens zijn gekopieerd en verwijder de schijven die groter zijn dan 1 TB
 - Start de back-up.
 
 | Foutdetails | Tijdelijke oplossing |
@@ -137,7 +131,7 @@ Het controleren van de versie van het VM-Agent op VM's van Windows:
 VM-back-afhankelijk van de momentopnameopdrachten uitgeven naar de onderliggende opslag. Geen toegang hebben tot opslag- of vertragingen in uitvoering van een momentopname van de taak kan leiden tot de back-uptaak is mislukt. De volgende kan taakfout momentopname veroorzaken.
 
 1. Netwerktoegang tot opslag is geblokkeerd met behulp van de NSG<br>
-    Meer informatie over het [-netwerktoegang inschakelen](backup-azure-vms-prepare.md#network-connectivity) voor opslag met beide WhiteListing van IP-adressen of proxyserver.
+    Meer informatie over het [-netwerktoegang inschakelen](backup-azure-arm-vms-prepare.md#network-connectivity) voor opslag met beide WhiteListing van IP-adressen of proxyserver.
 2. Virtuele machines met Sql Server back-up is geconfigureerd, kunnen leiden tot vertragingen momentopname <br>
    Standaard VM back-up problemen VSS volledige back-up op VM's van Windows. Dit kan op virtuele machines die worden uitgevoerd op het Sql-Servers en als de back-up van Sql Server is geconfigureerd, vertraging veroorzaken in momentopname worden uitgevoerd. Stel volgende registersleutel als u mislukte back-ups vanwege momentopname problemen ondervindt.
 
@@ -169,7 +163,7 @@ Zodra de naamomzetting correct is uitgevoerd, moet toegang tot de Azure-IP-adres
    * De IP-adressen met behulp van de blokkering opheffen de [nieuw NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Deze cmdlet in de Azure-machine worden uitgevoerd in een verhoogde PowerShell-venster (als Administrator uitvoeren).
    * Regels toevoegen aan het NSG (als u geïmplementeerd hebt) voor toegang tot de IP-adressen.
 2. Maken van een pad voor de HTTP-verkeer
-   * Als u hebt implementeren sommige netwerkbeperking aanwezig (een Netwerkbeveiligingsgroep, bijvoorbeeld) een HTTP-proxyserver voor het routeren van verkeer. Stappen voor het implementeren van een HTTP-proxyserver kunnen gevonden [hier](backup-azure-vms-prepare.md#network-connectivity).
+   * Als u hebt implementeren sommige netwerkbeperking aanwezig (een Netwerkbeveiligingsgroep, bijvoorbeeld) een HTTP-proxyserver voor het routeren van verkeer. Stappen voor het implementeren van een HTTP-proxyserver kunnen gevonden [hier](backup-azure-arm-vms-prepare.md#network-connectivity).
    * Regels toevoegen aan het NSG (als u geïmplementeerd hebt) om toegang tot het INTERNET toestaat vanaf de HTTP-Proxy.
 
 > [!NOTE]

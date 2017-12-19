@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: d242954eb62a0d7325cc4222a54f2581967fdc19
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Instellen van de bronomgeving (fysieke server naar Azure)
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ De volgende tabel bevat de minimale hardware, software en netwerkvereisten voor 
 ## <a name="choose-your-protection-goals"></a>Uw beveiligingsdoelstellingen kiezen
 
 1. In de Azure portal, gaat u naar de **Recovery Services** blade-kluizen en selecteer uw kluis.
-2. In de **Resource** menu van de kluis, klikt u op **aan de slag** > **siteherstel** > **stap 1: infrastructuur voorbereiden **  >  **Beveiligingsdoel**.
+2. In de **Resource** menu van de kluis, klikt u op **aan de slag** > **siteherstel** > **stap 1: infrastructuur voorbereiden**   >  **Beveiligingsdoel**.
 
     ![Doelstellingen kiezen](./media/site-recovery-set-up-physical-to-azure/choose-goals.png)
 3. In **beveiligingsdoel**, selecteer **naar Azure** en **niet gevirtualiseerde/andere**, en klik vervolgens op **OK**.

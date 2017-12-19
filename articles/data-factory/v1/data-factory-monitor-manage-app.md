@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de app voor bewaking en beheer
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Als u een Data Factory-toepassing voor het testen van deze stappen met hebt, gaa
 ## <a name="understand-the-monitoring-and-management-app"></a>Overzicht van de bewaking en beheer-app
 Er zijn drie tabbladen aan de linkerkant: **Resource Explorer**, **weergaven**, en **waarschuwingen**. Het eerste tabblad (**Resource Explorer**) is standaard geselecteerd.
 
-### <a name="resource-explorer"></a>Resource Explorer
+### <a name="resource-explorer"></a>Resourceverkenner
 U ziet het volgende:
 
 * De Resource Explorer **structuurweergave** in het linkerdeelvenster.
@@ -77,7 +77,7 @@ In Resource Explorer ziet u alle resources (pijplijnen, gegevenssets, gekoppelde
 * De eigenschappen van het geselecteerde object worden weergegeven in het venster Eigenschappen in het rechterdeelvenster.
 * De JSON-definitie van het geselecteerde object wordt weergegeven, indien van toepassing. Bijvoorbeeld: een gekoppelde service, een dataset of een pijplijn.
 
-![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Resourceverkenner](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Zie de [planning en uitvoering](data-factory-scheduling-and-execution.md) artikel voor meer conceptuele informatie over windows activiteit.
 
@@ -179,7 +179,7 @@ Activiteit windows kunnen worden gebruikt in een van de volgende statussen:
 <td>ActivityResume</td><td>De activiteit is onderbroken en de windows activiteit kan niet worden uitgevoerd totdat deze hervat.</td>
 </tr>
 <tr>
-<td>Probeer het opnieuw</td><td>De uitvoering van de activiteit wordt opnieuw geprobeerd.</td>
+<td>Opnieuw proberen</td><td>De uitvoering van de activiteit wordt opnieuw geprobeerd.</td>
 </tr>
 <tr>
 <td>Validatie</td><td>Validatie is nog niet gestart.</td>
@@ -189,19 +189,19 @@ Activiteit windows kunnen worden gebruikt in een van de volgende statussen:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Valideren</td><td>Validatie wordt uitgevoerd.</td>
+<td rowspan="2">Wordt uitgevoerd</td><td>Valideren</td><td>Validatie wordt uitgevoerd.</td>
 </tr>
 <td>-</td>
 <td>Het activiteitvenster wordt verwerkt.</td>
 </tr>
 <tr>
-<td rowspan="4">Is mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
+<td rowspan="4">Mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
 </tr>
 <tr>
 <td>Geannuleerd</td><td>Het activiteitvenster is geannuleerd door in te grijpen.</td>
 </tr>
 <tr>
-<td>Validatie</td><td>Validatie is mislukt.</td>
+<td>Validatie</td><td>De validatie is mislukt.</td>
 </tr>
 <tr>
 <td>-</td><td>Het activiteitvenster kan niet worden gegenereerd of gevalideerd.</td>
@@ -326,7 +326,7 @@ De volgende tabel bevat de lijst met beschikbare gebeurtenissen en status (en su
 | --- | --- | --- |
 | Activiteit die wordt uitgevoerd gestart |Gestart |Starting |
 | Activiteit die wordt uitgevoerd is voltooid |Geslaagd |Geslaagd |
-| Activiteit die wordt uitgevoerd is voltooid |Is mislukt |Fout in de Resource-toewijzing<br/><br/>Mislukte uitvoering<br/><br/>Time-out<br/><br/>De validatie is mislukt<br/><br/>Afgebroken |
+| Activiteit die wordt uitgevoerd is voltooid |Mislukt |Fout in de Resource-toewijzing<br/><br/>Mislukte uitvoering<br/><br/>Time-out<br/><br/>De validatie is mislukt<br/><br/>Afgebroken |
 | On-Demand HDI-Cluster maken gestart |Gestart |-|
 | On-Demand HDI-Cluster is gemaakt |Geslaagd |-|
 | On-Demand-HDI-Cluster is verwijderd |Geslaagd |-|

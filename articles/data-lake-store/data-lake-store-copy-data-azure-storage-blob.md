@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Gegevens kopiëren van Azure Storage Blob naar Data Lake Store
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ De parameters in de syntaxis worden hieronder beschreven:
 | SourceKey |Hiermee geeft u de toegangssleutel voor opslag voor de bron van Azure storage-blob. Dit is alleen vereist als de bron een blob-container of een blob is. |
 | Account |**Optioneel**. Gebruik deze optie als u wilt gebruiken van Azure Data Lake Analytics-account om uit te voeren van de kopieertaak. Als u de optie /Account in de syntaxis gebruiken, maar geen een Data Lake Analytics-account opgeeft, wordt in AdlCopy standaardaccount gebruikt voor het uitvoeren van de taak. Ook als u deze optie gebruikt, moet u toevoegen (Azure Storage-Blob) bron en bestemming (Azure Data Lake Store) als gegevensbronnen voor uw Data Lake Analytics-account. |
 | Eenheden |Hiermee geeft u het nummer van Data Lake Analytics-eenheden die wordt gebruikt voor de kopieertaak. Deze optie is verplicht als u de **/Account** optie voor het opgeven van het Data Lake Analytics-account. |
-| patroon |Hiermee geeft u een regex-patroon waarmee wordt aangegeven welke blobs of de bestanden te kopiëren. AdlCopy maakt gebruik van hoofdlettergevoelige overeenkomen. Het volgende standaardpatroon gebruikt wanneer er geen patroon is opgegeven is om alle items te kopiëren. Meerdere bestand patronen opgeven wordt niet ondersteund. |
+| Patroon |Hiermee geeft u een regex-patroon waarmee wordt aangegeven welke blobs of de bestanden te kopiëren. AdlCopy maakt gebruik van hoofdlettergevoelige overeenkomen. Het volgende standaardpatroon gebruikt wanneer er geen patroon is opgegeven is om alle items te kopiëren. Meerdere bestand patronen opgeven wordt niet ondersteund. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy (als zelfstandig) gebruiken om gegevens van een Azure Storage-blob kopiëren
 1. Open een opdrachtprompt en navigeer naar de map waar AdlCopy is geïnstalleerd, doorgaans `%HOMEPATH%\Documents\adlcopy`.
@@ -72,7 +72,7 @@ De parameters in de syntaxis worden hieronder beschreven:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] De bovenstaande syntaxis Hiermee geeft u het bestand moet worden gekopieerd naar een map in het Data Lake Store-account. AdlCopy hulpprogramma maakt een map als de naam van de opgegeven map niet bestaat.
+    >[AZURE.NOTE]De bovenstaande syntaxis Hiermee geeft u het bestand moet worden gekopieerd naar een map in het Data Lake Store-account. AdlCopy hulpprogramma maakt een map als de naam van de opgegeven map niet bestaat.
 
     U wordt gevraagd de referenties voor de Azure-abonnement waaronder die u een Data Lake Store-account hebt invoeren. Hier ziet u uitvoer ziet er als volgt:
 

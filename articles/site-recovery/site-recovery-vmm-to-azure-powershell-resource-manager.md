@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Hyper-V virtuele machines in VMM-clouds repliceren naar Azure met behulp van PowerShell en Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Zorg ervoor dat u deze vereisten hebt voldaan:
 
 ### <a name="hyper-v-prerequisites"></a>Hyper-V-vereisten
 * De Hyper-V-hostservers moeten ten minste draaien **Windows Server 2012** met Hyper-V-rol of **Microsoft Hyper-V Server 2012** en de meest recente updates hebt geïnstalleerd.
-* Als u Hyper-V in een cluster uitvoert, wordt die clusterbroker niet automatisch gemaakt als u een cluster op basis van een statisch IP-adres hebt. U moet de clusterbroker handmatig configureren. voor
+* Als u Hyper-V in een cluster uitvoert, wordt die clusterbroker niet automatisch gemaakt als u een cluster op basis van een statisch IP-adres hebt. U moet de clusterbroker handmatig configureren. Voor
 * Zie voor instructies [Hyper-V Replica Broker configureren hoe](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 * Alle Hyper-V-hostserver of het cluster waarvoor u wilt beheren protection moet worden opgenomen in een VMM-cloud.
 

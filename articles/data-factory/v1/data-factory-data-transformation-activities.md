@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformeer gegevens in Azure Data Factory
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ Na verloop van tijd moeten de voorspellende modellen in de Machine Learning-scor
 
 Zie [gebruiken Machine Learning-activiteiten](data-factory-azure-ml-batch-execution-activity.md) voor meer informatie over deze Machine Learning-activiteiten. 
 
-## <a name="stored-procedure-activity"></a>De activiteit opgeslagen procedure
+## <a name="stored-procedure-activity"></a>Opgeslagen procedureactiviteit
 U kunt de activiteit opgeslagen Procedure van SQL Server in een Data Factory-pijplijn gebruiken om aan te roepen, een opgeslagen procedure in een van de volgende gegevens worden opgeslagen: Azure SQL Database, Azure SQL Data Warehouse, SQL Server-Database in uw onderneming of een Azure VM. Zie [activiteit opgeslagen Procedure](data-factory-stored-proc-activity.md) artikel voor meer informatie.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-activiteit van Data Lake Analytics

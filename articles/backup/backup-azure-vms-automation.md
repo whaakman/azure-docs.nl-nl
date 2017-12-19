@@ -15,18 +15,13 @@ ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup-cmdlets gebruiken om back-up van virtuele machines
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Klassiek](backup-azure-vms-classic-automation.md)
->
->
 
 Dit artikel ziet u het gebruik van Azure PowerShell-cmdlets voor back-up en herstellen van Azure een virtuele machine (VM) vanuit een Recovery Services-kluis. Een Recovery Services-kluis is een Azure Resource Manager-bron en wordt gebruikt voor het beveiligen van gegevens en activa in Azure Backup- en Azure Site Recovery services. U kunt een Recovery Services-kluis gebruiken om Azure Service Manager geïmplementeerde VM's en Azure Resource Manager geïmplementeerde VM's te beveiligen.
 

@@ -15,27 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 9b3584a93766be6052c822f40328169910de26c7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
-> [!div class="op_single_selector"]
-> * [Resource Manager-model](backup-azure-arm-vms-prepare.md)
-> * [Klassieke model](backup-azure-vms-prepare.md)
->
->
 
 In dit artikel bevat de stappen voor het voorbereiden van uw omgeving tot back-up van een Resource Manager geïmplementeerde virtuele machine (VM). De stappen in de procedures gebruikt u de Azure-portal.  
 
 De Azure Backup-service heeft twee soorten kluizen (back-up kluizen en recovery services-kluizen) voor het beveiligen van uw virtuele machines. Een back-upkluis beveiligt virtuele machines die zijn geïmplementeerd met behulp van het klassieke implementatiemodel. Een recovery services-kluis beveiligt **zowel klassieke geïmplementeerd of Resource Manager geïmplementeerde VM's**. U moet een Recovery Services-kluis gebruiken om een Resource Manager geïmplementeerde VM te beveiligen.
 
 > [!NOTE]
-> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md). Zie [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-vms-prepare.md) voor meer informatie over het werken met Classic deployment model virtuele machines.
->
->
+> Azure heeft twee implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../azure-resource-manager/resource-manager-deployment-model.md). 
 
 Voordat u kunt beveiligen of back-up van een Resource Manager geïmplementeerde virtuele machine (VM), zorg er dan voor dat deze vereisten bestaan:
 
@@ -45,7 +38,7 @@ Voordat u kunt beveiligen of back-up van een Resource Manager geïmplementeerde 
 * Controleer de netwerkverbinding
 * Voor virtuele Linux-machines, als u wilt aanpassen van uw back-omgeving voor de toepassing consistente back-ups neemt u Volg de [stappen voor het configureren van scripts die voorafgaat aan momentopnamen en volgt op momentopnamen](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-Als u weet dat deze voorwaarden al bestaat in uw omgeving en gaat u verder met de [Back-up van uw virtuele machines artikel](backup-azure-vms.md). Als u wilt instellen of controleren, een van deze vereisten, begeleidt in dit artikel u de stappen voor het voorbereiden van of de vereiste.
+Als u weet dat deze voorwaarden al bestaat in uw omgeving en gaat u verder met de [Back-up van uw virtuele machines artikel](backup-azure-arm-vms.md). Als u wilt instellen of controleren, een van deze vereisten, begeleidt in dit artikel u de stappen voor het voorbereiden van of de vereiste.
 
 ##<a name="supported-operating-system-for-backup"></a>Ondersteund besturingssysteem voor back-up
  * **Linux**: Azure Backup ondersteunt [een lijst met distributies die zijn goedgekeurd door Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), met uitzondering van Core OS Linux. _Andere Bring-Your-eigenaar-Linux-distributies ook mogelijk werken zolang de VM-agent beschikbaar op de virtuele machine is en ondersteuning voor Python bestaat. We tekent echter niet de distributies voor back-up._
@@ -58,7 +51,7 @@ Voordat u uw omgeving hebt voorbereid, moet u de beperkingen begrijpen.
 * Back-ups van virtuele machines met gegevens groter zijn dan 1023GB schijfgrootten wordt niet ondersteund.
 
 > [!NOTE]
-> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met > 1TB zonder begeleiding schijven. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> We hebben een beperkte preview om back-ups voor virtuele machines met > 1 TB aan onbeheerde schijven te ondersteunen. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -69,8 +62,9 @@ Voordat u uw omgeving hebt voorbereid, moet u de beperkingen begrijpen.
 * Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
 * U kunt back-ups van virtuele machines in alle openbare gebieden van Azure (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's). Als de regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
-* Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Lees meer over [een multi-DC-domeincontroller terugzetten](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen ondersteund door PowerShell. Virtuele machines die zijn gemaakt met behulp van de werkstroom terugzetten in de gebruikersinterface wordt geen van deze netwerkconfiguraties nadat de herstelbewerking voltooid is. Zie voor meer informatie, [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Lees meer over [een multi-DC-domeincontroller terugzetten](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen ondersteund door PowerShell. Virtuele machines die zijn gemaakt met behulp van de werkstroom terugzetten in de gebruikersinterface wordt geen van deze netwerkconfiguraties nadat de herstelbewerking voltooid is. Zie voor meer informatie, [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
+
   * Virtuele machines onder een load balancer-configuratie (intern en extern)
   * Virtuele machines met meerdere gereserveerde IP-adressen
   * Virtuele machines met meerdere netwerkadapters
@@ -232,8 +226,6 @@ In onderstaande voorbeeldafbeelding ziet de drie configuratiestappen die nodig z
 * Proxy VM zorgt ervoor dat binnenkomend verkeer van virtuele machines in het virtuele netwerk.
 * De Netwerkbeveiligingsgroep (NSG) met de naam NSF-lockdown moet een beveiliging regel waardoor uitgaand internetverkeer van Proxy VM.
 
-![NSG met HTTP-proxy-implementatie-diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
-
 Volg deze stappen voor het gebruik van een HTTP-proxy om communicatie met het openbare Internet:
 
 #### <a name="step-1-configure-outgoing-network-connections"></a>Step 1. Uitgaande netwerkverbindingen configureren
@@ -285,16 +277,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Stap 2. Binnenkomende verbindingen toestaan op de proxy-server:
 1. Open Windows Firewall op de proxyserver. De eenvoudigste manier om toegang tot de firewall is om te zoeken naar Windows Firewall met geavanceerde beveiliging.
-
-    ![De Firewall openen](./media/backup-azure-vms-prepare/firewall-01.png)
 2. In het dialoogvenster Windows Firewall met de rechtermuisknop op **regels voor binnenkomende verbindingen** en klik op **nieuwe regel...** .
-
-    ![Een nieuwe regel maken](./media/backup-azure-vms-prepare/firewall-02.png)
 3. In de **nieuwe Wizard regel voor binnenkomende**, kies de **aangepaste** optie voor de **regeltype** en klik op **volgende**.
 4. Op de pagina selecteren de **programma**, kies **alle programma's** en klik op **volgende**.
 5. Op de **protocollen en poorten** pagina, voer de volgende informatie en klik op **volgende**:
-
-    ![Een nieuwe regel maken](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * voor *protocoltype* kiezen *TCP*
    * voor *lokale poort* kiezen *bepaalde poorten*, Geef in het veld hieronder de ```<Proxy Port>``` die is geconfigureerd.
@@ -323,6 +309,6 @@ Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [s
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u uw omgeving voor back-ups van uw virtuele machine hebt voorbereid, wordt de volgende logische stap is het maken van een back-up. De planning artikel vindt meer gedetailleerde informatie over back-ups van virtuele machines.
 
-* [Back-up van virtuele machines](backup-azure-vms.md)
+* [Back-up van virtuele machines](backup-azure-arm-vms.md)
 * [Uw VM-back-infrastructuur plannen](backup-azure-vms-introduction.md)
 * [Back-ups van virtuele machine beheren](backup-azure-manage-vms.md)

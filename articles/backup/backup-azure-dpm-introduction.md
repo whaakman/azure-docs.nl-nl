@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Met DPM voorbereiden op het maken van back-ups van workloads in Azure
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup-Server (klassiek)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (klassiek)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -113,7 +111,7 @@ De kluisreferenties worden alleen gebruikt tijdens de registratiewerkstroom. Het
 Het kluisreferentiebestand is gedownload via een beveiligd kanaal vanuit de Azure-portal. De Azure Backup-service is niet op de hoogte van de persoonlijke sleutel van het certificaat en de persoonlijke sleutel is niet permanent in de portal of de service. Gebruik de volgende stappen voor het downloaden van het kluisreferentiebestand naar een lokale computer.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Open Recovery Services-kluis waarnaar machine waarop u wilt registreren van DPM.
+2. Open de Recovery Services-kluis die u wilt dat DPM-machine te registreren.
 3. Instellingenblade wordt standaard zijn geopend. Als dit is gesloten, klikt u op **instellingen** op kluisdashboard om de instellingenblade te openen. Op de blade instellingen, klikt u op **eigenschappen**.
 
     ![Blade Kluis openen](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -131,7 +129,7 @@ De portal genereert een kluisreferentie met een combinatie van de kluisnaam van 
 ### <a name="3-install-backup-agent"></a>3. Back-Agent installeren
 Nadat de Azure Backup-kluis is gemaakt, moet een agent worden geïnstalleerd op elk van uw Windows-machines (Windows Server, Windows-client, System Center Data Protection Manager-server of Azure Backup-Server-machine) waarmee een back-up van gegevens en toepassingen naar Azure.
 
-1. Open Recovery Services-kluis waarnaar machine waarop u wilt registreren van DPM.
+1. Open de Recovery Services-kluis die u wilt dat DPM-machine te registreren.
 2. Instellingenblade wordt standaard zijn geopend. Als dit is gesloten, klikt u op **instellingen** om de instellingenblade te openen. Op de blade instellingen, klikt u op **eigenschappen**.
 
     ![Blade Kluis openen](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ Nadat de Azure Backup-kluis is gemaakt, moet een agent worden geïnstalleerd op 
 
     ![Downloaden](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Nadat de agent wordt gedownload, dubbelklikt u op MARSAgentInstaller.exe voor het starten van de installatie van de Azure Backup agent. Kies de installatiemap en de tijdelijke map is vereist voor de agent. De opgegeven locatie van de cache moet vrije schijfruimte die ten minste 5% van de back-upgegevens bevatten.
+   Nadat de agent wordt gedownload, worden de MARSAgentInstaller.exe voor het starten van de installatie van de Azure Backup agent uitgevoerd. Kies de installatiemap en de tijdelijke map is vereist voor de agent. De opgegeven locatie van de cache moet vrije schijfruimte die ten minste 5% van de back-upgegevens bevatten.
 4. Als u een proxyserver gebruiken om te verbinden met het internet, in de **proxyconfiguratie** scherm, voert u de gegevens van de proxy-server. Als u een geverifieerde proxyserver gebruikt, voert u de gegevens van de gebruiker en het wachtwoord in dit scherm.
 5. De Azure Backup agent installeert u .NET Framework 4.5 en Windows PowerShell (indien deze nog niet beschikbaar is) om de installatie te voltooien.
 6. Nadat de agent is geïnstalleerd, **sluiten** het venster.

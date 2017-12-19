@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Deze sectie beschrijft ook hoe een gegevensset-segment van de ene staat status v
    ![Door alle Bladeren > gegevensfactory's](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Op de **gegevensfactory** blade, selecteert u de gegevensfactory die u geïnteresseerd bent in.
 
-    ![Selecteer gegevensfactory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    ![Data factory selecteren](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
    U ziet de startpagina van de gegevensfactory.
 
@@ -86,7 +86,7 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Subtoestand</th><th align="left">Beschrijving</th>
+    <th align="left">Status</th><th align="left">Substatus</th><th align="left">Beschrijving</th>
 </tr>
 <tr>
     <td rowspan="8">Wachten</td><td>ScheduleTime</td><td>De tijd is niet geleverd voor het segment uit te voeren.</td>
@@ -104,7 +104,7 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 <td>ActivityResume</td><td>De activiteit is onderbroken en segmenten kan niet worden uitgevoerd totdat de activiteit is hervat.</td>
 </tr>
 <tr>
-<td>Probeer het opnieuw</td><td>Er wordt opnieuw geprobeerd activiteit is uitgevoerd.</td>
+<td>Opnieuw proberen</td><td>Er wordt opnieuw geprobeerd activiteit is uitgevoerd.</td>
 </tr>
 <tr>
 <td>Validatie</td><td>Validatie is nog niet gestart.</td>
@@ -114,19 +114,19 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Valideren</td><td>Validatie wordt uitgevoerd.</td>
+<td rowspan="2">Wordt uitgevoerd</td><td>Valideren</td><td>Validatie wordt uitgevoerd.</td>
 </tr>
 <td>-</td>
 <td>Het segment wordt verwerkt.</td>
 </tr>
 <tr>
-<td rowspan="4">Is mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
+<td rowspan="4">Mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
 </tr>
 <tr>
 <td>Geannuleerd</td><td>Het segment is geannuleerd door in te grijpen.</td>
 </tr>
 <tr>
-<td>Validatie</td><td>Validatie is mislukt.</td>
+<td>Validatie</td><td>De validatie is mislukt.</td>
 </tr>
 <tr>
 <td>-</td><td>Het segment kan niet worden gegenereerd en/of gevalideerd.</td>
@@ -366,7 +366,7 @@ In dit voorbeeld is ingesteld van de waarschuwing voor alle data Factory in uw a
 
 De volgende tabel bevat de lijst met beschikbare bewerkingen en statussen (en substatus).
 
-| De naam van bewerking | Status | Substatus |
+| Naam van bewerking | Status | Substatus |
 | --- | --- | --- |
 | RunStarted |Gestart |Starting |
 | RunFinished |Kan niet / is voltooid |FailedResourceAllocation<br/><br/>Geslaagd<br/><br/>FailedExecution<br/><br/>Time-out<br/><br/>< geannuleerd<br/><br/>FailedValidation<br/><br/>Afgebroken |

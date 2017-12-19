@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit
 > [!div class="op_single_selector"]
@@ -96,7 +96,7 @@ De circuiteigenaar van het maakt een autorisatie. Dit resulteert in het maken va
 
 1. Klik op de blade ExpressRoute **autorisaties** en typ vervolgens een **naam** voor autorisatie en klik op **opslaan**.
 
-    ![autorisaties](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+    ![Autorisaties](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
 2. Zodra de configuratie is opgeslagen, kopieert u de **Resource-ID** en de **Autorisatiesleutel**.
 
