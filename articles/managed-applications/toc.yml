@@ -6,11 +6,11 @@
       href: overview.md
 - name: Snelstartgidsen
   items:
-    - name: Een beheerde toepassing maken met Azure CLI
+    - name: Een beheerde toepassing maken
       href: managed-apps-quickstart-cli.md
 - name: Zelfstudies
   items:
-    - name: Een servicecatalogustoepassing maken
+    - name: Beheerde toepassingsbestanden maken
       href: publish-service-catalog-app.md
 - name: Voorbeelden
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Beheerde bronnen bijwerken
       href: update-managed-resources.md
-    - name: Een servicecatalogustoepassing publiceren - Portal
+    - name: Portal gebruiken om te publiceren
       href: publish-portal.md
 - name: Naslaginformatie
   items:

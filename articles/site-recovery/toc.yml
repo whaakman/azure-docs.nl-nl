@@ -195,6 +195,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: Automatiseren
       items:
+        - name: Virtuele VMware-machines naar Azure repliceren met behulp van PowerShell
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: Hyper-V-replicatie naar Azure instellen (zonder VMM) met behulp van PowerShell
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: Hyper-V-replicatie naar Azure instellen (met VMM) met behulp van PowerShell
@@ -262,7 +264,7 @@
 - name: Naslaginformatie
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Azure PowerShell (klassiek)
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST

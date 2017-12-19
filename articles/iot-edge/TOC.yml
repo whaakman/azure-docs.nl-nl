@@ -32,6 +32,12 @@
       href: how-to-deploy-monitor.md
     - name: Een IoT Core-apparaat inrichten
       href: how-to-install-iot-core.md
+    - name: VS-code gebruiken om IoT Edge-oplossingen te maken
+      items:
+        - name: 'Een C#-module ontwikkelen en implementeren'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: 'Fouten opsporen in een C#-module'
+          href: how-to-vscode-debug-csharp-module.md
     - name: Problemen oplossen
       href: troubleshoot.md
 - name: Concepten

@@ -54,6 +54,8 @@
 #### [Naleving - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Overzicht](uk-official-three-tier-applications-overview.md)
 ##### [Overzicht van de principes](uk-official-three-tier-applications-principles-overview.md)
+#### [Naleving - financiële diensten](financial-services-regulated-workloads.md)
+##### [Financiële diensten voor gereguleerde workloads](financial-services-regulated-workloads.md)
 
 # Aan de slag
 ## [Aan de slag met Azure-beveiliging](../azure-security-getting-started.md)
