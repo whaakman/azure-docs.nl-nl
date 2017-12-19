@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: Waarschuwingen
           href: monitoring-overview-alerts.md
+        - name: Waarschuwingen (preview)
+          href: monitoring-overview-unified-alerts.md
+        - name: Waarschuwingen voor logboeken
+          href: monitor-alerts-unified-log.md
         - name: Automatisch schalen
           href: monitoring-overview-autoscale.md
         - name: Activiteitenlogboek
@@ -74,11 +78,13 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Waarschuwingen configureren in Azure Portal
           href: insights-alerts-portal.md
+        - name: Waarschuwingen voor metrische gegevens of voor logboeken configureren in Waarschuwingen (preview) in Azure Portal
+          href: monitor-alerts-unified-usage.md
         - name: Waarschuwingen configureren met CLI
           href: insights-alerts-command-line-interface.md
         - name: Waarschuwingen configureren met Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Een metrische waarschuwing een webhook laten aanroepen
+        - name: Een waarschuwing voor metrische gegevens een webhook laten aanroepen
           href: insights-webhooks-alerts.md
         - name: Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
           href: monitoring-enable-alerts-using-template.md

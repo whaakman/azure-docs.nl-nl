@@ -6,7 +6,7 @@
       href: introduction.md
     - name: Versies 1 en 2 vergelijken
       href: compare-versions.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Een gegevensfactory maken
@@ -144,6 +144,8 @@
               href: connector-magento.md
             - name: MariaDB
               href: connector-mariadb.md
+            - name: Marketo
+              href: connector-marketo.md
             - name: Microsoft Access
               href: 'connector-odbc.md#microsoft-access-source'
             - name: MongoDB

@@ -7,7 +7,7 @@
       href: overview-what-is-azure-ml.md
     - name: Overzicht van modelbeheer
       href: model-management-overview.md
-- name: QuickStarts
+- name: Snelstartgidsen
   items:
     - name: Installeren en maken
       href: quickstart-installation.md
@@ -180,6 +180,8 @@
           href: release-notes-sprint-1.md
         - name: Sprint 2 - december 2017
           href: release-notes-sprint-2.md
+        - name: Sprint 2 QFE - december 2017
+          href: release-notes-sprint-2.1.md
 - name: Resources
   items:
     - name: Veelgestelde vragen

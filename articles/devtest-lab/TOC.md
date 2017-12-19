@@ -61,6 +61,9 @@
 
 ## [Uw lab schalen](devtest-lab-scale-lab.md)
 
+## Integratie met CI/CD
+### [Labs integreren in uw VSTS CI/CD-pijplijn](devtest-lab-integrate-ci-cd-vsts.md)
+
 # Naslaginformatie
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)

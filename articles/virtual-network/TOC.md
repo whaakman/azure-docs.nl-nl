@@ -5,6 +5,7 @@
 ## [Service-eindpunten voor virtueel netwerk](virtual-network-service-endpoints-overview.md)
 ## [Virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md)
 ## [Beveiliging](security-overview.md)
+## [Containernetwerken](container-networking.md)
 ## [Bedrijfscontinuïteit](virtual-network-disaster-recovery-guidance.md)
 ## [IP-adressering](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS-beveiliging](ddos-protection-overview.md)
