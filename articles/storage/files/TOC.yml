@@ -24,6 +24,8 @@
   items:
     - name: Plannen en ontwerpen
       items:
+        - name: Opslagaccountopties
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Planning voor de implementatie van Azure Files
           href: storage-files-planning.md
         - name: Azure Files implementeren
