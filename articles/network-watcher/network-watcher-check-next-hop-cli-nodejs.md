@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: e849f7952962d177f40ce99307ef1c305e089827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Uitzoeken wat het volgende hoptype gebruikt de mogelijkheid van de volgende Hop in Azure met Azure CLI 1.0 netwerk-Watcher
 
@@ -55,7 +55,7 @@ azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t tar
 > [!NOTE]
 Als de virtuele machine meerdere NIC's heeft en doorsturen via IP is ingeschakeld op een van de NIC's en vervolgens de NIC-parameter (-ik nic-id) moet worden opgegeven. Anders is optioneel.
 
-## <a name="review-results"></a>Resultaten bekijken
+## <a name="review-results"></a>Resultaat controleren
 
 Na voltooiing wordt worden de resultaten geleverd. De volgende hop-IP-adres en het type resource dat is geretourneerd.
 

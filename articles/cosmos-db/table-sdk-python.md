@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: mimig1
 ms.custom: 
 ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB tabel API SDK voor Python: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/20/2017
 |**Huidige ondersteund platform**|[Python 2.7](https://www.python.org/downloads/) of [Python 3.3, 3.4, 3.5 of 3.6] (https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> Als u een tabel-API-account hebt gemaakt tijdens de preview, maakt u een [nieuwe tabel API account](create-table-dotnet.md#create-a-database-account) werken met de SDK algemeen beschikbaar tabel-API's.
+> Als u tijdens de preview een tabel-API-account hebt gemaakt, moet u een [nieuw tabel-API-account](create-table-dotnet.md#create-a-database-account) maken om te kunnen werken met de algemeen beschikbare SDK’s voor tabel-API's.
 >
 
 ## <a name="release-notes"></a>Releaseopmerkingen

@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Back-ups maken van virtuele Azure-machines naar een Recovery Services-kluis
-> [!div class="op_single_selector"]
-> * [Back-up van virtuele machines naar een Recovery Services-kluis](backup-azure-arm-vms.md)
-> * [Back-up van virtuele machines naar Backup-kluis](backup-azure-vms.md)
->
->
 
 Dit artikel wordt uitgelegd hoe u back-up van Azure Virtual machines (geïmplementeerd met Resource Manager en Classic geïmplementeerd) naar een Recovery Services-kluis. Het merendeel van het werk voor een back-ups van virtuele machines is de voorbereiding. Voordat u kunt back-up of een virtuele machine te beveiligen, moet u de [vereisten](backup-azure-arm-vms-prepare.md) voorbereiden van uw omgeving voor het beveiligen van uw virtuele machines. Nadat u de vereisten hebt voltooid, kunt u de back-upbewerking om momentopnamen van uw virtuele machine te starten.
 
@@ -46,7 +41,7 @@ Tenzij de eerste back-up binnenkort wordt gemaakt, wordt aanbevolen dat u **Nu e
 De eerste back-uptaak uitvoeren:
 
 1. Klik op het kluisdashboard op het getal onder **Back-upitems** of klik op de tegel **Back-upitems**. <br/>
-  ![Pictogram Instellingen](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+  ![Instellingenpictogram](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
   De blade **Back-upitems** wordt geopend.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Aan de slag met Azure CDN-ontwikkeling
 > [!div class="op_single_selector"]
@@ -328,7 +328,7 @@ We kunnen nu worden gecompileerd en voer het programma door te klikken op de **S
 
 Wanneer het programma de bovenstaande prompt bereikt, moet u mogelijk zijn om te retourneren aan de resourcegroep in de Azure portal en Zie dat het profiel is gemaakt.
 
-![Success!](./media/cdn-app-dev-net/cdn-success.png)
+![Geslaagd](./media/cdn-app-dev-net/cdn-success.png)
 
 We kunnen de aanwijzingen voor het uitvoeren van de rest van het programma vervolgens bevestigen.
 

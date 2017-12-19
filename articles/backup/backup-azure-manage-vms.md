@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Back-ups van een virtuele Azure-machine beheren
-> [!div class="op_single_selector"]
-> * [Back-ups van virtuele machine in Azure beheren](backup-azure-manage-vms.md)
-> * [Klassieke VM-back-ups beheren](backup-azure-manage-vms-classic.md)
->
->
 
 Dit artikel biedt richtlijnen voor het beheren van VM-back-ups en wordt uitgelegd van de back-waarschuwingen informatie die beschikbaar zijn in het portal-dashboard. De instructies in dit artikel is van toepassing op het gebruik van virtuele machines met Recovery Services-kluizen. Dit artikel wordt niet beschreven voor het maken van virtuele machines worden uitgevoerd en wordt uitgelegd hoe u virtuele machines beveiligt. Zie voor een primer over het beveiligen van Azure Resource Manager geïmplementeerde VM's in Azure met een Recovery Services-kluis [eerste kennismaking: Maak een Back-up van virtuele machines naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md).
 
@@ -224,4 +219,4 @@ Verwijderen van de back-upgegevens op een virtuele machine met de *back-up uitge
     Een melding laat u weten dat de back-upgegevens is verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk voor meer informatie over het opnieuw maken van een virtuele machine vanaf een herstelpunt [Azure Virtual machines herstellen](backup-azure-restore-vms.md). Als u informatie over het beveiligen van uw virtuele machines, Zie [eerste kennismaking: Maak een Back-up van virtuele machines naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md). Zie voor informatie over de controle van gebeurtenissen, [waarschuwingen voor back-ups van virtuele machine van Azure controleren](backup-azure-monitor-vms.md).
+Bekijk voor meer informatie over het opnieuw maken van een virtuele machine vanaf een herstelpunt [Azure Virtual machines herstellen](backup-azure-arm-restore-vms.md). Als u informatie over het beveiligen van uw virtuele machines, Zie [eerste kennismaking: Maak een Back-up van virtuele machines naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md). Zie voor informatie over de controle van gebeurtenissen, [waarschuwingen voor back-ups van virtuele machine van Azure controleren](backup-azure-monitor-vms.md).

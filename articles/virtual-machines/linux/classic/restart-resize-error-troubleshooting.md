@@ -16,10 +16,10 @@ ms.date: 01/10/2017
 ms.devlang: na
 ms.author: delhan
 ms.openlocfilehash: 7f5718a7e1ab2b14902fa61ffb3053910e584ac6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Klassieke implementatieproblemen oplossen met opnieuw te starten of het formaat van een bestaande virtuele Linux-Machine in Azure
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ U probeert te starten van een gestopte VM maar een toewijzingsfout ophalen.
 ### <a name="cause"></a>Oorzaak
 De aanvraag voor het starten van de gestopte virtuele machine moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de cloudservice. Het cluster heeft echter geen vrije schijfruimte om de aanvraag te voldoen.
 
-### <a name="resolution"></a>Resolutie
+### <a name="resolution"></a>Oplossing
 * Een nieuwe cloudservice maken en deze koppelen aan ofwel een regio of een virtueel netwerk met op basis van regio, maar niet in een affiniteitsgroep.
 * Verwijder de gestopte virtuele machine.
 * Maak de virtuele machine in de nieuwe cloudservice opnieuw met behulp van de schijven.
@@ -66,7 +66,7 @@ U probeert te vergroten of verkleinen van een bestaande virtuele machine, maar e
 ### <a name="cause"></a>Oorzaak
 De aanvraag voor het formaat van de virtuele machine moet worden uitgevoerd op het oorspronkelijke cluster die als host fungeert voor de cloudservice. Het cluster biedt echter geen ondersteuning voor de aangevraagde VM-grootte.
 
-### <a name="resolution"></a>Resolutie
+### <a name="resolution"></a>Oplossing
 De aangevraagde VM-grootte te beperken en probeer de aanvraag formaat.
 
 * Klik op **door alle Bladeren** > **virtuele machines (klassiek)** > *uw virtuele machine* > **instellingen** > **grootte**. Zie voor gedetailleerde stappen [vergroten of verkleinen van de virtuele machine](https://msdn.microsoft.com/library/dn168976.aspx).

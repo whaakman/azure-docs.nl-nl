@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob Storage met SQL Database met behulp van de Data Factory
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/02/2017
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [kopie activiteit zelfstudie in de documentatie van versie 2](../quickstart-create-data-factory-dot-net.md). 
+> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service gebruikt, welke nog een preview is, raadpleegt u de [zelfstudie kopieeractiviteit in de documentatie voor versie 2](../quickstart-create-data-factory-dot-net.md). 
 
 In deze zelfstudie maakt u een gegevensfactory met een pijplijn om gegevens te kopiëren van Blob-opslag met SQL-database.
 
@@ -114,7 +114,7 @@ Nu uw Azure blob storage en Azure SQL database voor de zelfstudie door bereid de
 
     Als de client geen toegang heeft tot de Azure SQL-server, moet u de firewall configureren voor uw Azure SQL-server zodat toegang vanaf uw apparaat (IP-adres) wordt toegestaan. Raadpleeg [dit artikel](../../sql-database/sql-database-configure-firewall-settings.md) voor stappen waarmee u uw firewall kunt configureren voor uw Azure SQL-server.
 
-## <a name="create-a-data-factory"></a>Een data factory maken
+## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 U kunt de vereisten hebt voltooid. U kunt een gegevensfactory met een van de volgende manieren maken. Klik op een van de opties in de vervolgkeuzelijst boven of de volgende koppelingen voor het uitvoeren van de zelfstudie.     
 
 * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)

@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Met behulp van PowerShell back-ups implementeren en beheren in Azure voor een Windows-server/Windows-client
-> [!div class="op_single_selector"]
-> * [ARM](backup-client-automation.md)
-> * [Klassiek](backup-client-automation-classic.md)
->
->
-
 In dit artikel leest u hoe u PowerShell gebruikt voor het instellen van Azure Backup op Windows Server of een Windows-client en het beheren van back-up en herstel.
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell installeren
@@ -204,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> De wachtwoordzin gegevens veilig en beveiligd houden als deze eenmaal is ingesteld. Niet zijn mogelijk om gegevens te herstellen van Azure zonder deze wachtwoordzin.
+> De wachtwoordzin gegevens veilig en beveiligd houden als deze eenmaal is ingesteld. U kunt gegevens van Azure niet terugzetten zonder deze wachtwoordzin.
 >
 >
 
@@ -506,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Het kiezen van een back-uppunt waaruit u wilt herstellen
-Ophalen een lijst met back-uppunten door het uitvoeren van de [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet met de juiste parameters. In ons voorbeeld kiest u de meest recente back-up worden gemaakt voor het bronvolume *D:* en deze gebruiken voor het herstellen van een specifiek bestand.
+U een lijst met back-uppunten ophalen door het uitvoeren van de [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet met de juiste parameters. In ons voorbeeld kiest u de meest recente back-up worden gemaakt voor het bronvolume *D:* en deze gebruiken voor het herstellen van een specifiek bestand.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
