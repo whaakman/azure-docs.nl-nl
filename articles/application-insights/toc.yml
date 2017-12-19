@@ -6,7 +6,7 @@
       href: app-insights-overview.md
     - name: Overzicht van prestatiebewaking
       href: app-insights-detect-triage-diagnose.md
-- name: QuickStarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: .NET
@@ -51,6 +51,8 @@
           href: app-insights-windows-desktop.md
         - name: ASP.NET Core
           href: app-insights-asp-net-core.md
+        - name: Console
+          href: application-insights-console.md
     - name: Java-apps bewaken
       items:
         - name: Web-apps
