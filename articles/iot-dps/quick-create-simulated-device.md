@@ -1,6 +1,6 @@
 ---
 title: Een gesimuleerd apparaat inrichten voor Azure IoT Hub | Microsoft Docs
-description: 'QuickStart van Azure: een gesimuleerd apparaat maken en inrichten met Azure IoT Hub Device Provisioning Service'
+description: 'Snelstartgids van Azure: een gesimuleerd apparaat maken en inrichten met Azure IoT Hub Device Provisioning Service'
 services: iot-dps
 keywords: 
 author: dsk-2015
@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.openlocfilehash: 6e486b8fb5924c8a021a781742478e9082ca668c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-services"></a>Een gesimuleerd apparaat maken en inrichten met IoT Hub Device Provisioning Service
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Voltooi de stappen in [IoT Hub Device Provisioning Service instellen](./quick-se
     cmake -Ddps_auth_type=tpm_simulator ..
     ```
 
-7. Ga door middel van een aparte opdrachtprompt naar de hoofdmap van GitHub en voer de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulator uit. Deze luistert via een socket op poorten 2321 en 2322. Sluit dit opdrachtvenster niet; de simulator moet actief blijven tot u deze QuickStart hebt voltooid. 
+7. Ga door middel van een aparte opdrachtprompt naar de hoofdmap van GitHub en voer de [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview)-simulator uit. Deze luistert via een socket op poorten 2321 en 2322. Sluit dit opdrachtvenster niet; de simulator moet actief blijven tot u deze Snelstartgids hebt voltooid. 
 
     ```cmd/sh
     .\azure-iot-sdk-c\dps_client\deps\utpm\tools\tpm_simulator\Simulator.exe
@@ -110,7 +110,7 @@ Voltooi de stappen in [IoT Hub Device Provisioning Service instellen](./quick-se
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze beter wilt leren kennen, wis de resources die in deze QuickStart zijn gemaakt dan niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources die via deze QuickStart zijn gemaakt, te verwijderen.
+Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze beter wilt leren kennen, wis de resources die in deze Snelstartgids zijn gemaakt dan niet. Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle resources die via deze Snelstartgids zijn gemaakt, te verwijderen.
 
 1. Sluit het uitvoervenster van het voorbeeld van de apparaatclient op de computer.
 1. Sluit het TPM-simulatorvenster op de computer.
@@ -119,7 +119,7 @@ Als u wilt blijven doorwerken met het voorbeeld van de apparaatclient en deze be
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze QuickStart hebt u een gesimuleerd TPM-apparaat op de computer gemaakt en het ingericht voor uw IoT-hub met Azure IoT Hub Device Provisioning Service. Voor meer informatie over device provisioning, gaat u verder met de zelfstudie voor het instellen van Device Provisioning Service in Azure Portal. 
+In deze Snelstartgids hebt u een gesimuleerd TPM-apparaat op de computer gemaakt en het ingericht voor uw IoT-hub met Azure IoT Hub Device Provisioning Service. Voor meer informatie over device provisioning, gaat u verder met de zelfstudie voor het instellen van Device Provisioning Service in Azure Portal. 
 
 > [!div class="nextstepaction"]
 > [Zelfstudies over Azure IoT Hub Device Provisioning Service](./tutorial-set-up-cloud.md)

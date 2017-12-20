@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
 ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ De Service Fabric SDK en hulpprogramma's bieden een servicesjabloon waarmee u ee
 5. Geef de service een naam en klik op **OK**.
 
 ## <a name="configure-communication"></a>Communicatie configureren
-De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. Voor deze QuickStart luistert de containerservice naar poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen.  
+De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen.  
 
 ```xml
 <Resources>
