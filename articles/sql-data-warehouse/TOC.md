@@ -32,7 +32,7 @@
 
 ## Gegevens laden en verplaatsen
 ### [Overzicht](design-elt-data-loading.md)
-### [Hulp](guidance-for-loading-data.md)
+### [Aanbevolen procedures](guidance-for-loading-data.md)
 
 
 ## Integreren
