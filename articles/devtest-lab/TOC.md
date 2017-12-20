@@ -32,6 +32,7 @@
 ### [Een gelicentieerde installatiekopie inschakelen](devtest-lab-enable-licensed-images.md)
 ### [Tags toevoegen aan een lab](devtest-lab-add-tag.md)
 ### [Post-aankondiging in een lab](devtest-lab-announcements.md)
+### [Ondersteuningsinformatie toevoegen aan een lab](devtest-lab-internal-support-message.md)
 
 ## [Een aangepaste installatiekopie of formule selecteren](devtest-lab-comparing-vm-base-image-types.md)
 
