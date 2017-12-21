@@ -16,7 +16,7 @@ Ga als volgt te werk om een naamruimte te maken:
 ### <a name="obtain-the-management-credentials"></a>De beheerreferenties ophalen
 Het automatisch maken van een nieuwe naamruimte, genereert een eerste regel van de Shared Access Signature (SAS) met een combinatie van primaire en secundaire sleutels dat elk volledige controle over alle aspecten van de naamruimte verlenen van een gekoppeld. Zie [Service Bus-verificatie en autorisatie](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) beperkte voor informatie over het maken van verdere regels met meer rechten voor reguliere afzenders en ontvangers. Volg deze stappen om de eerste regel te kopiëren: 
 
-1. Klik in de lijst met naamruimten op de zojuist gemaakte naam voor de naamruimte.
+1.  Klik op **alle resources**, klik vervolgens op de zojuist gemaakte naamruimtenaam.
 2. Klik in het venster naamruimte **gedeeld toegangsbeleid**.
 3. In de **gedeeld toegangsbeleid** scherm, klikt u op **RootManageSharedAccessKey**.
    
