@@ -3,7 +3,7 @@ title: Gerichte updates met behulp van SCCM-verzamelingen in OMS-updatebeheer | 
 description: Dit artikel is bedoeld om u te helpen bij het configureren van System Center Configuration Manager met deze oplossing voor het beheren van updates van met SCCM beheerde computers.
 services: operations-management-suite
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
-ms.author: eslesar
-ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gwallace
+ms.openlocfilehash: 40e343ab75a2c2508d64ec0aeb293f5154813135
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integratie van System Center Configuration Manager met OMS-updatebeheer
 

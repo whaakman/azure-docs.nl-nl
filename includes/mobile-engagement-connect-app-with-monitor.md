@@ -2,7 +2,7 @@ In deze sectie wordt beschreven hoe u uw app kunt verbinden met de back-end van 
 
 1. In uw **Azure Mobile Engagement**-account, selecteert u de app die u wilt monitoren en beheren in de **Mobile Engagement**-portal. Navigeer naar de Mobile Engagement-portal door op de knop **Engage** onderaan te klikken. 
    
-     ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. U komt dan uit bij de Mobile Engagement-portal. Als het tabblad Monitor niet is geselecteerd, klikt u op **Monitor**.
 3. De monitor is nu klaar om u in realtime elk apparaat te tonen waarop uw app wordt gestart.
 4. Start nu uw app. U zou een sessie in de monitor moeten kunnen zien als uw integratie juist is, wat inhoudt dat uw app nu is verbonden met de back-end van Mobile Engagement en er gegevens naartoe zendt.  
