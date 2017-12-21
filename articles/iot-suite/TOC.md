@@ -48,6 +48,10 @@
 ### [Overzicht van de oplossing voor verbonden bedrijven](iot-suite-connected-factory-overview.md)
 ### [Kennismaken met de oplossing voor verbonden bedrijven](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Apparaatsimulatie
+### [Apparaatsimulatie implementeren](iot-suite-device-simulation-deploy.md)
+### [Apparaatsimulatie verkennen](iot-suite-device-simulation-explore.md)
+
 # Handleidingen
 ## Externe bewaking
 ### [Geavanceerde bewaking uitvoeren](iot-suite-remote-monitoring-monitor.md)

@@ -26,6 +26,8 @@
 
 # Procedures
 ## Plannen en ontwerpen
+### [Beheerde service-identiteit (preview)](service-bus-managed-service-identity.md)
+### [Op rollen gebaseerd toegangsbeheer (preview)](service-bus-role-based-access-control.md)
 ### [Premium Messaging](service-bus-premium-messaging.md)
 ### [Azure- en Service Bus-wachtrijen vergelijken](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Prestaties optimaliseren](service-bus-performance-improvements.md)

@@ -84,12 +84,14 @@
           href: insights-alerts-command-line-interface.md
         - name: Waarschuwingen configureren met Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Een waarschuwing voor metrische gegevens een webhook laten aanroepen
+        - name: Een metrische waarschuwing een webhook laten aanroepen
           href: insights-webhooks-alerts.md
         - name: Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
           href: monitoring-enable-alerts-using-template.md
     - name: Automatisch schalen gebruiken
       items:
+        - name: Inzicht in instellingen voor automatisch schalen
+          href: monitoring-understanding-autoscale-settings.md
         - name: Aanbevolen procedures
           href: insights-autoscale-best-practices.md
         - name: Algemene metrische gegevens

@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Back-ups maken van virtuele Azure-machines naar Recovery Services-kluizen
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ In deze zelfstudie leert u hoe u een Recovery Services-kluis maakt en back-ups m
 
 Zie het artikel [Back-ups van virtuele machines voor Premium Storage maken en terugzetten](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) voor meer informatie over het beschermen van Premium Storage-VM's. Zie [Back-ups van virtuele machines op beheerde schijven maken en terugzetten](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) voor meer informatie over ondersteuning voor virtuele machines op beheerde schijven. Voor meer informatie over pre- en post-script framework voor Linux-VM back-ups raadpleegt u [Application consistent Linux VM backup using pre-script and post-script (Toepassingsconsistente back-up van Linux-VM's met pre-script en post-script)] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Kijk [hier](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) voor meer informatie over waarvan u wel en niet een back-up kunt maken.
+Kijk [hier](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) voor meer informatie over waarvan u wel en niet een back-up kunt maken.
 
 > [!NOTE]
 > In deze zelfstudie wordt ervan uitgegaan dat u een VM in uw Azure-abonnement hebt en dat u maatregelen hebt genomen om toe te staan dat de back-upservice toegang tot de VM kan krijgen.
@@ -264,7 +264,7 @@ Tenzij de eerste back-up binnenkort wordt gemaakt, wordt aanbevolen dat u **Nu e
 De eerste back-uptaak uitvoeren:
 
 1. Klik op het kluisdashboard op het getal onder **Back-upitems** of klik op de tegel **Back-upitems**. <br/>
-  ![Pictogram Instellingen](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+  ![Het pictogram Instellingen](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
   De blade **Back-upitems** wordt geopend.
 

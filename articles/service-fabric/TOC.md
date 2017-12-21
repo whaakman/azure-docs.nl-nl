@@ -34,8 +34,6 @@
 ### [3: De cluster-runtime upgraden](service-fabric-tutorial-upgrade-cluster.md)
 ### [4: API Management met Service Fabric implementeren](service-fabric-tutorial-deploy-api-management.md)
 
-
-
 # Voorbeelden
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
@@ -49,66 +47,61 @@
 ## [Architectuur](service-fabric-architecture.md)
 ## [Terminologie](service-fabric-technical-overview.md)
 
-## Toepassingen en services bouwen
-### [Ondersteunde programmeermodellen](service-fabric-choose-framework.md)
-#### [Containers](service-fabric-containers-overview.md)
-##### [Docker Compose (preview)](service-fabric-docker-compose.md)
-##### [Resourcebeheer](service-fabric-resource-governance.md)
-#### [Reliable Services](service-fabric-reliable-services-introduction.md)
-##### [Levenscyclus van Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Levenscyclus van Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
-##### [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
-##### [Richtlijnen en aanbevelingen voor betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-guidelines.md)
-##### [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
-##### [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [Betrouwbare gelijktijdige wachtrij](service-fabric-reliable-services-reliable-concurrent-queue.md)
-##### [Betrouwbare verzamelingserialisatie](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Beheer van betrouwbare status en interne werking van betrouwbare verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
-##### [Geavanceerd gebruik](service-fabric-reliable-services-advanced-usage.md)
+## [Ondersteunde programmeermodellen](service-fabric-choose-framework.md)
+### [Containers](service-fabric-containers-overview.md)
+#### [Docker Compose (preview)](service-fabric-docker-compose.md)
+#### [Resourcebeheer](service-fabric-resource-governance.md)
+### [Reliable Services](service-fabric-reliable-services-introduction.md)
+#### [Levenscyclus van Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
+#### [Levenscyclus van Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
+#### [Betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
+#### [Richtlijnen en aanbevelingen voor betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-guidelines.md)
+#### [Werken met betrouwbare verzamelingen](service-fabric-work-with-reliable-collections.md)
+#### [Transacties en vergrendelingen](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+#### [Betrouwbare gelijktijdige wachtrij](service-fabric-reliable-services-reliable-concurrent-queue.md)
+#### [Betrouwbare verzamelingserialisatie](service-fabric-reliable-services-reliable-collections-serialization.md)
+#### [Beheer van betrouwbare status en interne werking van betrouwbare verzameling](service-fabric-reliable-services-reliable-collections-internals.md)
+#### [Geavanceerd gebruik](service-fabric-reliable-services-advanced-usage.md)
 
-#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-##### [Architectuur](service-fabric-reliable-actors-platform.md)
-##### [Levenscyclus en garbagecollection](service-fabric-reliable-actors-lifecycle.md)
-##### [Statusbeheer](service-fabric-reliable-actors-state-management.md)
-##### [Polymorfisme](service-fabric-reliable-actors-polymorphism.md)
-##### [Herintreding](service-fabric-reliable-actors-reentrancy.md)
-##### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+#### [Architectuur](service-fabric-reliable-actors-platform.md)
+#### [Levenscyclus en garbagecollection](service-fabric-reliable-actors-lifecycle.md)
+#### [Statusbeheer](service-fabric-reliable-actors-state-management.md)
+#### [Polymorfisme](service-fabric-reliable-actors-polymorphism.md)
+#### [Herintreding](service-fabric-reliable-actors-reentrancy.md)
+#### [Typeserialisatie](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
+## Toepassingen en services
 ### [Toepassingsmodel](service-fabric-application-model.md)
 ### [Toepassings- en servicemanifesten](service-fabric-application-and-service-manifests.md)
 ### [Hostingmodel](service-fabric-hosting-model.md)
 
-### Services
-#### [Serviceresources](service-fabric-service-manifest-resources.md)
-#### [Servicestatus](service-fabric-concepts-state.md)
-#### [Service partitioneren](service-fabric-concepts-partitioning.md)
-#### [Beschikbaarheid van services](service-fabric-availability-services.md)
-#### [Levenscyclus van replica's en instanties](service-fabric-concepts-replica-lifecycle.md)
-#### [Herconfiguratie](service-fabric-concepts-reconfiguration.md)
-#### [Servicecommunicatie](service-fabric-connect-and-communicate-with-services.md)
-##### [DNS-service](service-fabric-dnsservice.md)
-##### [Omgekeerde proxy](service-fabric-reverseproxy.md)
-##### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
-##### [Diagnostische gegevens voor omgekeerde proxy](service-fabric-reverse-proxy-diagnostics.md)
+### [Servicestatus](service-fabric-concepts-state.md)
+### [Service partitioneren](service-fabric-concepts-partitioning.md)
 ### [Schaalbaarheid van toepassingen](service-fabric-concepts-scalability.md)
-### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+### [Beschikbaarheid van services](service-fabric-availability-services.md)
+### [Levenscyclus van replica's en instanties](service-fabric-concepts-replica-lifecycle.md)
+### [Herconfiguratie](service-fabric-concepts-reconfiguration.md)
 
-### [Capaciteit van een toepassing plannen](service-fabric-capacity-planning.md)
+### [Servicecommunicatie](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS-service](service-fabric-dnsservice.md)
+#### [Omgekeerde proxy](service-fabric-reverseproxy.md)
+#### [Omgekeerde proxy voor veilige communicatie configureren](service-fabric-reverseproxy-configure-secure-communication.md)
+#### [Diagnostische gegevens voor omgekeerde proxy](service-fabric-reverse-proxy-diagnostics.md)
+#### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## [Toepassingen beheren](service-fabric-application-lifecycle.md)
-### [Toepassingsupgrade](service-fabric-application-upgrade.md)
-#### [Configuratie](service-fabric-visualstudio-configure-upgrade.md)
-#### [Parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md)
-#### [Gegevensserialisatie in toepassingsupgrades](service-fabric-application-upgrade-data-serialization.md)
-#### [Toepassingsupgrade: geavanceerde onderwerpen](service-fabric-application-upgrade-advanced.md)
-### [Overzicht foutanalyse](service-fabric-testability-overview.md)
-### [De instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
+### [Toepassingslevenscyclus](service-fabric-application-lifecycle.md)
+#### [Toepassingsupgrade](service-fabric-application-upgrade.md)
+##### [Configuratie](service-fabric-visualstudio-configure-upgrade.md)
+##### [Parameters toepassingsupgrade](service-fabric-application-upgrade-parameters.md)
+##### [Gegevensserialisatie in toepassingsupgrades](service-fabric-application-upgrade-data-serialization.md)
+##### [Toepassingsupgrade: geavanceerde onderwerpen](service-fabric-application-upgrade-advanced.md)
+#### [Toepassingen testen met foutanalyse](service-fabric-testability-overview.md)
+#### [De instelling ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## [Clusters maken en beheren](service-fabric-deploy-anywhere.md)
-### Plannen en voorbereiden
-#### [Capaciteitsplanning](service-fabric-cluster-capacity.md)
-#### [Herstel na noodgevallen](service-fabric-disaster-recovery.md)
-### [Een cluster beschrijven](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Serviceresources](service-fabric-service-manifest-resources.md)
+
+## [Clusters](service-fabric-deploy-anywhere.md)
 ### [Clusterbeveiliging](service-fabric-cluster-security.md)
 ### [Functieverschillen tussen Linux en Windows](service-fabric-linux-windows-differences.md)
 ### Clusters op Azure
@@ -128,7 +121,7 @@
 #### [Beperking](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Servicebeweging](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Bewaken en diagnoses uitvoeren
+## Controle en diagnose
 ### [Toepassingen bewaken en er diagnoses op uitvoeren](service-fabric-diagnostics-overview.md)
 ### Gebeurtenissen genereren
 #### [Gebeurtenissen genereren op platformniveau](service-fabric-diagnostics-event-generation-infra.md)
@@ -154,7 +147,7 @@
 #### [Gebeurtenissen analyseren met OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Problemen met uw lokale cluster oplossen](service-fabric-troubleshoot-local-cluster-setup.md)
 
-## [Integreren met API Management](service-fabric-api-management-overview.md)
+## [Integratie met API Management](service-fabric-api-management-overview.md)
 
 # Handleidingen
 ## De ontwikkelomgeving instellen
@@ -163,15 +156,30 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [De Service Fabric-CLI instellen](service-fabric-cli.md)
 
+## Plannen en voorbereiden
+### [Clustercapaciteit plannen](service-fabric-cluster-capacity.md)
+### [Een zelfstandige clusterimplementatie plannen](service-fabric-cluster-standalone-deployment-preparation.md)
+### [Voorbereiden op herstel na noodgeval](service-fabric-disaster-recovery.md)
+### [Capaciteit van een toepassing plannen](service-fabric-capacity-planning.md)
+
+## Aan de slag met uw eerste...
+### [C#-toepassing in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Windows-containertoepassing](service-fabric-get-started-containers.md)
+### [Linux-containertoepassing](service-fabric-get-started-containers-linux.md)
+### [C# Reliable Services-toepassing in Windows](service-fabric-reliable-services-quick-start.md)
+### [Java Reliable Services-toepassing in Linux](service-fabric-reliable-services-quick-start-java.md)
+### [C# Reliable Services-toepassing in Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+### [C# Reliable Actors-toepassing in Windows](service-fabric-reliable-actors-get-started.md)
+### [Java Reliable Actors-toepassing in Linux](service-fabric-create-your-first-linux-application-with-java.md)
+### [Uitvoerbare gasttoepassing in Windows](quickstart-guest-app.md)
+### [Zelfstandige cluster](service-fabric-get-started-standalone-cluster.md)
+
 ## Een toepassing bouwen
-### [Uw eerste C#-app in Visual Studio maken](service-fabric-create-your-first-application-in-visual-studio.md)
+
 ### Een service bouwen die door een gast kan worden uitgevoerd
-#### [Een Node.js-toepassing in Windows hosten](quickstart-guest-app.md)
 #### [Een toepassing implementeren die door een gast kan worden uitgevoerd](service-fabric-deploy-existing-app.md)
 #### [Meerdere toepassingen implementeren die door gasten kunnen worden uitgevoerd](service-fabric-deploy-multiple-apps.md)
 ### Een containerservice bouwen
-#### [Een Windows-containertoepassing maken](service-fabric-get-started-containers.md)
-#### [Een Linux-containertoepassing maken](service-fabric-get-started-containers-linux.md)
 #### [Beveiliging van de container](service-fabric-securing-containers.md)
 #### [Docker Compose (preview)](service-fabric-docker-compose.md)
 #### [Resourcebeheer voor containers en services](service-fabric-resource-governance.md)
@@ -185,10 +193,6 @@
 ##### [Betrouwbare gelijktijdige wachtrij](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Betrouwbare verzamelingserialisatie](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Aan de slag
-##### [C# op Windows](service-fabric-reliable-services-quick-start.md)
-##### [Java op Linux](service-fabric-reliable-services-quick-start-java.md)
-##### [Een C#-toepassing maken in Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 #### Communiceren met services
 ##### [Communiceren via Betrouwbare services](service-fabric-reliable-services-communication.md)
 
@@ -203,9 +207,6 @@
 #### [Back-up en herstel](service-fabric-reliable-services-backup-restore.md)
 
 ### Een Reliable Actors-service bouwen
-#### Aan de slag
-##### [C# op Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java Actor op Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Meldingen verzenden](service-fabric-reliable-actors-events.md)
 #### [Timers en herinneringen instellen](service-fabric-reliable-actors-timers-reminders.md)
 #### [KvsActorStateProvider configureren](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -285,9 +286,7 @@
 #### [Verwijderen](service-fabric-cluster-delete.md)
 
 ### Zelfstandige clusters
-#### [Implementatie plannen en voorbereiden](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Maken
-##### [Uw eerste zelfstandige -cluster maken](service-fabric-get-started-standalone-cluster.md)
 ##### [On-premises maken](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Beveiligen met behulp van certificaten](service-fabric-windows-cluster-x509-security.md)  
 ##### [Beveiligen met behulp van Windows-beveiliging](service-fabric-windows-cluster-windows-security.md)

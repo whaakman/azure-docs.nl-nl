@@ -13,18 +13,21 @@
 ## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 
 # Uitleg 
-## [Een server beheren](analysis-services-manage.md)
-## [Databasegebruikers beheren](analysis-services-database-users.md)
-## [Serverbeheerders beheren](analysis-services-server-admins.md)
-## [Metrische servergegevens bewaken](analysis-services-monitor.md)
 ## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
-## [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ## [Back-up en herstel](analysis-services-backup.md)
+## [Vernieuwen met REST-API](analysis-services-async-refresh.md)
 ## [Uitschalen configureren](analysis-services-scale-out.md)
-## [Een alias voor een servernaam configureren](analysis-services-server-alias.md)
-## [Verbinden met Excel](analysis-services-connect-excel.md)
-## [Verbinden met Power BI](analysis-services-connect-pbi.md)
-## [Een ODC-bestand maken](analysis-services-odc.md)
+## Serverbeheer
+### [Een alias voor een servernaam configureren](analysis-services-server-alias.md)
+### [Een server beheren](analysis-services-manage.md)
+### [Databasegebruikers beheren](analysis-services-database-users.md)
+### [Serverbeheerders beheren](analysis-services-server-admins.md)
+### [Metrische servergegevens bewaken](analysis-services-monitor.md)
+## Verbinding maken
+### [Clientbibliotheken ophalen](analysis-services-data-providers.md)
+### [Verbinden met Excel](analysis-services-connect-excel.md)
+### [Verbinden met Power BI](analysis-services-connect-pbi.md)
+### [Een ODC-bestand maken](analysis-services-odc.md)
 ## Zelfstudies
 ### [Adventure Works-zelfstudie](tutorials/aas-adventure-works-tutorial.md)
 ### [Les 1: Een nieuw modelproject maken in tabelvorm](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
