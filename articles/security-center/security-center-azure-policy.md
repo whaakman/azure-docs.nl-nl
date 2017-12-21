@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integratie van Security Center-beveiligingsbeleid met Azure Policy
 In dit artikel leest u hoe u Azure Security Center-beveiligingsbeleid configureert met Azure Policy. 
@@ -39,14 +39,14 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerk
 
 2. Ga op het dashboard van **Security Center** naar **Algemeen** en selecteer **Beveiligingsbeleid**.
 
-    ![Het deelvenster Beleidsbeheer](./media/security-center-policies/security-center-policies-fig10.png)
+    ![Het deelvenster Beleidsbeheer](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Selecteer het abonnement waarvoor u een beveiligingsbeleid wilt inschakelen.  
 
 4. Klik in het gedeelte **Beleidsonderdelen** op **Beveiligingsbeleid**.  
     Het venster **Basisbeginselen** wordt geopend.
 
-    ![Beleidsonderdelen](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Beleidsonderdelen](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Als u een beleidsdefinitie wilt verwijderen, selecteert u onder **Beleidsregels en parameters** de definitie die u wilt verwijderen. Selecteer vervolgens **Verwijderen**.
 
@@ -57,12 +57,12 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerk
 
     * Selecteer het plusteken (+) naast de definitie om een beleidsdefinitie toe te voegen.
 
-    ![Beschikbare beleidsdefinities](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Beschikbare beleidsdefinities](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Selecteer een beleid voor een gedetailleerde beschrijving ervan.  
     Het venster **Preview** van de definitie wordt geopend. Hier wordt een beschrijving van de definitie weergegeven en een koppeling naar de JSON-code waarmee de structuur van de [beleidsdefinitie](../azure-policy/policy-definition.md) wordt opgegeven.
 
-    ![Het preview-venster van de definitie](./media/security-center-policies/security-center-policies-fig14.png)
+    ![Het preview-venster van de definitie](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Selecteer **Opslaan** als u klaar bent.
 

@@ -12,7 +12,6 @@
 # Procedures
 ## Hoge beschikbaarheid configureren
 ### [Opties voor hoge beschikbaarheid](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Een AlwaysOn-beschikbaarheidsgroep configureren in de portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [AlwaysOn-beschikbaarheidsgroep configureren met PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Een interne listener configureren voor een beschikbaarheidsgroep](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Een externe listener configureren voor een beschikbaarheidsgroep](virtual-machines-windows-classic-ps-sql-ext-listener.md)

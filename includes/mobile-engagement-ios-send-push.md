@@ -3,7 +3,7 @@ Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toega
 
 1. Navigeer naar uw Mobile Engagement-portal. Zorg ervoor dat u zich op de juiste locatie bevindt en klik vervolgens op de knop **Engage** onderaan:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Klik op de pagina **Instellingen** in de Engagement-portal. Klik daarna op de sectie **Native pushbericht** om uw p12-certificaat te uploaden:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
