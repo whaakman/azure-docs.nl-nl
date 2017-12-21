@@ -17,6 +17,7 @@
 ### [Stream Analytics in IoT Edge (preview)](stream-analytics-edge.md)
 ### [Gebruikshandleiding voor afwijkingsdetectie in Azure (preview)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Simulatie van high-frequency trading met Stream Analytics](stream-analytics-high-frequency-trading.md)
+### [Azure Functions gebruiken met Azure Stream Analytics](stream-analytics-with-azure-functions.md)
 
 ## Taken maken
 ### [Invoer maken](stream-analytics-define-inputs.md)

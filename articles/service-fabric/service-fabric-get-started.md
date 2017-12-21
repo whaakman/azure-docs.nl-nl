@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: c22d516506ae89d8591e8fe162347e115a89cb34
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Uw ontwikkelomgeving voorbereiden in Windows
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 
 ## <a name="install-the-sdk-and-tools"></a>De SDK en hulpprogramma's installeren
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017 gebruiken
-De hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling en beheer in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
+De hulpprogramma's voor Service Fabric vormen een onderdeel van de Azure-workload voor ontwikkeling in Visual Studio 2017. Schakel deze workload in als onderdeel van de Visual Studio-installatie.
 Bovendien moet u de Microsoft Azure Service Fabric SDK installeren met behulp van het webplatforminstallatieprogramma.
 
 * [Microsoft Azure Service Fabric SDK installeren][core-sdk]

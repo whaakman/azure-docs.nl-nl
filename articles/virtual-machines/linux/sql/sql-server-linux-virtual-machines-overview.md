@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Overzicht van SQL Server op virtuele machines in Azure (Linux)
 
@@ -37,7 +37,7 @@ U kunt er om vele redenen voor kiezen om uw gegevens in Azure te hosten. Als u u
 
 SQL Server dat wordt uitgevoerd op virtuele machines in Azure is één mogelijkheid om relationele gegevens in Azure op te slaan. U hebt echter ook de mogelijkheid om de Azure SQL Database-service te gebruiken. Zie [Een SQL Server-cloudoptie kiezen: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) voor meer informatie over een keuze voor SQL Server op virtuele machines of voor Azure SQL Database.
 
-## <a name="create-a-new-sql-vm"></a>Een nieuwe SQL-VM maken
+## <a id="create"></a> Een nieuwe SQL-VM maken
 
 Stapsgewijze richtlijnen voor het maken van een nieuwe virtuele SQL-machine vindt u in de zelfstudie [Een virtuele SQL Server-machine inrichten in Azure](provision-sql-server-linux-virtual-machine.md).
 

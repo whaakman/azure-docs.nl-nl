@@ -1,3 +1,5 @@
+- name: Documentatie voor Azure Policy
+  href: index.yml
 - name: Overzicht
   items:
     - name: Overzicht van Azure-beleid

@@ -22,6 +22,8 @@
 
 # Procedures
 ## Plannen en ontwerpen
+### [Beheerde service-identiteit (preview)](event-hubs-managed-service-identity.md)
+### [Op rollen gebaseerd toegangsbeheer (preview)](event-hubs-role-based-access-control.md)
 ### [Herstel bij geo-gerelateerde noodgevallen en geo-replicatie](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Overzicht van authenticatie- en beveiligingsmodellen](event-hubs-authentication-and-security-model-overview.md)

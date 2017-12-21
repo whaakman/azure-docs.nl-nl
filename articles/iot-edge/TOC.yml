@@ -38,6 +38,10 @@
           href: how-to-vscode-develop-csharp-module.md
         - name: 'Fouten opsporen in een C#-module'
           href: how-to-vscode-debug-csharp-module.md
+        - name: Azure Functions ontwikkelen en implementeren
+          href: how-to-vscode-develop-azure-function.md
+        - name: Fouten opsporen in Azure Functions
+          href: how-to-vscode-debug-azure-function.md
     - name: Problemen oplossen
       href: troubleshoot.md
 - name: Concepten
