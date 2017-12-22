@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: dynamische-, statische- en archiefopslaglaag
 
@@ -32,7 +32,7 @@ Het is nuttig om voor elk van deze scenario‘s voor toegang tot gegevens een an
 
 ## <a name="storage-accounts-that-support-tiering"></a>Storage-accounts die ondersteuning bieden voor opslaglagen
 
-U kunt uw objectopslaggegevens alleen in dynamische-, statische- en archiefopslaglagen opslaan voor Blob Storage of General Purpose v2 (GPv2-accounts). General Purpose v1 (GPv1)-accounts bieden geen ondersteuning voor opslaglagen. Klanten kunnen echter eenvoudig hun bestaande GPv1- of Blob Storage-accounts converteren naar GPv2-accounts via een eenvoudig éénkliksproces in Azure Portal. GPv2 biedt ook een nieuwe prijzenstructuur voor blobs, bestanden en wachtrijen en toegang tot tal van andere nieuwe opslagfuncties. Verder zullen sommige nieuwe mogelijkheden en prijsverlagingen alleen in GPv2-accounts worden aangeboden. Daarom moeten klanten het gebruik van GPv2-accounts evalueren, maar deze alleen gebruiken na herziening van de prijsstelling voor alle diensten, aangezien sommige workloads op GPv2 duurder kunnen zijn dan op GPv1. Zie [opties voor Azure Storage-account](storage-account-options.md) voor meer informatie.
+U kunt uw objectopslaggegevens alleen in dynamische-, statische- en archiefopslaglagen opslaan voor Blob Storage of General Purpose v2 (GPv2-accounts). General Purpose v1 (GPv1)-accounts bieden geen ondersteuning voor opslaglagen. Klanten kunnen echter eenvoudig hun bestaande GPv1- of Blob Storage-accounts converteren naar GPv2-accounts via een eenvoudig éénkliksproces in Azure Portal. GPv2 biedt ook een nieuwe prijzenstructuur voor blobs, bestanden en wachtrijen en toegang tot tal van andere nieuwe opslagfuncties. Verder zullen sommige nieuwe mogelijkheden en prijsverlagingen alleen in GPv2-accounts worden aangeboden. Daarom moeten klanten het gebruik van GPv2-accounts evalueren, maar deze alleen gebruiken na herziening van de prijsstelling voor alle diensten, aangezien sommige workloads op GPv2 duurder kunnen zijn dan op GPv1. Zie [opties voor Azure Storage-account](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
 
 Blob Storage- en GPv2-accounts maken het kenmerk **Toegangslaag** beschikbaar op het accountniveau waarmee u de standaard opslaglaag als dynamisch of statisch kunt opgeven voor elke blob in het opslagaccount die niet beschikt over de opslaglaag die is ingesteld op het objectniveau. Voor objecten met de op objectniveau ingestelde opslaglaag is het accountniveau niet van toepassing. De Archive-laag kan alleen worden toegepast op objectniveau. U kunt op elk gewenst moment schakelen tussen deze opslaglagen.
 
@@ -139,7 +139,7 @@ In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt
 
 Wij raden u aan GPv2 te gebruiken in plaats van Blob Storage-accounts voor opslaglagen. GPv2-accounts ondersteunen alle functies die Blob Storage-accounts ondersteunen, plus nog veel meer. Prijzen van Blob Storage en GPv2 zijn bijna identiek, maar sommige nieuwe functies en prijsverlagingen zijn alleen beschikbaar bij GPv2-accounts. GPv1-accounts bieden geen ondersteuning voor opslaglagen.
 
-De prijsstructuur tussen GPv1- en GPv2-accounts is verschillend en klanten moeten beide zorgvuldig evalueren alvorens te besluiten GPv2-accounts te gebruiken. U kunt een bestaand Blob Storage- of GPv1-account eenvoudig met één muisklik omzetten naar GPv2. Zie [opties voor Azure Storage-account](storage-account-options.md) voor meer informatie.
+De prijsstructuur tussen GPv1- en GPv2-accounts is verschillend en klanten moeten beide zorgvuldig evalueren alvorens te besluiten GPv2-accounts te gebruiken. U kunt een bestaand Blob Storage- of GPv1-account eenvoudig met één muisklik omzetten naar GPv2. Zie [opties voor Azure Storage-account](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
 
 **Kan ik objecten opslaan in alle drie de opslaglagen (dynamisch, statisch en archief) in hetzelfde account?**
 

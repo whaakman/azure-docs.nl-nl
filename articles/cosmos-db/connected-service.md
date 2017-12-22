@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Connected Service (Preview)
 
@@ -33,7 +33,7 @@ U kunt ook Data Explorer in Connected Service gebruiken voor het maken van opges
 Zorg ervoor dat u over de volgende zaken beschikt:
 
 * Een actief Azure-account. Als u nog geen account hebt, kunt u zich aanmelden voor een [gratis account](https://azure.microsoft.com/free/). 
-* Een Azure Cosmos DB-account. Als u dit nog niet hebt, volgt u de stappen in [Een Azure Cosmos DB-account maken](create-documentdb-dotnet.md) om een account te maken op de Azure Portal of raadpleegt u [Een Azure Cosmos DB-account maken in het hulpprogramma Connected Service](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
+* Een Azure Cosmos DB-account. Als u dit nog niet hebt, volgt u de stappen in [Een Azure Cosmos DB-account maken](create-sql-api-dotnet.md) om een account te maken op de Azure Portal of raadpleegt u [Een Azure Cosmos DB-account maken in het hulpprogramma Connected Service](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Als u een lokale omgeving wilt gebruiken voor ontwikkelingsdoeleinden, kunt u de [Azure Cosmos DB Emulator](local-emulator.md) gebruiken. In deze omgeving wordt de Azure Cosmos DB Service geëmuleerd.
 * [Visual Studio](http://www.visualstudio.com/).
 * De meest recent Azure Cosmos DB Connected Service Bits. U kunt Azure Cosmos DB Connected Service downloaden op de Visual Studio-Marketplace zoals geïllustreerd in de volgende schermopname. Open **Visual Studio** op uw computer. In het menu **Tools** selecteert u **Extensions and update...**. Kies vervolgens **Online** / **Visual Studio Marketplace**. Voer **cosmosdb** in om de bits te zoeken.
@@ -119,8 +119,8 @@ In dit document hebt u het volgende geleerd:
 
 Nu de Connected Services zijn ingeschakeld voor uw Azure Cosmos DB-account, gaat u verder met een van de zelfstudies om te beginnen met het ontwikkelen van uw oplossing:
 
-* [Ontwikkelen met SQL API in .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: zelfstudie aan de slag met SQL API](documentdb-get-started.md).
+* [Ontwikkelen met SQL API in .NET](tutorial-develop-sql-api-dotnet.md).
+* [Azure Cosmos DB: zelfstudie aan de slag met SQL API](sql-api-get-started.md).
 * Wilt u de schaal en prestaties testen met Azure Cosmos DB? Zie [Performance and Scale Testing with Azure Cosmos DB (Prestaties en schaal testen met Azure Cosmos DB)](performance-testing.md).
 * Leer hoe u een [Azure Cosmos DB-account bewaakt](monitor-accounts.md).
 
