@@ -2,9 +2,12 @@
 ## [Wat zijn schaalsets voor virtuele machines?](virtual-machine-scale-sets-overview.md)
 
 # Aan de slag
-## [Een schaalset implementeren in Azure Portal](virtual-machine-scale-sets-portal-create.md)
-## [Een schaalset implementeren met PowerShell of Azure CLI](virtual-machine-scale-sets-create.md)
-## [Een automatisch schalende app implementeren met behulp van een sjabloon](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Maken in Azure Portal](virtual-machine-scale-sets-create-portal.md)
+## [Maken met Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
+## [Maken met Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Maken met een sjabloon
+### [Linux-schaalset](virtual-machine-scale-sets-create-template-linux.md)
+### [Windows-schaalset](virtual-machine-scale-sets-create-template-windows.md)
 
 # Procedures
 ## Plannen en ontwerpen
@@ -17,9 +20,7 @@
 ### [Automatisch schalen op basis van een gast met een Linux-schaalsetsjabloon](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Implementeren
-### [Maken met Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Maken met Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Maken met Azure PowerShell of Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Schaalset met Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Een schaalset automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Azure Portal gebruiken](virtual-machine-scale-sets-autoscale-portal.md)

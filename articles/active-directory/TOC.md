@@ -286,6 +286,7 @@
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
 #### [Klassieke beleidsregels migreren](active-directory-conditional-access-migration.md)
+#### [Hulpprogramma What-If](active-directory-conditional-access-whatif.md)
 #### Taken
 ##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
