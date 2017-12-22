@@ -9,15 +9,15 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a217f4cc8ac18888de8dfa803b4b8667a566dc0b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Service-principals met AKS (Azure Container Service)
 
-Voor een AKS is een [service-principal voor Azure Active Directory](../active-directory/develop/active-directory-application-objects.md) vereist voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door [gebruikers gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md) en de [Azure Load Balancer uit laag vier](../load-balancer/load-balancer-overview.md) dynamisch te beheren.
+Voor een AKS-cluster is een [service-principal voor Azure Active Directory][aad-service-principal] vereist voor gebruik met Azure-API's. De service-principal is nodig voor dynamisch beheer van resources zoals door [gebruikers gedefinieerde routes][user-defined-routes] en de [Layer-4 Azure Load Balancer][azure-load-balancer-overview].
 
 In dit artikel worden verschillende opties getoond om een service-principal in te stellen voor een Kubernetes-cluster.
 
@@ -26,7 +26,7 @@ In dit artikel worden verschillende opties getoond om een service-principal in t
 
 Als u een service-principal voor Azure AD wilt maken, moet u beschikken over machtigingen voor het registreren van een toepassing bij de Azure AD-tenant. U moet ook machtigingen hebben om de toepassing aan een rol toe te wijzen in uw abonnement. Als u niet beschikt over de benodigde machtigingen, moet u mogelijk de Azure AD- of abonnementsbeheerder vragen om de benodigde machtigingen toe te wijzen, of vooraf een service-principal maken voor het Kubernetes-cluster.
 
-Ook moet de Azure CLI-versie 2.0.21 of later zijn geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren](/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
+Ook moet de Azure CLI-versie 2.0.21 of later zijn geïnstalleerd en geconfigureerd. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][install-azure-cli].
 
 ## <a name="create-sp-with-aks-cluster"></a>Service-principal met AKS-cluster maken
 
@@ -44,7 +44,7 @@ Er kan een bestaande service-principal voor Azure AD worden gebruikt of vooraf g
 
 ## <a name="pre-create-a-new-sp"></a>Vooraf een nieuwe service-principal maken
 
-Gebruik de opdracht [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) om een service-principal te maken met de Azure CLI.
+Gebruik de opdracht [az ad sp create-for-rbac][az-ad-sp-create] om een service-principal te maken met de Azure CLI.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -83,7 +83,7 @@ Houd rekening met het volgende als u werkt met AKS en service-principals voor Az
 * Als u de **client-id** voor de service-principal opgeeft, kunt u de waarde van de `appId` gebruiken (zoals beschreven in dit artikel) of de bijbehorende service-principal `name` (bijvoorbeeld `https://www.contoso.org/example`).
 * Op de hoofd- en knooppunt-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`.
 * Als u de opdracht `az aks create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/acsServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
-* Als u de opdracht `az aks create` gebruikt om de service-principal automatisch te genereren, kan de service-principal ook worden geverifieerd bij een [Azure Container Registry](../container-registry/container-registry-intro.md) dat in hetzelfde abonnement wordt gemaakt.
+* Als u de opdracht `az aks create` gebruikt om de service-principal automatisch te genereren, kan de service-principal ook worden geverifieerd bij een [Azure Container Registry][acr-into] dat in hetzelfde abonnement wordt gemaakt.
 * Wanneer u een AKS-cluster verwijdert dat is gemaakt door `az aks create`, wordt de service-principal die automatisch is gemaakt, niet verwijderd. U kunt deze verwijderen met `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -91,4 +91,13 @@ Houd rekening met het volgende als u werkt met AKS en service-principals voor Az
 Zie de documentatie over Azure AD-toepassingen voor meer informatie over service-principals voor Azure Active Directory.
 
 > [!div class="nextstepaction"]
-> [Toepassings- en service-principalobjecten](../active-directory/develop/active-directory-application-objects.md)
+> [Toepassings- en service-principalobjecten][service-principal]
+
+<!-- LINKS - internal -->
+[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[acr-intro]: ../container-registry/container-registry-intro.md
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[user-defined-routes]: ../load-balancer/load-balancer-overview.md

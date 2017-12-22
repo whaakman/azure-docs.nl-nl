@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Inleiding tot Apache Kafka in HDInsight
 
@@ -62,6 +62,8 @@ Kafka op HDInsight biedt de volgende functies:
 ![Kafka-clusterconfiguratie](./media/apache-kafka-introduction/kafka-cluster.png)
 
 Dit diagram toont een typische Kafka-configuratie die gebruikmaakt van de consumentgroepen, partitionering en replicatie om het parallel lezen van gebeurtenissen met fouttolerantie mogelijk te maken. Apache ZooKeeper is gebouwd voor gelijktijdige, robuuste transacties met een lage latentie voor het beheren van de status van het Kafka-cluster. Kafka slaat records op in *onderwerpen*. Records worden geproduceerd door *producenten* en worden gebruikt door *consumenten*. Producenten halen records op uit Kafka-*brokers*. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker. Voor elke consument wordt één partitie gemaakt, zodat de streaminggegevens parallel kunnen worden verwerkt. Replicatie wordt gebruikt om de partities over knooppunten te verdelen, zodat er beveiliging is tegen storingen van knooppunten (broker). Een partitie die is gemarkeerd met een *(L)* is de leidende partitie voor de opgegeven partitie. Producentverkeer wordt doorgestuurd naar de leider van elk knooppunt, met behulp van de status die wordt beheerd door ZooKeeper.
+
+Elke Kafka-broker maakt gebruik van Azure Managed Disks. Het aantal schijven is per gebruiker gedefinieerd en kan maximaal 16 TB aan opslag per broker bieden.
 
 > [!IMPORTANT]
 > Kafka is niet op de hoogte van de onderliggende hardware (rack) in het Azure-datacentrum. Om ervoor te zorgen dat partities correct worden verdeeld over de onderliggende hardware raadpleegt u [hoge beschikbaarheid configureren (Kafka)](apache-kafka-high-availability.md).

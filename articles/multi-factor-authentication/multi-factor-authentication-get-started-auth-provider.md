@@ -4,22 +4,22 @@ description: Informatie over het maken van een Azure Multi-Factor Authentication
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: a7dd5030-7d40-4654-8fbd-88e53ddc1ef5
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 12/08/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: dc1664d382c6e59c125ef00d02a8848079d8bf8d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b04fd6f969461cf39016df951007c59047c8857a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-an-azure-multi-factor-authentication-provider"></a>Aan de slag met een Azure Multi-Factor Authentication-provider
 Verificatie in twee stappen is standaard beschikbaar voor globale beheerders van Azure Active Directory- en Office 365-gebruikers. Als u echter wilt profiteren van [geavanceerde functies](multi-factor-authentication-whats-next.md), moet u de volledige versie van Azure Multi-Factor Authentication (MFA) aanschaffen.
@@ -30,6 +30,7 @@ Een Azure Multi-Factor Authentication-provider is vereist als u de SDK wilt down
 
 > [!IMPORTANT]
 > De afschaffing van de Azure Multi-Factor Authentication Software Development Kit (SDK) is aangekondigd. Deze functie wordt niet meer ondersteund voor nieuwe klanten. Huidige klanten kunnen de SDK nog gebruiken tot en met 14 november 2018. Na deze datum kan de SDK niet meer worden aangeroepen.
+
 > [!IMPORTANT]
 >Als u de SDK wilt downloaden, moet u een Azure Multi-Factor Authentication-provider maken, zelfs als u Azure MFA, AAD Premium of EMS-licenties hebt.  Als u een Azure Multi-Factor Authentication-provider voor dit doeleinde maakt en al licenties hebt, moet u ervoor zorgen dat u de provider maakt met het model **Per ingeschakelde gebruiker**. Koppel de provider vervolgens aan de map die de licenties voor Azure MFA, Azure AD Premium of EMS bevat. Deze configuratie zorgt ervoor dat u alleen een rekening ontvangt als u meer unieke gebruikers hebt die verificatie in twee stappen gebruiken dan het aantal licenties dat u in uw bezit hebt. 
 
@@ -39,15 +40,17 @@ Als u geen licenties voor Azure Multi-Factor Authentication hebt, kunt u een ver
 
 Er zijn twee soorten verificatieproviders. Het verschil tussen beide heeft te maken met de wijze waarop uw Azure-abonnement in rekening wordt gebracht. De optie Per verificatie berekent het aantal verificaties die in een maand op uw tenant worden uitgevoerd. Deze optie wordt aanbevolen als u een aantal gebruikers hebt die slechts sporadisch verifiëren. De optie Per gebruiker berekent het aantal personen in uw tenant die in een maand verificatie in twee stappen uitvoeren. Deze optie wordt aanbevolen als u een aantal gebruikers met licenties hebt, maar MFA wilt uitbreiden naar meer gebruikers buiten de restricties van uw licentie.
 
-## <a name="create-an-mfa-provider---public-preview"></a>Een MFA-provider maken - openbare preview
+## <a name="create-an-mfa-provider"></a>Een MFA-provider maken
 
 Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider te maken in Azure Portal:
 
-1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com). 
-2. Selecteer **Azure Active Directory** > **MFA-server**.
-3. Selecteer **Providers**.
-4. Selecteer **Toevoegen**.
-5. Vul de volgende velden in en selecteer **Toevoegen**:
+1. Meld u aan bij de [Azure Portal](https://portal.azure.com) als globale beheerder. 
+2. Selecteer **Azure Active Directory** > **MFA-server** > **Providers**.
+
+   ![Providers][Providers]
+
+3. Selecteer **Toevoegen**.
+4. Vul de volgende velden in en selecteer **Toevoegen**:
    - **Naam**: de naam van de provider.
    - **Gebruiksmodel**: kies een van de volgende twee opties:
       * Per verificatie – koopmodel waarin per verificatie wordt betaald. Wordt doorgaans gebruikt in scenario's die gebruikmaken van Azure Multi-Factor Authentication in een toepassing waarmee consumenten te maken krijgen.
@@ -57,42 +60,6 @@ Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider t
       * U hebt geen Azure AD-adreslijst nodig om een provider te maken. Laat dit vak leeg als u alleen van plan bent de Azure Multi-Factor Authentication-server te downloaden.
       * De provider moet worden gekoppeld aan een Azure AD-adreslijst om te kunnen profiteren van de geavanceerde functies.
       * Er kan slechts één provider worden gekoppeld aan één Azure AD-adreslijst.
-
-## <a name="create-an-mfa-provider"></a>Een MFA-provider maken
-Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider te maken in de klassieke portal:
-
-1. Meld u aan als beheerder bij de [klassieke Azure Portal](https://manage.windowsazure.com).
-2. Selecteer aan de linkerkant **Active Directory**.
-3. Selecteer op de pagina Active Directory aan de bovenkant **Multi-Factor Authentication-providers**.
-   
-   ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider1.png)
-
-4. Klik aan de onderkant op **Nieuw**.
-   
-   ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider2.png)
-
-5. Onder App Services selecteert u **Multi-Factor Authentication-provider**
-   
-   ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider3.png)
-
-6. Selecteer **Snelle invoer**.
-   
-   ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
-
-7. Vul de volgende velden in en selecteer **Maken**:
-   1. **Naam**: de naam van de provider.
-   2. **Gebruiksmodel**: kies een van de volgende twee opties:
-      * Per verificatie – koopmodel waarin per verificatie wordt betaald. Wordt doorgaans gebruikt in scenario's die gebruikmaken van Azure Multi-Factor Authentication in een toepassing waarmee consumenten te maken krijgen.
-      * Per ingeschakelde gebruiker – koopmodel waarin voor elke ingeschakelde gebruiker wordt betaald. Wordt doorgaans gebruikt om werknemers toegang te geven tot toepassingen zoals Office 365. Kies deze optie als sommige gebruikers al een licentie voor Azure MFA hebben.
-   3. **Adreslijst**: de Azure Active Directory-tenant waaraan de provider is gekoppeld.
-      * U hebt geen Azure AD-adreslijst nodig om een provider te maken. Laat dit vak leeg als u alleen van plan bent de Azure Multi-Factor Authentication-server te downloaden.
-      * De provider moet worden gekoppeld aan een Azure AD-adreslijst om te kunnen profiteren van de geavanceerde functies.
-      * Er kan slechts één provider worden gekoppeld aan één Azure AD-adreslijst.  
-      ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
-
-8. Nadat u op Maken hebt gedrukt, wordt de Multi-Factor Authentication-provider gemaakt en wordt er een bericht weergegeven: **Er is een Multi-Factor Authentication-provider gemaakt**. Klik op **OK**.  
-   
-   ![Een MFA-provider maken](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)  
 
 ## <a name="manage-your-mfa-provider"></a>Uw MFA-provider beheren
 
@@ -105,3 +72,5 @@ Als de MFA-provider niet is gekoppeld aan een Azure AD-tenant, of als u de nieuw
 ## <a name="next-steps"></a>Volgende stappen
 
 [Multi-Factor Authentication-instellingen configureren](multi-factor-authentication-whats-next.md)
+
+[Providers]: ./media/multi-factor-authentication-get-started-auth-provider/add-providers.png "MFA-providers toevoegen"

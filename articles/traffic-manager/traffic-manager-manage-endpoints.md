@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Eindpunten toevoegen, uitschakelen, inschakelen of verwijderen
 
@@ -39,7 +39,7 @@ U kunt ook afzonderlijke eindpunten uitschakelen die deel uitmaken van een Traff
     1. Klik bij **Type** op **Azure-eindpunt**.
     2. Geef een **Naam** op waarmee u dit eindpunt kunt herkennen.
     3. Kies bij **Doelresourcetype** in de vervolgkeuzelijst het juiste resourcetype.
-    4. Kies bij **Doelresource** in de vervolgkeuzelijst de juiste doelresource om de resources onder hetzelfde abonnement weer te geven op de blade **Resourceblade**. Kies op de blade **Resource** die wordt weergegeven, de service die u wilt toevoegen als eerste eindpunt.
+    4. Voor **Doelresource** klikt u op de selector **Kiezen** om resources onder hetzelfde abonnement in de **blade Resources** op te nemen. Kies op de blade **Resource** die wordt weergegeven, de service die u wilt toevoegen als eerste eindpunt.
     5. Selecteer bij **Prioriteit** de optie **1**. Dit zorgt ervoor dat alle verkeer naar dit eindpunt wordt geleid, indien het eindpunt in orde is.
     6. Laat **Toevoegen als uitgeschakeld** uit staan.
     7. Klik op **OK**

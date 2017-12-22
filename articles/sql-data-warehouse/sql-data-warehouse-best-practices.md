@@ -15,16 +15,18 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Aanbevolen procedures voor Azure SQL Data Warehouse
 Dit artikel bevat een verzameling van aanbevolen procedures waarmee u optimale resultaten kunt bereiken met Azure SQL Data Warehouse.  Sommige onderwerpen in dit artikel zijn eenvoudig uit te leggen, andere zijn geavanceerder, waardoor we alleen de basis hiervan kunnen behandelen.  Het doel van dit artikel is om u een aantal richtlijnen te geven en u te wijzen op belangrijke onderdelen bij het maken van een datawarehouse.  In elk gedeelte maakt u kennis met een onderwerp en wordt u gewezen op gedetailleerdere artikelen die dieper op het onderwerp ingaan.
 
 Laat u niet afschrikken door dit artikel als u net met Azure SQL Data Warehouse begint.  De onderwerpen zijn grotendeels gerangschikt op belangrijkheid.  Als u met de eerste onderwerpen begint, bent u al goed op weg.  Zodra u wat meer ervaring hebt opgedaan met SQL Date Warehouse, kunt u teruggaan naar dit artikel en andere onderwerpen bekijken.  U hebt het in een mum van tijd onder de knie.
+
+Zie voor hulp bij het laden [Richtlijnen voor het laden van gegevens](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Kosten verlagen met onderbreken en schalen
 Een belangrijke functie van SQL Data Warehouse is de mogelijkheid om het te onderbreken wanneer u het niet gebruikt, wat voorkomt dat rekenresources in rekening worden gebracht.  Een andere kernfunctie is het schalen van resources.  Onderbreken en schalen kunnen via de Azure Portal of met PowerShell-opdrachten worden uitgevoerd.  Het loont om deze functies te leren kennen, omdat ze de kosten van uw datawarehouse drastisch kunnen verlagen wanneer deze niet wordt gebruikt.  Als u liever wilt dat uw datawarehouse altijd toegankelijk is, kunt u overwegen deze omlaag te schalen naar het kleinste formaat, DW100, in plaats van deze te onderbreken.
@@ -52,7 +54,7 @@ SQL Data Warehouse ondersteunt het laden en exporteren van gegevens via verschil
 Zie ook [Gegevens laden][Load data], [Gids voor gebruik van PolyBase][Guide for using PolyBase], [Laadpatronen en -strategieën voor Azure SQL Data Warehouse][Azure SQL Data Warehouse loading patterns and strategies], [Gegevens laden met Azure Data Factory][Load Data with Azure Data Factory], [Gegevens verplaatsen met Azure Data Factory][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [CREATE TABLE AS SELECT (CTAS)][Create table as select (CTAS)]
 
 ## <a name="load-then-query-external-tables"></a>Externe tabellen laden en vervolgens query’s uitvoeren
-PolyBase, ook wel bekend als externe tabellen, kan de snelste manier zijn om gegevens te laden, maar het is niet optimaal voor query’s. SQL Data Warehouse PolyBase-tabellen ondersteunen momenteel alleen Azure-blob-bestanden. Deze bestanden worden niet door rekenresources ondersteunt.  Als gevolg daarvan kan SQL Data Warehouse deze taak niet offloaden en moet het het hele bestand lezen door het naar tempdb te laden om de gegevens te kunnen lezen.  Indien u meerdere query’s uitvoert voor deze gegevens, kunt u beter de gegevens eenmalig laden en query’s op de lokale tabel toepassen.
+PolyBase, ook wel bekend als externe tabellen, kan de snelste manier zijn om gegevens te laden, maar het is niet optimaal voor query’s. SQL Data Warehouse PolyBase-tabellen ondersteunen momenteel alleen Azure-blob-bestanden en Azure Data Lake-opslag. Deze bestanden worden niet door rekenresources ondersteunt.  Als gevolg daarvan kan SQL Data Warehouse deze taak niet offloaden en moet het het hele bestand lezen door het naar tempdb te laden om de gegevens te kunnen lezen.  Indien u meerdere query’s uitvoert voor deze gegevens, kunt u beter de gegevens eenmalig laden en query’s op de lokale tabel toepassen.
 
 Zie ook [Gids voor gebruik van PolyBase][Guide for using PolyBase]
 
@@ -127,8 +129,8 @@ Tenslotte willen we u vragen de pagina [Azure SQL Data Warehouse Feedback][Azure
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
+[Guide for using PolyBase]: ./guidance-for-loading-data.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md

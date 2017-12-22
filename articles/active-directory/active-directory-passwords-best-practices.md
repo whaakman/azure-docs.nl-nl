@@ -1,11 +1,11 @@
 ---
-title: 'Implementeren: Azure AD-selfservice voor wachtwoordherstel | Microsoft Docs'
-description: Tips voor een geslaagde implementatie van Azure AD-selfservice voor wachtwoordherstel
+title: 'Implementeren: Azure AD-self-service voor wachtwoordherstel | Microsoft Docs'
+description: Tips voor een geslaagde implementatie van Azure AD-self-service voor wachtwoordherstel
 services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
@@ -37,6 +37,10 @@ De meeste klanten voeren de volgende stappen uit voor een goede implementatie va
 9. Bepaal of u de registratie verplicht wilt maken. U kunt ervoor kiezen registratie op elk gewenst moment af te dwingen. U kunt ook afdwingen dat gebruikers hun verificatiegegevens na een bepaalde periode opnieuw moeten bevestigen.
 10. Gebruik de rapportagefunctionaliteit. Na verloop van tijd kunt u de registratie van gebruikers en het gebruik controleren met de [rapportagefunctionaliteit van Azure AD](active-directory-passwords-reporting.md).
 11. Schakel wachtwoordherstel in. Wanneer u klaar bent, schakelt u wachtwoordherstel in voor alle gebruikers door de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in te stellen op **Alle**. 
+
+   > [!NOTE]
+   > Als u deze optie wijzigt van een geselecteerde groep naar iedereen, worden bestaande authenticatiegegevens die een gebruiker als onderdeel van een testgroep heeft geregistreerd, niet ongeldig. Gebruikers die geconfigureerd zijn en geldige authenticatiegegevens geregistreerd hebben, blijven functioneren.
+
 12. [Bied Windows 10-gebruikers de mogelijkheid tot wachtwoordherstel op het aanmeldingsscherm](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Veel klanten vinden een e-mailcampagne, met eenvoudig te gebruiken instructies, 
 
 Veel klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te maken, zoals https://passwords.contoso.com. Ze vullen deze pagina met koppelingen naar de volgende informatie:
 
-* [Azure AD-portal voor wachtwoordherstel](https://aka.ms/sspr)
-* [Azure AD-registratieportal voor wachtwoordherstel](http://aka.ms/ssprsetup)
-* [Azure AD-portal voor wachtwoordwijziging](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Azure AD Portal voor wachtwoordherstel: https://aka.ms/sspr](https://aka.ms/sspr)
+* [Azure AD Portal voor registratie voor wachtwoordherstel: http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Azure AD Portal voor wijzigen wachtwoord: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Overige organisatiespecifieke informatie
 
 In e-mailberichten of flyers die u verstuurt, kunt u een in huisstijl opgemaakte, gemakkelijk te onthouden URL opnemen die gebruikers kunnen raadplegen wanneer ze de services moeten gebruiken. We hebben een [voorbeeldpagina voor wachtwoordherstel](https://github.com/ajamess/password-reset-page) gemaakt die u kunt gebruiken en aanpassen aan de behoeften van uw organisatie.

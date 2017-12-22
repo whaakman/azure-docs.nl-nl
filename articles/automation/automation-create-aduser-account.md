@@ -3,7 +3,7 @@ title: Gebruikersaccount voor Azure AD maken | Microsoft Docs
 description: "In dit artikel wordt beschreven hoe u gebruikersaccountreferenties van Azure AD voor runbooks in Azure Automation maakt om te verifiëren bij Azure en het klassieke Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: Azure Active Directory-gebruiker, Azure Service Management, Azure AD-gebruikersaccount
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Runbooks met klassieke Azure-implementatie en Resource Manager verifiëren
 In dit artikel worden de stappen beschreven die u moet uitvoeren om een Azure AD-gebruikersaccount te configureren voor Azure Automation-runbooks die worden uitgevoerd met resources van een klassiek Azure-implementatiemodel of Azure Resource Manager.  Hoewel dit een ondersteunde verificatie-identiteit blijft voor op Azure Resource Manager gebaseerde runbooks, is het gebruik van een Uitvoeren als-account voor Azure de aanbevolen methode.       
@@ -42,7 +42,7 @@ In dit artikel worden de stappen beschreven die u moet uitvoeren om een Azure AD
 In deze sectie voert u de volgende stappen uit om een nieuw Azure Automation-account te maken in Azure Portal, dat wordt gebruikt met uw resources waarmee runbooks worden beheerd in een klassieke Azure-implementatie.  
 
 > [!NOTE]
-> Automation-accounts die met de klassieke Azure-portal zijn gemaakt, kunnen worden beheerd met zowel de klassieke Azure-portal als Azure Portal en een van de sets met cmdlets. Zodra het account is gemaakt, maakt het niet meer uit hoe u resources binnen het account maakt en beheert. Als u van plan bent om de klassieke Azure-portal te blijven gebruiken, moet u deze gebruiken in plaats van Azure Portal voor het maken van Automation-accounts.
+> Automation-accounts die met de klassieke Azure-portal zijn gemaakt, kunnen worden beheerd met zowel de klassieke Azure-portal als Azure Portal en een van de sets met cmdlets. Zodra het account is gemaakt, maakt het niet meer uit hoe u resources binnen het account maakt en beheert. Als u van plan bent om de klassieke Azure-portal te blijven gebruiken, moet u deze gebruiken in plaats van de Azure Portal voor het maken van Automation-accounts.
 > 
 > 
 

@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: ad022eb8d3a0a22e679962d75c05eed799976ece
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: bbfe7fedb1d5216b8a159faa9543ade74176181f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Aan de slag met de SDK voor Java-clients voor Azure Media Services
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -42,7 +42,7 @@ Als uw build-hulpprogramma bijvoorbeeld `gradle` is, voegt u de volgende afhanke
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->De SDK voegt ondersteuning toe voor AAD-verificatie (Azure Active Directory) en verwijdert ondersteuning voor Azure ACS-verificatie (Access Control Service) vanaf `azure-media`-pakket versie `0.9.8`. De ACS-services worden op 1 juni 2018 afgeschaft. We raden u aan om zo snel mogelijk naar het Azure Active Directory-verificatiemodel te migreren. Lees het artikel [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Toegang tot de API van Azure Media Services met Azure Active Directory-verificatie) voor meer informatie over migratie.
+>De SDK voegt ondersteuning toe voor AAD-verificatie (Azure Active Directory) en verwijdert ondersteuning voor Azure ACS-verificatie (Access Control Service) vanaf de `azure-media`-pakketversie `0.9.8`. De ACS-services worden op 1 juni 2018 afgeschaft. We raden u aan om zo snel mogelijk naar het Azure Active Directory-verificatiemodel te migreren. Lees het artikel [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md) (Toegang tot de API van Azure Media Services met Azure Active Directory-verificatie) voor meer informatie over migratie.
 
 >[!NOTE]
 >U vindt de broncode van de Azure Media Services Java SDK in onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Zorg ervoor dat u overschakelt naar de branch 0.9 en niet de master branch. 

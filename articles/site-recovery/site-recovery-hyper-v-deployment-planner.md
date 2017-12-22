@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Azure Site Recovery Deployment Planner voor Hyper-V naar Azure
 Dit artikel is de gebruikershandleiding voor de Azure Site Recovery Deployment Planner voor productie-installaties van het type Hyper-V-naar-Azure.
@@ -40,6 +40,9 @@ Het hulpprogramma levert de volgende gegevens:
 
 * De geschatte vereiste bandbreedte in het netwerk voor replicatie van verschillen
 * De doorvoer die Azure Site Recovery kan verwerken van on-premises naar Azure
+* RPO die kan worden bereikt voor een bepaalde bandbreedte
+* Impact op de gewenste RPO als er een lagere bandbreedte beschikbaar is.
+
     
 **Vereisten voor Azure-infrastructuur**
 
@@ -52,6 +55,7 @@ Het hulpprogramma levert de volgende gegevens:
 
 **On-premises infrastructuurvereisten**
 * De totale vrije opslagruimte op elk volume van Hyper-V-opslag die is vereist voor de initiële replicatie en replicatie van verschillen om ervoor te zorgen dat de VM-replicatie niet leidt tot ongewenste downtime voor uw productietoepassingen
+* Maximale kopieerfrequentie die moet worden ingesteld voor Hyper-V-replicatie
 
 **Hulp bij eerste replicatie via batch** 
 * Het aantal batches van VM dat moet worden gebruikt voor beveiliging

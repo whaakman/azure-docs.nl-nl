@@ -3,21 +3,21 @@ title: Azure Active Directory Power BI Content Pack gebruiken | Microsoft Docs
 description: In dit artikel leest u hoe u Azure Active Directory Power BI Content Pack gebruikt.
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI Content Pack gebruiken
 
@@ -46,7 +46,7 @@ In dit onderwerp krijgt u stapsgewijze instructies voor het installeren en gebru
 5.  Als u daarom wordt gevraagd, typt u de id van uw Azure AD-tenant en klikt u vervolgens op **Volgende**.
 
     > [!TIP] 
-    > Een snelle manier om de tenant-id voor uw Office 365-/Azure AD-tenant te vinden, is door u aan te melden bij de Azure AD-portal, in te zoomen op de adreslijst en de id van de volgende URL te kopiëren: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > Als u een snelle manier zoekt om de Tenant-ID voor uw Office 365 / Azure AD-tenant op te halen, kunt u zich aanmelden bij de Azure AD-portal, inzoomen op de map en de **map-ID** op de [ **eigenschappenpagina** kopiëren](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Azure Active Directory Power BI Content Pack](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 

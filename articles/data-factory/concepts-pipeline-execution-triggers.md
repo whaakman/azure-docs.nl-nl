@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Zie [Snelstartgids: een data factory maken met .NET](quickstart-create-data-fact
 ## <a name="triggers"></a>Triggers
 Triggers zijn de tweede manier om een pijplijnuitvoering te activeren. Triggers zijn verwerkingseenheden die bepalen wanneer een pijplijnuitvoering moet worden gestart. Data Factory ondersteunt momenteel een trigger die een pijplijn volgens een wandklokschema aanroept. Dit heet een **scheduler-trigger**. Op dit moment ondersteunt Data Factory geen triggers op basis van gebeurtenissen, zoals een trigger van een pijplijnuitvoering wanneer een bestand wordt ontvangen.
 
-Pijplijnen en triggers hebben een 'n-m-relatie'. Meerdere triggers kunnen één pijplijn starten en één trigger kan meerdere pijplijnen starten. In de volgende JSON-definitie van een trigger verwijst de eigenschap **pijplijnen** naar een lijst van de pijplijnen die worden geactiveerd door de betreffende trigger, en naar waarden voor pijplijnparameters.
+Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn starten en één trigger kan meerdere pijplijnen starten. In de volgende JSON-definitie van een trigger verwijst de eigenschap **pijplijnen** naar een lijst van de pijplijnen die worden geactiveerd door de betreffende trigger, en naar waarden voor pijplijnparameters.
 
 ### <a name="basic-trigger-definition"></a>Basisdefinitie voor triggers: 
 ```json
@@ -165,7 +165,7 @@ Scheduler-trigger voert pijplijnen uit volgens een wandklokschema. Deze trigger 
 ### <a name="scheduler-trigger-json-definition"></a>JSON-definitie van een scheduler-trigger
 Wanneer u een scheduler-trigger maakt, kunt u de planning en een terugkeerpatroon opgeven met JSON, zoals weergegeven in het voorbeeld in deze sectie. 
 
-Als u wilt dat de scheduler-trigger een pijplijnuitvoering activeert, moet u een verwijzing naar de betreffende pijplijn opnemen in de definitie van de trigger. Pijplijnen en triggers hebben een 'n-m-relatie'. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren.
+Als u wilt dat de scheduler-trigger een pijplijnuitvoering activeert, moet u een verwijzing naar de betreffende pijplijn opnemen in de definitie van de trigger. Pijplijnen en triggers hebben een veel-op-veel-relatie. Meerdere triggers kunnen één pijplijn activeren. Eén trigger kan meerdere pijplijnen activeren.
 
 ```json
 {

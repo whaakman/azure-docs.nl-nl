@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>OMS-architectuur
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) is een verzameling cloudservices voor beheer van on-premises en cloudomgevingen.  In dit artikel worden de verschillende on-premises en cloudonderdelen van OMS en hun hoogwaardige cloud computing-architectuur beschreven.  Raadpleeg de documentatie van elke service voor meer informatie.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="log-analytics"></a>Log Analytics
 Alle gegevens die met [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) worden verzameld, worden opgeslagen in de OMS-opslagplaats die in Azure wordt beheerd.  Met verbonden bronnen worden gegevens gegenereerd die in de OMS-opslagplaats zijn verzameld.  Er zijn momenteel drie soorten verbonden bronnen die worden ondersteund.
 
-* Een agent op een [Windows](../log-analytics/log-analytics-windows-agents.md)- of [Linux](../log-analytics/log-analytics-linux-agents.md)-computer die rechtstreeks met OMS is verbonden.
+* Een agent op een [Windows](../log-analytics/log-analytics-windows-agent.md)- of [Linux](../log-analytics/log-analytics-linux-agents.md)-computer die rechtstreeks met OMS is verbonden.
 * Een SCOM-groep (System Center Operations Manager) [verbonden met Log Analytics](../log-analytics/log-analytics-om-agents.md) .  SCOM-agenten blijven communiceren met beheerservers die gegevens over gebeurtenissen en prestaties doorsturen naar Log Analytics.
 * Een [Azure-opslagaccount](../log-analytics/log-analytics-azure-storage.md) waarmee [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)-gegevens van een werkrol, webrol of virtuele machine in Azure worden verzameld.
 

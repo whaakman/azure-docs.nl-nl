@@ -3,7 +3,7 @@ title: Een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuw
 description: Dit artikel bevat een overzicht van hoe u een Automation-runbook aanroept vanuit een Microsoft OMS Log Analytics-waarschuwing.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Een Azure Automation-runbook aanroepen vanuit een Log Analytics-waarschuwing
 
@@ -43,7 +43,7 @@ Als u Automation & Control in uw OMS-werkruimte hebt geïnstalleerd en geconfigu
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Kenmerken van een runbook (voor beide opties)
 
-Beide methoden voor het aanroepen van het runbook vanuit de Log Analytics-waarschuwing hebben kenmerken. Het is belangrijk dat u deze begrijpt voordat u de waarschuwingsregels gaat configureren.
+Beide methoden voor het aanroepen van het runbook vanuit de Log Analytics-waarschuwing hebben kenmerken. Het is belangrijk dat u deze begrijpt voordat u de waarschuwingsregels gaat configureren. De alarmgegevens staan in json-formaat in één eigenschap, genaamd **SearchResult**. Deze indeling is voor runbook- en webhook-acties met een standaardpayload. Voor webhookacties met aangepaste payloads inclusief **IncludeSearchResults:True** in de **RequestBody** is de eigenschap **SearchResults**.
 
 * U moet een runbook-invoerparameter hebben met de naam **WebhookData** en van het type **Object**. Deze kan verplicht of optioneel zijn. Met deze invoerparameter geeft de waarschuwing de zoekresultaten door aan het runbook.
 
@@ -61,6 +61,7 @@ Beide methoden voor het aanroepen van het runbook vanuit de Log Analytics-waarsc
     ```
 
     *$SearchResult* is een matrix met objecten. Elk object bevat de velden met waarden uit één zoekresultaat
+
 
 ## <a name="example-walkthrough"></a>Voorbeeldscenario
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 Wanneer de service stopt, wordt er met de waarschuwingsregel in Log Analytics een overeenkomst gedetecteerd en het runbook geactiveerd. Daarbij wordt de context van de waarschuwing naar het runbook verzonden. Het runbook onderneemt actie om te controleren of de service daadwerkelijk is gestopt. Als dit het geval is, wordt geprobeerd de service opnieuw te starten, wordt gecontroleerd of de service is gestart en worden de resultaten uitgevoerd.     
 
 Als u uw Automation-account niet hebt gekoppeld aan uw OMS-werkruimte, configureert u de waarschuwingsregel met een webhookactie die het runbook activeert, en configureert u het runbook om de tekenreeks in JSON-indeling te converteren en om te filteren op \*.SearchResult\* volgens de eerder vermelde richtlijnen.    
+
+>[!NOTE]
+> Als uw werkruimte is bijgewerkt naar de [nieuwe querytaal van Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), is de webhookpayload gewijzigd.  Details van de indeling zijn te vinden in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Volgende stappen
 
