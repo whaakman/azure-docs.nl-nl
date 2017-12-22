@@ -2,16 +2,16 @@ Zorg ervoor dat u al een Service Bus-naamruimte hebt gemaakt, zoals [hier][names
 
 1. Meld u aan bij [Azure Portal][azure-portal].
 2. Klik in het navigatiedeelvenster links van de portal op **Service Bus** (als u geen **Service Bus** ziet, klik dan op **Meer services**).
-3. Klik op de naamruimte waarin u de wachtrij wilt maken. In dit geval is dat **nstest1**.
+3. Klik op de naamruimte waarin u de wachtrij wilt maken. In dit geval is dit **sbnstest1**.
    
     ![Een wachtrij maken][createqueue1]
-4. Selecteer in de blade **Service Bus-naamruimte** de optie **Wachtrijen** en klik vervolgens op **Wachtrij toevoegen**.
+4. Klik in het venster voor de naamruimte op **Wachtrijen** en klik vervolgens in het venster **Wachtrijen** op **+ Wachtrij**.
    
     ![Selecteer Wachtrijen][createqueue2]
 5. Voer de waarde voor **Wachtrijnaam** in en hanteer voor de andere waarden de standaardinstellingen.
    
     ![Selecteer Nieuw][createqueue3]
-6. Klik onder aan de blade op **Maken**.
+6. Klik onder aan het venster op **Maken**.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png

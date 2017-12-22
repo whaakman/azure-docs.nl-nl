@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: c1d393064313ea65d5226378172530115c338f86
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="indexers-in-azure-search"></a>Indexeerfuncties in Azure Search
 > [!div class="op_single_selector"]
@@ -65,6 +65,9 @@ Gegevensbronnen worden geconfigureerd en onafhankelijk van de indexeerfuncties b
 
 ### <a name="step-2-create-an-index"></a>Stap 2: een index maken
 Een indexeerfunctie automatiseert bepaalde taken met betrekking tot de opname van gegevens, maar het maken van een index behoort hier niet toe. Een vereiste is dat u een vooraf gedefinieerde index moet hebben met velden die overeenkomen met de velden in uw externe gegevensbron. Zie [Create an Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) (Een index maken (Azure Search REST API)) voor meer informatie over het structureren van een index. Zie [Veldtoewijzingen in Azure Search-indexeerfuncties](search-indexer-field-mappings.md) voor hulp bij veldkoppelingen.
+
+> [!Tip]
+> Hoewel indexeerfuncties een index niet voor u kunnen genereren, kan de wizard **Gegevens importeren** in de portal helpen. In de meeste gevallen kan de wizard een indexschema afleiden uit bestaande metagegevens in de bron, met een voorlopig indexschema dat u kunt bewerken terwijl de wizard actief is. Als de index eenmaal is aangemaakt op de service, blijven verdere bewerkingen in de portal meestal beperkt tot het toevoegen van nieuwe velden. Overweeg de wizard voor het maken, maar niet voor het herzien van een index. Doorloop het [Portaloverzicht](search-get-started-portal.md) om aan de slag te gaan.
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Stap 3: de indexeerfunctie maken en plannen
 De definitie van de indexeerfunctie is een constructie die de index, gegevensbron en een planning specificeert. Een indexeerfunctie kan verwijzen naar een gegevensbron van een andere service, zolang die gegevensbron maar uit hetzelfde abonnement komt. Zie [Create Indexer (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) (Een indexeerfunctie maken (Azure Search REST API)) voor meer informatie over het structureren van een indexeerfunctie.

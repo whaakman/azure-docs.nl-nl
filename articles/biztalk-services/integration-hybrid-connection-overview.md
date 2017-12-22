@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Overzicht van hybride verbindingen
 
@@ -90,12 +90,12 @@ De volgende TCP-poorten worden gebruikt door hybride verbindingen:
 | 80, 443 |Deze poorten worden gebruikt voor bepaalde gegevensaanvragen naar Azure. Als de poorten 9352 en 5671 niet beschikbaar zijn, worden *de poorten 80 en 443* gebruikt als alternatieve poorten voor de gegevensoverdracht en het besturingskanaal.<br/><br/>Sta uitgaande verbindingen via deze poorten toe. <br/><br/>**Opmerking** Het wordt afgeraden om deze poorten als alternatieve poorten te gebruiken in plaats van de TCP-poorten. In plaats van het systeemeigen TCP voor gegevenskanalen wordt als protocol namelijk HTTP/WebSocket gebruikt. Dit kan leiden tot lagere prestaties. |
 
 ## <a name="next-steps"></a>Volgende stappen
-[Hybride verbindingen maken en beheren](integration-hybrid-connection-create-manage.md)<br/>
+[Hybride verbindingen maken en beheren](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Zie ook
-[REST-API voor het beheren van BizTalk Services op Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-[BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)<br/>
-[Een BizTalk-service maken met Azure Portal](biztalk-provision-services.md)<br/>
-[BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[REST API voor het beheren van BizTalk Services op Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk Services: grafiek van edities](biztalk-editions-feature-chart.md)  
+[Een BizTalk Service maken](biztalk-provision-services.md)  
+[BizTalk Services: de tabbladen Dashboard, Bewaken en Schalen](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

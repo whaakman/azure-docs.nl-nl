@@ -1,55 +1,49 @@
 ---
 title: Azure Hot, Cool en Archive Storage voor blobs | Microsoft Docs
-description: Hot, Cool en Archive Storage voor Azure Blob Storage-accounts.
+description: Dynamische, statische en archiefopslag voor Azure Storage-accounts.
 services: storage
 documentationcenter: 
-author: michaelhauss
-manager: vamshik
-editor: tysonn
+author: kuhussai
+manager: jwillis
+editor: 
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2017
-ms.author: mihauss
-ms.openlocfilehash: 501fc59efb8bacf58fea2825752d3a33c6ea5963
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.date: 12/11/2017
+ms.author: kuhussai
+ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-blob-storage-hot-cool-and-archive-preview-storage-tiers"></a>Azure Blob Storage: Hot, Cool en Archive (preview) Storage-lagen
+# <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: dynamische-, statische- en archiefopslaglaag
 
 ## <a name="overview"></a>Overzicht
 
-Azure Storage biedt twee opslaglagen voor de opslag van blob-objecten, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en die gedurende minimaal dertig dagen worden opgeslagen. De Azure **Archive Storage-laag** (preview) is geoptimaliseerd voor het opslaan van gegevens die zelden worden geraadpleegd en die gedurende ten minste 180 dagen worden opgeslagen met flexibele latentievereisten (orde van grootte uur). De Archive Storage-laag is slechts beschikbaar op blob-niveau en niet op opslagaccountniveau. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten (in vergelijking met gegevens in de Hot Storage-laag) aanvaardbaar vanwege de veel lagere opslagkosten. Archiefopslag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten.
+Azure Storage biedt drie opslaglagen voor de opslag van blob-objecten, zodat u gegevens zeer voordelig kunt opslaan afhankelijk van hoe u deze gebruikt. De Azure **Hot Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die regelmatig worden geopend. De Azure **Cool Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die niet regelmatig worden geopend en die gedurende minimaal dertig dagen worden opgeslagen. De Azure **Archive Storage-laag** is geoptimaliseerd voor het opslaan van gegevens die zelden worden geraadpleegd en die gedurende ten minste 180 dagen worden opgeslagen met flexibele latentievereisten (orde van grootte uur). De Archive Storage-laag is slechts beschikbaar op blob-niveau en niet op opslagaccountniveau. Voor gegevens in de Cool Storage-laag is een iets lagere beschikbaarheid toegestaan, maar ze vereisen nog steeds een hoge duurzaamheid en een gelijke tijdsduur voor toegang en doorvoer als gegevens in de Hot Storage-laag. Voor gegevens in de Cool Storage-laag zijn een SLA met een iets lagere beschikbaarheid en hogere toegangskosten (in vergelijking met gegevens in de Hot Storage-laag) aanvaardbaar vanwege de veel lagere opslagkosten. Archiefopslag is offline en biedt de laagste kosten voor opslag, maar ook de hoogste toegangskosten.
 
 Het aantal gegevens dat is opgeslagen in de cloud, groeit vandaag de dag exponentieel. Voor een effectief beheer van de kosten voor uw groeiende opslagbehoeften is het vanwege kostenoptimalisatie een goed idee om de gegevens te ordenen op basis van kenmerken als toegangsfrequentie en geplande bewaarperiode. Er bestaan verschillen in de manier waarop gegevens die in de cloud zijn opgeslagen, tijdens hun levensduur worden gegenereerd, benaderd en verwerkt. Sommige gegevens worden tijdens hun hele levensduur actief geopend en gewijzigd. Andere gegevens worden in het begin van hun levensduur regelmatig geopend, terwijl dit naarmate de tijd verstrijkt, aanzienlijk minder vaak gebeurt. Weer andere gegevens in de cloud zijn inactief en worden, als ze eenmaal zijn opgeslagen, zelden tot nooit geopend.
 
 Het is nuttig om voor elk van deze scenario‘s voor toegang tot gegevens een andere opslaglaag te maken die is geoptimaliseerd voor een specifiek toegangspatroon. Door middel van de lagen Hot, Cool en Archive Storage wordt in Azure Blob Storage voorzien in deze behoefte aan gedifferentieerde opslaglagen met afzonderlijke prijsmodellen.
 
-## <a name="blob-storage-accounts"></a>Blob Storage-accounts
+## <a name="storage-accounts-that-support-tiering"></a>Storage-accounts die ondersteuning bieden voor opslaglagen
 
-**Blob Storage-accounts** zijn gespecialiseerde opslagaccounts voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Met Blob Storage-accounts kunt u nu kiezen tussen Hot en Cool Storage-lagen op accountniveau, of Hot, Cool en Archive Storage-lagen op blob-niveau, op basis van toegangspatronen. Sla gegevens die zelden, onregelmatig en regelmatig worden geopend op in respectievelijk de Storage-lagen Hot, Cool en Archive om de kosten te optimaliseren. Blob Storage-accounts zijn vergelijkbaar met de bestaande opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs.
+U kunt uw objectopslaggegevens alleen in dynamische-, statische- en archiefopslaglagen opslaan voor Blob Storage of General Purpose v2 (GPv2-accounts). General Purpose v1 (GPv1)-accounts bieden geen ondersteuning voor opslaglagen. Klanten kunnen echter eenvoudig hun bestaande GPv1- of Blob Storage-accounts converteren naar GPv2-accounts via een eenvoudig éénkliksproces in Azure Portal. GPv2 biedt ook een nieuwe prijzenstructuur voor blobs, bestanden en wachtrijen en toegang tot tal van andere nieuwe opslagfuncties. Verder zullen sommige nieuwe mogelijkheden en prijsverlagingen alleen in GPv2-accounts worden aangeboden. Daarom moeten klanten het gebruik van GPv2-accounts evalueren, maar deze alleen gebruiken na herziening van de prijsstelling voor alle diensten, aangezien sommige workloads op GPv2 duurder kunnen zijn dan op GPv1. Zie [opties voor Azure Storage-account](storage-account-options.md) voor meer informatie.
 
-> [!NOTE]
-> Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund.
+Blob Storage- en GPv2-accounts maken het kenmerk **Toegangslaag** beschikbaar op het accountniveau waarmee u de standaard opslaglaag als dynamisch of statisch kunt opgeven voor elke blob in het opslagaccount die niet beschikt over de opslaglaag die is ingesteld op het objectniveau. Voor objecten met de op objectniveau ingestelde opslaglaag is het accountniveau niet van toepassing. De Archive-laag kan alleen worden toegepast op objectniveau. U kunt op elk gewenst moment schakelen tussen deze opslaglagen.
 
-Blob Storage-accounts geven het kenmerk **Toegangslaag** op accountniveau weer. De standaardopslagaccountlaag wordt erdoor aangeduid als **Hot** of **Cool**. De standaardopslagaccountlaag wordt toegepast op blobs waarvoor op blob-niveau geen expliciete laag is ingesteld. Als er een wijziging optreedt in het gebruikspatroon van de gegevens, kunt u op elk gewenst moment schakelen tussen deze opslaglagen. De **archieflaag** (preview) kan alleen worden toegepast op blob-niveau.
-
-> [!NOTE]
-> Aan het wijzigen van de opslaglaag kunnen extra kosten zijn verbonden. Zie de sectie [Prijzen en facturering](#pricing-and-billing) voor meer informatie.
-
-### <a name="hot-access-tier"></a>Hot Storage-toegangslaag
+## <a name="hot-access-tier"></a>Hot Storage-toegangslaag
 
 Voor Hot Storage gelden hogere opslagkosten dan Cold Storage en Archive Storage, maar Hot Storage heeft wel de laagste toegangskosten. Enkele voorbeelden van gebruiksscenario's voor de opslaglaag voor 'hot' blobs:
 
 * Gegevens die actief worden gebruikt of waarvan wordt verwacht dat ze regelmatig worden geopend (lees- en schrijfbewerkingen).
 * Gegevens die tijdelijk worden opgeslagen voor verwerking en uiteindelijk voor migratie naar de Cool Storage-laag.
 
-### <a name="cool-access-tier"></a>Cool Storage-toegangslaag
+## <a name="cool-access-tier"></a>Cool Storage-toegangslaag
 
 De Cool Storage-toegangslaag heeft lagere opslagkosten en hogere toegangskosten in vergelijking met Hot Storage. Deze laag is bedoeld voor gegevens die ten minste dertig dagen in de Cold Storage verblijven. Enkele voorbeelden van gebruiksscenario's voor de Cool Storage-laag:
 
@@ -57,16 +51,11 @@ De Cool Storage-toegangslaag heeft lagere opslagkosten en hogere toegangskosten 
 * Oudere media-inhoud die niet meer regelmatig wordt bekeken, maar onmiddellijk beschikbaar moet zijn wanneer deze wordt geopend.
 * Grote gegevenssets die voordelig moeten worden opgeslagen, terwijl er meer gegevens worden verzameld voor toekomstige verwerking. (*Bijvoorbeeld*: langetermijnopslag van wetenschappelijke gegevens, onbewerkte telemetriegegevens van een productiefaciliteit)
 
-### <a name="archive-access-tier-preview"></a>Archive Storage-toegangslaag (preview)
+## <a name="archive-access-tier"></a>Archive-toegangslaag
 
 Archive Storage heeft de laagste opslagkosten en hogere kosten voor het ophalen van gegevens in vergelijking met Hot en Cold Storage. Deze laag is bedoeld voor gegevens die enkele uren latentie kunnen verdragen bij terughalen en die ten minste 180 dagen in de archieflaag verblijven.
 
 Als een blob in Archive Storage verblijft, is deze offline en kan niet worden gelezen (dit geldt niet voor de metagegevens, die online en beschikbaar zijn), gekopieerd, overschreven of gewijzigd. Ook kunt u geen momentopnamen maken van een blob in Archive Storage. U kunt echter bestaande bewerkingen gebruiken voor een blob om deze te verwijderen, weer te geven in een lijst, de eigenschappen/metagegevens van de blob weer te geven of de opslaglaag van de blob wijzigen.
-
-#### <a name="blob-rehydration"></a>Rehydratatie van blobs
-Als u gegevens wilt lezen die aanwezig zijn in Archive Storage, moet u de laag van de blob eerst wijzigen in Hot of Cool. Dit proces staat bekend als rehydratatie en het voltooien ervan kan maximaal 15 uur duren voor blobs kleiner dan 50 GB. De extra tijd die nodig is voor grotere blobs, varieert naargelang de doorvoerlimiet van blobs.
-
-Tijdens rehydratatie kunt u aan de blob-eigenschap 'archive status' zien of de laag is gewijzigd. De status is "rehydrate-pending-to-hot" of "rehydrate-pending-to-cool", afhankelijk van de doellaag. Als de bewerking is voltooid, wordt de blob-eigenschap "archive status" verwijderd en geeft de blob-eigenschap "access tier" aan of de opslaglaag Hot of Cool is.  
 
 Enkele voorbeelden van gebruiksscenario's voor de Archive Storage-laag:
 
@@ -74,54 +63,33 @@ Enkele voorbeelden van gebruiksscenario's voor de Archive Storage-laag:
 * Oorspronkelijke (onbewerkte) gegevens die moeten worden bewaard, zelfs nadat deze zijn verwerkt tot hun uiteindelijke, bruikbare vorm. (*Bijvoorbeeld*: onbewerkte mediabestanden na transcodering naar andere indelingen)
 * Compliance- en archiveringsgegevens die gedurende lange tijd moeten worden opgeslagen en bijna nooit worden geopend. (*Bijvoorbeeld*: beeldmateriaal van beveiligingscamera‘s, oude röntgenfoto‘s/MRI‘s in ziekenhuizen, geluidsopnamen en transcripties van verkoopgesprekken voor financiële diensten)
 
-### <a name="recommendations"></a>Aanbevelingen
+### <a name="blob-rehydration"></a>Rehydratatie van blobs
+Als u gegevens wilt lezen die aanwezig zijn in Archive Storage, moet u de laag van de blob eerst wijzigen in Hot of Cool. Dit proces staat bekend als rehydratatie en het voltooien ervan kan wel 15 uur duren. Een grote blob-opslag wordt sterk aanbevolen voor optimale prestaties. Enkele kleine blobs tegelijk reactiveren kan extra tijd toevoegen.
 
-Zie [Over Azure Storage-accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over opslagaccounts.
+Tijdens rehydratatie kunt u aan de blob-eigenschap **archive status** zien of de laag is gewijzigd. De status is "rehydrate-pending-to-hot" of "rehydrate-pending-to-cool", afhankelijk van de doellaag. Als de bewerking is voltooid, wordt de blob-eigenschap voor archiefstatus verwijderd en geeft de blob-eigenschap **Toegangslaag** aan of de opslaglaag dynamisch of statisch is.  
 
-Voor toepassingen waarvoor alleen de opslag van blok- of toevoeg-blobs is vereist, wordt aangeraden gebruik te maken van Blob Storage-accounts. Zo profiteert u maximaal van het gedifferentieerde prijsmodel voor gelaagde opslag. We begrijpen dat dit onder bepaalde omstandigheden, waar opslagaccounts voor algemeen gebruik beter werken, wellicht niet mogelijk is. Bijvoorbeeld:
+## <a name="blob-level-tiering"></a>Laaginstelling op blobniveau
 
-* U maakt gebruik van tabellen, wachtrijen of bestanden en wilt de blobs opslaan in hetzelfde opslagaccount. Het opslaan van deze items onder hetzelfde account biedt geen technisch voordeel, behalve dezelfde gedeelde sleutels.
+De functie Laaginstelling op blob-niveau maakt het mogelijk om de laag van uw gegevens op objectniveau te wijzigen met behulp van een eenmalige bewerking met de naam [Blob-laag instellen](/rest/api/storageservices/set-blob-tier). U kunt de toegangslaag van een blob gemakkelijk wijzigen van Hot in Cool of Archive, plus alle mogelijke varianten. U kunt zo snel inspelen op veranderende gebruikspatronen zonder dat u gegevens tussen accounts hoeft te verplaatsen. Alle laagwijzigingen vinden direct plaats, behalve wanneer een blob wordt gerehydrateerd uit Archive Storage, wat enkele uren kan duren. Het tijdstip waarop de laatste wijziging aan de blob-laag heeft plaatsgevonden, wordt weergegeven via de blob-eigenschap **Access Tier Change Time**. Als een blob zich in de archieflaag bevindt, wordt deze mogelijk niet overschreven. Vandaar dat in dit scenario dezelfde blob niet mag worden geüpload. Blobs in Hot en Cool Storage mogen worden overschreven. In dit geval neemt de nieuwe blob de laag over van de oude, overschreven blob.
 
-* U moet nog steeds gebruikmaken van het klassieke implementatiemodel. Blob Storage-accounts zijn alleen beschikbaar via het Azure Resource Manager-implementatiemodel.
-
-* U moet gebruikmaken van pagina-blobs. Blob Storage-accounts bieden geen ondersteuning voor pagina-blobs. Over het algemeen raden we het gebruik van blok-blobs aan, tenzij u specifiek behoefte hebt aan pagina-blobs.
-
-* U gebruikt een versie van de [REST API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) die ouder is dan 2014-02-14 of een clientbibliotheek met een lagere versie dan 4.x en u uw toepassing niet kunt upgraden.
-
-> [!NOTE]
-> Blob Storage-accounts worden momenteel ondersteund in alle Azure-regio's.
-
-
-## <a name="blob-level-tiering-feature-preview"></a>Toegangslagen op blob-niveau (preview)
-
-De functie Laaginstelling op blob-niveau maakt het mogelijk om de laag van uw gegevens op objectniveau te wijzigen met behulp van een eenmalige bewerking met de naam [Blob-laag instellen](/rest/api/storageservices/set-blob-tier). U kunt de toegangslaag van een blob gemakkelijk wijzigen van Hot in Cool of Archive, plus alle mogelijke varianten. U kunt zo snel inspelen op veranderende gebruikspatronen zonder dat u gegevens tussen accounts hoeft te verplaatsen. Alle laagwijzigingen vinden direct plaats, behalve wanneer een blob wordt gerehydrateerd uit Archive Storage. Het tijdstip waarop de laatste wijziging aan de blob-laag heeft plaatsgevonden, wordt weergegeven via het kenmerk **Access Tier Change Time** in de blob-eigenschappen. Als een blob zich in de archieflaag bevindt, wordt deze mogelijk niet overschreven. Vandaar dat in dit scenario dezelfde blob niet mag worden geüpload. Blobs in Hot en Cool Storage mogen worden overschreven. In dit geval neemt de nieuwe blob de laag over van de oude, overschreven blob.
-
-Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde account. Een blob waaraan niet expliciet een laag is toegewezen, leidt de laag af die is ingesteld als toegangslaag voor het account. Als de toegangslaag van het account is afgeleid, ziet u dat het kenmerk **Access Tier Inferred** is ingesteld op 'waar'. Het kenmerk **Access Tier** van de blob komt overeen met de accountlaag. In Azure Portal wordt de eigenschap Access Tier Inferred weergegeven met de Blob-toegangslaag (bijvoorbeeld Hot (afgeleid) of Cool (afgeleid)).
+Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde account. Een blob waaraan niet expliciet een laag is toegewezen, leidt de laag af die is ingesteld als toegangslaag voor het account. Als de toegangslaag van het account is afgeleid, ziet u dat de blob-eigenschap **Access Tier Inferred** is ingesteld op 'waar'. De blob-eigenschap **Access Tier** komt overeen met de accountlaag. In Azure Portal wordt de eigenschap Access Tier Inferred weergegeven met de Blob-toegangslaag (bijvoorbeeld Hot (afgeleid) of Cool (afgeleid)).
 
 > [!NOTE]
 > Archiefopslag en laaginstelling op blobniveau ondersteunen alleen blok-blobs. U kunt evenmin de laag wijzigen van een blok-blob die momentopnamen bevat.
 
 ### <a name="blob-level-tiering-billing"></a>Facturering van laaginstelling op blobniveau
 
-Als een blob wordt verplaatst naar een minder dynamische laag (van Hot naar Cool of van Cool naar Archive), wordt de bewerking gefactureerd als een schrijfbewerking in de bestemmingslaag. De kosten voor de schrijfbewerking (per 10.000) en het schrijven van gegevens (per GB) voor de bestemmingslaag zijn van toepassing. Als een blob wordt verplaatst naar een dynamischer laag (van Archive naar Cool, van Archive naar Hot of van Cool naar Hot), wordt de bewerking gefactureerd als een leesbewerking vanuit de bronlaag. De kosten voor de leesbewerking (per 10.000) en het ophalen van gegevens (per GB) voor de bronlaag zijn van toepassing.
+Als een blob wordt verplaatst naar een minder dynamische laag (dynamisch->statisch, dynamisch->archief of statisch->archief), wordt de bewerking gefactureerd als een schrijfbewerking in de bestemmingslaag. De kosten voor de schrijfbewerking (per 10.000) en het schrijven van gegevens (per GB) voor de bestemmingslaag zijn van toepassing. Als een blob wordt verplaatst naar een meer dynamische laag (archief->statisch, archive->dynamisch of statisch->dynamisch), wordt de bewerking gefactureerd als een leesbewerking vanuit de bronlaag. De kosten voor de leesbewerking (per 10.000) en het ophalen van gegevens (per GB) voor de bronlaag zijn van toepassing.
 
-Als u deze functies in preview wilt gebruiken, volgt u de instructies in dit Engelstalige blog: [Announcing the public preview of Azure Archive Blob Storage and Blob-Level Tiering](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering).
+Als u het accountniveau omschakelt van dynamisch naar statisch, worden alleen schrijfacties in rekening gebracht (per 10.000) voor alle blobs zonder een ingestelde opslaglaag in GPv2-accounts. Er zijn geen kosten hiervoor in Blob Storage-accounts. Er worden kosten in rekening gebracht voor zowel leesbewerkingen (per 10.000) als voor het ophalen van gegevens (per GB) als u uw Blob Storage- of GPv2-account omschakelt van statisch naar dynamisch. Kosten voor vroegtijdige verwijdering van een blob die is verplaatst uit de opslaglaag Cool of Archive kunnen ook van toepassing zijn.
 
-Hieronder staan enkele beperkingen die van toepassing zijn tijdens de preview van toegangslagen op blob-niveau:
+### <a name="cool-and-archive-early-deletion-effective-february-1-2018"></a>Vroegtijdige verwijdering uit Cool en Archive (van kracht per 1 februari 2018)
 
-* Alleen nieuwe Blob Storage-accounts die zijn gemaakt in VS Oost 2, VS Oost of VS West en waarvoor de preview-inschrijving is geslaagd, ondersteunen archiefopslag.
-
-* Alleen nieuwe Blob Storage-accounts die zijn gemaakt in openbare regio's en waarvoor de preview-inschrijving is geslaagd, ondersteunen toegangslagen op blob-niveau.
-
-* Toegangslagen op blob-niveau en archiefopslag worden alleen ondersteund in [LRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#locally-redundant-storage)-opslag. Ondersteuning voor [GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#geo-redundant-storage) en [RA-GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#read-access-geo-redundant-storage) volgt in de toekomst.
-
-* U kunt de laag van een blob met momentopnamen niet wijzigen.
-
-* U mag een blob in archiefopslag niet kopiëren of er een momentopname van maken.
+In aanvulling op de kosten per GB per maand is elke blob die wordt verplaatst naar de cool-opslaglaag (alleen GPv2-accounts) onderworpen aan een periode van 30 dagen van vroegtijdige verwijdering uit Cool en is elke blob die wordt verplaatst naar de Archive-laag onderworpen aan een periode van 180 dagen van vroegtijdige verwijdering uit Archive. Deze kosten zijn evenredig verdeeld. Als bijvoorbeeld een blob na 45 dagen wordt verplaatst naar de archieflaag en vervolgens wordt verwijderd of na 45 dagen wordt verplaatst naar de dynamische laag, worden kosten voor vroegtijdige verwijdering in rekening gebracht die gelijk zijn aan 135 (180 min 45) dagen van opslag van die blob in de archieflaag.
 
 ## <a name="comparison-of-the-storage-tiers"></a>Vergelijking van de opslaglagen
 
-In de volgende tabel ziet u een vergelijking van de Hot en Cool Storage-lagen. Archive Storage op blob-niveau is in preview, dus hier zijn nog geen serviceovereenkomsten voor.
+In de volgende tabel ziet u een vergelijking van de dynamische, statische en archiefopslaglaag.
 
 | | **Hot Storage-laag** | **Cool Storage-laag** | **Archive Storage-laag**
 | ---- | ----- | ----- | ----- |
@@ -129,78 +97,21 @@ In de volgende tabel ziet u een vergelijking van de Hot en Cool Storage-lagen. A
 | **Beschikbaarheid** <br> **(RA-GRS-leesbewerkingen)**| 99,99% | 99,9% | N.v.t. |
 | **Gebruikskosten** | Hogere opslagkosten, lagere toegangs- en transactiekosten | Lagere opslagkosten, hogere toegangs- en transactiekosten | Laagste opslagkosten, hoogste toegangs- en transactiekosten |
 | **Minimale objectgrootte** | N.v.t. | N.v.t. | N.v.t. |
-| **Minimale opslagduur** | N.v.t. | N.v.t. | 180 dagen
+| **Minimale opslagduur** | N.v.t. | 30 dagen (alleen GPv2) | 180 dagen
 | **Latentie** <br> **(Tijd tot eerste byte)** | milliseconden | milliseconden | < 15 uur
 | **Schaalbaarheids- en prestatiedoelen** | Dezelfde als bij opslagaccounts voor algemeen gebruik | Dezelfde als bij opslagaccounts voor algemeen gebruik | Dezelfde als bij opslagaccounts voor algemeen gebruik |
 
 > [!NOTE]
 > Blob Storage-accounts bieden ondersteuning voor dezelfde schaalbaarheids- en prestatiedoelen als opslagaccounts voor algemeen gebruik. Zie [Schaalbaarheids- en prestatiedoelen in Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
 
-
-## <a name="pricing-and-billing"></a>Prijzen en facturering
-Blob Storage-accounts maken gebruik van een prijsmodel voor het opslaan van blobs op basis van laag van elke blob. Als u een Blob Storage-account gebruikt, zijn de volgende factureringsvoorwaarden van toepassing:
-
-* **Opslagkosten**: de kosten voor het opslaan van gegevens hangen niet alleen af van de hoeveelheid opgeslagen gegevens, maar ook van de gebruikte opslaglaag. De kosten per GB nemen af als de laag minder dynamisch ('cooler') wordt.
-
-* **Kosten van gegevenstoegang**: de kosten voor gegevenstoegang nemen toe als de laag minder dynamisch ('cooler') wordt. Voor gegevens in de lagen Cool Storage en Archive Storage worden kosten per GB in rekening gebracht aan gegevenstoegang voor leesbewerkingen.
-
-* **Transactiekosten**: er gelden kosten per transactie voor alle lagen. Deze kosten nemen toe als de laag minder dynamisch wordt.
-
-* **Kosten voor gegevensoverdracht met geo-replicatie**: dit is alleen van toepassing op accounts waarvoor geo-replicatie is geconfigureerd, inclusief GRS en RA-GRS. Kosten voor gegevensoverdracht met geo-replicatie worden in rekening gebracht per GB.
-
-* **Kosten voor uitgaande gegevensoverdracht**: uitgaande gegevensoverdracht (gegevens die buiten een Azure-regio worden overgedragen) worden gefactureerd voor bandbreedtegebruik per GB, net zoals bij opslagaccounts voor algemeen gebruik.
-
-* **De opslaglaag wijzigen**: als u de accountopslaglaag wijzigt van 'cool' naar 'hot', worden kosten in rekening gebracht die overeenkomen met de kosten voor het lezen van alle bestaande gegevens in het opslagaccount. Bij een wijziging van de accountopslaglaag van 'hot' naar 'cool', worden echter kosten in rekening gebracht die gelijk zijn aan die voor het schrijven van alle gegevens in de 'coole' laag.
-
-> [!NOTE]
-> Ga naar de pagina [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over het prijsmodel voor Blob Storage-accounts. Ga naar de pagina [Prijsinformatie voor bandbreedte](https://azure.microsoft.com/pricing/details/data-transfers/) voor meer informatie over de kosten voor uitgaande gegevensoverdracht.
-
-## <a name="quick-start"></a>Snel starten
+## <a name="quickstart-scenarios"></a>Snelstartscenario's
 
 In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt gemaakt van Azure Portal:
 
-* Het maken van een Blob Storage-account.
-* Het beheren van een Blob Storage-account.
+* Het wijzigen van de toegangslaag van het standaardaccount van een GPv2- of Blob Storage-account.
+* Het wijzigen van de opslaglaag van een blob in een GPv2- of Blob Storage-account.
 
-U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omdat deze instelling voor het hele opslagaccount geldt. Archive Storage kan alleen worden ingesteld voor een specifieke blob.
-
-### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Een Blob Storage-account maken met behulp van Azure Portal
-
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com).
-
-2. Selecteer in het menu Hub achtereenvolgens **Nieuw** > **Gegevens en opslag** > **Opslagaccount**.
-
-3. Voer een naam in voor het opslagaccount.
-
-    Deze naam moet uniek zijn. De naam wordt gebruikt als onderdeel van de URL die wordt gebruikt voor toegang tot de objecten in het opslagaccount.  
-
-4. Selecteer **Resource Manager** als het implementatiemodel.
-
-    Gelaagde opslag kan alleen worden gebruikt met Resource Manager-opslagaccounts. Dit is het aanbevolen implementatiemodel voor nieuwe resources. Zie [Overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-
-5. Selecteer **Blob Storage** in de vervolgkeuzelijst Soort account.
-
-    Hier selecteert u het type opslagaccount. Gelaagde opslag is niet beschikbaar in de algemene opslag. Dit is alleen beschikbaar in het type account voor Blob Storage.     
-
-    Als u deze optie selecteert, wordt de prestatielaag ingesteld op Standaard. Gelaagde opslag is niet beschikbaar bij de Premium-prestatielaag.
-
-6. Selecteer de replicatieoptie voor het opslagaccount: **LRS**, **GRS** of **RA-GRS**. **RA-GRS** is de standaardinstelling.
-
-    LRS = locally redundant storage (lokaal redundante opslag), GRS = geo-redundant storage (geografisch redundante opslag) (twee regio's), RA-GRS = read-access geo-redundant storage (geografisch redundante opslag met leestoegang) (twee regio's met leestoegang tot de tweede).
-
-    Zie [Azure Storage-replicatie](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over Azure Storage-replicatieopties.
-
-7. Selecteer de juiste opslaglaag voor wat u nodig hebt: stel de **Toegangslaag** in op **'Cool'** of **'Hot'**. **Hot** is de standaardinstelling.
-
-8. Selecteer het abonnement waarin u het nieuwe opslagaccount wilt maken.
-
-9. Geef een nieuwe resourcegroep op of selecteer een bestaande resourcegroep. Zie [Overzicht van Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
-
-10. Selecteer de regio voor uw opslagaccount.
-
-11. Klik op **Maken** om het opslagaccount te maken.
-
-### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>De opslaglaag voor een Blob Storage-account wijzigen via Azure Portal
+### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>De toegangslaag van het standaardaccount van een GPv2- of Blob Storage-account wijzigen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
@@ -212,184 +123,78 @@ U kunt de toegangslaag in de volgende voorbeelden niet instellen op Archive, omd
 
 5. Klik op Opslaan boven aan de blade.
 
-### <a name="change-the-storage-tier-of-a-blob-using-the-azure-portal"></a>De opslaglaag voor een blob wijzigen via Azure Portal
+### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>De opslaglaag van een blob in een GPv2- of Blob Storage-account wijzigen.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 2. Als u naar de blob in uw opslagaccount wilt gaan, selecteert u achtereenvolgens Alle resources, uw opslagaccount, uw container en uw blob.
 
-3. Klik op de blade met blob-eigenschappen op het vervolgkeuzemenu **Toegangslaag** om de opslaglaag **Hot**, **Cool** of **Archive** te selecteren.
+3. Klik op de blade met blob-eigenschappen op het vervolgkeuzemenu **Toegangslaag** om de opslaglaag **Dynamisch**, **Statisch** of **Archief** te selecteren.
 
 5. Klik op Opslaan boven aan de blade.
 
-> [!NOTE]
-> Aan het wijzigen van de opslaglaag kunnen extra kosten zijn verbonden. Zie de sectie [Prijzen en facturering](#pricing-and-billing) voor meer informatie.
-
-
-## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evalueren en migreren naar Blob Storage-accounts
-Het doel van deze sectie is om gebruikers op soepele wijze te helpen migreren naar het gebruiken van Blob Storage-accounts. Er zijn twee scenario's voor gebruikers:
-
-* U beschikt over een bestaand algemene opslagaccount en wilt een wijziging evalueren in een Blob Storage-account met de juiste opslaglaag.
-* U hebt besloten om een Blob Storage-account te gebruiken of u hebt er al een, en u wilt beoordelen of een opslaglaag voor 'hot' blobs of een opslaglaag voor 'cool' blobs moet gebruiken.
-
-In beide gevallen moeten eerst de kosten worden geschat van het opslaan en openen van uw gegevens die zijn opgeslagen in een Blob Storage-account en dient u deze te vergelijken met uw huidige kosten.
-
-## <a name="evaluating-blob-storage-account-tiers"></a>Lagen voor Blob Storage-accounts evalueren
-
-Voor het maken van een schatting van de kosten voor het opslaan en openen van gegevens die zijn opgeslagen in een Blob Storage-account, moet u uw bestaande gebruikspatroon evalueren of een schatting maken van het verwachte gebruikspatroon. Doorgaans zijn de volgende gegevens hiervoor van belang:
-
-* Wat is het gebruik van de opslag? Hoeveel gegevens worden er opgeslagen en hoe wijzigt dit maandelijks?
-
-* Wat is het toegangspatroon voor de opslag? Op hoeveel gegevens in het account worden er lees- en/of schrijfbewerkingen uitgevoerd (inclusief nieuwe gegevens)? Hoeveel transacties worden gebruikt voor toegang tot gegevens? En wat voor soort transacties zijn dit?
-
-## <a name="monitoring-existing-storage-accounts"></a>Bewaking van bestaande opslagaccounts
-
-Voor het bewaken van uw bestaande opslagaccounts en het verzamelen van deze gegevens, kunt u gebruikmaken van Azure Opslaganalyse, dat logboekregistratie uitvoert en metrische gegevens biedt voor een opslagaccount. Storage Analytics kan metrische gegevens opslaan die samengevoegde transactiestatistieken en capaciteitsgegevens bevat over Blob Storage-serviceaanvragen voor algemene opslagaccounts en Blob Storage-accounts. Deze gegevens worden opgeslagen in bekende tabellen in hetzelfde opslagaccount.
-
-Raadpleeg voor meer informatie [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) (Metrische gegevens in Storage Analytics) en [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx) (Tabelschema van metrische gegevens in Storage Analytics).
-
-> [!NOTE]
-> Blob Storage-accounts geven het service-eindpunt van de tabel alleen weer voor het opslaan en openen van de metrische gegevens voor dat account.
-
-Voor het controleren van het opslagverbruik voor de Blob Storage-service moet u de metrische gegevens over capaciteit inschakelen.
-Als dit is ingeschakeld, worden de capaciteitsgegevens van een Blob Storage-serviceaccount dagelijks geregistreerd en vastgelegd als een tabelvermelding die naar de *$MetricsCapacityBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven.
-
-Voor het controleren van het gegevenstoegangspatroon voor de Blob Storage-service, moet u de metrische gegevens die per uur worden verzameld voor de transactie inschakelen op een API-niveau. Als dit is ingeschakeld, worden er elk uur per-API-transacties verzameld en geregistreerd als een tabelvermelding die is naar de *$MetricsHourPrimaryTransactionsBlob*-tabel binnen hetzelfde opslagaccount wordt geschreven. De *$MetricsHourSecondaryTransactionsBlob*-tabel registreert de transacties naar het secundaire eindpunt bij gebruik van RA-GRS-opslagaccounts.
-
-> [!NOTE]
-> Als u een algemeen opslagaccount hebt waarin u pagina-blobs en virtuele-machineschijven hebt opgeslagen naast blok- en toevoegblobgegevens, is dit schattingsproces niet van toepassing. Dit komt omdat er geen enkele manier is om onderscheid te maken tussen metrische gegevens voor capaciteit en voor transactie op basis van het type blob voor alleen blok- en toevoeg-blobs die kunnen worden gemigreerd naar een Blob Storage-account.
-
-Als u een goede schatting wilt maken van uw gegevensverbruik en toegangspatroon, raden we u aan voor de metrische gegevens een retentieperiode te kiezen die een goede afspiegeling is van uw normale gebruik en dat als uitgangspunt te nemen. Een optie is de metrische gegevens zeven dagen te bewaren en de gegevens elke week te verzamelen en aan het einde van de maand te analyseren. Een andere optie is de metrische gegevens van de afgelopen 30 dagen te bewaren en deze gegevens aan het einde van deze periode van 30 dagen te verzamelen en te analyseren.
-
-Voor meer informatie over het inschakelen, verzamelen en weergeven van metrische gegevens, raadpleegt u [Enabling Azure Storage metrics and viewing metrics data](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Metrische gegevens voor Azure Storage inschakelen en metrische gegevens weergeven).
-
-> [!NOTE]
-> Het opslaan, openen en downloaden van analytische gegevens wordt op dezelfde manier in rekening gebracht als normale gebruikersgegevens.
-
-### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Metrische gegevens over het gebruik inzetten voor het schatten van de kosten
-
-### <a name="storage-costs"></a>Opslagkosten
-
-De meest recente vermelding in de metrische gegevenstabel voor capaciteit *$MetricsCapacityBlob* met de rijsleutel *'data'* toont de opslagcapaciteit die wordt gebruikt door gebruikersgegevens. De meest recente vermelding in de metrische gegevenstabel voor capaciteit *$MetricsCapacityBlob* met de rijsleutel *'analytics'* toont de opslagcapaciteit die wordt gebruikt door de analyselogboeken.
-
-Deze totale capaciteit die wordt verbruikt door zowel gebruikersgegevens en analyselogboeken (indien ingeschakeld) kunnen vervolgens worden gebruikt om de opslagkosten te schatten voor gegevens in het opslagaccount. Deze manier kan ook worden gebruikt voor het schatten van de opslagkosten voor blok- en toevoegblobs in algemene opslagaccounts.
-
-### <a name="transaction-costs"></a>Transactiekosten
-
-Het totaal van *'TotalBillableRequests'*, in alle items voor een API in de metrische gegevenstabel voor transactie, geeft het totale aantal transacties voor die bepaalde API weer. *Bijvoorbeeld*: het totale aantal *GetBlob*-transacties in een bepaalde periode kan worden berekend door het totaal te nemen van het totale aantal factureerbare aanvragen voor alle items met de rijsleutel *user;GetBlob*.
-
-Voor het schatten van de transactiekosten van Blob Storage-accounts moet u de transacties in drie groepen opdelen omdat ze verschillend zijn geprijsd.
-
-* Schrijftransacties zoals *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* en *'CopyBlob'*.
-* Verwijdertransacties zoals *'DeleteBlob'* en *'DeleteContainer'*.
-* Alle andere transacties.
-
-Voor het schatten van de transactiekosten voor algemene opslagaccounts moet u alle transacties verzamelen ongeacht de bewerking/API.
-
-### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Gegevenstoegang en overdrachtskosten voor geo-replicatiegegevens
-
-Opslaganalyse biedt geen informatie over de hoeveelheid gegevens die zijn gelezen en geschreven van en naar een opslagaccount, maar deze hoeveelheid kan min of meer worden geschat door te kijken naar de metrische gegevenstabel voor transacties. Het totaal van *'TotalIngress'* in alle items voor een API in de metrische gegevenstabel voor transacties, geeft de totale hoeveelheid inkomende gegevens in bytes voor die bepaalde API weer. Op dezelfde manier geeft het totaal van *'TotalEgress'* de totale hoeveelheid uitgaande gegevens in bytes weer.
-
-Voor het schatten van de kosten voor het openen van gegevens in Blob Storage-accounts moet u de transacties in twee groepen opdelen.
-
-* De hoeveelheid gegevens die is opgehaald van het opslagaccount, kan worden geschat door te kijken naar het totaal van *'TotalEgress'* voor met name de *'GetBlob'*- en *'CopyBlob'*-bewerkingen.
-
-* De hoeveelheid gegevens die wordt geschreven naar het opslagaccount kan worden geschat door te kijken naar het totaal van *'TotalIngress'* voor met name de *'PutBlob'*-, *'PutBlock'*-, *'CopyBlob'*- en *'AppendBlock'*-bewerkingen.
-
-De overdrachtskosten van geo-replicatiegegevens voor Blob Storage-accounts kan ook worden berekend met behulp van de schatting voor de hoeveelheid gegevens die wordt geschreven bij gebruik van een GRS- of RA-GRS-opslagaccount.
-
-> [!NOTE]
-> Ga voor een uitgebreider voorbeeld over het berekenen van de kosten voor het gebruik van Hot of Cool Storage-lagen naar de veelgestelde vraag *'Wat zijn warme, koude en archieftoegangslagen, en hoe bepaal ik welke laag ik moet gebruiken?'* op de [pagina met prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
-
-## <a name="migrating-existing-data"></a>Bestaande gegevens migreren
-
-Een Blob Storage-account is speciaal bedoeld voor het opslaan van blok-blobs en toevoeg-blobs. Bestaande opslagaccounts voor algemeen gebruik, waarin u naast blobs ook tabellen, wachtrijen, bestanden en schijven kunt opslaan, kunnen niet worden geconverteerd naar Blob Storage-accounts. Als u gebruik wilt maken van de toegangslagen, maakt u nieuwe Blob Storage-accounts en migreert u de bestaande gegevens naar deze nieuwe accounts.
-
-U kunt de volgende methoden gebruiken om bestaande gegevens vanaf on-premises opslagapparaten, van cloudopslagproviders van derden of vanuit bestaande opslagaccounts voor algemeen gebruik in Azure te migreren naar Blob Storage-accounts:
-
-### <a name="azcopy"></a>AzCopy
-
-AzCopy is een Windows-opdrachtregelprogramma dat is  ontworpen voor het high-performance kopiëren van gegevens van en naar Azure Storage. U kunt AzCopy gebruiken om gegevens uit bestaande opslagaccounts voor algemeen gebruik te kopiëren naar een Blob Storage-account en om gegevens van on-premises opslagaccounts te uploaden naar een Blob Storage-account.
-
-Zie [Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
-
-### <a name="data-movement-library"></a>Bibliotheek voor gegevensverplaatsing
-
-De Azure Storage-bibliotheek voor gegevensverplaatsing voor .NET is gebaseerd op het basisframework voor gegevensverplaatsing van AzCopy. De bibliotheek is ontworpen voor high-performance, betrouwbare en eenvoudige gegevensoverdracht vergelijkbaar met AzCopy. Hierdoor kunt u in uw toepassing op systeemeigen wijze maximaal profiteren van de functies die AzCopy biedt, zonder dat u externe exemplaren van AzCopy hoeft uit te voeren of te controleren.
-
-Zie [Bibliotheek voor gegevensverplaatsing van Azure Storage voor .Net](https://github.com/Azure/azure-storage-net-data-movement) voor meer informatie.
-
-### <a name="rest-api-or-client-library"></a>REST-API of clientbibliotheek
-
-U kunt een aangepaste toepassing maken om gegevens naar een Blob Storage-account te migreren met behulp van een van de Azure-clientbibliotheken of de REST API voor Azure Storage-services. Azure Storage biedt uitgebreide clientbibliotheken voor meerdere talen en platforms, zoals  .NET, Java, C++, Node.JS, PHP, Ruby en Python. De clientbibliotheken bieden geavanceerde mogelijkheden, zoals pogingslogica, logboekregistratie en parallelle uploads. U kunt ook rechtstreeks met de REST API ontwikkelen. Deze kan worden aangeroepen in elke taal waarin HTTP-/HTTPS-verzoeken kunnen worden gemaakt.
-
-Zie [Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md) voor meer informatie.
-
-> [!NOTE]
-> Blobs die aan de clientzijde zijn versleuteld, bevatten versleutelingsgerelateerde metagegevens die samen met de blob zijn opgeslagen. Het is absoluut essentieel dat de metagegevens in de blob (en dan met name de versleutelingsgerelateerde metagegevens) bij het kopiëren behouden blijven. Als u de blobs kopieert zonder deze metagegevens, kan de inhoud van de blob niet meer worden opgehaald. Zie [Azure Storage-versleuteling aan de clientzijde](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie over versleutelingsgerelateerde metagegevens.
-
 ## <a name="faq"></a>Veelgestelde vragen
 
-1. **Zijn de bestaande opslagaccounts nog steeds beschikbaar?**
+**Moet ik Blob Storage- of GPv2-accounts gebruiken als ik mijn gegevens in lagen wil opslaan?**
 
-    Ja, de bestaande opslagaccounts zijn nog steeds beschikbaar. De prijs en de functionaliteit hiervan zijn niet gewijzigd.  U kunt voor deze opslagaccounts echter geen opslaglagen kiezen. Dit zal in de toekomst niet veranderen.
+Wij raden u aan GPv2 te gebruiken in plaats van Blob Storage-accounts voor opslaglagen. GPv2-accounts ondersteunen alle functies die Blob Storage-accounts ondersteunen, plus nog veel meer. Prijzen van Blob Storage en GPv2 zijn bijna identiek, maar sommige nieuwe functies en prijsverlagingen zijn alleen beschikbaar bij GPv2-accounts. GPv1-accounts bieden geen ondersteuning voor opslaglagen.
 
-2. **Waarom en wanneer is het een goed idee om Blob Storage-accounts te gebruiken?**
+De prijsstructuur tussen GPv1- en GPv2-accounts is verschillend en klanten moeten beide zorgvuldig evalueren alvorens te besluiten GPv2-accounts te gebruiken. U kunt een bestaand Blob Storage- of GPv1-account eenvoudig met één muisklik omzetten naar GPv2. Zie [opties voor Azure Storage-account](storage-account-options.md) voor meer informatie.
 
-    Blob Storage-accounts zijn helemaal gericht op het opslaan van blobs en introduceren nieuwe blobfuncties. Het is een goed idee om Blob Storage-accounts te gebruiken voor het opslaan van blobs, omdat er in de toekomst nieuwe mogelijkheden (bijvoorbeeld hiërarchische opslag en lagen) worden geïntroduceerd in dit accounttype. Op basis van uw bedrijfsvereisten bepaalt u echter helemaal zelf wanneer u uw gegevens migreert.
+**Kan ik objecten opslaan in alle drie de opslaglagen (dynamisch, statisch en archief) in hetzelfde account?**
 
-3. **Kan ik mijn bestaande opslagaccount converteren naar een Blob Storage-account?**
+Ja. Het kenmerk **Acces Tier** dat op accountniveau is ingesteld, is de standaardlaag die van toepassing is op alle objecten in dat account zonder een expliciet ingestelde laag. Met laaginstelling op blobniveau kunt u echter de toegangslaag op objectniveau instellen, ongeacht de instelling van de toegangslaag voor het account. Blobs in een van de drie opslaglagen (Hot, Cool of Archive) kunnen binnen hetzelfde account aanwezig zijn.
 
-    Nee. Een Blob Storage-account is een ander soort opslagaccount. Daarom moet u dit account afzonderlijk maken en dient u de gegevens naar dit account te migreren zoals eerder is uitgelegd.
+**Kan ik de standaardopslaglaag van mijn Blob Storage- of GPv2-account wijzigen?**
 
-4. **Kan ik objecten opslaan in beide opslaglagen van hetzelfde account?**
+Ja, u kunt de standaardopslaglaag in het opslagaccount wijzigen door het kenmerk **Toegangslaag** in te stellen voor het opslagaccount. Als u de opslaglaag wijzigt, geldt dit voor alle objecten waarvoor geen expliciete laag is ingesteld en die zijn opgeslagen in het account. Bij het omschakelen van de opslaglaag van dynamisch naar statisch worden kosten in rekening gebracht voor schrijfbewerkingen (per 10.000) voor alle blobs zonder een vaste laag in GPv2-accounts en het omschakelen van statisch naar dynamisch veroorzaakt kosten voor zowel leesbewerkingen (per 10.000) als voor het ophalen van gegevens (per GB) voor alle blobs in Blob Storage- en GPv2-accounts.
 
-    Ja. Het kenmerk *Acces Tier* dat op accountniveau is ingesteld, is de standaardlaag die van toepassing is op alle objecten in dat account zonder een expliciet ingestelde laag. Met laaginstelling op blobniveau (preview) kunt u echter de toegangslaag op objectniveau instellen, ongeacht de instelling van de toegangslaag voor het account. Blobs in een van de drie opslaglagen (Hot, Cool of Archive) kunnen binnen hetzelfde account aanwezig zijn.
+**Kan ik de toegangslaag van mijn standaardaccount instellen op Archive?**
 
-5. **Kan ik de opslaglaag van mijn Blob Storage-account wijzigen?**
+Nee. Alleen de opslaglagen Dynamisch en Statisch kunnen worden ingesteld als de toegangslaag voor het standaardaccount. Archive kan alleen op objectniveau worden ingesteld.
 
-    Ja, u kunt de opslaglaag in het opslagaccount wijzigen door het kenmerk *Toegangslaag* in te stellen voor het opslagaccount. Als u de opslaglaag wijzigt, geldt dit voor alle objecten waarvoor geen expliciete laag is ingesteld en die zijn opgeslagen in het account. Bij het wijzigen van de opslaglaag van 'hot' naar 'cool' worden kosten in rekening gebracht voor zowel schrijfbewerkingen (per 10.000) als het schrijven van gegevens (per GB) (alleen voor blobopslagaccounts). Bij het wijzigen van de opslaglaag van 'cool' naar 'hot' worden kosten in rekening gebracht voor zowel leesbewerkingen (per 10.000) als het ophalen van gegevens (per GB).
+**In welke regio's zijn de opslaglagen Dynamisch, Statisch en Archief beschikbaar?**
 
-6. **Hoe vaak kan ik de opslaglaag van mijn Blob Storage-account wijzigen?**
+De opslaglagen Dynamisch en Statisch zijn samen met laaginstelling op blobniveau beschikbaar in alle regio's. Archive-opslag is in eerste instantie alleen beschikbaar in bepaalde regio's. Zie voor een volledige lijst [Azure-producten beschikbaar per regio](https://azure.microsoft.com/regions/services/).
 
-    Hoewel er geen beperking geldt voor het aantal keren dat u de opslaglaag kunt wijzigen, worden er voor het wijzigen van de opslaglaag van Cool naar Hot aanzienlijke kosten in rekening gebracht. Het wordt afgeraden de opslaglaag regelmatig te wijzigen.
+**Gedragen blobs in de opslaglaag voor 'cool' blobs zich anders dan blobs in de opslaglaag voor 'hot' blobs?**
 
-7. **Gedragen blobs in de opslaglaag voor 'cool' blobs zich anders dan blobs in de opslaglaag voor 'hot' blobs?**
+Blobs in de dynamische-opslaglaag hebben dezelfde latentie als blobs in GPv1-, GPv2- en Blob Storage-accounts. Blobs in de opslaglaag voor 'cool' blobs hebben een gelijksoortige latentie (in milliseconden) als blobs in GPv1-, GPv2- en Blob Storage-accounts. Blobs in de opslaglaag voor 'archive storage'-blobs kennen enkele uren latentie in GPv1-, GPv2- en Blob Storage-accounts.
 
-    Blobs in de opslaglaag voor 'hot' blobs hebben dezelfde latentie als blobs in opslagaccounts voor algemeen gebruik. Blobs in de opslaglaag voor 'cool' blobs hebben een gelijksoortige latentie (in milliseconden) als blobs in opslagaccounts voor algemeen gebruik. Blobs in de opslaglaag voor 'archive storage'-blobs kennen enkele uren latentie.
+Blobs in de opslaglaag voor 'cool' blobs hebben een lagere SLA (Service Level Availability) dan blobs die zijn opgeslagen in de opslaglaag voor 'hot' blobs. Zie [SLA voor opslag](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) voor meer informatie.
 
-    Blobs in de opslaglaag voor 'cool' blobs hebben een lagere SLA (Service Level Availability) dan blobs die zijn opgeslagen in de opslaglaag voor 'hot' blobs. Zie [SLA voor opslag](https://azure.microsoft.com/support/legal/sla/storage) voor meer informatie.
+**Zijn de bewerkingen tussen de dynamische-, statische- en archiefopslaglagen hetzelfde?**
 
-8. **Kan ik pagina-blobs en virtuele-machineschijven opslaan in Blob Storage-accounts?**
+Ja. Alle bewerkingen tussen de dynamische en statische laag zijn 100% consistent. Alle geldige archiefbewerkingen, inclusief verwijderen, in lijst opnemen, blob-eigenschappen/metagegevens ophalen en vaste blob-opslaglaag zijn 100% consistent met de dynamische en statische laag. Een blob kan niet worden gelezen of gewijzigd in de archive-laag.
 
-    Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund. Omdat virtuele machines van Azure gebruikmaken van pagina-blobs, kunnen virtuele-machineschijven niet worden opgeslagen in Blob Storage-accounts. Het is echter wel mogelijk om back-ups van de virtuele-machineschijven als blok-blobs op te slaan in een Blob Storage-account.
+**Als ik een blob reactiveer vanuit de archiefopslaglaag naar de dynamische- of statische-opslaglaag, hoe weet ik dan wanneer de reactivering is voltooid?**
 
-9. **Moet ik mijn bestaande toepassingen wijzigen om Blob Storage-accounts te kunnen gebruiken?**
+Tijdens het reactiveren kunt u gebruikmaken van de bewerking voor het ophalen van blob-eigenschappen om polling op het kenmerk **Archiefstatus** uit te voeren en te bevestigen dat de laagwijziging is voltooid. De status is "rehydrate-pending-to-hot" of "rehydrate-pending-to-cool", afhankelijk van de doellaag. Als de bewerking is voltooid, wordt de blob-eigenschap voor archiefstatus verwijderd en geeft de blob-eigenschap **Toegangslaag** aan of de opslaglaag dynamisch of statisch is.  
 
-    Blob Storage-accounts zijn voor 100 procent API-consistent met opslagaccounts voor algemeen gebruik voor blok- en toevoeg-blobs. Zolang uw toepassing gebruikmaakt van blok-blobs of toevoeg-blobs en u versie 2014-02-14 of hoger van de [REST-API voor Storage Services](https://msdn.microsoft.com/library/azure/dd894041.aspx) gebruikt, zal uw toepassing geen problemen ondervinden. Als u een oudere versie van het protocol gebruikt, moet u uw toepassing bijwerken voor gebruik van de nieuwe versie, zodat deze naadloos werkt met beide typen opslagaccounts. Over het algemeen is het bijna altijd het beste om de meest recente versie te gebruiken, ongeacht het type opslagaccount dat u gebruikt.
+**Na het instellen van de opslaglaag van een blob, wanneer wordt er dan gefactureerd tegen het juiste tarief?**
 
-10. **Wordt de gebruikerservaring gewijzigd?**
+Elke blob wordt altijd gefactureerd volgens de opslaglaag aangegeven door de blob-eigenschap **Toegangslaag**. Bij het instellen van een nieuwe laag voor een blob, geeft de eigenschap **Toegangslaag** onmiddellijk de nieuwe laag voor alle overgangen weer, behalve bij het reactiveren van een blob vanuit de archieflaag naar de dynamische of statische laag, wat enkele uren kan duren. In dit geval wordt er gefactureerd tegen archive-tarieven totdat de rehydratatie is voltooid waarna de **Toegangslaag** de nieuwe opslaglaag zal weergeven. Alleen dan wordt er gefactureerd tegen het nieuwe tarief voor de dynamische of statische laag.
 
-    Blob Storage-accounts zijn vergelijkbaar met opslagaccounts voor algemeen gebruik voor het opslaan van blok- en toevoeg-blobs. De belangrijkste functies van Azure Storage, waaronder duurzaamheid, beschikbaarheid, schaalbaarheid, prestaties en beveiliging worden ondersteund. Afgezien van de hierboven beschreven functionaliteit en beperkingen die specifiek zijn voor Blob Storage-accounts en de bijbehorende opslaglagen, verandert er voor u niets.
+**Hoe bepaal ik of ik bij het verwijderen of verplaatsen van een blob uit de cool- of archive-laag een toeslag voor vroegtijdige verwijdering moet betalen?**
+
+Voor elke blob die binnen 30 dagen of 180 dagen wordt verwijderd of verplaatst uit respectievelijk de statische- (alleen GPv2-accounts) of archiefopslaglaag, wordt een vooraf vastgesteld bedrag voor vroegtijdige verwijdering in rekening gebracht (geldt vanaf 1 februari 2018). U kunt bepalen hoe lang een blob in de cool- of archive-laag is geweest door de blob-eigenschap **Wijzigingstijd toegangslaag** te controleren die een tijdstempel biedt van de laatste wijziging van de laag. Zie [Vroegtijdige verwijdering uit Cool en Archive](#cool-and-archive-early-deletion) voor meer informatie.
+
+**Welke Azure Tools en SDK's ondersteunen laaginstelling op blobniveau en archiefopslag?**
+
+Azure Portal, PowerShell en CLI Tools en .NET, Java, Python en Node.js-clientbibliotheken bieden ondersteuning voor laaginstelling op blobniveau en archiefopslag.  
+
+**Hoeveel gegevens kan ik opslaan in de dynamische-, statische- en archiefopslaglaag?**
+
+Gegevensopslag en andere limieten worden ingesteld op het accountniveau en niet per opslaglaag. Daarom kunt u ervoor kiezen om al uw limieten in één laag of over alle drie de lagen te gebruiken. Zie [Schaalbaarheids- en prestatiedoelen in Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-### <a name="evaluate-blob-storage-accounts"></a>Blob Storage-accounts evalueren
+### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Evalueren van de dynamische, statische en archieflaag in GPv2 Blob Storage-accounts
 
-[Beschikbaarheid van Blob Storage-accounts per regio controleren](https://azure.microsoft.com/regions/#services)
+[De beschikbaarheid controleren van de dynamische, statische en archieflaag per regio](https://azure.microsoft.com/regions/#services)
 
 [Gebruik van de huidige opslagaccounts evalueren door metrische gegevens voor Azure Storage in te schakelen](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Prijzen voor Blob Storage per regio controleren](https://azure.microsoft.com/pricing/details/storage/)
+[Prijzen voor de dynamische, statische en archieflaag controleren in Blob Storage- en GPv2-accounts per regio](https://azure.microsoft.com/pricing/details/storage/)
 
 [Prijzen voor gegevensoverdracht controleren](https://azure.microsoft.com/pricing/details/data-transfers/)
-
-### <a name="start-using-blob-storage-accounts"></a>Blob Storage-accounts gebruiken
-
-[Aan de slag met Azure Blob Storage](storage-dotnet-how-to-use-blobs.md)
-
-[Gegevens verplaatsen naar en uit Azure Storage](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-[Gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-[Uw opslagaccounts bekijken en verkennen](http://storageexplorer.com/)

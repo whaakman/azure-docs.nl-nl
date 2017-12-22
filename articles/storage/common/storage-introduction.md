@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
 
-Microsoft Azure Storage is een door Microsoft beheerde cloudservice waarmee u toegang krijgt tot opslag met een zeer hoge beschikbaarheid die daarnaast veilig, duurzaam, schaalbaar en redundant is. Microsoft zorgt voor het onderhoud en handelt kritieke problemen voor u af. 
+Microsoft Azure Storage is een door Microsoft beheerde cloudservice waarmee u toegang krijgt tot opslag met een zeer hoge beschikbaarheid die daarnaast veilig, duurzaam, schaalbaar en redundant is. Microsoft zorgt voor het onderhoud en handelt kritieke problemen voor u af.
 
 Azure Storage omvat drie gegevensservices: Blob Storage, File Storage en Queue Storage. Blob Storage ondersteunt zowel Standard- als Premium-opslag, waarbij voor Premium-opslag alleen SSD's worden gebruikt om zo de snelste prestaties te leveren. Een andere functie is 'cool' opslag, waarmee u grote hoeveelheden zelden gebruikte gegevens kunt opslaan tegen lagere kosten.
 
@@ -31,9 +31,9 @@ In dit artikel komen de volgende onderwerpen aan bod:
 * de typen opslagaccounts
 * toegang tot blobs, wachtrijen en bestanden
 * versleuteling
-* replicatie 
+* replicatie
 * gegevens overbrengen van of naar opslag
-* de verschillende opslagclientbibliotheken 
+* de verschillende opslagclientbibliotheken
 
 Raadpleeg een van de volgende Quick Starts om snel aan de slag te gaan met Azure Storage:
 * [Een opslagaccount maken met PowerShell](storage-quickstart-create-storage-account-powershell.md)
@@ -41,28 +41,28 @@ Raadpleeg een van de volgende Quick Starts om snel aan de slag te gaan met Azure
 
 ## <a name="introducing-the-azure-storage-services"></a>Introductie van de Azure Storage-services
 
-U kunt de services van Azure Storage (Blob Storage, File Storage en Queue Storage) pas gebruiken nadat u een opslagaccount hebt gemaakt. Vervolgens kunt u gegevens uit een specifieke service van of naar dat opslagaccount overbrengen. 
+U kunt de services van Azure Storage (Blob Storage, File Storage en Queue Storage) pas gebruiken nadat u een opslagaccount hebt gemaakt. Vervolgens kunt u gegevens uit een specifieke service van of naar dat opslagaccount overbrengen.
 
 ## <a name="blob-storage"></a>Blob Storage
 
-Blobs zijn eigenlijk net bestanden zoals u die opslaat op uw computer (of tablet, mobiele apparaat, enzovoort). Ze kunnen afbeeldingen bevatten, Microsoft Excel-bestanden, HTML-bestanden, virtuele harde schijven (VHD's), big data zoals logboeken, back-ups van databases, eigenlijk bijna alles. Blobs worden opgeslagen in containers, die vergelijkbaar zijn met mappen. 
+Blobs zijn eigenlijk net bestanden zoals u die opslaat op uw computer (of tablet, mobiele apparaat, enzovoort). Ze kunnen afbeeldingen bevatten, Microsoft Excel-bestanden, HTML-bestanden, virtuele harde schijven (VHD's), big data zoals logboeken, back-ups van databases, eigenlijk bijna alles. Blobs worden opgeslagen in containers, die vergelijkbaar zijn met mappen.
 
-Nadat u bestanden hebt opgeslagen in Blob Storage, kunt u ze overal ter wereld openen met behulp van URL's, de REST-interface of een van de opslagclientbibliotheken uit de Azure SDK. Deze clientbibliotheken zijn beschikbaar voor meerdere talen, waaronder Node.js, Java, PHP, Ruby, Python en .NET. 
+Nadat u bestanden hebt opgeslagen in Blob Storage, kunt u ze overal ter wereld openen met behulp van URL's, de REST-interface of een van de opslagclientbibliotheken uit de Azure SDK. Deze clientbibliotheken zijn beschikbaar voor meerdere talen, waaronder Node.js, Java, PHP, Ruby, Python en .NET.
 
 Er zijn drie typen blobs: blok-blobs, pagina-blobs (gebruikt voor VHD-bestanden) en toevoeg-blobs.
 
-* Blok-blobs worden gebruikt voor het opslaan van gewone bestanden tot ongeveer 4,7 TB. 
+* Blok-blobs worden gebruikt voor het opslaan van gewone bestanden tot ongeveer 4,7 TB.
 * Pagina-blobs worden gebruikt voor het opslaan van bestanden voor willekeurige toegang tot maximaal 8 TB in grootte. Deze blobs worden gebruikt voor de VHD-bestanden die VM's ondersteunen.
 * Toevoeg-blobs bestaan uit blokken zoals de blok-blobs, maar zijn geoptimaliseerd voor toevoegbewerkingen. Deze blobs worden gebruikt voor bewerkingen zoals het vastleggen van logboekgegevens uit verschillende VM's in dezelfde blob.
 
 Voor zeer grote gegevenssets waarbij netwerkbeperkingen het downloaden of uploaden van gegevens van of naar Blob Storage via de kabel onrealistisch maken, kunt u een set harde schijven opsturen naar Microsoft om gegevens rechtstreeks in het datacenter te importeren of exporteren. Zie [De Microsoft Azure Import/Export-service gebruiken om gegevens over te brengen naar Blob Storage](../storage-import-export-service.md).
 
 ## <a name="azure-files"></a>Azure Files
-Met [Azure Files](../files/storage-files-introduction.md) kunt u zeer netwerkbestandsshares met een hoge beschikbaarheid instellen die toegankelijk zijn via het standaard SMB-protocol (Server Message Block). Dit betekent dat meerdere VM's dezelfde bestanden kunnen delen met zowel lees- als schrijftoegang. U kunt de bestanden ook lezen met behulp van de REST-interface of de opslagclientbibliotheken. 
+Met [Azure Files](../files/storage-files-introduction.md) kunt u zeer netwerkbestandsshares met een hoge beschikbaarheid instellen die toegankelijk zijn via het standaard SMB-protocol (Server Message Block). Dit betekent dat meerdere VM's dezelfde bestanden kunnen delen met zowel lees- als schrijftoegang. U kunt de bestanden ook lezen met behulp van de REST-interface of de opslagclientbibliotheken.
 
-Eén ding dat Azure Files onderscheidt van bestanden in een zakelijke bestandsshare is het feit dat u overal ter wereld toegang hebt tot de bestanden via een URL die verwijst naar het bestand en een SAS-token (Shared Access Signature) bevat. U kunt SAS-tokens genereren. Met deze tokens hebt u gedurende een opgegeven tijdperiode toegang tot een specifiek privéasset. 
+Eén ding dat Azure Files onderscheidt van bestanden in een zakelijke bestandsshare is het feit dat u overal ter wereld toegang hebt tot de bestanden via een URL die verwijst naar het bestand en een SAS-token (Shared Access Signature) bevat. U kunt SAS-tokens genereren. Met deze tokens hebt u gedurende een opgegeven tijdperiode toegang tot een specifiek privéasset.
 
-Bestandsshares kunnen worden gebruikt voor veelvoorkomende scenario's: 
+Bestandsshares kunnen worden gebruikt voor veelvoorkomende scenario's:
 
 * Veel on-premises toepassingen maken gebruik van bestandsshares. Met deze functie kunt u gemakkelijker toepassingen die gegevens delen, migreren naar Azure. Als u de bestandsshare koppelt aan dezelfde stationsletter die wordt gebruikt voor de on-premises toepassing, werkt het gedeelte van de toepassing dat toegang heeft tot de bestandsshare, (vrijwel) ongewijzigd.
 
@@ -74,7 +74,7 @@ Op dit moment worden verificatie op basis van Active Directory en toegangsbeheer
 
 ## <a name="queue-storage"></a>Queue Storage
 
-De Azure Queue-service wordt gebruikt voor het opslaan en ophalen van berichten. Berichten in de wachtrij kunnen maximaal 64 kB groot zijn, en een wachtrij kan miljoenen berichten bevatten. Wachtrijen worden meestal gebruikt voor het opslaan van lijsten met berichten die asynchroon moeten worden verwerkt. 
+De Azure Queue-service wordt gebruikt voor het opslaan en ophalen van berichten. Berichten in de wachtrij kunnen maximaal 64 kB groot zijn, en een wachtrij kan miljoenen berichten bevatten. Wachtrijen worden meestal gebruikt voor het opslaan van lijsten met berichten die asynchroon moeten worden verwerkt.
 
 Stel dat u uw klanten in de gelegenheid wilt stellen om afbeeldingen te uploaden en dat u voor elke afbeelding miniaturen wilt maken. U kunt uw klant dan laten wachten totdat u tijdens het uploaden van de afbeeldingen de miniaturen hebt gemaakt. Een alternatief is het inzetten van een wachtrij. Wanneer de klant klaar is met uploaden, wordt er een bericht weggeschreven naar de wachtrij. Vervolgens gebruikt u Azure Function om het bericht op te halen uit de wachtrij en de miniaturen te maken. Al deze verwerkingsstappen kunnen afzonderlijk worden geschaald, waardoor u meer controle hebt bij het afstemmen van de procedure op uw specifieke scenario.
 
@@ -86,7 +86,7 @@ Azure Table Storage maakt nu deel uit van Cosmos DB. Voor documentatie over Azur
 
 Azure Storage omvat ook mogelijkheden voor beheerde en onbeheerde schijven die worden gebruikt door virtuele machines. Zie voor meer informatie over deze functies de [documentatie over de Compute-service](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
-## <a name="types-of-storage-accounts"></a>Typen opslagaccounts 
+## <a name="types-of-storage-accounts"></a>Typen opslagaccounts
 
 In deze tabel ziet u de verschillende soorten opslagaccounts en welke objecten met elk account kunnen worden gebruikt.
 
@@ -97,9 +97,9 @@ In deze tabel ziet u de verschillende soorten opslagaccounts en welke objecten m
 
 ### <a name="general-purpose-storage-accounts"></a>Opslagaccounts voor algemeen gebruik
 
-Er zijn twee soorten opslagaccounts voor algemeen gebruik. 
+Er zijn twee soorten opslagaccounts voor algemeen gebruik.
 
-#### <a name="standard-storage"></a>Standard Storage 
+#### <a name="standard-storage"></a>Standard Storage
 
 De meest gebruikte opslagaccounts zijn standaardopslagaccounts, die kunnen worden gebruikt voor alle typen gegevens. Standaardopslagaccounts maken gebruiken van magnetische media voor het opslaan van gegevens.
 
@@ -109,39 +109,39 @@ Premium-opslag biedt krachtige opslag voor pagina-blobs, die voornamelijk worden
 
 ### <a name="blob-storage-accounts"></a>Blob Storage-accounts
 
-Het Blob Storage-account is een gespecialiseerd opslagaccount dat wordt gebruikt voor het opslaan van blok-blobs en toevoeg-blobs. U kunt geen pagina-blobs opslaan in deze accounts en dus ook geen VHD-bestanden. Deze accounts maken het mogelijk om een toegangslaag in te stellen als Hot of Cool. U kunt deze instelling overigens op elk gewenst moment wijzigen. 
+Het Blob Storage-account is een gespecialiseerd opslagaccount dat wordt gebruikt voor het opslaan van blok-blobs en toevoeg-blobs. U kunt geen pagina-blobs opslaan in deze accounts en dus ook geen VHD-bestanden. Deze accounts maken het mogelijk om een toegangslaag in te stellen als Hot of Cool. U kunt deze instelling overigens op elk gewenst moment wijzigen.
 
 De toegangslaag Hot wordt gebruikt voor bestanden die regelmatig worden geopend. U betaalt hogere kosten voor opslag, maar de kosten voor toegang tot de blobs zijn veel lager. Voor blobs die zijn opgeslagen in de toegangslaag Cool, betaalt u hogere kosten voor toegang tot de blobs, maar zijn de kosten voor opslag veel lager.
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Toegang tot blobs, bestanden en wachtrijen
 
-Elk opslagaccount heeft twee verificatiesleutels, die allebei voor elke bewerking kunnen worden gebruikt. Er zijn twee sleutels, zodat u de sleutels af en toe kunt afwisselen om de beveiliging te verbeteren. Het is essentieel dat deze sleutels geheim blijven aangezien iemand met kennis van deze sleutels, plus de accountnaam, onbeperkte toegang heeft tot alle gegevens in het opslagaccount. 
+Elk opslagaccount heeft twee verificatiesleutels, die allebei voor elke bewerking kunnen worden gebruikt. Er zijn twee sleutels, zodat u de sleutels af en toe kunt afwisselen om de beveiliging te verbeteren. Het is essentieel dat deze sleutels geheim blijven aangezien iemand met kennis van deze sleutels, plus de accountnaam, onbeperkte toegang heeft tot alle gegevens in het opslagaccount.
 
 In deze sectie kijken we naar twee manieren om het opslagaccount en de bijbehorende gegevens te beveiligen. Raadpleeg de Engelstalige [Azure Storage-beveiligingshandleiding](storage-security-guide.md) voor gedetailleerde informatie over het beveiligen van uw opslagaccount en uw gegevens.
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Toegang tot opslagaccounts beveiligen met Azure AD
 
-Eén manier om de toegang tot uw opgeslagen gegevens te beveiligen, is door de toegang tot de sleutels voor het opslagaccount te beheren. Met op rollen gebaseerd toegangsbeheer (RBAC) van Resource Manager kunt u rollen toewijzen aan gebruikers, groepen of toepassingen. Deze rollen zijn gekoppeld aan een specifieke set acties die al dan niet worden toegestaan. Als u RBAC gebruikt om toegang te verlenen tot een opslagaccount, worden alleen de beheerbewerkingen voor dat opslagaccount afgehandeld, zoals het wijzigen van de toegangslaag. U kunt RBAC niet gebruiken om toegang te verlenen tot gegevensobjecten zoals een bepaalde container of bestandsshare. U kunt RBAC echter wel gebruiken om toegang te verlenen tot de sleutels voor het opslagaccount, die vervolgens kunnen worden gebruikt om de gegevensobjecten te lezen. 
+Eén manier om de toegang tot uw opgeslagen gegevens te beveiligen, is door de toegang tot de sleutels voor het opslagaccount te beheren. Met op rollen gebaseerd toegangsbeheer (RBAC) van Resource Manager kunt u rollen toewijzen aan gebruikers, groepen of toepassingen. Deze rollen zijn gekoppeld aan een specifieke set acties die al dan niet worden toegestaan. Als u RBAC gebruikt om toegang te verlenen tot een opslagaccount, worden alleen de beheerbewerkingen voor dat opslagaccount afgehandeld, zoals het wijzigen van de toegangslaag. U kunt RBAC niet gebruiken om toegang te verlenen tot gegevensobjecten zoals een bepaalde container of bestandsshare. U kunt RBAC echter wel gebruiken om toegang te verlenen tot de sleutels voor het opslagaccount, die vervolgens kunnen worden gebruikt om de gegevensobjecten te lezen.
 
-### <a name="securing-access-using-shared-access-signatures"></a>Toegang beveiligen met handtekeningen voor gedeelde toegang 
+### <a name="securing-access-using-shared-access-signatures"></a>Toegang beveiligen met handtekeningen voor gedeelde toegang
 
 U kunt handtekeningen voor gedeelde toegang en opgeslagen toegangsbeleid gebruiken om uw gegevensobjecten te beveiligen. Een handtekening voor gedeelde toegang (SAS) is een tekenreeks met een beveiligingstoken dat kan worden toegevoegd aan de URI voor een asset, zodat u toegang tot specifieke opslagobjecten kunt delegeren en beperkingen kunt opgeven zoals machtigingen en het datum- en tijdbereik van toegang. Deze functie heeft uitgebreide mogelijkheden. Zie [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Handtekeningen voor gedeelde toegang (SAS) gebruiken) voor meer informatie.
 
 ### <a name="public-access-to-blobs"></a>Openbare toegang tot blobs
 
-Via de Blob Service kunt u openbare toegang bieden tot een container en de bijbehorende blobs, of een specifieke blob. Wanneer u opgeeft dat een container of blob openbaar is, kan iedereen deze anoniem lezen. Er is dan geen verificatie vereist. Dit is bijvoorbeeld handig wanneer u een website hebt waarop afbeeldingen, video of documenten uit Blob Storage worden gebruikt. Zie [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Anonieme leestoegang tot containers en blobs beheren) voor meer informatie. 
+Via de Blob Service kunt u openbare toegang bieden tot een container en de bijbehorende blobs, of een specifieke blob. Wanneer u opgeeft dat een container of blob openbaar is, kan iedereen deze anoniem lezen. Er is dan geen verificatie vereist. Dit is bijvoorbeeld handig wanneer u een website hebt waarop afbeeldingen, video of documenten uit Blob Storage worden gebruikt. Zie [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Anonieme leestoegang tot containers en blobs beheren) voor meer informatie.
 
 ## <a name="encryption"></a>Versleuteling
 
-Er zijn een paar eenvoudige typen versleuteling beschikbaar voor de Storage-services. 
+Er zijn een paar eenvoudige typen versleuteling beschikbaar voor de Storage-services.
 
-### <a name="encryption-at-rest"></a>Versleuteling 'at rest' 
+### <a name="encryption-at-rest"></a>Versleuteling 'at rest'
 
-U kunt SSE (Storage Service Encryption) inschakelen voor de Files-service (preview) of de Blob-service voor een Azure-opslagaccount. Als u SSE inschakelt, worden alle gegevens die worden weggeschreven naar de specifieke service eerst versleuteld. Wanneer u de gegevens leest, worden deze ontsleuteld en dan pas geretourneerd. 
+U kunt SSE (Storage Service Encryption) inschakelen voor de Files-service (preview) of de Blob-service voor een Azure-opslagaccount. Als u SSE inschakelt, worden alle gegevens die worden weggeschreven naar de specifieke service eerst versleuteld. Wanneer u de gegevens leest, worden deze ontsleuteld en dan pas geretourneerd.
 
 ### <a name="client-side-encryption"></a>Clientversleuteling
 
-De opslagclientbibliotheken ondersteunen methoden die u kunt aanroepen om gegevens programmatisch te versleutelen voordat deze via de kabel worden verzonden van de client naar Azure. De gegevens worden versleuteld opgeslagen, wat betekent dat ze ook 'at rest' zijn versleuteld. Bij het opnieuw lezen van de gegevens, worden de gegevens na ontvangst ontsleuteld. 
+De opslagclientbibliotheken ondersteunen methoden die u kunt aanroepen om gegevens programmatisch te versleutelen voordat deze via de kabel worden verzonden van de client naar Azure. De gegevens worden versleuteld opgeslagen, wat betekent dat ze ook 'at rest' zijn versleuteld. Bij het opnieuw lezen van de gegevens, worden de gegevens na ontvangst ontsleuteld.
 
 ### <a name="encryption-in-transit-with-azure-file-shares"></a>Versleuteling tijdens overdracht met Azure-bestandsshares
 
@@ -151,27 +151,27 @@ Raadpleeg de Engelstalige [Azure Storage-beveiligingshandleiding](storage-securi
 
 ## <a name="replication"></a>Replicatie
 
-Om ervoor te zorgen dat uw gegevens duurzaam zijn, heeft Azure Storage de mogelijkheid om meerdere kopieën van uw gegevens te onderhouden (en beheren). Dit wordt replicatie genoemd, en soms redundantie. Als u uw opslagaccount gaat instellen, selecteert u een type replicatie. In de meeste gevallen kan deze instelling worden gewijzigd nadat het opslagaccount is ingesteld. 
+Om ervoor te zorgen dat uw gegevens duurzaam zijn, heeft Azure Storage de mogelijkheid om meerdere kopieën van uw gegevens te onderhouden (en beheren). Dit wordt replicatie genoemd, en soms redundantie. Als u uw opslagaccount gaat instellen, selecteert u een type replicatie. In de meeste gevallen kan deze instelling worden gewijzigd nadat het opslagaccount is ingesteld.
 
-Alle opslagaccounts hebben **lokaal redundante opslag (LRS)**. Dit betekent dat er drie kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer er in één exemplaar wijzigingen worden vastgelegd, worden de andere twee kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de drie replica's altijd zijn gesynchroniseerd. Bovendien zijn de drie kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt. 
+Alle opslagaccounts hebben **lokaal redundante opslag (LRS)** die zodanig is ontworpen dat ten minste 99,999999999% (11 negens) de duurzaamheid van objecten in een bepaald jaar geven. Dit betekent dat er meerdere kopieën van uw gegevens worden beheerd door Azure Storage in het datacenter dat is opgegeven tijdens de configuratie van het opslagaccount. Wanneer wijzigingen worden vastgelegd, worden alle kopieën bijgewerkt en wordt pas daarna de bewerking als voltooid gezien. Dit betekent dat de replica's altijd zijn gesynchroniseerd. Bovendien zijn de kopieën opgeslagen in afzonderlijke foutdomeinen en upgrade-domeinen, wat inhoudt dat de gegevens zelfs beschikbaar zijn als een opslagknooppunt met uw gegevens uitvalt of offline wordt gezet om te worden bijgewerkt.
 
 **Lokaal redundante opslag (LRS)**
 
-Zoals hierboven is uitgelegd, beschikt u met LRS over drie kopieën van uw gegevens in één datacenter. Hierdoor is het probleem opgelost dat gegevens niet meer beschikbaar zijn als er een opslagknooppunt uitvalt of offline wordt gezet om te worden bijgewerkt. Er is echter wel een probleem als het hele datacenter niet meer beschikbaar is.
+Zoals hierboven is uitgelegd, beschikt u met LRS over meerdere kopieën van uw gegevens in één datacenter. Hierdoor is het probleem opgelost dat gegevens niet meer beschikbaar zijn als er een opslagknooppunt uitvalt of offline wordt gezet om te worden bijgewerkt. Er is echter wel een probleem als het hele datacenter niet meer beschikbaar is.
 
 **Zone-redundante opslag (ZRS)**
 
-Zone-redundante opslag (ZRS) zorgt er niet alleen voor dat de drie lokale kopieën van uw gegevens worden onderhouden, maar ook nog een andere set met drie kopieën van uw gegevens. De tweede set met drie kopieën wordt asynchroon gerepliceerd tussen datacenters binnen één of twee regio's. ZRS is alleen beschikbaar voor blok-blobs in opslagaccounts voor algemeen gebruik. Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het account niet meer wijzigen in een ander type replicatie, en omgekeerd.
+Zone-redundante opslag (ZRS) is ontworpen om ten minste 99,9999999999% (12 negens) duurzaamheid van objecten gedurende een bepaald jaar te leveren door lokale kopieën van uw gegevens en een andere set kopieën van uw gegevens te behouden. De tweede set met kopieën wordt asynchroon gerepliceerd tussen datacenters binnen één of twee regio's. ZRS is alleen beschikbaar voor blok-blobs in opslagaccounts voor algemeen gebruik. Nadat u uw opslagaccount hebt gemaakt en ZRS hebt geselecteerd, kunt u het account niet meer wijzigen in een ander type replicatie, en omgekeerd.
 
-ZRS-accounts bieden een hogere duurzaamheid dan LRS, maar ZRS-accounts ondersteunen geen metrische gegevens of logboekregistratie. 
+ZRS-accounts bieden een hogere duurzaamheid dan LRS, maar ZRS-accounts ondersteunen geen metrische gegevens of logboekregistratie.
 
 **Geografisch redundante opslag (GRS)**
 
-Geografisch redundante opslag (GRS) onderhoudt de drie lokale kopieën van uw gegevens in een primaire regio, plus een andere set met drie kopieën van uw gegevens in een secundaire regio, op honderden kilometers afstand van de primaire regio. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover uitgevoerd naar de secundaire regio. 
+Geografisch redundante opslag (GRS) is ontworpen om 99,99999999999999% (16 negens) duurzaamheid van objecten over een bepaald jaar te bieden door de lokale kopieën van uw gegevens in een primaire regio te behouden, plus een andere set met kopieën van uw gegevens in een secundaire regio, op honderden kilometers afstand van de primaire regio. Als er een storing optreedt in de primaire regio, wordt er door Azure Storage een failover uitgevoerd naar de secundaire regio.
 
-**Geografisch redundante opslag met leestoegang (RA-GRS)** 
+**Geografisch redundante opslag met leestoegang (RA-GRS)**
 
-Geografisch redundante opslag met leestoegang is exact hetzelfde als GRS, met als enige verschil dat u leestoegang krijgt tot de gegevens op de secundaire locatie. Als het primaire datacenter tijdelijk niet beschikbaar is, kunt u de gegevens blijven lezen vanaf de secundaire locatie. Dit kan zeer nuttig zijn. U kunt voor een webtoepassing dan bijvoorbeeld instellen dat die moet overschakelen naar de modus Alleen-lezen en verwijzen naar de secundaire kopie, zodat er nog enige toegang mogelijk is, zelfs als updates niet beschikbaar zijn. 
+Geografisch redundante opslag met leestoegang is exact hetzelfde als GRS, met als enige verschil dat u leestoegang krijgt tot de gegevens op de secundaire locatie. Als het primaire datacenter tijdelijk niet beschikbaar is, kunt u de gegevens blijven lezen vanaf de secundaire locatie. Dit kan zeer nuttig zijn. U kunt voor een webtoepassing dan bijvoorbeeld instellen dat die moet overschakelen naar de modus Alleen-lezen en verwijzen naar de secundaire kopie, zodat er nog enige toegang mogelijk is, zelfs als updates niet beschikbaar zijn.
 
 > [!IMPORTANT]
 > U kunt wijzigen hoe uw gegevens worden gerepliceerd nadat uw opslagaccount is gemaakt, tenzij u ZRS hebt opgegeven tijdens het maken van het account. Er worden mogelijk eenmalig extra kosten in rekening gebracht voor de overdracht van gegevens als u overschakelt van LRS naar GRS of RA-GRS.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8f4fcc3eb0dac2c5796b0a291425ad17a60a5bae
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -29,7 +29,7 @@ Er zijn twee soorten beschikbaarheidstests:
 * [URL-pingtest](#create): een eenvoudige test die u in Azure Portal kunt instellen.
 * [Webtest met meerdere stappen](#multi-step-web-tests): deze test kunt u in Visual Studio Enterprise maken en uploaden naar de portal.
 
-Per toepassingsresource kunt u maximaal 25 beschikbaarheidstests maken.
+Per toepassingsresource kunt u maximaal 100 beschikbaarheidstests maken.
 
 ## <a name="create"></a>1. Een resource openen voor uw beschikbaarheidstestrapporten
 

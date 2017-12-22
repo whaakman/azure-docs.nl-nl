@@ -4,7 +4,7 @@ description: Een openbaar en persoonlijk SSH-sleutelpaar voor virtuele Linux-mac
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 806d297c40af6ae2834ad529aaa11c51d26826dd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Een sleutelpaar met een openbare en persoonlijke SSH-sleutel voor virtuele Linux-machines maken en gebruiken
-Met een SSH-sleutelpaar (secure shell) kunt u virtuele machines (VM's) in Azure maken die voor verificatie gebruikmaken van SSH-sleutels, waardoor aanmelding met een wachtwoord niet meer nodig is. In dit artikel wordt beschreven hoe u snel een sleutelpaar met een openbare en een persoonlijke sleutel met SSH-protocol versie 2 RSA maakt en gebruikt voor virtuele Linux-machines. Zie voor meer stappen en extra voorbeelden [Gedetailleerde stappen voor het maken van SSH-sleutelparen en certificaten](create-ssh-keys-detailed.md).
+Met een SSH-sleutelpaar (secure shell) kunt u virtuele machines (VM's) in Azure maken die voor verificatie gebruikmaken van SSH-sleutels, waardoor aanmelding met een wachtwoord niet meer nodig is. In dit artikel wordt beschreven hoe u snel een sleutelpaar met een openbare en een persoonlijke sleutel met SSH-protocol versie 2 RSA maakt en gebruikt voor virtuele Linux-machines. U kunt deze stappen voltooien met de Azure Cloud Shell, een macOS- of Linux-host of het Windows-subsysteem voor Linux. Zie voor meer stappen en extra voorbeelden [Gedetailleerde stappen voor het maken van SSH-sleutelparen en certificaten](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
 Gebruik de opdracht `ssh-keygen` om openbare en persoonlijke SSH-sleutelbestanden te maken die standaard gemaakt worden in de map `~/.ssh`. U kunt een andere locatie en een extra wachtwoordzin (een wachtwoord voor toegang tot het bestand met de persoonlijke sleutel) opgeven wanneer u hierom wordt gevraagd. Voer de volgende opdracht uit vanuit een Bash-shell en beantwoord de prompts met uw eigen gegevens.

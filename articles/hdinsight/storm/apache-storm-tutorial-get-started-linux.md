@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d8b7d5830684b5e19eadd1b145a933527c2aa9fd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Aan de slag met Apache Storm in HDInsight met behulp van Storm-Starter-voorbeelden
 
@@ -47,7 +47,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
     ![Een HDInsight-cluster maken](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. Geef op de blade **Basisbeginselen** de volgende gegevens op:
+2. Geef in de sectie **Basisbeginselen** de volgende gegevens op:
 
     * **Clusternaam**: de naam van het HDInsight-cluster.
     * **Abonnement**: selecteer het abonnement dat u wilt gebruiken.
@@ -58,7 +58,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
    ![Abonnement selecteren](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. Selecteer **Clustertype** en stel de volgende waarden in op de blade **Clusterconfiguratie**:
+3. Selecteer **Clustertype** en stel de volgende waarden in op de sectie **Clusterconfiguratie**:
 
     * **Clustertype**: Storm
 
@@ -74,11 +74,11 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
 4. Nadat u het clustertype hebt geselecteerd, gebruikt u de knop __Selecteren__ om het clustertype te selecteren. Gebruik vervolgens de knop __Volgende__ om de basisconfiguratie te voltooien.
 
-5. Op de blade **Opslag** selecteert of maakt u een opslagaccount. Voor de stappen in dit document laat u de andere velden in deze blade op de standaardwaarden. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan.
+5. In de sectie **Opslag** selecteert of maakt u een opslagaccount. Voor de stappen in dit document gebruikt u voor de andere velden in deze sectie de standaardwaarden. Gebruik de knop __Volgende__ om de opslagconfiguratie op te slaan.
 
     ![De instellingen van het opslagaccount voor HDInsight configureren](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. Controleer op de blade **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
+6. Controleer in de sectie **Samenvatting** de configuratie van het cluster. Gebruik de koppeling __Bewerken__ om onjuiste instellingen te wijzigen. Gebruik tot slot de knop __Maken__ om het cluster te maken.
 
     ![Samenvatting clusterconfiguratie](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -103,10 +103,7 @@ Gebruik de volgende stappen om een Storm in een HDInsight-cluster te maken:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > In eerdere versies van HDInsight is de klassenaam van de topologie `storm.starter.WordCountTopology` in plaats van `org.apache.storm.starter.WordCountTopology`.
-
-    Met deze opdracht wordt de WordCount-voorbeeldtopologie gestart op het cluster, met een beschrijvende naam voor 'wordcount'. Het genereert willekeurig zinnen en telt het aantal keer dat elk woord in deze zinnen voorkomt.
+    Met deze opdracht wordt de WordCount-voorbeeldtopologie gestart op het cluster. Deze topologie genereert willekeurige zinnen en telt hoe vaak woorden voorkomen. De beschrijvende naam van de topologie is `wordcount`.
 
     > [!NOTE]
     > Bij het indienen van uw eigen topologieën bij het cluster moet u eerst het JAR-bestand met het cluster kopiëren voordat u de opdracht `storm` gebruikt. Gebruik de opdracht `scp` om het bestand te kopiëren. Bijvoorbeeld: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -199,7 +196,7 @@ Zie [Vereisten voor toegangsbeheer](../hdinsight-administer-use-portal-linux.md#
 
 In deze zelfstudie voor Apache Storm hebt u de basisbeginselen van het werken met Storm op HDInsight geleerd. U kunt nu gaan leren hoe u [op Java gebaseerde topologieën met Maven ontwikkelt](apache-storm-develop-java-topology.md).
 
-Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën en een bestaande topologie wilt implementeren in HDInsight, raadpleegt u [Apache Storm-topologieën implementeren en beheren in HDInsight](apache-storm-deploy-monitor-topology-linux.md).
+Als u al bekend bent met het ontwikkelen van op Java gebaseerde topologieën, raadpleegt u het document [Apache Storm-topologieën implementeren en beheren in HDInsight](apache-storm-deploy-monitor-topology-linux.md).
 
 Als u .NET-ontwikkelaar bent, kunt u C#- of hybride C#-/Java-topologieën maken met Visual Studio. Zie [C#-topologieën ontwikkelen voor Apache Storm op HDInsight met behulp van Hadoop-hulpprogramma's voor Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) voor meer informatie.
 

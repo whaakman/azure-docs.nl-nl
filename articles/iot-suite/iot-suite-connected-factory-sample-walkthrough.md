@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Walkthrough voor de vooraf geconfigureerde oplossing Connected Factory
 
-De [vooraf geconfigureerd oplossing][lnk-preconfigured-solutions] Connected Factory uit IoT Suite is een implementatie van een end-to-endoplossing waarmee:
+De [vooraf geconfigureerde oplossing][lnk-preconfigured-solutions] Connected Factory van IoT Suite is een complete brancheoplossing waarmee:
 
 * Gesimuleerde industriële apparaten met OPC UA-servers in gesimuleerde fabrieksproductielijnen en echte OPC UA-serverapparaten kunnen worden verbonden. Zie de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md) voor meer informatie over OPC UA.
 * Operationele KPI's en OEE van die apparaten en productielijnen kunnen worden bekeken.
@@ -34,7 +34,7 @@ De [vooraf geconfigureerd oplossing][lnk-preconfigured-solutions] Connected Fact
 
 U kunt de oplossing gebruiken als uitgangspunt voor uw eigen implementatie en u kunt deze [aanpassen][lnk-customize] aan uw eigen specifieke zakelijke vereisten.
 
-In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossing Connected Factory beschreven, zodat u beter begrijpt hoe deze werkt. In dit artikel wordt ook beschreven hoe gegevens via de oplossing stromen. Deze kennis helpt u bij:
+In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossing Connected Factory beschreven waarmee u inzicht krijgt in de werking. In dit artikel wordt ook beschreven hoe gegevens via de oplossing stromen. Deze kennis helpt u bij:
 
 * Het oplossen van problemen met de oplossing.
 * Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten.
@@ -166,11 +166,11 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
     - Maakt gebruik van met TCP/TLS beveiligde communicatie.
     - Deze stap is intern voor het datacenter.
 
-11. Webbrowser maakt verbinding met de verbonden factory-WebApp.
-    - Geeft het verbonden factory-dashboard weer.
+11. Webbrowser maakt verbinding met de web-app Connected Factory.
+    - Geeft het dashboard van Connected Factory weer.
     - Maakt verbinding via HTTPS.
-    - Voor toegang tot de verbonden factory-app is verificatie van de gebruiker via Azure Active Directory vereist.
-    - WebApi-aanroepen naar verbonden factory-app worden beveiligd door anti-vervalsingstokens.
+    - Voor toegang tot de app Connected Factory is verificatie van de gebruiker via Azure Active Directory vereist.
+    - WebApi-aanroepen naar de app Connected Factory worden beveiligd door anti-vervalsingstokens.
 
 12. Bij gegevensupdates verstuurt de verbonden factory-WebApp bijgewerkte gegevens naar de webbrowser.
     - Maakt gebruik van het SignalR-protocol.
@@ -190,7 +190,7 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
     - Leest alle bekende apparaten vanaf IoT Hub.
     - Maakt gebruik van MQTT via TLS via socket of beveiligde WebSocket.
 
-3. Webbrowser maakt verbinding met de verbonden factory-WebApp en geeft het verbonden factory-dashboard weer.
+3. Webbrowser maakt verbinding met de web-app Connected Factory en geeft het dashboard van Connected Factory weer.
     - Maakt gebruik van HTTPS.
     - Een gebruiker selecteert een OPC UA-server om verbinding mee te maken.
 
@@ -199,7 +199,7 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
 
 5. OPC-proxytransport ontvangt een aanvraag van de OPC UA-stack om een TCP-socketverbinding met de OPC UA-server tot stand te brengen.
     - De TCP-nettolading wordt opgehaald en ongewijzigd gebruikt.
-    - Deze stap is intern voor de verbonden factory-WebApp.
+    - Deze stap is intern voor de web-app Connected Factory.
 
 6. OPC-proxy (clientcomponent) zoekt het OPC-proxy (servercomponent)-apparaat in het IoT Hub-apparaatregister. Vervolgens wordt een apparaatmethode van het OPC-proxy (servercomponent)-apparaat in IoT Hub aangeroepen.
     - Maakt gebruik van HTTPS via TCP/TLS om OPC-proxy te zoeken.
@@ -215,7 +215,7 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
 
 10. Het antwoord wordt ontvangen door de socket van de OPC-proxy (servercomponent).
     - OPC-proxy stuurt de gegevens als retourwaarde van de apparaatmethode naar IoT Hub en de OPC-proxy (clientcomponent).
-    - Deze gegevens worden afgeleverd aan de OPC UA-stack in de verbonden factory-app.
+    - Deze gegevens worden afgeleverd aan de OPC UA-stack in de app Connected Factory.
 
 11. De verbonden factory-WebApp retourneert OPC-browser-UX verrijkt met de OPC UA-specifieke gegevens (ontvangen van de OPC UA-server) naar de webbrowser om ze weer te geven.
     - Tijdens het browsen door de OPC-adresruimte en het toepassen van functies op knooppunten in de OPC-adresruimte, maakt het OPC-browser-UX-clientonderdeel gebruik van AJAX-aanroepen via HTTPS (beveiligd met anti-vervalsingstokens) om gegevens op te halen uit de verbonden factor-WebApp.
@@ -225,7 +225,7 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
 > De OPC-proxy (servercomponent) en OPC-proxy (clientcomponent) voltooien stap 4 t/m 10 voor alle TCP-verkeer dat gerelateerd is met OPC UA-communicatie.
 
 > [!NOTE]
-> Voor de OPC UA-server en de OPC UA-stack binnen de verbonden factory-WebApp is de OPC-proxycommunicatie transparant en zijn alle OPC UA-beveiligingsfuncties voor verificatie en versleuteling van toepassing.
+> Voor de OPC UA-server en de OPC UA-stack in de web-app Connected Factory is de OPC-proxycommunicatie transparant en zijn alle OPC UA-beveiligingsfuncties voor verificatie en versleuteling van toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 

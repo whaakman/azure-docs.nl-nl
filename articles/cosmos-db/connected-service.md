@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Connected Service (Preview)
 
@@ -119,8 +119,8 @@ In dit document hebt u het volgende geleerd:
 
 Nu de Connected Services zijn ingeschakeld voor uw Azure Cosmos DB-account, gaat u verder met een van de zelfstudies om te beginnen met het ontwikkelen van uw oplossing:
 
-* [Develop with the DocumentDB API in .NET (Ontwikkelen met de DocumentDB-API in .NET)](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: aan de slag met de DocumentDB-API](documentdb-get-started.md).
+* [Ontwikkelen met SQL API in .NET](tutorial-develop-documentdb-dotnet.md).
+* [Azure Cosmos DB: zelfstudie aan de slag met SQL API](documentdb-get-started.md).
 * Wilt u de schaal en prestaties testen met Azure Cosmos DB? Zie [Performance and Scale Testing with Azure Cosmos DB (Prestaties en schaal testen met Azure Cosmos DB)](performance-testing.md).
 * Leer hoe u een [Azure Cosmos DB-account bewaakt](monitor-accounts.md).
 

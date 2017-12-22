@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Ga naar het [Microsoft Vertrouwenscentrum](https://www.microsoft.com/trustcenter
 ## <a name="supports-the-latest-client-tools"></a>Ondersteuning voor de nieuwste clienthulpprogramma's
 ![Gegevensvisualisaties](./media/analysis-services-overview/aas-overview-clients.png)
 
-Moderne hulpprogramma's voor het verkennen en visualiseren van gegevens, zoals Power BI, Excel en hulpprogramma's van derden, bieden gebruikers interactieve en visueel aantrekkelijke inzichten in de gegevens van uw model.
+Moderne hulpprogramma's voor het verkennen en visualiseren van gegevens, zoals Power BI, Excel, SQL Server 2017 Reporting Services en hulpprogramma's van derden, bieden gebruikers interactieve en visueel aantrekkelijke inzichten in de gegevens van uw model. 
 
 Clients gebruiken MSOLAP-, AMO- of ADOMD-[clientbibliotheken](analysis-services-data-providers.md) om verbinding te maken met Analysis Services-servers. In Microsoft-clienttoepassingen als Power BI Desktop en Excel zijn alle drie deze clientbibliotheken geïnstalleerd. Afhankelijk van de versie van de toepassing of de updatefrequentie zijn dit echter mogelijk niet de clientbibliotheekversies die door Azure Analysis Services worden vereist (de meest recente versies). Dit geldt ook voor aangepaste toepassingen of andere interfaces, zoals AsCmd, TOM en ADOMD.NET. Voor deze toepassingen moeten de bibliotheken doorgaans handmatig worden geïnstalleerd als onderdeel van een pakket.
 

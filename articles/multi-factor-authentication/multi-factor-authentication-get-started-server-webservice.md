@@ -4,7 +4,7 @@ description: De Microsoft verificator-app biedt een extra optie voor verificatie
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 3d1e8d62127a3c5c888804278fbcd9a4fe81e33f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Authenticatie met de mobiele app integreren met Azure Multi-Factor Authentication-server
 
@@ -63,7 +63,7 @@ Als de SDK van de webservice Azure Multi-Factor Authentication nog **niet** is g
 3. Voltooi de installatie met de standaardinstellingen, tenzij u een speciale reden hebt om een andere instelling te kiezen.
 4. Bind een SSL-certificaat aan de site in IIS.
 
-Als u vragen hebt over het configureren van een SSL-certificaat op een IIS-server, raadpleegt u het artikel [How to Set Up SSL on IIS 7](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (SSL configureren in IIS 7).
+Als u vragen hebt over het configureren van een SSL-certificaat op een IIS-server, raadpleegt u het artikel [How to Set Up SSL on IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (SSL configureren in IIS 7).
 
 De webservice-SDK moet met een SSL-certificaat worden beveiligd. Voor dit doel kan een zelfondertekend certificaat worden gebruikt. Importeer het certificaat in het certificaatarchief Vertrouwde basiscertificeringsinstanties van het account Lokale computer op de webserver van de gebruikersportal, zodat daar het certificaat wordt vertrouwd wanneer de SSL-verbinding tot stand wordt gebracht.
 
@@ -88,6 +88,7 @@ De webservice-SDK moet met een SSL-certificaat worden beveiligd. Voor dit doel k
 
 7. Als de website waaronder de webservice voor mobiele apps is geïnstalleerd, nog niet is verbonden met een openbaar ondertekend certificaat, installeert u het certificaat op de server. Vervolgens opent u IIS-beheer en verbindt u het certificaat met de website.
 8. Open op een computer een webbrowser en navigeer naar de URL waar de webservice Mobile Apps is geïnstalleerd (bijvoorbeeld: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Controleer of er geen certificaatwaarschuwingen of -fouten worden weergegeven.
+9. Zie het Help-bestand van de MFA-server voor meer informatie over de methoden die beschikbaar zijn in de SDK voor webservices.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>De instellingen voor de webservice voor mobiele apps op de Azure Multi-Factor Authentication-server configureren
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: kaanan
-ms.openlocfilehash: 2cf85e1405597c8fb2a0f0c80d3e8317fe6e76eb
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6ca08cdc10191fadbcd36f56aac140cbac89eb09
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -96,7 +96,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **Jisc** |Ondersteund |Ondersteund |Londen |
 | **KINX** |Ondersteund |Ondersteund |Seoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Ondersteund | Ondersteund | Amsterdam | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Las Vegas, Londen, New York, San Antonio, Sao Paulo, Seattle, Silicon Valley, Singapore, Tokio, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Las Vegas, Londen, Newport, New York, San Antonio, Sao Paulo, Seattle, Silicon Valley, Singapore, Tokio, Washington DC |
 | **LG CNS** |Ondersteund |Ondersteund |Busan, Seoul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Ondersteund |Ondersteund |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londen, Los Angeles, Melbourne, New York, Osaka, Parijs, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokio, Toronto, Washington DC |
 | **MTN** |Ondersteund |Ondersteund |Londen |

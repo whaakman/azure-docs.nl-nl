@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/06/2017
 ms.author: yurid
-ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: c41e233e177f540562d80649c7bffc15e208e870
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-data-security"></a>Gegevensbeveiliging in Azure Security Center
 Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reageren, verzamelt en verwerkt Azure Security Center gegevens over beveiliging, zoals configuratie-informatie, metagegevens, gebeurtenislogboeken, crashdumpbestanden en nog veel meer. Microsoft voldoet aan strikte nalevings- en beveiligingsrichtlijnen - van het schrijven van code tot de uitvoering van een service.
@@ -69,6 +69,16 @@ Wanneer u Security Center inschakelt in Azure, wordt gegevensverzameling ingesch
 
 Als u de gratis variant van Azure Security Center gebruikt, kunt u het verzamelen van gegevens van virtuele machines ook uitschakelen in het beveiligingsbeleid. Het verzamelen van gegevens is vereist voor abonnementen uit de prijscategorie Standard. De verzameling van momentopnamen en artefacten voor de VM-schijf is nog steeds ingeschakeld, zelfs als het verzamelen van gegevens is uitgeschakeld.
 
+## <a name="data-consumption"></a>Gegevensverbruik
+
+Klanten kunnen gegevens die verband houden met Security Center gebruiken uit verschillende gegevensstromen, zoals hieronder weergegeven:
+
+* **Azure-activiteit**: alle beveiligingswaarschuwingen, goedgekeurde [Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)-aanvragen van Security Center en alle waarschuwingen die zijn gegenereerd door [besturingselementen voor adaptieve toepassingen](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Log Analytics**: alle beveiligingswaarschuwingen.
+
+
+> [!NOTE]
+> Beveiligingsaanbevelingen kunnen ook worden gebruikt via REST API. Lees [Security Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) (REST API-naslaginformatie voor beveiligingsresourceprovider) voor meer informatie. 
 
 ## <a name="see-also"></a>Zie ook
 In dit document hebt u geleerd hoe gegevens worden beheerd en beveiligd in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:

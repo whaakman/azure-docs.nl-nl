@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-log-analytics"></a>Wat is Log Analytics?
 Log Analytics is een service in [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) waarmee u uw cloud- en on-premises omgevingen kunt bewaken om zo hun beschikbaarheid en prestaties te onderhouden.  De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.  Dit artikel bevat een korte beschrijving van de waarde die Log Analytics toevoegt, een overzicht van hoe het werkt en koppelingen naar meer gedetailleerde inhoud zodat u dieper op het onderwerp in kunt gaan.
@@ -60,7 +60,7 @@ In het centrum van Log Analytics bevindt zich de OMS-opslagplaats die in de Azur
 
 ![OMS-opslagplaats](media/log-analytics-overview/overview.png)
 
-Verbonden bronnen zijn de computers en andere bronnen die gegevens genereren die worden verzameld door Log Analytics.  Dit kunnen agenten zijn die zijn geïnstalleerd op [Windows-](log-analytics-windows-agents.md) en [Linux](log-analytics-linux-agents.md)-computers die rechtstreeks verbinding maken of agenten in een [verbonden beheergroep van System Center Operations Manager](log-analytics-om-agents.md).  In het geval van Azure-resources verzamelt Log Analytics gegevens uit [Azure Monitor en Azure Diagnostics](log-analytics-azure-storage.md).
+Verbonden bronnen zijn de computers en andere bronnen die gegevens genereren die worden verzameld door Log Analytics.  Dit kunnen agenten zijn die zijn geïnstalleerd op [Windows-](log-analytics-windows-agent.md) en [Linux](log-analytics-linux-agents.md)-computers die rechtstreeks verbinding maken of agenten in een [verbonden beheergroep van System Center Operations Manager](log-analytics-om-agents.md).  In het geval van Azure-resources verzamelt Log Analytics gegevens uit [Azure Monitor en Azure Diagnostics](log-analytics-azure-storage.md).
 
 [Gegevensbronnen](log-analytics-data-sources.md) zijn de verschillende soorten gegevens die uit elke verbonden bron worden verzameld.  Voorbeelden hiervan zijn [gebeurtenissen](log-analytics-data-sources-windows-events.md) en [prestatiegegevens](log-analytics-data-sources-performance-counters.md) van [Windows](log-analytics-data-sources-windows-events.md)- en Linux-agenten, naast bronnen zoals [IIS-logboeken](log-analytics-data-sources-iis-logs.md) en [aangepaste tekstlogboeken](log-analytics-data-sources-custom-logs.md).  U configureert elke gegevensbron die u wenst te verzamelen en de configuratie wordt automatisch doorgegeven aan elke verbonden bron.
 
@@ -69,7 +69,7 @@ Als u speciale vereisten hebt, kunt u de [API HTTP Data Collector](log-analytics
 ## <a name="log-analytics-architecture"></a>Architectuur van Log Analytics
 De implementatievereisten van Log Analytics zijn minimaal omdat de centrale onderdelen in de Azure-cloud worden gehost.  Dit omvat de opslagplaats naast de services die u in staat stellen verzamelde gegevens te correleren en te analyseren.  De portal is toegankelijk vanuit elke browser. Er is dus geen vereiste voor de clientsoftware.
 
-U moet agenten installeren op [Windows](log-analytics-windows-agents.md)- en [Linux](log-analytics-linux-agents.md)-computers, maar er is geen aanvullende agent vereist voor computers die al lid van zijn een [verbonden SCOM-beheergroep](log-analytics-om-agents.md).  SCOM-agenten blijven communiceren met beheerservers die hun gegevens doorsturen naar Log Analytics.  Een aantal oplossingen vereist echter agenten om rechtstreeks te communiceren met Log Analytics.  In de documentatie voor elke oplossing worden de communicatievereisten gespecificeerd.
+U moet agenten installeren op [Windows](log-analytics-windows-agent.md)- en [Linux](log-analytics-linux-agents.md)-computers, maar er is geen aanvullende agent vereist voor computers die al lid van zijn een [verbonden SCOM-beheergroep](log-analytics-om-agents.md).  SCOM-agenten blijven communiceren met beheerservers die hun gegevens doorsturen naar Log Analytics.  Een aantal oplossingen vereist echter agenten om rechtstreeks te communiceren met Log Analytics.  In de documentatie voor elke oplossing worden de communicatievereisten gespecificeerd.
 
 Wanneer u [zich aanmeldt voor Log Analytics](log-analytics-get-started.md), maakt u een OMS-werkruimte.  U kunt de werkruimte zien als een unieke omgeving van Log Analytics met een eigen gegevensopslagplaats, gegevensbronnen en oplossingen. U kunt meerdere werkruimten maken in uw abonnement om meerdere omgevingen zoals een productieomgeving en testomgeving te ondersteunen.
 

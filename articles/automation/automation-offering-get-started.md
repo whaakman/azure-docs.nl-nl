@@ -3,7 +3,7 @@ title: Aan de slag met Azure Automation | Microsoft Docs
 description: Als voorbereiding om de service aan te bieden via Azure Marketplace, vindt u in dit artikel een overzicht van de Azure Automation-service. Hier worden de ontwerp- en implementatiegegevens doorgenomen.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Aan de slag met Azure Automation
 
@@ -112,7 +112,7 @@ De volgende tabel bevat een overzicht van de verschillende verificatiemethoden v
 In de sectie **Procedures\Verificatie en beveiliging** vindt u ondersteunende artikelen met een overzicht en de implementatiestappen om verificatie te configureren voor deze omgevingen, met een bestaand account of een nieuw account dat u speciaal aan die omgeving hebt toegewezen.  Voor het Uitvoeren als-account van Azure en het klassieke Uitvoeren als-account raadpleegt u het onderwerp [Automation Uitvoeren als-account bijwerken met PowerShell](automation-create-runas-account.md). Hierin wordt beschreven hoe u een bestaand Automation-account met een Uitvoeren als-account bijwerkt vanuit de portal of met behulp van PowerShell als het oorspronkelijk niet is geconfigureerd met een Uitvoeren als- of klassiek Uitvoeren als-account. Als u een Uitvoeren als- en een klassiek Uitvoeren als-account wilt maken met een certificaat dat is uitgegeven door uw certificeringsinstantie (CA) voor ondernemingen, raadpleegt u dit artikel voor meer informatie over hoe u de accounts maakt met deze configuratie.     
  
 ## <a name="network-planning"></a>Netwerkplanning
-De Hybrid Runbook Worker kan alleen verbinding maken met en zich registreren bij Microsoft Operations Management Suite (OMS) als het toegang heeft tot het poortnummer en de URL's die hieronder worden beschreven.  Dit is in aanvulling op de [poorten en URL's die vereist zijn voor de Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) om verbinding te maken met OMS. Als u een proxyserver gebruikt voor communicatie tussen de agent en de OMS-service, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt om toegang tot internet te beperken, moet u uw firewall zodanig configureren dat toegang wordt toegestaan.
+De Hybrid Runbook Worker kan alleen verbinding maken met en zich registreren bij Microsoft Operations Management Suite (OMS) als het toegang heeft tot het poortnummer en de URL's die hieronder worden beschreven.  Dit is in aanvulling op de [poorten en URL's die vereist zijn voor de Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) om verbinding te maken met OMS. Als u een proxyserver gebruikt voor communicatie tussen de agent en de OMS-service, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt om toegang tot internet te beperken, moet u uw firewall zodanig configureren dat toegang wordt toegestaan.
 
 In de onderstaande informatie vindt u de poort en URL's die nodig zijn om de Hybrid Runbook Worker te laten communiceren met Automation.
 

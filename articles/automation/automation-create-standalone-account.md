@@ -3,7 +3,7 @@ title: Zelfstandig Azure Automation-account maken | Microsoft Docs
 description: Zelfstudie die u helpt bij het maken en testen en bij het voorbeeldgebruik van de verificatie van beveiligingsprincipals in Azure Automation.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Een zelfstandig Azure Automation-account maken
 In dit onderwerp wordt beschreven hoe u een Automation-account kunt maken vanuit Azure Portal, als u Azure Automation wilt evalueren en leren gebruiken, zonder hierbij gebruik te maken van de aanvullende beheeroplossingen of integratie met OMS Log Analytics om geavanceerde bewaking van runbooktaken te bieden.  U kunt deze beheeroplossingen op enig moment in de toekomst toevoegen aan of integreren in Log Analytics.  Met een Automation-account kunt u runbooks verifiëren waarmee resources worden beheerd in Azure Resource Manager of een klassieke Azure-implementatie.

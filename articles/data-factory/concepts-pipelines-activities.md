@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 4214bc2a58a1ce6d0d329010ec7775a343e9d782
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pijplijnen en activiteiten in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Met behulp van dit artikel krijgt u inzicht in de pijplijnen en activiteiten in 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Pijplijnen in versie 1 van Data Factory](v1/data-factory-create-pipelines.md).
 > 
-> In dit artikel wordt ervan uitgegaan dat u [Inleiding tot Azure Data Factory](introduction.md) en de [QuickStart](quickstart-create-data-factory-powershell.md) hebt doorlopen.
+> In dit artikel wordt ervan uitgegaan dat u [Inleiding tot Azure Data Factory](introduction.md) en de [snelstartgids](quickstart-create-data-factory-powershell.md) hebt doorlopen.
 
 ## <a name="overview"></a>Overzicht
 Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn is een logische groep activiteiten die samen een taak uitvoeren. Een pijplijn kan bijvoorbeeld een set van activiteiten bevatten die logboekgegevens opnemen en opschonen, en vervolgens een Spark-taak starten op een HDInsight-cluster voor het analyseren van de logboekgegevens. Het voordeel van een pijplijn is dat u de activiteiten kunt beheren als een set in plaats van afzonderlijk. U kunt de pijplijn bijvoorbeeld in zijn geheel implementeren en plannen, in plaats van de afzonderlijke activiteiten.  
@@ -201,7 +201,7 @@ typeProperties | Eigenschappen in de sectie typeProperties zijn afhankelijk van 
 dependsOn | Deze eigenschap wordt gebruikt voor het definiëren van afhankelijkheden van de activiteit, en hoe de volgende activiteiten afhankelijk zijn van vorige activiteiten. Zie voor meer informatie de sectie [Afhankelijkheid van activiteiten](#activity-dependency). | Nee
 
 ### <a name="activity-dependency"></a>Afhankelijkheid van activiteiten
-De afhankelijkheid van activiteiten definieert hoe latere activiteiten afhankelijk zijn van vorige activiteiten. Op basis hiervan wordt bepaald of de volgende taak kan worden uitgevoerd. Een activiteit kan één of meerdere vorige activiteiten beschermen met verschillende afhankelijkheidsvoorwaarden. 
+De afhankelijkheid van activiteiten definieert hoe latere activiteiten afhankelijk zijn van vorige activiteiten. Op basis hiervan wordt bepaald of de volgende taak kan worden uitgevoerd. Een activiteit kan afhankelijk zijn van een of meer eerdere activiteiten met verschillende afhankelijkheidsvoorwaarden. 
 
 De verschillende afhankelijkheidsvoorwaarden zijn: Succeeded, Failed, Skipped, Completed.
 
@@ -300,7 +300,7 @@ Houd rekening met de volgende punten:
 - De invoer voor de activiteit is ingesteld op **InputDataset** en de uitvoer voor de activiteit is ingesteld op **OutputDataset**. Zie het artikel [Gegevenssets](concepts-datasets-linked-services.md) voor informatie over het definiëren van gegevenssets in JSON.
 - In het gedeelte **typeProperties** is **BlobSource** opgegeven als het brontype en **SqlSink** als het sink-type. Klik in de sectie [Activiteiten voor gegevensverplaatsing](#data-movement-activities) op het gegevensarchief dat u wilt gebruiken als een bron of een sink voor meer informatie over het verplaatsen van gegevens naar/van het betreffende gegevensarchief.
 
-Zie [QuickStart: Een data factory maken](quickstart-create-data-factory-powershell.md)voor een volledige procedure voor het maken van deze pijplijn.
+Zie [Snelstartgids: Een data factory maken](quickstart-create-data-factory-powershell.md)voor een volledige procedure voor het maken van deze pijplijn.
 
 ## <a name="sample-transformation-pipeline"></a>Voorbeeld van pijplijn voor transformatie
 De volgende voorbeeldpijplijn bevat een activiteit van het type **HDInsightHive** in de sectie **activities**. In dit voorbeeld transformeert de [HDInsight Hive-activiteit](transform-data-using-hadoop-hive.md) gegevens uit een Azure-blobopslag door een Hive-scriptbestand uit te voeren op een Azure HDInsight Hadoop-cluster.
