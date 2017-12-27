@@ -4,7 +4,7 @@
   items:
     - name: Azure Monitor
       href: monitoring-overview-azure-monitor.md
-- name: Snelstartgidsen
+- name: Quickstarts
   expanded: true
   items:
     - name: Waarschuwing op basis van metrische gegevens
@@ -164,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Metrische gegevens naar Grafana verzenden
       href: monitor-send-to-grafana.md
+    - name: Bewakingsgegevens naar een event hub verzenden
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Naslaginformatie
   items:
     - name: Azure CLI

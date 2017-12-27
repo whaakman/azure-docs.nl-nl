@@ -4,7 +4,7 @@
   items:
     - name: Over het inrichten van een IoT-apparaat
       href: about-iot-dps.md
-- name: Snelstartgidsen
+- name: Quickstarts
   expanded: true
   items:
     - name: Automatische inrichting instellen
@@ -37,10 +37,14 @@
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
 - name: Zelfstudies
   items:
     - name: 1 - Cloudresources instellen
@@ -67,6 +71,8 @@
           href: how-to-manage-enrollments.md
         - name: Apparaatregistraties beheren met service-SDK's
           href: how-to-manage-enrollments-sdks.md
+    - name: Apparaattoegang intrekken
+      href: how-to-revoke-device-access-portal.md
     - name: Gebruik HSM met SDK
       href: use-hsm-with-sdk.md
     - name: Toegang tot de inrichtingsservice beheren
