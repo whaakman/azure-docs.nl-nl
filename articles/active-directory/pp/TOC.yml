@@ -1,0 +1,31 @@
+- name: Beheerde service-identiteit (door gebruiker toegewezen)
+  href: msi-overview.md
+  items:
+    - name: MSI configureren voor een Azure VM
+      items:
+        - name: Azure CLI gebruiken
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Azure SDK gebruiken
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Een MSI toegang verlenen tot Resource Manager
+      items:
+        - name: Azure CLI gebruiken
+          href: msi-howto-assign-access-cli.md
+    - name: Een VM MSI gebruiken
+      items:
+        - name: Een toegangstoken verkrijgen
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Aanmelden bij Azure CLI
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Gebruiken met Azure SDK's
+          href: msi-how-to-use-vm-msi-sdk.md
+    - name: Een VM MSI gebruiken voor toegang tot Azure Resource Manager
+      items:
+        - name: Vanaf een Linux-VM
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Een VM MSI gebruiken voor toegang tot Azure Storage
+      items:
+        - name: Vanaf een Linux-VM met behulp van een toegangssleutel
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Veelgestelde vragen en bekende problemen
+      href: msi-known-issues.md

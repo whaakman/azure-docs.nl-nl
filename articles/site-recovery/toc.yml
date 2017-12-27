@@ -4,7 +4,7 @@
   items:
     - name: Wat is Site Recovery?
       href: site-recovery-overview.md
-- name: Snelstartgidsen
+- name: Quickstarts
   expanded: true
   items:
     - name: Een virtuele Azure-machine repliceren naar een secundaire regio
@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: IP-adressering instellen voor toegang tot een secundaire locatie na een failover
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Netwerkinterfacebeheer voor on-premises-naar-Azure-scenario's
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Herstel na noodgeval
       items:
         - name: Virtuele Hyper-V-machines naar Azure
