@@ -72,7 +72,7 @@ Deze tabel beschrijft de poorten en protocollen die vereist voor communicatie tu
 | HTTPS |443(TCP/UDP) |Gebruikt voor verificatie van apparaten. |
 | TCP |49443 (TCP) |Gebruikt voor verificatie via certificaat. |
 
-## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>Tabel 6a &6;ter - Pass through-verificatie met eenmalige aanmelding (SSO) en Wachtwoordhashsynchronisatie met eenmalige aanmelding (SSO)
+## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>Tabel 6a & 6ter - Pass through-verificatie met eenmalige aanmelding (SSO) en Wachtwoordhashsynchronisatie met eenmalige aanmelding (SSO)
 De volgende tabel beschrijft de poorten en protocollen die vereist voor communicatie tussen de Azure AD Connect en Azure AD zijn.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabel 6a - Pass through-verificatie met eenmalige aanmelding
