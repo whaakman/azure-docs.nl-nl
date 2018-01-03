@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Status van de Azure-Service biedt tijdige en persoonlijke informatie wanneer problemen in de Azure-services invloed zijn op uw services.  Hiermee kunt u ook voorbereiden op toekomstige gepland onderhoud.
@@ -57,5 +57,4 @@ Servicestatus om weer te geven van uw bedrijfskritieke abonnementen, regio's en 
 ## <a name="configure-service-health-alerts"></a>Servicestatus waarschuwingen configureren
 Status van de Azure-Service kan worden geïntegreerd met Azure-bewaking om u te waarschuwen via e-mailberichten, tekstberichten en webhook meldingen wanneer uw bedrijfskritieke resources ondervinden gevolgen. Instellen van een activiteit logboek-waarschuwing voor de gebeurtenis status van de Service. Deze waarschuwing doorsturen naar de juiste mensen in uw organisatie met behulp van groepen in te grijpen. Zie voor meer informatie [waarschuwingen configureren voor de Health-Service](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>Volgende stappen
-Waarschuwingen instellen, zodat u wordt gewaarschuwd van statusproblemen. Zie voor meer informatie [waarschuwingen configureren voor servicestatus](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+ 

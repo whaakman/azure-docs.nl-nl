@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Illustraties maken met Azure Media openen
 Azure Media openen is een gratis JavaScript-bibliotheek waarmee webontwikkelaars kunnen hun gebruikers met een interface bieden voor het maken van media illustraties. Dit hulpprogramma kan worden geïntegreerd in een webpagina en biedt API's voor het laden van assets en paginaknipsel taken verzenden.
@@ -29,7 +29,7 @@ Azure Media openen kunt u:
 
 Voor het aanvragen van nieuwe functies bieden ideeën of feedback wilt geven, dienen bij [UserVoice voor Azure Media Services](http://aka.ms/amsvoice/). Als u hebt en specifieke problemen, vragen of zoeken naar fouten, verwijder de Media Services-team een lijn op amcinfo@microsoft.com.
 
-De volgende afbeelding ziet u de interface openen: ![Azure Media openen](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+De volgende afbeelding ziet u de interface openen: ![Azure Media openen](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 Zie de volgende lijst voor het blogbericht openen, verschillende bekende problemen en changelog voor de nieuwste versie van de openen:

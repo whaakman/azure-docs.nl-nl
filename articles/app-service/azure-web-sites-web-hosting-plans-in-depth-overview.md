@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Overzicht van Azure App Service-plan
 
-In App Service een app wordt uitgevoerd in een _App Service-abonnement_. Een App Service-plan definieert een aantal rekenresources voor een web-app om uit te voeren. Deze compute resources zijn vergelijkbaar met de [ _serverfarm_ ](https://wikipedia.org/wiki/Server_farm) in conventionele webhosting. Een of meer apps kunnen worden geconfigureerd om te worden uitgevoerd op de dezelfde computerbronnen (of in dezelfde App Service-abonnement). 
+In App Service een app wordt uitgevoerd in een _App Service-abonnement_. Een App Service-plan definieert een aantal rekenresources voor een web-app om uit te voeren. Deze compute resources zijn vergelijkbaar met de [ _serverfarm_ ](https://wikipedia.org/wiki/Server_farm) in conventionele webhosting. Een of meer apps kunnen worden geconfigureerd om te worden uitgevoerd op de dezelfde computerbronnen (of in dezelfde App Service-abonnement).
 
 Wanneer u een App Service-abonnement maakt in een bepaalde regio (bijvoorbeeld, West-Europa), wordt een set van rekenresources gemaakt voor dit abonnement in deze regio. Welke apps u in dit App Service-abonnement uitvoeren op deze zetten rekenresources zoals gedefinieerd door uw App Service-abonnement. Elke App Service-abonnement worden gedefinieerd:
 
@@ -38,6 +38,8 @@ De _prijscategorie_ van een App Service plan bepaalt welke App Service-functies 
 - **Speciale berekenings**: de **Basic**, **standaard**, **Premium**, en **PremiumV2** lagen apps op specifieke Azure uitvoeren Virtuele machines. Alleen apps in hetzelfde App Service-plan delen de dezelfde rekenresources. Hoe hoger de laag, meer VM-exemplaren zijn beschikbaar voor scale-out.
 - **Geïsoleerde**: deze laag toegewezen Azure-virtuele machines op specifieke Azure Virtual Networks, waardoor netwerkisolatie boven compute-isolatie naar uw apps op wordt uitgevoerd. Het biedt de maximale uitbreidbare mogelijkheden.
 - **Verbruik**: deze laag is alleen beschikbaar voor [apps werken](../azure-functions/functions-overview.md). Het schalen de functies voor dynamisch, afhankelijk van de werkbelasting. Zie voor meer informatie [vergelijking van Azure Functions hosting plannen](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Elke laag biedt ook een specifieke subset van App Service-functies. Deze functies omvatten aangepaste domeinen en SSL-certificaten, automatisch schalen, implementatiesites, back-ups, Traffic Manager-integratie en meer. Hoe hoger de laag, meer functies zijn beschikbaar. Als u wilt weten welke functies worden ondersteund in elke prijscategorie, Zie [details van App Service-plan](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

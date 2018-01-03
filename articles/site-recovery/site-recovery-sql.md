@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: 04fb9ebc8a235dd15817fbb5efd08922ae287aa1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server met behulp van SQL Server-noodherstel en Azure Site Recovery beveiligen
 
@@ -66,7 +66,7 @@ Site Recovery kan worden geïntegreerd met systeemeigen SQL Server BCDR-technolo
 
 **Functie** | **Details** | **SQL Server** |
 --- | --- | ---
-**AlwaysOn-beschikbaarheidsgroep** | Meerdere exemplaren van de zelfstandige versie van SQL Server worden uitgevoerd in een failovercluster met meerdere knooppunten.<br/><br/>Databases kunnen worden gegroepeerd in failover-groepen die kunnen worden gekopieerd (gespiegeld) voor SQL Server-exemplaren zodat er is geen gedeelde opslag nodig is.<br/><br/>Biedt herstel na noodgevallen tussen een primaire site en een of meer secundaire sites. Twee knooppunten kunnen worden ingesteld in een gedeelde niets cluster met SQL Server-databases die zijn geconfigureerd in een beschikbaarheidsgroep met synchrone replicatie en automatische failover. | SQL Server 2014 & 2012 Enterprise edition
+**AlwaysOn-beschikbaarheidsgroep** | Meerdere exemplaren van de zelfstandige versie van SQL Server worden uitgevoerd in een failovercluster met meerdere knooppunten.<br/><br/>Databases kunnen worden gegroepeerd in failover-groepen die kunnen worden gekopieerd (gespiegeld) voor SQL Server-exemplaren zodat er is geen gedeelde opslag nodig is.<br/><br/>Biedt herstel na noodgevallen tussen een primaire site en een of meer secundaire sites. Twee knooppunten kunnen worden ingesteld in een gedeelde niets cluster met SQL Server-databases die zijn geconfigureerd in een beschikbaarheidsgroep met synchrone replicatie en automatische failover. | SQL Server 2016, SQL Server 2014 en SQL Server 2012 Enterprise edition
 **Failover clustering (altijd op FCI)** | SQL Server maakt gebruik van Windows failover clustering voor hoge beschikbaarheid van de lokale SQL Server-werkbelastingen.<br/><br/>Knooppunten met exemplaren van SQL Server met gedeelde schijven zijn geconfigureerd in een failovercluster. Als een exemplaar niet actief is wordt het cluster overgenomen door naar andere.<br/><br/>Het cluster biedt geen bescherming tegen storingen of storingen in gedeelde opslag. De gedeelde schijf kan worden geïmplementeerd met iSCSI, Fibre channel, of gedeelde vhdx-bestanden. | SQL Server Enterprise-edities<br/><br/>SQL Server Standard edition (maximaal twee knooppunten alleen)
 **Databasespiegeling (modus hoge beveiliging)** | Een individuele database naar een enkele secundaire kopie beveiligt. Beschikbaar in beide hoge beveiliging (synchrone) en hoge prestaties (asynchrone) replicatie modi. Geen vereist een failover-cluster. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise alle edities
 **Zelfstandige SQL Server** | De SQL Server en database gehost op één server (fysiek of virtueel). Host clustering wordt gebruikt voor hoge beschikbaarheid als de server virtueel is. Er is geen gastniveau met hoge beschikbaarheid. | Enterprise of Standard edition
@@ -118,7 +118,7 @@ Dit is wat u moet doen:
 
 Systeemeigen SQL Always On biedt geen ondersteuning voor de testfailover. Daarom raden we het volgende:
 
-1. Instellen van [Azure Backup](../backup/backup-azure-vms.md) op de virtuele machine die als host fungeert voor de beschikbaarheidsreplica van de groep in Azure.
+1. Instellen van [Azure Backup](../backup/backup-azure-arm-vms.md) op de virtuele machine die als host fungeert voor de beschikbaarheidsreplica van de groep in Azure.
 
 1. Herstellen voordat testfailover van het herstelplan, de virtuele machine van de back-up in de vorige stap.
 

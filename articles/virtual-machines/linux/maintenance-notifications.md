@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Verwerken geplande onderhoud meldingen voor virtuele Linux-machines
 
@@ -30,9 +30,9 @@ Azure voert regelmatig updates ter verbetering van de betrouwbaarheid, prestatie
 - Als u onderhoud moet worden opgestart, krijgt u een bericht wanneer het onderhoud is gepland. In dergelijke gevallen krijgt u een tijdvenster op waar u het onderhoud uzelf beginnen kunt, wanneer het voor u werkt.
 
 
-Gepland onderhoud die vereist een herstart is gepland in golven. Elke golf heeft een ander bereik (regio's).
+Gepland onderhoud die moet worden opgestart is in golven gepland. Elke golf heeft een ander bereik (regio's).
 
-- Een golf begint met een melding aan klanten. Standaard wordt melding verzonden naar de eigenaar van het abonnement en mede-eigenaren. U kunt meer ontvangers en messaging opties zoals e-mail, SMS en Webhooks, toevoegen aan de meldingen met Azure [activiteit logboek waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Een golf begint met een melding aan klanten. Standaard wordt melding verzonden naar de eigenaar van het abonnement en mede-eigenaren. U kunt meer ontvangers en messaging opties zoals e-mail, SMS en webhooks, toevoegen aan de meldingen met Azure [activiteit logboek waarschuwingen](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - Op het moment van de melding een *venster selfservice* beschikbaar wordt gesteld. Tijdens dit venster kunt u zoeken die van uw virtuele machines zijn opgenomen in deze wave en proactief onderhoud starten volgens de behoeften van uw eigen planning.
 - Na het venster selfservice een *geplande onderhoudsvenster* begint. Op een bepaald moment tijdens dit venster Azure gepland en vereist onderhoud is van toepassing op uw virtuele machine. 
 
@@ -92,8 +92,8 @@ De volgende waarden worden onder MaintenanceRedeployStatus geretourneerd:
 | IsCustomerInitiatedMaintenanceAllowed | Hiermee wordt aangegeven of u onderhoudsmodus op de virtuele machine op dit moment starten kunt ||
 | PreMaintenanceWindowStartTime         | Het begin van het selfservice onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
 | PreMaintenanceWindowEndTime           | Het einde van het selfservice onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
-| MaintenanceWindowStartTime            | Het begin van het geplande onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
-| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
+| MaintenanceWindowStartTime            | Het begin van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine initieert ||
+| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine initieert ||
 | LastOperationResultCode               | Het resultaat van de laatste poging tot het onderhoud op de virtuele machine starten ||
 
 
@@ -159,7 +159,7 @@ Zie voor meer informatie over hoge beschikbaarheid, [regio's en de beschikbaarhe
 
 **V: hoe lang duurt het voordat u Mijn virtuele machine opnieuw opstarten?**
 
-**A:** afhankelijk van de grootte van uw virtuele machine opnieuw opstarten kan enkele minuten duren. Houd er rekening mee dat als u Cloud-Services (Web/Worker-rol), virtuele Machine Scale ingesteld of beschikbaarheidssets gebruikt, u 30 minuten tussen elke groep van virtuele machines (UD krijgt). 
+**A:** afhankelijk van de grootte van uw virtuele machine opnieuw opstarten kan enkele minuten duren tijdens het Self-service onderhoudsvenster. Tijdens de Azure gestart opnieuw wordt opgestart in het geplande onderhoudsvenster het opnieuw opstarten doorgaans duurt ongeveer 25 minuten. Houd er rekening mee dat als u Cloud-Services (Web/Worker-rol), virtuele Machine Scale ingesteld of beschikbaarheidssets gebruikt, u 30 minuten tussen elke groep van virtuele machines (UD) tijdens het geplande onderhoudsvenster krijgt.
 
 **V: Wat is de ervaring in het geval van Cloud-Services (Web/Worker-rol), Service Fabric en virtuele-Machineschaalsets?**
 

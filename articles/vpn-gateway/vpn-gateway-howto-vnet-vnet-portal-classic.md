@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: cherylmc
 ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Een VNet-naar-VNet-verbinding (klassiek) configureren
 
@@ -77,7 +77,7 @@ De volgende tabel toont een voorbeeld van hoe u uw vnet's definiëren. Gebruik d
 
 **Voorbeeld**
 
-| Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite op. |
+| Virtueel netwerk | Adresruimte | Regio | Maakt verbinding met lokale netwerksite op. |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |VS - oost |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |VS - west |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -139,7 +139,7 @@ Bijvoorbeeld: TestVNet1 verbindt met de site van een lokale netwerk die u maakt 
 
 De lokale site voor elk VNet is het andere VNet. De volgende voorbeelden van waarden worden gebruikt voor de configuratie:
 
-| Virtual Network | Adresruimte | Regio | Maakt verbinding met lokale netwerksite op. |
+| Virtueel netwerk | Adresruimte | Regio | Maakt verbinding met lokale netwerksite op. |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |VS - oost |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |VS - west |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |

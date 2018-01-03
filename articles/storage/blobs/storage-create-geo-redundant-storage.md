@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uw toepassingsgegevens maximaal beschikbaar is met de Azure-opslag maken
 
@@ -83,7 +83,7 @@ Het voorbeeldproject bevat een consoletoepassing.
 
 ## <a name="set-the-connection-string"></a>De verbindingsreeks instellen
 
-In de toepassing, moet u de verbindingsreeks opgeven voor uw opslagaccount. Het is raadzaam deze verbindingsreeks binnen een omgevingsvariabele opslaan op de lokale computer die de toepassing wordt uitgevoerd. Voer een van de volgende voorbeelden zijn afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
+In de toepassing moet u de verbindingsreeks voor uw opslagaccount opgeven. Het is raadzaam deze verbindingsreeks binnen een omgevingsvariabele opslaan op de lokale computer die de toepassing wordt uitgevoerd. Voer een van de volgende voorbeelden zijn afhankelijk van uw besturingssysteem voor het maken van de omgevingsvariabele.
 
 Ga naar uw opslagaccount in de Azure-portal. Selecteer **toegangssleutels** onder **instellingen** in uw opslagaccount. Kopieer de **verbindingsreeks** uit de primaire of secundaire sleutel. Vervang \<yourconnectionstring\> met uw huidige verbinding tekenreeks door een van de volgende opdrachten uit te voeren op basis van uw besturingssysteem. Met deze opdracht slaat een omgevingsvariabele aan de lokale machine. In Windows, de omgevingsvariabele is niet beschikbaar totdat opnieuw laden van de **opdrachtprompt** of shell die u gebruikt. Vervang  **\<storageConnectionString\>**  in het volgende voorbeeld:
 
@@ -113,7 +113,7 @@ In de voorbeeldcode de `RunCircuitBreakerAsync` taak de `Program.cs` bestand wor
 
 ### <a name="retry-event-handler"></a>Probeer de gebeurtenis-handler
 
-De `OperationContextRetrying` gebeurtenis-handler wordt aangeroepen wanneer het downloaden van de afbeelding is mislukt en is ingesteld op rety. Als het maximum aantal nieuwe pogingen, die zijn gedefinieerd in de toepassing zijn bereikt, de [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) van de aanvraag wordt gewijzigd naar `SecondaryOnly`. Deze instelling zorgt ervoor dat de toepassing probeert te downloaden van de installatiekopie van het secundaire eindpunt. Deze configuratie vermindert de tijd om aan te vragen van de afbeelding als het primaire eindpunt is niet voor onbepaalde tijd opnieuw.
+De `OperationContextRetrying` gebeurtenis-handler wordt aangeroepen wanneer het downloaden van de afbeelding is mislukt en is ingesteld om opnieuw te proberen. Als het maximum aantal nieuwe pogingen, die zijn gedefinieerd in de toepassing zijn bereikt, de [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) van de aanvraag wordt gewijzigd naar `SecondaryOnly`. Deze instelling zorgt ervoor dat de toepassing probeert te downloaden van de installatiekopie van het secundaire eindpunt. Deze configuratie vermindert de tijd om aan te vragen van de afbeelding als het primaire eindpunt is niet voor onbepaalde tijd opnieuw.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)

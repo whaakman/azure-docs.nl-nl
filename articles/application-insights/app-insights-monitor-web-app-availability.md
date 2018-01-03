@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -31,7 +31,7 @@ Er zijn twee soorten beschikbaarheidstests:
 
 Per toepassingsresource kunt u maximaal 100 beschikbaarheidstests maken.
 
-## <a name="create"></a>1. Een resource openen voor uw beschikbaarheidstestrapporten
+## <a name="create"></a>Een resource openen voor uw beschikbaarheidstestrapporten
 
 **Als u Application Insights al hebt geconfigureerd** voor uw web-app, opent u de Application Insights-bron in [Azure Portal](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Per toepassingsresource kunt u maximaal 100 beschikbaarheidstests maken.
 
 Klik op **Alle resources** om de blade Overzicht van de nieuwe resource te openen.
 
-## <a name="setup"></a>2. Een URL-pingtest aanmaken
+## <a name="setup"></a>Een URL-pingtest maken
 Open de blade Beschikbaarheid en voeg een test toe.
 
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Open de blade Beschikbaarheid en voeg een test toe.
 Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
 
 
-## <a name="monitor"></a>3. De resultaten van de beschikbaarheidstest bekijken
+## <a name="monitor"></a>De resultaten van uw beschikbaarheidstest bekijken
 
 Klik na een paar minuten op **Vernieuwen** om de testresultaten weer te geven. 
 
@@ -102,14 +102,11 @@ Klik op een rode punt.
 Vanuit het resultaat van een beschikbaarheidstest kunt u:
 
 * De reactie inspecteren die is ontvangen van uw server.
-* De telemetrie openen die door uw server-app is verzonden tijdens het verwerken van de mislukte aanvraag.
+* De oorzaak van de fout vaststellen met behulp van telemetriegegevens van de server die zijn verzameld tijdens het verwerken van het mislukte aanvraagexemplaar.
 * Een probleem of werkitem registreren in Git of VSTS om het probleem te volgen. De bug bevat een koppeling naar deze gebeurtenis.
 * Het webtestresultaat openen in Visual Studio.
 
-
-*Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt.
-
-*Zijn er geen verwante items?* Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](app-insights-sampling.md) worden uitgevoerd. 
+*Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Zie [Veelgestelde vragen](#qna) voor manieren om ruis te beperken.
 
 ## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
@@ -256,6 +253,20 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
 ## <a name="qna"></a>Vragen? Problemen?
+* *Onregelmatige testfout met een protocolfout?*
+
+    De fout 'Schending van protocol... CR moet worden gevolgd door LF' geeft een probleem met de server (of afhankelijkheden) aan. Dit gebeurt wanneer onjuist gevormde headers zijn ingesteld in het antwoord. Dit kan worden veroorzaakt door load balancers of CDN's. Meer in het bijzonder maken enkele headers mogelijk geen gebruik CRLF om het einde van de regel aan te geven, wat in strijd is met de HTTP-specificatie en waardoor validatie op het niveau van .NET-WebRequest mislukt. Controleer het antwoord om headers te signaleren die mogelijk fouten bevatten.
+    
+    Opmerking: de URL mislukt mogelijk niet in browsers die een beperkte validatie van HTTP-headers hebben. Zie dit blogbericht voor een gedetailleerde uitleg van dit probleem: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *De site ziet er goed uit, maar ik constateer testfouten*
+
+    * Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt. Als u de test ongevoelig wilt maken voor dergelijke storingen, schakelt u de optie 'Afhankelijke aanvragen parseren' in de testconfiguratie uit. 
+
+    * Als u kans op ruis van tijdelijke netwerkproblemen enzovoort wilt verminderen, schakelt u de optie 'Nieuwe pogingen inschakelen voor mislukte webtesten' in. U kunt ook testen vanaf meer locaties en de waarschuwingsregeldrempel dienovereenkomstig beheren om te voorkomen dat de locatiespecifieke problemen onnodige waarschuwingen veroorzaken.
+    
+* *Ik zie geen gerelateerde telemetriegegevens van de server om testfouten vast te stellen*
+    
+    Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](app-insights-sampling.md) worden uitgevoerd.
 * *Kan ik code aanroepen via mijn webtest?*
 
     Nee. De stappen van de test moeten zich in het bestand .webtest bevinden. U kunt geen andere webtests aanroepen of lussen gebruiken. Maar er zijn verschillende invoegtoepassingen die nuttig kunnen zijn.

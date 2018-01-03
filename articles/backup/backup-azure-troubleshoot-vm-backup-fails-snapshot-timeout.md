@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure Backup-fout oplossen: problemen met de agent en/of extensie
 
@@ -70,14 +70,14 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>De opgegeven schijf-configuratie wordt niet ondersteund.
 
 > [!NOTE]
-> We hebben een private preview ter ondersteuning van back-ups voor virtuele machines met > 1TB zonder begeleiding schijven. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> We hebben een beperkte preview om back-ups voor virtuele machines met > 1 TB aan onbeheerde schijven te ondersteunen. Raadpleeg voor informatie [Private preview voor back-ondersteuning voor grote schijven VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn dan 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Als er meer dan 1 TB schijven [koppel nieuwe schijven](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) die minder dan 1 TB zijn <br>
-- Kopieer vervolgens de gegevens van de schijf groter is dan 1TB in de zojuist gemaakte een of meer schijven van kleiner is dan 1 TB. <br>
-- Zorg ervoor dat alle gegevens zijn gekopieerd en verwijder de schijven die groter is dan 1TB
+- Als u schijven hebt die groter zijn dan 1 TB, [koppelt u nieuwe schijven](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) met een grootte van minder dan 1 TB <br>
+- Kopieer vervolgens de gegevens van de schijf die groter is dan 1TB, naar de zojuist gemaakte schijf of schijven met een grootte van minder dan 1 TB. <br>
+- Zorg ervoor dat alle gegevens zijn gekopieerd en verwijder de schijven die groter zijn dan 1 TB
 - Starten van de back-up
 
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
@@ -100,7 +100,7 @@ U lost het probleem probeert u een van de methoden die hier worden vermeld.
 1. Als u beschikken over netwerkbeperkingen (bijvoorbeeld een netwerkbeveiligingsgroep), implementeert u een HTTP-proxyserver om het verkeer te routeren.
 2. Als u wilt toegang tot het Internet toestaat vanaf de HTTP-proxyserver, regels toevoegen aan de netwerkbeveiligingsgroep als er een.
 
-Zie voor meer informatie over het instellen van een HTTP-proxy voor VM-back-ups, [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Zie voor meer informatie over het instellen van een HTTP-proxy voor VM-back-ups, [voorbereiden van uw back-up van virtuele machines in Azure-omgeving](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Als u van schijven worden beheerd gebruikmaakt, moet u een extra poort (8443) geopend op de firewalls.
 

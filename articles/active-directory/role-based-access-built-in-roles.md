@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](role-based-access-control-custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
@@ -43,7 +43,7 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [API Management-Service Inzender](#api-management-service-contributor) |API Management-service en de API's kunt beheren |
 | [Rol Operator API Management-Service](#api-management-service-operator-role) | API Management-service, maar niet de API's zelf kunt beheren |
 | [Rol van API Management-Service lezer](#api-management-service-reader-role) | Alleen-lezen toegang tot API Management-service en API 's |
-| [Application Insights-Onderdeelinzender](#application-insights-component-contributor) |Application Insights-onderdelen kunt beheren |
+| [Application Insights-Onderdeelinzender](#application-insights-component-contributor) |Kan onderdelen van Application Insights beheren |
 | [Automation-Operator](#automation-operator) |Kunnen starten, stoppen, onderbreken en hervatten van taken |
 | [Back-up Inzender](#backup-contributor) | Back-up in de Recovery Services-kluis kunnen beheren |
 | [Back-upoperator](#backup-operator) | Back-up met uitzondering van het verwijderen van back-up, in Recovery Services-kluis kunnen beheren |
@@ -57,8 +57,8 @@ In dit artikel wordt alleen de verschillende rollen die vandaag bestaan. Wanneer
 | [DNS-Zone Inzender](#dns-zone-contributor) |DNS-zones en -records beheren |
 | [DocumentDB-Account Inzender](#documentdb-account-contributor) |Azure DB die Cosmos-accounts kunnen beheren |
 | [Intelligente systemen Account Inzender](#intelligent-systems-account-contributor) |Intelligente systemen accounts kunnen beheren |
-| Logic App Inzender | Kan alle aspecten van een logische App beheren, maar niet een nieuwe maken. |
-| Logic App-Operator |Kunt starten en stoppen van werkstromen die zijn gedefinieerd in een logische App. |
+| Logische app-bijdrager | Kan alle aspecten van een logische App beheren, maar niet een nieuwe maken. |
+| Logische app-operator |Kunt starten en stoppen van werkstromen die zijn gedefinieerd in een logische App. |
 | [Bewaking van de lezer](#monitoring-reader) |Alle bewakingsgegevens kunnen lezen |
 | [Inzender bewaking](#monitoring-contributor) |Kunnen lezen bewakingsgegevens en controle-instellingen bewerken |
 | [Inzender voor netwerken](#network-contributor) |Alle netwerkbronnen kunt beheren |
@@ -101,7 +101,7 @@ API Management-services kunt beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="api-management-service-operator-role"></a>Rol Operator API Management-Service
+### <a name="api-management-service-operator-role"></a>Operator-rol voor de API Management-service
 API Management-services kunt beheren
 
 | **Acties** |  |
@@ -121,7 +121,7 @@ API Management-services kunt beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="api-management-service-reader-role"></a>Rol van API Management-Service lezer
+### <a name="api-management-service-reader-role"></a>Lezerrol voor de API Management-service
 API Management-services kunt beheren
 
 | **Acties** |  |
@@ -136,7 +136,7 @@ API Management-services kunt beheren
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
 ### <a name="application-insights-component-contributor"></a>Inzender voor Application Insights-onderdelen
-Application Insights-onderdelen kunt beheren
+Kan onderdelen van Application Insights beheren
 
 | **Acties** |  |
 | --- | --- |
@@ -173,7 +173,7 @@ Kunnen starten, stoppen, onderbreken en hervatten van taken
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="backup-contributor"></a>Back-up Inzender
+### <a name="backup-contributor"></a>Back-upinzender
 Alle back-management-acties, met uitzondering van de Recovery Services-kluis maken en toegang geven aan anderen kunt beheren
 
 | **Acties** | |
@@ -238,7 +238,7 @@ Alle back-acties, behalve voor het maken van kluizen, back-up en geven toegang t
 | Microsoft.Storage/storageAccounts/read | Lezen van de storage-accounts |
 | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-### <a name="backup-reader"></a>Back-lezer
+### <a name="backup-reader"></a>Back-uplezer
 Back-beheer in de Recovery Services-kluis kunt bewaken
 
 | **Acties** | |
@@ -265,7 +265,7 @@ Back-beheer in de Recovery Services-kluis kunt bewaken
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Geregistreerde items van de kluis lezen |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Lees de informatie over het gebruik van de Recovery Services-kluis |
 
-### <a name="billing-reader"></a>Lezer facturering
+### <a name="billing-reader"></a>Facturering voor lezer
 Alle factureringsgegevens kunt weergeven
 
 | **Acties** |  |
@@ -358,7 +358,7 @@ Kunnen alles weergeven en verbinding maken, starten, opnieuw opstarten en afslui
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Storage/storageAccounts/listKeys/action |Lijst met sleutels voor opslagaccount |
 
-### <a name="dns-zone-contributor"></a>DNS-Zone Inzender
+### <a name="dns-zone-contributor"></a>Inzender voor DNS-zone
 Kunnen DNS-zones en -records beheren.
 
 | **Acties** |  |
@@ -397,7 +397,7 @@ Intelligente systemen accounts kunnen beheren
 | Microsoft.Resources/subscriptions/resourceGroups/read |Lezen van resourcegroepen |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="monitoring-reader"></a>Bewaking van de lezer
+### <a name="monitoring-reader"></a>Controlelezer
 Alle bewakingsgegevens (metrische gegevens, Logboeken, enz.) kunnen worden gelezen. Zie ook [aan de slag met rollen, machtigingen en -beveiliging met Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Acties** |  |
@@ -406,7 +406,7 @@ Alle bewakingsgegevens (metrische gegevens, Logboeken, enz.) kunnen worden gelez
 | Microsoft.OperationalInsights/workspaces/search/action |Log Analytics zoekgegevens |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="monitoring-contributor"></a>Inzender bewaking
+### <a name="monitoring-contributor"></a>Controlebijdrager
 Kan alle bewakingsgegevens lezen en controle-instellingen bewerken. Zie ook [aan de slag met rollen, machtigingen en -beveiliging met Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Acties** |  |
@@ -522,7 +522,7 @@ Beveiligingsonderdelen, beveiligingsbeleid en virtuele machines beheren
 | Microsoft.Security/* |Beveiligingsonderdelen en -beleid maken en beheren |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="site-recovery-contributor"></a>Site Recovery Inzender
+### <a name="site-recovery-contributor"></a>Site Recovery-inzender
 Alle beheeracties van Site Recovery, met uitzondering van de Recovery Services-kluis maken en toewijzen van rechten aan andere gebruikers kunnen beheren
 
 | **Acties** | |
@@ -552,7 +552,7 @@ Alle beheeracties van Site Recovery, met uitzondering van de Recovery Services-k
 | Microsoft.Storage/storageAccounts/read | Lezen van de storage-accounts |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="site-recovery-operator"></a>Site Recovery-Operator
+### <a name="site-recovery-operator"></a>Site Recovery-operator
 Kan Failover en Failback kan maar niet andere Site Recovery management acties worden uitgevoerd of toegang toewijzen aan andere gebruikers
 
 | **Acties** | |
@@ -612,7 +612,7 @@ Kan Failover en Failback kan maar niet andere Site Recovery management acties wo
 | Microsoft.Storage/storageAccounts/read | Lezen van de storage-accounts |
 | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
-### <a name="site-recovery-reader"></a>Site Recovery lezer
+### <a name="site-recovery-reader"></a>Site Recovery-lezer
 Kan de status van de Site Recovery in de Recovery Services-kluis bewaken en ondersteuningstickets genereren
 
 | **Acties** | |
@@ -703,7 +703,7 @@ Kan SQL-servers en databases, maar niet hun beleid betrekking hebben op beveilig
 
 | **Acties** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Lezen van autorisatie |
+| Microsoft.Authorization/*/read |Lezen van rollen en roltoewijzingen |
 | Microsoft.Insights/alertRules/* |Maken en beheren van Insights waarschuwingsregels |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Status van de bronnen lezen |
 | Microsoft.Resources/deployments/* |Maken en beheren van resourcegroepimplementaties |
@@ -751,7 +751,7 @@ Kan storage-accounts beheren, maar geen toegang tot deze.
 | Microsoft.Storage/storageAccounts/* |Maken en beheren van de storage-accounts |
 | Microsoft.Support/* |Maken en ondersteuningstickets beheren |
 
-### <a name="support-request-contributor"></a>Ondersteuning voor aanvraag Inzender
+### <a name="support-request-contributor"></a>Inzender voor ondersteuningsaanvragen
 Kunt maken en beheren van ondersteuningstickets bij het abonnementsbereik
 
 | **Acties** |  |

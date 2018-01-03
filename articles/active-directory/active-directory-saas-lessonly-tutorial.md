@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 68ada2da62958948dbf232b5f83f69d7942b9c10
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Zelfstudie: Azure Active Directory-integratie met Lesson.ly
 
@@ -138,11 +138,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
            
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
 
-    | Kenmerknaam   | Waarde kenmerk |
+    | Naam kenmerk   | Waarde kenmerk |
     | ---------------  | ----------------|
     | urn: oid:2.5.4.42 |User.givenName |
     | urn: oid:2.5.4.4  |User.surname |
-    | urn: oid:0.9.2342.19200300.1001.3 |User.mail |
+    | urn: oid:0.9.2342.19200300.100.1.3 |User.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |User.objectid |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -245,7 +246,7 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel Lesson.ly in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Lesson.ly.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

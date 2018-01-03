@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services gebruiken om te leveren van DRM-licenties of AES-sleutels | Microsoft Docs
-description: Dit artikel wordt beschreven hoe u Azure Media Services (AMS) kunt gebruiken voor het leveren van PlayReady en/of Widevine-licenties en AES-sleutels, maar bieden de overige (codering, versleutelen, streaming) met behulp van uw on-premises servers.
+description: Dit artikel wordt beschreven hoe u Azure Media Services kunt gebruiken voor het leveren van PlayReady en/of Widevine-licenties en AES-sleutels, maar de overige bieden (coderen, coderen en streamen) met behulp van uw on-premises servers.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,36 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b3f574e174a763e9a03b21d15755989d3e8a4297
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Azure Media Services gebruiken om te leveren van DRM-licenties of AES-sleutels
-Azure Media Services (AMS) kunt u opnemen, coderen, beveiliging van inhoud toevoegen en de inhoud streamen (Zie [dit](media-services-protect-with-playready-widevine.md) artikel voor meer informatie). Er zijn echter klanten die alleen AMS gebruiken willen voor het leveren van licenties en/of sleutels en codering, coderen en streamen met hun lokale servers. Dit artikel wordt beschreven hoe u AMS kunt gebruiken voor het leveren van PlayReady en/of Widevine-licenties, maar de overige doen met uw on-premises servers. 
+Azure Media Services kunt u opnemen, coderen, beveiliging van inhoud toevoegen en de inhoud streamen. Zie voor meer informatie [gebruik PlayReady en/of Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Sommige klanten willen Media Services gebruiken alleen voor het leveren van licenties en/of sleutels en coderen, coderen en streamen met behulp van hun lokale servers. Dit artikel wordt beschreven hoe u Media Services kunt gebruiken voor het leveren van PlayReady en/of Widevine-licenties, maar de overige doen met uw on-premises servers. 
 
 ## <a name="overview"></a>Overzicht
-Media Services biedt een service voor het leveren van PlayReady en Widevine DRM-licenties en AES-128 sleutels. Media Services biedt ook API's waarmee u het configureren van de rechten en beperkingen die u de runtime DRM af te dwingen wenst wanneer een gebruiker de DRM afspeelt beveiligde inhoud. Wanneer een gebruiker de beveiligde inhoud aanvraagt, vraagt de spelertoepassing een licentie aan bij de AMS-licentieservice. De AMS-licentieservice verstrekt de licentie aan de speler (als dit is toegestaan). De PlayReady en Widevine-licenties bevatten de ontsleutelingssleutel die kan worden gebruikt door de clientspeler om te ontsleutelen en de inhoud streamen.
+Media Services biedt een service voor het leveren van PlayReady en Widevine digitale rechten (DRM) management licenties en AES-128 sleutels. Media Services biedt ook API's waarmee u de rechten en beperkingen die u voor de runtime DRM afdwingen wilt wanneer een gebruiker de DRM beveiligde inhoud afspeelt te configureren. Wanneer een gebruiker de beveiligde inhoud aanvraagt, vraagt de spelertoepassing een licentie aan bij de Media Services-licentieservice. Als de licentie is geautoriseerd, licentie de Media Services problemen met de service de licentie aan de speler. De PlayReady en Widevine-licenties bevatten de ontsleutelingssleutel die kan worden gebruikt door de clientspeler om te ontsleutelen en de inhoud streamen.
 
-Media Services ondersteunt meerdere manieren om gebruikers die een licentie of sleutels aanvragen maken te autoriseren. U autorisatiebeleid voor de inhoudssleutel configureren en het beleid kan een of meer beperkingen hebben: openen of tokenbeperking beperking. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door Secure Token Service (STS). Media Services ondersteunt tokens in de indeling Simple Web Tokens (SWT) en JSON Web Token (JWT)-indeling.
+Media Services ondersteunt meerdere manieren om gebruikers die een licentie of sleutels aanvragen maken te autoriseren. U configureren autorisatiebeleid voor de inhoudssleutel. Het beleid kan een of meer beperkingen hebben. De opties zijn openen of token-beperking. Het beleid token beperkte vergezeld van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de indeling van eenvoudige web token (SWT) en de indeling JSON Web Token (JWT).
 
-Het volgende diagram toont de belangrijkste stappen dat u moet uitvoeren met AMS PlayReady en/of Widevine-licenties te leveren, maar de rest met uw on-premises servers.
+Het volgende diagram toont de belangrijkste stappen dat u moet uitvoeren met Media Services leveren van PlayReady en/of Widevine-licenties, maar de rest met uw on-premises servers:
 
 ![Beveiligen met PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
 ## <a name="download-sample"></a>Voorbeeld downloaden
-U kunt [hier](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses) het voorbeeld downloaden dat in dit artikel wordt beschreven.
+Zie voor het downloaden van de steekproef die worden beschreven in dit artikel [gebruik Azure Media Services te leveren van PlayReady en/of Widevine-licenties met .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Maak en configureer een Visual Studio-project.
 
-1. Stel uw ontwikkelomgeving in en vul in het bestand app.config de verbindingsinformatie in, zoals beschreven in [Media Services ontwikkelen met .NET](media-services-dotnet-how-to-use.md). 
+1. Uw ontwikkelomgeving instellen en het bestand app.config met de verbindingsinformatie, zoals beschreven in te vullen [ontwikkelen van Media Services met .NET](media-services-dotnet-how-to-use.md).
+
 2. Voeg de volgende elementen toe aan **appSettings** dat in het bestand app.config is gedefinieerd:
 
-    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+    sleutel = "Verlener" value = "http://testacs.com" /
+    
+    sleutel = waarde 'Doelgroep' = 'urn: test' /
 
 ## <a name="net-code-example"></a>.NET-codevoorbeeld
-Het volgende codevoorbeeld toont het maken van een algemene inhoudssleutel en PlayReady of Widevine-licentie-URL's voor overname ophalen. U moet de volgende soorten informatie ophalen van AMS en uw lokale server configureren: **inhoudssleutel**, **sleutel-id**, **licentie-URL voor het**. Nadat u uw lokale server configureert, kan u streamen vanaf uw eigen streaming-server. Omdat de versleutelde gegevensstroom verwijst naar AMS licentieserver, vraagt de speler een licentie aan bij AMS. Als u tokenverificatie kiest, wordt de AMS-licentieserver valideert het token dat u via HTTPS is verzonden en (indien geldig) de licentie levert terug naar de speler. (Het codevoorbeeld alleen laat zien hoe u een algemene inhoudssleutel maken en PlayReady of Widevine-licentie-URL's voor overname ophalen. Als u de levering van AES-128 sleutels wilt, moet u voor het maken van een inhoudssleutel envelop en ophalen van een sleutel overname-URL en [dit](media-services-protect-with-aes128.md) artikel laat zien hoe u dit doet).
+Het volgende codevoorbeeld toont het maken van een algemene inhoudssleutel en PlayReady of Widevine-licentie-URL's voor overname ophalen. Voor het configureren van uw lokale server, moet u een inhoudssleutel, de sleutel-ID en de URL voor het verkrijgen van licentie. Nadat u uw lokale server hebt geconfigureerd, kunt u vanaf uw eigen streaming server streamen. Omdat de versleutelde gegevensstroom verwijst naar een Media Services-licentieserver, vraagt de speler een licentie van Media Services. Als u tokenverificatie kiest, valideert de Media Services-licentieserver het token dat u hebt verzonden via HTTPS. Als het token geldig is, biedt de licentieserver de licentie terug naar de speler. Het volgende codevoorbeeld toont alleen het maken van een algemene inhoudssleutel en PlayReady of Widevine-licentie-URL's voor overname ophalen. Als u leveren AES-128-sleutels wilt, moet u voor het maken van een inhoudssleutel envelop en ophalen van een sleutel overname-URL. Zie voor meer informatie [dynamisch gebruiken AES-128-versleuteling en sleutellevering service](media-services-protect-with-aes128.md).
 
 ```
 using System;
@@ -251,7 +254,7 @@ namespace DeliverDRMLicenses
             licenseTemplate.AllowTestDevices = true;
 
             // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
-            // It grants the user the ability to playback the content subject to the zero or more restrictions 
+            // It grants the user the ability to play back the content subject to the zero or more restrictions 
             // configured in the license and on the PlayRight itself (for playback specific policy). 
             // Much of the policy on the PlayRight has to do with output restrictions 
             // which control the types of outputs that the content can be played over and 
@@ -341,6 +344,5 @@ namespace DeliverDRMLicenses
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Zie ook
-[PlayReady en/of Widevine Dynamic Common Encryption gebruiken](media-services-protect-with-playready-widevine.md)
-
-[Met behulp van dynamische AES-128-versleuteling en Sleutellevering Service](media-services-protect-with-aes128.md)
+* [PlayReady en/of Widevine dynamic common encryption gebruiken](media-services-protect-with-playready-widevine.md)
+* [Gebruik dynamische AES-128-versleuteling en de service sleutellevering](media-services-protect-with-aes128.md)

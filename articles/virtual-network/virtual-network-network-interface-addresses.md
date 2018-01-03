@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c309c7c25a3ed75e96dec8046934530e24890f38
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Toevoegen, wijzigen of verwijderen van IP-adressen voor een Azure-netwerk-interface
 
@@ -65,7 +65,7 @@ U kunt toevoegen als veel [persoonlijke](#private) en [openbare](#public) [IPv4]
 
 ## <a name="change-ip-address-settings"></a>Instellingen voor IP-adres wijzigen
 
-U kunt moet wijzigen van de methode voor het toewijzen van een IPv4-adres wijzigen van het statische IPv4-adres, of wijzigen van het openbare IP-adres is toegewezen aan een netwerkinterface. Als u de particulier IPv4-adres van een secundaire IP-configuratie die is gekoppeld aan een secundaire netwerkinterface in een virtuele machine wilt wijzigen (meer informatie over [primaire en secundaire netwerkinterfaces](virtual-network-network-interface-vm.md#about)), plaats de virtuele machine in de gestopt (toewijzing ongedaan gemaakt) voordat u de volgende stappen: 
+U kunt moet wijzigen van de methode voor het toewijzen van een IPv4-adres wijzigen van het statische IPv4-adres, of wijzigen van het openbare IP-adres is toegewezen aan een netwerkinterface. Als u de particulier IPv4-adres van een secundaire IP-configuratie die is gekoppeld aan een secundaire netwerkinterface in een virtuele machine wilt wijzigen (meer informatie over [primaire en secundaire netwerkinterfaces](virtual-network-network-interface-vm.md)), plaats de virtuele machine in de gestopt (toewijzing ongedaan gemaakt) voordat u de volgende stappen: 
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met een account is toegewezen (minimaal) machtigingen voor de rol Inzender netwerk voor uw abonnement. Lees de [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artikel voor meer informatie over het toewijzen van rollen en machtigingen aan accounts.
 2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *netwerkinterfaces*. Wanneer **netwerkinterfaces** wordt weergegeven in de zoekresultaten, klik erop.
@@ -143,7 +143,7 @@ Er zijn scenario's waarin het nodig zijn voor het IP-adres van een netwerkinterf
 1. De toewijzing van het IP-adres wijzigen in DHCP in het besturingssysteem en de virtuele machine opnieuw opstarten zodat de virtuele machine een adres ontvangt van de Azure-DHCP-servers.
 2. Gestopt (toewijzing ongedaan maken) de virtuele machine.
 3. Wijzig het IP-adres voor de IP-configuratie in Azure.
-4. Start de virtuele machine.
+4. Hiermee wordt de virtuele machine gestart.
 5. [Configureer handmatig](virtual-network-multiple-ip-addresses-portal.md#os-config) de secundaire IP-adressen binnen het besturingssysteem (en ook de primaire IP-adres in Windows) overeenkomt met wat u instellen in Azure.
  
 Door de vorige stappen hebt uitgevoerd, de privé IP-adres is toegewezen aan de netwerkinterface in Azure, en binnen een virtuele machine-besturingssysteem, moet u hetzelfde blijven. Om bij te houden welke virtuele machines binnen uw abonnement die u handmatig IP-adressen binnen een besturingssysteem voor hebt ingesteld, overweeg een Azure [tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) aan de virtuele machines. U kunt gebruiken ' IP-adrestoewijzing: statische ', bijvoorbeeld. Op deze manier kunt u gemakkelijk vinden de virtuele machines binnen uw abonnement dat u het IP-adres voor in het besturingssysteem handmatig hebt ingesteld.
@@ -168,14 +168,14 @@ Openbare en particuliere IP-adressen worden toegewezen met behulp van een van de
 Dynamische particuliere IPv4 en IPv6 (optioneel) adressen worden standaard toegewezen. 
 
 - **Alleen openbare**: Azure wijst het adres van een unieke scala aan elke Azure-regio. Zie voor meer informatie over welke adresbereiken worden toegewezen aan elke regio, [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Het adres kunt wijzigen als een virtuele machine is gestopt (toewijzing ongedaan gemaakt), vervolgens opnieuw worden gestart. U kunt een openbare IPv6-adres toewijzen aan een IP-configuratie met behulp van een toewijzing van de methoden.
-- **Alleen persoonlijke**: Azure de eerste vier adressen in elk subnet-adresbereik zijn gereserveerd en de adressen niet toewijzen. Azure wijst het volgende beschikbare adres toe aan een resource uit het adresbereik van het subnet. Bijvoorbeeld, als het subnet-adresbereik is 10.0.0.0/16 en adressen 10.0.0.0.4-10.0.0.14 al zijn toegewezen (.0.3 zijn gereserveerd), Azure 10.0.0.15 aan de resource wordt toegewezen. Dynamische is de standaardmethode voor toewijzing. Wanneer is toegewezen, worden dynamische IP-adressen alleen uitgebracht als een netwerkinterface wordt verwijderd, toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk, of de toewijzingsmethode is gewijzigd in statisch en een ander IP-adres is opgegeven. Standaard wijst Azure het vorige dynamisch toegewezen adres als het statische adres wanneer u de toewijzingsmethode van dynamische in statisch wijzigt. U kunt alleen een particulier IPv6-adres met behulp van de dynamische toewijzingsmethode toewijzen.
+- **Alleen persoonlijke**: Azure de eerste vier adressen in elk subnet-adresbereik zijn gereserveerd en de adressen niet toewijzen. Azure wijst het eerstvolgende beschikbare adres in het adresbereik van het subnet toe aan een resource. Als het adresbereik van het subnet bijvoorbeeld 10.0.0.0/16 is en de adressen 10.0.0.0.4-10.0.0.14 al zijn toegewezen (.0-.3 zijn gereserveerd), wijst Azure 10.0.0.15 toe aan de resource. Dynamisch is de standaardmethode voor toewijzing. Nadat dynamische IP-adressen zijn toegewezen, worden ze alleen vrijgegeven als een netwerkinterface wordt verwijderd of wordt toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk of als de toewijzingsmethode wordt gewijzigd in statisch en een ander IP-adres wordt opgegeven. Standaard wijst Azure het vorige dynamisch toegewezen adres toe als het statische adres wanneer u de toewijzingsmethode verandert van dynamisch in statisch. U kunt alleen een particulier IPv6-adres met behulp van de dynamische toewijzingsmethode toewijzen.
 
 ### <a name="static"></a>Statisch
 
 U kunt een openbare of particuliere statische IPv4-adres (optioneel) toewijzen aan een IP-configuratie. U kunt een statische openbare of particuliere IPv6-adres toewijzen aan een IP-configuratie. Zie voor meer informatie over hoe Azure openbare statische IPv4-adressen toewijst, de [openbaar IP-adres](virtual-network-public-ip-address.md) artikel.
 
 - **Alleen openbare**: Azure wijst het adres van een unieke scala aan elke Azure-regio. Zie voor meer informatie over welke adresbereiken worden toegewezen aan elke regio, [Microsoft Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653). Het adres verandert niet tot het openbare IP-adres resource dat wordt toegewezen aan wordt verwijderd of de toewijzingsmethode naar dynamische wordt gewijzigd. Als de bron van de openbare IP-adres gekoppeld aan een IP-configuratie is, moet deze worden ontkoppeld van de IP-configuratie voordat u de toewijzingsmethode wijzigt.
-- **Alleen persoonlijke**: U selecteert en het toewijzen van een adres uit het adresbereik van het subnet. Het adres dat u toewijst, kan een adres op binnen het subnet-adresbereik is niet een van de eerste vier adressen in het subnet-adresbereik en niet op dit moment is toegewezen aan een andere bron in het subnet zijn. Statische adressen zijn alleen uitgebracht als een netwerkinterface is verwijderd. Als u de toewijzingsmethode statisch wijzigt, Azure de eerder toegewezen statisch IP-adres als de dynamische adres dynamisch zelfs als het adres van de volgende beschikbaar in het subnet-adresbereik is niet toegewezen. Het adres verandert ook als de netwerkinterface is toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk, maar wilt de netwerkinterface toewijzen aan een ander subnet bevindt, u eerst de toewijzingsmethode van statisch naar dynamisch wijzigen moet. Zodra u de netwerkinterface aan een ander subnet bevindt toegewezen hebt, kunt u de toewijzingsmethode wijzigen in statisch en toewijzen van een IP-adres uit het adresbereik van het nieuwe subnet.
+- **Alleen persoonlijke**: U selecteert en het toewijzen van een adres uit het adresbereik van het subnet. Het adres dat u toewijst, kan elk adres binnen het adresbereik van het subnet zijn dat niet een van de eerste vier adressen in het adresbereik van het subnet is en momenteel niet is toegewezen aan een andere resource in het subnet. Statische adressen worden alleen vrijgegeven als een netwerkinterface wordt verwijderd. Als u de toewijzingsmethode wijzigt in statisch, wijst Azure het eerder toegewezen statische IP-adres toe als dynamisch adres, zelfs als dat adres niet het eerstvolgende beschikbare adres in het adresbereik van het subnet is. Het adres verandert ook als de netwerkinterface wordt toegewezen aan een ander subnet binnen hetzelfde virtuele netwerk, maar als u de netwerkinterface wilt toewijzen aan een ander subnet, moet u eerst de toewijzingsmethode wijzigen van statisch in dynamisch. Nadat u de netwerkinterface hebt toegewezen aan een ander subnet, kunt u de toewijzingsmethode weer wijzigen in statisch en een IP-adres uit het adresbereik van het nieuwe subnet toewijzen.
 
 ## <a name="ip-address-versions"></a>IP-adres versies
 
@@ -194,7 +194,7 @@ U kunt nul of één persoonlijke toewijzen [IPv6](#ipv6) adres één secundaire 
 
 U kunt een openbare IPv6-adres toewijzen aan een primaire of secundaire IP-configuratie.
 
-## <a name="skus"></a>SKU 's
+## <a name="skus"></a>Voorraadeenheden
 
 Een openbaar IP-adres is gemaakt met de basis of standaard SKU.  Zie voor meer informatie over de verschillen SKU [openbare IP-adressen beheren](virtual-network-public-ip-address.md).
 

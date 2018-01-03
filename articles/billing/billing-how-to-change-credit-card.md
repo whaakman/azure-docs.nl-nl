@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Toevoegen, bijwerken of verwijderen van een creditcard voor Azure
 
@@ -77,7 +77,7 @@ Als uw creditcard gekoppeld aan andere actieve abonnementen van Microsoft is, ku
 
 Nadat uw abonnement is uitgeschakeld of geannuleerd, wachten we 90 dagen voordat uw abonnement permanent te verwijderen. Wij houden uw betalingsmethode in bestand tijdens de bewaarperiode voor het geval u wilt dat het abonnement opnieuw activeren. Het abonnement wordt hierna is volledig verwijderd.
 
-Als u verwijderen van uw creditcard wilt voordat de bewaarperiode van 90 dagen wordt beëindigd, [Neem contact op met de ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Als u verwijderen van uw creditcard wilt voordat de bewaarperiode van 90 dagen wordt beëindigd, [uw abonnement opnieuw activeren](billing-subscription-become-disable.md). Als u niet opnieuw activeren, [Neem contact op met de ondersteuning van Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Waarom krijg ik telkens zulke 'uw aanmeldingssessie is verlopen. Klik hier om te melden'?
 
@@ -96,6 +96,10 @@ Als u bent [betalen met factuur](billing-how-to-pay-by-invoice.md), uw betaling 
 ### <a name="how-do-i-make-a-one-time-payment"></a>Hoe maak ik een eenmalige betaling?
 
 Helaas ondersteuning Azure momenteel geen voor eenmalige betalingen voor creditcardgegevens kaarten. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Hoe kan ik het btw-nummer wijzigen?
+
+Als u wilt toevoegen of bijwerken van btw-nummer, gaat u naar [ **profiel** in Azure-Accountcentrum](https://account.azure.com/Profile), selecteer daarna **btw-record**. Dit btw-nummer wordt gebruikt voor de berekening van btw-uitzonderingen en wordt weergegeven op uw factuur.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 

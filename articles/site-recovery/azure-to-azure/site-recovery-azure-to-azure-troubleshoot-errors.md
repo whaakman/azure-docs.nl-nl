@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Oplossen van problemen met de replicatie van de virtuele machine van Azure naar Azure
 
@@ -131,6 +131,20 @@ Als u niet uw Azure-VM voor de selectie ziet wanneer u replicatie inschakelt, di
 
 U kunt [verwijderen van verouderde ASR configuratiescript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) en verwijdert u de verouderde Site Recovery-configuratie op de virtuele machine in Azure. Wanneer u replicatie na het verwijderen van verouderde configuratie inschakelt, moet u de virtuele machine zien.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>De Inrichtingsstatus van de virtuele machine is niet geldig (foutcode 150019)
+
+Schakel replicatie op de virtuele machine door de Inrichtingsstatus moet **geslaagd**. U kunt de VM-status controleren door de onderstaande stappen te volgen.
+
+1.  Selecteer de **Resource Explorer** van **alle Services** in Azure-portal.
+2.  Vouw de **abonnementen** lijst en uw abonnement te selecteren.
+3.  Vouw de **ResourceGroups** lijst en selecteert u de resourcegroep van de virtuele machine.
+4.  Vouw de **Resources** lijst en selecteer de virtuele machine
+5.  Controleer de **provisioningState** veld in de weergave op de rechterzijde exemplaar.
+
+### <a name="fix-the-problem"></a>Los het probleem
+
+- Als **provisioningState** is **mislukt**, contact op met de ondersteuning met details om op te lossen.
+- Als **provisioningState** is **Updating**, kan ophalen van een andere extensie geïmplementeerd. Controleer of er zijn geen actieve bewerkingen op de virtuele machine, wachten totdat ze zijn voltooid en probeer opnieuw het herstel van de mislukte Site **replicatie inschakelen** taak.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Virtuele Azure-machines repliceren](azure-to-azure-quickstart.md)

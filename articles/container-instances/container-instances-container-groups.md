@@ -6,33 +6,33 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 568a99d44a5a32339d438ed1025670d12ecce791
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Containergroepen in Azure Containerexemplaren
 
-De resource op het hoogste niveau in Azure Containerexemplaren is een containergroep. Dit artikel wordt beschreven wat containergroepen zijn en wat voor soort scenario's die ze inschakelen.
+De resource op het hoogste niveau in Azure Container gevallen is de *containergroep*. Dit artikel wordt beschreven wat containergroepen zijn en de typen van scenario's die ze inschakelen.
 
 ## <a name="how-a-container-group-works"></a>De werking van een containergroep
 
-Een containergroep is een verzameling van containers die ophalen gepland op dezelfde hostcomputer en dezelfde levenscyclus, het lokale netwerk en opslagvolumes. Het is vergelijkbaar met het concept van een *schil* in [Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/) en [DC/OS](https://dcos.io/docs/1.9/deploying-services/pods/).
+Een containergroep is een verzameling van containers die op dezelfde hostcomputer ophalen gepland. De containers in een containergroep delen levenscyclus, lokale netwerk en opslagvolumes. Het is vergelijkbaar met het concept van een *schil* in [Kubernetes] [ kubernetes-pod] en [DC/OS][dcos-pod].
 
 Het volgende diagram toont een voorbeeld van een containergroep met meerdere containers.
 
-![Voorbeeld van de container-groepen][container-groups-example]
+![Diagram van container-groepen][container-groups-example]
 
-Opmerking:
+In dit voorbeeld containergroep:
 
-- De groep is gepland op een machine één host.
-- De groep wordt één openbaar IP-adres, met één blootgestelde poort.
-- De groep bestaat uit twee containers. Een container luistert op poort 80, terwijl de andere luistert op poort 5000.
-- De groep bevat twee Azure-bestandsshares als volume koppelingen en elke container koppelt een van de shares lokaal.
+* Is gepland op een machine één host.
+* Beschrijft de één openbaar IP-adres, met één blootgestelde poort.
+* Bestaat uit twee containers. Een container luistert op poort 80, terwijl de andere luistert op poort 5000.
+* Bevat twee Azure bestandsshares als volume koppelingen en elke container koppelt een van de shares lokaal.
 
 ### <a name="networking"></a>Netwerken
 
@@ -44,16 +44,21 @@ U kunt externe volumes te koppelen in een container wilt opgeven. U kunt deze vo
 
 ## <a name="common-scenarios"></a>Algemene scenario's
 
-Meerdere container groepen zijn handig in gevallen waarin u wilt delen van een enkele functionele taak in een klein aantal installatiekopieën van de container, die kunnen worden geleverd door verschillende teams en afzonderlijke resourcevereisten hebben. Voorbeeld van syntaxis kan omvatten:
+Meerdere container groepen zijn handig in gevallen waarin u wilt delen van een enkele functionele taak in een klein aantal installatiekopieën van de container, die kunnen worden geleverd door verschillende teams en afzonderlijke resourcevereisten hebben.
 
-- Een toepassingscontainer en een container voor logboekregistratie. De container logboekregistratie verzamelt uitvoer van de logboeken en metrische gegevens van de hoofdtoepassing en schrijft deze naar langetermijnopslag.
-- Een toepassing en een controle container. De bewaking container doet een aanvraag periodiek naar de toepassing om ervoor te zorgen dat het actief is en correct reageert en wordt een waarschuwing gegeven als dat niet.
-- Een container voor een webtoepassing en een container binnenhalen van de meest recente inhoud vanuit resourcebeheer.
+Voorbeeld van syntaxis kan omvatten:
+
+* Een toepassingscontainer en een container voor logboekregistratie. De container logboekregistratie verzamelt uitvoer van de logboeken en metrische gegevens van de hoofdtoepassing en schrijft deze naar langetermijnopslag.
+* Een toepassing en een controle container. De bewaking container doet een aanvraag periodiek naar de toepassing om ervoor te zorgen dat het actief is en correct reageert en wordt een waarschuwing gegeven als dat niet.
+* Een container voor een webtoepassing en een container binnenhalen van de meest recente inhoud vanuit resourcebeheer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over hoe [implementeren van een groep met meerdere container](container-instances-multi-container-group.md) met een Azure Resource Manager-sjabloon.
 
 <!-- IMAGES -->
-
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png
+
+<!-- LINKS - External -->
+[dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

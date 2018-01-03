@@ -3,7 +3,7 @@ title: "Vergelijking van aangepaste installatiekopieën en formules in DevTest L
 description: "Meer informatie over de verschillen tussen aangepaste installatiekopieën en formules als VM baseert zodat u kunt beslissen welke beste past bij uw omgeving."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: a3cb259a-7d80-40ec-8ee8-45105704d589
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: tarcher
-ms.openlocfilehash: ff771abc26c08f0adb977c29739d2f5c91924b21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 78c0255f142bd3d4b2311ac953541153b72ac12d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Vergelijking van aangepaste installatiekopieën en formules in DevTest Labs
-Beide [aangepaste installatiekopieën](devtest-lab-create-template.md) en [formules](devtest-lab-manage-formulas.md) kan worden gebruikt als basis voor [gemaakt van de nieuwe virtuele machines](devtest-lab-add-vm-with-artifacts.md). Het belangrijkste verschil tussen aangepaste installatiekopieën en formules is echter dat een aangepaste installatiekopie is gewoon een op basis van een VHD, terwijl een formule een installatiekopie op basis van een VHD is *naast* vooraf geconfigureerde instellingen - zoals VM-grootte, virtueel netwerk subnet en artefacten. Deze vooraf geconfigureerde instellingen zijn ingesteld met de standaardwaarden die kunnen worden genegeerd op het moment van de virtuele machine maken. In dit artikel worden enkele van de (professionals) voordelen en nadelen (nadelen) voor het gebruik van aangepaste installatiekopieën ten opzichte van formules.
+Beide [aangepaste installatiekopieën](devtest-lab-create-template.md) en [formules](devtest-lab-manage-formulas.md) kan worden gebruikt als basis voor [gemaakt van de nieuwe virtuele machines](devtest-lab-add-vm.md). Het belangrijkste verschil tussen aangepaste installatiekopieën en formules is echter dat een aangepaste installatiekopie is gewoon een op basis van een VHD, terwijl een formule een installatiekopie op basis van een VHD is *naast* vooraf geconfigureerde instellingen - zoals VM-grootte, virtueel netwerk subnet en artefacten. Deze vooraf geconfigureerde instellingen zijn ingesteld met de standaardwaarden die kunnen worden genegeerd op het moment van de virtuele machine maken. In dit artikel worden enkele van de (professionals) voordelen en nadelen (nadelen) voor het gebruik van aangepaste installatiekopieën ten opzichte van formules.
 
 ## <a name="custom-image-pros-and-cons"></a>Aangepaste installatiekopie voor- en nadelen
 Aangepaste installatiekopieën bieden een statische, niet-wijzigbaar manier om virtuele machines maken vanuit een gewenste-omgeving. 

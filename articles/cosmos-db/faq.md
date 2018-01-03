@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -38,7 +38,7 @@ Als u een DocumentDB-API-account hebt, hebt u nu een SQL-API-account en uw factu
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Wat is er gebeurd met Azure DocumentDB als een service?
 
-De Azure DocumentDB-service maakt nu deel uit van de service Azure Cosmos DB en doet zich in de vorm van de SQL-API. Toepassingen die zijn gebouwd met Azure DocumentDB wordt waartegen Azure Cosmos DB SQL-API uitgevoerd zonder deze te wijzigen. Bovendien ondersteunt Azure Cosmos DB de Graph API (Preview), tabel-API, MongoDB-API en Cassandra API (Preview).
+De Azure DocumentDB-service maakt nu deel uit van de service Azure Cosmos DB en doet zich in de vorm van de SQL-API. Toepassingen die zijn gebouwd met Azure DocumentDB wordt waartegen Azure Cosmos DB SQL-API uitgevoerd zonder deze te wijzigen. Daarnaast ondersteunt Azure Cosmos DB de Graph API, tabel-API, MongoDB-API en Cassandra API (Preview).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Wat zijn typische gebruiksvoorbeelden voor Azure Cosmos DB?
 Azure Cosmos-database is een goede keuze voor nieuwe web, mobiel, games, en IoT-toepassingen waarbij automatisch schalen, voorspelbare prestaties, volgorde van milliseconde responstijden en de mogelijkheid te query snel gegevens zonder schema is belangrijk. Azure Cosmos DB gepaard met snelle ontwikkeling en de continue herhaling van toepassingsgegevensmodellen ondersteunen. Toepassingen die door gebruikers gegenereerde inhoud en gegevens beheren zijn [algemene gebruiksvoorbeelden voor Azure Cosmos DB](use-cases.md). 
@@ -95,7 +95,7 @@ De volgende voorwaarden van toepassing op Azure Cosmos-DB probeer abonnementen:
 
 ## <a name="set-up-azure-cosmos-db"></a>Instellen van Azure DB die Cosmos
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Hoe meld ik me voor Azure Cosmos DB?
-Azure Cosmos DB is beschikbaar in de Azure-portal. Eerst zich registreren voor een Azure-abonnement. Nadat u zich hebt aangemeld, kunt u een SQL-API, Graph-API (Preview), tabel-API, MongoDB-API of Cassandra API-account toevoegen aan uw Azure-abonnement.
+Azure Cosmos DB is beschikbaar in de Azure-portal. Eerst zich registreren voor een Azure-abonnement. Nadat u zich hebt aangemeld, kunt u een SQL-API, Graph API, tabel-API, MongoDB-API of Cassandra API-account toevoegen aan uw Azure-abonnement.
 
 ### <a name="what-is-a-master-key"></a>Wat is een hoofdsleutel?
 Een hoofdsleutel is een beveiligingstoken voor toegang tot alle resources voor een account. Personen met de sleutel hebt gelezen en schrijftoegang tot alle resources in het account van de database. Wees voorzichtig met het distribueren van hoofdsleutels. De hoofdsleutel van de primaire en secundaire hoofdsleutel zijn beschikbaar op de **sleutels** blade van de [Azure-portal][azure-portal]. Zie voor meer informatie over sleutels [weergeven, kopiëren en opnieuw genereren toegangstoetsen](manage-account.md#keys).
@@ -208,7 +208,7 @@ Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azur
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= eigenschappen| [Tabel-Service-eigenschappen instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt voor het CORS-regels, configuratie van storage analytics en instellingen voor logboekregistratie instellen. CORS wordt momenteel niet ondersteund en analytics en logboekregistratie anders in Azure Cosmos DB dan Azure Storage-tabellen worden verwerkt |
 | OPTIES | / < resource-tabelnaam > | [Vooraf vlucht CORS tabel aanvraag](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit is onderdeel van CORS die Azure Cosmos DB momenteel niet ondersteund. |
-| TOEVOEGEN | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
+| GET | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
 | GET, PUT | /MyTable? comp acl = | [Tabel ACL verkrijgen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid dat is gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
 
 Daarnaast ondersteunt Azure Cosmos DB tabel API alleen de JSON-indeling niet ATOM.
@@ -414,14 +414,14 @@ Azure Table storage en Azure Cosmos DB tabel API gebruiken de dezelfde SDK's zod
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Waarom ik ophalen beperkte bandbreedte wanneer ik probeer te veel tabellen achter elkaar maken in de tabel-API?
 Azure Cosmos-database is een SLA-systeem waarmee latentie, doorvoer, beschikbaarheid en consistentie wordt gegarandeerd. Omdat het een ingerichte systeem, reserveren het van bronnen om te garanderen van deze vereisten. De snelle frequentie van het maken van tabellen is gedetecteerd en beperkt. U wordt aangeraden dat u kijken naar de frequentie van het maken van tabellen en het verlagen naar minder dan 5 per minuut. Houd er rekening mee dat de tabel-API een ingerichte systeem is. Het moment dat u inricht, begint u betalen. 
 
-## <a name="develop-against-the-graph-api-preview"></a>Ontwikkelen op basis van de grafiek API (Preview)
-### <a name="how-can-i-apply-the-functionality-of-graph-api-preview-to-azure-cosmos-db"></a>Hoe kan ik de functionaliteit van Graph API (Preview) bij Azure Cosmos DB toepassen?
-Toepassen van de functionaliteit van Graph API (Preview) kunt u een extensiebibliotheek. Deze bibliotheek Microsoft Azure-grafieken wordt genoemd, en is beschikbaar in NuGet. 
+## <a name="develop-against-the-graph-api"></a>Op basis van de grafiek API ontwikkelen
+### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Hoe kan ik de functionaliteit van Graph API toepassen op Azure Cosmos DB?
+Toepassen van de functionaliteit van Graph API kunt u een extensiebibliotheek. Deze bibliotheek Microsoft Azure-grafieken wordt genoemd, en is beschikbaar in NuGet. 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Het lijkt erop dat u de taal Gremlin grafiek traversal ondersteunt. Wilt u meer formulieren van de query toevoegen?
 Ja, we willen andere mechanismen voor query in de toekomst toevoegen. 
 
-### <a name="how-can-i-use-the-new-graph-api-preview-offering"></a>Hoe kan ik de nieuwe Graph-API (Preview) aanbieding gebruiken? 
+### <a name="how-can-i-use-the-new-graph-api-offering"></a>Hoe kan ik de nieuwe Graph API aanbieding gebruiken? 
 Om te beginnen, voltooi de [Graph API](../cosmos-db/create-graph-dotnet.md) snel starten-artikel.
 
 <a id="cassandra"></a> 

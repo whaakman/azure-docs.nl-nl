@@ -12,17 +12,132 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2017
+ms.date: 12/11/2017
 ms.author: eamono
-ms.openlocfilehash: 9ae5e9ebcbcf3af61318eac98defc6b249417f41
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 25ad5e04c96aab9dddd39cdb4d33bd8411817e8e
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Ingebouwde update en bijhouden van oplossingen voor Azure Automation
 
 In deze zelfstudie leert u hoe u automatisch vrijgeven Update, bijhouden en voorraad oplossingen voor virtuele machines voor Azure Automation:
+
+> [!div class="checklist"]
+> * Ingebouwde een Azure VM
+> * Oplossingen inschakelen
+> * Installeren en bijwerken van modules
+> * Importeer het runbook voorbereiden
+> * Het runbook starten
+
+## <a name="prerequisites"></a>Vereisten
+
+Het volgende is vereist voor het voltooien van deze zelfstudie:
+
+* Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of u aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Automation-account](automation-offering-get-started.md) voor het beheren van computers.
+* Een [virtuele machine](../virtual-machines/windows/quick-create-portal.md) voorbereiden.
+
+## <a name="onboard-an-azure-vm"></a>Ingebouwde een Azure VM
+
+Naar vrijgeven Azure Virtual Machines automatisch, moet een bestaande virtuele machine worden vrijgegeven met het bijhouden van wijzigingen of Update-beheeroplossing. In deze stap maakt u met het voorbereiden een virtuele machine met het beheer van updates en wijzigingen bijhouden.
+
+### <a name="enable-change-tracking-and-inventory"></a>Bijhouden van wijzigingen en inventarisatie inschakelen
+
+De oplossing voor wijzigingen bijhouden en inventaris biedt de mogelijkheid om [wijzigingen bijhouden](automation-vm-change-tracking.md) en [inventaris](automation-vm-inventory.md) op uw virtuele machines. In deze stap schakelt u de oplossing op een virtuele machine.
+
+1. Selecteer in het menu links **Automation-Accounts**, en selecteer vervolgens uw automation-account in de lijst.
+1. Selecteer **inventaris** onder **CONFIGURATIEBEHEER**.
+1. Selecteer een bestaande werkruimte voor logboekanalyse of nieuwe maken. Klik op de **inschakelen** knop.
+
+![Ingebouwde Update-oplossing](media/automation-onboard-solutions/inventory-onboard.png)
+
+Wanneer tracering en inventarisatie oplossing onboarding Wijzigingsmelding is voltooid, klikt u op **updatebeheer** onder **CONFIGURATIEBEHEER**.
+
+### <a name="enable-update-management"></a>Updatebeheer inschakelen
+
+De oplossing voor beheer van de Update kunt u updates en patches voor uw Windows Azure-VM's beheren. U kunt de status van de beschikbare updates, installatie van de planning van vereiste updates kunt beoordelen en Implementatieresultaten bekijken om te controleren of updates met succes zijn toegepast op de virtuele machine. In deze stap schakelt u de oplossing voor uw virtuele machine.
+
+1. Selecteer in uw Automation-Account **updatebeheer** onder **UPDATEBEHEER**.
+1. De Log analytics-werkruimte geselecteerd is dezelfde werkruimte gebruikt in de vorige stap. Klik op **inschakelen** voorbereiden het beheersysteem voor Update.
+
+![Ingebouwde Update-oplossing](media/automation-onboard-solutions/update-onboard.png)
+
+Terwijl het beheersysteem voor de Update wordt geïnstalleerd, wordt een banner blauw weergegeven. Wanneer de oplossing is ingeschakeld kiezen **bijhouden** onder **CONFIGURATIEBEHEER** naar de volgende stap.
+
+### <a name="select-azure-vm-to-be-managed"></a>Selecteer de virtuele machine in Azure worden beheerd
+
+Nu dat de oplossingen zijn ingeschakeld, kunt u een virtuele machine van Azure voor Onboarding van deze oplossingen kunt toevoegen.
+
+1. Van uw Automation-Account op de **bijhouden** pagina **+ Azure VM toevoegen** uw virtuele machine toe te voegen.
+
+1. Selecteer uw virtuele machine uit de lijst en selecteer **inschakelen**. Deze actie wordt de wijziging tacking en de inventaris-oplossing voor de virtuele machine.
+
+   ![Update-oplossing voor de virtuele machine inschakelen](media/automation-onboard-solutions/enable-change-tracking.png)
+
+1. Wanneer de melding van de VM-voorbereiding is voltooid, van uw Automation-Account selecteert **updatebeheer** onder **UPDATEBEHEER**.
+
+1. Selecteer **+ Azure VM toevoegen** uw virtuele machine toe te voegen.
+
+1. Selecteer uw virtuele machine uit de lijst en selecteer **inschakelen**. Hierdoor is het beheersysteem voor de Update voor de virtuele machine.
+
+   ![Update-oplossing voor de virtuele machine inschakelen](media/automation-onboard-solutions/enable-update.png)
+
+> [!NOTE]
+> Als u niet tot de andere oplossing wachten te voltooien, bij het inschakelen van de volgende oplossing ontvangt u een bericht weergegeven: *installatie van een andere oplossing wordt uitgevoerd op deze of een andere virtuele machine. Wanneer u met de installatie is voltooid de knop inschakelen is ingeschakeld en u de installatie van de oplossing op deze virtuele machine kunt aanvragen.*
+
+## <a name="install-and-update-modules"></a>Installeren en bijwerken van modules
+
+Dit is vereist voor het bijwerken naar de nieuwste Azure-modules en importeren `AzureRM.OperationalInsights` oplossing onboarding is te automatiseren.
+
+## <a name="update-azure-modules"></a>Azure-Modules bijwerken
+
+Selecteer in uw Automation-Account **Modules** onder **gedeelde bronnen**. Selecteer **bijwerken Azure Modules** voor het bijwerken van de Azure-modules naar de nieuwste versie. Selecteer **Ja** op de prompt voor het bijwerken van alle bestaande Azure modules naar de nieuwste versie.
+
+![Update-modules](media/automation-onboard-solutions/update-modules.png)
+
+### <a name="install-azurermoperationalinsights-module"></a>AzureRM.OperationalInsights-module installeren
+
+Van de **Modules** pagina **bladeren galerie** om de Modulegalerie te openen. AzureRM.OperationalInsights zoeken en deze module importeren in het Automation-account.
+
+![OperationalInsights module importeren](media/automation-onboard-solutions/import-operational-insights-module.png)
+
+## <a name="import-the-onboarding-runbook"></a>Importeer het runbook voorbereiden
+
+1. Selecteer in uw Automation-Account op **Runbooks** onder de **PROCESAUTOMATISERING**.
+1. Selecteer **bladeren galerie**.
+1. Zoeken naar **bijwerken en het bijhouden van**het runbook op en selecteer **importeren** op de **bron weergeven** pagina. Selecteer **OK** importeren van het runbook in het Automation-account.
+
+  ![Onboarding runbook importeren](media/automation-onboard-solutions/import-from-gallery.png)
+
+1. Op de **Runbook** pagina **bewerken**, selecteer daarna **publiceren**. Op de **Runbook publiceren** dialoogvenster Selecteer **Ja** om het runbook te publiceren.
+
+## <a name="start-the-runbook"></a>Het runbook starten
+
+U moet hebben vrijgegeven bijhouden van wijzigingen of oplossingen bijwerken naar een Azure-virtuele machine om te beginnen met dit runbook. Hiervoor een bestaande virtuele machine en de resourcegroep met de oplossing vrijgegeven voor parameters.
+
+1. Open het runbook inschakelen MultipleSolution.
+
+   ![Meerdere runbooks van de oplossing](media/automation-onboard-solutions/runbook-overview.png)
+
+1. Klik op start en voer de volgende waarden voor parameters.
+
+   * **VMNAME** -leeg laten. De naam van een bestaande virtuele machine om vrij te geven voor update of het bijhouden van de oplossing. Deze waarde leeg laat, zijn alle virtuele machines in de resourcegroep vrijgegeven.
+   * **VMRESOURCEGROUP** -de naam van de resourcegroep voor de virtuele machines worden vrijgegeven.
+   * **SUBSCRIPTIONID** -leeg laten. De abonnement-ID van de nieuwe virtuele machine worden vrijgegeven. Als dit leeg laat, wordt het abonnement van de werkruimte gebruikt. Wanneer een andere abonnements-ID is opgegeven, moet de RunAs-account voor dit automation-account worden toegevoegd als medewerker voor dit abonnement ook.
+   * **ALREADYONBOARDEDVM** -de naam van de virtuele machine die handmatig vrijgegeven voor de Updates of ChangeTracking is oplossing.
+   * **ALREADYONBOARDEDVMRESOURCEGROUP** -de naam van de resourcegroep die de virtuele machine lid van is.
+   * **SOLUTIONTYPE** -Voer **Updates** of **ChangeTracking**
+
+   ![Runbookparameters inschakelen MultipleSolution](media/automation-onboard-solutions/runbook-parameters.png)
+
+1. Selecteer **OK** de runbooktaak starten.
+1. Bewaakt de voortgang en eventuele fouten op de pagina van de taak runbook.
+
+## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Ingebouwde Azure een virtuele machine handmatig.
@@ -30,68 +145,7 @@ In deze zelfstudie leert u hoe u automatisch vrijgeven Update, bijhouden en voor
 > * Een runbook dat onboards Azure VM's importeren.
 > * Het runbook dat onboards Azure VM's wordt automatisch gestart.
 
-## <a name="prerequisites"></a>Vereisten
+Volg deze koppeling voor meer informatie over het plannen van runbooks.
 
-Het volgende is vereist voor het voltooien van deze zelfstudie.
-+ Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of u aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-+ [Automation-account](automation-offering-get-started.md) voor het beheren van computers.
-
-## <a name="onboard-an-azure-virtual-machine-manually"></a>Ingebouwde Azure een virtuele machine handmatig
-
-1.  Open het Automation-account.
-2.  Klik op de pagina inventaris.
-![Ingebouwde inventaris-oplossing](media/automation-onboard-solutions/inventory-onboard.png)
-3.  Selecteer een bestaande werkruimte voor logboekanalyse of nieuwe maken. Klik op inschakelen.
-4.  Wanneer tracering en inventarisatie oplossing onboarding Wijzigingsmelding is voltooid, klikt u op de pagina updatebeheer.
-![Ingebouwde Update-oplossing](media/automation-onboard-solutions/update-onboard.png)
-4.  Klik op inschakelen dat onboards de update-oplossing.
-5.  Wanneer het updatebericht dat oplossing voorbereiding is voltooid, klikt u op de pagina bijhouden.
-![Vrijgeven bijhouden](media/automation-onboard-solutions/change-tracking-onboard-vm.png)
-6.  Klik op de knop toevoegen Azure VM.
-![Selecteer VM voor het bijhouden](media/automation-onboard-solutions/enable-change-tracking.png)
-7.  Selecteer een virtuele machine van Azure en klik op de knop inschakelen voor Onboarding van de oplossing voor tracering en inventarisatie.
-8.  Wanneer de melding van de VM-voorbereiding is voltooid, klikt u op de pagina updatebeheer.
-![Ingebouwde VM voor updatebeheer](media/automation-onboard-solutions/update-onboard-vm.png)
-9.  Klik op de knop toevoegen Azure VM.
-![Selecteer VM voor updatebeheer](media/automation-onboard-solutions/enable-update.png)
-10.  Selecteer een virtuele machine van Azure en klik op de knop inschakelen voor Onboarding van het beheersysteem voor update.
-
-## <a name="install-and-update-required-azure-modules"></a>Installeren en bijwerken van de vereiste modules voor Azure
-
-Het is vereist voor het bijwerken naar de nieuwste Azure-modules en AzureRM.OperationalInsights voor het automatiseren van oplossing onboarding is geïmporteerd.
-1.  Klik op de pagina Modules.
-![Update-modules](media/automation-onboard-solutions/update-modules.png)
-2.  Klik op de knop Update Azure Modules die worden bijgewerkt naar de nieuwste versie. Wacht totdat de updates te voltooien.
-3.  Klik op de knop Bladeren galerie om de Modulegalerie te openen.
-![OperationalInsights module importeren](media/automation-onboard-solutions/import-operational-insights-module.png)
-4.  AzureRM.OperationalInsights zoeken en deze module importeren in het Automation-account.
-
-## <a name="import-a-runbook-that-onboards-solutions-to-azure-vms"></a>Een runbook importeren die oplossingen onboards virtuele Azure-machines
-
-1.  Klik op de pagina Runbooks onder de categorie 'PROCESAUTOMATISERING'.
-2.  Klik op de knop 'Bladeren galerie'.
-3.  Zoek naar 'bijwerken en het bijhouden van' en het runbook importeren in het Automation-account.
-![Onboarding runbook importeren](media/automation-onboard-solutions/import-from-gallery.png)
-4.  Klik op "Edit" weergeven van de Runbook-bron en klik op de knop 'Publiceren'.
-![Onboarding runbook importeren](media/automation-onboard-solutions/publish-runbook.png)
-
-## <a name="start-the-runbook-that-onboards-azure-vms-automatically"></a>Het runbook automatisch die onboards virtuele Azure-machines starten
-
-U moet hebben vrijgegeven bijhouden van wijzigingen of oplossingen bijwerken naar een Azure-virtuele machine om te beginnen met dit runbook. Hiervoor een bestaande virtuele machine en de resourcegroep met de oplossing vrijgegeven voor parameters.
-1.  Open het runbook inschakelen MultipleSolution.
-![Meerdere runbooks van de oplossing](media/automation-onboard-solutions/runbook-overview.png)
-2.  Klik op start en voer de volgende waarden voor parameters.
-    *   VMNAME. De naam van een bestaande virtuele machine om vrij te geven voor update of het bijhouden van de oplossing. Laat leeg en alle virtuele machines in de resourcegroep zijn vrijgegeven.
-    *   VMRESOURCEGROUP. De naam van de resourcegroep die de virtuele machine lid van is.
-    *   ABONNEMENT-ID. De abonnements-ID voor de nieuwe virtuele machine om vrij te geven bevindt. Laat leeg en het abonnement van de werkruimte wordt gebruikt. Wanneer een andere abonnements-ID is opgegeven, moet de RunAs-account voor dit automation-account worden toegevoegd als medewerker voor dit abonnement ook.
-    *   ALREADYONBOARDEDVM. De naam van de virtuele machine die handmatig vrijgegeven voor de Updates of ChangeTracking is oplossing.
-    *   ALREADYONBOARDEDVMRESOURCEGROUP. De naam van de resourcegroep die de virtuele machine lid van is.
-    *   SOLUTIONTYPE. Voer 'Updates' of 'ChangeTracking'
-    
-    ![Meerdere oplossing runbook-parameters](media/automation-onboard-solutions/runbook-parameters.png)
-3.  Klik op OK om de runbooktaak.
-4.  Bewaakt de voortgang en eventuele fouten op de pagina van de taak runbook.
-
-## <a name="next-steps"></a>Volgende stappen
-
-Zie voor meer informatie [runbooks planning](automation-schedules.md).
+> [!div class="nextstepaction"]
+> [Planning van runbooks](automation-schedules.md).

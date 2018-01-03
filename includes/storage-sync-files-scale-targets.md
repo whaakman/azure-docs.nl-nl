@@ -8,3 +8,4 @@
 | De grootte van het eindpunt | 4 TiB | Nee |
 | Bestandssysteemobjecten (mappen en bestanden) per groep voor synchronisatie | 6 miljoen objecten | Nee |
 | Bestandsgrootte | 100 giB | Nee |
+| De minimale grootte voor een bestand dat moet worden lagen | 64 KiB | Ja |

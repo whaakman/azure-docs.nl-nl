@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure-Stack 1711 update
 
@@ -51,6 +51,7 @@ Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
 - Gebruikers kunnen Windows VM's nu automatisch activeren
 - Toegevoegde bevoorrechte eindpunt PowerShell-cmdlet voor het ophalen van BitLocker-herstelsleutels voor bewaren doeleinden
 - Ondersteuning voor het bijwerken van de offline-installatiekopieën bij het bijwerken van de infrastructuur
+- Infrastructuur voor back-up met de inschakelen Backup-Service inschakelen
 
 #### <a name="fixes"></a>Oplossingen
 
@@ -138,6 +139,17 @@ In Azure Active Directory Federation Services (ADFS) geïmplementeerd omgevingen
 
 > [!IMPORTANT]
 > Hoewel de **azurestack\cloudadmin** account is de eigenaar van het abonnement van de Provider standaard in omgevingen met ADFS geïmplementeerd, heeft geen machtigingen voor RDP in de host. Blijven gebruiken de **azurestack\azurestackadmin** account of het lokale administrator-account aanmelden, toegang tot en beheren van de host, indien nodig.
+
+#### <a name="infrastructure-backup-sevice"></a>Back-adreslijstservice infrastructuur
+<!-- 1974890-->
+
+- **Pre-1711 back-ups worden niet ondersteund voor herstel van de cloud.**  
+  Pre-1711 back-ups zijn niet compatibel met het herstel van de cloud. U moet eerst bijwerken naar 1711 en inschakelen van de back-ups. Als u de back-ups al hebt ingeschakeld, zorg er dan voor dat een back-up uitvoeren na het bijwerken van 1711. Pre-1711 back-ups moeten worden verwijderd.
+
+- **Inschakelen infrastructuur back-up op ASDK is alleen voor testdoeleinden.**  
+  Back-ups infrastructuur kunnen worden gebruikt om te herstellen van oplossingen met meerdere knooppunten. Kunt u infrastructuur back-up op ASDK inschakelen, maar er is geen manier voor het testen van herstel.
+
+Zie voor meer informatie [back-up en gegevensherstel voor Azure-Stack met de infrastructuur Backup-Service](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>De update downloaden
 

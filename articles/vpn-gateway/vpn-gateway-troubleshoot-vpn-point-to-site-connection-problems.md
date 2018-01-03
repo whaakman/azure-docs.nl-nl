@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Voor probleemoplossing: Problemen met de Azure-punt-naar-site-verbinding
 
@@ -263,3 +263,52 @@ U verwijdert de punt-naar-site VPN-verbinding en de VPN-client opnieuw installer
 ### <a name="solution"></a>Oplossing
 
 Los het probleem op door de oude VPN-client configuratiebestanden verwijderen van **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, en voer het installatieprogramma van de VPN-client vervolgens opnieuw.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punt-naar-site VPN-client de FQDN-naam van de resources in het lokale domein kan niet worden omgezet
+
+### <a name="symptom"></a>Symptoom
+
+Wanneer de client verbinding met Azure maakt met behulp van de punt-naar-site VPN-verbinding, kan niet de FQND van de resources in uw lokale domein worden omgezet.
+
+### <a name="cause"></a>Oorzaak
+
+Punt-naar-site VPN-client gebruikt Azure DNS-servers die zijn geconfigureerd in de virtuele Azure-netwerk. De Azure DNS-servers hebben voorrang op de lokale DNS-servers die zijn geconfigureerd in de client, zodat alle DNS-query's worden verzonden naar de Azure DNS-servers. Als de Azure DNS-servers de records voor de lokale bronnen niet hebt, mislukt de query.
+
+### <a name="solution"></a>Oplossing
+
+Om ervoor te zorgen dat de Azure DNS-servers die op de virtuele Azure-netwerk gebruikt op te lossen het probleem kunt oplossen door de DNS-records voor lokale bronnen. Om dit te doen, kunt u DNS-doorstuurservers of voorwaardelijke doorstuurservers. Zie voor meer informatie [naamomzetting met uw eigen DNS-server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>De punt-naar-site VPN-verbinding tot stand is gebracht, maar u nog steeds geen verbinding met Azure-resources 
+
+### <a name="cause"></a>Oorzaak
+
+Dit probleem kan optreden als de VPN-client niet ontvangen de routes van de Azure VPN-gateway.
+
+### <a name="solution"></a>Oplossing
+
+Dit probleem oplossen [opnieuw instellen van Azure VPN-gateway](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fout: 'de functie intrekken kon geen intrekkingscontrole omdat de intrekkingsserver offline was. (Fout 0x80092013)"
+
+### <a name="causes"></a>Oorzaken
+Deze fout treedt op als de client geen toegang http://crl3.digicert.com/ssca-sha2-g1.crl en http://crl4.digicert.com/ssca-sha2-g1.cr tot.  De controle van certificaatintrekking vereist toegang tot deze twee sites.  Dit probleem treedt meestal op de client met de proxyserver is geconfigureerd. In sommige omgevingen als de aanvragen niet via de proxyserver gaat wordt deze geweigerd op de randfirewall.
+
+### <a name="solution"></a>Oplossing
+
+Controleer de instellingen van de proxyserver, zorg ervoor dat de client toegang heeft tot http://crl3.digicert.com/ssca-sha2-g1.crl en http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>: VPN-Client de verbinding is vanwege fout Vanwege een beleid dat is geconfigureerd op de RAS-/ VPN-server. (Fout 812)
+
+### <a name="cause"></a>Oorzaak
+
+Deze fout treedt op als de RADIUS-server die u hebt gebruikt voor het verifiëren van de VPN-client heeft de verkeerde instellingen. 
+
+### <a name="solution"></a>Oplossing
+
+Zorg ervoor dat de RADIUS-server correct is geconfigureerd. Zie voor meer informatie [integreren RADIUS-verificatie met Azure multi-factor Authentication-Server](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>'Fout 405' wanneer u een basiscertificaat downloaden van de VPN-Gateway
+
+### <a name="cause"></a>Oorzaak
+
+Basiscertificaat is niet geïnstalleerd. Het basiscertificaat is geïnstalleerd in de client **certificaten van vertrouwde** opslaan.

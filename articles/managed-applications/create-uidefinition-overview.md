@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Azure portal-gebruikersinterface voor de beheerde toepassing maken
 Dit document worden de belangrijkste concepten van het bestand createUiDefinition.json. Dit bestand wordt gebruikt voor het genereren van de gebruikersinterface voor het maken van een beheerde toepassing van de Azure-portal.
@@ -38,7 +38,7 @@ Dit document worden de belangrijkste concepten van het bestand createUiDefinitio
 Een CreateUiDefinition bevat altijd drie eigenschappen: 
 
 * handler
-* Versie
+* versie
 * parameters
 
 Voor beheerde toepassingen handler altijd moet `Microsoft.Compute.MultiVm`, en de laatste ondersteunde versie is `0.1.2-preview`.
@@ -55,8 +55,20 @@ Als het gedrag van een element, is afhankelijk van abonnement, resourcegroep of 
 ## <a name="steps"></a>Stappen
 De eigenschap stappen kan nul of meer extra stappen om weer te geven nadat de basisbeginselen, die elk een of meer elementen bevat bevatten. Overweeg stappen per rol of laag van de toepassing wordt geïmplementeerd. Voeg bijvoorbeeld een stap voor de invoer voor de hoofdknooppunten, en een voor worker-knooppunten in een cluster.
 
-## <a name="outputs"></a>uitvoer
+## <a name="outputs"></a>Uitvoer
 De Azure portal maakt gebruik van de `outputs` eigenschap toewijzen van elementen uit `basics` en `steps` aan de parameters van de Azure Resource Manager-implementatiesjabloon. De sleutels van deze woordenlijst zijn de namen van de sjabloonparameters en de waarden worden de eigenschappen van de uitvoer-objecten van de elementen waarnaar wordt verwezen.
+
+De naam van de beheerde toepassing resource stelt u een waarde met de naam moet opnemen `applicationResourceName` in de uitvoer-eigenschap. Als u deze waarde niet instelt, wordt een GUID voor de naam van de toegewezen door de toepassing. U kunt een tekstvak opnemen in de gebruikersinterface die aanvragen van een naam op van de gebruiker.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
 
 ## <a name="functions"></a>Functies
 Net als bij sjabloonfuncties in Azure Resource Manager (zowel in de syntaxis en functionaliteit), CreateUiDefinition biedt functies voor het werken met elementen invoer en uitvoer, evenals functies zoals voorwaardelijke.
@@ -67,6 +79,6 @@ Het bestand createUiDefinition.json zelf is een eenvoudig schema. De echte diept
 - [Elementen](create-uidefinition-elements.md)
 - [Functies](create-uidefinition-functions.md)
 
-Een huidige JSON-schema voor createUiDefinition is hier beschikbaar: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+Een huidige JSON-schema voor createUiDefinition is hier beschikbaar: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Latere versies zijn beschikbaar op dezelfde locatie. Vervang de `0.1.2-preview` deel van de URL en de `version` waarde met de versie-id die u wilt gebruiken. De ondersteunde versie-id's `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, en `0.1.2-preview`.
+Zie voor een voorbeeld van de interface gebruikersbestand [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

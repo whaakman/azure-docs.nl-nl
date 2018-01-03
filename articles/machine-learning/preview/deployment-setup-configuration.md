@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -84,10 +84,12 @@ Wanneer de omgeving-installatie te voltooien:
 - U wordt gevraagd tijdens het verificatieproces voor een account te verifiëren met. Belangrijk: Selecteer een account met een geldige Azure-abonnement en voldoende machtigingen voor het maken van resources in het account. - Als het aanmelden voltooid is, uw abonnementsgegevens wordt weergegeven en u wordt gevraagd of u doorgaan wilt met de geselecteerde account.
 
 ### <a name="environment-setup"></a>Instellen van de omgeving
-Om het installatieproces start, moet u de omgeving-provider geregistreerd met de volgende opdracht:
+Om het installatieproces start, moet u enkele omgeving providers registreren door te voeren van de volgende opdrachten:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Lokale implementatie
 Als u wilt implementeren en testen van uw web-service op de lokale computer, instellen van een lokale omgeving met de volgende opdracht. Naam van de resourcegroep is optioneel.

@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Een product maken en publiceren  
 
@@ -55,11 +55,11 @@ In deze zelfstudie leert u het volgende:
     |Beschrijving|De **beschrijving** veld kunt u gedetailleerde informatie over het product zoals het doel en de API's die u toegang tot krijgt andere nuttige informatie.|
     |Status|Druk op **gepubliceerde** als u wilt publiceren van het product. Voordat de API's in een product kan worden aangeroepen, moet het product worden gepubliceerd. Standaard nieuwe producten zijn niet gepubliceerd en zijn alleen zichtbaar voor de **beheerders** groep.|
     |Goedkeuring vereist|Controleer **goedkeuring abonnement vereisen** als u wilt dat een beheerder om te bekijken en accepteren of weigeren abonnementspogingen voor dit product. Als het selectievakje ingeschakeld is, worden abonnementspogingen automatisch goedgekeurd. |
-    |Limiet voor het aantal abonnement|Beperk het aantal meerdere gelijktijdige abonnementen, voer de limiet voor het abonnement. |
+    |Limiet voor het aantal abonnementen|Beperk het aantal meerdere gelijktijdige abonnementen, voer de limiet voor het abonnement. |
     |Juridische voorwaarden|U kunt de gebruiksvoorwaarden voor het product welke abonnees accepteren moeten om te kunnen gebruiken van het product kunt opnemen.|
     |API's|Producten zijn de koppelingen van een of meer API's. U kunt een aantal API's en ze bieden voor ontwikkelaars via de portal voor ontwikkelaars. <br/> U kunt een bestaande API toevoegen tijdens het maken van het product. U kunt een API toevoegen aan het product later vanuit de producten **instellingen** pagina of tijdens het maken van een API.|<br/>Ontwikkelaars zich eerst abonneren op een product ze toegang krijgen tot de API. Wanneer ze zich abonneert, krijgen ze een abonnementssleutel die geschikt is voor API in dat product.<br/> Als u de APIM exemplaar gemaakt, bent u een beheerder al, zodat u bent geabonneerd op elk product standaard.|
 
-3. Klik op **opslaan** voor het maken van het nieuwe product.
+3. Klik op **maken** voor het maken van het nieuwe product.
 
 ### <a name="add-more-configurations"></a>Voeg meer configuraties
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Verwerken geplande onderhoud meldingen voor virtuele machines van Windows
 
@@ -56,9 +56,7 @@ De volgende richtlijnen moeten u helpen te beslissen of u moet deze functie gebr
 
 Selfservice onderhoud wordt niet aanbevolen voor implementaties met **beschikbaarheidssets** aangezien deze maximaal beschikbare instellingen zijn waar slechts één updatedomein is van invloed op een bepaald moment. 
     - Laat het onderhoud van Azure trigger, maar houd er rekening mee dat de volgorde van update-domeinen die worden beïnvloed noodzakelijkerwijs niet opeenvolgend gebeurt en of er een pauze van 30 minuten tussen domeinen van de update.
-    - Als een tijdelijke verlies van een deel van de capaciteit van de (aantal 1-update) een probleem is, kan het eenvoudig worden gecompenseerd door toevoeging exemplaren toewijzen tijdens de onderhoudsperiode. 
-
-**Geen** onderhoud selfservice gebruiken in de volgende scenario's: 
+    - Als een tijdelijke verlies van een deel van de capaciteit van de (aantal 1-update) een probleem is, het kan eenvoudig worden gecompenseerd door toevoeging exemplaren toewijzen tijdens de onderhoudsperiode **niet** onderhoud selfservice gebruiken in de volgende scenario's: 
     - Als u uw VM's vaak afsluit hetzij handmatig, DevTest labs, met behulp van automatisch afsluiten of een planning te volgen met deze kan herstel de onderhoudsstatus en daarom leiden tot extra uitvaltijd.
     - Op de tijdelijke virtuele machines waarvan u weet dat vóór het einde van het onderhoud wave worden verwijderd. 
     - Voor werkbelastingen met een grote status opgeslagen in de lokale (tijdelijke) schijf dat nodig is om te worden gehouden tijdens het bijwerken. 
@@ -93,8 +91,8 @@ De volgende eigenschappen worden onder MaintenanceRedeployStatus geretourneerd:
 | IsCustomerInitiatedMaintenanceAllowed | Hiermee wordt aangegeven of u onderhoudsmodus op de virtuele machine op dit moment starten kunt ||
 | PreMaintenanceWindowStartTime         | Het begin van het selfservice onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
 | PreMaintenanceWindowEndTime           | Het einde van het selfservice onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
-| MaintenanceWindowStartTime            | Het begin van het geplande onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
-| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster wanneer u de onderhoudsmodus op de virtuele machine starten kunt ||
+| MaintenanceWindowStartTime            | Het begin van het geplande onderhoud waarin Azure onderhoud op de virtuele machine initieert ||
+| MaintenanceWindowEndTime              | Het einde van het geplande onderhoudsvenster waarin Azure onderhoud op de virtuele machine initieert ||
 | LastOperationResultCode               | Het resultaat van de laatste poging tot het onderhoud op de virtuele machine starten ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Zie voor meer informatie over hoge beschikbaarheid, [regio's en de beschikbaarhe
 
 **V: hoe lang duurt het voordat u Mijn virtuele machine opnieuw opstarten?**
 
-**A:** afhankelijk van de grootte van uw virtuele machine opnieuw opstarten kan enkele minuten duren. Houd er rekening mee dat als u Cloud-Services (Web/Worker-rol), virtuele Machine Scale ingesteld of beschikbaarheidssets gebruikt, u 30 minuten tussen elke groep van virtuele machines (UD krijgt). 
+**A:** afhankelijk van de grootte van uw virtuele machine opnieuw opstarten kan enkele minuten duren tijdens het Self-service onderhoudsvenster. Tijdens de Azure gestart opnieuw wordt opgestart in het venster voor geplande onderhoud, de opnieuw opstarten wordt typicall nemen ongeveer 25 minuten. Houd er rekening mee dat als u Cloud-Services (Web/Worker-rol), virtuele Machine Scale ingesteld of beschikbaarheidssets gebruikt, u 30 minuten tussen elke groep van virtuele machines (UD) tijdens het geplande onderhoudsvenster krijgt. 
 
 **V: Wat is de ervaring in het geval van Cloud-Services (Web/Worker-rol), Service Fabric en virtuele-Machineschaalsets?**
 

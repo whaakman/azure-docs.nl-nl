@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Foutberichten van de NPS-extensie voor Azure multi-factor Authentication oplossen
 
@@ -106,9 +106,10 @@ Als uw gebruikers zijn [problemen hebt met verificatie in twee stappen](./end-us
 
 Als u meer hulp nodig hebt, neem dan contact op met een supportmedewerker via [ondersteuning van Azure multi-factor Authentication-Server](https://support.microsoft.com/oas/default.aspx?prid=14947). Wanneer u contact met ons, is het handig als u zo veel mogelijk gegevens over uw probleem mogelijk kunt opnemen. Informatie die u kunt opgeven bevat de pagina waar u de fout, de specifieke foutcode hebt gezien de specifieke sessie-ID, de ID van de gebruiker die de fout hebt gezien en logboeken voor foutopsporing.
 
-Gebruik de volgende stappen voor het verzamelen van Logboeken voor foutopsporing voor ondersteuning van diagnostische gegevens: 
+Gebruik de volgende stappen uit op de NPS-server voor het verzamelen van Logboeken voor foutopsporing voor ondersteuning van diagnostische gegevens:
 
-1. Open een opdrachtprompt als Administrator en voer deze opdrachten uit:
+1. Open de Register-Editor en blader naar HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** naar **TRUE**
+2. Open een opdrachtprompt als Administrator en voer deze opdrachten uit:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Gebruik de volgende stappen voor het verzamelen van Logboeken voor foutopsporing
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Reproduceer het probleem
+3. Reproduceer het probleem
 
-3. Stop de tracering met de volgende opdrachten:
+4. Stop de tracering met de volgende opdrachten:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Gebruik de volgende stappen voor het verzamelen van Logboeken voor foutopsporing
    Start .
    ```
 
-4. De inhoud van de map C:\NPS ZIP en koppelt u het ZIP-bestand aan de ondersteuningsaanvraag.
+5. Open de Register-Editor en blader naar HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** naar **FALSE**
+6. De inhoud van de map C:\NPS ZIP en koppelt u het ZIP-bestand aan de ondersteuningsaanvraag.
 
 

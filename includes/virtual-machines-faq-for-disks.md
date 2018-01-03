@@ -137,7 +137,7 @@ Ja, kunt u failover naar een virtuele machine met schijven beheerd.
 
 **Is er invloed van de migratie op Azure Virtual machines beveiligd door Azure Site Recovery (ASR) via replicatie van Azure naar Azure?**
 
-Ja. ASR Azure-Azure-beveiliging wordt niet ondersteund voor virtuele machines met schijven beheerd. Deze gaat worden ondersteund door het einde van CY2018. 
+Ja. ASR Azure-Azure-beveiliging wordt niet ondersteund voor virtuele machines met schijven beheerd. Deze gaat worden ondersteund door het einde van W1 CY2018. 
 
 **Kan ik virtuele machines migreren met niet-beheerde schijven die zich bevinden op opslagaccounts die zijn of die eerder zijn versleuteld met beheerde schijven?**
 

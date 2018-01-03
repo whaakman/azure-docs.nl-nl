@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>How to: migreren en publiceren van webtoepassingen met een Azure-Cloud-Service vanuit Visual Studio
 
@@ -29,7 +29,7 @@ Als u wilt profiteren van de hosting-services en schalen van de mogelijkheid van
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Een project met cloud-services migreren
 
-1. Met de rechtermuisknop op het webtoepassingsproject en selecteer **converteren > converteren naar Microsoft Azure-Cloudserviceproject**. (Dat met deze opdracht wordt niet weergegeven als er al een rol webproject in de oplossing.)
+1. Met de rechtermuisknop op het webtoepassingsproject en selecteer **converteren > converteren naar Microsoft Azure-Cloudserviceproject**. (Houd er rekening mee dat deze opdracht niet weergegeven wordt als er al een rol webproject in de oplossing.)
 1. Visual Studio maakt een cloudserviceproject in de oplossing die de vereiste Webrol bevat. De naam van dit project is hetzelfde als uw toepassingsproject met plus het achtervoegsel `.Azure`.
 1. Visual Studio worden ook de **lokale kopie** eigenschap in op true voor assembly's die vereist voor de MVC-2, 3 MVC, MVC 4 en Silverlight Business-toepassingen zijn. Deze eigenschap voegt deze assembly's toe aan het servicepakket dat wordt gebruikt voor implementatie.
 

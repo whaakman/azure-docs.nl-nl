@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler van de extensie Azure Desired State Configuration
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,11 +37,9 @@ Dit artikel bevat de extensie PowerShell Desired State Configuration (DSC) voor 
 ## <a name="terms-and-concepts"></a>Termen en begrippen
 Deze handleiding wordt ervan uitgegaan bekend bent met de volgende concepten:
 
-Configuratie: een document DSC-configuratie. 
-
-Knooppunt - doel voor een DSC-configuratie. In dit document verwijst 'knooppunt' altijd naar een Azure VM.
-
-Configuratie - een .psd1 gegevensbestand met milieu gegevens voor een configuratie
+* **Configuratie** -document van een DSC-configuratie. 
+* **Knooppunt** -doel voor een DSC-configuratie. In dit document verwijst 'knooppunt' altijd naar een Azure VM.
+* **Configuratiegegevens** : een .psd1 gegevensbestand omgeving voor een configuratie
 
 ## <a name="architectural-overview"></a>Overzicht van architectuur
 De extensie Azure DSC maakt gebruik van het framework Azure VM-Agent te leveren, nemen en een rapport over DSC-configuraties die zijn uitgevoerd op Azure Virtual machines. De DSC-extensie verwacht een ZIP-bestand met ten minste een configuratie-document en een set parameters die worden geleverd via de SDK van Azure PowerShell of via de Azure-portal.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Logboekregistratie
 Logboekbestanden worden opgeslagen:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.PowerShell.DSC\[versienummer]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 Voor meer informatie over PowerShell DSC [gaat u naar de PowerShell-documentatiecentrum](https://msdn.microsoft.com/powershell/dsc/overview). 

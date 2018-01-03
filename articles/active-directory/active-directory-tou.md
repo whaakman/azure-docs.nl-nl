@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory Gebruiksrechtovereenkomst (preview)
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties gegevens kunnen presenteren aan eindgebruikers.  Deze methode zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen.
@@ -52,14 +52,16 @@ Wanneer u uw gebruiksrechtovereenkomst hebt voltooid, gebruikt u de volgende pro
 ### <a name="to-add-terms-of-use"></a>Gebruiksrechtovereenkomst toevoegen
 1. Ga naar het dashboard op [https://aka.ms/catou](https://aka.ms/catou)
 2. Klik op Toevoegen.</br>
-![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/tou2.png)
+![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/tou12.png)
 3. Voer de **Naam** in voor de gebruiksrechtovereenkomst
 4. Voer de **Weergavenaam** in.  Dit is de koptekst die gebruikers te zien krijgen wanneer ze zich aanmelden.
 5. **Blader** naar de PDF met uw voltooide gebruiksrechtovereenkomst en selecteer deze.  De aanbevolen tekengrootte is 24.
-6. U kunt de geüploade gebruiksrechtovereenkomst **afdwingen** door een sjabloon of beleid voor aangepaste voorwaardelijke toegang te gebruiken.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](active-directory-conditional-access-best-practices.md) voor meer informatie
-7. Klik op **Maken**.
-8. Als u een sjabloon voor aangepaste voorwaardelijke toegang hebt geselecteerd, kunt u in een volgend scherm het CA-beleid aanpassen.
-7. Nu wordt uw nieuwe gebruiksrechtovereenkomst weergegeven.</br>
+6. **Selecteer** een taal voor de gebruiksvoorwaarden.  Via de taaloptie kunt u meerdere gebruiksvoorwaarden uploaden, elk met een andere taal.  Welke versie van de gebruiksvoorwaarden aan een eindgebruiker wordt weergegeven, is gebaseerd op de browservoorkeuren.
+7. Schakel de optie **Gebruikers verplichten de gebruiksvoorwaarden uit te vouwen** in of uit.  Als deze optie is ingeschakeld, moeten eindgebruikers de gebruiksvoorwaarden bekijken alvorens deze te accepteren.
+8. In de sectie **Voorwaardelijke toegang** kunt u de geüploade gebruiksrechtovereenkomst **afdwingen** door een sjabloon of beleid voor aangepaste voorwaardelijke toegang te gebruiken.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](active-directory-conditional-access-best-practices.md) voor meer informatie
+9. Klik op **Maken**.
+10. Als u een sjabloon voor aangepaste voorwaardelijke toegang hebt geselecteerd, kunt u in een volgend scherm het CA-beleid aanpassen.
+11. Nu wordt uw nieuwe gebruiksrechtovereenkomst weergegeven.</br>
 
 ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Gebruikers binnen het bereik krijgen het volgende te zien op het moment dat een 
 ![Controlegebeurtenis](media/active-directory-tou/tou10.png)
 -   Op een mobiele telefoon wordt dit scherm weergegeven</br></br>
 ![Controlegebeurtenis](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Gebruiksvoorwaarden controleren
+Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren en inzien.  Dit kan via de volgende procedure:
+
+1. Navigeer naar [https://myapps.microsoft.com](https://myapps.microsoft.com) en meld u aan.
+2. Klik in de rechterbovenhoek op uw naam en selecteer **Profiel** in de vervolgkeuzelijst.
+![Profiel](media/active-directory-tou/tou14.png)
+
+3. Klik in uw profiel op **Gebruiksvoorwaarden controleren**.
+![Controlegebeurtenis](media/active-directory-tou/tou13a.png)
+
+4.  Vanaf hier kunt u de gebruiksvoorwaarden bekijken die u hebt geaccepteerd. 
+
 
 ## <a name="additional-information"></a>Aanvullende informatie
 Hier volgt informatie waarvan u zich bewust moet zijn en die nuttig kan zijn bij het gebruik van een gebruiksrechtovereenkomst.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1fbfbbc79a415af5e874c304412854849e134eb7
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Automatisch schalen van een virtuele-machineschaalset ingesteld met Azure PowerShell
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren die u wilt uitvoeren. Als uw toepassing vraag verandert, kunt u automatisch vergroten of verkleinen van het aantal VM-exemplaren. De mogelijkheid om te schalen kunt u met de vraag van klanten houden of reageren op wijzigingen in de toepassingsprestaties gedurende de levenscyclus van uw app.
@@ -28,7 +28,7 @@ In dit artikel leest u hoe automatisch schalen om regels te maken met Azure Powe
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het maken van regels voor automatisch schalen, moet u een bestaande virtuele machine schaalset. U kunt een instellen met schaal maken de [Azure-portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell), of [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+Voor het maken van regels voor automatisch schalen, moet u een bestaande virtuele machine schaalset. U kunt een instellen met schaal maken de [Azure-portal](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), of [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
 
 Zodat het eenvoudiger te maken van de regels voor automatisch schalen, het definiëren van sommige variabelen voor uw scale set. Het volgende voorbeeld definieert de variabelen voor de set met de naam scale *myScaleSet* in de resourcegroep met de naam *myResourceGroup* en in de *VS-Oost* regio. Uw abonnement ID wordt verkregen met [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Als u meerdere abonnementen die zijn gekoppeld aan uw account hebt, wordt alleen het eerste abonnement geretourneerd. De namen en de abonnements-ID als volgt aanpassen:
 
@@ -49,9 +49,9 @@ De volgende parameters worden gebruikt voor deze regel:
 
 | Parameter               | Uitleg                                                                                                         | Waarde          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-| *-MetricName*           | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | CPU-percentage |
+| *-MetricName*           | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | Percentage CPU |
 | *-TimeGrain*            | Hoe vaak de metrische gegevens worden verzameld voor analyse.                                                                   | 1 minuut       |
-| *-MetricStatistic*      | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddelde        |
+| *-MetricStatistic*      | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddeld        |
 | *-Waarde voor TimeWindow*           | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten      |
 | *-Operator*             | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                     | Groter dan   |
 | *-Drempelwaarde*            | De waarde zorgt ervoor dat de regel voor automatisch schalen voor het activeren van een actie.                                                      | 70%            |

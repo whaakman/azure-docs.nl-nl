@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Een beperkte taak uitvoeren in Azure Containerexemplaren
 
@@ -20,7 +20,7 @@ Het gemak en de snelheid van de implementatie van containers in Azure Containere
 
 U kunt opgeven dat uw containers zijn gestopt wanneer hun processen zijn voltooid met een beleid configureerbare opnieuw opstarten. Omdat containerexemplaren worden gefactureerd door het tweede, bent u in rekening gebracht alleen voor de rekenresources gebruikt terwijl de container voor het uitvoeren van de taak wordt uitgevoerd.
 
-De voorbeelden weergegeven in dit artikel de Azure CLI. Hebt u Azure CLI versie 2.0.21 of hoger [lokaal geïnstalleerd](/cli/azure/install-azure-cli), of gebruik de CLI in de [Azure Cloud Shell](../cloud-shell/overview.md).
+De voorbeelden weergegeven in dit artikel de Azure CLI. Hebt u Azure CLI versie 2.0.21 of hoger [lokaal geïnstalleerd][azure-cli-install], of gebruik de CLI in de [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Beleid voor opnieuw opstarten van container
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Uitvoeren als voorbeeld voor voltooiing
 
-Als u wilt een beleid voor het opnieuw opstarten in actie zien, maakt u een exemplaar van de container van de [aci-microsoft-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) installatiekopie en geef de `OnFailure` beleid opnieuw opstarten. Deze container voorbeeld wordt uitgevoerd een pythonscript dat standaard de tekst van de Shakespeare analyseert [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), schrijft de 10 meest voorkomende woorden naar STDOUT en vervolgens wordt afgesloten.
+Als u wilt een beleid voor het opnieuw opstarten in actie zien, maakt u een exemplaar van de container van de [aci-microsoft-wordcount] [ aci-wordcount-image] installatiekopie en geef de `OnFailure` beleid opnieuw opstarten. Deze container voorbeeld wordt uitgevoerd een pythonscript dat standaard de tekst van de Shakespeare analyseert [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), schrijft de 10 meest voorkomende woorden naar STDOUT en vervolgens wordt afgesloten.
 
 Voer de voorbeeld-container met de volgende [az container maken] [ az-container-create] opdracht:
 
@@ -168,7 +168,11 @@ Uitvoer:
 
 Zie voor meer informatie over het behouden van de uitvoer van de containers die voor uitvoering [koppelen van een Azure-bestandsshare met Azure Containerexemplaren](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

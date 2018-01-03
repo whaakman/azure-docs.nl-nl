@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Werken met Azure Functions-proxy 's
 
@@ -50,13 +50,13 @@ U kunt met Azure Functions-proxy's, aanvragen en antwoorden van de back-end wijz
 
 Standaard wordt de back-end-aanvraag geïnitialiseerd als een kopie van de oorspronkelijke aanvraag. Naast het instellen van de back-end-URL, kunt u wijzigingen aanbrengt aan de HTTP-methode, kopteksten en queryreeksparameters. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen] en [parameters van de aanvraag van de oorspronkelijke client].
 
-Er is momenteel geen portal ervaring voor het wijzigen van de back-end-aanvragen. Zie voor meer informatie over het toepassen van deze mogelijkheid van proxies.json, [definiëren van een object requestOverrides].
+Er is momenteel geen portal ervaring voor het wijzigen van de back-end-aanvragen. Voor informatie over het toepassen van deze mogelijkheid van *proxies.json*, Zie [definiëren van een object requestOverrides].
 
 ### <a name="modify-response"></a>Het antwoord worden gewijzigd
 
 Het antwoord van de client wordt standaard geïnitialiseerd als een kopie van het back-end-antwoord. U kunt wijzigingen aanbrengen statuscode, reden, kopteksten en hoofdtekst van het antwoord. De gewijzigde waarden kunnen verwijzen naar [toepassingsinstellingen], [parameters van de aanvraag van de oorspronkelijke client], en [parameters uit het antwoord van de back-end].
 
-Er is momenteel geen portal ervaring voor het wijzigen van antwoorden. Zie voor meer informatie over het toepassen van deze mogelijkheid van proxies.json, [definiëren van een object responseOverrides].
+Er is momenteel geen portal ervaring voor het wijzigen van antwoorden. Voor informatie over het toepassen van deze mogelijkheid van *proxies.json*, Zie [definiëren van een object responseOverrides].
 
 ## <a name="using-variables"></a>Variabelen gebruiken
 
@@ -84,7 +84,7 @@ Antwoord parameters kunnen worden gebruikt als onderdeel van het wijzigen van he
 
 * **{backend.response.statusCode}** : De HTTP-statuscode die op de back-end-antwoord wordt geretourneerd.
 * **{backend.response.statusReason}** : De HTTP-reden dat wordt geretourneerd van het back-end-antwoord.
-* **{backend.response.headers. \<HeaderName is opgeslagen\>}**: een koptekst die kan worden gelezen uit het antwoord van de back-end. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt lezen. Als de header niet in de aanvraag opgenomen is, wordt de waarde een lege tekenreeks zijn.
+* **{backend.response.headers. \<HeaderName is opgeslagen\>}**: een koptekst die kan worden gelezen uit het antwoord van de back-end. Vervang  *\<HeaderName is opgeslagen\>*  met de naam van de header die u wilt lezen. Als de header niet in het antwoord opgenomen is, wordt de waarde een lege tekenreeks zijn.
 
 ### <a name="use-appsettings"></a>Toepassingsinstellingen-verwijzing
 
@@ -97,12 +97,12 @@ Bijvoorbeeld, een back-end-URL van *https://%ORDER_PROCESSING_HOST%/api/orders* 
 
 ## <a name="advanced-configuration"></a>Geavanceerde configuratie
 
-De proxy's die u configureert, worden opgeslagen in een bestand proxies.json, dat in de hoofdmap van een functie app-map bevindt zich. U kunt handmatig bewerken van dit bestand en implementeren als onderdeel van uw app als u een van de [implementatiemethoden](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) die functies worden ondersteund. De functie moet [ingeschakeld](#enable) het bestand moet worden verwerkt. 
+De proxy's die u configureert, worden opgeslagen in een *proxies.json* bestand, dat in de hoofdmap van een functie app-map bevindt zich. U kunt handmatig bewerken van dit bestand en implementeren als onderdeel van uw app als u een van de [implementatiemethoden](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) die functies worden ondersteund. De functie Azure Functions-proxy's moet [ingeschakeld](#enable) het bestand moet worden verwerkt. 
 
 > [!TIP] 
-> Als u geen hebt ingesteld een van de methoden voor het implementeren, kunt u ook werken met het bestand proxies.json in de portal. Ga naar de functie-app, selecteer **platformfuncties**, en selecteer vervolgens **App Service-Editor**. Door dit te doen, kunt u de volledige structuur van uw app functie weergeven en brengt wijzigingen.
+> Als u geen hebt ingesteld een van de methoden voor het implementeren, kunt u ook werken met de *proxies.json* bestand in de portal. Ga naar de functie-app, selecteer **platformfuncties**, en selecteer vervolgens **App Service-Editor**. Door dit te doen, kunt u de volledige structuur van uw app functie weergeven en brengt wijzigingen.
 
-Proxies.JSON wordt gedefinieerd door een object proxy's, die bestaan uit benoemde proxy's en de bijbehorende definities. Eventueel, als uw editor ondersteunt, kunt u verwijzen naar een [JSON-schema](http://json.schemastore.org/proxies) voor de codevoltooiing. Een voorbeeld van een bestand kan er als volgt uitzien:
+*Proxies.JSON* wordt gedefinieerd door een object proxy's, die bestaan uit benoemde proxy's en de bijbehorende definities. Eventueel, als uw editor ondersteunt, kunt u verwijzen naar een [JSON-schema](http://json.schemastore.org/proxies) voor de codevoltooiing. Een voorbeeld van een bestand kan er als volgt uitzien:
 
 ```json
 {
@@ -129,7 +129,7 @@ Elke proxy heeft een beschrijvende naam, zoals *proxy1* in het voorgaande voorbe
 * **responseOverrides**: een object dat transformaties aan de reactie van de client bepaalt. Zie [definiëren van een object responseOverrides].
 
 > [!NOTE] 
-> De eigenschap route Azure Functions-proxy's worden niet door de eigenschap routePrefix van de host-configuratie van functies. Als u opnemen een voorvoegsel zoals /api wilt, moet worden opgenomen in de route-eigenschap.
+> De *route* eigenschap in de Azure Functions-proxy's worden niet door de *routePrefix* eigenschap van de configuratie van de host functie-App. Als u wilt opnemen een voorvoegsel zoals `/api`, moeten worden opgenomen in de *route* eigenschap.
 
 ### <a name="requestOverrides"></a>Een object requestOverrides definiëren
 
@@ -193,7 +193,7 @@ Een voorbeeldconfiguratie kan er als volgt uitzien:
 }
 ```
 > [!NOTE] 
-> In dit voorbeeld wordt de instantie wordt ingesteld rechtstreeks, dus er is geen `backendUri` eigenschap nodig is. Het voorbeeld ziet hoe u Azure Functions-proxy's kunt gebruiken voor mocking API's.
+> In dit voorbeeld wordt de antwoordtekst is ingesteld rechtstreeks, dus er is geen `backendUri` eigenschap nodig is. Het voorbeeld ziet hoe u Azure Functions-proxy's kunt gebruiken voor mocking API's.
 
 ## <a name="enable"></a>Azure Functions-proxy's inschakelen
 

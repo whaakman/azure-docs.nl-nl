@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Web-apps configureren in Azure App Service
+
 In dit onderwerp wordt uitgelegd hoe u een app met de [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -45,6 +46,8 @@ Omwille van de technische Java inschakelen voor uw app .NET, PHP en Python worde
 
 <a name="platform"></a>
 **Platform**. Hiermee selecteert u of uw web-app wordt uitgevoerd in een 32-bits of 64-bits-omgeving. De 64-bits-omgeving vereist Basic- of Standard-modus. Gratis en gedeelde modi altijd uitgevoerd in een 32-bits-omgeving.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web-Sockets**. Ingesteld **ON** zodat het WebSocket-protocol; bijvoorbeeld, als uw web-app gebruikt [ASP.NET SignalR] of [socket.io](https://socket.io/).
 
@@ -120,7 +123,7 @@ Als u wilt weergeven van de logboekbestanden, moet u referenties van de FTP-, al
 
 ![Implementatiereferenties instellen][configure03]
 
-De volledige naam van de FTP-gebruiker is 'app\username' waar *app* is de naam van uw web-app. De gebruikersnaam wordt vermeld in de blade web-app onder **Essentials**.  
+De volledige naam van de FTP-gebruiker is 'app\username' waar *app* is de naam van uw web-app. De gebruikersnaam wordt vermeld in de blade web-app onder **Essentials**.
 
 ![FTP-implementatiereferenties][configure02]
 
@@ -147,7 +150,7 @@ In de Basic- of Standard-modus, kunt u de beschikbaarheid van HTTP of HTTPS-eind
 Zie voor meer informatie [hoe: website-eindpunt Monitorstatus].
 
 > [!NOTE]
-> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen]. Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u doet geen toezeggingen.
+> Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen]. Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.
 > 
 > 
 

@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: e18645667cfb126ae2f2f9c8074fdcff5a6ade1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database-server- en databaseniveau firewall-regels 
 
@@ -45,6 +45,10 @@ Verbindingspogingen van internet en Azure moeten eerst de firewall passeren voor
 * **Databaseniveau firewallregels:** deze regels kunnen clients toegang tot bepaalde (beveiligde) databases binnen dezelfde logische server. U kunt deze regels voor elke database maken (inclusief de **master** database) en ze worden opgeslagen in de afzonderlijke databases. Databaseniveau firewallregels voor hoofd- en -databases kunnen alleen worden gemaakt en beheerd met behulp van Transact-SQL-instructies en pas nadat u de firewall van het eerste niveau van de server hebt geconfigureerd. Als u in de firewallregel op databaseniveau een IP-adresbereik opgeeft dat buiten het bereik ligt dat is opgegeven in de firewallregel op serverniveau, kunnen alleen clients met IP-adressen in het bereik op databaseniveau toegang krijgen tot de database. U kunt voor een database maximaal 128 firewallregels op databaseniveau opgeven. Zie voor meer informatie over het configureren van de firewallregel op databaseniveau regels in het voorbeeld verderop in dit artikel en Zie [sp_set_database_firewall_rule (Azure SQL-Databases)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Aanbeveling:** voor een grotere veiligheid en om uw database draagbaarder te maken, adviseert Microsoft om zo veel mogelijk gebruik te maken van firewallregels op databaseniveau. Gebruik firewallregels op serverniveau voor beheerders en wanneer u veel databases met dezelfde toegangsvereisten hebt en u niet elke database afzonderlijk wilt configureren.
+
+> [!Important]
+> Windows Azure SQL Database ondersteunt maximaal 128 firewallregels.
+>
 
 > [!Note]
 > Voor meer informatie over draagbare databases in de context van bedrijfscontinuïteit raadpleegt u [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md) (Verificatievereisten voor herstel na noodgevallen).

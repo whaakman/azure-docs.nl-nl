@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Een database in SQL Data Warehouse beveiligen
 > [!div class="op_single_selector"]
@@ -35,11 +35,11 @@ Dit artikel helpt bij de basisprincipes van beveiliging van uw Azure SQL Data Wa
 ## <a name="connection-security"></a>Verbindingsbeveiliging
 Verbindingsbeveiliging verwijst naar de manier waarop u verbindingen met uw database beperkt en beveiligt met behulp van firewallregels en verbindingsversleuteling.
 
-Firewallregels worden zowel door de server als de database gebruikt om verbindingspogingen van IP-adressen die niet expliciet zijn goedgekeurd te weigeren. Als u wilt toestaan verbindingen van uw toepassing of het openbare IP-adres client-computer, moet u eerst een firewallregel op serverniveau met behulp van de Azure Portal, REST-API of PowerShell maken. Als best practice moet u het IP-adresbereik dat is toegestaan door uw serverfirewall zoveel mogelijk beperken.  Voor toegang tot Azure SQL Data Warehouse vanaf uw lokale computer, zorg ervoor dat de firewall op uw netwerk en de lokale computer staat uitgaande communicatie op TCP-poort 1433.  Zie voor meer informatie [Azure SQL Database-firewall][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule], en [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Firewallregels worden zowel door de server als de database gebruikt om verbindingspogingen van IP-adressen die niet expliciet zijn goedgekeurd te weigeren. Als u wilt toestaan verbindingen van uw toepassing of het openbare IP-adres client-computer, moet u eerst een firewallregel op serverniveau met behulp van de Azure Portal, REST-API of PowerShell maken. Als best practice moet u het IP-adresbereik dat is toegestaan door uw serverfirewall zoveel mogelijk beperken.  Voor toegang tot Azure SQL Data Warehouse vanaf uw lokale computer, zorg ervoor dat de firewall op uw netwerk en de lokale computer staat uitgaande communicatie op TCP-poort 1433.  Zie voor meer informatie [Azure SQL Database-firewall][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
 Verbindingen met uw SQL Data Warehouse zijn standaard versleuteld.  Verbindingsinstellingen aanpassen om uit te schakelen van versleuteling worden genegeerd.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Verificatie verwijst naar hoe u uw identiteit bewijst bij het maken van verbinding met de database. SQL Data Warehouse biedt momenteel ondersteuning voor SQL Server-verificatie met een gebruikersnaam en wachtwoord en een Azure Active Directory. 
 
 Wanneer u de logische server voor uw database hebt gemaakt, hebt u een aanmelding 'serverbeheerder' opgegeven met een gebruikersnaam en wachtwoord. Deze referenties gebruikt, kunt u verifiëren met een database op die server als de database-eigenaar of 'dbo' via SQL Server-verificatie.
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Het serverbeheerdersaccount waarmee u verbinding maakt is lid van db_owner, die geautoriseerd is om alle bewerkingen binnen de database uit te voeren. Gebruik dit account voor het implementeren van schema-updates en andere beheerbewerkingen. Gebruik het 'ApplicationUser'-account met beperktere machtigingen om vanuit van uw toepassing verbinding te maken met de database met de minste bevoegdheden die nodig zijn voor uw toepassing.
 
-Er zijn manieren om verder te beperken wat een gebruiker met Azure SQL Database kan doen:
+Er zijn manieren verder te beperken wat een gebruiker kan doen met Azure SQL Data Warehouse:
 
-* Gedetailleerde [machtigingen] [ Permissions] kunt u beheren welke bewerkingen kunt u op afzonderlijke kolommen, tabellen, weergaven, procedures en andere objecten in de database. Gebruik gedetailleerde machtigingen in de meeste controle hebt en de minimaal benodigde machtiging verlenen. Het systeem gedetailleerde machtiging is erg ingewikkeld en waarvoor sommige onderzoek effectief gebruiken.
+* Gedetailleerde [machtigingen] [ Permissions] kunt u beheren welke bewerkingen kunt u op afzonderlijke kolommen, tabellen, weergaven, schema's, procedures en andere objecten in de database. Gebruik gedetailleerde machtigingen in de meeste controle hebt en de minimaal benodigde machtiging verlenen. Het systeem gedetailleerde machtiging is erg ingewikkeld en waarvoor sommige onderzoek effectief gebruiken.
 * [Databaserollen] [ Database roles] andere dan db_datareader en db_datawriter kunnen worden gebruikt om krachtigere gebruikersaccounts van de toepassing of minder krachtige de accounts te maken. De ingebouwde vaste databaserollen bieden een eenvoudige manier om machtigingen te verlenen, maar kunnen ertoe leiden dat meer machtigingen worden dan nodig zijn.
 * [Opgeslagen procedures] [ Stored procedures] kan worden gebruikt om de acties die kunnen worden uitgevoerd op de database te beperken.
+
+Hieronder volgt een voorbeeld voor het verlenen van leestoegang tot een door de gebruiker gedefinieerde schema.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 Databases en logische servers beheren vanaf de Azure-portal of met behulp van de Azure Resource Manager-API wordt bepaald door uw portal gebruikersaccount roltoewijzingen. Zie voor meer informatie over dit onderwerp [toegangsbeheer op basis van rollen in Azure Portal][Role-based access control in Azure Portal].
 

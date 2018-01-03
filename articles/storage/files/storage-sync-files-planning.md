@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 69150acf483d776e8ecad6e5076a54675bff7439
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -28,10 +28,10 @@ Dit artikel bevat belangrijke aandachtspunten voor de implementatie van een Azur
 ## <a name="azure-file-sync-terminology"></a>Azure File-Sync-terminologie
 Voordat u in de details van de planning voor de implementatie van een Azure-bestand synchronisatie, is het belangrijk dat u de terminologie begrijpt.
 
-### <a name="storage-sync-service"></a>Opslag Sync-Service
+### <a name="storage-sync-service"></a>Opslagsynchronisatieservice
 De Storage-Sync-Service is op het hoogste niveau Azure-resource voor Azure File-synchronisatie. De resource-opslag-Sync-Service is geen peer van de account opslagbronnen en kan op dezelfde manier worden geïmplementeerd op Azure-resourcegroepen. Een afzonderlijke op het hoogste niveau resource uit de bron van storage-account is nodig omdat de Storage-Sync-Service kan de synchronisatierelaties met meerdere opslagaccounts via meerdere synchronisatiegroepen maken kunt. Een abonnement kan meerdere synchronisatie opslagservice resources geïmplementeerd hebben.
 
-### <a name="sync-group"></a>Groep voor synchronisatie
+### <a name="sync-group"></a>Synchronisatiegroep
 Een groep voor synchronisatie definieert de synchronisatie-topologie voor een set bestanden. Eindpunten in een groep voor synchronisatie zijn gesynchroniseerd met elkaar. Als u bijvoorbeeld twee verschillende sets van bestanden die u wilt beheren met het synchroniseren van Azure-bestand hebt, zou u twee synchronisatiegroepen maken en verschillende eindpunten toevoegen aan elke groep voor synchronisatie. Een opslag-Sync-Service kan zo veel synchronisatiegroepen behoefte hosten.  
 
 ### <a name="registered-server"></a>Geregistreerde server
@@ -57,10 +57,10 @@ Als u de locatie van een server met een bestaande set van bestanden als een serv
 Een cloudeindpunt is een Azure-bestandsshare die deel uitmaakt van een groep voor synchronisatie. De synchronisatie van de share volledige Azure-bestand en een Azure-bestandsshare kan een lid van slechts één cloudeindpunt zijn. Een Azure-bestandsshare kan dus een lid van slechts één groep voor synchronisatie. Als u een Azure-bestandsshare met een bestaande set van bestanden als een cloudeindpunt aan een groep voor synchronisatie toevoegt, worden de bestaande bestanden worden samengevoegd met andere bestanden die zich al op de andere eindpunten in de groep voor synchronisatie.
 
 > [!Important]  
-> Azure File-synchronisatie ondersteunt rechtstreeks aanbrengen van wijzigingen in de Azure-bestandsshare. Alle wijzigingen op de Azure-bestandsshare moeten echter eerst door een Azure bestand Sync-taak voor het detecteren van wijziging wordt gedetecteerd. Een wijziging detectie-taak wordt gestart voor een cloudeindpunt slechts eenmaal per 24 uur. Zie voor meer informatie [Veelgestelde vragen over Azure-bestanden](storage-files-faq.md#afs-change-detection).
+> Azure File-synchronisatie ondersteunt rechtstreeks aanbrengen van wijzigingen in de Azure-bestandsshare. Alle wijzigingen op de Azure-bestandsshare moeten echter eerst door een Azure bestand Sync-taak voor het detecteren van wijziging wordt gedetecteerd. Een wijziging detectie-taak wordt gestart voor een cloudeindpunt slechts eenmaal per 24 uur. Bovendien wijzigingen aangebracht in een Azure-bestandsshare via de REST-protocol wordt niet bijgewerkt door de SMB-laatst gewijzigd en zal niet worden gezien als een wijziging door synchronisatie. Zie voor meer informatie [Veelgestelde vragen over Azure-bestanden](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Cloudopslaglagen 
-Cloud tiering is een optionele functie van Azure bestand Sync waarin zelden gebruikt of gebruikte bestanden kunnen tiers worden verdeeld aan Azure-bestanden. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File-synchronisatie (StorageSync.sys) door het bestand lokaal een wijzer of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure-bestanden. Een gelaagde bestand heeft het 'offline' kenmerk is ingesteld in NTFS zodat toepassingen van derden gelaagde bestanden kunnen identificeren. Wanneer een gebruiker een gelaagde bestand opent, teruggehaald Azure bestand Sync bestandsgegevens uit Azure Files naadloos zonder dat de gebruiker hoeft te weten dat het bestand niet lokaal is opgeslagen op het systeem. Deze functionaliteit wordt ook wel hiërarchische opslag Management (HSM).
+Cloud tiering is een optionele functie van Azure bestand Sync waarin zelden gebruikt of de bestanden groter dan 64 KiB in grootte kan in tiers worden verdeeld aan Azure-bestanden zijn geopend. Wanneer een bestand is gelaagd, vervangen het bestandssysteemfilter van Azure File-synchronisatie (StorageSync.sys) door het bestand lokaal een wijzer of een reparsepunt. Het reparsepunt vertegenwoordigt een URL naar het bestand in Azure-bestanden. Een gelaagde bestand heeft het 'offline' kenmerk is ingesteld in NTFS zodat toepassingen van derden gelaagde bestanden kunnen identificeren. Wanneer een gebruiker een gelaagde bestand opent, teruggehaald Azure bestand Sync bestandsgegevens uit Azure Files naadloos zonder dat de gebruiker hoeft te weten dat het bestand niet lokaal is opgeslagen op het systeem. Deze functionaliteit wordt ook wel hiërarchische opslag Management (HSM).
 
 > [!Important]  
 > Cloud tiering wordt niet ondersteund voor server-eindpunten op de volumes van Windows-systeem.

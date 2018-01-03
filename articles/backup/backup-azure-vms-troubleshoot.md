@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Problemen oplossen met back-ups van virtuele Azure-machines
 U kunt er zijn fouten opgetreden tijdens het gebruik van Azure Backup met informatie die worden vermeld in de onderstaande tabel kunt oplossen.
 
-## <a name="backup"></a>Back-up
+## <a name="backup"></a>Back-up maken
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Fout: De opgegeven schijf-configuratie wordt niet ondersteund.
 
@@ -75,7 +75,7 @@ Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn
 | Annulering wordt niet ondersteund voor dit taaktype: wacht totdat de taak is voltooid. |Geen |
 | De taak is niet in een status Annuleerbare - wacht totdat de taak is voltooid. <br>OF<br> De geselecteerde taak is niet in een status Annuleerbare - wacht tot de taak te voltooien. |De taak is naar alle waarschijnlijkheid bijna voltooid. Wacht totdat de taak is voltooid.|
 | De taak annuleren niet omdat deze niet uitgevoerd is-deze annulering wordt alleen ondersteund voor taken die uitgevoerd worden. Annuleer van poging op een onderhanden taak. |Dit gebeurt als gevolg van een tijdelijke status. Wacht een paar minuten en probeer de annuleringsbewerking. |
-| Annuleer de taak - is mislukt. Wacht totdat de taak is voltooid. |Geen |
+| Annuleer de taak - is mislukt. Wacht totdat de taak is voltooid. |None |
 
 ## <a name="restore"></a>Herstellen
 | Foutdetails | Tijdelijke oplossing |
@@ -84,11 +84,11 @@ Momenteel schijfgrootten biedt geen ondersteuning voor Azure Backup [groter zijn
 | De geselecteerde DNS-naam is al in gebruik: Geef een andere DNS-naam en probeer het opnieuw. |De DNS-naam verwijst naar de naam van de cloudservice (meestal eindigend. cloudapp.net). Dit moet uniek zijn. Als deze fout optreedt, moet u een andere VM-naam kiezen tijdens het terugzetten. <br><br> Deze fout wordt alleen weergegeven op gebruikers van de Azure-portal. De herstelbewerking via PowerShell slaagt omdat deze alleen worden hersteld van de schijven en de virtuele machine niet maken. De fout wordt worden geconfronteerd wanneer de virtuele machine expliciet door u is gemaakt nadat de herstelbewerking van de schijf. |
 | De configuratie van de opgegeven virtuele netwerk is niet correct: Geef een ander virtueel netwerk-configuratie en probeer het opnieuw. |Geen |
 | De opgegeven cloudservice maakt gebruik van een gereserveerd IP-adres die komt niet overeen met de configuratie van de virtuele machine wordt hersteld - Geef een andere cloudservice, die niet van gereserveerde IP-adres gebruikmaakt, of kies een ander herstelpunt van herstellen. |Geen |
-| Cloudservice is bereikt voor het aantal invoer eindpunten: Voer de bewerking opnieuw uit door op te geven van een andere cloudservice of met behulp van een bestaand eindpunt. |Geen |
-| Back-kluis en doel storage-account zijn in twee verschillende regio's: Zorg ervoor dat het storage-account opgegeven in restore-bewerking in dezelfde Azure-regio als de back-upkluis. |Geen |
-| Storage-Account opgegeven voor de herstelbewerking niet is ondersteund - alleen Basic/Standard storage-accounts met lokaal redundante of geografisch redundante replicatie-instellingen worden ondersteund. Selecteer een ondersteunde storage-account |Geen |
+| Cloudservice is bereikt voor het aantal invoer eindpunten: Voer de bewerking opnieuw uit door op te geven van een andere cloudservice of met behulp van een bestaand eindpunt. |None |
+| Back-kluis en doel storage-account zijn in twee verschillende regio's: Zorg ervoor dat het storage-account opgegeven in restore-bewerking in dezelfde Azure-regio als de back-upkluis. |None |
+| Storage-Account opgegeven voor de herstelbewerking niet is ondersteund - alleen Basic/Standard storage-accounts met lokaal redundante of geografisch redundante replicatie-instellingen worden ondersteund. Selecteer een ondersteunde storage-account |None |
 | Type Opslagaccount dat is opgegeven voor de herstelbewerking is niet online - Zorg ervoor dat het storage-account opgegeven in restore-bewerking online is |Dit kan gebeuren vanwege een tijdelijke fout in Azure Storage of als gevolg van een storing. Kies een ander opslagaccount. |
-| Resourcegroep quotum is bereikt - Verwijder een aantal resourcegroepen van Azure portal of neem contact op met ondersteuning van Azure naar de limieten verhogen. |Geen |
+| Resourcegroep quotum is bereikt - Verwijder een aantal resourcegroepen van Azure portal of neem contact op met ondersteuning van Azure naar de limieten verhogen. |None |
 | Geselecteerde subnet bestaat niet: Selecteer een subnet dat bestaat |Geen |
 | De Backup-service heeft geen toegang tot resources in uw abonnement. |Om op te lossen, eerste herstellen schijven met stappen die worden vermeld in de sectie **terugzetten een back-up schijven** in [kiezen VM restore-configuratie](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Daarna Gebruik PowerShell-stappen die worden vermeld [een virtuele machine maken van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) volledige virtuele machine maken van herstelde schijven. |
 
@@ -131,7 +131,7 @@ Het controleren van de versie van het VM-Agent op VM's van Windows:
 VM-back-afhankelijk van de momentopnameopdrachten uitgeven naar de onderliggende opslag. Geen toegang hebben tot opslag- of vertragingen in uitvoering van een momentopname van de taak kan leiden tot de back-uptaak is mislukt. De volgende kan taakfout momentopname veroorzaken.
 
 1. Netwerktoegang tot opslag is geblokkeerd met behulp van de NSG<br>
-    Meer informatie over het [-netwerktoegang inschakelen](backup-azure-arm-vms-prepare.md#network-connectivity) voor opslag met beide WhiteListing van IP-adressen of proxyserver.
+    Meer informatie over het [-netwerktoegang inschakelen](backup-azure-arm-vms-prepare.md#establish-network-connectivity) voor opslag met beide WhiteListing van IP-adressen of proxyserver.
 2. Virtuele machines met Sql Server back-up is geconfigureerd, kunnen leiden tot vertragingen momentopname <br>
    Standaard VM back-up problemen VSS volledige back-up op VM's van Windows. Dit kan op virtuele machines die worden uitgevoerd op het Sql-Servers en als de back-up van Sql Server is geconfigureerd, vertraging veroorzaken in momentopname worden uitgevoerd. Stel volgende registersleutel als u mislukte back-ups vanwege momentopname problemen ondervindt.
 
@@ -163,7 +163,7 @@ Zodra de naamomzetting correct is uitgevoerd, moet toegang tot de Azure-IP-adres
    * De IP-adressen met behulp van de blokkering opheffen de [nieuw NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Deze cmdlet in de Azure-machine worden uitgevoerd in een verhoogde PowerShell-venster (als Administrator uitvoeren).
    * Regels toevoegen aan het NSG (als u geïmplementeerd hebt) voor toegang tot de IP-adressen.
 2. Maken van een pad voor de HTTP-verkeer
-   * Als u hebt implementeren sommige netwerkbeperking aanwezig (een Netwerkbeveiligingsgroep, bijvoorbeeld) een HTTP-proxyserver voor het routeren van verkeer. Stappen voor het implementeren van een HTTP-proxyserver kunnen gevonden [hier](backup-azure-arm-vms-prepare.md#network-connectivity).
+   * Als u hebt implementeren sommige netwerkbeperking aanwezig (een Netwerkbeveiligingsgroep, bijvoorbeeld) een HTTP-proxyserver voor het routeren van verkeer. Stappen voor het implementeren van een HTTP-proxyserver kunnen gevonden [hier](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * Regels toevoegen aan het NSG (als u geïmplementeerd hebt) om toegang tot het INTERNET toestaat vanaf de HTTP-Proxy.
 
 > [!NOTE]

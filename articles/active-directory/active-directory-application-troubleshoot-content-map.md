@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f75b90aa23068abcd6e3727d7b9cd1b0f71f396c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5869120350ccfeacabaa79037ae57c1ee0fd8e5d
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Problemen oplossen met Azure Active Directory-toepassing-beheer en ontwikkeling
 In dit artikel helpt u bij het vinden van nuttige documenten in verband met het oplossen van enkele van de meest voorkomende problemen die betrekking hebben op het beheren van **bedrijfstoepassingen** en ontwikkelen van nieuwe toepassingen met de **toepassing Register**.
 
 ## <a name="problems-with-application-development"></a>Problemen met de ontwikkeling van toepassingen
-Via de volgende koppelingen vindt u oplossingen voor enkele van de meest voorkomende problemen met de ontwikkeling van toepassingen met het **toepassingsregister** in Azure Active Directory.
+De volgende koppelingen ervoor zorgt dat u een toewijzing voor inhoud die u helpt bij het oplossen van enkele van de meest voorkomende problemen met het ontwikkelen van toepassingen met de **toepassingsregister** in Azure Active Directory.
 
 * [Problemen met de toepassingsconfiguratie en de registratie](active-directory-application-dev-config-content-map.md)
 * [Problemen met de ontwikkeling van toepassingen](active-directory-application-dev-development-content-map.md)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Gegevensoverdracht met het Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing
 
@@ -27,7 +27,7 @@ De Microsoft Azure Storage-bibliotheek voor gegevensverplaatsing is een open-sou
 
 Deze bibliotheek gebruikt ook .NET Core, wat betekent dat u deze kunt gebruiken dat bij het bouwen van .NET-toepassingen voor Windows, Linux en Mac OS. Raadpleeg voor meer informatie over .NET Core, de [.NET Core documentatie](https://dotnet.github.io/). Deze bibliotheek werkt ook voor traditionele .NET Framework-apps voor Windows. 
 
-Dit document laat zien hoe u een .NET Core-consoletoepassing maken die die wordt uitgevoerd op Windows, Linux en Mac OS en voert de volgende scenario's:
+Dit document wordt getoond hoe .NET Core-console een toepassing maken die wordt uitgevoerd op Windows, Linux en Mac OS en voert de volgende scenario's:
 
 - Het van uploadbestanden en mappen naar Blob Storage.
 - Definieer het aantal parallelle bewerkingen bij de overdracht van gegevens.

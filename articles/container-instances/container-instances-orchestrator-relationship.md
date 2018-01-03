@@ -1,25 +1,25 @@
 ---
-title: Exemplaren van de Azure-Container en Container Orchestration
-description: Begrijpen hoe Azure Containerexemplaren communiceren met de container orchestrators
+title: Azure Container-exemplaren en container orchestration
+description: Begrijpen hoe Azure-container exemplaren communiceren met de container orchestrators.
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8ad3886742449c32c94e425e975ff9105ebcfbd8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container-exemplaren en container orchestrators
 
 Vanwege de klein en de afdrukstand van de toepassing zijn containers uitermate geschikt is voor flexibele levering omgevingen en op basis van microservice-architecturen. De taak van automatiseren en beheren van een groot aantal containers en hun werking wordt ook wel *orchestration*. Populaire container orchestrators zijn Kubernetes DC/OS en Docker Swarm dit zijn allemaal beschikbaar in de [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
 
-Azure Containerexemplaren biedt enkele van de mogelijkheden voor basic planning van de orchestration-platforms, maar dit geldt niet voor de services van de hogere waarde dat deze platforms bieden en kunnen in feite worden aanvullende mee. Dit artikel wordt beschreven voor het bereik van wat Azure Containerexemplaren verwerkt en hoe vol container orchestrators ermee kunnen communiceren.
+Azure Containerexemplaren biedt enkele van de mogelijkheden voor basic planning van de orchestration-platforms, maar dit geldt niet voor de services van de hogere waarde deze platforms bieden en kunnen in feite worden aanvullende met hen. Dit artikel wordt beschreven voor het bereik van wat Azure Containerexemplaren verwerkt en hoe vol container orchestrators ermee kunnen communiceren.
 
 ## <a name="traditional-orchestration"></a>Traditionele orchestration
 
@@ -40,8 +40,6 @@ Azure Container-exemplaren kunnen een gelaagde benadering orchestration, alle ve
 
 Omdat alle van de onderliggende infrastructuur voor exemplaren van de Container wordt beheerd door Azure, hoeft een orchestrator-platform niet naar zichzelf betrekking hebben op bij het zoeken van een geschikte host-machine waarop een enkele container uitgevoerd. De elasticiteit van de cloud zorgt ervoor dat een altijd beschikbaar is. In plaats daarvan kunt de orchestrator zich richten op de taken die de ontwikkeling van meerdere container architecturen, met inbegrip van schalen en gecoördineerde upgrades vereenvoudigen.
 
-
-
 ## <a name="potential-scenarios"></a>Mogelijke scenario 's
 
 Orchestrator-integratie met Azure Containerexemplaren is nog steeds opkomende, verwachten we dat er een paar verschillende omgevingen kunnen ontstaan:
@@ -50,9 +48,9 @@ Orchestrator-integratie met Azure Containerexemplaren is nog steeds opkomende, v
 
 Omdat ze snel starten en door het tweede factureren, biedt een omgeving op basis van exemplaren van Azure-Container uitsluitend de snelste manier om te beginnen en om te gaan met maximaal variabele werkbelastingen.
 
-### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinatie van Containerexemplaren en Containers in virtuele Machines
+### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinatie van Containerexemplaren en containers in virtuele Machines
 
-Voor langdurige, stabiele werkbelastingen wordt organiseren containers in een cluster toegewezen virtuele machines doorgaans goedkoper dan het uitvoeren van de dezelfde containers met exemplaren van de Container. Containerexemplaren bieden echter een uitstekende oplossing voor het snel uitbreiden en verdragsluitende uw algehele capaciteit om te gaan met onverwachte of tijdelijke pieken in gebruik. In plaats van het aantal virtuele machines in uw cluster uitbreiden, vervolgens extra containers op die computers implementeert, de orchestrator kunt gewoon de extra containers met instanties van de Container plannen en verwijderen wanneer ze niet meer nodig zijn.
+Voor langdurige, stabiele werkbelastingen wordt organiseren containers in een cluster toegewezen virtuele machines doorgaans goedkoper dan het uitvoeren van de dezelfde containers met exemplaren van de Container. Containerexemplaren bieden echter een uitstekende oplossing voor het snel uitbreiden en verdragsluitende uw algehele capaciteit om te gaan met onverwachte of tijdelijke pieken in gebruik. In plaats van het aantal virtuele machines in uw cluster uitbreiden, vervolgens extra containers op die computers implementeert, de orchestrator kunt gewoon de extra containers met instanties van de Container plannen en verwijderen wanneer ze niet meer zijn nodig.
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Voorbeeldimplementatie: Azure Container exemplaren-Connector voor Kubernetes
 

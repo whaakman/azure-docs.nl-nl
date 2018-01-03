@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 68986f1c8a8d3a2c4c763958e141bc3830c6b5bb
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Maximaal beschikbare toepassingen met behulp van RA-GRS ontwerpen
 
@@ -26,7 +26,7 @@ Een algemene functie van de cloud-gebaseerde infrastructuur zoals Azure Storage 
 
 Azure Storage biedt vier opties voor de redundantie voor gegevens in uw opslagaccount:
 
-– LRS (lokaal redundante opslag)
+- LRS (lokaal redundante opslag)
 - ZRS (Zone-redundante opslag) 
 - GRS (geografisch redundante opslag)
 - RA-GRS (geografisch redundante opslag met leestoegang). 
@@ -207,12 +207,12 @@ De volgende tabel toont een voorbeeld van wat er gebeuren kan wanneer u de detai
 | **Tijd** | **Transactie**                                            | **Replicatie**                       | **Tijd van laatste synchronisatie** | **Resultaat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transactie A: <br> Werknemer invoegen <br> entiteit in primaire |                                   |                    | Transactie A ingevoegd op primaire,<br> nog niet gerepliceerd. |
-| T1       |                                                            | Een transactie <br> gerepliceerd naar<br> secundaire | T1 | Een transactie is gerepliceerd naar de secundaire. <br>Tijd van laatste synchronisatie is bijgewerkt.    |
+| T1       |                                                            | Een transactie <br> gerepliceerd naar<br> secundair | T1 | Een transactie is gerepliceerd naar de secundaire. <br>Tijd van laatste synchronisatie is bijgewerkt.    |
 | T2       | Transactie B:<br>Update<br> werknemer-entiteit<br> in primaire  |                                | T1                 | Transactie geschreven naar de primaire B<br> nog niet gerepliceerd.  |
 | T3       | Transactie C:<br> Update <br>Beheerder<br>de entiteit rol in<br>primair |                    | T1                 | Transactie geschreven naar de primaire, C<br> nog niet gerepliceerd.  |
-| *T4*     |                                                       | Transactie C <br>gerepliceerd naar<br> secundaire | T1         | Transactie C gerepliceerd naar de secundaire.<br>LastSyncTime niet bijgewerkt, omdat <br>transactie B is nog niet gerepliceerd.|
+| *T4*     |                                                       | Transactie C <br>gerepliceerd naar<br> secundair | T1         | Transactie C gerepliceerd naar de secundaire.<br>LastSyncTime niet bijgewerkt, omdat <br>transactie B is nog niet gerepliceerd.|
 | *T 5*     | Entiteiten lezen <br>secundaire                           |                                  | T1                 | Ophalen van de verouderde waarde voor de werknemer <br> entiteit omdat de transactie B nog niet <br> nog gerepliceerd. Ophalen van de nieuwe waarde voor<br> Administrator-rol entiteit omdat C<br> gerepliceerd. Tijd van laatste synchronisatie is nog steeds niet<br> is bijgewerkt, omdat de transactie B<br> nog niet gerepliceerd. U kunt zien de<br>Administrator-rol entiteit komt niet overeen <br>omdat de entiteit datum/tijd na <br>de tijd van laatste synchronisatie. |
-| *T6*     |                                                      | Transactie B<br> gerepliceerd naar<br> secundaire | T6                 | *T6* – alle transacties via C hebben <br>zijn gerepliceerd, tijd van laatste synchronisatie<br> is bijgewerkt. |
+| *T6*     |                                                      | Transactie B<br> gerepliceerd naar<br> secundair | T6                 | *T6* – alle transacties via C hebben <br>zijn gerepliceerd, tijd van laatste synchronisatie<br> is bijgewerkt. |
 
 In dit voorbeeld wordt ervan uitgegaan dat de client overschakelt naar het lezen van de secundaire regio op t 5. Deze kan lezen de **beheerdersrol** entiteit op dit moment, maar de entiteit bevat een waarde op voor het aantal komt niet overeen met het aantal beheerders **werknemer** entiteiten die zijn gemarkeerd als beheerders in de secundaire regio op dit moment. De client kan deze waarde, met het risico dat het inconsistente informatie is gewoon weergeven. U kunt ook de client kan proberen om te bepalen die de **beheerdersrol** is een mogelijk inconsistente status omdat de updates is een ongeldige volgorde, en vervolgens de gebruiker van dit feit informeert.
 

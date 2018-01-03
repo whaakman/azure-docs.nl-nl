@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -28,7 +28,7 @@ We hebben een MSDN-Forum dat u vragen kunt plaatsen. Het productteam bewaakt het
 ## <a name="gather-diagnostics-information"></a>Diagnostische informatie verzamelen
 Soms kan het handig zijn als u diagnostische gegevens opgeven kunt wanneer u hulp vragen. Hier volgt de woonplaats van de logboekbestanden:
 
-### <a name="installer"></a>Installatieprogramma
+### <a name="installer-log"></a>Installer-logboekbestand
 Als u probleem tijdens de installatie, worden de logboekbestanden van het installatieprogramma hier:
 
 ```
@@ -40,18 +40,7 @@ Als u probleem tijdens de installatie, worden de logboekbestanden van het instal
 ```
 U kunt een zip-up van de inhoud van deze mappen en naar ons verzenden voor diagnostische gegevens.
 
-### <a name="app-update"></a>App-Update 
-#### <a name="no-update-notification-on-windows-desktop"></a>Er is geen melding van updates op Windows-bureaublad 
-Dit probleem wordt in een toekomstige update worden verholpen. De tijdelijke oplossing is in de tussentijd om te voorkomen dat de app vanuit de snelkoppeling vastgemaakt aan de taakbalk opnieuw te starten. In plaats daarvan de app te starten via het menu Start of Start zoekbalk of de snelkoppeling op het bureaublad (indien aanwezig). 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Er is geen melding van updates op een virtuele Ubuntu gegevens Sciece virtuele Machine (DSVM)
-Voer de volgende stappen uit om te downloaden van de meest recente toepassing:   
-   - Verwijder de map \Users\AppData\Local\amlworkbench
-   - script verwijderen`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - verwijderen van snelkoppeling op het bureaublad waarmee het bovenstaande script wordt gestart
-   - installeren met foutloos [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### <a name="workbench-desktop-app"></a>Workbench bureaublad-app
+### <a name="workbench-desktop-app-log"></a>Workbench bureaublad-app-logboek
 Als u problemen ondervindt bij het aanmelden of als het bureaublad Workbench vastloopt, vindt u hier logboekbestanden:
 ```
 # Windows
@@ -62,7 +51,7 @@ Als u problemen ondervindt bij het aanmelden of als het bureaublad Workbench vas
 ``` 
 U kunt een zip-up van de inhoud van deze mappen en naar ons verzenden voor diagnostische gegevens.
 
-### <a name="experiment-execution"></a>Experiment uitvoeren
+### <a name="experiment-execution-log"></a>Uitvoeringslogboek experiment
 Als een bepaald script is mislukt tijdens het indienen van de bureaublad-app, probeer opnieuw te verzenden deze via het gebruik van de CLI `az ml experiment submit` opdracht. Hiermee geeft u volledig foutbericht in JSON-indeling en belangrijkste is dat deze bevat een **bewerkings-ID** waarde. Stuur ons de JSON-bestand op waaronder de **bewerkings-ID** en je kunt analyseren. 
 
 Als een bepaald script erin slaagt verzending in uitvoering is mislukt, moet het afdrukken van de **uitvoeren ID** om te identificeren die bepaalde uitvoering. U kunt het pakket van de relevante logboekbestanden met de volgende opdracht:
@@ -95,6 +84,8 @@ Als u in Azure ML-Workbench werkt, kunt u ook verzenden ons een frons (of een gl
 - Clustering transformaties tekst worden niet ondersteund voor Mac.
 
 - Bibliotheek RevoScalePy wordt alleen ondersteund op Windows- en Linux (in Docker-containers). Dit wordt niet ondersteund op Mac OS.
+
+- Jupyter-Notebooks hebben een limiet van de maximale grootte van 5 MB wanneer deze te openen vanaf de Workbench-app. U kunt grote notitieblokken openen vanuit de CLI met behulp van de opdracht 'az ml notebook starten' en schone cel uitgang om Verklein de bestandsgrootte.
 
 ## <a name="cant-update-workbench"></a>Kan de Workbench niet bijwerken.
 Wanneer een nieuwe update beschikbaar is, wordt de startpagina van de app Workbench een bericht weergegeven waarin u geïnformeerd over de nieuwe update. Hier ziet u een update-badge die zijn opgenomen in de linkerbenedenhoek van de app op het belpictogram. Klik op de badge en volg de installatiewizard om de update te installeren. 
@@ -207,7 +198,18 @@ $ docker system prune -a
 
 U kunt ook een gegevensschijf toevoegen en configureren van Docker-engine voor het gebruik van de gegevensschijf voor het opslaan van afbeeldingen. Hier volgt [het toevoegen van een gegevensschijf](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). U kunt vervolgens [wijzigen waar de installatiekopieën worden opgeslagen in Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Of u de schijf met het besturingssysteem kunt uitbreiden en u hoeft te touch configuratie van de Docker-engine. Hier volgt [hoe u de schijf met het besturingssysteem kunt uitbreiden](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+Of u de schijf met het besturingssysteem kunt uitbreiden en u hoeft te touch configuratie van de Docker-engine. Hier volgt [hoe u de schijf met het besturingssysteem kunt uitbreiden](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>Delen van station C op Windows
 Als u in een lokale Docker-container in Windows worden uitgevoerd, `sharedVolumes` naar `true` in de `docker.compute` bestand onder `aml_config` uitvoering prestaties kan verbeteren. Dit vereist echter delen van C-schijf in de _Docker voor Windows-hulpprogramma_. Als u niet C-station kunt delen bent, probeert u de volgende tips:
@@ -220,6 +222,18 @@ Als u in een lokale Docker-container in Windows worden uitgevoerd, `sharedVolume
 * Bij het delen van station C met domeinreferenties, kan het delen vastlopen op netwerken waar de domeincontroller is niet bereikbaar (voor bijvoorbeeld thuisnetwerk, openbare Wi-Fi enz.). Zie voor meer informatie [deze post](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 U kunt ook het probleem met het delen, op een kleine prestaties kosten, door in te stellen vermijden `sharedVolumne` naar `false` in de `docker.compute` bestand.
+
+## <a name="wipe-clean-workbench-installation"></a>Schone installatie van de Workbench wissen
+In het algemeen is het hoeft te doen. Maar als u schone installatie van een wissen moet, dit zijn de stappen:
+
+- In Windows:
+  - Controleer eerst of u _een programma verwijderen of_ applet in de _Configuratiescherm_ verwijderen de _Azure Machine Learning Workbench_ vermelding van de toepassing.  
+  - U kunt vervolgens downloaden en uitvoeren van een van de volgende scripts:
+    - [Windows-opdrachtregelscript](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Windows PowerShell-script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (U wilt uitvoeren `Set-ExecutionPolicy Unrestricted` in een opdrachtprompt met verhoogde bevoegdheid bevoegdheid PowerShell-venster voordat u het script kunt uitvoeren.)
+- Op Mac OS:
+  - Alleen downloaden en uitvoeren van de [Mac OS bash-shell-script](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## <a name="some-useful-docker-commands"></a>Een aantal handige Docker-opdrachten
 

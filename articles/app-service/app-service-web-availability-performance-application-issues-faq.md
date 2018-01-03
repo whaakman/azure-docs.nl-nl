@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Toepassingsprestaties Veelgestelde vragen voor Web-Apps in Azure
 
@@ -174,7 +174,7 @@ Dit probleem is opgelost in Kestrel versie 1.0.2. Deze versie is opgenomen in de
 
 Als u de lokale cachefunctie van App Service gebruikt, geldt de mappenstructuur van de logboekbestanden en de gegevens mappen voor uw App Service-exemplaar. Wanneer lokale Cache wordt gebruikt, worden de submappen gemaakt in de opslag logboekbestanden en de gegevensmappen. De submappen gebruiken de naamgevingsconventie patroon 'unieke id' + tijdstempel. Elke submap komt overeen met een VM-exemplaar waarin de web-app wordt uitgevoerd of is uitgevoerd.
 
-Controleer uw App Service om te bepalen of u van lokale Cache gebruikmaakt, **toepassingsinstellingen** tabblad. Als de lokale Cache wordt gebruikt, de app instellen `WEBSITE_LOCAL_CACHE_OPTION` is ingesteld op `Always`. 
+Controleer uw App Service om te bepalen of u van lokale Cache gebruikmaakt, **toepassingsinstellingen** tabblad. Als de lokale Cache wordt gebruikt, de app instellen `WEBSITE_LOCAL_CACHE_OPTION` is ingesteld op `Always`.
 
 Als u geen van lokale Cache gebruikmaakt en dit probleem zich voordoet, indienen ondersteuning aan te vragen.
 

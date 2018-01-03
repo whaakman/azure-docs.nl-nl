@@ -1,10 +1,10 @@
 ---
-title: Azure Notification Hubs - diagnose richtlijnen
-description: Richtlijnen voor het vaststellen van veelvoorkomende problemen met Azure Notification Hubs.
+title: Azure Notification Hubs verwijderd meldingen diagnose
+description: Informatie over het onderzoeken van veelvoorkomende problemen met verwijderde meldingen in Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
-author: ysxu
-manager: erikre
+author: jwhitedev
+manager: kpiteira
 editor: 
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
@@ -12,151 +12,185 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 32e3a2e6f840afd865375a622cfae0d33ba65090
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: 47808fcdb419dd44cfbd19ac7882b78b4c846b2c
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-notification-hubs---diagnosis-guidelines"></a>Azure Notification Hubs - diagnose richtlijnen
-## <a name="overview"></a>Overzicht
-Een van de meest voorkomende vragen we graag van Azure Notification Hubs klanten is hoe om te achterhalen waarom niet zien ze een melding verzonden vanuit de back-end voor de toepassing worden weergegeven op het clientapparaat - waar en waarom meldingen zijn verwijderd en het oplossen van dit. In dit artikel, we loopt via de diverse redenen waarom meldingen mogelijk ophalen verwijderd of niet uiteindelijk op de apparaten. Er wordt ook gezocht via de manieren waarop u kunt analyseren en de hoofdoorzaak te achterhalen. 
+# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnose van verwijderde meldingen in Notification Hubs
 
-Ten eerste is het essentieel om te begrijpen hoe Azure Notification Hubs pushmeldingen meldingen naar de apparaten.
-![][0]
+Een van de meest voorkomende vragen van klanten met Azure Notification Hubs is oplossen bij meldingen die worden verzonden vanuit een toepassing worden niet op clientapparaten weergegeven. Ze willen weten waar en waarom meldingen zijn verwijderd, en hoe het probleem op te lossen. In dit artikel identificeert waarom meldingen mogelijk ophalen verwijderd of niet door apparaten worden ontvangen. Informatie over het analyseren en te bepalen van de hoofdoorzaak te achterhalen. 
 
-In een typische send notification-stroom wordt het bericht uit de **toepassing back-end** naar **Azure Notification Hub (NH)** die op zijn beurt komt sommige verwerking op alle registraties rekening houdend met de geconfigureerde labels & code-expressies 'doelen' bepalen dat wil zeggen alle registraties die nodig zijn voor het ontvangen van de pushmelding. Deze registraties kunnen overspannen één of alle van onze ondersteunde platformen - iOS, Google, Windows, Windows Phone-Kindle en Baidu voor Android China. Zodra de doelen tot stand worden gebracht, NH vervolgens pushes meldingen, verdelen over meerdere batch van registraties voor het specifieke apparaatplatform **Push Notification Service (PNS)** -zoals APNS voor Apple, GCM voor Google enzovoort. NH verifieert met de respectieve PNS op basis van de referenties die u in de klassieke Azure-Portal op de pagina Notification Hub configureren instelt. De PNS stuurt de meldingen naar de respectieve **clientapparaten**. Dit is de aanbevolen manier om te leveren van pushmeldingen en houd er rekening mee dat de laatste fase van de levering van meldingen tussen het PNS-platform en het apparaat plaatsvindt platform. Daarom hebben we vier belangrijke onderdelen - *client*, *toepassing back-end*, *Azure Notification Hubs (NH)* en *Push Notification Services (PNS)* en deze kan ertoe leiden dat meldingen steeds verbroken. Meer informatie over deze architectuur is beschikbaar op [overzicht van Notification Hubs].
+Het is essentieel voor het eerst te begrijpen hoe Notification Hubs meldingen verstuurd naar een apparaat.
 
-Bij het leveren van meldingen kan zich voordoen tijdens de eerste testfase fase dit kan betekenen dat een configuratieprobleem of het kan gebeuren in productie waarin alle of enkele van de meldingen zich voordoen kan verwijderde die wijzen op een dieper toepassing of messaging-patroon probleem. In de sectie kijken hieronder we verschillende scenario's voor de verwijderde meldingen variërend van algemene voor zeldzame aard, die waarvan sommige u duidelijk vindt wellicht en sommige anderen niet zo veel. 
+![Notification Hubs-architectuur][0]
 
-## <a name="azure-notifications-hub-mis-configuration"></a>Onjuiste configuratie van Azure Notification hubs
-Azure Notification Hubs moet worden geverifieerd in de context van de ontwikkelaar toepassing kunnen zijn om meldingen te verzenden naar de respectieve PNS. Dit wordt mogelijk gemaakt door de ontwikkelaar een ontwikkelaarsaccount maken met de desbetreffende platform (Google, Apple, Windows, enzovoort) en vervolgens registreren hun toepassing waar ze referenties op die moeten worden geconfigureerd in de portal onder Notification Hubs-configuratiesectie krijgen. Als er geen meldingen via uitvoert, moet eerst om ervoor te zorgen dat de juiste referenties zijn geconfigureerd in de Notification Hub die deze overeenkomt met de toepassing onder de platform-specifieke developer-account hebt gemaakt. Vindt u onze [gestart zelfstudies ophalen] handig om te gaan via dit proces op een manier stap voor stap. Hier volgen enkele veelvoorkomende onjuiste configuraties:
+In een typische send notification-stroom wordt het bericht uit de *toepassing back-end* met Notification Hubs. Notification Hubs biedt een aantal verwerking van de geregistreerde gegevens. De verwerking rekening gehouden met de geconfigureerde tags en code-expressies om te bepalen 'doelen'. Doelen worden de rapporten die nodig zijn voor het ontvangen van de pushmelding. Deze registraties kunnen een omspannen of onze ondersteunde platforms: iOS, Google, Windows, Windows Phone, Kindle en Baidu voor Android China.
 
-1. **Algemeen**
+Met de doelen tot stand gebracht, pushes Notification Hubs meldingen naar de *push notification service* voor het apparaatplatform. Voorbeelden zijn de Apple Push Notification service (APNs) voor Apple en Firebase Cloud Messaging (FCM) voor Google. Notification Hubs pushes meldingen verdelen over meerdere batches van registraties. Notification Hubs geverifieerd met de respectieve push notification-service op basis van de referenties die u instelt in de Azure-portal onder **Notification Hub configureren**. De push-bericht service stuurt vervolgens de meldingen naar de respectieve *clientapparaten*. 
+
+Houd er rekening mee dat de laatste fase van de levering van meldingen tussen de platform push notification-service en het apparaat plaatsvindt. Een van de vier belangrijke onderdelen in het push notification-proces (client, back-end van toepassing, Notification Hubs en de platform push notification service) kan ertoe leiden dat meldingen worden verwijderd. Zie voor meer informatie over de architectuur van Notification Hubs [Notification Hubs-overzicht].
+
+Meldingen leveren-fout kan optreden tijdens de eerste testfase fase. Verwijderde meldingen in dit stadium kunnen wijzen op een configuratieprobleem. Als de fout te leveren meldingen in de productieomgeving optreedt, kunnen sommige of alle van de meldingen worden verwijderd. In dit geval wordt een dieper toepassing of messaging-patroon probleem aangegeven. 
+
+De volgende sectie wordt bekeken scenario's waarin meldingen kunnen worden verwijderd, variërend van algemene tot meer zeldzame.
+
+## <a name="notification-hubs-misconfiguration"></a>Onjuiste configuratie van Notification Hubs
+Notification Hubs moet zijn om meldingen te verzenden naar de respectieve push notification service, zichzelf te verifiëren in de context van de toepassing van de ontwikkelaar. Om dit te voorkomen, maakt de ontwikkelaar een ontwikkelaarsaccount met de desbetreffende platform (Google, Apple, Windows, enzovoort). De ontwikkelaar registreert vervolgens de toepassing met het platform waarop ze referenties ophalen. 
+
+U moet platform referenties toevoegen aan de Azure-portal. Als er geen meldingen worden het apparaat wordt bereikt, moet de eerste stap om ervoor te zorgen dat de juiste referenties zijn geconfigureerd in Notification Hubs. De referenties moeten overeenkomen met de toepassing die wordt gemaakt onder een platform-specifieke ontwikkelaarsaccount. 
+
+Zie voor stapsgewijze instructies om dit proces te voltooien, [aan de slag met Azure Notification Hubs].
+
+Hier volgen enkele veelvoorkomende onvolkomenheden in om te controleren:
+
+* **Algemeen**
    
-    een) Zorg ervoor dat de naam van uw notification hub (zonder typefouten) hetzelfde is:
+    * Zorg ervoor dat de naam van uw notification hub (zonder typefouten) hetzelfde in elk van deze locaties is:
+
+        * Wanneer u registreren van de client.
+        * Wanneer u meldingen verzendt vanuit de back-end.
+        * Waar u de referenties voor de push notification service hebt geconfigureerd.
+    
+    * Zorg ervoor dat u de juiste gedeelde-configuratie tekenreeksen op de client en op de back-end van de toepassing. In het algemeen moet u **DefaultListenSharedAccessSignature** op de client en **DefaultFullSharedAccessSignature** voor de toepassing back-end (verleent machtigingen voor het verzenden van meldingen Notification Hubs).
+
+* **APNs-configuratie**
    
-   * Wanneer u registreert van de client 
-   * Wanneer u meldingen verzendt vanuit de back-end  
-   * Waar u de PNS-referenties hebt geconfigureerd en 
-   * Met SAS de referenties die u hebt geconfigureerd op de client en de back-end. 
-     
-     b) Zorg ervoor dat u de juiste SAS-configuratie tekenreeksen op de client en de back-end voor de toepassing. Als vuistregel, moet u de **DefaultListenSharedAccessSignature** op de client en **DefaultFullSharedAccessSignature** op de back-end voor een toepassing (waardoor gemachtigd zijn om de melding wordt verzonden naar de NH te kunnen)
-2. **Configuratie van de Apple Push Notification Service (APNS)**
+    Moet u twee verschillende hubs onderhouden: een hub voor productie en een andere hub voor het testen. Dit betekent dat u het certificaat dat u gebruikt in een sandbox-omgeving op een afzonderlijke hub dan het certificaat en de hub die u gaat gebruiken in de productieomgeving moet uploaden. Probeer niet voor het uploaden van verschillende typen certificaten op dezelfde hub. Dit kan melding storingen veroorzaken. 
+    
+    Als u per ongeluk verschillende typen certificaten op dezelfde hub uploadt, wordt aangeraden dat u de hub verwijderen en opnieuw met een nieuwe hub beginnen. Als u niet de hub, ten minste voor een bepaalde reden verwijderen moet u de bestaande registraties verwijderen van de hub. 
+
+* **FCM-configuratie** 
    
-    Moet u twee verschillende hubs - één voor productie onderhouden en een andere voor het testen van doel. Dit betekent dat het certificaat dat u gaat gebruiken in sandbox-omgeving op een afzonderlijke hub en het certificaat dat u gaat gebruiken in productie op een afzonderlijke hub zijn geüpload. Probeer niet voor het uploaden van verschillende typen certificaten op dezelfde hub zoals ertoe leiden melding fouten op de regel dat kan. Als u zelf in de positie waar u per ongeluk verschillende soorten certificaat hebt geüpload op dezelfde hub vinden, wordt het aanbevolen de hub verwijderen en opnieuw beginnen. Als voor een bepaalde reden, u niet kunt verwijderen van de hub vervolgens tenminste, moet u de bestaande registraties verwijderen van de hub. 
-3. **Google Cloud Messaging (GCM)-configuratie** 
+    1. Zorg ervoor dat de *serversleutel* dat u hebt verkregen via Firebase overeenkomt met de serversleutel die u hebt geregistreerd in de Azure portal.
    
-    een) Zorg ervoor dat u 'Google Cloud Messaging voor Android' onder uw cloudproject inschakelen wilt. 
+    ![Firebase-serversleutel][3]
    
-    ![][2]
+    2. Zorg ervoor dat u hebt geconfigureerd **Project-ID** op de client. U kunt de waarde voor verkrijgen **Project-ID** vanuit het dashboard Firebase.
    
-    b) Zorg ervoor dat u een sleutel' Server' maakt, terwijl de referenties zijn verkregen welke NH gebruikt voor authenticatie bij GCM. 
-   
-    ![][3]
-   
-    c) Zorg ervoor dat u 'Project-ID' hebt geconfigureerd op de client is een geheel numeriek entiteit die u van het dashboard verkrijgen kunt:
-   
-    ![][1]
+    ![Firebase Project-ID][1]
 
 ## <a name="application-issues"></a>Problemen met toepassingen
-1) **Tags / Tag expressies**
+* **Tags en code-expressies**
 
-Als u tags of code-expressies voor uw doelgroep segmenteren gebruikt, is het altijd mogelijk dat wanneer u de melding verzendt, er is geen doel op basis van de labels/tag expressies die u in de aanroep van verzenden opgeeft kan worden gevonden. Het is raadzaam om te controleren van uw registraties om ervoor te zorgen dat er labels die overeenkomen met wanneer u een melding verzenden en controleer vervolgens de ontvangst van de melding alleen van de clients met deze rapporten zijn. Bijvoorbeeld Als al uw registraties met NH zijn gemaakt met het label 'Politiek' spreken en u een melding met het label verzendt 'Sport', wordt deze niet verzonden naar elk apparaat. Een complexe geval kan inhouden: code-expressies waar u alleen geregistreerd met "Tag A" of "Tag B", maar tijdens het verzenden van meldingen, u ontwikkelt voor "Tag A & & Tag B". In de onderstaande sectie zelf sporen tips zijn er manieren waarop u uw registraties samen met de labels die ze hebben kunt bekijken. 
+    Als u uw doelgroep segmenteren met tags of code-expressies, is het mogelijk dat wanneer u de melding verzendt, geen doel is gevonden op basis van de labels of code-expressies die u in de aanroep van verzenden opgeeft. 
+    
+    Bekijk uw registraties om ervoor te zorgen dat er overeenkomende labels zijn wanneer u een melding wordt verzonden. Controleer vervolgens of de ontvangst van de melding alleen via de clients die deze rapporten hebben. 
+    
+    Als u bijvoorbeeld dat uw registraties met Notification Hubs zijn aangebracht met behulp van het label 'Politiek' als u een melding met het label 'Sport', verzendt de melding is niet verzonden naar elk apparaat. Een complexe geval kan erbij betrekken code-expressies die u met behulp van "-Tag A" of 'Tag-B' geregistreerd, maar tijdens het verzenden van meldingen, '-Tag A & & label B.' is gericht In de sectie zelfcontrole tips later in dit artikel wordt beschreven hoe u uw registraties en hun labels. 
 
-2) **Sjabloonproblemen**
+* **Sjabloonproblemen**
 
-Als u met behulp van sjablonen en zorg ervoor dat u volgt de richtlijnen beschreven op [sjabloon richtlijnen]. 
+    Als u sjablonen gebruikt, zorg ervoor dat u de richtlijnen in volgt [sjablonen]. 
 
-3) **Ongeldige registraties**
+* **Ongeldige registraties**
 
-Ervan uitgaande dat de Notification Hub correct is geconfigureerd en eventuele tags/tag-expressies zijn gebruikt correct waardoor het zoeken van geldige doelen waaraan de meldingen moeten worden verzonden, NH uit verschillende verwerken batches parallel - elke batch verzenden van berichten naar een set met geregistreerde items wordt geactiveerd. 
+    Als de notification hub correct is geconfigureerd en als deze tags of code-expressies correct gebruikt zijn, geldig doelen worden gevonden. Meldingen moeten worden verzonden voor deze doelen. Notification Hubs wordt vervolgens geactiveerd uit verschillende verwerken batches parallel. Elke batch verzendt berichten naar een set met geregistreerde items. 
 
-> [!NOTE]
-> Aangezien we de verwerking parallel doen, niet wordt gegarandeerd dat de volgorde waarin de meldingen worden geleverd. 
-> 
-> 
+    > [!NOTE]
+    > Omdat de verwerking wordt parallel uitgevoerd, wordt de volgorde waarin de meldingen worden geleverd niet gegarandeerd. 
 
-Azure Notification hubs is nu geoptimaliseerd voor een model voor bericht 'op de meeste eenmaal'. Dit betekent dat we proberen een deactivering duplicatie zodat er geen meldingen meer dan één keer aan een apparaat worden geleverd. Om te controleren of dit we bekijken via de registraties en zorg ervoor dat slechts één bericht is verzonden per apparaat-id vóór het bericht daadwerkelijk te verzenden naar de PNS. Omdat elke batch wordt verzonden naar de PNS die op zijn beurt is geaccepteerd en de registraties gevalideerd, is het mogelijk dat de PNS detecteert een fout opgetreden bij een of meer van de rapporten in een batch een fout geretourneerd op Azure NH en stopt het verwerken van waardoor deze batch volledig te verwijderen. Dit geldt met name met APNS dat gebruikmaakt van een stroom TCP-protocol. Hoewel we zijn geoptimaliseerd voor op de meeste zodra levering, in dit geval moeten we de ontlast registratie verwijderen uit de database en probeer vervolgens de levering van meldingen voor de rest van de apparaten in deze batch.
+    Notification Hubs is geoptimaliseerd voor een model voor bericht 'op de meeste eenmaal'. We proberen Ontdubbeling, zodat er geen meldingen meer dan één keer aan een apparaat worden geleverd. Dit, zodat we registraties controleren en ervoor te zorgen dat slechts één bericht is verzonden per apparaat-id voordat het bericht wordt verzonden naar de push notification service. 
 
-Krijgt u informatie over de fout voor de levering van mislukte poging tegen een registratie met de Azure Notification Hubs REST API's: [Per bericht telemetrie: ophalen Notification Message telemetrie](https://msdn.microsoft.com/library/azure/mt608135.aspx) en [Feedback van PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Zie de [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) bijvoorbeeld code.
+    Omdat elke batch wordt verzonden naar de push notification service, die op zijn beurt is geaccepteerd en de registraties gevalideerd, is het mogelijk dat de push notification service een fout opgetreden bij een of meer van de rapporten in een batch zal detecteren. In dit geval de push notification service een fout geretourneerd op Notification Hubs en het proces stopt. De push notification service verwijderd volledig van deze batch. Dit geldt met name met APNS dat gebruikmaakt van een stroom TCP-protocol. 
 
-## <a name="pns-issues"></a>PNS-problemen
-Nadat de melding is ontvangen door de respectieve PNS is de verantwoordelijkheid voor het leveren van de melding op het apparaat. Azure Notification Hubs valt buiten de afbeelding hier en heeft geen controle over wanneer of als de melding moet worden geleverd aan het apparaat gaat. Aangezien de platform notification services vrij robuuste, vaak meldingen bereiken van de apparaten over een paar seconden van de PNS. Als u echter de PNS is beperking vervolgens Azure Notification Hubs geldt een exponentiële terug uit een strategie voor en als de PNS onbereikbaar is voor een 30 min blijft moeten we hebben een beleid om te verlopen en deze berichten permanent verwijderen. 
+    We zijn geoptimaliseerd voor op de meeste eenmalig worden afgeleverd. Maar in dit geval de ontlast registratie is verwijderd uit de database. Vervolgens wordt opnieuw geprobeerd de levering van meldingen voor de rest van de apparaten in deze batch.
 
-Als een PNS probeert een melding te leveren, maar het apparaat offline is, wordt de melding die door de PNS voor een beperkte periode zijn opgeslagen en aan het apparaat worden geleverd zodra deze beschikbaar. Slechts één recente melding voor een bepaalde app wordt opgeslagen. Als meerdere meldingen worden verzonden wanneer het apparaat offline is, wordt elke nieuwe melding de voorafgaande kennisgeving worden verwijderd. Dit gedrag om alleen de nieuwste melding te houden is samenvoegen van meldingen in APNS en samenvouwen in GCM (die gebruikmaakt van een sleutel die samenvouwen) genoemd. Als het apparaat nog steeds offline gedurende langere tijd worden meldingen die zijn worden opgeslagen voor deze genegeerd. Bron - [APNS richtlijnen] & [GCM richtlijnen]
+    Als u meer foutinformatie over de mislukte bezorging poging tegen een registratie, kunt u de REST API's van Notification Hubs [Per bericht telemetrie: ophalen Notification Message telemetrie](https://msdn.microsoft.com/library/azure/mt608135.aspx) en [feedback van PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Zie voor een voorbeeld van code, de [verzenden REST voorbeeld](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
-U kunt met Azure Notification Hubs - een samenvoegen sleutel doorgeven via een HTTP-header met de algemene `SendNotification` API (bijvoorbeeld voor de .NET SDK – `SendNotificationAsync`) naar de respectieve PNS die HTTP-headers die worden doorgegeven als ook nodig is. 
+## <a name="push-notification-service-issues"></a>Push notification service-problemen
+Nadat de melding is ontvangen door de platform push notification service, is de verantwoordelijkheid van de push notification service leveren de melding op het apparaat. Op dit moment Notification Hubs valt buiten de afbeelding en heeft geen controle wanneer of als de melding is geleverd aan het apparaat. 
 
-## <a name="self-diagnose-tips"></a>Tips zelf onderzoeken
-Hier bespreken we de verschillende mogelijkheden voor het opsporen en de hoofd-ervoor zorgen dat eventuele problemen met de Notification Hub:
+Omdat platform notification services robuuste, vaak meldingen tot aan de apparaten van de push notification service binnen een paar seconden. Als de push notification service is beperking, geldt Notification Hubs een strategie voor exponentiële back uitschakelen. Als de push notification service gedurende 30 minuten niet bereikbaar blijft, hebben we een beleid voor verlopen en deze berichten permanent verwijderen. 
+
+Als een push notification-service probeert een melding te leveren, maar het apparaat offline is, wordt de melding door de push notification-service voor een beperkte periode opgeslagen. De melding is geleverd aan het apparaat wanneer het apparaat niet langer beschikbaar. 
+
+Voor elke app wordt slechts één recente melding opgeslagen. Als meerdere meldingen worden verzonden wanneer een apparaat offline is, wordt elke nieuwe melding de voorafgaande kennisgeving worden verwijderd. Alleen de nieuwste melding houden wordt aangeduid als *samenvoegen meldingen* in APNs, en *samenvouwen* in FCM (die gebruikmaakt van een samenvouwen sleutel). Als het apparaat nog steeds offline gedurende langere tijd worden meldingen die zijn opgeslagen voor het apparaat verwijderd. Zie voor meer informatie [APNs overzicht] en [berichten over FCM].
+
+U kunt met Azure Notification Hubs een samenvoegen sleutel doorgeven via een HTTP-header met de algemene SendNotification-API. Bijvoorbeeld: voor de .NET SDK, gebruikt u **SendNotificationAsync**. De API SendNotification neemt ook HTTP-headers die worden doorgegeven als-is naar de respectieve push notification service. 
+
+## <a name="self-diagnosis-tips"></a>Tips voor zelfcontrole
+Hier volgen de paden voor het oplossen van de hoofdoorzaak van verwijderde in Notification Hubs meldingen:
 
 ### <a name="verify-credentials"></a>Referenties verifiëren
-1. **PNS-portal voor ontwikkelaars**
+* **Push notification service-portal voor ontwikkelaars**
    
-    Controleer of ze op de respectieve PNS developer portal (APNS, GCM, WNS enz.) met behulp van onze [gestart zelfstudies ophalen].
-2. **Klassieke Azure-portal**
+    Controleer of de referenties in de respectieve push notification serviceportal voor ontwikkelaars (APNs, FCM, Windows Notification Service, enzovoort). Zie voor meer informatie [aan de slag met Azure Notification Hubs].
+
+* **Azure Portal**
    
-    Ga naar het tabblad configureren om te controleren en overeenkomen met de referenties met verkregen via de PNS-portal voor ontwikkelaars. 
+    Om te bekijken en overeenkomen met de referenties met degenen die u hebt verkregen via de push notification serviceportal voor ontwikkelaars, in de Azure portal, gaat u naar de **toegangsbeleid** tabblad. 
    
-    ![][4]
+    ![Azure-portal-beleid][4]
 
 ### <a name="verify-registrations"></a>Registraties controleren
-1. **Visual Studio**
+* **Visual Studio**
    
-    Als u Visual Studio voor ontwikkeling gebruiken kunt u verbinding maken met Microsoft Azure en het bekijken en beheren van een aantal Azure-services met inbegrip van Notification hubs vanuit 'Server Explorer'. Dit is vooral handig zijn voor uw omgeving ontwikkelen en testen. 
+    Als u Visual Studio voor ontwikkeling gebruikt, kunt u verbinding met Azure via Server Explorer weergeven en beheren van meerdere Azure-services, met inbegrip van Notification Hubs. Dit is vooral handig zijn voor uw omgeving ontwikkelen en testen. 
    
-    ![][9]
+    ![Visual Studio Server Explorer][9]
    
-    U kunt weergeven en beheren van alle registraties van uw hub die mooi worden ingedeeld voor platform systeemeigen of registratie van de sjabloon, tags, PNS-id, registratie-id en de vervaldatum. U kunt ook een registratie onderweg - nuttig spreek als u wilt bewerken labels bewerken. 
+    U kunt weergeven en beheren van alle registraties van uw hub, ingedeeld per platform, systeemeigen of registratie van de sjabloon, alle codes push notification service-id, registratie-ID en vervaldatum. U kunt ook een registratie op deze pagina bewerken. Dit is vooral nuttig voor het bewerken van labels. 
    
-    ![][8]
+    ![Visual Studio apparaat registraties][8]
    
    > [!NOTE]
-   > Visual Studio-functionaliteit voor het bewerken van registraties mag alleen worden gebruikt tijdens het ontwikkelen en testen met een beperkt aantal registraties. Als er een nodig om op te lossen uw registraties in bulk ontstaat, kunt u overwegen de Export/Import registratie functionaliteit - de hier beschreven [registraties exporteren/importeren](https://msdn.microsoft.com/library/dn790624.aspx)
+   > Visual Studio gebruiken om te bewerken registraties alleen tijdens het ontwikkelen en testen, en met een beperkt aantal registraties. Als u uw registraties bulksgewijs bewerken wilt, overweeg het gebruik van het exporteren en importeren van de registratie-functionaliteit die wordt beschreven in [exporteren en rapporten in bulk wijzigen](https://msdn.microsoft.com/library/dn790624.aspx).
    > 
    > 
-2. **Service Bus explorer**
+* **Service Bus Explorer**
    
-    Veel klanten gebruik service bus explorer beschreven hier - [ServiceBus Explorer] voor weergeven en beheren van de notification hub. Het is een open source-project beschikbaar is via code.microsoft.com - [ServiceBus Explorer-code]
+    Veel klanten gebruiken [Service Bus Explorer] weergeven en beheren van de notification hub. Service Bus Explorer is een open source-project. Raadpleeg voor voorbeelden [Service Bus Explorer code].
 
 ### <a name="verify-message-notifications"></a>Controleer of de melding
-1. **Klassieke Azure Portal**
+* **Azure Portal**
    
-    U kunt gaan naar het tabblad 'Debug' om testmeldingen te verzenden aan uw clients zonder die behoefte hebben aan elke service back-end en wordt uitgevoerd. 
+    Een Testmelding verzenden naar uw clients zonder dat een service back-end up-to-date en wordt uitgevoerd, klikt u onder **ondersteuning + probleemoplossing**, selecteer **Test verzenden**. 
    
-    ![][7]
-2. **Visual Studio**
+    ![Test verzenden functionaliteit in Azure][7]
+* **Visual Studio**
    
-    U kunt ook testmeldingen verzenden vanuit de comforts van Visual Studio:
+    Ook kunt u testmeldingen verzenden vanuit Visual Studio.
    
-    ![][10]
+    ![Test verzenden-functionaliteit in Visual Studio][10]
    
-    U kunt meer lezen over de hier - Visual Studio Notification Hub Azure explorer-functionaliteit 
+    Zie voor meer informatie over het gebruik van Notification Hubs met Visual Studio Server Explorer deze artikelen: 
    
-   * [Overzicht van VS Server Explorer]
-   * [VS Server Explorer blogbericht - 1]
-   * [VS Server Explorer blogbericht - 2]
+   * [Apparaat-registraties weergeven voor notification hubs]
+   * [Diepgaand: Visual Studio 2013 Update 2 RC en Azure SDK 2.3]
+   * [Versie van Visual Studio 2013 Update 3 en Azure SDK 2.4 aangekondigd]
 
-### <a name="debug-failed-notifications-review-notification-outcome"></a>Fouten opsporen in mislukte meldingen / melding uitkomst controleren
+### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Mislukte meldingen voor foutopsporing en controleren van de uitkomst van de melding
 **De eigenschap EnableTestSend**
 
-Wanneer u een melding via Notification Hubs verzenden, in eerste instantie deze zojuist hebt opgehaald in de wachtrij geplaatst voor NH te doen als u wilt weten van alle doelen verwerking en uiteindelijk NH zendt deze naar de PNS. Dit betekent dat wanneer u van REST-API of een van de client-SDK gebruikmaakt, het geslaagde rendement van uw aanroep verzenden alleen betekent dat het bericht zijn met succes in de wachtrij bij Notification Hub geplaatst heeft. Geeft een beter inzicht in wat is er gebeurd wanneer NH uiteindelijk hebt u het bericht te verzenden naar de PNS geen. Als de melding niet op het clientapparaat binnenkomen is, bestaat de kans dat wanneer NH geprobeerd het bericht om aan te leveren PNS, er is een fout opgetreden bij het die bijvoorbeeld de grootte van de nettolading de toegestane door de PNS overschrijdt of de referenties die zijn geconfigureerd in NH ongeldige enzovoort zijn. Als u een beter inzicht in de PNS-fouten, hebben we een eigenschap met de naam die is geïntroduceerd [EnableTestSend functie]. Deze eigenschap wordt automatisch ingeschakeld wanneer het verzenden van testberichten vanaf de portal of Visual Studio-client en daarom kunt u gedetailleerde informatie voor foutopsporing. U kunt deze gebruiken via API's het voorbeeld van de .NET SDK waar het is nu beschikbaar en uiteindelijk toegevoegd aan alle client-SDK's. Om dit te gebruiken met de REST-aanroep, toe te voegen een parameter met de querystring bijvoorbeeld 'test' naam aan het einde van de aanroep van verzenden 
+Wanneer u een melding via Notification Hubs in eerste instantie verzenden, de melding in de wachtrij staat voor de verwerking van Notification Hubs. Notification Hubs bepaalt de juiste doelen en stuurt de melding naar de push notification service. Als u de REST-API of een van de client-SDK's gebruikt, zijn de geslaagde terugkeer van de aanroep van verzenden betekent alleen dat het bericht zijn in de wachtrij met Notification Hubs geplaatst heeft. U hebt inzicht in wat er gebeurd is wanneer het bericht Notification Hubs uiteindelijk naar de push notification service verzonden. 
+
+Als de melding niet op het clientapparaat plaatsvinden, is het mogelijk dat er een fout opgetreden bij Notification Hubs heeft geprobeerd het bericht om aan te leveren de push notification service. Bijvoorbeeld, grootte van de nettolading overschrijdt de maximaal toegestane door de push notification service mogelijk of de referenties die zijn geconfigureerd in Notification Hubs is mogelijk ongeldig. 
+
+Als u inzicht in push notification service-fouten, kunt u de [EnableTestSend] eigenschap. Deze eigenschap wordt automatisch ingeschakeld wanneer u testberichten vanuit de portal of Visual Studio-client verzendt. Deze eigenschap kunt u gedetailleerde informatie voor foutopsporing. U kunt ook de eigenschap via API's gebruiken. Op dit moment kunt u deze in de .NET SDK. Deze wordt uiteindelijk worden toegevoegd aan alle client-SDK's. 
+
+Gebruik de **EnableTestSend** toevoeg-eigenschap met de REST-aanroep, een queryreeksparameter aangeroepen *testen* aan het einde van de aanroep van verzenden. Bijvoorbeeld: 
 
     https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 
-*Voorbeeld (.NET SDK)*
+**Voorbeeld (.NET SDK)**
 
-Stel dat u gebruikt .NET SDK een systeemeigen toast-melding te verzenden:
+Hier volgt een voorbeeld van het gebruik van de .NET SDK een systeemeigen pop-upvenster (toast) melding te verzenden:
 
+```csharp
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
     var result = await hub.SendWindowsNativeNotificationAsync(toast);
     Console.WriteLine(result.State);
+```
 
-`result.State`wordt gewoon status `Enqueued` aan het einde van de uitvoering zonder eventuele inzicht in wat is er gebeurd met uw push. Nu kunt u de `EnableTestSend` Boole-eigenschap tijdens het initialiseren van de `NotificationHubClient` en gedetailleerde status weergegeven over de PNS-fouten opgetreden tijdens het verzenden van de melding kunt krijgen. De send-aanroep kost meer tijd om te retourneren omdat deze alleen na de levering van NH heeft de melding naar de PNS om te bepalen van het resultaat retourneert. 
+Aan het einde van de uitvoering **resultaat. Status** gewoon statussen **in wachtrij gezet**. De resultaten bieden niet een inzicht in wat is er gebeurd met push-melding. 
 
+Vervolgens kunt u de **EnableTestSend** Boole-eigenschap. Gebruik de **EnableTestSend** eigenschap terwijl u initialiseren **NotificationHubClient** voor een gedetailleerde status weergegeven over push notification service fouten die optreden wanneer de melding wordt verzonden. De aanroep verzenden duurt aanvullende retourneren omdat het alleen na de levering van Notification Hubs heeft de melding voor de push notification-service om te bepalen van het resultaat wordt geretourneerd. 
+
+```csharp
     bool enableTestSend = true;
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
 
@@ -167,76 +201,78 @@ Stel dat u gebruikt .NET SDK een systeemeigen toast-melding te verzenden:
     {
         Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
     }
+```
 
-*Voorbeelduitvoer*
+**Voorbeelduitvoer**
 
     DetailedStateAvailable
     windows
     7619785862101227384-7840974832647865618-3
     The Token obtained from the Token Provider is wrong
 
-Dit bericht geeft aan beide ongeldige referenties zijn geconfigureerd in de notification hub of een probleem met de rapporten op de hub en de aanbevolen loop zou deze registratie verwijderen en zorg dat de client opnieuw te maken voordat u het bericht verzendt. 
+Dit bericht geeft aan dat ongeldige referenties zijn geconfigureerd in Notification Hubs, of er een probleem met de rapporten in de hub is. U wordt aangeraden deze registratie verwijderen en zorg dat de client opnieuw maken van de registratie voordat het bericht verzonden. 
 
 > [!NOTE]
-> Houd er rekening mee dat het gebruik van deze eigenschap sterk beperkt is en dus u alleen dit in de omgeving ontwikkelen en testen met een beperkt aantal registraties gebruiken moet. We alleen verzenden foutopsporing meldingen naar 10-apparaten. We hebben ook een limiet van de verwerking van foutopsporing verzendt 10 per minuut. 
+> Het gebruik van de **EnableTestSend** eigenschap sterk is beperkt. Gebruik deze optie alleen in een omgeving ontwikkelen en testen en met een beperkte set met geregistreerde items. We verzenden foutopsporing meldingen naar alleen 10-apparaten. We hebben ook een limiet van de verwerking van foutopsporing verzendt tot en met 10 per minuut. 
 > 
 > 
 
 ### <a name="review-telemetry"></a>Telemetrie controleren
-1. **Gebruik de klassieke Azure-Portal**
+* **Azure Portal gebruiken**
    
-    De portal kunt u snel een overzicht van alle activiteiten opvragen op uw Notification Hub. 
+    In de portal kunt u een snel overzicht van alle activiteiten in uw notification hub. 
    
-    a) u kunt een samengevoegde weergave van de registraties, meldingen, evenals fouten per platform weergeven van het tabblad 'dashboard'. 
+    1. Op de **overzicht** tabblad ziet u een samengevoegde weergave van registraties, meldingen en fouten per platform. 
    
-    ![][5]
+        ![Dashboard voor Notification Hubs-overzicht][5]
    
-    b) u kunt ook veel andere platform specifieke metrische gegevens op het tabblad 'Monitor' te laten uitvoerig stil vooral op specifieke fouten heeft geretourneerd wanneer NH probeert de melding te verzenden naar de PNS PNS toevoegen. 
+    2. Op de **Monitor** tabblad kunt u veel andere platform-specifieke metrische gegevens voor uitvoerig stil toevoegen. U kunt zoeken specifiek op eventuele fouten met betrekking tot de push notification service die worden geretourneerd wanneer Notification Hubs probeert de melding te verzenden naar de push notification service. 
    
-    ![][6]
+        ![Activiteitenlogboek van Azure portal][6]
    
-    c) u moet beginnen met het controleren van de **binnenkomende berichten**, **registratie Operations**, **geslaagde meldingen** en ga vervolgens naar per platform tabblad om te controleren van de specifieke PNS-fouten. 
+    3. Neem eerst door **binnenkomende berichten**, **registratie Operations**, en **geslaagde meldingen**. Ga vervolgens naar het tabblad per platform te bekijken van fouten die specifiek voor de push notification service zijn. 
    
-    d) als u de notification hub onjuist is geconfigureerd met de verificatie-instellingen hebt ziet u PNS verificatiefout. Dit is een goede indicatie om te controleren van de PNS-referenties. 
+    4. Als de verificatie-instellingen voor uw notification hub onjuist is zijn, het bericht **PNS verificatiefout** wordt weergegeven. Dit is een goede indicatie om te controleren van de referenties voor de push notification service. 
 
-2) **Toegang op programmeerniveau**
+* **Toegang op programmeerniveau**
 
-Meer informatie hier- 
+    Zie voor meer informatie over toegang op programmeerniveau deze artikelen: 
 
-* [Telemetrie programmatische toegang]
-* [Telemetrie toegang via de API-voorbeeld] 
+    * [Telemetrie programmatische toegang]  
+    * [Telemetrie toegang via de API-voorbeeld] 
 
-> [!NOTE]
-> Meerdere telemetrie-gerelateerde functies, zoals **exporteren/importeren registraties**, **telemetrie toegang via API's** enzovoort zijn alleen beschikbaar in Standard-laag. Als u deze functies gebruiken als u in vrije of Basic laag probeert wordt vervolgens u uitzonderingsbericht daartoe tijdens het gebruik van de SDK en een HTTP 403 (verboden) wanneer u ze rechtstreeks vanuit de REST API's. Zorg ervoor dat u hebt verplaatst laag tot standaard via de klassieke Azure-Portal.  
+    > [!NOTE]
+    > Meerdere telemetrie-gerelateerde functies, zoals exporteren en importeren van registraties en telemetrie toegang via API's, zijn alleen beschikbaar voor de laag Standard-service. Als u probeert te gebruiken deze functies van de vrije of Basic servicelaag, verschijnt een bericht van uitzondering als u de SDK en een fout HTTP 403 (verboden) gebruiken als u de functies rechtstreeks vanuit de REST API's gebruiken. 
+    >
+    >Voor het gebruik van telemetrie-gerelateerde functies, controleert u eerst in de Azure portal dat u van het serviceniveau Standard gebruikmaakt.  
 > 
 > 
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
-[1]: ./media/notification-hubs-diagnosing/GCMConfigure.png
-[2]: ./media/notification-hubs-diagnosing/GCMEnable.png
-[3]: ./media/notification-hubs-diagnosing/GCMServerKey.png
-[4]: ./media/notification-hubs-diagnosing/PortalConfigure.png
+[1]: ./media/notification-hubs-diagnosing/FCMConfigure.png
+[3]: ./media/notification-hubs-diagnosing/FCMServerKey.png
+[4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
 [5]: ./media/notification-hubs-diagnosing/PortalDashboard.png
-[6]: ./media/notification-hubs-diagnosing/PortalMonitoring.png
-[7]: ./media/notification-hubs-diagnosing/PortalTestNotification.png
+[6]: ./media/notification-hubs-diagnosing/PortalAnalytics.png
+[7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [8]: ./media/notification-hubs-diagnosing/VSRegistrations.png
 [9]: ./media/notification-hubs-diagnosing/VSServerExplorer.png
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
 
 <!-- LINKS -->
-[overzicht van Notification Hubs]: notification-hubs-push-notification-overview.md
-[gestart zelfstudies ophalen]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[sjabloon richtlijnen]: https://msdn.microsoft.com/library/dn530748.aspx 
-[APNS richtlijnen]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
-[GCM richtlijnen]: http://developer.android.com/google/gcm/adv.html
-[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
-[ServiceBus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
-[ServiceBus Explorer-code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Overzicht van VS Server Explorer]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
-[VS Server Explorer blogbericht - 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
-[VS Server Explorer blogbericht - 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
-[EnableTestSend functie]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
+[Notification Hubs-overzicht]: notification-hubs-push-notification-overview.md
+[aan de slag met Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[sjablonen]: https://msdn.microsoft.com/library/dn530748.aspx 
+[APNs overzicht]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
+[berichten over FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
+[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
+[Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
+[Apparaat-registraties weergeven voor notification hubs]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
+[Diepgaand: Visual Studio 2013 Update 2 RC en Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
+[Versie van Visual Studio 2013 Update 3 en Azure SDK 2.4 aangekondigd]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
+[EnableTestSend]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Telemetrie programmatische toegang]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [Telemetrie toegang via de API-voorbeeld]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 

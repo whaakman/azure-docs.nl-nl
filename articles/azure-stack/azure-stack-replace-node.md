@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Een knooppunt scale unit op een Azure-Stack geïntegreerd systeem vervangen
 
@@ -51,6 +51,10 @@ Als u de waarschuwing 'Scale unit knooppunt is offline' opent, bevat de beschrij
 De volgende stappen zijn opgegeven als een overzicht van het proces scale unit knooppunt vervanging. Raadpleeg de OEM-hardwareleverancier FRU-documentatie voor gedetailleerde stappen die specifiek voor uw systeem zijn. Volg deze stappen niet zonder te verwijzen naar de OEM geleverde documentatie.
 
 1. Gebruik de [leegmaakt](azure-stack-node-actions.md#scale-unit-node-actions) actie het scale unit-knooppunt in onderhoudsmodus te plaatsen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
+
+   > [!NOTE]
+   > In elk geval worden slechts één knooppunt geleegd en op hetzelfde moment zonder dat u de SSD (opslagruimten Direct) uitgeschakeld.
+
 2. Als het knooppunt wordt nog steeds ingeschakeld, gebruikt u de [uitschakelen](azure-stack-node-actions.md#scale-unit-node-actions) in te grijpen. Deze actie kan niet vereist op basis van de fysieke toestand van de hardware.
  
    > [!NOTE]

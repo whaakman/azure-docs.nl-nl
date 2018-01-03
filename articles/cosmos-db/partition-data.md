@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitie en schalen in Azure Cosmos-DB
 
@@ -60,7 +60,7 @@ Azure Cosmos DB gebruikt op basis van de hash partitionering. Bij het schrijven 
 > Het is een best practice om een partitiesleutel met veel afzonderlijke waarden (500 en 5000 liggen minimaal).
 >
 
-Azure DB Cosmos-containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Sommige API's maken de partitiesleutel moeten worden weggelaten voor containers met vaste grootte. U moet een minimale doorvoer van 2500 RU/s opgeven voor het maken van een container als onbeperkt.
+Azure DB Cosmos-containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een container als onbeperkt, moet u een minimale doorvoer van 1000 RU/s en moet u een partitiesleutel opgeven.
 
 Er is een goed idee om te controleren hoe uw gegevens wordt gedistribueerd in partities. U kunt dit controleren in de portal, gaat u naar uw Azure DB die Cosmos-account en klik op **metrische gegevens** in **bewaking** sectie en klik vervolgens op op in het rechterdeelvenster **opslag** tab om te zien hoe uw gegevens gepartitioneerd in verschillende fysieke partitie.
 
@@ -127,25 +127,18 @@ Resultaten:
 
 ### <a name="table-api"></a>Tabel-API
 
-Met de API van de tabel geeft u de doorvoer voor tabellen in de appSettings-configuratie voor uw toepassing.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Vervolgens maakt u een tabel met behulp van de Azure Table-opslag-SDK. De partitiesleutel is impliciet gemaakt als de `PartitionKey` waarde. 
+Gebruik de CreateIfNotExists-methode voor het maken van een tabel met de Azure-API voor tabel Cosmos DB. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Doorvoer is ingesteld als een argument van CreateIfNotExists.
+
+De partitiesleutel is impliciet gemaakt als de `PartitionKey` waarde. 
 
 U kunt één entiteit ophalen met behulp van het volgende fragment:
 

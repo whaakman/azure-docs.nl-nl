@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 12/09/2017
-ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure-Database voor MySQL
 De Azure-Database voor de MySQL-service is in de openbare preview. De volgende secties beschrijven capaciteit, ondersteuning voor opslag-engine, ondersteuning van bevoegdheden, gegevensondersteuning manipulatie instructie en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
@@ -48,7 +48,7 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
 - [GEHEUGEN](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
-### <a name="unsupported"></a>Niet-ondersteunde
+### <a name="unsupported"></a>Niet-ondersteund
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [ZWARTE GAT](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
 - [ARCHIEF](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
@@ -56,15 +56,16 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 
 ## <a name="privilege-support"></a>Ondersteuning van bevoegdheden
 
-### <a name="unsupported"></a>Niet-ondersteunde
-- [SUPER bevoegdheden](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+### <a name="unsupported"></a>Niet-ondersteund
+- DBA rol veel server parameters en instellingen kunnen per ongeluk serverprestaties slechter of ACID-eigenschappen van het DBMS dat. Als zodanig voor het onderhouden van onze service integriteit en SLA op het productniveau van een blootstellen we niet de rol DBA aan klanten. De standaard-gebruikersaccount is samengesteld wanneer een nieuwe database-exemplaar wordt gemaakt, kan klanten de meeste DDL en DML-instructies in het beheerde database-exemplaar uitvoeren. 
+- SUPER bevoegdheid op dezelfde manier [SUPER bevoegdheid](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) wordt ook beperkt.
 
 ## <a name="data-manipulation-statement-support"></a>Ondersteuning voor gegevens manipulatie-instructie
 
 ### <a name="supported"></a>Ondersteund
 - LOAD gegevens INVOERBESTAND - worden ondersteund, maar het moet de [lokale] parameter die wordt omgeleid naar een UNC-pad (Azure-opslag gekoppeld via XSMB) opgeven.
 
-### <a name="unsupported"></a>Niet-ondersteunde
+### <a name="unsupported"></a>Niet-ondersteund
 - SELECTEREN... IN HET UITVOERBESTAND
 
 ## <a name="preview-functional-limitations"></a>Functionele beperkingen Preview
@@ -83,8 +84,11 @@ Wanneer er te veel verbindingen zijn bereikt, wordt de volgende fout:
 
 ## <a name="functional-limitations"></a>Functionele beperkingen
 
-### <a name="subscription-management"></a>Beheer van abonnementen
+### <a name="subscription-management"></a>Abonnementsbeheer
 - Dynamisch vooraf gemaakte servers verplaatsen tussen abonnement en resourcegroep is momenteel niet ondersteund.
+
+## <a name="current-known-issues"></a>Huidige bekende problemen:
+- MySQL-serverexemplaar wordt de verkeerde serverversie nadat de verbinding tot stand is gebracht. Als u de juiste server exemplaar versiebeheer, gebruikt u Selecteer version(); de opdracht bij de MySQL-prompt.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Wat is beschikbaar in elke servicelaag](concepts-service-tiers.md)

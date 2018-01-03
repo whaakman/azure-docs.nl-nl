@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Een actieve DNS-naam migreren naar Azure App Service
 
@@ -39,7 +39,7 @@ Voltooi deze instructies volgt:
 
 Wanneer u een aangepast domein optie preventief bindt, uitvoeren van de volgende voordat u wijzigingen aanbrengt in de DNS-records:
 
-- Domein verifiëren
+- Domeineigendom controleren
 - De domeinnaam voor uw app inschakelen
 
 Wanneer u ten slotte uw aangepaste DNS-naam van de oude site naar de App Service-app migreert, zal er geen uitvaltijd in DNS-omzetting.
@@ -50,7 +50,7 @@ Wanneer u ten slotte uw aangepaste DNS-naam van de oude site naar de App Service
 
 Als u wilt verifiëren dat dit domein, een TXT-record toevoegen De TXT-record wordt toegewezen uit _awverify.&lt; subdomein >_ naar  _&lt;appname >. azurewebsites.net_. 
 
-De TXT-record dat u nodig hebt, is afhankelijk van de DNS-record dat u wilt migreren. Zie de volgende tabel voor voorbeelden (`@` vertegenwoordigt doorgaans het hoofddomein):  
+De TXT-record dat u nodig hebt, is afhankelijk van de DNS-record dat u wilt migreren. Zie de volgende tabel voor voorbeelden (`@` vertegenwoordigt doorgaans het hoofddomein):
 
 | Voorbeeld van DNS-record | TXT-Host | TXT-waarde |
 | - | - | - |

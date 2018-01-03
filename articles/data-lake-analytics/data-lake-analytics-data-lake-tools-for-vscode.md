@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools voor Visual Studio Code gebruiken
 
@@ -116,8 +116,18 @@ Nadat u een U-SQL-taak hebt ingediend, de verzending van Logboeken worden weerge
 
 Instellen zodat de uitvoer van de taakdetails **jobInformationOutputPath** in de **tegenover code voor de u-sql_settings.json** bestand.
  
+**Set Git negeren**
+
+1. Selecteer Ctrl + Shift + P om de opdracht palet te openen. 
+2. Voer **ADL: Set Git negeren**.
+
+    - Als u geen een **.gitIgnore** bestand in uw werkmap een bestand met de naam van VSCode **.gitIgnor** in uw map wordt gemaakt. Vier items (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) worden standaard in het bestand toegevoegd. Verder kunt u updates aanbrengen, indien nodig.
+    - Als u al een **.gitIgnore** bestand in uw werkmap VSCode, het hulpprogramma vier items toegevoegd (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) in uw **.gitIgnore** bestand indien de vier items niet in het bestand opgenomen zijn.
+
+  ![Data Lake Tools voor Visual Studio Code-configuratiebestand](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Gebruik van Python, R en CSharp code-behind-bestand
-Azure Data Lake-hulpprogramma ondersteunt meerdere aangepaste code, Zie de instructies [ontwikkelen van U-SQL met Python, R en CSharp voor Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
+Azure Data Lake-hulpprogramma ondersteunt meerdere aangepaste codes, Zie de instructies [ontwikkelen van U-SQL met Python, R en CSharp voor Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## <a name="use-assemblies"></a>Assembly's gebruiken
 
@@ -193,17 +203,19 @@ Voordat u kunt compileren en U-SQL-scripts in Data Lake Analytics uitvoeren, moe
 **Verbinding maken met Azure**
 
 1.  Selecteer Ctrl + Shift + P om de opdracht palet te openen. 
-2.  Voer **ADL: aanmelding**. De aanmeldingsgegevens wordt weergegeven in de **uitvoer** deelvenster.
+2.  Voer **ADL: aanmelding**. De aanmeldingsgegevens verschijnt op het bovenste gedeelte.
 
     ![Data Lake Tools voor Visual Studio Code opdracht palet](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Data Lake Tools voor Visual Studio Code aanmelding apparaatgegevens](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Selecteer Ctrl + klik op de aanmeldings-URL: https://aka.ms/devicelogin de webpagina van de aanmelding te openen. Voer de code **G567LX42V** in het tekstvak in en selecteer vervolgens **doorgaan**.
+3.  Klik op **Open & kopiëren** voor het openen van de webpagina van de aanmelding met URL: https://aka.ms/devicelogin. Plak de code **G567LX42V** in het tekstvak in en selecteer vervolgens **doorgaan**.
 
    ![Data Lake Tools voor Visual Studio Code aanmelding plakken code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  Volg de instructies voor het aanmelden van de webpagina. Wanneer u verbonden bent, de naam van uw Azure-account wordt weergegeven op de statusbalk in de linkerbenedenhoek van het **tegenover Code** venster. 
 
     > [!NOTE] 
-    > Als uw account twee factoren is ingeschakeld heeft, wordt u aangeraden phone verificatie in plaats van met een PINCODE te gebruiken.
+    >- Hulpprogramma voor de Data Lake ondertekent automatisch in de volgende keer dat als u zich hebt geregistreerd voordat, maar u bent niet afgemeld nog.
+    >- Als uw account twee factoren is ingeschakeld heeft, wordt u aangeraden phone verificatie in plaats van met een PINCODE te gebruiken.
+
 
 Als u wilt afmelden, voer de opdracht **ADL: afmelding**.
 
@@ -324,15 +336,38 @@ De status wordt weergegeven aan de onderkant van de statusbalk wanneer voltooid 
    ![Data Lake Tools voor Visual Studio Code controleren de opslagstatus](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Integratie met Azure Data Lake VSCode Explorer
-1. Na aanmelding, ziet u alle Azure-accounts worden vermeld in het linkerpaneel van de **DataLake Explorer**. Vouw één database, vindt u de **schema's**, **tabellen**, **assembly's** enzovoort, onder het knooppunt.
+
+**Integratie van Azure** 
+
+- Voordat u aanmelden bij Azure, kunt u altijd uitbreiden **DATALAKE EXPLORER**, klikt u vervolgens op **aanmelden bij Azur** voor aanmelding bij Azure. Na aanmelding, ziet u alle abonnementen onder uw Azure-account worden vermeld in het linkerpaneel van de **DATALAKE EXPLORER**. 
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-2. U kunt de opdracht uitvoeren **registreren assembly** door met de rechtermuisknop op de **assembly's** knooppunt.
+**ADLA metagegevens navigatie** 
+
+- Vouw uw Azure-abonnement, kunt u de U-SQL-database, navigeren weergave de **schema's**, **referenties**, **assembly's**, **tabel**, **Index**, enzovoort, onder het knooppunt U-SQL-Databases.
+
+**ADLA metagegevens-Entiteitsbeheer**
+
+- Vouw **U-SQL-Databases**, kunt u een nieuwe database, schema, tabel, tabeltypen, index, statistieken met de rechtermuisknop op de **Script maken** contextmenu onder de bijbehorende knooppunt. Op de pagina is geopend script bewerkt u het script aan uw wensen en verzenden van de taak met de rechtermuisknop op contextmenu **ADL: Submit Job**. Nadat het maken is voltooid, klikt u op contextmenu **vernieuwen** om weer te geven van het nieuwe item gemaakt. U kunt ook het item verwijderen met de rechtermuisknop op het contextmenu **verwijderen**.
+
+   ![DataLake explorer maakt een nieuw itemmenu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+
+   ![DataLake explorer maakt een nieuw item script](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+
+**ADLA Assembly-registratie**
+
+ - U kunt **registreren assembly** in de bijbehorende database door met de rechtermuisknop op de **assembly's** knooppunt.
 
     ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-3. Navigeer naar **Opslagaccount**, u kunt uploaden of download bestand door met de rechtermuisknop op de map of bestand. En u ook **Preview** een bestand **downloaden**, **relatieve pad kopiëren**, **volledig pad kopiëren** door het contextmenu.
+**ADLS-integratie** 
+
+ - Navigeer naar **Opslagaccount**, kunt u **Preview**, **downloaden**, **verwijderen**, **kopie relatief pad**, **Volledig pad kopiëren** door het snelmenu dat verschijnt op het bestandsknooppunt. U kunt **vernieuwen**, **uploaden**, **map uploaden**, **verwijderen** met de rechtermuisknop op het snelmenu dat verschijnt op het mapknooppunt.
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
@@ -344,7 +379,7 @@ De status wordt weergegeven aan de onderkant van de statusbalk wanneer voltooid 
 Data Lake Tools Hiermee opent u het pad van de Azure-opslag in de Azure portal. U kunt het pad niet vinden en een voorbeeld bekijken van het bestand via het web.
 
 ## <a name="local-run-and-local-debug-for-windows-users"></a>Lokaal uitvoeren en lokaal fouten opsporen voor Windows gebruikers
-U-SQL lokaal uitvoeren Test uw lokale gegevens en uw script lokaal, valideert voordat uw code naar Data Lake Analytics is gepubliceerd. De functie lokale foutopsporing kunt u de volgende taken uitvoeren voordat u uw code wordt verzonden naar Data Lake Analytics: 
+U-SQL lokaal uitvoeren Test uw lokale gegevens en uw script lokaal wordt gevalideerd voordat uw code naar Data Lake Analytics is gepubliceerd. De functie lokale foutopsporing kunt u de volgende taken uitvoeren voordat u uw code wordt verzonden naar Data Lake Analytics: 
 - Uw C# code-behind voor foutopsporing. 
 - Analyseer de code in. 
 - Het script lokaal valideren.
