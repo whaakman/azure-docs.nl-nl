@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>De oplossing Serviceoverzicht gebruiken in Operations Management Suite
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. Met het Serviceoverzicht, kunt u uw servers weergeven in de manier waarop u denkt ze dat: als onderling verbonden systemen die essentiële services leveren. Serviceoverzicht ziet u de verbindingen tussen servers, processen en poorten voor elke architectuur TCP-verbinding waarvoor geen configuratie nodig andere dan de installatie van een agent.
@@ -49,7 +49,7 @@ Serviceoverzicht agents verzamelen van informatie over alle processen TCP-verbin
 
 ![Overzicht van het Serviceoverzicht](media/oms-service-map/service-map-overview.png)
 
-Machines kunnen worden uitgebreid in de toegewezen aan de actieve processen met actieve netwerkverbindingen weergeven tijdens de geselecteerde periode. Wanneer een externe computer met een Serviceoverzicht-agent wordt uitgevouwen Procesdetails wilt weergeven, worden alleen die processen die met de machine focus communiceren weergegeven. Het aantal zonder agent front-machines die verbinding met de focus machine wordt aan de linkerkant van de processen die ze verbinding met maken aangegeven. Als de focus-machine met het maken van een verbinding met een back-end-machine waarop geen agent is, wordt de back-endserver opgenomen in een servergroep poort, samen met andere verbindingen met hetzelfde poortnummer.
+Machines kunnen worden uitgebreid in de kaart om weer te geven van de actieve groepen en -processen met actieve netwerkverbindingen verwerken tijdens de geselecteerde periode. Wanneer een externe computer met een Serviceoverzicht-agent wordt uitgevouwen Procesdetails wilt weergeven, worden alleen die processen die met de machine focus communiceren weergegeven. Het aantal zonder agent front-machines die verbinding met de focus machine wordt aan de linkerkant van de processen die ze verbinding met maken aangegeven. Als de focus-machine met het maken van een verbinding met een back-end-machine waarop geen agent is, wordt de back-endserver opgenomen in een servergroep poort, samen met andere verbindingen met hetzelfde poortnummer.
 
 Standaard weergeven Serviceoverzicht maps de laatste 30 minuten van afhankelijkheidsinformatie. Met behulp van de besturingselementen voor tijd in de linkerbovenhoek, kunt u een query-toewijzingen voor historische bereiken van maximaal één uur om weer te geven hoe afhankelijkheden in het verleden hebt bekeken (bijvoorbeeld, tijdens een incident, of voordat er een wijziging is opgetreden). Serviceoverzicht gegevens worden opgeslagen voor 30 dagen in betaalde werkruimten en 7 dagen in gratis werkruimten.
 
@@ -59,6 +59,9 @@ Aan de onderkant van elke server in de kaart kan worden een lijst met status bad
 Afhankelijk van de ernst van de status badges machine knooppunt randen worden gekleurde rood (Kritiek), geel (waarschuwing) of blauw (informatief). De kleur vertegenwoordigt de ernstigste status van elk van de status badges. Een grijze rand geeft aan dat een knooppunt dat geen statusindicatoren is.
 
 ![Status badges](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Verwerken van groepen
+Procesgroepen combineren processen die gekoppeld aan een algemene product of service in een groep processen zijn.  Zelfstandige processen samen met het verwerken van groepen wordt weergegeven wanneer een machine-knooppunt wordt uitgevouwen.  Als u alle binnenkomende en uitgaande verbindingen met een proces in een procesgroep vervolgens de verbinding is mislukt, wordt weergegeven als is mislukt voor de hele groep.
 
 ## <a name="machine-groups"></a>Computergroepen
 Computergroepen kunnen u maps gecentreerd rond een reeks servers, niet alleen een zodat u alle leden van een cluster met meerdere lagen toepassings- of in een kaart kunt zien.
@@ -191,7 +194,7 @@ Schakel Serviceoverzicht relevante waarschuwingen worden weergegeven door een wa
 - Een component aan groep opnemen door computer (bijvoorbeeld **met Computer interval 1 minuut**).
 - Kies een waarschuwing op basis van metrische meting.
 
-![Configuratie van de waarschuwing](media/oms-service-map/alert-configuration.png)
+![Configuratie van waarschuwingen](media/oms-service-map/alert-configuration.png)
 
 
 ## <a name="operations-management-suite-log-events-integration"></a>Integratie van operations Management Suite logboek gebeurtenissen
@@ -360,7 +363,7 @@ Type = ServiceMapProcess_CL ExecutableName_s = curl | Afzonderlijke ProductVersi
 Type = ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Afzonderlijke ComputerName_s
 
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Alle door de server-, proces- en afhankelijkheid gegevens in Serviceoverzicht beschikbaar via is de [REST-API van kaart](https://docs.microsoft.com/rest/api/servicemap/).
 
 

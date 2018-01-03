@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Netwerk groep stroom beveiligingslogboeken in de Azure portal beheren
 
@@ -80,19 +80,19 @@ Stroom logboeken worden opgeslagen in een opslagaccount. Download uw logboeken s
 
 Stroom logboeken downloaden, selecteer **kunt u stroom logboeken downloaden van de geconfigureerde opslagaccounts**. Deze stap gaat u naar de weergave van een storage-account waarin u kunt kiezen welke logboeken te downloaden.
 
-![Instellingen voor logboeken stromen][4]
+![Instellingen voor stroomlogboeken][4]
 
 ### <a name="step-2"></a>Stap 2
 
 Ga naar het juiste storage-account. Selecteer vervolgens **Containers** > **insights-log-networksecuritygroupflowevent**.
 
-![Instellingen voor logboeken stromen][5]
+![Instellingen voor stroomlogboeken][5]
 
 ### <a name="step-3"></a>Stap 3
 
 Ga naar de locatie van het logboek stroom, selecteert u deze en selecteer vervolgens **downloaden**.
 
-![Instellingen voor logboeken stromen][6]
+![Instellingen voor stroomlogboeken][6]
 
 Voor informatie over de structuur van het logboek, gaat u naar [netwerk groep stroom logboek beveiligingsoverzicht](network-watcher-nsg-flow-logging-overview.md).
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
@@ -38,7 +38,7 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | Conflict | U hebt aangevraagd een bewerking die niet is toegestaan in de huidige status van de resource. De schijfgrootte is mag bijvoorbeeld alleen bij het maken van een virtuele machine of wanneer de toewijzing van de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wacht voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |
 | DnsRecordInUse | De DNS-recordnaam moet uniek zijn. Geef een andere naam, of de bestaande record wijzigen. | |
-| ImageNotFound | Controleer de instellingen van de VM-installatiekopie. | [Problemen oplossen Linux afbeeldingen](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) en [installatiekopieën voor Windows oplossen](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Controleer de instellingen van de VM-installatiekopie. |  |
 | InUseSubnetCannotBeDeleted | U kunt deze fout kan optreden bij het bijwerken van een bron, maar de aanvraag wordt verwerkt door verwijderen en het maken van de resource. Zorg ervoor dat alle ongewijzigde waarden opgeven. | [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Haal het toegangstoken voor de juiste tenant. U kunt alleen het token ophalen van de tenant die uw account hoort bij. | |
 | InvalidContentLink | U hebt waarschijnlijk geprobeerd om te koppelen aan een geneste sjabloon die niet beschikbaar. Controleer de URI die u hebt opgegeven voor de geneste sjabloon. Als de sjabloon in een opslagaccount bestaat, zorg er dan voor dat de URI is toegankelijk. U moet mogelijk een SAS-token doorgeven. | [Gekoppelde sjablonen](resource-group-linked-templates.md) |

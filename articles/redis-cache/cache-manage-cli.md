@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
 ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Het maken en beheren van Azure Redis-Cache met behulp van de Azure-opdrachtregelinterface (Azure CLI)
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-> * [Azure CLI](cache-manage-cli.md)
+> * [Azure-CLI](cache-manage-cli.md)
 >
 >
 
@@ -56,7 +56,7 @@ De volgende eigenschappen worden gebruikt bij het maken en bijwerken van Redis-C
 | Configuratie van redis |-c,--redis-configuratie |Redis-configuratie. Geef een string in JSON-indeling van de van configuratiesleutels en waarden die hier. Indeling: ' {' ': "","": ""} " |
 | Configuratie van redis |-f,--redis-configuratiebestand |Redis-configuratie. Geef het pad van een bestand met configuratiesleutels en waarden die hier. Indeling voor de bestandsvermelding: {"": "","": ""} |
 | Aantal shard |-r,--shard-telling |Het aantal Shards maken op een Cluster Premium Cache met clustering. |
-| Virtual Network |-v,--virtueel netwerk |Hiermee geeft u de exacte ARM resource-ID van het virtuele netwerk voor het implementeren van de redis-cache in bij het hosten van uw cache in een VNET. Voorbeeld van de indeling: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Virtueel netwerk |-v,--virtueel netwerk |Hiermee geeft u de exacte ARM resource-ID van het virtuele netwerk voor het implementeren van de redis-cache in bij het hosten van uw cache in een VNET. Voorbeeld van de indeling: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | sleuteltype |-t,--sleutel-type |Het type van de sleutel te vernieuwen. Geldige waarden: [primaire, secundaire] |
 | StaticIP |-p,--statisch ip-< statisch ip-> |Bij het hosten van uw cache in een VNET, geeft een uniek IP-adres in het subnet voor de cache. Als niet wordt opgegeven, wordt een gekozen voor u van het subnet. |
 | Subnet |t,--subnet<subnet> |Bij het hosten van uw cache in een VNET, geeft de naam van het subnet waarin de cache te implementeren. |

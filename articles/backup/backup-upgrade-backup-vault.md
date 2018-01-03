@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Back-upkluis bijgewerkt naar een Recovery Services-kluis
 In dit artikel biedt een overzicht van welke Recovery Services-kluis biedt, veelgestelde vragen over het upgraden van bestaande back-up vault Recovery Services-kluis en stappen na de upgrade. Een Recovery Services-kluis is de Azure Resource Manager-equivalent van een back-upkluis met uw back-upgegevens. De gegevens zijn of doorgaans kopieën van gegevens of configuratie-informatie voor virtuele machines (VM's), werkbelastingen, servers of werkstations, lokaal of in Azure.
@@ -71,7 +71,7 @@ Eenmaal u upgraden naar een Recovery Services-kluis, rapporten configureren voor
 Nee. Uw actieve back-ups niet wordt onderbroken tijdens en na de upgrade.
 
 **Wat houdt de upgrade voor mijn bestaande tooling?**</br>
-U moet uw bestaande automatisering of tooling bijwerken naar het Resource Manager-implementatiemodel om ervoor te zorgen dat het blijft werken na de upgrade. Raadpleeg de verwijzingen van de PowerShell-cmdlets voor de [Service Manager-implementatiemodel](backup-client-automation-classic.md) en de [Resource Manager-implementatiemodel](backup-client-automation.md).
+U moet uw bestaande automatisering of tooling bijwerken naar het Resource Manager-implementatiemodel om ervoor te zorgen dat het blijft werken na de upgrade. Raadpleeg de verwijzingen van de PowerShell-cmdlets voor de [Resource Manager-implementatiemodel](backup-client-automation.md).
 
 **Kan ik terugdraaien na de upgrade?**</br>
 Nee. Terugdraaien wordt niet ondersteund nadat de resources hebt geüpgraded.

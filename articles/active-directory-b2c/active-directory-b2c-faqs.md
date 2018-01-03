@@ -1,12 +1,11 @@
 ---
-title: Veelgestelde vragen (FAQ) - Azure AD B2C | Microsoft Docs
-description: Veelgestelde vragen over Azure Active Directory B2C
+title: Veelgestelde vragen - Azure Active Directory B2C
+description: Veelgestelde vragen (FAQ) over Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
@@ -64,9 +63,9 @@ U kunt de [functie huisstijl](../active-directory/customize-branding.md) voor he
 
     ![Schermopname van een aangepaste bevestigingsmail](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-De e-handtekening bevat van de B2C-tenant-naam die u hebt opgegeven tijdens het maken van de B2C-tenant. U kunt de naam van deze instructies wijzigen:
+De e-handtekening bevat de Azure AD B2C-tenant-naam die u hebt opgegeven tijdens het maken van de Azure AD B2C-tenant. U kunt de naam van deze instructies wijzigen:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als Abonnementsbeheerder.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder.
 1. Open de **Azure Active Directory** blade.
 1. Klik op de **eigenschappen** tabblad.
 1. Wijzig de **naam** veld.
@@ -113,15 +112,15 @@ Volg deze stappen voor het verwijderen van uw Azure AD B2C-tenant:
 
 1. Volg deze stappen voor [gaat u naar Azure AD B2C-instellingen](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) in de Azure portal.
 1. Navigeer naar de **toepassingen**, **identiteitsproviders**, en **alle beleidsregels** en verwijder alle vermeldingen in elk van deze servers.
-1. Nu aanmelden bij de [klassieke Azure-portal](https://manage.windowsazure.com/) als Abonnementsbeheerder. (Gebruik hetzelfde werk- of schoolaccount of hetzelfde Microsoft-account waarmee u zich aanmelden voor Azure.)
-1. Ga naar de Active Directory-extensie aan de linkerkant en klik op uw B2C-tenant.
-1. Klik op de **gebruikers** tabblad.
-1. Selecteer elke gebruiker daarmee (de beheerder van abonnement u momenteel bent aangemeld als uitsluiten). Klik op **verwijderen** aan de onderkant van de pagina en klik op **Ja** wanneer u wordt gevraagd.
-1. Klik op de **toepassingen** tabblad.
-1. Selecteer **toepassingen mijn bedrijf eigenaar is van** in de **weergeven** vervolgkeuzelijst en klik op het vinkje.
-1. Een toepassing aangeroepen **b2c-uitbreidingen-app**. Klik op **verwijderen** aan de onderkant van de pagina en klik op **Ja** wanneer u wordt gevraagd.
-1. Navigeer naar de Active Directory-extensie opnieuw en selecteer uw B2C-tenant.
-1. Klik op **verwijderen** aan de onderkant van de pagina. Volg de instructies op het scherm voor het voltooien van het proces.
+1. Nu aanmelden bij de [Azure-portal](https://portal.azure.com/) als Abonnementsbeheerder. (Gebruik hetzelfde werk- of schoolaccount of hetzelfde Microsoft-account waarmee u zich aanmelden voor Azure.)
+1. Switch aan de Azure AD B2C-tenant die u wilt verwijderen.
+2. Navigeer naar de Active Directory-menu aan de linkerkant.
+3. Selecteer **gebruikers en groepen**.
+4. Selecteer elke gebruiker daarmee (de beheerder van abonnement u momenteel bent aangemeld als uitsluiten). Klik op **verwijderen** aan de onderkant van de pagina en klik op **Ja** wanneer u wordt gevraagd.
+5. Klik op de **App registraties**.
+6. Selecteer de toepassing **b2c-uitbreidingen-app**. Klik op **verwijderen** en klik op **Ja** wanneer u wordt gevraagd.
+7. Selecteer **overzicht**.
+8. Klik op **verwijderen directory**. Volg de instructies op het scherm voor het voltooien van het proces.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Kan ik Azure AD B2C als onderdeel van Enterprise Mobility Suite krijgen?
 Nee, Azure AD B2C wordt een betalen naar gebruik Azure-service en is geen onderdeel van Enterprise Mobility Suite.

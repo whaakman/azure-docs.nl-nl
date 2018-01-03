@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -851,7 +851,7 @@ Versleuteling van een OS-station op een actieve Linux VM wordt ondersteund door 
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Voordat u opnieuw opstart, wordt aangeraden dat u opslaat [opstarten diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) van de virtuele machine.
+Voordat u opnieuw opstart, wordt aangeraden dat u opslaat [opstarten diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) van de virtuele machine.
 
 #### <a name="monitoring-os-encryption-progress"></a>OS-versleuteling voortgang controleren
 U kunt voortgang OS versleuteling op drie manieren:
@@ -885,7 +885,7 @@ U kunt voortgang OS versleuteling op drie manieren:
 
  ![Instantieweergave van virtuele machine](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Bekijk [opstarten diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Berichten van de extensie ADE moeten worden voorafgegaan door `[AzureDiskEncryption]`.
+* Bekijk [opstarten diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Berichten van de extensie ADE moeten worden voorafgegaan door `[AzureDiskEncryption]`.
 
 * Aanmelden bij de virtuele machine via SSH en ophalen van het logboek voor uitbreiding van:
 
@@ -917,7 +917,7 @@ Configureren van versleuteling tijdens de installatie van het distributiepunt al
 
  ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp [deze instructies](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Voer niet de laatste stap (de virtuele machine opheffen van inrichting) nog.
+6. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp [deze instructies](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Voer niet de laatste stap (de virtuele machine opheffen van inrichting) nog.
 
 Codering met Azure werkt als volgt configureren:
 
@@ -995,7 +995,7 @@ Voor het configureren van versleuteling tijdens de installatie van het distribut
 
  ![openSUSE 13.2 instellen](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. De virtuele machine voorbereiden voor het uploaden naar Azure door de instructies in [een SLES of openSUSE virtuele machine voorbereiden voor Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Voer niet de laatste stap (de virtuele machine opheffen van inrichting) nog.
+3. De virtuele machine voorbereiden voor het uploaden naar Azure door de instructies in [een SLES of openSUSE virtuele machine voorbereiden voor Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Voer niet de laatste stap (de virtuele machine opheffen van inrichting) nog.
 
 Versleuteling werkt met Azure, kunt u het volgende configureren:
 1. Bewerk de /etc/dracut.conf, en voeg de volgende regel:
@@ -1071,7 +1071,7 @@ Voor het configureren van versleuteling tijdens de installatie van het distribut
 
  ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp van de 'CentOS 7.0 +'-instructies in [een CentOS-virtuele machine voorbereiden voor Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Voer niet de laatste stap (de virtuele machine opheffen van inrichting) nog.
+5. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp van de 'CentOS 7.0 +'-instructies in [een CentOS-virtuele machine voorbereiden voor Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Voer niet de laatste stap (de virtuele machine opheffen van inrichting) nog.
 
 6. Nu u kunt inrichting ervan ongedaan maakt de virtuele machine en [uw VHD uploaden](#upload-encrypted-vhd-to-an-azure-storage-account) in Azure.
 

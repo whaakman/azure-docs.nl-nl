@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: d6b25d6b9a0d5b3bcf613046a82a9c6c99475d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Een Azure-abonnement koppelen aan een Azure AD B2C-tenant
 
@@ -68,9 +68,9 @@ Selecteer een resourcegroep en locatie van resourcegroep. De selectie hier heeft
 
 ![B2C-Resource maken](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Uw Azure AD B2C-tenant resources beheren
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Uw Azure AD B2C-tenant resources beheren
 
-Als een Azure AD B2C-resource is gemaakt in het Azure-abonnement, ziet u een nieuwe resource van het type 'B2C tenant' samen met andere Azure-resources toegevoegd.
+Als een Azure AD B2C-resource is gemaakt in het Azure-abonnement, ziet u een nieuwe resource van het type 'B2C-tenant' samen met andere Azure-resources toegevoegd.
 
 U kunt deze bron te gebruiken:
 

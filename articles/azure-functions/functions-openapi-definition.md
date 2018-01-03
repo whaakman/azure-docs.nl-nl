@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/09/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>De definitie van een OpenAPI voor een functie maken
 REST-API's worden vaak beschreven met behulp van de definitie van een OpenAPI (voorheen bekend als een [Swagger](http://swagger.io/) bestand). Deze definitie bevat informatie over welke bewerkingen zijn beschikbaar in een API en hoe de gegevens van de aanvraag en -antwoord voor de API moet worden opgebouwd.
@@ -125,7 +125,7 @@ U nu kunt de definitie OpenAPI genereren. Deze definitie kan worden gebruikt doo
 
     1. Op de **integreren** tabblad van uw nieuwe functie in de HTTP-Trigger, wijziging **toegestaan HTTP-methoden** naar **methoden geselecteerd**
 
-    1. In **geselecteerd HTTP-methoden**, schakelt u elke optie behalve **POST**.
+    1. In **geselecteerd HTTP-methoden**, schakelt u elke optie behalve **POST**, klikt u vervolgens op **opslaan**.
 
         ![Geselecteerde HTTP-methoden](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -135,13 +135,13 @@ U nu kunt de definitie OpenAPI genereren. Deze definitie kan worden gebruikt doo
 
 1. Op de **API-definitie** tabblad **functie**.
 
-    ![API-definitie-bron](media/functions-openapi-definition/api-definition-source.png)
+    ![Bron van API-definitie](media/functions-openapi-definition/api-definition-source.png)
 
     In deze stap kunt u een reeks OpenAPI opties voor functie-app, met inbegrip van een eindpunt voor het hosten van een bestand OpenAPI uit van de functie app-domein, een inline-kopie van de [OpenAPI Editor](http://editor.swagger.io), en een API-definitie sjabloon generator.
 
 1. Klik op **genereren API-definitie sjabloon** > **opslaan**.
 
-    ![API-definitie sjabloon genereren](media/functions-openapi-definition/generate-template.png)
+    ![Sjabloon voor API-definitie genereren](media/functions-openapi-definition/generate-template.png)
 
     Azure uw app in de functie voor het aantal HTTP-Trigger functies gescand en maakt gebruik van de gegevens in functions.json voor het genereren van de definitie van een OpenAPI. Hier volgt de definitie die wordt gegenereerd:
 
@@ -272,7 +272,7 @@ Voordat u de API-definitie gebruikt, is het een goed idee om deze te testen in d
 
 1. Ga terug naar de API-definitie: **functie demo energie** > **platformfuncties** > **API-definitie**.
 
-1. Klik in het rechterdeelvenster **verificatie wijzigen**, voer de API-sleutel die u gekopieerd en klik op **verifiëren**.
+1. Klik in het rechterdeelvenster **verifiëren**, voer de API-sleutel die u gekopieerd en klik op **verifiëren**.
 
     ![Verificatie met de API-sleutel](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,7 +286,7 @@ Voordat u de API-definitie gebruikt, is het een goed idee om deze te testen in d
 
     U ziet hoe de beschrijvingen van de API-definitie in de gebruikersinterface wordt gebruikt.
 
-1. Klik op **een aanvraag verzenden**, klikt u vervolgens op de **vrij** tabblad voor een overzicht van de uitvoer.
+1. Klik op **aanvraag verzenden**, klikt u vervolgens op de **vrij** tabblad voor een overzicht van de uitvoer.
 
     ![Een aanvraag verzenden](media/functions-openapi-definition/send-request.png)
 

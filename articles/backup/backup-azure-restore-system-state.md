@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Systeemstatus terugzetten naar WindowsServer
 
@@ -89,9 +89,6 @@ De terminologie die wordt gebruikt in deze stap omvat het volgende:
 1. Open de **Microsoft Azure Backup** -module op de *doelmachine*.
 2. Zorg ervoor dat de *doelmachine* en de *bronmachine* zijn geregistreerd bij dezelfde Recovery Services-kluis.
 3. Klik op **gegevens herstellen** starten van de werkstroom.
-
-    ![Gegevens herstellen](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Selecteer **een andere server**
 
     ![Een andere Server](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,9 +96,6 @@ De terminologie die wordt gebruikt in deze stap omvat het volgende:
 5. Geef het kluisreferentiebestand die overeenkomt met de *voorbeeld kluis*. Als het kluisreferentiebestand is ongeldig (of verlopen), downloadt u een nieuw kluisreferentiebestand van de *voorbeeld kluis* in de Azure portal. Zodra het kluisreferentiebestand is opgegeven, wordt de Recovery Services-kluis die is gekoppeld aan het kluisreferentiebestand weergegeven.
 
 6. Selecteer in het deelvenster Selecteer back-upserver van de *bronmachine* uit de lijst met computers weergegeven.
-
-    ![Lijst met computers](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. Kies in het deelvenster herstelmodus Selecteer **systeemstatus** en klik op **volgende**. 
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)

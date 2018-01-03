@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: saurinsh
-ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>HDInsight domein sandbox-omgeving configureren
 
@@ -138,9 +138,9 @@ In deze sectie kunt u de Azure portal gebruiken voor het toevoegen van een HDIns
     Er zijn zes secties met de optie aangepaste configuratie: basisbeginselen, opslag, toepassingen, Cluster grootte, geavanceerde instellingen en samenvatting.
 5. In de **basisbeginselen** sectie:
 
-    - Cluster-type: kies **PREMIUM**. Momenteel kunt u alleen premium cluster maken met de volgende clustertypen: Hadoop en interactieve Query Spark.
+    - Cluster-type: Selecteer **Enterprise-beveiligingspakket**. Op dit moment de Enterprise-beveiligingspakket kan alleen worden ingeschakeld voor de volgende clustertypen: Hadoop en interactieve Query Spark.
 
-        ![Domein voor HDInsight Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+        ![HDInsight domein gekoppelde enterprise-beveiligingspakket](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
     - Cluster-aanmelding gebruikersnaam: dit is de Hadoop-HTTP-gebruiker. Dit account verschilt van het domein administrator-account.
     - Resourcegroep: Selecteer de resourcegroep die u eerder met de Resource Manager-sjabloon hebt gemaakt.
     - Locatie: De locatie moet niet dezelfde zijn als het account dat u hebt gebruikt toen u het vnet maken en de DC's met behulp van de Resource Manager-sjabloon.

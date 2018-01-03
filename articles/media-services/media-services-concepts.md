@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten
 In dit onderwerp biedt een overzicht van de belangrijkste concepten van Media Services.
 
-## <a id="assets"></a>Activa en opslag
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Activa en opslag
 ### <a name="assets"></a>Assets
 Een [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) digitale bestanden (inclusief video, audio, afbeeldingen, verzamelingen miniaturen, tekst tekstsporen en ondertitelingsbestanden bestanden) en de metagegevens over deze bestanden bevat. Nadat de digitale bestanden zijn geüpload naar een asset, kunnen ze in de Media Services-codering en streaming-werkstromen worden gebruikt.
 
@@ -71,7 +71,7 @@ Een blob-container is een groepering van een reeks blobs. BLOB-containers worden
 > 
 > 
 
-### <a id="locators"></a>Locators
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Locators
 [Locator](https://docs.microsoft.com/rest/api/media/operations/locator)s bieden een toegangspunt voor toegang tot de bestanden in een asset. Een toegangsbeleid wordt gebruikt voor het definiëren van de machtigingen en de duur dat een client toegang tot een bepaalde asset heeft. Locators kunnen een veel-op-één-relatie met een beleid voor toegang hebben, zodat andere locators bieden kunnen verschillende begin- en verbindingstypen verschillende clients terwijl alle met de dezelfde machtigingen en de duur van de instellingen. echter, vanwege een beleid voor gedeelde toegangsbeperking ingesteld met Azure storage-services, er geen meer dan vijf unieke locators die tegelijk zijn gekoppeld aan een bepaalde asset. 
 
 Media Services ondersteunt twee typen locators: OnDemandOrigin-locators, gebruikt media (bijvoorbeeld MPEG DASH, HLS of Smooth Streaming) streamen of progressief downloaden media en SAS-URL-locators, gebruikt om te uploaden of downloaden van media-bestanden to\from Azure-opslag. 
@@ -156,7 +156,7 @@ Raadpleeg voor meer informatie de volgende artikelen:
 - [Beveiligen met PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Leveren
-### <a id="dynamic_packaging"></a>Dynamische pakketten
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dynamische pakketten
 Wanneer u werkt met Media Services, wordt het aanbevolen Codeer uw tussentijds-bestanden in een adaptive bitrate MP4-set en vervolgens de set converteren met de gewenste indeling via de [dynamische pakketten](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Streaming-eindpunt
@@ -190,7 +190,7 @@ U kunt gebruikers met URL's voor progressief downloaden, moet u eerst een OnDema
 
 http://amstest1.streaming.mediaservices.Windows.NET/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>Streaming-URL 's
+### <a name="streaming-urls"></a>Streaming-URL's
 Streaming uw inhoud aan clients. U kunt gebruikers met het streaming-URL's, moet u eerst een OnDemandOrigin-locator maken. De locator maakt, kunt u het basispad voor de activa die de inhoud die u wilt streamen bevat. Om deze inhoud te streamen moet u echter meer dit pad wijzigen. Kan een volledige URL van het manifestbestand van streaming, moet u de locator padwaarde en het manifest (filename.ism) samenvoegen bestandsnaam. /Manifest en (indien nodig) de juiste indeling vervolgens toevoegen aan het locator-pad.
 
 U kunt ook de inhoud streamen via een SSL-verbinding. Hiervoor moet dat de URL van uw streaming begint met HTTPS. Op dit moment ondersteuning AMS geen voor SSL met aangepaste domeinen.  

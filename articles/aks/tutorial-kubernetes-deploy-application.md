@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4d4b9a0223fe6e48eb5ea9be089239d729aa1ab7
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Toepassingen uitvoeren in Azure Container Service (AKS)
 
@@ -32,7 +32,7 @@ Deze zelfstudie wordt ervan uitgegaan dat een basiskennis van Kubernetes-concept
 
 In vorige zelfstudies, een toepassing in een installatiekopie van een container is verpakt, deze installatiekopie is geüpload naar Azure Container register en een Kubernetes-cluster is gemaakt. 
 
-Voor deze zelfstudie hebt voltooid, moet u de vooraf gemaakte `azure-vote-all-in-one-redis.yml` Kubernetes manifestbestand. Dit bestand is gedownload met de broncode van de toepassing in een vorige zelfstudie. Controleer of dat u de opslagplaats hebt gekloond en dat u de mappen in de gekloonde opslagplaats hebt gewijzigd.
+Voor deze zelfstudie hebt voltooid, moet u de vooraf gemaakte `azure-vote-all-in-one-redis.yaml` Kubernetes manifestbestand. Dit bestand is gedownload met de broncode van de toepassing in een vorige zelfstudie. Controleer of dat u de opslagplaats hebt gekloond en dat u de mappen in de gekloonde opslagplaats hebt gewijzigd.
 
 Als u deze stappen nog niet hebt gedaan en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app].
 
@@ -49,7 +49,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Het manifestbestand is vooraf gemaakte met een aanmeldingsnaam voor de server van `microsoft`. Open het bestand met een teksteditor. In dit voorbeeld wordt het bestand is geopend met `vi`.
 
 ```console
-vi azure-vote-all-in-one-redis.yml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
 Vervang `microsoft` met de naam van ACR aanmelding. Deze waarde is gevonden op regel **47** van het manifestbestand.
@@ -67,7 +67,7 @@ Sla en sluit het bestand.
 Gebruik de [kubectl maken] [ kubectl-create] opdracht de toepassing uit te voeren. Deze opdracht het manifestbestand parseert en maakt de gedefinieerde Kubernetes-objecten.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
 Uitvoer:
@@ -95,7 +95,7 @@ Eerst wordt het *externe IP-adres* voor de service *azure-vote-front* weergegeve
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Eenmaal de *extern IP-* adres is gewijzigd van *in behandeling* naar een *IP-adres*, gebruik `CTRL-C` het proces van de controle kubectl te stoppen. 
+Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen. 
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m

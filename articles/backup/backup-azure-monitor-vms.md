@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Waarschuwingen voor back-ups van een virtuele Azure-machine controleren
 Waarschuwingen zijn reacties van de service een drempelwaarde bereikt of overschreden. Weten wanneer start problemen kan essentieel zijn voor de bedrijven kosten worden beperkt. Waarschuwingen doorgaans niet plaats op een planning en dus is het handig om te weten zo snel mogelijk na het optreden van waarschuwingen. Bijvoorbeeld, als een back-up of herstel de taak is mislukt, een waarschuwing wordt gegenereerd binnen vijf minuten van de fout. Op het kluisdashboard bevat de tegel waarschuwingen voor back-up kritiek en waarschuwingsniveau gebeurtenissen. U kunt alle gebeurtenissen weergeven in de instellingen voor waarschuwingen voor back-up. Maar wat moet u doen als een waarschuwing treedt op wanneer u aan een afzonderlijke probleem werkt? Als u niet weet wanneer de waarschuwing gebeurt, kan dat een kleine ongemak zijn of deze gegevens in gevaar kan brengen. Om te zorgen dat de juiste personen zich bewust bent van een waarschuwing - wanneer deze zich voordoet, de service voor het verzenden van meldingen van waarschuwingen via e-mail te configureren. Zie voor meer informatie over het instellen van e-mailmeldingen [meldingen configureren](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,9 +70,9 @@ E-mailmeldingen voor waarschuwingen instellen
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Welke typen waarschuwingen zijn beschikbaar voor back-up van Azure IaaS VM?
    | Waarschuwingsniveau | Waarschuwingen verzonden |
    | --- | --- |
-   | Kritieke |Back-upfouten, herstelfout |
+   | Kritiek |Back-upfouten, herstelfout |
    | Waarschuwing |Geen |
-   | Informatief |Geen |
+   | Informatief |None |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Zijn er situaties waarin het e-mailbericht zelfs niet is verzonden nadat er meldingen zijn geconfigureerd?
 Zijn er situaties waarin een waarschuwing niet is verzonden, zelfs als de meldingen juist is geconfigureerd. In de volgende situaties e-mail worden geen meldingen verzonden om te voorkomen dat de waarschuwing ruis:
@@ -147,12 +147,12 @@ Met behulp van de **kolommen** knop, kunt u aanvullende gebeurtenis kenmerken wo
 | Resource |URL van de bron. ook wel bekend als de resource-ID |
 | Time |Tijd, gemeten vanaf de huidige tijd, wanneer de gebeurtenis heeft plaatsgevonden |
 | Caller |Wie of wat aangeroepen of de gebeurtenis; het systeem of een gebruiker |
-| tijdstempel |De tijd waarop de gebeurtenis is geactiveerd |
+| Timestamp |De tijd waarop de gebeurtenis is geactiveerd |
 | Resourcegroep |De gekoppelde resourcegroep |
-| Resourcetype |Het interne resourcetype gebruikt door Resource Manager |
+| Resourcetype |Het interne resourcetype dat wordt gebruikt door Resource Manager |
 | Abonnements-id |De gekoppelde abonnements-ID |
 | Category |Categorie van de gebeurtenis |
-| Correlatie-ID |Gemeenschappelijke op verwante gebeurtenissen |
+| Correlatie-id |Gemeenschappelijke op verwante gebeurtenissen |
 
 ## <a name="use-powershell-to-customize-alerts"></a>PowerShell gebruiken om aan te passen van waarschuwingen
 U kunt aangepaste meldingen van waarschuwingen voor de taken in de portal. Als u deze taken, regels voor waarschuwingen op basis van PowerShell te definiëren op de operationele Logboeken gebeurtenissen. Gebruik *PowerShell versie 1.3.0 of hoger*.
@@ -171,7 +171,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 * Registreren <br/>
 * Registratie ongedaan maken <br/>
 * ConfigureProtection <br/>
-* Back-up <br/>
+* Back-up maken <br/>
 * Herstellen <br/>
 * StopProtection <br/>
 * DeleteBackupData <br/>
@@ -208,9 +208,9 @@ Gebeurtenislogboeken geweldige postmortemkeuring inschakelen en ondersteuning vo
 * Back-upgegevens verwijderen
 * Beleid toevoegen
 * Beleid verwijderen
-* Bijwerken van beleid
+* Beleid bijwerken
 * Taak annuleren
 
 Voor een brede uitleg van gebeurtenissen, bewerkingen en controlelogboeken alle Azure-services, Zie het artikel [gebeurtenissen bekijken en controlelogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Bekijk voor meer informatie over het opnieuw maken van een virtuele machine vanaf een herstelpunt [Azure Virtual machines herstellen](backup-azure-restore-vms.md). Als u informatie over het beveiligen van uw virtuele machines, Zie [eerste kennismaking: Maak een Back-up van virtuele machines naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md). Meer informatie over de beheertaken voor VM-back-ups in het artikel [beheren Azure virtuele machine back-ups](backup-azure-manage-vms.md).
+Bekijk voor meer informatie over het opnieuw maken van een virtuele machine vanaf een herstelpunt [Azure Virtual machines herstellen](backup-azure-arm-restore-vms.md). Als u informatie over het beveiligen van uw virtuele machines, Zie [eerste kennismaking: Maak een Back-up van virtuele machines naar een Recovery Services-kluis](backup-azure-vms-first-look-arm.md). Meer informatie over de beheertaken voor VM-back-ups in het artikel [beheren Azure virtuele machine back-ups](backup-azure-manage-vms.md).

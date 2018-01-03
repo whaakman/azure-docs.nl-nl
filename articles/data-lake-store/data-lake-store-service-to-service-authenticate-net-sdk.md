@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Service to service-verificatie met Data Lake Store met .NET SDK
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ In dit artikel hebt u meer informatie over het gebruik van de .NET SDK voor veri
    | Category |Templates/Visual C#/Windows |
    | Template |Console Application |
    | Name |CreateADLApplication |
-4. Klik op **OK** om het project te maken.
+4. Klik op **OK** om het project aan te maken.
 
 5. Voeg de NuGet-pakketten toe aan het project.
 

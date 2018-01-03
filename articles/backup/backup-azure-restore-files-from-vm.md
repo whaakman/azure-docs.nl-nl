@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele machine van Azure
 
@@ -70,40 +70,7 @@ Als u bestanden of mappen herstellen van het herstelpunt, gaat u naar de virtuel
 
    Het script vereist voor Linux 'open-iscsi' en 'lshw' onderdelen verbinding maken met het herstelpunt. Als de componenten niet bestaan op de computer waarop het script wordt uitgevoerd, wordt het script vraagt om de machtiging om de onderdelen te installeren. Geef toestemming voor het installeren van de vereiste onderdelen.  
          
-   U kunt het script uitvoeren op elke computer waarop het besturingssysteem hetzelfde (of compatibel) als de back-up-VM. Zie de [compatibel besturingssysteem tabel](backup-azure-restore-files-from-vm.md#compatible-os) voor compatibele besturingssystemen. Als de beveiligde virtuele machine van Azure Windows Storage Spaces (voor Windows Azure VM's) of LVM/RAID-Arrays(for Linux VMs) gebruikt, kunt u het uitvoerbare bestand of script niet uitvoeren op dezelfde virtuele machine. In plaats daarvan het uitvoerbare bestand of script uitvoeren op een andere machine met een compatibel besturingssysteem.
-
-### <a name="compatible-os"></a>Compatibel besturingssysteem
-
-#### <a name="for-windows"></a>Voor Windows
-
-De volgende tabel ziet u de compatibiliteit tussen server en de computer-besturingssystemen. Tijdens het herstellen van bestanden, kunt u bestanden niet terugzetten naar een vorige of toekomstige besturingssysteemversie. U terugzetten niet bijvoorbeeld een bestand vanaf een Windows Server 2016-VM met Windows Server 2012 of Windows 8-computer. U kunt bestanden terugzetten van een virtuele machine op hetzelfde server-besturingssysteem, of op het besturingssysteem compatibel client.   
-
-|Serverbesturingssysteem | Compatibel clientbesturingssysteem  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Voor Linux
-
-In Linux, moet het besturingssysteem van de computer die wordt gebruikt om bestanden te herstellen het bestandssysteem van de beveiligde virtuele machine ondersteunen. Als u een computer met het script wilt uitvoeren, moet u de computer heeft een compatibel besturingssysteem en maakt gebruik van een van de versies die zijn geïdentificeerd in de volgende tabel:
-
-|Linux OS | Versies  |
-| --------------- | ---- |
-| Ubuntu | 12.04 en hoger |
-| CentOS | 6.5 en hoger  |
-| RHEL | 6.7 en hoger |
-| Debian | 7 en hoger |
-| Oracle Linux | 6.4 en hoger |
-
-Het script is ook vereist voor Python en bash-onderdelen uit te voeren en veilige verbinding met het herstelpunt.
-
-|Onderdeel | Versie  |
-| --------------- | ---- |
-| Bash | 4 en hoger |
-| python | 2.6.6 en hoger  |
-
+   U kunt het script uitvoeren op elke computer waarop het besturingssysteem hetzelfde (of compatibel) als de back-up-VM. Zie de [compatibel besturingssysteem tabel](backup-azure-restore-files-from-vm.md#system-requirements) voor compatibele besturingssystemen. Als de beveiligde virtuele machine van Azure Windows Storage Spaces (voor Windows Azure VM's) of LVM/RAID-Arrays (voor Linux VM's) gebruikt, kunt u het uitvoerbare bestand of script niet uitvoeren op dezelfde virtuele machine. In plaats daarvan het uitvoerbare bestand of script uitvoeren op een andere machine met een compatibel besturingssysteem.
 
 ### <a name="identifying-volumes"></a>Identificeren van Volumes
 
@@ -192,6 +159,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 Als de schijf RAID een andere LVM geconfigureerd in het heeft, gebruikt u de voorgaande procedure voor LVM partities maar gebruikt u de naam van het volume in plaats van de naam van de RAID-schijf
+
+## <a name="system-requirements"></a>Systeemvereisten
+
+### <a name="for-windows"></a>Voor Windows
+
+De volgende tabel ziet u de compatibiliteit tussen server en de computer-besturingssystemen. Tijdens het herstellen van bestanden, kunt u bestanden niet terugzetten naar een vorige of toekomstige besturingssysteemversie. U terugzetten niet bijvoorbeeld een bestand vanaf een Windows Server 2016 VM naar Windows Server 2012 of een computer met Windows 8. U kunt bestanden terugzetten van een virtuele machine op hetzelfde server-besturingssysteem, of op het besturingssysteem compatibel client.   
+
+|Serverbesturingssysteem | Compatibel clientbesturingssysteem  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Voor Linux
+
+In Linux, moet het besturingssysteem van de computer die wordt gebruikt om bestanden te herstellen het bestandssysteem van de beveiligde virtuele machine ondersteunen. Als u een computer met het script wilt uitvoeren, moet u de computer heeft een compatibel besturingssysteem en maakt gebruik van een van de versies die zijn geïdentificeerd in de volgende tabel:
+
+|Linux-besturingssysteem | Versies  |
+| --------------- | ---- |
+| Ubuntu | 12.04 en hoger |
+| CentOS | 6.5 en hoger  |
+| RHEL | 6.7 en hoger |
+| Debian | 7 en hoger |
+| Oracle Linux | 6.4 en hoger |
+| SLES | 12 en hoger |
+| openSUSE | 42,2 en hoger |
+
+Het script is ook vereist voor Python en bash-onderdelen uit te voeren en veilige verbinding met het herstelpunt.
+
+|Onderdeel | Versie  |
+| --------------- | ---- |
+| Bash | 4 en hoger |
+| python | 2.6.6 en hoger  |
+| TLS | 1.2 moeten worden ondersteund.  |
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Hyper-V virtuele machines in VMM-clouds repliceren naar Azure met behulp van PowerShell en Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [Azure-portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Klassieke portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Klassiek](site-recovery-deploy-with-powershell.md)
@@ -257,7 +257,7 @@ Nadat de servers, clouds en netwerken correct zijn geconfigureerd, kunt u beveil
           $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable –Force -Policy $policy -RecoveryAzureStorageAccountId  $storageID "/subscriptions/217653172865hcvkchgvd/resourceGroups/rajanirgps/providers/Microsoft.Storage/storageAccounts/teststorageacc1
 
 ## <a name="test-your-deployment"></a>Uw implementatie testen
-Als uw implementatie wilt testen kunt u een test failover voor een enkele virtuele machine uitvoeren of een herstelplan dat bestaat uit meerdere virtuele machines maken en een test failover voor het plan uitvoeren. Failover van de test wordt uw failover- en herstelmechanisme in een geïsoleerd netwerk gesimuleerd. Opmerking:
+Als uw implementatie wilt testen kunt u een test failover voor een enkele virtuele machine uitvoeren of een herstelplan dat bestaat uit meerdere virtuele machines maken en een test failover voor het plan uitvoeren. Failover van de test wordt uw failover- en herstelmechanisme in een geïsoleerd netwerk gesimuleerd. Houd rekening met het volgende:
 
 * Als u wilt verbinding maken met de virtuele machine in Azure met extern bureaublad na de failover, moet u verbinding met extern bureaublad inschakelen op de virtuele machine voordat u de testfailover uitvoert.
 * Na een failover gebruikt u een openbaar IP-adres verbinding maken met de virtuele machine in Azure met extern bureaublad. Als u dit wilt doen, zorgt u ervoor dat u geen domeinbeleid hebt waarmee het verbinden met een virtuele machine via een openbaar adres wordt verhinderd.

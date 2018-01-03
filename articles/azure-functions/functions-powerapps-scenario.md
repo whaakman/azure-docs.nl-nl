@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-powerapps"></a>Een functie van PowerApps aanroepen
 De [PowerApps](https://powerapps.microsoft.com) platform is ontworpen voor zakelijke deskundigen voor het bouwen van apps zonder traditionele toepassingscode. Professionele ontwikkelaars kunnen Azure Functions gebruiken om de mogelijkheden van PowerApps, terwijl afscherming PowerApps app opbouwfuncties van technische informatie.
@@ -45,34 +45,8 @@ In dit onderwerp leert u hoe:
 ## <a name="prerequisites"></a>Vereisten
 
 + Een actieve [PowerApps account](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) met hetzelfde teken in referenties als uw Azure-account. 
-+ Excel-, omdat u Excel als een gegevensbron voor uw app gebruikt.
++ Excel en de [Excel-voorbeeldbestand](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) die u wilt gebruiken als gegevensbron voor uw app.
 + Voltooi de zelfstudie [maken voor een functie een definitie van een OpenAPI](functions-openapi-definition.md).
-
-
-## <a name="prepare-sample-data-in-excel"></a>Voorbeeldgegevens in Excel voorbereiden
-U beginnen met het voorbereiden van voorbeeldgegevens die u in de app gebruiken. Kopieer de volgende tabel in Excel. 
-
-| Titel      | Breedtegraad  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbine 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Ja             | 6               | Dit is de tweede probleem van deze maand.       |
-| Turbine 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Ja             | 6               |                                            |
-| Turbine 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbine 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Ja             | 7               |                                            |
-| Turbine 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
-| Turbine 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
-| Turbine 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Ja             | 40               | We hebben een aantal onderdelen binnenkort in deze service. |
-
-1. Selecteer de gegevens in Excel en klik op de **Start** tabblad **opmaken als tabel**.
-
-    ![Opmaken als tabel](media/functions-powerapps-scenario/format-table.png)
-
-1. Selecteer een ander opmaakprofiel en klik op **OK**.
-
-1. Met de tabel die is geselecteerd, op de **ontwerp** tabblad `Turbines` voor **tabelnaam**.
-
-    ![De tabelnaam van de](media/functions-powerapps-scenario/table-name.png)
-
-1. Sla de Excel-werkmap.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
@@ -97,35 +71,35 @@ De aangepaste API (ook wel bekend als een aangepaste connector) is beschikbaar i
 ## <a name="create-an-app-and-add-data-sources"></a>Een app maken en gegevensbronnen toevoegen
 U kunt nu klaar om te maken van de app in PowerApps en voeg de Excel-gegevens en de aangepaste API gebruiken als gegevensbronnen voor de app.
 
-1. In [web.powerapps.com](https://web.powerapps.com), in het linkerdeelvenster klikt u op **nieuwe App**.
+1. In [web.powerapps.com](https://web.powerapps.com), kies **begin vanaf leeg** > ![pictogram telefoon-app](media/functions-powerapps-scenario/icon-phone-app.png) (telefoonnummer) > **maken van deze app**.
 
-1. Onder **lege app**, klikt u op **telefoonindeling**.
+    ![Starten van leeg - telefoon-app](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![Tablet PC-app maken](media/functions-powerapps-scenario/create-phone-app.png)
-
-    De app wordt geopend in PowerApps Studio voor webtoepassingen. De volgende afbeelding toont de verschillende onderdelen van PowerApps Studio. Deze installatiekopie is voor de voltooide app; Hier ziet u een leeg scherm eerst in het middelste deelvenster.
+    De app wordt geopend in PowerApps Studio voor webtoepassingen. De volgende afbeelding toont de verschillende onderdelen van PowerApps Studio.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) linkernavigatiebalk**, waarin u een hiërarchische weergave van alle besturingselementen op elke scherm ziet
+    **(A) linkernavigatiebalk**, waarin u een hiërarchische weergave van alle besturingselementen op elke scherm ziet
 
-    **(2) het middelste deelvenster**, zodat u ziet het scherm dat u werkt op
+    **(B) het middelste deelvenster**, zodat u ziet het scherm dat u werkt op
 
-    **(3) het rechter deelvenster**, waarin u een opties instellen zoals lay-out en gegevensbronnen
+    **(C) rechts deelvenster**, waarin u een opties instellen zoals lay-out en gegevensbronnen
 
-    **(4) de eigenschap** vervolgkeuzelijst, waar u de eigenschappen die betrekking hebben op formules selecteren
+    **(D) de eigenschap** vervolgkeuzelijst, waar u de eigenschappen die betrekking hebben op formules selecteren
 
-    **(5) de formulebalk**, waar u formules (zoals in Excel) die app-gedrag definiëren toevoegen
+    **(E) formulebalk**, waar u formules (zoals in Excel) die app-gedrag definiëren toevoegen
     
-    **(6) lint**, waarbij u besturingselementen toevoegen en ontwerpelementen aanpassen
+    **F lint**, waarbij u besturingselementen toevoegen en ontwerpelementen aanpassen
 
 1. Voeg het Excel-bestand als een gegevensbron.
 
-    1. In het rechterdeelvenster op de **gegevens** tabblad **gegevensbron toevoegen**.
+    De gegevens die u gaat importeren ziet er als volgt:
 
-        ![Gegevensbron toevoegen](media/functions-powerapps-scenario/add-data-source.png)
+    ![Excel-gegevens te importeren](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Klik op **statische gegevens toevoegen aan uw app**.
+    1. Kies op het canvas app **verbinding maken met gegevens**.
+
+    1. Op de **gegevens** -scherm, klikt u op **statische gegevens toevoegen aan uw app**.
 
         ![Gegevensbron toevoegen](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -135,9 +109,10 @@ U kunt nu klaar om te maken van de app in PowerApps en voeg de Excel-gegevens en
 
         ![Gegevensbron toevoegen](media/functions-powerapps-scenario/choose-table.png)
 
+
 1. De aangepaste API toevoegen als een gegevensbron.
 
-    1. Op de **gegevens** tabblad **gegevensbron toevoegen**.
+    1. Op de **gegevens** -scherm, klikt u op **gegevensbron toevoegen**.
 
     1. Klik op **Turbine reparatie**.
 
@@ -156,17 +131,21 @@ Nu de gegevensbronnen in de app beschikbaar zijn, u toevoegen een scherm naar uw
 
     ![Titel wijzigen en het formaat van galerie](media/functions-powerapps-scenario/gallery-title.png)
 
-1. In de galerie geselecteerd in het rechterdeelvenster op de **gegevens** en wijzig de gegevensbron uit **CustomGallerySample** naar **Turbines**.
+1. In de galerie geselecteerd, in het rechterdeelvenster onder **eigenschappen**, klikt u op **CustomGallerySample**.
 
     ![Gegevensbron configuratiewijziging](media/functions-powerapps-scenario/change-data-source.png)
 
+1. In de **gegevens** Configuratiescherm, selecteer **Turbines** uit de lijst.
+
+    ![Selecteer gegevensbron](media/functions-powerapps-scenario/select-data-source.png)
+
     De gegevensset bevat een afbeelding, dus vervolgens wijzigt u de indeling aanpassen aan de gegevens. 
 
-1. Wijzig nog steeds in het rechterdeelvenster **lay-out** naar **titel, subtitel en hoofdtekst**.
+1. Nog steeds in de **gegevens** deelvenster, wijzigt u **lay-out** naar **titel, subtitel en hoofdtekst**.
 
     ![Indeling van de galerie wijzigen](media/functions-powerapps-scenario/change-layout.png)
 
-1. Als de laatste stap in het rechterdeelvenster de velden die worden weergegeven in de galerie te wijzigen.
+1. Als de laatste stap in de **gegevens** deelvenster, wijzigt u de velden die worden weergegeven in de galerie.
 
     ![Galerie velden wijzigen](media/functions-powerapps-scenario/change-fields.png)
     
@@ -185,6 +164,8 @@ Nu de gegevensbronnen in de app beschikbaar zijn, u toevoegen een scherm naar uw
 1. U hoeft niet de oorspronkelijke scherm in de app. In het linkerdeelvenster Beweeg de muisaanwijzer over **scherm1**, klikt u op **...** , en **verwijderen**.
 
     ![Scherm verwijderen](media/functions-powerapps-scenario/delete-screen.png)
+
+1. Klik op **bestand**, en de naam van de app. Klik op **opslaan** Klik in het menu links **opslaan** in de rechterbenedenhoek.
 
 Er is een groot aantal andere opmaak die u doorgaans doen in een productie-app, maar we u aan bij een belangrijk onderdeel voor dit scenario - aanroepen van de functie verplaatst.
 

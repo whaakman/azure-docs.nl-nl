@@ -1,24 +1,24 @@
 ---
-title: Ophalen van een token met behulp van een toepassing voor iOS - Azure AD B2C | Microsoft Docs
-description: "In dit artikel wordt beschreven hoe u een iOS-app die gebruikmaakt van AppAuth met Azure Active Directory B2C gebruikersidentiteiten te beheren en verifiëren van gebruikers te maken."
+title: AppAuth gebruiken in een iOS-toepassing - Azure Active Directory B2C
+description: "Dit artikel ziet u het maken van een iOS-app die gebruikmaakt van AppAuth met Azure Active Directory B2C gebruikersidentiteiten te beheren en verifiëren van gebruikers."
 services: active-directory-b2c
 documentationcenter: ios
-author: saeedakhter-msft
+author: PatAltimore
 manager: mtillman
 editor: parakhj
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: cc26d4d2209564fc5c994c2bc73f6a572fe87d28
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saeeda
+ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Meld u aan met een iOS-toepassing
 
@@ -40,8 +40,6 @@ Vervolgens maakt u een app in uw B2C-directory. De app-registratie biedt Azure A
 * Omvatten een **Native client** in de toepassing.
 * U de **toepassings-id** kopieert die is toegewezen aan uw app. U hebt deze GUID later nodig.
 * Instellen van een **omleidings-URI** met een aangepast schema (bijvoorbeeld com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). U hebt deze URI later nodig.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Het beleid maken
 In Azure AD B2C wordt elke gebruikerservaring gedefinieerd door [beleid](active-directory-b2c-reference-policies.md). Deze app bevat één identiteit ervaring: een gecombineerde aanmelden en registreren. Maak van dit beleid, zoals beschreven in de [naslagartikel](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Wanneer u het beleid maakt:
@@ -91,7 +89,7 @@ OIDServiceConfiguration *configuration =
 // now we are ready to perform the auth request...
 ```
 
-### <a name="authorizing"></a>Autoriseren
+### <a name="authorizing"></a>Autorisatie
 
 Na het configureren van of bij het ophalen van een configuratie van de service autorisatie, kan een autorisatieaanvraag worden samengesteld. Voor het maken van de aanvraag, moet u de volgende informatie:  
 * Client-ID (bijvoorbeeld 00000000-0000-0000-0000-000000000000)
@@ -131,8 +129,8 @@ Als u uw toepassing voor het afhandelen van de omleiding naar de URI met het aan
 * Klik op de pijl naar links van ' 0' om te openen van de structuur-Item.
 * Wijzig de naam van eerste onderliggende Item 0 om te URL-schema-item.
 * Klik op de pijl naar links van 'URL Schemes' te openen van de boomstructuur.
-* In de kolom 'Value' is een leeg veld aan de linkerkant van '0 Item' onder de URL-schema.  Stel de waarde voor uw unieke toepassingsschema.  De waarde moet overeenkomen met het schema in URL omleiding gebruikt bij het maken van het object OIDAuthorizationRequest.  In ons voorbeeld hebben we het schema 'com.onmicrosoft.fabrikamb2c.exampleapp' gebruikt.
+* In de kolom 'Value' is een leeg veld aan de linkerkant van '0 Item' onder de URL-schema.  Stel de waarde voor uw unieke toepassingsschema.  De waarde moet overeenkomen met het schema in URL omleiding gebruikt bij het maken van het object OIDAuthorizationRequest.  In het voorbeeld wordt het schema 'com.onmicrosoft.fabrikamb2c.exampleapp' gebruikt.
 
-Raadpleeg de [AppAuth handleiding](https://openid.github.io/AppAuth-iOS/) voor het voltooien van de rest van het proces. Als u snel aan de slag met een werkende app wilt, Bekijk [ons voorbeeld](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Volg de stappen in de [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) invoeren van de configuratie van uw eigen Azure AD B2C.
+Raadpleeg de [AppAuth handleiding](https://openid.github.io/AppAuth-iOS/) voor het voltooien van de rest van het proces. Als u snel aan de slag met een werkende app wilt, Bekijk [het voorbeeld](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Volg de stappen in de [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) invoeren van de configuratie van uw eigen Azure AD B2C.
 
-We kunnen worden altijd feedback en suggesties! Als u problemen met dit onderwerp ondervindt of aanbevelingen voor het verbeteren van de inhoud hebben, zouden we stellen uw feedback onder aan de pagina. Voor functieaanvragen, voeg deze toe aan [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+We kunnen worden altijd feedback en suggesties! Als u problemen met dit artikel ondervindt of aanbevelingen voor het verbeteren van de inhoud hebben, zouden we stellen uw feedback onder aan de pagina. Voor functieaanvragen, voeg deze toe aan [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

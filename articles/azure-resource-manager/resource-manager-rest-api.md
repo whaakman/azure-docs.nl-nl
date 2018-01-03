@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="resource-manager-rest-apis"></a>REST API's voor Resource Manager
 > [!div class="op_single_selector"]
 > * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
+> * [Azure-CLI](xplat-cli-azure-resource-manager.md)
 > * [Portal](resource-group-portal.md) 
 > * [REST API](resource-manager-rest-api.md)
 > 
@@ -33,7 +33,7 @@ Achter elke aanroep in Azure Resource Manager achter elke geïmplementeerde sjab
 
 In dit artikel verder niet via elke API die wordt weergegeven in Azure, maar in plaats daarvan maakt gebruik van bepaalde bewerkingen als voorbeelden van hoe u verbinding mee te maken. Nadat u de basisbeginselen, kunt u lezen de [Azure Resource Manager REST API Reference](https://docs.microsoft.com/rest/api/resources/) voor gedetailleerde informatie over het gebruik van de rest van de API's.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Verificatie voor Resource Manager is verwerkt door Azure Active Directory (AD). Als u wilt verbinding maken met API's, moet u eerst om te verifiëren met Azure AD ontvangt geen verificatietoken die u aan elke aanvraag doorgeven kunt. Als we beschrijving van een aanroep van pure rechtstreeks aan de REST API's, gaan we ervan uit dat u niet verifiëren wilt met een gebruikersnaam en wachtwoord wordt gevraagd. We ook wordt ervan uitgegaan dat u geen gebruikmaakt van twee mechanismen voor factor-verificatie. We maken daarom, wat een Azure AD-toepassing en een service principal die worden gebruikt voor het aanmelden wordt aangeroepen. Maar houd er rekening mee dat Azure AD ondersteunen verschillende procedures voor verificatie en deze kan worden gebruikt om op te halen die verificatietoken die we nodig hebben voor de volgende API-aanvragen.
 Ga als volgt [maken van Azure AD-toepassing en Service-Principal](resource-group-create-service-principal-portal.md) voor stapsgewijze instructies.
 
@@ -202,7 +202,7 @@ Als dit lukt, kunt u een reactie die vergelijkbaar is met het volgende antwoord 
 }
 ```
 
-U hebt een resourcegroep gemaakt in Azure. Gefeliciteerd.
+U hebt een resourcegroep gemaakt in Azure. Gefeliciteerd!
 
 ### <a name="deploy-resources-to-a-resource-group-using-a-resource-manager-template"></a>Resources aan een resourcegroep met een Resource Manager-sjabloon implementeren
 Met Resource Manager kunt u uw resources met behulp van sjablonen implementeren. Een sjabloon worden gedefinieerd voor verschillende resources en de bijbehorende afhankelijkheden. Voor deze sectie we ervan uitgaan dat u bekend bent met Resource Manager-sjablonen en we alleen beschreven hoe u de API-aanroep implementatie te starten. Zie voor meer informatie over het maken van sjablonen [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md).

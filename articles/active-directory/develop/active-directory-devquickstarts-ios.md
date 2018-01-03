@@ -1,5 +1,5 @@
 ---
-title: Azure AD integreren met een iOS-app | Microsoft Docs
+title: Azure AD iOS aan de slag | Microsoft Docs
 description: "Het bouwen van een iOS-toepassing die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-aanroepen beveiligd API's met behulp van OAuth."
 services: active-directory
 documentationcenter: ios
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Azure AD integreren met een iOS-app
+# <a name="azure-ad-ios-getting-started"></a>Azure AD iOS aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Deze Preview-versie van onze nieuwe [ontwikkelaarsportal](https://identity.microsoft.com/Docs/iOS) waarmee u leren werken met Azure Active Directory in een paar minuten!  De portal voor ontwikkelaars leidt u door het proces van registreren van een app en Azure AD integreren in uw code.  Wanneer u klaar bent, hebt u een eenvoudige toepassing die gebruikers in uw tenant en een back-end die kunnen tokens accepteren en gevalideerd kan worden geverifieerd. 
-> 
-> 
 
 Azure Active Directory (Azure AD) biedt de Active Directory Authentication Library of ADAL voor iOS-clients die toegang moeten krijgen tot beveiligde bronnen. ADAL vereenvoudigt het proces dat uw app gebruikmaakt van toegangstokens te verkrijgen. Om te demonstreren hoe eenvoudig het is, in dit artikel gaan we verder met een takenlijst Objective-C-toepassing die:
 
@@ -231,7 +226,7 @@ Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, een 
 >
 
 ## <a name="5-build-and-run-the-application"></a>5. De toepassing bouwen en uitvoeren.
-Gefeliciteerd. U hebt nu een werkende iOS-toepassing kunt verificatie van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.  Start uw app Quick Start en vervolgens weer aanmelden met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Sluit de app en start het opnieuw.  U ziet dat de gebruikerssessie intact blijft.
+Gefeliciteerd! U hebt nu een werkende iOS-toepassing kunt verificatie van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.  Start uw app Quick Start en vervolgens weer aanmelden met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Sluit de app en start het opnieuw.  U ziet dat de gebruikerssessie intact blijft.
 
 ADAL kunt eenvoudig gebruikmaken van al deze algemene identiteit functies in uw toepassing.  Dit zorgt voor al het werk dirty voor u, zoals het Cachebeheer van de OAuth-protocolondersteuning, dat de gebruiker een gebruikersinterface aan te melden, en vernieuwen van tokens verlopen.  Alles wat u moet weten één API-aanroep is `getToken`.
 

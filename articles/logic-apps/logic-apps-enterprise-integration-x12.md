@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Exchange X12 berichten voor enterprise-integratie met logic apps
 
@@ -57,11 +57,11 @@ Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/lo
 
 4. Selecteer **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. Als u een tegel overeenkomsten geen hebt, eerst de tegel toevoegen. 
 
-    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Kies in de blade van de overeenkomsten die wordt geopend, **toevoegen**.
 
-    ![Kies 'Add'](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    ![Kies 'Add'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Onder **toevoegen**, voer een **naam** voor de overeenkomst. Selecteer voor het type licentieovereenkomst **X12**. Selecteer de **Host Partner**, **Hostidentiteit**, **Gast Partner**, en **Gast identiteit** voor de overeenkomst. Zie voor meer eigenschapdetails, de tabel in deze stap.
 
@@ -146,8 +146,8 @@ Selecteer een schema voor elke transactietype (ST1) en de afzender-toepassing (G
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Controle-aantal Interchange duplicaten weigeren |Dubbele uitgewisseld blokkeren. Controleert de DIF-controle-aantal (ISA13) voor het aantal ontvangen DIF-besturingselement. Als een overeenkomst wordt gedetecteerd, verwerken niet de pijplijn ontvangen de DIF. U kunt opgeven dat het aantal dagen voor het uitvoeren van de controle door middel van een waarde voor *controleren op dubbele ISA13 elke (dagen)*. |
-| Dubbele groepscontrolenummers niet toestaan |Blok uitwisselingen met dubbele groep besturingselement nummers. |
-| Dubbele transactiereekscontrolenummers niet toestaan |Blok uitwisselingen met dubbele transactie set besturingselement nummers. |
+| Groep besturingselement nummer duplicaten weigeren |Blok uitwisselingen met dubbele groep besturingselement nummers. |
+| Transactie set besturingselement nummer duplicaten weigeren |Blok uitwisselingen met dubbele transactie set besturingselement nummers. |
 
 ### <a name="validations"></a>Validaties
 
@@ -171,11 +171,11 @@ Wanneer elke rij van de validatie is voltooid, wordt automatisch een andere toeg
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Impliciete decimale notatie 'Mm' converteren naar een numerieke waarde met grondtal 10 |Converteert een getal EDI die is opgegeven met de notatie 'Mm' in een numerieke waarde grondtal 10 |
-| Lege XML-tags maken als volgscheidingstekens zijn toegestaan |Schakel dit selectievakje in om de DIF-afzender lege XML-codes voor afsluitende scheidingstekens bevatten. |
-| Uitwisseling splitsen in transactiereeksen - transactiereeksen onderbreken bij fout|Analyseert elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toepassen op de set transactie. Alleen de transacties onderbreekt waarbij de validatie is mislukt. |
-| Uitwisseling splitsen in transactiereeksen - uitwisseling onderbreken bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met het toepassen van de juiste envelop parseert. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. | 
+| Lege XML-labels maken als afsluitende scheidingstekens zijn toegestaan. |Schakel dit selectievakje in om de DIF-afzender lege XML-codes voor afsluitende scheidingstekens bevatten. |
+| Gesplitste Interchange als transaction sets - onderbreken transactie sets bij fout|Analyseert elke transactie instellen in een knooppunt in een afzonderlijke XML-document met de juiste envelop toepassen op de set transactie. Alleen de transacties onderbreekt waarbij de validatie is mislukt. |
+| Gesplitste Interchange als transaction sets - onderbreken uitwisseling bij fout|Elke transactie instellen in een knooppunt in een afzonderlijke XML-document met het toepassen van de juiste envelop parseert. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. | 
 | Behouden DIF - transactie sets onderbreken bij fout |Laat de DIF intact, maakt een XML-document voor de hele batch uitwisseling. Onderbreekt de transactie-sets die niet voldoen aan validatie, terwijl alle andere sets transactie verwerken. |
-| Uitwisseling bewaren - uitwisseling onderbreken bij fout |Laat de DIF intact, maakt een XML-document voor de hele batch uitwisseling. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. |
+| Behouden DIF - uitwisseling onderbreken bij fout |Laat de DIF intact, maakt een XML-document voor de hele batch uitwisseling. Onderbreekt de gehele uitwisseling wanneer een of meer sets transactie in het knooppunt validatie is mislukt. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configureren hoe uw overeenkomst verzendt berichten
 
@@ -254,7 +254,7 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 | Voorvoegsel |Optionele, toegewezen voor het bereik van transactie set besturingselement getallen in de bevestiging gebruikt. Voer een numerieke waarde voor de middelste twee velden en een alfanumerieke waarde (indien gewenst) voor de voor- en achtervoegsel velden. De middelste velden zijn vereist en de minimale en maximale waarden voor het besturingselement bevatten |
 | Achtervoegsel |Optioneel, voor het bereik van de transactie set besturingselement getallen gebruikt in een bevestiging is aangewezen. Voer een numerieke waarde voor de middelste twee velden en een alfanumerieke waarde (indien gewenst) voor de voor- en achtervoegsel velden. De middelste velden zijn vereist en de minimale en maximale waarden voor het besturingselement bevatten |
 
-### <a name="character-sets-and-separators"></a>Tekensets en scheidingstekens
+### <a name="character-sets-and-separators"></a>Teken Sets en scheidingstekens
 
 Andere dan de tekenset, kunt u een andere set scheidingstekens voor elk berichttype. Als een tekenset voor een opgegeven bericht-schema niet is opgegeven, wordt de standaardtekenset gebruikt.
 

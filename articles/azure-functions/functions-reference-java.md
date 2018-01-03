@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Java-aantekeningen zijn opgenomen in de `azure-functions-java-core` pakket invoe
 
 Binding | Aantekening
 ---|---
-CosmosDB | N.v.t.
+CosmosDB | N/A
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | N.v.t.
-Notification Hubs | N.v.t.
+Mobile Apps | N/A
+Notification Hubs | N/A
 Storage-Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Opslagwachtrij | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Table Storage | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
-Twilio | N.v.t.
+Twilio | N/A
 
 Trigger in- en uitgangen kunnen ook worden gedefinieerd in de [function.json](/azure/azure-functions/functions-reference#function-code) voor uw toepassing.
 

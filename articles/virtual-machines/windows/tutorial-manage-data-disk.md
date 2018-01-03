@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Azure-schijven met PowerShell beheren
 
@@ -81,7 +81,7 @@ Standard Storage wordt ondersteund door HDD's en biedt voordelige en hoogwaardig
 
 ### <a name="premium-disk"></a>Premium-schijf
 
-Premium-schijven worden ondersteund door de hoge prestaties, lage latentie SSD-schijf. Ideaal voor virtuele machines met productie werkbelasting. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie en virtuele machines FS-serie. Premium-schijven zijn drie typen (P10, P20, P30, p 40, P50), de grootte van de schijf bepaalt het schijftype. Wanneer u selecteert, wordt de een de waarde van de schijfgrootte afgerond naar het volgende type. Bijvoorbeeld, als de grootte lager dan 128 GB is het schijftype worden P10, tussen 129 en 512 P20, 512 voor P30, p 40 voor 2TB en P50 4TB. 
+Premium-schijven worden ondersteund door de hoge prestaties, lage latentie SSD-schijf. Ideaal voor virtuele machines met productie werkbelasting. Premium-opslag ondersteunt DS-serie, DSv2-serie GS-serie en virtuele machines FS-serie. Premium-schijven worden geleverd in de volgende vijf typen (P10, P20, P30, p 40, P50), de grootte van de schijf bepaalt het schijftype. Wanneer u selecteert, wordt de een de waarde van de schijfgrootte afgerond naar het volgende type. Bijvoorbeeld, als de grootte lager dan 128 GB is het schijftype worden P10, tussen 129 en 512 P20, 512 voor P30, p 40 voor 2TB en P50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Premium-schijfprestaties
 

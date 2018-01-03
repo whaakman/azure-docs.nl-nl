@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-berichten voor enterprise-integratie met logic apps
 
@@ -45,7 +45,7 @@ Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-i
     > [!TIP]
     > Als er geen **meer services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **weergeven in het menu**.
 
-    ![Meer services, filter op "-integratie", selecteren "Integratieaccounts"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![Meer services, filter op "-integratie", selecteren "Integratieaccounts"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. In de **Integratieaccounts** blade die wordt geopend, selecteert u de integratie-account waarin u wilt maken van de overeenkomst.
 Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/logic-apps-enterprise-integration-accounts.md "alles over integratieaccounts").  
@@ -54,15 +54,15 @@ Als er geen eventuele integratieaccounts [maken van een eerste](../logic-apps/lo
 
 4. Kies de **overeenkomsten** tegel. Als u een tegel overeenkomsten geen hebt, eerst de tegel toevoegen.
 
-    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Kies in de blade van de overeenkomsten die wordt geopend, **toevoegen**.
 
-    ![Kies 'Add'](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![Kies 'Add'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. Onder **toevoegen**, voer een **naam** voor de overeenkomst. Voor **type licentieovereenkomst**, selecteer **AS2**. Selecteer de **Host Partner**, **Hostidentiteit**, **Gast Partner**, en **Gast identiteit** voor de overeenkomst.
 
-    ![Geef overeenkomstdetails](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Geef overeenkomstdetails](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Eigenschap | Beschrijving |
     | --- | --- |
@@ -82,7 +82,7 @@ Nu dat u de eigenschappen van de overeenkomst hebt ingesteld, kunt u configurere
 1.  Onder **toevoegen**, selecteer **instellingen ontvangen**.
 Configureer deze eigenschappen op basis van uw overeenkomst met de partner die u berichten worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
 
-    !['Ontvangen instellingen' configureren](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    !['Ontvangen instellingen' configureren](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Desgewenst kunt u de eigenschappen van binnenkomende berichten wijzigen door het selecteren van **overschrijven berichteigenschappen**.
 
@@ -105,9 +105,9 @@ Uw overeenkomst is nu gereed voor het verwerken van inkomende berichten die aan 
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Berichteigenschappen van het overschrijven |Hiermee wordt aangegeven dat eigenschappen ontvangen berichten kunnen worden genegeerd. |
-| Het bericht moet ondertekend zijn |Vereist berichten digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor handtekeningverificatie.  |
-| Het bericht moet worden versleuteld |Vereist berichten te versleutelen. Niet-versleutelde berichten worden geweigerd. Configureer het persoonlijke host partner-certificaat voor het ontsleutelen van berichten.  |
-| Het bericht moet worden gecomprimeerd |Vereist berichten moeten worden gecomprimeerd. Niet-gecomprimeerde berichten worden geweigerd. |
+| Bericht moet worden ondertekend. |Vereist berichten digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor handtekeningverificatie.  |
+| Bericht moet worden versleuteld. |Vereist berichten te versleutelen. Niet-versleutelde berichten worden geweigerd. Configureer het persoonlijke host partner-certificaat voor het ontsleutelen van berichten.  |
+| Bericht moet worden gecomprimeerd |Vereist berichten moeten worden gecomprimeerd. Niet-gecomprimeerde berichten worden geweigerd. |
 | MDN tekst |De standaard disposition melding (MDN) worden verzonden naar de afzender. |
 | MDN verzenden |Vereist MDNs worden verzonden. |
 | Ondertekende MDN verzenden |Vereist MDNs zijn ondertekend. |
@@ -122,7 +122,7 @@ U kunt configureren hoe deze overeenkomst identificeert en uitgaande berichten v
 1.  Onder **toevoegen**, selecteer **instellingen voor verzenden**.
 Configureer deze eigenschappen op basis van uw overeenkomst met de partner die u berichten worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
 
-    ![Stel de eigenschappen 'Instellingen verzenden'](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![Stel de eigenschappen 'Instellingen verzenden'](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Ondertekende om berichten te verzenden naar uw partner, selecteer **inschakelen ondertekenen van berichten**. Voor het ondertekenen van de berichten in de **MIC algoritme** lijst, selecteert de *host partner persoonlijk certificaat MIC algoritme*. En in de **certificaat** , selecteert u een bestaande [host partner persoonlijk certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
@@ -162,7 +162,7 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 | Asynchrone MDN aanvraag |Asynchrone MDNs worden verzonden naar deze overeenkomst is vereist. |
 | URL |Geef de URL waar de MDNs. |
 | NRR inschakelen |Niet-afwijzing van ontvangst (NRR), een communicatiekenmerk dat bewijst vereist dat de gegevens zijn geadresseerd ontvangen. |
-| SHA2 algoritme-indeling |Selecteer algoritme indeling in de MIC of de uitgaande kopteksten aan het AS2-bericht of MDN aanmelden |
+| Indeling van het SHA2-algoritme |Selecteer algoritme indeling in de MIC of de uitgaande kopteksten aan het AS2-bericht of MDN aanmelden |
 
 ## <a name="find-your-created-agreement"></a>De overeenkomst zoeken
 
@@ -172,7 +172,7 @@ Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan 
 
 2.  U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies op de blade van het integratie-account **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. 
 
-    ![Kies 'Overeenkomsten' tegel om weer te geven van alle overeenkomsten](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Kies 'Overeenkomsten' tegel om weer te geven van alle overeenkomsten](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>De swagger weergeven
 Zie de [swagger details](/connectors/as2/). 

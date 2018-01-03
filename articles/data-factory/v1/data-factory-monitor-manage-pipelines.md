@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
 > [!div class="op_single_selector"]
@@ -134,10 +134,10 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 <td>Gereed</td><td>-</td><td>Het segment is gereed voor gebruik.</td>
 </tr>
 <tr>
-<td>Overgeslagen</td><td>Geen</td><td>Het segment wordt niet verwerkt.</td>
+<td>Overgeslagen</td><td>None</td><td>Het segment wordt niet verwerkt.</td>
 </tr>
 <tr>
-<td>Geen</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
+<td>None</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
 </tr>
 </table>
 

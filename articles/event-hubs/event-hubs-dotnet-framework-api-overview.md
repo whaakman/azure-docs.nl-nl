@@ -12,23 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Overzicht van Event Hubs .NET Framework-API
+
 In dit artikel ziet u een aantal van de sleutel Event Hubs .NET Framework client-API's. Er zijn twee categorieën: beheer- en runtime-API's. Runtime-API's bestaan uit alle bewerkingen die nodig zijn voor het verzenden en ontvangen van een bericht. Beheerbewerkingen kunnen u voor het beheren van een status van de entiteit Event Hubs door maken, bijwerken en verwijderen entiteiten.
 
-Bewakingsscenario's omvatten beheer of de uitvoering. Zie voor gedetailleerde documentatie over de .NET API's, de [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) en [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) verwijzingen.
+[Bewakingsscenario's](event-hubs-metrics-azure-monitor.md) zowel management en runtime-omvatten. Zie voor gedetailleerde documentatie over de .NET API's, de [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) en [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) verwijzingen.
 
 ## <a name="management-apis"></a>Management-API 's
+
 Als u wilt de volgende beheerbewerkingen uitvoeren, moet u hebben **beheren** machtigingen voor de Event Hubs-naamruimte:
 
 ### <a name="create"></a>Maken
+
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -37,6 +40,7 @@ await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
 ### <a name="update"></a>Update
+
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -49,18 +53,21 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
 ### <a name="delete"></a>Verwijderen
+
 ```csharp
-await namespaceManager.DeleteEventHubAsync("Event Hub name");
+await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
 ## <a name="run-time-apis"></a>Runtime-API 's
 ### <a name="create-publisher"></a>Maken van de uitgever
+
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-var eventHubClient = EventHubClient.Create("Event Hub name");
+var eventHubClient = EventHubClient.Create("event hub name");
 ```
 
 ### <a name="publish-message"></a>Bericht publiceren
+
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -79,6 +86,7 @@ await client.SendAsync(data);
 ```
 
 ### <a name="create-consumer"></a>Consument maken
+
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -97,6 +105,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 ```
 
 ### <a name="consume-message"></a>Bericht gebruiken
+
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -109,6 +118,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>Event Processor Host API 's
+
 Deze API's bieden tolerantie voor werkprocessen die mogelijk niet beschikbaar is, door partities over beschikbare werknemers verdeeld.
 
 ```csharp

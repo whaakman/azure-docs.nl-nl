@@ -1,32 +1,31 @@
 ---
-title: Aanmelding toevoegen aan een Node.js-web-app voor Azure B2C | Microsoft Docs
-description: Een Node.js-web-app maken waarmee gebruikers worden aangemeld via een B2C-tenant.
+title: Aanmelden toevoegen aan een Node.js-web-app - Azure Active Directory B2C
+description: Het bouwen van een Node.js-web-app die gebruikers met Azure Active Directory B2C worden aangemeld.
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+author: PatAltimore
 manager: mtillman
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b306a79d0daa1c6d51557b6abad617182c76e9ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: aanmelding toevoegen aan een Node.js-web-app
 
-**Passport** is verificatiemiddleware voor Node.js. Passport is zeer flexibel en modulair, en kan onopvallend worden geïnstalleerd in een Express- of Restify-webtoepassing. Een uitgebreide set strategieën ondersteunt verificatie met een gebruikersnaam en wachtwoord, Facebook, Twitter en meer.
+**Passport** is verificatiemiddleware voor Node.js. Passport is flexibel en modulair, en kan onopvallend worden geïnstalleerd in een Express- of Restify-webtoepassing. Een uitgebreide set strategieën ondersteunt verificatie met een gebruikersnaam en wachtwoord, Facebook, Twitter en meer.
 
-We hebben een strategie ontwikkeld voor Azure Active Directory (Azure AD). U installeert deze module en voegt de vervolgens de `passport-azure-ad`-invoegtoepassing van Azure AD toe.
+Voor Azure Active Directory (Azure AD), kunnen installeert deze module en voegt u de Azure AD `passport-azure-ad` invoegtoepassing.
 
-Hiervoor doet u het volgende:
+U moet:
 
 1. U registreert een toepassing met Azure AD.
 2. U stelt de app in op het gebruik van de `passport-azure-ad`-invoegtoepassing.
@@ -51,8 +50,6 @@ Vervolgens maakt u een app in uw B2C-directory. Hiermee geeft u informatie door 
 - U `http://localhost:3000/auth/openid/return` invoert als **antwoord-URL**. Dit is de standaard-URL voor dit codevoorbeeld.
 - U een **toepassingsgeheim** maakt voor uw toepassing en dit kopieert. U hebt dit later nodig. Merk op dat deze waarde [een escape-teken voor XML](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) moet bevatten voordat u deze kunt gebruiken.
 - U de **toepassings-id** kopieert die is toegewezen aan uw app. Deze hebt u ook later nodig.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Het beleid maken
 
@@ -104,7 +101,7 @@ Open het bestand `config.js` in de hoofdmap van het project en geef de configura
 Open het bestand `app.js` in de hoofdmap van het project. Voeg de volgende aanroep toe om de `OIDCStrategy`-strategie aan te roepen die beschikbaar is in `passport-azure-ad`.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 Gebruik de strategie waarnaar u net hebt verwezen om aanmeldingsaanvragen te verwerken.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ De voorafgaande code geldt voor alle gebruikers die worden geverifieerd door de 
 
 Voeg de methoden toe waarmee u gebruikers kunt bijhouden die zich hebben aangemeld, zoals wordt vereist door Passport. Dit omvat het serialiseren en deserialiseren van gebruikersgegevens:
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 Voeg de code voor het laden van de Express-engine toe. Hierna kunt u zien dat we het standaardpatroon voor `/views` en `/routes` van Express gebruiken.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 Voeg de `POST`-routes toe waarmee de daadwerkelijke aanmeldingsaanvragen worden afgeleverd bij de `passport-azure-ad`-engine:
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ Uw app is nu geconfigureerd voor communicatie met het v2.0-eindpunt met behulp v
 
 Voeg eerst de standaardmethode en de aanmeldings-, account- en afmeldingsmethoden toe aan uw `app.js`-bestand:
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ Meer informatie over deze methoden:
 
 Voor het laatste deel van `app.js` voegt u de `EnsureAuthenticated`-methode toe die wordt gebruikt in de route `/account`.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 Maak ten slotte de server zelf in `app.js`.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ Uw `app.js` is nu voltooid. U hoeft alleen nog de routes en weergaven toe te voe
 
 Maak de route `/routes/index.js` onder de hoofddirectory.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 Maak de route `/routes/user.js` onder de hoofddirectory.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ Met deze eenvoudige routes worden aanvragen doorgegeven aan uw weergaven. Deze o
 
 Maak de weergave `/views/index.ejs` onder de hoofddirectory. Dit is een eenvoudige pagina waarmee beleid voor aanmelden en afmelden wordt aangeroepen. U kunt dit ook gebruiken om accountgegevens op te halen. U kunt de voorwaardelijke `if (!user)` gebruiken als de gebruiker wordt doorgegeven in de aanvraag om te bewijzen dat deze is aangemeld.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ Maak de weergave `/views/index.ejs` onder de hoofddirectory. Dit is een eenvoudi
 
 Maak de weergave `/views/account.ejs` onder de hoofddirectory, zodat u aanvullende informatie kunt weergeven die `passport-azure-ad` in de gebruikersaanvraag heeft geplaatst.
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>

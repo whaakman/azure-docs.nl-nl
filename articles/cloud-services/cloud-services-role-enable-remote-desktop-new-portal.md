@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
 ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Verbinding met extern bureaublad voor een rol in Azure Cloudservices inschakelen
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Zodra de extern bureaublad is ingeschakeld op de functies, kunt u een verbinding
 >[!NOTE]
 > Als uw cloudservice zich bevindt achter een NSG, moet u mogelijk maken van regels die verkeer op poorten toestaan **3389** en **20000**.  Extern bureaublad maakt gebruik van poort **3389**.  Cloud Service-exemplaren worden verdeeld, zodat u direct welk exemplaar verbinding maken met kan niet bepalen.  De *RemoteForwarder* en *RemoteAccess* agents RDP-verkeer te beheren en dat de client verzenden van een cookie RDP en geeft u een afzonderlijk exemplaar verbinding maken met.  De *RemoteForwarder* en *RemoteAccess* agents vereisen die poort **20000*** worden geopend die worden geblokkeerd als er een NSG.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 [Cloud-Services configureren hoe](cloud-services-how-to-configure-portal.md)
 [extern bureaublad-services FAQ - Cloud](cloud-services-faq.md)
