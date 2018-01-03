@@ -4,7 +4,7 @@ description: Meer informatie over het maken van een Jenkins virtuele machine in 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Het maken van een infrastructuur voor ontwikkeling op een Linux VM in Azure met Jenkins, GitHub en Docker
 U kunt een continue integratie en implementatie (CI/CD) pijplijn gebruiken voor het automatiseren van de fase bouwen en testen van de ontwikkeling van toepassingen. In deze zelfstudie maakt u een pijplijn CI/CD maken op een virtuele machine in Azure met inbegrip van hoe:
@@ -36,12 +36,12 @@ U kunt een continue integratie en implementatie (CI/CD) pijplijn gebruiken voor 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.22 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Jenkins exemplaar maken
 In een vorige zelfstudie over [het aanpassen van een virtuele Linux-machine op de eerste keer opstarten](tutorial-automate-vm-deployment.md), hebt u geleerd hoe u de aanpassing van de virtuele machine met cloud-init automatiseren. Deze zelfstudie wordt een bestand cloud init Jenkins en Docker wilt installeren op een virtuele machine. Jenkins is een populaire open-source automation-server die naadloos geïntegreerd met Azure zodat continue integratie (CI) en continue levering (CD). Zie voor meer zelfstudies over het gebruik van Jenkins de [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
 
-Maak een bestand met de naam in uw huidige shell *cloud init.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. Voer `sensible-editor cloud-init-jenkins.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
+Maak een bestand met de naam in uw huidige shell *cloud-init-jenkins.txt* en plak de volgende configuratie. Maak bijvoorbeeld het bestand in de Cloud-Shell niet op uw lokale machine. Voer `sensible-editor cloud-init-jenkins.txt` voor het maken van het bestand en een overzicht van beschikbare editors. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel:
 
 ```yaml
 #cloud-config
@@ -117,11 +117,10 @@ Als het bestand is nog niet beschikbaar, wacht u een paar minuten totdat de clou
 
 Nu open een webbrowser en Ga naar `http://<publicIps>:8080`. Voer de eerste Jenkins installatie als volgt:
 
-- Voer de *initialAdminPassword* verkregen van de virtuele machine in de vorige stap.
-- Kies **selecteren van invoegtoepassingen installeren**
-- Zoeken naar *GitHub* selecteren in het tekstvak bovenaan de *GitHub-invoegtoepassing*, selecteer daarna **installeren**
-- Vul het formulier voor het maken van een gebruikersaccount Jenkins. Vanuit beveiligingsoogpunt, moet u deze eerste Jenkins-gebruiker in plaats van voortgezet als de standaard admin-account maken.
-- Wanneer u klaar bent, selecteert u **aan de slag met Jenkins**
+- Geef de gebruikersnaam **admin**, geef dan de *initialAdminPassword* verkregen van de virtuele machine in de vorige stap.
+- Selecteer **beheren Jenkins**, klikt u vervolgens **invoegtoepassingen beheren**.
+- Kies **beschikbaar**, zoekt u naar *GitHub* in het tekstvak aan de bovenkant. Schakel het selectievakje voor *GitHub-invoegtoepassing*, selecteer daarna **nu downloaden en installeren na opnieuw opstarten**.
+- Schakel het selectievakje voor **Jenkins opnieuw starten wanneer de installatie voltooid is en er geen taken worden uitgevoerd**, en wacht totdat de invoegtoepassing installeren proces is voltooid.
 
 
 ## <a name="create-github-webhook"></a>GitHub webhook maken
@@ -168,7 +167,7 @@ Een nieuwe build begint in Jenkins, onder de **bouwen geschiedenis** sectie van 
 ## <a name="define-docker-build-image"></a>Afbeelding van Docker-build definiëren
 Om te zien van de Node.js-app uitgevoerd op basis van uw GitHub-doorvoeracties kunnen maken van een installatiekopie Docker uitvoeren van de app. De afbeelding wordt samengesteld uit een Dockerfile die definieert het configureren van de container waarin de app wordt uitgevoerd. 
 
-Wijzig de Jenkins werkruimte map met de naam van de taak die u in de vorige stap hebt gemaakt van de SSH-verbinding met uw virtuele machine. In ons voorbeeld die heette *HelloWorld*.
+Wijzig de Jenkins werkruimte map met de naam van de taak die u in de vorige stap hebt gemaakt van de SSH-verbinding met uw virtuele machine. In dit voorbeeld is die de naam *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld

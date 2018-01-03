@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Azure AD integreren met een Windows Phone-App
+# <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -72,7 +72,7 @@ Nu dat u een toepassing in Azure AD hebt, kunt u ADAL installeert en uw identite
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* Open in het project DirectorySearcher `MainPage.xaml.cs`.  Vervang de waarden in de `Config Values` regio in overeenstemming met de waarden die u in de Azure-Portal hebt ingevoerd.  Uw code zal naar deze waarden verwijzen wanneer deze gebruikmaakt van ADAL.
+* Open in het project DirectorySearcher `MainPage.xaml.cs`.  Vervang de waarden in de `Config Values` regio in overeenstemming met de waarden die u in de Azure-portal hebt ingevoerd.  Uw code zal naar deze waarden verwijzen wanneer deze gebruikmaakt van ADAL.
   * De `tenant` is het domein van uw Azure AD-tenant, bijvoorbeeld contoso.onmicrosoft.com
   * De `clientId` is de clientId van uw toepassing die u hebt gekopieerd uit de portal.
 * U moet nu voor het detecteren van de callback-uri voor uw Windows Phone-app.  Stel een onderbrekingspunt in op deze regel in de `MainPage` methode:
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* U kunt ook de `AuthenticationResult` object om informatie over de gebruiker in uw app weer te geven. In de `QueryGraph(...)` methode resultaat gebruiken om de gebruikers-id op de pagina weer te geven:
+* U kunt ook de `AuthenticationResult` object om informatie over de gebruiker in uw app weer te geven. In de `QueryGraph(...)` methode resultaat gebruiken om de gebruikers-ID op de pagina weer te geven:
 
 ```C#
 // Update the Page UI to represent the signed in user
@@ -174,7 +174,7 @@ private void SignOut()
 }
 ```
 
-Gefeliciteerd. U nu beschikken over een werkende Windows Phone-app met de mogelijkheid om te verifiëren van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.  Uitvoeren van uw app DirectorySearcher en meld u aan met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Sluit de app en voer deze opnieuw uit.  U ziet hoe de gebruikerssessie blijft intact.  Meld u af en meld u opnieuw aan als een andere gebruiker.
+Gefeliciteerd! U nu beschikken over een werkende Windows Phone-app met de mogelijkheid om te verifiëren van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.  Uitvoeren van uw app DirectorySearcher en meld u aan met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Sluit de app en voer deze opnieuw uit.  U ziet hoe de gebruikerssessie blijft intact.  Meld u af en meld u opnieuw aan als een andere gebruiker.
 
 ADAL kunt eenvoudig gebruikmaken van al deze algemene identiteit functies in uw toepassing.  Dit zorgt voor al het werk dirty voor u - Cachebeheer, OAuth-protocolondersteuning, dat de gebruiker een aanmelding-gebruikersinterface vernieuwen van tokens verlopen en meer.  Alles wat u moet weten één API-aanroep is `authContext.AcquireToken*(…)`.
 

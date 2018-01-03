@@ -1,24 +1,16 @@
 ---
-title: Bekijk de architectuur voor VMware-replicatie naar Azure | Microsoft Docs
+title: VMware naar Azure replicatie Azure Site Recovery-architectuur | Microsoft Docs
 description: In dit artikel biedt een overzicht van de onderdelen en de architectuur die wordt gebruikt voor het lokale virtuele VMware-machines repliceren naar Azure met de Azure Site Recovery-service
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware naar Azure replicatie-architectuur
 
@@ -85,5 +77,4 @@ Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg de ondersteuningsmatrix Volg de zelfstudie VMware naar Azure replicatie inschakelen.
-Voer een failover en failback.
+Ga als volgt [in deze zelfstudie](tutorial-vmware-to-azure.md) VMware naar Azure replicatie inschakelen.

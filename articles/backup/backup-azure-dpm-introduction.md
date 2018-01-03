@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Met DPM voorbereiden op het maken van back-ups van workloads in Azure
 > [!div class="op_single_selector"]
@@ -179,7 +179,7 @@ Nadat de Azure Backup-kluis is gemaakt, moet een agent worden geïnstalleerd op 
 * De DPM-server moet Windows PowerShell en .net Framework 4.5 geïnstalleerd.
 * DPM kan back-up meeste workloads naar Azure Backup. De Azure Backup ondersteuning voor een volledige lijst met wat is er ondersteund Zie onderstaande items.
 * Gegevens die zijn opgeslagen in Azure Backup kunnen niet worden hersteld met de optie 'kopiëren naar tape'.
-* U moet een Azure-account met de Azure Backup-functie ingeschakeld. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+* U moet een Azure-account met de Azure Backup-functie ingeschakeld. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Meer informatie over [prijzen van Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 * Azure Backup, moet de Azure Backup-Agent moet worden geïnstalleerd op de servers die u back wilt-up. Elke server moet ten minste 5% van de grootte van de gegevens die worden back-up, beschikbaar als lokale vrije opslagruimte hebben. Bijvoorbeeld, vereist een back-up 100 GB aan gegevens een minimum van 5 GB vrije ruimte op de nieuwe locatie.
 * Gegevens worden opgeslagen in de kluis van Azure-opslag. Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up naar een Azure Backup-kluis, maar de grootte van een gegevensbron (bijvoorbeeld een virtuele machine of een database) mag niet groter zijn dan 54400 GB.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET-web-API aan de slag | Microsoft Docs
+title: Azure AD .NET Web API aan de slag | Microsoft Docs
 description: "Het bouwen van een .NET MVC-web-API die kan worden geïntegreerd met Azure AD voor verificatie en autorisatie."
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Een web-API beveiligen met behulp van bearer-tokens van Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API aan de slag
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Als u een toepassing die toegang tot beveiligde bronnen biedt maakt, moet u weten hoe om te voorkomen dat onrechtmatige toegang tot deze bronnen.

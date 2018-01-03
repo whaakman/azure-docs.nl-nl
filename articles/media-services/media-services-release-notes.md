@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -28,8 +28,9 @@ Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies e
 > 
 > 
 
-## <a id="issues"></a>Bekende problemen
-### <a id="general_issues"></a>Media Services-algemene problemen
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Bekende problemen
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services-algemene problemen
+
 | Probleem | Beschrijving |
 | --- | --- |
 | Enkele veelvoorkomende HTTP-headers zijn niet opgegeven in de REST-API. |Als u Media Services toepassingen met de REST-API ontwikkelen, vindt u dat een aantal veelvoorkomende HTTP-header-velden (met inbegrip van CLIENT-REQUEST-ID REQUEST-ID en RETURN-CLIENT-REQUEST-ID) worden niet ondersteund. De headers worden toegevoegd in een toekomstige update. |
@@ -41,7 +42,7 @@ Deze releaseopmerkingen geven een overzicht van wijzigingen van vorige versies e
 | Azure Media Services .NET SDK objecten kunnen niet worden geserialiseerd en als gevolg hiervan niet werken met Azure cache. |Als u het object niet serialiseren SDK AssetCollection toe te voegen aan Azure Caching probeert, wordt een uitzondering opgetreden. |
 
 
-## <a id="rest_version_history"></a>Geschiedenis van de REST-API-versie
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Geschiedenis van de REST-API-versie
 Zie voor meer informatie over de REST-API voor Media Services-versiegeschiedenis [Azure Media Services REST API-verwijzing].
 
 ## <a name="october-2017-release"></a>Release van oktober 2017
@@ -89,7 +90,6 @@ U kunt nu Azure Media standaard als u wilt [automatisch genereren een ladder bit
 
 U kunt nu Azure Media Standard of Media Encoder Premium werkstroom [een codering taak maken die wordt gegenereerd fMP4 segmenten](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>Februari 2017 Release
 
 Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende onderliggende taakrecords, zelfs als het totale aantal records lager is dan het maximale quotum. Als u de gegevens van de taak wilt archiveren, kunt u de code gebruiken die [hier](media-services-dotnet-manage-entities.md) wordt beschreven.
@@ -102,9 +102,9 @@ Bovendien vanaf 2.15 versie, Azure Media Services toegevoegd de volgende eigensc
 
 ## <a name="december-2016-release"></a>2016 december Release
 
-Azure Media Services kunt u nu toegang tot gegevens telemetrie/metrische gegevens voor de services. De huidige versie van het AMS kunt u het verzamelen van telemetriegegevens voor live kanaal StreamingEndpoint, en live archief entiteiten. Zie voor meer informatie [dit](media-services-telemetry-overview.md) artikel.
+Azure Media Services kunt u nu toegang tot gegevens telemetrie/metrische gegevens voor de services. De huidige versie van het AMS kunt u het verzamelen van telemetriegegevens voor live kanaal StreamingEndpoint, en live archief entiteiten. Raadpleeg [dit artikel](media-services-telemetry-overview.md) voor meer informatie.
 
-## <a id="july_changes16"></a>Release van juli 2016
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Release van juli 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Updates voor het manifestbestand (*. ISM) die worden gegenereerd door de codering van taken
 Als een taak die voor codering wordt verzonden naar de Media Encoder Standard of Azure Media Encoder, de codering taak genereert een [streaming manifestbestand](media-services-deliver-content-overview.md) (* ISM) bestand in de uitvoer van de Asset. Met de meest recente versie van de service is de syntaxis van deze streaming manifestbestand bijgewerkt.
 
@@ -436,7 +436,7 @@ De wijzigingen die worden vermeld in deze sectie zijn opgenomen in de versies va
 
 * Mogelijkheid om meerdere opslagaccounts aan een Media Service-account koppelen. 
   
-    StorageAccount
+    Opslagaccount
   
     Asset.StorageAccountName en Asset.StorageAccount
 * De mogelijkheid om bij te werken Job.Priority. 

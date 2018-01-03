@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -264,6 +264,73 @@ Plannen en aanbiedingen MySQL-databases om beschikbaar te maken voor tenants mak
 U kunt het wachtwoord wijzigen door eerst op de server-exemplaar van MySQL wijzigen. Blader naar **SERVERVIRTUALISATIE** &gt; **MySQL-Servers die als host fungeert** &gt; en klik op de hostserver. Klik op wachtwoord in het deelvenster instellingen.
 
 ![Het beheerderswachtwoord bijwerken](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Bijwerken van de MySQL Resource Provider-Adapter (met meerdere knooppunten alleen bij builds 1710 en hoger)
+Wanneer de Azure-Stack-build wordt bijgewerkt, wordt een nieuwe MySQL Resource Provider-Adapter worden vrijgegeven. Terwijl de bestaande adapter werken blijven mogelijk, is het raadzaam om bij te werken naar de laatste build zo snel mogelijk nadat de Azure-Stack is bijgewerkt. Het updateproces is vergelijkbaar met het installatieproces die hierboven worden beschreven. Een nieuwe virtuele machine wordt gemaakt met de meest recente RP-code en instellingen worden gemigreerd naar deze nieuwe instantie, met inbegrip van de database en het hosten van servergegevens, evenals de vereiste DNS-record.
+
+Het script UpdateMySQLProvider.ps1 gebruiken met dezelfde argumenten als hierboven. Geef hier het certificaat ook.
+
+> [!NOTE]
+> Bijwerken wordt alleen ondersteund op systemen met meerdere knooppunten.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 parameters
+U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of parametervalidatie mislukt, wordt u gevraagd om de vereiste waarden.
+
+| Parameternaam | Beschrijving | Opmerking of een standaardwaarde |
+| --- | --- | --- |
+| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt. | _Vereist_ |
+| **AzCredential** | Geef de referenties voor de servicebeheerder voor Azure-Stack-account. De dezelfde referenties gebruiken als u gebruikt voor het implementeren van Azure-Stack). | _Vereist_ |
+| **VMLocalCredential** | Definieer de referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
+| **PrivilegedEndpoint** | Geef het IP-adres of de DNS-naam van het eindpunt Privleged. |  _Vereist_ |
+| **DependencyFilesLocalPath** | Het PFX-certificaatbestand moet in deze map ook worden geplaatst. | _optionele_ (_verplichte_ voor meerdere knooppunten) |
+| **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat | _Vereist_ |
+| **MaxRetryCount** | Opgeven hoe vaak u wilt dat elke bewerking opnieuw als er een fout.| 2 |
+| **RetryDuration** | Definieer de time-out tussen nieuwe pogingen, in seconden. | 120 |
+| **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie opmerkingen hieronder) | Nee |
+| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fout | Nee |
+| **AcceptLicense** | Slaat de prompt voor het accepteren van de licentie GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Verwijder de MySQL-Resource Provider-Adapter
 

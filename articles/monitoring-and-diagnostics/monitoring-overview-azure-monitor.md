@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Overzicht van Azure Monitor
 Dit artikel bevat een overzicht van de Monitor van de Azure-service in Microsoft Azure. Monitor voor Azure biedt en bevat koppelingen naar aanvullende informatie over het gebruik van Azure-Monitor wordt besproken.  Als u liever een video-inleiding, Zie de volgende stappen koppelingen onder aan dit artikel. 
@@ -43,7 +43,7 @@ De pagina is een startpunt voor navigatie, met inbegrip van op twee locaties. Cu
 
 Wanneer u de pagina opent, kunt u kiezen uit de abonnementen leestoegang tot. Voor een geselecteerde abonnement, kunt u het volgende zien:
 
-- **Waarschuwingen en meldingen bronnen geactiveerd** - deze tabel wordt het aantal samenvatting weergegeven, waarschuwing bronnen, en hoe vaak waarschuwingen die zijn gestart voor de geselecteerde duur. Dit geldt voor zowel de metrische gegevens en de activiteit logboek waarschuwingen.
+- **Waarschuwingen en meldingen bronnen geactiveerd** - deze tabel wordt het aantal samenvatting weergegeven, waarschuwing bronnen, en hoe vaak waarschuwingen die zijn gestart voor de geselecteerde duur. Dit geldt voor zowel de metrische gegevens en de activiteit logboek waarschuwingen. *< bewerken: waarschuwingen (Preview) met uniforme wijze van werken ook weergegeven voor alle waarschuwingen - gebeurtenissen, metrische gegevens en Logboeken >*
 - **Fouten in het logboek activiteit** -als een van uw Azure-resources om foutniveau prioriteit logboekgebeurtenissen, kunt u een aantal op hoog niveau weergeven en klik verder naar de pagina activiteitenlogboek voor het onderzoeken van elke gebeurtenis.
 - **Status van de Azure-Service** -ziet u een aantal problemen met de service, gebeurtenissen voor gepland onderhoud en health aanbevelingen servicestatus. Status van de Azure-Service biedt persoonlijke informatie wanneer problemen in de Azure-infrastructuur invloed zijn op uw services.  Zie [Azure-servicestatus](../service-health/service-health-overview.md) voor meer informatie.  
 - **Application Insights** -Zie KPI's voor elke resource AppInsights in het huidige abonnement. De KPI's zijn geoptimaliseerd voor servertoepassing bewaking buiten de ASP.NET-web-apps, Java, knooppunt en algemene toepassingstypen. De KPI's zijn metrische gegevens voor de frequentie van aanvragen, reactieduur Faalpercentage en beschikbaarheid %. 
@@ -55,6 +55,7 @@ Als u hebt geen geïntegreerde logboekanalyse of Application Insights, of als u 
 ## <a name="azure-monitor-sources---compute-subset"></a>Bronnen in Azure Monitor - Compute subset
 
 ![Model voor controle en diagnostische gegevens voor niet-rekenresources](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
 
 De Compute-services bevatten 
 - Cloud Services 
@@ -141,7 +142,10 @@ Een aantal visualisatie methoden zijn:
 
 
 ### <a name="automate"></a>Automatiseren
-Hier kunt u bewakingsgegevens trigger waarschuwingen of zelfs hele processen. Voorbeelden zijn:
+> [!NOTE]
+> Als onderdeel van de lopende evolutie van waarschuwingen op Microsoft Azure wordt nu een uniforme ervaring voor waarschuwingen is voorbeeld wordt weergegeven. Meer informatie over [Azure waarschuwingen (Preview)](monitoring-overview-unified-alerts.md)
+
+In de standaard Azure-waarschuwingen kunt u bewakingsgegevens trigger waarschuwingen of zelfs hele processen. Voorbeelden zijn:
 
 * Gebruik gegevens naar de compute-exemplaren voor automatisch schalen omhoog of omlaag op basis van het laden van toepassingen.
 * Verzend een e-mailberichten wanneer een metriek een vooraf ingestelde drempelwaarde overschrijdt.

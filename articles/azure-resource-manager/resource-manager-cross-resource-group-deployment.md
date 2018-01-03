@@ -11,23 +11,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 763f46b9b5be7edf06ee0604bfc51a2482405b60
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Azure-resources implementeren op meer dan één abonnement of resourcegroep
 
-Normaal gesproken implementeren u alle resources in de sjabloon één resourcegroep. Er zijn echter scenario's waarin u wilt implementeren van een set resources samen, maar in verschillende resourcegroepen of abonnementen plaatsen. U wilt bijvoorbeeld de back-virtuele machine voor Azure Site Recovery implementeert naar een afzonderlijke resourcegroep en locatie. Resource Manager kunt u geneste sjablonen voor doel verschillende abonnementen en resourcegroepen dan het abonnement en resourcegroep gebruikt voor de bovenliggende sjabloon gebruiken.
-
-De resourcegroep is de container levenscyclus voor de toepassing en de verzameling van resources. U maakt de resourcegroep buiten de sjabloon en geef de resourcegroep toe te passen tijdens de implementatie. Zie voor een inleiding tot resourcegroepen, [overzicht van Azure Resource Manager](resource-group-overview.md).
+Normaal gesproken het implementeren van alle resources in uw sjabloon met een afzonderlijke [resourcegroep](resource-group-overview.md). Er zijn echter scenario's waarin u wilt implementeren van een set resources samen, maar in verschillende resourcegroepen of abonnementen plaatsen. U wilt bijvoorbeeld de back-virtuele machine voor Azure Site Recovery implementeert naar een afzonderlijke resourcegroep en locatie. Resource Manager kunt u geneste sjablonen voor doel verschillende abonnementen en resourcegroepen dan het abonnement en resourcegroep gebruikt voor de bovenliggende sjabloon gebruiken.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Geef een abonnement en de resource
 
-Als u wilt richten op een andere resource, moet u een sjabloon geneste of gekoppelde tijdens de implementatie. De `Microsoft.Resources/deployments` brontype biedt parameters voor `subscriptionId` en `resourceGroup`. Deze eigenschappen kunnen u Geef een ander abonnement en de resource voor de geneste implementatie. Alle brongroepen moeten bestaan voordat de implementatie wordt uitgevoerd. Als u de abonnement-ID of resourcegroep groep, het abonnement en de resourcegroep van de bovenliggende sjabloon niet opgeeft, wordt gebruikt.
+Als u wilt richten op een andere resource, een sjabloon geneste of gekoppelde te gebruiken. De `Microsoft.Resources/deployments` brontype biedt parameters voor `subscriptionId` en `resourceGroup`. Deze eigenschappen kunnen u Geef een ander abonnement en de resource voor de geneste implementatie. Alle brongroepen moeten bestaan voordat de implementatie wordt uitgevoerd. Als u de abonnement-ID of resourcegroep groep, het abonnement en de resourcegroep van de bovenliggende sjabloon niet opgeeft, wordt gebruikt.
+
+Geef een andere resourcegroep en een abonnement door gebruiken:
+
+```json
+"resources": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "nestedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "resourceGroup": "[parameters('secondResourceGroup')]",
+        "subscriptionId": "[parameters('secondSubscriptionID')]",
+        ...
+    }
+]
+```
+
+Als uw resourcegroepen zich in hetzelfde abonnement, kunt u de **subscriptionId** waarde.
 
 Het volgende voorbeeld worden twee storage-accounts: in de resourcegroep die is opgegeven tijdens de implementatie, geïmplementeerd en één in een resourcegroep is opgegeven in de `secondResourceGroup` parameter:
 
@@ -106,93 +121,7 @@ Het volgende voorbeeld worden twee storage-accounts: in de resourcegroep die is 
 
 Als u instelt `resourceGroup` op de naam van een resourcegroep die niet bestaat, mislukt de implementatie.
 
-## <a name="deploy-the-template"></a>De sjabloon implementeren
-
-Gebruik voor het implementeren van de voorbeeldsjabloon, een versie van Azure PowerShell of Azure CLI van mei 2017 of hoger. Voor deze voorbeelden gebruiken de [cross-abonnement sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) in GitHub.
-
-### <a name="two-resource-groups-in-the-same-subscription"></a>Twee brongroepen in hetzelfde abonnement
-
-Voor PowerShell voor het implementeren van twee storage-accounts aan twee resourcegroepen in hetzelfde abonnement, gebruiken:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus
-```
-
-Voor Azure CLI voor het implementeren van twee storage-accounts aan twee resourcegroepen in hetzelfde abonnement, gebruiken:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-az group create --name $firstRG --location southcentralus
-az group create --name $secondRG --location eastus
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
-```
-
-Nadat de implementatie is voltooid, ziet u twee resourcegroepen. Elke resourcegroep bevat een opslagaccount.
-
-### <a name="two-resource-groups-in-different-subscriptions"></a>Twee brongroepen tot verschillende abonnementen behoren
-
-Voor PowerShell voor het implementeren van twee storage-accounts aan abonnementen, twee, gebruiken:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-$firstSub = "<first-subscription-id>"
-$secondSub = "<second-subscription-id>"
-
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus `
-  -secondSubscriptionID $secondSub
-```
-
-Voor Azure CLI voor het implementeren van twee storage-accounts aan abonnementen, twee, gebruiken:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-firstSub="<first-subscription-id>"
-secondSub="<second-subscription-id>"
-
-az account set --subscription $secondSub
-az group create --name $secondRG --location eastus
-
-az account set --subscription $firstSub
-az group create --name $firstRG --location southcentralus
-
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
-```
+Gebruik voor het implementeren van de voorbeeldsjabloon, een versie van Azure PowerShell of Azure CLI van mei 2017 of hoger.
 
 ## <a name="use-the-resourcegroup-function"></a>Gebruik de functie resourceGroup()
 
@@ -230,9 +159,59 @@ Als u een koppeling naar een afzonderlijke sjabloon, wordt resourceGroup() in de
 }
 ```
 
-Voor het testen van de verschillende manieren `resourceGroup()` wordt omgezet, implementeert een [voorbeeldsjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) die de resource-group-object geretourneerd voor de bovenliggende sjabloon, inline-sjabloon en de gekoppelde sjabloon. De sjabloon van het bovenliggende en inline die beide in dezelfde resourcegroep omzetten. De gekoppelde sjabloon wordt omgezet naar de gekoppelde resourcegroep.
+## <a name="example-templates"></a>Voorbeeld-sjablonen
 
-Gebruik voor PowerShell:
+De volgende sjablonen demonstreren meerdere resourcegroepimplementaties. Scripts voor het implementeren van de sjablonen worden weergegeven na de tabel.
+
+|Template  |Beschrijving  |
+|---------|---------|
+|[Cross-abonnement sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Een opslagaccount aan een resourcegroep en één opslagaccount implementeert op een tweede resourcegroep. Een waarde voor de abonnements-ID bevatten wanneer de tweede resourcegroep bevindt zich in een ander abonnement. |
+|[Cross-resource groep Eigenschappensjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Laat zien hoe de `resourceGroup()` werken wordt omgezet. Deze resources niet is geïmplementeerd. |
+
+### <a name="powershell"></a>PowerShell
+
+Voor PowerShell voor het implementeren van twee storage-accounts op twee resourcegroepen in de **hetzelfde abonnement**, gebruiken:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus
+```
+
+Voor PowerShell twee storage-accounts te implementeren **twee abonnementen**, gebruiken:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+$firstSub = "<first-subscription-id>"
+$secondSub = "<second-subscription-id>"
+
+Select-AzureRmSubscription -Subscription $secondSub
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+Select-AzureRmSubscription -Subscription $firstSub
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus `
+  -secondSubscriptionID $secondSub
+```
+
+Voor PowerShell om te testen hoe de **resource group-object** wordt omgezet voor het gebruik van de bovenliggende sjabloon, de inline-sjabloon en de gekoppelde sjabloon:
 
 ```powershell
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -244,7 +223,46 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
-Gebruik voor Azure CLI:
+### <a name="azure-cli"></a>Azure-CLI
+
+Voor Azure CLI voor het implementeren van twee storage-accounts op twee resourcegroepen in de **hetzelfde abonnement**, gebruiken:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+az group create --name $firstRG --location southcentralus
+az group create --name $secondRG --location eastus
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
+```
+
+Voor Azure CLI voor het implementeren van twee storage-accounts naar **twee abonnementen**, gebruiken:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+firstSub="<first-subscription-id>"
+secondSub="<second-subscription-id>"
+
+az account set --subscription $secondSub
+az group create --name $secondRG --location eastus
+
+az account set --subscription $firstSub
+az group create --name $firstRG --location southcentralus
+
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
+```
+
+Voor Azure CLI om te testen hoe de **resource group-object** wordt omgezet voor het gebruik van de bovenliggende sjabloon, de inline-sjabloon en de gekoppelde sjabloon:
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus

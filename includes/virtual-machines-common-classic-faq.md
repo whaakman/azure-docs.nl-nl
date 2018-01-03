@@ -96,7 +96,7 @@ Azure biedt verschillende opties voor antivirusoplossingen, maar het beheer hier
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/) (Antimalware-oplossingen implementeren op virtuele machines van Azure)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Wat zijn de opties voor back-up en herstel?
-Azure Backup is beschikbaar als preview in bepaalde regio's. Zie [Back-ups maken van virtuele machines van Azure](../articles/backup/backup-azure-vms.md) voor meer informatie. Andere oplossingen zijn beschikbaar van gecertificeerde partners. Als u wilt weten wat er op dit moment beschikbaar is, zoekt u Azure Marketplace.
+Azure Backup is beschikbaar als preview in bepaalde regio's. Zie [Back-ups maken van virtuele machines van Azure](../articles/backup/backup-azure-arm-vms.md) voor meer informatie. Andere oplossingen zijn beschikbaar van gecertificeerde partners. Als u wilt weten wat er op dit moment beschikbaar is, zoekt u Azure Marketplace.
 
 Een andere mogelijkheid is om de voorzieningen voor momentopnamen van blob-opslag te gebruiken. Het is belangrijk dat u de VM afsluit voordat u een bewerking gaat uitvoeren die afhankelijk is van een momentopname van een blob. Hierdoor worden openstaande schrijfbewerkingen worden opgeslagen en wordt het bestandssysteem in een consistente status geplaatst.
 
@@ -122,7 +122,7 @@ Ook kunt u de Azure portal of Azure PowerShell om de logboeken opnieuw worden op
 
 Om redundantie te bieden, plaatst u twee of meer vergelijkbaar geconfigureerde VM's in dezelfde beschikbaarheidsset. Op deze manier zorgt u ervoor dat er ten minste één VM beschikbaar is tijdens gepland of ongepland onderhoud. Azure garandeert bepaalde niveaus van VM-beschikbaarheid voor deze configuratie. Zie [Beschikbaarheid van virtuele machines beheren](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 [Informatie over Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md)
 
 [Virtuele machines maken en beheren met Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

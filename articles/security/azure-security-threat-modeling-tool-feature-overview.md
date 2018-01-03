@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Overzicht van Threat Modeling hulpprogramma-functies
 
@@ -29,11 +29,11 @@ Het hulpprogramma Threat Modeling kan u helpen bij uw threat modeling behoeften.
 
 Als u een lege pagina, schakelt **een Model maken**.
 
-![Lege pagina](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Lege pagina](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 Als de functies die momenteel beschikbaar in het hulpprogramma wilt weergeven, gebruikt u de risicomodel gemaakt door ons team in het [aan de slag](./azure-security-threat-modeling-tool-getting-started.md) voorbeeld.
 
-![Basic risicomodel](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Basic risicomodel](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Navigatie
 
@@ -43,7 +43,7 @@ Voordat we de ingebouwde functies bespreken, gaan we de belangrijkste onderdelen
 
 De ervaring is vergelijkbaar met andere Microsoft-producten. We bekijken op het hoogste niveau menu-items.
 
-![Menu-items](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Menu-items](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Label                               | Details      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ Het canvas is de ruimte waar u slepen en neerzetten van elementen. Slepen en nee
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>Het stencil op het canvas te verwijderen
 
-![Canvas neerzetten](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Canvas neerzetten](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Selecteer het stencil
 
-![Eigenschappen van het element](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Eigenschappen van het element](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Stencils
 
@@ -120,15 +120,15 @@ Wanneer u de app opent, ziet u de **Welkom** scherm.
 
 Beweeg de muisaanwijzer over **Open een Model** blijkt dat er twee opties: **openen vanaf deze Computer** en **Open van OneDrive**. De eerste optie, verschijnt de **bestand openen** scherm. De tweede optie gaat u door het proces aanmelden voor OneDrive. Wanneer u bent geverifieerd, kunt u mappen en bestanden.
 
-![Model openen](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Model openen](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Openen van de computer of OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Openen van de computer of OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Feedback, suggesties en problemen
 
 Wanneer u selecteert **Feedback, suggesties en problemen**, u gaat u naar de MSDN-Forum voor SDL-hulpprogramma's. U kunt lezen wat anderen hierover het hulpprogramma, inclusief tijdelijke oplossingen en nieuwe ideeën.
 
-![Feedback](./media/azure-security-threat-modeling-tool/feedback.png)
+![Feedback](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Ontwerpweergave
 
@@ -152,19 +152,19 @@ U kunt de verbinding van elementen op twee manieren maken:
 
  Vult dienovereenkomstig om de eigenschappen die kunnen worden gewijzigd op de stencils, selecteer het stencil en de informatie te bekijken. Het volgende voorbeeld ziet voor en na een **Database** stencil wordt gesleept naar het diagram:
 
-#### <a name="before"></a>Voordat u
+#### <a name="before"></a>Voor
 
-![Voordat u](./media/azure-security-threat-modeling-tool/properties1.png)
+![Voor](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>Na
 
-![Na](./media/azure-security-threat-modeling-tool/properties2.png)
+![Na](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Berichten
 
 Als u een risicomodel maakt en vergeet gegevensoverdrachten verbinding maken met de elementen, krijgt u een melding. U kunt dit bericht negeren of u kunt de instructies om het probleem te verhelpen. 
 
-![Berichten](./media/azure-security-threat-modeling-tool/messages.png)
+![Berichten](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Opmerkingen
 
@@ -174,7 +174,7 @@ Als u opmerkingen toevoegen aan het diagram, wilt overschakelen van de **bericht
 
 Nadat u het diagram bouwen, selecteert u de **Analysis** symbool (Vergrootglas) op de werkbalk snelkoppelingen overschakelen naar de **Analysis** weergeven.
 
-![Analyse weergeven](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Analyse weergeven](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Gegenereerde threat selectie
 
@@ -182,27 +182,27 @@ Wanneer u een bedreiging selecteert, kunt u drie afzonderlijke functies:
 
 | Functie                               | Informatie      |
 | --------------------------------------- | ------------ |
-| **Lees indicator** | <p>De bedreiging is gemarkeerd als gelezen, waarmee u de items die u gecontroleerd.</p><p>![Lezen/ongelezen indicator](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Interactie focus** | <p>Interactie in het diagram die deel uitmaakt van een bedreiging wordt gemarkeerd.</p><p>![Interactie focus](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Eigenschappen van de Threat** | <p>Meer informatie over de bedreiging wordt weergegeven in de **Threat eigenschappen** venster.</p><p>![Eigenschappen van de Threat](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Lees indicator** | <p>De bedreiging is gemarkeerd als gelezen, waarmee u de items die u gecontroleerd.</p><p>![Lezen/ongelezen indicator](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Interactie focus** | <p>Interactie in het diagram die deel uitmaakt van een bedreiging wordt gemarkeerd.</p><p>![Interactie focus](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Eigenschappen van de Threat** | <p>Meer informatie over de bedreiging wordt weergegeven in de **Threat eigenschappen** venster.</p><p>![Eigenschappen van de Threat](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Prioriteit wijzigen
 
 U kunt het prioriteitsniveau van elke gegenereerde bedreiging wijzigen. Verschillende kleuren maakt het eenvoudig is te hoog, gemiddeld en prioriteit Laag bedreigingen identificeren.
 
-![Prioriteit wijzigen](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Prioriteit wijzigen](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Threat eigenschappen bewerkbare velden
 
 Zoals u in de voorgaande afbeelding, kunt u de gegevens die worden gegenereerd door het hulpprogramma. U kunt ook informatie toevoegen aan bepaalde velden, zoals reden. Deze velden zijn gegenereerd door de sjabloon. Als u meer informatie nodig voor elke bedreiging, kunt u wijzigingen kunt aanbrengen.
 
-![Eigenschappen van de Threat](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Eigenschappen van de Threat](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Rapporten
 
 Nadat u prioriteiten wijzigen en bijwerken van de status van elke gegenereerde bedreiging, u kunt het bestand opslaan en/of afdrukken. Ga naar **rapport** > **volledige rapport maken**. Het rapport een naam en ziet u iets soortgelijks als in de volgende afbeelding:
 
-![Rapport](./media/azure-security-threat-modeling-tool/report.png)
+![Rapport](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

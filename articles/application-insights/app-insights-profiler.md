@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
@@ -227,6 +227,82 @@ Wanneer u de profiler configureert, wordt bijgewerkt naar de web-app-instellinge
 7. Selecteer op de website Kudu **Site-uitbreidingen**.
 8. Installeer __Application Insights__ uit de galerie van Azure Web Apps.
 9. Start opnieuw op de web-app.
+
+## <a id="profileondemand"></a>Profiler handmatig opnieuw starten
+Wanneer we de profiler ontwikkeld hebben we een opdrachtregelinterface toegevoegd zodat we de profiler op app-services kunnen testen. Met deze gebruikers met dezelfde interface kunt ook aanpassen hoe de profiler wordt gestart. Op hoog niveau de profiler van App Service Kudu System gebruikt voor het beheren van profilering op de achtergrond. We maken een continue web-taak die als host fungeert voor de profiler tijdens de installatie van de Application Insights-extensie. We gebruiken deze dezelfde technologie voor het maken van een nieuwe web-taak die u aanpassen kunt aan uw behoeften voldoet.
+
+Deze sectie wordt uitgelegd hoe:
+
+1.  Maak een web-taak die u de profiler twee minuten opnieuw met de druk op de knop starten kunt.
+2.  Maak een web-taak die u kunt plannen dat de profiler om uit te voeren.
+3.  Argumenten voor de profiler instellen.
+
+
+### <a name="set-up"></a>Instellen
+Eerste we raken met de web-taak dashboard. Onder instellingen op het tabblad WebJobs.
+
+![blade webjobs](./media/app-insights-profiler/webjobs-blade.png)
+
+Zoals u dit dashboard ziet ziet u alle webservice-taken die momenteel zijn geïnstalleerd op uw site. U ziet de ApplicationInsightsProfiler2 web-taak waarvoor de profiler-taak uitgevoerd. Dit is waar we uiteindelijk wordt gemaakt van onze nieuwe webtaken voor handmatige en geplande profilering.
+
+Eerst gaan we de binaire bestanden we moeten aan.
+
+1.  Ga naar de kudu-site. In de ontwikkeling tabblad Hulpmiddelen Klik op het tabblad 'Geavanceerde hulpmiddelen' met het logo van Kudu. Klik op "Ga". Hiermee gaat u naar een nieuwe site en u kunt zich aanmelden automatisch.
+2.  Vervolgens moet de profiler binaire bestanden gedownload. Navigeer naar de Verkenner via de Console voor foutopsporing -> CMD zich boven aan de pagina.
+3.  Klik op de site -> wwwroot -> App_Data -> taken -> continue. Hier ziet u een map 'ApplicationInsightsProfiler2'. Klik op het downloadpictogram aan de linkerkant van de map. Hiermee wordt een 'ApplicationInsightsProfiler2.zip'-bestand downloaden.
+4.  Hiermee worden alle bestanden die u moet downloaden u verder gaat. Ik het beste een nieuwe map te verplaatsen van deze zip-archief op voordat u doorgaat.
+
+### <a name="setting-up-the-web-job-archive"></a>Instellen van de taak webarchief
+Wanneer u een nieuwe web-taak aan de azure-website in feite toevoegen maakt u een zip-archief met een run.cmd in. De run.cmd geeft het systeem van de taak webpagina wat te doen wanneer u de web-taak uitvoert. Er zijn andere opties die u in de documentatie van de taak webpagina kunt lezen, maar voor onze doel we hebben iets anders niet nodig.
+
+1.  Om te starten voor het maken van een nieuwe map, ik mij 'RunProfiler2Minutes' met de naam.
+2.  Kopieer de bestanden van de uitgepakte ApplicationInsightProfiler2-map in deze nieuwe map.
+3.  Maak een nieuwe run.cmd-bestand. (Deze werkmap in geopend tegenover code voordat u begint voor het gemak)
+4.  De opdracht toevoegen `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`, en sla het bestand.
+a.  De `start` opdracht vertelt de profiler om te starten.
+b.  `--engine-mode immediate`Hiermee geeft u de profiler dat we willen profileren onmiddellijk starten.
+c.  `--single`betekent om uit te voeren en vervolgens automatisch d stoppen.  `--immediate-profiling-duration 120`betekent dat de profiler 120 seconden of 2 minuten uitgevoerd.
+5.  Sla dit bestand.
+6.  Archiveren van deze map, kunt u de map met de rechtermuisknop op en kies verzenden naar het gecomprimeerde ZIP-->. Hiermee maakt u een ZIP-bestand met de naam van de map.
+
+![profiler opdracht voor starten](./media/app-insights-profiler/start-profiler-command.png)
+
+We hebben nu een web-taak .zip die we webtaken instellen in onze site kunnen gebruiken.
+
+### <a name="add-a-new-web-job"></a>Een nieuwe web-taak niet toevoegen
+Vervolgens wordt een nieuwe web-taak toevoegen in onze site. In dit voorbeeld ziet u hoe u een handmatige triggered web-taak niet toevoegen. Nadat u zich kunt zijn dat is het proces bijna precies hetzelfde voor geplande. U kunt meer lezen over geplande taken op uw eigen worden geactiveerd.
+
+1.  Ga naar het dashboard van web-taken.
+2.  Klik op de werkbalk van de Add-opdracht.
+3.  Geef een naam op voor uw web-job overeenkomen met de naam van Mijn archief voor de duidelijkheid en open het tot verschillende versies van de run.cmd gekozen.
+4.  In het bestand uploaden deel uit van het formulier klik op het pictogram bestand openen en zoek het ZIP-bestand dat u hierboven hebt gemaakt.
+5.  Kies voor het type Triggered.
+6.  Kies de handleiding voor de Triggers.
+7.  Klik op OK om op te slaan.
+
+![profiler opdracht voor starten](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>De profiler uitvoeren
+
+Nu we hebben een nieuwe web-taak die we handmatig kunnen activeren kunt we proberen uit te voeren.
+
+1.  U kunt slechts één ApplicationInsightsProfiler.exe proces dat wordt uitgevoerd op een computer op elk moment per ontwerp hebben. Dus om te beginnen met zorg ervoor dat de taak continu web uit dit dashboard uitschakelen. Klik op de rij en druk op 'Stop'. Vernieuwen op de werkbalk en Bevestig dat de status bevestigt dat de taak is gestopt.
+2.  Klik op de rij met de nieuwe web-taak die u hebt toegevoegd en drukt u op uitvoeren.
+3.  Met de rij nog steeds geselecteerde Klik op de opdracht logboeken op de werkbalk, wordt dit zorgen voor een webdashboard taken voor deze web-taak die u hebt gestart. Er wordt een lijst met de meest recente worden uitgevoerd en hun resultaat.
+4.  Klik op de uitvoeren die u zojuist hebt gestart.
+5.  Als alles goed is gegaan ziet u enkele logboeken met diagnostische gegevens die afkomstig zijn van de profiler bevestigen dat we profilering hebt gestart.
+
+### <a name="things-to-consider"></a>Aandachtspunten
+
+Hoewel deze methode betrekkelijk eenvoudig is zijn er enkele overwegingen.
+
+1.  Omdat dit niet wordt beheerd door de service wordt we hebben geen manier om de agent binaire bestanden voor uw web-job bij te werken. We momenteel geen een stabiele downloadpagina voor onze binaire bestanden zodat de enige manier om de meest recente door uw toestelnummer bijwerken en uit de map continue grabbing zoals al eerder is gedaan.
+2.  Als dit wordt gebruikt door de opdrachtregelargumenten die oorspronkelijk zijn ontworpen met ontwikkelaars gebruik in plaats van gebruik van de eindgebruiker, deze argumenten wijziging in de toekomst, dus u hoeft alleen mogelijk weten dat bij een upgrade. Het mag niet veel van een probleem zijn, omdat u een web-taak, uitvoeren en test die hierbij worden kunt toevoegen. Uiteindelijk gebruikersinterface om dit te doen zonder het handmatige proces maakt, maar is iets in overweging moet nemen.
+3.  De functie Web-taken voor App Services is uniek tijdens het uitvoeren van de taak webpagina het zorgt ervoor dat uw proces heeft de dezelfde omgevingsvariabelen en appinstellingen die uw website uiteindelijk hebben. Dit betekent dat u niet wilt dat de instrumentatiesleutel via de opdrachtregel doorgegeven aan de profiler, deze moet alleen kunnen worden opgepikt de instrumentatiesleutel uit de omgeving. Als u wilt de profiler uitvoeren op de box dev of op een computer buiten App Services moet u echter een instrumentatiesleutel opgeeft. U kunt dit doen door door te geven in een argument `--ikey <instrumentation-key>`. Houd er rekening mee dat deze waarde moet overeenkomen met de instrumentatiesleutel die wordt gebruikt door uw toepassing. In de uitvoer van de logboekbestanden van de profiler profilering dit laat u weten welke de profiler die is gestart met ikey en als er activiteit uit die instrumentatiesleutel terwijl we.
+4.  De webtaken handmatig triggered kunnen daadwerkelijk worden geactiveerd via Web haakje. U kunt deze url ophalen van rechtermuisknop te klikken op de web-taak vanuit het dashboard en de eigenschappen weer te geven of eigenschappen te kiezen in de werkbalk na het selecteren van de taak webpagina van de tabel. Er zijn veel van de artikelen die u kunt vinden over deze online zodat instellingen niet veel informatie over het gaat, maar dit de mogelijkheid van de activering van de profiler van uw pijplijn CI/CD (zoals VSTS) of iets zoals Microsoft Flow (https://flow.microsoft.com/en-us/) wordt geopend. De mogelijkheden zijn afhankelijk van hoe fraai dat u maken van uw run.cmd die door de manier waarop een run.ps1 wilt, uitgebreid.  
+
+
+
 
 ## <a id="aspnetcore"></a>Ondersteuning voor ASP.NET Core
 

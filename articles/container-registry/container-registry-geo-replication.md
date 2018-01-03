@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicatie in Azure Container register
 
@@ -94,7 +94,7 @@ ACR begint installatiekopieën via de geconfigureerde replica's synchroniseren. 
 
 ## <a name="geo-replication-pricing"></a>Prijzen van geo-replicatie
 
-Geo-replicatie is een functie van de [Premium-SKU](container-registry-skus.md#premium) van Azure Container register. Wanneer u een register naar de gewenste regio's repliceren, u Premium register kosten voor elke regio hebt gemaakt.
+Geo-replicatie is een functie van de [Premium-SKU](container-registry-skus.md) van Azure Container register. Wanneer u een register naar de gewenste regio's repliceren, u Premium register kosten voor elke regio hebt gemaakt.
 
 In het voorgaande voorbeeld Contoso geconsolideerd twee registers naar beneden, replica's toe te voegen aan VS-Oost, Canada centraal en West-Europa. Contoso zou Premium vier keer per maand, zonder extra configuratie of management betalen. Elke regio haalt nu hun installatiekopieën lokaal, verbeterde prestaties, betrouwbaarheid zonder netwerk uitgaande kosten van de VS-West naar Canada en VS-Oost.
 

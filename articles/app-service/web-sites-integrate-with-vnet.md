@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uw app integreren met een Azure-netwerk
 Dit document beschrijft de integratiefunctie van Azure App Service virtueel netwerk en ziet u hoe u met apps in instelt [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Als u niet bekend bent met Azure Virtual Networks (vnet's), is dit een functie waarmee u veel van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met een aantal VPN-technologieën. Voor meer informatie over Azure Virtual Networks, beginnen met de informatie hier: [Azure Virtual Network-overzicht][VNETOverview]. 
@@ -257,6 +257,10 @@ Nu zijn als uw VNet gehost VM toegang heeft tot uw on-premises systeem, maar uw 
 * de netwerkbeveiligingsgroepen blokkeren toegang voor uw punt naar Site IP-bereik
 * de lokale firewalls blokkeren het verkeer van uw punt naar Site IP-bereik
 * hebt u een gebruiker gedefinieerde Route(UDR) in uw VNet waarmee wordt voorkomen uw punt voor verkeer van de Site op basis dat van uw on-premises netwerk bereikt
+
+## <a name="powershell-automation"></a>Automatisering met PowerShell
+
+U kunt de App Service integreren met een Azure-netwerk met behulp van PowerShell. Zie voor een script kant-en-klaar [een app in Azure App Service verbinden met een Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Hybride verbindingen en App Service-omgevingen
 Er zijn drie functies waarmee u toegang tot bronnen van de VNet die worden gehost. Ze zijn:

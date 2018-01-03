@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs management-bibliotheken
 
-De management-bibliotheken van Event Hubs kunnen richten op dynamische wijze Event Hubs-naamruimten en entiteiten. Hiermee kunnen complexe implementaties en berichtverzending, zodat u via een programma welke entiteiten te richten bepalen kunt. Deze bibliotheken zijn momenteel beschikbaar voor .NET.
+De management-bibliotheken van Event Hubs kunnen richten op dynamische wijze Event Hubs-naamruimten en entiteiten. Deze dynamische aard kunnen complexe implementaties en berichtverzending, zodat u via een programma welke entiteiten te richten bepalen kunt. Deze bibliotheken zijn momenteel beschikbaar voor .NET.
 
 ## <a name="supported-functionality"></a>Ondersteunde functionaliteit
 

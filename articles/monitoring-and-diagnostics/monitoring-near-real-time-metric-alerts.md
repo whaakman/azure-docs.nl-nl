@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Bijna realtime metrische waarschuwingen (Preview)
 Monitor voor Azure ondersteunt nu een nieuw type metrische waarschuwingen bijna Real-Time metriek waarschuwingen (Preview) genoemd. Deze functie is momenteel in de openbare preview.
@@ -38,6 +38,7 @@ Deze waarschuwingen verschillen van reguliere metrische waarschuwingen in enkele
 Volledige lijst met brontypen die worden ondersteund door bijna realtime metrische waarschuwingen:
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -51,48 +52,31 @@ Volledige lijst met brontypen die worden ondersteund door bijna realtime metrisc
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Bijna Real-Time metriek waarschuwingen op metrische gegevens met dimensies
+Bijna Real-Time metriek waarschuwingen ondersteunt waarschuwen voor metrische gegevens met dimensies. Dimensies zijn een manier voor het filteren van uw metric naar het juiste niveau. Bijna realtime metriek worden waarschuwingen op metrische gegevens met dimensies ondersteund voor de volgende resourcetypen
+
+* Microsoft.ApiManagement/service
+* Microsoft.Storage/storageAccounts (alleen ondersteund voor storage-accounts in regio's VS)
+* Microsoft.Storage/storageAccounts/services (alleen ondersteund voor storage-accounts in regio's VS)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Een waarschuwing voor Near realtime metrische maken
 Op dit moment is bijna realtime metriek kunnen waarschuwingen alleen worden gemaakt via de Azure portal. Ondersteuning voor het configureren van bijna realtime metrische waarschuwingen via PowerShell-opdrachtregelinterface (CLI) en Azure Monitor REST-API is binnenkort beschikbaar.
 
-1. In de [portal](https://portal.azure.com/), zoekt de resource die u geïnteresseerd bent in de bewaking en selecteert u deze. Deze bron moet zijn van een van de volgende resourcetypen die worden vermeld in de [vorige sectie](#what-resources-can-i-create-near-real-time-metric-alerts-for). U kunt ook Doe hetzelfde voor alle ondersteunde bronnen typen centraal van de Monitor > waarschuwingen.
+De waarschuwing ervaring maken voor bijna Real-Time metriek waarschuwing is verplaatst naar de nieuwe **Alerts(Preview)** optreden. Hoewel de huidige waarschuwingen pagina toont **toevoegen in de buurt van Real-Time metriek waarschuwing**, wordt u omgeleid naar de nieuwe ervaring.
 
-2. Selecteer **waarschuwingen** of **waarschuwing regels** onder de sectie bewaking. De tekst en het pictogram mogelijk enigszins afwijken voor verschillende bronnen.
-   ![Bewaking](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. Klik op de **toevoegen bijna realtime metrische gegevens waarschuwing (preview)** opdracht. Als de opdracht lichter gekleurd weergegeven, controleert u dat de bron wordt geselecteerd in het filter.
-
-    ![In de buurt van de waarschuwing knop realtime metrische gegevens toevoegen](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. **Naam** uw Waarschuwing regel en kies een **beschrijving**, die ook weergegeven in e-mailmeldingen.
-5. Selecteer de **metriek** u wilt bewaken, en kies vervolgens een **voorwaarde**, **Tijdaggregatie**, en **drempelwaarde** waarde voor de metriek. Selecteer desgewenst een ander **metriek** u wilt bewaken, en kies vervolgens een **voorwaarde**, **Tijdaggregatie**, en **drempelwaarde** waarde voor de tweede metriek. 
-
-    ![Voeg bijna realtime metrische gegevens Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![bijna realtime metrische gegevens Alert2 toevoegen](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. Kies de **periode** tijdsperiode waarin de meetwaarde regels moeten worden voldaan voordat de waarschuwing triggers. Dus bijvoorbeeld, als u de periode 'in de afgelopen 5 minuten' en de waarschuwing ziet er voor CPU hierboven 80% (en NetworkIn meer dan 500 MB), de waarschuwing wordt geactiveerd wanneer de CPU is al consistent bovenstaande 80% 5 minuten. Zodra de eerste trigger is plaatsvindt, deze opnieuw wordt geactiveerd wanneer de CPU onder 80% gedurende vijf minuten blijft. De waarschuwing wordt beoordeeld volgens de **evaluatie frequentie**
-
-
-6. Kies een passende **ernst** in de vervolgkeuzelijst.
-
-7. Geef als u wilt gebruiken een nieuw of bestaand **actie groep**.
-
-8. Als u wilt maken **nieuw** actie groep, de actiegroep een naam en een korte naam geven, geeft u acties (Webhook SMS, e-mailadres) en vult u de details van de respectieve.
-
-
-8. Selecteer **OK** wanneer u klaar bent voor het maken van de waarschuwing.   
-
-Binnen een paar minuten de waarschuwing is actief en wordt geactiveerd als eerder beschreven.
+U kunt een near realtime metrische waarschuwing met de stappen maken [hier](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Bijna realtime metrische waarschuwingen beheren
-Wanneer u een waarschuwing hebt gemaakt, kunt u deze selecteren en:
+Nadat u hebt gemaakt een **bijna Real-Time metriek waarschuwing**, kunnen worden beheerd met de stappen [hier](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-* Een grafiek weer met de metrische drempel en de werkelijke waarden van de vorige dag weergeven.
-* Bewerk of verwijder deze.
-* **Schakel** of **inschakelen** deze als u wilt tijdelijk stoppen of te hervatten ontvangen van meldingen voor deze waarschuwing.
+## <a name="next-steps"></a>Volgende stappen
 
-
-
+* [Meer informatie over de ervaring voor de nieuwe waarschuwingen (preview)](monitoring-overview-unified-alerts.md)
+* [Meer informatie over waarschuwingen logboek in Azure waarschuwingen (preview)](monitor-alerts-unified-log.md)
+* [Meer informatie over waarschuwingen in Azure](monitoring-overview-alerts.md)

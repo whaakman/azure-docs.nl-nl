@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Een back-upkluis upgraden naar een Recovery Services-kluis
 
@@ -34,7 +34,7 @@ Bij het bijwerken van een back-upkluis naar een Recovery Services-kluis, zijn er
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Wijzigingen in uw automation en het hulpprogramma na de upgrade
 
 Tijdens het voorbereiden van uw infrastructuur voor de upgrade van de kluis, moet u uw bestaande automatisering of tooling om ervoor te zorgen dat het blijft werken na de upgrade bijwerken.
-Raadpleeg de verwijzingen van de PowerShell-cmdlets voor de [Service Manager-implementatiemodel](backup-client-automation-classic.md) en de [Resource Manager-implementatiemodel](backup-client-automation.md).
+Raadpleeg de verwijzingen van de PowerShell-cmdlets voor de [Resource Manager-implementatiemodel](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Voordat u een upgrade

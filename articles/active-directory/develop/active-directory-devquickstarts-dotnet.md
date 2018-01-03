@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET aan de slag | Microsoft Docs
+title: Azure AD .NET bureaublad (WPF) is aan de slag | Microsoft Docs
 description: "Het bouwen van een toepassing .NET Windows-bureaublad, die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-aanroepen beveiligd met OAuth API's."
 services: active-directory
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e21af66f91835919b67af3492f55f113a00910e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Azure AD integreren met een Windows-bureaublad WPF-App
+# <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET bureaublad (WPF) is aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -160,7 +160,7 @@ public async void CheckForCachedToken()
 }
 ```
 
-Gefeliciteerd. U nu beschikken over een werkende .NET WPF-toepassing met de mogelijkheid om te verifiëren van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.  Uitvoeren van uw app DirectorySearcher en meld u aan met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Sluit de app en voer deze opnieuw uit.  U ziet hoe de gebruikerssessie blijft intact.  Meld u af en meld u opnieuw aan als een andere gebruiker.
+Gefeliciteerd! U nu beschikken over een werkende .NET WPF-toepassing met de mogelijkheid om te verifiëren van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en algemene informatie over de gebruiker ophalen.  Als u nog niet gedaan hebt, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers.  Uitvoeren van uw app DirectorySearcher en meld u aan met een van deze gebruikers.  Zoeken naar andere gebruikers op basis van de UPN.  Sluit de app en voer deze opnieuw uit.  U ziet hoe de gebruikerssessie blijft intact.  Meld u af en meld u opnieuw aan als een andere gebruiker.
 
 ADAL kunt eenvoudig gebruikmaken van al deze algemene identiteit functies in uw toepassing.  Dit zorgt voor al het werk dirty voor u - Cachebeheer, OAuth-protocolondersteuning, dat de gebruiker een aanmelding-gebruikersinterface vernieuwen van tokens verlopen en meer.  Alles wat u moet weten één API-aanroep is `authContext.AcquireTokenAsync(...)`.
 

@@ -1,6 +1,6 @@
 ---
-title: Wat zijn Servicestatusmeldingen | Microsoft Docs
-description: Servicestatusmeldingen kunnen u bekijken servicestatus berichten publiceren door Microsoft Azure.
+title: Wat zijn Azure servicestatusmeldingen? | Microsoft Docs
+description: Servicestatusmeldingen zodat u kunt bekijken van berichten van health-service gepubliceerd door Microsoft Azure.
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,69 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="service-health-notifications"></a>Servicestatusmeldingen
-## <a name="overview"></a>Overzicht
+# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Servicestatusmeldingen weergeven met behulp van de Azure-portal
 
-Dit artikel laat zien hoe u servicestatusmeldingen met de Azure portal weergeeft.
+Servicestatusmeldingen door Azure worden gepubliceerd, en bevatten informatie over de resources in uw abonnement. Deze meldingen zijn een subklasse zijn van de activiteit logboekgebeurtenissen en kunnen worden gevonden in het gebeurtenissenlogboek. Servicestatusmeldingen zijn informatief of actie worden uitgevoerd, afhankelijk van de klasse.
 
-Servicestatusmeldingen kunnen u berichten van health-service gepubliceerd door het team van Azure die invloed kan zijn op van de resources in uw abonnement weergeven. Deze meldingen zijn een subklasse zijn van de activiteit logboekgebeurtenissen en kunnen worden gevonden in het gebeurtenissenlogboek. Servicestatusmeldingen zijn informatief of actie worden uitgevoerd, afhankelijk van de klasse.
+Er zijn verschillende soorten servicestatusmeldingen:  
 
-Er zijn vijf soorten servicestatusmeldingen:  
-
-- **De actie is vereist:** van tijd tot tijd Azure is het mogelijk iets vreemds optreden op uw account. Azure wellicht samen met u lost dit probleem. Azure stuurt u een melding ofwel met gedetailleerde informatie over de acties die u moet uitvoeren of met meer informatie over het contact opnemen met Azure engineering of ondersteuning.  
-- **Assisted Recovery:** een gebeurtenis heeft plaatsgevonden en engineers hebt bevestigd dat u nog steeds gevolgen ondervindt. Azure-engineering moet samenwerken met u rechtstreeks uw services naar volledige status te herstellen.  
-- **Incident:** een service die van invloed op de gebeurtenis is momenteel die betrekking hebben op een of meer van de resources in uw abonnement.  
-- **Onderhoud:** dit is een melding van een gepland onderhoud-activiteit die mogelijk van invloed op een of meer van de resources in uw abonnement.  
-- **Gegevens:** van tijd tot tijd Azure u meldingen die u informeren over potentiële optimalisaties die kunnen helpen uw Resourcegebruik verbeteren kan verzenden.  
-- **Beveiliging:** urgente beveiliging gerelateerde informatie met betrekking tot uw oplossing(en) uitgevoerd op Azure.
+- **Actie vereist:** wellicht opgevallen dat Azure ongewone activiteit optreden op uw account en samen met u lost dit probleem. Azure stuurt u een melding, hetzij met gedetailleerde informatie over de acties die u moet uitvoeren of contact opnemen met de Azure-engineering of ondersteuning.  
+- **Ondersteunde herstel:** een gebeurtenis heeft plaatsgevonden en engineers hebt bevestigd dat u nog steeds gevolgen ondervindt. Azure-engineering moet samenwerken met u rechtstreeks uw services naar volledige status te herstellen.  
+- **Incident:** een gebeurtenis stuit die van invloed is op service momenteel invloed op een of meer van de resources in uw abonnement.  
+- **Onderhoud:** een gepland onderhoud-activiteit die dit mogelijk invloed op een of meer van de resources in uw abonnement.  
+- **Gegevens:** mogelijke optimalisaties die kunnen helpen verbeteren uw gebruik van bronnen. 
+- **Beveiliging:** urgente veiligheidsgerelateerde informatie met betrekking tot uw oplossingen die worden uitgevoerd op Azure.
 
 Elke melding van de health service bevat de details van het bereik en de gevolgen voor uw resources. Details opnemen:
 
-De naam van eigenschap | Beschrijving
+Naam van eigenschap | Beschrijving
 -------- | -----------
-kanalen | Is een van de volgende waarden: 'Admin', 'Operation'
-correlationId | Is meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen met die deel uitmaken van dezelfde uber actie meestal delen de dezelfde correlationId.
-eventDataId | Is de unieke id van een gebeurtenis
-EventName | De titel van de gebeurtenis is
-niveau | Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', 'Ter informatie' en 'Verbose'
-resourceProviderName | Naam van de resourceprovider voor de betrokken resource
-resourceType| Het type resource van de betrokken resource
-subStatus | Meestal de HTTP-statuscode van de bijbehorende REST te bellen, maar kan ook andere tekenreeksen met een beschrijving van een substatus, zoals deze algemene waarden bevatten: OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (http-Status Code: 204), onjuiste aanvraag (HTTP-statuscode: 400), niet is gevonden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne serverfout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), time-out van Gateway (HTTP-statuscode: 504).
-eventTimestamp | Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag de gebeurtenis overeenkomt.
-submissionTimestamp |   Tijdstempel wanneer de gebeurtenis beschikbaar voor het uitvoeren van query's zijn geworden.
-subscriptionId | Het Azure-abonnement in waarmee deze gebeurtenis is vastgelegd
-status | De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: In voortgang, geslaagd, mislukt, actief, opgelost gestart.
+kanalen | Een van de volgende waarden: **Admin** of **bewerking**.
+correlationId | Meestal een GUID in de indeling van de tekenreeks. Gebeurtenissen die deel uitmaken van dezelfde actie meestal delen de dezelfde correlationId.
+eventDataId | De unieke id van een gebeurtenis.
+EventName | De titel van een gebeurtenis.
+niveau | Het niveau van een gebeurtenis. Een van de volgende waarden: **Kritiek**, **fout**, **waarschuwing**, **informatief**, of **uitgebreid** .
+resourceProviderName | De naam van de resourceprovider voor de betrokken resource.
+resourceType| Het type resource van de betrokken resource.
+subStatus | Meestal de HTTP-statuscode van de bijbehorende REST aanroepen, maar kan ook andere tekenreeksen met een beschrijving van een substatus bevatten. Bijvoorbeeld: OK (HTTP-statuscode: 200), gemaakt (HTTP-statuscode: 201), geaccepteerde (HTTP-statuscode: 202), geen inhoud (HTTP-statuscode: 204), ongeldige aanvraag (HTTP-statuscode: 400), niet vinden (HTTP-statuscode: 404), Conflict (HTTP-statuscode: 409), interne Server Fout (HTTP-statuscode: 500), Service niet beschikbaar (HTTP-statuscode: 503), en de time-out van Gateway (HTTP-statuscode: 504).
+eventTimestamp | Tijdstempel wanneer de gebeurtenis is gegenereerd door de Azure-service verwerken van de aanvraag overeenkomt met de gebeurtenis.
+submissionTimestamp | Tijdstempel wanneer de gebeurtenis beschikbaar voor het uitvoeren van query's zijn geworden.
+subscriptionId | De Azure-abonnement in waarmee deze gebeurtenis is vastgelegd.
+status | De tekenreeks met een beschrijving van de status van de bewerking. Sommige algemene waarden zijn: **gestart**, **In uitvoering**, **geslaagd**, **mislukt**, **Active**, en **Opgelost**.
 operationName | De naam van de bewerking.
-category | 'ServiceHealth'
-resourceId | Bron-ID van de betrokken resource.
-Properties.title | De gelokaliseerde titel voor deze communicatie. Engels is de standaardtaal.
+category | Deze eigenschap is altijd **ServiceHealth**.
+resourceId | De Resource-ID van de betrokken resource.
+Properties.title | De gelokaliseerde titel voor deze communicatie. Engels is de standaardinstelling.
 Properties.Communication | De gelokaliseerde details van de communicatie met de HTML-opmaak. Engels is de standaardinstelling.
-Properties.incidentType | Mogelijke waarden: AssistedRecovery, ActionRequired, informatie, Incident-, onderhoud, beveiliging
-Properties.trackingId | Identificeert het incident dat deze gebeurtenis is gekoppeld. Gebruik deze optie als u de gebeurtenissen die betrekking hebben op een incident met elkaar correleren.
-Properties.impactedServices | Een escape-teken JSON-blob die hierin worden de services en regio's die worden beïnvloed door het incident. Een lijst met Services, die allemaal een servicenaam en een lijst met ImpactedRegions, die allemaal een RegionName.
-Properties.defaultLanguageTitle | De communicatie in het Engels
-Properties.defaultLanguageContent | De communicatie in het Engels als HTML-indeling of tekst zonder opmaak
-Properties.Stage | Mogelijke waarden voor AssistedRecovery, ActionRequired, informatie, Incident-, beveiliging: actief, zijn opgelost. Ze zijn voor onderhoud: actief, gepland, InProgress, geannuleerd, Rescheduled, opgelost, voltooid
-Properties.communicationId | De communicatie deze gebeurtenis is gekoppeld.
+Properties.incidentType | Een van de volgende waarden: **AssistedRecovery**, **ActionRequired**, **informatie**, **Incident**,  **Onderhoud**, of **beveiliging**.
+Properties.trackingId | Het incident die aan deze gebeurtenis gekoppeld is. Gebruik deze optie als u de gebeurtenissen die betrekking hebben op een incident met elkaar correleren.
+Properties.impactedServices | Een escape-teken JSON-blob die hierin worden de services en regio's die worden beïnvloed door het incident. De eigenschap bevat een lijst met services, elk met een **ServiceName**, en een lijst van de betrokken regio's, elk met een **RegionName**.
+Properties.defaultLanguageTitle | De communicatie in het Engels.
+Properties.defaultLanguageContent | De communicatie in het Engels als HTML-indeling of tekst zonder opmaak.
+Properties.Stage | De mogelijke waarden voor **AssistedRecovery**, **ActionRequired**, **informatie**, **Incident**, en **beveiliging**  zijn **Active** of **opgelost**. Voor **onderhoud**, ze zijn: **Active**, **geplande**, **InProgress**, **geannuleerd**, **Opnieuw gepland**, **opgelost**, of **voltooid**.
+Properties.communicationId | De communicatie die aan deze gebeurtenis gekoppeld is.
 
 
-## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Uw servicestatusmeldingen weergeven in de Azure portal
-1.  In de [portal](https://portal.azure.com), gaat u naar de **Monitor** service
+## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Uw servicestatusmeldingen weergeven in de Azure portal
+1.  In de [Azure-portal](https://portal.azure.com), selecteer **Monitor**.
 
-    ![Bewaken](./media/monitoring-service-notifications/home-monitor.png)
-2.  Klik op de **Monitor** optie om de ervaring van de Monitor te openen. Monitor voor Azure samenbrengt uw controle-instellingen en gegevens in één geconsolideerde weergave. Als eerste wordt de sectie **Activiteitenlogboek** geopend.
+    ![Schermopname van Azure-portal-menu, met Monitor geselecteerd](./media/monitoring-service-notifications/home-monitor.png)
 
-3.  Klik nu op **waarschuwingen** sectie
+    Monitor voor Azure samenbrengt uw controle-instellingen en gegevens in één geconsolideerde weergave. Als eerste wordt de sectie **Activiteitenlogboek** geopend.
 
-    ![Bewaken](./media/monitoring-service-notifications/service-health-summary.png)
-4. Klik op de **+ activiteit logboek waarschuwing toevoegen** en een waarschuwing, zodat u wordt gewaarschuwd voor toekomstige servicemeldingen configureren. Voor meer informatie over het configureren van waarschuwingen op servicemeldingen [Ga naar de pagina activiteit logboek waarschuwingen en meldingen van de Service](monitoring-activity-log-alerts-on-service-notifications.md).
+3.  Selecteer **waarschuwingen**.
+
+    ![Schermafbeelding van de activiteit van de Monitor-logboek met waarschuwingen die zijn geselecteerd](./media/monitoring-service-notifications/service-health-summary.png)
+4. Selecteer **+ toevoegen activiteit logboek waarschuwing**, en een waarschuwing instellen om te controleren of u wordt gewaarschuwd voor toekomstige servicemeldingen. Zie voor meer informatie [activiteit logboek waarschuwingen maken op servicemeldingen](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Ontvangen [meldingen wanneer een melding van de health service](monitoring-activity-log-alerts-on-service-notifications.md) wordt gepost  
-Meer informatie over [activiteit logboek waarschuwingen](monitoring-activity-log-alerts.md)
+Ontvangen [meldingen wanneer een melding van de health service](monitoring-activity-log-alerts-on-service-notifications.md) is geplaatst.  
+Meer informatie over [activiteit logboek waarschuwingen](monitoring-activity-log-alerts.md).

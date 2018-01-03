@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Een Azure gehoste API exporteren naar PowerApps en Microsoft-stroom
 
@@ -95,21 +95,25 @@ Voltooien van de uitvoer in **handmatige** -modus als volgt te werk:
 
     In dit voorbeeld toont de definitie van de API-sleutelbeveiliging die is opgenomen in de definitie van OpenAPI.
 
-Nu dat u de API-definitie hebt geëxporteerd, importeren om te maken van een aangepaste connector in PowerApps en Microsoft-Flow. Het volgende voorbeeld wordt PowerApps echter aangepaste connectors worden gedeeld tussen de twee services, dus u moet slechts één keer in de definitie voor het importeren.
+Nu dat u de API-definitie hebt geëxporteerd, importeren om te maken van een aangepaste connector in PowerApps en Microsoft-Flow. Aangepaste connectors worden gedeeld tussen de twee services, dus u moet slechts één keer in de definitie voor het importeren.
 
 U kunt de API-definitie importeren in PowerApps en Microsoft-Flow, de volgende stappen uit:
 
-1. Meld u aan bij [web.powerapps.com](https://web.powerapps.com) of [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Ga naar [powerapps.com](https://web.powerapps.com) of [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Klik op de **instellingen** (het pictogram tandwielpictogram) op de rechterbovenhoek van de pagina en selecteer knop **aangepaste connectors**.
+2. Klik op het pictogram tandwielpictogram in de rechterbovenhoek en klik op **aangepaste connectors**.
 
-    ![aangepaste connectors](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Versnelling pictogram in de service](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Klik op **maken van aangepaste connector**.
+3. Klik op **maken van aangepaste connector**, klikt u vervolgens op **importeren van de definitie van een OpenAPI**.
 
-4. Op de **algemene** tabblad, Geef een naam voor uw API en vervolgens de definitie OpenAPI uploaden of plak in de metagegevens-URL. Klik op **uploaden**, klikt u vervolgens **gaan**.
+   ![Aangepaste connector maken](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![Tabblad Algemeen](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Voer een naam voor de aangepaste connector vervolgens gaat u naar de OpenAPI definitie die u hebt geëxporteerd en klik op **doorgaan**.
+
+   ![OpenAPI definitie uploaden](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. Op de **algemene** tabblad, lees de informatie die afkomstig zijn van de definitie van de OpenAPI.
 
 5. Op de **beveiliging** tabblad als u wordt gevraagd om te voorzien van verificatiegegevens, voer de waarden die geschikt is voor het verificatietype. Klik op **gaan**.
 

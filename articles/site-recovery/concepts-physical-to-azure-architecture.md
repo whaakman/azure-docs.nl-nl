@@ -1,24 +1,16 @@
 ---
-title: Bekijk de architectuur voor replicatie van de fysieke server naar Azure | Microsoft Docs
+title: Fysieke server naar Azure replicatie Azure Site Recovery-architectuur | Microsoft Docs
 description: In dit artikel biedt een overzicht van de onderdelen en de architectuur die wordt gebruikt bij het repliceren van fysieke on-premises servers naar Azure met de Azure Site Recovery-service
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fysieke server naar Azure replicatie-architectuur
 
@@ -60,25 +52,21 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 
 ## <a name="failover-and-failback-process"></a>Failover- en failbackproces
 
-Nadat de replicatie is ingesteld en u hebt een disaster recovery Inzoomen (testfailover) om te controleren of dat alles werkt zoals verwacht uitgevoerd, kunt u een failover en failback uitvoeren als nodig is voor. Opmerking:
+Nadat de replicatie is ingesteld en u hebt een disaster recovery Inzoomen (testfailover) om te controleren of dat alles werkt zoals verwacht uitgevoerd, kunt u een failover en failback uitvoeren als nodig is voor. Houd rekening met het volgende:
 
 - Geplande failover wordt niet ondersteund.
-- U moet niet naar een lokale VMware virtuele machine. Dit betekent dat u een on-premises VMware-infrastructuur nodig hebt, zelfs als u fysieke on-premises servers naar Azure repliceert.
-
-
-1. U failover voor een enkele computer of herstelplannen, meerdere computers tegelijk failover maken.
-2. Wanneer u een failover uitvoert, worden virtuele Azure-machines in Azure-opslag van gerepliceerde gegevens gemaakt.
-3. Na activering van de eerste failover doorvoeren u om te starten met het openen van de werkbelasting van de Azure VM.
-
-Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoeren.
-
-1. U moet voor het instellen van een failback-infrastructuur, met inbegrip van:
+- U moet niet naar een lokale VMware virtuele machine. Dit betekent dat u moet een on-premises VMware-infrastructuur, zelfs als u fysieke on-premises servers naar Azure repliceren.
+- U failover voor een enkele computer of herstelplannen, meerdere computers tegelijk failover maken.
+- Wanneer u een failover uitvoert, worden virtuele Azure-machines in Azure-opslag van gerepliceerde gegevens gemaakt.
+- Na activering van de eerste failover doorvoeren u om te starten met het openen van de werkbelasting van de Azure VM.
+- Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoeren.
+- U moet voor het instellen van een failback-infrastructuur, met inbegrip van:
     - **Tijdelijke processerver in Azure**: als u wilt een failback van Azure, instellen van een virtuele machine van Azure om te fungeren als een processerver voor het afhandelen van replicatie van Azure. U kunt deze virtuele machine verwijderen wanneer de failback is voltooid.
     - **VPN-verbinding**: als u wilt een failback uit, moet u een VPN-verbinding (of Azure ExpressRoute) van het netwerk van Azure naar de lokale site.
     - **Afzonderlijke hoofddoelserver**: de hoofddoelserver die is geïnstalleerd met de configuratieserver op de lokale VMware virtuele machine, wordt standaard de failback afgehandeld. Echter, als u back grote hoeveelheden verkeer mislukken wilt, moet u instellen een afzonderlijke on-premises hoofddoelserver voor dit doel.
     - **Failbackbeleid**: als u wilt repliceren naar de on-premises site, hebt u een failbackbeleid nodig. Dit is automatisch gemaakt tijdens het maken van uw replicatiebeleid voor van on-premises naar Azure.
     - **VMware-infrastructuur**: moet u een VMware-infrastructuur voor failback. U kunt geen failback uitvoeren naar een fysieke server.
-2. Nadat de onderdelen aanwezig is zijn, de failback in drie fasen:
+- Nadat de onderdelen aanwezig is zijn, de failback in drie fasen:
     - Stap 1: De Azure VM's opnieuw beveiligen zodat ze vanaf Azure repliceren terug naar de lokale VMware-machines.
     - Stap 2: Een failover naar de lokale site uitvoert.
     - Stap 3: Nadat werkbelastingen terug zijn uitgevallen, u weer inschakelen replicatie.
@@ -90,5 +78,4 @@ Als uw primaire on-premises site weer beschikbaar is, kunt u een failback uitvoe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg de ondersteuningsmatrix Volg de zelfstudie VMware naar Azure replicatie inschakelen.
-Voer een failover en failback.
+Ga als volgt [in deze zelfstudie](tutorial-physical-to-azure.md) fysieke server naar Azure replicatie in te schakelen.

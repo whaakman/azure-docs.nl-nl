@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory-Node.js aan de slag
+title: Azure AD Node.js-web-API aan de slag | Microsoft Docs
 description: "Het bouwen van een REST Node.js-web-API die kan worden geïntegreerd met Azure AD voor verificatie."
 services: active-directory
 documentationcenter: nodejs
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: c882f717635bef38d15fefef2f4ff6a5c30490b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Node.js-Web-API met Azure Active Directory beveiligen
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js-web-API aan de slag
 
 In dit artikel laat zien hoe u voor het beveiligen van een [Restify](http://restify.com/) API-eindpunt met [Passport](http://passportjs.org/) met behulp van de [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module voor het afhandelen van communicatie met Azure Active Directory (AAD). 
 
@@ -187,7 +187,7 @@ Ten slotte de server is ingesteld om te luisteren op de geconfigureerde poort do
 server.listen(serverPort);
 ```
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
 Nu dat de server is geïmplementeerd, kunt u de server niet starten via een opdrachtprompt en voer:
 

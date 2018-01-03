@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs-berichtuitzonderingen
-In dit artikel vindt u enkele van de uitzonderingen die worden gegenereerd door de Azure Service Bus-berichtenservice-API's, waaronder Event Hubs. Deze verwijzing kan worden gewijzigd, Controleer dus regelmatig op updates.
+
+In dit artikel vindt u enkele van de uitzonderingen die worden gegenereerd door de API van Azure Service Bus messaging bibliotheek, waaronder Event Hubs-API's. Deze verwijzing kan worden gewijzigd, Controleer dus regelmatig op updates.
 
 ## <a name="exception-categories"></a>Uitzondering categorieën
+
 Uitzonderingen die in de volgende categorieën, samen met de bijbehorende actie die u ondernemen kunt om te proberen op te lossen ze kunnen ook worden gegenereerd door de Event Hubs-API's.
 
 1. Gebruiker coderen fout: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [ System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Algemene actie: probeert op te lossen de code voordat u doorgaat.
@@ -78,13 +80,13 @@ Een [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.s
 
 Deze fout kan optreden vanwege een van twee redenen:
 
-1. De belasting niet gelijkmatig wordt verdeeld over alle partities van de Event Hub en één partitie treffers in de lokale doorvoer eenheid beperking.
+1. De belasting niet gelijkmatig wordt verdeeld over alle partities van de event hub en één partitie treffers in de lokale doorvoer eenheid beperking.
     
     Oplossing: De strategie voor de distributie partitie herzien of probeert [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) kan helpen.
 
-2. De naamruimte van Event Hubs heeft geen voldoende doorvoereenheden (u kunt controleren de **metrische gegevens** blade in Event Hubs naamruimte blade in de [Azure-portal](https://portal.azure.com) om te bevestigen). Houd er rekening mee dat de portal informatie weer geaggregeerde (1 minuut geeft), maar we meten van de doorvoer in realtime – dus is het een schatting maken.
+2. De naamruimte van Event Hubs heeft geen voldoende doorvoereenheden (u kunt controleren de **metrische gegevens** scherm in de Event Hubs naamruimte venster in de [Azure-portal](https://portal.azure.com) om te bevestigen). Houd er rekening mee dat de portal informatie weer geaggregeerde (1 minuut geeft), maar we meten van de doorvoer in realtime – dus is het een schatting maken.
 
-    Oplossing: Het verhogen van de doorvoereenheden op de naamruimte kan helpen. U kunt dit doen op de portal in de **Scale** blade van de naamruimte-blade van Event Hubs.
+    Oplossing: Het verhogen van de doorvoereenheden op de naamruimte kan helpen. U kunt dit doen op de portal in de **Scale** venster van het scherm van de naamruimte Event Hubs.
 
 ### <a name="error-code-50001"></a>Foutcode 50001
 

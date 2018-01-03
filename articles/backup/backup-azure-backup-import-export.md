@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/20/2017
+ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Werkstroom voor offline back-ups maken in Azure Backup
 Azure Backup heeft diverse ingebouwde efficiency die netwerk- en kosten tijdens de eerste volledige back-ups van gegevens naar Azure besparen. Eerste volledige back-ups brengen grote hoeveelheden gegevens doorgaans en meer netwerkbandbreedte in vergelijking met de volgende back-ups waarbij alleen de delta's / incrementele worden overgedragen. Azure back-up comprimeren van de eerste back-ups. Door het proces van het offline seeding kunt Azure Backup schijven gebruiken voor het uploaden van de gecomprimeerde eerste back-upgegevens offline naar Azure.  
@@ -31,7 +31,7 @@ Met de functie offline seeding van de Azure Backup en Azure Import/Export is het
 De [augustus 2016 bijwerken van Azure Backup (en hoger)](http://go.microsoft.com/fwlink/?LinkID=229525) bevat de *hulpprogramma voor systeemvoorbereiding van Azure-schijf*, AzureOfflineBackupDiskPrep, met de naam die:
 
 * Helpt u bij de stations met het hulpprogramma Azure Import/Export voorbereiden Azure Import.
-* Maakt automatisch een Azure Import-taak voor de Azure Import/Export-service op de [klassieke Azure-portal](https://manage.windowsazure.com) in plaats van dezelfde handmatig te maken met oudere versies van Azure Backup.
+* Maakt automatisch een Azure Import-taak voor de Azure Import/Export-service in de [Azure-portal](https://ms.portal.azure.com).
 
 Nadat het uploaden van de back-upgegevens naar Azure is voltooid, Azure Backup back-up worden de gegevens gekopieerd naar de back-upkluis en de incrementele back-ups zijn gepland.
 
@@ -69,11 +69,11 @@ De informatie in deze sectie helpt u de werkstroom voor offline back-up uitvoere
     * **Azure Import-taaknaam**: de unieke naam welke Azure Import-service en Azure Backup de overdracht van gegevens die worden verzonden op schijven naar Azure bijhouden.
     * **Azure Publish Settings**: een XML-bestand dat informatie over het profiel van uw abonnement bevat. Het bevat ook beveiligde referenties die gekoppeld aan uw abonnement zijn. U kunt [download het bestand](https://manage.windowsazure.com/publishsettings). Geef het lokale pad naar het bestand publicatie-instellingen.
     * **Azure-abonnements-ID**: de Azure-abonnements-ID voor het abonnement waarbij u van plan bent om te starten van de Azure Import-taak. Als u meerdere Azure-abonnementen hebt, gebruikt u de ID van het abonnement dat u wilt koppelen aan de import-taak.
-    * **Azure Storage-Account**: het klassieke type opslagaccount in de opgegeven Azure-abonnement dat wordt gekoppeld aan de Azure Import-taak.
+    * **Azure Storage-Account**: het opslagaccount in de Azure-abonnement gekoppeld aan de Azure Import-taak.
     * **Azure Storage-Container**: de naam van de bestemmings-blob-opslag in de Azure storage-account waarin gegevens van deze taak worden geïmporteerd.
 
     > [!NOTE]
-    > Als u uw server hebt geregistreerd voor een Azure Recovery Services-kluis uit de [Azure-portal](https://portal.azure.com) voor uw back-ups en zich niet op een abonnement Cloud Solution Provider (CSP) u kunt nog steeds een klassieke type opslagaccount maken van de Azure Portal en deze gebruiken voor de werkstroom voor offline back-up.
+    > Als u uw server hebt geregistreerd voor een Azure Recovery Services-kluis uit de [Azure-portal](https://portal.azure.com) voor uw back-ups en zich niet op een abonnement Cloud Solution Provider (CSP) u kunt nog steeds een opslagaccount maken vanuit de Azure-portal en deze gebruiken voor de werkstroom voor offline back-up.
     >
     >
 
@@ -123,7 +123,7 @@ Het hulpprogramma voor systeemvoorbereiding van Azure-schijf is beschikbaar in d
 
     Het hulpprogramma begint vervolgens met het voorbereiden van de schijf met de back-upgegevens. U moet mogelijk extra schijven als u wordt gevraagd door het hulpprogramma voor het geval de opgegeven schijf niet voldoende ruimte voor de back-upgegevens heeft koppelen. <br/>
 
-    Aan het einde van een geslaagde uitvoering van het hulpprogramma, worden een of meer schijven die u hebt opgegeven voorbereid voor back-ups naar Azure. Bovendien een import-taak met de naam u hebt opgegeven tijdens de **offline back-up starten** werkstroom is gemaakt op de klassieke Azure portal. Ten slotte weergegeven de tool het verzendadres naar het Azure datacenter waarin de schijven moeten worden verzonden en de koppeling naar de import-taak vinden op de klassieke Azure portal.
+    Aan het einde van een geslaagde uitvoering van het hulpprogramma, worden een of meer schijven die u hebt opgegeven voorbereid voor back-ups naar Azure. Bovendien een import-taak met de naam u hebt opgegeven tijdens de **offline back-up starten** werkstroom is gemaakt in de Azure portal. Ten slotte weergegeven de tool het verzendadres naar het Azure datacenter waarin de schijven moeten worden verzonden en de koppeling naar de import-taak vinden op de Azure-portal.
 
     ![De voorbereiding van de Azure-schijf is voltooid](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -181,7 +181,7 @@ Nadat de import-taak is voltooid, is eerste back-upgegevens beschikbaar in uw op
   ![PowerShell-resultaat](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Een importtaak maken in de Azure portal
-1. Ga naar uw opslagaccount in de [klassieke Azure-portal](https://manage.windowsazure.com/), klikt u op **voor importeren/exporteren**, en vervolgens **Import-taak maken** in het taakvenster.
+1. Ga naar uw opslagaccount in de [Azure-portal](https://ms.portal.azure.com/), klikt u op **voor importeren/exporteren**, en vervolgens **Import-taak maken** in het taakvenster.
 
     ![Tabblad in de Azure-portal voor importeren/exporteren](./media/backup-azure-backup-import-export/azureportal.png)
 

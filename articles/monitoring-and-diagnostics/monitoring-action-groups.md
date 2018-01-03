@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in de Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -29,7 +29,7 @@ U kunt een lijst van acties met actiegroepen configureren. Deze groepen kunnen v
 Een actiegroep kan maximaal 10 van elk actietype hebben. Elke actie bestaat uit de volgende eigenschappen:
 
 * **Naam**: een unieke id binnen de groep in te grijpen.  
-* **Actietype**: een SMS-bericht verzenden, e-mailbericht verzenden, aanroepen van een webhook of gegevens verzenden naar een ITSM-hulpprogramma.
+* **Actietype**: een SMS-bericht verzenden, e-mailbericht verzenden, een webhook aanroepen, gegevens verzenden naar een hulpprogramma ITSM, aanroepen van een Azure-app of een Automation-runbook uitvoeren.
 * **Details**: de bijbehorende phone getal, e-mailadres, webhook URI of ITSM verbindingsdetails.
 
 Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen voor het configureren van de actiegroepen [actie groep Resource Manager-sjablonen](monitoring-create-action-group-with-resource-manager-template.md).
@@ -38,7 +38,7 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen v
 1. In de [portal](https://portal.azure.com), selecteer **Monitor**. De **Monitor** blade consolideert alle controle-instellingen en gegevens in één weergave.
 
     ![De 'Monitor'-service](./media/monitoring-action-groups/home-monitor.png)
-2. In de **activiteitenlogboek** sectie **actiegroepen**.
+2. In de **instellingen** sectie **actiegroepen**.
 
     ![Het tabblad 'actiegroepen'](./media/monitoring-action-groups/action-groups-blade.png)
 3. Selecteer **actie-groep toevoegen**, en vul de velden in.
@@ -56,14 +56,12 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen v
 
     a. **Naam**: Voer een unieke id voor deze actie.
 
-    b. **Actietype**: Selecteer SMS, e, webhook of ITSM.
+    b. **Actietype**: Selecteer SMS, e, webhook, Apps van Azure, ITSM of Automation-Runbook.
 
-    c. **Details**: op basis van het actietype, voer een telefoonnummer, e-mailadres, webhook URI of ITSM verbindingsdetails. Voor ITSM actie bovendien opgeven **werkitem** en andere velden uw ITSM hulpprogramma vereist. 
+    c. **Details**: op basis van het actietype, voer een telefoonnummer, e-mailadres, webhook URI, Apps van Azure, ITSM verbinding of Automation-runbook. Voor ITSM actie bovendien opgeven **werkitem** en andere velden uw ITSM hulpprogramma vereist. 
 
-> [!NOTE]
-> ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM verbinding](../log-analytics/log-analytics-itsmc-overview.md). Actie ITSM werkt momenteel alleen voor activiteit logboek waarschuwingen. Deze actie is momenteel geen voor andere typen waarschuwingen.
->
->
+   > [!NOTE]
+   > ITSM-actie vereist een ITSM-verbinding. Meer informatie over het maken van een [ITSM verbinding](../log-analytics/log-analytics-itsmc-overview.md). Actie ITSM werkt momenteel alleen voor activiteit logboek waarschuwingen. Deze actie is momenteel geen voor andere typen waarschuwingen.
 
 8. Selecteer **OK** om het actiegroep te maken.
 

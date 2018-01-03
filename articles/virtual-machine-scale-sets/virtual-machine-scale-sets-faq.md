@@ -4,7 +4,7 @@ description: Vind antwoorden op veelgestelde vragen over virtuele-machineschaals
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
@@ -73,7 +73,7 @@ Dit voorbeeld worden de hostniveau CPU metrische gegevens en een aantal bericht 
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Hoe stel waarschuwingsregels op een virtuele-machineschaalset?
 
-U kunt waarschuwingen maken op de metrische gegevens voor de virtuele-machineschaalsets via PowerShell of Azure CLI. Zie voor meer informatie [Azure Monitor PowerShell snel starten voorbeelden](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) en [Azure Monitor platformoverschrijdende CLI snel starten voorbeelden](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+U kunt waarschuwingen maken op de metrische gegevens voor de virtuele-machineschaalsets via PowerShell of Azure CLI. Zie voor meer informatie [Azure Monitor PowerShell Quick Start-voorbeelden](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) en [Azure Monitor platformoverschrijdende CLI Quick Start-voorbeelden](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 De TargetResourceId van de virtuele-machineschaalset ziet er als volgt: 
 
@@ -185,9 +185,9 @@ Omvatten **osProfile** in uw sjabloon:
 }
 ```
  
-Dit blok JSON wordt gebruikt in [de 101-vm-SSH-sleutelbestand GitHub snel starten-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Dit blok JSON wordt gebruikt in [de 101-vm-SSH-sleutelbestand GitHub Quick Start-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-Het profiel wordt ook gebruikt bij [de grelayhost.json GitHub quick start sjabloon](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+Het profiel wordt ook gebruikt bij [snelstartsjabloon met de grelayhost.json GitHub](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
 Zie voor meer informatie [maken of bijwerken een virtuele-machineschaalset](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
   
@@ -219,10 +219,10 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
 linuxConfiguration elementnaam | Vereist | Type | Beschrijving
 --- | --- | --- | --- |  ---
 SSH | Nee | Verzameling | Hiermee geeft u de belangrijkste SSH-configuratie voor een Linux-besturingssysteem
-pad | Ja | Reeks | Hiermee geeft u het pad van het Linux waar de SSH-sleutels of het certificaat moet zich bevinden
-keyData | Ja | Reeks | Hiermee geeft u een base64-gecodeerd openbare SSH-sleutel
+pad | Ja | Tekenreeks | Hiermee geeft u het pad van het Linux waar de SSH-sleutels of het certificaat moet zich bevinden
+keyData | Ja | Tekenreeks | Hiermee geeft u een base64-gecodeerd openbare SSH-sleutel
 
-Zie voor een voorbeeld [de 101-vm-SSH-sleutelbestand GitHub snel starten-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Zie voor een voorbeeld [de 101-vm-SSH-sleutelbestand GitHub Quick Start-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Wanneer ik uitvoeren `Update-AzureRmVmss` na het toevoegen van meer dan één certificaat van de dezelfde sleutelkluis, verschijnt het volgende bericht:
@@ -257,7 +257,7 @@ Als u een onjuiste bron kluis-ID, maar een geldige sleutelkluis-URL opgeeft, wor
  
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Als ik geheimen toevoegen aan een bestaande wordt virtuele-machineschaalset ingesteld, worden de geheimen ingevoegd in de bestaande virtuele machines, of alleen nieuwe? 
 
-Certificaten worden toegevoegd aan alle virtuele machines, zelfs al bestaande elementen zijn. Als uw virtuele-machineschaalset upgradePolicy-eigenschap is ingesteld op **handmatige**, het certificaat wordt toegevoegd aan de virtuele machine wanneer u een handmatige update op de virtuele machine uitvoeren.
+Certificaten worden toegevoegd aan alle virtuele machines, zelfs vooraf bestaande toepassingsgroepen. Als uw virtuele-machineschaalset upgradePolicy-eigenschap is ingesteld op **handmatige**, het certificaat wordt toegevoegd aan de virtuele machine wanneer u een handmatige update op de virtuele machine uitvoeren.
  
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Waar ik certificaten plaatsen voor virtuele Linux-machines?
 
@@ -281,7 +281,7 @@ Als u een virtuele machine installatiekopie, worden certificaten verwijderd. Hie
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Wat gebeurt er als u een certificaat uit de sleutelkluis verwijderen?
 
-Als het geheim wordt verwijderd uit de sleutelkluis en u voert `stop deallocate` voor alle VM's en start deze opnieuw, wordt er een fout optreedt. De fout treedt op omdat de CRP hoeft op te halen van de geheimen van de sleutelkluis, maar niet kunnen worden. In dit scenario kunt u de certificaten verwijderen uit het model van virtuele machine scale set. 
+Als het geheim wordt verwijderd uit de sleutelkluis en u voert `stop deallocate` voor alle VM's en start deze opnieuw, of er een fout optreedt. De fout treedt op omdat de CRP hoeft op te halen van de geheimen van de sleutelkluis, maar niet kunnen worden. In dit scenario kunt u de certificaten verwijderen uit het model van virtuele machine scale set. 
 
 Het onderdeel CRP geheimen van de klant niet bewaard is gebleven. Als u `stop deallocate` voor alle virtuele machines in de virtuele-machineschaalset, de cache wordt verwijderd. In dit scenario worden geheimen opgehaald uit de sleutelkluis.
 
@@ -293,7 +293,7 @@ De documentatie van Azure Sleutelkluis wordt aangegeven dat de ophalen geheim RE
  
 Methode | URL
 --- | ---
-TOEVOEGEN | https://mykeyvault.Vault.Azure.NET/secrets/ {geheim name} / {geheim versie}? api-version = {api-versie}
+GET | https://mykeyvault.Vault.Azure.NET/secrets/ {geheim name} / {geheim versie}? api-version = {api-versie}
 
 Vervang {*geheim naam*} met de naam en vervang {*geheim versie*} met de versie van het geheim die u wilt ophalen. De geheime versie kan worden uitgesloten. In dat geval wordt wordt de huidige versie opgehaald.
   
@@ -337,7 +337,7 @@ Vanuit het perspectief van naleving zijn schaalsets van virtuele machines een fu
 
 Zie [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI) voor meer informatie.
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>Biedt [Azure Managed Service-identiteit](https://docs.microsoft.com/azure/active-directory/msi-overview) werk met een VM-schaalsets?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Biedt [Azure Managed Service-identiteit](https://docs.microsoft.com/azure/active-directory/msi-overview) werken met virtuele-machineschaalsets?
 
 Ja. Hier ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -371,28 +371,28 @@ Zie voor meer informatie over het sequentiëren van de uitbreiding in virtuele-m
 
 Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machines in-schaalsets.
 
-1. Het model VMSS rechtstreeks wijzigen. Beschikbaar met Compute API 2017-12-01 en hoger.
+- De virtuele machine scale set model rechtstreeks wijzigen. Beschikbaar met Compute API 2017-12-01 en hoger.
 
-Werk de beheerdersreferenties rechtstreeks in het model met een schaal (bijvoorbeeld met de Azure Resource Explorer, PowerShell of CLI). Zodra de schaalaanpassingsset bijgewerkt, worden alle nieuwe is heeft virtuele machines met de nieuwe referenties. Bestaande virtuele machines hebt alleen de nieuwe referenties als ze zijn teruggezet. 
+    Werk de beheerdersreferenties rechtstreeks in het model met een schaal (bijvoorbeeld met de Azure Resource Explorer, PowerShell of CLI). Zodra de schaalaanpassingsset bijgewerkt, worden alle nieuwe is hebben virtuele machines de nieuwe referenties Bestaande virtuele machines hebben alleen de nieuwe referenties als ze zijn teruggezet. 
 
-2. Het wachtwoord met behulp van de VM-extensies voor toegang opnieuw instellen.
+- Het wachtwoord met behulp van de VM-extensies voor toegang opnieuw instellen.
 
-Gebruik het volgende PowerShell-voorbeeld:
+    Gebruik het volgende PowerShell-voorbeeld:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hoe voeg ik een extensie voor alle VM's in mijn virtuele-machineschaalset
 
 Als updatebeleid is ingesteld op **automatische**, alle virtuele machines opnieuw distribueren van de sjabloon met de extensie-eigenschappen van nieuwe updates.
@@ -467,7 +467,7 @@ Voor het uitvoeren van een aangepast script dat wordt gehost in een persoonlijke
 
 ## <a name="networking"></a>Netwerken
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>Is het mogelijk een Netwerkbeveiligingsgroep (NSG) toewijzen aan een schaalset, zodat deze van toepassing op alle VM NIC's in de set?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Is het mogelijk een Netwerkbeveiligingsgroep (NSG) toewijzen aan een schaalset, zodat deze van toepassing op alle VM NIC's in de set?
 
 Ja. Een Netwerkbeveiligingsgroep kan rechtstreeks op een schaal ingesteld door ernaar wordt verwezen in de sectie networkInterfaceConfigurations van het netwerkprofiel worden toegepast. Voorbeeld:
 
@@ -523,7 +523,7 @@ Zie voor het implementeren van een virtuele-machineschaalset ingesteld op een be
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hoe kan ik het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset ingesteld op de uitvoer van een sjabloon toevoegen
 
-Zie voor informatie over het toevoegen van het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset ingesteld op de uitvoer van een sjabloon [ARM: ophalen VMSS van privé IP-adressen](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Zie voor informatie over het toevoegen van het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset ingesteld op de uitvoer van een sjabloon [Azure Resource Manager: Get virtuele-machineschaalsets privé IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan ik schaalsets met versnelde toegang gebruiken?
 
@@ -549,7 +549,7 @@ Ja. Voor het gebruik van versnelde netwerken instellingen enableAcceleratedNetwo
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Hoe kan ik de DNS-servers die worden gebruikt door een schaalset configureren?
 
-Toevoegen voor het maken van een VM-schaalset ingesteld met een aangepaste DNS-configuratie, een dnsSettings JSON-pakket naar de sectie scale set networkInterfaceConfigurations. Voorbeeld:
+Toevoegen voor het maken van een virtuele-machineschaalset ingesteld met een aangepaste DNS-configuratie, een dnsSettings JSON-pakket naar de sectie scale set networkInterfaceConfigurations. Voorbeeld:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -558,7 +558,7 @@ Toevoegen voor het maken van een VM-schaalset ingesteld met een aangepaste DNS-c
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Hoe kan ik een schaal ingesteld op een openbaar IP-adres toewijzen aan elke virtuele machine configureren?
 
-Zorg ervoor dat de API-versie van de resource Microsoft.Compute/virtualMAchineScaleSets 2017-03-30 voor het maken van een VM-schaalset waarmee een openbaar IP-adres worden toegewezen aan elke VM en voeg toe een _publicipaddressconfiguration_ JSON-pakket naar de schaalset ipConfigurations-sectie. Voorbeeld:
+Zorg ervoor dat de API-versie van de resource Microsoft.Compute/virtualMAchineScaleSets 2017-03-30 voor het maken van een virtuele-machineschaalset waarmee een openbaar IP-adres worden toegewezen aan elke VM en voeg toe een _publicipaddressconfiguration_ JSON pakket met de schaal ipConfigurations sectie ingesteld. Voorbeeld:
 
 ```json
     "publicipaddressconfiguration": {
@@ -583,7 +583,7 @@ Een andere reden dat u een virtuele-machineschaalset ingesteld met minder dan tw
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Hoe kan ik het aantal virtuele machines in een virtuele-machineschaalset wijzigen?
 
-Om te wijzigen van het aantal virtuele machines in een virtuele-machineschaalset ingesteld in de Azure portal, uit de schaal van de virtuele machine instellen sectie met eigenschappen, klikt u op de blade 'Schaal' en de schuifknop te gebruiken. Zie voor andere manieren om te wijzigen van het aantal exemplaren [wijzigen van het aantal exemplaren van een virtuele-machineschaalset](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Als u wilt wijzigen van het aantal virtuele machines in een virtuele-machineschaalset ingesteld in de Azure portal, van de virtuele-machineschaalset instellen sectie met eigenschappen, klikt u op de blade 'Schalen' en gebruik de schuifregelaar. Zie voor andere manieren om te wijzigen van het aantal exemplaren [wijzigen van het aantal exemplaren van een virtuele-machineschaalset](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Hoe ik aangepaste waarschuwingen voor als bepaalde drempelwaarden zijn bereikt definiëren?
 

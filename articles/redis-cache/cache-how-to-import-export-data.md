@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 761c0d808eb787517473036e53992ff5e49b17fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 22cdf9f596d8a6057a2c847ea5bb4fc485db8637
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importeren en exporteren van gegevens in Azure Redis-Cache
 Import/Export is een Azure Redis-Cache gegevensbewerking voor het beheer, zodat u kunt gegevens in Azure Redis-Cache importeren of exporteren van gegevens in Azure Redis-Cache door importeren en exporteren van een momentopname van een Redis-Cache Database (RDB) uit de cache premium naar een blob in een Azure Storage-Account. 
@@ -77,7 +77,7 @@ Exporteren kunt u de gegevens die zijn opgeslagen in Azure Redis-Cache voor Redi
 2. Klik op **Opslagcontainer Kies** en selecteer het gewenste opslagaccount. Het opslagaccount moet zich in hetzelfde abonnement en dezelfde regio als uw cache.
 
    > [!IMPORTANT]
-   > Werkt met pagina-blobs, die worden ondersteund door zowel klassieke als Resource Manager storage-accounts, maar worden niet ondersteund door exporteren [Blob storage-accounts](../storage/blobs/storage-account-options.md#blob-storage-accounts) op dit moment.
+   > Werkt met pagina-blobs, die worden ondersteund door zowel klassieke als Resource Manager storage-accounts, maar worden niet ondersteund door exporteren [Blob storage-accounts](../storage/common/storage-account-options.md#blob-storage-accounts) op dit moment.
    >
    >
 
@@ -155,7 +155,7 @@ Als u blijven op de **gegevens importeren** of **gegevens exporteren** blade voo
 Om dit probleem oplossen, initieert de import- of exportbewerking vóór 15 minuten zijn verstreken.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Ik krijg een fout opgetreden bij het exporteren van mijn gegevens naar Azure Blob Storage. Wat is er gebeurd?
-Export werkt alleen met RDB-bestanden die zijn opgeslagen als pagina-blobs. Andere typen blob worden momenteel niet ondersteund, met inbegrip van blob storage-accounts met hot en cool lagen. Zie voor meer informatie [Blob storage-accounts](../storage/blobs/storage-account-options.md#blob-storage-accounts).
+Export werkt alleen met RDB-bestanden die zijn opgeslagen als pagina-blobs. Andere typen blob worden momenteel niet ondersteund, met inbegrip van blob storage-accounts met hot en cool lagen. Zie voor meer informatie [Blob storage-accounts](../storage/common/storage-account-options.md#blob-storage-accounts).
 
 ## <a name="next-steps"></a>Volgende stappen
 Informatie over het gebruik van meer Premiumfuncties cache.

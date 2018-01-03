@@ -36,7 +36,7 @@ Tijdens de migratie worden de klassieke resources Resource Manager-resources. Da
 
 <a name="vault">Klassieke</a> herstelpunten van de virtuele machine in een back-upkluis niet automatisch kunnen worden gemigreerd naar een Recovery Services-kluis wanneer u de virtuele machine van klassiek naar Resource Manager-modus verplaatsen. Volg deze stappen om de back-ups van uw virtuele machine over te dragen:
 
-1. Ga in de Backup-kluis naar het tabblad **Beveiligde items** en selecteer de virtuele machine. Klik op [Beveiliging stoppen](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Laat de optie *Gekoppelde back-upgegevens verwijderen* **uitgeschakeld**.
+1. Ga in de Backup-kluis naar het tabblad **Beveiligde items** en selecteer de virtuele machine. Klik op [Beveiliging stoppen](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Laat de optie *Gekoppelde back-upgegevens verwijderen* **uitgeschakeld**.
 2. Verwijder de back-up-/momentopname-extensie uit de VM.
 3. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en de netwerkgegevens die corresponderen met de virtuele machine, ook naar de Resource Manager-modus worden gemigreerd.
 4. Maak een Recovery Services-kluis en configureer de back-up op de gemigreerde virtuele machine met behulp van de actie **Back-up** bovenaan in het dashboard van de kluis. Zie het artikel [Virtuele Azure-machines beveiligen met een Recovery Services-kluis](../articles/backup/backup-azure-vms-first-look-arm.md) voor meer informatie over het maken van back-ups van virtuele machines naar een Recovery Services-kluis.

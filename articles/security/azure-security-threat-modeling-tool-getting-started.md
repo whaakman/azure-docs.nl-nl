@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Aan de slag met het hulpprogramma Threat Modeling
 
@@ -29,13 +29,13 @@ In dit artikel is gebaseerd op bestaande kennis over de SDL threat modeling bena
 
 Samenvattend snel omvat de aanpak het maken van een diagram, bedreigingen te identificeren, beperkende ze en elke risicobeperking valideren. Hier volgt een diagram dit proces illustreert:
 
-![SDL-proces](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![SDL-proces](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>De threat modeling proces wordt gestart
 
 Wanneer u het hulpprogramma Threat Modeling start, ziet u een aantal dingen, zoals in de afbeelding:
 
-![Lege startpagina](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Lege startpagina](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Sectie Threat-model
 
@@ -70,7 +70,7 @@ Ze gaan door het proces van hun eerste risicomodel ontwikkelt.
 > Cristina: volkomen. Laten we.
 > Ricardo Hiermee opent u het hulpprogramma en zijn scherm deelt met Cristina.
 
-![Basic risicomodel](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Basic risicomodel](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: OK klikt, ziet er eenvoudig, maar kunt u doorlopen mij deze?
 > Ricardo: zeker! Hier volgt de uitsplitsing:
@@ -89,17 +89,17 @@ Nadat hij op de weergave van de analyse van de pictogram menuselectie (bestand m
 
 Deze benadering is dat uw huis beveiligen door ervoor te zorgen elke deur- en beschikt over een vergrendelingsfout mechanisme voor het toevoegen van een alarmsysteem of chasing na de dief.
 
-![Basic bedreigingen](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Basic bedreigingen](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo begint met het selecteren van het eerste item in de lijst. Dit is wat er gebeurt:
 
 Eerst is de interactie tussen de twee stencils verbeterd
 
-![Interactie](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interactie](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 Tweede, aanvullende informatie over de bedreiging wordt weergegeven in het venster Eigenschappen Threat
 
-![Interactie Info](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Interactie Info](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 De gegenereerde bedreiging helpt hem potentiële fouten met ontwerp begrijpen. De categorisatie STRIDE geeft hij een idee op mogelijke aanvalsvectoren, terwijl de extra beschrijving toegangsinformatie precies wat is het probleem en mogelijke manieren om te beperken van het. Hij kan bewerkbare velden notities bij de rechtvaardiging-gegevens schrijven of wijzigen van de prioriteit classificaties, afhankelijk van zijn organisatie bug balk gebruiken.
 
@@ -116,7 +116,7 @@ Niet van toepassing op het ontwerp vanwege bestaande oplossingen of -beveiliging
 
 Zodra Ricardo de lijst met Cristina doorloopt en belangrijke opmerkingen, oplossingen/redenen, prioriteit en statuswijzigingen toevoegt, selecteert hij rapporten -> volledige rapport opslaan rapport afdrukken van een rapport nice voor hem te doorlopen met collega's -> maken om te controleren of de juiste beveiliging werk is geïmplementeerd.
 
-![Interactie Info](./media/azure-security-threat-modeling-tool/report.png)
+![Interactie Info](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Als Ricardo wil dit bestand te delen in plaats daarvan, kunt hij eenvoudig doen door op te slaan in de organisatie OneDrive-account. Wanneer hij dat doet, kan hij het documentkoppeling kopiëren en delen met zijn collega's. 
 

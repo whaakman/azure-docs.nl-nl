@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f9dabe2644553ab1f4ed02ae026c7dbf1a0db264
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="durable-functions-overview-preview"></a>Overzicht van duurzame Functions (preview)
 
@@ -235,7 +235,7 @@ Achter de schermen worden de functies voor duurzame-extensie is gebouwd boven de
 
 Orchestrator-functies hun uitvoeringsstatus met behulp van een cloud-ontwerppatroon bekend als betrouwbaar kunnen onderhouden [gebeurtenis bron](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). In plaats van rechtstreeks opslaan van de *huidige* status van een orchestration, de duurzame uitbreiding gebruikt een archief alleen toevoegen voor het vastleggen van de *volledige reeks acties* die door de functie-orchestration. Dit heeft veel voordelen, waaronder verbetering van prestaties, schaalbaarheid en reactiesnelheid vergeleken met de runtimestatus van de volledige dumpen 'van'. Andere voordelen zijn uiteindelijke consistentie voorziet in transactionele gegevens en onderhouden van volledige audittrails en geschiedenis. De audittrails zelf inschakelen betrouwbare compensatie acties.
 
-Het gebruik van de bron van gebeurtenis door deze uitbreiding is transparant. Onder de behandelt de `await` operator in een orchestrator-functie levert besturingselement van de orchestrator-thread terug naar de dispatcher duurzame taak Framework. De dispatcher voert vervolgens nieuwe acties die de orchestrator-functie gepland (zoals het aanroepen van een of meer onderliggende functies of een duurzame timer plannen) naar de opslag. Deze actie transparante doorvoeren wordt toegevoegd aan de *uitvoergeschiedenis* van de orchestration-exemplaar. De geschiedenis wordt opgeslagen in duurzame opslag. Vervolgens de doorvoeractie wordt berichten toegevoegd aan een wachtrij het echte werk te plannen. De orchestrator-functie kan op dit moment worden verwijderd uit het geheugen. Facturering voor stopt als u de Azure Functions verbruik plannen.  Wanneer er meer werk te doen, wordt de functie opnieuw is opgestart en wordt de status is opnieuw opgebouwd.
+Het gebruik van de bron van gebeurtenis door deze uitbreiding is transparant. Onder de behandelt de `await` operator in een orchestrator-functie levert besturingselement van de orchestrator-thread terug naar de dispatcher duurzame taak Framework. De dispatcher voert vervolgens nieuwe acties die de orchestrator-functie gepland (zoals het aanroepen van een of meer onderliggende functies of een duurzame timer plannen) naar de opslag. Deze actie transparante doorvoeren wordt toegevoegd aan de *uitvoergeschiedenis* van de orchestration-exemplaar. De geschiedenis wordt opgeslagen in een tabel van de opslag. Vervolgens de doorvoeractie wordt berichten toegevoegd aan een wachtrij het echte werk te plannen. De orchestrator-functie kan op dit moment worden verwijderd uit het geheugen. Facturering voor stopt als u de Azure Functions verbruik plannen.  Wanneer er meer werk te doen, wordt de functie opnieuw is opgestart en wordt de status is opnieuw opgebouwd.
 
 Wanneer een functie orchestration meer werk krijgt te doen (bijvoorbeeld: Er is een antwoordbericht ontvangen of een duurzame timer verloopt), de orchestrator opnieuw ontwaakt en voert u de gehele functie van het begin opnieuw om de status van de lokale opnieuw. Als tijdens deze replay de code probeert aan te roepen, een functie (of een andere asynchrone doen werk), het duurzame taak Framework raadpleegt met de *uitvoergeschiedenis* van de huidige orchestration. Als het wordt gevonden die de activiteit functie al is uitgevoerd en heeft een aantal resultaat opgeleverd, het resultaat van deze functie opnieuw weergegeven en de orchestrator-code wordt verder verwerkt. Dit blijft plaatsvinden totdat de functiecode opgehaald naar een punt waar dit is voltooid of er geplande nieuwe asynchrone werk.
 
@@ -247,9 +247,9 @@ Het gedrag voor opnieuw afspelen maakt beperkingen voor het type code dat kan wo
 
 C# is momenteel de enige ondersteunde taal voor duurzame functies. Dit omvat de orchestrator-functies en functies van de activiteit. In de toekomst, wordt er ondersteuning voor alle talen die ondersteuning biedt voor Azure Functions toevoegen. Zie de Azure Functions [GitHub-opslagplaats lijst](https://github.com/Azure/azure-functions-durable-extension/issues) om te zien van de laatste status van onze andere talen werken ondersteunen.
 
-## <a name="monitoring-and-diagnostics"></a>Controle en diagnostische gegevens
+## <a name="monitoring-and-diagnostics"></a>Controle en diagnose
 
-De extensie duurzame functies verzendt automatisch bijhouden van gestructureerde gegevens naar [Application Insights](functions-monitoring.md) wanneer de functie-app is geconfigureerd met een Application Insights-sleutel. Deze traceergegevens kan worden gebruikt voor het bewaken van het gedrag en de voortgang van uw integraties.
+De extensie duurzame functies verzendt automatisch bijhouden van gestructureerde gegevens naar [Application Insights](functions-monitoring.md) als de functie-app is geconfigureerd met een Application Insights-instrumentatiesleutel. Deze traceergegevens kan worden gebruikt voor het bewaken van het gedrag en de voortgang van uw integraties.
 
 Hier volgt een voorbeeld van hoe de duurzame functies bijhouden van gebeurtenissen in de Application Insights portal met behulp van eruit [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 
