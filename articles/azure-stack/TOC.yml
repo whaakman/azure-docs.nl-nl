@@ -121,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: Onderdeel vervangen
               href: azure-stack-replace-component.md
+        - name: Back-up van Azure-Stack
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Back-up inschakelen voor Azure-Stack van de beheerconsole
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Back-up inschakelen voor Azure Stack met PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Back-up van Azure-Stack
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Herstellen van onherstelbaar gegevensverlies
+              href: azure-stack-backup-recover-data.md
+            - name: Aanbevolen procedures voor back-up
+              href: azure-stack-backup-best-practices.md
+            - name: Back-verwijzing
+              href: azure-stack-backup-reference.md
     - name: 'Beveiliging, naleving en identiteit'
       items:
         - name: Beveiligingsoverzicht
@@ -195,6 +210,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Het hulpprogramma voor het publiceren van marketplace gebruiken
               href: azure-stack-marketplace-publisher.md
+            - name: Ondersteunde gastbesturingssystemen voor Azure-Stack
+              href: azure-stack-supported-os.md
             - name: Een aangepaste VM-installatiekopie toevoegen
               href: azure-stack-add-vm-image.md
             - name: Schaalsets voor virtuele machines toevoegen
@@ -231,7 +248,7 @@
           href: azure-stack-diagnostics.md
         - name: Azure Stack Development Kit opnieuw implementeren
           href: azure-stack-redeploy.md
-- name: Naslaginformatie
+- name: Referentie
   items:
     - name: PowerShell voor Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
