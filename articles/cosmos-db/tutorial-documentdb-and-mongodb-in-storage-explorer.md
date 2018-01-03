@@ -17,24 +17,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Beheren van Azure Cosmos DB in Azure Opslagverkenner (Preview)
 
-Met behulp van Azure DB die Cosmos in Azure Storage Explorer, kunnen gebruikers Azure Cosmos DB entiteiten beheren, het manipuleren van gegevens, het bijwerken van opgeslagen procedures en triggers samen met andere Azure entiteiten zoals Storage-blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken voor het beheren van uw andere Azure entiteiten op één plek. Op dit moment ondersteunt Azure Storage Explorer SQL en MongoDB-accounts. De Azure Storage Explorer werkt niet met de Azure Cosmos DB lokale Emulator. 
+Met behulp van Azure DB die Cosmos in Azure Storage Explorer, kunnen gebruikers Azure Cosmos DB entiteiten beheren, het manipuleren van gegevens, het bijwerken van opgeslagen procedures en triggers samen met andere Azure entiteiten zoals Storage-blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken voor het beheren van uw andere Azure entiteiten op één plek. Op dit moment ondersteunt Azure Storage Explorer SQL <!--and MongoDB--> accounts. De Azure Storage Explorer werkt niet met de Azure Cosmos DB lokale Emulator. 
 
 In dit artikel kunt u informatie over het gebruik van Storage Explorer voor het beheren van Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure DB die Cosmos-account voor de SQL-API of de MongoDB-API. Als u geen account hebt, kunt u een in de Azure portal maken zoals beschreven in [Azure Cosmos DB: bouwen van een SQL-API-web-app met .NET- en de Azure-portal](create-sql-api-dotnet.md).
+Een Azure DB die Cosmos-account voor de SQL-API <!--or MongoDB API-->. Als u geen account hebt, kunt u een in de Azure portal maken zoals beschreven in [Azure Cosmos DB: bouwen van een SQL-API-web-app met .NET- en de Azure-portal](create-sql-api-dotnet.md).
 
-## <a name="installation"></a>Installeren
+## <a name="installation"></a>Installatie
 
 Installeer de nieuwste Azure Storage Explorer-bits hier: [Azure Opslagverkenner](https://azure.microsoft.com/features/storage-explorer/), nu we ondersteuning voor Windows, Linux en MAC-versie.
 
@@ -70,7 +70,7 @@ Een andere manier van verbinding maken met een Cosmos Azure DB is het gebruik va
 
     ![verbinding maken met Azure Cosmos DB met verbindingsreeks](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Kies de juiste **ervaring standaard** voor uw accounttype beide **DocumentDB** of **MongoDB**, plakken uw **verbindingsreeks**, en klik vervolgens op **OK** om te verbinden Azure DB die Cosmos-account. Zie voor informatie over het ophalen van de verbindingsreeks, [de verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Kies de juiste **ervaring standaard** voor uw accounttype <!--either--> **DocumentDB** <!--or **MongoDB**-->, plakken uw **verbindingsreeks**, en vervolgens Klik op **OK** om te verbinden Azure DB die Cosmos-account. Zie voor informatie over het ophalen van de verbindingsreeks, [de verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![verbindingsreeks](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS-bescherming standaard met de Azure portal beheren
 
@@ -31,21 +31,21 @@ Informatie over het inschakelen en uitschakelen van gedistribueerde denial-of se
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Standaard in DDoS-bescherming - nieuw virtueel netwerk inschakelen
 
 1. Meld u via http://portal.azure.com aan bij Azure Portal. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-2. Klik op de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
+2. Klik op **maken van een resource** in de linkerbovenhoek van de Azure portal.
 3. Selecteer **Networking**, en selecteer vervolgens **virtueel netwerk**.
-4. Een virtueel netwerk maken met de gekozen instellingen. Zie voor meer informatie over het maken van virtuele netwerken [een virtueel netwerk maken](virtual-networks-create-vnet-arm-pportal.md). Onder *DDoS-bescherming*, klikt u op **ingeschakeld**, en klik vervolgens op **maken**.
+4. Een virtueel netwerk maken met de gekozen instellingen. Zie voor meer informatie over het maken van virtuele netwerken [een virtueel netwerk maken](virtual-networks-create-vnet-arm-pportal.md). Onder **DDoS-bescherming**, klikt u op **ingeschakeld**, en klik vervolgens op **maken**. Als er geen **DDoS-bescherming**, een waarschijnlijke oorzaak is dat uw abonnement is niet geregistreerd voor de functie. U moet voltooien [registratie](http://aka.ms/ddosprotection), en melding dat uw abonnement is ingeschakeld voor de functie voordat **DDoS-bescherming** wordt weergegeven.
 
     ![Virtueel netwerk maken](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Als u een regio, kiest u een ondersteunde regio in de lijst in [overzicht van Azure DDoS-bescherming Standard](ddos-protection-overview.md).
+    > Als u een regio, kiest u een ondersteunde regio in de lijst in [overzicht van Azure DDoS-bescherming Standard](ddos-protection-overview.md). Als u een ondersteunde regio niet selecteert, mislukt het maken van het virtuele netwerk.
 
     Een waarschuwing wordt aangegeven dat het inschakelen van DDoS-bescherming leidt ertoe dat kosten. Er zijn geen kosten voor DDoS-bescherming verbonden zijn tijdens de preview. Kosten, worden algemene beschikbaarheid. U ontvangt kennisgeving 30 dagen vóór het begin van de kosten en algemene beschikbaarheid.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>DDoS-bescherming Standard - bestaand virtueel netwerk inschakelen 
 
 1. Klik op **virtuele netwerken** in het menu van Azure portal, en selecteer vervolgens het virtuele netwerk.
-2. Klik op **DDoS-bescherming**, klikt u op **ingeschakeld** op de *DDoS-bescherming* scherm en klik vervolgens op **opslaan**. 
+2. Klik op **DDoS-bescherming**, klikt u op **ingeschakeld** op de *DDoS-bescherming* scherm en klik vervolgens op **opslaan**. Als er geen **DDoS-bescherming**, een waarschijnlijke oorzaak is dat uw abonnement is niet geregistreerd voor de functie. U moet voltooien [registratie](http://aka.ms/ddosprotection), en melding dat uw abonnement is ingeschakeld voor de functie voordat **DDoS-bescherming** wordt weergegeven. 
 
     > [!WARNING]
     > Het virtuele netwerk moet zich in een ondersteunde regio. Zie voor een lijst met ondersteunde regio's, [overzicht van Azure DDoS-bescherming Standard](ddos-protection-overview.md).

@@ -3,8 +3,8 @@ title: Upgrade van een Azure virtuele-machineschaalset | Microsoft Docs
 description: Een Azure virtuele-machineschaalset bijwerken
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset bijwerken
 Dit artikel wordt beschreven hoe kunt u een update OS uitrolt naar een virtuele machine van Azure schaal instellen zonder uitvaltijd. In deze context is omvat een update OS het wijzigen van de versie of SKU van het besturingssysteem en het wijzigen van de URI van een aangepaste installatiekopie. Zonder uitvaltijd bijwerken van virtuele machines één op een tijdstip of in groepen (zoals een foutdomein op een tijdstip) in plaats van in één keer wordt bijgewerkt. Op deze manier kunnen alle virtuele machines die niet wordt bijgewerkt blijven uitvoeren.
@@ -31,7 +31,7 @@ Om te voorkomen dubbelzinnigheid, gaan we onderscheiden vier typen OS-update die
 * Het wijzigen van de verwijzing naar afbeelding van een scale-set die is gemaakt met beheerde Azure-schijven.
 * Het besturingssysteem van een virtuele machine patchen (voorbeelden hiervan zijn een beveiligingspatch installeren en uitvoeren van Windows Update). Dit scenario wordt ondersteund, maar niet behandeld in dit artikel.
 
-Virtuele-machineschaalsets die zijn geïmplementeerd als onderdeel van een [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster niet hier worden besproken. Zie [Patch Windows-besturingssysteem in uw Service Fabric-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) voor meer informatie over Service Fabric-patching.
+Virtuele-machineschaalsets die zijn geïmplementeerd als onderdeel van een [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster niet hier worden besproken. Zie voor meer informatie over Service Fabric-patching [Patch Windows-besturingssysteem in uw Service Fabric-cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 De volgorde van de basis voor het wijzigen van de OS-versie/SKU van een platforminstallatiekopie van het of de URI van een aangepaste installatiekopie ziet er als volgt uit:
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Als u de URI voor een aangepaste installatiekopie in plaats van het wijzigen van een installatiekopie platform versie bijwerken wilt, moet u de regel 'instellen voor de nieuwe versie' vervangen door een opdracht die de broninstallatiekopie URI wordt bijgewerkt. Bijvoorbeeld, als de scale-set is gemaakt zonder gebruik van beheerde Azure-schijven, eruit de update als volgt:
+Als u de URI voor een aangepaste installatiekopie in plaats van het wijzigen van een installatiekopie platform versie bijwerken wilt, vervangen door de regel 'instellen voor de nieuwe versie' een opdracht die door de broninstallatiekopie URI worden bijgewerkt. Bijvoorbeeld, als de scale-set is gemaakt zonder gebruik van beheerde Azure-schijven, eruit de update als volgt:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Als een aangepaste installatiekopie gebaseerd schaalset is gemaakt met Azure beheerd schijven, en vervolgens de verwijzing naar afbeelding zou worden bijgewerkt. Bijvoorbeeld:
+Als een set aangepaste schaal op basis van een installatiekopie is gemaakt met Azure beheerd schijven, zou de verwijzing naar afbeelding worden bijgewerkt. Bijvoorbeeld:
 
 ```powershell
 # set the new version in the model data

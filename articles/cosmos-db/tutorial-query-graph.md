@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: bf4bb59545ce2d4172cb001d29f5bfc68968d389
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: Hoe query's uitvoeren met de Graph-API (preview)?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Hoe query's uitvoeren met de Graph API?
 
-De Azure DB die Cosmos [Graph API](graph-introduction.md) (preview) ondersteunt [Gremlin](https://github.com/tinkerpop/gremlin/wiki) query's. Dit artikel bevat een voorbeelddocumenten en query's waarmee u op weg. Een gedetailleerde Gremlin verwijzing is opgegeven in de [Gremlin ondersteuning](gremlin-support.md) artikel.
+De Azure DB die Cosmos [Graph API](graph-introduction.md) ondersteunt [Gremlin](https://github.com/tinkerpop/gremlin/wiki) query's. Dit artikel bevat een voorbeelddocumenten en query's waarmee u op weg. Een gedetailleerde Gremlin verwijzing is opgegeven in de [Gremlin ondersteuning](gremlin-support.md) artikel.
 
 In dit artikel bevat informatie over de volgende taken: 
 

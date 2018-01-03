@@ -1,6 +1,6 @@
 ---
-title: Service Bus-naamruimte met een Azure Resource Manager-sjabloon maken | Microsoft Docs
-description: Gebruik Azure Resource Manager-sjabloon te maken van een Service Bus-naamruimte
+title: Service Bus-berichtenservice naamruimte met behulp van Azure Resource Manager-sjabloon maken | Microsoft Docs
+description: Gebruik Azure Resource Manager-sjabloon te maken van een Service Bus-berichtenservice-naamruimte
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Een Service Bus-naamruimte met een Azure Resource Manager-sjabloon maken
 
@@ -41,6 +41,7 @@ Zie voor de volledige sjabloon, het [Service Bus-naamruimte sjabloon] [ Service 
 > 
 
 ## <a name="what-will-you-deploy"></a>Wat wilt u implementeren?
+
 Met deze sjabloon die u implementeert een Service Bus-naamruimte met een [Standard of Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 Klik op de volgende knop om de implementatie automatisch uit te voeren:
@@ -48,11 +49,13 @@ Klik op de volgende knop om de implementatie automatisch uit te voeren:
 [![Implementeren in Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parameters
+
 Met Azure Resource Manager kunt u parameters definiëren voor waarden die u wilt opgeven wanneer de sjabloon wordt geïmplementeerd. De sjabloon bevat een sectie met de naam `Parameters` die de parameterwaarden bevat. U moet een parameter definiëren voor de waarden die variëren op basis van het project dat u wilt implementeren of op basis van de omgeving waarin u gaat implementeren. Definieer geen parameters voor waarden die altijd hetzelfde blijven. De waarde van elke parameter wordt gebruikt in de sjabloon voor het definiëren van de resources die worden geïmplementeerd.
 
 Deze sjabloon definieert de volgende parameters:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 De naam van de Service Bus-naamruimte maken.
 
 ```json
@@ -65,6 +68,7 @@ De naam van de Service Bus-naamruimte maken.
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 De naam van de Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) maken.
 
 ```json
@@ -86,6 +90,7 @@ De sjabloon definieert de waarden die zijn toegestaan voor deze parameter (Stand
 Zie voor meer informatie over prijzen voor Service Bus [Service Bus-prijzen en facturering][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 De Service Bus-API-versie van de sjabloon.
 
 ```json
@@ -98,7 +103,9 @@ De Service Bus-API-versie van de sjabloon.
 ```
 
 ## <a name="resources-to-deploy"></a>Resources om te implementeren
+
 ### <a name="service-bus-namespace"></a>Service Bus-naamruimte
+
 Maakt een standaard Service Bus-naamruimte van het type **Messaging**.
 
 ```json
@@ -120,15 +127,18 @@ Maakt een standaard Service Bus-naamruimte van het type **Messaging**.
 ```
 
 ## <a name="commands-to-run-deployment"></a>Opdrachten om implementatie uit te voeren
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
-### <a name="azure-cli"></a>Azure CLI
-```azurecli
+### <a name="azure-cli"></a>Azure-CLI
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json

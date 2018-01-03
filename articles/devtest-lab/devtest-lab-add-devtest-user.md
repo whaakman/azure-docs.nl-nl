@@ -3,7 +3,7 @@ title: Eigenaars- en gebruikers toevoegen in Azure DevTest Labs | Microsoft Docs
 description: Eigenaars- en gebruikers toevoegen in Azure DevTest Labs met de Azure-portal of PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Eigenaars- en gebruikers toevoegen in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -31,7 +31,7 @@ Toegang in Azure DevTest Labs wordt beheerd door [gebaseerd toegangsbeheer (RBAC
 Er zijn drie belangrijkste rollen kunt u een gebruiker toewijzen:
 
 * Eigenaar
-* DevTest Labs gebruiker
+* DevTest Labs-gebruiker
 * Inzender
 
 De volgende tabel ziet u de acties die kunnen worden uitgevoerd door gebruikers in elk van deze rollen:

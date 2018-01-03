@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Aan de slag met Docker en opstellen om te definiëren en een toepassing met meerdere container in Azure uitvoeren
 Met [opstellen](http://github.com/docker/compose), u een eenvoudige tekstbestand gebruiken voor het definiëren van een toepassing die bestaat uit meerdere Docker-containers. U vervolgens spin van uw toepassing in één opdracht dat alles voor het implementeren van uw omgeving gedefinieerde werkt. Een voorbeeld: in dit artikel leest u hoe snel een WordPress-blog met een back-end MariaDB SQL-database op een VM Ubuntu instellen. U kunt ook Compose gebruiken voor het instellen van complexe toepassingen.
@@ -40,30 +40,14 @@ Maak eerst een resourcegroep voor uw omgeving Docker met [az groep maken](/cli/a
 az group create --name myResourceGroup --location eastus
 ```
 
-Vervolgens implementeert u een virtuele machine met [az implementatie maken](/cli/azure/group/deployment#create) waarin de Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Geef uw eigen unieke waarden voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP*:
+Vervolgens implementeert u een virtuele machine met [az implementatie maken](/cli/azure/group/deployment#create) waarin de Azure Docker VM-extensie van [deze Azure Resource Manager-sjabloon op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Geef desgevraagd uw eigen unieke waarden voor *newStorageAccountName*, *adminUsername*, *adminPassword*, en *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Het duurt enkele minuten duren voordat de implementatie is voltooid. Zodra de implementatie is voltooid, [verplaatsen naar de volgende stap](#verify-that-compose-is-installed) naar SSH met uw virtuele machine. 
-
-Voeg desgewenst in plaats daarvan om terug te beheren op de vraag en kunt de implementatie op de achtergrond voortgezet, de `--no-wait` vlag naar de voorgaande opdracht. Dit proces kunt u andere taken uitvoeren in de CLI tijdens de implementatie gedurende enkele minuten blijft. Vervolgens kunt u meer informatie over de hoststatus Docker met bekijken [az vm weergeven](/cli/azure/vm#show). Het volgende voorbeeld controleert de status van de virtuele machine met de naam *myDockerVM* (de standaardnaam van de sjabloon - geen deze naam niet wijzigen) in de resourcegroep met de naam *myResourceGroup*:
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-Wanneer deze opdracht retourneert *geslaagd*, de implementatie is voltooid en kunt u SSH naar de virtuele machine in de volgende stap.
+Het duurt enkele minuten duren voordat de implementatie is voltooid.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Controleren of Compose is geïnstalleerd
@@ -78,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-SSH naar uw nieuwe Docker-host. Geef uw eigen DNS-naam als volgt:
+SSH naar uw nieuwe Docker-host. Geef uw eigen gebruikersnaam en het DNS-naam van de voorgaande stappen:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com

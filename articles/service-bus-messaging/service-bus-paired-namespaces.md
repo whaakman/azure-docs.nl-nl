@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Implementatiegegevens naamruimte gekoppeld en de gevolgen kosten
+
 De [PairNamespaceAsync] [ PairNamespaceAsync] methode, met behulp van een [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] exemplaar, zichtbaar taken worden uitgevoerd op uw naam. Omdat er worden kosten overwegingen wanneer u de functie gebruikt, is het handig om te begrijpen die taken zodat u het gedrag verwachten wanneer dit gebeurt. De API stelt de volgende automatische gedrag namens jou:
 
 * Het maken van achterstand wachtrijen.
@@ -60,8 +61,8 @@ De [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOpt
 | DefaultMessageTimeToLive |TimeSpan.MaxValue op |
 | AutoDeleteOnIdle |TimeSpan.MaxValue op |
 | LockDuration |1 minuut |
-| EnableDeadLetteringOnMessageExpiration |De waarde True |
-| EnableBatchedOperations |De waarde True |
+| EnableDeadLetteringOnMessageExpiration |waar |
+| EnableBatchedOperations |waar |
 
 Bijvoorbeeld de eerste achterstand wachtrij gemaakt voor naamruimte **contoso** heet `contoso/x-servicebus-transfer/0`.
 

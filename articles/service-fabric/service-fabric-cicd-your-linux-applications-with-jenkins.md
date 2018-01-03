@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins gebruiken om te bouwen en implementeren van uw Linux-toepassingen
 Jenkins is een populair hulpprogramma voor doorlopende integratie en implementatie van uw apps. Hier leest u hoe u een Azure Service Fabric-toepassing maakt en implementeert met behulp van Jenkins.
 
 ## <a name="general-prerequisites"></a>Algemene vereisten
 - Zorg ervoor dat Git lokaal is geïnstalleerd. U kunt de juiste Git-versie (deze is afhankelijk van uw besturingssysteem) installeren via [de Git-downloadpagina](https://git-scm.com/downloads). Als u niet bekend bent met Git, raadpleegt u de [Git-documentatie](https://git-scm.com/docs) voor meer informatie.
-- Zorg ervoor dat u de Jenkins-invoegtoepassing voor Service Fabric bij de hand hebt. U kunt deze ook downloaden via [Service Fabric-downloads](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Als u de naam van de browser edge de uitbreiding van het gedownloade bestand uit .zip .hpi gebruikt.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Jenkins instellen in een Service Fabric-cluster
 
@@ -129,8 +128,8 @@ U moet Docker hebben geïnstalleerd. De volgende opdrachten kunnen worden gebrui
 Wanneer u ``docker info`` nu uitvoert in de terminal, ziet u in de uitvoer dat de Docker-service wordt uitgevoerd.
 
 ### <a name="steps"></a>Stappen
-  1. Haal de Service Fabric-installatiekopie van de container voor Jenkins op: ``docker pull rapatchi/jenkins:v9``
-  2. Voer de installatiekopie van de container uit: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Ophalen van de installatiekopie van het Service Fabric Jenkins container: ``docker pull rapatchi/jenkins:v10``. Deze installatiekopie wordt geleverd met Service Fabric Jenkins-invoegtoepassing die vooraf zijn geïnstalleerd.
+  2. Voer de installatiekopie van de container uit: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Haal de id op van het exemplaar van de installatiekopie van de container. U kunt een lijst van alle Docker-containers bekijken met de opdracht ``docker ps –a``
   4. Voer de volgende stappen uit om u aan te melden bij de Jenkins-portal:
 
@@ -151,11 +150,6 @@ Wanneer u ``docker info`` nu uitvoert in de terminal, ziet u in de uitvoer dat d
 
 Zorg ervoor dat het cluster waarin of de computer waarop de installatiekopie van de Jenkins-container wordt gehost, een openbaar IP-adres heeft. Alleen zo kan het Jenkins-exemplaar meldingen ontvangen van GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>De Service Fabric-invoegtoepassing voor Jenkins installeren via de portal
-
-1. Ga naar ``http://PublicIPorFQDN:8081``
-2. Selecteer in het Jenkins-dashboard **Jenkins beheren** > **Plug-ins beheren** > **Geavanceerd**.
-Hier kunt u een invoegtoepassing uploaden. Selecteer **bestand kiezen**, en selecteer vervolgens de **serviceFabric.hpi** bestand, die u hebt gedownload onder vereisten of kunnen downloaden [hier](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Als u **Upload** selecteert, installeert Jenkins de invoegtoepassing automatisch. Sta opnieuw starten toe als hierom wordt gevraagd.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Een Jenkins-taak maken en configureren
 

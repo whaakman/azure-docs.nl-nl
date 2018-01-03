@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migreren van Azure Active Directory Access Control Service naar de Shared Access Signature-autorisatie
 
-Service Bus-toepassingen in het verleden heeft een keuze van het gebruik van twee verschillende autorisatie modellen: de [Shared Access Signature (SAS)](service-bus-sas.md) token modellen die worden geleverd door Service Bus en een federatieve waar het beheer van autorisatieregels binnen wordt beheerd door de [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) en opgehaald uit de ACS-tokens, worden doorgegeven aan Service Bus voor het verlenen van toegang tot de gewenste functies.
+Service Bus-toepassingen hebt eerder had een keuze van het gebruik van twee verschillende autorisatie modellen: de [Shared Access Signature (SAS)](service-bus-sas.md) token modellen die worden geleverd door Service Bus en een federatieve waar het beheer van autorisatieregels binnen wordt beheerd door de [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) en opgehaald uit de ACS-tokens, worden doorgegeven aan Service Bus voor het verlenen van toegang tot de gewenste functies.
 
 Het model van de autorisatie ACS lang is vervangen door [SAS autorisatie](service-bus-authentication-and-authorization.md) als het gewenste model en alle documentatie, richtlijnen en voorbeelden exclusief gebruik SAS vandaag. Bovendien is het niet meer mogelijk te maken van nieuwe Service Bus-naamruimten die zijn gekoppeld aan ACS.
 

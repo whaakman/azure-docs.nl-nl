@@ -4,7 +4,7 @@ description: Maken en implementeren van een maximaal beschikbare toepassing op W
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d8f161af7753d2cd93a8683e8a93128144b86079
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Een virtuele-Machineschaalset maken en implementeren van een maximaal beschikbare app in Windows
 Een virtuele-machineschaalset kunt u om te implementeren en beheren van een reeks identiek zijn, automatisch schalen virtuele machines. U kunt het aantal virtuele machines in de schaalset handmatig schalen of regels automatisch te schalen op basis van het gebruik van bronnen zoals CPU, geheugen-aanvraag of netwerkverkeer definiëren. In deze zelfstudie maakt implementeren u een virtuele-machineschaalset instellen in Azure. Procedures voor:
@@ -32,7 +32,7 @@ Een virtuele-machineschaalset kunt u om te implementeren en beheren van een reek
 > * Vergroten of verkleinen het aantal exemplaren in een schaalset
 > * Maken van regels voor automatisch schalen
 
-Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Deze zelfstudie vereist de Azure PowerShell moduleversie 5.1.1 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="scale-set-overview"></a>Overzicht van Scale Set
@@ -217,7 +217,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     Select -ExpandProperty Sku
 ```
 
-U kunt vervolgens handmatig vergroten of verkleinen het aantal virtuele machines in de schaal in te stellen [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Het volgende voorbeeld wordt het aantal VM's in uw ingesteld op schaal *5*:
+U kunt vervolgens handmatig vergroten of verkleinen het aantal virtuele machines in de schaal in te stellen [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Het volgende voorbeeld wordt het aantal VM's in uw ingesteld op schaal *3*:
 
 ```powershell
 # Get current scale set
@@ -226,7 +226,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Set and update the capacity of your scale set
-$scaleset.sku.capacity = 5
+$scaleset.sku.capacity = 3
 Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -Name myScaleSet `
     -VirtualMachineScaleSet $scaleset
@@ -236,7 +236,7 @@ Als duurt een paar minuten bijwerken van het opgegeven aantal exemplaren in uw s
 
 
 ### <a name="configure-autoscale-rules"></a>Regels voor automatisch schalen configureren
-In plaats van het aantal exemplaren handmatig schalen in uw scale is ingesteld, kunt u regels voor automatisch schalen definiëren. Deze regels de exemplaren in de schaalset bewaken en hierop reageren dienovereenkomstig op basis van metrische gegevens en drempels die u definieert. Het volgende voorbeeld uitgeschaald het aantal exemplaren van door een wanneer de gemiddelde CPU-belasting groter dan 60% gedurende een periode van 5 minuten is. Als de gemiddelde CPU-belasting vervolgens onder 30% gedurende een periode van 5 minuten, worden de instanties geschaald in door één exemplaar:
+In plaats van het aantal exemplaren handmatig schalen in uw scale is ingesteld, kunt u regels voor automatisch schalen definiëren. Deze regels de exemplaren in de schaalset bewaken en hierop reageren dienovereenkomstig op basis van metrische gegevens en drempels die u definieert. Het volgende voorbeeld uitgeschaald het aantal exemplaren van een wanneer de gemiddelde CPU-belasting groter dan 60% gedurende een periode van 5 minuten is. Als de gemiddelde CPU-belasting vervolgens onder 30% gedurende een periode van 5 minuten, worden de instanties geschaald in door één exemplaar:
 
 ```powershell
 # Define your scale set information
@@ -245,7 +245,7 @@ $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -258,7 +258,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `

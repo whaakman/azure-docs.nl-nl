@@ -16,11 +16,11 @@ ms.date: 10/20/2016
 ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Disaster Recovery inzoomen uitvoeren
 Het is raadzaam dat validatie van de gereedheid van de toepassing voor herstelwerkstroom regelmatig wordt uitgevoerd. Verifiëren van de toepassingsgedrag en de gevolgen van het verlies van gegevens en/of de onderbreking moet u dat de failover is een goede gewoonte engineering. Het is ook een vereiste door de meeste industrienormen als onderdeel van zakelijke continuïteit-certificering.
@@ -37,7 +37,7 @@ Afhankelijk van hoe u [ontworpen van uw toepassing voor bedrijfscontinuïteit](s
 De mogelijke om gegevensverlies te voorkomen wanneer de uitvoering van een herstel na noodgevallen detailanalyse, uitvoeren met behulp van een testomgeving door een kopie van de productie-omgeving maken en deze om te controleren of de werkstroom van de toepassing van de analyse.
 
 #### <a name="outage-simulation"></a>Storing simulatie
-U kunt om te simuleren de onderbreking, verwijderen of wijzig de naam van de brondatabase. Dit zorgt ervoor dat de problemen met de toepassingen.
+Om te simuleren de onderbreking, kunt u de brondatabase wijzigen. Dit zorgt ervoor dat de problemen met de toepassingen.
 
 #### <a name="recovery"></a>Herstel
 * De geo-herstel van de database in een andere server uitvoeren, zoals wordt beschreven [hier](sql-database-disaster-recovery.md).

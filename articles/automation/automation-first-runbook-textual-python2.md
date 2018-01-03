@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0399719e5f80869f0131691b89a9dc48b3fc48d7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="my-first-python-runbook"></a>Mijn eerste Python-runbook
 
@@ -147,7 +147,7 @@ Voor het beheren van Azure-resources van het script zijn om te verifiëren met d
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Code toevoegen om te berekenen van Python-client maken en start de virtuele machine
 
-Om te werken met Azure Virtual machines, geen exemplaar maken van de [Azure Compute-client voor Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+Om te werken met Azure Virtual machines, geen exemplaar maken van de [Azure Compute-client voor Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 De Compute-client gebruiken om de virtuele machine start. Voeg de volgende code toe aan het runbook:
 

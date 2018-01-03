@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 65e004c4edad4628a998a4d6365da83151c77344
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 41b1943ecf84ad67af936c6be8707fc9e003f718
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindingen voor Azure Functions
 
@@ -29,25 +29,19 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](..\cosmos-db\serve
 
 ## <a name="trigger"></a>Trigger
 
-De Azure Cosmos DB Trigger gebruikt de [Azure Cosmos DB wijzigen Feed](../cosmos-db/change-feed.md) om te luisteren naar wijzigingen meerdere partities. De trigger vereist een tweede collectie dat wordt gebruikt voor het opslaan van _leases_ via de partities.
-
-Zowel de verzameling wordt bewaakt als de verzameling met de leases moet beschikbaar zijn voor de trigger werkt.
-
- >[!IMPORTANT]
- > Als meerdere functies zijn geconfigureerd voor het gebruik van een Cosmos-DB-trigger voor dezelfde verzameling, moet elk van de functies op dit moment is een verzameling speciale lease gebruiken. Anders wordt slechts één van de functies worden geactiveerd. 
-
+De Azure Cosmos DB Trigger gebruikt de [Azure Cosmos DB wijzigen Feed](../cosmos-db/change-feed.md) om te luisteren naar wijzigingen meerdere partities. De feed wijziging publiceert inserts en updates, niet verwijderen. 
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#trigger---c-example)
-* [C#-script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die wordt geactiveerd vanuit een specifieke database en verzameling.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die wordt geactiveerd vanuit een specifieke database en verzameling.
 
 ```cs
     using System.Collections.Generic;
@@ -133,7 +127,7 @@ Hier volgt de JavaScript-code:
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor informatie over deze instellingen en andere eigenschappen die u kunt configureren, [Trigger - configuratie](#trigger---configuration). Hier volgt een `CosmosDBTrigger` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -148,7 +142,7 @@ Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor 
     }
 ```
 
-Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#trigger---c-example).
+Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Trigger - configuratie
 
@@ -162,7 +156,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**connectionStringSetting**|**ConnectionStringSetting** | De naam van een app-instelling met de verbindingsreeks waarmee verbinding met de Azure DB die Cosmos-account wordt bewaakt. |
 |**databaseName**|**DatabaseName**  | De naam van de Azure DB die Cosmos-database met de verzameling wordt bewaakt. |
 |**collectionName** |**CollectionName** | De naam van de verzameling wordt bewaakt. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optioneel) De naam van een app-instelling met de verbindingsreeks aan de service die de lease-verzameling bevat. Wanneer niet is ingesteld, de `connectionStringSetting` waarde wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. |
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optioneel) De naam van een app-instelling met de verbindingsreeks aan de service die de lease-verzameling bevat. Wanneer niet is ingesteld, de `connectionStringSetting` waarde wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. De verbindingsreeks voor de verzameling leases moet schrijfmachtigingen hebben.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optioneel) De naam van de database waarin de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde van de `databaseName` instelling wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optioneel) De naam van de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde `leases` wordt gebruikt. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optioneel) Als de waarde `true`, de verzameling leases wordt automatisch gemaakt wanneer deze niet al bestaat. De standaardwaarde is `false`. |
@@ -171,39 +165,36 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
->[!NOTE] 
->De verbindingsreeks voor de verzameling leases moet schrijfmachtigingen hebben.
+## <a name="trigger---usage"></a>Trigger - gebruik
+
+De trigger vereist een tweede collectie dat wordt gebruikt voor het opslaan van _leases_ via de partities. Zowel de verzameling wordt bewaakt als de verzameling met de leases moet beschikbaar zijn voor de trigger werkt.
+
+ >[!IMPORTANT]
+ > Als meerdere functies zijn geconfigureerd voor het gebruik van een Cosmos-DB-trigger voor dezelfde verzameling, moet elk van de functies voor een verzameling speciale lease gebruiken. Anders wordt slechts één van de functies worden geactiveerd. 
+
+De trigger wordt niet aangegeven dat of een document is bijgewerkt of ingevoegd, biedt deze alleen het document zelf. Als u nodig hebt voor het afhandelen van updates en toevoegingen anders, kunt u dat doen door het implementeren van tijdstempelvelden voor het invoegen of bijwerken.
 
 ## <a name="input"></a>Invoer
 
-De invoer DocumentDB API-binding haalt een of meer Azure DB die Cosmos-documenten en geeft deze door aan de invoerparameter van de functie. Het document-ID of query-parameters kunnen worden bepaald op basis van de trigger die de functie activeert. 
+De binding van Azure DB die Cosmos-invoer haalt een of meer Azure DB die Cosmos-documenten en geeft deze door aan de invoerparameter van de functie. Het document-ID of query-parameters kunnen worden bepaald op basis van de trigger die de functie activeert. 
+
+>[!NOTE]
+> Geen gebruikmaken van Azure DB die Cosmos-invoer of uitvoer bindingen als u MongoDB-API op een Cosmos-DB-account. Beschadiging van gegevens is mogelijk.
 
 ## <a name="input---example-1"></a>Invoer - voorbeeld 1
 
 Zie het voorbeeld taalspecifieke die één document leest:
 
-* [Vooraf gecompileerde C#](#input---c-example)
-* [C#-script](#input---c-script-example)
+* [C#](#input---c-example)
+* [C# script (.csx)](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-example"></a>Invoer - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die één document uit een specifieke database en verzameling ophaalt. Eerst `Id` en `Maker` waarden voor een `CarReview` exemplaar worden doorgegeven aan een wachtrij. 
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die één document uit een specifieke database en verzameling ophaalt. 
 
- ```cs
-    public class CarReview
-    {
-        public string Id { get; set; }
-        public string Maker { get; set; }
-        public string Description { get; set; }
-        public string Model { get; set; }
-        public string Image { get; set; }
-        public string Review { get; set; }
-    }
- ```
-
-De binding gebruikt Cosmos-DB `Id` en `Maker` van het bericht uit de wachtrij voor het ophalen van het document uit de database.
+Eerst `Id` en `Maker` waarden voor een `CarReview` exemplaar worden doorgegeven aan een wachtrij. De binding gebruikt Cosmos-DB `Id` en `Maker` van het bericht uit de wachtrij voor het ophalen van het document uit de database.
 
 ```cs
     using Microsoft.Azure.WebJobs;
@@ -224,6 +215,20 @@ De binding gebruikt Cosmos-DB `Id` en `Maker` van het bericht uit de wachtrij vo
         }
     }
 ```
+
+Hier volgt de `CarReview` POCO:
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
 
 ### <a name="input---c-script-example"></a>Invoer - voorbeeld van C#-script
 
@@ -250,7 +255,7 @@ Dit is de C#-scriptcode:
 ```cs
     using System;
 
-    // Change input document contents using DocumentDB API input binding 
+    // Change input document contents using Azure Cosmos DB input binding 
     public static void Run(string myQueueItem, dynamic inputDocument)
     {   
       inputDocument.text = "This has changed.";
@@ -282,7 +287,7 @@ De [configuratie](#input---configuration) sectie wordt uitgelegd deze eigenschap
 Dit is de F #-code:
 
 ```fsharp
-    (* Change input document contents using DocumentDB API input binding *)
+    (* Change input document contents using Azure Cosmos DB input binding *)
     open FSharp.Interop.Dynamic
     let Run(myQueueItem: string, inputDocument: obj) =
     inputDocument?text <- "This has changed."
@@ -328,7 +333,7 @@ De [configuratie](#input---configuration) sectie wordt uitgelegd deze eigenschap
 Hier volgt de JavaScript-code:
 
 ```javascript
-    // Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
+    // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
     module.exports = function (context) {   
     context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
     context.bindings.inputDocumentOut.text = "This was updated!";
@@ -340,13 +345,13 @@ Hier volgt de JavaScript-code:
 
 Zie het voorbeeld taalspecifieke die meerdere documenten leest:
 
-* [Vooraf gecompileerde C#](#input---c-example-2)
-* [C#-script](#input---c-script-example-2)
+* [C#](#input---c-example-2)
+* [C# script (.csx)](#input---c-script-example-2)
 * [JavaScript](#input---javascript-example-2)
 
 ### <a name="input---c-example-2"></a>Invoer - C#-voorbeeld 2
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die een SQL-query wordt uitgevoerd. Gebruik de `SqlQuery` parameter, moet u de nieuwste versie van de bètaversie van installeren `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet-pakket.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een SQL-query wordt uitgevoerd. Gebruik de `SqlQuery` parameter, moet u de nieuwste versie van de bètaversie van installeren `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet-pakket.
 
 ```csharp
     using System.Net;
@@ -366,7 +371,7 @@ Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotn
 
 ### <a name="input---c-script-example-2"></a>Invoer - C# scriptvoorbeeld 2
 
-Het volgende voorbeeld ziet u een DocumentDB-invoer-binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie haalt meerdere documenten die zijn opgegeven door een SQL-query met behulp van een wachtrij-trigger voor het aanpassen van de queryparameters.
+Het volgende voorbeeld ziet u een Azure Cosmos DB invoer binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie haalt meerdere documenten die zijn opgegeven door een SQL-query met behulp van een wachtrij-trigger voor het aanpassen van de queryparameters.
 
 De trigger wachtrij bevat een parameter `departmentId`. Een wachtrijbericht van `{ "departmentId" : "Finance" }` alle records voor de afdeling Financiën zou retourneren. 
 
@@ -405,7 +410,7 @@ Dit is de C#-scriptcode:
 
 ### <a name="input---javascript-example-2"></a>Invoer - JavaScript-voorbeeld 2
 
-Het volgende voorbeeld ziet u een DocumentDB-invoer-binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie haalt meerdere documenten die zijn opgegeven door een SQL-query met behulp van een wachtrij-trigger voor het aanpassen van de queryparameters.
+Het volgende voorbeeld ziet u een Azure Cosmos DB invoer binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie haalt meerdere documenten die zijn opgegeven door een SQL-query met behulp van een wachtrij-trigger voor het aanpassen van de queryparameters.
 
 De trigger wachtrij bevat een parameter `departmentId`. Een wachtrijbericht van `{ "departmentId" : "Finance" }` alle records voor de afdeling Financiën zou retourneren. 
 
@@ -440,7 +445,7 @@ Hier volgt de JavaScript-code:
 
 ## <a name="input---attributes"></a>Invoer - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor informatie over deze instellingen en andere eigenschappen die u kunt configureren, [de volgende configuratiesectie](#input---configuration). 
 
@@ -470,20 +475,23 @@ In de JavaScript-functies worden niet automatisch updates gesteld bij functie be
 
 ## <a name="output"></a>Uitvoer
 
-De uitvoer van de DocumentDB-API binding kunt schrijven u een nieuw document naar een Azure DB die Cosmos-database. 
+De uitvoer van de Azure DB die Cosmos binding kunt schrijven u een nieuw document naar een Azure DB die Cosmos-database. 
+
+>[!NOTE]
+> Geen gebruikmaken van Azure DB die Cosmos-invoer of uitvoer bindingen als u MongoDB-API op een Cosmos-DB-account. Beschadiging van gegevens is mogelijk.
 
 ## <a name="output---example"></a>Output - voorbeeld
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#output---c-example)
-* [C#-script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die een document wordt toegevoegd aan een database, met behulp van gegevens in het bericht van Queue storage.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een document wordt toegevoegd aan een database, met behulp van gegevens in het bericht van Queue storage.
 
 ```cs
     using System;
@@ -500,7 +508,7 @@ Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotn
 
 ### <a name="output---c-script-example"></a>Output - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een DocumentDB-uitvoer binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij invoer binding voor een wachtrij die JSON in de volgende indeling ontvangt:
+Het volgende voorbeeld ziet u de uitvoer van een Azure Cosmos DB binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij invoer binding voor een wachtrij die JSON in de volgende indeling ontvangt:
 
 ```json
 {
@@ -564,7 +572,7 @@ Als u wilt meerdere documenten maken, kunt u binden aan `ICollector<T>` of `IAsy
 
 ### <a name="output---f-example"></a>Output - F #-voorbeeld
 
-Het volgende voorbeeld ziet u een DocumentDB-uitvoer binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij invoer binding voor een wachtrij die JSON in de volgende indeling ontvangt:
+Het volgende voorbeeld ziet u de uitvoer van een Azure Cosmos DB binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij invoer binding voor een wachtrij die JSON in de volgende indeling ontvangt:
 
 ```json
 {
@@ -642,7 +650,7 @@ Om toe te voegen een `project.json` bestand, Zie [F # pakket management](functio
 
 ### <a name="output---javascript-example"></a>Output - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een DocumentDB-uitvoer binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij invoer binding voor een wachtrij die JSON in de volgende indeling ontvangt:
+Het volgende voorbeeld ziet u de uitvoer van een Azure Cosmos DB binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrij invoer binding voor een wachtrij die JSON in de volgende indeling ontvangt:
 
 ```json
 {
@@ -697,7 +705,7 @@ Hier volgt de JavaScript-code:
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor informatie over deze instellingen en andere eigenschappen die u kunt configureren, [Output - configuratie](#output---configuration). Hier volgt een `DocumentDB` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -711,7 +719,7 @@ Het kenmerk constructor werkt met de databasenaam en verzamelingsnaam. Zie voor 
     }
 ```
 
-Zie voor een compleet voorbeeld [uitvoer - vooraf gecompileerde C#-voorbeeld](#output---c-example).
+Zie voor een compleet voorbeeld [uitvoer - C#-voorbeeld](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - configuratie
 

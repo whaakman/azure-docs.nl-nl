@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>How to: in Azure App Service-Apps bewaken
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) biedt ingebouwde bewaking functionaliteit in de [Azure-portal](https://portal.azure.com).
@@ -29,6 +29,8 @@ De Azure-portal biedt de mogelijkheid om te controleren **quota** en **metrische
 ## <a name="understanding-quotas-and-metrics"></a>Understanding quota's en metrische gegevens
 ### <a name="quotas"></a>Quota
 Toepassingen die worden gehost in App Service zijn onderworpen aan bepaalde *limieten* op de bronnen die ze kunnen gebruiken. De limieten zijn gedefinieerd door de **App Service-abonnement** die zijn gekoppeld aan de app.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Als de toepassing wordt gehost een **vrije** of **gedeelde** plant, en vervolgens de limieten op de resources die de app kunt gebruiken, zijn gedefinieerd door **quota**.
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur - voorbeeld
 
@@ -21,13 +21,13 @@ De rand van de IoT-runtime is een verzameling van programma's die moeten worden 
 
 De runtime IoT rand voert de volgende functies op de IoT Edge-apparaten:
 
-* Installeert en updates van werkbelastingen op het apparaat.
-* Houdt de Azure IoT rand beveiligingsstandaarden op het apparaat.
+* Installeert workloads op het apparaat en werkt deze bij.
+* Onderhoudt de Azure IoT Edge-beveiligingsstandaarden op het apparaat.
 * Zorgt ervoor dat [IoT rand modules][lnk-modules] altijd worden uitgevoerd.
-* Rapporteert de status van de module aan de cloud voor externe controle.
-* Vergemakkelijkt de communicatie tussen downstream leaf-apparaten en de rand van de IoT-apparaat.
-* Vergemakkelijkt de communicatie tussen modules op de rand van de IoT-apparaat.
-* Vergemakkelijkt de communicatie tussen de rand van de IoT-apparaat en de cloud.
+* Rapporteert de status van de module aan de cloud voor externe bewaking.
+* Vergemakkelijkt de communicatie tussen downstream leaf-apparaten en het IoT Edge-apparaat.
+* Vergemakkelijkt de communicatie tussen modules op het IoT Edge-apparaat.
+* Vergemakkelijkt de communicatie tussen het IoT Edge-apparaat en de cloud.
 
 ![IoT-rand runtime communiceert insights en de status van de module naar IoT Hub][1]
 
@@ -99,7 +99,15 @@ Elk item in de woordenlijst modules bevat specifieke informatie over een module 
    * onFailure - als de module vastloopt, de Edge-agent opnieuw worden opgestart. Als de module nu correct wordt afgesloten, de Edge-agent niet opnieuw wordt opgestart deze.
    * Niet in orde - als de module vastloopt of geacht beschadigd, de Edge-agent start deze opnieuw op.
    * Altijd - als de module is vastgelopen, wordt geacht slecht of op een manier is afgesloten, de Edge-agent opnieuw worden opgestart. 
-   
+
+Rand van de IoT-agent verzendt runtime-antwoord naar IoT Hub. Hier volgt een lijst met mogelijke reacties:
+  * 200 - OK
+  * 400 - configuratie van de implementatie is onjuist gevormd of ongeldig.
+  * 417 - het apparaat heeft geen een implementatieconfiguratie ingesteld.
+  * 412 - de schemaversie in de configuratie van de implementatie is ongeldig.
+  * 406 - het edge-apparaat is offline of niet verzenden statusrapporten.
+  * 500 - een fout opgetreden in de edge-runtime.
+
 ### <a name="security"></a>Beveiliging
 
 De agent IoT rand speelt een cruciale rol in de beveiliging van een Edge van de IoT-apparaat. Bijvoorbeeld, voert acties zoals het controleren van de installatiekopie van een module voordat u deze uit. Deze functies worden algemene beschikbaarheid van V2-functies toegevoegd. 

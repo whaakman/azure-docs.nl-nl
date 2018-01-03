@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery-ondersteuningsmatrix voor het repliceren van on-premises naar Azure
 
@@ -35,7 +35,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 --- | --- | ---
 **Azure Portal** | On-premises virtuele VMware-machines naar Azure-opslag, met de Azure Resource Manager of klassieke opslag en netwerken.<br/><br/> Failover naar Resource Manager gebaseerde of klassieke VM's. | On-premises Hyper-V-machines naar Azure-opslag, met Resource Manager of klassieke opslag en netwerken.<br/><br/> Failover naar Resource Manager gebaseerde of klassieke VM's.
 **Klassieke portal** | Onderhoudsmodus bevinden. Nieuwe kluizen kunnen niet worden gemaakt. | Onderhoudsmodus bevinden.
-**PowerShell** | Momenteel niet ondersteund. | Ondersteund
+**PowerShell** | Ondersteund | Ondersteund
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Ondersteuning voor datacenter-beheerservers
@@ -155,8 +155,8 @@ De volgende tabellen geven een overzicht van ondersteuning voor opslag in versch
 
 **Configuratie** | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Ja voor VMware<br/><br/> Er is geen voor fysieke servers | N.v.t.
-SMB 3.0 | N.v.t. | Ja
+NFS | Ja voor VMware<br/><br/> Er is geen voor fysieke servers | N/A
+SMB 3.0 | N/A | Ja
 SAN (ISCSI) | Ja | Ja
 Multipath (MPIO)<br></br>Getest met de: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM voor CLARiiON | Ja | Ja
 
@@ -164,15 +164,15 @@ Multipath (MPIO)<br></br>Getest met de: Microsoft DSM, EMC PowerPath 5.7 SP4, EM
 
 **Configuratie** | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Ja | N.v.t.
-VHD/VHDX | N.v.t. | Ja
-Generatie 2 VM | N.v.t. | Ja
+VMDK | Ja | N/A
+VHD/VHDX | N/A | Ja
+Generatie 2 VM | N/A | Ja
 EFI/UEFI| Nee | Ja
 Clusterschijf gedeeld | Nee | Nee
 Versleutelde schijf | Nee | Nee
-NFS | Nee | N.v.t.
+NFS | Nee | N/A
 SMB 3.0 | Nee | Nee
-RDM | Ja<br/><br/> Niet van toepassing op fysieke servers | N.v.t.
+RDM | Ja<br/><br/> Niet van toepassing op fysieke servers | N/A
 Schijf > 1 TB | Ja<br/><br/>Een Resourcegroepnaam 4095 GB | Ja<br/><br/>Een Resourcegroepnaam 4095 GB
 Schijf met een fysieke sectorgrootte van 4K logische en 4 k | Ja | Niet ondersteund voor virtuele machines van generatie 1<br/><br/>Niet ondersteund voor virtuele machines van generatie 2.
 Schijf met de 4K logische en fysieke sectorgrootte van 512 bytes | Ja |  Ja
@@ -180,7 +180,7 @@ Volume met striped schijf > 1 TB<br/><br/> LVM logische volumebeheer | Ja | Ja
 Opslagruimten | Nee | Ja
 Schijf hot toevoegen of verwijderen | Nee | Nee
 Schijf uitsluiten | Ja | Ja
-Multipath (MPIO) | N.v.t. | Ja
+Multipath (MPIO) | N/A | Ja
 
 **Azure Storage** | **VMware of fysieke server** | **Hyper-V (met/zonder Virtual Machine Manager)**
 --- | --- | ---
@@ -194,6 +194,7 @@ Versleuteling op rest(SSE)| Ja | Ja
 Premium Storage | Ja | Ja
 Service voor importeren/exporteren | Nee | Nee
 Virtueel netwerk Service-eindpunten (Azure Storage firewalls en virtuele netwerken) geconfigureerd op de doelopslag account of storage-account gebruikt voor het opslaan van gegevens van replicatie in de cache | Nee | Nee
+V2 opslagaccounts voor algemeen gebruik (zowel Hot en Cool laag) | Nee | Nee
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Ondersteuning voor Azure compute-configuratie

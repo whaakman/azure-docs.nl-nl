@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Apparaten inrichten met Azure IoT Hub apparaat inrichtingsservice (preview)
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Apparaten inrichten met Azure IoT Hub apparaat inrichten van Service
 Microsoft Azure biedt een uitgebreide set geïntegreerde openbare cloud-services voor al uw IoT-oplossing. De inrichtingsservice van IoT Hub apparaat is een helper-service voor IoT-Hub die zonder tussenkomst, just in time inrichten met de juiste IoT-hub zonder menselijke tussenkomst, kunnen klanten om in te richten miljoenen apparaten op een veilige en schaalbare inschakelen manier.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Wanneer gebruikt u inrichting Device-Service
@@ -111,9 +111,9 @@ Onderhouden we een 99,9% serviceovereenkomst voor de Service voor het inrichten 
 ## <a name="quotas"></a>Quota
 Elk Azure-abonnement heeft standaard de quotalimieten dat kan invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet per abonnement op basis van een is 10 apparaat leveren van Services per abonnement.
 
-Voor meer informatie over de quotalimieten voor:
+Meer informatie over quotalimieten vindt u hier:
 
-* [Servicelimieten voor Azure-abonnement](../azure-subscription-service-limits.md)
+* [Azure-abonnement en servicelimieten, quota's en beperkingen](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Gerelateerde Azure-onderdelen
 De Service voor het inrichten van apparaten automatiseert apparaten inrichten met Azure IoT Hub. Meer informatie over [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).

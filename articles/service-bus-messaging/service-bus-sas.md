@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Service Bus-verificatie met handtekeningen voor gedeelde toegang
 
@@ -344,18 +344,18 @@ De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerki
 | Verzenden naar het onderwerp |Verzenden |Elk adres ongeldig onderwerp |
 | **Abonnement** | | |
 | Een abonnement maken |Beheren |Een naamruimte-adres |
-| Abonnement verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Abonnementen opsommen |Beheren |../myTopic/abonnementen |
-| Beschrijving van het abonnement ophalen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Afbreken of volledige berichten na de ontvangst van het bericht in de modus peek vergrendelen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| Een bericht voor later gebruik stellen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| Wachtrij voor onbestelbare een bericht |Luisteren |../myTopic/Subscriptions/mySubscription |
-| De status is gekoppeld aan een sessie onderwerp ophalen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| De status is gekoppeld aan een sessie voor onderwerp instellen |Luisteren |../myTopic/Subscriptions/mySubscription |
+| Abonnement verwijderen |Beheren |.. /myTopic/Subscriptions/mySubscription |
+| Abonnementen opsommen |Beheren |.. / myTopic/abonnementen |
+| Beschrijving van het abonnement ophalen |Beheren |.. /myTopic/Subscriptions/mySubscription |
+| Afbreken of volledige berichten na de ontvangst van het bericht in de modus peek vergrendelen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| Een bericht voor later gebruik stellen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| Wachtrij voor onbestelbare een bericht |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| De status is gekoppeld aan een sessie onderwerp ophalen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| De status is gekoppeld aan een sessie voor onderwerp instellen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
 | **Regels** | | |
-| Een regel maken |Beheren |../myTopic/Subscriptions/mySubscription |
-| Een regel verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Regels opsommen |Beheren of luisteren |../myTopic/Subscriptions/mySubscription/Rules 
+| Een regel maken |Beheren |.. /myTopic/Subscriptions/mySubscription |
+| Een regel verwijderen |Beheren |.. /myTopic/Subscriptions/mySubscription |
+| Regels opsommen |Beheren of luisteren |.. /myTopic/Subscriptions/mySubscription/Rules 
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -13,24 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de Graph API
 
-In dit artikel, laten we zien hoe de Azure portal gebruiken om setup Azure Cosmos DB globale distributie en maak verbinding met de Graph-API (preview).
+In dit artikel, laten we zien hoe de Azure portal gebruiken Azure Cosmos DB globale distributie instellen en vervolgens verbinding met de Graph API.
 
 In dit artikel bevat informatie over de volgende taken: 
 
 > [!div class="checklist"]
 > * Globale distributie op basis van de Azure-portal configureren
-> * Configureren globale distributie met behulp van de [Graph API's](graph-introduction.md) (preview)
+> * Configureren globale distributie met behulp van de [Graph API's](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -43,10 +43,10 @@ Om te profiteren van [globale distributie](distribute-data-globally.md), clientt
 
 Deze lijst voorkeur is opgegeven bij het initialiseren van een verbinding met de SDK's. De SDK's accepteren een optionele parameter 'PreferredLocations' is een geordende lijst met Azure-regio's.
 
-* **Schrijft**: de SDK wordt automatisch verzonden naar alle schrijfbewerkingen naar de huidige regio schrijven.
-* **Leest**: alle leesbewerkingen wordt verzonden naar de eerste beschikbare regio in de lijst PreferredLocations. Als de aanvraag is mislukt, zal de client mislukken omlaag in de lijst voor de volgende regio, enzovoort. De SDK's wordt alleen poging tot lezen van de gebieden die zijn opgegeven in PreferredLocations. Dus bijvoorbeeld kunnen als de Cosmos-DB-account beschikbaar in drie gebieden is, maar de client alleen twee van de niet-schrijven regio's voor PreferredLocations bevat, klikt u vervolgens geen leesbewerkingen worden geleverd buiten de regio schrijven, zelfs in het geval van failover.
+* **Schrijft**: de SDK verzendt automatisch alle schrijfbewerkingen naar de huidige schrijven regio.
+* **Leest**: alle leesbewerkingen worden verzonden naar de eerste beschikbare regio in de lijst PreferredLocations. Als de aanvraag is mislukt, wordt de client mislukt omlaag in de lijst met de volgende regio, enzovoort. De SDK's zijn alleen van poging tot lezen van de gebieden die zijn opgegeven in PreferredLocations. Ja, bijvoorbeeld als de Cosmos-DB-account beschikbaar in drie gebieden is, maar de client alleen twee van geeft de niet-schrijven regio's voor PreferredLocations, wordt er geen leesbewerkingen worden behandeld buiten de regio schrijven, zelfs in het geval van failover.
 
-De toepassing kunt controleren of de huidige schrijven endpoint en lezen eindpunt gekozen door de SDK door het controleren van de twee eigenschappen, WriteEndpoint en ReadEndpoint beschikbaar in de SDK-versie 1.8 en hoger. Als de eigenschap PreferredLocations niet is ingesteld, worden alle aanvragen van de huidige schrijven regio worden geleverd.
+De toepassing kunt controleren of de huidige schrijven endpoint en lezen eindpunt gekozen door de SDK door het controleren van de twee eigenschappen, WriteEndpoint en ReadEndpoint beschikbaar in de SDK-versie 1.8 en hoger. Als de eigenschap PreferredLocations niet is ingesteld, worden alle verzoeken van de huidige schrijven regio afgehandeld.
 
 ### <a name="using-the-sdk"></a>Met behulp van de SDK
 
