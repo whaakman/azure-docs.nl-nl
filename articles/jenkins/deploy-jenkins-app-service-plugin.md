@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementeren in Azure App Service met behulp van de invoegtoepassing Jenkins 
 
 Als u wilt een Java-web-app implementeren in Azure, kunt u de Azure CLI in [Jenkins pijplijn](/azure/jenkins/execute-cli-jenkins-pipeline) of kunt u de [invoegtoepassing van Azure App Service Jenkins](https://plugins.jenkins.io/azure-app-service). De Jenkins versie 1.0 van de invoegtoepassing biedt ondersteuning voor continue implementatie met behulp van de functie Web Apps van Azure App Service via:
-* GIT en FTP.
+* GIT of FTP.
 * Docker voor Web-Apps op Linux.
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> * Jenkins voor het implementeren van Web-Apps via Git en FTP configureren.
+> * Configureer Jenkins voor het implementeren van Web-Apps via Git- of FTP.
 > * Configureer Jenkins Web-App voor Containers implementeren.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Maken en configureren van een exemplaar Jenkins
@@ -64,7 +64,7 @@ U moet een Azure-service-principal te implementeren in Azure.
 3. Selecteer om een Microsoft Azure service-principal toe **referenties toevoegen**. Geef waarden voor de **abonnements-ID**, **Client-ID**, **Clientgeheim**, en **OAuth 2.0-Tokeneindpunt** velden. Stel de **ID** veld **mySp**. We gebruiken deze ID in de volgende stappen in dit artikel.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Jenkins voor het implementeren van Web-Apps via Git en FTP configureren
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Jenkins voor het implementeren van Web-Apps door het uploaden van bestanden configureren
 
 Als u wilt uw project op Web-Apps implementeert, kunt u uw build-artefacten (bijvoorbeeld een WAR-bestand in Java) met behulp van Git- of FTP-uploaden.
 
@@ -104,7 +104,7 @@ Voordat u de taak in Jenkins hebt ingesteld, moet u een Azure App Service-abonne
 8. Als u implementeren in een sleuf dan productie wilt, kunt u ook instellen de **sleuf** naam.
 9. Sla het project en bouw het. Uw web-app wordt geïmplementeerd naar Azure wanneer de build voltooid is.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Web-Apps via FTP implementeren met behulp van Jenkins-Pipeline
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Web-Apps implementeren met het uploaden van bestanden met behulp van Jenkins pijplijn
 
 De invoegtoepassing van Azure App Service Jenkins is pijplijn gereed. U kunt verwijzen naar het volgende voorbeeld in de GitHub-opslagplaats.
 

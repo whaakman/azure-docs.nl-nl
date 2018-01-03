@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Begrijpen en direct methoden uit IoT Hub aanroepen
 IoT-Hub kunt u direct methoden op apparaten uit de cloud. Rechtstreekse methoden vertegenwoordigen een request-reply interactie met een apparaat dat vergelijkbaar is met een HTTP-aanroep in dat ze slagen of onmiddellijk (na een door de gebruiker opgegeven time mislukken). Deze aanpak is nuttig voor scenario's waarin het verloop van directe actie verschillend, afhankelijk van of het apparaat kunnen reageren, zoals het verzenden van een SMS wake-up naar een apparaat als een apparaat is offline (SMS wordt duurder dan een methodeaanroep van) is.
@@ -33,7 +33,7 @@ Methoden voor direct een reactie op aanvragen patroon volgen en zijn bedoeld voo
 Raadpleeg [Cloud-naar-apparaat communicatie richtlijnen] [ lnk-c2d-guidance] als u twijfelt tussen het gebruik van de eigenschappen van de gewenste directe methoden of cloud-naar-apparaat-berichten.
 
 ## <a name="method-lifecycle"></a>De levenscyclus van de methode
-Rechtstreekse methoden worden geïmplementeerd op het apparaat en nul of meer van de invoervermeldingen in de nettolading van de methode correct instantiëren vereisen. Aanroepen van een directe methode via een URI service gerichte (`{iot hub}/twins/{device id}/methods/`). Een apparaat ontvangt rechtstreekse methoden door een apparaat-specifieke MQTT onderwerp (`$iothub/methods/POST/{method name}/`). We kunnen rechtstreekse methoden in de toekomst ondersteuning op extra apparaten aan clientzijde-netwerkprotocollen.
+Rechtstreekse methoden worden geïmplementeerd op het apparaat en nul of meer van de invoervermeldingen in de nettolading van de methode correct instantiëren vereisen. Aanroepen van een directe methode via een URI service gerichte (`{iot hub}/twins/{device id}/methods/`). Een apparaat ontvangt rechtstreekse methoden door een apparaat-specifieke MQTT onderwerp (`$iothub/methods/POST/{method name}/`) of via AMQP koppelingen (`IoThub-methodname` en `IoThub-status` toepassingseigenschappen). 
 
 > [!NOTE]
 > Wanneer u een directe methode voor een apparaat aangeroepen, namen en waarden mogen alleen US-ASCII-afdrukbare alfanumerieke behalve aanwezig in de volgende set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -75,8 +75,7 @@ De back-end-app ontvangt een antwoord dat bestaat uit:
 * *Headers* die de ETag bevatten, aanvraag-ID, het type inhoud en de codering van inhoud
 * Een JSON *hoofdtekst* in de volgende indeling:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ De back-end-app ontvangt een antwoord dat bestaat uit:
    Beide `status` en `body` zijn geleverd door het apparaat en gebruikt om met de statuscode van het apparaat en/of beschrijving te reageren.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Verwerken van een directe methode op een apparaat
-### <a name="method-invocation"></a>De methodeaanroep
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>De methodeaanroep
 Directe methodeaanvragen in het onderwerp MQTT, ontvangen apparaten:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
 De instantie die het apparaat ontvangt is in de volgende indeling:
@@ -99,13 +99,30 @@ De instantie die het apparaat ontvangt is in de volgende indeling:
 
 Methodeaanvragen zijn QoS 0.
 
-### <a name="response"></a>Antwoord
+#### <a name="response"></a>Antwoord
 Het apparaat verzendt reacties naar `$iothub/methods/res/{status}/?$rid={request id}`, waarbij:
 
 * De `status` eigenschap is de status apparaat opgegeven van de methode kan worden uitgevoerd.
 * De `$rid` eigenschap is de aanvraag-ID van het aanroepen van de methode heeft ontvangen van IoT-Hub.
 
 De hoofdtekst kan is ingesteld door het apparaat en geen status.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>De methodeaanroep
+Het apparaat ontvangt directe methodeaanvragen door een koppeling ontvangen op adres`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+Het AMQP-bericht binnenkomt op de koppeling ontvangen dat de aanvraag methode vertegenwoordigt. Het volgende bevat:
+* De correlatie-ID-eigenschap, die een aanvraag-ID bevat die moet worden doorgegeven met de desbetreffende reactie van de methode terug
+* De eigenschap van een toepassing met de naam `IoThub-methodname`, waarin de namen van de methode wordt aangeroepen
+* De tekst van het AMQP-bericht met de nettolading van de methode als JSON
+
+#### <a name="response"></a>Antwoord
+Het apparaat maakt een verzendende koppeling om te retourneren van het antwoord van de methode op adres`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+De methode antwoord geretourneerd op de koppeling verzenden en de structuur van als volgt:
+* De correlatie-ID-eigenschap, die de aanvraag-ID doorgegeven in de methode aanvraagbericht bevat
+* De eigenschap van een toepassing met de naam `IoThub-status`, methode status waarin de gebruiker opgegeven
+* De hoofdtekst van het AMQP-bericht met de reactie van de methode als JSON
 
 ## <a name="additional-reference-material"></a>Aanvullende referentiemateriaal
 Er zijn andere onderwerpen waarnaar wordt verwezen in de IoT Hub developer guide:

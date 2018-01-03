@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: febb00cb6d1b28e1166562c53e2d05c3e7aba36b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 408e1680e7aee13663bb6511e65fd5685eb7d518
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -41,6 +41,163 @@ We zijn voortdurend verbeteren van de Azure Active Directory. Zodat u het produc
 
 Neem terugkeren naar deze pagina regelmatig werken wij deze op maandelijkse basis.
 
+
+## <a name="december-2017"></a>December 2017
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>Gebruiksvoorwaarden in het deelvenster toegang voor eindgebruikers
+
+**Type:** nieuwe functie  
+**Servicecategorie:** gebruiksvoorwaarden  
+**Mogelijkheid tot het product:** Governance/naleving
+ 
+Eindgebruikers hebben nu de mogelijkheid gaat u naar het toegangspaneel en weergeven van de gebruiksvoorwaarden die ze eerder hebt geaccepteerd.
+
+Gebruikers kunnen bekijken en ziet de gebruiksvoorwaarden die ze hebben geaccepteerd. U kunt dit doen met de volgende procedure:
+
+1. Navigeer en aanmelding bij de [MyApps portal](https://myapps.microsoft.com).
+
+2. In de rechterbovenhoek, klikt u op uw naam en selecteer **profiel** in de vervolgkeuzelijst. 
+
+3. Klik op uw profiel **gebruiksvoorwaarden controleren**. 
+
+4. Daar kunt u de gebruiksvoorwaarden die u hebt geaccepteerd bekijken. 
+
+Zie voor meer informatie [functie van Azure Active Directory gebruiksvoorwaarden (Preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>Nieuwe Azure AD-aanmeldingservaring aanpast
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Azure AD  
+**Mogelijkheid tot het product:** gebruikersverificatie
+ 
+Als onderdeel van het traject kunt convergeren dat ze de Azure AD en identiteitssystemen voor Microsoft-account, hebben we de gebruikersinterface op beide systemen opnieuw ontworpen zodat ze een consistent uiterlijk hebben. Daarnaast hebben we de aanmeldingspagina van Azure AD gepagineerd zodat we naam van de gebruiker eerst verzamelen, gevolgd door de referentie in een tweede scherm.
+
+Zie voor meer informatie [ervaring voor de nieuwe Azure AD-aanmelding is nu in Public Preview](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>Minder aanmeldingsprompts: een nieuwe 'aangemeld blijven' ervaring voor Azure AD-aanmelding
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Azure AD  
+**Mogelijkheid tot het product:** gebruikersverificatie
+ 
+We hebben vervangen de **aangemeld blijven** selectievakje op de aanmeldingspagina van Azure AD met een nieuwe prompt die wordt weergegeven nadat de gebruiker is geverifieerd. 
+
+Als een gebruiker reageert **Ja** deze prompt de service krijgen ze een permanente vernieuwingstoken. Dit is het gedrag hetzelfde als wanneer de gebruiker controleert de **aangemeld blijven** selectievakje in de oude ervaring. Voor federatieve tenants, worden deze prompt wordt weergegeven nadat de gebruiker is geverifieerd met de federatieve service.
+
+Zie voor meer informatie [minder aanmeldingsprompts: de nieuwe ervaring 'Aangemeld blijven' voor Azure AD is een Preview-versie](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>Configuratie om ervoor te zorgen de gebruiksvoorwaarden worden uitgebreid voor het accepteren van toevoegen.
+
+**Type:** nieuwe functie  
+**Servicecategorie:** gebruiksvoorwaarden  
+**Mogelijkheid tot het product:** Governance
+ 
+We hebben een optie voor beheerders hun eindgebruikers te vereisen voor het uitbreiden van de gebruiksvoorwaarden voorafgaand aan de voorwaarden accepteren nu toegevoegd.
+
+Selecteer een in- of uitschakelen voor gebruikers moeten de gebruiksvoorwaarden uitbreiden. Als deze is ingesteld op op, moeten eindgebruikers de gebruiksvoorwaarden voordat ze worden geaccepteerd weergeven.
+
+Zie voor meer informatie [functie van Azure Active Directory gebruiksvoorwaarden (Preview)](active-directory-tou.md)
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>Bereik activering voor in aanmerking komende roltoewijzingen
+
+**Type:** nieuwe functie  
+**Servicecategorie:** Privileged Identity Management  
+**Mogelijkheid tot het product:** Privileged Identity Management
+ 
+Bereik activering kunt u de roltoewijzingen in aanmerking komende Azure-resource met minder autonomie dan de oorspronkelijke toewijzing standaardinstellingen activeren. Bijvoorbeeld, u eigenaar van een abonnement toegewezen in uw tenant. U kunt met een bereik activering eigenaar activeren voor maximaal vijf bronnen die zich bevinden in het abonnement (denkt resourcegroepen, virtuele Machines, enzovoort...). De activering scoping mogelijk het risico te verkleinen van de uitvoering van ongewenste wijzigingen in kritieke Azure-resources.
+
+Zie voor meer informatie [wat is Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Nieuwe federatieve apps in app-galerie van Azure AD
+
+**Type:** nieuwe functie  
+**Servicecategorie:** zakelijke Apps  
+**Mogelijkheid tot het product:** 3e partijen integratie
+ 
+In December 2017 hebben we de volgende nieuwe apps in onze App-galerie met Federatie ondersteunen toegevoegd:
+
+|Naam|Van Integratietype|Beschrijving|
+|:-- |----------------|:----------|
+|Digitale EFI-winkel|SAML 2.0|[Afdrukken webtoepassing 2](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Azure AD gebruiken voor het beheren van toegang voor gebruikers en eenmalige aanmelding met Vodeclic inschakelen](https://go.microsoft.com/fwlink/?linkid=863522).  Een bestaand Vodeclic-account vereist.|
+|Accredible|SAML 2.0|[Maken, beheren en leveren van certificaten, badges en blockchain referenties](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Eenmalige aanmelding tot van FactSet FDSWeb toepassing](https://go.microsoft.com/fwlink/?linkid=863525)|
+|MobileIron Azure AD-integratie|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) missie is het inschakelen van moderne ondernemingen beveiligen en beheren van gegevens naar mobiele telefoon en in de cloud, doorloopt behoud eindgebruiker privacy en vertrouwen.|
+|AFBEELDING WERKT|SAML 2.0|Azure AD gebruikt gebruikerstoegang beheren, gebruikersaccounts inrichten en eenmalige aanmelding met inschakelen [INSTALLATIEKOPIE werkt](https://go.microsoft.com/fwlink/?linkid=863517). Een bestaande INSTALLATIEKOPIE WORKS-abonnement is vereist.|
+|SAML SSO voor Bitbucket door resolutie GmbH|SAML 2.0|[Eenmalige aanmelding Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) gemachtigden verificatie met Azure AD, gebruikers al aangemeld bij Azure AD direct toegang tot Bitbucket. Gebruikers kunnen worden gemaakt en tijdens het bijgewerkt met gegevens van SAML-kenmerken.|
+|SAML SSO voor Bamboe door resolutie GmbH|SAML 2.0|[Eenmalige aanmelding Bamboe](https://go.microsoft.com/fwlink/?linkid=863520) gemachtigden verificatie met Azure AD, gebruikers al aangemeld bij Azure AD direct toegang tot Bamboe.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) is uw moderne, volledig functionele sociale intranet-software die ondersteuning biedt voor uw werknemers en uw bedrijf.|
+|MOBI|SAML 2.0|[Centraliseren, begrijpen en beheren van uw hele apparaatecosysteem](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) is een moderne platform voor prestatiebeheer, Real-Time Feedback en doelstellingen. We zorgen dat werknemers hun eigen ontwikkeling station zodat u kunt meer strategische zijn.|
+|CybSafe|OpenID Connect & OAuth|CybSafe is een cyberbeveiliging GCHQ gecertificeerd awareness-platform. Maakt gebruik van geavanceerde technologie en gegevensanalyse te aantoonbaar het menselijke aspect van cyberbeveiliging beveiligings- en data protection risico te verminderen.|
+|WebHR|OpenID Connect & OAuth|Iedereen van favoriete alles in één sociale HR Software. Vertrouwd door meer dan 20.000 bedrijven in 197 landen|
+ |Zenegy Azure AD-integratie|OpenID Connect & OAuth|Met deze App kunt u Azure Active Directory-referenties van uw bedrijf aan te melden bij Zenegy.|
+|Adobe ervaring Manager|SAML 2.0|Adobe ervaring Manager (AEM) is een uitgebreide inhoudsbeheer platform-oplossing voor het bouwen van websites, mobiele apps en formulieren - zodat u eenvoudig uw marketing inhoud en activa beheren.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Werkstromen voor goedkeuring voor Azure AD-directory-functies
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** Privileged Identity Management  
+**Mogelijkheid tot het product:** Privileged Identity Management
+ 
+Werkstroom voor goedkeuring voor Azure AD-directory-functies is algemeen beschikbaar.
+
+Met de werkstroom voor goedkeuring bevoorrechte rol beheerders kunnen vereisen dat in aanmerking komende rolleden rolactivering aanvragen voordat de bevoorrechte rol kan worden gebruikt.
+Meerdere gebruikers en groepen mogelijk goed te keuren verantwoordelijkheden in aanmerking komende rolleden meldingen ontvangen wanneer de goedkeuring is voltooid en hun rol is actief
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>Pass through-verificatie - Skype voor bedrijven
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** Authenticaties (aanmeldingen)  
+**Mogelijkheid tot het product:** gebruikersverificatie
+
+
+Pass through-verificatie ondersteunt nu gebruikersaanmeldingen tot Skype voor bedrijven-clienttoepassingen die ondersteuning bieden voor moderne verificatie, met inbegrip van Online- en hybride topologieën. 
+
+Zie voor meer informatie [Skype voor bedrijven-topologieën ondersteund met moderne verificatie](https://technet.microsoft.com/library/mt803262.aspx).
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Updates voor Azure Active Directory Privileged Identity Management (PIM) voor Azure RBAC (preview)
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** PIM  
+**Mogelijkheid tot het product:** Privileged Identity Management
+ 
+Met onze openbare Preview vernieuwen van Azure Active Directory Privileged Identity Management (PIM) voor Azure RBAC, kunt u nu:
+
+Gebruik net genoeg beheer vereist goedkeuring resourcerollen activeren een toekomstige activering van een functie die moet worden goedgekeurd voor zowel AAD en Azure RBAC-rollen plannen
+
+ 
+Zie voor meer informatie [PIM voor Azure-resources (Preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+
+ 
+---
+ 
 ## <a name="november-2017"></a>November 2017
  
 ### <a name="retiring-acs"></a>Buiten gebruik stellen van ACS
@@ -178,7 +335,7 @@ De volgende voorwaarden en besturingselementen zijn nu beschikbaar voor gebruik 
 
 **Voorwaarde voor client-apps**
 
-- Mobiele apps en bureaublad-clients
+- Mobiele apps en bureaubladclients
 
 **Toegangsbeheer**
 
@@ -513,6 +670,6 @@ Een hotfixpakket (build 4.4.1642.0) is beschikbaar vanaf 25 September 2017 voor 
 - Is een cumulatieve update die wordt vervangen door alle MIM 2016 SP1 updates tot build 4.4.1459.0 voor Microsoft Identity Manager 2016. 
 - Moet u hebben **Microsoft Identity Manager 2016 4.4.1302.0 bouwen.** 
 
-Zie voor meer informatie [hotfixpakket (build 4.4.1642.0) is beschikbaar voor Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
+Zie voor meer informatie [hotfixpakket (build 4.4.1642.0) is beschikbaar voor Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/help/4021562). 
 
 ---

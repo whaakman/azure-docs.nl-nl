@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Veelgestelde vragen over Azure Relay
 
@@ -32,7 +32,7 @@ De [Azure Relay-service](relay-what-is-it.md) vereenvoudigt uw hybride toepassin
 Een [naamruimte](relay-create-namespace-portal.md) is een scoping container die u in uw toepassing Relay om resources te adresseren kunt gebruiken. U moet een naamruimte voor het gebruik van de Relay maken. Dit is een van de eerste stappen aan de slag.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Wat is er gebeurd met Service Bus Relay-service?
-De eerder genoemde Service Bus Relay-service wordt nu WCF Relay genoemd. U kunt blijven gewoon gebruik van deze service. De functie hybride verbindingen is een bijgewerkte versie van een service die wordt is getransplanteerd van Azure BizTalk Services. WCF Relay en hybride verbindingen nog steeds worden ondersteund.
+De eerder genoemde Service Bus Relay-service heet nu [WCF Relay](relay-wcf-dotnet-get-started.md). U kunt blijven gewoon gebruik van deze service. De functie hybride verbindingen is een bijgewerkte versie van een service die wordt is getransplanteerd van Azure BizTalk Services. WCF Relay en hybride verbindingen nog steeds worden ondersteund.
 
 ## <a name="pricing"></a>Prijzen
 Deze sectie worden enkele veelgestelde vragen over de prijzen structuur Relay. U kunt ook zien [Veelgestelde vragen over Azure-ondersteuning](http://go.microsoft.com/fwlink/?LinkID=185083) voor algemene Azure prijsinformatie. Zie voor meer informatie over prijzen voor Relay [Service Bus prijsinformatie][Pricing overview].

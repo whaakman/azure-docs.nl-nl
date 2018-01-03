@@ -11,130 +11,181 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD-verificatie gebruiken voor toegang tot de Azure Media Services-API met REST
 
-Het Azure Media Services-team heeft Azure Active Directory (Azure AD) authenticatie biedt ondersteuning voor Azure Media Services toegang uitgebracht. Deze ook plannen voor verificatie van Azure Access Control-service voor Media Services toegang afschaffen aangekondigd. Omdat elke Azure-abonnement en elke Media Services-account is gekoppeld aan een Azure AD-tenant, biedt ondersteuning voor Azure AD-verificatie veel voordelen voor beveiliging. Zie de volgende blogberichten en artikelen voor meer informatie over deze wijziging en de migratie (als u Media Services .NET SDK voor uw app gebruiken):
+Wanneer u Azure AD-verificatie met Azure Media Services gebruikt, kunt u verifiëren op twee manieren:
 
-- [Azure Media Services introduceert ondersteuning voor Azure AD en afschaffing van toegangsbeheer verificatie](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
-- [Toegang tot Azure Media Services-API met behulp van Azure AD-verificatie](media-services-use-aad-auth-to-access-ams-api.md)
-- [Azure AD-verificatie gebruiken om Azure Media Services-API toegang met behulp van Microsoft .NET](media-services-dotnet-get-started-with-aad.md)
-- [Aan de slag met Azure AD-verificatie met behulp van de Azure-portal](media-services-portal-get-started-with-aad.md)
+- **Gebruikersverificatie** verifieert van een persoon die de app wordt gebruikt om te communiceren met Azure Media Services-resources. De interactieve toepassing moet eerst de gebruiker om referenties gevraagd. Een voorbeeld is een management console-app die wordt gebruikt door gemachtigde gebruikers codering taken bewaken of live streamen. 
+- **Verificatie van de service-principal** verifieert u een service. Toepassingen die veel deze verificatiemethode gebruiken zijn apps die worden uitgevoerd daemon-services, middelste laag services of geplande taken, zoals web-apps, apps van de functie, logische apps, API's of microservices.
 
-Sommige klanten nodig voor het ontwikkelen van hun oplossingen Media Services onder de volgende beperkingen:
+    Deze zelfstudie leert u hoe u Azure AD **service-principal** verificatie voor toegang tot AMS API met REST. 
 
-*   Gebruik van een programmeertaal die geen Microsoft .NET of C# of de runtime-omgeving is niet Windows.
-*   Azure AD-bibliotheken, zoals Active Directory Authentication Libraries zijn niet beschikbaar voor de programmeertaal of kunnen niet worden gebruikt voor hun runtimeomgeving.
+    > [!NOTE]
+    > **Service-principal** wordt aanbevolen voor de meeste toepassingen verbinding met Azure Media Services. 
 
-Sommige klanten hebben toepassingen ontwikkeld met behulp van REST-API voor toegangsbeheer, verificatie en Azure Media Services-toegang. Voor deze klanten moet u een manier om alleen de REST-API voor Azure AD-verificatie en daaropvolgende toegang van Azure Media Services gebruiken. U moet niet vertrouwen op een van de Azure AD-bibliotheken of op de Media Services .NET SDK. In dit artikel we wordt beschreven een oplossing en voorbeeldcode in dit scenario. Omdat de code alle REST-API-aanroepen, met geen afhankelijkheid van een Azure AD of Azure Media Services-bibliotheek, de code eenvoudig naar andere programmeertalen kan worden omgezet.
+In deze zelfstudie leert u het volgende:
+
+> [!div class="checklist"]
+> * De verificatie-informatie ophalen van de Azure-portal
+> * Het toegangstoken met Postman ophalen
+> * Test de **activa** API met behulp van het toegangstoken
+
 
 > [!IMPORTANT]
-> Media Services ondersteunt momenteel, het model van Azure Access Control-services-verificatie. Access Control-verificatie wordt echter 1 juni 2018 afgeschaft. Het is raadzaam om te migreren naar het model van Azure AD authentication zo snel mogelijk.
+> Media Services ondersteunt momenteel, het model van Azure Access Control-services-verificatie. Access Control-verificatie wordt echter 1 juni 2018 afgeschaft. We raden u aan om zo snel mogelijk naar het Azure Active Directory-verificatiemodel te migreren.
 
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="design"></a>Ontwerpen
+- Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
+- [Een Azure Media Services-account maken met de Azure-portal](media-services-portal-create-account.md).
+- Controleer de [toegang tot Azure Media Services-API met overzicht van de AAD-authenticatie](media-services-use-aad-auth-to-access-ams-api.md) artikel.
+- Installeer de [Postman](https://www.getpostman.com/) REST-client wilt uitvoeren van de REST-API's in dit artikel wordt weergegeven. 
 
-In dit artikel gebruiken we het ontwerp van de volgende verificatie en autorisatie:
+    In deze zelfstudie zijn we durende **Postman** maar een REST-hulpmiddel zou geschikt zijn. Andere alternatieven zijn: **Visual Studio Code** met de REST-invoegtoepassing of **Telerik Fiddler**. 
 
-*  Autorisatie protocol: OAuth 2.0. OAuth 2.0 is een Webstandaard die betrekking heeft op zowel de verificatie en autorisatie. Dit wordt ondersteund door Google, Microsoft, Facebook en PayPal-nummer. Het is oktober 2012 bekrachtigd. Microsoft ondersteunt goed OAuth 2.0 en OpenID Connect. Beide van deze standaarden worden ondersteund in meerdere services en clientbibliotheken, waaronder Azure Active Directory, Open Web Interface voor .NET (OWIN)-Katana en Azure AD-bibliotheken.
-*  Type verlenen: clientreferenties type verlenen. Clientreferenties is een van de vier grant-typen in OAuth 2.0. Dit wordt vaak gebruikt voor toegang tot Azure AD Microsoft Graph API.
-*  Verificatiemodus: Service-principal. De verificatiemodus is gebruiker of interactieve verificatie.
+## <a name="get-the-authentication-information-from-the-azure-portal"></a>De verificatie-informatie ophalen van de Azure-portal
 
-Een totaal van vier toepassingen of services, betrokken zijn bij de Azure AD-verificatie en autorisatie stroom voor het gebruik van Media Services. De toepassingen en -services en de stroom worden in de volgende tabel beschreven:
+### <a name="overview"></a>Overzicht
 
-|Toepassingstype |Toepassing |Stroom|
-|---|---|---|
-|Client | Klant-app of oplossing | Deze app (daadwerkelijk, de proxy) is geregistreerd in de Azure AD-tenant waarin de Azure-abonnement en het serviceaccount van de media bevinden. De service-principal van de geregistreerde app wordt vervolgens met de eigenaar of bijdrager rol in de Access Control (IAM) van het serviceaccount van de media verleend. De service-principal wordt vertegenwoordigd door het app-ID en client clientgeheim. |
-|ID-Provider (IDP) | Azure AD als IDP | De geregistreerde app service-principal (client-ID en clientgeheim) is geverifieerd door Azure AD als de IDP. Deze verificatie wordt uitgevoerd, intern en impliciet. De client is geverifieerd als in clientreferentiestroom, in plaats van de gebruiker. |
-|Secure Token Service (STS) / OAuth-server | Azure AD als STS | Na verificatie door de IDP (of de OAuth-Server in termen van OAuth 2.0), een toegangstoken of JSON Web Token (JWT) is uitgegeven door Azure AD als STS/OAuth-Server voor toegang tot de bron voor de middelste laag: in ons geval het Media Services REST-API-eindpunt. |
-|Resource | Media Services REST-API | Elke Media Services REST API-aanroep is geautoriseerd door een toegangstoken dat is uitgegeven door Azure AD als STS of de OAuth-server. |
+Voor toegang tot API voor Media Services, moet u de volgende gegevenspunten verzamelen.
 
-Als u de voorbeeldcode uitvoeren en vastleggen van een JWT of een toegangstoken, heeft de JWT de volgende kenmerken:
+|Instelling|Voorbeeld|Beschrijving|
+|---|-------|-----|
+|Azure Active Directory-tenantdomein|Microsoft.onmicrosoft.com|Azure AD als een Secure Token Service (STS)-eindpunt is gemaakt met de volgende notatie: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD geeft een JWT voor toegang tot resources (een toegangstoken).|
+|REST API-eindpunt|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|Dit is het eindpunt met welke alle REST API voor Media Services in uw toepassing worden aangeroepen.|
+|Client-ID (toepassings-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD (client) toepassings-ID. De client-ID is vereist voor het ophalen van het toegangstoken. |
+|Clientgeheim|mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD-toepassing-sleutels (clientgeheim). Het clientgeheim is vereist voor het ophalen van het toegangstoken.|
 
-    aud: "https://rest.media.azure.net",
+### <a name="get-aad-auth-info-from-the-azure-portal"></a>AAD auth info ophalen uit de Azure-portal
 
-    iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+Als u de informatie, de volgende stappen uit:
 
-    iat: 1497146280,
+1. Meld u aan bij [Azure Portal](http://portal.azure.com).
+2. Navigeer naar uw AMS-exemplaar.
+3. Selecteer **API-toegang**.
+4. Klik op **verbinding maken met Azure Media Services-API met service-principal**.
 
-    nbf: 1497146280,
-    exp: 1497150180,
+    ![API-toegang](./media/connect-with-rest/connect-with-rest01.png)
 
-    aio: "Y2ZgYDjuy7SptPzO/muf+uRu1B+ZDQA=",
+5. Selecteer een bestaande **Azure AD-toepassing** of maak een nieuwe (Zie hieronder).
 
-    appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6",
+    > [!NOTE]
+    > Azure Media REST voor de aanvraag mislukt, de aanvragende gebruiker moet hebben een **Inzender** of **eigenaar** rol voor deze probeert te krijgen tot het Media Services-account. Als u krijgt een uitzondering met de tekst "de externe server heeft een fout geretourneerd: niet geautoriseerd (401), ' Zie [toegangsbeheer](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
-    appidacr: "1",
+    Als u wilt maken van een nieuw AD-app, als volgt te werk:
+    
+    1. Druk op **maken van nieuwe**.
+    2. Voer een naam.
+    3. Druk op **nieuw** opnieuw.
+    4. Druk op **opslaan**.
 
-    idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+    ![API-toegang](./media/connect-with-rest/new-app.png)
 
-    oid: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+    De nieuwe app wordt weergegeven op de pagina.
 
-    sub: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+6. Ophalen van de **Client-ID** (toepassings-ID).
+    
+    1. Selecteer de toepassing.
+    2. Ophalen van de **Client-ID** vanuit het venster aan de rechterkant. 
 
-    tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ![API-toegang](./media/connect-with-rest/existing-client-id.png).
 
-Hier volgen de toewijzingen tussen de kenmerken in de JWT en de vier toepassingen of services in de voorgaande tabel:
+7.  Ophalen van de toepassing **sleutel** (clientgeheim). 
 
-|Toepassingstype |Toepassing |JWT-kenmerk |
-|---|---|---|
-|Client |Klant-app of oplossing |toepassings-id: '02ed1e8e-af8b-477e-af3d-7e7219a99ac6'. De client-ID van een toepassing die u bij Azure AD in de volgende sectie registreren wilt. |
-|ID-Provider (IDP) | Azure AD als IDP |IDP: 'https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/' de GUID is de tenant-ID van Microsoft (microsoft.onmicrosoft.com). Elke tenant heeft zijn eigen, unieke ID. |
-|Secure Token Service (STS) / OAuth-server |Azure AD als STS | iss: 'https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/'. De GUID is de tenant-ID van Microsoft (microsoft.onmicrosoft.com). |
-|Resource | Media Services REST-API |AUD: 'https://rest.media.azure.net'. De ontvanger of de doelgroep van het toegangstoken. |
+    1. Klik op de **beheren toepassing** knop (u ziet dat de gegevens van de Client-ID onder de ligt **toepassings-ID**). 
+    2. Druk op **sleutels**.
+    
+        ![API-toegang](./media/connect-with-rest/manage-app.png)
+    3. Genereren van de app-sleutel (clientgeheim) door in te vullen **beschrijving** en **VERLOOPT** en drukt u op **opslaan**.
+    
+        Eenmaal de **opslaan** knop wordt ingedrukt, waarde van de sleutel weergegeven. Kopieer de waarde van de sleutel voordat u de blade verlaat.
 
-## <a name="steps-for-setup"></a>Stappen voor installatie
+    ![API-toegang](./media/connect-with-rest/connect-with-rest03.png)
 
-Om te registreren en een Azure Active Directory (AAD)-toepassing instellen en het ophalen van sleutels voor het aanroepen van de REST-API van Azure Media Services-eindpunt, Raadpleeg het artikel [aan de slag met Azure AD-verificatie met behulp van de Azure-portal](media-services-portal-get-started-with-aad.md)
+U kunt waarden voor parameters van AD-verbinding toevoegen aan het bestand web.config of app.config voor later gebruik in uw code.
 
+> [!IMPORTANT]
+> De **clientsleutel** is een belangrijk geheim en moeten worden goed beveiligd in een sleutelkluis of versleuteld in productie.
 
-## <a name="info-to-collect"></a>Gegevens verzamelen
+## <a name="get-the-access-token-using-postman"></a>Het toegangstoken met Postman ophalen
 
-Als u wilt voorbereiden REST coderen, verzamelt de volgende gegevenspunten in de code op te nemen:
+Deze sectie wordt beschreven hoe u **Postman** uitvoeren van een REST-API die als resultaat een JWT Bearer-Token (toegangstoken geeft). Media Services REST API aanroepen, moet u de koptekst 'Verificatie' toevoegen aan de aanroepen en voeg de waarde van ' Bearer *your_access_token*' voor elke aanroep (zoals weergegeven in de volgende sectie van deze zelfstudie). 
 
-*   Azure AD als een STS-eindpunt: https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token. Van dit eindpunt, wordt een toegangstoken JWT aangevraagd. Naast het fungeren als een IDP, fungeert Azure AD ook als een STS. Azure AD geeft een JWT voor toegang tot bedrijfsbronnen (een toegangstoken). Een JWT-token heeft verschillende claims.
-*   Azure Media Services REST-API als resource of doelgroep: https://rest.media.azure.net.
-*   Client-ID: Zie stap 2 in [stappen voor het installatieprogramma](#steps-for-setup).
-*   Clientgeheim: Zie stap 2 in [stappen voor het installatieprogramma](#steps-for-setup).
-*   Uw Media Services account REST-API-eindpunt in de volgende indeling:
+1. Open **Postman**.
+2. Selecteer **POST**.
+3. Voer de URL in met de tenantnaam van uw met de volgende indeling: naam van de tenant moet eindigen met **. onmicrosoft.com** en de URL moet eindigen met **oauth2/tokens**: 
 
-    https://[media_service_account_name].restv2. [data_center].media.azure.net/API 
+    https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
-    Dit is het eindpunt met welke alle REST API voor Media Services in uw toepassing worden aangeroepen. Bijvoorbeeld: https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+4. Selecteer de **Headers** tabblad.
+5. Voer de **Headers** gegevens door middel van het gegevensraster ' Sleutel/waarde'. 
 
-Vervolgens kunt u deze vijf parameters plaatsen in het bestand web.config of app.config te gebruiken in uw code.
+    ![Gegevensraster](./media/connect-with-rest/headers-data-grid.png)
 
-## <a name="sample-code"></a>Voorbeeldcode
+    U kunt ook op **bulksgewijs bewerken** koppelen aan de rechterkant van het venster Postman en plak de volgende code.
 
-U vindt de voorbeeldcode in [Azure AD-verificatie voor Azure Media Services toegang: beide via REST-API](https://github.com/willzhan/WAMSRESTSoln).
+        Content-Type:application/x-www-form-urlencoded
+        Keep-Alive:true
 
-De voorbeeldcode bestaat uit twee delen:
+6. Druk op de **hoofdtekst** tabblad.
+7. Geef de hoofdtekst van gegevens met behulp van het gegevensraster ' Sleutel/waarde' (vervangen de client-ID en geheime waarden). 
 
-*   Een bibliotheek-project voor het DLL-bestand dat de REST-API-code voor Azure AD-verificatie en autorisatie. Er wordt ook een methode voor het maken van de REST API-aanroepen met het Media Services REST-API-eindpunt met het toegangstoken.
-*   Een console testclient, die Azure AD authentication initieert en verschillende Media Services REST-API-aanroepen.
+    ![Gegevensraster](./media/connect-with-rest/data-grid.png)
 
-Het voorbeeldproject heeft drie functies:
+    U kunt ook op **bulksgewijs bewerken** aan de rechterkant van het Postman venster en plak de volgende hoofdtekst (vervangen de client-ID en geheime waarden):
 
-*   Azure AD-verificaties via de clientreferenties verlenen door met alleen de REST-API.
-*   Azure Media Services-toegang met alleen de REST-API.
-*   Azure Storage-toegang met behulp van alleen de REST-API (zoals gebruikt voor het maken van een Media Services-account met behulp van REST-API).
+        grant_type:client_credentials
+        client_id:{Your Client ID that you got from your AAD Application}
+        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        resource:https://rest.media.azure.net
 
+8. Druk op **Verzenden**.
 
-## <a name="where-is-the-refresh-token"></a>Waar bevindt zich het vernieuwingstoken?
+    ![Token ophalen](./media/connect-with-rest/connect-with-rest04.png)
 
-Sommige lezers kunnen vragen: waar zich het vernieuwingstoken? Waarom niet hier een vernieuwingstoken gebruiken?
+Het geretourneerde antwoord bevat de **toegangstoken** dat u gebruiken wilt voor toegang tot alle AMS APIs.
 
-Het doel van een vernieuwingstoken is niet aan het vernieuwen van een toegangstoken. Het is ontworpen voor de eindgebruiker authentication overslaan en nog een geldige toegangstoken wanneer er een eerdere token is verlopen. Een betere naam voor een vernieuwingstoken mogelijk iets zoals 'opnieuw-sign-in-gebruikerstoken overslaan'.
+## <a name="test-the-assets-api-using-the-access-token"></a>Test de **activa** API met behulp van het toegangstoken
 
-Als u het OAuth 2.0 autorisatie verlenen stroom (gebruikersnaam en wachtwoord, fungeert namens een gebruiker) gebruikt, wordt er een vernieuwingstoken helpt u bij een vernieuwde toegangstoken ophalen zonder tussenkomst van de gebruiker vraagt. Echter, voor OAuth 2.0 clientreferenties verlenen stroom die in dit artikel wordt beschreven, de client fungeert voor eigen rekening. U tussenkomst van de gebruiker helemaal hoeft niet en de autorisatie-server niet hoeft te bieden u een vernieuwingstoken. Als u fouten opsporen in de **GetUrlEncodedJWT** methode, merkt u dat de reactie van het eindpunt van het token een toegangstoken, maar er is geen vernieuwingstoken heeft.
+Deze sectie wordt beschreven hoe u toegang tot de **activa** API kunnen doen met **Postman**.
+
+1. Open **Postman**.
+2. Selecteer **GET**.
+3. Plak het REST-API-eindpunt (bijvoorbeeld https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+4. Selecteer de **autorisatie** tabblad. 
+5. Selecteer **Bearer-Token**.
+6. Plak het token dat is gemaakt in de vorige sectie.
+
+    ![Token ophalen](./media/connect-with-rest/connect-with-rest05.png)
+
+    > [!NOTE]
+    > De UX Postman kan afwijken tussen een Mac en een PC. Als de Mac-versie heeft geen de optie 'Bearer-Token' in de **verificatie** sectie vervolgkeuzelijst toe te voegen de **autorisatie** koptekst handmatig op de Mac-client.
+
+   ![Auth-header](./media/connect-with-rest/auth-header.png)
+
+7. Selecteer **Headers**.
+5. Klik op **bulksgewijs bewerken** koppelen aan de rechterkant van het venster Postman.
+6. Plak de volgende headers:
+
+        x-ms-version:2.15
+        Accept:application/json
+        Content-Type:application/json
+        DataServiceVersion:3.0
+        MaxDataServiceVersion:3.0
+
+7. Druk op **Verzenden**.
+
+Het geretourneerde antwoord bevat de assets die in uw account zijn.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met [bestanden uploaden naar uw account](media-services-dotnet-upload-files.md).
+* Probeer deze voorbeeldcode in [Azure AD-verificatie voor Azure Media Services toegang: beide via REST-API](https://github.com/willzhan/WAMSRESTSoln)
+* [Uploaden van bestanden met .NET](media-services-dotnet-upload-files.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configureren van uw Azure-project in Visual Studio te gebruiken serviceconfiguraties met meerdere
 
@@ -77,7 +77,7 @@ Selecteer voor nieuwe of bestaande verbindingsreeksen **...** * aan de rechterka
 
 1. Onder **verbinding maken via**, kies de **uw abonnement** optie voor het selecteren van een opslagaccount van een abonnement. Visual Studio wordt vervolgens opgehaald voor de opslagaccountreferenties automatisch uit de `.publishsettings` bestand.
 1. Selecteren **referenties handmatig worden ingevoerd** kunt u de accountnaam opgeven en sleutel rechtstreeks met behulp van informatie van de Azure-portal. De accountsleutel wilt kopiëren: een. Navigeer naar het opslagaccount in de Azure portal en selecteert u een **sleutels beheren**.
-    2. Op de **sleutels toegang beheren** pagina, selecteert u de tekst van de primaire toegangssleutel en druk op Ctrl + C om te kopiëren.
+    2. Om te kopiëren van de accountsleutel, gaat u naar het storage-account op de Azure portal, selecteer **instellingen > toegangssleutels**, gebruikt u de knop kopiëren aan de primaire toegangssleutel naar het Klembord kopiëren.
 1. Selecteer een van de opties voor de verbinding. **Geef aangepaste eindpunten** vraagt u om op te geven van specifieke URL's voor blobs, tabellen en wachtrijen. Aangepaste eindpunten kunnen u gebruiken [aangepaste domeinen](storage/blobs/storage-custom-domain-name.md) en toegangsbeheer duidelijker. Zie [Azure Storage-verbindingsreeksen configureren](./storage/common/storage-configure-connection-string.md).
 1. Selecteer **OK**, klikt u vervolgens **bestand > Opslaan** configuratie bijwerken met de nieuwe verbindingsreeks.
 

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/02/2017
+ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-Database voor PostgreSQL-Servers
 Dit artikel vindt overwegingen en richtlijnen voor het werken met Azure-Database voor PostgreSQL-servers.
@@ -36,15 +36,20 @@ Een Azure-Database voor PostgreSQL-server:
 U kunt een of meerdere databases maken binnen een Azure-Database voor PostgreSQL-server. U kunt kiezen voor het maken van één database per server om gebruik te maken van alle resources of voor meerdere databases om de resources te delen. De prijzen is gestructureerde per server, op basis van de configuratie van prijscategorie, compute-eenheden, en opslag (GB). Zie voor meer informatie [Prijscategorieën](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Hoe ik verbinding maken en verifiëren met een Azure-Database voor PostgreSQL-server?
-De volgende elementen zorgt het veilige toegang tot uw database.
+De volgende elementen zorgt het veilige toegang tot uw database:
 
-| :-- | :-- | | **Verificatie en autorisatie** | Azure-Database voor PostgreSQL-server ondersteunt systeemeigen PostgreSQL-verificatie. U kunt verbinding maken en verifiëren bij de server met de server admin aanmelden. | | **Protocol** | De service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door PostgreSQL. | | **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. | | **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw server en de databases, totdat u opgeven welke computers over de machtiging beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
+|||
+|:--|:--|
+| **Verificatie en autorisatie** | Azure-Database voor PostgreSQL-server ondersteunt systeemeigen PostgreSQL-verificatie. U kunt verbinding maken en verifiëren bij de server met de server admin aanmelden. |
+| **Protocol** | De service ondersteunt een protocol op basis van een bericht dat wordt gebruikt door PostgreSQL. |
+| **TCP/IP** | Het protocol wordt ondersteund via TCP/IP en via Unix-domain-sockets. |
+| **Firewall** | Ter bescherming van uw gegevens, een firewallregel voorkomt u dat alle toegang tot uw server en de databases, totdat u opgeven welke computers over de machtiging beschikken. Zie [Azure Database voor firewallregels voor PostgreSQL Server](concepts-firewall-rules.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Hoe kan ik een server beheren?
 U kunt Azure-Database voor PostgreSQL-servers beheren met behulp van de [Azure-portal](https://portal.azure.com) of de [Azure CLI](/cli/azure/postgres).
 
-## <a name="server-parameters"></a>Parameters van de server
-De parameters van de server PostgreSQL bepalen de configuratie van de server. In Azure-Database voor PostgreSQL kan de lijst met parameters worden bekeken en bewerkt via de Azure-portal of Azure CLI. 
+## <a name="server-parameters"></a>Serverparameters
+De parameters van de server PostgreSQL bepalen de configuratie van de server. In de Azure-Database voor PostgreSQL, de lijst met parameters kan worden bekeken en bewerkt met behulp van de Azure-portal of Azure CLI. 
 
 Als een beheerde service voor Postgres configureerbare parameters in Azure-Database voor PostgreSQL zijn een subset van de parameters in een lokaal exemplaar van de Postgres (Zie voor meer informatie over de Postgres parameters voor de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Uw Azure-Database voor PostgreSQL-server is ingeschakeld met de standaardwaarden voor elke parameter op maken. Parameters waarvoor een server opnieuw opstarten of beheerder toegang wijzigingen van kracht te laten door de gebruiker kan niet worden geconfigureerd.
 

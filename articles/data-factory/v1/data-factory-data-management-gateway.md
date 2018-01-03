@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -67,7 +67,7 @@ Hier is de gegevensstroom op hoog niveau voor en overzicht van stappen voor het 
 * Uw gegevensbron behandelen als een lokale gegevensbron (die zich achter een firewall) zelfs als u werkt met **ExpressRoute**. De gateway gebruiken om verbinding tussen de service en de gegevensbron te maken.
 * U moet **gebruik van de gateway** zelfs als het gegevensarchief is in de cloud op een **Azure IaaS VM**.
 
-## <a name="installation"></a>Installeren
+## <a name="installation"></a>Installatie
 ### <a name="prerequisites"></a>Vereisten
 * De ondersteunde **besturingssysteem** versies zijn Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Installatie van data management gateway op een domeincontroller is momenteel niet ondersteund.
 * .NET framework 4.5.1 of hoger is vereist. Als u gateway op een computer met Windows 7 installeert, installeert u .NET Framework 4.5 of hoger. Zie [.NET Framework-systeemvereisten](https://msdn.microsoft.com/library/8z6watww.aspx) voor meer informatie.
@@ -306,7 +306,7 @@ Als u de gateway installeren, kunt u Data Management Gateway Configuration Manag
 1. In de **Search** venster, type **Data Management Gateway** voor toegang tot dit hulpprogramma.
 2. Uitvoeren van het uitvoerbare bestand **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-### <a name="home-page"></a>startpagina
+### <a name="home-page"></a>Startpagina
 De startpagina kunt u de volgende acties uitvoeren:
 
 * De status van de gateway (verbonden met de cloudservice enz.).
@@ -322,6 +322,9 @@ De pagina instellingen kunt u de volgende acties uitvoeren:
 * Wijziging **HTTPS-poort** voor het eindpunt. De gateway opent een poort voor het instellen van referenties van de gegevensbron.
 * **Status** van het eindpunt
 * Weergave **SSL-certificaat** referenties voor gegevensbronnen in te stellen voor SSL-communicatie tussen de portal en de gateway wordt gebruikt.  
+
+### <a name="remote-access-from-intranet"></a>Externe toegang via intranet  
+Deze functionaliteit wordt in de toekomst worden ingeschakeld. In de toekomstige updates (v3.4 of hoger) laten we u inschakelen / uitschakelen van een externe connectiviteit die vandaag met behulp van poort 8050 gebeurt (Zie hierboven) tijdens het gebruik van PowerShell of Referentiebeheer-toepassing voor het versleutelen van referenties. 
 
 ### <a name="diagnostics-page"></a>Pagina Diagnostische gegevens
 De diagnostische pagina kunt u de volgende acties uitvoeren:
@@ -373,10 +376,10 @@ De volgende tabel bevat de mogelijke statussen van een **gateway-knooppunt**:
 Status  | Opmerkingen/scenario 's
 :------- | :------------------
 Online | Knooppunt verbonden met Data Factory-service.
-Off line | Knooppunt is offline.
-Een upgrade | Het knooppunt wordt automatisch bijgewerkt.
+Offline | Knooppunt is offline.
+Upgraden | Het knooppunt wordt automatisch bijgewerkt.
 Beperkt | Vanwege een verbindingsprobleem. Kan worden veroorzaakt door HTTP-poort 8050 probleem, service bus-verbindingsprobleem of synchronisatieprobleem in de referentie. 
-Inactieve | Er is een knooppunt in een configuratie van de configuratie van andere knooppunten van de meeste andere.<br/><br/> Een knooppunt mag inactief zijn als er geen verbinding met andere knooppunten maken. 
+Inactief | Er is een knooppunt in een configuratie van de configuratie van andere knooppunten van de meeste andere.<br/><br/> Een knooppunt mag inactief zijn als er geen verbinding met andere knooppunten maken. 
 
 
 De volgende tabel bevat de mogelijke statussen van een **logische gateway**. De status van de gateway is afhankelijk van de status van de gateway-knooppunten. 
@@ -385,7 +388,7 @@ Status | Opmerkingen
 :----- | :-------
 Moet worden geregistreerd | Er is geen knooppunt is nog aan deze logische gateway geregistreerd
 Online | Gateway-knooppunten zijn online.
-Off line | Er is geen knooppunt online status.
+Offline | Er is geen knooppunt online status.
 Beperkt | Niet alle knooppunten in deze gateway zijn in orde. Deze status is een waarschuwing dat een bepaald knooppunt niet beschikbaar. <br/><br/>Kan worden veroorzaakt door referentie synchronisatieprobleem op dispatcher/werkrolknooppunt. 
 
 ## <a name="scale-up-gateway"></a>Gateway opschalen

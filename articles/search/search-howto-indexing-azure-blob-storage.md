@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob Storage met Azure Search indexeren
 Dit artikel laat zien hoe u met Azure Search index documenten (zoals PDF-bestanden, Microsoft Office-documenten en enkele andere algemene indelingen) opgeslagen in Azure Blob storage. Eerst wordt de basisprincipes van instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens biedt een meer gedetailleerde uitleg van problemen en scenario's bent u waarschijnlijk tegenkomen.
@@ -225,28 +225,6 @@ U kunt BLOB's met specifieke bestandsnaamextensies uitsluiten van het indexeren 
 
 Als beide `indexedFileNameExtensions` en `excludedFileNameExtensions` parameters aanwezig zijn, Azure Search eerst kijkt `indexedFileNameExtensions`, klikt u vervolgens op `excludedFileNameExtensions`. Dit betekent dat als dezelfde bestandsextensie in beide lijsten aanwezig is, wordt uitgesloten van het indexeren.
 
-### <a name="dealing-with-unsupported-content-types"></a>Omgaan met niet-ondersteunde typen inhoud
-
-Standaard de blob-indexeerfunctie stopt zodra er een blob met een niet-ondersteunde inhoudstype (bijvoorbeeld een afbeelding) aangetroffen. U kunt uiteraard de `excludedFileNameExtensions` -parameter voor het overslaan van bepaalde typen inhoud. Echter mogelijk moet u index blobs zonder alle mogelijke inhoudstypen van tevoren weten. Om door te gaan wanneer een niet-ondersteund type inhoud is opgetreden indexeren ingesteld de `failOnUnsupportedContentType` configuratieparameter naar `false`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>Fouten bij het parseren worden genegeerd
-
-Azure Search document extractie logica is niet perfect en soms mislukt, zoals documenten met een ondersteund type inhoud parseren. DOCX of. PDF-BESTAND. Als u niet wilt onderbreken indexeren in dergelijke gevallen, stelt u de `maxFailedItems` en `maxFailedItemsPerBatch` configuratieparameters voor sommige redelijke waarden. Bijvoorbeeld:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Bepalen welke onderdelen van de blob zijn geïndexeerd.
 
@@ -271,10 +249,35 @@ Bijvoorbeeld alleen de metagegevens van de opslag indexeert, gebruiken:
 
 De hierboven beschreven configuratieparameters van toepassing op alle blobs. Soms moet u mogelijk wilt bepalen hoe *afzonderlijke blobs* zijn geïndexeerd. U kunt dit doen door de volgende eigenschappen van de blob-metagegevens en -waarden toe te voegen:
 
-| De naam van eigenschap | Waarde van eigenschap | Uitleg |
+| Naam van eigenschap | Waarde van eigenschap | Uitleg |
 | --- | --- | --- |
 | AzureSearch_Skip |'true' |Hiermee geeft u de indexeerfunctie blob volledig kunt overslaan van de blob. Uitpakken van metagegevens noch inhoud wordt uitgevoerd. Dit is handig wanneer een bepaalde blob herhaaldelijk mislukt en het indexing-proces wordt onderbroken. |
 | AzureSearch_SkipContent |'true' |Dit is het equivalent van `"dataToExtract" : "allMetadata"` instelling beschreven [hierboven](#PartsOfBlobToIndex) binnen het bereik van een bepaalde blob. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Omgaan met fouten
+
+Standaard de blob-indexeerfunctie stopt zodra er een blob met een niet-ondersteunde inhoudstype (bijvoorbeeld een afbeelding) aangetroffen. U kunt uiteraard de `excludedFileNameExtensions` -parameter voor het overslaan van bepaalde typen inhoud. Echter mogelijk moet u index blobs zonder alle mogelijke inhoudstypen van tevoren weten. Om door te gaan wanneer een niet-ondersteund type inhoud is opgetreden indexeren ingesteld de `failOnUnsupportedContentType` configuratieparameter naar `false`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Voor sommige blobs Azure Search kan niet bepalen van het type inhoud is of kan niet worden verwerkt een document van anders ondersteund type inhoud. Als u wilt dat deze fout-modus, stel de `failOnUnprocessableDocument` configuratieparameter op false:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+U kunt ook doorwerken indexeren als er fouten optreden op elk gewenst moment wordt verwerkt, tijdens het parseren van blobs of tijdens het toevoegen van documenten naar een index. Als u wilt een bepaald aantal fouten negeren, stelt de `maxFailedItems` en `maxFailedItemsPerBatch` configuratieparameters voor de gewenste waarden. Bijvoorbeeld:
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Detectie van incrementele indexeren en verwijderen
 Bij het instellen van een blob-indexeerfunctie worden uitgevoerd op een planning, het opnieuw indexeren van alleen de gewijzigde blobs, zoals wordt bepaald door de blob `LastModified` timestamp.

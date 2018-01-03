@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ded33a94205a67c7a9bcd37a8f0c7747f1d709fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory integreren met toepassingen aan de slag
 ## <a name="overview"></a>Overzicht
@@ -88,7 +88,7 @@ De volgende artikelen beschrijven manieren kunt u toegang tot toepassingen beher
 ## <a name="integrating-custom-applications"></a>Integratie van aangepaste toepassingen
 Als u een nieuwe toepassing en wilt ontwikkelaars helpen bij het gebruik van de mogelijkheden van Azure AD, Zie schrijft [Guiding ontwikkelaars](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Als u wilt uw aangepaste toepassing toevoegen aan de galerie van Azure-toepassing, Zie ['Bring your own app' met Azure AD Self-Service SAML-configuratie](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Als u wilt uw aangepaste toepassing toevoegen aan de galerie van Azure-toepassing, Zie ['Bring your own app' met Azure AD Self-Service SAML-configuratie](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
 ## <a name="see-also"></a>Zie ook
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)

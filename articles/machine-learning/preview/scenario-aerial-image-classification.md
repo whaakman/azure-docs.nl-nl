@@ -3,16 +3,18 @@ title: Classificatie van de installatiekopie van de lucht | Microsoft Docs
 description: Bevat instructies voor het werkelijk scenario van de installatiekopie van de lucht classificatie
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>De installatiekopie van de lucht classificatie
 
@@ -44,7 +46,7 @@ In dit voorbeeld bevinden image-gegevens en pretrained modellen zich op een Azur
 
 ![Overzicht voor de lucht installatiekopie classificatie werkelijk scenario](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-De [Stapsgewijze instructies](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) beginnen met het leidt u door het maken en de voorbereiding van een Azure storage-account en Spark-cluster, inclusief de overdracht en afhankelijkheid installatie van gegevens. Ze beschrijven vervolgens training taken starten en de prestaties van de resulterende modellen vergelijken. Ten slotte ze te laten zien hoe een gekozen model toepassen op een set grote afbeelding op het Spark-cluster en de resultaten van de voorspelling lokaal te analyseren.
+Deze stapsgewijze instructies eerst leidt u door het maken en de voorbereiding van een Azure storage-account en Spark-cluster, inclusief de overdracht en afhankelijkheid installatie van gegevens. Ze beschrijven vervolgens training taken starten en de prestaties van de resulterende modellen vergelijken. Ten slotte ze te laten zien hoe een gekozen model toepassen op een set grote afbeelding op het Spark-cluster en de resultaten van de voorspelling lokaal te analyseren.
 
 
 ## <a name="set-up-the-execution-environment"></a>Instellen van de uitvoeringsomgeving
@@ -52,7 +54,7 @@ De [Stapsgewijze instructies](https://github.com/MicrosoftDocs/azure-docs-pr/tre
 De volgende instructies leiden u door het proces voor het instellen van de uitvoeringsomgeving voor dit voorbeeld.
 
 ### <a name="prerequisites"></a>Vereisten
-- Een [Azure-account](https://azure.microsoft.com/en-us/free/) (gratis proefversies zijn beschikbaar)
+- Een [Azure-account](https://azure.microsoft.com/free/) (gratis proefversies zijn beschikbaar)
     - Maakt u een HDInsight Spark-cluster met 40 worker-knooppunten (168 kernen totale). Zorg ervoor dat uw account voldoende beschikbare kernen aan de hand van 'Gebruik + quota' tabblad voor uw abonnement in Azure-portal.
        - Als u minder cores beschikbaar hebt, kunt u de sjabloon HDInsight-cluster als u wilt verkleinen het aantal werknemers ingericht mag wijzigen. Instructies hiervoor worden weergegeven onder de sectie 'De HDInsight Spark-cluster maken'.
     - Dit voorbeeld maakt u een Batch AI Training-cluster met twee NC6 (1 GPU, 6 vCPU) virtuele machines. Zorg ervoor dat uw account voldoende beschikbare kernen in de regio VS-Oost aan de hand van 'Gebruik + quota' tabblad voor uw abonnement in Azure-portal.
@@ -68,7 +70,7 @@ De volgende instructies leiden u door het proces voor het instellen van de uitvo
     - De client-ID-record, geheim en tenant-ID van de Azure Active Directory-toepassing die wordt u omgeleid naar maken. U gebruikt deze referenties verderop in deze zelfstudie.
     - Op dit moment van schrijven gebruik Azure Machine Learning Workbench en Azure Batch AI van afzonderlijke recoveryforks van de Azure CLI 2.0. Ter verduidelijking is de Workbench-versie van de CLI als 'een CLI van Azure Machine Learning Workbench gestart' en de algemene release-versie (waaronder Batch AI) 'Azure CLI 2.0'.
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), wordt er een gratis hulpprogramma voor het coördineren van bestandsoverdracht tussen Azure storage-accounts
-    - Zorg ervoor dat de map met het AzCopy uitvoerbare bestand op uw systeem pad-omgevingsvariabele. (Instructies over het wijzigen van omgevingsvariabelen zijn beschikbaar [hier](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+    - Zorg ervoor dat de map met het AzCopy uitvoerbare bestand op uw systeem pad-omgevingsvariabele. (Instructies over het wijzigen van omgevingsvariabelen zijn beschikbaar [hier](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Een SSH-client. het is raadzaam [PuTTY](http://www.putty.org/).
 
 In dit voorbeeld is getest op een Windows 10-PC; u moet mogelijk vanaf alle Windows-computers, met inbegrip van virtuele Machines van Azure Data wetenschappelijke uitvoeren. De Azure CLI 2.0 is geïnstalleerd vanaf een MSI volgens [deze instructies](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Kleine wijzigingen vereist (bijvoorbeeld wijzigingen in filepaths) kunnen worden uitgevoerd wanneer dit voorbeeld op Mac OS.

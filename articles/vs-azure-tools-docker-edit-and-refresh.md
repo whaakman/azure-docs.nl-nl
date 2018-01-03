@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Fouten in apps in een lokale Docker-container opsporen
 ## <a name="overview"></a>Overzicht
@@ -54,7 +54,7 @@ Als u wilt herhalen snel wijzigingen, kunt u uw toepassing binnen een container 
 
 1. Stel de oplossing op `Debug` en druk op  **&lt;CTRL + F5 >** naar uw docker-installatiekopie bouwen en lokaal uitvoeren.
 
-    Nadat de container-installatiekopie is gemaakt en wordt uitgevoerd in een Docker-container, wordt in Visual Studio de Web-app in de browser start.
+    Nadat de container-installatiekopie is gemaakt en wordt uitgevoerd in een Docker-container, Start Visual Studio de Web-app in de browser.
     Als u van de browser Microsoft Edge gebruikmaakt of anders fouten hebben, Zie [probleemoplossing](vs-azure-tools-docker-troubleshooting-docker-errors.md) sectie.
 2. Ga naar de pagina over die we willen waar onze wijzigingen aanbrengen.
 3. Ga terug naar Visual Studio en open `Views\Home\About.cshtml`.

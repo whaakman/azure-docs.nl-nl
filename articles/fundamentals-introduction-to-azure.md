@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Inleiding tot Microsoft Azure
 Microsoft Azure is Microsoft toepassingsplatform voor de openbare cloud.  Het doel van dit artikel is het bieden u een basis voor informatie over de grondbeginselen van Azure, zelfs als u niet over cloud weet computing.
 
 **In dit artikel lezen**
 
-Azure wordt voortdurend groeiende zodat u gemakkelijk te overbelast raakt.  Beginnen met de basisservices die eerst in dit artikel worden vermeld, en ga vervolgens verder met extra services. Dat betekent niet dat u zojuist de extra services niet gebruiken op zichzelf, maar de basisservices vormen de kern van een toepassing in Azure wordt uitgevoerd.
+Azure wordt voortdurend groeiende zodat u gemakkelijk te overbelast raakt.  Beginnen met de basisservices die eerst in dit artikel worden vermeld, en ga vervolgens verder met extra services. Dat betekent niet dat u zojuist de extra services niet gebruiken op zichzelf. Maar de basisservices vormen de kern van een toepassing die wordt uitgevoerd in Azure.
 
 **Feedback geven**
 
 Uw feedback is van belang. In dit artikel geeft u een effectieve overzicht van Azure. Als dit niet het geval is, Geef in het gedeelte met opmerkingen onder aan de pagina. Sommige informatie over wat u verwacht te zien en het verbeteren van het artikel geven.  
 
 ## <a name="the-components-of-azure"></a>De onderdelen van Azure
-Azure services worden gegroepeerd in categorieën die in de beheerportal en op verschillende visuele hulpmiddelen zoals de [Wat Is Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/) . De beheerportal wordt gebruikt voor het beheren van de meeste (maar niet alle)-services in Azure.
+Azure services worden gegroepeerd in categorieën die in de Azure-portal en op verschillende visuele hulpmiddelen zoals de [Wat Is Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/). De [Azure-portal](http://portal.azure.com) wordt gebruikt voor het beheren van services in Azure.
 
-In dit artikel gebruikt een **andere organisatie** praten over services op basis van vergelijkbare functie en aan te roepen belangrijke onderliggende services die deel van grotere die zijn uitmaken.  
+Dit artikel wordt een **andere organisatie** praten over services op basis van vergelijkbare functie en aan te roepen belangrijke onderliggende services die deel van grotere die zijn uitmaken.  
 
 ![Azure-onderdelen](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Afbeelding: Azure biedt Internet toegankelijke toepassingsservices in Azure-datacenters wordt uitgevoerd.*
 
-## <a name="management-portal"></a>Management Portal
-Azure heeft een webinterface die is aangeroepen de [beheerportal](http://manage.windowsazure.com) waarmee beheerders voor toegang tot en beheer van de meeste, maar niet alle Azure-functies.  De nieuwere UI-portal in beta versies Microsoft doorgaans vóór buiten gebruik stellen oudere. De nieuwere versie heet de ["Azure Portal"](https://portal.azure.com/).
-
-Er is meestal een lange overlapping wanneer beide portals actief zijn. Terwijl basisservices wordt weergegeven in beide portals, is het mogelijk dat niet alle functionaliteit beschikbaar in beide. Nieuwere services worden weergegeven in de nieuwe portal eerste en de oudere services en functionaliteit mag alleen bestaan in de oudere versie.  Het bericht hier is dat als u iets niet in de portal voor oudere vinden controleert u de nieuwere versie en vice versa.
+## <a name="azure-portal"></a>Azure Portal
+Azure heeft een webinterface die is aangeroepen de [Azure-portal](http://portal.azure.com) waarmee beheerders voor toegang tot en beheer van Azure-functies en services.  
 
 ## <a name="compute"></a>Compute
 Een van de meest eenvoudige dingen die een cloudplatform biedt is voor het uitvoeren van toepassingen. Elk van de Azure compute-modellen heeft een eigen rol spelen.
@@ -66,7 +64,7 @@ Deze aanpak vrij algemeen cloud computing kan worden gebruikt voor het oplossen 
 **Scenario's voor virtuele Machine**
 
 1. **Ontwikkelen en testen** -u kunt ze gebruiken voor het maken van een goedkope ontwikkel- en -platform die u afsluiten kunt wanneer u klaar bent met het gebruik van maken. U kunt ook maken en toepassingen die gebruikmaken van welke talen en bibliotheken die u wilt uitvoeren. Deze toepassingen kunnen u elk van de opties voor het beheer van gegevens die Azure biedt, en u kunt er ook voor kiezen om SQL Server of een ander DBMS uitgevoerd op een of meer virtuele machines te gebruiken.
-2. **Verplaats toepassingen naar Azure (Lift-en-shift)** -"Lift-en-shift" verwijst naar het verplaatsen van uw toepassing veel zoals wanneer u een vorkheftruck om een groot object te verplaatsen.  U "lift-" de VHD van uw lokale datacentrum en 'verschuiven' deze naar Azure en er uitvoeren.  Doorgaans moet stappen ondernemen om afhankelijkheden op andere systemen te verwijderen. Als er te veel, kunt u in plaats daarvan optie 3.  
+2. **Verplaats toepassingen naar Azure (Lift-en-shift)** -"Lift-en-shift" verwijst naar het verplaatsen van uw toepassing veel zoals wanneer u een vorkheftruck om een groot object te verplaatsen.  U "lift-" de VHD van uw lokale datacentrum en 'verschuiven' deze naar Azure en er uitvoeren.  Normaal gesproken moet u stappen ondernemen om afhankelijkheden op andere systemen te verwijderen. Als er te veel, kunt u in plaats daarvan optie 3.  
 3. **Uw Datacenter uitbreiden** -gebruik Azure VM's als een uitbreiding van uw on-premises datacentrum met SharePoint of andere toepassingen. Ter ondersteuning hiervan, is het mogelijk te maken van Windows-domeinen in de cloud met behulp van Active Directory in Azure Virtual machines. Azure Virtual Network (later wordt vermeld) kunt u uw lokale netwerk en het netwerk in Azure met elkaar verbinden.
 
 ### <a name="web-apps"></a>Web Apps
@@ -75,7 +73,7 @@ Deze aanpak vrij algemeen cloud computing kan worden gebruikt voor het oplossen 
 
 Een van de meest voorkomende dingen die mensen doen in de cloud wordt websites en webtoepassingen uitgevoerd. Virtuele Machines in Azure dit toestaat, maar nog steeds laat u de verantwoordelijkheid voor het beheren van een of meer virtuele machines en de onderliggende besturingssystemen van. Cloud services-web-functies kunnen dit doen, maar implementeren en onderhouden van ze nog steeds beheertaken duurt.  Wat gebeurt er als u alleen wilt een website waar iemand anders zorgt voor de administratieve werk voor u?
 
-Dit is precies wat Web Apps biedt. Dit model compute biedt een beheerde omgeving met behulp van de Azure-beheerportal, alsmede de API's. U kunt een bestaande websitetoepassing naar ongewijzigd Web-Apps verplaatsen of kunt u een nieuwe rechtstreeks in de cloud. Wanneer een website wordt uitgevoerd, kunt u toevoegen of exemplaren dynamisch verwijderen vertrouwen op Azure Web Apps laden van aanvragen verdelen over ertussen. Apps van Azure biedt zowel een gedeelde optie, waar uw website wordt uitgevoerd in een virtuele machine met andere sites, en een standaard optie waarmee u een site in een eigen virtuele machine uit te voeren. De standaard optie kunt u de grootte (rekenkracht) van uw exemplaren verhogen, indien nodig.
+Dit is precies wat Web Apps biedt. Dit model compute biedt een beheerde omgeving met behulp van de Azure-portal, alsmede de API's. U kunt een bestaande websitetoepassing naar ongewijzigd Web-Apps verplaatsen of kunt u een nieuwe rechtstreeks in de cloud. Wanneer een website wordt uitgevoerd, kunt u toevoegen of exemplaren dynamisch verwijderen vertrouwen op Azure Web Apps laden van aanvragen verdelen over ertussen. Apps van Azure biedt zowel een gedeelde optie, waar uw website wordt uitgevoerd in een virtuele machine met andere sites, en een standaard optie waarmee u een site in een eigen virtuele machine uit te voeren. De standaard optie kunt u de grootte (rekenkracht) van uw exemplaren vergroten.
 
 Voor ontwikkeling ondersteunt Web-Apps .NET, PHP, Node.js, Java en Python samen met de SQL-Database en de Azure-Database voor MySQL voor relationele opslag. Het biedt ook ingebouwde ondersteuning voor verschillende veelgebruikte toepassingen, zoals WordPress, Joomla en Drupal. Het doel is het bieden van een goedkope, schaalbare en veelzijdige, handige platform voor het maken van websites en webtoepassingen in de openbare cloud.
 
@@ -87,9 +85,9 @@ Web-Apps is bedoeld om het nuttig zijn voor ondernemingen, ontwikkelaars en inst
 ![Azure-Cloudservice](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Afbeelding: Azure Cloud Services hier kunt u zeer schaalbare aangepaste code uitvoeren op een Platform als een Service (PaaS)-omgeving*
 
-Stel dat u wilt een cloudtoepassing bouwt die veel gelijktijdige gebruikers ondersteunen, hoeft niet veel beheer en nooit uitvalt. Bent u mogelijk een tot stand gebrachte softwareleverancier bijvoorbeeld die heeft besloten te spelen op Software als een Service (SaaS) door het maken van een versie van een van uw toepassingen in de cloud. Of u mogelijk een beginnend bedrijf bent het maken van een consumer-toepassing die u verwacht snel zal toenemen. Als u in Azure maakt, welk model uitvoeren moet u gebruiken?
+Stel dat u wilt een cloudtoepassing bouwt die veel gelijktijdige gebruikers ondersteunen, hoeft niet veel beheer en nooit uitvalt. Bent u mogelijk een tot stand gebrachte softwareleverancier bijvoorbeeld die heeft besloten te spelen op Software als een Service (SaaS) door het maken van een versie van een van uw toepassingen in de cloud. Of u mogelijk een beginnend bedrijf bent het maken van een consumer-toepassing die u verwacht te snel groeien. Als u in Azure maakt, welk model uitvoeren moet u gebruiken?
 
-Azure-Web-Apps kunnen maken van dit soort webtoepassing, maar er zijn enkele beperkingen. U hebt geen beheerderstoegang, bijvoorbeeld, wat betekent dat u kunt willekeurige software niet installeren. Virtuele Machines van Azure kunt u veel flexibiliteit, met inbegrip van beheerderstoegang tot en zeker kunt u dit een zeer schaalbare toepassing bouwt, maar u hebt voor het afhandelen van veel aspecten van de betrouwbaarheid en beheer. Wat u wilt dat is een optie waarmee u het besturingselement dat u nodig hebt, maar ook voert het grootste deel van het werk dat nodig is voor de betrouwbaarheid en beheer.
+Azure-Web-Apps kunnen maken van dit soort webtoepassing, maar er zijn enkele beperkingen. U hebt geen beheerderstoegang, bijvoorbeeld, wat betekent dat u kunt willekeurige software niet installeren. Virtuele Machines van Azure kunt u veel flexibiliteit, met inbegrip van beheerderstoegang. U kunt deze gebruiken voor het bouwen van een toepassing zeer schaalbare. Maar u hebt voor het afhandelen van veel aspecten van betrouwbaarheid en -beheer. Wat u wilt dat is een optie waarmee u het besturingselement dat u nodig hebt, maar ook voert het grootste deel van het werk dat nodig is voor de betrouwbaarheid en beheer.
 
 Dit is precies wat wordt verstrekt door Azure Cloud Services. Deze technologie uitdrukkelijk is ontworpen ter ondersteuning van schaalbare, betrouwbare en lage admin-toepassingen en van een voorbeeld van wat is genoemd Platform als een Service (PaaS). Als u wilt gebruiken, moet u een toepassing met de technologie die u, zoals C#, Java, PHP, Python, Node.js, of iets anders kiest maken. Uw code vervolgens in virtuele machines (aangeduid als exemplaren) wordt uitgevoerd met een versie van Windows Server.
 
@@ -162,7 +160,7 @@ Soms wilt u grote hoeveelheden gegevens naar Azure verplaatst. Die zou lang dure
 **Scenario's voor Import / Export**
 
 * **Grote gegevensmigratie** -telkens wanneer u grote hoeveelheden gegevens (Terabytes) die u wilt uploaden naar Azure hebt, de Import/Export-service is vaak sneller en mogelijk goedkoper dan overdragen via internet. Nadat de gegevens blobs is, kunt u deze kunt verwerken in andere formulieren zoals Table storage of een SQL-Database.
-* **Gegevensherstel gearchiveerd** -kunt u voor importeren/exporteren om Microsoft-overdracht die grote hoeveelheden gegevens opgeslagen in Azure Blob-opslag met een opslagapparaat die u verzendt en vervolgens hebt dat apparaat geleverd terug naar een locatie die u wenst. Omdat dit enige tijd duurt, is het niet een goede optie voor noodherstel. Het is raadzaam voor gearchiveerde gegevens die u snel toegang tot niet nodig.
+* **Gegevensherstel gearchiveerd** -kunt u voor importeren/exporteren om Microsoft-overdracht die grote hoeveelheden gegevens opgeslagen in Azure Blob-opslag met een opslagapparaat die u verzendt en vervolgens hebt dat apparaat geleverd terug naar een locatie die u wenst. Omdat dit het enige tijd duurt, is het niet een goede optie voor noodherstel. Het is raadzaam voor gearchiveerde gegevens die u snel toegang tot niet nodig.
 
 ### <a name="file-service"></a>File-Service
 ![Azure File-Service](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
@@ -180,7 +178,7 @@ On-premises is het gebruikelijk om grote hoeveelheden toegankelijk via de Server
 ## <a name="networking"></a>Netwerken
 Azure voert vandaag veel datacenters verdeeld over de hele wereld. Als u een toepassing uitvoeren of opslaan van gegevens, selecteert u een of meer van deze datacenters te gebruiken. U kunt ook verbinding maken met deze datacenters op verschillende manieren met behulp van de services die hieronder.
 
-### <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtueel netwerk
 ![VirtualNetwork](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)   
 
 *Afbeelding: Virtuele netwerken bevat een particulier netwerk in de cloud, zodat verschillende services met elkaar kunnen communiceren, of tot lokale bronnen als u een VPN cross-premises verbinding.*  
@@ -211,7 +209,7 @@ Zie voor meer informatie over ExpressRoute [technisch overzicht van ExpressRoute
 
 Als uw Azure-toepassing wordt uitgevoerd in meerdere datacenters, kunt u Azure Traffic Manager gebruiken voor het aanvragen van gebruikers op intelligente wijze te routeren over exemplaren van de toepassing. Ook kunt u verkeer routeren voor services worden niet uitgevoerd in Azure, zolang ze toegankelijk vanaf internet zijn.  
 
-Een Azure-toepassing met gebruikers in slechts één deel van de wereld in slechts één Azure-datacenter mogelijk uitgevoerd. Een toepassing met gebruikers verspreid over de hele wereld, is echter vaker uitvoeren in meerdere datacenters mogelijk zelfs alle. In dit tweede geval kunt u een probleem wordt geconfronteerd: hoe u op intelligente wijze gebruikers verwijzen naar exemplaren van een toepassing? De meeste gevallen, wilt u waarschijnlijk elke gebruiker toegang heeft tot het datacenter die het dichtst bij haar, omdat er waarschijnlijk krijgt haar de beste reactietijd. Maar wat gebeurt er als dat exemplaar van de toepassing is overbelast of niet beschikbaar? In dit geval zou het niet handig haar aanvraag automatisch naar een ander datacenter. Dit is precies wat door Azure Traffic Manager wordt uitgevoerd.
+Een Azure-toepassing met gebruikers in slechts één deel van de wereld in slechts één Azure-datacenter mogelijk uitgevoerd. Een toepassing met gebruikers verspreid over de hele wereld, is echter vaker uitvoeren in meerdere datacenters mogelijk zelfs alle. In dit tweede geval kunt u een probleem wordt geconfronteerd: hoe u op intelligente wijze gebruikers verwijzen naar exemplaren van een toepassing? De meeste gevallen, wilt u waarschijnlijk elke gebruiker toegang heeft tot het dichtst bij hen datacenter omdat het krijgen ze de beste reactietijd. Maar wat gebeurt er als dat exemplaar van de toepassing is overbelast of niet beschikbaar? In dit geval zou het niet handig hun aanvraag automatisch naar een ander datacenter. Dit is precies wat door Azure Traffic Manager wordt uitgevoerd.
 
 De eigenaar van een toepassing definieert de regels die specificeren hoe aanvragen van gebruikers moeten worden omgeleid naar datacentra en is gebaseerd op Traffic Manager bij het uitvoeren van deze regels. Bijvoorbeeld gebruikers normaal kunnen worden omgeleid naar het dichtstbijzijnde Azure-datacentrum, maar naar een andere wordt verzonden wanneer de reactietijd van hun datacenter standaard de reactietijd van andere datacentra overschrijdt. Voor globaal gedistribueerde toepassingen met veel gebruikers is hebben een ingebouwde service voor het afhandelen van problemen zoals dit handig.
 
@@ -234,7 +232,7 @@ Voorkom verwarring - biedt geen een gehoste of Web gebaseerde versie van Visual 
 
 Dit omvat een gehoste bronbeheersysteem aangeroepen Team Foundation-Service versiebeheer en work item bijhouden biedt.  U kunt zelfs Git voor versiebeheer gebruiken als u liever die. En u kunt het bronbeheersysteem die u door project gebruikt variëren. U kunt maken onbeperkte persoonlijke teamprojecten toegankelijk is vanaf overal ter wereld.  
 
-Visual Studio Team Services biedt een service voor het testen van belasting. U kunt de load-tests die zijn gemaakt in Visual Studio op virtuele machines in de cloud uitvoeren. U geeft het totale aantal gebruikers die u wilt testen met laden en Visual Studio Team Services wordt automatisch bepaald hoeveel agents nodig zijn, ronddraaien van de vereiste virtuele machines en voer uw tests laden. Als u een MSDN-abonnee bent, krijgt u duizenden gebruikersminuten belast testen van elke maand gratis.
+Visual Studio Team Services biedt een service voor het testen van belasting. U kunt de load-tests die zijn gemaakt in Visual Studio op virtuele machines in de cloud uitvoeren. U geeft het totale aantal gebruikers die u wilt testen met en Visual Studio Team Services automatisch laden bepaalt hoeveel agents nodig zijn, ronddraaien van de vereiste virtuele machines en voer uw tests load. Als u een MSDN-abonnee bent, krijgt u duizenden gebruikersminuten belast testen van elke maand gratis.
 
 Visual Studio Team Services biedt ook ondersteuning voor het flexibel ontwikkelen met functies zoals continue integratie bouwt, kanbanborden en virtueel team ruimten.
 
@@ -249,7 +247,7 @@ Maar organisaties die al een on-premises systeem nieuwe projecten in Visual Stud
 
 *Afbeelding: Application Insights monitors prestaties en het gebruik van uw live web- of app.*
 
-Wanneer u uw app - hebt gepubliceerd of deze wordt uitgevoerd op mobiele apparaten, bureaubladen of webbrowsers - Application Insights geeft aan hoe deze wordt uitgevoerd en wat gebruikers doen met het. Het aantal crashes en trage reactie behoudt, waarschuwing of de afbeeldingen cross onaanvaardbaar drempelwaarden en kunnen u eventuele problemen wilt onderzoeken.
+Wanneer u uw app - hebt gepubliceerd of deze wordt uitgevoerd op mobiele apparaten, bureaubladen of webbrowsers - Application Insights geeft aan hoe deze wordt uitgevoerd en wat gebruikers doen met het. Een aantal crashes en trage reactie blijven, waarschuwing of de afbeeldingen cross onaanvaardbaar drempelwaarden en kunnen u eventuele problemen wilt onderzoeken.
 
 Wanneer u een nieuwe functie ontwikkelt, wilt u het succes meten met gebruikers. Door het analyseren van gebruikspatronen begrijpen wat het beste werkt voor uw klanten en uw app in elke ontwikkelingscyclus verbeteren.
 
@@ -281,9 +279,9 @@ Azure API Management eenvoudig organisaties API's publiceren naar partners, werk
 
 **API Management-scenario 's**
 
-Stel dat uw bedrijf beschikt over een reeks apparaten dat alle moet teruggebeld naar een centrale service om op te halen gegevens--bijvoorbeeld een back-ups van bedrijf dat apparaten in elke vrachtwagen onderweg is.  Het bedrijf wilt zeker instellen van een systeem voor het bijhouden van eigen vrachtwagens zodat betrouwbaar kunnen voorspellen en leveringstijden bijwerken. Het kan weet hoeveel vrachtwagens heeft en op de juiste wijze plannen.  Elke vrachtwagen moet een apparaat dat terug naar een centrale locatie met de plaatsing en snelheid gegevens en mogelijk meer belt.
+Stel dat uw bedrijf beschikt over een reeks apparaten dat alle moet teruggebeld naar een centrale service om op te halen gegevens--bijvoorbeeld een back-ups van bedrijf dat apparaten in elke vrachtwagen onderweg is.  Het bedrijf wil zeker voor het instellen van een systeem voor het bijhouden van eigen vrachtwagens zodat betrouwbaar kunnen voorspellen en leveringstijden bijwerken. Het kan weet hoeveel vrachtwagens heeft en op de juiste wijze plannen.  Elke vrachtwagen moet een apparaat dat terug naar een centrale locatie met de plaatsing en snelheid gegevens en mogelijk meer belt.
 
-Een klant van het bedrijf back-ups wilt waarschijnlijk ook profiteren van deze plaatsing gegevens ophalen.  De klant kunt gebruiken om te weten hoe ver producten kunnen reizen, waar ze hangen, hoeveel betaalt langs bepaalde routes (indien dit wordt gecombineerd met ze betaald verzenden) ze hebben. Als het bedrijf back-upfunctie al deze gegevens aggregeert, mogelijk veel klanten betalen voor.  Maar vervolgens back-ups moet het bedrijf bieden een manier om klanten de gegevens. Nadat ze toegang aan klanten bieden, ze mogelijk geen controle over hoe vaak de gegevens wordt opgevraagd. Ze moeten regels die bepalen wie toegang heeft tot welke gegevens bevatten. Deze regels zou moeten zijn ingebouwd in hun externe API. Dit is waar API Management kan helpen.  
+Een klant van het bedrijf back-ups wilt waarschijnlijk ook profiteren van deze plaatsing gegevens ophalen.  De klant kunt gebruiken om te weten hoe ver producten kunnen reizen, waar ze hangen, hoeveel betaalt langs bepaalde routes (indien dit wordt gecombineerd met ze betaald verzenden) ze hebben. Als het bedrijf back-upfunctie al deze gegevens aggregeert, mogelijk veel klanten betalen voor.  Maar vervolgens back-ups moet het bedrijf bieden een manier om klanten de gegevens. Nadat ze toegang aan klanten bieden, ze mogelijk geen controle over hoe vaak de gegevens wordt opgevraagd. Ze hebben regels die bepalen wie toegang heeft tot welke gegevens bevatten. Deze regels zou moeten zijn ingebouwd in hun externe API. Dit is waar API Management kan helpen.  
 
 ## <a name="identity-and-access"></a>Identiteit en toegang
 Werken met de identiteit is onderdeel van de meeste toepassingen. Weten wie een gebruiker is, kunt een toepassing die bepalen hoe het met die gebruiker moet werken. Azure biedt services voor het bijhouden van identiteit ook integreren met identiteitsopslag die kunt u al gebruikt.
@@ -299,7 +297,7 @@ Een andere functionaliteit van deze service, Azure Active Directory-toegangsbehe
 
 Directory-services worden een core basis van de lokale computer. Mag niet het verrassend dat ze zich ook belangrijk in de cloud.
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Meervoudige verificatie
 ![Azure Multi-Factor Authentication](./media/fundamentals-introduction-to-azure/MFAIntroNew.png)   
 
 *Afbeelding: Multi-Factor Authentication biedt de functionaliteit voor uw toepassing om te controleren of meer dan één vorm van identificatie*
@@ -380,7 +378,7 @@ Ongeacht wat het doet, moet de code vaak communiceren met andere code.  In sommi
 
 Queuing is een eenvoudige idee: bericht uiteindelijk wordt gelezen door een andere toepassing en één toepassing een bericht in een wachtrij geplaatst. Als uw toepassing alleen deze eenvoudige service moet, zijn wachtrijen Azure de beste keuze.
 
-Bieden vergelijkbare Queuing-services vanwege de manier waarop die de Azure klein gedurende een bepaalde periode, Azure Storage-wachtrijen en Service Bus-wachtrijen. De redenen waarom u zou een wilt gebruiken dan de andere worden behandeld in het redelijk technische document [Azure wachtrijen en Service Bus-wachtrijen - vergeleken en tegenstelling tot](http://msdn.microsoft.com/library/azure/hh767287.aspx).  In veel scenario's werkt ofwel.
+Bieden vergelijkbare Queuing-services vanwege de manier waarop die de Azure klein gedurende een bepaalde periode, Azure Storage-wachtrijen en Service Bus-wachtrijen. De redenen waarom u zou een wilt gebruiken dan de andere worden behandeld in het redelijk technische document [Azure wachtrijen en Service Bus-wachtrijen - vergeleken en tegenstelling tot](http://msdn.microsoft.com/library/azure/hh767287.aspx).  In veel scenario's, ofwel werkt.
 
 **Wachtrij-scenario 's**
 
@@ -461,7 +459,7 @@ Toegang tot gegevens die zijn opgeslagen in een Azure gegevens management servic
 
 Een Cloud Services-toepassing kunt gegevens in de cache opslaan en vervolgens rechtstreeks zonder toegang tot permanente opslag worden opgehaald. De cache kan worden beheerd in virtuele machines van uw toepassing of door virtuele machines die specifiek is voor het opslaan in cache worden opgegeven. In beide gevallen moet de cache kan worden verdeeld, met de gegevens erin verspreid over meerdere virtuele machines in een Azure-datacenter.
 
-Azure heeft een aantal verschillende cache-technologieën die gedurende een bepaalde periode hebt verplaatst. In de volgorde waarin ze zijn geïntroduceerd, er is een gedeelde in de rol, beheerd en Redis-cache. Het gedeelde opslaan in cache is een oudere technologie en u nieuwe implementaties aan mag niet maken. De Cache beheerd moet dezelfde functies van de In-Role cache, maar als beheerde service buiten de Azure-beheerportal. De Redis-Cache is een Preview-versie. De Redis-implementatie is het grootste aantal onderdelen en wordt aanbevolen als u nieuwe cache code schrijft.
+Azure heeft een aantal verschillende cache-technologieën die gedurende een bepaalde periode hebt verplaatst. In de volgorde waarin ze zijn geïntroduceerd, er is een gedeelde in de rol, beheerd en Redis-cache. Het gedeelde opslaan in cache is een oudere technologie en u nieuwe implementaties aan mag niet maken. De Cache beheerd moet dezelfde functies van de In-Role cache, maar als beheerde service buiten de Azure-portal. De Redis-implementatie is het grootste aantal onderdelen en wordt aanbevolen als u nieuwe cache code schrijft.
 
 **Azure-Cache-scenario 's**
 
@@ -527,7 +525,7 @@ De toename van de Software als een Service worden getransformeerd hoe we toepass
 ![Azure-Commerce](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Afbeelding: Azure Marketplace en Azure Store kunt u vinden en kopen van Azure-toepassingen en in de commerciële gegevenssets en ze als onderdeel van uw Azure-toepassingen gebruiken.**
 
-Het verschil tussen de twee is dat Marketplace buiten het Azure-beheerportal valt, maar de Store toegankelijk zijn vanuit binnen de portal. Azure-toepassingen die hun behoeften kunnen potentiële klanten zoeken. Klanten kunnen zoeken voor commerciële gegevenssets, met inbegrip van demografische gegevens, financiële gegevens en geografische gegevens. Wanneer ze iets dat die ze graag wilt vinden, toegang te krijgen tot deze een van de leverancier rechtstreeks via de Marketplace of winkel weblocaties of in sommige gevallen vanuit de beheerportal. Toepassingen kunnen ook de Bing zoeken-API gebruiken via de Marketplace, zodat ze toegang hebben op de resultaten van zoekacties op het web.
+Het verschil tussen de twee is dat Marketplace buiten de Azure-portal valt, maar de Store toegankelijk zijn vanuit binnen de portal. Azure-toepassingen die hun behoeften kunnen potentiële klanten zoeken. Klanten kunnen zoeken voor commerciële gegevenssets, met inbegrip van demografische gegevens, financiële gegevens en geografische gegevens. Wanneer ze iets dat die ze graag wilt vinden, toegang te krijgen tot deze een van de leverancier rechtstreeks via de Marketplace of winkel weblocaties of in sommige gevallen uit de Azure portal. Toepassingen kunnen ook de Bing zoeken-API gebruiken via de Marketplace, zodat ze toegang hebben op de resultaten van zoekacties op het web.
 
 **Commerce scenario 's**
 

@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexeren van CSV-blobs met Azure Search blob indexeerfunctie
 Standaard [Azure Search-indexeerfunctie voor blob](search-howto-indexing-azure-blob-storage.md) parseert gescheiden tekst blobs als een enkel deel van de tekst. Echter met blobs met CSV-gegevens, wilt u meestal op dezelfde manier behandelen elke regel in de blob als een afzonderlijk document. Bijvoorbeeld, krijgt de volgende gescheiden tekst: 
@@ -52,7 +52,12 @@ Als blobs niet een initiële kopregel bevatten, moeten de headers worden opgegev
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Op dit moment wordt wordt alleen de UTF-8-codering ondersteund. Ook de door komma's `','` teken wordt ondersteund als het scheidingsteken. Als u ondersteuning nodig voor andere coderingen of scheidingstekens, laat ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
+U kunt het scheidingsteken teken met behulp van de `delimitedTextDelimiter` configuratie-instelling. Bijvoorbeeld:
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> Op dit moment wordt wordt alleen de UTF-8-codering ondersteund. Als u ondersteuning nodig voor andere coderingen, laat ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Wanneer u het tekstbestand met scheidingstekens bij het parseren van modus gebruikt, Azure Search wordt ervan uitgegaan dat alle blobs in de gegevensbron zal CSV. Als u nodig hebt voor de ondersteuning van een combinatie van CSV en niet-CSV blobs in dezelfde gegevensbron, laat ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).

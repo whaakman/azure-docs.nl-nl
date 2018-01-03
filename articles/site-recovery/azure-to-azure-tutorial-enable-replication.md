@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Instellen van herstel na noodgevallen voor virtuele Azure-machines naar een secundair Azure-regio (Preview)
 
@@ -129,10 +129,10 @@ Site Recovery haalt een lijst van de virtuele machines die zijn gekoppeld aan he
 
 Site Recovery maakt standaardinstellingen en beleid voor wachtwoordreplicatie voor de doelregio. U kunt de instellingen op basis van uw vereisten wijzigen.
 
-1. Klik op **instellingen** om de doelinstellingen te bekijken.
-2. Te overschrijven de standaardinstellingen van het doel op **aanpassen**. 
+1. Klik op **instellingen** om de doel- en replicatie-instellingen te bekijken.
+2. Te overschrijven de standaardinstellingen van het doel op **aanpassen** naast **resourcegroep, netwerk-, opslag- en Beschikbaarheidssets**.
 
-![Instellingen configureren](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Instellingen configureren](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Doellocatie**: de doelregio gebruikt voor herstel na noodgevallen. We raden aan dat de doellocatie overeenkomt met de locatie van de Site Recovery-kluis.
@@ -148,11 +148,23 @@ Site Recovery maakt standaardinstellingen en beleid voor wachtwoordreplicatie vo
 
 - **Beschikbaarheidssets doel**: Site Recovery maakt standaard een nieuwe beschikbaarheidsset voor de doelregio met het achtervoegsel 'asr'. U kunt alleen beschikbaarheidssets toevoegen als virtuele machines deel van een set in de bron-regio uitmaken.
 
+Als u wilt overschrijven de standaardinstellingen van de replicatie-beleid, klikt u op **aanpassen** naast **replicatiebeleid**.  
+
 - **Replicatie-beleidsnaam**: de naam van beleid.
 
 - **Herstel bewaarperiode**: standaard Site Recovery herstelpunten blijft gedurende 24 uur. U kunt een waarde tussen 1 en 72 uur configureren.
 
 - **App-consistente momentopname frequentie**: standaard Site Recovery maakt een app-consistente momentopname elke 4 uur. U kunt een waarde tussen 1 en 12 uur. Een app-consistente momentopname is een momentopname van een punt in tijd van de toepassingsgegevens in de virtuele machine. Volume Shadow Copy Service (VSS) zorgt ervoor dat app op de virtuele machine bevinden zich in een consistente status wanneer een momentopname wordt gemaakt.
+
+- **Replicatiegroep**: als uw toepassing consistentie tussen meerdere VM's over VM's moet, kunt u een replicatiegroep voor de virtuele machines. Standaard zijn de geselecteerde virtuele machines niet deel uit van een replicatiegroep.
+
+  Klik op **aanpassen** naast **replicatiebeleid** en selecteer vervolgens **Ja** op consistentie van multi-VM te maken van virtuele machines deel uitmaken van een replicatiegroep. U kunt een nieuwe replicatiegroep maken of een bestaande replicatiegroep gebruiken. Selecteer de virtuele machines deel uitmaken van de replicatiegroep en klik op **OK**.
+
+> [!IMPORTANT]
+  Alle machines in een replicatiegroep wordt vastlopen consistent en toepassingsconsistente herstelpunten wanneer failover hebt gedeeld. Inschakelen multi-VM consistentie kan invloed hebben op prestaties workload en mag alleen worden gebruikt als machines dezelfde werkbelasting worden uitgevoerd en moet u de consistentie tussen meerdere machines.
+
+> [!IMPORTANT]
+  Als u de consistentie tussen meerdere VM's inschakelt, wordt de machines in de replicatiegroep met elkaar communiceren via poort 20004. Zorg ervoor dat er geen firewall-apparaat de interne communicatie tussen de VM's via poort 20004 te blokkeren. Als u virtuele Linux-machines deel uitmaken van een replicatiegroep wilt, zorg ervoor dat het uitgaande verkeer op poort 20004 handmatig aan de hand van de richtlijnen van de specifieke versie van Linux wordt geopend.
 
 ### <a name="track-replication-status"></a>Replicatiestatus volgen
 
@@ -164,7 +176,7 @@ Site Recovery maakt standaardinstellingen en beleid voor wachtwoordreplicatie vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie kunt u herstel na noodgevallen geconfigureerd voor een virtuele machine in Azure. Volgende stap is het testen van uw configuratie.
+In deze zelfstudie maakt u herstel na noodgevallen geconfigureerd voor een virtuele machine in Azure. Volgende stap is het testen van uw configuratie.
 
 > [!div class="nextstepaction"]
 > [Noodherstelanalyse uitvoeren](azure-to-azure-tutorial-dr-drill.md)

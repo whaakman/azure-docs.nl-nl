@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Inzicht in Azure uitgaven limiet en hoe u deze verwijderen
 
@@ -48,8 +48,10 @@ Ga als volgt te werk om de bestedingslimiet te verwijderen:
 
 1. Aanmelden bij de [Accountcentrum](https://account.windowsazure.com/Subscriptions).
 1. Selecteer een abonnement.
-1. Als het abonnement is uitgeschakeld vanwege de bestedingslimiet wordt bereikt, klikt u op deze melding: 'Abonnement de bestedingslimiet bereikt en is uitgeschakeld om kosten te voorkomen dat.' Klik anders op **uitgavenlimiet verwijderen** in de **ABONNEMENTSSTATUS** gebied.
+. Als het abonnement is uitgeschakeld vanwege de bestedingslimiet wordt bereikt, klikt u op deze melding: 'Abonnement de bestedingslimiet bereikt en is uitgeschakeld om kosten te voorkomen dat.' Klik anders op **uitgavenlimiet verwijderen** in de **ABONNEMENTSSTATUS** gebied.
 1. Selecteer een voor u geschikte optie.
+
+![Een optie voor de uitgavenlimiet verwijderen](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Optie|Effect|
 |-------|-----|
@@ -80,8 +82,10 @@ Er zijn momenteel geen aangepaste limieten vandaag te besteden aan. Echter, u ku
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Voorkomt dat de bestedingslimiet alle kosten van Azure?
 
-Sommige [services van Microsoft en derden huisstijl services](billing-understand-your-azure-marketplace-charges.md) kunnen worden kosten in rekening onder de betalingsmethode zelfs als een bestedingslimiet is ingesteld. Voorbeelden zijn onder meer licenties voor Visual Studio, Azure Active Directory premium, ondersteuningsplannen en de meeste van derden huisstijl services verkocht via de [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Sommige externe services is gepubliceerd in Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) kan niet worden gebruikt met het tegoed van uw abonnement en kunnen afzonderlijk worden kosten in rekening zelfs wanneer u uw bestedingslimiet is ingesteld. Voorbeelden zijn onder meer licenties voor Visual Studio, Azure Active Directory premium, ondersteuningsplannen en de meeste van derden huisstijl services. Wanneer u een nieuwe externe service inricht, wordt een waarschuwing weergegeven waarmee u dat de services worden afzonderlijk gefactureerd:
 
-## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
+![Marketplace kopen waarschuwing](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
 Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.

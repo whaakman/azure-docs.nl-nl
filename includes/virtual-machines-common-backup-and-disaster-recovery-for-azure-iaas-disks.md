@@ -138,7 +138,7 @@ Gebruik de volgende stappen om in te schakelen van back-ups van uw virtuele mach
 
 4.  Zorg ervoor dat de Backup-Agent is geïnstalleerd op de virtuele machine. Als uw virtuele machine wordt gemaakt met behulp van een installatiekopie van een Azure-galerie, is klikt u vervolgens de Backup-Agent al geïnstalleerd. Anders (dat wil zeggen, als u een aangepaste installatiekopie), gebruikt u de instructies voor het [de VM-agent installeren op een virtuele machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Zorg ervoor dat de virtuele machine netwerkverbinding voor de Backup-service naar de functie toestaat. Volg de instructies voor [netwerkverbinding](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Zorg ervoor dat de virtuele machine netwerkverbinding voor de Backup-service naar de functie toestaat. Volg de instructies voor [netwerkverbinding](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Nadat de vorige stappen zijn voltooid, wordt de back-up wordt uitgevoerd met regelmatige tussenpozen zoals opgegeven in de back-upbeleid. Indien nodig, kunt u de eerste back-up handmatig van het kluisdashboard op de Azure-portal activeren.
 

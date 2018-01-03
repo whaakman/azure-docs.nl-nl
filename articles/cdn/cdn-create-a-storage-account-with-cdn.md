@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Een Azure storage-account integreren met Azure CDN
 CDN worden ingeschakeld voor het cache-inhoud van uw Azure-opslag. Het biedt ontwikkelaars een globale oplossing voor hoge bandbreedte inhoud leveren door blobs en statische inhoud van de compute-exemplaren op fysieke knooppunten in de Verenigde Staten, Europa, Azië, Australië en Zuid-Amerika cache te plaatsen.
@@ -40,7 +40,7 @@ Voor het maken van een opslagaccount, moet u de servicebeheerder of medebeheerde
     
     De **storage-account maken** blade wordt weergegeven.   
 
-    ![Storage-Account maken][create-new-storage-account]  
+    ![Opslagaccount maken][create-new-storage-account]  
 
 3. In de **naam** veld, typt u de subdomeinnaam. Deze vermelding kan 3 tot 24 kleine letters en cijfers bevatten.
    
@@ -113,7 +113,7 @@ Als u niet langer in de cache van een object in de Azure Content Delivery Networ
 
 Een object dat al in de cache in de CDN blijft in de cache totdat de time-to-live voor het object zijn verstreken of het eindpunt wordt verwijderd. Wanneer de time-to-live-periode is verstreken, wordt de CDN gecontroleerd om te zien of het CDN-eindpunt nog geldig is en het object nog steeds anoniem toegankelijk. Als dit niet het geval is, klikt u vervolgens het object wordt niet langer in de cache opgeslagen.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 * [CDN-inhoud toewijzen aan een aangepast domein](cdn-map-content-to-custom-domain.md)
 * [HTTPS inschakelen voor uw aangepaste domein](cdn-custom-ssl.md)
 

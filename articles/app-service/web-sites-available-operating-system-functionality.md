@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Besturingssysteem-functionaliteit op Azure App Service
 In dit artikel wordt de algemene basislijn besturingssysteem functionaliteit beschreven die beschikbaar is voor alle apps die worden uitgevoerd op [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Deze functionaliteit omvat bestand, netwerk, en toegang tot het register en logboeken met diagnostische gegevens en gebeurtenissen. 
@@ -27,6 +27,8 @@ In dit artikel wordt de algemene basislijn besturingssysteem functionaliteit bes
 
 ## <a name="app-service-plan-tiers"></a>App Service plan lagen
 App Service kan apps van de klant in een multitenant-hostomgeving uitgevoerd. Apps die zijn geïmplementeerd de **vrije** en **gedeelde** lagen uitvoeren in werkprocessen op gedeelde virtuele machines tijdens de implementatie van apps in de **standaard** en **Premium** lagen worden uitgevoerd op speciale specifiek voor de apps die zijn gekoppeld aan één klant horen.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Omdat App Service biedt ondersteuning voor een naadloze ervaring voor vergroten/verkleinen tussen verschillende lagen, wordt de configuratie van de beveiliging afgedwongen voor App Service-apps blijft hetzelfde. Dit zorgt ervoor dat apps niet plotseling zich anders gedragen, onverwachte manieren mislukt bij het App Service-abonnement van één laag naar de andere overschakelt.
 
@@ -76,7 +78,7 @@ De basismap bevat een app-inhoud en toepassingscode kan schrijven. Als een app w
 
 <a id="NetworkAccess"></a>
 
-## <a name="network-access"></a>Toegang tot het netwerk
+## <a name="network-access"></a>Netwerktoegang
 Toepassingscode kan TCP/IP gebruiken en op basis van UDP-protocollen maken uitgaande netwerkverbindingen naar Internet toegankelijk eindpunten die externe services. Apps kunnen deze protocollen dezelfde verbinding maken met services in Azure & #151, bijvoorbeeld door het opstellen van HTTPS-verbindingen met SQL-Database gebruiken.
 
 Er is ook een beperkte capaciteit voor apps voor een lokale loopback-verbinding tot stand brengen en een app luisteren op die lokale loopback-socket hebben. Deze functie bestaat voornamelijk om apps te schakelen die op de lokale loopback-sockets als onderdeel van hun functionaliteit luisteren. Houd er rekening mee dat elke app een 'persoonlijke' loopback-verbinding ziet. App "A" kan niet luisteren naar een lokale loopback-socket tot stand gebracht door app "B".

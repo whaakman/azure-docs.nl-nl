@@ -1,44 +1,46 @@
 ---
 title: Zelfstudie voor Azure Containerexemplaren - voorbereiden van uw app
-description: Een app voorbereiden voor implementatie in Azure Container Instances
+description: 'Azure Containerexemplaren zelfstudie, deel 1 van 3: een app voorbereiden voor implementatie naar Containerexemplaren Azure'
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6555b41f2debdfe46ec2d4ece8e3281155099a77
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Een container voor implementatie in Azure Container Instances maken
 
-Met Azure Container Instances kunt u Docker-containers implementeren in de Azure-infrastructuur zonder virtuele machines in te richten of gebruik te maken van een service op een hoger niveau. In deze zelfstudie maakt u een kleine webtoepassing in Node.js bouwen en in een container die kan worden uitgevoerd met Azure Container instanties in een pakket. We behandelen de volgende onderwerpen:
+Met Azure Container Instances kunt u Docker-containers implementeren in de Azure-infrastructuur zonder virtuele machines in te richten of gebruik te maken van een service op een hoger niveau. In deze zelfstudie maakt u een kleine webtoepassing in Node.js bouwen en in een container die kan worden uitgevoerd met Azure Container instanties in een pakket.
+
+In dit artikel deel uit van een van de reeks u:
 
 > [!div class="checklist"]
-> * Toepassingsbron klonen vanuit GitHub
-> * Containerinstallatiekopieën van de toepassingsbron maken
-> * De installatiekopieën testen in een lokale Docker-omgeving
+> * Klonen van de broncode van de toepassing van GitHub
+> * Een installatiekopie van een container van toepassingsbron maken
+> * De afbeelding te testen in een lokale Docker-omgeving
 
 Uw installatiekopie uploaden naar een Azure Container Registry in volgende zelfstudies en vervolgens implementeren op Azure Containerexemplaren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Deze zelfstudie vereist dat u de Azure CLI versie 2.0.21 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli).
+Deze zelfstudie vereist dat u de Azure CLI versie 2.0.23 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u wilt installeren of upgraden, Zie [2.0 voor Azure CLI installeren][azure-cli-install].
 
-Deze zelfstudie wordt ervan uitgegaan dat een basiskennis van core Docker-concepten zoals containers, installatiekopieën van de container en basic `docker` opdrachten. Zie, indien nodig, [Aan de slag met Docker]( https://docs.docker.com/get-started/) voor een uitleg van de basisprincipes van containers.
+Deze zelfstudie wordt ervan uitgegaan dat een basiskennis van core Docker-concepten zoals containers, installatiekopieën van de container en basic `docker` opdrachten. Indien nodig, Zie [aan de slag met Docker] [ docker-get-started] voor een primer op de basisprincipes van de container.
 
-Voor deze zelfstudie hebt u een Docker-ontwikkelomgeving nodig. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
+Voor deze zelfstudie hebt voltooid, moet u een Docker-ontwikkelomgeving die lokaal zijn geïnstalleerd. Docker biedt pakketten die eenvoudig Docker op elke configureren [Mac][docker-mac], [Windows][docker-windows], of [Linux] [ docker-linux] system.
 
-Azure Cloud-Shell is dan de Docker-onderdelen die nodig zijn voor het voltooien van elke stap in deze zelfstudie niet opgenomen. Daarom raden we aan een lokale installatie van de Azure CLI en Docker-ontwikkelomgeving.
+Azure Cloud-Shell is dan de Docker-onderdelen die nodig zijn voor het voltooien van elke stap in deze zelfstudie niet opgenomen. U moet de Azure CLI en Docker-ontwikkelomgeving installeren op uw lokale computer om deze zelfstudie te voltooien.
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen
 
-Het voorbeeld in deze zelfstudie bevat een eenvoudige webtoepassing die is gebouwd in [Node.js](http://nodejs.org). De app dient een statische HTML-pagina en ziet er als volgt uit:
+Het voorbeeld in deze zelfstudie bevat een eenvoudige webtoepassing die is ingebouwd in [Node.js][nodejs]. De app dient een statische HTML-pagina en ziet er als volgt uit:
 
 ![Zelfstudie-app weergegeven in browser][aci-tutorial-app]
 
@@ -50,7 +52,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>De containerinstallatiekopie bouwen
 
-Het Dockerfile dat is opgegeven in de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het begint met een [officiële Node.js-installatiekopie][dockerhub-nodeimage] op basis van [Alpine Linux](https://alpinelinux.org/), een kleine distributie die zeer geschikt voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van het de Node Package Manager, en wordt ten slotte de toepassing gestart.
+Het Dockerfile dat is opgegeven in de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het starten van een [officiële Node.js installatiekopie] [ docker-hub-nodeimage] op basis van [Alpine Linux][alpine-linux], een kleine distributie die zeer geschikt voor gebruik met containers. Vervolgens worden de toepassingsbestanden naar de container gekopieerd, afhankelijkheden geïnstalleerd met behulp van het de Node Package Manager, en wordt ten slotte de toepassing gestart.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -61,13 +63,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Gebruik de opdracht `docker build` voor het maken van de containerinstallatiekopie door deze te taggen als *aci-tutorial-app*:
+Gebruik de [docker-build] [ docker-build] opdracht voor het maken van de installatiekopie van de container als tagging *aci-zelfstudie-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-De uitvoer van de `docker build` opdracht is vergelijkbaar met de volgende (afgekapt voor leesbaarheid):
+De uitvoer van de [docker-build] [ docker-build] opdracht is vergelijkbaar met de volgende (afgekapt voor leesbaarheid):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -88,7 +90,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Gebruik de `docker images` om de gebouwde installatiekopie te bekijken:
+Gebruik de [docker-installatiekopieën] [ docker-images] opdracht om te zien van de installatiekopie van het ingebouwde:
 
 ```bash
 docker images
@@ -127,9 +129,23 @@ Ga verder met de volgende zelfstudie voor meer informatie over het opslaan van i
 > [!div class="nextstepaction"]
 > [Installatiekopieën pushen naar Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
 
-<!-- LINKS -->
-[dockerhub-nodeimage]: https://store.docker.com/images/node
-
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
 [aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
+
+<!-- LINKS - External -->
+[alpine-linux]: https://alpinelinux.org/
+[docker-build]: https://docs.docker.com/engine/reference/commandline/build/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-hub-nodeimage]: https://store.docker.com/images/node
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+[nodejs]: http://nodejs.org
+
+<!-- LINKS - Internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli

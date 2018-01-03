@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: 6059ce809e7a8b2115e391d9db5b5b0a8626109e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="introduction-to-blob-storage"></a>Inleiding tot Blob-opslag
 
@@ -38,7 +38,7 @@ De Blob service bevat de volgende onderdelen:
 
 ![Blobarchitectuur](./media/storage-blobs-introduction/blob1.png)
 
-* **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit opslagaccount mag een **algemeen opslagaccount** of een **Blob-opslagaccount** die speciaal is bedoeld voor het opslaan van objecten/blobs. Zie [Over Azure Storage-accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
+* **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Dit opslagaccount mag een **algemeen opslagaccount (v1 of v2)** of **Blob storage-accounts**. Zie [Over Azure Storage-accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
 
 * **Container:** Een container is een groepering van een reeks blobs. Alle blobs moeten zich in een container bevinden. Een account kan een onbeperkt aantal containers bevatten. Een container kan een onbeperkt aantal blobs bevatten. De naam van een container mag alleen kleine letters bevatten.
 

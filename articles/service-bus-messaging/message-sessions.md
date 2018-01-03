@@ -11,51 +11,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: c6441d2119518e89a869ee52e5f0b80450ae2bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="message-sessions--first-in-first-out-fifo"></a>Bericht sessies / eerst, eerst out FIFO-principe) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>Sessies bericht: first in eerst uit FIFO-principe () 
 
-Service Bus-sessies inschakelen gemeenschappelijke en geordende verwerking van unbounded reeksen verwante berichten. U moet gebruiken sessies voor een garantie FIFO-principe in Service Bus. Service Bus is geen richtlijnen over de aard van de relatie tussen de berichten en een bepaald model om te bepalen waar een message-reeks begint of eindigt ook geen wordt gedefinieerd.
+Microsoft Azure Service Bus-sessies inschakelen gemeenschappelijke en geordende verwerking van unbounded reeksen verwante berichten. Als u een garantie FIFO-principe in Service Bus, sessies te gebruiken. Service Bus is geen richtlijnen over de aard van de relatie tussen de berichten en een bepaald model om te bepalen waar een message-reeks begint of eindigt ook geen wordt gedefinieerd.
 
-Een afzender een sessie wanneer verzenden door in te stellen met naar een onderwerp of een wachtrij berichten kunt maken de [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) broker eigenschap in op sommige toepassingen gedefinieerde id geleverd die uniek is voor de sessie. Op het niveau AMQP 1.0-protocol wordt deze waarde toegewezen aan de *groep-id* eigenschap.
+Een afzender een sessie wanneer verzenden door in te stellen met naar een onderwerp of een wachtrij berichten kunt maken de [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) eigenschap in op sommige toepassingen gedefinieerde id geleverd die uniek is voor de sessie. Op het niveau AMQP 1.0-protocol wordt deze waarde toegewezen aan de *groep-id* eigenschap.
 
 Ontstaan op sessie-bewuste wachtrijen of abonnementen en sessies, als er ten minste één bericht met de sessie [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Wanneer een sessie bestaat, is er geen gedefinieerde tijd of API voor wanneer de sessie is verlopen of verdwijnt. Theoretisch, kunt u een bericht ontvangen voor vandaag de dag een sessie het volgende bericht in een jaar tijd, en als de **SessionId** overeenkomt, de sessie is hetzelfde vanuit het perspectief van de Service Bus.
 
-Normaal gesproken heeft een toepassing echter een duidelijke begrip waarbij een set gerelateerde berichten wordt gestart en wordt beëindigd. maar Service Bus niet is ingesteld op een specifieke regels.
+Normaal gesproken heeft een toepassing echter een duidelijke begrip waar een set gerelateerde berichten begint en eindigt. Service Bus biedt een specifieke regels niet ingesteld.
 
-Een voorbeeld van hoe u een reeks afbakenen voor het overbrengen van een bestand is het instellen van de **Label** eigenschap voor de eerste bericht **start**, tussenliggende berichten **inhoud**, en voor het laatste bericht aan **end**. De relatieve positie van de inhoud berichten worden berekend als het huidige bericht *SequenceNumber* verschillen van de **start** van bericht *SequenceNumber*.
+Een voorbeeld van hoe u een reeks afbakenen voor het overbrengen van een bestand is het instellen van de **Label** eigenschap voor de eerste bericht **start**, tussenliggende berichten **inhoud**, en voor het laatste bericht aan **end**. De relatieve positie van de inhoud berichten worden berekend als het huidige bericht *SequenceNumber* verschillen van de **start** bericht *SequenceNumber*.
 
 De sessie-functie in een specifieke bewerking ontvangen in de vorm van Service Bus-kan [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) in de C# en Java-API's. U de functie inschakelen door in te stellen de [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) eigenschap in de wachtrij of abonnement via Azure Resource Manager, of door de vlag in de portal. Dit is vereist voordat u probeert te gebruiken van de bijbehorende API-bewerkingen.
 
-De vlag is ingesteld in de portal, met het volgende selectievakje in:
+Stel de vlag met het volgende selectievakje in de portal:
 
 ![][2]
 
-De API's voor sessies aanwezig op de wachtrij en de abonnement-clients. Er is een imperatieve model waar u regelen wanneer sessies en berichten worden ontvangen en een handler op basis van een model, vergelijkbaar met *OnMessage*, dat verborgen de complexiteit van het beheer van de receive-lus.
+De API's voor sessies aanwezig op de wachtrij en de abonnement-clients. Er is een imperatieve model die bepaalt wanneer de sessies en berichten worden ontvangen en een handler op basis van een model, vergelijkbaar met *OnMessage*, dat verborgen de complexiteit van het beheer van de receive-lus.
 
 ## <a name="session-features"></a>Sessie-functies
 
-Sessies bieden gelijktijdige demultiplexing van interleaved berichtstromen tijdens behouden en levering garanderen.
+Sessies bieden gelijktijdige ongedaan multiplex van interleaved berichtstromen tijdens behouden en levering garanderen.
 
 ![][1]
 
-Een [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) ontvanger is gemaakt door de client een sessie worden geaccepteerd. Imperatively, de clientaanroepen van de [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) of [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In het model reactieve callback registreert het een handler sessie zoals verderop besproken.
+Een [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) ontvanger is gemaakt door de client een sessie worden geaccepteerd. Het clientaanroepen van de [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) of [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In het model reactieve callback registreert het een handler sessie zoals verderop besproken.
 
-Wanneer de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) is geaccepteerd en terwijl deze wordt gehouden door een client, dat de client een exclusieve vergrendeling bevat voor alle berichten die met die sessie [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) bestaande in de wachtrij of -abonnement en op alle berichten met die **SessionId** die nog steeds binnenkomen, terwijl de sessie wordt gehouden.
+Wanneer de [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object is geaccepteerd en terwijl deze wordt gehouden door een client, dat de client een exclusieve vergrendeling bevat voor alle berichten die met die sessie [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) die zijn opgenomen in de wachtrij of een abonnement, en ook voor alle berichten die met die **SessionId** die nog steeds binnenkomen, terwijl de sessie wordt gehouden.
 
-De vergrendeling wordt vrijgegeven wanneer **sluiten** of **CloseAsync** worden genoemd, of wanneer de vergrendeling verloopt in gevallen waarin de toepassing is niet mogelijk. De sessievergrendeling moet worden behandeld als een exclusieve vergrendeling op een bestand, wat betekent dat de sessie omdat deze niet langer nodig heeft en/of alle verdere berichten niet verwacht door de toepassing moet worden gesloten.
+De vergrendeling wordt vrijgegeven wanneer **sluiten** of **CloseAsync** worden genoemd, of wanneer de vergrendeling in gevallen waarin de toepassing kan niet worden uitgevoerd van de afsluitbewerking is verlopen. De sessievergrendeling moet worden behandeld als een exclusieve vergrendeling op een bestand, wat betekent dat de sessie omdat deze niet langer nodig heeft en/of alle verdere berichten niet verwacht door de toepassing moet worden gesloten.
 
 Wanneer meerdere gelijktijdige ontvangers uit de wachtrij ophalen, worden de berichten die horen bij een bepaalde sessie verzonden naar de specifieke ontvanger die momenteel de vergrendeling voor die sessie bevat. Met deze bewerking een interleaved berichtenstroom die zich in een wachtrij of abonnement ongedaan foutloos wordt gebruikt voor andere ontvangers en deze ontvangers kunnen ook live op andere client-machines, omdat het Vergrendelingsbeheer aan servicezijde, gebeurt in Servicebus.
 
 Een wachtrij is echter nog steeds een wachtrij: Er is geen willekeurige toegang. Als meerdere gelijktijdige ontvangers wachten met het specifieke sessies accepteren of wachten op berichten van specifieke sessies en er is een bericht boven aan een wachtrij die horen bij een sessie die is nog geen ontvanger geclaimd, bevatten leveringen totdat een sessie-ontvanger die claims de sessie.
 
-De vorige afbeelding ziet u drie gelijktijdige sessies ontvangers, die alle berichten uit de wachtrij voor elke ontvanger voortgang actief moet nemen. De vorige sessie met *SessionId*= 4 heeft geen actieve, eigenaar-client, wat betekent dat er geen berichten worden afgeleverd voor iedereen totdat dat bericht is genomen door een nieuw gemaakte die eigenaar is van de ontvanger sessie.
+De vorige afbeelding ziet u drie gelijktijdige sessies ontvangers, die alle berichten uit de wachtrij voor elke ontvanger voortgang actief moet nemen. De vorige sessie met `SessionId` = 4 heeft geen actieve, eigenaar-client, wat betekent dat er geen berichten worden afgeleverd voor iedereen totdat dat bericht is genomen door een nieuw gemaakte die eigenaar is van de ontvanger sessie.
 
 Terwijl die kunnen worden weergegeven om te worden met beperkingen, kan een proces één ontvanger verwerken veel gelijktijdige sessies eenvoudig, vooral wanneer ze zijn geschreven met strikt asynchrone code; gelijktijdige sessies op verschillende dozijn Jongleren is effectief automatisch met het model retouraanroep.
 
@@ -79,7 +79,7 @@ De sessiestatus is ondergebracht in een wachtrij of in dat een abonnement telt n
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een voorbeeld van een volledige](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient) verzenden en ontvangen van berichten op basis van Service Bus-wachtrijen met de standaard .NET-bibliotheek.
+- [Een voorbeeld van een volledige](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) verzenden en ontvangen van berichten op basis van Service Bus-wachtrijen met de standaard .NET-bibliotheek.
 - [Een voorbeeld van een](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) die gebruikmaakt van de .NET Framework-client voor het afhandelen van sessie-bewuste berichten. 
 
 Zie voor meer informatie over Service Bus-berichtenservice, de volgende onderwerpen:

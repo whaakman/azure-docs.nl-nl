@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Beheren van Routering en het gebruik van virtuele apparaten (klassiek) met de Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [Azure-CLI](virtual-network-create-udr-arm-cli.md)
 > * [Sjabloon](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (klassiek)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (klassiek)](virtual-network-create-udr-classic-cli.md)

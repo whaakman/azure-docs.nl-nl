@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cb998caf35a9a55ea737cc1a24fbce38aac8abc4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT rand
 
@@ -24,7 +24,7 @@ Als u problemen hebt met het Azure IoT rand uitvoert in uw omgeving, maken gebru
 
 Wanneer u een probleem ondervindt, meer wilt weten over de status van uw IoT-randapparaat aan de hand van de container en de berichten die doorgeven naar en van het apparaat. Gebruik de opdrachten en hulpprogramma's in deze sectie om informatie te verzamelen. 
 
-* Bekijk de logboeken van de docker-containers voor het detecteren van problemen. Beginnen met uw geïmplementeerde containers en vervolgens kijken naar de containers die gezamenlijk de rand van de IoT-runtime: rand Agent en de Edge-Hub. De logboeken van de rand Agent bieden doorgaans info over de lifecylce van elke container. De logboeken van de rand Hub bevatten informatie over messaging en routering. 
+* Bekijk de logboeken van de docker-containers voor het detecteren van problemen. Beginnen met uw geïmplementeerde containers en vervolgens kijken naar de containers die gezamenlijk de rand van de IoT-runtime: rand Agent en de Edge-Hub. De logboeken van de rand Agent bieden doorgaans info over de levenscyclus van elke container. De logboeken van de rand Hub bevatten informatie over messaging en routering. 
 
    ```cmd
    docker logs <container name>
@@ -69,7 +69,7 @@ Een netwerkconfiguratie op het netwerk host verhindert dat de Agent rand bereikt
 De rand van de IoT-runtime stelt een netwerk voor elk van de modules communiceren op. Op Linux is dit netwerk een Brugnetwerk. In Windows wordt NAT bevinden. Dit probleem is vaker op Windows-apparaten met behulp van Windows-containers die gebruikmaken van de NAT-netwerk. 
 
 ### <a name="resolution"></a>Oplossing
-Zorg ervoor dat er een route met het internet voor de IP-adressen toegewezen aan deze brug/NAT-netwerk. Er zijn gevallen waarbij een VPN-configuratie op de host heeft voorrang op de rand van de IoT-netwerk. 
+Zorg ervoor dat er een route met het internet voor de IP-adressen toegewezen aan deze brug/NAT-netwerk. Soms een VPN-configuratie op de host heeft voorrang op de rand van de IoT-netwerk. 
 
 ## <a name="edge-hub-fails-to-start"></a>Rand Hub niet kan worden gestart
 

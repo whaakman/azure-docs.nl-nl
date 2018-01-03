@@ -1,6 +1,6 @@
 ---
-title: Azure logboeken met diagnostische gegevens naar een Event Hubs Namespace Stream | Microsoft Docs
-description: Informatie over het streamen van Azure logboeken met diagnostische gegevens naar een Event Hubs-naamruimte.
+title: Diagnostische logboeken van Azure stream naar een event hub | Microsoft Docs
+description: Informatie over het streamen van Azure logboeken met diagnostische gegevens naar een event hub.
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Azure logboeken met diagnostische gegevens naar een Event Hubs Namespace Stream
-**[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie voor 'Exporteren naar Event Hubs' in de Portal of doordat de Service Bus regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stroom Azure logboeken met diagnostische gegevens naar een event hub
+**[Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde optie voor 'Exporteren naar Event Hubs' in de Portal of doordat de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Wat u kunt doen met Logboeken met diagnostische en Event Hubs
 Hier volgen slechts enkele manieren kunt u de mogelijkheid streaming voor logboeken met diagnostische gegevens:
 
-* **Logboeken met 3e systemen van derden logboekregistratie en telemetrie stream** – gedurende een periode, streaming van Event Hubs, raken de mechanisme voor het doorgeven van de diagnostische logboeken in siem's van derden en meld u analytics-oplossingen.
+* **Logboeken met 3e systemen van derden logboekregistratie en telemetrie stream** – al uw diagnostische logboeken naar een enkele event hub voor pipe-logboekgegevens naar een derde partij SIEM of log analytics-hulpprogramma kan worden gestreamd.
 * **Servicestatus weergeven door het streamen van gegevens naar PowerBI 'hot pad'** – met behulp van Event Hubs, Stream Analytics en Power BI, kunt u eenvoudig uw diagnostics-gegevens in transformeren naar near-realtime-inzichten aan uw Azure-services. [Deze documentatie-artikel biedt een goed overzicht van het instellen van Event Hubs, verwerken van gegevens met Stream Analytics en het gebruik van Power BI als uitvoer](../stream-analytics/stream-analytics-power-bi-dashboard.md). Hier volgen enkele tips voor het ophalen van instellen met Logboeken met diagnostische gegevens:
   
   * Een event hub voor een categorie van diagnostische logboeken wordt automatisch gemaakt wanneer u de optie te in de portal selecteren of via PowerShell, inschakelen zodat u de event hub selecteren in de naamruimte met de naam die begint wilt met **insights -**.
@@ -52,7 +52,7 @@ U kunt inschakelen, streamen van diagnostische logboeken programmatisch via de p
 > 
 > 
 
-De Service Bus- of Event Hubs-naamruimte heeft geen zich in hetzelfde abonnement als de bron logboeken verzenden zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
+De naamruimte van Event Hubs heeft geen zich in hetzelfde abonnement als de bron logboeken verzenden zolang de gebruiker die de instelling configureert juiste RBAC toegang tot beide abonnementen heeft.
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Diagnostische logboeken met behulp van de portal
 1. In de portal, gaat u naar Azure Monitor en klikt u op **diagnostische instellingen**
@@ -73,11 +73,11 @@ De Service Bus- of Event Hubs-naamruimte heeft geen zich in hetzelfde abonnement
    
    ![Diagnostische instelling - bestaande instellingen toevoegen](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
-   De naamruimte die is geselecteerd, zijn waar de event hub is gemaakt (als dit de eerste keer streaming diagnoselogboeken is) of gestreamd naar (als er nog resources die zijn die categorie logboek naar deze naamruimte streaming), en het beleid bepaalt de machtigingen van het mechanisme voor streaming. Vandaag de dag vereist streaming naar een event hub machtigingen beheren, verzenden en luisteren. U kunt maken of wijzigen van Event Hubs naamruimte gedeeld toegangsbeleid in de portal onder het tabblad configureren voor de naamruimte. Voor het bijwerken van een van deze diagnostische instellingen, moet de client de machtiging ListKey hebben op de autorisatieregel Event Hubs.
+   De naamruimte die is geselecteerd, zijn waar de event hub is gemaakt (als dit de eerste keer streaming diagnoselogboeken is) of gestreamd naar (als er nog resources die zijn die categorie logboek naar deze naamruimte streaming), en het beleid bepaalt de machtigingen van het mechanisme voor streaming. Vandaag de dag vereist streaming naar een event hub machtigingen beheren, verzenden en luisteren. U kunt maken of wijzigen van Event Hubs naamruimte gedeeld toegangsbeleid in de portal onder het tabblad configureren voor de naamruimte. Voor het bijwerken van een van deze diagnostische instellingen, moet de client de machtiging ListKey hebben op de autorisatieregel Event Hubs. U kunt eventueel ook de naam van een event hub opgeven. Als u de naam van een event hub opgeeft, worden de logboeken worden gerouteerd naar die event hub, in plaats van naar een nieuwe event hub per categorie logboek.
 
 4. Klik op **Opslaan**.
 
-De nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze bron na enkele ogenblikken en logboeken met diagnostische gegevens worden gestreamd naar die storage-account zodra er nieuwe gebeurtenisgegevens wordt gegenereerd.
+De nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze bron na enkele ogenblikken en logboeken met diagnostische gegevens worden gestreamd naar die event hub zodra er nieuwe gebeurtenisgegevens wordt gegenereerd.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
 Om in te schakelen streaming via de [Azure PowerShell-Cmdlets](insights-powershell-samples.md), kunt u de `Set-AzureRmDiagnosticSetting` cmdlet met de volgende parameters:
@@ -86,7 +86,7 @@ Om in te schakelen streaming via de [Azure PowerShell-Cmdlets](insights-powershe
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-De regel-ID van Service Bus is een tekenreeks met deze indeling: `{Service Bus resource ID}/authorizationrules/{key name}`, bijvoorbeeld `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+De regel-ID van Service Bus is een tekenreeks met deze indeling: `{Service Bus resource ID}/authorizationrules/{key name}`, bijvoorbeeld `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. U selecteren de naam van een specifieke event hub met PowerShell op dit moment niet.
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
 Om in te schakelen streaming via de [Azure CLI](insights-cli-samples.md), kunt u de `insights diagnostic set` opdracht als volgt:
@@ -95,7 +95,7 @@ Om in te schakelen streaming via de [Azure CLI](insights-cli-samples.md), kunt u
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Gebruik dezelfde indeling voor Service Bus regel-ID zoals uitgelegd voor de PowerShell-Cmdlet.
+Gebruik dezelfde indeling voor Service Bus regel-ID zoals uitgelegd voor de PowerShell-Cmdlet. U selecteren de naam van een specifieke event hub met de Azure CLI momenteel niet.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Hoe ik de logboekgegevens van Event Hubs verbruiken?
 Hier volgt een voorbeeld uitvoergegevens van Event Hubs:

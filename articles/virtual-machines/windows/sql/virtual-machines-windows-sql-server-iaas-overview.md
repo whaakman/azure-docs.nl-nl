@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: jroth
-ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 95a18e4b2437ca628e84f6d6f580e12f2f26e111
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Wat is SQL Server op Azure Virtual Machines? (Windows)
 
@@ -42,12 +42,19 @@ Azure VM's voor SQL Server kunnen gebruikmaken van [geautomatiseerde back-ups](v
 
 Als u hoge beschikbaarheid nodig hebt, overweeg dan SQL Server-beschikbaarheidsgroepen te configureren. Hierbij combineert u meerdere virtuele machines van Azure voor SQL Server tot een virtueel netwerk. U kunt uw oplossing voor hoge beschikbaarheid configureren of sjablonen in Azure Portal gebruiken voor automatische configuratie. Zie [Hoge beschikbaarheid en herstel na een noodgeval voor SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md) voor een overzicht van alle opties voor hoge beschikbaarheid.
 
+## <a name="performance"></a>Prestaties
+
+Virtuele Azure-machines bieden verschillende groottes om te voldoen aan diverse workloadeisen. Virtuele SQL-machines bieden bovendien een geautomatiseerde opslagconfiguratie die is geoptimaliseerd voor uw prestatievereisten. Zie [Opslagconfiguratie voor SQL Server-VM's](virtual-machines-windows-sql-server-storage-configuration.md) voor meer informatie over het configureren van opslag voor virtuele SQL-machines. Zie [Best practices voor prestaties voor SQL Server op virtuele machines van Azure](virtual-machines-windows-sql-performance.md) om de prestaties af te stemmen.
+
 ## <a name="get-started-with-sql-vms"></a>Aan de slag met VM's voor SQL
 
 Als u aan de slag wilt, kiest u een installatiekopie voor een virtuele machine voor SQL Server met de vereiste versie, de vereiste editie en het vereiste besturingssysteem. De volgende gedeelten bevatten directe koppelingen naar Azure Portal voor de galerie met installatiekopieën van virtuele SQL Server-machines.
 
 > [!TIP]
 > Zie [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prijsrichtlijnen voor SQL Server Azure VM's) voor informatie over de VM- en SQL-prijzen voor deze installatiekopieën.
+
+> [!TIP]
+> Zie de [Veelgestelde vragen over virtuele SQL Server-machines](virtual-machines-windows-sql-server-iaas-faq.md#images) voor informatie over het update- en levenscyclusbeleid voor installatiekopieën van virtuele SQL Server-machines uit de galerie.
 
 ### <a id="payasyougo"></a> Betalen per gebruik
 De volgende tabel bevat een matrix met SQL Server-installatiekopieën voor betalen naar gebruik.

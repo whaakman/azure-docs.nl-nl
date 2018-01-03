@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6e8fadd54a78d432ed802f4c4880c2f77bb28c37
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Een virtuele-machineschaalset ingesteld met de Azure CLI 2.0 automatisch schalen
 Wanneer u een schaalset maakt, definieert u het aantal VM-exemplaren die u wilt uitvoeren. Als uw toepassing vraag verandert, kunt u automatisch vergroten of verkleinen van het aantal VM-exemplaren. De mogelijkheid om te schalen kunt u met de vraag van klanten houden of reageren op wijzigingen in de toepassingsprestaties gedurende de levenscyclus van uw app.
@@ -28,7 +28,7 @@ In dit artikel leest u hoe automatisch schalen om regels te maken met de Azure C
 
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het maken van regels voor automatisch schalen, moet u een bestaande virtuele machine schaalset. U kunt een instellen met schaal maken de [Azure-portal](virtual-machine-scale-sets-portal-create.md), [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli), of [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell).
+Voor het maken van regels voor automatisch schalen, moet u een bestaande virtuele machine schaalset. U kunt een instellen met schaal maken de [Azure-portal](virtual-machine-scale-sets-create-portal.md), [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), of [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Zodat het eenvoudiger te maken van de regels voor automatisch schalen, het definiëren van sommige variabelen voor uw scale set. Het volgende voorbeeld definieert de variabelen voor de set met de naam scale *myScaleSet* in de resourcegroep met de naam *myResourceGroup* en in de *eastus* regio. Uw abonnement ID wordt verkregen met [az account weergeven](/cli/azure/account#az_account_show). Als u meerdere abonnementen die zijn gekoppeld aan uw account hebt, wordt alleen het eerste abonnement geretourneerd. De namen en de abonnements-ID als volgt aanpassen:
 
@@ -65,9 +65,9 @@ De volgende parameters worden gebruikt voor deze regel:
 
 | Parameter         | Uitleg                                                                                                         | Waarde           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | CPU-percentage  |
+| *metricName*      | De metriek prestaties bewaken en schalen van toepassing instellen acties op.                                                   | Percentage CPU  |
 | *timeGrain*       | Hoe vaak de metrische gegevens worden verzameld voor analyse.                                                                   | 1 minuut        |
-| *TimeAggregation van* | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddelde         |
+| *TimeAggregation van* | Hiermee definieert u hoe de verzamelde metrische gegevens moeten worden samengevoegd voor analyse.                                                | Gemiddeld         |
 | *waarde voor timeWindow*      | De hoeveelheid tijd gecontroleerd voordat de metrische gegevens en drempelwaarde waarden worden vergeleken.                                   | 10 minuten      |
 | *operator*        | De operator is gebruikt voor het vergelijken van de metrische gegevens tegen de drempelwaarde.                                                     | Groter dan    |
 | *drempelwaarde*       | De waarde zorgt ervoor dat de regel voor automatisch schalen voor het activeren van een actie.                                                      | 70%             |

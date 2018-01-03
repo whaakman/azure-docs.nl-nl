@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informatie over waarschuwingen in Log Analytics
 
@@ -31,7 +31,7 @@ Voor het proces van het maken van regels voor waarschuwingen, Zie de volgende ar
 - Maken van regels voor waarschuwingen met [REST-API](log-analytics-api-alerts.md)
 
 
-## <a name="alert-rules"></a>Regels voor waarschuwingen
+## <a name="alert-rules"></a>Waarschuwingsregels
 
 Waarschuwingen worden gemaakt door regels voor waarschuwingen die automatisch logboek zoekopdrachten met regelmatige tussenpozen worden uitgevoerd.  Een waarschuwing record wordt gemaakt als de resultaten van de zoekopdracht logboek aan bepaalde criteria voldoen.  De regel kan een of meer acties voor het proactief zullen u informeren over de waarschuwing of een ander proces aanroepen vervolgens automatisch uitgevoerd.  Verschillende soorten waarschuwingsregels gebruiken verschillende logica voor deze analyses.
 
@@ -80,13 +80,13 @@ Als u wilt een waarschuwing geven wanneer de processor wordt uitgevoerd bijvoorb
 
     
 
-Als u een waarschuwing geven wilt wanneer de processor gemiddeld meer dan 90% voor een bepaalde periode, gebruikt u een query met de [opdracht meten](log-analytics-search-reference.md#commands) als volgt met de drempelwaarde voor de waarschuwingsregel **groter dan 0**.
+Als u een waarschuwing geven wilt wanneer de processor gemiddeld meer dan 90% voor een bepaalde periode, zou u een query als volgt gebruiken met de drempelwaarde voor de waarschuwingsregel **groter dan 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Als uw werkruimte is nog niet zijn bijgewerkt naar de [nieuwe logboekanalyse querytaal](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's in het volgende wijzigen wilt:`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Als uw werkruimte is nog niet zijn bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), en vervolgens de bovenstaande query's wijzigen in het volgende bij de laatste met behulp van wilt de [opdracht meten](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -113,8 +113,8 @@ Overweeg een scenario waarin het gewenste een waarschuwing als een computer proc
 **Query:** Perf | waar ObjectName == 'Processor' en CounterName == "% processortijd" | samenvatten AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 5 m), Computer<br>
 **Tijdvenster:** 30 minuten<br>
 **Waarschuwing frequentie:** 5 minuten<br>
-**Cumulatieve waarde:** geweldige dan 90<br>
-**Waarschuwing activeren op basis van:** totaal kiezen oplossingen groter is dan 5<br>
+**Cumulatieve waarde:** groter is dan 90<br>
+**Waarschuwing activeren op basis van:** totaal kiezen oplossingen groter is dan 2<br>
 
 De query zou een gemiddelde waarde voor elke computer maken om de 5 minuten.  Deze query worden uitgevoerd om de 5 minuten voor gegevens die worden verzameld in de vorige 30 minuten.  Voorbeeldgegevens worden hieronder weergegeven voor de drie computers.
 

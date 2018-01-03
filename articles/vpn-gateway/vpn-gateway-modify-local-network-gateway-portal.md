@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Lokale gateway netwerkinstellingen wijzigen met behulp van de Azure-portal
 
@@ -28,7 +28,7 @@ Soms worden de instellingen voor uw lokale netwerkgateway AddressPrefix of Gatew
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-> * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+> * [Azure-CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
 

@@ -4,13 +4,13 @@ description: Beschrijft hoe om te detecteren en beoordelen van de lokale virtuel
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 12/20/2017
 ms.author: raynew
-ms.openlocfilehash: c090605619afbaa1302932cbf9e73dbe52f5573b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detecteren en beoordelen van de lokale virtuele VMware-machines op de migratie naar Azure
 
@@ -44,10 +44,10 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 ## <a name="create-a-project"></a>Een project maken
 
 1. Klik in de Azure-portal op **maken van een resource**.
-2. Zoeken naar **Azure migreren**, en selecteer de service (**Azure migreren (preview)** in de zoekresultaten. Klik vervolgens op **Maken**.
+2. Zoeken naar **Azure migreren**, en selecteer de service **Azure migreren (preview)** in de zoekresultaten. Klik vervolgens op **Maken**.
 3. Geef de naam van het project en de Azure-abonnement voor het project.
 4. Maak een nieuwe resourcegroep.
-5. Geef de regio waarin u wilt maken van het project en klik vervolgens op **maken**. Metagegevens die afkomstig zijn van lokale virtuele machines worden opgeslagen in deze regio. U kunt alleen een migreren van de Azure-project maken in de regio West-Centraal VS voor deze preview. U kunt echter nog steeds de migratie voor een doel-Azure-locatie plannen. 
+5. Geef de locatie op waarnaar u het project maken en klik vervolgens op **maken**. U kunt alleen een migreren van de Azure-project maken in de regio West-Centraal VS voor deze preview. U kunt echter nog steeds de migratie voor een doel-Azure-locatie plannen. De opgegeven locatie voor het project wordt alleen gebruikt voor het opslaan van de metagegevens die afkomstig zijn van lokale virtuele machines. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -112,15 +112,20 @@ Het gedownloade bestand importeren in de vCenter-Server.
     - Accepteer de licentievoorwaarden en lees de informatie van derden.
     - De collector controleert of de virtuele machine toegang tot internet.
     - Als de virtuele machine toegang heeft tot internet via een proxy, klikt u op **Proxy-instellingen**, en geef de proxy-adres en poort voor luisteren. Geef referenties op als de proxy moet worden geverifieerd.
-    - De collector wordt gecontroleerd of de profiler Windows-service wordt uitgevoerd. De service wordt standaard geïnstalleerd op de VM-collector.
+
+    > [!NOTE]
+    > Adres voor de proxyserver moet worden ingevoerd in het formulier http://ProxyIPAddress of http://ProxyFQDN. Alleen HTTP-proxy wordt ondersteund.
+
+    - De collector wordt gecontroleerd of de collectorservice wordt uitgevoerd. De service wordt standaard geïnstalleerd op de VM-collector.
     - Download en installeer de VMware PowerCLI.
-. In **Machines detecteren**, het volgende doen:
+
+5. In **gegevens vCenter-Server opgeven**, het volgende doen:
     - Geef de FQDN-naam of IP-adres van de vCenter-server.
     - In **gebruikersnaam** en **wachtwoord**, geef de alleen-lezen accountreferenties die door de collector wordt gebruikt voor het detecteren van virtuele machines op de vCenter-server.
     - In **verzameling bereik**, selecteert u een bereik voor detectie van de virtuele machine. De collector kan alleen detecteren voor virtuele machines binnen het opgegeven bereik. Bereik kan worden ingesteld op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
     - In **Tag categorie voor groepering**, selecteer **geen**.
-1. In **Project selecteren**, geeft u de Azure migreren project-ID en sleutel dat u hebt gekopieerd uit de portal. Als niet kopiëren, de Azure portal openen van de VM-collector. In het project **overzicht** pagina, klikt u op **Machines detecteren**, en kopieer de waarden.  
-2. In **volledige detectie**, detectie bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector zorgt voor een geschatte detectie.
+6. In **Geef migratieproject**, geeft u de Azure migreren project-ID en sleutel dat u hebt gekopieerd uit de portal. Als niet kopiëren, de Azure portal openen van de VM-collector. In het project **overzicht** pagina, klikt u op **Machines detecteren**, en kopieer de waarden.  
+7. In **verzameling voortgang**, detectie bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector zorgt voor een geschatte detectie.
 
 > [!NOTE]
 > De collector ondersteunt alleen 'Engels (Verenigde Staten)' als de taal van het besturingssysteem en de taal van de gebruikersinterface van de collector. Ondersteuning voor meer talen is binnenkort beschikbaar.
@@ -152,7 +157,7 @@ Hier volgt een voorbeeld van een rapport assessment. Het bevat informatie over o
 
 ![Beoordelingsrapport](./media/tutorial-assessment-vmware/assessment-report.png)
 
-#### <a name="azure-readiness"></a>Gereedheid van Azure
+#### <a name="azure-readiness"></a>Azure-gereedheid
 
 Deze weergave toont de gereedheidsstatus voor elke computer.
 
@@ -162,7 +167,7 @@ Deze weergave toont de gereedheidsstatus voor elke computer.
 
   ![Readiness Assessment](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
-#### <a name="monthly-cost-estimate"></a>Maandelijkse kosten schatting
+#### <a name="monthly-cost-estimate"></a>Schatting maandelijkse kosten
 
 Deze weergave toont de totale berekenings- en opslagkosten van de virtuele machines in Azure samen met de details voor elke computer wordt uitgevoerd. Maakt een schatting van kosten zijn berekend met behulp van de aanbevelingen op basis van prestaties grootte voor een machine en de schijven en de eigenschappen van de evaluatie. 
 
@@ -179,6 +184,6 @@ U kunt inzoomen op Zie details voor een specifieke computer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meer informatie over](how-to-scale-assessment.md) het instellen van een beoordeling van een groot aantal lokale computers.
-- Informatie over het maken van meer gedetailleerde assessment groepen met behulp van [machine afhankelijkheid toewijzing](how-to-create-group-machine-dependencies.md)
+- [Meer informatie over](how-to-scale-assessment.md) detecteren en beoordelen van een grote VMware-omgeving.
+- Informatie over het maken van hoge betrouwbaarheid assessment groepen met behulp van [machine afhankelijkheid toewijzing](how-to-create-group-machine-dependencies.md)
 - [Meer informatie](concepts-assessment-calculation.md) over hoe beoordelingen zijn berekend.

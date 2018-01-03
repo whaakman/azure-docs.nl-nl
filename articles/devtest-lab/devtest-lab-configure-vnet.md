@@ -3,7 +3,7 @@ title: Een virtueel netwerk configureren in Azure DevTest Labs | Microsoft Docs
 description: Informatie over het configureren van een bestaand virtueel netwerk en subnet en deze gebruiken in een virtuele machine met Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: tarcher
-ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Een virtueel netwerk configureren in Azure DevTest Labs
 Zoals wordt beschreven in het artikel [een virtuele machine toevoegen aan een lab](devtest-lab-add-vm.md), wanneer u een virtuele machine in een testomgeving maken kunt u een geconfigureerde virtueel netwerk. U wilt bijvoorbeeld toegang tot uw corpnet-bronnen van uw virtuele machines met behulp van het virtuele netwerk dat is geconfigureerd met ExpressRoute of site-naar-site VPN.
@@ -58,12 +58,12 @@ De volgende stappen doorlopen en toe te voegen een bestaand virtueel netwerk (su
 1. Selecteer **OK** te sluiten van het deelvenster Lab Subnet.
 1. Selecteer **opslaan** te sluiten van het virtuele netwerk deelvenster.
 
-Nu dat het virtuele netwerk is geconfigureerd, kan worden geselecteerd bij het maken van een virtuele machine. Voor informatie over het maken van een virtuele machine en geef een virtueel netwerk, Raadpleeg het artikel [een VM met artefacten toevoegen aan een lab](devtest-lab-add-vm-with-artifacts.md). 
+Nu dat het virtuele netwerk is geconfigureerd, kan worden geselecteerd bij het maken van een virtuele machine. Voor informatie over het maken van een virtuele machine en geef een virtueel netwerk, Raadpleeg het artikel [een virtuele machine toevoegen aan een lab](devtest-lab-add-vm.md). 
 
 Azure [documentatie van uw virtuele netwerk](https://docs.microsoft.com/azure/virtual-network) vindt u meer informatie over het gebruik van vnet's, inclusief het instellen en beheren van een VNet en verbinden met uw on-premises netwerk.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u de gewenste virtuele netwerk hebt toegevoegd aan uw testomgeving, de volgende stap is het [een virtuele machine toevoegen aan uw testomgeving](devtest-lab-add-vm-with-artifacts.md).
+Nadat u de gewenste virtuele netwerk hebt toegevoegd aan uw testomgeving, de volgende stap is het [een virtuele machine toevoegen aan uw testomgeving](devtest-lab-add-vm.md).
 

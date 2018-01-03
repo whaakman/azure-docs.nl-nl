@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Het bouwen van een filter facet in Azure Search 
 
@@ -33,7 +33,7 @@ Meervoudige navigatie wordt gebruikt voor te filteren op de resultaten van de qu
 
 Facetten zijn dynamisch en geretourneerde van een query. Zoekresultaten doen om met hen de facetcategorieën gebruikt om de resultaten te bladeren. Als u niet bekend bent met facetten, is het volgende voorbeeld een afbeelding van een facetnavigatiestructuur.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Nieuw voor meervoudige navigatie en wilt meer informatie? Zie [facetnavigatie implementeren in Azure Search](search-faceted-navigation.md).
 

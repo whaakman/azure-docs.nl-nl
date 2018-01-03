@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f004e4763106c25d94f585f644560cf3a72d3f1b
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub apparaat-inrichtingsservice veiligheidsconcepten 
 
@@ -46,22 +46,51 @@ Apparaat geheimen kunnen ook worden opgeslagen in de software (geheugen), maar h
 
 TPM kan verwijzen naar een standaard voor het veilig opslaan van sleutels die worden gebruikt voor het verifiëren van het platform of het kan verwijzen naar de i/o-interface gebruikt om te communiceren met de implementatie van de standaard-modules. TPM's kunnen bestaan als discrete hardware, geïntegreerde hardware, firmware gebaseerde of op basis van software. Meer informatie over [TPM's en TPM attestation](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Apparaat inrichtingsservice biedt alleen ondersteuning voor TPM 2.0.
 
-## <a name="endorsement-key"></a>Goedkeuringssleutel
+### <a name="endorsement-key"></a>Goedkeuringssleutel
 
-De goedkeuringssleutel is een asymmetrische sleutel die is opgenomen in de TPM die productie-tijd is ingevoegd en is uniek voor elke TPM. De goedkeuringssleutel kan niet worden gewijzigd of verwijderd. Het persoonlijke gedeelte van de goedkeuringssleutel is nooit buiten de TPM vrijgegeven terwijl het openbare deel van de goedkeuringssleutel wordt gebruikt voor het herkennen van een legitieme TPM. Meer informatie over de [goedkeuringssleutel](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+De goedkeuringssleutel is een asymmetrische sleutel die is opgenomen in de TPM die intern is gegenereerd of geïnjecteerd productie-tijd en is uniek voor elke TPM. De goedkeuringssleutel kan niet worden gewijzigd of verwijderd. Het persoonlijke gedeelte van de goedkeuringssleutel is nooit buiten de TPM vrijgegeven terwijl het openbare deel van de goedkeuringssleutel wordt gebruikt voor het herkennen van een legitieme TPM. Meer informatie over de [goedkeuringssleutel](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
-## <a name="storage-root-key"></a>De opslaghoofdsleutel
+### <a name="storage-root-key"></a>De opslaghoofdsleutel
 
 De opslaghoofdsleutel wordt opgeslagen in de TPM en wordt gebruikt voor het beveiligen van TPM-sleutels die zijn gemaakt door toepassingen, zodat deze sleutels niet kunnen worden gebruikt zonder de TPM. De opslaghoofdsleutel wordt gegenereerd wanneer u eigenaar bent van de TPM; Wanneer u de TPM wist zodat een nieuwe gebruiker kunt eigenaar, wordt een nieuwe hoofdsleutel voor de opslag gegenereerd. Meer informatie over de [opslaghoofdsleutel](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx).
 
-## <a name="root-certificate"></a>Basiscertificaat
+## <a name="x509-certificates"></a>X.509-certificaten
 
-Een basiscertificaat is een type van een certificeringsinstantie die het X.509-certificaat en is zelfondertekend. De terminus van de certificaatketen is.
+X.509-certificaten gebruiken als een mechanisme voor Attestation-bewerking is een uitstekende manier om te schalen productie en vereenvoudigen apparaten inrichten. X.509-certificaten worden doorgaans gerangschikt in een certificaatvertrouwensketen waarin elk certificaat in de keten is ondertekend door de persoonlijke sleutel van de volgende hogere certificaat, enzovoort, wordt beëindigd in een zelfondertekend basiscertificaat. Hiermee stelt u een gedelegeerde vertrouwensketen van het basiscertificaat dat is gegenereerd door een vertrouwde certificeringsinstantie (CA) omlaag via elke tussenliggende CA aan het einde-entiteit certificaat geïnstalleerd op een apparaat. Zie voor meer informatie, [verificatie van apparaten met behulp van de CA-certificaten X.509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). 
 
-## <a name="intermediate-certificate"></a>Tussenliggende certificaat
+De certificaatketen vertegenwoordigt vaak een aantal logische of fysieke hiërarchie gekoppeld met apparaten. Bijvoorbeeld een fabrikant mogelijk een zelfondertekend basiscertificaat uitgeven, dat certificaat gebruiken bij het genereren van een unieke tussenliggende CA-certificaat voor elke factory, elke factory certificaat gebruiken voor het genereren van een unieke tussenliggende CA-certificaat voor elke productie regel in de installatie en gebruik ten slotte het certificaat van de productie-regel voor het genereren van een certificaat unieke apparaat (Eindentiteit) voor elk apparaat op de regel geproduceerd. Zie voor meer informatie, [conceptuele kennis van het x.509-CA-certificaten in de branche IoT](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-concept). 
 
-Er is een X.509-certificaat dat is ondertekend door het basiscertificaat (of door een ander certificaat met het basiscertificaat in de keten) en dat wordt gebruikt voor het leaf-certificaat ondertekenen een tussenliggende certificaat.
+### <a name="root-certificate"></a>Basiscertificaat
 
-## <a name="leaf-certificate"></a>Leaf-certificaat
+Een basiscertificaat is een zelf-ondertekend X.509-certificaat voor een certificeringsinstantie (CA). Het is de terminus of vertrouwensanker van de certificaatketen. Basiscertificaten worden automatisch uitgegeven door een organisatie of aangeschaft via een basiscertificeringsinstantie. Zie voor meer informatie, [X.509-certificaten ophalen](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Het basiscertificaat kan ook worden aangeduid als een CA-basiscertificaat.
 
-Een certificaat of een eindentiteitscertificaat, wordt gebruikt voor het identificeren van de certificaathouder en heeft het basiscertificaat in de certificaatketen. Het certificaat wordt niet gebruikt om alle andere certificaten te ondertekenen.
+### <a name="intermediate-certificate"></a>Tussenliggende certificaat
+
+Er is een X.509-certificaat dat is ondertekend door het basiscertificaat (of door een andere tussenliggende certificaat met het basiscertificaat in de keten) voor een tussenliggende certificaat. De laatste tussenliggende certificaten in een keten van wordt gebruikt voor het leaf-certificaat ondertekenen. Een tussenliggende certificaat kan ook worden aangeduid als een tussenliggende CA-certificaat.
+
+### <a name="leaf-certificate"></a>Leaf-certificaat
+
+Het certificaat of eindentiteitscertificaat, identificeert de certificaathouder. Het basiscertificaat in de certificaatketen en nul of meer tussenliggende certificaten heeft. Het certificaat wordt niet gebruikt om alle andere certificaten te ondertekenen. Unieke wijze identificeert het apparaat aan de inrichting service en wordt soms aangeduid als het certificaat voor apparaten. Het apparaat wordt de persoonlijke sleutel die is gekoppeld aan dit certificaat tijdens verificatie wordt gebruikt om te reageren op een bewijs van bezit uitdaging van de service. Zie voor meer informatie, [verificatie van apparaten die zijn ondertekend met x.509-CA-certificaten](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+
+## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Apparaattoegang tot de inrichting service met X.509-certificaten beheren
+
+De inrichting service bevat twee soorten inschrijving vermelding die u gebruiken kunt voor het toegangsbeheer voor apparaten die gebruikmaken van het X.509-mechanisme voor attestation:  
+
+- [Afzonderlijke inschrijving](./concepts-service.md#individual-enrollment) vermeldingen zijn geconfigureerd met het certificaat voor apparaten die zijn gekoppeld aan een specifiek apparaat. Deze vermeldingen beheren inschrijving voor specifieke apparaten.
+- [Inschrijvingsgroep](./concepts-service.md#enrollment-group) vermeldingen zijn gekoppeld aan een specifieke tussenliggende of CA-basiscertificaat. Deze vermeldingen beheren inschrijving voor alle apparaten waarop die tussenliggende of het certificaat in de certificaatketen hoofdknooppunt. 
+
+Wanneer een apparaat verbinding met de inrichting service maakt, de service bepaalt de volgorde van meer specifieke vermeldingen voor inschrijving via minder specifieke vermeldingen voor inschrijving. Dat wil zeggen, als een afzonderlijke registratie voor het apparaat bestaat, geldt de inrichting service die vermelding. Als er geen afzonderlijke inschrijving voor het apparaat en een inschrijvingsgroep voor het eerste tussenliggende certificaat in de certificaatketen van het apparaat bestaat, geldt de service die vermelding in de keten naar de hoofdmap van enzovoort. De service van toepassing is de eerste toepasselijke vermelding die wordt gevonden, zodat:
+
+- Als de eerste inschrijving vermelding gevonden is ingeschakeld, is de service voorziet het apparaat.
+- Als de eerste inschrijving vermelding gevonden is uitgeschakeld, wordt in de service het apparaat niet inrichten.  
+- Als er geen vermelding voor inschrijving voor een van de certificaten in de certificaatketen van het apparaat wordt gevonden, wordt in de service het apparaat niet inrichten. 
+
+Dit mechanisme en de hiërarchische structuur van certificaatketens biedt krachtige flexibiliteit in hoe u toegang voor afzonderlijke apparaten ook als voor groepen van apparaten kunt beheren. Denk bijvoorbeeld aan vijf apparaten met de volgende certificaatketens: 
+
+- *Apparaat 1*: basiscertificaat-certificaat een certificaat voor apparaten 1 -> >
+- *Apparaat 2*: basiscertificaat-certificaat een certificaat voor apparaten 2 -> >
+- *Apparaat 3*: basiscertificaat-certificaat een certificaat voor apparaten 3 -> >
+- *Apparaat 4*: basiscertificaat-certificaat B-certificaat voor apparaten 4 > >
+- *Apparaat 5*: basiscertificaat-certificaat B-certificaat voor apparaten 5 > >
+
+In eerste instantie, kunt u een vermelding van de registratie één ingeschakelde groep voor het basiscertificaat toegang inschakelen voor alle vijf apparaten. Als het certificaat B later wordt geknoeid, kunt u een vermelding van de groep uitgeschakelde inschrijving voor certificaat B om te voorkomen dat *apparaat 4* en *apparaat 5* niet worden ingeschreven. Indien nog steeds later *apparaat 3* wordt geknoeid, kunt u een vermelding uitgeschakelde afzonderlijke inschrijving voor het certificaat. Dit trekt u toegang voor *apparaat 3*, maar u kunt nog steeds *apparaat 1* en *apparaat 2* om in te schrijven.

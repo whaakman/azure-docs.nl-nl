@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/30/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 2f764bc14e882f71957299b833d5bc1a6765622a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee9f4d8846f7549d0a4cd0be1d6f726293716a69
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Diagnostische instellingen voor automatisch inschakelen bij het maken van de resource met een Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een bron wanneer deze wordt gemaakt. Hiermee kunt u op automatisch starten streaming uw diagnostische logboeken en metrische gegevens naar Event Hubs in een Opslagaccount wilt archiveren, of ze worden verzonden naar logboekanalyse wanneer een bron wordt gemaakt.
@@ -40,19 +40,31 @@ We bieden hieronder een voorbeeld van het JSON-bestand voor sjabloon die u wilt 
 ## <a name="non-compute-resource-template"></a>Niet-Compute resource-sjabloon
 Voor niet-rekenresources moet u twee dingen doen:
 
-1. Parameters toevoegen aan de parameters-blob voor de opslagaccountnaam, service bus regel-ID en/of OMS Log Analytics werkruimte-ID (waardoor archivering van diagnostische logboeken in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden met logboekanalyse).
+1. Voeg parameters toe aan de parameters-blob voor de opslagaccountnaam, de event hub autorisatie regel-ID en/of de OMS-logboekanalyse werkruimte-ID (archivering van diagnostische logboeken in een opslagaccount, streamen van logboeken naar Event Hubs en/of Logboeken verzenden naar logboek inschakelen Analytics).
    
     ```json
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the Service Bus Rule for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId":{
@@ -72,10 +84,12 @@ Voor niet-rekenresources moet u twee dingen doen:
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2017-05-01-preview",
         "properties": {
+          "name": "[parameters('settingName')]",
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+          "eventHubName": "[parameters('eventHubName')]",
           "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
@@ -89,7 +103,7 @@ Voor niet-rekenresources moet u twee dingen doen:
           ],
           "metrics": [
             {
-              "timeGrain": "PT1M",
+              "category": "AllMetrics",
               "enabled": true,
               "retentionPolicy": {
                 "enabled": false,
@@ -102,7 +116,7 @@ Voor niet-rekenresources moet u twee dingen doen:
     ]
     ```
 
-De blob eigenschappen voor de diagnostische instelling volgt [de indeling die wordt beschreven in dit artikel](https://msdn.microsoft.com/library/azure/dn931931.aspx). Toevoegen van de `metrics` eigenschap kunt u ook resource metrische gegevens verzenden naar deze dezelfde uitvoer, op voorwaarde dat [Azure Monitor metrische gegevens biedt ondersteuning voor de resource](monitoring-supported-metrics.md).
+De blob eigenschappen voor de diagnostische instelling volgt [de indeling die wordt beschreven in dit artikel](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Toevoegen van de `metrics` eigenschap kunt u ook resource metrische gegevens verzenden naar deze dezelfde uitvoer, op voorwaarde dat [Azure Monitor metrische gegevens biedt ondersteuning voor de resource](monitoring-supported-metrics.md).
 
 Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee schakelt u streaming met Event Hubs en opslag in een opslagaccount.
 
@@ -122,16 +136,28 @@ Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee
       "type": "string",
       "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId": {
@@ -188,10 +214,12 @@ Hier volgt een voorbeeld van een volledige die een logische App maakt en Hiermee
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
-          "apiVersion": "2015-07-01",
+          "apiVersion": "2017-05-01-preview",
           "properties": {
+            "name": "[parameters('settingName')]",
             "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {

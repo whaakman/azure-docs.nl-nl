@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: markgal;trinadhk
+ms.date: 12/20/2017
+ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup-cmdlets gebruiken om back-up van virtuele machines
 
@@ -80,7 +80,28 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
+3. Aanmelden bij uw Azure-account met **Login-AzureRmAccount**. Deze cmdlet wordt een webpagina wordt u gevraagd uw accountreferenties: 
+    - Ook kunt u uw accountreferenties opnemen als een parameter in de **Login-AzureRmAccount** cmdlet, met behulp van de **-referentie** parameter.
+    - Als u CSP partner werken namens een tenant de klant opgeven als een tenant met behulp van de naam van de primaire domeincontroller tenantID of tenant. Bijvoorbeeld: **Login-AzureRmAccount-Tenant 'fabrikam.com'**
+4. Het abonnement dat u gebruiken met de acount wilt omdat een account kan meerdere abonnementen hebben koppelen:
 
+    ```
+    PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    ```
+
+5. Als u Azure Backup voor de eerste keer gebruikt, moet u de  **[registreren AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet worden de Azure Recovery Service provider geregistreerd bij uw abonnement.
+
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ```
+
+6. U kunt controleren of de Providers geregistreerd, met de volgende opdrachten:
+    ```
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ``` 
+In de opdrachtuitvoer de **RegistrationState** moet ingesteld op **geregistreerde**. Als dat niet alleen opnieuw uitvoeren de  **[registreren AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet hierboven weergegeven.
 
 De volgende taken kunnen worden geautomatiseerd met PowerShell:
 
@@ -93,22 +114,17 @@ De volgende taken kunnen worden geautomatiseerd met PowerShell:
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 De volgende stappen leiden u bij het maken van een Recovery Services-kluis. Een Recovery Services-kluis is anders dan een back-upkluis.
 
-1. Als u Azure Backup voor de eerste keer gebruikt, moet u de  **[registreren AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet worden de Azure Recovery Service provider geregistreerd bij uw abonnement.
-
-    ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ```
-2. De Recovery Services-kluis is een Resource Manager-bron, dus u moet deze binnen een resourcegroep te plaatsen. Gebruik een bestaande resourcegroep of maak een resourcegroep met de  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. Bij het maken van een resourcegroep, geef de naam en locatie voor de resourcegroep.  
+1. De Recovery Services-kluis is een Resource Manager-bron, dus u moet deze binnen een resourcegroep te plaatsen. Gebruik een bestaande resourcegroep of maak een resourcegroep met de  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. Bij het maken van een resourcegroep, geef de naam en locatie voor de resourcegroep.  
 
     ```
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
-3. Gebruik de  **[nieuw AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  cmdlet voor het maken van de Recovery Services-kluis. Zorg ervoor dat Geef dezelfde locatie voor de kluis werd gebruikt voor de resourcegroep.
+2. Gebruik de  **[nieuw AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  cmdlet voor het maken van de Recovery Services-kluis. Zorg ervoor dat Geef dezelfde locatie voor de kluis werd gebruikt voor de resourcegroep.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Geef het type van de redundantie van gegevensopslag worden gebruikt. u kunt [lokaal redundante opslag (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) of [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Het volgende voorbeeld ziet dat de optie - BackupStorageRedundancy voor testvault is ingesteld op GeoRedundant.
+3. Geef het type van de redundantie van gegevensopslag worden gebruikt. u kunt [lokaal redundante opslag (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) of [geografisch redundante opslag (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Het volgende voorbeeld ziet dat de optie - BackupStorageRedundancy voor testvault is ingesteld op GeoRedundant.
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"

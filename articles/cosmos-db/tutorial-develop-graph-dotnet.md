@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ae60cb03d9777b607a6df77155d7f50faaab1de1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Ontwikkelen met de Graph API in .NET
-Azure Cosmos-database is de service van Microsoft wereldwijd gedistribueerde database voor meerdere model. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafen en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
+Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
 
-Deze zelfstudie laat zien hoe een Azure DB die Cosmos-account maken met de Azure-portal en het maken van een database van de grafiek en een container. De toepassing wordt vervolgens een eenvoudige sociaal netwerk maakt met vier mensen met behulp van de [Graph API](graph-sdk-dotnet.md) (preview) en vervolgens passeert en de grafiek met Gremlin-query's.
+Deze zelfstudie laat zien hoe een Azure DB die Cosmos-account maken met de Azure-portal en het maken van een database van de grafiek en een container. De toepassing wordt vervolgens een eenvoudige sociaal netwerk maakt met vier mensen met behulp van de [Graph API](graph-sdk-dotnet.md), vervolgens passeert en de grafiek Gremlin met query's.
 
 Deze zelfstudie bevat de volgende taken:
 

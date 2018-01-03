@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Voorwaardelijke toegang in Azure Active Directory
 
@@ -114,22 +114,22 @@ Zolang de toegang tot uw apps wordt uitgevoerd onder de voorwaarden die u kunt b
 
 In de huidige implementatie van Azure Active Directory, kunt u definiëren voorwaarden voor de volgende gebieden:
 
-- Aanmelden risico
-- Apparaatplatforms
+- Aanmeldingsrisico
+- Apparaatplatformen
 - Locaties
 - Client-apps
 
 
 ![Voorwaarden](./media/active-directory-conditional-access-azure-portal/01.png)
 
-### <a name="sign-in-risk"></a>Aanmelden risico
+### <a name="sign-in-risk"></a>Aanmeldingsrisico
 
 Een risico aanmelden is een object dat wordt gebruikt door Azure Active Directory voor het bijhouden van de kans dat een aanmeldingspagina proberen is niet uitgevoerd door de legitieme eigenaar van een gebruikersaccount. In dit object, de kans op (hoog, Gemiddeld of laag) wordt opgeslagen in de vorm van een kenmerk met de naam [aanmelden risiconiveau](active-directory-reporting-risk-events.md#risk-level). Dit object wordt gegenereerd tijdens een aanmeldingspagina van een gebruiker als aanmelden risico's zijn gedetecteerd door Azure Active Directory. Zie [Riskante aanmeldingen](active-directory-identityprotection.md#risky-sign-ins) voor meer informatie.  
 U kunt het risiconiveau voor berekende aanmelden als voorwaarde in een beleid voor voorwaardelijke toegang gebruiken. 
 
 ![Voorwaarden](./media/active-directory-conditional-access-azure-portal/22.png)
 
-### <a name="device-platforms"></a>Apparaatplatforms
+### <a name="device-platforms"></a>Apparaatplatformen
 
 Platform van het apparaat wordt gekenmerkt door het besturingssysteem dat wordt uitgevoerd op uw apparaat: U kunt de apparaatplatforms die opgenomen zijn, evenals de apparaatplatforms die zijn uitgesloten van een beleid definiëren.  
 Als u apparaatplatforms in het beleid, moet u eerst de Schakelknoppen configureren om te wijzigen **Ja**, en selecteer vervolgens alle of afzonderlijke apparaatplatforms het beleid van toepassing. Als u afzonderlijke apparaatplatforms selecteert, wordt in het beleid alleen gevolgen heeft voor deze platforms. Aanmeldingen voor andere ondersteunde platforms zijn in dit geval wordt niet beïnvloed door het beleid.
@@ -200,7 +200,7 @@ Als u een andere beschermingslaag toevoegen aan deze apps wilt, kunt u een belei
 
 Dit scenario is vergelijkbaar met het vorige scenario, omdat een vereiste voor multi-factor authentication wordt toegevoegd.
 Het belangrijkste verschil is echter de voorwaarde voor deze vereiste.  
-Tijdens de focus van het vorige scenario op apps met toegang tot sensitve gegevens, is de focus van dit scenario op vertrouwde locaties.  
+Tijdens de focus van het vorige scenario op apps met toegang tot gevoelige gegevens, is de focus van dit scenario op vertrouwde locaties.  
 U wellicht een vereiste voor multi-factor authentication met andere woorden, als een app wordt geopend door een gebruiker vanaf een netwerk dat u niet vertrouwt.
 
 
@@ -209,6 +209,9 @@ U wellicht een vereiste voor multi-factor authentication met andere woorden, als
 Als u van Intune in uw omgeving gebruikmaakt, kunt u onmiddellijk starten via de interface van het beleid voor voorwaardelijke toegang in de Azure-console.
 
 Veel klanten van Intune voorwaardelijke toegang gebruiken om ervoor te zorgen dat alleen vertrouwde apparaten toegang krijgen Office 365-services tot. Dit betekent dat mobiele apparaten zijn ingeschreven bij Intune en voldoen aan nalevingsvereisten van beleid en dat Windows-pc's lid zijn van een lokaal domein. Een verbetering van de belangrijkste is dat er geen hetzelfde beleid instellen voor elk van de Office 365-services.  Wanneer u een nieuw beleid maakt, moet u de Cloud-apps zodat elk van de O365-apps die u wilt beveiligen met voorwaardelijke toegang configureren.
+
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Overschakelen van een apparaat in Bedrijfseigendom voor Bring Your Own Device (BYOD)
+Als u blokkeren, ingeschreven apparaten wilt door het wijzigen van de apparaten die eigendom van zakelijke naar persoonlijke, kunt u dit doen met behulp van voorwaardelijke toegang van Azure Active Directory (AAD). U moet eerst een beleid voor voorwaardelijke toegang maken waar **toegang blokkeren** is geselecteerd in de toegangscontrole **Grant** blade. Maak vervolgens een **dynamische apparaat** groep door in te stellen de **deviceOwnership** eigenschap **persoonlijke**. Vervolgens de bovenstaande beleid naar de nieuwe groep als doel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

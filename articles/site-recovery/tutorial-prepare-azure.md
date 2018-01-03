@@ -2,30 +2,23 @@
 title: Resources maken voor gebruik met Azure Site Recovery | Microsoft Docs
 description: Informatie over het voorbereiden van Azure voor replicatie van lokale apparaten via de Azure Site Recovery-service.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Azure-resources voor de replicatie van machines lokale voorbereiden
 
 De [Azure Site Recovery](site-recovery-overview.md) service draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel herstel (BCDR) door uw business-apps te houden beschikbaar tijdens geplande en ongeplande uitval. Site Recovery beheert en noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failovers en herstel ingedeeld.
 
-Deze zelfstudie laat zien hoe Azure-onderdelen voorbereiden wanneer u een lokale virtuele machines en fysieke servers repliceren naar Azure wilt maken. In deze zelfstudie leert u het volgende:
+Deze zelfstudie laat zien hoe Azure-onderdelen voorbereiden wanneer u een lokale virtuele machines (Hyper-V- of VMware) of Windows of Linux fysieke servers repliceren naar Azure wilt maken. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Controleer of dat uw account replicatie machtigingen heeft
@@ -40,7 +33,7 @@ Meld u via http://portal.azure.com aan bij Azure Portal.
 
 ## <a name="verify-account-permissions"></a>Controleer de accountmachtigingen
 
-Als u hebt zojuist hebt gemaakt met uw gratis Azure-account bent u de beheerder van uw abonnement. Als u niet de abonnementsbeheerder bent, samen met de beheerder u moet machtigingen toewijzen. Om replicatie inschakelen voor een nieuwe virtuele machine, moet u het volgende hebben:
+Als u uw gratis Azure-account zojuist hebt gemaakt, bent u de beheerder van uw abonnement. Als u niet de abonnementsbeheerder bent, samen met de beheerder u moet machtigingen toewijzen. Om replicatie inschakelen voor een nieuwe virtuele machine, moet u het volgende hebben:
 
 - Machtiging voor het maken van een virtuele machine in de geselecteerde resourcegroep
 - Machtiging voor het maken van een virtuele machine in de geselecteerde virtuele netwerk
@@ -53,13 +46,13 @@ De ingebouwde rol 'Virtual Machine Contributor' heeft deze machtingen. U moet oo
 Installatiekopieën van gerepliceerde machines worden bewaard in Azure-opslag. Virtuele machines in Azure worden uit de opslag gemaakt wanneer u een failover van on-premises naar Azure.
 
 1. In de [Azure-portal](https://portal.azure.com) menu, klikt u op **nieuw** -> **opslag** -> **opslagaccount**.
-2. Voer een naam in voor het opslagaccount. Voor deze zelfstudie gebruiken we de naam van de **contosovmsacct1910171607**. De naam moet uniek zijn binnen Azure en tussen 3 en 24 tekens, witn alleen cijfers en kleine letters.
+2. Voer een naam in voor het opslagaccount. Voor deze zelfstudie gebruiken we de naam van de **contosovmsacct1910171607**. De naam moet uniek zijn binnen Azure en tussen 3 en 24 tekens lang zijn en alleen cijfers en kleine letters.
 3. Gebruik de **Resource Manager** implementatiemodel.
 4. Selecteer **algemeen** > **standaard**.
 5. Selecteer de standaard **RA-GRS** voor redundantie van gegevensopslag.
 6. Selecteer het abonnement waarin u het nieuwe opslagaccount wilt maken.
 7. Geef een nieuwe resourcegroep. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Voor deze zelfstudie gebruiken we de naam van de **ContosoRG**.
-8. Selecteer de geografische locatie voor het opslagaccount. Het opslagaccount moet in dezelfde regio bevinden als de Recovery Services-kluis. Voor deze zelfstudie gebruiken we de locatie **West-Europa**.
+8. Selecteer de geografische locatie voor het opslagaccount. Het opslagaccount moet in dezelfde regio bevinden als de Recovery Services-kluis. Voor deze zelfstudie gebruiken we de **West-Europa** regio.
 
    ![Maak storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -71,7 +64,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure-opslag. V
     **back-up en herstel van de Site**.
 2. Geef in **Naam** een beschrijvende naam op om de kluis mee aan te duiden. Voor deze zelfstudie gebruiken we **ContosoVMVault**.
 3. Selecteer de bestaande resourcegroep met de naam **contosoRG**.
-4. Geef de Azure-regio **West-Europa**.
+4. Geef de Azure-regio **West-Europa**, die we in deze reeks zelfstudies gebruiken.
 5. Voor snelle toegang tot de kluis vanuit het dashboard, klikt u op **vastmaken aan dashboard** > **maken**.
 
    ![Nieuwe kluis](./media/tutorial-prepare-azure/new-vault-settings.png)

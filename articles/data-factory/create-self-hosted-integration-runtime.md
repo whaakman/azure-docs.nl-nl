@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Het maken en configureren van Self-hosted integratie Runtime
 De integratie Runtime (IR) is de beheerinfrastructuur gebruikt door Azure Data Factory om te bieden mogelijkheden voor de integratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [integratie Runtime overzicht](concepts-integration-runtime.md).
@@ -110,7 +110,20 @@ Een Self-hosted integratie Runtime kan worden gekoppeld aan meerdere on-premises
 U kunt meerdere knooppunten koppelen gewoon de Self-hosted integratie Runtime door software te installeren vanuit de [Downloadcentrum](https://www.microsoft.com/download/details.aspx?id=39717) en door het registreren van deze door een van de verificatiesleutels verkregen van Nieuwe AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet zoals beschreven in de [zelfstudie](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> U hoeft niet te maken van nieuwe Self-hosted integratie Runtime voor het koppelen van elk knooppunt.
+> U hoeft niet te maken van nieuwe Self-hosted integratie Runtime voor het koppelen van elk knooppunt. U kunt zelf gehoste integratie runtime op een andere computer installeren en registreren met behulp van de dezelfde verificatiesleutel. 
+
+> [!NOTE]
+> Voordat u een ander knooppunt voor toevoegt **hoge beschikbaarheid en schaalbaarheid**, zorg ervoor dat **extern toegang tot intranet** optie is **ingeschakeld** op de 1e knooppunt (Microsoft Integratie Runtime Configuration Manager -> Instellingen -> extern toegang tot intranet). 
+
+### <a name="tlsssl-certificate-requirements"></a>Vereisten voor TLS/SSL-certificaten
+Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor het beveiligen van communicatie tussen integratie runtime knooppunten:
+
+- Het certificaat moet een openbaar vertrouwde X509 v3-certificaat. Het is raadzaam om gebruik te maken van certificaten die zijn uitgegeven door een openbare (derde) certificeringsinstantie (CA).
+- Elk knooppunt van de runtime integratie moet dit certificaat vertrouwen.
+- Met wild card certificaten worden ondersteund. Als uw FQDN-naam **node1.domain.contoso.com**, kunt u ***. domain.contoso.com** als de onderwerpnaam van het certificaat.
+- SAN-certificaten worden niet aanbevolen omdat alleen het laatste item in de alternatieve onderwerpnamen wordt gebruikt en alle andere worden genegeerd vanwege een beperking van de huidige. Bijvoorbeeld u hebt een SAN-certificaat waarvan SAN zijn **node1.domain.contoso.com** en **node2.domain.contoso.com**, kunt u dit certificaat alleen gebruiken op de machine waarvan FQDN **node2.domain.contoso.com**.
+- Ondersteunt sleutelgrootte voor SSL-certificaten wordt ondersteund door Windows Server 2012 R2.
+- Certificaten met CNG sleutels worden niet ondersteund. Doesrted DoesDoes ondersteuning geen voor certificaten met CNG-sleutels.
 
 ## <a name="system-tray-icons-notifications"></a>Pictogrammen in systeemvak / meldingen
 Als u de cursor op het systeem/Meldingsbericht voor een pictogram systeemvak plaatst, kunt u gegevens over de status van de host zichzelf integratie runtime vinden.
@@ -225,14 +238,20 @@ Als u fouten overeen met de volgende procedures optreden, is het waarschijnlijk 
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Open poort 8060 voor referentieversleuteling.
-De **instelling referenties** toepassing (momenteel niet ondersteund) maakt gebruik van de binnenkomende poort 8060 relay referenties naar de runtime host zichzelf integratie bij het instellen van een lokaal gekoppelde service in de Azure-portal. Tijdens de installatie van de runtime host zichzelf integratie wordt standaard de runtime-installatie zelf gehoste integratie geopend op de host zichzelf integratie runtime-machine.
+### <a name="enable-remote-access-from-intranet"></a>Externe toegang via Intranet inschakelen  
+In geval als u **PowerShell** of **Referentiebeheer toepassing** om referenties te versleutelen vanaf een andere computer (in het netwerk) dan waar de host zichzelf integratie-runtime is geïnstalleerd, klikt u vervolgens u moet de **'Externe toegang via Intranet'** optie zijn ingeschakeld. Als u de **PowerShell** of **Referentiebeheer toepassing** voor het versleutelen van de referentie op dezelfde computer waarop de host zichzelf integratie-runtime is geïnstalleerd, klikt u vervolgens **' externe toegang via Intranet'** mogelijk niet ingeschakeld.
 
-Als u een firewall van derden gebruikt, kunt u handmatig de poort 8050 openen. Als u in de firewallprobleem tijdens de installatie van de runtime host zichzelf integratie uitvoert, kunt u proberen met de volgende opdracht voor het installeren van de runtime host zichzelf integratie zonder het configureren van de firewall.
+Externe toegang via Intranet moet **ingeschakeld** voordat u een ander knooppunt voor toevoegt **hoge beschikbaarheid en schaalbaarheid**.  
+
+Tijdens de integratie van host zichzelf runtime installatie (of hoger v 3.3.xxxx.x), standaard de runtime-installatie zelf gehoste integratie schakelt de **'Externe toegang via Intranet'** op de host zichzelf integratie runtime-machine.
+
+Als u een firewall van derden gebruikt, kunt u handmatig de 8060 (of de gebruiker geconfigureerde poort) openen. Als u in de firewallprobleem tijdens de installatie van de runtime host zichzelf integratie uitvoert, kunt u proberen met de volgende opdracht voor het installeren van de runtime host zichzelf integratie zonder het configureren van de firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Referentiebeheer toepassing** is nog niet beschikbaar voor het versleutelen van de referenties in ADFv2. We zullen deze ondersteuning later toevoegen.  
 
 Als u niet de poort te openen 8060 op de host zichzelf integratie runtime-machine, gebruikgemaakt van mechanismen dan met behulp van de ** instelling referenties ** toepassing voor het configureren van referenties voor gegevensopslag. U kunt bijvoorbeeld New AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell-cmdlet. Zie de sectie over de instelling referenties en beveiliging op hoe de referenties voor het opslaan van gegevens kan worden ingesteld.
 

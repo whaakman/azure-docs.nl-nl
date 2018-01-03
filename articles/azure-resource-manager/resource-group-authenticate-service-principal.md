@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources
 
@@ -27,10 +27,10 @@ Wanneer u een app of een script dat nodig heeft voor toegang tot resources hebt,
 * Machtigingen toekennen aan de identiteit van de app die anders zijn dan uw eigen machtigingen. Deze machtigingen zijn meestal beperkt tot precies wat de app moet doen.
 * Een certificaat voor verificatie gebruiken bij het uitvoeren van een onbewaakt script.
 
-Dit onderwerp leest u hoe u [Azure PowerShell](/powershell/azure/overview) voor het instellen van alles wat u nodig hebt voor een toepassing worden uitgevoerd onder een eigen referenties en identiteit.
+Dit artikel laat zien hoe u [Azure PowerShell](/powershell/azure/overview) voor het instellen van alles wat u nodig hebt voor een toepassing worden uitgevoerd onder een eigen referenties en identiteit.
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
-Als u dit onderwerp, moet u voldoende machtigingen in uw Azure Active Directory en uw Azure-abonnement hebben. In het bijzonder moet u een app maken in de Azure Active Directory en de service-principal toewijzen aan een rol. 
+Als u dit artikel, moet u voldoende machtigingen in uw Azure Active Directory en uw Azure-abonnement hebben. In het bijzonder moet u een app maken in de Azure Active Directory en de service-principal toewijzen aan een rol. 
 
 De eenvoudigste manier om te controleren of uw account over de juiste machtigingen beschikt, verloopt via de portal. Zie [controleert u de vereiste machtiging](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ U kunt een wachtwoord, gebruiken:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Als u wilt toevoegen de waarde van een certificaat, een zelfondertekend certificaat te maken zoals in dit onderwerp. Vervolgens gebruikt:
+Als u wilt toevoegen de waarde van een certificaat, een zelfondertekend certificaat te maken zoals in dit artikel. Vervolgens gebruikt:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore

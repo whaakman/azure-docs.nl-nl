@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Bijwerken van een toepassing in Azure Container Service (AKS)
 
@@ -33,7 +33,7 @@ In volgende zelfstudies is Operations Management Suite geconfigureerd voor het c
 
 In vorige zelfstudies is een toepassing worden verpakt in een installatiekopie van een container, de installatiekopie die is geüpload naar Azure Container register en een Kubernetes-cluster gemaakt. De toepassing is vervolgens op het cluster Kubernetes uitgevoerd. 
 
-Een toepassing-opslagplaats is ook gekloond waaronder de broncode van de toepassing en een vooraf gemaakte Docker Compose bestand dat wordt gebruikt in deze zelfstudie. Controleer of dat u een kloon van de opslagplaats hebt gemaakt en dat u de mappen in de gekloonde directory hebt ingesteld. Binnen een map met de naam is `azure-vote` en een bestand met de naam `docker-compose.yml`.
+Een toepassing-opslagplaats is ook gekloond waaronder de broncode van de toepassing en een vooraf gemaakte Docker Compose bestand dat wordt gebruikt in deze zelfstudie. Controleer of dat u een kloon van de opslagplaats hebt gemaakt en dat u de mappen in de gekloonde directory hebt ingesteld. Binnen een map met de naam is `azure-vote` en een bestand met de naam `docker-compose.yaml`.
 
 Als u deze stappen niet zijn voltooid en u wilt volgen, terug naar [zelfstudie 1 – installatiekopieën van de container maken][aks-tutorial-prepare-app]. 
 

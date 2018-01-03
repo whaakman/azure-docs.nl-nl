@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Een aangepaste domeinnaam voor Azure-Web-Apps kopen
 
@@ -34,6 +34,8 @@ Vereisten voor het voltooien van deze zelfstudie:
 * [Verwijder de bestedingslimiet voor uw abonnement](../billing/billing-spending-limit.md#remove). U kunt App Service-domeinen met een gratis abonnement tegoed kan niet kopen.
 
 ## <a name="prepare-the-app"></a>De app voorbereiden
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Gebruik van aangepaste domeinen in Azure Web Apps, uw web-app van [App Service-abonnement](https://azure.microsoft.com/pricing/details/app-service/) moet een betaald laag (**gedeelde**, **Basic**, **standaard**, of  **Premium**). In deze stap maakt ervoor u zorgen dat de web-app is in de ondersteunde prijscategorie.
 

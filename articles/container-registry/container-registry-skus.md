@@ -1,100 +1,106 @@
 ---
 title: Azure-Container register SKU 's
-description: "Vergelijking tussen de verschillende servicecategorieën beschikbaar in Azure Container register"
+description: "Vergelijk de verschillende servicecategorieën beschikbaar in Azure Container register."
 services: container-registry
-author: stevelas
+author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/16/2017
-ms.author: stevelas
-ms.openlocfilehash: cf7724dd9e3e870cfd7ec0b5d2e4ea1d0694e9de
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.date: 12/20/2017
+ms.author: marsma
+ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-container-registry-skus"></a>Azure-Container register SKU 's
 
-Azure Container register (ACR) is beschikbaar in meerdere Servicelagen SKU's genoemd. Deze SKU's bieden voorspelbare prijzen en verschillende opties voor hoe u wilt gebruiken van uw persoonlijke Docker-register in Azure. Als u een hogere SKU, kunt meer prestaties en schaalbaarheid. Alle SKU's bieden echter dezelfde programmatische mogelijkheden voor het inschakelen van een ontwikkelaar aan de slag met Basic en converteren naar Standard en Premium als register gebruik toeneemt.
+Azure Container register (ACR) is beschikbaar in meerdere Servicelagen SKU's genoemd. Deze SKU's bieden voorspelbare prijzen en verschillende opties voor het uitlijnen van de capaciteit en gebruikspatronen van uw persoonlijke Docker-registratie in Azure.
 
-## <a name="basic"></a>Basic
-Een geoptimaliseerde kosten toegangspunt voor meer informatie over Azure-Container register ontwikkelaars. Basic registers hebben dezelfde programmatische mogelijkheden als Standard en Premium (integratie van Azure Active Directory-verificatie, verwijderen van een installatiekopie en web hooks), er zijn echter beperkingen voor de grootte en informatie over het gebruik.
+| SKU | Managed | Beschrijving |
+| --- | :-------: | ----------- |
+| **Basic** | Ja | Een geoptimaliseerde kosten toegangspunt voor meer informatie over Azure-Container register ontwikkelaars. Basic registers hebben dezelfde programmatische mogelijkheden als Standard en Premium (integratie van Azure Active Directory-verificatie, verwijderen van een installatiekopie en web hooks), er zijn echter beperkingen voor de grootte en informatie over het gebruik. |
+| **Standard** | Ja | Standaard registers bieden dezelfde functionaliteit als basis, met hogere opslaglimieten en image-doorvoer. Standaard registers moeten voldoen aan de behoeften van de meeste scenario's voor productie. |
+| **Premium** | Ja | Premium-registers bieden hogere limieten van de beperkingen, zoals opslag en gelijktijdige bewerkingen, het inschakelen van grootschalige scenario's in. Naast de hogere doorvoercapaciteit van de installatiekopie, Premium profiteert u onder functies, zoals [geo-replicatie] [ container-registry-geo-replication] voor het beheren van een enkele register over meerdere regio's, onderhouden van een netwerk sluit register aan elk de implementatie. |
+| Klassiek | Nee | Het register klassieke SKU ingeschakeld voor de initiële versie van de Azure-Container Registry-service in Azure. Klassieke registers worden ondersteund door een opslagaccount dat Azure in uw abonnement Hiermee beperkt u de mogelijkheid voor ACR maakt om een hoger niveau mogelijkheden, zoals verbeterde doorvoer en geo-replicatie. We zullen de klassieke SKU in de toekomst afschaffen vanwege de beperkte mogelijkheden. |
 
-## <a name="standard"></a>Standard
-Standaard registers bieden dezelfde functionaliteit als basis, met hogere opslaglimieten en image-doorvoer. Standaard registers moeten voldoen aan de behoeften van de meeste scenario's voor productie.
-
-## <a name="premium"></a>Premium
-Premium-registers bieden hogere limieten van de beperkingen, zoals opslag en gelijktijdige bewerkingen, het inschakelen van grootschalige scenario's in. Naast de hogere doorvoercapaciteit van de installatiekopie, Premium profiteert u onder functies, zoals [geo-replicatie](container-registry-geo-replication.md) onderhouden voor het beheren van een enkele register over meerdere regio's, een netwerk sluit Register in op elke implementatie.
-
-## <a name="classic"></a>Klassiek
-Het register klassieke SKU ingeschakeld voor de initiële versie van de Azure-Container Registry-service in Azure. Klassieke registers worden ondersteund door een opslagaccount dat Azure in uw abonnement Hiermee beperkt u de mogelijkheid voor ACR maakt om een hoger niveau mogelijkheden, zoals verbeterde doorvoer en geo-replicatie. We zullen de klassieke SKU in de toekomst afschaffen vanwege de beperkte mogelijkheden.
+U kiest dat een hogere SKU biedt meer prestaties en schaalbaarheid, bieden alle beheerde SKU's echter dezelfde programmatische mogelijkheden. Met meerdere Servicelagen, kunt u aan de slag kunt met Basic en vervolgens converteren naar Standard en Premium als uw register gebruik toeneemt.
 
 > [!NOTE]
-> Vanwege de geplande buitengebruikstelling van het register klassieke SKU, wordt u aangeraden dat u Basic, Standard of Premium gebruiken voor alle nieuwe registers. Zie voor meer informatie over het converteren van uw bestaande klassieke register [wijzigen SKU's](#changing-skus).
+> Vanwege de geplande buitengebruikstelling van het register klassieke SKU, wordt u aangeraden dat u Basic, Standard of Premium gebruiken voor alle nieuwe registers. Zie voor meer informatie over het converteren van uw bestaande klassieke register [upgraden van een klassiek register][container-registry-upgrade].
 >
 
-## <a name="registry-sku-feature-matrix"></a>Register SKU Functiematrix
+## <a name="managed-vs-unmanaged"></a>Beheerde versus onbeheerde
+
+Het Basic, Standard en Premium-SKU's gezamenlijk worden aangeduid als *beheerd* registries en klassieke registers als *onbeheerde*. Het belangrijkste verschil tussen de twee is hoe uw container-installatiekopieën worden opgeslagen.
+
+### <a name="managed-basic-standard-premium"></a>Beheerd (Basic, Standard, Premium)
+
+Beheerde registers worden ondersteund door een Azure Storage-account die door Azure worden beheerd. Dat wil zeggen, het opslagaccount dat u uw installatiekopieën worden opgeslagen niet wordt weergegeven in uw Azure-abonnement. Er zijn diverse voordelen die is opgedaan met behulp van een van de beheerde register SKU's, die worden beschreven in gedetailleerde [upgraden van een klassiek register][container-registry-upgrade]. Dit artikel is gericht op de beheerde register SKU's en hun mogelijkheden.
+
+### <a name="unmanaged-classic"></a>Niet-beheerde (klassiek)
+
+Klassieke registers zijn 'zonder begeleiding' in de zin dat het opslagaccount dat een klassiek register een back-up zich bevindt binnen *uw* Azure-abonnement. Hierdoor bent u verantwoordelijk voor het beheer van het opslagaccount waarin de container-installatiekopieën worden opgeslagen. Met niet-beheerde registers u tussen SKU's niet overschakelen naar behoefte (anders dan [upgraden] [ container-registry-upgrade] met een beheerde register), en de verschillende functies van beheerde registers zijn niet beschikbaar (bijvoorbeeld: verwijdering van de afbeelding container, [geo-replicatie] [ container-registry-geo-replication] en [webhooks][container-registry-webhook]).
+
+Zie voor meer informatie over het upgraden van een klassiek register op een van de beheerde SKU's [upgraden van een klassiek register][container-registry-upgrade].
+
+## <a name="sku-feature-matrix"></a>Matrix van SKU-functie
 
 De volgende tabel worden de functies en de ondergrenzen van de servicecategorieën Basic, Standard en Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## <a name="manage-registry-size"></a>De registergrootte van het beheren
-De beperkingen van de opslag van elke SKU zijn bedoeld om uitgelijnd met een typisch scenario: Basic voor aan de slag, standaard voor het merendeel van de apps in productie- en Premium voor hyperschaal prestaties en [geo-replicatie](container-registry-geo-replication.md). Tijdens de levensduur van het register, moet u de grootte beheren door regelmatig ongebruikte inhoud verwijderen.
-
-U vindt het huidige gebruik van een register in het register van de container **overzicht** in de Azure portal:
-
-![Informatie over het gebruik van register in de Azure portal](media/container-registry-skus/registry-overview-quotas.png)
-
-U kunt de grootte van het register beheren door opslagplaatsen in de Azure portal te verwijderen.
-
-Onder **SERVICES**, selecteer **opslagplaatsen**, klik met de rechtermuisknop op de opslagplaats die u wilt verwijderen en selecteer vervolgens **verwijderen**.
-
-![Verwijderen van een opslagplaats in Azure portal](media/container-registry-skus/delete-repository-portal.png)
-
 ## <a name="changing-skus"></a>Het wijzigen van SKU 's
 
-U kunt de SKU van het register in de Azure portal kunt wijzigen.
+U kunt de SKU van het register met de Azure CLI of in de Azure-portal wijzigen. U kan bewegen tussen beheerde SKU's zolang de SKU u naar omschakelt de vereiste maximale capaciteit heeft. Als u overschakelt naar een van de beheerde SKU's van klassieke, verplaatsen u niet terug naar de klassieke--is een eenzijdige conversie.
 
-In het register **overzicht** in de Azure portal, selecteer **Update**, selecteer vervolgens een nieuwe **SKU** in de vervolgkeuzelijst SKU.
+### <a name="azure-cli"></a>Azure-CLI
 
-![Container register SKU in Azure-portal bijwerken](media/container-registry-skus/update-registry-sku.png)
+Als u wilt verplaatsen tussen SKU's in de Azure CLI, gebruikt u de [az acr update] [ az-acr-update] opdracht. Als u bijvoorbeeld overschakelen naar Premium:
+
+```azurecli
+az acr update --name myregistry --sku Premium
+```
+
+### <a name="azure-portal"></a>Azure Portal
+
+In het register van de container **overzicht** in de Azure portal, selecteer **Update**, selecteer vervolgens een nieuwe **SKU** in de vervolgkeuzelijst SKU.
+
+![Container register SKU in Azure-portal bijwerken][update-registry-sku]
+
+Als u een klassiek register hebt, kunt u een beheerde SKU binnen de Azure-portal niet selecteren. In plaats daarvan moet u eerst [upgrade] [ container-registry-upgrade] met een beheerde register (Zie [wijzigen van klassieke](#changing-from-classic)).
 
 ## <a name="changing-from-classic"></a>Het wijzigen van klassiek
-Wanneer u een klassiek register naar basis, standaard of Premium, Azure kopieën bestaande container installatiekopieën van het bijbehorende opslagaccount in uw abonnement naar een beheerd door Azure storage-account. Dit proces kan enige tijd duren.
 
-Tijdens de conversie `docker pull` blijft werken, echter `docker push` wordt geblokkeerd tot de conversie is voltooid.
+Er zijn aanvullende overwegingen rekening te houden bij het migreren van een niet-beheerde klassieke register op een van de beheerde Basic, Standard of Premium-SKU's. Als uw register klassieke een groot aantal afbeeldingen bevat en vele gigabytes, kan het migratieproces enige tijd duren. Bovendien `docker push` bewerkingen zijn uitgeschakeld totdat de migratie voltooid is.
 
-Wanneer het voltooid, wordt het opslagaccount van het abonnement niet langer door ACR gebruikt.
-
-### <a name="why-change-from-classic-to-basic-standard-or-premium"></a>Waarom niet wijzigen van klassiek naar Basic, Standard of Premium?
-
-Vanwege de beperkte mogelijkheden van klassieke registers, wordt u aangeraden dat u uw registers klassieke naar Basic, Standard of Premium-segment wijzigt. Het register deze op een hoger niveau SKU's meer diep geïntegreerd in de mogelijkheden van Azure. Sommige van deze mogelijkheden zijn:
-
-* Azure Active Directory-integratie voor afzonderlijke verificatie (Zie [az acr aanmelding](/cli/azure/acr?view=azure-cli-latest#az_acr_login))
-* Ondersteuning voor image en label verwijderen
-* [Geo-replicatie](container-registry-geo-replication.md)
-* [Webhooks.](container-registry-webhook.md)
-
-Meest, een klassiek register hangt af van het opslagaccount dat Azure automatisch ingericht in uw Azure-abonnement bij het maken van het register. Daarentegen te profiteren van de Basic, Standard en Premium-SKU's *storage beheerd*. Dat wil zeggen beheerd Azure transparant de opslag van uw afbeeldingen voor u--is niet een afzonderlijke opslagaccount gemaakt in uw eigen abonnement.
-
-Enkele van de voordelen van beheerde Basic, Standard en Premium registers opslag:
-
-* Container afbeeldingen zijn [in rust versleuteld](../storage/common/storage-service-encryption.md).
-* Installatiekopieën worden opgeslagen met behulp van [geografisch redundante opslag](../storage/common/storage-redundancy.md#geo-redundant-storage), zodat de zeker back-up van uw afbeeldingen met meerdere landen/regio-replicatie.
-* Mogelijkheid om te [doorlopen SKU's](#changing-skus), hogere doorvoer inschakelen wanneer u ervoor een hogere SKU kiest. Met elke SKU ACR kunt doorvoer aan uw eisen voldoen als verhogen voor uw behoeften. De onderliggende implementatie van hoe ACR bereikt voor de gewenste doorvoer wordt uitgedrukt als *bedoeling* (door selecteren hogere SKU's), zonder dat u hoeft te beheren, de details van de implementatie.
+Zie voor meer informatie over het bijwerken van het register klassiek naar een van de beheerde SKU's [upgraden van een container klassieke register][container-registry-upgrade].
 
 ## <a name="pricing"></a>Prijzen
 
-Zie voor informatie over elk van de Azure-Container register SKU's prijzen [Container register prijzen](https://azure.microsoft.com/pricing/details/container-registry/).
+Zie voor informatie over elk van de Azure-Container register SKU's prijzen [Container register prijzen][container-registry-pricing].
 
 ## <a name="next-steps"></a>Volgende stappen
 
 **Azure-Container register Roadmap**
 
-Ga naar de [ACR Roadmap](https://aka.ms/acr/roadmap) op GitHub voor meer informatie over nieuwe functies in de service.
+Ga naar de [ACR Roadmap] [ acr-roadmap] op GitHub voor meer informatie over nieuwe functies in de service.
 
 **Azure-Container register UserVoice**
 
-Verzenden en hierop stemmen op nieuwe suggesties voor functies in [ACR UserVoice](https://feedback.azure.com/forums/903958-azure-container-registry).
+Verzenden en hierop stemmen op nieuwe suggesties voor functies in [ACR UserVoice][container-registry-uservoice].
+
+<!-- IMAGES -->
+[update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
+
+<!-- LINKS - External -->
+[acr-roadmap]: https://aka.ms/acr/roadmap
+[container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
+[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
+
+<!-- LINKS - Internal -->
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[container-registry-geo-replication]: container-registry-geo-replication.md
+[container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-webhook]: container-registry-webhook.md

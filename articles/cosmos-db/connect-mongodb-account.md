@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 5a47001705531d971d3181df9c0aa8f957168845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad6308903d1c3615392eadedfd7da3cfad4096d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Verbinding maken met een toepassing MongoDB bij Azure Cosmos-DB
 Ontdek hoe u uw MongoDB-app verbinden met een Azure DB die Cosmos-account met behulp van een verbindingsreeks voor MongoDB. U kunt vervolgens een Azure DB die Cosmos-database als het archief voor uw app MongoDB. 
@@ -72,7 +72,7 @@ De waarden van deze tekenreeks zijn beschikbaar in de **verbindingsreeks** blade
 
 Neem bijvoorbeeld het account dat wordt weergegeven in de **verbindingsreeks** blade. Er is een geldige verbindingsreeks:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10255/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over hoe [MongoChef gebruiken](mongodb-mongochef.md) met een Azure Cosmos DB-API voor MongoDB-account.

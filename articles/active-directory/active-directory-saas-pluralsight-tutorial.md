@@ -4,20 +4,21 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 12/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 2722794bd10c79ab081040173e091e452a1b024d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62d148d78d9f98b6a3ddf1259177936b3976aeab
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Zelfstudie: Azure Active Directory-integratie met Pluralsight
 
@@ -25,9 +26,9 @@ In deze zelfstudie leert u hoe Pluralsight integreren met Azure Active Directory
 
 Pluralsight integreren met Azure AD biedt de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Pluralsight heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Pluralsight (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot Pluralsight heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Pluralsight (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
+- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
 Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ Voor het configureren van Azure AD-integratie met Pluralsight, moet u de volgend
 Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
 - Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
@@ -59,25 +60,22 @@ Voor het configureren van de integratie van Pluralsight in Azure AD, moet u Plur
 
 1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
 
-    ![Active Directory][1]
+    ![De Azure Active Directory-knop][1]
 
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
-    ![Toepassingen][2]
+    ![De blade Enterprise-toepassingen][2]
     
 3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![Toepassingen][3]
+    ![De knop Nieuw toepassing][3]
 
-4. Typ in het zoekvak **Pluralsight**.
+4. Typ in het zoekvak **Pluralsight**, selecteer **Pluralsight** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_search.png)
+    ![Pluralsight in de lijst met resultaten](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addfromgallery.png)
 
-5. Selecteer in het deelvenster resultaten **Pluralsight**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 In deze sectie configureert en test eenmalige aanmelding Azure AD met Pluralsight op basis van een testgebruiker 'Britta Simon' genoemd.
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Pluralsight is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Pluralsight tot stand worden gebracht.
@@ -86,13 +84,13 @@ Wijs in Pluralsight, de waarde van de **gebruikersnaam** in Azure AD als de waar
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Pluralsight, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker Pluralsight](#creating-a-pluralsight-test-user)**  - Pluralsight die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maak een testgebruiker Pluralsight](#create-a-pluralsight-test-user)**  - Pluralsight die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
 
 In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Pluralsight configureren.
 
@@ -100,26 +98,28 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 1. In de Azure-portal op de **Pluralsight** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
 
-    ![Eenmalige aanmelding configureren][4]
+    ![Koppeling voor eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
  
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_samlbase.png)
+    ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_samlbase.png)
 
-3. Op de **Pluralsight domein en de URL's** sectie, voert u het volgende:
+3. Op de **Pluralsight domein en de URL's** sectie, voert u de volgende stappen uit:
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
+    ![URL's en Pluralsight domein eenmalige aanmelding informatie](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instance name>.pluralsight.com/sso/<company name>`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instancename>.pluralsight.com/sso/<companyname>`
 
+    b. In de **id** textbox, typ de URL:`www.pluralsight.com`
+
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instancename>.pluralsight.com/sp/ACS.saml2`
+     
     > [!NOTE] 
-    > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Pluralsight Client ondersteuningsteam](mailto:support@pluralsight.com) deze waarde op te halen. 
- 
-
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Pluralsight Client ondersteuningsteam](mailto:support@pluralsight.com) ophalen van deze waarden. 
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_certificate.png) 
 
 5. Het doel van deze sectie is Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in de toepassing Pluralsight configureren.
 
@@ -132,13 +132,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. Toevoegen van de vereiste **SAML-token kenmerken**, voor elke rij in de onderstaande tabel wordt weergegeven, voert u de volgende stappen uit:
    
-   | Kenmerknaam | Waarde kenmerk |
+   | Naam kenmerk | Waarde kenmerk |
    | ---| --- |
    | Voornaam |User.givenName |
    | Achternaam |User.surname |
    | E-mail |User.mail |
    
-   a. Klik op **gebruikerskenmerk toevoegen** openen de **toevoegen gebruiker Attribure** dialoogvenster.
+   a. Klik op **gebruikerskenmerk toevoegen** openen de **gebruikerskenmerk toevoegen** dialoogvenster.
     
      ![Eenmalige aanmelding configureren](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addattribute.png)
   
@@ -156,48 +156,48 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
-![Azure AD-gebruiker maken][100]
+   ![Een Azure AD-testgebruiker maken][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
+1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_01.png) 
+    ![De Azure Active Directory-knop](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
-    
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_02.png) 
+2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_03.png) 
+    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_02.png)
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
- 
-    ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_04.png) 
+3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    ![De knop toevoegen](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_03.png)
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
 
-    c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
+    ![Het dialoogvenster gebruiker](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_04.png)
+
+    a. In de **naam** in het vak **BrittaSimon**.
+
+    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
+
+    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-pluralsight-test-user"></a>Een testgebruiker Pluralsight maken
+### <a name="create-a-pluralsight-test-user"></a>Een testgebruiker Pluralsight maken
 
-Het doel van deze sectie is het maken van een gebruiker Britta Simon in Pluralsight genoemd. Neem contact op met [Pluralsight Client ondersteuningsteam](mailto:support@pluralsight.com) de gebruikers in het account Pluralsight toevoegen. 
+Het doel van deze sectie is het maken van een gebruiker Britta Simon in Pluralsight genoemd. Neem contact op met [Pluralsight Client ondersteuningsteam](mailto:support@pluralsight.com) de gebruikers in het account Pluralsight toevoegen.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
 In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan Pluralsight.
 
-![Gebruiker toewijzen][200] 
+![Toewijzen van de gebruikersrol][200] 
 
 **Britta Simon om aan te wijzen Pluralsight, moet u de volgende stappen uitvoeren:**
 
@@ -207,15 +207,15 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 2. Selecteer in de lijst met toepassingen **Pluralsight**.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png) 
+    ![De koppeling Pluralsight in de lijst met toepassingen](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png)  
 
 3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
-    ![Gebruiker toewijzen][202] 
+    ![De koppeling 'Gebruikers en groepen'][202]
 
 4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
-    ![Gebruiker toewijzen][203]
+    ![Het deelvenster toewijzing toevoegen][203]
 
 5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
 
@@ -223,18 +223,17 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u op de tegel Pluralsight in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Pluralsight. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
+Als u op de tegel Pluralsight in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Pluralsight.
+Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

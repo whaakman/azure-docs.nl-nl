@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: 1cf1ce1cb739d8958767f0e84380ff6ba57eb1b6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevensoverdracht met AzCopy op Linux
-AzCopy op Linux is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens naar en van Microsoft Azure Blob- en bestandsopslag met eenvoudige opdrachten met optimale prestaties. U kunt ook gegevens kopiëren van het ene object naar de andere binnen uw opslagaccount of tussen opslagaccounts.
+
+AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens uit Microsoft Azure Blob-, bestands- en tabel opslag, met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
 
 Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy op Linux is gebouwd met .NET Core Framework dat gericht is op Linux-platforms biedt POSIX-stijl opdrachtregelopties. [AzCopy op Windows](../storage-use-azcopy.md) is gebouwd met .NET Framework en Windows-stijl biedt opdrachtregelopties. In dit artikel bevat informatie over AzCopy op Linux.
 

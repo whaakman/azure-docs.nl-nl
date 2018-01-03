@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Nsg's met behulp van de portal beheren
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-network-manage-nsg-arm-portal.md)
 > * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-> * [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
+> * [Azure-CLI](virtual-network-manage-nsg-arm-cli.md)
 >
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
