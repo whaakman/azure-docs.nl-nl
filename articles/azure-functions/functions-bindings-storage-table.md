@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -35,8 +35,8 @@ De invoer binding voor Azure Table storage gebruiken om te lezen van een tabel i
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C# lezen één entiteit](#input---c-example-1)
-* [Vooraf gecompileerde C# lezen meerdere entiteiten](#input---c-example-2)
+* [C# lezen één entiteit](#input---c-example-1)
+* [Lezen van meerdere entiteiten van C#](#input---c-example-2)
 * [C# script - één entiteit lezen](#input---c-script-example-1)
 * [C# script - meerdere entiteiten lezen](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Zie het voorbeeld taalspecifieke:
 
 ### <a name="input---c-example-1"></a>Invoer - C#-voorbeeld 1
 
-Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die een enkele tabelrij leest. 
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een enkele tabelrij leest. 
 
 De waarde '{queueTrigger}' van de rij geeft aan dat de rijsleutel is afkomstig uit de wachtrij bericht-tekenreeks.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Invoer - C#-voorbeeld 2
 
-Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die meerdere rijen leest. Houd er rekening mee dat de `MyPoco` klasse is afgeleid van `TableEntity`.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die meerdere rijen leest. Houd er rekening mee dat de `MyPoco` klasse is afgeleid van `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Invoer - kenmerken
  
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de volgende kenmerken gebruiken voor het configureren van een tabel invoer binding:
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken voor het configureren van een tabel invoer binding:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
   }
   ```
 
-  Zie voor een compleet voorbeeld [invoer - vooraf gecompileerde C#-voorbeeld](#input---c-example).
+  Zie voor een compleet voorbeeld [invoer - C#-voorbeeld](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -389,14 +389,14 @@ Een Azure Table storage uitvoer binding entiteiten schrijven naar een tabel in e
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#output---c-example)
-* [C#-script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - C#-voorbeeld
 
-Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die een HTTP-trigger gebruikt om te schrijven van een enkele tabelrij. 
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die gebruikmaakt van een HTTP-trigger voor het schrijven van een enkele tabelrij. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 De constructor van het kenmerk wordt de tabelnaam. Kan worden gebruikt op een `out` parameter of op de geretourneerde waarde van de functie, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-Zie voor een compleet voorbeeld [uitvoer - vooraf gecompileerde C#-voorbeeld](#output---c-example).
+Zie voor een compleet voorbeeld [uitvoer - C#-voorbeeld](#output---c-example).
 
-U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [invoer - kenmerken](#input---attributes-for-precompiled-c).
+U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [invoer - kenmerken](#input---attributes).
 
 ## <a name="output---configuration"></a>Output - configuratie
 

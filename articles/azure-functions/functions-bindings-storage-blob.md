@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -43,13 +43,13 @@ Gebruik een Blob storage-trigger in een functie wordt gestart wanneer een nieuwe
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#trigger---c-example)
-* [C#-script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
 
-Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die u een logboek schrijft wanneer een blob is toegevoegd of bijgewerkt in de `samples-workitems` container.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die schrijft een logboek wanneer een blob is toegevoegd of bijgewerkt in de `samples-workitems` container.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +59,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Voor meer informatie over de `BlobTrigger` kenmerk, Zie [Trigger - kenmerken](#trigger---attributes-for-precompiled-c).
+Voor meer informatie over de `BlobTrigger` kenmerk, Zie [Trigger - kenmerken](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie een logboek wordt geschreven wanneer een blob is toegevoegd of bijgewerkt de `samples-workitems` container.
+Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie een logboek wordt geschreven wanneer een blob is toegevoegd of bijgewerkt de `samples-workitems` container.
 
 Dit zijn de bindingsgegevens de *function.json* bestand:
 
@@ -140,7 +140,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de volgende kenmerken gebruiken voor het configureren van een blob-trigger:
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken voor het configureren van een blob-trigger:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -168,7 +168,7 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
   }
   ```
 
-  Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#trigger---c-example).
+  Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -316,13 +316,13 @@ Gebruik Blob storage invoer en uitvoer bindingen lezen en schrijven blobs.
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#input--output---c-example)
-* [C#-script](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [C# script (.csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>Invoer en uitvoer - C#-voorbeeld
 
-Het volgende voorbeeld is een [vooraf gecompileerd C#](functions-dotnet-class-library.md) functie die gebruikmaakt van een blob-trigger en twee bindingen van de uitvoer-blob. De functie wordt geactiveerd door het maken van een blob installatiekopie in de *voorbeeld installatiekopieën* container. Grootte voor kleine en middelgrote kopieën van de blob van de installatiekopie wordt gemaakt. 
+Het volgende voorbeeld is een [C#-functie](functions-dotnet-class-library.md) die gebruikmaakt van een blob-trigger en twee uitvoer blob-bindingen. De functie wordt geactiveerd door het maken van een blob installatiekopie in de *voorbeeld installatiekopieën* container. Grootte voor kleine en middelgrote kopieën van de blob van de installatiekopie wordt gemaakt. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -355,7 +355,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Invoer en uitvoer - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet blob-invoer en uitvoer bindingen in een *function.json* bestand en [C# script](functions-reference-csharp.md) code die gebruikmaakt van de bindingen. De functie wordt een kopie van een blob tekst. De functie wordt geactiveerd door een wachtrijbericht met de naam van de blob te kopiëren. De nieuwe blob heet *{originalblobname}-kopie*.
+Het volgende voorbeeld ziet blob-invoer en uitvoer bindingen in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de bindingen. De functie wordt een kopie van een blob tekst. De functie wordt geactiveerd door een wachtrijbericht met de naam van de blob te kopiëren. De nieuwe blob heet *{originalblobname}-kopie*.
 
 In de *function.json* -bestand, de `queueTrigger` metagegevenseigenschap wordt gebruikt om op te geven van de blob-naam in de `path` eigenschappen:
 
@@ -449,7 +449,7 @@ module.exports = function(context) {
 
 ## <a name="input--output---attributes"></a>Invoer en uitvoer - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 De constructor van het kenmerk wordt het pad naar de blob en een `FileAccess` parameter die aangeeft dat lezen of schrijven, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -475,9 +475,9 @@ public static void Run(
 }
 ```
 
-Zie voor een compleet voorbeeld [invoer en uitvoer - vooraf gecompileerde C#-voorbeeld](#input--output---c-example).
+Zie voor een compleet voorbeeld [invoer en uitvoer - C#-voorbeeld](#input--output---c-example).
 
-U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken](#trigger---attributes-for-precompiled-c).
+U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken](#trigger---attributes).
 
 ## <a name="input--output---configuration"></a>Invoer en uitvoer - configuratie
 
@@ -496,7 +496,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 ## <a name="input--output---usage"></a>Invoer en uitvoer - gebruik
 
-In de vooraf gecompileerde C# en C# script, toegang heeft tot de blob met behulp van een methodeparameter zoals `Stream paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
+In C#-klassenbibliotheken en C# script, toegang krijgen tot de blob met een methodeparameter zoals `Stream paramName`. In C# script `paramName` is de waarde is opgegeven in de `name` eigenschap van *function.json*. U kunt koppelen aan een van de volgende typen:
 
 * `out string`
 * `TextWriter` 

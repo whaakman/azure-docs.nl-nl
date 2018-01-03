@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP- en webhook bindingen
 
@@ -41,14 +41,14 @@ Standaard wordt een HTTP-trigger op de aanvraag met een HTTP 200 OK-statuscode e
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#trigger---c-example)
-* [C#-script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die zoekt naar een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die zoekt naar een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#webhook---c-example)
-* [C#-script](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C# script (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die een HTTP 200 in reactie op een algemene JSON-aanvraag verzendt.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een HTTP 200 in reactie op een algemene JSON-aanvraag verzendt.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) kenmerk, gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) kenmerk, gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 U kunt de autorisatie niveau en toegestane HTTP-methoden instellen in kenmerk constructorparameters en er zijn eigenschappen van het type en de route sjabloon webhook. Zie voor meer informatie over deze instellingen [Trigger - configuratie](#trigger---configuration). Hier volgt een `HttpTrigger` kenmerk in een handtekening voor methode:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#trigger---c-example).
+Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Trigger - configuratie
 
@@ -406,7 +406,7 @@ Om te reageren op GitHub webhooks, eerst uw functie te maken met een HTTP-Trigge
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-Zie voor een voorbeeld [maken van een functie die wordt geactiveerd door een GitHub webhook](functions-create-github-webhook-triggered-function.md).
+Zie [Een functie maken die wordt geactiveerd door een GitHub-webhook](functions-create-github-webhook-triggered-function.md) voor een voorbeeld.
 
 ### <a name="slack-webhooks"></a>Toegestane webhooks.
 
@@ -540,7 +540,7 @@ Gebruik de uitvoer van de HTTP-binding om te reageren op de afzender van HTTP-aa
 
 ## <a name="output---configuration"></a>Output - configuratie
 
-Voor vooraf gecompileerde C# zijn er geen binding van de uitvoer-specifieke configuratie-eigenschappen. Voor het verzenden van een HTTP-antwoord moet de functie retourtype `HttpResponseMessage` of `Task<HttpResponseMessage>`.
+Voor klasse C#-bibliotheken zijn er geen binding van de uitvoer-specifieke configuratie-eigenschappen. Voor het verzenden van een HTTP-antwoord moet de functie retourtype `HttpResponseMessage` of `Task<HttpResponseMessage>`.
 
 Voor andere talen uitvoer een HTTP binding wordt gedefinieerd als een JSON-object in de `bindings` matrix van function.json, zoals wordt weergegeven in het volgende voorbeeld:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 258393884c156b2cff00559d3cedfde1380c6c28
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -35,13 +35,13 @@ Gebruik de trigger wachtrij een functie wordt gestart wanneer een nieuw item is 
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#trigger---c-example)
-* [C#-script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
 
-Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die bij de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die controleert of de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie polls de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
+Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie polls de `myqueue-items` wachtrij en schrijft een logboek telkens wanneer een wachtrij-item wordt verwerkt.
 
 Hier volgt de *function.json* bestand:
 
@@ -153,7 +153,7 @@ De [gebruik](#trigger---usage) sectie wordt uitgelegd `myQueueItem`, die door de
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
  
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de volgende kenmerken gebruiken voor het configureren van een trigger wachtrij:
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken voor het configureren van een trigger wachtrij:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, de vo
   }
   ```
  
-  Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#trigger---c-example).
+  Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -266,13 +266,13 @@ De Azure Queue storage uitvoer binding berichten schrijven naar een wachtrij geb
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#output---c-example)
-* [C#-script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - C#-voorbeeld
 
-Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die wordt gemaakt van een wachtrijbericht voor elke HTTP-aanvraag ontvangen.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) dat een wachtrijbericht voor elke HTTP-aanvraag ontvangen maakt.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Output - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie maakt een wachtrij-item met een POCO-nettolading voor elke HTTP-aanvraag ontvangen.
+Het volgende voorbeeld ziet u een blob-trigger binding in een *function.json* bestand en [C# script (.csx)](functions-reference-csharp.md) code die gebruikmaakt van de binding. De functie maakt een wachtrij-item met een POCO-nettolading voor elke HTTP-aanvraag ontvangen.
 
 Hier volgt de *function.json* bestand:
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
  
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Het kenmerk is van toepassing op een `out` parameter of de retourwaarde van de functie. De constructor van het kenmerk wordt de naam van de wachtrij, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -425,9 +425,9 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 }
 ```
 
-Zie voor een compleet voorbeeld [uitvoer - vooraf gecompileerde C#-voorbeeld](#output---c-example).
+Zie voor een compleet voorbeeld [uitvoer - C#-voorbeeld](#output---c-example).
 
-U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken](#trigger---attributes-for-precompiled-c).
+U kunt de `StorageAccount` het kenmerk met de storage-account op niveau van de klasse, methode of parameter opgeven. Zie voor meer informatie [Trigger - kenmerken](#trigger---attribute).
 
 ## <a name="output---configuration"></a>Output - configuratie
 

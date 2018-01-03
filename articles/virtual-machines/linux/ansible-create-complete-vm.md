@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Maken van een omgeving met volledige Linux virtuele machines in Azure met Ansible
 Ansible kunt u de implementatie en configuratie van resources in uw omgeving automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele machines (VM's) in Azure, net als elke andere bron dezelfde. In dit artikel leest u hoe een volledige Linux-omgeving en de ondersteunende resources met Ansible maken. U kunt ook meer te weten hoe [maken van een basis-VM met Ansible](ansible-create-vm.md).
@@ -105,7 +105,7 @@ Een virtuele netwerkinterfacekaart (NIC) verbindt uw virtuele machine met een op
 
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
-De laatste stap is het maken van een virtuele machine en gebruik van alle bronnen die zijn gemaakt. De volgende sectie in een playbook Ansible maakt u een virtuele machine met de naam *myVM* en koppelt u de virtuele NIC met de naam *myNIC*. Voer uw eigen gegevens voor openbare sleutel in de *key_data* koppelen als volgt:
+De laatste stap is het maken van een virtuele machine en gebruik van alle bronnen die zijn gemaakt. De volgende sectie in een playbook Ansible maakt u een virtuele machine met de naam *myVM* en koppelt u de virtuele NIC met de naam *myNIC*. Voer uw eigen volledig openbare sleutel gegevens in de *key_data* koppelen als volgt:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ De laatste stap is het maken van een virtuele machine en gebruik van alle bronne
 ```
 
 ## <a name="complete-ansible-playbook"></a>Ansible playbook voltooien
-Maak een Ansible playbook met de naam voor het maken van alle deze secties samen, *azure_create_complete_vm.yml* en plak de volgende inhoud:
+Maak een Ansible playbook met de naam voor het maken van alle deze secties samen, *azure_create_complete_vm.yml* en plak de volgende inhoud. Voer uw eigen volledig openbare sleutel gegevens in de *key_data* paar:
 
 ```yaml
 - name: Create Azure VM

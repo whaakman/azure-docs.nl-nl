@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: skwan
-ms.openlocfilehash: 4512fbbd5fb7bc70ba5c1dab861a7cd17f233fde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: bryanla
+ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service-identiteit (MSI) voor Azure-resources
 
@@ -74,7 +74,7 @@ De volgende Azure-services ondersteuning bieden voor Service-identiteiten beheer
 
 | Service | Status | Date | Configureren | Een token ophalen |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Preview | September 2017 | [Azure Portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-sjablonen](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Ga](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
+| Azure Virtual Machines | Preview | September 2017 | [Azure Portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure-CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-sjablonen](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Ga](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
 | Azure App Service | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Functions | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Preview | November 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
@@ -85,7 +85,7 @@ De volgende services ondersteuning bieden voor Azure AD-verificatie en getest me
 
 | Service | Resource-id | Status | Date | Toegang toewijzen |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Beschikbaar | September 2017 | [Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Resource Manager | https://Management.Azure.com/ | Beschikbaar | September 2017 | [Azure Portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure-CLI](msi-howto-assign-access-CLI.md) |
 | Azure Key Vault | https://Vault.Azure.NET/ | Beschikbaar | September 2017 | |
 | Azure Data Lake | https://datalake.Azure.NET/ | Beschikbaar | September 2017 | |
 | Azure SQL | https://database.Windows.NET/ | Beschikbaar | Oktober 2017 | |

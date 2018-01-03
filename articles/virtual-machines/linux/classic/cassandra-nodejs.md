@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Uitvoeren van een cluster Cassandra op Linux in Azure met behulp van Node.js
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 12/11/2017
 > Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Resource Manager en Classic](../../../resource-manager-deployment-model.md). In dit artikel bevat informatie over met behulp van het klassieke implementatiemodel. U doet er verstandig aan voor de meeste nieuwe implementaties het Resource Manager-model te gebruiken. Zie Resource Manager-sjablonen voor [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) en [Spark-cluster en Cassandra op CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## <a name="overview"></a>Overzicht
-Microsoft Azure is een open cloudplatform die zowel Microsoft als goed als niet-Microsoft-software, waaronder besturingssystemen, toepassingsservers, messaging middleware, evenals SQL en NoSQL-databases van beide modellen commerciële en open-source wordt uitgevoerd. Robuuste services op openbare clouds, inclusief Azure bouwen vereist zorgvuldige planning en architectuur opzettelijk voor beide toepassingsservers als opslag en lagen. Cassandra van gedistribueerde opslagarchitectuur is natuurlijk helpt bij het bouwen van maximaal beschikbare systemen die fouttolerant voor clusters zijn. Cassandra is een cloud schaal NoSQL-database onderhouden door Apache Software Foundation op cassandra.apache.org; Cassandra is geschreven in Java en daarom wordt uitgevoerd op zowel op Windows en Linux platforms.
+Microsoft Azure is een open cloudplatform waarop Microsoft en niet-Microsoft-software, waaronder besturingssystemen, toepassingsservers, messaging middleware, evenals SQL en NoSQL-databases van beide modellen commerciële en open-source. Robuuste services op openbare clouds, inclusief Azure bouwen vereist zorgvuldige planning en architectuur opzettelijk voor beide toepassingsservers als opslag en lagen. Cassandra van gedistribueerde opslagarchitectuur is natuurlijk helpt bij het bouwen van maximaal beschikbare systemen die fouttolerant voor clusters zijn. Cassandra is een cloud schaal onderhouden door Apache Software Foundation op cassandra.apache.org NoSQL-database. Cassandra is geschreven in Java. Zodat deze wordt uitgevoerd op zowel op Windows- en Linux-platforms.
 
-De focus van dit artikel is Cassandra implementatie op Ubuntu weergeven als een cluster met één of meerdere data center gebruik van Microsoft Azure Virtual Machines en virtuele netwerken. De implementatie van het cluster voor geoptimaliseerde productieworkloads valt buiten het bereik van dit artikel omdat hiervoor meerdere schijf knooppuntconfiguratie, geschikte topologie voor ringtopologie en gegevens modelleren ter ondersteuning van de benodigde replicatie, gegevensconsistentie, doorvoer en hoge de beschikbaarheidsvereisten van de.
+De focus van dit artikel is Cassandra implementatie op Ubuntu weergeven als een cluster met één of meerdere data center die gebruikmaakt van Azure Virtual Machines en virtuele netwerken. De implementatie van het cluster voor geoptimaliseerde productieworkloads valt buiten het bereik van dit artikel omdat hiervoor meerdere schijf knooppuntconfiguratie, geschikte topologie voor ringtopologie en gegevens modelleren ter ondersteuning van de benodigde replicatie, gegevensconsistentie, doorvoer en hoge de beschikbaarheidsvereisten van de.
 
 Dit artikel wordt een fundamenteel aanpak om weer te geven wat betrokken is bij het bouwen van het cluster Cassandra vergeleken Docker, Chef of Puppet waardoor de implementatie van de infrastructuur eenvoudiger geworden.  
 
 ## <a name="the-deployment-models"></a>Het implementatiemodel
-Microsoft Azure-netwerken kunt de implementatie van een geïsoleerd particulier clusters, de toegang van die beperkt worden kan tot fijnmazige netwerkbeveiliging bereiken.  Sinds dit artikel is over het weergeven van de implementatie Cassandra op een fundamenteel niveau, wordt er niet gericht op het consistentieniveau van de en de optimale Opslagontwerp voor doorvoer. Hier volgt de lijst met de netwerkvereisten voor onze hypothetische cluster:
+Microsoft Azure-netwerken kunt de implementatie van een geïsoleerd particulier clusters, de toegang van die beperkt worden kan tot fijnmazige netwerkbeveiliging bereiken.  Sinds dit artikel is over het weergeven van de implementatie Cassandra op een fundamenteel niveau, niet het zich richten op het consistentieniveau van de en de optimale Opslagontwerp voor doorvoer. Hier volgt de lijst met vereisten voor het cluster hypothetische netwerken:
 
 * Externe systemen geen toegang tot de database van de Cassandra van binnen of buiten Azure
 * Cassandra cluster heeft worden achter een load balancer voor thrift-verkeer
@@ -43,12 +43,12 @@ Microsoft Azure-netwerken kunt de implementatie van een geïsoleerd particulier 
 * Er is geen openbare netwerken eindpunten dan SSH
 * Elk knooppunt Cassandra moet een vaste IP-adres
 
-Cassandra kan worden geïmplementeerd op één Azure-regio of op meerdere regio's op basis van de gedistribueerde aard van de werkbelasting. Meerdere landen/regio implementatiemodel kan worden gebruikt om eindgebruikers dichter bij een bepaalde Geografie via dezelfde Cassandra-infrastructuur. Cassandra van ingebouwde knooppunt replicatie zorgt voor de synchronisatie van meerdere master schrijft die afkomstig zijn van meerdere datacenters en geeft een consistente weergave van de gegevens van toepassingen. Implementatie van meerdere landen/regio kan ook helpen bij de risicobeperking van de breder serviceonderbrekingen van Azure. Instelbare consistentie van Cassandra en de replicatietopologie, kunt in de behoeften van diverse RPO van toepassingen.
+Cassandra kan worden geïmplementeerd op één Azure-regio of op meerdere regio's op basis van de gedistribueerde aard van de werkbelasting. Voor eindgebruikers dichter bij een bepaalde Geografie via dezelfde Cassandra infrastructuur kunt u een meerdere landen/regio-implementatiemodel. Cassandra van ingebouwde knooppunt replicatie zorgt voor de synchronisatie van meerdere master schrijft die afkomstig zijn van meerdere datacenters en geeft een consistente weergave van de gegevens van toepassingen. Implementatie van meerdere landen/regio kan ook helpen bij de risicobeperking van de breder serviceonderbrekingen van Azure. Instelbare consistentie en replicatie-topologie van de Cassandra helpt bij de behoeften van diverse RPO van toepassingen.
 
 ### <a name="single-region-deployment"></a>Implementatie van één regio
-We beginnen met een implementatie met één regio en verzamelt de geleerde lessen bij het maken van een model meerdere landen/regio. Azure virtuele netwerken wordt gebruikt voor het maken van geïsoleerde subnetten, zodat de netwerk-beveiligingsvereisten bovengenoemde kunnen worden voldaan.  Het proces beschreven bij het maken van de implementatie van één regio gebruikt Ubuntu 14.04 TNS en Cassandra 2.08; het proces kan eenvoudig worden vastgesteld met de andere varianten van Linux. Hier volgen enkele van de al kenmerken van de implementatie van één regio.  
+Laten we beginnen met een implementatie met één regio en verzamelt de geleerde lessen bij het maken van een model meerdere landen/regio. Azure virtuele netwerken wordt gebruikt voor het maken van geïsoleerde subnetten, zodat de netwerk-beveiligingsvereisten bovengenoemde kunnen worden voldaan.  Ubuntu 14.04 TNS en Cassandra 2.08 maakt gebruik van de procedure beschreven in de implementatie van één regio wordt gemaakt. Het proces kan eenvoudig worden vastgesteld met de andere varianten van Linux. Hier volgen enkele van de al kenmerken van de implementatie van één regio.  
 
-**Hoge beschikbaarheid:** Cassandra knooppunten weergegeven in de afbeelding 1 wordt geïmplementeerd voor twee beschikbaarheidssets zodat de knooppunten worden verdeeld tussen meerdere domeinen met fouten voor hoge beschikbaarheid. Virtuele machines van aantekeningen voorzien met elke beschikbaarheidsset is toegewezen aan domeinen met fouten 2.  Microsoft Azure maakt gebruik van het concept van het foutdomein voor het beheren van ongeplande tijd (bijvoorbeeld hardware of software-fouten) tijdens het concept van upgradedomein (zoals host of Gast OS patches of upgrades worden uitgevoerd, toepassingsupgrades) wordt gebruikt voor het beheer van geplande uitvaltijd. Zie [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](http://msdn.microsoft.com/library/dn251004.aspx) voor de rol van probleem- en domeinen in het bereiken van maximale beschikbaarheid.
+**Hoge beschikbaarheid:** Cassandra knooppunten weergegeven in de afbeelding 1 wordt geïmplementeerd voor twee beschikbaarheidssets zodat de knooppunten worden verdeeld tussen meerdere domeinen met fouten voor hoge beschikbaarheid. Virtuele machines van aantekeningen voorzien met elke beschikbaarheidsset is toegewezen aan domeinen met fouten 2. Azure maakt gebruik van het concept van het foutdomein voor het beheren van niet-geplande uitvaltijd (bijvoorbeeld hardware of software-fouten). Het concept van upgradedomein (bijvoorbeeld host of Gast OS patches of upgrades worden uitgevoerd, toepassingsupgrades) wordt gebruikt voor het beheer van geplande uitvaltijd. Zie [herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](http://msdn.microsoft.com/library/dn251004.aspx) voor de rol van probleem- en domeinen in het bereiken van maximale beschikbaarheid.
 
 ![Implementatie van één regio](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -58,13 +58,13 @@ Houd er rekening mee dat op het moment van schrijven van dit Azure niet toegesta
 
 **Load Balancing Thrift-verkeer:** Thrift-clientbibliotheken binnen de webserver verbinding maken met het cluster via een interne load balancer. Hiervoor moet het proces van de interne load balancer toe te voegen aan het subnet "gegevens" (Zie afbeelding 1) in de context van de cloudservice die als host fungeert voor het cluster Cassandra. Als de interne load balancer is gedefinieerd, vereist elk knooppunt het eindpunt taakverdeling moeten worden toegevoegd met de aantekeningen van een set met gelijke taakverdeling met vooraf gedefinieerde load balancer-naam. Zie [Azure interne Load Balancing ](../../../load-balancer/load-balancer-internal-overview.md)voor meer informatie.
 
-**Cluster zaden:** is het belangrijk dat de meeste maximaal beschikbare knooppunten voor zaden selecteren als de nieuwe knooppunten zullen communiceren met een seed-knooppunten om de topologie van het cluster te detecteren. Eén knooppunt uit elke beschikbaarheidsset is aangewezen als seed-knooppunten om te voorkomen dat storingspunt.
+**Cluster zaden:** is het belangrijk dat de meeste maximaal beschikbare knooppunten voor zaden selecteren als de nieuwe knooppunten communiceren met de seed-knooppunten om de topologie van het cluster te detecteren. Eén knooppunt uit elke beschikbaarheidsset is aangewezen als seed-knooppunten om te voorkomen dat storingspunt.
 
 **Replicatie Factor en Consistentieniveau:** Cassandra van ingebouwde hoge beschikbaarheid en gegevens duurzaamheid wordt gekenmerkt door de replicatie-Factor (RF - aantal exemplaren van elke rij die is opgeslagen op het cluster) en Consistentieniveau (aantal replica's worden gelezen/geschreven voordat het resultaat wordt teruggezonden naar de aanroeper). Replicatie factor is opgegeven tijdens het maken van KEYSPACE (vergelijkbaar met een relationele database), terwijl het consistentieniveau van de is opgegeven tijdens het uitgeven van de CRUD-query. Zie de documentatie bij Cassandra [configureren voor consistentie](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) voor consistentie details en de formule voor quorum berekeningen.
 
-Cassandra ondersteunt twee soorten integriteit gegevensmodellen – consistentie en uiteindelijke consistentie; de replicatie factoren en het niveau van de consistentie wordt samen bepalen of de gegevens consistent zodra een schrijfbewerking voltooid is of moeten uiteindelijk consistent is. Bijvoorbeeld QUORUM opgeven als het niveau van de consistentie altijd wordt zorgt ervoor dat gegevens consistentie tijdens een consistentiecontrole niveau, onder het aantal replica's worden geschreven naar behoefte te bereiken QUORUM (bijvoorbeeld een) resulteert in gegevens wordt uiteindelijk consistent is.
+Cassandra ondersteunt twee soorten integriteit gegevensmodellen – consistentie en uiteindelijke consistentie; de replicatie Factor en Consistentieniveau vaststellen samen of de gegevens consistent zodra een schrijfbewerking voltooid of uiteindelijk consistent is is. Bijvoorbeeld: QUORUM opgeven als het niveau van de consistentie altijd zorgt ervoor gegevens consistentie terwijl u elk consistentieniveau lager dan het aantal replica's worden geschreven dat naar behoefte te bereiken QUORUM (bijvoorbeeld een) resulteert in gegevens wordt uiteindelijk consistent is.
 
-De 8-node cluster hierboven, met een factor van de replicatie van 3 en QUORUM (2 knooppunten worden gelezen of geschreven voor consistentie) consistentieniveau lezen/schrijven, kunnen het theoretische verlies van maximaal 1 knooppunt per replicatiegroep overleven voordat de toepassing start daar iets van merkt de is mislukt. Hierbij wordt ervan uitgegaan dat alle de belangrijkste spaties hebben ook taakverdeling lezen/schrijven aanvragen.  Hier volgen de parameters die we voor de geïmplementeerde cluster wilt gebruiken:
+De 8-node cluster hierboven, met een factor van de replicatie van 3 en QUORUM (2 knooppunten worden gelezen of geschreven voor consistentie) consistentieniveau lezen/schrijven, kunnen het theoretische verlies van maximaal 1 knooppunt per replicatiegroep overleven voordat de toepassing start daar iets van merkt de is mislukt. Hierbij wordt ervan uitgegaan dat alle de belangrijkste spaties hebben ook taakverdeling lezen/schrijven aanvragen.  Hier volgen de parameters voor de geïmplementeerde cluster gebruikt:
 
 Één regio Cassandra clusterconfiguratie:
 
@@ -75,31 +75,31 @@ De 8-node cluster hierboven, met een factor van de replicatie van 3 en QUORUM (2
 | Consistentieniveau (schrijven) |QUORUM[(RF/2) +1) = 2] is het resultaat van de formule wordt omlaag afgerond |Maximaal 2 replica's schrijft voordat het antwoord wordt verzonden naar de aanroeper; 3e replica is geschreven in een manier uiteindelijk consistent is. |
 | Consistentieniveau (lezen) |QUORUM [(RF/2) + 1 = 2] het resultaat van de formule wordt omlaag afgerond |Leest 2 replica's moet worden verzonden naar de aanroeper. |
 | Een replicatiestrategie voor |Zie NetworkTopologyStrategy [gegevensreplicatie](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra-documentatie voor meer informatie |De implementatietopologie begrijpt en replica's op knooppunten geplaatst, zodat alle replica's niet op hetzelfde rack eindigen |
-| Snitch |Zie GossipingPropertyFileSnitch [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra-documentatie voor meer informatie |Een concept van snitch NetworkTopologyStrategy gebruikt om te begrijpen van de topologie. GossipingPropertyFileSnitch biedt een betere controle in de toewijzing van elk knooppunt aan het datacenter en rack. Het cluster gebruikt roddels vervolgens naar deze informatie is doorgegeven. Dit is veel eenvoudiger in dynamische IP-instelling ten opzichte van PropertyFileSnitch |
+| Snitch |Zie GossipingPropertyFileSnitch [Switches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra-documentatie voor meer informatie |Een concept van snitch NetworkTopologyStrategy gebruikt om te begrijpen van de topologie. GossipingPropertyFileSnitch biedt een betere controle in de toewijzing van elk knooppunt aan het datacenter en rack. Het cluster gebruikt roddels vervolgens naar deze informatie is doorgegeven. Dit is veel eenvoudiger in dynamische IP-instelling ten opzichte van PropertyFileSnitch |
 
-**Azure overwegingen voor het Cluster Cassandra:** Microsoft Azure Virtual Machines mogelijkheid gebruikt Azure Blob-opslag voor persistentie van de schijf; Azure-opslag bespaart 3 replica's van elke schijf voor maximale duurzaamheid. Dit betekent dat elke rij gegevens ingevoegd in een tabel Cassandra is al opgeslagen in 3 replica's en daarom gegevensconsistentie is al afgehandeld zelfs als de replicatie Factor (RF) 1 is. Het belangrijkste probleem met replicatie Factor 1 is de toepassing krijgen uitvaltijd zelfs als een enkel Cassandra knooppunt mislukt. Als een knooppunt niet actief voor de problemen (zoals hardware, software systeemfouten) dat wordt herkend door de Azure-Infrastructuurcontroller is, wordt er een nieuw knooppunt in plaats daarvan met de dezelfde opslagstations inrichten. Een nieuw knooppunt ter vervanging van de oude inrichting kan enkele minuten duren.  Op dezelfde manier Cassandra upgrades voor gepland onderhoudsactiviteiten zoals Gast OS wijzigingen, en wijzigingen in de toepassing Azure-Infrastructuurcontroller voert rolling upgrades van de knooppunten in het cluster.  Rolling upgrades ook kan duren voordat u een paar knooppunten tegelijk, en daarom korte uitvaltijd voor enkele partities kan optreden in het cluster. De gegevens wordt echter niet worden verbroken vanwege de ingebouwde redundantie voor Azure Storage.  
+**Azure overwegingen voor het Cluster Cassandra:** Microsoft Azure Virtual Machines mogelijkheid gebruikt Azure Blob-opslag voor persistentie van de schijf; Azure-opslag bespaart drie replica's van elke schijf voor maximale duurzaamheid. Dit betekent dat elke rij gegevens ingevoegd in een tabel Cassandra is al opgeslagen in drie replica's. Dus is gegevensconsistentie al afgehandeld zelfs als de replicatie Factor (RF) 1 is. Het belangrijkste probleem met replicatie Factor 1 is dat de toepassing uitvaltijd optreedt, zelfs als een enkel Cassandra knooppunt mislukt. Als een knooppunt niet actief voor de problemen (bijvoorbeeld hardware, software systeemfouten) dat wordt herkend door de Azure-Infrastructuurcontroller is, levert dit een nieuw knooppunt in plaats daarvan met de dezelfde opslagstations. Een nieuw knooppunt ter vervanging van de oude inrichting kan enkele minuten duren.  Op dezelfde manier Cassandra upgrades voor gepland onderhoudsactiviteiten zoals Gast OS wijzigingen, en wijzigingen in de toepassing Azure-Infrastructuurcontroller voert rolling upgrades van de knooppunten in het cluster.  Rolling upgrades ook kan duren voordat u een paar knooppunten tegelijk, en daarom korte uitvaltijd voor enkele partities kan optreden in het cluster. De gegevens is echter niet verloren gegaan vanwege de ingebouwde redundantie voor Azure Storage.  
 
-Voor systemen die zijn geïmplementeerd in Azure die geen hoge beschikbaarheid vereist (bijvoorbeeld ongeveer 99,9 die gelijk is aan 8.76 hrs-jaar; Zie [hoge beschikbaarheid](http://en.wikipedia.org/wiki/High_availability) voor meer informatie) u kunt mogelijk uit te voeren met RF = 1 en Consistentieniveau = een.  Voor toepassingen met hoge beschikbaarheidsvereisten, RF = 3 en Consistentieniveau = QUORUM geplaatst en de uitvaltijd van een van de knooppunten van een van de replica's. RF = 1 in traditionele implementaties (bijvoorbeeld op locatie) kunnen niet worden gebruikt vanwege het mogelijk gegevens verliest als gevolg van problemen zoals schijffouten.   
+Voor systemen die zijn geïmplementeerd in Azure die geen hoge beschikbaarheid vereist (bijvoorbeeld ongeveer 99,9 die gelijk is aan 8.76 hrs-jaar; Zie [hoge beschikbaarheid](http://en.wikipedia.org/wiki/High_availability) voor meer informatie) u kunt mogelijk uit te voeren met RF = 1 en Consistentieniveau = een.  Voor toepassingen met hoge beschikbaarheidsvereisten, RF = 3 en Consistentieniveau = QUORUM maximaal wordt toegestaan de uitvaltijd van een van de knooppunten van een van de replica's. RF = 1 in traditionele implementaties (bijvoorbeeld op locatie) kunnen niet worden gebruikt vanwege het mogelijk gegevens verliest als gevolg van problemen zoals schijffouten.   
 
 ## <a name="multi-region-deployment"></a>Implementatie van meerdere landen/regio
-De Cassandra data center bewust replicatie en consistentie model helpt bij de implementatie van meerdere landen/regio gebruiksklaar zonder de noodzaak van een externe tooling hierboven. Dit is heel anders dan de traditionele relationele databases waar de instellingen voor het spiegelen van databases voor meerdere masters schrijfacties erg complex kan zijn. Cassandra in een instellen in meerdere regio kan helpen bij het gebruiksscenario's waaronder de volgende:
+De Cassandra data center bewust replicatie en consistentie model helpt bij de implementatie van meerdere landen/regio zonder de noodzaak van een externe tooling hierboven. Dit wijkt af van de traditionele relationele databases waar de instellingen voor het spiegelen van databases voor meerdere masters schrijfacties complexe kan zijn. Cassandra in de instellingen voor een meerdere landen/regio kan helpen bij het gebruiksscenario's met inbegrip van de scenario's:
 
-**Implementatie op basis van nabijheid:** multitenant-toepassingen met de toewijzing van gebruikers van de tenant wissen-naar-regio, kan worden geprofiteerd door lage latenties van het cluster meerdere landen/regio. Voorbeeld van een management learning systemen voor onderwijsinstellingen kunnen implementeren om een gedistribueerde cluster in VS-Oost en VS-West gebieden voor het uitvoeren van de respectieve campussen voor transactionele evenals analytics. De gegevens lokaal consistent kunnen zijn op de tijd lees- en schrijfbewerkingen en uiteindelijk consistent kan worden over zowel de regio's. Er zijn andere voorbeelden zoals distributie van de media, e-commerce en alles en alles wat u geconcentreerd geo-gebruiker basis fungeert een goede gebruiksvoorbeeld voor dit implementatiemodel is.
+**Implementatie op basis van nabijheid:** multitenant-toepassingen met de toewijzing van gebruikers van de tenant wissen-naar-regio, kan worden geprofiteerd door lage latenties van het cluster meerdere landen/regio. Bijvoorbeeld, een learning beheersystemen voor onderwijsinstellingen kunnen implementeren een gedistribueerde cluster in VS-Oost en VS-West gebieden voor het uitvoeren van de respectieve campussen voor transactionele evenals analytics. De gegevens lokaal consistent kunnen zijn op de tijd lees- en schrijfbewerkingen en uiteindelijk consistent kan worden over zowel de regio's. Er zijn andere voorbeelden zoals distributie van de media, e-commerce en alles en alles wat u geconcentreerd geo-gebruiker basis fungeert een goede gebruiksvoorbeeld voor dit implementatiemodel is.
 
 **Hoge beschikbaarheid:** redundantie is een belangrijke rol bij het bereiken van maximale beschikbaarheid van de software en hardware; Zie betrouwbare Cloudsystemen gebouw in Microsoft Azure voor meer informatie. In Microsoft Azure is het alleen betrouwbare manier om dat te bereiken true redundantie door het implementeren van een cluster met meerdere landen/regio. Toepassingen kunnen worden geïmplementeerd in een actief-actief of actief / passief-modus en als een van de regio's niet actief is, Azure Traffic Manager verkeer kunt omleiden naar de actieve regio.  Met de implementatie van één regio als de beschikbaarheid van 99,9, een implementatie van de twee regio kan bereiken een beschikbaarheid van 99.9999 berekend door de formule: (1-(1-0.999) * (1-0,999)) * 100); Zie het bovenstaande artikel voor meer informatie.
 
-**Herstel na noodgevallen:** meerdere landen/regio Cassandra cluster als goed ontworpen, kan tolereren onherstelbare data center storingen. Als één regio is niet actief is, kan de toepassing geïmplementeerd naar andere regio's kunt starten voor de eindgebruikers. Net als elke andere zakelijke continuïteit-implementaties heeft de toepassing moet fouttolerante voor sommige gegevens verliest als gevolg van de gegevens in de asynchrone pijplijn. Cassandra heeft echter het herstel veel sneller dan de tijd die door processen voor het herstellen van traditionele databases. Afbeelding 2 ziet het normale implementatie voor meerdere landen/regio-model met acht knooppunten in elke regio. Beide regio's zijn kopieën van de mirror van elkaar voor dezelfde hoogte van het; concrete ontwerpen, is afhankelijk van het type werkbelasting (bv. transactioneel of analytische), RPO, RTO, gegevensconsistentie en beschikbaarheidsvereisten.
+**Herstel na noodgevallen:** meerdere landen/regio Cassandra cluster als goed ontworpen, kan tolereren onherstelbare data center storingen. Als één regio is niet actief is, kan de toepassing geïmplementeerd naar andere regio's kunt starten voor de eindgebruikers. Net als elke andere zakelijke continuïteit-implementaties heeft de toepassing moet fouttolerante voor sommige gegevens verliest als gevolg van de gegevens in de asynchrone pijplijn. Cassandra heeft echter het herstel veel sneller dan de tijd die door processen voor het herstellen van traditionele databases. Afbeelding 2 ziet het normale implementatie voor meerdere landen/regio-model met acht knooppunten in elke regio. Beide regio's zijn kopieën van de mirror van elkaar voor dezelfde hoogte van het; concrete ontwerpen, is afhankelijk van het type werkbelasting (bijvoorbeeld transactioneel of analytische), RPO, RTO, gegevensconsistentie en beschikbaarheidsvereisten.
 
 ![Implementatie van meerdere regio](./media/cassandra-nodejs/cassandra-linux2.png)
 
 Afbeelding2: Implementatie van meerdere landen/regio Cassandra
 
 ### <a name="network-integration"></a>Netwerkintegratie
-Sets van virtuele machines die zijn geïmplementeerd op particuliere netwerken zich op twee gebieden communiceert met elkaar met behulp van een VPN-tunnel. De VPN-tunnel maakt verbinding met twee software-gateways ingericht tijdens het implementatieproces van het netwerk. Beide regio's hebben vergelijkbare netwerkarchitectuur in termen van de subnetten 'web' en 'data'; Azure-netwerken kunt het maken van zoveel subnetten indien nodig en ACL's van toepassing als nodig is voor netwerkbeveiliging. Tijdens het ontwerpen van de clustertopologie inter data center communicatie latentie en de economische gevolgen van het netwerkverkeer moeten rekening worden gehouden.
+Sets van virtuele machines die zijn geïmplementeerd op particuliere netwerken zich op twee gebieden communiceert met elkaar met behulp van een VPN-tunnel. De VPN-tunnel maakt verbinding met twee software-gateways ingericht tijdens het implementatieproces van het netwerk. Beide regio's hebben vergelijkbare netwerkarchitectuur in termen van de subnetten 'web' en 'data'; Azure-netwerken kunt het maken van zoveel subnetten indien nodig en ACL's van toepassing als nodig is voor netwerkbeveiliging. Inter data center communicatie latentie en de economische gevolgen van het netwerkverkeer hoeft te worden beschouwd bij het ontwerpen van de clustertopologie.
 
 ### <a name="data-consistency-for-multi-data-center-deployment"></a>Consistentie van de gegevens voor de implementatie van meerdere Datacenter
 Gedistribueerde implementaties moeten op de hoogte van de cluster-topologie-gevolgen voor de doorvoer en hoge beschikbaarheid. De RF en Consistentieniveau moeten zodanig dat het quorum niet afhankelijk van de beschikbaarheid van de datacenters worden geselecteerd.
-Voor een systeem dat hoge consistentie moet zorgt een LOCAL_QUORUM voor consistentieniveau (voor lees- en schrijfbewerkingen) ervoor dat de lokale lees- en schrijfbewerkingen is voldaan vanaf de lokale knooppunten terwijl gegevens asynchroon gerepliceerd naar de RAS-datacenters.  Tabel 2 geeft een overzicht van de configuratiegegevens voor het beschreven later in het schrijven van meerdere landen/regio-cluster.
+Voor een systeem dat hoge consistentie moet ervoor een LOCAL_QUORUM voor consistentieniveau (voor lees- en schrijfbewerkingen) zorgt dat de lokale lees- en schrijfbewerkingen is voldaan vanaf de lokale knooppunten terwijl gegevens asynchroon gerepliceerd naar de RAS-datacenters.  Tabel 2 geeft een overzicht van de configuratiegegevens voor het beschreven later in het schrijven van meerdere landen/regio-cluster.
 
 **Twee regio Cassandra clusterconfiguratie**
 
@@ -107,7 +107,7 @@ Voor een systeem dat hoge consistentie moet zorgt een LOCAL_QUORUM voor consiste
 | --- | --- | --- |
 | Het aantal knooppunten (N) |8 + 8 |Totaal aantal knooppunten in het cluster |
 | Replicatie Factor (RF) |3 |Aantal replica's van een bepaalde rij |
-| Consistentieniveau (schrijven) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] het resultaat van de formule wordt omlaag afgerond |2 knooppunten worden geschreven naar het eerste Datacenter synchroon; de extra 2 knooppunten die nodig zijn voor het quorum wordt asynchroon geschreven tot 2e Datacenter. |
+| Consistentieniveau (schrijven) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] het resultaat van de formule wordt omlaag afgerond |2-knooppunten wordt geschreven naar het eerste Datacenter synchroon; de extra 2 knooppunten die nodig zijn voor het quorum is asynchroon geschreven naar het 2e Datacenter. |
 | Consistentieniveau (lezen) |LOCAL_QUORUM ((RF/2) + 1) = 2, het resultaat van de formule wordt omlaag afgerond |Alleen aanvragen wordt van slechts één regio; voldaan 2 knooppunten worden gelezen voordat het antwoord terug naar de client wordt verzonden. |
 | Een replicatiestrategie voor |Zie NetworkTopologyStrategy [gegevensreplicatie](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) in Cassandra-documentatie voor meer informatie |De implementatietopologie begrijpt en replica's op knooppunten geplaatst, zodat alle replica's niet op hetzelfde rack eindigen |
 | Snitch |Zie GossipingPropertyFileSnitch [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) in Cassandra-documentatie voor meer informatie |Een concept van snitch NetworkTopologyStrategy gebruikt om te begrijpen van de topologie. GossipingPropertyFileSnitch biedt een betere controle in de toewijzing van elk knooppunt aan het datacenter en rack. Het cluster gebruikt roddels vervolgens naar deze informatie is doorgegeven. Dit is veel eenvoudiger in dynamische IP-instelling ten opzichte van PropertyFileSnitch |
@@ -123,15 +123,15 @@ De volgende softwareversies worden gebruikt tijdens de implementatie:
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 TNS</td></tr>
 </table>
 
-Omdat het downloaden van JRE handmatige instemming met de Oracle-licentie vereist, de vereiste software voor de implementatie vereenvoudigen downloaden naar het bureaublad voor het uploaden van later in de Ubuntu-sjablooninstallatiekopie die we als een voordat de implementatie van het cluster maakt.
+Wanneer u JRE downloadt, moet u handmatig de Oracle-licentie accepteren. Downloaden dus om de implementatie vereenvoudigen, de vereiste software op het bureaublad. Upload het naar de Ubuntu-sjablooninstallatiekopie maken als een voordat de implementatie van het cluster.
 
 Download de bovenstaande software naar een bekende downloadmap (bijvoorbeeld %TEMP%/downloads op Windows of ~/Downloads op de meeste Linux-distributies of Mac) op de lokale computer.
 
 ### <a name="create-ubuntu-vm"></a>VIRTUELE UBUNTU-MACHINE MAKEN
-In deze stap van het proces wordt we Ubuntu installatiekopie maken met de vereiste software zodat de installatiekopie opnieuw kan worden gebruikt voor het inrichten van verschillende Cassandra knooppunten.  
+In deze stap van het proces maken u Ubuntu installatiekopie met de vereiste software zodat de installatiekopie opnieuw kan worden gebruikt voor het inrichten van verschillende Cassandra knooppunten.  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>STAP 1: De SSH-sleutelpaar genereren
-Azure heeft een openbare sleutel die is PEM of DER-gecodeerd tijdens het inrichtingsproces X509 nodig. Een van de instructies die zich bevindt op het SSH gebruiken met Linux op Azure openbaar/persoonlijk sleutelpaar genereren. Als u van plan bent te gebruiken putty.exe als SSH-client op Windows of Linux, hebt u de gecodeerde PEM converteren RSA persoonlijke sleutel voor het PPK-indeling met behulp van puttygen.exe; de instructies hiervoor vindt u in de bovenstaande webpagina.
+Azure heeft een openbare sleutel die is PEM of DER-gecodeerd tijdens het inrichtingsproces X509 nodig. Een van de instructies die zich bevindt op het SSH gebruiken met Linux op Azure openbaar/persoonlijk sleutelpaar genereren. Als u van plan bent te gebruiken putty.exe als SSH-client op Windows of Linux, hebt u de gecodeerde PEM converteren RSA persoonlijke sleutel naar met puttygen.exe PPK-indeling. De instructies hiervoor vindt u in de bovenstaande webpagina.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>STAP 2: Ubuntu sjabloon VM maken
 De VM-sjabloon maken, meld u aan bij de Azure-portal en gebruik de volgende volgorde: klik op Nieuw, COMPUTE, virtuele MACHINE, FROM GALERIE, UBUNTU, Ubuntu Server 14.04 TNS, en klik vervolgens op de pijl naar rechts. Zie voor een zelfstudie waarin wordt beschreven hoe u een Linux-VM's te maken, maak een virtuele Machine uitgevoerd op Linux.
@@ -159,11 +159,11 @@ Voer de volgende gegevens op het scherm 'Virtuele-machineconfiguratie' #2:
 <tr><td> DNS-NAAM VAN CLOUD-SERVICE    </td><td>Ubuntu template.cloudapp.net    </td><td>Geef de naam van een machine agnostisch load balancer</td></tr>
 <tr><td> REGIO/AFFINITEITSGROEP/VIRTUEEL NETWERK </td><td>    VS - west    </td><td> Selecteer een regio van waaruit de toegang tot het cluster Cassandra van uw webtoepassingen</td></tr>
 <tr><td>OPSLAGACCOUNT </td><td>    Standaardinstelling gebruiken    </td><td>Het standaardopslagaccount of een vooraf gemaakte opslagaccount gebruiken in een bepaald gebied</td></tr>
-<tr><td>BESCHIKBAARHEIDSSET </td><td>    Geen </td><td>    Laat dit veld leeg</td></tr>
+<tr><td>BESCHIKBAARHEIDSSET </td><td>    None </td><td>    Laat dit veld leeg</td></tr>
 <tr><td>EINDPUNTEN    </td><td>Standaardinstelling gebruiken </td><td>    De standaard SSH-configuratie gebruiken </td></tr>
 </table>
 
-Klik op de pijl naar rechts, de standaardinstellingen laten staan op het scherm #3 en klik op de knop 'selectievakje' voor het voltooien van de virtuele machine inrichtingsproces. Na een paar minuten moet de virtuele machine met de naam 'ubuntu-sjabloon' status 'actief'.
+Klik op de pijl naar rechts, de standaardinstellingen laten staan op het scherm #3. Klik op de knop 'controleren' voor het voltooien van het proces van de VM-inrichting. Na een paar minuten moet de virtuele machine met de naam 'ubuntu-sjabloon' status 'actief'.
 
 ### <a name="install-the-necessary-software"></a>DE BENODIGDE SOFTWARE INSTALLEREN
 #### <a name="step-1-upload-tarballs"></a>STAP 1: Het uploaden van tarballs
@@ -266,7 +266,7 @@ Het volgende aan het eind toevoegen:
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>Stap 4: Installatie JNA voor productiesystemen
-Gebruik de onderstaande opdrachtvolgorde: de volgende opdracht wordt installeert jna 3.2.7.jar en jna platform 3.2.7.jar naar /usr/share.java directory apt sudo get-libjna java
+Gebruik de onderstaande opdrachtvolgorde: de volgende opdracht installeert jna 3.2.7.jar en jna platform 3.2.7.jar naar /usr/share.java directory sudo apt get-libjna java installeren
 
 Symbolische koppelingen in $CASS_HOME/lib directory maken, zodat het opstartscript Cassandra deze potten kunt vinden:
 
@@ -275,7 +275,7 @@ Symbolische koppelingen in $CASS_HOME/lib directory maken, zodat het opstartscri
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### <a name="step-5-configure-cassandrayaml"></a>Stap 5: Cassandra.yaml configureren
-Cassandra.yaml op elke virtuele machine in overeenstemming met configuratie is vereist door alle virtuele machines [we zullen dit aanpassen tijdens de werkelijke inrichting] bewerken:
+Cassandra.yaml op elke virtuele machine in overeenstemming met configuratie is vereist door alle virtuele machines [u deze configuratie tijdens het werkelijke inrichten aanpassen] bewerken:
 
 <table>
 <tr><th>Veldnaam   </th><th> Waarde  </th><th>    Opmerkingen </th></tr>
@@ -294,13 +294,13 @@ De volgende reeks bewerkingen voor het vastleggen van de installatiekopie uitvoe
 ##### <a name="1-deprovision"></a>1. Identiteitsgegevens
 Gebruik de opdracht ' sudo waagent-deprovision + user ' om specifieke gegevens van virtuele Machine exemplaar te verwijderen. Zie voor [virtuele Linux-Machine vastleggen](capture-image.md) gebruiken als sjabloon meer details op het vastleggen van installatiekopie.
 
-##### <a name="2-shutdown-the-vm"></a>2: de virtuele machine afsluiten
+##### <a name="2-shut-down-the-vm"></a>2: de virtuele machine afsluiten
 Zorg ervoor dat de virtuele machine is geselecteerd en klik op de koppeling voor het afsluiten van de opdrachtbalk onder.
 
 ##### <a name="3-capture-the-image"></a>3: de installatiekopie vastleggen
-Zorg ervoor dat de virtuele machine is geselecteerd en klik op de koppeling voor het VASTLEGGEN van de balk onderaan opdracht. Geeft de naam van een INSTALLATIEKOPIE (bijvoorbeeld hk-cas-2-08-ub-14-04-2014071), beschrijving van afbeelding van toepassing en klik op het ' vinkje ' voor het voltooien van het vastleggen in het volgende scherm.
+Zorg ervoor dat de virtuele machine is geselecteerd en klik op de koppeling voor het VASTLEGGEN van de balk onderaan opdracht. In het volgende scherm, geeft de naam van een INSTALLATIEKOPIE (bijvoorbeeld hk-cas-2-08-ub-14-04-2014071) juiste beschrijving van afbeelding en klik op vinkje de ' ' voor het voltooien van het vastleggen.
 
-Dit duurt een paar seconden en de installatiekopie moet beschikbaar zijn in de sectie Mijn afbeeldingen van de installatiekopie-galerie. De bron-VM wordt automatisch verwijderd nadat de installatiekopie wordt vastgelegd. 
+Dit proces duurt een paar seconden en de installatiekopie moet beschikbaar zijn in de sectie Mijn afbeeldingen van de installatiekopie-galerie. De bron-VM wordt automatisch verwijderd nadat de installatiekopie wordt vastgelegd. 
 
 ## <a name="single-region-deployment-process"></a>Implementatieproces voor één regio
 **Stap 1: Het virtuele netwerk maken** Meld u aan bij de Azure-portal en een virtueel netwerk (klassiek) maken met de kenmerken in de volgende tabel weergegeven. Zie [een virtueel netwerk (klassiek) met de Azure portal maken](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor gedetailleerde stappen van het proces.      
@@ -309,7 +309,7 @@ Dit duurt een paar seconden en de installatiekopie moet beschikbaar zijn in de s
 <tr><th>De naam van de VM-kenmerk</th><th>Waarde</th><th>Opmerkingen</th></tr>
 <tr><td>Naam</td><td>vnet-cass-west-ons</td><td></td></tr>
 <tr><td>Regio</td><td>VS - west</td><td></td></tr>
-<tr><td>DNS-servers</td><td>Geen</td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
+<tr><td>DNS-servers</td><td>None</td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
 <tr><td>Adresruimte</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP-beginadres</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -325,7 +325,7 @@ Voeg de volgende subnetten:
 
 Gegevens en Web subnetten kunnen worden beveiligd via netwerkbeveiligingsgroepen de dekking van die buiten het bereik van dit artikel is.  
 
-**Stap 2: Inrichten van virtuele Machines** met behulp van de installatiekopie van het eerder hebt gemaakt, wordt de volgende virtuele machines maken in de cloud-server 'hk-c-svc-west' en maak ze afhankelijk van de respectieve subnetten zoals hieronder wordt weergegeven:
+**Stap 2: Inrichten van virtuele Machines** met behulp van de installatiekopie van het eerder hebt gemaakt, u de volgende virtuele machines in de cloud-server 'hk-c-svc-west' maken en koppelen aan de respectieve subnetten zoals hieronder wordt weergegeven:
 
 <table>
 <tr><th>Machinenaam    </th><th>Subnet    </th><th>IP-adres    </th><th>Beschikbaarheidsset</th><th>DC/Rack</th><th>Seed?</th></tr>
@@ -337,8 +337,8 @@ Gegevens en Web subnetten kunnen worden beveiligd via netwerkbeveiligingsgroepen
 <tr><td>HK-c6-west-ons    </td><td>gegevens    </td><td>10.1.2.9    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack3 =    </td><td>Nee </td></tr>
 <tr><td>HK-c7-west-ons    </td><td>gegevens    </td><td>10.1.2.10    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Ja</td></tr>
 <tr><td>HK-c8-west-ons    </td><td>gegevens    </td><td>10.1.2.11    </td><td>HK-c-uit-2    </td><td>DC = WESTUS rack rack4 =    </td><td>Nee </td></tr>
-<tr><td>HK-w1-west-ons    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-uit-1    </td><td>                       </td><td>N.v.t.</td></tr>
-<tr><td>HK-w2-west-ons    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-uit-1    </td><td>                       </td><td>N.v.t.</td></tr>
+<tr><td>HK-w1-west-ons    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-uit-1    </td><td>                       </td><td>N/A</td></tr>
+<tr><td>HK-w2-west-ons    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-uit-1    </td><td>                       </td><td>N/A</td></tr>
 </table>
 
 Maken van de bovenstaande lijst met virtuele machines moeten het volgende proces:
@@ -348,7 +348,7 @@ Maken van de bovenstaande lijst met virtuele machines moeten het volgende proces
 3. Een interne load balancer toevoegen aan de cloudservice en deze te koppelen aan het subnet "gegevens"
 4. Voor elke virtuele machine die eerder is gemaakt, voegt u een eindpunt voor de taakverdeling voor thrift-verkeer via een set met gelijke taakverdeling is verbonden met de eerder gemaakte interne load balancer
 
-Dit proces kan worden uitgevoerd met behulp van de klassieke Azure-portal; Gebruik een Windows-machine (gebruik een VM op Azure als u geen toegang tot een Windows-computer), gebruik de volgende PowerShell-script voor het automatisch inrichten van alle 8 VM's.
+Dit proces kan worden uitgevoerd met Azure portal; Gebruik een Windows-machine (gebruik een VM op Azure als u geen toegang tot een Windows-computer), gebruik de volgende PowerShell-script voor het automatisch inrichten van alle 8 VM's.
 
 **Lijst met 1: PowerShell-script voor het inrichten van virtuele machines**
 
@@ -439,7 +439,7 @@ Hier ziet u de weergave lijkt op de onderstaande voor een cluster met 8 knooppun
 ## <a name="test-the-single-region-cluster"></a>Testen van het Cluster één regio
 Gebruik de volgende stappen voor het testen van het cluster:
 
-1. Het IP-adres van de interne load balancer (bijvoorbeeld met behulp van de cmdlet van Powershell-opdracht Get-AzureInternalLoadbalancer verkrijgen  10.1.2.101). De syntaxis van de opdracht wordt hieronder weergegeven: Get-AzureLoadbalancer – ServiceName 'hk-c-svc-west-us' [ziet u de details van de interne load balancer samen met het IP-adres]
+1. Met behulp van de cmdlet van Powershell-opdracht Get-AzureInternalLoadbalancer, het IP-adres van de interne load balancer (bijvoorbeeld 10.1.2.101) verkrijgen. De syntaxis van de opdracht wordt hieronder weergegeven: Get-AzureLoadbalancer – ServiceName 'hk-c-svc-west-us' [ziet u de details van de interne load balancer samen met het IP-adres]
 2. Meld u aan bij de webfarm VM (bijvoorbeeld hk-w1-west-us) met Putty of ssh
 3. Uitvoeren van $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Gebruik de volgende CQL-opdrachten om te controleren of het cluster werkt:
@@ -448,7 +448,7 @@ Gebruik de volgende stappen voor het testen van het cluster:
    
      Selecteer * van klanten;
 
-U ziet een scherm wordt weergegeven zoals hieronder:
+U ziet dat lijkt op de volgende resultaten:
 
 <table>
   <tr><th> customer_id </th><th> Voornaam </th><th> Achternaam </th></tr>
@@ -456,16 +456,16 @@ U ziet een scherm wordt weergegeven zoals hieronder:
   <tr><td> 2 </td><td> ANS </td><td> Jansen </td></tr>
 </table>
 
-Houd er rekening mee dat de keyspace gemaakt in stap 4 SimpleStrategy met een replication_factor van 3 gebruikt. SimpleStrategy wordt aanbevolen voor één data center-implementaties terwijl NetworkTopologyStrategy voor meerdere data center-implementaties. Een replication_factor van 3, tolerantie voor knooppuntfouten krijgt.
+De keyspace gemaakt in stap 4 gebruikt SimpleStrategy met een replication_factor van 3. SimpleStrategy wordt aanbevolen voor één data center-implementaties terwijl NetworkTopologyStrategy voor meerdere data center-implementaties. Een replication_factor van 3 geeft tolerantie voor knooppuntfouten.
 
 ## <a id="tworegion"></a>Meerdere landen/regio-implementatieproces
-Zal gebruikmaken van de implementatie van één regio is voltooid en hetzelfde proces herhalen voor het installeren van de tweede regio. Het belangrijkste verschil tussen de implementatie van één of meerdere regio is de installatie van de VPN-tunnel voor communicatie tussen regio; We beginnen met de installatie via het netwerk, de virtuele machines inrichten en Cassandra configureren.
+U gebruikmaken van de implementatie van één regio is voltooid en hetzelfde proces herhalen voor het installeren van de tweede regio. Het belangrijkste verschil tussen de implementatie van één of meerdere regio is de installatie van de VPN-tunnel voor communicatie tussen regio; met de netwerkinstallatie te starten, de virtuele machines inrichten en Cassandra configureren.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>Stap 1: Het virtuele netwerk op de 2e regio maken
-Meld u aan bij de klassieke Azure portal en een virtueel netwerk maken met de kenmerken weergeven in de tabel. Zie [Cloud-Only virtueel netwerk configureren in de klassieke Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor gedetailleerde stappen van het proces.      
+Meld u aan bij de Azure-portal en een virtueel netwerk maken met de kenmerken weergeven in de tabel. Zie [Cloud-Only virtueel netwerk configureren in de Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) voor gedetailleerde stappen van het proces.      
 
 <table>
-<tr><th>Kenmerknaam    </th><th>Waarde    </th><th>Opmerkingen</th></tr>
+<tr><th>Naam kenmerk    </th><th>Waarde    </th><th>Opmerkingen</th></tr>
 <tr><td>Naam    </td><td>vnet-cass-Oost-ons</td><td></td></tr>
 <tr><td>Regio    </td><td>VS - oost</td><td></td></tr>
 <tr><td>DNS-servers        </td><td></td><td>Negeer deze melding als er niet met behulp van een DNS-Server</td></tr>
@@ -496,15 +496,15 @@ Maak twee lokale netwerken per de volgende details:
 | HK-lnet-map-to-West-US |23.2.2.2 |10.1.0.0/16 |Geef een tijdelijke aanduiding gatewayadres tijdens het maken van het lokale netwerk. Het echte gatewayadres wordt ingevuld zodra de gateway is gemaakt. Zorg ervoor dat de adresruimte die exact overeenkomt met de desbetreffende externe VNET; in dit geval wordt het VNET gemaakt in de regio VS-West. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Stap 3: "Local" netwerkverbinding naar de respectieve VNETs
-Via de klassieke Azure portal, selecteert u elk vnet, klik op 'Configureren' controleren 'Verbinding maken met het lokale netwerk' en selecteert u de lokale netwerken per de volgende details:
+Selecteer elke vnet vanuit de Azure-portal, klik op 'Configureren', controleren 'Verbinding maken met het lokale netwerk' en selecteert u de lokale netwerken per de volgende details:
 
-| Virtual Network | Lokale netwerk |
+| Virtueel netwerk | Lokale netwerk |
 | --- | --- |
 | HK-vnet-west-ons |HK-lnet-map-to-East-US |
 | HK-vnet-Oost-ons |HK-lnet-map-to-West-US |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Stap 4: Gateways op VNET1 en VNET2 maken
-Klik op GATEWAY maken waarmee de VPN-gateway inrichtingsproces wordt geactiveerd vanuit het dashboard van de virtuele netwerken. Het dashboard van elke virtuele netwerk moet na een paar minuten het werkelijke gateway-adres worden weergegeven.
+Klik op GATEWAY maken voor het activeren van de VPN-gateway inrichtingsproces vanuit het dashboard van de virtuele netwerken. Het dashboard van elke virtuele netwerk moet na een paar minuten het werkelijke gateway-adres worden weergegeven.
 
 ### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>Stap 5: Update "Local" netwerken met de respectieve ' ' gatewayadressen
 De lokale netwerken ter vervanging van de IP-adres van de tijdelijke aanduiding voor gateway met het echte IP-adres van de zojuist ingerichte gateways bewerken. Gebruik de volgende toewijzing:
@@ -519,7 +519,7 @@ De lokale netwerken ter vervanging van de IP-adres van de tijdelijke aanduiding 
 De volgende Powershell-script gebruiken om te werken van de IPSec-sleutel van elke VPN-gateway [Gebruik de sleutel mogelijk te houden voor beide gateways]: Set-AzureVNetGatewayKey - VNetName hk-vnet-Oost-ons - LocalNetworkSiteName hk-lnet-map-to-west-us - SharedKey D9E76BKK Set-AzureVNetGatewayKey - VNetName hk-vnet-west-ons - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>Stap 7: Maken van de VNET-naar-VNET-verbinding
-Gebruik het menu 'DASHBOARD' van de virtuele netwerken gateway-naar-gateway-verbinding tot stand brengen van de klassieke Azure-portal. De menuopdrachten 'Verbinding maken' in de onderste werkbalk gebruiken. Na een paar minuten moet het dashboard de verbindingsdetails grafisch weergeven.
+Gebruik het menu 'DASHBOARD' van de virtuele netwerken gateway-naar-gateway-verbinding tot stand brengen van de Azure-portal. De menuopdrachten 'Verbinding maken' in de onderste werkbalk gebruiken. Na een paar minuten moet het dashboard de verbindingsdetails grafisch weergeven.
 
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>Stap 8: Maak de virtuele machines in regio #2
 De installatiekopie Ubuntu maken zoals beschreven in de regio #1 implementatie door de dezelfde stappen of kopieer de VHD-bestand van de installatiekopie naar de Azure storage-account zich in regio #2 te volgen en maken van de installatiekopie. Deze afbeelding niet gebruiken en de volgende lijst met virtuele machines maken in een nieuwe cloudservice hk-c-svc-Oost-ons:
@@ -533,8 +533,8 @@ De installatiekopie Ubuntu maken zoals beschreven in de regio #1 implementatie d
 | HK-c6-Oost-ons |gegevens |10.2.2.9 |HK-c-uit-2 |DC = EASTUS rack rack3 = |Nee |
 | HK-c7-Oost-ons |gegevens |10.2.2.10 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Ja |
 | HK-c8-Oost-ons |gegevens |10.2.2.11 |HK-c-uit-2 |DC = EASTUS rack rack4 = |Nee |
-| HK-w1-Oost-ons |web |10.2.1.4 |HK-w-uit-1 |N.v.t. |N.v.t. |
-| HK-w2-Oost-ons |web |10.2.1.5 |HK-w-uit-1 |N.v.t. |N.v.t. |
+| HK-w1-Oost-ons |web |10.2.1.4 |HK-w-uit-1 |N/A |N/A |
+| HK-w2-Oost-ons |web |10.2.1.5 |HK-w-uit-1 |N/A |N/A |
 
 Volg de instructies van regio #1, maar gebruik 10.2.xxx.xxx adresruimte.
 
@@ -554,7 +554,7 @@ Nu is Cassandra met 16 knooppunten met 8 knooppunten in elke Azure-regio geïmpl
 * Get-AzureInternalLoadbalancer - ServiceName 'hk-c-svc-west-us'
 * Get-AzureInternalLoadbalancer - ServiceName 'hk-c-svc-Oost-us'  
   
-    Noteer de IP-adressen (bijvoorbeeld - 10.1.2.101, Oost - west 10.2.2.101) weergegeven.
+    Noteer de IP-adressen (voor voorbeeld west - 10.1.2.101, Oost - 10.2.2.101) weergegeven.
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>Stap 2: Het volgende in de regio west uitvoeren nadat de aanmelding bij hk-w1-west-ons
 1. Uitvoeren van $CASS_HOME/bin/cqlsh 10.1.2.101 9160
@@ -585,7 +585,7 @@ U ziet de dezelfde weergave zoals te zien voor de regio West:
 Enkele meer invoegingen uitvoeren en Zie dat die worden gerepliceerd naar west-ons deel uit van het cluster.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Cassandra Testcluster met Node.js
-Met behulp van een servicelaag eerder van de virtuele Linux-machines uitgevoerd in de 'web', we een eenvoudige Node.js-script om te lezen van de eerder ingevoegde gegevens wordt uitgevoerd
+Met een van de virtuele Linux-machines eerder hebt gemaakt in de laag 'web', uitvoeren u een eenvoudige Node.js-script om te lezen van de eerder ingevoegde gegevens
 
 **Stap 1: Node.js en Cassandra-Client installeren**
 
@@ -645,7 +645,7 @@ Met behulp van een servicelaag eerder van de virtuele Linux-machines uitgevoerd 
            updateCustomer(ksConOptions,params);
         }
    
-        //update will also insert the record if none exists
+        //update also inserts the record if none exists
         function updateCustomer(ksConOptions,params)
         {
           var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';

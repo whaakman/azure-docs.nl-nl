@@ -3,7 +3,7 @@ title: Beheer van lab-beleid in Azure DevTest Labs | Microsoft Docs
 description: "Informatie over het lab beleid zoals VM-grootten, maximum aantal virtuele machines per gebruiker en afsluiten automation definiëren."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Alle beleidsregels voor een testomgeving in Azure DevTest Labs beheren
 
@@ -102,7 +102,7 @@ Het beleid voor automatisch starten, kunt u opgeven wanneer de virtuele machines
 
 Eenmaal is ingeschakeld, wordt dit beleid niet automatisch toegepast op alle virtuele machines in het huidige lab. Als u wilt deze instelling toepast op een specifieke virtuele machine, van de VM management deelvenster open en wijzig de **automatisch starten** instelling.
 
-## <a name="set-expiration-date"></a>Verloopdatum instellen
+## <a name="set-expiration-date"></a>Vervaldatum instellen
 U kunt een vervaldatum instellen datum wanneer u [de virtuele machine maken](devtest-lab-add-vm.md). In **geavanceerde instellingen**, kies het pictogram Agenda om op te geven van een datum op waarop de virtuele machine automatisch wordt verwijderd. Standaard is de virtuele machine nooit verlopen.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
@@ -115,5 +115,5 @@ Nadat u hebt gedefinieerd en de verschillende VM-beleidsinstellingen worden toeg
   Als u wilt weergeven van de huidige maand de geschatte kosten-to-date en de geschatte kosten van de laatste van de maand.
 * [Maken van aangepaste installatiekopie](devtest-lab-create-template.md) : wanneer u een virtuele machine, maakt u een basis, kan dit een aangepaste installatiekopie of een Marketplace-installatiekopie opgeven. In dit artikel laat zien hoe een aangepaste installatiekopie maken van een VHD-bestand.
 * [Configureren van installatiekopieën van Marketplace](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs ondersteunt het maken van virtuele machines op basis van Azure Marketplace-installatiekopieën. Dit artikel wordt beschreven hoe u kunt opgeven die, indien aanwezig, Azure Marketplace-installatiekopieën kunnen worden gebruikt bij het maken van virtuele machines in een testomgeving.
-* [Een virtuele machine maken in een testomgeving](devtest-lab-add-vm-with-artifacts.md) -ziet u hoe u een virtuele machine maken van een basisinstallatiekopie (een aangepaste of Marketplace), en het werken met artefacten in uw virtuele machine.
+* [Een virtuele machine maken in een testomgeving](devtest-lab-add-vm.md) -ziet u hoe u een virtuele machine maken van een basisinstallatiekopie (een aangepaste of Marketplace), en het werken met artefacten in uw virtuele machine.
 

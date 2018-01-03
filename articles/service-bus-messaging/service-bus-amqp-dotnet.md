@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="using-service-bus-from-net-with-amqp-10"></a>Met behulp van Servicebus in .NET met AMQP 1.0
+# <a name="use-service-bus-from-net-with-amqp-10"></a>Servicebus in .NET gebruiken met AMQP 1.0
 
-## <a name="downloading-the-service-bus-sdk"></a>De Servicebus SDK downloaden
+AMQP 1.0-ondersteuning is beschikbaar in de Service Bus-Pakketversie 2.1 of hoger. U kunt controleren of u de meest recente versie hebt met het downloaden van de Service Bus-bits van [NuGet][NuGet].
 
-AMQP 1.0-ondersteuning is beschikbaar in de Service Bus-SDK versie 2.1 of hoger. U kunt controleren of u de meest recente versie hebt met het downloaden van de Service Bus-bits van [NuGet][NuGet].
-
-## <a name="configuring-net-applications-to-use-amqp-10"></a>.NET-toepassingen gebruiken AMQP 1.0 configureren
+## <a name="configure-net-applications-to-use-amqp-10"></a>.NET-toepassingen kunnen gebruikmaken van AMQP 1.0 configureren
 
 Standaard wordt de Service Bus .NET-clientbibliotheek communiceert met de Service Bus-service via een toegewezen op basis van SOAP-protocol. Voor het gebruik van AMQP 1.0 in plaats van de standaard vereist protocol expliciete configuratie op de Service Bus-verbindingsreeks, zoals beschreven in de volgende sectie. Dan deze wijziging ongewijzigd toepassingscode blijft wanneer met behulp van AMQP 1.0.
 
@@ -34,7 +32,7 @@ In de huidige release zijn er enkele API-functies worden niet ondersteund bij ge
 
 ### <a name="configuration-using-appconfig"></a>Configuratie met behulp van App.config
 
-Het is raadzaam om voor toepassingen kunnen gebruikmaken van het App.config-configuratiebestand voor het opslaan van instellingen. U kunt voor Service Bus-toepassingen App.config gebruiken voor het opslaan van de Service Bus-verbindingsreeks. Een voorbeeld App.config-bestand is als volgt:
+Het is raadzaam voor toepassingen kunnen gebruikmaken van het App.config-configuratiebestand voor het opslaan van instellingen. U kunt voor Service Bus-toepassingen App.config gebruiken voor het opslaan van de Service Bus-verbindingsreeks. Een voorbeeld App.config-bestand is als volgt:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -64,30 +62,30 @@ Gebruik alleen .NET-typen die kunnen worden geserialiseerd rechtstreeks in het A
 
 | Objecttype voor .NET-instantie | Toegewezen AMQP-Type | AMQP hoofdtekst sectietype |
 | --- | --- | --- |
-| BOOL |Booleaanse waarde |AMQP-waarde |
-| Byte |ubyte |AMQP-waarde |
+| BOOL |booleaans |AMQP-waarde |
+| byte |ubyte |AMQP-waarde |
 | USHORT |USHORT |AMQP-waarde |
 | uint |uint |AMQP-waarde |
 | ULONG |ULONG |AMQP-waarde |
-| SByte |Byte |AMQP-waarde |
+| SByte |byte |AMQP-waarde |
 | korte |korte |AMQP-waarde |
 | int |int |AMQP-waarde |
 | lang |lang |AMQP-waarde |
-| Float |Float |AMQP-waarde |
-| dubbele |dubbele |AMQP-waarde |
+| drijvend |drijvend |AMQP-waarde |
+| dubbel |dubbel |AMQP-waarde |
 | Decimale |decimal128 |AMQP-waarde |
 | CHAR |CHAR |AMQP-waarde |
-| Datum/tijd |tijdstempel |AMQP-waarde |
+| Datum en tijd |tijdstempel |AMQP-waarde |
 | GUID |UUID |AMQP-waarde |
 | Byte] |Binaire |AMQP-waarde |
-| Tekenreeks |Tekenreeks |AMQP-waarde |
+| tekenreeks |tekenreeks |AMQP-waarde |
 | System.Collections.IList-implementatie |lijst |AMQP-waarde: de items in de verzameling kunnen alleen worden toepassingen die zijn gedefinieerd in deze tabel. |
 | System.Array |matrix |AMQP-waarde: de items in de verzameling kunnen alleen worden toepassingen die zijn gedefinieerd in deze tabel. |
 | System.Collections.IDictionary-implementatie |Kaart |AMQP-waarde: de items in de verzameling kunnen alleen worden toepassingen die zijn gedefinieerd in deze tabel. Opmerking: alleen tekenreekssleutels worden ondersteund. |
 | URI |Tekenreeks beschreven (Zie de volgende tabel) |AMQP-waarde |
 | DateTimeOffset |Lange beschreven (Zie de volgende tabel) |AMQP-waarde |
 | TimeSpan |Lange beschreven (Zie hieronder) |AMQP-waarde |
-| Stroom |Binaire |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit het Stream-object. |
+| Stream |Binaire |AMQP-gegevens (mogelijk meerdere). De gegevenssecties bevatten de onbewerkte bytes lezen uit het Stream-object. |
 | Andere objecten |Binaire |AMQP-gegevens (mogelijk meerdere). De geserialiseerde binaire bestanden van het object dat gebruikmaakt van de DataContractSerializer of een serialisatiefunctie opgegeven door de toepassing bevat. |
 
 | .NET-type | Toegewezen AMQP beschreven Type | Opmerkingen |
@@ -109,7 +107,7 @@ Er zijn ook een aantal kleine verschillen in het gedrag van de Service Bus .NET 
 * `MessageReceiver.Receive(TimeSpan.Zero)`wordt geïmplementeerd als `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Berichten voltooien door vergrendeling tokens kan alleen worden uitgevoerd door de ontvangers die in eerste instantie de berichten te ontvangen van berichten.
 
-## <a name="controlling-amqp-protocol-settings"></a>AMQP-protocol-instellingen beheren
+## <a name="control-amqp-protocol-settings"></a>Beheerinstellingen van het AMQP-protocol
 
 De [.NET API's](/dotnet/api/) verschillende instellingen voor het beheren van het gedrag van het AMQP-protocol beschikbaar:
 
@@ -124,7 +122,6 @@ Gereed voor meer informatie? Ga naar de volgende koppelingen:
 
 * [Service Bus AMQP-overzicht]
 * [AMQP 1.0-protocolhandleiding]
-* [AMQP in WindowsServer-Servicebus]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -135,4 +132,4 @@ Gereed voor meer informatie? Ga naar de volgende koppelingen:
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP-overzicht]: service-bus-amqp-overview.md
 [AMQP 1.0-protocolhandleiding]: service-bus-amqp-protocol-guide.md
-[AMQP in WindowsServer-Servicebus]: https://msdn.microsoft.com/library/dn574799.aspx
+

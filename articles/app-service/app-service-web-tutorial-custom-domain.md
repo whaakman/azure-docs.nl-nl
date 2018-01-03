@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Een bestaande aangepaste DNS-naam toegewezen aan Azure-Web-Apps
 
@@ -58,6 +58,8 @@ Vereisten voor het voltooien van deze zelfstudie:
 ## <a name="prepare-the-app"></a>De app voorbereiden
 
 Een aangepaste DNS-naam toewijzen aan een web-app, de web-app van [App Service-abonnement](https://azure.microsoft.com/pricing/details/app-service/) moet een betaald laag (**gedeelde**, **Basic**, **standaard**, of  **Premium**). In deze stap maakt ervoor u zorgen dat de App Service-app is in de ondersteunde prijscategorie.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -296,7 +298,7 @@ Nadat de bewerking is voltooid, moet u de app worden de juiste pagina op het hoo
 
 U kunt beheer van aangepaste domeinen met behulp van scripts, automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>Azure-CLI 
 
 De volgende opdracht voegt een geconfigureerde aangepaste DNS-naam naar een App Service-app. 
 

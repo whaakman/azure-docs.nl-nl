@@ -3,7 +3,7 @@ title: Beheer formules in Azure DevTest Labs virtuele machines maken | Microsoft
 description: Meer informatie over het bijwerken en verwijderen van Azure DevTest Labs formules
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formules beheren
 
@@ -64,7 +64,7 @@ De volgende stappen begeleiden u bij het proces van het maken van een formule va
     * **Wachtwoord** : Geef - op of Selecteer in de vervolgkeuzelijst - een waarde die is gekoppeld aan het geheim (wachtwoord) dat u wilt gebruiken voor de opgegeven gebruiker. Zie voor meer informatie over de geheimen [Azure DevTest Labs: persoonlijke archief van de geheime](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
     * **Virtuele machine schijftype** – Geef de harde schijf (harde schijf) of SSD (solid-state drive) om aan te geven welk type opslagschijf is toegestaan voor de virtuele machines ingericht met behulp van deze basisinstallatiekopie.
     * ** Virtuele machine grootte ** - Selecteer een van de vooraf gedefinieerde items die de processor-cores, RAM-geheugen en de grootte van de vaste schijf van de virtuele machine maken opgeven. 
-    * **Artefacten** - wilt openen de **artefacten toevoegen** blade, waarin u gegevens kunt selecteren en configureren van de artefacten die u wilt toevoegen aan de basisinstallatiekopie. Zie voor meer informatie over artefacten [beheren VM artefacten in Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
+    * **Artefacten** - wilt openen de **artefacten toevoegen** blade, waarin u gegevens kunt selecteren en configureren van de artefacten die u wilt toevoegen aan de basisinstallatiekopie. Zie voor meer informatie over artefacten [aangepaste artefacten gemaakt voor uw virtuele machine van Azure DevTest Labs](devtest-lab-artifact-author.md).
     * **Geavanceerde instellingen** - wilt openen de **Geavanceerd** blade waar u de volgende instellingen configureren:
         * **Virtueel netwerk** -Geef de gewenste virtuele netwerk.
         * **Subnet** -Geef de gewenste subnet.    
@@ -135,5 +135,5 @@ Volg deze stappen voor het verwijderen van een formule:
 * [Aangepaste installatiekopieën of formules?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u een formule voor gebruik gemaakt hebt bij het maken van een virtuele machine, de volgende stap is het [een virtuele machine toevoegen aan uw testomgeving](devtest-lab-add-vm-with-artifacts.md).
+Nadat u een formule voor gebruik gemaakt hebt bij het maken van een virtuele machine, de volgende stap is het [een virtuele machine toevoegen aan uw testomgeving](devtest-lab-add-vm.md).
 

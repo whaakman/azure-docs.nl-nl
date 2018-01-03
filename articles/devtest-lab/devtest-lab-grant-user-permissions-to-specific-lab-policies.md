@@ -3,7 +3,7 @@ title: Gebruikersmachtigingen toewijzen aan specifieke labbeleidsregels | Micros
 description: Informatie over het verlenen van de gebruikersmachtigingen voor specifieke labbeleidsregels in DevTest Labs op basis van de behoeften van elke gebruiker
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Gebruikersmachtigingen toewijzen aan specifieke labbeleidsregels
 ## <a name="overview"></a>Overzicht
@@ -87,9 +87,9 @@ In het vorige voorbeeld de **AllowedVmSizesInLab** beleid wordt gebruikt. U kunt
 ## <a name="next-steps"></a>Volgende stappen
 U hebt verleende gebruikersmachtigingen voor specifieke labbeleidsregels, hier zijn enkele Vervolgstappen rekening houden met:
 
-* [Veilige toegang tot een lab](devtest-lab-add-devtest-user.md)
+* [Toegang tot een lab beveiligen](devtest-lab-add-devtest-user.md)
 * [Labbeleidsregels instellen](devtest-lab-set-lab-policy.md)
 * [Een labsjabloon maken](devtest-lab-create-template.md)
 * [Aangepaste artefacten maken voor uw virtuele machines](devtest-lab-artifact-author.md)
-* [Een virtuele machine toevoegen aan een lab](devtest-lab-add-vm.md)
+* [Een virtuele machine aan een lab toevoegen](devtest-lab-add-vm.md)
 

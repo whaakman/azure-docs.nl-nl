@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0752864e5074782e6c447b938f69b4502d37fb8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies voor kenmerktoewijzingen schrijven in Azure Active Directory
 Wanneer u configureert het inrichten van een SaaS-toepassing, is een van de soorten kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Hiervoor moet u een script-achtige expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -36,7 +36,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 * Voor tekenreeksconstanten, als u een backslash (\) of een aanhalingsteken (") in de tekenreeks, moet moet deze worden voorafgegaan door het symbool backslash (\). Bijvoorbeeld: ' Bedrijfsnaam: \"Contoso\"'
 
 ## <a name="list-of-functions"></a>Lijst met functies
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [koppelen](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [koppelen](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [niet](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Vervangen](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Toevoegen
@@ -48,8 +48,8 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject |
-| **achtervoegsel** |Vereist |Reeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
+| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject |
+| **achtervoegsel** |Vereist |Tekenreeks |De tekenreeks die u wilt toevoegen aan het einde van de bronwaarde. |
 
 - - -
 ### <a name="formatdatetime"></a>formatDateTime
@@ -61,9 +61,9 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
-| **inputFormat** |Vereist |Reeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Vereist |Reeks |Indeling van de uitvoerdatum. |
+| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
+| **inputFormat** |Vereist |Tekenreeks |De verwachte notatie van de bronwaarde. Zie voor ondersteunde indelingen [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Vereist |Tekenreeks |Indeling van de uitvoerdatum. |
 
 - - -
 ### <a name="join"></a>Koppelen
@@ -77,8 +77,8 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **scheidingsteken** |Vereist |Reeks |De tekenreeks die wordt gebruikt voor het scheiden van bronwaarden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
-| ** bron1... bronN ** |Vereiste, variabele-aantal keren |Reeks |Tekenreekswaarden samen worden toegevoegd. |
+| **scheidingsteken** |Vereist |Tekenreeks |De tekenreeks die wordt gebruikt voor het scheiden van bronwaarden wanneer ze worden samengevoegd tot één tekenreeks. Kan ' ' als er geen scheidingsteken vereist is. |
+| ** bron1... bronN ** |Vereiste, variabele-aantal keren |Tekenreeks |Tekenreekswaarden samen worden toegevoegd. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -90,7 +90,7 @@ Als een van de bronwaarden is een kenmerk met meerdere waarden wordt elke waarde
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk. |
+| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk. |
 | **start** |Vereist |geheel getal |Index in de **bron** tekenreeks waar subtekenreeks moet beginnen. Eerste teken in de tekenreeks heeft de index van 1, tweede teken wordt index 2 hebben, enzovoort. |
 | **lengte** |Vereist |geheel getal |Lengte van de subtekenreeks. Als de lengte buiten eindigt de **bron** tekenreeks, functie substring van resultaat **start** index tot het einde van **bron** tekenreeks. |
 
@@ -131,13 +131,25 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Reeks |Doorgaans de naam van het kenmerk van het bronobject. |
-| **oldValue** |Optioneel |Reeks |Waarde moet worden vervangen **bron** of **sjabloon**. |
-| **regexPattern** |Optioneel |Reeks |Regex-patroon voor de waarde moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon Haal de waarde van eigenschap vervanging. |
-| **regexGroupName** |Optioneel |Reeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt er Haal de waarde van deze groep als vervangende waarde van eigenschap vervanging. |
-| **vervangende waarde** |Optioneel |Reeks |Nieuwe waarde ter vervanging van oude met. |
-| **replacementAttributeName** |Optioneel |Reeks |De naam van het kenmerk moet worden gebruikt voor de vervangende waarde wanneer de bron heeft geen waarde. |
-| **sjabloon** |Optioneel |Reeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
+| **bron** |Vereist |Tekenreeks |Doorgaans de naam van het kenmerk van het bronobject. |
+| **oldValue** |Optioneel |Tekenreeks |Waarde moet worden vervangen **bron** of **sjabloon**. |
+| **regexPattern** |Optioneel |Tekenreeks |Regex-patroon voor de waarde moet worden vervangen **bron**. Of, als replacementPropertyName wordt gebruikt, patroon Haal de waarde van eigenschap vervanging. |
+| **regexGroupName** |Optioneel |Tekenreeks |Naam van de groep binnen **regexPattern**. Alleen wanneer replacementPropertyName wordt gebruikt, wordt er Haal de waarde van deze groep als vervangende waarde van eigenschap vervanging. |
+| **vervangende waarde** |Optioneel |Tekenreeks |Nieuwe waarde ter vervanging van oude met. |
+| **replacementAttributeName** |Optioneel |Tekenreeks |De naam van het kenmerk moet worden gebruikt voor de vervangende waarde wanneer de bron heeft geen waarde. |
+| **sjabloon** |Optioneel |Tekenreeks |Wanneer **sjabloon** waarde wordt opgegeven, gaan we voor **oldValue** in de sjabloon en vervang deze door de bronwaarde. |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Functie:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Beschrijving:**<br> Retourneert een enkele appRoleAssignment uit de lijst met alle appRoleAssignments toegewezen aan een gebruiker voor een bepaalde toepassing. Deze functie is vereist voor het object appRoleAssignments converteren naar een tekenreeks met één functie. Houd er rekening mee dat de aanbevolen procedure is om ervoor te zorgen slechts één appRoleAssignment is toegewezen aan één gebruiker op een tijdstip en als er meerdere rollen zijn toegewezen rol-tekenreeks geretourneerd mogelijk niet voorspelbaar.
+
+**Parameters:**<br> 
+
+| Naam | Vereiste / herhalende | Type | Opmerkingen |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Vereist |Tekenreeks |**[appRoleAssignments]**  object. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -149,7 +161,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Reeks |**bron** waarde om te werken. |
+| **bron** |Vereist |Tekenreeks |**bron** waarde om te werken. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -161,10 +173,10 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **bron** |Vereist |Reeks |**Bron** waarde om te werken. |
-| **Standaardwaarde** |Optioneel |Reeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
-| **sleutel** |Vereist |Reeks |**Sleutel** vergelijken **bron** waarde met. |
-| **waarde** |Vereist |Reeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
+| **bron** |Vereist |Tekenreeks |**Bron** waarde om te werken. |
+| **Standaardwaarde** |Optioneel |Tekenreeks |De standaardwaarde moet worden gebruikt als bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
+| **sleutel** |Vereist |Tekenreeks |**Sleutel** vergelijken **bron** waarde met. |
+| **waarde** |Vereist |Tekenreeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
 
 ## <a name="examples"></a>Voorbeelden
 ### <a name="strip-known-domain-name"></a>Strook bekende domeinnaam
@@ -228,7 +240,7 @@ Als de status code komt niet met de vooraf gedefinieerde opties overeen, gebruik
 * **INVOER** (status): 'QLD'
 * **UITVOER**: ' Australië/Brisbane'
 
-## <a name="related-articles"></a>Verwante artikelen
+## <a name="related-articles"></a>Gerelateerde artikelen
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Automatisch gebruikers inrichten/opheffen van inrichting tot SaaS-Apps](active-directory-saas-app-provisioning.md)
 * [Kenmerktoewijzingen voor gebruikers inrichten aanpassen](active-directory-saas-customizing-attribute-mappings.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Beleid in Azure API Management
 
@@ -74,7 +74,7 @@ Zie [beleid voorbeelden](policy-samples.md) voor meer voorbeelden van de program
 
 ## <a name="examples"></a>Voorbeelden
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Appliy beleidsregels die zijn opgegeven bij verschillende bereiken
+### <a name="apply-policies-specified-at-different-scopes"></a>Beleidsregels die zijn opgegeven bij verschillende bereiken
 
 Als u een beleid op het globale niveau en een beleid dat is geconfigureerd voor een API hebt, wordt klikt u vervolgens wanneer die bepaalde API wordt gebruikt beide beleidsregels toegepast. API Management kunt u deterministische ordening van gecombineerde beleidsverklaringen via het base-element. 
 

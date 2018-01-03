@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a661aa5a555dacac5c94c3feb8c6b88bb5033f83
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Een virtuele-machineschaalset ingesteld met Azure PowerShell beheren
 Gedurende de levenscyclus van een virtuele-machineschaalset, moet u wellicht een of meer beheertaken uitvoeren. Bovendien wilt u scripts maken die verschillende lifecycle-taken automatiseren. In dit artikel vindt u details van de algemene Azure PowerShell-cmdlets waarmee u kunt deze taken uitvoeren.
 
-U moet de meest recente Azure PowerShell-module voor het voltooien van deze beheertaken. Zie voor meer informatie over het installeren en gebruiken van de meest recente versie [aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps). Als u maken van een virtuele-machineschaalset wilt, kunt u [een schaal ingesteld in de Azure portal maken](virtual-machine-scale-sets-portal-create.md).
+U moet de meest recente Azure PowerShell-module voor het voltooien van deze beheertaken. Zie voor meer informatie over het installeren en gebruiken van de meest recente versie [aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps). Als u maken van een virtuele-machineschaalset wilt, kunt u [een schaal ingesteld in de Azure portal maken](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Informatie over een schaalset weergeven

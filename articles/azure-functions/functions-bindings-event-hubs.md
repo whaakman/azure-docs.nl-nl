@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -43,7 +43,7 @@ Stel bijvoorbeeld dat we beginnen met de volgende instellingen en veronderstelli
 1. 10 partities.
 1. 1000 gebeurtenissen gelijkmatig verdeeld over alle partities = > 100 berichten in elke partitie.
 
-Wanneer de functie voor het eerst wordt ingeschakeld, is er slechts 1 exemplaar van de funciton. Laten we dit exemplaar van de functie Function_0 aanroepen. Function_0 hebben 1 EPH die beheert voor een lease op alle 10 partities. Lezen van gebeurtenissen uit partities 0-9 wordt gestart. Vanaf dit punt een van de volgende gebeurt:
+Wanneer de functie voor het eerst wordt ingeschakeld, is er slechts 1 exemplaar van de functie. Laten we dit exemplaar van de functie Function_0 aanroepen. Function_0 hebben 1 EPH die beheert voor een lease op alle 10 partities. Lezen van gebeurtenissen uit partities 0-9 wordt gestart. Vanaf dit punt een van de volgende gebeurt:
 
 * **Functie slechts 1 exemplaar nodig** -Function_0 kunnen worden verwerkt alle 1000 voordat de Azure Functions schalen logica gang is. Daarom worden alle 1000 berichten worden verwerkt door Function_0.
 
@@ -59,14 +59,14 @@ Als alle functies die zonder fouten slagen, worden controlepunten toegevoegd aan
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#trigger---c-example)
-* [C#-script](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
 
-Het volgende voorbeeld wordt [vooraf gecompileerd C#](functions-dotnet-class-library.md) code die de logboeken van de berichttekst van de event hub-trigger.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die zich aanmeldt met de berichttekst van de event hub-trigger.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 De constructor van het kenmerk werkt met de naam van de event hub, de naam van de consumergroep en de naam van een app-instelling met de verbindingsreeks. Zie voor meer informatie over deze instellingen de [activeren configuratiesectie](#trigger---configuration). Hier volgt een `EventHubTriggerAttribute` kenmerk voorbeeld:
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Zie voor een compleet voorbeeld [Trigger - vooraf gecompileerde C#-voorbeeld](#trigger---c-example).
+Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Trigger - configuratie
 
@@ -242,14 +242,14 @@ De uitvoer van de Event Hubs binding gebeurtenissen schrijven naar een stroom ge
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#output---c-example)
-* [C#-script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die een bericht naar een event hub, met behulp van de geretourneerde waarde van de methode als uitvoer geschreven:
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die een bericht naar een event hub, met behulp van de geretourneerde waarde van de methode als uitvoer geschreven:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Voor [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 De constructor van het kenmerk werkt met de naam van de event hub en de naam van een app-instelling met de verbindingsreeks. Zie voor meer informatie over deze instellingen [Output - configuratie](#output---configuration). Hier volgt een `EventHub` kenmerk voorbeeld:
 
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Zie voor een compleet voorbeeld [uitvoer - vooraf gecompileerde C#-voorbeeld](#output---c-example).
+Zie voor een compleet voorbeeld [uitvoer - C#-voorbeeld](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - configuratie
 

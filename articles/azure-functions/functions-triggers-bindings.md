@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 Azure Functions, kunt u code te schrijven in reactie op gebeurtenissen in Azure en andere services via *triggers* en *bindingen*. Dit artikel is een conceptueel overzicht van triggers en bindingen voor alle programmeertalen worden ondersteund. Functies die gemeenschappelijk voor alle bindingen zijn worden hier beschreven.
@@ -409,6 +409,10 @@ module.exports = function (context, info) {
 ## <a name="configuring-binding-data-at-runtime"></a>Configureren van die gegevens bindt tijdens runtime
 
 In C# en andere .NET-talen, kunt u een patroon imperatieve binding in plaats van de declaratieve bindingen in *function.json*. Imperatieve binding is handig wanneer bindende parameters moeten worden berekend tijdens runtime in plaats van ontwerp. Zie voor meer informatie, [Binding tijdens runtime via imperatieve bindingen](functions-reference-csharp.md#imperative-bindings) in de C# naslaginformatie voor ontwikkelaars.
+
+## <a name="functionjson-file-schema"></a>Function.JSON bestand schema
+
+De *function.json* bestand schema is beschikbaar op [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer informatie over een specifieke binding:

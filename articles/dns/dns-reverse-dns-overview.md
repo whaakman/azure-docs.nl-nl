@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Overzicht van de reverse DNS- en biedt ondersteuning in Azure
 
@@ -34,7 +34,7 @@ Omgekeerde DNS-records worden gehost in speciale DNS-zones, bekend als 'ARPA-zon
 
 Bijvoorbeeld, wordt de DNS-record 'www.contoso.com' geïmplementeerd met behulp van een DNS-'A'-record met de naam 'www' in de zone contoso.com.  Deze A-record verwijst naar de bijbehorende IP-adres, in dit geval 64.4.6.100.  De reverse lookup wordt afzonderlijk geïmplementeerd met een 'PTR-record met de naam '100' in de zone '6.4.64.in-addr.arpa' (Let erop dat de IP-adressen in ARPA-zones worden omgekeerd.)  Deze PTR-record, verwijst als deze juist is geconfigureerd naar de naam www.contoso.com.
 
-Wanneer een organisatie een IP-Adresblok toegewezen is, aanschaffen ze ook het recht voor het beheren van de bijbehorende ARPA zone. De ARPA-zones die overeenkomt met de IP-adresblokken gebruikt door Azure worden gehost en beheerd door Microsoft. Uw Internetprovider kan host voor de zone ARPA voor uw eigen IP-adressen voor u mogelijk toe te staan of te hosten van de zone ARPA in een DNS-service van uw keuze, zoals Azure DNS.
+Wanneer een organisatie een IP-Adresblok toegewezen is, aanschaffen ze ook het recht voor het beheren van de bijbehorende ARPA zone. De ARPA-zones die overeenkomt met de IP-adresblokken gebruikt door Azure worden gehost en beheerd door Microsoft. Uw Internetprovider de zone ARPA voor uw eigen IP-adressen voor u kan hosten of kunt u voor het hosten van de zone ARPA in een DNS-service van uw keuze, zoals Azure DNS.
 
 > [!NOTE]
 > Forward DNS-zoekacties en reverse DNS-zoekacties worden in afzonderlijke, parallelle DNS-hiërarchieën geïmplementeerd. De reverse lookup voor 'www.contoso.com' **niet** gehost in de zone 'contoso.com', in plaats daarvan deze is opgenomen in de zone ARPA voor de bijbehorende IP-Adresblok. Afzonderlijke zones worden gebruikt voor IPv4 en IPv6-adresblokken.

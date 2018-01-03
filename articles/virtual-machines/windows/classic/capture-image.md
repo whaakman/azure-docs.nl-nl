@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Leg een installatiekopie van een virtuele machine van Azure Windows vast die is gemaakt volgens het klassieke implementatiemodel.
 > [!IMPORTANT]
@@ -42,7 +42,7 @@ Deze stappen wordt ervan uitgegaan dat u hebt al een virtuele machine in Azure g
 >
 >
 
-Voordat u een installatiekopie van een virtuele machine van Azure vastlegt, kunt u het beste de doel-virtuele machine een back-up. Virtuele machines van Azure kan een back-up maken met Azure Backup. Zie [Back-ups maken van virtuele machines van Azure](../../../backup/backup-azure-vms.md) voor meer informatie. Andere oplossingen zijn beschikbaar van gecertificeerde partners. Als u wilt weten wat er op dit moment beschikbaar is, zoekt u Azure Marketplace.
+Voordat u een installatiekopie van een virtuele machine van Azure vastlegt, kunt u het beste de doel-virtuele machine een back-up. Virtuele machines van Azure kan een back-up maken met Azure Backup. Zie [Back-ups maken van virtuele machines van Azure](../../../backup/backup-azure-arm-vms.md) voor meer informatie. Andere oplossingen zijn beschikbaar van gecertificeerde partners. Als u wilt weten wat er op dit moment beschikbaar is, zoekt u Azure Marketplace.
 
 ## <a name="capture-the-virtual-machine"></a>De virtuele machine vastleggen
 1. In de [Azure-portal](http://portal.azure.com), **Connect** aan de virtuele machine. Zie voor instructies [hoe u aan te melden bij een virtuele machine met Windows Server][How to sign in to a virtual machine running Windows Server].

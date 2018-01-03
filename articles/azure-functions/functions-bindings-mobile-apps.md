@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps-bindingen voor Azure Functions 
 
@@ -37,8 +37,7 @@ De invoer Mobile Apps-binding wordt een record van een eindpunt van de mobiele g
 
 Zie het voorbeeld taalspecifieke:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [C#-script](#input---c-script-example)
+* [C# script (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Invoer - voorbeeld van C#-script
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Invoer - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [de volgende configuratiesectie](#input---configuration).
 
@@ -168,13 +167,13 @@ De Mobile Apps-uitvoer binden aan een nieuwe record schrijven naar een tabel met
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#output---c-example)
-* [C#-script](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) die wordt veroorzaakt door een wachtrijbericht en maakt u een record in de tabel van een mobiele app.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die wordt veroorzaakt door een wachtrijbericht en maakt u een record in de tabel van een mobiele app.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Output - kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [Output - configuratie](#output---configuration). Hier volgt een `MobileTable` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-Zie voor een compleet voorbeeld [uitvoer - vooraf gecompileerde C#-voorbeeld](#output---c-example).
+Zie voor een compleet voorbeeld [uitvoer - C#-voorbeeld](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - configuratie
 
@@ -312,7 +311,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 
 ## <a name="output---usage"></a>Output - gebruik
 
-Gebruik in C# scriptfuncties, een benoemde output-parameter van het type `out object` de uitvoer-record te openen. In de vooraf gecompileerde C# functies, de `MobileTable` kenmerk kan worden gebruikt met een van de volgende typen:
+Gebruik in C# scriptfuncties, een benoemde output-parameter van het type `out object` de uitvoer-record te openen. In C# klassenbibliotheken de `MobileTable` kenmerk kan worden gebruikt met een van de volgende typen:
 
 * `ICollector<T>`of `IAsyncCollector<T>`, waarbij `T` is `JObject` of een type met een `public string Id` eigenschap.
 * `out JObject`

@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 508b3755556bcae6aa2c7d17a2d86a1430a8109a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>De extensie van de virtuele machine Watcher-Agent voor Windows-netwerk
 
 ## <a name="overview"></a>Overzicht
 
-[Azure-netwerk-Watcher](https://review.docs.microsoft.com/azure/network-watcher/) is een prestaties bewaken, diagnose en analyse netwerkservice waarmee u bewaking voor Azure-netwerken. De extensie van de Agent voor netwerk-Watcher-virtuele machine is vereist voor sommige van de netwerk-Watcher-functies op virtuele machines in Azure. Dit omvat het vastleggen van netwerkverkeer op aanvraag en andere geavanceerde functies.
+[Azure-netwerk-Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is een prestaties bewaken, diagnose en analyse netwerkservice waarmee de bewaking van netwerken in Azure. De extensie van de Agent voor netwerk-Watcher-virtuele machine is vereist voor het vastleggen van netwerkverkeer op aanvraag en andere geavanceerde functies op virtuele machines in Azure.
+
 
 In dit document worden de ondersteunde platforms en implementatie-opties voor de extensie van de Agent voor netwerk-Watcher-virtuele machine voor Windows.
 
@@ -33,15 +34,15 @@ In dit document worden de ondersteunde platforms en implementatie-opties voor de
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De Agent voor netwerk-Watcher-extensie versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016. Houd er rekening mee dat de Nano-Server niet wordt ondersteund op dit moment.
+De Agent voor netwerk-Watcher-extensie versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016. Nano Server wordt niet ondersteund.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
-Sommige van de Agent voor netwerk-Watcher-functionaliteit is vereist dat de virtuele doelmachine worden verbonden met Internet. Zonder de mogelijkheid tot stand brengen van uitgaande verbindingen mogelijk enkele van de Agent voor netwerk-Watcher-functies niet goed of niet meer beschikbaar. Zie voor meer informatie de [netwerk-Watcher documentatie](../../network-watcher/network-watcher-monitoring-overview.md).
+Sommige van de Agent voor netwerk-Watcher-functionaliteit is vereist dat de virtuele doelmachine worden verbonden met Internet. Zonder de mogelijkheid uitgaande verbindingen tot stand gebracht, de netwerk-Watcher-Agent niet worden kunnen pakket opnamen uploaden naar uw storage-account. Zie voor meer informatie de [netwerk-Watcher documentatie](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Uitbreidingsschema
 
-De volgende JSON vindt u het schema voor de Agent voor netwerk-Watcher-extensie. De extensie niet vereist, noch gebruiker opgegeven instellingen op dit moment ondersteunt en is afhankelijk van de standaardconfiguratie.
+De volgende JSON vindt u het schema voor de Agent voor netwerk-Watcher-extensie. De extensie niet vereist, noch ondersteunt, worden alle door de gebruiker opgegeven instellingen, en is afhankelijk van de standaardconfiguratie.
 
 ```json
 {
@@ -73,27 +74,28 @@ De volgende JSON vindt u het schema voor de Agent voor netwerk-Watcher-extensie.
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie wordt beschreven, kan de Agent voor netwerk-Watcher-extensie uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager-in een Azure Resource Manager-sjabloon worden gebruikt.
+U kunt Azure VM-extensies met Azure Resource Manager-sjablonen kunt implementeren. De JSON-schema uiteengezet in de vorige sectie in een Azure Resource Manager-sjabloon kunt u de Agent voor netwerk-Watcher-extensie wordt uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager.
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van de extensie van de Agent voor netwerk-Watcher-virtuele machine op een bestaande virtuele machine.
+Gebruik de `Set-AzureRmVMExtension` opdracht voor het implementeren van de extensie van de Agent voor netwerk-Watcher-virtuele machine op een bestaande virtuele machine:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
-                       -Location "WestUS" `
-                       -VMName "myVM1" `
-                       -Name "networkWatcherAgent" `
-                       -Publisher "Microsoft.Azure.NetworkWatcher" `
-                       -Type "NetworkWatcherAgentWindows" `
-                       -TypeHandlerVersion "1.4"
+Set-AzureRmVMExtension `
+  -ResourceGroupName "myResourceGroup1" `
+  -Location "WestUS" `
+  -VMName "myVM1" `
+  -Name "networkWatcherAgent" `
+  -Publisher "Microsoft.Azure.NetworkWatcher" `
+  -Type "NetworkWatcherAgentWindows" `
+  -TypeHandlerVersion "1.4"
 ```
 
 ## <a name="troubleshooting-and-support"></a>Problemen oplossen en ondersteuning
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure portal en met behulp van de Azure PowerShell-module. Overzicht van de implementatiestatus van uitbreidingen voor een bepaalde virtuele machine, voer de volgende opdracht met de Azure PowerShell-module.
+U kunt gegevens over de status van extensie-implementaties ophalen van de Azure-portal en PowerShell. Overzicht van de implementatiestatus van uitbreidingen voor een bepaalde virtuele machine, voer de volgende opdracht met de Azure PowerShell-module:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

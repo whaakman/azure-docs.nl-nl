@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 4d5777e69b7ea3fa206bf8909c255b998be69e8a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Het beheren van statistieken over tabellen in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,32 +33,30 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-Hoe meer SQL Data Warehouse weet over uw gegevens, hoe sneller een query uitgevoerd op uw gegevens kunnen worden uitgevoerd.  De manier waarop u SQL Data Warehouse zien over uw gegevens is door het verzamelen van statistieken over uw gegevens.  Statistieken over voor uw gegevens is een van de belangrijkste dingen die u doen kunt om uw query's optimaliseren.  Statistieken helpen bij het maken van de optimale planning van uw query's van SQL Data Warehouse.  Dit is omdat SQL Data Warehouse queryoptimalisatie optimalisatie van de kosten die zijn gebaseerd.  Dat wil zeggen, vergelijkt de kosten van verschillende queryplannen en kiest vervolgens het plan met de laagste kosten, moet het plan dat de snelste wordt uitgevoerd.
+Hoe meer SQL Data Warehouse weet over uw gegevens, hoe sneller een query uitgevoerd op uw gegevens kunnen worden uitgevoerd.  De manier waarop u SQL Data Warehouse zien over uw gegevens is door het verzamelen van statistieken over uw gegevens. Statistieken over voor uw gegevens is een van de belangrijkste dingen die u doen kunt om uw query's optimaliseren. Dit komt omdat SQL Data Warehouse queryoptimalisatie optimalisatie kosten op basis van een. Het vergelijkt de kosten van verschillende queryplannen en kiest vervolgens het plan met de laagste kosten, moet het plan dat de snelste wordt uitgevoerd. Bijvoorbeeld als het optimalisatieprogramma maakt een schatting van dat de datum die u hebt gefilterd in uw query retourneert 1 rij, kunnen ervoor kiezen een heel andere plannen dan als deze maakt een schatting datum die u hebt geselecteerd wordt 1 miljoen rijen worden geretourneerd.
 
-Statistieken kunnen worden gemaakt op één kolom, meerdere kolommen of op een index van een tabel.  Statistieken worden opgeslagen in een histogram die het bereik en selectiviteit van waarden vastgelegd.  Dit is met name van belang wanneer het optimalisatieprogramma moet evalueren JOINs, GROUP BY, HAVING en de component WHERE in een query.  Bijvoorbeeld als het optimalisatieprogramma maakt een schatting van dat de datum die u hebt gefilterd in uw query retourneert 1 rij, kunnen ervoor kiezen een heel andere plannen dan als deze maakt een schatting datum die u hebt geselecteerd wordt 1 miljoen rijen worden geretourneerd.  Tijdens het maken van statistieken is zeer belangrijk, is het belangrijk dat statistieken *nauwkeurig* overeenstemming met de huidige status van de tabel.  Up-to-date statistieken met zorgt ervoor dat het een goed plan is geselecteerd door de optimaliseren.  De abonnementen die zijn gemaakt door het optimalisatieprogramma zijn alleen nuttig als de statistieken voor uw gegevens.
-
-Het proces van het maken en bijwerken van statistieken is op dit moment een handmatig proces, maar het is zeer eenvoudig doen.  Dit is in tegenstelling tot SQL Server die automatisch wordt gemaakt en statistieken over één kolommen en indexen bijgewerkt.  U kunt het beheer van de statistieken aanzienlijk voor uw gegevens automatiseren met behulp van de onderstaande informatie. 
+Het proces van het maken en bijwerken van statistieken is op dit moment een handmatig proces, maar het is zeer eenvoudig doen.  Youw wordt binnenkort automatisch maken en bijwerken van statistieken op één kolommen en indexen.  U kunt het beheer van de statistieken aanzienlijk voor uw gegevens automatiseren met behulp van de onderstaande informatie. 
 
 ## <a name="getting-started-with-statistics"></a>Aan de slag met statistieken
- Steekproef statistieken maken voor elke kolom is een eenvoudige manier om te beginnen met statistieken.  Aangezien is het belangrijk statistieken om up-to-date te houden, mogelijk uw statistieken bijwerken dagelijks of na elke load voorzichtig zijn. Het maken en bijwerken van statistieken kan ten koste gaan van prestaties en kosten.  Als het te lang duurt om al uw statistieken bij te houden, kunt u overwegen selectiever te zijn in welke kolommen statistieken hebben of voor welke kolommen de statistieken regelmatig moeten worden bijgewerkt.  U wilt bijwerken datumkolommen dagelijks nieuwe waarden kunnen worden toegevoegd in plaats van na elke load. Opnieuw, krijgt u optimaal wilt profiteren doordat de statistieken voor kolommen die zijn betrokken in JOINs, GROUP BY, HAVING en de component WHERE.  Als u een tabel met een groot aantal kolommen die alleen worden gebruikt in de component SELECT hebt, statistieken voor deze kolommen niet kan helpen en uitgaven iets meer werk alleen de kolommen waarin statistieken helpt, identificeren inkorten de tijd voor het onderhouden van uw statistieken.
+Steekproef statistieken maken voor elke kolom is een eenvoudige manier om te beginnen met statistieken. Verouderde statistieken zal leiden tot suboptimale queryprestaties. Echter verbruikt dit geheugen voor het bijwerken van statistieken voor alle kolommen, zoals de hoeveelheid gegevens toenemen. 
 
-## <a name="multi-column-statistics"></a>Statistieken met meerdere kolommen
-Naast het maken van statistieken voor één kolommen, merkt u dat uw query's van meerdere kolomstatistieken profiteren.  Statistieken met meerdere kolommen worden statistieken gemaakt op een lijst met kolommen.  Ze bevatten één kolomstatistieken voor de eerste kolom in de lijst, plus informatie cross-kolom correlatie dichtheden aangeroepen.  Bijvoorbeeld, als er een tabel die samengevoegd op twee kolommen, wellicht dat SQL Data Warehouse beter het plan optimaliseren kunt wordt begrepen dat de relatie tussen de twee kolommen.   Statistieken met meerdere kolommen kunnen query's sneller voor bepaalde bewerkingen zoals joins samengestelde en gegroepeerd.
+Hieronder volgen enkele aanbevelingen voor verschillende scenario's:
+| **Scenario's** | Aanbeveling |
+|:--- |:--- |
+| **Aan de slag** | Alle kolommen na de migratie naar SQL DW bijwerken |
+| **Belangrijkste kolom voor statistieken** | Hash-distributiesleutel |
+| **Tweede belangrijkste kolom voor statistieken** | Partitiesleutel |
+| **Andere belangrijke kolommen voor statistieken** | Datum, frequente JOINs GROUP BY, HAVING en waar |
+| **Frequentie van statistieken updates**  | Conservatief: per dag <br></br> Na het laden van of uw gegevens transformeren |
+| **Steekproeven** |  Gebruik onderstaande 1 B rijen standaard steekproeven (20%) <br></br> Met meer dan 1 B rijen tabellen is statistieken voor een bereik 2% goed |
 
 ## <a name="updating-statistics"></a>Bijwerken van statistieken
-Bijwerken van statistieken is een belangrijk onderdeel van uw database management routine.  Wanneer de distributie van gegevens in de database wordt gewijzigd, moeten de statistieken worden bijgewerkt.  Verouderde statistieken zal leiden tot suboptimale queryprestaties.
 
-Een aanbevolen procedure is het bijwerken van statistieken over datumkolommen elke dag als nieuwe datums worden toegevoegd.  Elke keer nieuwe rijen in het datawarehouse zijn geladen, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken verouderd wilt maken. Als u daarentegen statistieken over een land-kolom in een tabel van de klant mogelijk nooit moeten worden bijgewerkt, zoals de verdeling van waarden in het algemeen niet wijzigen. Ervan uitgaande dat de distributie constant tussen klanten, eens toevoegen van nieuwe rijen aan de tabel variatie niet te wijzigen van de gegevensdistributie. Echter als uw datawarehouse alleen een bepaald land bevat en u Importeer gegevens vanuit een nieuw land, moet wat resulteert in gegevens uit meerdere landen worden opgeslagen, zeker u statistieken voor de kolom land moeten worden bijgewerkt.
+Een aanbevolen procedure is het bijwerken van statistieken over datumkolommen elke dag als nieuwe datums worden toegevoegd. Elke keer nieuwe rijen in het datawarehouse zijn geladen, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken verouderd wilt maken. Als u daarentegen statistieken over een land-kolom in een tabel van de klant mogelijk nooit moeten worden bijgewerkt, zoals de verdeling van waarden in het algemeen niet wijzigen. Ervan uitgaande dat de distributie constant tussen klanten, eens toevoegen van nieuwe rijen aan de tabel variatie niet te wijzigen van de gegevensdistributie. Echter als uw datawarehouse alleen een bepaald land bevat en u Importeer gegevens vanuit een nieuw land, moet wat resulteert in gegevens uit meerdere landen worden opgeslagen, zeker u statistieken voor de kolom land moeten worden bijgewerkt.
 
-Een van de eerste vragen stellen bij het oplossen van een query is 'Are de statistieken bijgewerkt?'
+Een van de eerste vragen te stellen vragen wanneer het oplossen van een query is **'Zijn de statistieken bijgewerkt?'**
 
-Deze vraag is niet een die door de leeftijd van de gegevens kunnen worden beantwoord. Een object up-to-date statistieken kan worden oude als er geen belangrijke wijzigingen in de onderliggende gegevens zijn. Wanneer het aantal rijen aanzienlijk is gewijzigd of er is een belangrijke wijziging in de distributie van waarden voor een bepaalde kolom *vervolgens* is het tijd om het bijwerken van statistieken.  
-
-Ter referentie: **SQL Server** (geen SQL Data Warehouse) automatisch bijgewerkt statistieken voor deze situaties:
-
-* Als er geen rijen in de tabel wanneer u rijen toevoegt, krijgt u een automatische update van statistieken
-* Wanneer u meer dan 500 rijen toevoegen aan een tabel die beginnen met minder dan 500 rijen (bijvoorbeeld aan begin u hebt 499 en 500 rijen vervolgens toe te voegen aan een totaal van 999 rijen), krijgt u een automatische update 
-* Als u meer dan 500 rijen die u 500 extra rijen + 20% van de grootte van de tabel toevoegen moet voordat u een automatische update op de statistieken ziet klaar
+Deze vraag is niet een die door de leeftijd van de gegevens kunnen worden beantwoord. Een object up-to-date statistieken kan worden oude als er geen belangrijke wijzigingen in de onderliggende gegevens zijn. Wanneer het aantal rijen aanzienlijk is gewijzigd of er is een belangrijke wijziging in de distributie van waarden voor een bepaalde kolom *vervolgens* is het tijd om het bijwerken van statistieken.
 
 Omdat er geen DMV om te bepalen of de gegevens in de tabel is gewijzigd sinds de laatste tijd statistieken zijn bijgewerkt, kunt weet de leeftijd van de statistieken u kennismaken met onderdeel van de afbeelding.  U kunt de volgende query om te bepalen van de laatste keer dat de statistieken waar bijgewerkt op elke tabel.  
 
@@ -94,7 +92,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Datumkolommen in een datawarehouse bijvoorbeeld meestal regelmatig hoeft te worden statistieken updates. Elke keer nieuwe rijen in het datawarehouse zijn geladen, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken verouderd wilt maken.  Als u daarentegen statistieken voor een kolom geslacht in een klantentabel mogelijk nooit moeten worden bijgewerkt. Ervan uitgaande dat de distributie constant tussen klanten, eens toevoegen van nieuwe rijen aan de tabel variatie niet te wijzigen van de gegevensdistributie. Echter als uw datawarehouse slechts één geslacht en een nieuwe vereiste resultaten in meerdere geslachten bevat moet beslist u statistieken voor de kolom geslacht moeten worden bijgewerkt.
+**Datum van de kolommen** in een datawarehouse bijvoorbeeld meestal regelmatig hoeft te worden statistieken updates. Elke keer nieuwe rijen in het datawarehouse zijn geladen, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken verouderd wilt maken.  Als u daarentegen statistieken voor een kolom geslacht in een klantentabel mogelijk nooit moeten worden bijgewerkt. Ervan uitgaande dat de distributie constant tussen klanten, eens toevoegen van nieuwe rijen aan de tabel variatie niet te wijzigen van de gegevensdistributie. Echter als uw datawarehouse slechts één geslacht en een nieuwe vereiste resultaten in meerdere geslachten bevat moet beslist u statistieken voor de kolom geslacht moeten worden bijgewerkt.
 
 Zie voor verdere uitleg [statistieken] [ Statistics] op MSDN.
 
@@ -122,7 +120,7 @@ Deze voorbeelden laten zien hoe het gebruik van verschillende opties voor het ma
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Statistieken voor één kolom maken met de standaardopties
 Verstrek voor statistieken maken voor een kolom, een naam voor het object statistieken en de naam van de kolom.
 
-Deze syntaxis gebruikt alle standaardopties. SQL Data Warehouse voorbeelden standaard 20 procent van de tabel bij het maken van statistieken.
+Deze syntaxis gebruikt alle standaardopties. Standaard wordt in SQL Data Warehouse **voorbeelden van 20 procent** van de tabel bij het maken van statistieken.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -189,7 +187,7 @@ Voor het maken van een statistieken met meerdere kolommen gewoon gebruiken de ee
 > 
 > 
 
-In dit voorbeeld wordt het histogram is op *product\_categorie*. Statistieken voor cross-kolom worden berekend op *product\_categorie* en *product\_sub_c\ategory*:
+In dit voorbeeld wordt het histogram is op *product\_categorie*. Statistieken voor cross-kolom worden berekend op *product\_categorie* en *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;

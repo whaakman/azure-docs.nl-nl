@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: c49b49cf832097bd5fbc423a36432a3eaff9bf14
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Het oplossen van Azure SQL datawarehouse
 In dit onderwerp vindt u enkele van de meer veelvoorkomende vragen die we graag van onze klanten.
@@ -96,7 +96,7 @@ Als u zijn kan niet zoeken naar een oplossing voor het bovenstaande probleem, Hi
 [Ondersteuningsticket maken]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md

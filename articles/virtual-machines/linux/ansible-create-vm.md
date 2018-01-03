@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Een eenvoudige virtuele machine maken in Azure met Ansible
 Ansible kunt u de implementatie en configuratie van resources in uw omgeving automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele machines (VM's) in Azure, net als elke andere bron dezelfde. In dit artikel leest u hoe een basis-VM met Ansible maken. U kunt ook meer te weten hoe [maakt een complete VM-omgeving met Ansible](ansible-create-complete-vm.md).
@@ -37,7 +37,7 @@ Voor het beheren van Azure-resources met Ansible, moet u het volgende:
 
 
 ## <a name="create-supporting-azure-resources"></a>Ondersteuning van Azure-resources maken
-In dit voorbeeld maken we een runbook dat een virtuele machine in een bestaande infrastructuur implementeert. Maak eerst een resourcegroep met [az groep maken](/cli/azure/vm#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
+In dit voorbeeld maakt u een runbook dat een virtuele machine in een bestaande infrastructuur implementeert. Maak eerst een resourcegroep met [az groep maken](/cli/azure/vm#create). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *eastus* locatie:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Maken en uitvoeren van Ansible playbook
-Maken van een Ansible playbook met de naam **azure_create_vm.yml** en plak de volgende inhoud. In dit voorbeeld één VM maakt en configureert u SSH-referenties. Voer uw eigen gegevens voor openbare sleutel in de *key_data* koppelen als volgt:
+Maken van een Ansible playbook met de naam *azure_create_vm.yml* en plak de volgende inhoud. In dit voorbeeld één VM maakt en configureert u SSH-referenties. Voer uw eigen volledig openbare sleutel gegevens in de *key_data* koppelen als volgt:
 
 ```yaml
 - name: Create Azure VM

@@ -17,10 +17,10 @@ ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30fa9128cd51a7498449c991b58500ad9acdd3d4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatiseren beheertaken op Azure Virtual Machines met de SQL Server Agent-extensie (klassiek)
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Op dit moment krijgt u een lijst met de klassieke virtuele machines en hun namen
 
     Get-AzureVM
 
-## <a name="installation"></a>Installeren
+## <a name="installation"></a>Installatie
 Voor klassieke virtuele machines, moet u PowerShell gebruiken voor de uitbreiding voor de SQL Server IaaS-Agent installeren en configureren van de gekoppelde services. Gebruik de **Set AzureVMSqlServerExtension** PowerShell-cmdlet voor het installeren van de extensie. De volgende opdracht wordt bijvoorbeeld de uitbreiding wordt geïnstalleerd op een Windows Server-VM (klassiek) en naam 'SQLIaaSExtension'.
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM

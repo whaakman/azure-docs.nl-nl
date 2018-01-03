@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindingen
 
@@ -28,13 +28,13 @@ Dit artikel wordt uitgelegd hoe u e-mail verzendt met behulp van [SendGrid](http
 
 Zie het voorbeeld taalspecifieke:
 
-* [Vooraf gecompileerde C#](#c-example)
-* [C#-script](#c-script-example)
+* [C#](#c-example)
+* [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C#-voorbeeld
 
-Het volgende voorbeeld wordt een [vooraf gecompileerd C#-functie](functions-dotnet-class-library.md) dat maakt gebruik van een Service Bus-wachtrij activeren en een SendGrid uitvoer binding.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) dat maakt gebruik van een Service Bus-wachtrij activeren en een SendGrid uitvoer binding.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -155,7 +155,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Kenmerken
 
-Voor [vooraf gecompileerd C#](functions-dotnet-class-library.md) functies, gebruiken de [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+In [C#-klassebibliotheken](functions-dotnet-class-library.md), gebruiken de [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) kenmerk, die is gedefinieerd in NuGet-pakket [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
 
 Zie voor meer informatie over de kenmerkeigenschappen die u kunt configureren, [configuratie](#configuration). Hier volgt een `SendGrid` kenmerk voorbeeld in een handtekening voor methode:
 
@@ -169,7 +169,7 @@ public static void Run(
 }
 ```
 
-Zie voor een compleet voorbeeld [vooraf gecompileerd C#-voorbeeld](#c-example).
+Zie voor een compleet voorbeeld [C#-voorbeeld](#c-example).
 
 ## <a name="configuration"></a>Configuratie
 

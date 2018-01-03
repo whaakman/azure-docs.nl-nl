@@ -3,7 +3,7 @@ title: Labels toevoegen aan een lab in Azure DevTest Labs | Microsoft Docs
 description: Meer informatie over het toevoegen van een label aan een lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: dc5b327a-62e4-41bc-80ef-deb3c23d51b2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: tarcher
-ms.openlocfilehash: c268c1a10e4a313d0520f96e452ef978b6201115
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Labels toevoegen aan een lab in Azure DevTest Labs
 
@@ -27,7 +27,7 @@ U kunt aangepaste labels maken en deze toepassen op uw resources DevTest Labs lo
 Resources die worden ondersteund door tags bevatten
 
 * Virtuele machines te berekenen
-* NIC 's
+* NIC’s
 * IP-adressen
 * Load balancers
 * Opslagaccounts
@@ -49,7 +49,7 @@ Elk label bestaat uit een **naam**/**waarde** paar. U kunt bijvoorbeeld een labe
 1. Aan de linkerkant onder **beheren**, selecteer **labels**.
 1. Voer voor het maken van een nieuwe code voor deze testomgeving een **naam**/**waarde** koppelen en selecteert u **opslaan**. U kunt ook een bestaand label selecteren in de lijst te bekijken of beheren van de resources die zijn gekoppeld met dit label.
 
-    ![Labels beheren](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
+    ![Tags beheren](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
 ## <a name="understanding-limitations-to-tags"></a>Understanding beperkingen met betrekking tot labels
 
