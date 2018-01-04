@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ed4a84965c37f66bbc7734f6043ad6f8f1666c1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-gateway configuratie-instellingen voor Azure-Stack
 
@@ -31,7 +31,7 @@ Er is een VPN-gatewayverbinding afhankelijk van de configuratie van meerdere res
 ## <a name="vpn-gateway-settings"></a>Instellingen voor VPN-gateway
 
 ### <a name="gateway-types"></a>Gatewaytypen
-Elke virtuele Azure-Stack-netwerk ondersteunt een enkele virtuele netwerkgateway, moet van het type **Vpn**.  Dit wijkt af van Azure die ondersteuning biedt voor extra typen.  
+Elke virtuele Azure-Stack-netwerk ondersteunt een enkele virtuele netwerkgateway, moet van het type **Vpn**.  Deze ondersteuning verschilt van Azure die ondersteuning biedt voor extra typen.  
 
 Wanneer u een virtuele netwerkgateway maakt, moet u ervoor zorgen dat het Gatewaytype voor uw configuratie klopt. Een VPN-gateway vereist de `-GatewayType Vpn`.
 
@@ -90,9 +90,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Wanneer u de virtuele netwerkgateway voor de configuratie van een VPN-gateway maakt, moet u een VPN-type. Het VPN-type dat u kiest, is afhankelijk van de verbinding-topologie die u wilt maken.  Een VPN-type kan ook afhankelijk van de hardware die u gebruikt. S2S-configuraties vereisen een VPN-apparaat. Sommige VPN-apparaten ondersteunen alleen een bepaalde VPN-type.
 
 > [!IMPORTANT]  
-> Op dit moment ondersteunt Azure Stack alleen het Route gebaseerd VPN-type.  Als uw apparaat alleen beleid gebaseerd VPN-verbindingen ondersteunt, worden klikt u vervolgens verbindingen met die apparaten uit de Stack Azure niet ondersteund.
+> Op dit moment ondersteunt Azure Stack alleen het Route gebaseerd VPN-type. Als uw apparaat alleen beleid gebaseerd VPN-verbindingen ondersteunt, worden klikt u vervolgens verbindingen met die apparaten uit de Stack Azure niet ondersteund.
 
-- **PolicyBased**: *(ondersteund door Azure, maar niet door de Azure-Stack)* op beleid gebaseerde VPN-verbindingen versleutelen pakketten en sturen via IPsec-tunnels op basis van het IPSec-beleid dat is geconfigureerd met de combinaties van adresvoorvoegsels tussen uw on-premises netwerk en de Stack Azure VNet. Het beleid (of de verkeersselector) wordt gewoonlijk gedefinieerd als een toegangslijst in de configuratie van het VPN-apparaat.
+- **PolicyBased**: *(ondersteund door Azure, maar niet door de Azure-Stack)* op beleid gebaseerde VPN-verbindingen versleutelen pakketten en sturen via IPsec-tunnels op basis van de IPsec-beleidsregels die zijn geconfigureerd met de combinaties van adresvoorvoegsels tussen uw on-premises netwerk en de Stack Azure VNet. Het beleid (of de verkeersselector) wordt gewoonlijk gedefinieerd als een toegangslijst in de configuratie van het VPN-apparaat.
 
 - **RouteBased**: op route gebaseerd VPN-verbindingen gebruiken 'routes' in de IP-doorstuurtabel of routeringstabel om pakketten direct naar de bijbehorende tunnelinterfaces. De tunnelinterfaces versleutelen of ontsleutelen de pakketten vervolgens naar en vanuit de tunnels. Het beleid (of de verkeersselector) voor op route gebaseerd VPN-verbindingen zijn geconfigureerd als alles-naar-alles (of jokertekens). De waarde voor een RouteBased VPN-type is RouteBased.
 
@@ -108,13 +108,13 @@ De volgende tabel bevat de vereisten voor VPN-gateways.
 
 | |PolicyBased Basic VPN-Gateway | Basic op route gebaseerd VPN-Gateway | Standaard op route gebaseerd VPN-Gateway | RouteBased High Performance VPN-Gateway|
 |--|--|--|--|--|
-| **Site-naar-Site-connectiviteit (S2S)** | Niet ondersteund | RouteBased VPN-configuratie | RouteBased VPN-configuratie | RouteBased VPN-configuratie |
+| **Site-naar-Site-connectiviteit (S2S-verbinding)** | Niet ondersteund | RouteBased VPN-configuratie | RouteBased VPN-configuratie | RouteBased VPN-configuratie |
 | **Verificatiemethode**  | Niet ondersteund | Vooraf gedeelde sleutel voor S2S-connectiviteit  | Vooraf gedeelde sleutel voor S2S-connectiviteit  | Vooraf gedeelde sleutel voor S2S-connectiviteit  |   
 | **Maximumaantal S2S-verbindingen**  | Niet ondersteund | 10 | 10| 30|
 |**Ondersteuning voor actieve routering (BGP)** | Niet ondersteund | Niet ondersteund | Ondersteund | Ondersteund |
 
 ### <a name="gateway-subnet"></a>Gatewaysubnet
-Voordat u een VPN-gateway maakt, moet u een gatewaysubnet maken. Het gatewaysubnet bevat de IP-adressen die gebruikmaken van de virtuele netwerkgateway virtuele machines en services. Wanneer u uw virtuele netwerkgateway maakt, worden gateway-VM's in het gatewaysubnet is geïmplementeerd en geconfigureerd met de vereiste instellingen voor VPN-gateway. Implementeert geen iets anders (bijvoorbeeld extra VM's) voor het gatewaysubnet. Het gatewaysubnet moet de naam 'GatewaySubnet' goed te laten werken. Naamgeving van het gatewaysubnet kunt 'GatewaySubnet' Azure-Stack te weten dat dit is het subnet in op de virtuele netwerkgateway virtuele machines en services te implementeren.
+Voordat u een VPN-gateway maakt, moet u een gatewaysubnet maken. Het gatewaysubnet bevat de IP-adressen die gebruikmaken van de virtuele netwerkgateway virtuele machines en services. Wanneer u uw virtuele netwerkgateway maakt, worden gateway-VM's in het gatewaysubnet is geïmplementeerd en geconfigureerd met de vereiste instellingen voor VPN-gateway. Implementeert geen iets anders (bijvoorbeeld extra VM's) voor het gatewaysubnet. Het gatewaysubnet moet de naam 'GatewaySubnet' goed te laten werken. Naamgeving van het gatewaysubnet kunt 'GatewaySubnet' Azure-Stack het subnet voor het implementeren van de virtuele netwerkgateway virtuele machines en services te identificeren.
 
 Wanneer u het gatewaysubnet maakt, geeft u op hoeveel IP-adressen het subnet bevat. De IP-adressen in het gatewaysubnet worden toegewezen aan de gateway-VM's en gatewayservices. Sommige configuraties vereisen meer IP-adressen dan andere. Bekijk de instructies voor de configuratie die u wilt maken en te controleren of het gatewaysubnet dat u wilt maken, voldoet aan deze vereisten. Bovendien wilt u Zorg ervoor dat het gatewaysubnet bevat voldoende IP-adressen zodat mogelijke toekomstige aanvullende configuraties. U kunt een gatewaysubnet slechts/29 maken, wordt aangeraden dat u een gatewaysubnet van/28 of groter maakt (/ 28, / 27, /26 enz.). Op die manier als u de functionaliteit in de toekomst toevoegt u beschikt niet over uw gateway verwijderen en vervolgens verwijderen en opnieuw maken van het gatewaysubnet om toe te staan voor meer IP-adressen.
 
@@ -130,7 +130,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 ### <a name="local-network-gateways"></a>Lokale netwerkgateways
 Wanneer u de configuratie van een VPN-gateway in Azure, vertegenwoordigt de lokale netwerkgateway vaak uw on-premises locatie. Deze geeft externe VPN-apparaat bevindt zich buiten de Azure-Stack in Azure-Stack.  Dit kan een VPN-apparaat in uw datacenter, een externe datacenter of een VPN-Gateway in Azure zijn.
 
-U geeft de lokale netwerkgateway een naam, het openbare IP-adres van de VPN-apparaat en de adresvoorvoegsels die op de on-premises locatie bevinden zich opgeven. Azure kijkt naar de bestemmingsadressen voor netwerkverkeer, raadpleegt de configuratie die u voor uw lokale netwerkgateway hebt opgegeven en routeert pakketten dienovereenkomstig.
+U geeft de lokale netwerkgateway een naam, het openbare IP-adres van de VPN-apparaat en de adresvoorvoegsels die op de on-premises locatie opgeven. Azure kijkt naar de bestemmingsadressen voor netwerkverkeer, raadpleegt de configuratie die u voor uw lokale netwerkgateway hebt opgegeven en routeert pakketten dienovereenkomstig.
 
 Het volgende PowerShell-voorbeeld wordt een nieuwe lokale netwerkgateway:
 
@@ -141,7 +141,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 Soms moet u de lokale gateway-instellingen wijzigen. Bijvoorbeeld, wanneer u toevoegen of wijzigen van het adresbereik, of als het IP-adres van de VPN-apparaat is gewijzigd. Zie [lokale gateway netwerkinstellingen wijzigen met behulp van PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE-parameters
-Wanneer u een VPN-verbinding in Azure-Stack instelt, moet u de verbinding aan beide uiteinden configureren.  Als u een VPN-verbinding tussen Azure-Stack en een apparaat zoals een switch of router die als een VPN-Gateway fungeert configureert, dat apparaat mogelijk vragen u om aanvullende instellingen.
+Wanneer u een VPN-verbinding in Azure-Stack instelt, moet u de verbinding aan beide uiteinden configureren.  Als u een VPN-verbinding tussen Azure-Stack en een apparaat zoals een switch of router die als een VPN-Gateway fungeert, configureert dat apparaat mogelijk vragen u om aanvullende instellingen.
 
 In tegenstelling tot Azure, die ondersteuning biedt voor meerdere aanbiedingen als zowel een begin- en een eindpunt, ondersteunt Azure Stack slechts één aanbieding.
 
