@@ -1,6 +1,6 @@
 ---
 title: "Andere gebruikers gegevens wetenschappelijke voorbeelden kopiëren – Azure Machine Learning | Microsoft Docs"
-description: 'Handelsgeheim van wetenschappelijke gegevens: ophalen van anderen voor uw werk voor u. Machine learning-voorbeelden worden opgehaald uit de galerie Cortana-Analytics.'
+description: 'Handelsgeheim van wetenschappelijke gegevens: ophalen van anderen voor uw werk voor u. Machine learning-voorbeelden worden opgehaald uit de galerie van Azure AI.'
 keywords: gegevens wetenschappelijke voorbeelden van machine learning bijvoorbeeld clustering-algoritme, clustering-algoritme-voorbeeld
 services: machine-learning
 documentationcenter: na
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7cc0deabf6ce19e7a2b90a474e6c890fa5b76ae
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Werk van anderen kopiëren om gegevenswetenschap uit te voeren
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Gegevenswetenschap voor beginnende gebruikers reeks
-Een van de handelsgeheimen van wetenschappelijke gegevens is anderen voor uw werk voor u ophalen. Een voorbeeld van een clustering algoritme niet vinden in Cortana-Analytics galerie moet worden gebruikt voor uw eigen machine learning-experiment.
+Een van de handelsgeheimen van wetenschappelijke gegevens is anderen voor uw werk voor u ophalen. Een voorbeeld van een clustering algoritme niet vinden in de galerie van Azure AI moet worden gebruikt voor uw eigen machine learning-experiment.
+
+> [!IMPORTANT]
+> Cortana Intelligence Gallery is gewijzigd **AI-galerie van Azure**. Als gevolg hiervan, afwijken tekst en afbeeldingen in dit verslag enigszins van de video dat gebruikmaakt van de oude naam.
+>
 
 Als u optimaal gebruik van de reeks, bekijk ze allemaal. [Ga naar de lijst met video 's](#other-videos-in-this-series)
 <br>
@@ -48,14 +52,13 @@ In dit voorbeeld leert u een plaats om te zoeken naar voorbeelden die u uit als 
 
 Een van de handelsgeheimen van wetenschappelijke gegevens is anderen voor uw werk voor u ophalen.
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Voorbeelden niet vinden in de Cortana Intelligence Gallery
-Microsoft heeft een cloud-gebaseerde service die wordt aangeroepen [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) dat u uiteraard voor gratis uitproberen. Het geeft u een werkruimte waarin u kunt experimenteren met andere machine learning-algoritmen en, indien u hebt uw oplossing gewerkt, kunt u deze starten als een webservice.
+## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Voorbeelden niet vinden in de galerie van Azure AI Intelligence
 
-Onderdeel van deze service is iets aangeroepen de  **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. Deze bevat bronnen, met inbegrip van een verzameling Azure Machine Learning-experimenten of modellen die personen die u hebt gebouwd en hebben bijgedragen voor andere gebruikers. Deze experimenten zijn een uitstekende manier om gebruikmaken van de gedachte en harde werk van anderen kunt u uw eigen oplossingen.
+Microsoft heeft een cloud-gebaseerde service die wordt aangeroepen [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) dat u uiteraard voor gratis uitproberen. Het geeft u een werkruimte waarin u kunt experimenteren met andere machine learning-algoritmen en, indien u hebt uw oplossing gewerkt, kunt u deze starten als een webservice.
 
-U vindt de galerie op [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Iedereen is Welkom bij de bladert.
+Onderdeel van deze service is iets aangeroepen de  **[AI-galerie van Azure](https://gallery.cortanaintelligence.com/)**. Deze bevat bronnen, met inbegrip van een verzameling Azure Machine Learning-experimenten of modellen die personen die u hebt gebouwd en hebben bijgedragen voor andere gebruikers. Deze experimenten zijn een uitstekende manier om gebruikmaken van de gedachte en harde werk van anderen kunt u uw eigen oplossingen. Iedereen is Welkom bij de bladert.
 
-![Cortana Intelligence-galerie](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Azure AI-galerie](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Als u op **experimenten** bovenaan ziet u een aantal van de meest recente en populaire experimenten in de galerie. U kunt zoeken door de rest van experimenten door te klikken op **door alles bladeren** aan de bovenkant van het scherm en kunt u er invoeren zoektermen en kies search filters.
 
@@ -83,11 +86,11 @@ Ik kan klikt u op dat en duurt mij rechts naar **Azure Machine Learning Studio**
 En er nu een beginpunt. Ik kunt wisselen hun gegevens voor mijn eigen en mijn eigen aanpassingen van het model. Dit kan ik een begin uitgevoerd en laat me bouwen op het werk van mensen die echt weet wat ze doen.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Zoeken naar experimenten die laten zien van machine learning-technieken
-Er zijn andere experimenten in de [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) die werden bijgedragen om specifiek te kunnen bieden instructies voorbeelden voor gegevenswetenschap nieuwe gebruikers. Er is bijvoorbeeld een experiment in de galerie die laat hoe u zien voor het afhandelen van de ontbrekende waarden ([methoden voor het afhandelen van de ontbrekende waarden](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Dit leidt u door 15 verschillende manieren vervangen door lege waarden en wordt gesproken over de voordelen van elke methode en wanneer te gebruiken.
+Er zijn andere experimenten in de [AI-galerie van Azure](https://gallery.cortanaintelligence.com) die werden bijgedragen om specifiek te kunnen bieden instructies voorbeelden voor gegevenswetenschap nieuwe gebruikers. Er is bijvoorbeeld een experiment in de galerie die laat hoe u zien voor het afhandelen van de ontbrekende waarden ([methoden voor het afhandelen van de ontbrekende waarden](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Dit leidt u door 15 verschillende manieren vervangen door lege waarden en wordt gesproken over de voordelen van elke methode en wanneer te gebruiken.
 
 ![Galerie experimenten openen in Machine Learning Studio - methoden voor de ontbrekende waarden](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) is een plaats om te zoeken naar experimenten van werkende die u als een beginpunt voor uw eigen oplossingen gebruiken kunt.
+[Azure AI-galerie](https://gallery.cortanaintelligence.com) is een plaats om te zoeken naar experimenten van werkende die u als een beginpunt voor uw eigen oplossingen gebruiken kunt.
 
 Zorg ervoor dat de andere video's in 'Data wetenschappelijke voor beginnende gebruikers' van Microsoft Azure Machine Learning uitchecken.
 

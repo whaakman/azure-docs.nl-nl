@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Met Azure Backup Server voorbereiden op het maken van back-ups van workloads
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Als u niet uitvoeren van de basis-server in Azure wilt, kunt u de server kunt ui
 
 | Besturingssysteem | Platform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 en de meest recente SP 's |64 bits |Standard, Datacenter, Essentials (MABS v2 of hoger) |
 | Windows Server 2012 R2 en de meest recente SP's |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 en de meest recente SP's |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 en de meest recente SP's |64 bits |Standard, Workgroup |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
@@ -57,7 +57,7 @@ U kunt starten met Azure AD Privileged Identity Management in de [Azure-portal](
 3. Selecteer **Meer services** en gebruik het tekstvak Filteren om te zoeken naar **Azure AD Privileged Identity Management**.
 4. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
 
-Als u de eerste persoon die het gebruik van Azure AD Privileged Identity Management in uw directory bent en u gaat u naar Azure AD-directory-functies, aand u navigeren naar Azure AD-directory-functies, een [beveiligingswizard](active-directory-privileged-identity-management-security-wizard.md) wordt u begeleid bij de eerste ervaring van de toewijzing. Hierna als u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de map.
+Als u de eerste persoon die het gebruik van Azure AD Privileged Identity Management in uw directory bent en u naar Azure AD-directory-functies navigeren, en u naar Azure AD-directory-functies navigeren, een [beveiligingswizard](active-directory-privileged-identity-management-security-wizard.md) wordt u begeleid bij de eerste ervaring van de toewijzing. Hierna als u automatisch de eerste **beveiligingsbeheerder** en **beheerder met bevoorrechte rol** van de map.
 
 Voor Azure AD-functies kan alleen een gebruiker die zich in de rol beheerder met bevoorrechte rol toewijzingen voor andere beheerders in Azure AD PIM beheren. U kunt [andere gebruikers de mogelijkheid voor het beheren van rollen in PIM directory geven](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Globale beheerders, Beveiligingsbeheerders en beveiliging lezers kunt toewijzingen aan Azure AD-rollen weergeven in Azure AD PIM.
 Azure RBAC-rollen, kunt alleen de abonnementsbeheerder van een, een resource-eigenaar of beheerder voor een resource gebruikerstoegang beheren voor toewijzingen voor andere beheerders in Azure AD PIM.  Gebruikers die bevoorrechte rol beheerders, Beveiligingsbeheerders of beveiliging lezers zijn hebben niet standaard toegang tot het weergeven van toewijzingen aan Azure RBAC-rollen in Azure AD PIM.
@@ -80,7 +80,7 @@ Rollen activeren voor Azure-Resources (Preview) introduceert een nieuwe ervaring
 
 In het geval van een geplande activering is niet langer vereist, kunnen gebruikers hun aanvraag in behandeling annuleren door te navigeren naar aanvragen in behandeling in het menu linkernavigatiegedeelte en te klikken op de annuleren knop inline verzoek.
 
-![aanvragen in behandeling](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
+![Aanvragen in behandeling](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
 
 ## <a name="privileged-identity-management-admin-dashboard"></a>Privileged Identity Management admin-dashboard
 

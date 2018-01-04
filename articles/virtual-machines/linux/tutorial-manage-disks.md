@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Azure-schijven met de Azure CLI beheren
 
@@ -225,7 +225,7 @@ Nadat de bewerking formaat is voltooid, start u de virtuele machine.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Als u het formaat van de schijf van het besturingssysteem hebt gewijzigd, wordt de partitie wordt automatisch uitgebreid. Als u het formaat van een gegevensschijf hebt gewijzigd, moeten alle huidige partities worden uitgebreid in het besturingssysteem van de virtuele machines.
+Als u het formaat van de schijf van het besturingssysteem hebt gewijzigd, wordt de partitie automatisch uitgebreid. Als u het formaat van een gegevensschijf hebt gewijzigd, moeten alle huidige partities worden uitgebreid in het besturingssysteem van de virtuele machines.
 
 ## <a name="snapshot-azure-disks"></a>Momentopname maken van Azure-schijven
 

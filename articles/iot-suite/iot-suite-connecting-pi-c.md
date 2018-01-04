@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Verbind het apparaat frambozen Pi met de vooraf geconfigureerde oplossing voor externe controle (C)
 
@@ -47,9 +47,11 @@ SSH-client moet u op de computer waarmee u kunt extern toegang tot de opdrachtre
 
 ### <a name="required-raspberry-pi-software"></a>Vereiste frambozen Pi software
 
+In dit artikel wordt ervan uitgegaan dat u hebt geïnstalleerd dat de nieuwste versie van de [Raspbian OS op uw Pi frambozen](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 De volgende stappen ziet u hoe u uw Pi frambozen voorbereidt voor het bouwen van een toepassing C die verbinding met de vooraf geconfigureerde oplossing maakt:
 
-1. Verbinding maken met uw frambozen Pi met `ssh`. Zie voor meer informatie [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) op de [frambozen Pi website](https://www.raspberrypi.org/).
+1. Verbinding maken met uw frambozen Pi met **ssh**. Zie voor meer informatie [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) op de [frambozen Pi website](https://www.raspberrypi.org/).
 
 1. Gebruik de volgende opdracht om bij te werken uw Pi frambozen:
 
@@ -60,31 +62,27 @@ De volgende stappen ziet u hoe u uw Pi frambozen voorbereidt voor het bouwen van
 1. Gebruik de volgende opdracht de vereiste ontwikkelingsprogramma's en -bibliotheken toevoegen aan uw Pi frambozen:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Gebruik de volgende opdrachten voor het installeren van de clientbibliotheken IoT-Hub:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Kloon de parser Parson JSON naar uw frambozen Pi met de volgende opdrachten:
+1. Gebruik de volgende opdrachten om te downloaden, bouwen en de clientbibliotheken IoT-Hub installeren op uw Pi frambozen:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>Een project maken
 
-De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
+De volgende stappen uit met behulp van de **ssh** verbinding met uw Pi frambozen:
 
-1. Maak een map `remote_monitoring` in uw basismap op de frambozen Pi. Navigeer naar deze map op de opdrachtregel:
+1. Maak een map `remote_monitoring` in uw basismap op de frambozen Pi. Navigeer naar deze map in uw shell:
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
     cd remote_monitoring
     ```
 
-1. Maken van de vier bestanden `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, en `CMakeLists.txt` in de `remote_monitoring` map.
+1. Maken van de vier bestanden **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, en **CMakeLists.txt** in de `remote_monitoring` de map.
 
-1. Maken van de map met de naam `parson` in de `remote_monitoring` map.
-
-1. Kopieer de bestanden `parson.c` en `parson.h` uit het lokale exemplaar van de opslagplaats Parson in de `remote_monitoring/parson` map.
-
-1. Open in een teksteditor, de `remote_monitoring.c` bestand. Op de Pi frambozen, kunt u ofwel de `nano` of `vi` teksteditor. Voeg de volgende `#include` instructies toe:
+1. Open in een teksteditor, de **remote_monitoring.c** bestand. Op de Pi frambozen, kunt u ofwel de **nano** of **vi** teksteditor. Voeg de volgende `#include` instructies toe:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ De volgende stappen uit met behulp van de `ssh` verbinding met uw Pi frambozen:
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Sla de **remote_monitoring.c** bestands- en sluit de editor af.
+
 ## <a name="add-code-to-run-the-app"></a>Code voor het uitvoeren van de app toevoegen
 
-Open in een teksteditor, de `remote_monitoring.h` bestand. Voeg de volgende code toe:
+Open in een teksteditor, de **remote_monitoring.h** bestand. Voeg de volgende code toe:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-Open in een teksteditor, de `main.c` bestand. Voeg de volgende code toe:
+Sla de **remote_monitoring.h** bestands- en sluit de editor af.
+
+Open in een teksteditor, de **main.c** bestand. Voeg de volgende code toe:
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+Sla de **main.c** bestands- en sluit de editor af.
 
 ## <a name="build-and-run-the-application"></a>De toepassing bouwen en uitvoeren.
 
@@ -158,18 +158,16 @@ De volgende stappen wordt beschreven hoe u *CMake* voor het bouwen van uw client
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ De volgende stappen wordt beschreven hoe u *CMake* voor het bouwen van uw client
         m
     )
     ```
+
+1. Sla de **CMakeLists.txt** bestands- en sluit de editor af.
 
 1. In de `remote_monitoring` map, maak een map voor het opslaan van de *zorg* bestanden die CMake genereert. Voer vervolgens de **cmake** en **zorg** opdrachten als volgt:
 

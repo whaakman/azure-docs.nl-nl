@@ -1,6 +1,6 @@
 ---
-title: QuickStart voor het installeren van Azure Machine Learning-services | Microsoft Docs
-description: Deze QuickStart laat zien hoe u Azure Machine Learning-resources kunt maken en hoe het installeren van Azure Machine Learning Workbench in zijn werk gaat.
+title: Snelstartgids voor het installeren van Azure Machine Learning-services | Microsoft Docs
+description: Deze snelstartgids laat zien hoe u Azure Machine Learning-resources kunt maken en hoe het installeren van Azure Machine Learning Workbench in zijn werk gaat.
 services: machine-learning
 author: hning86
 ms.author: haining, raymondl, chhavib
@@ -9,18 +9,18 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Preview-accounts maken voor Azure Machine Learning en Azure Machine Learning Workbench installeren
 Azure Machine Learning-services (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse. Het helpt professionele gegevenswetenschappers om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
 
-In deze QuickStart wordt beschreven hoe u accounts voor experimenten en modelbeheer kunt maken in de preview-versie van Azure Machine Learning. Ook ziet u hoe u de Azure Machine Learning Workbench-bureaubladtoepassing en CLI-hulpprogramma's kunt installeren. Daarna volgt u een korte rondleiding door de preview-functies van Azure Machine Learning met behulp van de [Iris-dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) om een model op te bouwen voor het bepalen van de soort iris, op basis van een aantal fysieke kenmerken.  
+In deze snelstartgids wordt beschreven hoe u accounts voor experimenten en modelbeheer kunt maken in de preview-versie van Azure Machine Learning. Ook ziet u hoe u de Azure Machine Learning Workbench-bureaubladtoepassing en CLI-hulpprogramma's kunt installeren. Daarna volgt u een korte rondleiding door de preview-functies van Azure Machine Learning met behulp van de [Iris-dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) om een model op te bouwen voor het bepalen van de soort iris, op basis van een aantal fysieke kenmerken.  
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -55,7 +55,7 @@ Gebruik Azure Portal om accounts in te richten voor Azure Machine Learning:
    Abonnement | _Uw abonnement_ |Kies het Azure-abonnement dat u wilt gebruiken voor het experiment. Als u meerdere abonnementen hebt, kiest u het juiste abonnement waarin de resource wordt gefactureerd.
    Resourcegroep | _Uw resourcegroep_ | U kunt een nieuwe resourcegroepnaam maken of een bestaande naam uit uw abonnement gebruiken.
    Locatie | _De regio het dichtst bij uw gebruikers_ | Kies de locatie die zich het dichtst bij uw gebruikers en de gegevensresources bevindt.
-   Aantal seats | 2 | Voer het aantal seats in. Deze selectie beïnvloedt de [prijzen](https://azure.microsoft.com/pricing/details/machine-learning/). De eerste twee seats zijn gratis. Gebruik twee seats voor deze QuickStart. U kunt het aantal seats later naar behoefte bijwerken in de Azure-portal.
+   Aantal seats | 2 | Voer het aantal seats in. Deze selectie beïnvloedt de [prijzen](https://azure.microsoft.com/pricing/details/machine-learning/). De eerste twee seats zijn gratis. Gebruik twee seats voor deze snelstartgids. U kunt het aantal seats later naar behoefte bijwerken in de Azure-portal.
    Storage-account | _Unieke naam_ | Selecteer **Nieuwe maken** en geef een naam op om een Azure-opslagaccount te maken. Of selecteer **Bestaande gebruiken** en kies een bestaand opslagaccount in de vervolgkeuzelijst. Het opslagaccount is vereist en wordt gebruikt voor het bewaren van projectartefacten en uitvoeringsgeschiedenisgegevens. 
    Werkruimte voor Experimenten-account | _Unieke naam_ | Geef een naam op voor de nieuwe werkruimte. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten.
    Eigenaar van de werkruimte toewijzen | _Uw account_ | Selecteer uw eigen account als de eigenaar van de werkruimte.

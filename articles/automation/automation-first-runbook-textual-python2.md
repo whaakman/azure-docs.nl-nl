@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0399719e5f80869f0131691b89a9dc48b3fc48d7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="my-first-python-runbook"></a>Mijn eerste Python-runbook
 
@@ -29,32 +29,33 @@ ms.lasthandoff: 01/02/2018
 > 
 > 
 
-Deze zelfstudie helpt u bij het maken van een [Python runbook](automation-runbook-types.md#python-runbooks) in Azure Automation. We beginnen met een eenvoudig runbook dat we testen en publiceren terwijl we uitleggen hoe u de status van de runbooktaak kunt bijhouden. Vervolgens wijzigen we het runbook zodanig dat Azure-resources daadwerkelijk worden beheerd, in dit geval door een virtuele machine van Azure te starten. Ten slotte maken we het runbook krachtiger door runbookparameters toe te voegen.
+Deze zelfstudie helpt u bij het maken van een [Python runbook](automation-runbook-types.md#python-runbooks) in Azure Automation. U begint met een eenvoudig runbook dat u testen en publiceren. Vervolgens wijzigt u het runbook zodanig dat Azure-resources daadwerkelijk worden beheerd, in dit geval door een virtuele machine van Azure te starten. Ten slotte u het runbook krachtiger door runbookparameters toe te voegen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of u aanmelden voor een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation-account](automation-offering-get-started.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
-* Een virtuele machine van Azure. We stoppen en starten deze machine, dus het mag geen productiemachine zijn.
+* [Automation-account](automation-offering-get-started.md) om het runbook te bevatten en te verifiëren voor Azure-resources. Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
+* Een virtuele machine van Azure. U stopt en start deze machine, dus het mag geen productiemachine zijn.
 
 ## <a name="create-a-new-runbook"></a>Een nieuw runbook maken
 
-We beginnen met het maken van een eenvoudig runbook waarmee de tekst *Hallo wereld* als uitvoer wordt gegeven.
+U begint met het maken van een eenvoudig runbook waarmee de tekst *Hallo wereld*.
 
 1. Open uw Automation-account in Azure Portal.
-   Op de Automation-accountpagina vindt u een beknopte weergave van de resources in dit account. U hebt als het goed is al enkele assets. De meeste daarvan zijn de modules die automatisch zijn opgenomen in een nieuw Automation-account. Ook moet u de referentieasset hebben die wordt genoemd in de [vereisten](#prerequisites).
-1. Klik op de tegel **Runbooks** om de lijst met runbooks te openen.
-   ![RunbooksControl](media/automation-first-runbook-textual-python/runbooks-control-tiles.png)
-1. Maak een nieuw runbook door te klikken op de knop **Een runbook toevoegen** en daarna op **Een nieuw runbook maken**.
-1. Geef het runbook de naam van de *MyFirstRunbook Python*.
-1. In dit geval gaan we maken een [Python runbook](automation-runbook-types.md#python-runbooks) dus selecteer **Python 2** voor **runbooktype**.
-1. Klik op **Maken** om het runbook te maken en de teksteditor te openen.
+
+    Op de Automation-accountpagina vindt u een beknopte weergave van de resources in dit account. U hebt als het goed is al enkele assets. De meeste van deze assets zijn de modules die automatisch zijn opgenomen in een nieuw Automation-account. Ook moet u de referentieasset hebben die wordt genoemd in de [vereisten](#prerequisites).<br>
+
+1. Selecteer **Runbooks** onder **Procesbeheer** om de lijst van runbooks te openen.
+2. Selecteer **+ een runbook toevoegen** een nieuw runbook maken.
+3. Geef het runbook de naam van de *MyFirstRunbook Python*.
+4. In dit geval u gaat maken van een [Python runbook](automation-runbook-types.md#python-runbooks) dus selecteer **Python 2** voor **runbooktype**.
+5. Klik op **Maken** om het runbook te maken en de teksteditor te openen.
 
 ## <a name="add-code-to-the-runbook"></a>Voeg code toe aan het runbook
 
-Nu toevoegen we een eenvoudige opdracht voor het afdrukken van de tekst "Hallo wereld":
+Nu toevoegen u een eenvoudige opdracht voor het afdrukken van de tekst "Hallo wereld":
 
 ```python
 print("Hello World!")
@@ -64,40 +65,40 @@ Klik op **opslaan** om op te slaan van het runbook.
 
 ## <a name="test-the-runbook"></a>Het runbook testen
 
-Voordat we het runbook publiceren om het beschikbaar te maken in productie, willen we het testen om er zeker van te zijn dat het goed werkt. Wanneer u een runbook test, voert u de **concept**versie uit en geeft u de uitvoer interactief weer.
+Voordat u het runbook publiceert om het beschikbaar te maken in productie, wilt u het testen om er zeker van te zijn dat het goed werkt. Wanneer u een runbook test, voert u de **concept**versie uit en geeft u de uitvoer interactief weer.
 
 1. Klik op **Testvenster** om het testvenster te openen.
    ![Testvenster](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
 1. Klik op **Start** om de test te starten. Dit moet de enige ingeschakelde optie zijn.
 1. Een [runbooktaak](automation-runbook-execution.md) wordt gemaakt en de status ervan wordt weergegeven.
-   In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot er in de cloud een runbook worker beschikbaar is. De taakstatus verandert daarna in *Starten* wanneer een werkrol de taak claimt en daarna in *Wordt uitgevoerd* wanneer het runbook daadwerkelijk wordt uitgevoerd.
-1. Wanneer de runbooktaak is voltooid, wordt de uitvoer ervan weergegeven. In ons geval zouden we *Hallo wereld* moeten zien.
+   In eerste instantie is de taakstatus *In de wachtrij geplaatst*. Hiermee wordt aangegeven dat er wordt gewacht tot er in de cloud een runbook worker beschikbaar is. Deze wordt verplaatst naar *starten* wanneer een werknemer de taak claimt en vervolgens *met* wanneer het runbook daadwerkelijk wordt uitgevoerd.
+1. Wanneer de runbooktaak is voltooid, wordt de uitvoer ervan weergegeven. U ziet in dit geval *Hallo wereld*.
 1. Sluit het testvenster om terug te gaan naar het papier.
 
 ## <a name="publish-and-start-the-runbook"></a>Publiceren en het runbook starten
 
-Het runbook dat we hebben gemaakt is nog steeds in de conceptmodus. We moeten het publiceren voordat we het in productie kunnen uitvoeren.
+Het runbook dat u hebt gemaakt is nog steeds in de conceptmodus. U moet publiceren voordat u deze in productie kan uitvoeren.
 Wanneer u een runbook publiceert, kunt u de bestaande gepubliceerde versie overschrijven met de conceptversie.
-In ons geval nog we geen gepubliceerde versie omdat we het runbook zojuist hebben gemaakt.
+In dit geval hebt u nog geen gepubliceerde versie omdat u het runbook zojuist hebt gemaakt.
 
 1. Klik op **Publiceren** om het runbook te publiceren en klik vervolgens op **Ja** wanneer hierom wordt gevraagd.
    ![De knop Publiceren](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Als u naar links schuift om het runbook nu weer te geven in het deelvenster **Runbooks**, wordt de **Ontwerpstatus** **Gepubliceerd** getoond.
+1. Als u naar links schuift om weer te geven van het runbook in de **Runbooks** deelvenster, het wordt nu een **ontwerpstatus** van **gepubliceerde**.
 1. Schuif terug naar rechts om weer te geven van het deelvenster voor **MyFirstRunbook Python**.
    Met de opties bovenaan kunnen we het runbook starten, het runbook weergeven, plannen dat het op een bepaald moment in de toekomst start of een [webhook](automation-webhooks.md) maken, zodat het kan worden gestart via een HTTP-aanroep.
-1. We willen het runbook starten, dus klik op **Starten** en vervolgens op **OK** wanneer de blade Runbook starten wordt geopend.
-1. Er wordt een taakdeelvenster geopend voor de runbooktaak die we hebben gemaakt. We kunnen dit deelvenster sluiten, maar in dit geval laten we het open, zodat we de voortgang van de taak kunnen bekijken.
-1. De taakstatus wordt weergegeven in **Taakoverzicht** en komt overeen met de statuswaarden die we zagen toen we het runbook testten.
-1. Zodra voor het runbook de status *Voltooid* wordt weergegeven, klikt u op **Uitvoer**. Het deelvenster Uitvoer wordt geopend en we zien onze tekst *Hallo wereld*.
+1. U wilt het runbook wordt gestart, dus klik op **Start** en klik vervolgens op **Ok** wanneer de blade Runbook starten wordt geopend.
+1. Een taakdeelvenster wordt geopend voor de runbooktaak die u hebt gemaakt. U kunt dit deelvenster sluiten, maar in dit geval u open laten zodat u de voortgang van de taak kan bekijken.
+1. De taakstatus wordt weergegeven in **taakoverzicht** en komt overeen met de statussen die u hebt gezien wanneer u het runbook getest.
+1. Zodra voor het runbook de status *Voltooid* wordt weergegeven, klikt u op **Uitvoer**. Het deelvenster Uitvoer wordt geopend en ziet u uw *Hallo wereld*.
 1. Sluit het deelvenster Uitvoer.
-1. Klik op **Alle logboeken** om het deelvenster Streams voor de runbooktaak te openen. We zouden alleen *Hallo wereld* moeten zien in de uitvoerstroom, maar er kunnen ook andere stromen voor een runbooktaak worden weergegeven, zoals Uitgebreid en Fout als hiernaar wordt geschreven met het runbook.
+1. Klik op **Alle logboeken** om het deelvenster Streams voor de runbooktaak te openen. U zou alleen *Hallo wereld* moeten zien in de uitvoerstroom, maar er kunnen ook andere stromen voor een runbooktaak worden weergegeven, zoals Uitgebreid en Fout als hiernaar wordt geschreven met het runbook.
 1. Sluit het deelvenster Streams en het deelvenster taak om terug te keren naar het deelvenster MyFirstRunbook-Python.
-1. Klik op **Taken** om het deelvenster Taken voor dit runbook te openen. Hiermee worden alle taken weergegeven die met dit runbook zijn gemaakt. We zouden slechts één weergegeven taak moeten zien, aangezien we de taak slechts eenmaal hebben uitgevoerd.
-1. U kunt op deze taak klikken om hetzelfde taakvenster te openen dat we hebben bekeken toen we het runbook startten. Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
+1. Klik op **Taken** om het deelvenster Taken voor dit runbook te openen. Hiermee worden alle taken weergegeven die met dit runbook zijn gemaakt. U zou slechts één weergegeven taak moeten zien, aangezien de taak slechts eenmaal is uitgevoerd.
+1. U kunt op deze taak klikken om hetzelfde taakvenster te openen dat u hebt bekeken toen u het runbook startte. Hiermee kunt u teruggaan in de tijd en de details bekijken van elke taak die voor een bepaald runbook is gemaakt.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Verificatie toevoegen voor het beheren van Azure-resources
 
-We hebben ons runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nuttigs. We willen dat er Azure-resources mee worden beheerd.
+U hebt het runbook getest en gepubliceerd, maar tot nu toe doet het nog niets nuttigs. U wilt dat er Azure-resources mee worden beheerd.
 Voor het beheren van Azure-resources van het script zijn om te verifiëren met de referenties van uw [Automation-account](automation-offering-get-started.md).
 
 > [!NOTE]
@@ -173,7 +174,7 @@ Testen en uitvoeren van het runbook opnieuw uit om te zien of deze de virtuele m
 Het runbook wordt momenteel vastgelegde waarden gebruikt voor de namen van de resourcegroep en de virtuele machine.
 Nu gaan we code toevoegen die deze waarden opgehaald uit de invoerparameters.
 
-We gebruiken de `sys.argv` variabele om op te halen van de parameterwaarden.
+U gebruikt de `sys.argv` variabele om op te halen van de parameterwaarden.
 De volgende code toevoegen aan het runbook onmiddellijk na de andere `import` instructies:
 
 ```python
@@ -186,7 +187,7 @@ vm_name = str(sys.argv[2])
 U importeert de `sys` -module, en maakt u twee variabelen op voor de resourcegroep en de VM-namen.
 U ziet dat het element van de lijst met argumenten `sys.argv[0]`, is de naam van het script en is geen invoer door de gebruiker.
 
-Nu kunnen we de laatste twee regels van het runbook de waarden van de invoerparameter gebruikt in plaats van de vastgelegde waarden wijzigen:
+Nu kunt u de laatste twee regels van het runbook de waarden van de invoerparameter gebruikt in plaats van de vastgelegde waarden wijzigen:
 
 ```python
 async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_name)
@@ -199,7 +200,7 @@ Wanneer u een Python-runbook start (op het **Test** blade of als een gepubliceer
 
 Nadat u een waarde invoeren in het eerste vak gestart, wordt een tweede weergegeven, enzovoort, zodat u zoveel parameterwaarden kan opgeven indien nodig.
 
-De waarden worden beschikbaar voor het script op als de `sys.argv` matrix zoals in de code die we zojuist toegevoegd.
+De waarden worden beschikbaar voor het script op als de `sys.argv` matrix zoals in de code die u zojuist hebt toegevoegd.
 
 Voer de naam van de resourcegroep als de waarde voor de eerste parameter en de naam van de virtuele machine te starten als de waarde van de tweede parameter.
 

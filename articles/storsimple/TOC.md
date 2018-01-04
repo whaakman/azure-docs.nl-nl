@@ -38,7 +38,6 @@
 #### [ACR's beheren](storsimple-virtual-array-manage-acrs.md)
 #### [Taken beheren](storsimple-virtual-array-manage-jobs.md)
 #### [Wachtwoord voor apparaat wijzigen](storsimple-virtual-array-change-device-admin-password.md)
-#### [MPIO op Windows Server-host configureren](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Bewaken met behulp van waarschuwingen](storsimple-virtual-array-manage-alerts.md)
 #### [Problemen vaststellen en oplossen](storsimple-virtual-array-diagnose-problems.md)
 #### [Een ondersteuningsaanvraag registreren](storsimple-virtual-array-log-support-ticket.md)
@@ -151,7 +150,7 @@
 #### [StorSimple met Hyper-V](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
 #### [Gedistribueerde globale naamruimte](https://www.microsoft.com/download/details.aspx?id=45507)
 
-### Bewaken
+### Controleren
 #### [Servicesamenvatting gebruiken](storsimple-8000-service-dashboard.md)
 #### [Apparaatsamenvatting gebruiken](storsimple-8000-device-dashboard.md)
 #### [Bewakingsgrafieken gebruiken](storsimple-8000-monitor-device.md)

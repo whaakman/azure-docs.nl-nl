@@ -8,7 +8,9 @@
 ## Integreren
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### Storage
+#### [Een opslagaccount integreren](cdn-create-a-storage-account-with-cdn.md)
+#### [Ondersteuning voor SAS-opslag](cdn-sas-storage-support.md)
 ### [Cross-origin-resources delen](cdn-cors.md)
 ### [Een aangepast domein aan uw CDN-eindpunt toevoegen](cdn-map-content-to-custom-domain.md)
 ### [HTTPS in een aangepast domein configureren](cdn-custom-ssl.md)

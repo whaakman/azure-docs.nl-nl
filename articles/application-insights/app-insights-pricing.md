@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Volume-prijzen en -gegevens in Application Insights beheren
 
@@ -90,7 +90,7 @@ Als [onlangs aangekondigd](https://blogs.technet.microsoft.com/msoms/2017/05/19/
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Bekijk prijscategorie plannen en kosten schatten
 
-Applicaition Insights kunt eenvoudig de prijscategorie plannen die beschikbaar is en wat de kosten zijn waarschijnlijk worden worden op basis van recente gebruikspatronen begrijpen. Start via de **functies + prijzen** blade in de Application Insights-resource in de Azure-portal:
+Application Insights kunt eenvoudig de prijscategorie plannen die beschikbaar is en wat de kosten zijn waarschijnlijk worden worden op basis van recente gebruikspatronen begrijpen. Start via de **functies + prijzen** blade in de Application Insights-resource in de Azure-portal:
 
 ![Kies de prijzen.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Hier volgen enkele dingen die u doen kunt om uw gegevensvolume verminderen:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Het maximum aantal dagelijkse gegevensvolume beheren
 
-U kunt het dagelijkse volume kapje beperken van de verzamelde gegevens, maar als het kapje wordt voldaan, het zal leiden tot verlies van alle telemetery verzonden vanuit uw toepassing voor het restant van de dag. Het is **niet aangeraden** om uw toepassing uit om de dagelijkse limiet bereikt, aangezien u kan geen bijhouden van de status en prestaties van uw toepassing nadat deze is bereikt. 
+U kunt het dagelijkse volume kapje beperken van de verzamelde gegevens, maar als het kapje wordt voldaan, het zal leiden tot verlies van alle telemetrie van uw toepassing voor het restant van de dag wordt verzonden. Het is **niet aangeraden** om uw toepassing uit om de dagelijkse limiet bereikt, aangezien u kan geen bijhouden van de status en prestaties van uw toepassing nadat deze is bereikt. 
 
-Gebruik in plaats daarvan [steekproeven](app-insights-sampling.md) af te stemmen gegevensvolume naar het niveau dat u wilt, en de dagelijkse cap alleen gebruiken zoals 'laatste toevlucht' als uw toepassing wordt gestart met het verzenden van veel grotere volumes van telemetery onverwacht. 
+Gebruik in plaats daarvan [steekproeven](app-insights-sampling.md) af te stemmen gegevensvolume naar het niveau dat u wilt, en de dagelijkse cap alleen gebruiken zoals 'laatste toevlucht' als uw toepassing wordt gestart met het verzenden van veel grotere volumes telemetrie onverwacht. 
 
-Als u wilt wijzigen van de dagelijkse cap, in de sectie configureren van uw toepassing Insihgts resource, klikt u op **volume gegevensbeheer** vervolgens **dagelijkse Cap**.
+Als u wilt wijzigen van de dagelijkse kapje, in de sectie configureren van uw Application Insights-resource, klikt u op **volume gegevensbeheer** vervolgens **dagelijkse Cap**.
 
 ![Het dagelijkse telemetrie volume kapje aanpassen](./media/app-insights-pricing/daily-cap.png) 
 

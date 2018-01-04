@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>De Application Insights-SDK configureren met ApplicationInsights.config of ApplicationInsights.xml
 De Application Insights .NET SDK bestaat uit een aantal NuGet-pakketten. De [core-pakket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) biedt u de API voor het verzenden van telemetrie naar de Application Insights. [Extra pakketten](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) bieden telemetrie *modules* en *initializers* voor het automatisch bijhouden van telemetrie van uw toepassing en de context. Door het aanpassen van het configuratiebestand, kunt u inschakelen of uitschakelen van telemetrie-modules en initializers en parameters voor enkele ervan instellen.
 
-Het configuratiebestand heet `ApplicationInsights.config` of `ApplicationInsights.xml`, afhankelijk van het type van uw toepassing. Wordt deze automatisch toegevoegd aan uw project wanneer u [in de meeste versies van de SDK installeren][start]. Dit wordt ook toegevoegd aan een web-app door [Status Monitor op een IIS-server][redfield], of wanneer u selecteert de inzichten Appplication [-uitbreiding voor een Azure-website of virtuele machine](app-insights-azure-web-apps.md).
+Het configuratiebestand heet `ApplicationInsights.config` of `ApplicationInsights.xml`, afhankelijk van het type van uw toepassing. Wordt deze automatisch toegevoegd aan uw project wanneer u [in de meeste versies van de SDK installeren][start]. Dit wordt ook toegevoegd aan een web-app door [Status Monitor op een IIS-server][redfield], of wanneer u de Application Insights selecteren [-uitbreiding voor een Azure-website of virtuele machine](app-insights-azure-web-apps.md).
 
 Er is geen equivalent bestand om te bepalen de [SDK in een webpagina][client].
 
@@ -125,7 +125,6 @@ De standaard initalisatiefuncties zijn klaar voor gebruik door de Web- of Window
 * `SyntheticTelemetryInitializer`of `SyntheticUserAgentTelemetryInitializer` updates de `User`, `Session` en `Operation` contexten eigenschappen van alle telemetrie-items bijgehouden bij het verwerken van een aanvraag van een synthetische bron, zoals een beschikbaarheid testen of engine bot zoeken. Standaard [Metrics Explorer](app-insights-metrics-explorer.md) synthetische telemetrie niet wordt weergegeven.
 
     De `<Filters>` instellen van eigenschappen van de aanvragen te identificeren.
-* `UserAgentTelemetryInitializer`updates de `UserAgent` eigenschap van de `User` context van alle telemetrie-items op basis van de `User-Agent` HTTP-header van de aanvraag.
 * `UserTelemetryInitializer`updates de `Id` en `AcquisitionDate` eigenschappen van `User` context voor alle telemetrie-items met waarden die worden opgehaald uit de `ai_user` cookie gegenereerd door de Application Insights JavaScript instrumentation code die wordt uitgevoerd in de browser van de gebruiker.
 * `WebTestTelemetryInitializer`Hiermee stelt u de gebruikers-id, de sessie-id en de eigenschappen van synthetische gegevensbron voor HTTP-die afkomstig zijn van van aanvragen [beschikbaarheidstests](app-insights-monitor-web-app-availability.md).
   De `<Filters>` instellen van eigenschappen van de aanvragen te identificeren.

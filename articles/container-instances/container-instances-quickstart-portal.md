@@ -6,20 +6,20 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7007fa8989f6d87028906918dbbc9c2998cd3bf4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Uw eerste container maken in Azure Container Instances
 
 Met Azure Container Instances kunt u eenvoudig containers maken en beheren in Azure. In deze quickstart maakt u een container in Azure en geeft u deze op internet weer via een openbaar IP-adres. Dit doet u met behulp van Azure Portal. Na slechts een paar muisklikken ziet u het volgende in de browser:
 
-![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
+![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-portal-07]
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -59,7 +59,7 @@ Selecteer de containergroep **mycontainer myc1** om de eigenschappen van de cont
 
 Zodra de container de status **Actief** heeft, gaat u naar het IP-adres dat u in de vorige stap hebt genoteerd, om de toepassing weer te geven die wordt gehost in de nieuwe container.
 
-![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-app-browser]
+![App die is geïmplementeerd met Azure Container Instances, weergegeven in de browser][aci-portal-07]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
@@ -68,7 +68,7 @@ Zodra de container de status **Actief** heeft, gaat u naar het IP-adres dat u in
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 
 ## <a name="next-steps"></a>Volgende stappen

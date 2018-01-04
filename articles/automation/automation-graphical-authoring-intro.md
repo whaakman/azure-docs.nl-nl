@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
 ## <a name="introduction"></a>Inleiding
@@ -53,7 +53,7 @@ Het besturingselement bibliotheek is waar u [activiteiten](#activities) om toe t
 | Assets |Bevat de [automation activa](http://msdn.microsoft.com/library/dn939988.aspx) in uw automation-account die kan worden gebruikt in uw runbook.  Wanneer u een asset aan een runbook toevoegt, wordt het toevoegen van een workflowactiviteit die de geselecteerde asset opgehaald.  In het geval van een variabele assets, kunt u selecteren of een activiteit als u de variabele ophalen of instellen van de variabele wilt toevoegen. |
 | Runbookbesturing |Bevat besturingselement runbookactiviteiten die kunnen worden gebruikt in uw huidige runbook. Een *koppelingspunten* neemt meerdere invoer en wacht totdat alle hebben voltooid voordat u doorgaat met de werkstroom. Een *Code* activiteit wordt uitgevoerd voor een of meer coderegels PowerShell of PowerShell Workflow, afhankelijk van het type grafisch runbook.  U kunt deze activiteit kunt gebruiken voor aangepaste code of voor functionaliteit die moeilijk te bereiken met andere activiteiten. |
 
-### <a name="configuration-control"></a>Configuratiecontrole
+### <a name="configuration-control"></a>Configuratiebeheer
 Het besturingselement configuratie is waarin u details opgeven voor een object dat is geselecteerd op het canvas. De eigenschappen die beschikbaar zijn in dit besturingselement is afhankelijk van het type object dat is geselecteerd.  Wanneer u een optie in het besturingselement configuratie selecteert, wordt deze extra blades geopend zodat u meer informatie.
 
 ### <a name="test-control"></a>Besturingselement testen
@@ -198,7 +198,7 @@ U een voorwaarde voor een enkel object opgeven voor een pipeline-koppeling, en d
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Voor een reeks-koppeling, wordt de voorwaarde alleen geëvalueerd eenmaal omdat één array wordt geretourneerd met alle objecten uitvoer van de bronactiviteit.  Als gevolg hiervan is een reeks koppeling kan niet worden gebruikt voor het filteren van zoals een pipeline-koppeling, maar gewoon wordt bepaald of de volgende activiteit wordt uitgevoerd. Neem bijvoorbeeld de volgende set van activiteiten in ons runbook VM Start.<br> ![Voorwaardelijke koppeling met reeksen](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
-Er zijn drie verschillende reeks koppelingen die waarden zijn opgegeven voor twee runbook invoerparameters voor VM-naam en de naam van de resourcegroep om te bepalen wat de juiste actie te ondernemen - controleren één VM starten, start alle virtuele machines in de bron-groep of alle virtuele machines in een abonnement.  Hier volgt de logica van de voorwaarde voor de koppeling volgorde tussen verbinding maken met Azure en één Get-VM:
+Er zijn drie verschillende reeks koppelingen die waarden zijn opgegeven voor twee runbook invoerparameters die VM-naam en de naam van de resourcegroep vertegenwoordigt om te bepalen wat de juiste actie te ondernemen - controleren één VM starten, alle virtuele machines starten in de resource groep of alle virtuele machines in een abonnement.  Hier volgt de logica van de voorwaarde voor de koppeling volgorde tussen verbinding maken met Azure en één Get-VM:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 

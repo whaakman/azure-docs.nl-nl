@@ -23,6 +23,7 @@
 ### [Databasegebruikers beheren](analysis-services-database-users.md)
 ### [Serverbeheerders beheren](analysis-services-server-admins.md)
 ### [Metrische servergegevens bewaken](analysis-services-monitor.md)
+### [Registratie in diagnoselogboek instellen](analysis-services-logging.md)
 ## Verbinding maken
 ### [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ### [Verbinden met Excel](analysis-services-connect-excel.md)

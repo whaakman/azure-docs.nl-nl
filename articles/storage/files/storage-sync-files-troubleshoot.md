@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -42,6 +42,9 @@ Bekijk installer.log om de oorzaak van de installatie is mislukt.
 
 > [!Note]  
 > De agentinstallatie mislukt als de computer is ingesteld op Microsoft Update gebruiken en de Windows Update-service wordt niet uitgevoerd.
+
+<a id="agent-installation-websitename-failure"></a>**Installatie van agent mislukt vanwege de volgende fout: 'Opslag Sync-Agent is voortijdig beëindigd'**  
+Dit probleem kan optreden als de standaardnaam van de IIS-website wordt gewijzigd. Wijzig de naam van de standaardwebsite van IIS als "Default Web Site" en de installatie opnieuw uitvoeren om dit probleem omzeilen. Het probleem wordt opgelost in een toekomstige update van de agent. 
 
 <a id="server-registration-missing"></a>**Server niet wordt vermeld onder de geregistreerde servers in de Azure portal**  
 Als een server niet wordt vermeld onder **servers geregistreerd** voor een Service-opslag-synchronisatie:

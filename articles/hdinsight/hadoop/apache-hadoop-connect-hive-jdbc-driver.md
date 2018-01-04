@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Hive query via JDBC-stuurprogramma in HDInsight
 
@@ -51,7 +51,7 @@ JDBC verbindingen met een HDInsight-cluster in Azure gemaakt dan 443 en het verk
 
 Vervang `CLUSTERNAME` door de naam van uw HDInsight-cluster.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 
 Bij het maken van de verbinding, moet u de HDInsight-cluster admin naam en het wachtwoord voor de verificatie bij de gateway van het cluster. Bij het verbinden van clients JDBC zoals SQuirreL SQL, moet u de naam van de serverbeheerder en het wachtwoord in de clientinstellingen.
 
@@ -197,6 +197,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 Nu dat u hebt geleerd hoe JDBC gebruiken om te werken met Hive, gebruik de volgende koppelingen om te verkennen andere manieren om te werken met Azure HDInsight.
 
 * [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Interactieve Hive-Query-gegevens visualiseren met Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel en Hadoop koppelen met Power Query](apache-hadoop-connect-excel-power-query.md).

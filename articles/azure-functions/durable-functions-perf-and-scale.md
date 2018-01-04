@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestaties en schaalbaarheid in duurzame functies (Azure-functies)
 
@@ -32,11 +32,11 @@ De geschiedenistabel is een Azure Storage-tabel die de van geschiedenisgebeurten
 
 ## <a name="internal-queue-triggers"></a>Interne queue-triggers
 
-Orchestrator-functies en functies van de activiteit worden door interne wachtrijen in de functie-app standaardopslagaccount geactiveerd. Er zijn twee typen van wachtrijen in duurzame functies: de **besturingselement wachtrij** en de **wachtrij voor werkitems**.
+Orchestrator-functies en functies van de activiteit worden door interne wachtrijen in de functie-app standaardopslagaccount geactiveerd. Er zijn twee typen van wachtrijen in duurzame functies: de **besturingselement wachtrij** en de **werkitem-wachtrij**.
 
-### <a name="the-work-item-queue"></a>De wachtrij voor werkitems
+### <a name="the-work-item-queue"></a>De wachtrij werkitem
 
-Er is een wachtrij voor werkitems per taak hub in duurzame functies. Dit is een eenvoudige wachtrij en gedraagt zich op dezelfde manier naar een andere `queueTrigger` wachtrij in Azure Functions. Deze wachtrij wordt gebruikt voor het activeren van staatloze *activiteit functies*. Wanneer een toepassing duurzame functies uitgeschaald naar meerdere virtuele machines, concurreren deze alle virtuele machines te verkrijgen van de werkitem-wachtrij te werken.
+Er is een werkitem-wachtrij per taak hub in duurzame functies. Dit is een eenvoudige wachtrij en gedraagt zich op dezelfde manier naar een andere `queueTrigger` wachtrij in Azure Functions. Deze wachtrij wordt gebruikt voor het activeren van staatloze *activiteit functies*. Wanneer een toepassing duurzame functies uitgeschaald naar meerdere virtuele machines, concurreren deze alle virtuele machines te verkrijgen van de werkitem-wachtrij te werken.
 
 ### <a name="control-queues"></a>Besturingselement wachtrij(en)
 
@@ -54,18 +54,18 @@ Het volgende diagram illustreert de interactie van de Azure Functions-host met d
 
 ![Schaaldiagram](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-Zoals u ziet, worden alle virtuele machines kunnen concurreren voor berichten in de wachtrij voor werkitems. Echter slechts drie virtuele machines berichten uit besturingselement wachtrijen kunnen verkrijgen en elke VM Hiermee vergrendelt u een wachtrij één besturingselement.
+Zoals u ziet, kunnen alle virtuele machines voor berichten in de wachtrij werkitem-concurreren. Echter slechts drie virtuele machines berichten uit besturingselement wachtrijen kunnen verkrijgen en elke VM Hiermee vergrendelt u een wachtrij één besturingselement.
 
 Orchestration-exemplaren zijn verdeeld over besturingselement wachtrij exemplaren door te voeren van een interne hash-functie op de orchestration-serverexemplaar-ID. Exemplaar-id's zijn automatisch gegenereerd en willekeurige standaard dat ervoor zorgt dat exemplaren zijn verdeeld zijn over alle beschikbare besturingselement wachtrijen. De huidige standaardaantal ondersteunde besturingselement wachtrij partities is **4**.
 
 > [!NOTE]
-> Het is niet op dit moment mogelijk is het aantal partities configureren in Azure Functions. [Werk ter ondersteuning van deze configuratieoptie wordt bijgehouden](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> Het is niet op dit moment mogelijk is het aantal partities voor besturingselement wachtrij configureren in Azure Functions. [Werk ter ondersteuning van deze configuratieoptie wordt bijgehouden](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 In het algemeen orchestrator-functies zijn bedoeld als lichtgewicht en veel rekenkracht niet nodig. Daarom is het niet nodig zijn voor het maken van een groot aantal besturingselement wachtrij partities hoge doorvoersnelheid ophalen. In plaats daarvan wordt meeste zware werk gedaan in functies van staatloze activiteit oneindig kunnen worden uitgebreid.
 
 ## <a name="auto-scale"></a>Automatisch schalen
 
-Als met alle Azure-functies uitvoeren in het plan verbruik, duurzame functies automatisch geschaald via ondersteunen de [Azure Functions schalen-controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). De Controller Scale controleert de lengte van het werkitem-wachtrij en elk van de besturingselement-wachtrijen, toevoegen of verwijderen van VM netwerkbronnen dienovereenkomstig. Als de lengte van de wachtrij besturingselement gedurende een bepaalde periode stijgt zijn, blijft de controller schaal toe te voegen exemplaren totdat het aantal partities van besturingselement wachtrij bereikt. Als work item wachtrij lengten evenredig gedurende een bepaalde periode, blijft de controller scale VM resources toe te voegen totdat deze kan overeenkomen met de belasting, ongeacht het aantal partities van besturingselement wachtrij.
+Als met alle Azure-functies uitvoeren in het plan verbruik, duurzame functies automatisch geschaald via ondersteunen de [Azure Functions schalen controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). De Controller Scale controleert de lengte van het werkitem-wachtrij en elk van de besturingselement-wachtrijen, toevoegen of verwijderen van VM-instanties dienovereenkomstig. Als de lengte van de wachtrij besturingselement gedurende een bepaalde periode stijgt zijn, blijft de controller scale VM-instanties toevoegen totdat het aantal partities van besturingselement wachtrij bereikt. Als lengten van werkitem-wachtrij na verloop van tijd stijgt worden, blijft de controller scale VM-instanties toevoegen totdat deze kan overeenkomen met de belasting, ongeacht het aantal partities van besturingselement wachtrij.
 
 ## <a name="thread-usage"></a>Gebruik van de thread
 

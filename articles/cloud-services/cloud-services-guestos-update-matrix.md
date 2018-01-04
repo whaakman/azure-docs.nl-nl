@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/3/2018
 ms.author: raiye
-ms.openlocfilehash: fa90953d4bf88ac9aab1c9277ef6767153862111
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Gast OS releases en SDK compatibiliteit matrix
 Biedt de meest recente informatie over de nieuwste Azure Gast OS releases voor Cloud-Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Gastbesturingssysteem updates zoals beschreven in [Update-instellingen van Azure Gast OS][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -159,7 +159,7 @@ Vanwege een beveiligingsfout we de volgende December 2016 en januari 2017 wordt 
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.68_201710-01 |14 december 2017 |Post 2,70 |NOG TE BEPALEN |
+| WA-GUEST-OS-2.68_201711-01 |14 december 2017 |Post 2,70 |NOG TE BEPALEN |
 | WA-GUEST-OS-2.67_201710-02 |8 november 2017 |Post 2.69 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 augustus 2017 |14 december 2017 |NOG TE BEPALEN |

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 875e5c804251047f4a413e99018968564b6107c8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbookuitvoer en -berichten in Azure Automation
 De meeste Azure Automation-runbooks hebben een vorm van uitvoer, zoals een foutbericht voor de gebruiker of een complex object bedoeld om te worden verbruikt door een andere werkstroom. Windows PowerShell biedt [meerdere streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) voor het verzenden van uitvoer vanuit een script of een werkstroom. Azure Automation anders werkt met elk van deze stromen en u moet volgen aanbevolen procedures voor het gebruik van elk tijdens het maken van een runbook.
 
 De volgende tabel bevat een korte beschrijving van elk van de stromen en hun gedrag in de Azure-portal bij het uitvoeren van een gepubliceerd runbook en wanneer [testen van een runbook](automation-testing-runbook.md). In de volgende secties vindt u meer informatie over elke stroom.
 
-| Stream | Beschrijving | Gepubliceerd | Test |
+| Stream | Beschrijving | Gepubliceerd | Testen |
 |:--- |:--- |:--- |:--- |
 | Uitvoer |Objecten die zijn bedoeld om te worden verbruikt door andere runbooks. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
 | Waarschuwing |Waarschuwingsbericht bedoeld voor de gebruiker. |Naar de taakgeschiedenis geschreven. |In het deelvenster Testuitvoer weergegeven. |
@@ -206,7 +206,7 @@ U ziet van de bovenstaande schermafbeelding dat wanneer u uitgebreide logboekreg
 2. Klik op de tegel **Runbooks** om de lijst met runbooks te openen.
 3. Klik op de blade Runbooks om te selecteren van een grafisch runbook uit de lijst met runbooks.
 4. Klik op de blade instellingen voor het geselecteerde runbook **logboekregistratie en tracering**.
-5. De logboekregistratie en tracering blade onder uitgebreide records in het logboek, en klik op **op** wijzigen zodat uitgebreide logboekregistratie en tracering udner activiteit niveau het traceerniveau naar **Basic** of **gedetailleerd** op basis van het niveau van de tracering die u nodig hebt.<br>
+5. Klik op de logboekregistratie en tracering blade onder uitgebreide logboekrecords **op** uitgebreide logboekregistratie inschakelen en wijzig het traceerniveau naar onder activiteitenniveau tracering in, **Basic** of **gedetailleerd** op basis van het niveau van de tracering die u nodig hebt.<br>
    
    ![Grafisch ontwerpen logboekregistratie en tracering Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

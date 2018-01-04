@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: b389151b8a1dd0c7a367f83db968bac7b832897a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3471792bba92879e446837434cbdba667cf679ad
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Virtuele machines in Azure te migreren naar beheerde schijven in Azure
 
-Azure-beheerde schijven vereenvoudigt het beheer van uw opslag door het verwijderen van de noodzaak voor het beheren van afzonderlijk storage-accounts.  U kunt uw bestaande Azure-virtuele machines ook migreren naar schijven beheerd profiteren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Hiermee zorgt u ervoor dat de schijven van andere virtuele machines in een Beschikbaarheidsset zal voldoende los van elkaar om te voorkomen dat één punt van fouten. Schijven met een andere virtuele machines automatisch geplaatst in een Beschikbaarheidsset in verschillende opslagunits (stempels) Hiermee beperkt u het effect van één opslag scale unit storingen veroorzaakt door de hardware en software.
+Azure-beheerde schijven vereenvoudigt het beheer van uw opslag door het verwijderen van de noodzaak voor het beheren van afzonderlijk storage-accounts.  U kunt uw bestaande Azure-virtuele machines ook migreren naar schijven beheerd profiteren van betere betrouwbaarheid van virtuele machines in een Beschikbaarheidsset. Dit zorgt ervoor dat de schijven van andere virtuele machines in een Beschikbaarheidsset voldoende los van elkaar om te voorkomen dat één punt van fouten. Schijven met een andere virtuele machines automatisch geplaatst in een Beschikbaarheidsset in verschillende opslagunits (stempels) Hiermee beperkt u het effect van één opslag scale unit storingen veroorzaakt door de hardware en software.
 Op basis van uw behoeften, kunt u kiezen uit twee soorten opties voor opslag:
 
-- [Premium-schijven beheerd](premium-storage.md) Solid State station (SSD) op basis van opslagmedia die highperformance, schijfondersteuning voor virtuele machines met I/O-intensieve werkbelastingen met lage latentie zorgt. U kunt profiteren van de snelheid en prestaties van deze schijven nemen door te migreren naar de Premium-schijven worden beheerd.
+- [Premium-schijven beheerd](premium-storage.md) Solid State station (SSD) op basis van opslagmedia die hoge prestaties, lage latentie schijfondersteuning voor virtuele machines met I/O-intensieve werkbelastingen biedt. U kunt profiteren van de snelheid en prestaties van deze schijven nemen door te migreren naar de Premium-schijven worden beheerd.
 
 - [Standard-beheerde schijven](standard-storage.md) opslagmedia harde schijf (HDD) op basis van gebruik en geschikt zijn voor het ontwikkelen en testen en andere werkbelastingen incidentele toegang die minder gevoelig voor prestaties variabiliteit zijn.
 
@@ -63,21 +63,21 @@ Bekijk de prestatiekenmerken van virtuele machines die geschikt is voor Premium-
 
 Er zijn zeven soorten beheerde premium-schijven die kunnen worden gebruikt met uw virtuele machine en elke principal heeft bepaalde IOPs en doorvoerlimieten limieten. In overweging nemen deze limieten bij het kiezen van het type Premium-schijf voor de virtuele machine op basis van de behoeften van uw toepassing in termen van capaciteit, prestaties, schaalbaarheid en piek worden geladen.
 
-| Premium-schijven Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Schijfgrootte           | 128 GB| 512 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOP's per schijf       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Doorvoer per schijf | 25 MB per seconde  | 50 MB per seconde  | 100 MB per seconde | 150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde |
+| Premium-schijven Type  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Schijfgrootte           | 128 GB| 512 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOP's per schijf       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Doorvoer per schijf | 25 MB per seconde  | 50 MB per seconde  | 100 MB per seconde | 125 MB per seconde |150 MB per seconde | 200 MB per seconde | 250 MB per seconde | 250 MB per seconde |
 
 **Beheerde standaardschijven**
 
 Er zijn zeven soorten beheerde standaardschijven die kunnen worden gebruikt met uw virtuele machine. Elk van deze andere capaciteit hebben maar dezelfde IOPS en doorvoerlimieten hebben. Kies het type van de Standard-beheerde schijven op basis van de capaciteitsbehoeften van uw toepassing.
 
-| Standard-schijftype  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| Schijfgrootte           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| IOP's per schijf       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
-| Doorvoer per schijf | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 
+| Standard-schijftype  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+| Schijfgrootte           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| IOP's per schijf       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Doorvoer per schijf | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde |60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 60 MB per seconde | 
 
 ## <a name="disk-caching-policy"></a>Het beleid voor schijf
 
@@ -87,7 +87,7 @@ Beleid voor de schijfcache is standaard *alleen-lezen* voor alle Premium gegeven
 
 ## <a name="pricing"></a>Prijzen
 
-Controleer de [prijzen voor schijven beheerd](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Prijzen van beheerde Premium-schijven is hetzelfde als het niet-beheerde Premium-schijven. Maar prijzen voor beheerde standaardschijven is anders dan standaardschijven zonder begeleiding.
+Controleer de [prijzen voor schijven beheerd](https://azure.microsoft.com/pricing/details/managed-disks/). Prijzen van beheerde Premium-schijven is hetzelfde als het niet-beheerde Premium-schijven. Maar prijzen voor beheerde standaardschijven is anders dan standaardschijven zonder begeleiding.
 
 
 

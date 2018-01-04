@@ -20,9 +20,8 @@ U kunt de Azure portal gebruiken en zoekt u naar virtuele machines die zijn gepl
       | Nu beginnen | De VM bevindt zich binnen het onderhoudsvenster selfservice waarmee u de onderhoudsmodus starten zelf. Hieronder vindt u voor het onderhoud op de virtuele machine starten | 
       | Gepland | De virtuele machine is gepland voor onderhoud geen optie waarmee u onderhoud initiëren. U leert van het onderhoudsvenster door te selecteren van het venster automatisch gepland in deze weergave of door te klikken op de virtuele machine | 
       | Voltooid | U hebt gestart en onderhoud voltooid op de virtuele machine. | 
-      | Overgeslagen| U hebt geselecteerd om te initiëren onderhoud met niets succes. Azure heeft het onderhoud geannuleerd voor uw virtuele machine en wordt opnieuw te plannen in een later tijdstip | 
-      | Probeer het later opnieuw| U hebt geselecteerd voor het initiëren van onderhoud en Azure is niet in staat om uw aanvraag te voldoen. In dit geval kunt u in een later tijdstip opnieuw proberen. | 
-   
+      | Overgeslagen| U hebt geselecteerd om te initiëren onderhoud met niets succes. Niet mogelijk de onderhoudsoptie selfservice gebruiken. Uw virtuele machine moet opnieuw worden opgestart door Azure tijdens de fase gepland onderhoud. | 
+
    **Onderhoud proactief** -het tijdvenster ziet wanneer u onderhoud zelf op uw virtuele machines kunt starten.
    
    **Gepland onderhoud** -ziet u het tijdvenster wanneer Azure opnieuw wordt opgestart van uw virtuele machine om te kunnen voltooien onderhoud. 

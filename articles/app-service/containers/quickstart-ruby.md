@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a54ef1ae40ba6ea9ad604a29c67e41228c0d5946
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-app maken in App Service on Linux
 
@@ -96,13 +96,13 @@ Een resourcegroep is vereist voor de benodigde activa voor uw web-app. U kunt ee
 az group create --location westeurope --name myResourceGroup
 ```
 
-Maak een App Service-plan met de opdracht [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create).
+Maak een App Service-plan met de opdracht [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Gebruik vervolgens de opdracht [az webapp create](https://docs.microsoft.com/cli/azure/webapp) om de web-app te maken voor het zojuist gemaakte App Service-plan. Merk op dat de runtime is ingesteld op `ruby|2.3`. Vergeet niet om `<app name>` te vervangen door een unieke app-naam.
+Gebruik vervolgens de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) om de web-app te maken voor het zojuist gemaakte App Service-plan. Merk op dat de runtime is ingesteld op `ruby|2.3`. Vergeet niet om `<app name>` te vervangen door een unieke app-naam.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
@@ -147,7 +147,7 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Als de implementatie is voltooid, moet u de web-app opnieuw opstarten om de implementatie van kracht te laten worden. Hiertoe voert u de opdracht [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) uit, zoals in dit voorbeeld:
+Als de implementatie is voltooid, moet u de web-app opnieuw opstarten om de implementatie van kracht te laten worden. Hiertoe voert u de opdracht [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) uit, zoals in dit voorbeeld:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
@@ -169,4 +169,4 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Veelgestelde vragen over Azure App Service on Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Veelgestelde vragen over Azure App Service on Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)

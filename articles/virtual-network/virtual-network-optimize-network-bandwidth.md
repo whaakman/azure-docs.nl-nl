@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Netwerkdoorvoer voor Azure virtual machines optimaliseren
 
@@ -26,16 +26,16 @@ Azure virtuele machines (VM) hebben netwerk standaardinstellingen die verder kun
 
 ## <a name="windows-vm"></a>Windows VM
 
-Als uw virtuele machine van Windows wordt ondersteund met [versnelde netwerken](virtual-network-create-vm-accelerated-networking.md), het inschakelen van deze functie is de optimale configuratie voor de doorvoer. Met behulp van ontvangen Side Scaling (RSS) bereiken hogere maximale doorvoer dan een virtuele machine zonder RSS voor alle andere Windows-VM. RSS mogelijk in een virtuele machine van Windows standaard uitgeschakeld. Voer de volgende stappen uit om te bepalen of RSS is ingeschakeld en in te schakelen als deze uitgeschakeld.
+Als uw virtuele machine van Windows ondersteunt [versnelde netwerken](create-vm-accelerated-networking-powershell.md), het inschakelen van deze functie is de optimale configuratie voor de doorvoer. Met behulp van ontvangen Side Scaling (RSS) bereiken hogere maximale doorvoer dan een virtuele machine zonder RSS voor alle andere Windows-VM. RSS mogelijk in een virtuele machine van Windows standaard uitgeschakeld. Om te bepalen of RSS is ingeschakeld en het inschakelen als deze momenteel uitgeschakeld, kunt u de volgende stappen uitvoeren:
 
-1. Voer de `Get-NetAdapterRss` PowerShell-opdracht om te zien als de RSS is ingeschakeld voor een netwerkadapter. In de volgende voorbeelduitvoer geretourneerd door de `Get-NetAdapterRss`, RSS is niet ingeschakeld.
+1. Als de RSS is ingeschakeld voor een netwerkadapter met de `Get-NetAdapterRss` PowerShell-opdracht. In de volgende voorbeelduitvoer geretourneerd door de `Get-NetAdapterRss`, RSS is niet ingeschakeld.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Voer de volgende opdracht om in te schakelen van RSS:
+2. Voer de volgende opdracht zodat RSS:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -55,13 +55,15 @@ RSS is altijd ingeschakeld in een Azure Linux VM standaard. Linux-kernels die zi
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu voor nieuwe implementaties
 
-De kernel Ubuntu Azure biedt de beste netwerkprestaties op Azure en is sinds de kernel standaard 21 September 2017. Wilt u deze kernel, eerst installeren laatste ondersteunde versie van 16.04-TNS, zoals hieronder wordt beschreven:
+De kernel Ubuntu Azure biedt de beste netwerkprestaties op Azure en is sinds de kernel standaard 21 September 2017. Wilt u deze kernel, eerst de laatste ondersteunde versie van 16.04-TNS, als volgt installeren:
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 Nadat het maken voltooid is, voert u de volgende opdrachten om op te halen van de meest recente updates. Deze stappen werken ook voor virtuele machines die de kernel Ubuntu Azure momenteel wordt uitgevoerd.
 
 ```bash
@@ -96,7 +98,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Als uw virtuele machine niet de Azure-kernel heeft, wordt het versienummer meestal begint met '4.4'. In deze gevallen moet u de volgende opdrachten uitvoeren als hoofdmap.
+Als uw virtuele machine niet de kernel Azure heeft, wordt het versienummer meestal begint met "4.4." Als de virtuele machine niet de kernel Azure heeft, moet u de volgende opdrachten uitvoeren als hoofdmap:
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -109,14 +112,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 Om de meest recente optimalisaties, is het raadzaam een virtuele machine maken met de laatste ondersteunde versie door te geven van de volgende parameters:
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-Nieuwe en bestaande virtuele machines kunnen profiteren van de meest recente Linux Integration Services (LIS) installeren.
-De optimalisatie van doorvoer wordt LIS, vanaf 4.2.2-2, hoewel latere versies verdere verbeteringen bevatten. Voer de volgende opdrachten voor het installeren van de meest recente LIS:
+
+Nieuwe en bestaande virtuele machines kunnen profiteren van de meest recente Linux Integration Services (LIS) installeren. De optimalisatie van doorvoer wordt LIS, vanaf 4.2.2-2, hoewel latere versies verdere verbeteringen bevatten. Voer de volgende opdrachten voor het installeren van de meest recente LIS:
 
 ```bash
 sudo yum update
@@ -127,14 +131,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Om de optimalisaties, is het raadzaam een virtuele machine maken met de laatste ondersteunde versie door te geven van de volgende parameters:
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-Nieuwe en bestaande virtuele machines kunnen profiteren van de meest recente Linux Integration Services (LIS) installeren.
-De optimalisatie van doorvoer wordt LIS, vanaf 4.2. Voer de volgende opdrachten om te downloaden en installeren van LIS:
+
+Nieuwe en bestaande virtuele machines kunnen profiteren van de meest recente Linux Integration Services (LIS) installeren. De optimalisatie van doorvoer wordt LIS, vanaf 4.2. Voer de volgende opdrachten om te downloaden en installeren van LIS:
 
 ```bash
 mkdir lis4.2.3-1
@@ -148,5 +153,5 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 Meer informatie over Linux Integration Services versie 4.2 voor Hyper-V door de [downloadpagina](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Nu de virtuele machine is geoptimaliseerd, gaat u naar het resultaat met [bandbreedte/doorvoer testen van de virtuele machine van Azure](virtual-network-bandwidth-testing.md) voor uw scenario.
+* Zie het geoptimaliseerde resultaat [bandbreedte/doorvoer testen van de virtuele machine van Azure](virtual-network-bandwidth-testing.md) voor uw scenario.
 * Klik hier als u meer wilt weten met [Azure Virtual Network Veelgestelde vragen (FAQ)](virtual-networks-faq.md)

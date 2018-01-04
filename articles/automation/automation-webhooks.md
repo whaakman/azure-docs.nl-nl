@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook beginnen met een webhook
 Een *webhook* kunt u een bepaald runbook te starten in Azure Automation via één HTTP-aanvraag. Hierdoor kan externe services, zoals Visual Studio Team Services, GitHub, logboekanalyse van Microsoft Operations Management Suite of aangepaste toepassingen runbooks starten zonder het implementeren van een volledige oplossing met de Azure Automation-API.  
@@ -33,11 +33,11 @@ De volgende tabel beschrijft de eigenschappen die u voor een webhook configurere
 |:--- |:--- |
 | Naam |U kunt elke gewenste naam voor een webhook omdat dit geen toegang heeft tot de client opgeven.  Dit wordt alleen gebruikt voor u te identificeren van het runbook in Azure Automation. <br>  Als een best practice moet u de webhook geeft een naam die betrekking hebben op de client die wordt gebruikt. |
 | URL |De URL van de webhook is het unieke adres waarmee een client wordt aangeroepen met een HTTP POST naar het runbook dat is gekoppeld aan de webhook starten.  Bij het maken van de webhook wordt automatisch gegenereerd.  U kunt een aangepaste URL niet opgeven. <br> <br>  De URL bevat een beveiligingstoken waarmee het runbook kan worden aangeroepen door een systeem van derden zonder verdere verificatie. Daarom moet het worden behandeld als een wachtwoord.  Uit veiligheidsoverwegingen kunt u alleen de URL in de Azure portal weergeven op het moment dat de webhook is gemaakt. Houd er rekening mee de URL in een veilige locatie voor toekomstig gebruik. |
-| Vervaldatum |Zoals een certificaat heeft elke webhook een vervaldatum op dat moment kan niet meer worden gebruikt.  Deze vervaldatum kan worden gewijzigd nadat de webhook is gemaakt. |
+| Verloopdatum |Zoals een certificaat heeft elke webhook een vervaldatum op dat moment kan niet meer worden gebruikt.  Deze vervaldatum kan worden gewijzigd nadat de webhook is gemaakt. |
 | Ingeschakeld |Een webhook is standaard ingeschakeld wanneer deze wordt gemaakt.  Als u deze op uitgeschakeld, instellen wordt er geen client kunnen gebruiken.  U kunt instellen de **ingeschakeld** eigenschap bij het maken van de webhook of op elk gewenst moment eenmaal is gemaakt. |
 
 ### <a name="parameters"></a>Parameters
-Een webhook kunt waarden voor runbookparameters die worden gebruikt wanneer het runbook wordt gestart door die webhook definiëren. De webhook waarden voor de verplichte parameters van het runbook moet bevatten en waarden voor de volgende optionele parameters kan bevatten. Een parameterwaarde die is geconfigureerd voor een webhook kan zelfs na het maken van de webhoook worden gewijzigd. Meerdere webhooks die zijn gekoppeld aan één runbook kunt elke andere parameterwaarden gebruiken.
+Een webhook kunt waarden voor runbookparameters die worden gebruikt wanneer het runbook wordt gestart door die webhook definiëren. De webhook waarden voor de verplichte parameters van het runbook moet bevatten en waarden voor de volgende optionele parameters kan bevatten. Een parameterwaarde die is geconfigureerd voor een webhook kan zelfs na het maken van de webhook worden gewijzigd. Meerdere webhooks die zijn gekoppeld aan één runbook kunt elke andere parameterwaarden gebruiken.
 
 Wanneer een client wordt gestart van een runbook met behulp van een webhook, kan zij de parameterwaarden die zijn gedefinieerd in de webhook niet overschrijven.  Om gegevens te ontvangen van de client, kan het runbook aangeroepen één parameter accepteren. **$WebhookData** van het type [object] die gegevens bevatten die de client in de POST-aanvraag bevat.
 
@@ -53,7 +53,7 @@ De **$WebhookData** object heeft de volgende eigenschappen:
 
 Er is geen configuratie van de webhook vereist ter ondersteuning van de **$WebhookData** parameter en het runbook is niet vereist te accepteren.  Als het runbook wordt niet gedefinieerd voor de parameter, worden er details van de aanvraag is verzonden vanaf de client genegeerd.
 
-Als u een waarde voor $WebhookData opgeven bij het maken van de webhook dat waarde overschreven worden zal wanneer u de webhook start het runbook met de gegevens van de client POST-aanvraag, zelfs als de client geen gegevens in de aanvraagtekst bevatten.  Als u een runbook met een andere methode dan een webhook met $WebhookData start, kunt u een waarde opgeven voor $Webhookdata die wordt herkend door het runbook.  Deze waarde moet een object met dezelfde [eigenschappen](#details-of-a-webhook) als $Webhookdata zodat het runbook correct ermee werken kunt alsof het was in combinatie met de werkelijke WebhookData doorgegeven door een webhook.
+Als u een waarde voor $WebhookData opgeven bij het maken van de webhook die waarde wordt overschreven wanneer u de webhook start het runbook met de gegevens van de client POST-aanvraag, zelfs als de client geen gegevens in de aanvraagtekst bevatten.  Als u een runbook met een andere methode dan een webhook met $WebhookData start, kunt u een waarde opgeven voor $Webhookdata die wordt herkend door het runbook.  Deze waarde moet een object met dezelfde [eigenschappen](#details-of-a-webhook) als $Webhookdata zodat het runbook correct ermee werken kunt alsof het was in combinatie met de werkelijke WebhookData doorgegeven door een webhook.
 
 Bijvoorbeeld, als u de volgende runbook vanuit de Azure-Portal starten zijn en doorgeven aantal voorbeelden WebhookData wilt voor testdoeleinden, aangezien WebhookData een object is, moet deze worden doorgegeven als JSON in de gebruikersinterface.
 

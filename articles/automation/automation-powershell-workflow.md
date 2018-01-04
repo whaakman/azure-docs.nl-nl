@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Leren van de belangrijkste concepten voor Windows PowerShell-werkstroom voor Automation-runbooks 
 Azure Automation-Runbooks worden geïmplementeerd als Windows PowerShell-werkstromen.  Een Windows PowerShell-werkstroom is vergelijkbaar met een Windows PowerShell-script, maar heeft enkele belangrijke verschillen die kunnen verwarrend zijn naar een nieuwe gebruiker.  Hoewel dit artikel is bedoeld om te schrijven met behulp van PowerShell-werkstroom runbooks, wordt u aangeraden dat u runbooks met behulp van PowerShell, tenzij u controlepunten moet schrijven.  Er zijn verschillende syntaxisverschillen bij het ontwerpen van PowerShell Workflow-runbooks en deze verschillen vereisen iets meer werk effectieve werkstromen te schrijven.  
@@ -199,7 +199,7 @@ Het volgende voorbeeld is vergelijkbaar met het vorige voorbeeld parallel bestan
 >
 
 ## <a name="checkpoints"></a>Controlepunten
-Een *controlepunt* is een momentopname van de huidige status van de werkstroom met de huidige waarde voor variabelen en eventuele gegenereerde uitvoer naar dat punt. Als een werkstroom in een fout eindigt of is onderbroken, wordt klikt u vervolgens de volgende keer dat deze wordt uitgevoerd gestart vanaf de laatste controlepunt in plaats van het begin van de worfklow.  U kunt een controlepunt instellen in een werkstroom met de **Checkpoint-Workflow** activiteit.
+Een *controlepunt* is een momentopname van de huidige status van de werkstroom met de huidige waarde voor variabelen en eventuele gegenereerde uitvoer naar dat punt. Als een werkstroom in een fout eindigt of is onderbroken, wordt klikt u vervolgens de volgende keer dat deze wordt uitgevoerd gestart vanaf de laatste controlepunt in plaats van het begin van de werkstroom.  U kunt een controlepunt instellen in een werkstroom met de **Checkpoint-Workflow** activiteit.
 
 In de volgende voorbeeldcode treedt een fout op na activiteit2 waardoor de werkstroom moet worden beëindigd. Wanneer de werkstroom opnieuw wordt uitgevoerd, wordt er door het uitvoeren van activiteit2 aangezien dit vlak nadat het laatste controlepunt instellen is gestart.
 
@@ -209,7 +209,7 @@ In de volgende voorbeeldcode treedt een fout op na activiteit2 waardoor de werks
     <Exception>
     <Activity3>
 
-U moet controlepunten in een werkstroom instellen na activiteiten die foutgevoelig uitzondering zijn en mag geen herhaalde als de werkstroom wordt hervat. De werkstroom kan bijvoorbeeld een virtuele machine maken. U kunt een controlepunt instellen, zowel voor en na de opdrachten voor het maken van de virtuele machine. Als het aanmaken mislukt, zou klikt u vervolgens de opdrachten worden herhaald als de werkstroom opnieuw wordt gestart. Als de worfklow mislukt nadat de aanmaak slaagt, wordt klikt u vervolgens de virtuele machine niet opnieuw worden gemaakt wanneer de werkstroom wordt hervat.
+U moet controlepunten in een werkstroom instellen na activiteiten die foutgevoelig uitzondering zijn en mag geen herhaalde als de werkstroom wordt hervat. De werkstroom kan bijvoorbeeld een virtuele machine maken. U kunt een controlepunt instellen, zowel voor en na de opdrachten voor het maken van de virtuele machine. Als het aanmaken mislukt, zou klikt u vervolgens de opdrachten worden herhaald als de werkstroom opnieuw wordt gestart. Als de werkstroom mislukt nadat de aanmaak slaagt, wordt klikt u vervolgens de virtuele machine niet opnieuw worden gemaakt wanneer de werkstroom wordt hervat.
 
 Het volgende voorbeeld worden meerdere bestanden gekopieerd naar een netwerklocatie en stelt een controlepunt na elk bestand.  Als de netwerklocatie verbroken wordt, klikt u vervolgens beëindigd de werkstroom in fout.  Wanneer opnieuw wordt gestart, wordt deze hervat op het laatste controlepunt, wat betekent dat alleen de bestanden die al is gekopieerd worden overgeslagen.
 

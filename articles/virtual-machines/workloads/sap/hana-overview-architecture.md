@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure
 
@@ -36,16 +36,18 @@ De klantisolatie binnen de infrastructuur stempel moet worden uitgevoerd in tena
 
 Deze eenheden bare metal-server worden ondersteund voor SAP HANA alleen worden uitgevoerd. De toepassingslaag SAP of werkbelasting middleware-laag wordt uitgevoerd in Microsoft Azure Virtual Machines. De infrastructuur stempels de SAP HANA uitgevoerd op Azure (grote exemplaar) units zijn verbonden met de Azure-netwerk wervels, dus die lage latentie connectiviteit tussen SAP HANA op Azure (grote exemplaar) eenheden en virtuele Machines van Azure wordt geleverd.
 
-Dit document is een van vijf documenten die betrekking hebben op het onderwerp van het SAP HANA in Azure (grote exemplaar). In dit document gaan we de basisarchitectuur, verantwoordelijkheden, de services die worden geleverd en op een hoog niveau met behulp van de functionaliteit van de oplossing. Voor het merendeel van de gebieden, zoals netwerken en verbindingen, worden de vier documenten zijn die betrekking hebben op meer informatie en keuzelijsten inzoomen. De documentatie voor SAP HANA in Azure (grote exemplaar) wordt niet uitgelegd aspecten van SAP NetWeaver-installatie of implementaties van SAP NetWeaver in Azure VM's. In dit onderwerp wordt beschreven in afzonderlijke documentatie gevonden in dezelfde container documentatie. 
+Dit document is een van meerdere documenten die betrekking hebben op SAP HANA in Azure (grote exemplaar). In dit document gaan we de basisarchitectuur, verantwoordelijkheden, de services die worden geleverd en op een hoog niveau met behulp van de functionaliteit van de oplossing. Voor het merendeel van de gebieden, zoals netwerken en verbindingen, worden de vier documenten zijn die betrekking hebben op meer informatie en keuzelijsten inzoomen. De documentatie voor SAP HANA in Azure (grote exemplaar) wordt niet uitgelegd aspecten van SAP NetWeaver-installatie of implementaties van SAP NetWeaver in Azure VM's. SAP NetWeaver in Azure wordt beschreven in afzonderlijke documenten gevonden in de container met dezelfde Azure-documentatie. 
 
 
-De vijf onderdelen van deze handleiding komen de volgende onderwerpen:
+De verschillende documenten van een grote exemplaar HANA richtlijn ingegaan op de volgende gebieden:
 
 - [Overzicht van de SAP HANA (grote exemplaar) en architectuur op Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Het installeren en configureren van SAP HANA (grote exemplaren) in Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Probleemoplossing voor SAP HANA (grote exemplaren) en de controle op Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Hoge beschikbaarheid in SUSE met behulp van de STONITH instellen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [OS-back-up en herstel voor Type II SKU 's](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>Definities
 
@@ -67,7 +69,7 @@ Verschillende gemeenschappelijke definities worden veel gebruikt in de architect
     - **Klasse van het type II:** S384, S384m S384xm, S576, S768 en S960
 
 
-Er zijn tal van aanvullende bronnen die zijn gepubliceerd in het onderwerp van het implementeren van SAP-werkbelasting op Microsoft Azure openbare cloud. Het is raadzaam dat iedereen plannen en uitvoeren van een SAP HANA-implementatie in Azure ervaren en op de hoogte van de principals van Azure IaaS en de implementatie van SAP werkbelastingen op Azure IaaS is. De volgende bronnen geven informatie en moeten worden verwezen voordat u verdergaat:
+Er zijn tal van aanvullende bronnen die zijn gepubliceerd over het implementeren van SAP-werkbelasting op Microsoft Azure openbare cloud. Het is raadzaam dat iedereen plannen en uitvoeren van een SAP HANA-implementatie in Azure ervaren en op de hoogte van de principals van Azure IaaS en de implementatie van SAP werkbelastingen op Azure IaaS is. De volgende bronnen geven informatie en moeten worden verwezen voordat u verdergaat:
 
 
 - [SAP-oplossingen gebruiken op Microsoft Azure virtuele machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -357,7 +359,7 @@ Deze grootten zijn ruwe volume cijfers die kan verschillen enigszins verschillen
 
 Als een klant wellicht moet u voor meer opslagruimte, hebt u de mogelijkheid om opslag aanschaffen van extra opslagruimte in eenheden van 1 TB toevoegen. Deze extra opslagruimte kan worden toegevoegd als extra volume of kan worden gebruikt voor het uitbreiden van een of meer van de bestaande volumes. Het is niet mogelijk te verlagen de grootte van de volumes oorspronkelijk geïmplementeerd en voornamelijk gedocumenteerd door de bovenstaande tabellen. Het is ook niet mogelijk om te wijzigen van de namen van de volumes of namen koppelen. De opslagvolumes zoals hierboven beschreven zijn gekoppeld aan de eenheden HANA grote exemplaar als NFS4 volumes.
 
-Als een klant kunt u opslag-momentopnamen gebruiken voor back-up/herstel en noodherstel hersteldoeleinden. Meer informatie over dit onderwerp worden beschreven in [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Als een klant kunt u opslag-momentopnamen gebruiken voor back-up/herstel en noodherstel hersteldoeleinden. Meer informatie vindt u in [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="encryption-of-data-at-rest"></a>Versleuteling van data-at-rest
 Opslagruimte wordt gebruikt voor grote HANA-exemplaren kan een transparante codering van de gegevens, zoals deze wordt opgeslagen op de schijven. U hebt de mogelijkheid voor dit soort versleuteling ingeschakeld tijdens de implementatie van een exemplaar van HANA grote eenheid. U kunt ook wijzigen in versleutelde volumes na de implementatie al. De overgang van niet-versleutelde naar versleutelde volumes is transparant en vereist geen een uitvaltijd. 
@@ -464,14 +466,18 @@ De toepassingslaag SAP of onderdelen, over meerdere Azure VNets zoals hierboven,
 
 ### <a name="routing-in-azure"></a>Routering in Azure
 
-Er zijn twee belangrijke netwerk aandachtspunten voor routering voor SAP HANA in Azure (grote exemplaren):
+Er zijn drie belangrijke netwerk aandachtspunten voor routering voor SAP HANA in Azure (grote exemplaren):
 
-1. SAP HANA in Azure (grote exemplaren) zijn alleen toegankelijk voor virtuele Azure-machines in de toegewezen ExpressRoute-verbinding; niet rechtstreeks vanuit een on-premises. Bepaalde beheerclients en alle toepassingen die directe toegang, zoals SAP oplossing Manager on-premises uitgevoerd nodig kunnen geen verbinding maken met de SAP HANA-database.
+1. SAP HANA in Azure (grote exemplaren) kan alleen worden benaderd via Azure VM's en de speciale ExpressRoute-verbinding; niet rechtstreeks vanuit een on-premises. On-premises direct toegang heeft tot de eenheden HANA grote exemplaar is die door Microsoft worden geleverd, niet mogelijk onmiddellijk vanwege tijdelijke routering beperkingen van de huidige Azure-netwerk-architectuur gebruikt voor SAP HANA grote exemplaren. Bepaalde beheerclients en alle toepassingen die directe toegang, zoals SAP oplossing Manager on-premises uitgevoerd nodig kunnen geen verbinding maken met de SAP HANA-database.
 
-2. SAP HANA op Azure (grote exemplaren) eenheden hebben een toegewezen IP-adres van de groep met IP-adres u liggen als de klant ingediende (Zie [SAP HANA (grote exemplaren)-infrastructuur en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie).  Dit IP-adres is toegankelijk via de Azure-abonnementen en ExpressRoute die verbinding Azure VNets met HANA in Azure (grote exemplaren maakt). Het IP-adres toegewezen buiten die servergroep IP-adresbereik rechtstreeks aan de hardware-eenheid is toegewezen en is niet NAT'ed meer als dit het geval is in de eerste implementatie van deze oplossing is. 
+2. Als er grote exemplaar HANA eenheden die zijn geïmplementeerd in twee verschillende Azure-regio's voor herstel na noodgevallen, wordt de dezelfde tijdelijke routering beperkingen toegepast. Of met andere woorden, IP-adressen van een grote exemplaar HANA-eenheid in één regio (bijvoorbeeld VS-West) niet worden doorgestuurd naar een grote exemplaar HANA-eenheid voor u geïmplementeerd in een andere regio (bijvoorbeeld VS-Oost). Dit is onafhankelijk van het gebruik van het netwerk van Azure-peering tussen regio's of cross-verbinding maken met de ExpressRoute-Circuits die verbinding maken met grote exemplaar HANA eenheden Azure VNets. Zoals weergegeven nog een stapje verder omlaag in deze documentatie. Deze beperking die wordt geleverd met de geïmplementeerde architectuur, wordt het direct gebruik van HANA System Replication verbieden als de herstelfunctionaliteit na noodgevallen.
+
+3. SAP HANA op Azure (grote exemplaren) eenheden hebben een toegewezen IP-adres van de groep met IP-adres u liggen als de klant ingediende (Zie [SAP HANA (grote exemplaren)-infrastructuur en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie).  Dit IP-adres is toegankelijk via de Azure-abonnementen en ExpressRoute die verbinding Azure VNets met HANA in Azure (grote exemplaren maakt). Het IP-adres toegewezen buiten die servergroep IP-adresbereik rechtstreeks aan de hardware-eenheid is toegewezen en is niet NAT'ed meer als dit het geval is in de eerste implementatie van deze oplossing is. 
 
 > [!NOTE] 
-> Als u verbinding maken met de SAP HANA in Azure (grote exemplaren wilt) een _datawarehouse_ scenario, waarin toepassingen en/of eindgebruikers verbinding moeten maken met de SAP HANA-database (rechtstreeks wordt uitgevoerd), een ander onderdeel toegang moet worden gebruikt: een omgekeerde proxy voor het routeren van gegevens naar en uit. Zoals F5 BIG-IP, NGINX met Traffic Manager, geïmplementeerd in Azure als virtuele firewall/verkeer routering oplossing.
+> Als u de beperking moet in de tijdelijke routering ondervangen, zoals wordt beschreven in de met twee van de eerste lijstitems, moet u extra onderdelen voor het doorsturen van gebruiken. Onderdelen die kunnen worden gebruikt voor de beperking overwinnen kunnen zijn: een reverse proxy gegevens routeren naar en van. Zoals F5 BIG-IP, NGINX met Traffic Manager, geïmplementeerd in Azure als virtuele firewall/verkeer routering oplossing.
+> Met behulp van [IPTables regels](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in een Linux-VM routering tussen on-premises locaties en grote exemplaar HANA eenheden of tussen HANA grote exemplaar eenheden in verschillende regio's inschakelen.
+> Let-implementatie en ondersteuning voor aangepaste oplossingen met betrekking tot de netwerkapparaten van derden of IPTables niet is geleverd door Microsoft. Ondersteuning moet worden geleverd door de leverancier van het onderdeel dat wordt gebruikt of integrator. 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>Verbinding met Internet van grote HANA-exemplaren
 Grote exemplaren HANA hoeft geen directe verbinding met internet. Dit is uw mogelijkheden voor het registreren van de installatiekopie van het besturingssysteem bijvoorbeeld rechtstreeks met de leverancier van het besturingssysteem te beperken. Daarom moet u mogelijk werken met lokale SLES SMT-server of RHEL abonnement Manager
