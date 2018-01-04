@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Opslagcapaciteit voor Azure-Stack beheren
 
@@ -123,7 +123,7 @@ U kunt ruimte vrijmaken op een overbelaste delen door het handmatig migreren van
 
 Migratie legt een containers blob op de nieuwe share.
 
-- Als een container overloop modus heeft ingevoerd en blobs op extra volumes heeft geplaatst, moet de nieuwe share onvoldoende capaciteit om te kunnen bevatten van de blobs voor de container die u migreert hebben. Dit omvat de blogs die op extra shares bevinden zich.
+- Als een container overloop modus heeft ingevoerd en blobs op extra volumes heeft geplaatst, moet de nieuwe share onvoldoende capaciteit om te kunnen bevatten van de blobs voor de container die u migreert hebben. Dit omvat de blobs die op extra shares bevinden zich.
 
 - De PowerShell-cmdlet *Get-AzsStorageContainer* identificeert alleen de ruimte op het oorspronkelijke volume gebruikt voor een container. De cmdlet geeft niet de ruimte die wordt gebruikt door de blobs in de extra volumes plaatsen. De volledige grootte van een container kan daarom niet zijn duidelijk naar voren. Het is mogelijk dat consolidatie van een container op een nieuwe share verzenden die nieuwe share in een overloop waar deze gegevens naar extra shares geplaatst. Als gevolg hiervan moet u mogelijk opnieuw shares opnieuw verdelen.
 
