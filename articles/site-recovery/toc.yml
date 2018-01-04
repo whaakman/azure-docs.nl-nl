@@ -1,10 +1,14 @@
 - name: Documentatie over Site Recovery
   href: index.yml
+- name: Migratie van on-premises machines en virtuele Azure-machines
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Azure naar herstel na noodgevallen van Azure
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Overzicht
   items:
     - name: Wat is Site Recovery?
       href: site-recovery-overview.md
-- name: Quickstarts
+- name: Snelstartgidsen
   expanded: true
   items:
     - name: Een virtuele Azure-machine repliceren naar een secundaire regio
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Ondersteuningsmatrix voor on-premises naar Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Ondersteuningsmatrix voor Hyper-V naar Azure
+      href: support-matrix-hyper-v-to-azure.md
     - name: Ondersteuningsmatrix voor on-premises naar secundaire site
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Herstel na noodgeval voor workloads
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Herstel na noodgeval
       items:
+        - name: Hyper-V voorbereiden voor replicatie naar Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Virtuele Hyper-V-machines naar Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Virtuele Hyper-V-machines in VMM-clouds naar Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Fysieke servers naar Azure
           href: tutorial-physical-to-azure.md
         - name: Virtuele Hyper-V-machines naar een secundaire site

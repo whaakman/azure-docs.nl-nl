@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Azure Blob storage bewerkingen uitvoeren met Azure PowerShell
 
@@ -40,7 +40,7 @@ Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. 
 
 ## <a name="create-a-container"></a>Een container maken
 
-BLOB's worden altijd geüpload naar een container. Containers zijn vergelijkbaar met mappen op uw computer, zodat u kunt het ordenen van groepen blobs in containers zoals ordenen van uw bestanden in mappen op uw computer. Een opslagaccount kan een onbeperkt aantal containers; hebben Dit wordt alleen beperkt door de hoeveelheid schijfruimte die in het opslagaccount in beslag wordt genomen (maximaal 500TB). 
+Blobs worden altijd naar een container geüpload. Containers zijn vergelijkbaar met mappen op uw computer, zodat u kunt het ordenen van groepen blobs in containers zoals ordenen van uw bestanden in mappen op uw computer. Een opslagaccount kan een onbeperkt aantal containers; hebben Dit wordt alleen beperkt door de hoeveelheid schijfruimte die in het opslagaccount in beslag wordt genomen (maximaal 500TB). 
 
 Wanneer u een container maakt, kunt u het toegangsniveau die helpt bepalen wie toegang heeft tot de blobs in de container kunt instellen. Ze kunnen bijvoorbeeld persoonlijke (toegangsniveau = `Off`), wat betekent dat niemand ze toegankelijk zijn zonder een shared access signature of de toegangssleutels voor het opslagaccount. Als u geen het toegangsniveau opgeeft wanneer u de container maakt, wordt standaard persoonlijke.
 
@@ -57,9 +57,9 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-into-a-container"></a>BLOB's uploaden naar een container
 
-Azure Blob Storage ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs.  VHD-bestanden gebruikt voor back-IaaS VM's zijn pagina-blobs. Toevoeg-BLOB's worden gebruikt voor logboekregistratie, zoals indien u wenst te schrijven naar een bestand en klik vervolgens houden meer gegevens toe te voegen. De meeste bestanden die zijn opgeslagen in Blob storage zijn blok-blobs. 
+Azure Blob Storage ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs.  VHD-bestanden die worden gebruikt voor IaaS-VM's zijn pagina-blobs. Toevoeg-blobs worden gebruikt voor logboekregistratie, bijvoorbeeld wanneer u wilt schrijven naar een bestand en vervolgens meer gegevens wilt blijven toevoegen. De meeste bestanden die zijn opgeslagen in Blob-opslag, zijn blok-blobs. 
 
-Om een bestand naar een blok-blob uploaden, een containerverwijzing ophalen en vervolgens een verwijzing naar de blok-blob ophalen in de container. Zodra u de blobverwijzing hebt, kunt u gegevens uploaden naar deze met behulp van [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Deze bewerking wordt de blob gemaakt als deze niet bestaat, of deze wordt overschreven als deze al bestaat.
+Als u een bestand wilt uploaden naar een blok-blob, haalt u een containerverwijzing op en haalt u vervolgens een verwijzing op naar de blok-blob in deze container. Zodra u de blobverwijzing hebt, kunt u er gegevens naar uploaden met behulp van [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Deze bewerking wordt de blob gemaakt als deze niet bestaat, of deze wordt overschreven als deze al bestaat.
 
 Hieronder ziet u hoe u een blob uploadt naar een container. Stel eerst de variabelen die naar de map op de lokale computer waar de bestanden zich bevinden en instellen van een variabele voor de naam van het bestand verwijzen te uploaden. Dit is handig als u wilt meerdere keren dezelfde bewerking uitvoeren. Een aantal bestanden uploaden zodat u meerdere vermeldingen zien kunt wanneer de blobs in de container.
 
@@ -87,7 +87,7 @@ Set-AzureStorageBlobContent -File $localFile `
   -Context $ctx
 ```
 
-Upload zoveel bestanden als u nodig hebt voordat u doorgaat.
+Upload zoveel bestanden als u nodig hebt, voordat u doorgaat.
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
@@ -99,7 +99,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Blobs downloaden
 
-Download de blobs naar uw lokale vaste schijf. Stel eerst een variabele die verwijst naar de lokale map waarnaar u wilt de blobs downloaden. Stel voor elke blob worden gedownload, de naam en de aanroep [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) voor het downloaden van de blob.
+Download de blobs naar de lokale vaste schijf. Stel eerst een variabele die verwijst naar de lokale map waarnaar u wilt de blobs downloaden. Stel voor elke blob worden gedownload, de naam en de aanroep [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) voor het downloaden van de blob.
 
 Dit voorbeeld kopieert de blobs naar D:\\_TestImages\Downloads op de lokale schijf. 
 
@@ -152,7 +152,7 @@ U kunt een blob kopiëren naar een afzonderlijke opslagaccount. Een voorbeeld om
 Een tweede opslagaccount instellen, ophalen van de context en instellen van een container in dit opslagaccount kopieert. Dit gedeelte van het script is bijna identiek aan het script hierboven, met uitzondering van de tweede opslagaccount gebruik in plaats van de eerste.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -380,7 +380,7 @@ In deze zelfstudie hebt u geleerd over basic Blob storage management zoals het:
 > * Beveiliging op basis van handtekeningen voor gedeelde toegang beheren
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Opslag voor Microsoft Azure PowerShell-cmdlets
-* [PowerShell-cmdlets voor opslag](/powershell/module/azurerm.storage#storage)
+* [PowerShell Storage-cmdlets](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.

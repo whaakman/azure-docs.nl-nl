@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?
 Eenmalige aanmelding betekent wordt toegang tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, wanneer u zich aanmeldt slechts één keer met behulp van één gebruikersaccount. Wanneer u bent aangemeld, kunt u alle toepassingen zonder verificatie openen (bv. Typ een wachtwoord) een tweede keer.
@@ -54,7 +54,7 @@ Wanneer een gebruiker met een toepassing hebt geverifieerd, ze moet bovendien be
  Meer informatie over deze modi voor eenmalige aanmelding en inrichting hieronder.
 
 ### <a name="federated-single-sign-on"></a>Federatieve eenmalige aanmelding
-Federatieve eenmalige aanmelding kunnen eenmalige aanmelding kan de gebruikers in uw organisatie automatisch worden aangemeld bij een SaaS-toepassing van derden door Azure AD met behulp van de gegevens van de gebruikersaccount van Azure AD.
+Federatieve eenmalige aanmelding kan de gebruikers in uw organisatie automatisch worden aangemeld bij een SaaS-toepassing van derden door Azure AD met behulp van de gegevens van de gebruikersaccount van Azure AD.
 
 Wanneer u al hebt geregistreerd in Azure AD en u wilt toegang krijgen tot bronnen die worden beheerd door een derde partij SaaS-toepassing elimineert federation in dit scenario de noodzaak van een gebruiker opnieuw worden geverifieerd.
 
@@ -190,7 +190,7 @@ Wanneer een geautoriseerde gebruiker op een van deze koppelingen toepassingsspec
 
 Deze koppelingen de dezelfde mechanismen toegang gebruiken als het toegangspaneel en Office 365 en alleen die gebruikers of groepen die zijn toegewezen aan de toepassing in de Azure-beheerportal kan worden geverifieerd. Elke gebruiker die niet geautoriseerd is ziet echter een bericht waarin staat dat ze geen toegang hebben gekregen en een koppeling krijgt naar het laden van het toegangsvenster om weer te geven van de beschikbare toepassingen waarvoor ze toegang hebben.
 
-## <a name="related-articles"></a>Verwante artikelen
+## <a name="related-articles"></a>Gerelateerde artikelen
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)

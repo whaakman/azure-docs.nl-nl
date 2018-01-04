@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: be264693b579aacee39acd9196b4e6834da322b2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Netwerkinterfaces toevoegen of verwijderen van netwerkinterfaces van virtuele machines
 
@@ -118,4 +118,4 @@ Als een virtuele machine maken met meerdere netwerkinterfaces of IP-adressen, le
 - U kunt elk IP-adres voor alle IP-configuratie van een primaire of secundaire netwerkinterface toevoegen aan een Load Balancer van Azure back-end-adresgroep. In het verleden kan alleen het primaire IP-adres voor de primaire netwerkinterface worden toegevoegd aan een back-end-pool. Lees voor meer informatie over configuraties van IP-adressen en de [toevoegen, wijzigen of verwijderen IP-adressen](virtual-network-network-interface-addresses.md) artikel.
 - Verwijderen van een virtuele machine, wordt de netwerkinterfaces die zijn gekoppeld aan deze niet verwijderd. Wanneer een virtuele machine wordt verwijderd, worden de netwerkinterfaces losgekoppeld van de virtuele machine. U kunt de netwerkinterfaces toevoegen aan andere virtuele machines of verwijder ze.
 - Als een netwerkinterface een persoonlijke IPv6-adres is toegewezen heeft, moet u toevoegen (koppeling) naar een virtuele machine bij het maken van de virtuele machine. U kunt een netwerkinterface met een toegewezen IPv6-adres niet toevoegen aan een virtuele machine nadat de virtuele machine is gemaakt. Als u een netwerkinterface met een toegewezen persoonlijke IPv6-adres toevoegen bij het maken van een virtuele machine, kunt u alleen netwerkinterface toevoegen aan de virtuele machine, ongeacht hoeveel netwerkinterfaces die ondersteuning biedt voor de VM-grootte. Zie [Network interface-IP-adressen](virtual-network-network-interface-addresses.md) voor meer informatie over het toewijzen van IP-adressen aan netwerkinterfaces.
-- Net als bij IPv6, u niet een netwerkinterface koppelen met versnelde netwerken die zijn ingeschakeld voor een virtuele machine nadat de virtuele machine is gemaakt. Verder, om te profiteren van versnelde netwerken, moet u ook stappen uitvoeren in het VM-besturingssysteem. Zie voor meer informatie over versnelde netwerken en andere beperkingen bij het gebruik, [een virtuele machine maken met versnelde netwerken](virtual-network-create-vm-accelerated-networking.md).
+- Net als bij IPv6, u niet een netwerkinterface koppelen met versnelde netwerken die zijn ingeschakeld voor een virtuele machine nadat de virtuele machine is gemaakt. Verder, om te profiteren van versnelde netwerken, moet u ook stappen uitvoeren in het VM-besturingssysteem. Zie voor meer informatie over versnelde netwerken en andere beperkingen bij het gebruik, Accelerated netwerken voor [Windows](create-vm-accelerated-networking-powershell.md) of [Linux](create-vm-accelerated-networking-cli.md) virtuele machines.

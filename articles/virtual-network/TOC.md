@@ -25,13 +25,13 @@
 ## Implementeren
 ### [Virtuele netwerken](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure-CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Sjabloon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Netwerkbeveiligingsgroepen
 #### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure-CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Sjabloon](virtual-networks-create-nsg-arm-template.md)
 #### [Beveiligingsgroepen voor toepassing](create-network-security-group-preview.md)
 #### Klassiek
@@ -41,11 +41,11 @@
 ### Door de gebruiker gedefinieerde routes
 #### [Azure Portal](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+#### [Azure-CLI](virtual-network-create-udr-arm-cli.md)
 #### [Sjabloon](virtual-network-create-udr-arm-template.md)
 #### Klassiek
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
-##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
+##### [Azure-CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Peering op virtueel netwerk
 #### [Hetzelfde implementatiemodel - hetzelfde abonnement](virtual-network-create-peering.md)
@@ -57,7 +57,7 @@
 
 ### Openbaar IP-adres - beschikbaarheidszone
 #### [Azure Portal](create-public-ip-availability-zone-portal.md)
-#### [Azure CLI](create-public-ip-availability-zone-cli.md)
+#### [Azure-CLI](create-public-ip-availability-zone-cli.md)
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtuele machines
@@ -65,36 +65,38 @@
 #### Een virtuele machine met een statisch openbaar IP-adres maken
 ##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure-CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Sjabloon](virtual-network-deploy-static-pip-arm-template.md)
 ##### Klassiek
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### Een virtuele machine met een statisch privé-IP-adres maken
+#### Een virtuele machine maken - statisch privé-IP-adres
 ##### [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
+##### [Azure-CLI](virtual-networks-static-private-ip-arm-cli.md)
 ##### Klassiek
 ###### [Azure Portal](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
-###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
+###### [Azure-CLI](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Een virtuele machine met meerdere netwerkinterfaces maken
+#### Een virtuele machine maken - meerdere netwerkinterfaces
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure-CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Sjabloon](virtual-network-deploy-multinic-arm-template.md)
 
 ##### Klassiek
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
-###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
+###### [Azure-CLI](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Een virtuele machine met meerdere IP-adressen maken
+#### Een virtuele machine maken - meerdere IP-adressen
 ##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure-CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Sjabloon](virtual-network-multiple-ip-addresses-template.md)
 
-#### [Een virtuele machine maken met versneld netwerken](virtual-network-create-vm-accelerated-networking.md)
+#### Een virtuele machine maken - versnelde netwerken
+##### [Azure PowerShell](create-vm-accelerated-networking-powershell.md)
+##### [Azure-CLI](create-vm-accelerated-networking-cli.md)
 
 ### Connectiviteitsscenario's
 #### [Virtueel netwerk (VNet) naar VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -118,7 +120,7 @@
 #### [Virtueel netwerk](create-virtual-network-classic.md)
 ##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
+##### [Azure-CLI](virtual-networks-create-vnet-classic-cli.md)
 #### [DNS-instellingen in een virtueel-netwerkconfiguratiebestand opgeven](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 #### [DNS-instellingen in een serviceconfiguratiebestand opgeven](virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md)
 
@@ -150,7 +152,7 @@
 ### Netwerkbeveiligingsgroepen
 #### [Azure Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure-CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Logboeken](virtual-network-nsg-manage-log.md)
 ### Netwerkinterfaces (NIC's)
@@ -178,7 +180,7 @@
 ## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (klassiek)](/powershell/module/azure/)
-## [Azure CLI](/cli/azure/network)
+## [Azure-CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/jj157182.aspx)

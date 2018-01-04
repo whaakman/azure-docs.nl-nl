@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -242,7 +242,7 @@ Dit wordt niet afhankelijk van waar uw Application Insights-resource wordt gehos
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan ik telemetrie verzenden naar de Application Insights-portal?
 
-U wordt aangeraden gebruik onze SDK's en gebruik de SDK-API (app-insights-api-custom-events-metrics.md). Er zijn varianten van de SDK voor verschillende [platforms](app-insights-platforms.md). Deze SDK's verwerken bufferfunctie, compressie, beperking, nieuwe pogingen, enzovoort. Echter, de [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) zijn openbaar.
+Aangeraden gebruik onze SDK's en gebruik de [SDK-API](app-insights-api-custom-events-metrics.md). Er zijn varianten van de SDK voor verschillende [platforms](app-insights-platforms.md). Deze SDK's verwerken bufferfunctie, compressie, beperking, nieuwe pogingen, enzovoort. Echter, de [opname schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) en [eindpunt protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) zijn openbaar.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan ik een intranet-webserver bewaken?
 

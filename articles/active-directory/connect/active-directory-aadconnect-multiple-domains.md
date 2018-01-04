@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 597ea863275a5603e093307ce4334ae68e5ea5cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: db4cfe91b8d27b5336763eff7c6f22f0f345caf2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Ondersteuning voor meerdere domeinen voor federatie met Azure AD
 De volgende documentatie biedt richtlijnen voor het gebruik van meerdere op het hoogste niveau domeinen en subdomeinen wanneer Federatie met Office 365 of Azure AD-domeinen.
@@ -29,11 +29,11 @@ Federeren van meerdere topleveldomeinen met Azure AD die is niet vereist voor fe
 Wanneer een domein is gefedereerd met Azure AD, worden verschillende eigenschappen ingesteld voor het domein in Azure.  Een is belangrijk IssuerUri.  Dit is een URI die door Azure AD wordt gebruikt voor het identificeren van het domein waaraan het token is gekoppeld.  De URI hoeft niet omzetten naar een andere waarde dan dat het moet een geldige URI.  Standaard Azure AD stelt dit aan de waarde van de federation service-id in uw on-premises AD FS configuration.
 
 > [!NOTE]
-> De federation service-id is een URI die een unieke identificatie van een federation-service.  De federation-service is een exemplaar van AD FS die functies als de service voor beveiligingstokens. 
-> 
-> 
+> De federation service-id is een URI die een unieke identificatie van een federation-service.  De federation-service is een exemplaar van AD FS die functies als de service voor beveiligingstokens.
+>
+>
 
-U kunt vew IssuerUri met behulp van de PowerShell-opdracht `Get-MsolDomainFederationSettings -DomainName <your domain>`.
+U kunt de IssuerUri weergeven met behulp van de PowerShell-opdracht `Get-MsolDomainFederationSettings -DomainName <your domain>`.
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
@@ -62,9 +62,9 @@ De instellingen van onze nieuwe bmfabrikam.com domein ziet u het volgende:
 
 Houd er rekening mee dat `-SupportMultipleDomain` verandert niets aan de andere eindpunten die worden nog geconfigureerd om te verwijzen naar onze adfs.bmcontoso.com federation-service.
 
-Een andere ding die `-SupportMultipleDomain` biedt is het zorgt ervoor dat het systeem AD FS de juiste waarde van de verlener in de tokens die zijn uitgegeven voor Azure AD opgenomen. Dit wordt door te nemen het domeingedeelte van de UPN van gebruikers en in te stellen als het domein in de IssuerUri, dat wil zeggen https://{upn achtervoegsel} / services-adfs-vertrouwen. 
+Een andere ding die `-SupportMultipleDomain` biedt is het zorgt ervoor dat het systeem AD FS de juiste waarde van de verlener in de tokens die zijn uitgegeven voor Azure AD opgenomen. Dit wordt door te nemen het domeingedeelte van de UPN van gebruikers en in te stellen als het domein in de IssuerUri, dat wil zeggen https://{upn achtervoegsel} / services-adfs-vertrouwen.
 
-Dus tijdens de verificatie met Azure AD of Office 365, het IssuerUri-element in het token van de gebruiker wordt gebruikt voor het domein niet vinden in Azure AD.  Als er een overeenkomst wordt gevonden dat de verificatie mislukt. 
+Dus tijdens de verificatie met Azure AD of Office 365, het IssuerUri-element in het token van de gebruiker wordt gebruikt voor het domein niet vinden in Azure AD.  Als er een overeenkomst wordt gevonden dat de verificatie mislukt.
 
 Bijvoorbeeld, als een gebruiker de UPN is bsimon@bmcontoso.com, het IssuerUri-element in de problemen met het token AD FS wordt zo ingesteld dat http://bmcontoso.com/adfs/services/trust. Dit komt overeen met de Azure AD-configuratie en verificatie slaagt.
 
@@ -75,8 +75,8 @@ Hier volgt de aangepaste claimregel die deze logica implementeert:
 
 > [!IMPORTANT]
 > Om de schakeloptie - SupportMultipleDomain gebruikt bij het toevoegen van domeinen bij het toevoegen of al converteren, moet u het installatieprogramma de federatieve vertrouwensrelatie worden oorspronkelijk ondersteund.  
-> 
-> 
+>
+>
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Het bijwerken van de vertrouwensrelatie tussen AD FS en Azure AD
 Als u niet de federatieve vertrouwensrelatie tussen AD FS en uw exemplaar van Azure AD instellen hebt, moet u mogelijk om deze vertrouwensrelatie opnieuw te maken.  Dit is omdat, als het oorspronkelijk installatie zonder het `-SupportMultipleDomain` parameter, de IssuerUri is ingesteld met de standaardwaarde.  In de schermafbeelding hieronder u ziet dat de IssuerUri is ingesteld op https://adfs.bmcontoso.com/adfs/services/trust.
@@ -97,7 +97,7 @@ Gebruik de volgende stappen uit om toe te voegen een extra domein op het hoogste
 
 Gebruik de volgende stappen voor het verwijderen van de vertrouwensrelatie van de Microsoft Online en bijwerken van uw oorspronkelijke domein.
 
-1. Op de AD FS-federatieserver open **AD FS-beheer.** 
+1. Op de AD FS-federatieserver open **AD FS-beheer.**
 2. Vouw op de links **vertrouwensrelaties** en **Relying Party-vertrouwensrelaties**
 3. Aan de rechterkant verwijderen de **Identiteitsplatform van Microsoft Office 365** vermelding.
    ![Verwijder Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
@@ -137,14 +137,14 @@ Wanneer u een subdomein vanwege de manier waarop Azure AD verwerkt domeinen toev
 Zo kunnen zeggen bijvoorbeeld ik bmcontoso.com hebt en voeg vervolgens corp.bmcontoso.com.  Dit betekent dat de IssuerUri voor een gebruiker vanuit corp.bmcontoso.com moet **http://bmcontoso.com/adfs/services/trust.**  Maar de standaard regel boven geïmplementeerd voor Azure AD, wordt een token genereren met een verlener als **http://corp.bmcontoso.com/adfs/services/trust.** waarde die niet overeenkomt met het domein nodig en mislukt de verificatie.
 
 ### <a name="how-to-enable-support-for-sub-domains"></a>Het inschakelen van ondersteuning voor subdomeinen
-Relying party trust voor Microsoft Online moet worden bijgewerkt om dit probleem oplossen door de AD FS.  Om dit te doen, moet u een aangepaste claimregel configureren zodat deze uit alle subdomeinen van UPN-achtervoegsel van de gebruiker ontdoet bij het maken van de aangepaste waarde van de verlener. 
+Relying party trust voor Microsoft Online moet worden bijgewerkt om dit probleem oplossen door de AD FS.  Om dit te doen, moet u een aangepaste claimregel configureren zodat deze uit alle subdomeinen van UPN-achtervoegsel van de gebruiker ontdoet bij het maken van de aangepaste waarde van de verlener.
 
 De volgende claim wordt dit doen:
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-De laatste waarde in de reguliere expressie instellen hoeveel bovenliggende domeinen zich in het hoofddomein. Ik heb hier bmcontoso.com zodat twee bovenliggende domeinen nodig zijn. Als u drie bovenliggende domeinen worden bewaard zijn (dat wil zeggen: corp.bmcontoso.com), en vervolgens het aantal drie zijn zou. Een bereik Eventualy kunnen worden aangegeven, de overeenkomst altijd worden aangebracht aan overeen met het maximum van domeinen. '{2,3}' komt overeen met twee of drie domeinen (dat wil zeggen: bmfabrikam.com en corp.bmcontoso.com).
+De laatste waarde in de reguliere expressie instellen hoeveel bovenliggende domeinen zich in het hoofddomein. Ik heb hier bmcontoso.com zodat twee bovenliggende domeinen nodig zijn. Als u drie bovenliggende domeinen worden bewaard zijn (dat wil zeggen: corp.bmcontoso.com), en vervolgens het aantal drie zijn zou. Uiteindelijk kan een bereik worden aangegeven overeenkomst met de altijd worden aangebracht aan overeen met het maximum van domeinen. '{2,3}' komt overeen met twee of drie domeinen (dat wil zeggen: bmfabrikam.com en corp.bmcontoso.com).
 
 Gebruik de volgende stappen uit een aangepaste claim ter ondersteuning van subdomeinen toevoegen.
 
@@ -152,14 +152,13 @@ Gebruik de volgende stappen uit een aangepaste claim ter ondersteuning van subdo
 2. Klik met de rechtermuisknop op de vertrouwensrelatie van de Microsoft Online RP en kies claimregels bewerken
 3. Selecteer de derde claimregel en vervang ![Edit claim](./media/active-directory-multiple-domains/sub1.png)
 4. Vervang de huidige claim:
-   
+
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-   
+
        with
-   
+
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
     ![Claim vervangen](./media/active-directory-multiple-domains/sub2.png)
 
 5. Klik op Ok.  Klik op toepassen.  Klik op Ok.  Sluit AD FS-beheer.
-

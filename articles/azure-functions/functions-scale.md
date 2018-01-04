@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions schalen en die als host fungeert
 
@@ -80,7 +80,7 @@ Als u op een App Service-plan uitvoert, moet u inschakelen de **altijd op** inst
 
 AlwaysOn is alleen beschikbaar op een App Service-abonnement. Functie apps die het automatisch door het platform wordt geactiveerd op een plan verbruik.
 
-## <a name="storage-account-requirements"></a>Opslagvereisten voor account
+## <a name="storage-account-requirements"></a>Vereisten voor een opslagaccount
 
 Een functie-app vereist op een plan verbruik of een App Service-abonnement en een algemene Azure Storage-account die ondersteuning biedt voor opslag in Azure Blob, wachtrijen, bestanden en tabel. Azure Functions gebruikt intern, Azure Storage voor bewerkingen zoals het beheren van triggers en functies die logboekregistratie. Sommige opslagaccounts bieden geen ondersteuning voor wachtrijen en tabellen, zoals alleen-blob storage-accounts (met inbegrip van premium-opslag) en opslagaccounts met replicatie van de zone-redundante opslag. Deze accounts zijn gefilterd uit de **Opslagaccount** blade als u een functie-app.
 
@@ -90,7 +90,7 @@ Zie voor meer informatie over opslagaccounttypen, [introductie van de Azure Stor
 
 ## <a name="how-the-consumption-plan-works"></a>Hoe werkt dit plan verbruik
 
-In het plan verbruik schaalt de controller schaal automatisch CPU en geheugenbronnen door toe te voegen extra exemplaren van de host van functies, op basis van het aantal gebeurtenissen die de functies worden geactiveerd op. Elk exemplaar van de host van functies is beperkt tot 1,5 GB aan geheugen.  Een exemplaar van de host is de functie-App, wat betekent dat alle functies binnen een funciton resources van de app delen binnen een exemplaar en de schaal op hetzelfde moment.
+In het plan verbruik schaalt de controller schaal automatisch CPU en geheugenbronnen door toe te voegen extra exemplaren van de host van functies, op basis van het aantal gebeurtenissen die de functies worden geactiveerd op. Elk exemplaar van de host van functies is beperkt tot 1,5 GB aan geheugen.  Een exemplaar van de host is de functie-App, wat betekent dat alle functies in een functie resources van de app delen binnen een exemplaar en de schaal op hetzelfde moment.
 
 Wanneer u het verbruik die als host fungeert voor plan gebruikt, wordt de functie codebestanden worden opgeslagen op Azure-bestandsshares op de belangrijkste storage-account van de functie. Wanneer u de belangrijkste storage-account van de functie-app verwijdert, wordt de functie code-bestanden worden verwijderd en kunnen niet worden hersteld.
 
@@ -119,7 +119,7 @@ Andere triggers mogelijk ook andere schaalbaarheidsgrenzen, evenals een gedocume
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Aanbevolen procedures en patronen voor schaalbare apps
 
-Er zijn veel aspecten van een functie-app die is van invloed op hoe goed het kunnen worden geschaald, zoals de hostconfiguratie, runtime footprint en resource effeciency.  Weergave de [schaalbaarheid sectie van het artikel van de overwegingen met betrekking tot prestaties](functions-best-practices.md#scalability-best-practices) voor meer informatie.
+Er zijn veel aspecten van een functie-app die is van invloed op hoe goed het kunnen worden geschaald, zoals de hostconfiguratie, runtime footprint en efficiëntie van de resource.  Weergave de [schaalbaarheid sectie van het artikel van de overwegingen met betrekking tot prestaties](functions-best-practices.md#scalability-best-practices) voor meer informatie.
 
 ### <a name="billing-model"></a>Factureringsmodel
 

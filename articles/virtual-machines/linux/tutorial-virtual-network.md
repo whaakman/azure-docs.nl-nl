@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a49b4c2d4ddd6d686675cee53d46cd4dd6ad3811
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Beheren van virtuele Azure-netwerken en virtuele Linux-Machines met de Azure CLI
 
@@ -151,11 +151,13 @@ az vm create \
 
 Een netwerkbeveiligingsgroep (Network Security Group, NSG) bevat een lijst met beveiligingsregels waarmee netwerkverkeer naar resources die zijn verbonden met virtuele Azure-netwerken (VNet) wordt toegestaan of geweigerd. Nsg's kunnen worden gekoppeld aan subnetten of afzonderlijke netwerkinterfaces. Wanneer u een NSG is gekoppeld aan een netwerkinterface, geldt deze de bijbehorende virtuele machine. Wanneer een NSG is gekoppeld aan een subnet, zijn de regels van toepassing op alle resources die zijn verbonden met het subnet. 
 
-### <a name="network-security-group-rules"></a>Netwerkbeveiligingsgroepen
+### <a name="network-security-group-rules"></a>Regels voor netwerkbeveiligingsgroepen
 
 NSG-regels definiëren netwerken poorten waarover verkeer wordt toegestaan of geweigerd. De regels kunnen bron en doel-IP-adresbereiken bevatten, zodat verkeer wordt geregeld tussen specifieke systemen of subnetten. NSG-regels bevatten ook een prioriteit (tussen 1- en 4096). Regels worden geëvalueerd in de volgorde van prioriteit. Een regel met een prioriteit van 100 wordt geëvalueerd voor een regel met prioriteit 200.
 
 Alle NSG's bevatten een set met standaardregels. De standaardregels kunnen niet worden verwijderd, maar omdat ze de laagste prioriteit hebben, kunnen ze worden overschreven door de regels die u maakt.
+
+Standaardregels voor nsg's zijn:
 
 - **Virtueel netwerk** - die afkomstig zijn van verkeer en eindigt in een virtueel netwerk is toegestaan beide kanten van binnenkomend en uitgaand.
 - **Internet** - uitgaand verkeer is toegestaan, maar dat binnenkomend verkeer wordt geblokkeerd.

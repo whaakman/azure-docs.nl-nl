@@ -14,21 +14,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 390342eb08ae970fa760b414674b1a6783404d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8b4347fde274d0d7520ef3acbd081fdb83d7dc7d
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight
+# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Hive-gegevens visualiseren met Microsoft Power BI met ODBC in Azure HDInsight
 
-Informatie over het Microsoft Power BI verbinding met Azure HDInsight en het Hive-gegevens visualiseren. Power BI ondersteunt momenteel alleen ODBC-verbinding met HDInsight. In deze zelfstudie maakt laden u de gegevens uit een hivesampletable Hive-tabel naar Power BI. De Hive-tabel bevat de gebruiksgegevens van sommige mobiele telefoon. Vervolgens kunt u de gebruiksgegevens op een kaart world uitzetten:
+Informatie over het Microsoft Power BI verbinden met Azure HDInsight met behulp van ODBC en de Hive-gegevens visualiseren. In deze zelfstudie maakt laden u de gegevens uit een hivesampletable Hive-tabel naar Power BI. De Hive-tabel bevat de gebruiksgegevens van sommige mobiele telefoon. Vervolgens kunt u de gebruiksgegevens op een kaart world uitzetten:
 
 ![HDInsight Power BI het rapport kaart](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-De informatie geldt ook voor de nieuwe [interactieve Query](../interactive-query/apache-interactive-query-get-started.md) type cluster.
+De informatie geldt ook voor de nieuwe [interactieve Query](../interactive-query/apache-interactive-query-get-started.md) type cluster. Voor het verbinding maken met de interactieve Query HDInsight met behulp van directe query, raadpleegt [interactieve Hive-Query visualiseren gegevens met Microsoft Power BI in Azure HDInsight met behulp van directe query](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u verdergaat met dit artikel, hebt u de volgende items:
@@ -52,7 +52,7 @@ De hivesampletable Hive-tabel wordt geleverd bij alle HDInsight-clusters.
 4. Van de **van ODBC** deelvenster, selecteer de gegevensbron naam die u in de laatste sectie hebt gemaakt, en klik vervolgens op **OK**.
 5. Van de **Navigator** deelvenster Vouw **ODBC-component > Standaard ->**, selecteer **hivesampletable**, en klik vervolgens op **Load**.
 
-## <a name="visualize-date"></a>Datum visualiseren
+## <a name="visualize-data"></a>Gegevens visualiseren
 
 Overgenomen van de laatste procedure.
 
@@ -65,7 +65,7 @@ Overgenomen van de laatste procedure.
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe Visualiseer gegevens uit HDInsight met behulp van Power BI.  Zie voor meer informatie de volgende artikelen:
 
-* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
+* [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel en Hadoop koppelen met Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Verbinding maken met Azure HDInsight en het uitvoeren van Hive-query's met Data Lake Tools voor Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

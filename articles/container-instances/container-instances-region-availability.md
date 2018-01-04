@@ -6,13 +6,13 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 08/31/2017
+ms.date: 12/15/2017
 ms.author: marsma
-ms.openlocfilehash: ace4eb6b284f2c1b2caeb54c1d686e68cacb1725
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ec7f469c47924f4ae22d6509996ca9cf498fc9ad
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="region-availability-for-azure-container-instances"></a>Beschikbaarheid van regio’s voor Azure Container Instances
 
@@ -20,8 +20,8 @@ Tijdens de preview-periode is Azure Container Instances beschikbaar in de volgen
 
 | Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
-| West-Europa, VS West, VS Oost | Linux | 2 | 7 |
-| West-Europa, VS West, VS Oost | Windows | 2 | 3,5 |
+| West-Europa, VS West, VS Oost | Linux | 4 | 14 |
+| West-Europa, VS West, VS Oost | Windows | 4 | 14 |
 
 ## <a name="resource-availability"></a>Beschikbaarheid van resources
 

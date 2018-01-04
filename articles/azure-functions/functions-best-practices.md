@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>De prestaties en betrouwbaarheid van Azure Functions optimaliseren
 
@@ -44,7 +44,7 @@ Indien mogelijk wordt Verander grote functies in kleinere functie ingesteld die 
 
 Als geen duurzame functies of Logic Apps om te integreren met meerdere functies, maar het is doorgaans beste gebruikmaken van opslagwachtrijen voor cross-functie communicatie.  De belangrijkste reden is opslagwachtrijen zijn goedkoper en eenvoudiger te richten. 
 
-Afzonderlijke berichten in een opslagwachtrij zijn in grootte beperkt tot 64 KB. Als u doorgeven grotere berichten tussen de functies wilt, het formaat van een Azure Service Bus-wachtrij kan worden gebruikt ter ondersteuning van bericht tot 256 KB.
+Afzonderlijke berichten in een opslagwachtrij zijn in grootte beperkt tot 64 KB. Als u doorgeven grotere berichten tussen de functies wilt, een Azure Service Bus-wachtrij kan worden gebruikt ter ondersteuning van bericht tot 256 KB in de prijscategorie Standard groottes en maximaal 1 MB in de laag Premium.
 
 Service Bus-onderwerpen zijn handig als u nodig hebt bericht filteren voordat ze worden verwerkt.
 

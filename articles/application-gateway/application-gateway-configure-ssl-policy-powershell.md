@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Versies van SSL-beleid configureren en cipher suites in toepassingsgateway
 
@@ -110,6 +110,8 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Een aangepaste SSL-beleid configureren
 
+Als een aangepaste SSL-beleid te configureren, geeft u de volgende parameters: PolicyType, MinProtocolVersion CipherSuite en taakverdeling. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway. 
+
 Het volgende voorbeeld wordt een aangepaste SSL-beleid op een toepassingsgateway. De minimale protocolversie wordt ingesteld op `TLSv1_1` en kunt u de volgende cipher suites:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -139,6 +141,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Een toepassingsgateway maken met een vooraf gedefinieerde SSL-beleid
+
+Als een vooraf gedefinieerde SSL-beleid te configureren, geeft u de volgende parameters: PolicyType PolicyName en taakverdeling. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
 
 Het volgende voorbeeld wordt een nieuwe toepassingsgateway gemaakt met een vooraf gedefinieerde SSL-beleid.
 
@@ -177,6 +181,31 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="next-steps"></a>Volgende stappen
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Bijwerken van een bestaande application gateway met een vooraf gedefinieerde SSL-beleid
 
-Ga naar [Application Gateway omleiding overzicht](application-gateway-redirect-overview.md) voor informatie over het HTTP-verkeer omleiden naar een HTTPS-eindpunt.
+Als u wilt een aangepast SSL-beleid instellen, de volgende parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, en **ApplicationGateway**. Als u wilt instellen op een vooraf gedefinieerde SSL-beleid, de volgende parameters: **PolicyType**, **PolicyName**, en **ApplicationGateway**. Als u probeert om andere parameters te geven, krijgt u een fout bij het maken of bijwerken van de toepassingsgateway.
+
+In het volgende voorbeeld zijn er codevoorbeelden voor aangepast beleid én vooraf gedefinieerd beleid. Verwijder de opmerkingen in het beleid dat u wilt gebruiken.
+
+```powershell
+# You have to change these parameters to match your environment.
+$AppGWname = "YourAppGwName"
+$RG = "YourResourceGroupName"
+
+$AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
+
+# SSL Custom Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
+
+# SSL Predefined Policy
+# Set-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+
+# Update AppGW
+# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+$SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
+
+
+
+## Next steps
+
+Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnose van uitzonderingen in uw web-apps met Application Insights
 Uitzonderingen in uw live web-app worden gerapporteerd door [Application Insights](app-insights-overview.md). U kunt mislukte aanvragen correleren met uitzonderingen en andere gebeurtenissen op de client en de server, zodat u kunt snel de oorzaken te analyseren.
@@ -57,7 +57,7 @@ U ziet dat CodeLens gegevens over de uitzonderingen bevat in de code:
 ![CodeLens melding van uitzonderingen.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Oplossen van problemen met de Azure portal
-Application Insights wordt geleverd met een curated APM-ervaring voor hulp bij het opsporen van fouten in de bewaakte toepassingen. Als u wilt starten, klikt u op de optie fouten in het menu Application Insights resource in de sectie onderzoeken. Hier ziet u een volledige weergave waarin de fout snelheid trends voor uw verzoeken, hoeveel mislukken en hoeveel gebruikers ondervinden gevolgen. Aan de rechterkant ziet u enkele van de handigste distributies die specifiek zijn voor de geselecteerde bewerking, inclusief de top-3-reactiecodes, top-3 uitzondering typen en bovenste 3 depedency typen mislukt mislukken. 
+Application Insights wordt geleverd met een curated APM-ervaring voor hulp bij het opsporen van fouten in de bewaakte toepassingen. Als u wilt starten, klikt u op de optie fouten in het menu Application Insights resource in de sectie onderzoeken. Hier ziet u een volledige weergave waarin de fout snelheid trends voor uw verzoeken, hoeveel mislukken en hoeveel gebruikers ondervinden gevolgen. Aan de rechterkant ziet u enkele van de handigste distributies die specifiek zijn voor de geselecteerde bewerking, inclusief de top-3-reactiecodes, top-3 uitzondering typen en bovenste 3 afhankelijkheidstypen mislukt mislukken. 
 
 ![Fouten sorteren weergave (operations tabblad)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 

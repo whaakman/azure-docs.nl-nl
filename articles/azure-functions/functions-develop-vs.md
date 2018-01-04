@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions-Tools voor Visual Studio  
 
@@ -68,7 +68,7 @@ De runtime van Functions wordt intern gebruikt een Azure Storage-account. Voor a
 
 1. Open in Visual Studio **Cloud Explorer**, vouw **Opslagaccount** > **uw Opslagaccount**, selecteer daarna **eigenschappen**en kopieer de **primaire verbindingsreeks** waarde.   
 
-2. Open het projectbestand local.settings.json in uw project en stel de waarde van de **AzureWebJobsStorage** sleutel op de verbindingsreeks die u hebt gekopieerd.
+2. Open het bestand local.settings.json in uw project en stel de waarde van de **AzureWebJobsStorage** sleutel op de verbindingsreeks die u hebt gekopieerd.
 
 3. Herhaal de vorige stap om toe te voegen unieke sleutels zijn aan de **waarden** matrix voor eventuele andere verbindingen die vereist zijn voor uw functies.  
 
@@ -106,7 +106,7 @@ In de vooraf gecompileerde functies worden de bindingen die wordt gebruikt door 
     } 
     ````
  
-    Een kenmerk binding-specifieke wordt toegepast op elke binding parameter doorgegeven aan de methode post point. Het kenmerk neemt de bindingsgegevens als parameters. In het vorige voorbeeld wordt de eerste parameter heeft een **QueueTrigger** kenmerk dat wordt toegepast, die wachtrij geactiveerd functie aangeeft. De wachtrijnaam en de naam van instelling verbindingsreeks worden als parameters doorgegeven.  
+    Een kenmerk binding-specifieke wordt toegepast op elke binding parameter doorgegeven aan de methode post point. Het kenmerk neemt de bindingsgegevens als parameters. In het vorige voorbeeld wordt de eerste parameter heeft een **QueueTrigger** kenmerk dat wordt toegepast, die wachtrij geactiveerd functie aangeeft. De wachtrijnaam en de naam van instelling verbindingsreeks worden doorgegeven als parameters voor de **QueueTrigger** kenmerk.
 
 ## <a name="testing-functions"></a>Functies testen
 

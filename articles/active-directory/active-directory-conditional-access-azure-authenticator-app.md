@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator voor Android
 Uw IT-beheerder kan hebt aanbevolen u met de Microsoft Azure Authenticator om aan te melden voor toegang tot uw werkbronnen. Deze toepassing biedt deze twee opties aanmelden:
@@ -41,7 +41,7 @@ De volgende instructies zijn van toepassing op Samsung GS3 en boven telefoons of
 4. Klik op het scherm apparaatbeheerder activeren, **activeren**.
 5. Schakel het selectievakje op het scherm voor het privacybeleid en klikt u op **bevestigen**.
 6. Voer op het scherm werkplek toevoegen de gebruikersnaam die wordt geleverd door uw organisatie en klik op **Join**.
-7. Als u wilt aanmelden bij de Azure Authenticator-app, Voer uw organisatie een *** doelsite wachtwoord en klikt u op **aanmelden**.
+7. Als u wilt aanmelden bij de Azure Authenticator-app, Voer uw organisatieaccount en wachtwoord en klik op **aanmelden**.
 8. Het volgende scherm waarin informatie over meervoudige verificatie (MFA) is voor extra beveiliging en is optioneel. Dit scherm wordt weergegeven als uw werk of school tweeledige verificatie is vereist voor het maken van werkaccount. Dit vindt u instructies voor uw account verder verifiëren.
 9. Het scherm werkplek koppelen wordt het bericht '**uw werkplek**'. De Azure authenticator-app wordt geprobeerd het apparaat koppelen aan uw werkplek.
 10. U ziet het bericht Workplace Joined op het volgende scherm.

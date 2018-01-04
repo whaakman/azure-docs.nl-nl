@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services
 ## <a name="overview"></a>Overzicht
@@ -34,7 +34,7 @@ Als u een bestaande toepassing hebt waarvoor aanzienlijke wijzigingen nodig zoud
 ## <a name="features"></a>Vergelijking van functies
 In de volgende tabel worden de mogelijkheden van App Service, Cloud Services, Virtual Machines en Service Fabric vergeleken, zodat u de beste keuze kunt maken voor uw toepassing. Raadpleeg de [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) voor actuele informatie over de SLA voor elke optie.
 
-| Functie | App Service (web-apps) | Cloud Services (webrollen) | Virtual Machines | Service Fabric | Opmerkingen |
+| Functie | App Service (web-apps) | Cloud Services (webrollen) | Virtuele machines | Service Fabric | Opmerkingen |
 | --- | --- | --- | --- | --- | --- |
 | Vrijwel directe implementatie |X | | |X |Het implementeren van een toepassing of update van een toepassing naar een cloudservice, of het maken van een virtuele machine duurt minstens enkele minuten; het implementeren van een toepassing naar een web-app kost slechts enkele seconden. |
 | Opschalen naar grotere machines zonder opnieuw te hoeven implementeren |X | | |X | |
@@ -110,6 +110,8 @@ Azure App Service is een uitstekende oplossing voor dit scenario, omdat u dit gr
 * de toepassingsgalerie gebruiken om snel populaire webtoepassingen in te stellen, zoals WordPress;
 * extra Azure-services en -functies aan uw toepassing toevoegen wanneer u deze nodig hebt;
 * uw web-app beveiligen met HTTPS.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a> Ik ben een web- of grafisch ontwerper en ik wil websites ontwerpen en bouwen voor mijn klanten.
 Voor webontwikkelaars en ontwerpers biedt Azure App Service eenvoudige integratie met tal van frameworks en hulpmiddelen, zoals ondersteuning voor implementatie via Git en FTP, en een verregaande integratie met hulpprogramma's en services als Visual Studio en SQL Database. Met App Service kunt u:

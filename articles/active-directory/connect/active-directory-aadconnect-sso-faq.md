@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 8eb575d6647b123119ceff9452ee8fc4a489f1ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -30,7 +30,11 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [synchronisat
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Naadloze eenmalige aanmelding een beschikbare functie is?
 
-Naadloze eenmalige aanmelding is een gratis functie en u hoeft betaald edities van Azure AD om deze te gebruiken. Deze blijft vrij wanneer de functie algemeen beschikbaar is bereikt.
+Naadloze eenmalige aanmelding is een gratis functie en u hoeft betaald edities van Azure AD om deze te gebruiken.
+
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Naadloze eenmalige aanmelding beschikbaar is in de [Duitse van Microsoft Azure cloud](http://www.microsoft.de/cloud-deutschland) en de [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+
+Nee. Naadloze eenmalige aanmelding is alleen beschikbaar in het wereldwijde exemplaar van Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Welke toepassingen profiteren van `domain_hint` of `login_hint` parameter mogelijkheid van naadloze eenmalige aanmelding?
 
@@ -57,7 +61,7 @@ Volg deze stappen op de lokale server waarop u Azure AD Connect uitvoert:
 
 1. Eerst downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navigeer naar de `%programfiles%\Microsoft Azure Active Directory Connect` map.
+3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
 5. Voer de PowerShell als beheerder. In PowerShell, roept `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-up van uw tenant hoofdbeheerder referenties invoeren.
 6. Roep `Get-AzureADSSOStatus`. Deze opdracht kunt u de lijst met AD-forests (zoek op de lijst 'Domeinen') op die deze functie is ingeschakeld.
@@ -87,7 +91,7 @@ Voor het voltooien van het proces als volgt handmatig op de lokale server waarop
 
 1. Eerst downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navigeer naar de `%programfiles%\Microsoft Azure Active Directory Connect` map.
+3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
 5. Voer de PowerShell als beheerder. In PowerShell, roept `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-up van uw tenant hoofdbeheerder referenties invoeren.
 6. Roep `Get-AzureADSSOStatus`. Deze opdracht kunt u de lijst met AD-forests (zoek op de lijst 'Domeinen') op die deze functie is ingeschakeld.

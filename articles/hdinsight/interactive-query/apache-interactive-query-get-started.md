@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 9d9d9556c37cfa5a1a740569b4c7fd4fd07a467a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Interactieve Query gebruiken met HDInsight
 Interactieve Query (ook wel Hive LLAP of [lange Live en proces](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is een Azure HDInsight [type cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interactieve Query ondersteunt in-memory caching, waardoor Hive-query's sneller en nog veel meer interactieve.
@@ -43,8 +43,8 @@ Voor het uitvoeren van Hive-query's, hebt u de volgende opties:
 
 * Power BI gebruiken
 
-    Zie [big-gegevens visualiseren met Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    Zie [gegevens interactieve Hive-Query visualiseren met Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) Zie [big-gegevens visualiseren met Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Zeppelin gebruiken
 
     Zie [Zeppelin gebruik Hive-query's uitvoeren in Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).

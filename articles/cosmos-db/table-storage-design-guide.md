@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Ontwerphandleiding voor Azure Storage-tabel: Het ontwerpen van schaalbare en de zodat tabellen
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -41,7 +41,7 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>tijdstempel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Jun</td>
+<td>jun</td>
 <td>CaO</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -91,7 +91,7 @@ Het volgende voorbeeld ziet een eenvoudige tabelontwerp voor het opslaan van ent
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Naam van de afdeling</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -251,7 +251,7 @@ De tabelservice indexeert automatisch de entiteiten met behulp van de **Partitio
 Veel ontwerpen moeten voldoen aan de vereisten voor het opzoeken van de entiteiten die zijn gebaseerd op meerdere criteria inschakelen. Bijvoorbeeld zoeken naar werknemer entiteiten op basis van e-mailadres werknemer-id of achternaam op. De volgende patronen in de sectie [ontwerppatronen voor tabel](#table-design-patterns) deze typen vereiste op te lossen en beschrijven manieren van het feit dat de tabel-service biedt geen secundaire indexen te omzeilen:  
 
 * [Intra-partitie secundaire index patroon](#intra-partition-secondary-index-pattern) -opslaan meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden (in dezelfde partitie) inschakelen snel en efficiënt zoekacties en alternatieve sorteervolgorde met behulp van verschillende **RowKey** waarden.  
-* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) : opslaan van meerdere exemplaren van elke entiteit die gebruikmaken van verschillende waarden voor de RowKey in afzonderlijke partities of in afzonderlijke tabellen waarmee snel en efficiënt zoekacties en alternatieve sorteren orders met behulp van verschillende **RowKey** waarden.  
+* [Secundaire tussen partitioneren van index patroon](#inter-partition-secondary-index-pattern) -opslaan meerdere exemplaren van elke entiteit met behulp van verschillende **RowKey** waarden in afzonderlijke partities of in afzonderlijke tabellen snelle en efficiënte zoekacties en alternatieve sorteren inschakelen orders met behulp van verschillende **RowKey** waarden.  
 * [Index entiteiten patroon](#index-entities-pattern) -onderhouden index entiteiten zodat efficiënte zoekopdrachten die lijsten van entiteiten retourneren.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Sorteren van gegevens in de tabel-service
@@ -1107,7 +1107,7 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>tijdstempel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1157,7 +1157,7 @@ De tabel-service is een *schema minder* tabel archief dat betekent dat één tab
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Naam van de afdeling</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1199,7 +1199,7 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>tijdstempel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1254,7 +1254,7 @@ Denk eraan dat elke entiteit moet nog steeds **PartitionKey**, **RowKey**, en **
 <table>
 <tr>
 <th>EntityType</th>
-<th>DepartmentName</th>
+<th>Naam van de afdeling</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>

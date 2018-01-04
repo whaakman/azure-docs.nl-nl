@@ -6,13 +6,13 @@ keywords: Voeg geen of trefwoorden zonder overleg met uw EXPERT in Zoekmachineop
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 014dbb38d0f47d926db192a6117f7acd06b41a20
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Het zoeken van een adres met behulp van de zoekservice Azure locatie op basis van Services (preview)
 De Search-service is een RESTful reeks API's die zijn ontworpen voor ontwikkelaars om te zoeken naar adressen, locaties, punten van belang, lijsten van bedrijven en andere geografische informatie. Een breedtegraad/lengtegraad wijst de Search-Service naar een specifiek adres, cross straat, geografische functie of interessante (POI). Breedtegraad en lengtegraad waarden geretourneerd door de zoekservice API's kunnen worden gebruikt als parameters in andere Azure locatie op basis van Services zoals de verkeer stromen API's en Route.
@@ -40,7 +40,7 @@ De meeste zoekopdrachten standaard ingesteld op ' maxFuzzyLevel = 1' om toegang 
 
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | TOEVOEGEN |
+    | HTTP-methode | GET |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/fuzzy/JSON? |
     | Autorisatie | Er is geen verificatie |
 
@@ -92,7 +92,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | TOEVOEGEN |
+    | HTTP-methode | GET |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/JSON? |
     | Autorisatie | Er is geen verificatie |
 
@@ -132,7 +132,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | TOEVOEGEN |
+    | HTTP-methode | GET |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/reverse/JSON? |
     | Autorisatie | Er is geen verificatie |
     
@@ -200,7 +200,7 @@ U kunt een volledige of gedeeltelijke Straatadres doorgeven aan de adres-API van
     
     | Parameter | Voorgestelde waarde |
     |---------------|------------------------------------------------|
-    | HTTP-methode | TOEVOEGEN |
+    | HTTP-methode | GET |
     | Aanvraag-URL | https://atlas.Microsoft.com/Search/Address/reverse/crossstreet/JSON? |
     | Autorisatie | Er is geen verificatie |
     

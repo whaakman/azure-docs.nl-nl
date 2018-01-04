@@ -15,11 +15,11 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f2d3072e52c35cc9632ed3204634f67506b9bf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-beperkte delegatie voor eenmalige aanmelding tot uw apps met toepassingsproxy
 
@@ -91,7 +91,7 @@ Zie voor meer informatie over Kerberos [alle u wilt weten over Kerberos-beperkt 
 Niet-Windows-apps doorgaans gebruiker gebruikersnamen of SAM-accountnamen in plaats van domein e-mailadressen. Als deze situatie voor uw toepassingen geldt, moet u het veld met de gedelegeerde aanmelding voor uw cloud-identiteiten verbinding met de identiteiten van uw toepassing configureren. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Werken met andere on-premises en cloud-identiteiten
-Toepassingsproxy wordt ervan uitgegaan dat gebruikers dezelfde identiteit in de cloud en on-premises hebben. Als dat niet het geval is, kunt kunt u nog steeds KCD gebruiken voor eenmalige aanmelding. Configureer een **overgedragen aanmelding identiteit** voor elke toepassing om op te geven welke identiteit moet worden gebruikt bij het uitvoeren van eenmalige aanmelding.  
+Toepassingsproxy wordt ervan uitgegaan dat gebruikers dezelfde identiteit in de cloud en on-premises hebben. Als dat niet het geval is, kunt u nog steeds KCD voor eenmalige aanmelding gebruiken. Configureer een **overgedragen aanmelding identiteit** voor elke toepassing om op te geven welke identiteit moet worden gebruikt bij het uitvoeren van eenmalige aanmelding.  
 
 Op deze manier kunt veel organisaties die verschillende on-premises en cloud-identiteiten voor eenmalige aanmelding vanuit de cloud naar lokale apps zonder de gebruikers in te voeren voor verschillende gebruikersnamen en wachtwoorden hebben. Dit omvat organisaties die:
 

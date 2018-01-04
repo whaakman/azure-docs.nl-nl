@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 843ffdf6c39cbdf00bfde969eaf93701db6ed536
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Sommige van mijn telemetrie ontbreekt
@@ -30,6 +30,7 @@ ms.lasthandoff: 11/01/2017
 *Ik mijn app hebt geïnstalleerd op de webserver en nu alle telemetrie van het niet wordt weergegeven. Deze OK op mijn computer Developer gewerkt.*
 
 * Waarschijnlijk een firewallprobleem met. [Instellen van firewalluitzonderingen voor Application Insights om gegevens te verzenden](app-insights-ip-addresses.md).
+* IIS-Server mogelijk ontbreken sommige vereiste onderdelen: .NET-Extensibility 4.5 en ASP.NET 4.5.
 
 *Ik [geïnstalleerd Status Monitor](app-insights-monitor-performance-live-website-now.md) op de webserver voor het bewaken van bestaande apps. Geen resultaten wordt niet weergegeven.*
 

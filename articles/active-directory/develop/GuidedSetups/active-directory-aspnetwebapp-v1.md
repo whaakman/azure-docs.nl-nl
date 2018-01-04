@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
-ms.openlocfilehash: 7708304dd49535d6881641fcafdbfdcb791f9fdf
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aanmelden met Microsoft toevoegen aan een ASP.NET-web-app
@@ -42,7 +42,7 @@ Aan het einde van deze handleiding, uw toepassing accepteert aanmeldingen van we
 Deze handleiding is gebaseerd op het scenario waarbij een browser toegang heeft tot een ASP.NET-website aanvragen van een gebruiker worden geverifieerd via een knop aanmelden. In dit scenario treedt de meeste werk voor het weergeven van de webpagina op aan de serverzijde.
 
 > [!NOTE]
-> Deze Begeleide instelprocedure laat zien hoe melden gebruikers op een ASP.NET-webtoepassing die beginnen met een lege sjabloon en stappen zoals het toevoegen van een teken in de knop en elke domeincontroller en de methoden, terwijl het ook uitleg over enkele concepten bevatten. Alternativelly, u kunt ook een project voor aanmelding bij Azure Active Directory maken gebruikers (werk- en schoolaccounts-accounts) met behulp van de [Visual Studio websjabloon](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) en het selecteren van *Organisatieaccounts* en een van de opties voor cloud - deze optie wordt een uitgebreidere sjabloon voor extra domeincontrollers, methoden en weergaven.
+> Deze Begeleide instelprocedure laat zien hoe melden gebruikers op een ASP.NET-webtoepassing die beginnen met een lege sjabloon en stappen zoals het toevoegen van een teken in de knop en elke domeincontroller en de methoden, terwijl het ook uitleg over enkele concepten bevatten. U kunt ook kunt u ook een project voor aanmelding bij Azure Active Directory maakt gebruikers (werk- en schoolaccounts-accounts) met behulp van de [Visual Studio-web-sjabloon](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) en het selecteren van *Organisatieaccounts* en vervolgens een van de opties voor cloud - deze optie maakt gebruik van een uitgebreidere sjabloon met extra domeincontrollers, methoden en weergaven.
 
 ## <a name="libraries"></a>Bibliotheken
 

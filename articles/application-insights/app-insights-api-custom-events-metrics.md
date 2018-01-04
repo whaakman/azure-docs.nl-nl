@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -900,7 +900,7 @@ U kunt de code voor het verwerken van uw telemetrie voordat deze wordt verzonden
 
 [Eigenschappen toevoegen](app-insights-api-filtering-sampling.md#add-properties) naar telemetrie door het implementeren van `ITelemetryInitializer`. U kunt bijvoorbeeld versienummers of berekende waarden toevoegen van andere eigenschappen.
 
-[Filteren](app-insights-api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door de SDK door het implementeren van `ITelemetryProcesor`. U bepaalt wat wordt verzonden naar of verwijderd, maar u moet voor het effect op de metrische gegevens over uw account. Afhankelijk van hoe u items negeren, kunt u de mogelijkheid om te navigeren tussen verwante items verliezen.
+[Filteren](app-insights-api-filtering-sampling.md#filtering) kunt wijzigen of verwijderen van telemetrie voordat het wordt verzonden door de SDK door het implementeren van `ITelemetryProcessor`. U bepaalt wat wordt verzonden naar of verwijderd, maar u moet voor het effect op de metrische gegevens over uw account. Afhankelijk van hoe u items negeren, kunt u de mogelijkheid om te navigeren tussen verwante items verliezen.
 
 [Steekproef nemen](app-insights-api-filtering-sampling.md) is een ingepakte oplossing te verminderen de hoeveelheid gegevens die door uw app wordt verzonden naar de portal. Hierbij wordt zonder de weergegeven metrische gegevens. En zonder de mogelijkheid om te analyseren van problemen door te navigeren tussen verwante items zoals uitzonderingen, aanvragen en paginaweergaven beïnvloeden.
 

@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management met Service Fabric implementeren
-Deze zelfstudie is een vierde deel van een reeks.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u nodig hebt voor het publiceren van API's met een groot aantal routeringsregels voor uw back-end Service Fabric-services. Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. Een gateway kan alle stateless services die zijn bestemd voor inkomend verkeer zoals een APP.NET Core toepassing, Event Hubs, IoT-Hub of Azure API Management zijn in Service Fabric. 
+Deze zelfstudie is een vierde deel van een reeks.  Implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u nodig hebt voor het publiceren van API's met een groot aantal routeringsregels voor uw back-end Service Fabric-services. Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. Een gateway kan alle stateless services die zijn bestemd voor inkomend verkeer zoals een ASP.NET Core toepassing, Event Hubs, IoT-Hub of Azure API Management zijn in Service Fabric. 
 
 Deze zelfstudie ziet u het instellen van [Azure API Management](../api-management/api-management-key-concepts.md) met Service Fabric om verkeer te leiden naar een back-end-service in Service Fabric.  Wanneer u klaar bent, hebt u API Management geïmplementeerd op een VNET, een API-bewerking voor het verzenden van verkeer naar de back-end-stateless services geconfigureerd. Zie voor meer informatie over Azure API Management-scenario's met Service Fabric, de [overzicht](service-fabric-api-management-overview.md) artikel.
 

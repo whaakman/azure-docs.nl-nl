@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
@@ -29,7 +29,7 @@ Als u een Azure-functies van Visual Studio C# ontwikkelaar, ook bent [kan worden
 >[!IMPORTANT]  
 > Niet door elkaar op lokale ontwikkeling met portal-ontwikkeling in dezelfde functie-app. Wanneer u maken en publiceren van de functies van een lokaal project, moet u niet proberen te onderhouden of te wijzigen projectcode in de portal.
 
-## <a name="install-the-azure-functions-core-tools"></a>De Azure Functions Core hulpprogramma's installeren
+## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 
 [Azure Functions kernonderdelen] is een lokale versie van de Azure Functions-runtime die kunnen worden uitgevoerd op de lokale computer. Het is niet een emulator of simulator. Het is de dezelfde runtime bevoegdheden werkt in Azure. Er zijn twee versies van Azure Functions Core-hulpprogramma's voor versie 1.x van de runtime en één voor versie 2.x. Beide versies zijn beschikbaar als een [npm pakket](https://docs.npmjs.com/getting-started/what-is-npm).
 
@@ -132,7 +132,7 @@ Het bestand local.settings.json slaat app-instellingen, verbindingsreeksen en in
 | **Waarden** | Verzameling toepassingsinstellingen gebruikt bij lokale uitvoering. **AzureWebJobsStorage** en **AzureWebJobsDashboard** zijn voorbeelden; Zie voor een volledige lijst [app naslaginformatie](functions-app-settings.md).  |
 | **Host** | Instellingen in deze sectie aanpassen het hostproces van de functies bij lokale uitvoering. | 
 | **LocalHttpPort** | Hiermee stelt u de standaardpoort gebruikt bij het uitvoeren van de lokale host van de functies (`func host start` en `func run`). De `--port` opdrachtregeloptie heeft voorrang op deze waarde. |
-| **CORS** | Definieert de oorsprongen toegestaan voor [cross-origin-resource delen (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (**\***) wordt ondersteund, waarmee aanvragen van een oorsprong. |
+| **CORS** | Definieert de oorsprongen toegestaan voor [cross-origin-resource delen (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Oorsprongen zijn opgegeven als een door komma's gescheiden lijst zonder spaties. Het jokerteken (\*) wordt ondersteund, waarmee aanvragen van een oorsprong. |
 | **ConnectionStrings** | De tekenreeksen voor databaseverbindingen voor uw functies bevat. Verbindingsreeksen in dit object zijn toegevoegd aan de omgeving van het providertype **System.Data.SqlClient**.  | 
 
 De meeste triggers en bindingen hebben een **verbinding** eigenschap die is toegewezen aan de naam van een omgeving variabele of een app-instelling. Voor elke verbindingseigenschap moet worden gedefinieerd in local.settings.json-bestand van app-instelling. 

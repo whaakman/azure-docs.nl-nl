@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,15 +47,15 @@ HDInsight-cluster wordt geleverd met voorbeeldgegevens. U gebruikt de volgende t
   
   | Veld | Gegevenstype |
   | --- | --- |
-  | clientid |Tekenreeks |
-  | querytime |Tekenreeks |
-  | markt |Tekenreeks |
-  | deviceplatform |Tekenreeks |
-  | devicemake |Tekenreeks |
-  | devicemodel |Tekenreeks |
-  | state |Tekenreeks |
-  | Land |Tekenreeks |
-  | querydwelltime |dubbele |
+  | clientid |tekenreeks |
+  | querytime |tekenreeks |
+  | markt |tekenreeks |
+  | deviceplatform |tekenreeks |
+  | devicemake |tekenreeks |
+  | devicemodel |tekenreeks |
+  | state |tekenreeks |
+  | Land |tekenreeks |
+  | querydwelltime |dubbel |
   | sessie-id |bigint |
   | sessionpagevieworder |bigint |
 
@@ -221,7 +221,7 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
    > Anders dan de verbindingsinformatie werken de stappen in deze sectie moeten voor een Azure SQL database of SQL Server. Deze stappen zijn getest met behulp van de volgende configuratie:
    > 
    > * **Punt-naar-site-configuratie voor virtuele Azure-netwerk**: een virtueel netwerk het HDInsight-cluster verbonden met een SQL-Server in een particulier datacenter. Zie [een punt-naar-Site-VPN configureren in de beheerportal](../../vpn-gateway/vpn-gateway-point-to-site-create.md) voor meer informatie.
-   > * **Azure HDInsight 3.1**: Zie [maken Hadoop-clusters in HDInsight met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster in een virtueel netwerk.
+   > * **Azure HDInsight**: Zie [maken Hadoop-clusters in HDInsight met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster in een virtueel netwerk.
    > * **SQL Server 2014**: is geconfigureerd voor verificatie en de VPN-client uitgevoerd configuratiepakket naar een veilige verbinding met het virtuele netwerk toestaan.
    > 
    > 

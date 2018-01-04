@@ -33,13 +33,13 @@
       items:
         - name: Azure Portal
           href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
+        - name: Azure-CLI
           href: tutorial-design-database-using-azure-cli.md
     - name: 2 - Een web-app ontwerpen - Python
       href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
 - name: Voorbeelden
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: sample-scripts-azure-cli.md
 - name: Concepten
   items:
@@ -69,7 +69,7 @@
           href: concepts-firewall-rules.md
         - name: SSL configureren
           href: concepts-ssl-connection-security.md
-    - name: Bewaken
+    - name: Controleren
       href: concepts-monitoring.md
     - name: Ontwikkeling
       items:
@@ -81,13 +81,13 @@
       items:
         - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
+        - name: Azure-CLI
           href: howto-manage-firewall-using-cli.md
     - name: Een server terugzetten
       items:
         - name: Azure Portal
           href: howto-restore-server-portal.md
-        - name: Azure CLI
+        - name: Azure-CLI
           href: howto-restore-server-cli.md
     - name: Een database migreren
       items:
@@ -95,27 +95,29 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importeren en exporteren
           href: howto-migrate-using-export-and-import.md
+        - name: Migratie met minimale downtime
+          href: howto-migrate-online.md
     - name: Parameters van de server configureren
       items:
         - name: Azure Portal
           href: howto-configure-server-parameters-using-portal.md
-        - name: Azure CLI
+        - name: Azure-CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: Serverlogboeken openen
       items:
         - name: Azure Portal
           href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
+        - name: Azure-CLI
           href: howto-configure-server-logs-using-cli.md
-    - name: Bewaken
+    - name: Controleren
       items:
         - name: Waarschuwingen maken op basis van metrische gegevens
           href: howto-alert-on-metric.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/postgres
-    - name: REST API
+    - name: REST-API
       href: /rest/api/postgresql
 - name: Resources
   items:

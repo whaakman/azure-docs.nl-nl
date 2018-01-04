@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 408e1680e7aee13663bb6511e65fd5685eb7d518
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
 
 
 
-> De hoogte blijven van wat is er nieuw in Azure Active Directory Abonneer u op onze ![RSS](./media/whats-new/feed-icon-16x16.png) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> De hoogte blijven van wat is er nieuw in Azure Active Directory Abonneer u op onze [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
@@ -53,15 +53,15 @@ Neem terugkeren naar deze pagina regelmatig werken wij deze op maandelijkse basi
  
 Eindgebruikers hebben nu de mogelijkheid gaat u naar het toegangspaneel en weergeven van de gebruiksvoorwaarden die ze eerder hebt geaccepteerd.
 
-Gebruikers kunnen bekijken en ziet de gebruiksvoorwaarden die ze hebben geaccepteerd. U kunt dit doen met de volgende procedure:
+Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren en inzien. Dit kan via de volgende procedure:
 
 1. Navigeer en aanmelding bij de [MyApps portal](https://myapps.microsoft.com).
 
-2. In de rechterbovenhoek, klikt u op uw naam en selecteer **profiel** in de vervolgkeuzelijst. 
+2. Klik in de rechterbovenhoek op uw naam en selecteer **Profiel** in de vervolgkeuzelijst. 
 
-3. Klik op uw profiel **gebruiksvoorwaarden controleren**. 
+3. Klik in uw profiel op **Gebruiksvoorwaarden controleren**. 
 
-4. Daar kunt u de gebruiksvoorwaarden die u hebt geaccepteerd bekijken. 
+4. Vanaf hier kunt u de gebruiksvoorwaarden bekijken die u hebt geaccepteerd. 
 
 Zie voor meer informatie [functie van Azure Active Directory gebruiksvoorwaarden (Preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
  
@@ -104,7 +104,7 @@ Zie voor meer informatie [minder aanmeldingsprompts: de nieuwe ervaring 'Aangeme
  
 We hebben een optie voor beheerders hun eindgebruikers te vereisen voor het uitbreiden van de gebruiksvoorwaarden voorafgaand aan de voorwaarden accepteren nu toegevoegd.
 
-Selecteer een in- of uitschakelen voor gebruikers moeten de gebruiksvoorwaarden uitbreiden. Als deze is ingesteld op op, moeten eindgebruikers de gebruiksvoorwaarden voordat ze worden geaccepteerd weergeven.
+Selecteer een in- of uitschakelen voor gebruikers moeten de gebruiksvoorwaarden uitbreiden. Als deze optie is ingeschakeld, moeten eindgebruikers de gebruiksvoorwaarden bekijken alvorens deze te accepteren.
 
 Zie voor meer informatie [functie van Azure Active Directory gebruiksvoorwaarden (Preview)](active-directory-tou.md)
  

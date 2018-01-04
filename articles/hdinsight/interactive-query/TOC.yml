@@ -98,6 +98,8 @@
         - name: Analyseren met Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Power BI verbinden met Interactive Query
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Power BI verbinden met Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
@@ -178,7 +180,7 @@
             - name: Azure CLI gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: De Azure-portal gebruiken
+            - name: Azure Portal gebruiken
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Azure Resource Manager-sjablonen gebruiken

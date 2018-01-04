@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie - afwijkingen
 
@@ -103,7 +103,7 @@ De instructie impact (betrokken gebruikers of % van het verkeer) gebruiken als e
 U kunt de parameters van het probleem. Als het Geografie-afhankelijk is, kunt u instellen [beschikbaarheidstests](app-insights-monitor-web-app-availability.md) met inbegrip van die regio: er simpelweg mogelijk problemen met netwerken in het desbetreffende gebied.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnose van trage pagina wordt geladen
-Waar bevindt het probleem? Is de server traag reageren, is de pagina erg lang of de browser heeft te veel werk weer te geven doen?
+Waar bevindt het probleem zich? Is de server traag reageren, is de pagina erg lang of de browser heeft te veel werk weer te geven doen?
 
 Open de metrische blade Browsers. De gesegmenteerde weergave van de browser load tijd wordt aangegeven waar de tijd gaat. 
 
@@ -157,7 +157,7 @@ U ziet dat het vertelt u:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Slimme detectie van trage presterende patronen 
 
-Application Insights vindt prestatieproblemen die mogelijk alleen van invloed op een gedeelte van uw gebruikers of alleen van invloed op gebruikers in sommige gevallen. Meldingen over het laden van pagina's is bijvoorbeeld slowler op één type browser dan op andere typen browsers, of als aanvragen langzamer worden geleverd vanuit een bepaalde server. Het kan ook problemen met de combinaties van eigenschappen, detecteren, zoals trage pagina wordt geladen in een geografisch gebied voor clients met specifieke besturingssysteem.  
+Application Insights vindt prestatieproblemen die mogelijk alleen van invloed op een gedeelte van uw gebruikers of alleen van invloed op gebruikers in sommige gevallen. Is bijvoorbeeld meldingen over het laden van pagina's trager op één type browser dan op andere typen browsers, of als aanvragen langzamer worden geleverd vanuit een bepaalde server. Het kan ook problemen met de combinaties van eigenschappen, detecteren, zoals trage pagina wordt geladen in een geografisch gebied voor clients met specifieke besturingssysteem.  
 
 Afwijkingen zoals deze zijn moeilijk te detecteren door de gegevens te bekijken, maar komen vaker dan u denkt. Vaak surface ze alleen wanneer uw klanten klagen. Die tijd is te laat: de betreffende gebruikers zijn al overschakelen naar uw concurrenten!
 

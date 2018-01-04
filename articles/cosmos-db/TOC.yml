@@ -127,7 +127,7 @@
           href: tutorial-functions-http-trigger.md
 - name: Voorbeelden
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Prestaties testen
               href: performance-testing.md
-            - name: Tips voor prestaties
+            - name: Tips voor betere prestaties voor .NET
               href: performance-tips.md
+            - name: Tips voor betere prestaties voor Java
+              href: performance-tips-java.md
             - name: Meerdere masters instellen
               href: multi-region-writers.md
             - name: Datum/tijd

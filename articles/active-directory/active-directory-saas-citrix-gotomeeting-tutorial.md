@@ -4,7 +4,7 @@ description: Informatie over het configureren van eenmalige aanmelding tussen Az
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3dadac0bcec3242804e90b1c0fa68d25bb9ffa4
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Zelfstudie: Azure Active Directory-integratie met GoToMeeting
 
@@ -104,24 +104,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. Op de **GoToMeeting domein en de URL's** sectie, klikt u op **weergeven geavanceerde instellingen voor URL** en de volgende acties - uitvoeren
+3. Op de **GoToMeeting domein en de URL's** sectie, voert u de volgende stappen uit:
 
-    ![URL's en GoToMeeting domein eenmalige aanmelding informatie](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![URL's en GoToMeeting domein eenmalige aanmelding informatie](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. In de **id** textbox, typ de URL:`https://authentication.logmeininc.com/saml/sp`
-
-    b. In de **antwoord-URL** textbox, typ de URL:`https://authentication.logmeininc.com/saml/acs`
-
-    c. In de **Relay status** textbox, typ een van de volgende URL's:
-
-    **Voor GoToMeeting**:`https://global.gotomeeting.com`
-    
-    **Voor GoToTraining**:`https://global.gototraining.com`
-
-    **Voor GoToWebinar**:`https://global.gotowebinar.com`
-
-    **Voor GoToAssist**:`https://app.gotoassist.com`
-
+    In de **id** textbox, typ de URL:`https://login.citrixonline.com/saml/sp`
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -155,7 +142,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![GoToMeeting configuratie](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. In een ander browservenster, meld u aan bij uw [GoToMeeting organisatie Center](https://account.citrixonline.com/organization/administration/)
+8. In een ander browservenster, meld u aan bij uw [GoToMeeting organisatie Center](https://organization.logmeininc.com/)
 
 9. Onder **identiteitsprovider** tabblad kunt u de Azure-instellingen ofwel door bieden de gegenereerde **metagegevens-URL** of de gedownloade **metagegevensbestand** of **Handmatige**.
 
@@ -275,11 +262,11 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel GoToMeeting in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing GoToMeeting.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Gebruikers inrichten configureren](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Gebruikers inrichten configureren](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->

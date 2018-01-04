@@ -1,6 +1,6 @@
 ---
 title: Zijn gegevens gereed voor gegevenswetenschap? Evaluatie van de gegevens - Azure Machine Learning | Microsoft Docs
-description: Meer informatie over de 4 criteria voor gegevens gereed is voor gegevenswetenschap. Gegevenswetenschap voor beginnende gebruikers video 2 heeft concrete voorbeelden om te helpen bij de evaluatie van de algemene gegevens.
+description: Vier criteria uw gegevens moet voldoen om te worden gereed voor gegevenswetenschap. In deze video heeft concrete voorbeelden om te helpen bij de evaluatie van de algemene gegevens.
 keywords: relevante gegevens gegevens evalueren, gegevens, gegevens criteria, gegevens gereed voorbereiden
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Zijn gegevens gereed voor gegevenswetenschap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Gegevenswetenschap voor beginnende gebruikers reeks
@@ -85,11 +85,11 @@ Het volgende ingrediënt moet is nauwkeurig. Hier vindt u vier doelen die we wil
 
 ![Nauwkeurige gegevens versus onnauwkeurige gegevens - gegevens criteria](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Bekijk het doel in de rechterbovenhoek. Wij hebben een nauwe groepering rechts rond de roos. Dat is natuurlijk nauwkeurig. Oddly, in de taal van wetenschappelijke gegevens, onze prestaties aan de rechterkant doel eronder wordt ook beschouwd als nauwkeurig.
+Bekijk het doel in de rechterbovenhoek. Wij hebben een nauwe groepering rechts rond de ogen stieren. Dat is natuurlijk nauwkeurig. Oddly, in de taal van wetenschappelijke gegevens, onze prestaties aan de rechterkant doel eronder wordt ook beschouwd als nauwkeurig.
 
-Als u wilt toewijzen uit het midden van deze pijlen, ziet u dat het heel dicht bij de Roos is. De pijlen zijn verdeeld rondom het doel, zodat deze worden beschouwd als onnauwkeurige, maar ze zijn gecentreerd rond de roos zodat deze worden beschouwd als nauwkeurig.
+Als u wilt toewijzen uit het midden van deze pijlen, ziet u dat het heel dicht bij de ogen stieren is. De pijlen zijn verdeeld rondom het doel, zodat deze worden beschouwd als onnauwkeurige, maar deze wordt gecentreerd rond de ogen stieren zodat deze worden beschouwd als nauwkeurig.
 
-Bekijk nu het doel van de linkerbovenhoek. Onze pijlen Druk hier heel dicht bij elkaar, een nauwe groepering. Ze zijn nauwkeurig, maar ze zijn onjuist omdat het center manier uit de roos. En natuurlijk de pijlen in de doel-linksonder onnauwkeurig en onnauwkeurige zijn. Deze archer moet meer practice.
+Bekijk nu het doel van de linkerbovenhoek. Onze pijlen Druk hier heel dicht bij elkaar, een nauwe groepering. Ze zijn nauwkeurig, maar ze zijn onjuist omdat het center manier uit het oog stieren. En natuurlijk de pijlen in de doel-linksonder onnauwkeurig en onnauwkeurige zijn. Deze archer moet meer practice.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Hebt u voldoende gegevens om te werken met?
 Ten slotte ingrediënt #4 - moeten we onvoldoende gegevens.

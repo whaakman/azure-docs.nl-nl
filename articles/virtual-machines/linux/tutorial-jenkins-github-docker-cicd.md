@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Het maken van een infrastructuur voor ontwikkeling op een Linux VM in Azure met Jenkins, GitHub en Docker
 U kunt een continue integratie en implementatie (CI/CD) pijplijn gebruiken voor het automatiseren van de fase bouwen en testen van de ontwikkeling van toepassingen. In deze zelfstudie maakt u een pijplijn CI/CD maken op een virtuele machine in Azure met inbegrip van hoe:
@@ -146,7 +146,7 @@ Selecteer in uw website Jenkins **nieuwe taken maken** vanaf de startpagina:
 - Onder de **algemene** sectie **GitHub** project en voer uw Gevorkte repo-URL, zoals *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Onder de **Source code management** sectie **Git**, Voer uw Gevorkte opslagplaats *.git* -URL, zoals *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Onder de **bouwen Triggers** sectie **GitHub haakje trigger voor GITscm polling**.
-- Onder de **bouwen** sectie **toevoegen build stap**. Selecteer **shell uitvoeren**, voer dan `echo "Testing"` in naar opdrachtvenster.
+- Onder de **bouwen** sectie **toevoegen build stap**. Selecteer **shell uitvoeren**, voer dan `echo "Testing"` in het opdrachtvenster.
 - Selecteer **opslaan** aan de onderkant van het venster met taken.
 
 
@@ -161,7 +161,7 @@ response.end("Hello World!");
 
 Als u wilt uw wijzigingen doorvoert, selecteer de **wijzigingen doorvoeren** knop onderaan.
 
-Een nieuwe build begint in Jenkins, onder de **bouwen geschiedenis** sectie van de linkerbenedenhoek van de pagina van de taak. Kies de koppeling van build-nummer en selecteert u **Console uitvoer** op de links grootte. U kunt de stappen Jenkins wordt als uw code wordt opgehaald uit GitHub bekijken en de build-actie levert het bericht `Testing` naar de console. Telkens wanneer een doorvoer wordt gemaakt in GitHub, de webhook gezocht naar Jenkins en activeren van een nieuwe build op deze manier.
+Een nieuwe build begint in Jenkins, onder de **bouwen geschiedenis** sectie van de linkerbenedenhoek van de pagina van de taak. Kies de koppeling van build-nummer en selecteert u **Console uitvoer** aan de linkerkant. U kunt de stappen Jenkins wordt als uw code wordt opgehaald uit GitHub bekijken en de build-actie levert het bericht `Testing` naar de console. Telkens wanneer die een doorvoer wordt gemaakt in GitHub, de webhook gezocht naar Jenkins en een nieuwe build op deze manier wordt geactiveerd.
 
 
 ## <a name="define-docker-build-image"></a>Afbeelding van Docker-build definiëren
@@ -173,7 +173,7 @@ Wijzig de Jenkins werkruimte map met de naam van de taak die u in de vorige stap
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Maken van een bestand met de in deze map werkruimte met `sudo sensible-editor Dockerfile` en plak de volgende inhoud. Controleer of de hele Dockerfile correct is gekopieerd met name de eerste regel:
+Maak een bestand in deze map werkruimte met `sudo sensible-editor Dockerfile` en plak de volgende inhoud. Controleer of de hele Dockerfile correct is gekopieerd met name de eerste regel:
 
 ```yaml
 FROM node:alpine
