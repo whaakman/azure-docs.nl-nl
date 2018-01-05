@@ -22,6 +22,7 @@
 ## Implementeren
 ### [Maken met Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Schaalset met Managed Disks](virtual-machine-scale-sets-managed-disks.md)
+### [Beschikbaarheidszones gebruiken](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Een schaalset automatisch schalen](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Azure Portal gebruiken](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Azure CLI 2.0 gebruiken](virtual-machine-scale-sets-autoscale-cli.md)
@@ -51,7 +52,7 @@
 
 # Naslaginformatie
 ## [Azure PowerShell](/powershell/azure/overview)
-## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
+## [Azure-CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Resources

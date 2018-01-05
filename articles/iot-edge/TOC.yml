@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Handleidingen
   items:
-    - name: Een transparante gateway maken
-      href: how-to-create-transparent-gateway.md
+    - name: Gateways maken
+      items:
+        - name: Een transparante gateway maken
+          href: how-to-create-transparent-gateway.md
+        - name: Modbus-gateway
+          href: deploy-modbus-gateway.md
     - name: Op schaal implementeren en bewaken
       href: how-to-deploy-monitor.md
     - name: Een IoT Core-apparaat inrichten

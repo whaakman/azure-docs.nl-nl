@@ -1,5 +1,5 @@
 # Overzicht
-## [Wat is Azure Analysis Services?](analysis-services-overview.md)
+## [Over Analysis Services](analysis-services-overview.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 ## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
 ## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)

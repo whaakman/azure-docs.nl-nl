@@ -52,6 +52,7 @@
 ## Beheren
 ### [Invoer- en uitvoerreferenties roteren](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Betrouwbaarheid van taken tijdens het bijwerken](stream-analytics-job-reliability.md)
+### [Het compatibiliteitsniveau configureren](stream-analytics-compatibility-level.md)
 
 ## Problemen oplossen
 ### [Handleiding voor het oplossen van problemen](stream-analytics-troubleshooting-guide.md)
