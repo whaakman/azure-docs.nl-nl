@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Concepten
   items:
-    - name: Regio’s en beschikbaarheid
-      href: container-instances-region-availability.md
+    - name: Quota en regionale limieten
+      href: container-instances-quotas.md
     - name: Relatie met orchestrators
       href: container-instances-orchestrator-relationship.md
     - name: Containergroepen
@@ -43,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Naslaginformatie
   items:
-    - name: Azure CLI
+    - name: Azure-CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

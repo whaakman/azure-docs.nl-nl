@@ -20,7 +20,7 @@
 #### [Een beheerde schijf toevoegen in beschikbaarheidszones met PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Virtuele-machineschaalsets
-#### [Een virtuele-machineschaalset maken met Azure Portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Een schaalset maken in een beschikbaarheidszone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Load balancer
 #### [Wat is Load Balancer?](../load-balancer/load-balancer-standard-overview.md)
