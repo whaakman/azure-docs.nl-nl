@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory-rapportage latenties
 
@@ -37,15 +37,15 @@ Er zijn twee gebieden van de activiteit reporting:
 
 De volgende tabel bevat de latentie-informatie voor activiteitsrapporten.
 
-| Rapport | Minimum | Gemiddeld |
-| :-- | --- | --- |
-| Controlelogboeken | 30 minuten  | 1 uur  |
-| Aanmeldingen | 15 minuten  | 2 uur |
+| Rapport | Minimum | Gemiddeld | Opmerkingen |
+| :-- | --- | --- | :-- |
+| Controlelogboeken | 30 minuten  | 1 uur  |In sommige gevallen kan deze activiteit controlegegevens worden weergegeven tot 2 uur duren.|
+| Aanmeldingen | 15 minuten  | 2 uur |In sommige gevallen kan het voor aanmeldingsactiviteiten gegevens worden weergegeven tot 24 uur duren. Dit omvat activiteitsgegevens aanmeldingen die afkomstig zijn van verouderde office-toepassingen. |
 
-In sommige gevallen rand kunnen:
 
-- 2 uur voor controle activiteitsgegevens worden weergegeven.
-- 24 uur voor aanmeldingsactiviteiten gegevens worden weergegeven. Dit omvat activiteitsgegevens aanmeldingen die afkomstig zijn van verouderde office-toepassingen. 
+
+
+
 
 
 ## <a name="security-reports"></a>Beveiligingsrapporten
@@ -60,7 +60,7 @@ De volgende tabel bevat de latentie-informatie voor beveiligingsrapporten.
 | Rapport | Minimum | Gemiddeld | Maximum |
 | :-- | --- | --- | --- |
 | Gebruikers die risico lopen          | 5 minuten   | 15 minuten  | 2 uur  |
-| Riskant aanmeldingen         | 5 minuten   | 15 minuten  | 2 uur  |
+| Riskante aanmeldingen         | 5 minuten   | 15 minuten  | 2 uur  |
 
 ## <a name="risk-events"></a>Risicogebeurtenissen
 

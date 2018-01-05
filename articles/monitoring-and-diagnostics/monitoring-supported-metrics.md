@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: f678bba89adf1450bd6a08909fdad51424a210e8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure-Monitor
 Azure biedt verschillende manieren om te communiceren met metrische gegevens, inclusief grafieken ze in de portal of opvragen ze toegang hebben tot deze via de REST-API met PowerShell of CLI. Hieronder volgt een volledige lijst met alle metrische gegevens op dit moment met metrische gegevens van de Monitor van het Azure-pipeline.
@@ -32,49 +32,49 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|qpu_metric|QPU|Count|Gemiddeld|QPU. Bereik 0-100 voor S1, 0-200 voor S2 en 0-400 voor S4|Er zijn geen dimensies|
-|memory_metric|Geheugen|Bytes|Gemiddeld|Geheugen. Bereik van 0-25 GB voor S1, 0-50 GB voor S2 en 0-100 GB voor S4|Er zijn geen dimensies|
-|TotalConnectionRequests|Totaal aantal verbindingsaanvragen|Count|Gemiddeld|Totaal aantal verbindingsaanvragen. Dit zijn ontvangsten.|Er zijn geen dimensies|
-|SuccessfullConnectionsPerSec|Geslaagde verbindingen Per seconde|CountPerSecond|Gemiddeld|Verhouding van geslaagde verbinding voltooiingen.|Er zijn geen dimensies|
-|TotalConnectionFailures|Totaal aantal verbindingsfouten|Count|Gemiddeld|Totaal aantal mislukte verbindingspogingen.|Er zijn geen dimensies|
-|CurrentUserSessions|Huidige gebruikerssessies|Count|Gemiddeld|Huidige aantal gebruikerssessies.|Er zijn geen dimensies|
-|QueryPoolBusyThreads|Query groepen bezet Threads|Count|Gemiddeld|Het aantal bezet threads in de query-thread-groep.|Er zijn geen dimensies|
-|CommandPoolJobQueueLength|Opdracht taak wachtrijlengte|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep opdracht.|Er zijn geen dimensies|
-|ProcessingPoolJobQueueLength|Wachtrijlengte taak verwerken|Count|Gemiddeld|Het aantal niet-I/O-taken in de wachtrij van de thread-pool.|Er zijn geen dimensies|
-|CurrentConnections|Verbinding: Actieve verbindingen|Count|Gemiddeld|Huidig aantal verbindingen van clients tot stand gebracht.|Er zijn geen dimensies|
-|CleanerCurrentPrice|Geheugen: Schonere huidige prijs|Count|Gemiddeld|Huidige prijs geheugen, byte-$/ tijd, genormaliseerd tot en met 1000.|Er zijn geen dimensies|
-|CleanerMemoryShrinkable|Geheugen: Schonere geheugen verkleining|Bytes|Gemiddeld|De hoeveelheid geheugen in bytes, onderworpen aan een schoner opschonen door de achtergrond.|Er zijn geen dimensies|
-|CleanerMemoryNonshrinkable|Geheugen: Schonere geheugen nonshrinkable|Bytes|Gemiddeld|Hoeveelheid geheugen in bytes niet onderworpen aan een schoner opschonen door de achtergrond.|Er zijn geen dimensies|
-|MemoryUsage|: Geheugengebruik geheugen|Bytes|Gemiddeld|Het geheugengebruik van de server-proces gebruikt bij het berekenen van de prijs van schonere geheugen. Die gelijk is aan het prestatiemeteritem Process\PrivateBytes plus de grootte van het geheugen toegewezen gegevens, die is toegewezen of door de xVelocity in het geheugen analyse-engine (VertiPaq) die groter zijn dan de engine xVelocity geheugenlimiet toegewezen geheugen wordt genegeerd.|Er zijn geen dimensies|
-|MemoryLimitHard|Geheugen: Geheugenlimiet harde|Bytes|Gemiddeld|Vaste geheugenlimiet uit het configuratiebestand.|Er zijn geen dimensies|
-|MemoryLimitHigh|Geheugen: Geheugen beperken hoog|Bytes|Gemiddeld|Maximale geheugenlimiet van configuratiebestand.|Er zijn geen dimensies|
-|MemoryLimitLow|Geheugen: Geheugen limiet laag|Bytes|Gemiddeld|Lage geheugenlimiet uit het configuratiebestand.|Er zijn geen dimensies|
-|MemoryLimitVertiPaq|Geheugen: Geheugen limiet VertiPaq|Bytes|Gemiddeld|In het geheugen limiet uit het configuratiebestand.|Er zijn geen dimensies|
-|Quota|Geheugen: quotum|Bytes|Gemiddeld|Huidige geheugenquotum, in bytes. Geheugenquotum wordt ook wel een grant of geheugen reservering voor geheugen.|Er zijn geen dimensies|
-|QuotaBlocked|: Geheugenquotum geblokkeerd|Count|Gemiddeld|Huidig aantal quotum aanvragen die worden geblokkeerd totdat het andere Geheugenquota zijn vrijgegeven.|Er zijn geen dimensies|
-|VertiPaqNonpaged|Geheugen: VertiPaq-wisselbaar geheugen:|Bytes|Gemiddeld|Bytes van geheugen is vergrendeld in de werkset voor gebruik door de engine in het geheugen.|Er zijn geen dimensies|
-|VertiPaqPaged|Geheugen: VertiPaq wisselbaar geheugen:|Bytes|Gemiddeld|Bytes wisselbaar geheugen in gebruik voor gegevens in het geheugen.|Er zijn geen dimensies|
-|RowsReadPerSec|Verwerking: Rijen lezen per seconde|CountPerSecond|Gemiddeld|Het aantal rijen van alle relationele databases worden gelezen.|Er zijn geen dimensies|
-|RowsConvertedPerSec|Verwerking: Rijen geconverteerd per seconde|CountPerSecond|Gemiddeld|Het aantal rijen wordt geconverteerd tijdens de verwerking.|Er zijn geen dimensies|
-|RowsWrittenPerSec|Verwerking: Rijen geschreven per seconde|CountPerSecond|Gemiddeld|De frequentie van geschreven tijdens het verwerken van rijen.|Er zijn geen dimensies|
-|CommandPoolBusyThreads|Threads: Opdracht groepen bezet threads|Count|Gemiddeld|Het aantal bezet threads in de opdracht thread-groep.|Er zijn geen dimensies|
-|CommandPoolIdleThreads|Threads: Opdracht groep niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads in de opdracht thread-groep.|Er zijn geen dimensies|
-|LongParsingBusyThreads|Threads: Long bezet threads parseren|Count|Gemiddeld|Het aantal bezet threads in de lang parseren thread-groep.|Er zijn geen dimensies|
-|LongParsingIdleThreads|Threads: Long bij het parseren van niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads in de lang parseren thread-groep.|Er zijn geen dimensies|
-|LongParsingJobQueueLength|Threads: Parseren lang taak wachtrijlengte|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep lang parseren.|Er zijn geen dimensies|
-|ProcessingPoolBusyIOJobThreads|Threads: Groepen bezet i/o-taak threads verwerken|Count|Gemiddeld|Het aantal actieve threads i/o-taken in de thread-pool.|Er zijn geen dimensies|
-|ProcessingPoolBusyNonIOThreads|Threads: Groep bezet niet-I/O-threads verwerkt|Count|Gemiddeld|Het aantal threads worden uitgevoerd van niet-I/O-taken in de thread-pool.|Er zijn geen dimensies|
-|ProcessingPoolIOJobQueueLength|Threads: Verwerken i/o-taak wachtrijlengte van toepassingen|Count|Gemiddeld|Het aantal i/o-taken in de wachtrij van de thread-pool.|Er zijn geen dimensies|
-|ProcessingPoolIdleIOJobThreads|Threads: Groep niet-actieve i/o-taak threads verwerken|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de thread-pool.|Er zijn geen dimensies|
-|ProcessingPoolIdleNonIOThreads|Threads: Groep niet-actieve niet-I/O-threads verwerken|Count|Gemiddeld|Het aantal niet-actieve threads in de thread-pool toegewezen aan niet-I/O-taken.|Er zijn geen dimensies|
-|QueryPoolIdleThreads|Threads: Query groep niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de thread-pool.|Er zijn geen dimensies|
-|QueryPoolJobQueueLength|Threads: Query groep taak wachtrij lengt|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep query.|Er zijn geen dimensies|
-|ShortParsingBusyThreads|Threads: Korte bezet threads parseren|Count|Gemiddeld|Het aantal bezet threads in de korte parseren thread-groep.|Er zijn geen dimensies|
-|ShortParsingIdleThreads|Threads: Korte bij het parseren van niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads in de korte parseren thread-groep.|Er zijn geen dimensies|
-|ShortParsingJobQueueLength|Threads: Korte wachtrijlengte taak parseren|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep voor korte parseren.|Er zijn geen dimensies|
-|memory_thrashing_metric|Geheugen voorkomen|Procent|Gemiddeld|Gemiddelde geheugen thrashing.|Er zijn geen dimensies|
-|mashup_engine_qpu_metric|M-Engine QPU|Count|Gemiddeld|Gebruik QPU door mashup-engine-processen|Er zijn geen dimensies|
-|mashup_engine_memory_metric|M-Engine-geheugen|Bytes|Gemiddeld|Geheugengebruik door processen voor mashup-engine|Er zijn geen dimensies|
+|qpu_metric|QPU|Count|Gemiddeld|QPU. Bereik 0-100 voor S1, 0-200 voor S2 en 0-400 voor S4|ServerResourceType|
+|memory_metric|Geheugen|Bytes|Gemiddeld|Geheugen. Bereik van 0-25 GB voor S1, 0-50 GB voor S2 en 0-100 GB voor S4|ServerResourceType|
+|TotalConnectionRequests|Totaal aantal verbindingsaanvragen|Count|Gemiddeld|Totaal aantal verbindingsaanvragen. Dit zijn ontvangsten.|ServerResourceType|
+|SuccessfullConnectionsPerSec|Geslaagde verbindingen Per seconde|CountPerSecond|Gemiddeld|Verhouding van geslaagde verbinding voltooiingen.|ServerResourceType|
+|TotalConnectionFailures|Totaal aantal verbindingsfouten|Count|Gemiddeld|Totaal aantal mislukte verbindingspogingen.|ServerResourceType|
+|CurrentUserSessions|Huidige gebruikerssessies|Count|Gemiddeld|Huidige aantal gebruikerssessies.|ServerResourceType|
+|QueryPoolBusyThreads|Query groepen bezet Threads|Count|Gemiddeld|Het aantal bezet threads in de query-thread-groep.|ServerResourceType|
+|CommandPoolJobQueueLength|Opdracht taak wachtrijlengte|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep opdracht.|ServerResourceType|
+|ProcessingPoolJobQueueLength|Wachtrijlengte taak verwerken|Count|Gemiddeld|Het aantal niet-I/O-taken in de wachtrij van de thread-pool.|ServerResourceType|
+|CurrentConnections|Verbinding: Actieve verbindingen|Count|Gemiddeld|Huidig aantal verbindingen van clients tot stand gebracht.|ServerResourceType|
+|CleanerCurrentPrice|Geheugen: Schonere huidige prijs|Count|Gemiddeld|Huidige prijs geheugen, byte-$/ tijd, genormaliseerd tot en met 1000.|ServerResourceType|
+|CleanerMemoryShrinkable|Geheugen: Schonere geheugen verkleining|Bytes|Gemiddeld|De hoeveelheid geheugen in bytes, onderworpen aan een schoner opschonen door de achtergrond.|ServerResourceType|
+|CleanerMemoryNonshrinkable|Geheugen: Schonere geheugen nonshrinkable|Bytes|Gemiddeld|Hoeveelheid geheugen in bytes niet onderworpen aan een schoner opschonen door de achtergrond.|ServerResourceType|
+|MemoryUsage|: Geheugengebruik geheugen|Bytes|Gemiddeld|Het geheugengebruik van de server-proces gebruikt bij het berekenen van de prijs van schonere geheugen. Die gelijk is aan het prestatiemeteritem Process\PrivateBytes plus de grootte van het geheugen toegewezen gegevens, die is toegewezen of door de xVelocity in het geheugen analyse-engine (VertiPaq) die groter zijn dan de engine xVelocity geheugenlimiet toegewezen geheugen wordt genegeerd.|ServerResourceType|
+|MemoryLimitHard|Geheugen: Geheugenlimiet harde|Bytes|Gemiddeld|Vaste geheugenlimiet uit het configuratiebestand.|ServerResourceType|
+|MemoryLimitHigh|Geheugen: Geheugen beperken hoog|Bytes|Gemiddeld|Maximale geheugenlimiet van configuratiebestand.|ServerResourceType|
+|MemoryLimitLow|Geheugen: Geheugen limiet laag|Bytes|Gemiddeld|Lage geheugenlimiet uit het configuratiebestand.|ServerResourceType|
+|MemoryLimitVertiPaq|Geheugen: Geheugen limiet VertiPaq|Bytes|Gemiddeld|In het geheugen limiet uit het configuratiebestand.|ServerResourceType|
+|Quota|Geheugen: quotum|Bytes|Gemiddeld|Huidige geheugenquotum, in bytes. Geheugenquotum wordt ook wel een grant of geheugen reservering voor geheugen.|ServerResourceType|
+|QuotaBlocked|: Geheugenquotum geblokkeerd|Count|Gemiddeld|Huidig aantal quotum aanvragen die worden geblokkeerd totdat het andere Geheugenquota zijn vrijgegeven.|ServerResourceType|
+|VertiPaqNonpaged|Geheugen: VertiPaq-wisselbaar geheugen:|Bytes|Gemiddeld|Bytes van geheugen is vergrendeld in de werkset voor gebruik door de engine in het geheugen.|ServerResourceType|
+|VertiPaqPaged|Geheugen: VertiPaq wisselbaar geheugen:|Bytes|Gemiddeld|Bytes wisselbaar geheugen in gebruik voor gegevens in het geheugen.|ServerResourceType|
+|RowsReadPerSec|Verwerking: Rijen lezen per seconde|CountPerSecond|Gemiddeld|Het aantal rijen van alle relationele databases worden gelezen.|ServerResourceType|
+|RowsConvertedPerSec|Verwerking: Rijen geconverteerd per seconde|CountPerSecond|Gemiddeld|Het aantal rijen wordt geconverteerd tijdens de verwerking.|ServerResourceType|
+|RowsWrittenPerSec|Verwerking: Rijen geschreven per seconde|CountPerSecond|Gemiddeld|De frequentie van geschreven tijdens het verwerken van rijen.|ServerResourceType|
+|CommandPoolBusyThreads|Threads: Opdracht groepen bezet threads|Count|Gemiddeld|Het aantal bezet threads in de opdracht thread-groep.|ServerResourceType|
+|CommandPoolIdleThreads|Threads: Opdracht groep niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads in de opdracht thread-groep.|ServerResourceType|
+|LongParsingBusyThreads|Threads: Long bezet threads parseren|Count|Gemiddeld|Het aantal bezet threads in de lang parseren thread-groep.|ServerResourceType|
+|LongParsingIdleThreads|Threads: Long bij het parseren van niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads in de lang parseren thread-groep.|ServerResourceType|
+|LongParsingJobQueueLength|Threads: Parseren lang taak wachtrijlengte|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep lang parseren.|ServerResourceType|
+|ProcessingPoolBusyIOJobThreads|Threads: Groepen bezet i/o-taak threads verwerken|Count|Gemiddeld|Het aantal actieve threads i/o-taken in de thread-pool.|ServerResourceType|
+|ProcessingPoolBusyNonIOThreads|Threads: Groep bezet niet-I/O-threads verwerkt|Count|Gemiddeld|Het aantal threads worden uitgevoerd van niet-I/O-taken in de thread-pool.|ServerResourceType|
+|ProcessingPoolIOJobQueueLength|Threads: Verwerken i/o-taak wachtrijlengte van toepassingen|Count|Gemiddeld|Het aantal i/o-taken in de wachtrij van de thread-pool.|ServerResourceType|
+|ProcessingPoolIdleIOJobThreads|Threads: Groep niet-actieve i/o-taak threads verwerken|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de thread-pool.|ServerResourceType|
+|ProcessingPoolIdleNonIOThreads|Threads: Groep niet-actieve niet-I/O-threads verwerken|Count|Gemiddeld|Het aantal niet-actieve threads in de thread-pool toegewezen aan niet-I/O-taken.|ServerResourceType|
+|QueryPoolIdleThreads|Threads: Query groep niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads voor i/o-taken in de thread-pool.|ServerResourceType|
+|QueryPoolJobQueueLength|Threads: Query groep taak wachtrij lengt|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep query.|ServerResourceType|
+|ShortParsingBusyThreads|Threads: Korte bezet threads parseren|Count|Gemiddeld|Het aantal bezet threads in de korte parseren thread-groep.|ServerResourceType|
+|ShortParsingIdleThreads|Threads: Korte bij het parseren van niet-actieve threads|Count|Gemiddeld|Het aantal niet-actieve threads in de korte parseren thread-groep.|ServerResourceType|
+|ShortParsingJobQueueLength|Threads: Korte wachtrijlengte taak parseren|Count|Gemiddeld|Het aantal taken in de wachtrij van de threadgroep voor korte parseren.|ServerResourceType|
+|memory_thrashing_metric|Geheugen voorkomen|Procent|Gemiddeld|Gemiddelde geheugen thrashing.|ServerResourceType|
+|mashup_engine_qpu_metric|M-Engine QPU|Count|Gemiddeld|Gebruik QPU door mashup-engine-processen|ServerResourceType|
+|mashup_engine_memory_metric|M-Engine-geheugen|Bytes|Gemiddeld|Geheugengebruik door processen voor mashup-engine|ServerResourceType|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -92,7 +92,7 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|TotalJob|Totaal aantal taken|Count|Totaal|Het totale aantal taken|Er zijn geen dimensies|
+|TotalJob|Totaal aantal taken|Count|Totaal|Het totale aantal taken|RunbookName, Status|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -132,7 +132,7 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |cachehits|Cachetreffers|Count|Totaal||Er zijn geen dimensies|
 |cachemisses|Cachemissers|Count|Totaal||Er zijn geen dimensies|
 |getcommands|Opgehaalde items|Count|Totaal||Er zijn geen dimensies|
-|setcommands|Sets|Count|Totaal||Er zijn geen dimensies|
+|setcommands|Ingestelde items|Count|Totaal||Er zijn geen dimensies|
 |evictedkeys|Verwijderde sleutels|Count|Totaal||Er zijn geen dimensies|
 |totalkeys|Totaal aantal sleutels|Count|Maximum||Er zijn geen dimensies|
 |expiredkeys|Verlopen sleutels|Count|Totaal||Er zijn geen dimensies|
@@ -297,13 +297,13 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen compute-eenheden die momenteel in gebruik door de virtuele machine.|Er zijn geen dimensies|
-|Netwerk in|Netwerk in|Bytes|Totaal|Het aantal bytes dat door de virtuele machine (inkomend verkeer) op alle netwerkinterfaces worden ontvangen.|Er zijn geen dimensies|
-|Netwerk uit|Netwerk uit|Bytes|Totaal|Het aantal bytes in alle netwerkinterfaces door de virtuele machine (uitgaande verkeer).|Er zijn geen dimensies|
-|Gelezen Bytes per seconde|Schijf lezen|BytesPerSecond|Gemiddeld|Gemiddelde aantal bytes lezen van de schijf tijdens de bewaking van de periode.|Er zijn geen dimensies|
-|Geschreven Bytes per seconde|Schijf schrijven|BytesPerSecond|Gemiddeld|Gemiddelde aantal bytes geschreven naar de schijf tijdens de bewaking van de periode.|Er zijn geen dimensies|
-|Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Schijf lezen IOPS.|Er zijn geen dimensies|
-|Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Schijf schrijven IOPS.|Er zijn geen dimensies|
+|Percentage CPU|Percentage CPU|Procent|Gemiddeld|Het percentage toegewezen berekeningseenheden dat momenteel door de virtuele machine(s) wordt gebruikt.|Er zijn geen dimensies|
+|Netwerk in|Netwerk in|Bytes|Totaal|Het aantal ontvangen bytes op alle netwerkinterfaces door de virtuele machine(s) (binnenkomend verkeer).|Er zijn geen dimensies|
+|Netwerk uit|Netwerk uit|Bytes|Totaal|Het aantal verzonden bytes op alle netwerkinterfaces door de virtuele machine(s) (uitgaand verkeer).|Er zijn geen dimensies|
+|Gelezen bytes per seconde op de schijf|Schijf lezen|BytesPerSecond|Gemiddeld|Gemiddeld aantal gelezen bytes op de schijf tijdens de controleperiode.|Er zijn geen dimensies|
+|Geschreven bytes per seconde|Schijf schrijven|BytesPerSecond|Gemiddeld|Gemiddeld aantal geschreven bytes op de schijf tijdens de controleperiode.|Er zijn geen dimensies|
+|Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Gelezen IOP's op de schijf.|Er zijn geen dimensies|
+|Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Geschreven IOP's op de schijf.|Er zijn geen dimensies|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
@@ -318,8 +318,9 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |DataIn|Inkomende gegevens|Bytes|Totaal|Grootte van inkomende gegevens in bytes.|Er zijn geen dimensies|
 |DataOut|Uitgaande gegevens|Bytes|Totaal|Grootte van uitgaande gegevens in bytes.|Er zijn geen dimensies|
 |Latentie|Latentie|Milliseconden|Gemiddeld|Latentie in milliseconden|Er zijn geen dimensies|
-|CharactersTranslated|Vertaald tekens|Count|Totaal|Totaal aantal tekens in inkomende aanvraag opgegeven tekst.|Er zijn geen dimensies|
-|SpeechSessionDuration|Spraak sessieduur|Seconden|Totaal|Totale duur van de sessie spraak in seconden.|Er zijn geen dimensies|
+|CharactersTranslated|Tekens vertaald|Count|Totaal|Totaal aantal tekens in inkomende tekstaanvraag.|Er zijn geen dimensies|
+|SpeechSessionDuration|Duur van de spraaksessie|Seconden|Totaal|Totale duur van de spraaksessie in seconden.|Er zijn geen dimensies|
+|TotalTransactions|Totaal aantal transacties|Count|Totaal|Totaal aantal transacties|Er zijn geen dimensies|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -332,8 +333,8 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal geschreven bytes op de schijf tijdens de controleperiode|Er zijn geen dimensies|
 |Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Gelezen IOP's op de schijf|Er zijn geen dimensies|
 |Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Geschreven IOP's op de schijf|Er zijn geen dimensies|
-|CPU-tegoed resterend|CPU-tegoed resterend|Count|Gemiddeld|Totaal aantal tegoed beschikbaar voor burst|Er zijn geen dimensies|
-|CPU-tegoed verbruikt|CPU-tegoed verbruikt|Count|Gemiddeld|Totaal aantal tegoed is gebruikt door de virtuele Machine|Er zijn geen dimensies|
+|Resterend CPU-tegoed|Resterend CPU-tegoed|Count|Gemiddeld|Totale tegoed beschikbaar voor burst|Er zijn geen dimensies|
+|Verbruikt CPU-tegoed|Verbruikt CPU-tegoed|Count|Gemiddeld|Totale tegoed gebruikt door de virtuele machine|Er zijn geen dimensies|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -346,8 +347,8 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal geschreven bytes op de schijf tijdens de controleperiode|Er zijn geen dimensies|
 |Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Gelezen IOP's op de schijf|Er zijn geen dimensies|
 |Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Geschreven IOP's op de schijf|Er zijn geen dimensies|
-|CPU-tegoed resterend|CPU-tegoed resterend|Count|Gemiddeld|Totaal aantal tegoed beschikbaar voor burst|Er zijn geen dimensies|
-|CPU-tegoed verbruikt|CPU-tegoed verbruikt|Count|Gemiddeld|Totaal aantal tegoed is gebruikt door de virtuele Machine|Er zijn geen dimensies|
+|Resterend CPU-tegoed|Resterend CPU-tegoed|Count|Gemiddeld|Totale tegoed beschikbaar voor burst|Er zijn geen dimensies|
+|Verbruikt CPU-tegoed|Verbruikt CPU-tegoed|Count|Gemiddeld|Totale tegoed gebruikt door de virtuele machine|Er zijn geen dimensies|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -360,8 +361,8 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Geschreven bytes op de schijf|Geschreven bytes op de schijf|Bytes|Totaal|Totaal aantal geschreven bytes op de schijf tijdens de controleperiode|Er zijn geen dimensies|
 |Leesbewerkingen op de schijf/seconde|Leesbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Gelezen IOP's op de schijf|Er zijn geen dimensies|
 |Schrijfbewerkingen op de schijf/seconde|Schrijfbewerkingen op de schijf/seconde|CountPerSecond|Gemiddeld|Geschreven IOP's op de schijf|Er zijn geen dimensies|
-|CPU-tegoed resterend|CPU-tegoed resterend|Count|Gemiddeld|Totaal aantal tegoed beschikbaar voor burst|Er zijn geen dimensies|
-|CPU-tegoed verbruikt|CPU-tegoed verbruikt|Count|Gemiddeld|Totaal aantal tegoed is gebruikt door de virtuele Machine|Er zijn geen dimensies|
+|Resterend CPU-tegoed|Resterend CPU-tegoed|Count|Gemiddeld|Totale tegoed beschikbaar voor burst|Er zijn geen dimensies|
+|Verbruikt CPU-tegoed|Verbruikt CPU-tegoed|Count|Gemiddeld|Totale tegoed gebruikt door de virtuele machine|Er zijn geen dimensies|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -391,12 +392,30 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |AdlaJobForStandardKpiCompleted|De taak Adla voor standaard-Kpi voltooid In seconden|Seconden|Totaal||Er zijn geen dimensies|
 |ImportASAValuesFailed|Importeren ASA waarden aantal is mislukt|Count|Totaal||Er zijn geen dimensies|
 |ImportASAValuesSucceeded|Importeren ASA waarden aantal is voltooid|Count|Totaal||Er zijn geen dimensies|
-|DCIProfilesCount|Aantal exemplaren op profiel|Count|Laatste||Er zijn geen dimensies|
-|DCIInteractionsPerMonthCount|Interacties aantal per maand|Count|Laatste||Er zijn geen dimensies|
-|DCIKpisCount|Aantal van de KPI|Count|Laatste||Er zijn geen dimensies|
-|DCISegmentsCount|Aantal eenheden|Count|Laatste||Er zijn geen dimensies|
-|DCIPredictiveMatchPoliciesCount|Aantal voorspellende overeenkomsten|Count|Laatste||Er zijn geen dimensies|
-|DCIPredictionsCount|Aantal voorspelling|Count|Laatste||Er zijn geen dimensies|
+|DCIProfilesCount|Aantal exemplaren op profiel|Count|Nieuwste||Er zijn geen dimensies|
+|DCIInteractionsPerMonthCount|Interacties aantal per maand|Count|Nieuwste||Er zijn geen dimensies|
+|DCIKpisCount|Aantal van de KPI|Count|Nieuwste||Er zijn geen dimensies|
+|DCISegmentsCount|Aantal segmenten|Count|Nieuwste||Er zijn geen dimensies|
+|DCIPredictiveMatchPoliciesCount|Aantal voorspellende overeenkomsten|Count|Nieuwste||Er zijn geen dimensies|
+|DCIPredictionsCount|Aantal voorspelling|Count|Nieuwste||Er zijn geen dimensies|
+
+## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|SuccessfulRuns|Geslaagde verwerkingen|Count|Totaal|Aantal geslaagde wordt uitgevoerd.|Er zijn geen dimensies|
+|FailedRuns|Mislukte verwerkingen|Count|Totaal|Het aantal mislukte wordt uitgevoerd.|Er zijn geen dimensies|
+
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|PipelineFailedRuns|Pijplijn wordt uitgevoerd metrische gegevens is mislukt|Count|Totaal||Er zijn geen dimensies|
+|PipelineSucceededRuns|Pijplijn wordt uitgevoerd metrische gegevens is voltooid|Count|Totaal||Er zijn geen dimensies|
+|ActivityFailedRuns|Metrische gegevens van activiteiten wordt uitgevoerd is mislukt|Count|Totaal||Er zijn geen dimensies|
+|ActivitySucceededRuns|Metrische gegevens van activiteiten wordt uitgevoerd is voltooid|Count|Totaal||Er zijn geen dimensies|
+|TriggerFailedRuns|Trigger wordt uitgevoerd metrische gegevens is mislukt|Count|Totaal||Er zijn geen dimensies|
+|TriggerSucceededRuns|Trigger wordt uitgevoerd metrische gegevens is voltooid|Count|Totaal||Er zijn geen dimensies|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
 
@@ -416,8 +435,8 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |TotalStorage|Totale opslagruimte|Bytes|Maximum|Totale hoeveelheid gegevens die zijn opgeslagen in het account.|Er zijn geen dimensies|
 |dataWritten|Gegevens die worden geschreven|Bytes|Totaal|Totale hoeveelheid gegevens geschreven naar het account.|Er zijn geen dimensies|
 |dataRead|Gegevens lezen|Bytes|Totaal|Totale hoeveelheid gegevens gelezen uit het account.|Er zijn geen dimensies|
-|WriteRequests|Schrijven van aanvragen|Count|Totaal|Telling van gegevens schrijfaanvragen aan het account.|Er zijn geen dimensies|
-|ReadRequests|Alleen aanvragen|Count|Totaal|Telling van gegevens lezen-aanvragen voor het account.|Er zijn geen dimensies|
+|WriteRequests|Aanvragen schrijven|Count|Totaal|Telling van gegevens schrijfaanvragen aan het account.|Er zijn geen dimensies|
+|ReadRequests|Aanvragen lezen|Count|Totaal|Telling van gegevens lezen-aanvragen voor het account.|Er zijn geen dimensies|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -519,19 +538,108 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |DeviceAssignments|Apparaten die zijn toegewezen|Count|Totaal|Aantal apparaten dat is toegewezen aan een IoT-hub|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Attestation pogingen|Count|Totaal|Het aantal apparaten verklaringen geprobeerd|ProvisioningServiceName, Status,-Protocol|
 
-<a id="cosmosdb"></a>
+## <a name="microsoftdeviceselasticpools"></a>Microsoft.Devices/ElasticPools
 
-## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|TotalRequests|Totaal aantal aanvragen|Count|Count|Aantal aanvragen|DatabaseAccount, CollectionName, DatabaseName, regio, StatusCode|
-|MongoRequests|Mongo-aanvragen|Count|Count|Aantal Mongo-aanvragen|DatabaseAccount, CollectionName, DatabaseName, regio, ErrorCode, CommandName|
+|elasticPool.requestedUsageRate|aangevraagde verbruiksniveau|Procent|Gemiddeld|aangevraagde verbruiksniveau|Er zijn geen dimensies|
+
+## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|tenantHub.requestedUsageRate|aangevraagde verbruiksniveau|Procent|Gemiddeld|aangevraagde verbruiksniveau|Er zijn geen dimensies|
+|deviceDataUsage|Totaal aantal devicedata gebruik|Count|Totaal|Bytes overgedragen van en naar alle apparaten die zijn verbonden met IotHub|Er zijn geen dimensies|
+|d2c.telemetry.ingress.allProtocol|Telemetrie-bericht verzenden pogingen|Count|Totaal|Aantal voor apparaat-naar-cloud-telemetrieberichten worden verzonden naar uw IoT-hub geprobeerd|Er zijn geen dimensies|
+|d2c.telemetry.ingress.Success|Telemetrieberichten|Count|Totaal|Aantal voor apparaat-naar-cloud-telemetrieberichten is verzonden naar uw IoT-hub|Er zijn geen dimensies|
+|c2d.Commands.egress.complete.Success|Opdrachten voltooid|Count|Totaal|Aantal opdrachten voor cloud-naar-apparaat is voltooid door het apparaat|Er zijn geen dimensies|
+|c2d.Commands.egress.Abandon.Success|Opdrachten afgebroken|Count|Totaal|Aantal cloud-naar-apparaatopdrachten afgebroken door het apparaat|Er zijn geen dimensies|
+|c2d.Commands.egress.Reject.Success|Opdrachten geweigerd|Count|Totaal|Aantal cloud-naar-apparaatopdrachten geweigerd door het apparaat|Er zijn geen dimensies|
+|devices.totalDevices|Totaal aantal apparaten|Count|Totaal|Aantal apparaten geregistreerd bij uw IoT-hub|Er zijn geen dimensies|
+|devices.connectedDevices.allProtocol|Verbonden apparaten|Count|Totaal|Aantal apparaten dat is verbonden met uw IoT-hub|Er zijn geen dimensies|
+|d2c.telemetry.egress.Success|Telemetrieberichten geleverd|Count|Totaal|Aantal keren dat berichten zijn geschreven naar eindpunten (totaal)|Er zijn geen dimensies|
+|d2c.telemetry.egress.Dropped|Verwijderde berichten|Count|Totaal|Aantal berichten dat is verwijderd omdat het eindpunt voor de levering van inactieve|Er zijn geen dimensies|
+|d2c.telemetry.egress.orphaned|Zwevende berichten|Count|Totaal|Het aantal berichten die niet voldoen aan alle routes met inbegrip van de route voor terugval|Er zijn geen dimensies|
+|d2c.telemetry.egress.Invalid|Ongeldige-berichten|Count|Totaal|Het aantal berichten niet worden bezorgd omdat ze niet compatibel met het eindpunt|Er zijn geen dimensies|
+|d2c.telemetry.egress.fallback|Berichten die overeenkomt met alternatieve voorwaarde|Count|Totaal|Aantal berichten dat is geschreven naar het eindpunt voor terugval|Er zijn geen dimensies|
+|d2c.endpoints.egress.eventHubs|Berichten in de Event Hub-eindpunten|Count|Totaal|Aantal keren dat berichten zijn geschreven naar de Event Hub-eindpunten|Er zijn geen dimensies|
+|d2c.endpoints.Latency.eventHubs|Bericht latentie voor Event Hub-eindpunten|Milliseconden|Gemiddeld|De gemiddelde latentie tussen inkomend bericht met de iothub en inkomend bericht in een Event Hub-eindpunt, in milliseconden|Er zijn geen dimensies|
+|d2c.endpoints.egress.serviceBusQueues|Berichten worden afgeleverd bij Service Bus-wachtrij-eindpunten|Count|Totaal|Aantal keren dat berichten zijn geschreven naar Service Bus-wachtrij-eindpunten|Er zijn geen dimensies|
+|d2c.endpoints.Latency.serviceBusQueues|Bericht latentie voor Service Bus-wachtrij-eindpunten|Milliseconden|Gemiddeld|De gemiddelde latentie tussen inkomend bericht met de iothub en inkomend bericht in een Service Bus-wachtrij eindpunt, in milliseconden|Er zijn geen dimensies|
+|d2c.endpoints.egress.serviceBusTopics|Berichten worden afgeleverd bij Service Bus-onderwerp eindpunten|Count|Totaal|Aantal keren dat berichten zijn geschreven naar Service Bus-onderwerp eindpunten|Er zijn geen dimensies|
+|d2c.endpoints.Latency.serviceBusTopics|Bericht latentie voor Service Bus-onderwerp eindpunten|Milliseconden|Gemiddeld|De gemiddelde latentie tussen inkomend bericht met de iothub en inkomend bericht in een eindpunt Service Bus-onderwerp in milliseconden|Er zijn geen dimensies|
+|d2c.endpoints.egress.builtIn.events|Berichten die worden geleverd aan het ingebouwde eindpunt (berichten/gebeurtenissen)|Count|Totaal|Aantal keren dat berichten zijn geschreven naar het ingebouwde eindpunt (berichten/gebeurtenissen)|Er zijn geen dimensies|
+|d2c.endpoints.Latency.builtIn.events|Bericht latentie voor het ingebouwde eindpunt (berichten/gebeurtenissen)|Milliseconden|Gemiddeld|De gemiddelde latentie tussen inkomend bericht met de iothub en inkomend bericht in het ingebouwde eindpunt (berichten/gebeurtenissen), in milliseconden |Er zijn geen dimensies|
+|d2c.endpoints.egress.Storage|Berichten in de opslag-eindpunten|Count|Totaal|Aantal keren dat berichten zijn geschreven naar de opslag-eindpunten|Er zijn geen dimensies|
+|d2c.endpoints.Latency.Storage|Bericht latentie voor opslag-eindpunten|Milliseconden|Gemiddeld|De gemiddelde latentie tussen inkomend bericht met de iothub en inkomend bericht in een opslag-eindpunt in milliseconden|Er zijn geen dimensies|
+|d2c.endpoints.egress.Storage.bytes|Gegevens die zijn geschreven naar de opslag|Bytes|Totaal|Hoeveelheid gegevens in bytes geschreven naar de opslag-eindpunten|Er zijn geen dimensies|
+|d2c.endpoints.egress.Storage.blobs|BLOBs die zijn geschreven naar de opslag|Count|Totaal|Aantal blobs geschreven naar de opslag-eindpunten|Er zijn geen dimensies|
+|d2c.Twin.Read.Success|Geslaagde twin leesbewerkingen van apparaten|Count|Totaal|De telling van alle geslaagde apparaat geïnitieerde twin leest.|Er zijn geen dimensies|
+|d2c.Twin.Read.failure|Twin leesbewerkingen van apparaten is mislukt|Count|Totaal|De telling van alle apparaat geïnitieerde twin leesbewerkingen mislukt.|Er zijn geen dimensies|
+|d2c.Twin.Read.Size|De grootte van de antwoorden twin leesbewerkingen van apparaten|Bytes|Gemiddeld|De gemiddelde min en max van alle geslaagde apparaat geïnitieerde twin leest.|Er zijn geen dimensies|
+|d2c.Twin.update.Success|Geslaagde twin updates van apparaten|Count|Totaal|Het aantal updates van alle geslaagde twin apparaat gestart.|Er zijn geen dimensies|
+|d2c.Twin.update.failure|Twin updates van apparaten is mislukt|Count|Totaal|De telling van alle apparaat geïnitieerde twin updates mislukt.|Er zijn geen dimensies|
+|d2c.Twin.update.Size|Grootte van de updates twin van apparaten|Bytes|Gemiddeld|De gemiddelde min. en max. grootte van alle geslaagde apparaat geïnitieerde twin updates.|Er zijn geen dimensies|
+|c2d.Methods.Success|Geslaagde directe methode aanroepen|Count|Totaal|De telling van alle geslaagde directe methodeaanroepen.|Er zijn geen dimensies|
+|c2d.Methods.failure|Directe methode aanroepen is mislukt|Count|Totaal|De telling van alle directe methodeaanroepen mislukt.|Er zijn geen dimensies|
+|c2d.Methods.requestSize|Aanvraaggrootte van directe methode aanroepen|Bytes|Gemiddeld|De gemiddelde, min en max van alle geslaagde aanvragen voor directe methode.|Er zijn geen dimensies|
+|c2d.Methods.responseSize|Reactiegrootte van directe methode aanroepen|Bytes|Gemiddeld|De gemiddelde, min en max van alle geslaagde directe methode antwoorden.|Er zijn geen dimensies|
+|c2d.Twin.Read.Success|Geslaagde twin leest uit back-end|Count|Totaal|De telling van alle geslaagde back-end-geïnitieerde twin leest.|Er zijn geen dimensies|
+|c2d.Twin.Read.failure|Mislukte twin leest uit back-end|Count|Totaal|De telling van alle kan geen back-end-geïnitieerde twin leest.|Er zijn geen dimensies|
+|c2d.Twin.Read.Size|De grootte van de antwoorden twin leesbewerkingen van back-end|Bytes|Gemiddeld|De gemiddelde min en max van alle geslaagde back-end-geïnitieerde twin leest.|Er zijn geen dimensies|
+|c2d.Twin.update.Success|Geslaagde twin updates van de back-end|Count|Totaal|De telling van alle geslaagde back-end-geïnitieerde twin updates.|Er zijn geen dimensies|
+|c2d.Twin.update.failure|Mislukte twin updates van de back-end|Count|Totaal|De telling van alle back-end-geïnitieerde twin updates mislukt.|Er zijn geen dimensies|
+|c2d.Twin.update.Size|Grootte van twin updates van de back-end|Bytes|Gemiddeld|De gemiddelde min. en max. grootte van alle geslaagde back-end-geïnitieerde twin updates.|Er zijn geen dimensies|
+|twinQueries.success|Geslaagde twin query 's|Count|Totaal|De telling van alle geslaagde twin query's.|Er zijn geen dimensies|
+|twinQueries.failure|Mislukte twin query 's|Count|Totaal|De telling van alle mislukte twin query's.|Er zijn geen dimensies|
+|twinQueries.resultSize|Grootte van query's Twin|Bytes|Gemiddeld|De gemiddelde, min en max van de grootte van het resultaat van alle geslaagde twin query's.|Er zijn geen dimensies|
+|jobs.createTwinUpdateJob.success|Geslaagde bewerkingen voor het maken van twin taken bijwerken|Count|Totaal|De telling van alle geslaagde twin update taken worden gemaakt.|Er zijn geen dimensies|
+|jobs.createTwinUpdateJob.failure|Mislukte bewerkingen voor het maken van twin taken bijwerken|Count|Totaal|De telling van alle mislukte twin update taken worden gemaakt.|Er zijn geen dimensies|
+|jobs.createDirectMethodJob.success|Geslaagde bewerkingen voor het maken van de methode aanroepen van taken|Count|Totaal|De telling van alle geslaagde directe methode aanroepen taken worden gemaakt.|Er zijn geen dimensies|
+|jobs.createDirectMethodJob.failure|Mislukte bewerkingen voor het maken van de methode aanroepen van taken|Count|Totaal|De telling van alle maken van taken voor directe methode-aanroep is mislukt.|Er zijn geen dimensies|
+|jobs.listJobs.success|Geslaagde aanroepen naar de lijst met taken|Count|Totaal|De telling van alle geslaagde aanroepen naar de lijst met taken.|Er zijn geen dimensies|
+|jobs.listJobs.failure|Kan niet aanroepen voor een lijst met taken|Count|Totaal|De telling van alle mislukte aanroepen naar de lijst met taken.|Er zijn geen dimensies|
+|jobs.cancelJob.success|Geslaagde taakannuleringen|Count|Totaal|De telling van alle geslaagde aanroepen naar een taak annuleren.|Er zijn geen dimensies|
+|jobs.cancelJob.failure|Mislukte taakannuleringen|Count|Totaal|De telling van alle mislukte aanroepen voor een taak annuleren.|Er zijn geen dimensies|
+|jobs.queryJobs.success|Taak query 's|Count|Totaal|De telling van alle geslaagde aanroepen naar query taken.|Er zijn geen dimensies|
+|jobs.queryJobs.failure|Taak voert een query is mislukt|Count|Totaal|De telling van alle mislukte aanroepen naar query taken.|Er zijn geen dimensies|
+|jobs.completed|Voltooide taken|Count|Totaal|De telling van alle voltooide taken.|Er zijn geen dimensies|
+|jobs.failed|Mislukte taken|Count|Totaal|De telling van alle mislukte taken.|Er zijn geen dimensies|
+|d2c.telemetry.ingress.sendThrottle|Aantal bandbreedteregeling fouten|Count|Totaal|Beperkt aantal bandbreedteregeling fouten als gevolg van de doorvoer van apparaat|Er zijn geen dimensies|
+|dailyMessageQuotaUsed|Totaal aantal berichten dat is gebruikt|Count|Gemiddeld|Het aantal totale aantal berichten die op dit moment gebruikt. Dit is een cumulatieve waarde die is ingesteld op nul op 00:00 UTC elke dag.|Er zijn geen dimensies|
+
+## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|MetadataRequests|Aanvragen voor metagegevens|Count|Count|Het aantal aanvragen voor metagegevens. Cosmos DB onderhoudt system metagegevensverzameling voor elk account waarmee u opsommen verzamelingen, databases, enzovoort, en de bijbehorende configuraties, gratis.|GlobalDatabaseAccountName, DatabaseName, CollectionName, regio, StatusCode|
+|MongoRequestCharge|Mongo aanvraag kosten|Count|Totaal|Mongo Aanvraageenheden verbruikt|GlobalDatabaseAccountName, DatabaseName, CollectionName, regio, CommandName, foutcode|
+|MongoRequests|Mongo-aanvragen|Count|Count|Aantal Mongo-aanvragen|GlobalDatabaseAccountName, DatabaseName, CollectionName, regio, CommandName, foutcode|
+|TotalRequestUnits|Totaal aantal Aanvraageenheden|Count|Totaal|Eenheden verbruikt aanvragen|GlobalDatabaseAccountName, DatabaseName, CollectionName, regio, StatusCode|
+|TotalRequests|Totaal aantal aanvragen|Count|Count|Aantal aanvragen|GlobalDatabaseAccountName, DatabaseName, CollectionName, regio, StatusCode|
+
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|INREQS|Binnenkomende verzendaanvragen|Count|Totaal|Totaal aantal binnenkomende aanvragen voor een naamruimte verzenden|Er zijn geen dimensies|
+|SuccessfulRequests|Geslaagde aanvragen (Preview)|Count|Totaal|Voltooide aanvragen voor Microsoft.EventHub. (Preview)|entityName|
+|ServerErrors|Serverfouten. (Preview)|Count|Totaal|Serverfouten voor Microsoft.EventHub. (Preview)|entityName|
+|UserErrors|Gebruikersfouten. (Preview)|Count|Totaal|Gebruikersfouten voor Microsoft.EventHub. (Preview)|entityName|
+|QuotaExceededErrors|Fout met overschreden quotum. (Preview)|Count|Totaal|Fout met overschreden quotum voor Microsoft.EventHub. (Preview)|entityName|
+|ThrottledRequests|Beperkte aanvragen. (Preview)|Count|Totaal|Beperkte aanvragen voor Microsoft.EventHub. (Preview)|entityName|
+|IncomingRequests|Inkomende aanvragen (Preview)|Count|Totaal|Binnenkomende aanvragen voor Microsoft.EventHub. (Preview)|entityName|
+|IncomingMessages|Binnenkomende berichten (Preview)|Count|Totaal|Binnenkomende berichten voor Microsoft.EventHub. (Preview)|entityName|
+|OutgoingMessages|Uitgaande berichten (Preview)|Count|Totaal|Uitgaande berichten voor Microsoft.EventHub. (Preview)|entityName|
+|IncomingBytes|Binnenkomende bytes. (Preview)|Bytes|Totaal|Binnenkomende bytes voor Microsoft.EventHub. (Preview)|entityName|
+|OutgoingBytes|Uitgaande bytes. (Preview)|Bytes|Totaal|Uitgaande bytes voor Microsoft.EventHub. (Preview)|entityName|
+|ActiveConnections|ActiveConnections (Preview)|Count|Totaal|Totaal aantal actieve verbindingen voor Microsoft.EventHub. (Preview)|entityName|
+|ConnectionsOpened|Geopende verbindingen. (Preview)|Count|Totaal|Geopende verbindingen voor Microsoft.EventHub. (Preview)|entityName|
+|ConnectionsClosed|Gesloten verbindingen. (Preview)|Count|Totaal|Gesloten verbindingen voor Microsoft.EventHub. (Preview)|entityName|
+|CaptureBacklog|Achterstand vastleggen. (Preview)|Count|Totaal|Achterstand vastleggen voor Microsoft.EventHub. (Preview)|entityName|
+|CapturedMessages|Vastgelegde berichten. (Preview)|Count|Totaal|Vastgelegde berichten voor Microsoft.EventHub. (Preview)|entityName|
+|CapturedBytes|Vastgelegde bytes. (Preview)|Bytes|Totaal|Vastgelegde bytes voor Microsoft.EventHub. (Preview)|entityName|
+|INREQS|Binnenkomende aanvragen|Count|Totaal|Totaal aantal inkomende aanvragen voor een naamruimte|Er zijn geen dimensies|
 |SUCCREQ|Geslaagde aanvragen|Count|Totaal|Totaal aantal verwerkte aanvragen voor een naamruimte|Er zijn geen dimensies|
 |FAILREQ|Mislukte aanvragen|Count|Totaal|Totaal aantal mislukte aanvragen voor een naamruimte|Er zijn geen dimensies|
 |SVRBSY|Fouten omdat de server bezet is|Count|Totaal|Totaal aantal server bezet-fouten voor een naamruimte|Er zijn geen dimensies|
@@ -553,10 +661,16 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|ObservedMetricValue|Waargenomen metrische waarde|Count|Gemiddeld|De waarde die wordt berekend door automatisch schalen die bij uitvoering|MetricTriggerSource|
-|MetricThreshold|Metrische drempelwaarde|Count|Gemiddeld|De geconfigureerde automatisch schalen drempelwaarde wanneer automatisch schalen is uitgevoerd.|MetricTriggerRule|
-|ObservedCapacity|Waargenomen capaciteit|Count|Gemiddeld|De capaciteit gerapporteerd aan automatisch schalen wanneer deze uitgevoerd.|Er zijn geen dimensies|
-|ScaleActionsInitiated|Scale-acties die worden gestart|Count|Totaal|De richting van de scale-bewerking.|ScaleDirection|
+|ObservedMetricValue|Waargenomen metrische waarde|Count|Gemiddeld|De waarde die is berekend door automatisch schalen wanneer deze is uitgevoerd|MetricTriggerSource|
+|MetricThreshold|Drempel voor een metrische waarde|Count|Gemiddeld|De geconfigureerde drempelwaarde voor automatisch schalen wanneer automatisch schalen is uitgevoerd.|MetricTriggerRule|
+|ObservedCapacity|Waargenomen capaciteit|Count|Gemiddeld|De capaciteit die is gerapporteerd aan automatisch schalen wanneer dit is uitgevoerd.|Er zijn geen dimensies|
+|ScaleActionsInitiated|Schaalacties geactiveerd|Count|Totaal|De richting van de schaalbewerking.|ScaleDirection|
+
+## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|Latentie|Latentie|Milliseconden|Gemiddeld|Duur van API-aanroepen|OperationName, OperationResult|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
@@ -593,6 +707,15 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |BillableTriggerExecutions|Factureerbare uitvoeringen van activeringen|Count|Totaal|Aantal uitvoeringen van werkstroomactiveringen dat wordt gefactureerd.|Er zijn geen dimensies|
 |TotalBillableExecutions|Totaal aantal factureerbare uitvoeringen|Count|Totaal|Aantal werkstroomuitvoeringen dat wordt gefactureerd.|Er zijn geen dimensies|
 
+## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|BytesSentRate|Verzonden bytes|Count|Totaal|Aantal bytes dat de netwerkinterface die is verzonden|Er zijn geen dimensies|
+|BytesReceivedRate|Ontvangen bytes|Count|Totaal|Aantal bytes dat de netwerkinterface ontvangen|Er zijn geen dimensies|
+|PacketsSentRate|Pakketten die worden verzonden|Count|Totaal|Aantal pakketten dat de netwerkinterface die is verzonden|Er zijn geen dimensies|
+|PacketsReceivedRate|Ontvangen pakketten|Count|Totaal|Aantal pakketten dat de netwerkinterface ontvangen|Er zijn geen dimensies|
+
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
@@ -608,57 +731,62 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|PacketsInDDoS|Inkomende pakketten DDoS|CountPerSecond|Gemiddeld|Inkomende pakketten DDoS|Er zijn geen dimensies|
-|PacketsDroppedDDoS|Inkomende pakketten verwijderd DDoS|CountPerSecond|Gemiddeld|Inkomende pakketten verwijderd DDoS|Er zijn geen dimensies|
-|PacketsForwardedDDoS|Inkomende pakketten DDoS doorgestuurd|CountPerSecond|Gemiddeld|Inkomende pakketten DDoS doorgestuurd|Er zijn geen dimensies|
-|TCPPacketsInDDoS|Inkomende pakketten dat TCP DDoS|CountPerSecond|Gemiddeld|Inkomende pakketten dat TCP DDoS|Er zijn geen dimensies|
-|TCPPacketsDroppedDDoS|Inkomende pakketten dat TCP verwijderd DDoS|CountPerSecond|Gemiddeld|Inkomende pakketten dat TCP verwijderd DDoS|Er zijn geen dimensies|
-|TCPPacketsForwardedDDoS|Binnenkomend TCP-pakket doorgestuurd DDoS|CountPerSecond|Gemiddeld|Binnenkomend TCP-pakket doorgestuurd DDoS|Er zijn geen dimensies|
-|UDPPacketsInDDoS|Binnenkomend UDP-pakketten DDoS|CountPerSecond|Gemiddeld|Binnenkomend UDP-pakketten DDoS|Er zijn geen dimensies|
-|UDPPacketsDroppedDDoS|Binnenkomend UDP-pakketten verwijderd DDoS|CountPerSecond|Gemiddeld|Binnenkomend UDP-pakketten verwijderd DDoS|Er zijn geen dimensies|
-|UDPPacketsForwardedDDoS|Binnenkomend UDP-pakketten DDoS doorgestuurd|CountPerSecond|Gemiddeld|Binnenkomend UDP-pakketten DDoS doorgestuurd|Er zijn geen dimensies|
-|BytesInDDoS|Binnenkomende bytes DDoS|BytesPerSecond|Gemiddeld|Binnenkomende bytes DDoS|Er zijn geen dimensies|
-|BytesDroppedDDoS|Binnenkomende bytes verwijderd DDoS|BytesPerSecond|Gemiddeld|Binnenkomende bytes verwijderd DDoS|Er zijn geen dimensies|
-|BytesForwardedDDoS|Binnenkomende bytes DDoS doorgestuurd|BytesPerSecond|Gemiddeld|Binnenkomende bytes DDoS doorgestuurd|Er zijn geen dimensies|
-|TCPBytesInDDoS|Binnenkomende TCP bytes DDoS|BytesPerSecond|Gemiddeld|Binnenkomende TCP bytes DDoS|Er zijn geen dimensies|
-|TCPBytesDroppedDDoS|Binnenkomend TCP-bytes verwijderd DDoS|BytesPerSecond|Gemiddeld|Binnenkomend TCP-bytes verwijderd DDoS|Er zijn geen dimensies|
-|TCPBytesForwardedDDoS|Binnenkomend TCP-bytes DDoS doorgestuurd|BytesPerSecond|Gemiddeld|Binnenkomend TCP-bytes DDoS doorgestuurd|Er zijn geen dimensies|
-|UDPBytesInDDoS|Binnenkomend UDP bytes DDoS|BytesPerSecond|Gemiddeld|Binnenkomend UDP bytes DDoS|Er zijn geen dimensies|
-|UDPBytesDroppedDDoS|Binnenkomend UDP bytes verwijderd DDoS|BytesPerSecond|Gemiddeld|Binnenkomend UDP bytes verwijderd DDoS|Er zijn geen dimensies|
-|UDPBytesForwardedDDoS|Binnenkomend UDP bytes DDoS doorgestuurd|BytesPerSecond|Gemiddeld|Binnenkomend UDP bytes DDoS doorgestuurd|Er zijn geen dimensies|
-|IfUnderDDoSAttack|Onder DDoS-aanvallen, of niet|Count|Gemiddeld|Onder DDoS-aanvallen, of niet|Er zijn geen dimensies|
-|DDoSTriggerTCPPackets|Inkomende TCP-pakketten voor het activeren van DDoS risicobeperking|CountPerSecond|Gemiddeld|Inkomende TCP-pakketten voor het activeren van DDoS risicobeperking|Er zijn geen dimensies|
-|DDoSTriggerUDPPackets|Binnenkomend UDP-pakketten voor het activeren van DDoS risicobeperking|CountPerSecond|Gemiddeld|Binnenkomend UDP-pakketten voor het activeren van DDoS risicobeperking|Er zijn geen dimensies|
+|PacketsInDDoS|Inkomende pakketten DDoS|CountPerSecond|Maximum|Inkomende pakketten DDoS|Er zijn geen dimensies|
+|PacketsDroppedDDoS|Inkomende pakketten verwijderd DDoS|CountPerSecond|Maximum|Inkomende pakketten verwijderd DDoS|Er zijn geen dimensies|
+|PacketsForwardedDDoS|Inkomende pakketten DDoS doorgestuurd|CountPerSecond|Maximum|Inkomende pakketten DDoS doorgestuurd|Er zijn geen dimensies|
+|TCPPacketsInDDoS|Inkomende pakketten dat TCP DDoS|CountPerSecond|Maximum|Inkomende pakketten dat TCP DDoS|Er zijn geen dimensies|
+|TCPPacketsDroppedDDoS|Inkomende pakketten dat TCP verwijderd DDoS|CountPerSecond|Maximum|Inkomende pakketten dat TCP verwijderd DDoS|Er zijn geen dimensies|
+|TCPPacketsForwardedDDoS|Binnenkomend TCP-pakket doorgestuurd DDoS|CountPerSecond|Maximum|Binnenkomend TCP-pakket doorgestuurd DDoS|Er zijn geen dimensies|
+|UDPPacketsInDDoS|Binnenkomend UDP-pakketten DDoS|CountPerSecond|Maximum|Binnenkomend UDP-pakketten DDoS|Er zijn geen dimensies|
+|UDPPacketsDroppedDDoS|Binnenkomend UDP-pakketten verwijderd DDoS|CountPerSecond|Maximum|Binnenkomend UDP-pakketten verwijderd DDoS|Er zijn geen dimensies|
+|UDPPacketsForwardedDDoS|Binnenkomend UDP-pakketten DDoS doorgestuurd|CountPerSecond|Maximum|Binnenkomend UDP-pakketten DDoS doorgestuurd|Er zijn geen dimensies|
+|BytesInDDoS|Binnenkomende bytes DDoS|BytesPerSecond|Maximum|Binnenkomende bytes DDoS|Er zijn geen dimensies|
+|BytesDroppedDDoS|Binnenkomende bytes verwijderd DDoS|BytesPerSecond|Maximum|Binnenkomende bytes verwijderd DDoS|Er zijn geen dimensies|
+|BytesForwardedDDoS|Binnenkomende bytes DDoS doorgestuurd|BytesPerSecond|Maximum|Binnenkomende bytes DDoS doorgestuurd|Er zijn geen dimensies|
+|TCPBytesInDDoS|Binnenkomende TCP bytes DDoS|BytesPerSecond|Maximum|Binnenkomende TCP bytes DDoS|Er zijn geen dimensies|
+|TCPBytesDroppedDDoS|Binnenkomend TCP-bytes verwijderd DDoS|BytesPerSecond|Maximum|Binnenkomend TCP-bytes verwijderd DDoS|Er zijn geen dimensies|
+|TCPBytesForwardedDDoS|Binnenkomend TCP-bytes DDoS doorgestuurd|BytesPerSecond|Maximum|Binnenkomend TCP-bytes DDoS doorgestuurd|Er zijn geen dimensies|
+|UDPBytesInDDoS|Binnenkomend UDP bytes DDoS|BytesPerSecond|Maximum|Binnenkomend UDP bytes DDoS|Er zijn geen dimensies|
+|UDPBytesDroppedDDoS|Binnenkomend UDP bytes verwijderd DDoS|BytesPerSecond|Maximum|Binnenkomend UDP bytes verwijderd DDoS|Er zijn geen dimensies|
+|UDPBytesForwardedDDoS|Binnenkomend UDP bytes DDoS doorgestuurd|BytesPerSecond|Maximum|Binnenkomend UDP bytes DDoS doorgestuurd|Er zijn geen dimensies|
+|IfUnderDDoSAttack|Onder DDoS-aanvallen, of niet|Count|Maximum|Onder DDoS-aanvallen, of niet|Er zijn geen dimensies|
+|DDoSTriggerTCPPackets|Inkomende TCP-pakketten voor het activeren van DDoS risicobeperking|CountPerSecond|Maximum|Inkomende TCP-pakketten voor het activeren van DDoS risicobeperking|Er zijn geen dimensies|
+|DDoSTriggerUDPPackets|Binnenkomend UDP-pakketten voor het activeren van DDoS risicobeperking|CountPerSecond|Maximum|Binnenkomend UDP-pakketten voor het activeren van DDoS risicobeperking|Er zijn geen dimensies|
+|DDoSTriggerSYNPackets|Inkomende pakketten dat SYN DDoS risicobeperking activeren|CountPerSecond|Maximum|Inkomende pakketten dat SYN DDoS risicobeperking activeren|Er zijn geen dimensies|
 |VipAvailability|Beschikbaarheid|Count|Gemiddeld|Gemiddelde beschikbaarheid van de IP-adres binnen een periode|Poort|
 |ByteCount|Aantal bytes|Count|Totaal|Totaal aantal Bytes verzonden binnen een periode|Poort, richting|
 |PacketCount|Aantal|Count|Totaal|Totale aantal pakketten die zijn verzonden binnen een periode|Poort, richting|
 |SynCount|SYN tellen|Count|Totaal|Totaal aantal SYN-pakketten die zijn verzonden binnen een periode|Poort, richting|
 
+## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|PacketsInDroppedVMProtection|Inkomende pakketten verwijderd voor VM-beveiliging|CountPerSecond|Gemiddeld|Inkomende pakketten verwijderd voor VM-beveiliging|Er zijn geen dimensies|
+|PacketsOutDroppedVMProtection|Uitgaande pakketten verwijderd voor VM-beveiliging|CountPerSecond|Gemiddeld|Uitgaande pakketten verwijderd voor VM-beveiliging|Er zijn geen dimensies|
+
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|Doorvoer|Doorvoer|BytesPerSecond|Gemiddeld|Het aantal bytes per seconde is die de toepassingsgateway is geleverd|Er zijn geen dimensies|
+|Doorvoer|Doorvoer|BytesPerSecond|Totaal|Het aantal bytes per seconde is die de toepassingsgateway is geleverd|Er zijn geen dimensies|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
 |TunnelAverageBandwidth|Tunnel-bandbreedte|BytesPerSecond|Gemiddeld|Gemiddelde bandbreedte van een tunnel in bytes per seconde|ConnectionName, RemoteIP|
-|TunnelPeakBandwidth|Bandbreedte-tunnel piek|BytesPerSecond|Gemiddeld|Maximale bandbreedte van een tunnel in bytes per seconde|ConnectionName, RemoteIP|
-|TunnelEgressBytes|Tunnel uitgaande Bytes|Bytes|Gemiddeld|Uitgaande bytes van een tunnel in een interval van vijf minuten|ConnectionName, RemoteIP|
-|TunnelIngressBytes|Tunnel inkomend Bytes|Bytes|Gemiddeld|Binnenkomende bytes van een tunnel in een interval van vijf minuten|ConnectionName, RemoteIP|
-|TunnelEgressPackets|Tunnel uitgaande pakketten|Count|Gemiddeld|Aantal uitgaande van een tunnel in een interval van vijf minuten|ConnectionName, RemoteIP|
-|TunnelIngressPackets|Tunnel inkomende pakketten|Count|Gemiddeld|Aantal binnenkomende van een tunnel in een interval van vijf minuten|ConnectionName, RemoteIP|
-|TunnelEgressPacketDropTSMismatch|Tunnel uitgaande TS verschil pakket verwijderen|Count|Gemiddeld|Uitgaande pakket neerzetten van verkeer selector niet-overeenkomende een tunnel in een interval van vijf minuten|ConnectionName, RemoteIP|
-|TunnelIngressPacketDropTSMismatch|Tunnel inkomend TS verschil pakket verwijderen|Count|Gemiddeld|Binnenkomende pakket neerzetten van verkeer selector niet-overeenkomende een tunnel in een interval van vijf minuten|ConnectionName, RemoteIP|
+|TunnelEgressBytes|Tunnel uitgaande Bytes|Bytes|Totaal|Uitgaande bytes van een tunnel|ConnectionName, RemoteIP|
+|TunnelIngressBytes|Tunnel inkomend Bytes|Bytes|Totaal|Binnenkomende bytes van een tunnel|ConnectionName, RemoteIP|
+|TunnelEgressPackets|Tunnel uitgaande pakketten|Count|Totaal|Aantal uitgaande van een tunnel|ConnectionName, RemoteIP|
+|TunnelIngressPackets|Tunnel inkomende pakketten|Count|Totaal|Aantal binnenkomende van een tunnel|ConnectionName, RemoteIP|
+|TunnelEgressPacketDropTSMismatch|Tunnel uitgaande TS verschil pakket verwijderen|Count|Totaal|Uitgaande pakket neerzetten-telling van het verkeer selector niet-overeenkomende een tunnel|ConnectionName, RemoteIP|
+|TunnelIngressPacketDropTSMismatch|Tunnel inkomend TS verschil pakket verwijderen|Count|Totaal|Binnenkomende pakket neerzetten-telling van het verkeer selector niet-overeenkomende een tunnel|ConnectionName, RemoteIP|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|BytesIn|BytesIn|Count|Totaal|Bytes ingressing Azure|Er zijn geen dimensies|
-|BytesOut|BytesOut|Count|Totaal|Azure egressing bytes|Er zijn geen dimensies|
 |BitsInPerSecond|BitsInPerSecond|CountPerSecond|Gemiddeld|Bits ingressing Azure per seconde|Er zijn geen dimensies|
 |BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Gemiddeld|Bits Azure egressing per seconde|Er zijn geen dimensies|
 
@@ -732,9 +860,27 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Outgoing.mpns.Dropped|Meldingen over verloren MPNS|Count|Totaal|Het aantal pushes dat is verwijderd door MPNS (MPNS-reactieheader: X-NotificationStatus: QueueFull of Suppressed).|Er zijn geen dimensies|
 |Outgoing.mpns.pnserror|MPNS-fouten|Count|Totaal|Het aantal pushes dat is mislukt vanwege fouten in de communicatie met MPNS.|Er zijn geen dimensies|
 |Outgoing.mpns.authenticationerror|MPNS-verificatiefouten|Count|Totaal|Het aantal pushes dat is mislukt omdat PNS de opgegeven referenties niet accepteert of omdat de referenties zijn geblokkeerd.|Er zijn geen dimensies|
-|notificationhub.pushes|Alle uitgaande meldingen|Count|Totaal|Alle uitgaande meldingen van de notification hub|Er zijn geen dimensies|
-|Incoming.all.Requests|Alle inkomende aanvragen|Count|Totaal|Totaal aantal binnenkomende aanvragen voor een notification hub|Er zijn geen dimensies|
-|Incoming.all.failedrequests|Alle binnenkomende mislukte aanvragen|Count|Totaal|Totaal aantal binnenkomende mislukte aanvragen voor een notification hub|Er zijn geen dimensies|
+|notificationhub.pushes|Alle uitgaande meldingen|Count|Totaal|Alle uitgaande meldingen van de Notification Hub|Er zijn geen dimensies|
+|Incoming.all.Requests|Alle binnenkomende aanvragen|Count|Totaal|Totaal aantal binnenkomende aanvragen voor een Notification Hub|Er zijn geen dimensies|
+|Incoming.all.failedrequests|Alle binnenkomende mislukte aanvragen|Count|Totaal|Totaal aantal binnenkomende mislukte aanvragen voor een Notification Hub|Er zijn geen dimensies|
+
+## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|ListenerConnections-Success|ListenerConnections-Success|Count|Totaal|Voltooide ListenerConnections voor Microsoft.Relay.|entityName|
+|ListenerConnections-ClientError|ListenerConnections-ClientError|Count|Totaal|ClientError op ListenerConnections voor Microsoft.Relay.|entityName|
+|ListenerConnections-ServerError|ListenerConnections-ServerError|Count|Totaal|ServerError op ListenerConnections voor Microsoft.Relay.|entityName|
+|SenderConnections-Success|SenderConnections-Success|Count|Totaal|Voltooide SenderConnections voor Microsoft.Relay.|entityName|
+|SenderConnections-ClientError|SenderConnections-ClientError|Count|Totaal|ClientError op SenderConnections voor Microsoft.Relay.|entityName|
+|SenderConnections-ServerError|SenderConnections-ServerError|Count|Totaal|ServerError op SenderConnections voor Microsoft.Relay.|entityName|
+|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Count|Totaal|Totale ListenerConnections voor Microsoft.Relay.|entityName|
+|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Count|Totaal|Totale SenderConnections-aanvragen voor Microsoft.Relay.|entityName|
+|ActiveConnections|ActiveConnections|Count|Totaal|Totale ActiveConnections voor Microsoft.Relay.|entityName|
+|ActiveListeners|ActiveListeners|Count|Totaal|Totale ActiveListeners voor Microsoft.Relay.|entityName|
+|BytesTransferred|BytesTransferred|Count|Totaal|Totale BytesTransferred voor Microsoft.Relay.|entityName|
+|ListenerDisconnects|ListenerDisconnects|Count|Totaal|Totale ListenerDisconnects voor Microsoft.Relay.|entityName|
+|SenderDisconnects|SenderDisconnects|Count|Totaal|Total SenderDisconnects for Microsoft.Relay.|entityName|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -748,6 +894,16 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
+|SuccessfulRequests|Geslaagde aanvragen (Preview)|Count|Totaal|Totaal aantal geslaagde aanvragen voor een naamruimte (Preview)|entityName|
+|ServerErrors|Serverfouten. (Preview)|Count|Totaal|Serverfouten voor Microsoft.ServiceBus. (Preview)|entityName|
+|UserErrors|Gebruikersfouten. (Preview)|Count|Totaal|Gebruikersfouten voor Microsoft.ServiceBus. (Preview)|entityName|
+|ThrottledRequests|Beperkte aanvragen. (Preview)|Count|Totaal|Beperkte aanvragen voor Microsoft.ServiceBus. (Preview)|entityName|
+|IncomingRequests|Inkomende aanvragen (Preview)|Count|Totaal|Binnenkomende aanvragen voor Microsoft.ServiceBus. (Preview)|entityName|
+|IncomingMessages|Binnenkomende berichten (Preview)|Count|Totaal|Binnenkomende berichten voor Microsoft.ServiceBus. (Preview)|entityName|
+|OutgoingMessages|Uitgaande berichten (Preview)|Count|Totaal|Uitgaande berichten voor Microsoft.ServiceBus. (Preview)|entityName|
+|ActiveConnections|ActiveConnections (Preview)|Count|Totaal|Totaal aantal actieve verbindingen voor Microsoft.ServiceBus. (Preview)|entityName|
+|ConnectionsOpened|Geopende verbindingen. (Preview)|Count|Totaal|Geopende verbindingen voor Microsoft.ServiceBus. (Preview)|entityName|
+|ConnectionsClosed|Gesloten verbindingen. (Preview)|Count|Totaal|Gesloten verbindingen voor Microsoft.ServiceBus. (Preview)|entityName|
 |CPUXNS|CPU-gebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het CPU-gebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
 |WSXNS|Geheugengebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het geheugengebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
 
@@ -813,11 +969,11 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|UsedCapacity|Gebruikte capaciteit|Bytes|Gemiddeld|Capaciteit van de account die wordt gebruikt|Er zijn geen dimensies|
+|UsedCapacity|Gebruikte capaciteit|Bytes|Gemiddeld|Gebruikte capaciteit van account|Er zijn geen dimensies|
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen als aanvragen die fouten geproduceerd. ResponseType dimensie gebruiken voor het aantal ander type van het antwoord.|ResponseType, GeoType, ApiName|
 |Binnenkomend|Binnenkomend|Bytes|Totaal|De hoeveelheid inkomend gegevens, in bytes. Dit is inclusief de inkomende gegevens via een externe client in Azure Storage, evenals een inkomend binnen Azure.|GeoType, ApiName|
-|Uitgaande|Uitgaande|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
-|SuccessServerLatency|Geslaagde Server latentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
+|Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end-latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage te lezen van de aanvraag, antwoord verzenden en ontvangen van de bevestiging van het antwoord.|GeoType, ApiName|
 |Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de storage-service of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de waarde TotalBillableRequests nemen en deze te delen door het aantal van toepassing aanvragen, waaronder de geproduceerd onverwachte fouten. Alle onverwachte fouten leiden tot beperkte beschikbaarheid voor de storage-service of de opgegeven API-bewerking.|GeoType, ApiName|
 
@@ -825,13 +981,13 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|BlobCapacity|BLOB-capaciteit|Bytes|Gemiddeld|De hoeveelheid opslagruimte die wordt gebruikt door de storage-account Blob-service in bytes.|BlobType|
-|BlobCount|Aantal BLOB|Count|Gemiddeld|Het aantal Blob in Blob-service van het opslagaccount.|BlobType|
-|ContainerCount|Telling van BLOB-Container|Count|Gemiddeld|Het aantal containers in het opslagaccount Blob-service.|Er zijn geen dimensies|
+|BlobCapacity|Blobcapaciteit|Bytes|Gemiddeld|De hoeveelheid opslag die wordt gebruikt door de Blob-service van het opslagaccount (in bytes).|BlobType|
+|BlobCount|Aantal blobs|Count|Gemiddeld|Het aantal blobs in de Blob-service van het opslagaccount.|BlobType|
+|ContainerCount|Aantal blobcontainers|Count|Gemiddeld|Het aantal containers in de Blob-service van het opslagaccount.|Er zijn geen dimensies|
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen als aanvragen die fouten geproduceerd. ResponseType dimensie gebruiken voor het aantal ander type van het antwoord.|ResponseType, GeoType, ApiName|
 |Binnenkomend|Binnenkomend|Bytes|Totaal|De hoeveelheid inkomend gegevens, in bytes. Dit is inclusief de inkomende gegevens via een externe client in Azure Storage, evenals een inkomend binnen Azure.|GeoType, ApiName|
-|Uitgaande|Uitgaande|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
-|SuccessServerLatency|Geslaagde Server latentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
+|Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end-latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage te lezen van de aanvraag, antwoord verzenden en ontvangen van de bevestiging van het antwoord.|GeoType, ApiName|
 |Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de storage-service of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de waarde TotalBillableRequests nemen en deze te delen door het aantal van toepassing aanvragen, waaronder de geproduceerd onverwachte fouten. Alle onverwachte fouten leiden tot beperkte beschikbaarheid voor de storage-service of de opgegeven API-bewerking.|GeoType, ApiName|
 
@@ -839,13 +995,13 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|TableCapacity|Capaciteit van de tabel|Bytes|Gemiddeld|De hoeveelheid opslagruimte die wordt gebruikt door de storage-account tabelservice in bytes.|Er zijn geen dimensies|
-|TableCount|Aantal van de tabel|Count|Gemiddeld|Het nummer van de tabel in de tabel-service van het storage-account.|Er zijn geen dimensies|
-|TableEntityCount|Tabel entiteit tellen|Count|Gemiddeld|Het aantal tabelentiteiten in de tabel-service van het storage-account.|Er zijn geen dimensies|
+|TableCapacity|Tabelcapaciteit|Bytes|Gemiddeld|De hoeveelheid opslag die wordt gebruikt door de Table-service van het opslagaccount (in bytes).|Er zijn geen dimensies|
+|TableCount|Aantal tabellen|Count|Gemiddeld|Het aantal tabellen in de Table-service van het opslagaccount.|Er zijn geen dimensies|
+|TableEntityCount|Aantal tabelentiteiten|Count|Gemiddeld|Het aantal tabelentiteiten in de Table-service van het opslagaccount.|Er zijn geen dimensies|
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen als aanvragen die fouten geproduceerd. ResponseType dimensie gebruiken voor het aantal ander type van het antwoord.|ResponseType, GeoType, ApiName|
 |Binnenkomend|Binnenkomend|Bytes|Totaal|De hoeveelheid inkomend gegevens, in bytes. Dit is inclusief de inkomende gegevens via een externe client in Azure Storage, evenals een inkomend binnen Azure.|GeoType, ApiName|
-|Uitgaande|Uitgaande|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
-|SuccessServerLatency|Geslaagde Server latentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
+|Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end-latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage te lezen van de aanvraag, antwoord verzenden en ontvangen van de bevestiging van het antwoord.|GeoType, ApiName|
 |Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de storage-service of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de waarde TotalBillableRequests nemen en deze te delen door het aantal van toepassing aanvragen, waaronder de geproduceerd onverwachte fouten. Alle onverwachte fouten leiden tot beperkte beschikbaarheid voor de storage-service of de opgegeven API-bewerking.|GeoType, ApiName|
 
@@ -853,13 +1009,13 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|QueueCapacity|Capaciteit van de wachtrij|Bytes|Gemiddeld|De hoeveelheid opslagruimte die wordt gebruikt door de storage-account Queue-service in bytes.|Er zijn geen dimensies|
-|QueueCount|Aantal van de wachtrij|Count|Gemiddeld|Het nummer van de wachtrij in het opslagaccount Queue-service.|Er zijn geen dimensies|
-|QueueMessageCount|Aantal wachtrij-berichten|Count|Gemiddeld|Het geschatte aantal berichtenwachtrij-berichten in het opslagaccount Queue-service.|Er zijn geen dimensies|
+|QueueCapacity|Wachtrijcapaciteit|Bytes|Gemiddeld|De hoeveelheid opslag die wordt gebruikt door de Queue-service van het opslagaccount (in bytes).|Er zijn geen dimensies|
+|QueueCount|Aantal wachtrijen|Count|Gemiddeld|Het aantal wachtrijen in de Queue-service van het opslagaccount.|Er zijn geen dimensies|
+|QueueMessageCount|Aantal wachtrijberichten|Count|Gemiddeld|Het geschatte aantal wachtrijberichten in de Queue-service van het opslagaccount.|Er zijn geen dimensies|
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen als aanvragen die fouten geproduceerd. ResponseType dimensie gebruiken voor het aantal ander type van het antwoord.|ResponseType, GeoType, ApiName|
 |Binnenkomend|Binnenkomend|Bytes|Totaal|De hoeveelheid inkomend gegevens, in bytes. Dit is inclusief de inkomende gegevens via een externe client in Azure Storage, evenals een inkomend binnen Azure.|GeoType, ApiName|
-|Uitgaande|Uitgaande|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
-|SuccessServerLatency|Geslaagde Server latentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
+|Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end-latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage te lezen van de aanvraag, antwoord verzenden en ontvangen van de bevestiging van het antwoord.|GeoType, ApiName|
 |Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de storage-service of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de waarde TotalBillableRequests nemen en deze te delen door het aantal van toepassing aanvragen, waaronder de geproduceerd onverwachte fouten. Alle onverwachte fouten leiden tot beperkte beschikbaarheid voor de storage-service of de opgegeven API-bewerking.|GeoType, ApiName|
 
@@ -867,13 +1023,13 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|FileCapacity|Bestand-capaciteit|Bytes|Gemiddeld|De hoeveelheid opslagruimte die wordt gebruikt door de storage-account File-service in bytes.|Er zijn geen dimensies|
-|FileCount|Aantal bestanden|Count|Gemiddeld|Het nummer van het bestand in het opslagaccount File-service.|Er zijn geen dimensies|
-|FileShareCount|Bestandsshare mee|Count|Gemiddeld|Het aantal bestand deelt in het opslagaccount File-service.|Er zijn geen dimensies|
+|FileCapacity|Bestandscapaciteit|Bytes|Gemiddeld|De hoeveelheid opslag die wordt gebruikt door de File-service van het opslagaccount (in bytes).|Er zijn geen dimensies|
+|FileCount|Aantal bestanden|Count|Gemiddeld|Het aantal bestanden in de File-service van het opslagaccount.|Er zijn geen dimensies|
+|FileShareCount|Aantal bestandsshares|Count|Gemiddeld|Het aantal bestandsshares in de File-service van het opslagaccount.|Er zijn geen dimensies|
 |Transacties|Transacties|Count|Totaal|Het aantal aanvragen voor een opslagservice of de opgegeven API-bewerking. Dit is inclusief geslaagde en mislukte aanvragen als aanvragen die fouten geproduceerd. ResponseType dimensie gebruiken voor het aantal ander type van het antwoord.|ResponseType, GeoType, ApiName|
 |Binnenkomend|Binnenkomend|Bytes|Totaal|De hoeveelheid inkomend gegevens, in bytes. Dit is inclusief de inkomende gegevens via een externe client in Azure Storage, evenals een inkomend binnen Azure.|GeoType, ApiName|
-|Uitgaande|Uitgaande|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
-|SuccessServerLatency|Geslaagde Server latentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
+|Uitgaand verkeer|Uitgaand verkeer|Bytes|Totaal|De hoeveelheid gegevens van de uitgaande, in bytes. Dit is inclusief uitgaande van een externe client in Azure Storage, evenals een uitgaande binnen Azure. Dit nummer is daardoor niet factureerbare uitgaande doorgevoerd.|GeoType, ApiName|
+|SuccessServerLatency|Geslaagde serverlatentie|Milliseconden|Gemiddeld|De gemiddelde latentie die wordt gebruikt door Azure Storage voor het verwerken van aanvraag is gelukt, in milliseconden. Deze waarde is niet de netwerklatentie die is opgegeven in AverageE2ELatency opgenomen.|GeoType, ApiName|
 |SuccessE2ELatency|Geslaagde E2E-latentie|Milliseconden|Gemiddeld|De gemiddelde end-to-end-latentie van geslaagde aanvragen voor een opslagservice of de opgegeven API-bewerking, in milliseconden. Deze waarde bevat de vereiste verwerkingstijd in Azure Storage te lezen van de aanvraag, antwoord verzenden en ontvangen van de bevestiging van het antwoord.|GeoType, ApiName|
 |Beschikbaarheid|Beschikbaarheid|Procent|Gemiddeld|Het percentage van de beschikbaarheid van de storage-service of de opgegeven API-bewerking. Beschikbaarheid wordt berekend door de waarde TotalBillableRequests nemen en deze te delen door het aantal van toepassing aanvragen, waaronder de geproduceerd onverwachte fouten. Alle onverwachte fouten leiden tot beperkte beschikbaarheid voor de storage-service of de opgegeven API-bewerking.|GeoType, ApiName|
 
@@ -899,8 +1055,8 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
-|DiskQueueLength|Wachtrijlengte voor schijf|Count|Totaal|Wachtrijlengte voor schijf|Exemplaar|
-|HttpQueueLength|HTTP-wachtrijlengte|Count|Totaal|HTTP-wachtrijlengte|Exemplaar|
+|DiskQueueLength|Lengte van de wachtrij voor de schijf|Count|Gemiddeld|Lengte van de wachtrij voor de schijf|Exemplaar|
+|HttpQueueLength|Lengte van de HTTP-wachtrij|Count|Gemiddeld|Lengte van de HTTP-wachtrij|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
 
@@ -912,20 +1068,18 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http101|HTTP 101|Count|Totaal|HTTP 101|Exemplaar|
-|Http2xx|HTTP-2xx|Count|Totaal|HTTP-2xx|Exemplaar|
-|Http3xx|HTTP-3xx|Count|Totaal|HTTP-3xx|Exemplaar|
-|Http401|401 HTTP|Count|Totaal|401 HTTP|Exemplaar|
+|Http101|HTTP-fout 101|Count|Totaal|HTTP-fout 101|Exemplaar|
+|Http2xx|HTTP 2xx|Count|Totaal|HTTP 2xx|Exemplaar|
+|Http3xx|HTTP 3xx|Count|Totaal|HTTP 3xx|Exemplaar|
+|Http401|HTTP 401|Count|Totaal|HTTP 401|Exemplaar|
 |Http403|HTTP-fout 403|Count|Totaal|HTTP-fout 403|Exemplaar|
-|Http404|HTTP 404|Count|Totaal|HTTP 404|Exemplaar|
-|Http406|HTTP 406|Count|Totaal|HTTP 406|Exemplaar|
+|Http404|HTTP-fout 404|Count|Totaal|HTTP-fout 404|Exemplaar|
+|Http406|HTTP-fout 406|Count|Totaal|HTTP-fout 406|Exemplaar|
 |Http4xx|Http 4xx|Count|Totaal|Http 4xx|Exemplaar|
-|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
-|MemoryWorkingSet|Geheugen-werkset|Bytes|Gemiddeld|Geheugen-werkset|Exemplaar|
-|AverageMemoryWorkingSet|Gemiddelde geheugen werkset|Bytes|Gemiddeld|Gemiddelde geheugen werkset|Exemplaar|
+|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
+|MemoryWorkingSet|Geheugenwerkset|Bytes|Gemiddeld|Geheugenwerkset|Exemplaar|
+|AverageMemoryWorkingSet|Gemiddeld geheugenwerkset|Bytes|Gemiddeld|Gemiddeld geheugenwerkset|Exemplaar|
 |AverageResponseTime|Gemiddelde reactietijd|Seconden|Gemiddeld|Gemiddelde reactietijd|Exemplaar|
-|FunctionExecutionUnits|Eenheden van de functie kan worden uitgevoerd|Count|Gemiddeld|Eenheden van de functie kan worden uitgevoerd|Exemplaar|
-|FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Gemiddeld|Aantal uitvoeringen van functie|Exemplaar|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (functies)
 
@@ -933,11 +1087,11 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
-|MemoryWorkingSet|Geheugen-werkset|Bytes|Gemiddeld|Geheugen-werkset|Exemplaar|
-|AverageMemoryWorkingSet|Gemiddelde geheugen werkset|Bytes|Gemiddeld|Gemiddelde geheugen werkset|Exemplaar|
-|FunctionExecutionUnits|Eenheden van de functie kan worden uitgevoerd|Count|Gemiddeld|Eenheden van de functie kan worden uitgevoerd|Exemplaar|
-|FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Gemiddeld|Aantal uitvoeringen van functie|Exemplaar|
+|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
+|MemoryWorkingSet|Geheugenwerkset|Bytes|Gemiddeld|Geheugenwerkset|Exemplaar|
+|AverageMemoryWorkingSet|Gemiddeld geheugenwerkset|Bytes|Gemiddeld|Gemiddeld geheugenwerkset|Exemplaar|
+|FunctionExecutionUnits|Functie-uitvoeringseenheden|Count|Totaal|Functie-uitvoeringseenheden|Exemplaar|
+|FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Totaal|Aantal uitvoeringen van functie|Exemplaar|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -947,19 +1101,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http101|HTTP 101|Count|Totaal|HTTP 101|Exemplaar|
-|Http2xx|HTTP-2xx|Count|Totaal|HTTP-2xx|Exemplaar|
-|Http3xx|HTTP-3xx|Count|Totaal|HTTP-3xx|Exemplaar|
-|Http401|401 HTTP|Count|Totaal|401 HTTP|Exemplaar|
+|Http101|HTTP-fout 101|Count|Totaal|HTTP-fout 101|Exemplaar|
+|Http2xx|HTTP 2xx|Count|Totaal|HTTP 2xx|Exemplaar|
+|Http3xx|HTTP 3xx|Count|Totaal|HTTP 3xx|Exemplaar|
+|Http401|HTTP 401|Count|Totaal|HTTP 401|Exemplaar|
 |Http403|HTTP-fout 403|Count|Totaal|HTTP-fout 403|Exemplaar|
-|Http404|HTTP 404|Count|Totaal|HTTP 404|Exemplaar|
-|Http406|HTTP 406|Count|Totaal|HTTP 406|Exemplaar|
+|Http404|HTTP-fout 404|Count|Totaal|HTTP-fout 404|Exemplaar|
+|Http406|HTTP-fout 406|Count|Totaal|HTTP-fout 406|Exemplaar|
 |Http4xx|Http 4xx|Count|Totaal|Http 4xx|Exemplaar|
-|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
-|MemoryWorkingSet|Geheugen-werkset|Bytes|Gemiddeld|Geheugen-werkset|Exemplaar|
-|AverageMemoryWorkingSet|Gemiddelde geheugen werkset|Bytes|Gemiddeld|Gemiddelde geheugen werkset|Exemplaar|
+|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
+|MemoryWorkingSet|Geheugenwerkset|Bytes|Gemiddeld|Geheugenwerkset|Exemplaar|
+|AverageMemoryWorkingSet|Gemiddeld geheugenwerkset|Bytes|Gemiddeld|Gemiddeld geheugenwerkset|Exemplaar|
 |AverageResponseTime|Gemiddelde reactietijd|Seconden|Gemiddeld|Gemiddelde reactietijd|Exemplaar|
-|FunctionExecutionUnits|Eenheden van de functie kan worden uitgevoerd|Count|Gemiddeld|Eenheden van de functie kan worden uitgevoerd|Exemplaar|
+|FunctionExecutionUnits|Functie-uitvoeringseenheden|Count|Gemiddeld|Functie-uitvoeringseenheden|Exemplaar|
 |FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Gemiddeld|Aantal uitvoeringen van functie|Exemplaar|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
@@ -969,33 +1123,35 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |Aanvragen|Aanvragen|Count|Totaal|Aanvragen|Exemplaar|
 |BytesReceived|Inkomende gegevens|Bytes|Totaal|Inkomende gegevens|Exemplaar|
 |BytesSent|Uitgaande gegevens|Bytes|Totaal|Uitgaande gegevens|Exemplaar|
-|Http101|HTTP 101|Count|Totaal|HTTP 101|Exemplaar|
-|Http2xx|HTTP-2xx|Count|Totaal|HTTP-2xx|Exemplaar|
-|Http3xx|HTTP-3xx|Count|Totaal|HTTP-3xx|Exemplaar|
-|Http401|401 HTTP|Count|Totaal|401 HTTP|Exemplaar|
+|Http101|HTTP-fout 101|Count|Totaal|HTTP-fout 101|Exemplaar|
+|Http2xx|HTTP 2xx|Count|Totaal|HTTP 2xx|Exemplaar|
+|Http3xx|HTTP 3xx|Count|Totaal|HTTP 3xx|Exemplaar|
+|Http401|HTTP 401|Count|Totaal|HTTP 401|Exemplaar|
 |Http403|HTTP-fout 403|Count|Totaal|HTTP-fout 403|Exemplaar|
-|Http404|HTTP 404|Count|Totaal|HTTP 404|Exemplaar|
-|Http406|HTTP 406|Count|Totaal|HTTP 406|Exemplaar|
+|Http404|HTTP-fout 404|Count|Totaal|HTTP-fout 404|Exemplaar|
+|Http406|HTTP-fout 406|Count|Totaal|HTTP-fout 406|Exemplaar|
 |Http4xx|Http 4xx|Count|Totaal|Http 4xx|Exemplaar|
-|Http5xx|HTTP-Server-fouten|Count|Totaal|HTTP-Server-fouten|Exemplaar|
+|Http5xx|HTTP-serverfouten|Count|Totaal|HTTP-serverfouten|Exemplaar|
 |AverageResponseTime|Gemiddelde reactietijd|Seconden|Gemiddeld|Gemiddelde reactietijd|Exemplaar|
 |CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
 |MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
-|DiskQueueLength|Wachtrijlengte voor schijf|Count|Totaal|Wachtrijlengte voor schijf|Exemplaar|
-|HttpQueueLength|HTTP-wachtrijlengte|Count|Totaal|HTTP-wachtrijlengte|Exemplaar|
+|DiskQueueLength|Lengte van de wachtrij voor de schijf|Count|Gemiddeld|Lengte van de wachtrij voor de schijf|Exemplaar|
+|HttpQueueLength|Lengte van de HTTP-wachtrij|Count|Gemiddeld|Lengte van de HTTP-wachtrij|Exemplaar|
 |ActiveRequests|Actieve aanvragen|Count|Totaal|Actieve aanvragen|Exemplaar|
-|TotalFrontEnds|Totaal aantal Front-Ends|Count|Gemiddeld|Totaal aantal Front-Ends|Exemplaar|
-|SmallAppServicePlanInstances|Werknemers van kleine App Service-Plan|Count|Gemiddeld|Werknemers van kleine App Service-Plan|Exemplaar|
-|MediumAppServicePlanInstances|Gemiddeld App Service Plan werknemers|Count|Gemiddeld|Gemiddeld App Service Plan werknemers|Exemplaar|
-|LargeAppServicePlanInstances|Grote App Service Plan werknemers|Count|Gemiddeld|Grote App Service Plan werknemers|Exemplaar|
+|TotalFrontEnds|Totaalaantal front-ends|Count|Gemiddeld|Totaalaantal front-ends|Exemplaar|
+|SmallAppServicePlanInstances|Werkrollen kleine App Plan Service-plan|Count|Gemiddeld|Werkrollen kleine App Plan Service-plan|Exemplaar|
+|MediumAppServicePlanInstances|Werkrollen middelgrote App Service-plan|Count|Gemiddeld|Werkrollen middelgrote App Service-plan|Exemplaar|
+|LargeAppServicePlanInstances|Werkrollen grote App Service-plan|Count|Gemiddeld|Werkrollen grote App Service-plan|Exemplaar|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
 |---|---|---|---|---|---|
-|WorkersTotal|Totaal aantal werknemers|Count|Gemiddeld|Totaal aantal werknemers|Exemplaar|
-|WorkersAvailable|Beschikbare werknemers|Count|Gemiddeld|Beschikbare werknemers|Exemplaar|
-|WorkersUsed|Gebruikte werknemers|Count|Gemiddeld|Gebruikte werknemers|Exemplaar|
+|WorkersTotal|Totaalaantal werkrollen|Count|Gemiddeld|Totaalaantal werkrollen|Exemplaar|
+|WorkersAvailable|Beschikbare werkrollen|Count|Gemiddeld|Beschikbare werkrollen|Exemplaar|
+|WorkersUsed|Gebruikte werkrollen|Count|Gemiddeld|Gebruikte werkrollen|Exemplaar|
+|CpuPercentage|CPU-percentage|Procent|Gemiddeld|CPU-percentage|Exemplaar|
+|MemoryPercentage|Geheugenpercentage|Procent|Gemiddeld|Geheugenpercentage|Exemplaar|
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Meer informatie over metrische gegevens in Azure-Monitor](monitoring-overview-metrics.md)

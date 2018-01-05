@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 12/13/2017
 ms.author: bprakash
-ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de onderdelen en versies die beschikbaar met HDInsight?
 
-Meer informatie over de Apache Hadoop-ecosysteem onderdelen en -versies in Microsoft Azure HDInsight, evenals de serviceniveaus Standard en Premium. Ook informatie over het controleren van component-versies van Hadoop in HDInsight. 
+Meer informatie over de Apache Hadoop-ecosysteem onderdelen en -versies in Microsoft Azure HDInsight, evenals het beveiligingspakket Enterprise. Ook informatie over het controleren van component-versies van Hadoop in HDInsight. 
 
 Elke versie HDInsight is een cloud-distributiepunt van een versie van Hortonworks Data Platform HDP ().
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Hadoop-onderdelen met verschillende versies van HDInsight
 Azure HDInsight biedt ondersteuning voor meerdere versies van Hadoop-cluster die op elk gewenst moment kunnen worden geïmplementeerd. Elke versie keuze maakt een specifieke versie van de distributie HDP en een reeks onderdelen die deel uitmaken van dit distributiepunt. Vanaf 17 februari 2017 de standaardversie van de cluster die wordt gebruikt door Azure HDInsight 3.5 is en is gebaseerd op HDP 2.5.
 
-De onderdeel-versies die zijn gekoppeld aan de versies van HDInsight-cluster worden weergegeven in de volgende tabel. 
+De onderdeel-versies die zijn gekoppeld aan de versies van HDInsight-cluster worden weergegeven in de volgende tabel: 
 
 > [!NOTE]
 > De standaardversie voor het HDInsight-service kan zonder voorafgaande kennisgeving worden gewijzigd. Als u een afhankelijkheid versie, de HDInsight-versie opgeven wanneer u clusters met de .NET SDK met Azure PowerShell en Azure CLI maken.
@@ -46,7 +46,7 @@ De onderdeel-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 | Apache Hive en HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
 | Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
 | Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|-|
-| Apache Zwerver | 0.7.0 |0.6.0 |-|-|-|-|-|
+| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
 | Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
 | Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
 | Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
@@ -94,7 +94,49 @@ De volgende tabel geeft de versies van HDInsight die momenteel beschikbaar op de
 | HDInsight 2.1 |1.3 HDP |Windows Server 2012 R2 |Ja |28 oktober 2013 |Nee |12 mei 2014 |31 mei 2015 |
 | HDInsight 1.6 |HDP 1.1 | |Nee |28 oktober 2013 |Nee |26 april 2014 |31 mei 2015 |
 
-## <a name="hdinsight-windows-retirement"></a>HDInsight Windows buiten gebruik stellen
+
+## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise-beveiligingspakket voor HDInsight
+
+Azure HDInsight is een optioneel pakket die u op uw HDInsight-cluster als onderdeel van de cluster-werkstroom maken toevoegen kunt. Het beveiligingspakket Enterprise ondersteunt:
+
+- Integratie met Active Directory voor verificatie.
+
+    U kunt alleen in het verleden HDInsight-clusters maken met een gebruiker met lokale beheerdersrechten en een lokale SSH-gebruiker gebruikt. De gebruiker met lokale beheerdersrechten toegang tot de bestanden, mappen, tabellen en kolommen.  U kunt met het beveiligingspakket Enterprise toegangsbeheer op basis van rollen inschakelen door het HDInsight-clusters integreren met uw eigen Active Directory, zoals lokale Active Directory, Azure Active Directory Domain Services of Active Directory op IaaS virtuele machine. De domeinbeheerder op het cluster kan gebruikers hun eigen (bedrijfsdomein)-gebruikersnaam en wachtwoord gebruiken voor toegang tot het cluster verlenen. 
+
+    Zie voor meer informatie:
+
+    - [Een inleiding tot Hadoop-beveiliging met HDInsight-clusters domein](./domain-joined/apache-domain-joined-introduction.md)
+    - [Azure domein Hadoop-clusters in HDInsight plannen](./domain-joined/apache-domain-joined-architecture.md)
+    - [Domein-sandbox-omgeving configureren](./domain-joined/apache-domain-joined-configure.md)
+    - [Domein-HDInsight-clusters met behulp van Azure Active Directory Domain Services configureren](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- Autorisatie voor gegevens
+
+    - Integratie met Apache Zwerver voor autorisatie voor Hive, Spark SQL en Yarn-wachtrijen.
+    - U kunt toegangsbeheer voor bestanden en mappen instellen.
+
+    Zie voor meer informatie:
+
+    - [Op domein HDInsight Hive-beleid configureren](./domain-joined/apache-domain-joined-run-hive.md)
+
+- De controlelogboeken voor toegang tot een monitor en het geconfigureerde beleid weergeven. 
+
+### <a name="supported-cluster-types"></a>Ondersteunde clustertypen
+
+De volgende clustertypen ondersteunen momenteel het beveiligingspakket Enterprise:
+
+- Hadoop (alleen HDInsight 3.6)
+- Spark
+- Interactive Query
+
+### <a name="support-for-azure-data-lake-store"></a>Ondersteuning voor Azure Data Lake Store
+
+De Enterprise-beveiligingspakket ondersteunt het gebruik van Azure Data Lake Store als zowel de primaire opslag en de opslag van de invoegtoepassing.
+
+### <a name="pricing-and-sla"></a>Prijzen en SLA
+Zie voor informatie over de prijzen en SLA het beveiligingspakket Enterprise, [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## <a name="hdinsight-windows-retirement"></a>Buitengebruikstelling van HDInsight Windows
 Microsoft Azure HDInsight versie 3.3 is de laatste versie van HDInsight in Windows. De intrekkingsdatum voor HDInsight in Windows is 31 juli 2018. Als u een HDInsight-clusters op Windows 3.3 of eerder hebt, moet u voordat 31 juli 2018 HDInsight op Linux (HDInsight versie 3.5 of nieuwer) migreren. Migreren naar de Linux-besturingssysteem, kunt u de mogelijkheid om te maken of het formaat van uw HDInsight-clusters niet behouden. Ondersteuning voor HDInsight versie 3.3 in Windows is verlopen op 27 juni 2016.
 
 Beginnen met HDInsight versie 3.4, heeft Microsoft HDInsight alleen op de Linux-besturingssysteem. Hierdoor kunnen zijn sommige van de onderdelen in HDInsight beschikbaar voor Linux alleen. Deze omvatten Apache Zwerver, Kafka, interactieve Query, Spark, HDInsight-toepassingen en Azure Data Lake Store als de primaire-bestandssysteem. Toekomstige versies van HDInsight zijn alleen beschikbaar voor de Linux-besturingssysteem. Er zijn geen toekomstige versies van HDInsight in Windows. 
@@ -165,36 +207,10 @@ De sectie bevat koppelingen naar de release-opmerkingen voor de Hortonworks Data
 * HDInsight-cluster versie 2.1 maakt gebruik van een Hadoop-distributie die is gebaseerd op [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * HDInsight-cluster versie 1.6 maakt gebruik van een Hadoop-distributie die is gebaseerd op [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard en HDInsight Premium
 
-Azure HDInsight biedt twee categorieën aanbiedingen de cloud big data: _standaard_ en _Premium_. De volgende tabel bevat functies die beschikbaar zijn _alleen_ in HDInsight Premium. Functies die niet expliciet worden beschreven in de tabel zijn beschikbaar in HDInsight Standard en Premium.
 
-> [!NOTE]
-> De HDInsight Premium aanbieding is momenteel in preview en alleen beschikbaar voor Linux-clusters.
 
-| HDInsight Premium-functie | Beschrijving |
-| --- | --- |
-| Domein-HDInsight-clusters |HDInsight-clusters toevoegen aan Azure Active Directory (Azure AD)-domeinen voor beveiliging op bedrijfsniveau. In HDInsight Premium kunt u een lijst met werknemers van uw bedrijf die kan worden geverifieerd via Azure AD aan te melden op een HDInsight-cluster configureren. De ondernemingsbeheerder toegangsbeheer op basis van rollen voor Hive-beveiliging kunt configureren met behulp van [Apache Zwerver](http://hortonworks.com/apache/ranger/) en beperken van toegang tot gegevens in het gebruik van alleen zoveel nodig. De beheerder kunt ten slotte de gegevens die worden gebruikt door werknemers en wijzigingen aan toegangsbeheerbeleid, waardoor het bereiken van een hoge mate van toezicht van hun bedrijfsbronnen controleren. Zie voor meer informatie [HDInsight-clusters domein configureren](./domain-joined/apache-domain-joined-configure.md). |
 
-### <a name="cluster-types-supported-in-hdinsight-premium"></a>Clustertypen worden ondersteund in HDInsight Premium
-De volgende tabel bevat de clustertypen die worden ondersteund in HDInsight Premium.
-
-| Clustertype | Standard | Premium (Preview) |
-| --- | --- | --- |
-| Hadoop |Ja |Ja (alleen HDInsight 3.6) |
-| Spark |Ja |Nee |
-| HBase |Ja |Nee |
-| Storm |Ja |Nee |
-| R Server |Ja |Nee |
-| Interactive Query |Ja |Nee |
-| Kafka (Preview) |Ja |Nee | 
-
-### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Ondersteuning voor Azure Data Lake Store in HDInsight Premium
-
-HDInsight Premium-clusters bieden geen ondersteuning voor het gebruik van Azure Data Lake Store als primaire opslag. U kunt Azure Data Lake Store echter gebruiken als extra opslag met clusters van HDInsight Premium.
-
-### <a name="pricing-and-sla"></a>Prijzen en SLA
-Zie voor meer informatie over de prijzen en SLA voor HDInsight Premium [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Standaard configuratie en de virtuele machine knooppuntgrootten voor clusters
 De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voor HDInsight-clusters.

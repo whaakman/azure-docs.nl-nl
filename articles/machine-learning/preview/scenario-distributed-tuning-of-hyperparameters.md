@@ -4,15 +4,17 @@ description: Dit scenario wordt beschreven hoe u gedistribueerde afstemming van 
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Afstemming van hyperparameters met behulp van Azure Machine Learning Workbench gedistribueerd
 
@@ -26,7 +28,7 @@ Hieronder vindt u de koppeling naar de openbare GitHub-opslagplaats:
 ## <a name="use-case-overview"></a>Gebruik van de case-overzicht
 
 Groot aantal machine learning-algoritmen hebben een of meer knoppen, hyperparameters aangeroepen. Deze knoppen toestaan afstemming van algoritmen optimaliseren van toekomstige gegevens, gemeten op basis van gebruiker opgegeven metrische gegevens (bijvoorbeeld, nauwkeurigheid AUC, RMSE). Gegevens wetenschappelijk moet waarden van hyperparameters opgeven bij het bouwen van een model via trainingsgegevens en voordat u ziet de toekomstige testgegevens. Hoe op basis van de bekende training gegevens, kunnen we de waarden van hyperparameters zo instellen dat het model een goede prestaties via de onbekende testgegevens is? 
-
+    
 Een populaire techniek voor het afstemmen van hyperparameters is een *raster zoeken* gecombineerd met *kruisvalidatie*. Kruisvalidatie is een techniek die evalueert hoe goed een model in een trainingset getraind voorspelt ten opzichte van de testset. Met deze techniek, we eerst de gegevensset te verdelen in K vouwen en vervolgens de algoritme K tijden round-robin toewijst trainen. We doen dit op alle maar een van de vouwen dat wordt de 'ondergebracht out Vouw' genoemd. We berekeningscluster de gemiddelde waarde van de metrische gegevens van K modellen via K ondergebracht out vouwen. Deze gemiddelde waarde met de naam *cross-gevalideerde prestaties schatting*, is afhankelijk van de waarden van hyperparameters gebruikt bij het maken van K-modellen. Wanneer hyperparameters afstemmen, zoeken we via de ruimte candidate hyperparameter waarden naar schatting maken van de waarden die de kruisvalidatie prestaties optimaliseren. Raster search is een algemene zoekopdracht techniek. In het raster zoeken is de ruimte van candidate waarden van meerdere hyperparameters een vectorproduct van sets van candidate waarden van afzonderlijke hyperparameters. 
 
 Raster zoeken op basis van kruisvalidatie kan tijdrovend. Als een algoritme vijf hyperparameters met vijf candidate waarden heeft, gebruiken we K = 5 vouwen. We een zoekopdracht raster op Voltooi training 5<sup>6</sup>= 15625 modellen. Gelukkig raster zoeken met behulp van de kruisvalidatie is een perfect parallelle procedure en kunnen alle deze modellen worden getraind parallel.
@@ -37,13 +39,15 @@ Raster zoeken op basis van kruisvalidatie kan tijdrovend. Als een algoritme vijf
 * Een geïnstalleerde kopie van [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) volgende de [installeren en het maken van de Quick Start](./quickstart-installation.md) voor het installeren van de Workbench en maken van accounts.
 * Dit scenario wordt ervan uitgegaan dat u Azure ML-Workbench worden uitgevoerd op Windows 10- of Mac OS met Docker-engine die lokaal zijn geïnstalleerd. 
 * Inrichten om uit te voeren van het scenario met een externe Docker-container, Ubuntu gegevens wetenschappelijke virtuele Machine (DSVM) door de [instructies](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). U wordt aangeraden een virtuele machine gebruiken met ten minste 8 kernen en 28 Gb aan geheugen. D4 exemplaren van virtuele machines hebt die capaciteit. 
-* Om dit scenario worden uitgevoerd met een Spark-cluster, richt u Azure HDInsight-cluster door het volgende [instructies](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We raden aan met een cluster met ten minste 
-- zes worker-knooppunten
-- acht kernen
-- 28 Gb geheugen in de kop- en werkrollen knooppunten. D4 exemplaren van virtuele machines hebt die capaciteit. Het is raadzaam om het wijzigen van de volgende parameters om de prestaties van het cluster.
-- Spark.Executor.Instances
-- Spark.Executor.cores
-- Spark.Executor.Memory 
+* Om dit scenario worden uitgevoerd met een Spark-cluster, richt u Azure HDInsight-cluster door het volgende [instructies](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+We raden u aan met een cluster met ten minste:
+    - zes worker-knooppunten
+    - acht kernen
+    - 28 Gb geheugen in de kop- en werkrollen knooppunten. D4 exemplaren van virtuele machines hebt die capaciteit.       
+    - U wordt aangeraden het wijzigen van de volgende parameters om de prestaties van het cluster:
+        - Spark.Executor.Instances
+        - Spark.Executor.cores
+        - Spark.Executor.Memory 
 
 Voert u deze [instructies](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) en bewerkt u de definities in de sectie 'aangepaste spark standaardwaarden'.
 

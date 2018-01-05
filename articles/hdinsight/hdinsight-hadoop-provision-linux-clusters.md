@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: ee6a91a22d84ba938423c04edc6f8be795b46ebb
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters in HDInsight met Hadoop, Spark en Kafka instellen
 
@@ -32,17 +32,17 @@ Informatie over het instellen en configureren van clusters in HDInsight met Hado
 Een Hadoop-cluster bestaat uit meerdere virtuele machines (knooppunten) die worden gebruikt voor gedistribueerde verwerking van taken. Azure HDInsight verwerkt implementatiegegevens van de installatie en configuratie van afzonderlijke knooppunten, hoeft u alleen om algemene configuratie-informatie te geven. 
 
 > [!IMPORTANT]
->HDInsight-cluster omdat facturering begint zodra een cluster wordt gemaakt en stopt wanneer het cluster wordt verwijderd. Facturering is pro rato per minuut, dus u uw cluster altijd verwijderen moet wanneer deze niet langer in gebruik. Meer informatie over hoe [verwijderen van een cluster.](hdinsight-delete-cluster.md)
+>HDInsight-cluster omdat facturering begint zodra een cluster wordt gemaakt en stopt wanneer het cluster wordt verwijderd. De facturering wordt pro-rato per minuut berekend, dus u moet altijd uw cluster verwijderen wanneer het niet meer wordt gebruikt. Meer informatie over hoe [verwijderen van een cluster.](hdinsight-delete-cluster.md)
 >
 
 ## <a name="cluster-setup-methods"></a>Cluster setup-methoden
 De volgende tabel bevat de verschillende methoden die u gebruiken kunt voor het instellen van een HDInsight-cluster.
 
-| Clusters die zijn gemaakt met | Webbrowser | Opdrachtregel | REST API | SDK | 
+| Clusters die zijn gemaakt met | Webbrowser | Opdrachtregel | REST-API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure CLI ({ver 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
@@ -50,6 +50,8 @@ De volgende tabel bevat de verschillende methoden die u gebruiken kunt voor het 
 
 ## <a name="quick-create-basic-cluster-setup"></a>Snelle invoer: Basic clusterinstallatie
 Dit artikel begeleidt u bij de instellingen in de [Azure-portal](https://portal.azure.com), waarin kunt u een HDInsight-cluster gebruikt *snelle invoer* of *aangepaste*. 
+
+![hdinsight opties aangepaste snelle invoer maken](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
 
 Volg de instructies op het scherm een basic clusterinstallatie doen. Details worden hieronder:
 
@@ -78,23 +80,12 @@ Azure HDInsight biedt momenteel de volgende clustertypen, elk met een reeks onde
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch-query's en analyse van opgeslagen gegevens |
 | [HBase](hbase/apache-hbase-overview.md) |Voor grote hoeveelheden schemaloos, NoSQL-gegevens verwerken |
-| [Storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
-| [Spark](spark/apache-spark-overview.md) |In-memory verwerking, interactieve query's micro batch stroom verwerken |
-| [Kafka (preview)](kafka/apache-kafka-introduction.md) | Een gedistribueerde streaming-platform die kan worden gebruikt voor het bouwen van realtime streaming gegevenspijplijnen en toepassingen |
-| [R Server](r-server/r-server-overview.md) |Diverse big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
 | [Interactieve Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching voor interactieve en sneller Hive-query 's |
+| [Kafka](kafka/apache-kafka-introduction.md) | Een gedistribueerde streaming-platform die kan worden gebruikt voor het bouwen van realtime streaming gegevenspijplijnen en toepassingen |
+| [R Server](r-server/r-server-overview.md) |Diverse big data-statistieken, voorspellende modellen en machine learning-mogelijkheden |
+| [Spark](spark/apache-spark-overview.md) |In-memory verwerking, interactieve query's micro batch stroom verwerken |
+| [Storm](storm/apache-storm-overview.md) |Gebeurtenissen in realtime verwerken |
 
-### <a name="number-of-nodes-for-each-cluster-type"></a>Het aantal knooppunten voor elk clustertype
-Elk clustertype heeft een eigen aantal knooppunten, terminologie voor knooppunten en standaard VM-grootte. In de volgende tabel is het aantal knooppunten voor elk knooppunttype tussen haakjes.
-
-| Type | Knooppunten | Diagram |
-| --- | --- | --- |
-| Hadoop |Hoofdknooppunt (2), gegevensknooppunt (1 +) |![Clusterknooppunten HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |HEAD-server (2), de regio-server (1 +) master/ZooKeeper-knooppunt (3) |![Clusterknooppunten HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nimbus-knooppunt (2), supervisor server (1 +), ZooKeeper-knooppunt (3) |![HDInsight Storm clusterknooppunten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Hoofdknooppunt (2), werkrolknooppunt (1 +), ZooKeeper-knooppunt (3) (gratis voor A1 ZooKeeper VM-grootte) |![HDInsight Spark clusterknooppunten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
-
-Zie voor meer informatie [standaard configuratie en de virtuele machine knooppuntgrootten voor clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "Wat zijn de onderdelen en -versies in HDInsight?"
 
 ### <a name="hdinsight-version"></a>HDInsight-versie
 Selecteer de versie van HDInsight voor dit cluster. Zie voor meer informatie [versies van HDInsight ondersteund](hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -103,11 +94,18 @@ Selecteer de versie van HDInsight voor dit cluster. Zie voor meer informatie [ve
 
 Voor Hadoop, Spark en interactieve Query clustertypen, kunt u kiezen om in te schakelen de **Enterprise-beveiligingspakket**. Dit pakket biedt een optie om de installatie van een beter te beveiligen met behulp van Apache Zwerver en integreren met Azure Active Directory. Zie voor meer informatie [Enterprise-beveiligingspakket in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
+![hdinsight maken opties kiezen enterprise-beveiligingspakket](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+
+Voor meer informatie over het maken van domein HDInsight-cluster, Zie [maken domein HDInsight sandbox-omgeving](./domain-joined/apache-domain-joined-configure.md).
+
+
 ## <a name="cluster-login-and-ssh-user-name"></a>Cluster-aanmelding en SSH-gebruikersnaam
 Met HDInsight-clusters, kunt u twee gebruikersaccounts configureren tijdens het maken van het cluster:
 
 * HTTP-gebruiker: de standaardgebruikersnaam is *admin*. Dit maakt gebruik van de basisconfiguratie in de Azure portal. Dit wordt wel "Cluster gebruiker."
 * SSH-gebruiker (Linux-clusters): verbinding maken met het cluster via SSH. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+
+Het beveiligingspakket Enterprise kunt u HDInsight integreren met Active Directory en Apache Zwerver. Meerdere gebruikers kunnen worden gemaakt met het beveiligingspakket Enteprise.
 
 ## <a name="location"></a>Locatie (regio's) voor clusters en opslag
 
@@ -149,6 +147,19 @@ Gebruik voor betere prestaties bij gebruik van Oozie, een aangepaste metastore. 
 ## <a name="configure-cluster-size"></a>De clustergrootte van het configureren
 
 U wordt gefactureerd voor gebruik van knooppunt voor zolang het cluster bestaat. Omdat facturering begint wanneer een cluster wordt gemaakt en stopt wanneer het cluster wordt verwijderd. Clusters niet ongedaan worden toegewezen of in de wachtstand plaatsen.
+
+
+### <a name="number-of-nodes-for-each-cluster-type"></a>Het aantal knooppunten voor elk clustertype
+Elk clustertype heeft een eigen aantal knooppunten, terminologie voor knooppunten en standaard VM-grootte. In de volgende tabel is het aantal knooppunten voor elk knooppunttype tussen haakjes.
+
+| Type | Knooppunten | Diagram |
+| --- | --- | --- |
+| Hadoop |Hoofdknooppunt (2), gegevensknooppunt (1 +) |![Clusterknooppunten HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| HBase |HEAD-server (2), de regio-server (1 +) master/ZooKeeper-knooppunt (3) |![Clusterknooppunten HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Storm |Nimbus-knooppunt (2), supervisor server (1 +), ZooKeeper-knooppunt (3) |![HDInsight Storm clusterknooppunten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
+| Spark |Hoofdknooppunt (2), werkrolknooppunt (1 +), ZooKeeper-knooppunt (3) (gratis voor A1 ZooKeeper VM-grootte) |![HDInsight Spark clusterknooppunten](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+
+Zie voor meer informatie [standaard configuratie en de virtuele machine knooppuntgrootten voor clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "Wat zijn de onderdelen en -versies in HDInsight?"
 
 De kosten van het HDInsight-clusters wordt bepaald door het aantal knooppunten en de grootte van de virtuele machines voor de knooppunten. 
 

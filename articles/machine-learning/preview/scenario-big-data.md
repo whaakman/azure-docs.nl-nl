@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognose voor serverworkload per terabytes aan gegevens
 
@@ -75,7 +76,7 @@ DSVM IP-adres | xxx|
  Veldnaam| Waarde |  
  |------------|------|
  Naam van opslagaccount| xxx|
- Toegangstoets  | xxx|
+ Toegangssleutel  | xxx|
 
 
 De Ubuntu DSVM en het Azure HDInsight-cluster gemaakt in de lijst met vereiste zijn compute-doelen. COMPUTE doelen worden de rekenresources in de context van Machine Learning Workbench, die afwijken van de computer waarop de Workbench wordt uitgevoerd.   
@@ -114,8 +115,8 @@ Kolomnummer | Veldnaam| Type | Beschrijving |
 12 | `SubService_5_Load`| dubbele |      Subservice 5 laden
 13 |`SecureBytes_Load`  | dubbele | Beveiligde bytes laden
 14 |`TotalLoad` | dubbele | Totale belasting van server
-15 |`ClientIP` | Reeks|    IP-clientadres
-16 |`ServerIP` | Reeks|    Het IP-adres
+15 |`ClientIP` | Tekenreeks|    IP-clientadres
+16 |`ServerIP` | Tekenreeks|    Het IP-adres
 
 
 
@@ -185,11 +186,11 @@ Het eerste argument `configFilename`, is een lokale configuratiebestand waar u d
 
 | Veld | Type | Beschrijving |
 |-----------|------|-------------|
-| StorageAccount | Reeks | Naam van een Azure Storage-account |
-| storageContainer | Reeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
-| storageKey | Reeks |Azure toegangssleutel voor Opslagaccount |
-| DataFile|Reeks | Gegevensbronbestanden  |
-| Duur| Reeks | duur van de gegevens in de bronbestanden van de gegevens|
+| StorageAccount | Tekenreeks | Naam van een Azure Storage-account |
+| storageContainer | Tekenreeks | De container in Azure Storage-account voor het opslaan van tussenliggende resultaten |
+| storageKey | Tekenreeks |Azure toegangssleutel voor Opslagaccount |
+| DataFile|Tekenreeks | Gegevensbronbestanden  |
+| Duur| Tekenreeks | duur van de gegevens in de bronbestanden van de gegevens|
 
 Wijzigen van beide `Config/storageconfig.json` en `Config/fulldata_storageconfig.json` voor het configureren van het opslagaccount, opslagsleutel en de blob-container voor het opslaan van de tussenliggende resultaten. De blob-container voor de één maand gegevens uitvoert is standaard `onemonthmodel`, en de blob-container voor een volledige gegevensset uitgevoerd is `fullmodel`. Zorg ervoor dat u deze twee containers maken in uw opslagaccount. De `dataFile` veld [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) configureert welke gegevens worden geladen [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). De `duration` veld configureert u het bereik dat de gegevens bevatten. Als de duur is ingesteld op ONE_MONTH, moet de geladen gegevens slechts één CSV-bestand tussen de zeven bestanden van de gegevens voor juni 2016. Als de duur van de volledige is, wordt de volledige gegevensset (1 TB) is geladen. U hoeft niet te wijzigen `dataFile` en `duration` in deze configuratie met twee bestanden.
 

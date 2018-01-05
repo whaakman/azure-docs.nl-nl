@@ -1,6 +1,6 @@
 ---
 title: Verzamelen en analyseren van de prestatiemeteritems in Azure Log Analytics | Microsoft Docs
-description: Prestatiemeteritems worden verzameld door logboekanalyse voor het analyseren van de prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze worden opgeslagen in de OMS-opslagplaats en hoe ze in de OMS-portal te analyseren.
+description: Prestatiemeteritems worden verzameld door logboekanalyse voor het analyseren van de prestaties van Windows en Linux-agents.  In dit artikel wordt beschreven hoe u verzamelen van prestatiemeteritems voor zowel Windows en Linux-agents, details van deze worden opgeslagen in de werkruimte en hoe ze in de Azure portal te analyseren.
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- en Linux prestaties gegevensbronnen in Log Analytics
 Prestatiemeters in Windows en Linux bieden inzicht in de prestaties van hardwareonderdelen, besturingssystemen en toepassingen.  Log Analytics kunt verzamelen van prestatiemeteritems met regelmatige tussenpozen voor analyse van de bijna realtime (NRT) naast het aggregeren van prestatiegegevens voor langere termijn analyse en rapportage.
@@ -26,16 +26,16 @@ Prestatiemeters in Windows en Linux bieden inzicht in de prestaties van hardware
 ![Prestatiemeteritems](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configureren van prestatiemeteritems
-Prestatiemeteritems configureren in de OMS-portal van de [menu Data in logboekanalyse-instellingen](log-analytics-data-sources.md#configuring-data-sources).
+Configureren van de prestatiemeteritems van de [menu Data in logboekanalyse-instellingen](log-analytics-data-sources.md#configuring-data-sources).
 
-Wanneer u Windows of Linux-prestatie-items voor een nieuwe OMS-werkruimte voor het eerst configureert, krijgt u de optie snel maken verschillende algemene prestatiemeteritems.  Ze worden weergegeven met een selectievakje in naast elke.  Zorg ervoor dat alle prestatiemeteritems die u wilt maken in eerste instantie zijn geselecteerd en klik vervolgens op **de geselecteerde prestatiemeteritems toevoegen**.
+Wanneer u Windows of Linux-prestatie-items voor een nieuwe werkruimte voor logboekanalyse voor het eerst configureert, krijgt u de optie snel maken verschillende algemene prestatiemeteritems.  Ze worden weergegeven met een selectievakje ernaast.  Zorg ervoor dat alle prestatiemeteritems die u wilt maken in eerste instantie zijn geselecteerd en klik vervolgens op **de geselecteerde prestatiemeteritems toevoegen**.
 
 Voor Windows-prestatiemeteritems kunt u een specifiek exemplaar voor elk prestatiemeteritem. Voor Linux-prestatiemeteritems, het exemplaar van elk prestatiemeteritem dat u kiest is van toepassing op alle onderliggende items van het bovenliggende item. De volgende tabel toont de algemene exemplaren beschikbaar voor Linux- en Windows-prestatiemeteritems.
 
 | Exemplaarnaam | Beschrijving |
 | --- | --- |
 | \_Totaal |Totaal van alle exemplaren |
-| \* |Alle exemplaren |
+| \* |Alle instanties |
 | (/ &#124; / var) |Komt overeen met de exemplaren met de naam: / of /var |
 
 ### <a name="windows-performance-counters"></a>Windows-prestatiemeteritems
@@ -65,7 +65,7 @@ Volg deze procedure om het toevoegen van een nieuwe Linux-prestatiemeteritem ver
 5. Wanneer u tellers toe te voegen bent klaar, klikt u op de **opslaan** knop aan de bovenkant van het scherm wordt de configuratie op te slaan.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Linux-prestatiemeteritems in het configuratiebestand configureren
-In plaats van Linux-prestatiemeteritems met de OMS-portal configureren, hebt u de optie voor het bewerken van de configuratiebestanden op de Linux-agent van.  Maatstaven voor prestaties voor het verzamelen van worden beheerd door de configuratie in **/etc/opt/microsoft/omsagent/\<werkruimte-id\>/conf/omsagent.conf**.
+In plaats van Linux-prestatiemeteritems met de Azure portal configureren, hebt u de optie voor het bewerken van de configuratiebestanden op de Linux-agent van.  Maatstaven voor prestaties voor het verzamelen van worden beheerd door de configuratie in **/etc/opt/microsoft/omsagent/\<werkruimte-id\>/conf/omsagent.conf**.
 
 Elk object of categorie maatstaven voor prestaties voor het verzamelen van moet worden gedefinieerd in het configuratiebestand als een enkel `<source>` element. De syntaxis heeft het patroon hieronder.
 
@@ -96,10 +96,10 @@ De volgende tabel bevat de objecten en de items die u in het configuratiebestand
 | Logische schijf | Percentage vrije ruimte |
 | Logische schijf | Percentage gebruikte Inodes |
 | Logische schijf | Percentage gebruikte ruimte |
-| Logische schijf | Gelezen Bytes per seconde |
+| Logische schijf | Bytes gelezen op schijf/sec |
 | Logische schijf | Schijf lezen per seconde |
 | Logische schijf | Schijfoverdrachten per seconde |
-| Logische schijf | Geschreven Bytes per seconde |
+| Logische schijf | Bytes geschreven naar schijf/sec |
 | Logische schijf | Schijf schrijven per seconde |
 | Logische schijf | Beschikbare Megabytes |
 | Logische schijf | Logische schijf Bytes per seconde |
@@ -182,7 +182,7 @@ Hier volgt de standaardconfiguratie voor maatstaven voor prestaties.
     </source>
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Log Analytics verzamelt alle opgegeven prestatiemeteritems op hun opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens wordt niet geaggregeerd en de onbewerkte gegevens is beschikbaar in alle weergaven van logboek zoeken voor de duur is opgegeven door uw abonnement OMS.
+Log Analytics verzamelt alle opgegeven prestatiemeteritems op hun opgegeven controle-interval op alle agents die die meteritem geïnstalleerd hebben.  De gegevens wordt niet geaggregeerd en de onbewerkte gegevens is beschikbaar in alle weergaven van logboek zoeken voor de duur is opgegeven door uw abonnement.
 
 ## <a name="performance-record-properties"></a>Eigenschappen van de record Performance
 Prestaties records hebben een soort **Perf** en de eigenschappen in de volgende tabel hebben.
@@ -220,12 +220,7 @@ De volgende tabel bevat voorbeelden van logboek-zoekopdrachten die prestatiegege
 | Perf &#124; Indien CounterName == '% processortijd' en InstanceName == '_Totaal' en Computer == 'Computer' &#124; samenvatten ['min(CounterValue)'] min(CounterValue), = ["avg(CounterValue)"] = avg(CounterValue), ['percentile75(CounterValue)'] percentiel (tegenwaarde, 75), = ["max(CounterValue)"] = max(CounterValue) door bin (TimeGenerated, 1 uur), Computer |Elk uur gemiddeld, minimum, maximum en 75 percentiel CPU-gebruik voor een specifieke computer |
 | Perf &#124; waar ObjectName == "MSSQL$ INST2: Databases ' en InstanceName == 'master' | Alle prestatiegegevens van de prestatie-object van de Database voor de hoofddatabase van het benoemde exemplaar van SQL Server INST2.  
 
-## <a name="viewing-performance-data"></a>Weergeven van prestatiegegevens
-Tijdens het uitvoeren van een zoekopdracht logboek voor prestatiegegevens, de **lijst** weergave wordt standaard weergegeven.  Als u wilt weergeven van de gegevens in grafische vorm **metrische gegevens**.  Voor een gedetailleerde grafische weergave, klikt u op de  **+**  naast een item.  
 
-![Metrische gegevens weergeven die zijn samengevouwen](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Cumulatieve prestatiegegevens in een logboek zoekopdracht, raadpleeg dan [On demand metrische aggregatie en visualisatie in OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
 ## <a name="next-steps"></a>Volgende stappen

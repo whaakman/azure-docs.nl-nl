@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Azure Machine Learning-modellen worden bijgewerkt met behulp van de activiteit van de Update-Resource
 In dit artikel is een aanvulling op de belangrijkste Azure Data Factory - artikel voor Azure Machine Learning-integratie: [voorspellende pijplijnen met behulp van Azure Machine Learning en Azure Data Factory maken](transform-data-using-machine-learning.md). Als u dit nog niet hebt gedaan, raadpleegt u de belangrijkste artikel voordat gelezen in dit artikel. 
@@ -86,33 +86,6 @@ Voor de bovengenoemde end-to-end werkstroom werken, moet u twee Azure Machine Le
 2. Een Azure Machine Learning gekoppelde service met het eindpunt van de resource update van de voorspellende webservice. Deze gekoppelde service wordt gebruikt door Resource bijwerken activiteit bij te werken de voorspellende webservice met behulp van het iLearner-bestand boven het stap geretourneerd. 
 
 De configuratie is voor de tweede Azure Machine Learning gekoppelde service, verschillende wanneer uw Azure Machine Learning-webservice een klassieke webservice of een nieuwe Web-Service is. De verschillen worden afzonderlijk in de volgende secties worden besproken. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Web-service is een klassieke webservice
-Als de webservice van voorspellingslengte is een **klassieke webservice**, maken van de tweede **niet-standaard en bij te werken eindpunt** met behulp van de Azure-portal. Zie [eindpunten maken](../machine-learning/machine-learning-create-endpoint.md) artikel voor stappen. Nadat u het niet-standaard worden bijgewerkt eindpunt hebt gemaakt, kunt u de volgende stappen uitvoeren:
-
-* Klik op **BATCHUITVOERING** ophalen van de URI-waarde voor de **mlEndpoint** JSON-eigenschap.
-* Klik op **UPDATE RESOURCE** koppeling voor de URI-waarde voor de **updateResourceEndpoint** JSON-eigenschap. De API-sleutel is op de pagina endpoint zelf (in de rechterbenedenhoek).
-
-![eindpunt bij te werken](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Daarna het volgende voorbeeld van de gekoppelde service gebruiken voor het maken van een nieuwe Azure Machine Learning gekoppelde service. De gekoppelde service gebruikt de apiKey voor authenticatie.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Webservice is een nieuwe Azure Resource Manager-webservice 
 

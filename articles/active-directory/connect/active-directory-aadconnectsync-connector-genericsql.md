@@ -3,8 +3,8 @@ title: Algemene SQL-Connector | Microsoft Docs
 description: In dit artikel wordt beschreven hoe algemene SQL-Connector van Microsoft te configureren.
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Algemene technische documentatie van SQL-Connector
 Dit artikel worden de algemene SQL-Connector. Het artikel is van toepassing op de volgende producten:
@@ -71,7 +71,7 @@ De Connector gebruikt een ODBC DSN-bestand voor connectiviteit. Maak de DSN-best
 Het scherm connectiviteit is de eerste wanneer u een nieuwe algemene SQL-Connector maakt. U moet eerst de volgende informatie:
 
 * Bestandspad DSN-naam
-* Authentication
+* Verificatie
   * Gebruikersnaam
   * Wachtwoord
 
@@ -231,7 +231,11 @@ Algemene SQL-Connector ondersteuning voor volledige en Delta-Import gebruik van 
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabel of weergave**  
-Voor het importeren van meerdere waarden kenmerken voor een object dat u hebt de naam van de tabel of weergave door komma's gescheiden in op te geven **naam van meerwaardige tabelweergaven** en respectieve join-voorwaarden in de **joinvoorwaarde** met de bovenliggende tabel.
+Voor het importeren van meerdere waarden kenmerken voor een object dat u hebt de naam van de tabel of weergave in te geven **naam van meerwaardige tabelweergaven** en respectieve join-voorwaarden in de **joinvoorwaarde** met de bovenliggende tabel . Als er meer dan één tabel voor meerdere waarden in de gegevensbron, kunt u samenvoeging tot één.
+
+>[!IMPORTANT]
+De algemene SQL management agent kunt werken alleen met één tabel voor meerdere waarden. Plaats niet in de naam van meerdere waarden tabelweergaven meer dan één naam van de tabel. Dit is de beperking van algemene SQL.
+
 
 Voorbeeld: U wilt importeren van de werknemer-object en alle bijbehorende kenmerken met meerdere waarden. Er zijn twee tabellen, met de naam werknemer (hoofdtabel) en afdeling (met meerdere waarden).
 Ga als volgt te werk:

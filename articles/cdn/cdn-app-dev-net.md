@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Aan de slag met Azure CDN-ontwikkeling
 > [!div class="op_single_selector"]
@@ -154,7 +154,7 @@ Laten we de basisstructuur van ons programma geschreven worden opgehaald.
 
 Nu dat de basisstructuur van het programma is geschreven, maken we de methoden die worden aangeroepen door de `Main` methode.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Verificatie
 Voordat we de Beheerbibliotheek van Azure CDN gebruiken kunnen, moeten we onze service-principal te verifiëren en geen verificatietoken ophalen.  Deze methode maakt gebruik van ADAL voor het ophalen van het token.
 
 ```csharp

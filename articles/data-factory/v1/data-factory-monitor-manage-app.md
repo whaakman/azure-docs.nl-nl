@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de app voor bewaking en beheer
 > [!div class="op_single_selector"]
@@ -212,7 +212,7 @@ Activiteit windows kunnen worden gebruikt in een van de volgende statussen:
 <td>Overgeslagen</td><td>-</td><td>Het activiteitvenster is niet verwerkt.</td>
 </tr>
 <tr>
-<td>Geen</td><td>-</td><td>Het venster van een activiteit aan een andere status gebruikt, maar is opnieuw ingesteld.</td>
+<td>None</td><td>-</td><td>Het venster van een activiteit aan een andere status gebruikt, maar is opnieuw ingesteld.</td>
 </tr>
 </table>
 
@@ -326,7 +326,7 @@ De volgende tabel bevat de lijst met beschikbare gebeurtenissen en status (en su
 | --- | --- | --- |
 | Activiteit die wordt uitgevoerd gestart |Gestart |Starting |
 | Activiteit die wordt uitgevoerd is voltooid |Geslaagd |Geslaagd |
-| Activiteit die wordt uitgevoerd is voltooid |Mislukt |Fout in de Resource-toewijzing<br/><br/>Mislukte uitvoering<br/><br/>Time-out<br/><br/>De validatie is mislukt<br/><br/>Afgebroken |
+| Activiteit die wordt uitgevoerd is voltooid |Mislukt |Fout in de Resource-toewijzing<br/><br/>Mislukte uitvoering<br/><br/>Time-out opgetreden<br/><br/>De validatie is mislukt<br/><br/>Afgebroken |
 | On-Demand HDI-Cluster maken gestart |Gestart |-|
 | On-Demand HDI-Cluster is gemaakt |Geslaagd |-|
 | On-Demand-HDI-Cluster is verwijderd |Geslaagd |-|

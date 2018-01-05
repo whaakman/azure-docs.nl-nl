@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="split-column-by-example-transformation"></a>Kolom splitsen door voorbeeld transformatie
 De inhoud van een kolom op zinvolle grenzen splitst deze transformatie predictively zonder gebruikersinvoer van. Het algoritme gesplitste selecteert de grenzen na het analyseren van de inhoud van de kolom. Deze grenzen kunnen worden gedefinieerd door
@@ -97,16 +97,16 @@ De waarden in de volgende *tijdsinstellingen* kolom ophalen predictively splitse
 
 |Timings_1|Timings_2|Timings_3|Timings_4|Timings_5|Timings_6|Timings_7|Timings_8|Timings_9|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|maandag|Vrijdag|7:00 uur|18:00 uur|Zaterdag|9:00 uur|17:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|9:00 uur|18:00 uur|Zaterdag|4:00 uur|4:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|8:30 uur|19:00 uur|Zaterdag|3:00 uur|2:30 pm|Zondag|gesloten|
-|maandag|Vrijdag|8:00 uur|18:00 uur|Zaterdag|2:00 uur|15:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|4:00 uur|19:00 uur|Zaterdag|9:00 uur|4:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|8:30 uur|4:30 pm|Zaterdag|9:00 uur|17:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|5:30 uur|18:30:00 uur|Zaterdag|5:00 uur|4:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|8:30 uur|8:30 pm|Zaterdag|6:00 uur|17:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|8:00 uur|21:00 uur|Zaterdag|9:00 uur|8:00 uur|Zondag|gesloten|
-|maandag|Vrijdag|10:00 uur|9:30 pm|Zaterdag|9:30:00 uur|15:00 uur|Zondag|gesloten|
+|maandag|vrijdag|7:00 uur|18:00 uur|zaterdag|9:00 uur|17:00 uur|zondag|Gesloten|
+|maandag|vrijdag|9:00 uur|18:00 uur|zaterdag|4:00 uur|4:00 uur|zondag|Gesloten|
+|maandag|vrijdag|8:30 uur|19:00 uur|zaterdag|3:00 uur|2:30 pm|zondag|Gesloten|
+|maandag|vrijdag|8:00 uur|18:00 uur|zaterdag|2:00 uur|15:00 uur|zondag|Gesloten|
+|maandag|vrijdag|4:00 uur|19:00 uur|zaterdag|9:00 uur|4:00 uur|zondag|Gesloten|
+|maandag|vrijdag|8:30 uur|4:30 pm|zaterdag|9:00 uur|17:00 uur|zondag|Gesloten|
+|maandag|vrijdag|5:30 uur|18:30:00 uur|zaterdag|5:00 uur|4:00 uur|zondag|Gesloten|
+|maandag|vrijdag|8:30 uur|8:30 pm|zaterdag|6:00 uur|17:00 uur|zondag|Gesloten|
+|maandag|vrijdag|8:00 uur|21:00 uur|zaterdag|9:00 uur|8:00 uur|zondag|Gesloten|
+|maandag|vrijdag|10:00 uur|9:30 pm|zaterdag|9:30:00 uur|15:00 uur|zondag|Gesloten|
 
 ### <a name="splitting-iis-log"></a>Splitsen IIS-logboek
 
@@ -127,14 +127,14 @@ Met deze eigenschap wordt opgedeeld in:
 
 |logtext_1|logtext_2|logtext_3|logtext_4|logtext_5|logtext_6|logtext_7|logtext_8|logtext_9|logtext_10|logtext_11|logtext_12|logtext_13|logtext_14|logtext_15|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|192.128.138.20|Oct-16-2016|16:22:33|-0200|TOEVOEGEN|images/Picture.gif|HTTP|1.1|234|343|www.yahoo.com|Http://www.example.com/|Mozilla|4.0|compatibel zijn. MSIE 4|
-|10.128.72.213|Oct-17-2016|12:43:12|+0300|TOEVOEGEN|News/Stuff.HTML|HTTP|1.1|200|6233|www.AOL.com|http://www.sample.com/|Mozilla|5.0|MSIE|
-|192.165.71.165|November-12-2016|14:22:44|-0500|TOEVOEGEN|Sample.ico|HTTP|1.1|342|7342|www.Facebook.com|-|Mozilla|5.0|Windows; U; Windows NT 5.1; RV:1.7.3|
-|10.166.64.165|23-november/2016|01:52:45|-0800|TOEVOEGEN|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|192.167.1.193|Jan-16/2017|22:34:56|+0200|TOEVOEGEN|js/ADS.js|HTTP|1.1|200|23462|www.Microsoft.com|http://www.Illustration.com/index.HTML|Mozilla|5.0|Windows|
-|192.147.76.193|Jan/28/2017|26:36:16|+0800|TOEVOEGEN|Search.php|HTTP|1.1|400|1777|www.Bing.com|-|Mozilla|4.0|compatibel zijn. MSIE 6.0; Windows NT 5.1|
-|192.166.64.165|Mrt-23/2017|01:55:25|-0800|TOEVOEGEN|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|11.167.1.193|April-16/2017|11:34:36|+0200|TOEVOEGEN|js/ADS.js|HTTP|1.1|200|23462|www.Microsoft.com|http://www.Illustration.com/index.HTML|Mozilla|5.0|Windows|
+|192.128.138.20|Oct-16-2016|16:22:33|-0200|GET|images/Picture.gif|HTTP|1.1|234|343|www.yahoo.com|Http://www.example.com/|Mozilla|4.0|compatibel zijn. MSIE 4|
+|10.128.72.213|Oct-17-2016|12:43:12|+0300|GET|News/Stuff.HTML|HTTP|1.1|200|6233|www.AOL.com|http://www.sample.com/|Mozilla|5.0|MSIE|
+|192.165.71.165|November-12-2016|14:22:44|-0500|GET|Sample.ico|HTTP|1.1|342|7342|www.Facebook.com|-|Mozilla|5.0|Windows; U; Windows NT 5.1; RV:1.7.3|
+|10.166.64.165|23-november/2016|01:52:45|-0800|GET|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
+|192.167.1.193|Jan-16/2017|22:34:56|+0200|GET|js/ADS.js|HTTP|1.1|200|23462|www.Microsoft.com|http://www.Illustration.com/index.HTML|Mozilla|5.0|Windows|
+|192.147.76.193|Jan/28/2017|26:36:16|+0800|GET|Search.php|HTTP|1.1|400|1777|www.Bing.com|-|Mozilla|4.0|compatibel zijn. MSIE 6.0; Windows NT 5.1|
+|192.166.64.165|Mrt-23/2017|01:55:25|-0800|GET|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
+|11.167.1.193|April-16/2017|11:34:36|+0200|GET|js/ADS.js|HTTP|1.1|200|23462|www.Microsoft.com|http://www.Illustration.com/index.HTML|Mozilla|5.0|Windows|
 
 ## <a name="examples-of-splitting-without-delimiters"></a>Voorbeelden van het splitsen van zonder scheidingstekens
 In sommige gevallen, er zijn geen daadwerkelijke scheidingstekens en gegevensvelden aaneengesloten naast elkaar kunnen optreden. In dit geval detecteert de Split-transformatie automatisch patronen in de gegevens waarschijnlijk splitspunten afleiden. Bijvoorbeeld, in het volgende scenario willen we het bedrag scheiden van het valutatype en gesplitste automatisch de grens tussen de numerieke en niet-numerieke gegevens als de splitspunt afleidt.

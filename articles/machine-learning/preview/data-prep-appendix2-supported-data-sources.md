@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden 
 In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden.
@@ -60,7 +60,7 @@ Een bestand met door komma's gescheiden waarden lezen uit de opslag.
 #### <a name="options"></a>Opties
 - Scheidingsteken
 - Opmerking
-- Headers
+- Kopteksten
 - Decimaalteken
 - Bestandscodering
 - Regels over te slaan
@@ -70,7 +70,7 @@ Een bestand tabblad's gescheiden waarden lezen uit de opslag.
 
 #### <a name="options"></a>Opties
 - Opmerking
-- Headers
+- Kopteksten
 - Bestandscodering
 - Regels over te slaan
 
@@ -79,7 +79,7 @@ Een Excel-bestand een blad tegelijk lezen door bladnaam of nummer te geven.
 
 #### <a name="options"></a>Opties
 - Bladnaam of een cijfer
-- Headers
+- Kopteksten
 - Regels over te slaan
 
 ### <a name="json-file"></a>JSON-bestand

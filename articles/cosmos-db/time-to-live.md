@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Gegevens in Azure Cosmos DB verzamelingen automatisch met TTL verloopt
 Toepassingen kunnen maken en opslaan van de enorme hoeveelheden gegevens. Sommige van deze gegevens, zoals machine gegenereerde gegevens, logboeken en gebruiker gebeurtenissessie informatie is alleen nuttig voor een beperkte periode. Zodra de gegevens wordt overtollige aan de behoeften van de toepassing het is veilig om deze gegevens verwijderen en de opslagbehoeften van een toepassing te verminderen.
@@ -149,8 +149,11 @@ Als u wilt uitschakelen TTL volledig op een verzameling en stoppen van het achte
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
-## <a name="ttl-and-index-interaction"></a>Interactie van de TTL en Index
-Is een wijziging in de onderliggende index TTL toevoegen of wijzigen. Wanneer er geen TTL is en u Geef een geldige TTL-waarde - wordt dit resulteert in de bewerking opnieuw geïndexeerd. Voor consistente Index - gebruiker, zien geen wijzigingen in de Indexstatus. Voor het geval van vertraagde index - de index ten eerste altijd omhoog en met deze wijziging in de ttl afvangen wordt, wordt de index gemaakt vanaf het begin. De impact in laatste geval is dat query's uitgevoerd tijdens het opnieuw opbouwen van de index niet voltooid of de juiste resultaten retourneert. Wijzig geen TTL voor vertraagde index als u gegevens aantal enzovoort exacte moet indexering modus zelf vertraagde is.  In het ideale geval moet consistent index worden altijd gekozen. 
+<a id="ttl-and-index-interaction"></a> 
+## <a name="ttl-and-index-interaction"></a>Interactie van de TTL en index
+De onderliggende index toevoegen of wijzigen van de TTL-instelling op een verzameling wordt gewijzigd. Wanneer de TTL-waarde wordt gewijzigd van uitgeschakeld in ingeschakeld, wordt de verzameling opnieuw geïndexeerd. Wanneer u wijzigingen in het indexeringsbeleid wanneer de modus voor indexering consistent is, zullen gebruikers een wijziging in de index niet zien. Wanneer de indexing-modus is is ingesteld op vertraagde, worden de index is altijd vastgelegd en als de TTL-waarde is gewijzigd, de index is gemaakt vanaf het begin. Wanneer de TTL-waarde wordt gewijzigd en de Indexmodus is ingesteld op vertraagde, retourneren query's uitgevoerd tijdens het opnieuw opbouwen van de index niet volledig of juist resultaten.
+
+Als u moet de exacte gegevens die zijn geretourneerd, wijzig niet de TTL-waarde als de indexing-modus is ingesteld op vertraagde. In het ideale geval moet consistent index worden gekozen om consistente resultaten te behalen. 
 
 ## <a name="faq"></a>Veelgestelde vragen
 **Wat TTL kost mij?**

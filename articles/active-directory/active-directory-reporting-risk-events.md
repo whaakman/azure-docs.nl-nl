@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -84,7 +84,7 @@ Dit type risico gebeurtenis identificeert aanmeldingen vanaf apparaten geïnfect
 Dit type risico gebeurtenis identificeert IP-adressen waaruit een groot aantal mislukte aanmeldingspogingen zijn gezien, bij verschillende gebruikersaccounts gedurende een korte periode. Dit komt overeen met verkeerspatronen van IP-adressen die door aanvallers worden gebruikt en een sterke indicator dat accounts al zijn, of moeten worden aangetast. Dit is een machine learning-algoritme dat wordt genegeerd voor de hand liggende '*false positieven*', zoals IP-adressen die regelmatig worden gebruikt door andere gebruikers in de organisatie.  Het systeem heeft een initiële learning periode van 14 dagen waar deze leert het gedrag aanmelden van een nieuwe gebruiker en de nieuwe tenant.
 
 
-## <a name="detection-type"></a>Detectie van type
+## <a name="detection-type"></a>Detectietype
 
 De eigenschap van het type detectie is een indicator (realtime of Offline) voor het tijdsbestek detectie van een risicogebeurtenis.  
 Op dit moment worden de meeste risicogebeurtenissen gedetecteerd offline in na verwerking bewerking nadat de risicogebeurtenis heeft plaatsgevonden.
@@ -141,7 +141,7 @@ Het is raadzaam dat u direct contact opnemen met de gebruiker om te controleren 
 Onmogelijke reis is meestal een goede indicatie die een hacker kon is aanmelden. ONWAAR-positieven kunnen echter optreden wanneer een gebruiker op reis gaat met behulp van een nieuw apparaat of via een VPN die doorgaans niet wordt gebruikt door andere gebruikers in de organisatie. Een andere bron van false positieven is voor toepassingen die onjuist server IP-adressen als client-IP-adressen, zodat de vormgeving van aanmeldingen die hebben plaatsgevonden in het datacenter waarin de toepassing van back-end wordt gehost (dit zijn vaak Microsoft-datacenters die geven de vormgeving van aanmeldingen plaatsvinden van Microsoft die eigendom zijn van IP-adressen). Als gevolg van deze ONWAAR-positieven, het risiconiveau voor deze risicogebeurtenis is **gemiddeld**.
 
 > [!TIP]
-> U kunt de hoeveelheid gemelde false positves voor dit type van de gebeurtenis risico verkleinen door te configureren [locaties met de naam](active-directory-named-locations.md). 
+> U kunt de hoeveelheid gemelde ONWAAR-positieven voor dit type van de gebeurtenis risico verkleinen door te configureren [locaties met de naam](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Aanmelden vanaf onbekende locaties
 

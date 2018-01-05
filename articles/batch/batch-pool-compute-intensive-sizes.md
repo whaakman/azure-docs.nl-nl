@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Gebruik van RDMA-compatibele of GPU ingeschakeld exemplaren in Batch-pools
 
@@ -47,11 +47,11 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Groepen van Linux - Virtuele-machineconfiguratie
 
-| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Instellingen voor toepassingen |
+| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 TNS,<br/>SUSE Linux Enterprise Server 12 HPC, of<br/>Op basis van centOS HPC<br/>(Azure Marketplace) | Intel MPI 5 | Communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
-| [NC reeks *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla R80 GPU | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3, of<br/>7.3 op basis van CentOS<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0-stuurprogramma 's | N.v.t. | 
-| [NV reeks](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3, of<br/>7.3 op basis van CentOS<br/>(Azure Marketplace) | NVIDIA RASTER 4.3 stuurprogramma 's | N.v.t. |
+| [NC reeks *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla R80 GPU | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3, of<br/>7.3 op basis van CentOS<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0-stuurprogramma 's | N/A | 
+| [NV reeks](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 TNS,<br/>Red Hat Enterprise Linux 7.3, of<br/>7.3 op basis van CentOS<br/>(Azure Marketplace) | NVIDIA RASTER 4.3 stuurprogramma 's | N/A |
 
 * RDMA-connectiviteit op NC24r VM's wordt ondersteund op Ubuntu 16.04 TNS of op basis van CentOS 7.3 HPC (uit Azure Marketplace) met Intel MPI.
 
@@ -59,11 +59,11 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows-groepen - configuratie van virtuele machine
 
-| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Instellingen voor toepassingen |
+| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 of<br/>WindowsServer 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 of hoger, of<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-extensie | Communicatie tussen knooppunten inschakelen, uitschakelen van de uitvoering van gelijktijdige taken |
-| [NC reeks *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla R80 GPU | WindowsServer 2016 of <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla stuurprogramma's of CUDA Toolkit 9.0 's| N.v.t. | 
-| [NV reeks](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | WindowsServer 2016 of<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA RASTER 4.3 stuurprogramma 's | N.v.t. |
+| [NC reeks *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla R80 GPU | WindowsServer 2016 of <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla stuurprogramma's of CUDA Toolkit 9.0 's| N/A | 
+| [NV reeks](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | WindowsServer 2016 of<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA RASTER 4.3 stuurprogramma 's | N/A |
 
 * RDMA-connectiviteit op NC24r VM's wordt ondersteund op Windows Server 2012 R2 (uit Azure Marketplace) met de extensie HpcVMDrivers en Microsoft MPI of Intel MPI.
 
@@ -73,7 +73,7 @@ De RDMA en GPU-mogelijkheden van rekenintensieve grootten worden alleen onderste
 > N-serie grootten worden niet ondersteund in de Batch-pools met de configuratie van de cloud-services.
 >
 
-| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Instellingen voor toepassingen |
+| Grootte | Mogelijkheid | Besturingssystemen | Vereiste software | Poolinstellingen |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2<br/>WindowsServer 2012 of<br/>Windows Server 2008 R2 (Gast OS-familie) | Microsoft MPI 2012 R2 of hoger, of<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-extensie | Communicatie tussen knooppunten, inschakelen<br/> uitvoering van gelijktijdige taken uitschakelen |
 
@@ -122,7 +122,7 @@ Windows MPI-toepassingen op een pool van Azure A8 knooppunten, hebt u nodig voor
 CUDA toepassingen op een pool van Linux NC-knooppunten uitgevoerd, moet u CUDA Toolkit 9.0 installeren op de knooppunten. De Toolkit installeert de benodigde NVIDIA Tesla GPU-stuurprogramma's. Hier volgen voorbeelden van stappen beschreven voor het implementeren van een aangepaste installatiekopie Ubuntu 16.04 TNS met de GPU-stuurprogramma's:
 
 1. Implementeer een Azure-NC6 VM Ubuntu 16.04 TNS uitgevoerd. Bijvoorbeeld, de virtuele machine maken in de regio VS Zuid-centraal. Zorg ervoor dat de virtuele machine te met een beheerde schijf maken.
-2. Volg de stappen voor het verbinding maken met de virtuele machine en [CUDA stuurprogramma's installeren](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+2. Volg de stappen voor het verbinding maken met de virtuele machine en [CUDA stuurprogramma's installeren](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
 3. De Linux-agent inrichting ervan ongedaan en vervolgens [de installatiekopie van het Linux-VM vastleggen](../virtual-machines/linux/capture-image.md).
 4. Maak een Batch-account in een regio die ondersteuning biedt voor NC virtuele machines.
 5. Een groep met behulp van de Batch-API's of Azure-portal maken [met behulp van de aangepaste installatiekopie](batch-custom-images.md) en met het gewenste aantal knooppunten en de schaal. De volgende tabel ziet u voorbeelden van toepassingen van instellingen voor de installatiekopie:

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>castLabs gebruiken om Widevine-licenties te leveren aan Azure Media Services
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Zowel castLabs en AMS ondersteuning voor token JWT (JSON Web Token)-indeling geb
 ### <a name="jwt-token-in-ams"></a>JWT-token in AMS
 De volgende tabel beschrijft de JWT-token in AMS. 
 
-| Certificaatverlener | Tekenreeks van de verlener van het gekozen Secure Token Service (STS) |
+| Verlener | Tekenreeks van de verlener van het gekozen Secure Token Service (STS) |
 | --- | --- |
 | Doelgroep |Tekenreeks van de doelgroep van het gebruikte STS |
 | Claims |Een set claims |

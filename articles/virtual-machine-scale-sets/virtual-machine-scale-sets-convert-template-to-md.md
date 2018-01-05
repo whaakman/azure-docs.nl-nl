@@ -5,7 +5,7 @@ keywords: Virtuele-machineschaalsets
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Een set scale sjabloon converteren naar een beheerde schijf scale set-sjabloon
 
-Klanten met een Resource Manager-sjabloon voor het maken van een scale-set niet met behulp van beheerde schijven mogelijk wilt wijzigen om beheerde schijf te gebruiken. Dit artikel laat zien hoe u kunt dit doen met een voorbeeld van een pull-aanvraag van de [Azure-Snelstartsjablonen](https://github.com/Azure/azure-quickstart-templates), een opslagplaats community aangestuurde voor Resource Manager-voorbeeldsjablonen. De volledige pull-aanvraag ziet u hier: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), en de belangrijke onderdelen van de diff zijn hieronder, samen met uitleg:
+Klanten met een Resource Manager-sjabloon voor het maken van een scale-set niet met behulp van beheerde schijven mogelijk wilt wijzigen om beheerde schijf te gebruiken. Dit artikel laat zien hoe u beheerde schijven, met als voorbeeld van een pull-aanvraag van de [Azure-Snelstartsjablonen](https://github.com/Azure/azure-quickstart-templates), een opslagplaats community aangestuurde voor Resource Manager-voorbeeldsjablonen. De volledige pull-aanvraag ziet u hier: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), en de belangrijke onderdelen van de diff zijn hieronder, samen met uitleg:
 
 ## <a name="making-the-os-disks-managed"></a>De OS-schijven beheerd maken
 
-In de onderstaande diff kunt zien we dat we verschillende variabelen die zijn gerelateerd aan de eigenschappen van de schijf en -account van de opslag hebt verwijderd. Opslagaccounttype is niet meer nodig (Standard_LRS is de standaardinstelling), maar we het nog steeds kan opgeven als we willen. Alleen Standard_LRS en Premium_LRS worden ondersteund met beheerde schijven. Nieuw achtervoegsel voor de storage-account, unieke tekenreeksmatrix en sa aantal werden gebruikt in de oude sjabloon voor het genereren van de namen van opslagaccounts. Deze variabelen zijn niet meer nodig in de nieuwe sjabloon omdat beheerde schijven automatisch storage-accounts namens de klant maakt. Op dezelfde manier de naam van de vhd-container en naam besturingssysteemschijf zijn niet langer nodig omdat beheerde schijven automatisch de naam van de onderliggende opslag blob-containers en schijven.
+In de volgende diff worden verschillende variabelen die zijn gerelateerd aan de storage-account en schijf-eigenschappen verwijderd. Opslagaccounttype is niet meer nodig (Standard_LRS is de standaardinstelling), maar u kunt deze desgewenst opgeven. Alleen Standard_LRS en Premium_LRS worden ondersteund met beheerde schijven. Nieuw achtervoegsel voor de storage-account, unieke tekenreeksmatrix en sa aantal werden gebruikt in de oude sjabloon voor het genereren van de namen van opslagaccounts. Deze variabelen zijn niet meer nodig in de nieuwe sjabloon omdat beheerde schijven automatisch storage-accounts namens de klant maakt. Op dezelfde manier de naam van de vhd-container en naam Besturingssysteemschijf zijn niet langer nodig omdat beheerde schijven automatisch de naam van de onderliggende opslag blob-containers en schijven.
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ In de onderstaande diff kunt zien we dat we verschillende variabelen die zijn ge
 ```
 
 
-In de onderstaande diff kunt zien we dat we de berekening die is bijgewerkt naar 2016-04-30-preview, die de eerste vereiste versie voor ondersteuning van beheerde schijven bij schaalsets api-versie. Houd er rekening mee dat we nog steeds niet-beheerde schijven in de nieuwe api-versie met de syntaxis van de oude gebruiken kan indien gewenst. Met andere woorden, als we alleen de compute-update api-versie en niets anders niet wijzigen, de sjabloon moet blijven werken als voorheen.
+In de volgende diff berekenen u dat API bijgewerkt naar versie 2016-04-30-preview, dit de eerste vereiste versie voor ondersteuning van beheerde schijven bij schaalsets is. Indien gewenst, kunt u niet-beheerde schijven in de nieuwe API-versie met de oude syntaxis. Als u alleen de compute-API-versie bijwerken en niets anders niet wijzigen, moet de sjabloon moet blijven werken als voorheen.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ In de onderstaande diff kunt zien we dat we de berekening die is bijgewerkt naar
    },
 ```
 
-In de onderstaande diff kunt zien we dat we de opslagbronnen account van de matrix resources volledig verwijdert. We nodig deze niet meer omdat beheerde schijven ze automatisch namens ons maakt.
+In de volgende diff de storage-account resource wordt verwijderd uit de matrix resources volledig. De resource is niet meer nodig omdat beheerde schijven ze automatisch maakt.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ In de onderstaande diff kunt zien we dat we de opslagbronnen account van de matr
        "location": "[resourceGroup().location]",
 ```
 
-In de onderstaande diff we zien we verwijdert het afhankelijk is van een component van de schaal is ingesteld op de lus die het maken van opslagaccounts verwijst. In de oude sjabloon is dit ervoor te zorgen dat de storage-accounts zijn gemaakt voordat de schaalaanpassingsset begon het maken, maar deze component niet langer met beheerde schijf nodig is. We ook de eigenschap vhd-containers en verwijderen de naameigenschap van de os-schijf als deze eigenschappen automatisch achter de schermen worden verwerkt door beheerde schijf. Als we de volgende vragen, kunnen we toevoegen `"managedDisk": { "storageAccountType": "Premium_LRS" }` in de configuratie 'osDisk' als we premium OS-schijven wilden. Alleen virtuele machines met een hoofdletter of kleine van ' in de virtuele machine sku premium-schijven kunt gebruiken.
+In de volgende diff we zien we verwijdert het afhankelijk is van een component van de schaal is ingesteld op de lus die het maken van opslagaccounts verwijst. In de oude sjabloon is dit ervoor te zorgen dat de storage-accounts zijn gemaakt voordat de schaalaanpassingsset begon het maken, maar deze component niet langer met beheerde schijf nodig is. De eigenschap vhd-containers wordt ook verwijderd, samen met de eigenschap name van OS-schijf als deze eigenschappen automatisch achter de schermen worden verwerkt door beheerde schijven. U kunt toevoegen `"managedDisk": { "storageAccountType": "Premium_LRS" }` in de configuratie 'osDisk' indien u wenste de premium-OS-schijven. Alleen virtuele machines met een hoofdletter of kleine van ' in de virtuele machine sku premium-schijven kunt gebruiken.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -137,7 +137,7 @@ Met de bovenstaande wijzigingen schijf scale set maakt gebruik van beheerde schi
 ]
 ```
 
-Als u opgeeft `n` schijven in deze matrix elke virtuele machine in de schaal ingesteld opgehaald `n` gegevensschijven. Merk echter op dat deze gegevensschijven onbewerkte apparaten zijn. Ze zijn niet opgemaakt. Het is tot de klant te koppelen, paritition, en de schijven formatteren voordat u ze gebruikt. Er kan ook Geef eventueel `"managedDisk": { "storageAccountType": "Premium_LRS" }` in elke schijf gegevensobject om op te geven dat deze een gegevensschijf premium moet. Alleen virtuele machines met een hoofdletter of kleine van ' in de virtuele machine sku premium-schijven kunt gebruiken.
+Als u opgeeft `n` schijven in deze matrix elke virtuele machine in de schaal ingesteld opgehaald `n` gegevensschijven. Merk echter op dat deze gegevensschijven onbewerkte apparaten zijn. Ze zijn niet opgemaakt. Het is tot de klant te koppelen, partitioneren en formatteren van de schijven voordat u ze gebruikt. U kunt ook opgeven `"managedDisk": { "storageAccountType": "Premium_LRS" }` in elke schijf gegevensobject om op te geven dat deze een gegevensschijf premium moet. Alleen virtuele machines met een hoofdletter of kleine van ' in de virtuele machine sku premium-schijven kunt gebruiken.
 
 Zie voor meer informatie over het gebruik van gegevensschijven met schaalsets, [in dit artikel](./virtual-machine-scale-sets-attached-disks.md).
 
