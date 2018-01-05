@@ -39,7 +39,7 @@ Ja. Voor het Resource Manager-implementatiemodel moet u een RouteBased VPN-type 
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Kan ik een punt-naar-site-client configureren om verbinding te maken met meerdere virtuele netwerken tegelijk?
 
-Nee. Een point-to-site-client kan alleen verbinding maken met resources in het VNet waarin de virtuele netwerkgateway zich bevindt.
+Nr. Een point-to-site-client kan alleen verbinding maken met resources in het VNet waarin de virtuele netwerkgateway zich bevindt.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Hoeveel doorvoer kan ik verwachten via site-naar-site- of punt-naar-site-verbindingen?
 
@@ -47,7 +47,7 @@ Het is moeilijk om de exacte doorvoer van de VPN-tunnels te onderhouden. IPSec e
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Kan ik voor point-to-site elke VPN-softwareclient gebruiken die SSTP en/of IKEv2 ondersteunt?
 
-Nee. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systeemeigen VPN-client van Mac voor IKEv2 gebruiken. Raadpleeg de lijst met ondersteunde clientbesturingssystemen.
+Nr. U kunt alleen de systeemeigen VPN-client van Windows voor SSTP en de systeemeigen VPN-client van Mac voor IKEv2 gebruiken. Raadpleeg de lijst met ondersteunde clientbesturingssystemen.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Biedt Azure ondersteuning voor IKEv2-VPN met Windows?
 
@@ -59,6 +59,6 @@ Gebruikers kunnen verbinding maken met Azure met behulp van de ingebouwde Window
 
 Azure ondersteunt alleen Windows en Mac voor P2S-VPN.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Ik heb al een Azure VPN-gateway geïmplementeerd. Kan ik er RADIUS en/of IKEv2 VPN voor inschakelen?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Ik heb al een Azure VPN-gateway geïmplementeerd. Kan ik RADIUS-en/of IKEv2 VPN deze functie inschakelen?
 
-Ja, u kunt deze nieuwe functies inschakelen op gateways die al zijn geïmplementeerd, zowel via PowerShell als Azure Portal.
+Ja, kunt u deze nieuwe functies op reeds geïmplementeerde gateways met Powershell of de Azure-portal, mits de gateway-SKU die u gebruikt RADIUS-en/of IKEv2 ondersteunt. Bijvoorbeeld, biedt de VPN-gateway SKU Basic geen ondersteuning RADIUS of IKEv2.

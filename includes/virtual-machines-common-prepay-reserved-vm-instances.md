@@ -33,5 +33,5 @@ U kunt gereserveerde virtuele Machine-exemplaren kopen de [Azure-portal](https:/
 ## <a name="next-steps-after-buying-a-reservation"></a>Volgende stappen na de aankoop van een reservering
 De reservering korting wordt automatisch toegepast op het aantal virtuele machines die overeenkomen met het bereik van de reservering en de kenmerken die worden uitgevoerd. U kunt het bereik van de reservering via bijwerken [Azure-portal](https://portal.azure.com), PowerShell, CLI of via de API. 
 
-Zie voor meer informatie over het beheren van een reservering, [beheren Azure gereserveerde virtuele Machine-exemplaren](https://go.microsoft.com/fwlink/?linkid=861613).
+Zie voor meer informatie over het beheren van een reservering, [beheren Azure gereserveerde virtuele Machine-exemplaren](../articles/billing/billing-manage-reserved-vm-instance.md).
 
